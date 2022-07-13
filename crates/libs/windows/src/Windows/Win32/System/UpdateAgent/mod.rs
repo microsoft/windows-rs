@@ -668,7 +668,7 @@ impl IAutomaticUpdatesSettings {
     }
     #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`*"]
     pub unsafe fn SetNotificationLevel(&self, value: AutomaticUpdatesNotificationLevel) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetNotificationLevel)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(value)).ok()
+        (::windows::core::Interface::vtable(self).SetNotificationLevel)(::windows::core::Interface::as_raw(self), value).ok()
     }
     #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`*"]
     pub unsafe fn ReadOnly(&self) -> ::windows::core::Result<i16> {
@@ -687,7 +687,7 @@ impl IAutomaticUpdatesSettings {
     }
     #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`*"]
     pub unsafe fn SetScheduledInstallationDay(&self, value: AutomaticUpdatesScheduledInstallationDay) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetScheduledInstallationDay)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(value)).ok()
+        (::windows::core::Interface::vtable(self).SetScheduledInstallationDay)(::windows::core::Interface::as_raw(self), value).ok()
     }
     #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`*"]
     pub unsafe fn ScheduledInstallationTime(&self) -> ::windows::core::Result<i32> {
@@ -696,7 +696,7 @@ impl IAutomaticUpdatesSettings {
     }
     #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`*"]
     pub unsafe fn SetScheduledInstallationTime(&self, value: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetScheduledInstallationTime)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(value)).ok()
+        (::windows::core::Interface::vtable(self).SetScheduledInstallationTime)(::windows::core::Interface::as_raw(self), value).ok()
     }
     #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`*"]
     pub unsafe fn Refresh(&self) -> ::windows::core::Result<()> {
@@ -797,7 +797,7 @@ impl IAutomaticUpdatesSettings2 {
     }
     #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`*"]
     pub unsafe fn SetNotificationLevel(&self, value: AutomaticUpdatesNotificationLevel) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetNotificationLevel)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(value)).ok()
+        (::windows::core::Interface::vtable(self).base__.SetNotificationLevel)(::windows::core::Interface::as_raw(self), value).ok()
     }
     #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`*"]
     pub unsafe fn ReadOnly(&self) -> ::windows::core::Result<i16> {
@@ -816,7 +816,7 @@ impl IAutomaticUpdatesSettings2 {
     }
     #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`*"]
     pub unsafe fn SetScheduledInstallationDay(&self, value: AutomaticUpdatesScheduledInstallationDay) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetScheduledInstallationDay)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(value)).ok()
+        (::windows::core::Interface::vtable(self).base__.SetScheduledInstallationDay)(::windows::core::Interface::as_raw(self), value).ok()
     }
     #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`*"]
     pub unsafe fn ScheduledInstallationTime(&self) -> ::windows::core::Result<i32> {
@@ -825,7 +825,7 @@ impl IAutomaticUpdatesSettings2 {
     }
     #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`*"]
     pub unsafe fn SetScheduledInstallationTime(&self, value: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetScheduledInstallationTime)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(value)).ok()
+        (::windows::core::Interface::vtable(self).base__.SetScheduledInstallationTime)(::windows::core::Interface::as_raw(self), value).ok()
     }
     #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`*"]
     pub unsafe fn Refresh(&self) -> ::windows::core::Result<()> {
@@ -842,12 +842,12 @@ impl IAutomaticUpdatesSettings2 {
     }
     #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`*"]
     pub unsafe fn SetIncludeRecommendedUpdates(&self, value: i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetIncludeRecommendedUpdates)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(value)).ok()
+        (::windows::core::Interface::vtable(self).SetIncludeRecommendedUpdates)(::windows::core::Interface::as_raw(self), value).ok()
     }
     #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`*"]
     pub unsafe fn CheckPermission(&self, usertype: AutomaticUpdatesUserType, permissiontype: AutomaticUpdatesPermissionType) -> ::windows::core::Result<i16> {
         let mut result__ = ::core::mem::MaybeUninit::<i16>::zeroed();
-        (::windows::core::Interface::vtable(self).CheckPermission)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(usertype), ::core::mem::transmute(permissiontype), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i16>(result__)
+        (::windows::core::Interface::vtable(self).CheckPermission)(::windows::core::Interface::as_raw(self), usertype, permissiontype, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i16>(result__)
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -951,7 +951,7 @@ impl IAutomaticUpdatesSettings3 {
     }
     #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`*"]
     pub unsafe fn SetNotificationLevel(&self, value: AutomaticUpdatesNotificationLevel) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.SetNotificationLevel)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(value)).ok()
+        (::windows::core::Interface::vtable(self).base__.base__.SetNotificationLevel)(::windows::core::Interface::as_raw(self), value).ok()
     }
     #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`*"]
     pub unsafe fn ReadOnly(&self) -> ::windows::core::Result<i16> {
@@ -970,7 +970,7 @@ impl IAutomaticUpdatesSettings3 {
     }
     #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`*"]
     pub unsafe fn SetScheduledInstallationDay(&self, value: AutomaticUpdatesScheduledInstallationDay) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.SetScheduledInstallationDay)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(value)).ok()
+        (::windows::core::Interface::vtable(self).base__.base__.SetScheduledInstallationDay)(::windows::core::Interface::as_raw(self), value).ok()
     }
     #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`*"]
     pub unsafe fn ScheduledInstallationTime(&self) -> ::windows::core::Result<i32> {
@@ -979,7 +979,7 @@ impl IAutomaticUpdatesSettings3 {
     }
     #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`*"]
     pub unsafe fn SetScheduledInstallationTime(&self, value: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.SetScheduledInstallationTime)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(value)).ok()
+        (::windows::core::Interface::vtable(self).base__.base__.SetScheduledInstallationTime)(::windows::core::Interface::as_raw(self), value).ok()
     }
     #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`*"]
     pub unsafe fn Refresh(&self) -> ::windows::core::Result<()> {
@@ -996,12 +996,12 @@ impl IAutomaticUpdatesSettings3 {
     }
     #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`*"]
     pub unsafe fn SetIncludeRecommendedUpdates(&self, value: i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetIncludeRecommendedUpdates)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(value)).ok()
+        (::windows::core::Interface::vtable(self).base__.SetIncludeRecommendedUpdates)(::windows::core::Interface::as_raw(self), value).ok()
     }
     #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`*"]
     pub unsafe fn CheckPermission(&self, usertype: AutomaticUpdatesUserType, permissiontype: AutomaticUpdatesPermissionType) -> ::windows::core::Result<i16> {
         let mut result__ = ::core::mem::MaybeUninit::<i16>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.CheckPermission)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(usertype), ::core::mem::transmute(permissiontype), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i16>(result__)
+        (::windows::core::Interface::vtable(self).base__.CheckPermission)(::windows::core::Interface::as_raw(self), usertype, permissiontype, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i16>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`*"]
     pub unsafe fn NonAdministratorsElevated(&self) -> ::windows::core::Result<i16> {
@@ -1010,7 +1010,7 @@ impl IAutomaticUpdatesSettings3 {
     }
     #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`*"]
     pub unsafe fn SetNonAdministratorsElevated(&self, value: i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetNonAdministratorsElevated)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(value)).ok()
+        (::windows::core::Interface::vtable(self).SetNonAdministratorsElevated)(::windows::core::Interface::as_raw(self), value).ok()
     }
     #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`*"]
     pub unsafe fn FeaturedUpdatesEnabled(&self) -> ::windows::core::Result<i16> {
@@ -1019,7 +1019,7 @@ impl IAutomaticUpdatesSettings3 {
     }
     #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`*"]
     pub unsafe fn SetFeaturedUpdatesEnabled(&self, value: i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetFeaturedUpdatesEnabled)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(value)).ok()
+        (::windows::core::Interface::vtable(self).SetFeaturedUpdatesEnabled)(::windows::core::Interface::as_raw(self), value).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -1299,7 +1299,7 @@ impl ICategoryCollection {
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn get_Item(&self, index: i32) -> ::windows::core::Result<ICategory> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).get_Item)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(index), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ICategory>(result__)
+        (::windows::core::Interface::vtable(self).get_Item)(::windows::core::Interface::as_raw(self), index, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ICategory>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`*"]
     pub unsafe fn _NewEnum(&self) -> ::windows::core::Result<::windows::core::IUnknown> {
@@ -1680,7 +1680,7 @@ impl IDownloadProgress {
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetUpdateResult(&self, updateindex: i32) -> ::windows::core::Result<IUpdateDownloadResult> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).GetUpdateResult)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(updateindex), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IUpdateDownloadResult>(result__)
+        (::windows::core::Interface::vtable(self).GetUpdateResult)(::windows::core::Interface::as_raw(self), updateindex, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IUpdateDownloadResult>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`*"]
     pub unsafe fn CurrentUpdateDownloadPhase(&self) -> ::windows::core::Result<DownloadPhase> {
@@ -1946,7 +1946,7 @@ impl IDownloadResult {
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetUpdateResult(&self, updateindex: i32) -> ::windows::core::Result<IUpdateDownloadResult> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).GetUpdateResult)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(updateindex), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IUpdateDownloadResult>(result__)
+        (::windows::core::Interface::vtable(self).GetUpdateResult)(::windows::core::Interface::as_raw(self), updateindex, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IUpdateDownloadResult>(result__)
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -2141,7 +2141,7 @@ impl IInstallationAgent {
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
         P1: ::std::convert::Into<::windows::core::InParam<'a, IStringCollection>>,
     {
-        (::windows::core::Interface::vtable(self).RecordInstallationResult)(::windows::core::Interface::as_raw(self), installationresultcookie.into().abi(), ::core::mem::transmute(hresult), extendedreportingdata.into().abi()).ok()
+        (::windows::core::Interface::vtable(self).RecordInstallationResult)(::windows::core::Interface::as_raw(self), installationresultcookie.into().abi(), hresult, extendedreportingdata.into().abi()).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -2589,7 +2589,7 @@ impl IInstallationProgress {
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetUpdateResult(&self, updateindex: i32) -> ::windows::core::Result<IUpdateInstallationResult> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).GetUpdateResult)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(updateindex), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IUpdateInstallationResult>(result__)
+        (::windows::core::Interface::vtable(self).GetUpdateResult)(::windows::core::Interface::as_raw(self), updateindex, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IUpdateInstallationResult>(result__)
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -2833,7 +2833,7 @@ impl IInstallationResult {
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetUpdateResult(&self, updateindex: i32) -> ::windows::core::Result<IUpdateInstallationResult> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).GetUpdateResult)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(updateindex), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IUpdateInstallationResult>(result__)
+        (::windows::core::Interface::vtable(self).GetUpdateResult)(::windows::core::Interface::as_raw(self), updateindex, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IUpdateInstallationResult>(result__)
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -3379,7 +3379,7 @@ impl IStringCollection {
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn get_Item(&self, index: i32) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::Foundation::BSTR>>::zeroed();
-        (::windows::core::Interface::vtable(self).get_Item)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(index), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).get_Item)(::windows::core::Interface::as_raw(self), index, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -3387,7 +3387,7 @@ impl IStringCollection {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
     {
-        (::windows::core::Interface::vtable(self).put_Item)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(index), value.into().abi()).ok()
+        (::windows::core::Interface::vtable(self).put_Item)(::windows::core::Interface::as_raw(self), index, value.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`*"]
     pub unsafe fn _NewEnum(&self) -> ::windows::core::Result<::windows::core::IUnknown> {
@@ -3429,11 +3429,11 @@ impl IStringCollection {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
     {
-        (::windows::core::Interface::vtable(self).Insert)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(index), value.into().abi()).ok()
+        (::windows::core::Interface::vtable(self).Insert)(::windows::core::Interface::as_raw(self), index, value.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`*"]
     pub unsafe fn RemoveAt(&self, index: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).RemoveAt)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(index)).ok()
+        (::windows::core::Interface::vtable(self).RemoveAt)(::windows::core::Interface::as_raw(self), index).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -3726,7 +3726,7 @@ impl IUpdate {
     }
     #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`*"]
     pub unsafe fn SetIsHidden(&self, value: i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetIsHidden)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(value)).ok()
+        (::windows::core::Interface::vtable(self).SetIsHidden)(::windows::core::Interface::as_raw(self), value).ok()
     }
     #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`*"]
     pub unsafe fn IsInstalled(&self) -> ::windows::core::Result<i16> {
@@ -3861,7 +3861,7 @@ impl IUpdate {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
     {
-        (::windows::core::Interface::vtable(self).CopyFromCache)(::windows::core::Interface::as_raw(self), path.into().abi(), ::core::mem::transmute(toextractcabfiles)).ok()
+        (::windows::core::Interface::vtable(self).CopyFromCache)(::windows::core::Interface::as_raw(self), path.into().abi(), toextractcabfiles).ok()
     }
     #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`*"]
     pub unsafe fn DownloadPriority(&self) -> ::windows::core::Result<DownloadPriority> {
@@ -4170,7 +4170,7 @@ impl IUpdate2 {
     }
     #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`*"]
     pub unsafe fn SetIsHidden(&self, value: i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetIsHidden)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(value)).ok()
+        (::windows::core::Interface::vtable(self).base__.SetIsHidden)(::windows::core::Interface::as_raw(self), value).ok()
     }
     #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`*"]
     pub unsafe fn IsInstalled(&self) -> ::windows::core::Result<i16> {
@@ -4305,7 +4305,7 @@ impl IUpdate2 {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
     {
-        (::windows::core::Interface::vtable(self).base__.CopyFromCache)(::windows::core::Interface::as_raw(self), path.into().abi(), ::core::mem::transmute(toextractcabfiles)).ok()
+        (::windows::core::Interface::vtable(self).base__.CopyFromCache)(::windows::core::Interface::as_raw(self), path.into().abi(), toextractcabfiles).ok()
     }
     #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`*"]
     pub unsafe fn DownloadPriority(&self) -> ::windows::core::Result<DownloadPriority> {
@@ -4546,7 +4546,7 @@ impl IUpdate3 {
     }
     #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`*"]
     pub unsafe fn SetIsHidden(&self, value: i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.SetIsHidden)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(value)).ok()
+        (::windows::core::Interface::vtable(self).base__.base__.SetIsHidden)(::windows::core::Interface::as_raw(self), value).ok()
     }
     #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`*"]
     pub unsafe fn IsInstalled(&self) -> ::windows::core::Result<i16> {
@@ -4681,7 +4681,7 @@ impl IUpdate3 {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
     {
-        (::windows::core::Interface::vtable(self).base__.base__.CopyFromCache)(::windows::core::Interface::as_raw(self), path.into().abi(), ::core::mem::transmute(toextractcabfiles)).ok()
+        (::windows::core::Interface::vtable(self).base__.base__.CopyFromCache)(::windows::core::Interface::as_raw(self), path.into().abi(), toextractcabfiles).ok()
     }
     #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`*"]
     pub unsafe fn DownloadPriority(&self) -> ::windows::core::Result<DownloadPriority> {
@@ -4936,7 +4936,7 @@ impl IUpdate4 {
     }
     #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`*"]
     pub unsafe fn SetIsHidden(&self, value: i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.base__.SetIsHidden)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(value)).ok()
+        (::windows::core::Interface::vtable(self).base__.base__.base__.SetIsHidden)(::windows::core::Interface::as_raw(self), value).ok()
     }
     #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`*"]
     pub unsafe fn IsInstalled(&self) -> ::windows::core::Result<i16> {
@@ -5071,7 +5071,7 @@ impl IUpdate4 {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
     {
-        (::windows::core::Interface::vtable(self).base__.base__.base__.CopyFromCache)(::windows::core::Interface::as_raw(self), path.into().abi(), ::core::mem::transmute(toextractcabfiles)).ok()
+        (::windows::core::Interface::vtable(self).base__.base__.base__.CopyFromCache)(::windows::core::Interface::as_raw(self), path.into().abi(), toextractcabfiles).ok()
     }
     #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`*"]
     pub unsafe fn DownloadPriority(&self) -> ::windows::core::Result<DownloadPriority> {
@@ -5349,7 +5349,7 @@ impl IUpdate5 {
     }
     #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`*"]
     pub unsafe fn SetIsHidden(&self, value: i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.base__.base__.SetIsHidden)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(value)).ok()
+        (::windows::core::Interface::vtable(self).base__.base__.base__.base__.SetIsHidden)(::windows::core::Interface::as_raw(self), value).ok()
     }
     #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`*"]
     pub unsafe fn IsInstalled(&self) -> ::windows::core::Result<i16> {
@@ -5484,7 +5484,7 @@ impl IUpdate5 {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
     {
-        (::windows::core::Interface::vtable(self).base__.base__.base__.base__.CopyFromCache)(::windows::core::Interface::as_raw(self), path.into().abi(), ::core::mem::transmute(toextractcabfiles)).ok()
+        (::windows::core::Interface::vtable(self).base__.base__.base__.base__.CopyFromCache)(::windows::core::Interface::as_raw(self), path.into().abi(), toextractcabfiles).ok()
     }
     #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`*"]
     pub unsafe fn DownloadPriority(&self) -> ::windows::core::Result<DownloadPriority> {
@@ -5693,7 +5693,7 @@ impl IUpdateCollection {
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn get_Item(&self, index: i32) -> ::windows::core::Result<IUpdate> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).get_Item)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(index), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IUpdate>(result__)
+        (::windows::core::Interface::vtable(self).get_Item)(::windows::core::Interface::as_raw(self), index, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IUpdate>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -5701,7 +5701,7 @@ impl IUpdateCollection {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, IUpdate>>,
     {
-        (::windows::core::Interface::vtable(self).put_Item)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(index), value.into().abi()).ok()
+        (::windows::core::Interface::vtable(self).put_Item)(::windows::core::Interface::as_raw(self), index, value.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`*"]
     pub unsafe fn _NewEnum(&self) -> ::windows::core::Result<::windows::core::IUnknown> {
@@ -5743,11 +5743,11 @@ impl IUpdateCollection {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, IUpdate>>,
     {
-        (::windows::core::Interface::vtable(self).Insert)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(index), value.into().abi()).ok()
+        (::windows::core::Interface::vtable(self).Insert)(::windows::core::Interface::as_raw(self), index, value.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`*"]
     pub unsafe fn RemoveAt(&self, index: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).RemoveAt)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(index)).ok()
+        (::windows::core::Interface::vtable(self).RemoveAt)(::windows::core::Interface::as_raw(self), index).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -6040,7 +6040,7 @@ impl IUpdateDownloadContentCollection {
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn get_Item(&self, index: i32) -> ::windows::core::Result<IUpdateDownloadContent> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).get_Item)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(index), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IUpdateDownloadContent>(result__)
+        (::windows::core::Interface::vtable(self).get_Item)(::windows::core::Interface::as_raw(self), index, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IUpdateDownloadContent>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`*"]
     pub unsafe fn _NewEnum(&self) -> ::windows::core::Result<::windows::core::IUnknown> {
@@ -6239,7 +6239,7 @@ impl IUpdateDownloader {
     }
     #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`*"]
     pub unsafe fn SetIsForced(&self, value: i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetIsForced)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(value)).ok()
+        (::windows::core::Interface::vtable(self).SetIsForced)(::windows::core::Interface::as_raw(self), value).ok()
     }
     #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`*"]
     pub unsafe fn Priority(&self) -> ::windows::core::Result<DownloadPriority> {
@@ -6248,7 +6248,7 @@ impl IUpdateDownloader {
     }
     #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`*"]
     pub unsafe fn SetPriority(&self, value: DownloadPriority) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetPriority)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(value)).ok()
+        (::windows::core::Interface::vtable(self).SetPriority)(::windows::core::Interface::as_raw(self), value).ok()
     }
     #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -6496,7 +6496,7 @@ impl IUpdateExceptionCollection {
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn get_Item(&self, index: i32) -> ::windows::core::Result<IUpdateException> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).get_Item)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(index), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IUpdateException>(result__)
+        (::windows::core::Interface::vtable(self).get_Item)(::windows::core::Interface::as_raw(self), index, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IUpdateException>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`*"]
     pub unsafe fn _NewEnum(&self) -> ::windows::core::Result<::windows::core::IUnknown> {
@@ -6962,7 +6962,7 @@ impl IUpdateHistoryEntryCollection {
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn get_Item(&self, index: i32) -> ::windows::core::Result<IUpdateHistoryEntry> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).get_Item)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(index), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IUpdateHistoryEntry>(result__)
+        (::windows::core::Interface::vtable(self).get_Item)(::windows::core::Interface::as_raw(self), index, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IUpdateHistoryEntry>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`*"]
     pub unsafe fn _NewEnum(&self) -> ::windows::core::Result<::windows::core::IUnknown> {
@@ -7257,7 +7257,7 @@ impl IUpdateInstaller {
     }
     #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`*"]
     pub unsafe fn SetIsForced(&self, value: i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetIsForced)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(value)).ok()
+        (::windows::core::Interface::vtable(self).SetIsForced)(::windows::core::Interface::as_raw(self), value).ok()
     }
     #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -7372,7 +7372,7 @@ impl IUpdateInstaller {
     }
     #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`*"]
     pub unsafe fn SetAllowSourcePrompts(&self, value: i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetAllowSourcePrompts)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(value)).ok()
+        (::windows::core::Interface::vtable(self).SetAllowSourcePrompts)(::windows::core::Interface::as_raw(self), value).ok()
     }
     #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`*"]
     pub unsafe fn RebootRequiredBeforeInstallation(&self) -> ::windows::core::Result<i16> {
@@ -7534,7 +7534,7 @@ impl IUpdateInstaller2 {
     }
     #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`*"]
     pub unsafe fn SetIsForced(&self, value: i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetIsForced)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(value)).ok()
+        (::windows::core::Interface::vtable(self).base__.SetIsForced)(::windows::core::Interface::as_raw(self), value).ok()
     }
     #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -7649,7 +7649,7 @@ impl IUpdateInstaller2 {
     }
     #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`*"]
     pub unsafe fn SetAllowSourcePrompts(&self, value: i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetAllowSourcePrompts)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(value)).ok()
+        (::windows::core::Interface::vtable(self).base__.SetAllowSourcePrompts)(::windows::core::Interface::as_raw(self), value).ok()
     }
     #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`*"]
     pub unsafe fn RebootRequiredBeforeInstallation(&self) -> ::windows::core::Result<i16> {
@@ -7663,7 +7663,7 @@ impl IUpdateInstaller2 {
     }
     #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`*"]
     pub unsafe fn SetForceQuiet(&self, value: i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetForceQuiet)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(value)).ok()
+        (::windows::core::Interface::vtable(self).SetForceQuiet)(::windows::core::Interface::as_raw(self), value).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -7780,7 +7780,7 @@ impl IUpdateInstaller3 {
     }
     #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`*"]
     pub unsafe fn SetIsForced(&self, value: i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.SetIsForced)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(value)).ok()
+        (::windows::core::Interface::vtable(self).base__.base__.SetIsForced)(::windows::core::Interface::as_raw(self), value).ok()
     }
     #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -7895,7 +7895,7 @@ impl IUpdateInstaller3 {
     }
     #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`*"]
     pub unsafe fn SetAllowSourcePrompts(&self, value: i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.SetAllowSourcePrompts)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(value)).ok()
+        (::windows::core::Interface::vtable(self).base__.base__.SetAllowSourcePrompts)(::windows::core::Interface::as_raw(self), value).ok()
     }
     #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`*"]
     pub unsafe fn RebootRequiredBeforeInstallation(&self) -> ::windows::core::Result<i16> {
@@ -7909,7 +7909,7 @@ impl IUpdateInstaller3 {
     }
     #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`*"]
     pub unsafe fn SetForceQuiet(&self, value: i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetForceQuiet)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(value)).ok()
+        (::windows::core::Interface::vtable(self).base__.SetForceQuiet)(::windows::core::Interface::as_raw(self), value).ok()
     }
     #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`*"]
     pub unsafe fn AttemptCloseAppsIfNecessary(&self) -> ::windows::core::Result<i16> {
@@ -7918,7 +7918,7 @@ impl IUpdateInstaller3 {
     }
     #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`*"]
     pub unsafe fn SetAttemptCloseAppsIfNecessary(&self, value: i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetAttemptCloseAppsIfNecessary)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(value)).ok()
+        (::windows::core::Interface::vtable(self).SetAttemptCloseAppsIfNecessary)(::windows::core::Interface::as_raw(self), value).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -8053,7 +8053,7 @@ impl IUpdateInstaller4 {
     }
     #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`*"]
     pub unsafe fn SetIsForced(&self, value: i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.base__.SetIsForced)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(value)).ok()
+        (::windows::core::Interface::vtable(self).base__.base__.base__.SetIsForced)(::windows::core::Interface::as_raw(self), value).ok()
     }
     #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -8168,7 +8168,7 @@ impl IUpdateInstaller4 {
     }
     #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`*"]
     pub unsafe fn SetAllowSourcePrompts(&self, value: i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.base__.SetAllowSourcePrompts)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(value)).ok()
+        (::windows::core::Interface::vtable(self).base__.base__.base__.SetAllowSourcePrompts)(::windows::core::Interface::as_raw(self), value).ok()
     }
     #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`*"]
     pub unsafe fn RebootRequiredBeforeInstallation(&self) -> ::windows::core::Result<i16> {
@@ -8182,7 +8182,7 @@ impl IUpdateInstaller4 {
     }
     #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`*"]
     pub unsafe fn SetForceQuiet(&self, value: i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.SetForceQuiet)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(value)).ok()
+        (::windows::core::Interface::vtable(self).base__.base__.SetForceQuiet)(::windows::core::Interface::as_raw(self), value).ok()
     }
     #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`*"]
     pub unsafe fn AttemptCloseAppsIfNecessary(&self) -> ::windows::core::Result<i16> {
@@ -8191,11 +8191,11 @@ impl IUpdateInstaller4 {
     }
     #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`*"]
     pub unsafe fn SetAttemptCloseAppsIfNecessary(&self, value: i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetAttemptCloseAppsIfNecessary)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(value)).ok()
+        (::windows::core::Interface::vtable(self).base__.SetAttemptCloseAppsIfNecessary)(::windows::core::Interface::as_raw(self), value).ok()
     }
     #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`*"]
     pub unsafe fn Commit(&self, dwflags: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Commit)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(dwflags)).ok()
+        (::windows::core::Interface::vtable(self).Commit)(::windows::core::Interface::as_raw(self), dwflags).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -8326,7 +8326,7 @@ pub struct IUpdateLockdown(::windows::core::IUnknown);
 impl IUpdateLockdown {
     #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`*"]
     pub unsafe fn LockDown(&self, flags: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).LockDown)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(flags)).ok()
+        (::windows::core::Interface::vtable(self).LockDown)(::windows::core::Interface::as_raw(self), flags).ok()
     }
 }
 impl ::core::convert::From<IUpdateLockdown> for ::windows::core::IUnknown {
@@ -8383,7 +8383,7 @@ impl IUpdateSearcher {
     }
     #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`*"]
     pub unsafe fn SetCanAutomaticallyUpgradeService(&self, value: i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetCanAutomaticallyUpgradeService)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(value)).ok()
+        (::windows::core::Interface::vtable(self).SetCanAutomaticallyUpgradeService)(::windows::core::Interface::as_raw(self), value).ok()
     }
     #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -8406,7 +8406,7 @@ impl IUpdateSearcher {
     }
     #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`*"]
     pub unsafe fn SetIncludePotentiallySupersededUpdates(&self, value: i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetIncludePotentiallySupersededUpdates)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(value)).ok()
+        (::windows::core::Interface::vtable(self).SetIncludePotentiallySupersededUpdates)(::windows::core::Interface::as_raw(self), value).ok()
     }
     #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`*"]
     pub unsafe fn ServerSelection(&self) -> ::windows::core::Result<ServerSelection> {
@@ -8415,7 +8415,7 @@ impl IUpdateSearcher {
     }
     #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`*"]
     pub unsafe fn SetServerSelection(&self, value: ServerSelection) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetServerSelection)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(value)).ok()
+        (::windows::core::Interface::vtable(self).SetServerSelection)(::windows::core::Interface::as_raw(self), value).ok()
     }
     #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -8450,7 +8450,7 @@ impl IUpdateSearcher {
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn QueryHistory(&self, startindex: i32, count: i32) -> ::windows::core::Result<IUpdateHistoryEntryCollection> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).QueryHistory)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(startindex), ::core::mem::transmute(count), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IUpdateHistoryEntryCollection>(result__)
+        (::windows::core::Interface::vtable(self).QueryHistory)(::windows::core::Interface::as_raw(self), startindex, count, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IUpdateHistoryEntryCollection>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
@@ -8468,7 +8468,7 @@ impl IUpdateSearcher {
     }
     #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`*"]
     pub unsafe fn SetOnline(&self, value: i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetOnline)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(value)).ok()
+        (::windows::core::Interface::vtable(self).SetOnline)(::windows::core::Interface::as_raw(self), value).ok()
     }
     #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`*"]
     pub unsafe fn GetTotalHistoryCount(&self) -> ::windows::core::Result<i32> {
@@ -8615,7 +8615,7 @@ impl IUpdateSearcher2 {
     }
     #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`*"]
     pub unsafe fn SetCanAutomaticallyUpgradeService(&self, value: i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetCanAutomaticallyUpgradeService)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(value)).ok()
+        (::windows::core::Interface::vtable(self).base__.SetCanAutomaticallyUpgradeService)(::windows::core::Interface::as_raw(self), value).ok()
     }
     #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -8638,7 +8638,7 @@ impl IUpdateSearcher2 {
     }
     #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`*"]
     pub unsafe fn SetIncludePotentiallySupersededUpdates(&self, value: i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetIncludePotentiallySupersededUpdates)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(value)).ok()
+        (::windows::core::Interface::vtable(self).base__.SetIncludePotentiallySupersededUpdates)(::windows::core::Interface::as_raw(self), value).ok()
     }
     #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`*"]
     pub unsafe fn ServerSelection(&self) -> ::windows::core::Result<ServerSelection> {
@@ -8647,7 +8647,7 @@ impl IUpdateSearcher2 {
     }
     #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`*"]
     pub unsafe fn SetServerSelection(&self, value: ServerSelection) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetServerSelection)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(value)).ok()
+        (::windows::core::Interface::vtable(self).base__.SetServerSelection)(::windows::core::Interface::as_raw(self), value).ok()
     }
     #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -8682,7 +8682,7 @@ impl IUpdateSearcher2 {
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn QueryHistory(&self, startindex: i32, count: i32) -> ::windows::core::Result<IUpdateHistoryEntryCollection> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.QueryHistory)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(startindex), ::core::mem::transmute(count), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IUpdateHistoryEntryCollection>(result__)
+        (::windows::core::Interface::vtable(self).base__.QueryHistory)(::windows::core::Interface::as_raw(self), startindex, count, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IUpdateHistoryEntryCollection>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
@@ -8700,7 +8700,7 @@ impl IUpdateSearcher2 {
     }
     #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`*"]
     pub unsafe fn SetOnline(&self, value: i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetOnline)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(value)).ok()
+        (::windows::core::Interface::vtable(self).base__.SetOnline)(::windows::core::Interface::as_raw(self), value).ok()
     }
     #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`*"]
     pub unsafe fn GetTotalHistoryCount(&self) -> ::windows::core::Result<i32> {
@@ -8728,7 +8728,7 @@ impl IUpdateSearcher2 {
     }
     #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`*"]
     pub unsafe fn SetIgnoreDownloadPriority(&self, value: i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetIgnoreDownloadPriority)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(value)).ok()
+        (::windows::core::Interface::vtable(self).SetIgnoreDownloadPriority)(::windows::core::Interface::as_raw(self), value).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -8831,7 +8831,7 @@ impl IUpdateSearcher3 {
     }
     #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`*"]
     pub unsafe fn SetCanAutomaticallyUpgradeService(&self, value: i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.SetCanAutomaticallyUpgradeService)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(value)).ok()
+        (::windows::core::Interface::vtable(self).base__.base__.SetCanAutomaticallyUpgradeService)(::windows::core::Interface::as_raw(self), value).ok()
     }
     #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -8854,7 +8854,7 @@ impl IUpdateSearcher3 {
     }
     #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`*"]
     pub unsafe fn SetIncludePotentiallySupersededUpdates(&self, value: i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.SetIncludePotentiallySupersededUpdates)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(value)).ok()
+        (::windows::core::Interface::vtable(self).base__.base__.SetIncludePotentiallySupersededUpdates)(::windows::core::Interface::as_raw(self), value).ok()
     }
     #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`*"]
     pub unsafe fn ServerSelection(&self) -> ::windows::core::Result<ServerSelection> {
@@ -8863,7 +8863,7 @@ impl IUpdateSearcher3 {
     }
     #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`*"]
     pub unsafe fn SetServerSelection(&self, value: ServerSelection) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.SetServerSelection)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(value)).ok()
+        (::windows::core::Interface::vtable(self).base__.base__.SetServerSelection)(::windows::core::Interface::as_raw(self), value).ok()
     }
     #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -8898,7 +8898,7 @@ impl IUpdateSearcher3 {
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn QueryHistory(&self, startindex: i32, count: i32) -> ::windows::core::Result<IUpdateHistoryEntryCollection> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.base__.QueryHistory)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(startindex), ::core::mem::transmute(count), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IUpdateHistoryEntryCollection>(result__)
+        (::windows::core::Interface::vtable(self).base__.base__.QueryHistory)(::windows::core::Interface::as_raw(self), startindex, count, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IUpdateHistoryEntryCollection>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
@@ -8916,7 +8916,7 @@ impl IUpdateSearcher3 {
     }
     #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`*"]
     pub unsafe fn SetOnline(&self, value: i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.SetOnline)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(value)).ok()
+        (::windows::core::Interface::vtable(self).base__.base__.SetOnline)(::windows::core::Interface::as_raw(self), value).ok()
     }
     #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`*"]
     pub unsafe fn GetTotalHistoryCount(&self) -> ::windows::core::Result<i32> {
@@ -8944,7 +8944,7 @@ impl IUpdateSearcher3 {
     }
     #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`*"]
     pub unsafe fn SetIgnoreDownloadPriority(&self, value: i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetIgnoreDownloadPriority)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(value)).ok()
+        (::windows::core::Interface::vtable(self).base__.SetIgnoreDownloadPriority)(::windows::core::Interface::as_raw(self), value).ok()
     }
     #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`*"]
     pub unsafe fn SearchScope(&self) -> ::windows::core::Result<SearchScope> {
@@ -8953,7 +8953,7 @@ impl IUpdateSearcher3 {
     }
     #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`*"]
     pub unsafe fn SetSearchScope(&self, value: SearchScope) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetSearchScope)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(value)).ok()
+        (::windows::core::Interface::vtable(self).SetSearchScope)(::windows::core::Interface::as_raw(self), value).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -9416,7 +9416,7 @@ impl IUpdateServiceCollection {
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn get_Item(&self, index: i32) -> ::windows::core::Result<IUpdateService> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).get_Item)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(index), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IUpdateService>(result__)
+        (::windows::core::Interface::vtable(self).get_Item)(::windows::core::Interface::as_raw(self), index, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IUpdateService>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`*"]
     pub unsafe fn _NewEnum(&self) -> ::windows::core::Result<::windows::core::IUnknown> {
@@ -9556,7 +9556,7 @@ impl IUpdateServiceManager {
         P1: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).AddScanPackageService)(::windows::core::Interface::as_raw(self), servicename.into().abi(), scanfilelocation.into().abi(), ::core::mem::transmute(flags), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IUpdateService>(result__)
+        (::windows::core::Interface::vtable(self).AddScanPackageService)(::windows::core::Interface::as_raw(self), servicename.into().abi(), scanfilelocation.into().abi(), flags, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IUpdateService>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -9717,7 +9717,7 @@ impl IUpdateServiceManager2 {
         P1: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.AddScanPackageService)(::windows::core::Interface::as_raw(self), servicename.into().abi(), scanfilelocation.into().abi(), ::core::mem::transmute(flags), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IUpdateService>(result__)
+        (::windows::core::Interface::vtable(self).base__.AddScanPackageService)(::windows::core::Interface::as_raw(self), servicename.into().abi(), scanfilelocation.into().abi(), flags, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IUpdateService>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -9759,7 +9759,7 @@ impl IUpdateServiceManager2 {
         P1: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).AddService2)(::windows::core::Interface::as_raw(self), serviceid.into().abi(), ::core::mem::transmute(flags), authorizationcabpath.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IUpdateServiceRegistration>(result__)
+        (::windows::core::Interface::vtable(self).AddService2)(::windows::core::Interface::as_raw(self), serviceid.into().abi(), flags, authorizationcabpath.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IUpdateServiceRegistration>(result__)
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -10187,7 +10187,7 @@ impl IUpdateSession2 {
     }
     #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`*"]
     pub unsafe fn SetUserLocale(&self, lcid: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetUserLocale)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lcid)).ok()
+        (::windows::core::Interface::vtable(self).SetUserLocale)(::windows::core::Interface::as_raw(self), lcid).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -10341,7 +10341,7 @@ impl IUpdateSession3 {
     }
     #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`*"]
     pub unsafe fn SetUserLocale(&self, lcid: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetUserLocale)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lcid)).ok()
+        (::windows::core::Interface::vtable(self).base__.SetUserLocale)(::windows::core::Interface::as_raw(self), lcid).ok()
     }
     #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -10356,7 +10356,7 @@ impl IUpdateSession3 {
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).QueryHistory)(::windows::core::Interface::as_raw(self), criteria.into().abi(), ::core::mem::transmute(startindex), ::core::mem::transmute(count), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IUpdateHistoryEntryCollection>(result__)
+        (::windows::core::Interface::vtable(self).QueryHistory)(::windows::core::Interface::as_raw(self), criteria.into().abi(), startindex, count, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IUpdateHistoryEntryCollection>(result__)
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -10511,7 +10511,7 @@ impl IWebProxy {
     }
     #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`*"]
     pub unsafe fn SetBypassProxyOnLocal(&self, value: i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetBypassProxyOnLocal)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(value)).ok()
+        (::windows::core::Interface::vtable(self).SetBypassProxyOnLocal)(::windows::core::Interface::as_raw(self), value).ok()
     }
     #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`*"]
     pub unsafe fn ReadOnly(&self) -> ::windows::core::Result<i16> {
@@ -10565,7 +10565,7 @@ impl IWebProxy {
     }
     #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`*"]
     pub unsafe fn SetAutoDetect(&self, value: i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetAutoDetect)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(value)).ok()
+        (::windows::core::Interface::vtable(self).SetAutoDetect)(::windows::core::Interface::as_raw(self), value).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -10784,7 +10784,7 @@ impl IWindowsDriverUpdate {
     }
     #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`*"]
     pub unsafe fn SetIsHidden(&self, value: i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetIsHidden)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(value)).ok()
+        (::windows::core::Interface::vtable(self).base__.SetIsHidden)(::windows::core::Interface::as_raw(self), value).ok()
     }
     #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`*"]
     pub unsafe fn IsInstalled(&self) -> ::windows::core::Result<i16> {
@@ -10919,7 +10919,7 @@ impl IWindowsDriverUpdate {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
     {
-        (::windows::core::Interface::vtable(self).base__.CopyFromCache)(::windows::core::Interface::as_raw(self), path.into().abi(), ::core::mem::transmute(toextractcabfiles)).ok()
+        (::windows::core::Interface::vtable(self).base__.CopyFromCache)(::windows::core::Interface::as_raw(self), path.into().abi(), toextractcabfiles).ok()
     }
     #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`*"]
     pub unsafe fn DownloadPriority(&self) -> ::windows::core::Result<DownloadPriority> {
@@ -11194,7 +11194,7 @@ impl IWindowsDriverUpdate2 {
     }
     #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`*"]
     pub unsafe fn SetIsHidden(&self, value: i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.SetIsHidden)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(value)).ok()
+        (::windows::core::Interface::vtable(self).base__.base__.SetIsHidden)(::windows::core::Interface::as_raw(self), value).ok()
     }
     #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`*"]
     pub unsafe fn IsInstalled(&self) -> ::windows::core::Result<i16> {
@@ -11329,7 +11329,7 @@ impl IWindowsDriverUpdate2 {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
     {
-        (::windows::core::Interface::vtable(self).base__.base__.CopyFromCache)(::windows::core::Interface::as_raw(self), path.into().abi(), ::core::mem::transmute(toextractcabfiles)).ok()
+        (::windows::core::Interface::vtable(self).base__.base__.CopyFromCache)(::windows::core::Interface::as_raw(self), path.into().abi(), toextractcabfiles).ok()
     }
     #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`*"]
     pub unsafe fn DownloadPriority(&self) -> ::windows::core::Result<DownloadPriority> {
@@ -11633,7 +11633,7 @@ impl IWindowsDriverUpdate3 {
     }
     #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`*"]
     pub unsafe fn SetIsHidden(&self, value: i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.base__.SetIsHidden)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(value)).ok()
+        (::windows::core::Interface::vtable(self).base__.base__.base__.SetIsHidden)(::windows::core::Interface::as_raw(self), value).ok()
     }
     #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`*"]
     pub unsafe fn IsInstalled(&self) -> ::windows::core::Result<i16> {
@@ -11768,7 +11768,7 @@ impl IWindowsDriverUpdate3 {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
     {
-        (::windows::core::Interface::vtable(self).base__.base__.base__.CopyFromCache)(::windows::core::Interface::as_raw(self), path.into().abi(), ::core::mem::transmute(toextractcabfiles)).ok()
+        (::windows::core::Interface::vtable(self).base__.base__.base__.CopyFromCache)(::windows::core::Interface::as_raw(self), path.into().abi(), toextractcabfiles).ok()
     }
     #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`*"]
     pub unsafe fn DownloadPriority(&self) -> ::windows::core::Result<DownloadPriority> {
@@ -12086,7 +12086,7 @@ impl IWindowsDriverUpdate4 {
     }
     #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`*"]
     pub unsafe fn SetIsHidden(&self, value: i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.base__.base__.SetIsHidden)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(value)).ok()
+        (::windows::core::Interface::vtable(self).base__.base__.base__.base__.SetIsHidden)(::windows::core::Interface::as_raw(self), value).ok()
     }
     #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`*"]
     pub unsafe fn IsInstalled(&self) -> ::windows::core::Result<i16> {
@@ -12221,7 +12221,7 @@ impl IWindowsDriverUpdate4 {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
     {
-        (::windows::core::Interface::vtable(self).base__.base__.base__.base__.CopyFromCache)(::windows::core::Interface::as_raw(self), path.into().abi(), ::core::mem::transmute(toextractcabfiles)).ok()
+        (::windows::core::Interface::vtable(self).base__.base__.base__.base__.CopyFromCache)(::windows::core::Interface::as_raw(self), path.into().abi(), toextractcabfiles).ok()
     }
     #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`*"]
     pub unsafe fn DownloadPriority(&self) -> ::windows::core::Result<DownloadPriority> {
@@ -12572,7 +12572,7 @@ impl IWindowsDriverUpdate5 {
     }
     #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`*"]
     pub unsafe fn SetIsHidden(&self, value: i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.base__.base__.base__.SetIsHidden)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(value)).ok()
+        (::windows::core::Interface::vtable(self).base__.base__.base__.base__.base__.SetIsHidden)(::windows::core::Interface::as_raw(self), value).ok()
     }
     #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`*"]
     pub unsafe fn IsInstalled(&self) -> ::windows::core::Result<i16> {
@@ -12707,7 +12707,7 @@ impl IWindowsDriverUpdate5 {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
     {
-        (::windows::core::Interface::vtable(self).base__.base__.base__.base__.base__.CopyFromCache)(::windows::core::Interface::as_raw(self), path.into().abi(), ::core::mem::transmute(toextractcabfiles)).ok()
+        (::windows::core::Interface::vtable(self).base__.base__.base__.base__.base__.CopyFromCache)(::windows::core::Interface::as_raw(self), path.into().abi(), toextractcabfiles).ok()
     }
     #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`*"]
     pub unsafe fn DownloadPriority(&self) -> ::windows::core::Result<DownloadPriority> {
@@ -13127,7 +13127,7 @@ impl IWindowsDriverUpdateEntryCollection {
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn get_Item(&self, index: i32) -> ::windows::core::Result<IWindowsDriverUpdateEntry> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).get_Item)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(index), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IWindowsDriverUpdateEntry>(result__)
+        (::windows::core::Interface::vtable(self).get_Item)(::windows::core::Interface::as_raw(self), index, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IWindowsDriverUpdateEntry>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`*"]
     pub unsafe fn _NewEnum(&self) -> ::windows::core::Result<::windows::core::IUnknown> {

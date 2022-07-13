@@ -52,7 +52,7 @@ where
     extern "system" {
         fn ActivateKeyboardLayout(hkl: super::super::TextServices::HKL, flags: ACTIVATE_KEYBOARD_LAYOUT_FLAGS) -> super::super::TextServices::HKL;
     }
-    let result__ = ActivateKeyboardLayout(hkl.into(), ::core::mem::transmute(flags));
+    let result__ = ActivateKeyboardLayout(hkl.into(), flags);
     (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
 }
 #[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`*"]
@@ -211,7 +211,7 @@ pub unsafe fn GetAsyncKeyState(vkey: i32) -> i16 {
     extern "system" {
         fn GetAsyncKeyState(vkey: i32) -> i16;
     }
-    ::core::mem::transmute(GetAsyncKeyState(::core::mem::transmute(vkey)))
+    ::core::mem::transmute(GetAsyncKeyState(vkey))
 }
 #[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -258,7 +258,7 @@ pub unsafe fn GetKeyNameTextA(lparam: i32, lpstring: &mut [u8]) -> i32 {
     extern "system" {
         fn GetKeyNameTextA(lparam: i32, lpstring: ::windows::core::PSTR, cchsize: i32) -> i32;
     }
-    ::core::mem::transmute(GetKeyNameTextA(::core::mem::transmute(lparam), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(lpstring)), lpstring.len() as _))
+    ::core::mem::transmute(GetKeyNameTextA(lparam, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(lpstring)), lpstring.len() as _))
 }
 #[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`*"]
 #[inline]
@@ -267,7 +267,7 @@ pub unsafe fn GetKeyNameTextW(lparam: i32, lpstring: &mut [u16]) -> i32 {
     extern "system" {
         fn GetKeyNameTextW(lparam: i32, lpstring: ::windows::core::PWSTR, cchsize: i32) -> i32;
     }
-    ::core::mem::transmute(GetKeyNameTextW(::core::mem::transmute(lparam), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(lpstring)), lpstring.len() as _))
+    ::core::mem::transmute(GetKeyNameTextW(lparam, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(lpstring)), lpstring.len() as _))
 }
 #[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`*"]
 #[inline]
@@ -276,7 +276,7 @@ pub unsafe fn GetKeyState(nvirtkey: i32) -> i16 {
     extern "system" {
         fn GetKeyState(nvirtkey: i32) -> i16;
     }
-    ::core::mem::transmute(GetKeyState(::core::mem::transmute(nvirtkey)))
+    ::core::mem::transmute(GetKeyState(nvirtkey))
 }
 #[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`, `\"Win32_UI_TextServices\"`*"]
 #[cfg(feature = "Win32_UI_TextServices")]
@@ -286,7 +286,7 @@ pub unsafe fn GetKeyboardLayout(idthread: u32) -> super::super::TextServices::HK
     extern "system" {
         fn GetKeyboardLayout(idthread: u32) -> super::super::TextServices::HKL;
     }
-    ::core::mem::transmute(GetKeyboardLayout(::core::mem::transmute(idthread)))
+    ::core::mem::transmute(GetKeyboardLayout(idthread))
 }
 #[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`, `\"Win32_UI_TextServices\"`*"]
 #[cfg(feature = "Win32_UI_TextServices")]
@@ -335,7 +335,7 @@ pub unsafe fn GetKeyboardType(ntypeflag: i32) -> i32 {
     extern "system" {
         fn GetKeyboardType(ntypeflag: i32) -> i32;
     }
-    ::core::mem::transmute(GetKeyboardType(::core::mem::transmute(ntypeflag)))
+    ::core::mem::transmute(GetKeyboardType(ntypeflag))
 }
 #[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -354,7 +354,7 @@ pub unsafe fn GetMouseMovePointsEx(cbsize: u32, lppt: *const MOUSEMOVEPOINT, lpp
     extern "system" {
         fn GetMouseMovePointsEx(cbsize: u32, lppt: *const MOUSEMOVEPOINT, lpptbuf: *mut MOUSEMOVEPOINT, nbufpoints: i32, resolution: GET_MOUSE_MOVE_POINTS_EX_RESOLUTION) -> i32;
     }
-    ::core::mem::transmute(GetMouseMovePointsEx(::core::mem::transmute(cbsize), ::core::mem::transmute(lppt), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(lpptbuf)), lpptbuf.len() as _, ::core::mem::transmute(resolution)))
+    ::core::mem::transmute(GetMouseMovePointsEx(cbsize, ::core::mem::transmute(lppt), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(lpptbuf)), lpptbuf.len() as _, resolution))
 }
 #[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`*"]
 pub const HACEK: u32 = 780u32;
@@ -1020,7 +1020,7 @@ where
     extern "system" {
         fn LoadKeyboardLayoutA(pwszklid: ::windows::core::PCSTR, flags: ACTIVATE_KEYBOARD_LAYOUT_FLAGS) -> super::super::TextServices::HKL;
     }
-    let result__ = LoadKeyboardLayoutA(pwszklid.into(), ::core::mem::transmute(flags));
+    let result__ = LoadKeyboardLayoutA(pwszklid.into(), flags);
     (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
 }
 #[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`, `\"Win32_UI_TextServices\"`*"]
@@ -1034,7 +1034,7 @@ where
     extern "system" {
         fn LoadKeyboardLayoutW(pwszklid: ::windows::core::PCWSTR, flags: ACTIVATE_KEYBOARD_LAYOUT_FLAGS) -> super::super::TextServices::HKL;
     }
-    let result__ = LoadKeyboardLayoutW(pwszklid.into(), ::core::mem::transmute(flags));
+    let result__ = LoadKeyboardLayoutW(pwszklid.into(), flags);
     (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
 }
 #[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`*"]
@@ -1245,7 +1245,7 @@ pub unsafe fn MapVirtualKeyA(ucode: u32, umaptype: u32) -> u32 {
     extern "system" {
         fn MapVirtualKeyA(ucode: u32, umaptype: u32) -> u32;
     }
-    ::core::mem::transmute(MapVirtualKeyA(::core::mem::transmute(ucode), ::core::mem::transmute(umaptype)))
+    ::core::mem::transmute(MapVirtualKeyA(ucode, umaptype))
 }
 #[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`, `\"Win32_UI_TextServices\"`*"]
 #[cfg(feature = "Win32_UI_TextServices")]
@@ -1258,7 +1258,7 @@ where
     extern "system" {
         fn MapVirtualKeyExA(ucode: u32, umaptype: u32, dwhkl: super::super::TextServices::HKL) -> u32;
     }
-    ::core::mem::transmute(MapVirtualKeyExA(::core::mem::transmute(ucode), ::core::mem::transmute(umaptype), dwhkl.into()))
+    ::core::mem::transmute(MapVirtualKeyExA(ucode, umaptype, dwhkl.into()))
 }
 #[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`, `\"Win32_UI_TextServices\"`*"]
 #[cfg(feature = "Win32_UI_TextServices")]
@@ -1271,7 +1271,7 @@ where
     extern "system" {
         fn MapVirtualKeyExW(ucode: u32, umaptype: u32, dwhkl: super::super::TextServices::HKL) -> u32;
     }
-    ::core::mem::transmute(MapVirtualKeyExW(::core::mem::transmute(ucode), ::core::mem::transmute(umaptype), dwhkl.into()))
+    ::core::mem::transmute(MapVirtualKeyExW(ucode, umaptype, dwhkl.into()))
 }
 #[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`*"]
 #[inline]
@@ -1280,7 +1280,7 @@ pub unsafe fn MapVirtualKeyW(ucode: u32, umaptype: u32) -> u32 {
     extern "system" {
         fn MapVirtualKeyW(ucode: u32, umaptype: u32) -> u32;
     }
-    ::core::mem::transmute(MapVirtualKeyW(::core::mem::transmute(ucode), ::core::mem::transmute(umaptype)))
+    ::core::mem::transmute(MapVirtualKeyW(ucode, umaptype))
 }
 #[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`*"]
 pub const NEC_KBD_106_TYPE: u32 = 5u32;
@@ -1329,7 +1329,7 @@ pub unsafe fn OemKeyScan(woemchar: u16) -> u32 {
     extern "system" {
         fn OemKeyScan(woemchar: u16) -> u32;
     }
-    ::core::mem::transmute(OemKeyScan(::core::mem::transmute(woemchar)))
+    ::core::mem::transmute(OemKeyScan(woemchar))
 }
 #[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`*"]
 pub const RING: u32 = 778u32;
@@ -1344,7 +1344,7 @@ where
     extern "system" {
         fn RegisterHotKey(hwnd: super::super::super::Foundation::HWND, id: i32, fsmodifiers: HOT_KEY_MODIFIERS, vk: u32) -> super::super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(RegisterHotKey(hwnd.into(), ::core::mem::transmute(id), ::core::mem::transmute(fsmodifiers), ::core::mem::transmute(vk)))
+    ::core::mem::transmute(RegisterHotKey(hwnd.into(), id, fsmodifiers, vk))
 }
 #[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -1385,7 +1385,7 @@ pub unsafe fn SendInput(pinputs: &[INPUT], cbsize: i32) -> u32 {
     extern "system" {
         fn SendInput(cinputs: u32, pinputs: *const INPUT, cbsize: i32) -> u32;
     }
-    ::core::mem::transmute(SendInput(pinputs.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(pinputs)), ::core::mem::transmute(cbsize)))
+    ::core::mem::transmute(SendInput(pinputs.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(pinputs)), cbsize))
 }
 #[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -1421,7 +1421,7 @@ pub unsafe fn SetDoubleClickTime(param0: u32) -> super::super::super::Foundation
     extern "system" {
         fn SetDoubleClickTime(param0: u32) -> super::super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(SetDoubleClickTime(::core::mem::transmute(param0)))
+    ::core::mem::transmute(SetDoubleClickTime(param0))
 }
 #[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -1576,7 +1576,7 @@ pub unsafe fn ToAscii(uvirtkey: u32, uscancode: u32, lpkeystate: &[u8; 256], lpc
     extern "system" {
         fn ToAscii(uvirtkey: u32, uscancode: u32, lpkeystate: *const u8, lpchar: *mut u16, uflags: u32) -> i32;
     }
-    ::core::mem::transmute(ToAscii(::core::mem::transmute(uvirtkey), ::core::mem::transmute(uscancode), ::core::mem::transmute(::windows::core::as_ptr_or_null(lpkeystate)), ::core::mem::transmute(lpchar), ::core::mem::transmute(uflags)))
+    ::core::mem::transmute(ToAscii(uvirtkey, uscancode, ::core::mem::transmute(::windows::core::as_ptr_or_null(lpkeystate)), ::core::mem::transmute(lpchar), uflags))
 }
 #[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`, `\"Win32_UI_TextServices\"`*"]
 #[cfg(feature = "Win32_UI_TextServices")]
@@ -1589,7 +1589,7 @@ where
     extern "system" {
         fn ToAsciiEx(uvirtkey: u32, uscancode: u32, lpkeystate: *const u8, lpchar: *mut u16, uflags: u32, dwhkl: super::super::TextServices::HKL) -> i32;
     }
-    ::core::mem::transmute(ToAsciiEx(::core::mem::transmute(uvirtkey), ::core::mem::transmute(uscancode), ::core::mem::transmute(::windows::core::as_ptr_or_null(lpkeystate)), ::core::mem::transmute(lpchar), ::core::mem::transmute(uflags), dwhkl.into()))
+    ::core::mem::transmute(ToAsciiEx(uvirtkey, uscancode, ::core::mem::transmute(::windows::core::as_ptr_or_null(lpkeystate)), ::core::mem::transmute(lpchar), uflags, dwhkl.into()))
 }
 #[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`*"]
 #[inline]
@@ -1598,7 +1598,7 @@ pub unsafe fn ToUnicode(wvirtkey: u32, wscancode: u32, lpkeystate: &[u8; 256], p
     extern "system" {
         fn ToUnicode(wvirtkey: u32, wscancode: u32, lpkeystate: *const u8, pwszbuff: ::windows::core::PWSTR, cchbuff: i32, wflags: u32) -> i32;
     }
-    ::core::mem::transmute(ToUnicode(::core::mem::transmute(wvirtkey), ::core::mem::transmute(wscancode), ::core::mem::transmute(::windows::core::as_ptr_or_null(lpkeystate)), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(pwszbuff)), pwszbuff.len() as _, ::core::mem::transmute(wflags)))
+    ::core::mem::transmute(ToUnicode(wvirtkey, wscancode, ::core::mem::transmute(::windows::core::as_ptr_or_null(lpkeystate)), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(pwszbuff)), pwszbuff.len() as _, wflags))
 }
 #[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`, `\"Win32_UI_TextServices\"`*"]
 #[cfg(feature = "Win32_UI_TextServices")]
@@ -1611,7 +1611,7 @@ where
     extern "system" {
         fn ToUnicodeEx(wvirtkey: u32, wscancode: u32, lpkeystate: *const u8, pwszbuff: ::windows::core::PWSTR, cchbuff: i32, wflags: u32, dwhkl: super::super::TextServices::HKL) -> i32;
     }
-    ::core::mem::transmute(ToUnicodeEx(::core::mem::transmute(wvirtkey), ::core::mem::transmute(wscancode), ::core::mem::transmute(::windows::core::as_ptr_or_null(lpkeystate)), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(pwszbuff)), pwszbuff.len() as _, ::core::mem::transmute(wflags), dwhkl.into()))
+    ::core::mem::transmute(ToUnicodeEx(wvirtkey, wscancode, ::core::mem::transmute(::windows::core::as_ptr_or_null(lpkeystate)), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(pwszbuff)), pwszbuff.len() as _, wflags, dwhkl.into()))
 }
 #[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -1649,7 +1649,7 @@ where
     extern "system" {
         fn UnregisterHotKey(hwnd: super::super::super::Foundation::HWND, id: i32) -> super::super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(UnregisterHotKey(hwnd.into(), ::core::mem::transmute(id)))
+    ::core::mem::transmute(UnregisterHotKey(hwnd.into(), id))
 }
 #[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`*"]
 #[repr(transparent)]
@@ -2682,7 +2682,7 @@ where
     extern "system" {
         fn VkKeyScanExW(ch: u16, dwhkl: super::super::TextServices::HKL) -> i16;
     }
-    ::core::mem::transmute(VkKeyScanExW(::core::mem::transmute(ch), dwhkl.into()))
+    ::core::mem::transmute(VkKeyScanExW(ch, dwhkl.into()))
 }
 #[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`*"]
 #[inline]
@@ -2691,7 +2691,7 @@ pub unsafe fn VkKeyScanW(ch: u16) -> i16 {
     extern "system" {
         fn VkKeyScanW(ch: u16) -> i16;
     }
-    ::core::mem::transmute(VkKeyScanW(::core::mem::transmute(ch)))
+    ::core::mem::transmute(VkKeyScanW(ch))
 }
 #[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`*"]
 pub const WCH_DEAD: u32 = 61441u32;
@@ -2782,7 +2782,7 @@ pub unsafe fn keybd_event(bvk: u8, bscan: u8, dwflags: KEYBD_EVENT_FLAGS, dwextr
     extern "system" {
         fn keybd_event(bvk: u8, bscan: u8, dwflags: KEYBD_EVENT_FLAGS, dwextrainfo: usize);
     }
-    keybd_event(::core::mem::transmute(bvk), ::core::mem::transmute(bscan), ::core::mem::transmute(dwflags), ::core::mem::transmute(dwextrainfo))
+    keybd_event(bvk, bscan, dwflags, dwextrainfo)
 }
 #[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`*"]
 #[inline]
@@ -2791,7 +2791,7 @@ pub unsafe fn mouse_event(dwflags: MOUSE_EVENT_FLAGS, dx: i32, dy: i32, dwdata: 
     extern "system" {
         fn mouse_event(dwflags: MOUSE_EVENT_FLAGS, dx: i32, dy: i32, dwdata: u32, dwextrainfo: usize);
     }
-    mouse_event(::core::mem::transmute(dwflags), ::core::mem::transmute(dx), ::core::mem::transmute(dy), ::core::mem::transmute(dwdata), ::core::mem::transmute(dwextrainfo))
+    mouse_event(dwflags, dx, dy, dwdata, dwextrainfo)
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`*"]

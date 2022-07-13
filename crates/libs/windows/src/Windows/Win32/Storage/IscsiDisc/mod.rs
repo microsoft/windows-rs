@@ -274,7 +274,7 @@ pub unsafe fn AddIScsiConnectionA(uniquesessionid: *mut ISCSI_UNIQUE_SESSION_ID,
     extern "system" {
         fn AddIScsiConnectionA(uniquesessionid: *mut ISCSI_UNIQUE_SESSION_ID, reserved: *mut ::core::ffi::c_void, initiatorportnumber: u32, targetportal: *mut ISCSI_TARGET_PORTALA, securityflags: u64, loginoptions: *mut ISCSI_LOGIN_OPTIONS, keysize: u32, key: ::windows::core::PCSTR, connectionid: *mut ISCSI_UNIQUE_SESSION_ID) -> u32;
     }
-    ::core::mem::transmute(AddIScsiConnectionA(::core::mem::transmute(uniquesessionid), ::core::mem::transmute(reserved), ::core::mem::transmute(initiatorportnumber), ::core::mem::transmute(targetportal), ::core::mem::transmute(securityflags), ::core::mem::transmute(loginoptions), key.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(key)), ::core::mem::transmute(connectionid)))
+    ::core::mem::transmute(AddIScsiConnectionA(::core::mem::transmute(uniquesessionid), ::core::mem::transmute(reserved), initiatorportnumber, ::core::mem::transmute(targetportal), securityflags, ::core::mem::transmute(loginoptions), key.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(key)), ::core::mem::transmute(connectionid)))
 }
 #[doc = "*Required features: `\"Win32_Storage_IscsiDisc\"`*"]
 #[inline]
@@ -283,7 +283,7 @@ pub unsafe fn AddIScsiConnectionW(uniquesessionid: *mut ISCSI_UNIQUE_SESSION_ID,
     extern "system" {
         fn AddIScsiConnectionW(uniquesessionid: *mut ISCSI_UNIQUE_SESSION_ID, reserved: *mut ::core::ffi::c_void, initiatorportnumber: u32, targetportal: *mut ISCSI_TARGET_PORTALW, securityflags: u64, loginoptions: *mut ISCSI_LOGIN_OPTIONS, keysize: u32, key: ::windows::core::PCSTR, connectionid: *mut ISCSI_UNIQUE_SESSION_ID) -> u32;
     }
-    ::core::mem::transmute(AddIScsiConnectionW(::core::mem::transmute(uniquesessionid), ::core::mem::transmute(reserved), ::core::mem::transmute(initiatorportnumber), ::core::mem::transmute(targetportal), ::core::mem::transmute(securityflags), ::core::mem::transmute(loginoptions), key.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(key)), ::core::mem::transmute(connectionid)))
+    ::core::mem::transmute(AddIScsiConnectionW(::core::mem::transmute(uniquesessionid), ::core::mem::transmute(reserved), initiatorportnumber, ::core::mem::transmute(targetportal), securityflags, ::core::mem::transmute(loginoptions), key.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(key)), ::core::mem::transmute(connectionid)))
 }
 #[doc = "*Required features: `\"Win32_Storage_IscsiDisc\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -296,7 +296,7 @@ where
     extern "system" {
         fn AddIScsiSendTargetPortalA(initiatorinstance: ::windows::core::PCSTR, initiatorportnumber: u32, loginoptions: *mut ISCSI_LOGIN_OPTIONS, securityflags: u64, portal: *mut ISCSI_TARGET_PORTALA) -> u32;
     }
-    ::core::mem::transmute(AddIScsiSendTargetPortalA(initiatorinstance.into(), ::core::mem::transmute(initiatorportnumber), ::core::mem::transmute(loginoptions), ::core::mem::transmute(securityflags), ::core::mem::transmute(portal)))
+    ::core::mem::transmute(AddIScsiSendTargetPortalA(initiatorinstance.into(), initiatorportnumber, ::core::mem::transmute(loginoptions), securityflags, ::core::mem::transmute(portal)))
 }
 #[doc = "*Required features: `\"Win32_Storage_IscsiDisc\"`*"]
 #[inline]
@@ -308,7 +308,7 @@ where
     extern "system" {
         fn AddIScsiSendTargetPortalW(initiatorinstance: ::windows::core::PCWSTR, initiatorportnumber: u32, loginoptions: *mut ISCSI_LOGIN_OPTIONS, securityflags: u64, portal: *mut ISCSI_TARGET_PORTALW) -> u32;
     }
-    ::core::mem::transmute(AddIScsiSendTargetPortalW(initiatorinstance.into(), ::core::mem::transmute(initiatorportnumber), ::core::mem::transmute(loginoptions), ::core::mem::transmute(securityflags), ::core::mem::transmute(portal)))
+    ::core::mem::transmute(AddIScsiSendTargetPortalW(initiatorinstance.into(), initiatorportnumber, ::core::mem::transmute(loginoptions), securityflags, ::core::mem::transmute(portal)))
 }
 #[doc = "*Required features: `\"Win32_Storage_IscsiDisc\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -323,7 +323,7 @@ where
     extern "system" {
         fn AddIScsiStaticTargetA(targetname: ::windows::core::PCSTR, targetalias: ::windows::core::PCSTR, targetflags: u32, persist: super::super::Foundation::BOOLEAN, mappings: *mut ISCSI_TARGET_MAPPINGA, loginoptions: *mut ISCSI_LOGIN_OPTIONS, portalgroup: *mut ISCSI_TARGET_PORTAL_GROUPA) -> u32;
     }
-    ::core::mem::transmute(AddIScsiStaticTargetA(targetname.into(), targetalias.into(), ::core::mem::transmute(targetflags), persist.into(), ::core::mem::transmute(mappings), ::core::mem::transmute(loginoptions), ::core::mem::transmute(portalgroup)))
+    ::core::mem::transmute(AddIScsiStaticTargetA(targetname.into(), targetalias.into(), targetflags, persist.into(), ::core::mem::transmute(mappings), ::core::mem::transmute(loginoptions), ::core::mem::transmute(portalgroup)))
 }
 #[doc = "*Required features: `\"Win32_Storage_IscsiDisc\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -338,7 +338,7 @@ where
     extern "system" {
         fn AddIScsiStaticTargetW(targetname: ::windows::core::PCWSTR, targetalias: ::windows::core::PCWSTR, targetflags: u32, persist: super::super::Foundation::BOOLEAN, mappings: *mut ISCSI_TARGET_MAPPINGW, loginoptions: *mut ISCSI_LOGIN_OPTIONS, portalgroup: *mut ISCSI_TARGET_PORTAL_GROUPW) -> u32;
     }
-    ::core::mem::transmute(AddIScsiStaticTargetW(targetname.into(), targetalias.into(), ::core::mem::transmute(targetflags), persist.into(), ::core::mem::transmute(mappings), ::core::mem::transmute(loginoptions), ::core::mem::transmute(portalgroup)))
+    ::core::mem::transmute(AddIScsiStaticTargetW(targetname.into(), targetalias.into(), targetflags, persist.into(), ::core::mem::transmute(mappings), ::core::mem::transmute(loginoptions), ::core::mem::transmute(portalgroup)))
 }
 #[doc = "*Required features: `\"Win32_Storage_IscsiDisc\"`*"]
 #[inline]
@@ -798,7 +798,7 @@ where
     extern "system" {
         fn GetIScsiIKEInfoA(initiatorname: ::windows::core::PCSTR, initiatorportnumber: u32, reserved: *mut u32, authinfo: *mut IKE_AUTHENTICATION_INFORMATION) -> u32;
     }
-    ::core::mem::transmute(GetIScsiIKEInfoA(initiatorname.into(), ::core::mem::transmute(initiatorportnumber), ::core::mem::transmute(reserved), ::core::mem::transmute(authinfo)))
+    ::core::mem::transmute(GetIScsiIKEInfoA(initiatorname.into(), initiatorportnumber, ::core::mem::transmute(reserved), ::core::mem::transmute(authinfo)))
 }
 #[doc = "*Required features: `\"Win32_Storage_IscsiDisc\"`*"]
 #[inline]
@@ -810,7 +810,7 @@ where
     extern "system" {
         fn GetIScsiIKEInfoW(initiatorname: ::windows::core::PCWSTR, initiatorportnumber: u32, reserved: *mut u32, authinfo: *mut IKE_AUTHENTICATION_INFORMATION) -> u32;
     }
-    ::core::mem::transmute(GetIScsiIKEInfoW(initiatorname.into(), ::core::mem::transmute(initiatorportnumber), ::core::mem::transmute(reserved), ::core::mem::transmute(authinfo)))
+    ::core::mem::transmute(GetIScsiIKEInfoW(initiatorname.into(), initiatorportnumber, ::core::mem::transmute(reserved), ::core::mem::transmute(authinfo)))
 }
 #[doc = "*Required features: `\"Win32_Storage_IscsiDisc\"`*"]
 #[inline]
@@ -869,7 +869,7 @@ where
     extern "system" {
         fn GetIScsiTargetInformationA(targetname: ::windows::core::PCSTR, discoverymechanism: ::windows::core::PCSTR, infoclass: TARGET_INFORMATION_CLASS, buffersize: *mut u32, buffer: *mut ::core::ffi::c_void) -> u32;
     }
-    ::core::mem::transmute(GetIScsiTargetInformationA(targetname.into(), discoverymechanism.into(), ::core::mem::transmute(infoclass), ::core::mem::transmute(buffersize), ::core::mem::transmute(buffer)))
+    ::core::mem::transmute(GetIScsiTargetInformationA(targetname.into(), discoverymechanism.into(), infoclass, ::core::mem::transmute(buffersize), ::core::mem::transmute(buffer)))
 }
 #[doc = "*Required features: `\"Win32_Storage_IscsiDisc\"`*"]
 #[inline]
@@ -882,7 +882,7 @@ where
     extern "system" {
         fn GetIScsiTargetInformationW(targetname: ::windows::core::PCWSTR, discoverymechanism: ::windows::core::PCWSTR, infoclass: TARGET_INFORMATION_CLASS, buffersize: *mut u32, buffer: *mut ::core::ffi::c_void) -> u32;
     }
-    ::core::mem::transmute(GetIScsiTargetInformationW(targetname.into(), discoverymechanism.into(), ::core::mem::transmute(infoclass), ::core::mem::transmute(buffersize), ::core::mem::transmute(buffer)))
+    ::core::mem::transmute(GetIScsiTargetInformationW(targetname.into(), discoverymechanism.into(), infoclass, ::core::mem::transmute(buffersize), ::core::mem::transmute(buffer)))
 }
 #[doc = "*Required features: `\"Win32_Storage_IscsiDisc\"`*"]
 #[inline]
@@ -2408,7 +2408,7 @@ where
     extern "system" {
         fn LoginIScsiTargetA(targetname: ::windows::core::PCSTR, isinformationalsession: super::super::Foundation::BOOLEAN, initiatorinstance: ::windows::core::PCSTR, initiatorportnumber: u32, targetportal: *mut ISCSI_TARGET_PORTALA, securityflags: u64, mappings: *mut ISCSI_TARGET_MAPPINGA, loginoptions: *mut ISCSI_LOGIN_OPTIONS, keysize: u32, key: ::windows::core::PCSTR, ispersistent: super::super::Foundation::BOOLEAN, uniquesessionid: *mut ISCSI_UNIQUE_SESSION_ID, uniqueconnectionid: *mut ISCSI_UNIQUE_SESSION_ID) -> u32;
     }
-    ::core::mem::transmute(LoginIScsiTargetA(targetname.into(), isinformationalsession.into(), initiatorinstance.into(), ::core::mem::transmute(initiatorportnumber), ::core::mem::transmute(targetportal), ::core::mem::transmute(securityflags), ::core::mem::transmute(mappings), ::core::mem::transmute(loginoptions), key.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(key)), ispersistent.into(), ::core::mem::transmute(uniquesessionid), ::core::mem::transmute(uniqueconnectionid)))
+    ::core::mem::transmute(LoginIScsiTargetA(targetname.into(), isinformationalsession.into(), initiatorinstance.into(), initiatorportnumber, ::core::mem::transmute(targetportal), securityflags, ::core::mem::transmute(mappings), ::core::mem::transmute(loginoptions), key.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(key)), ispersistent.into(), ::core::mem::transmute(uniquesessionid), ::core::mem::transmute(uniqueconnectionid)))
 }
 #[doc = "*Required features: `\"Win32_Storage_IscsiDisc\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -2424,7 +2424,7 @@ where
     extern "system" {
         fn LoginIScsiTargetW(targetname: ::windows::core::PCWSTR, isinformationalsession: super::super::Foundation::BOOLEAN, initiatorinstance: ::windows::core::PCWSTR, initiatorportnumber: u32, targetportal: *mut ISCSI_TARGET_PORTALW, securityflags: u64, mappings: *mut ISCSI_TARGET_MAPPINGW, loginoptions: *mut ISCSI_LOGIN_OPTIONS, keysize: u32, key: ::windows::core::PCSTR, ispersistent: super::super::Foundation::BOOLEAN, uniquesessionid: *mut ISCSI_UNIQUE_SESSION_ID, uniqueconnectionid: *mut ISCSI_UNIQUE_SESSION_ID) -> u32;
     }
-    ::core::mem::transmute(LoginIScsiTargetW(targetname.into(), isinformationalsession.into(), initiatorinstance.into(), ::core::mem::transmute(initiatorportnumber), ::core::mem::transmute(targetportal), ::core::mem::transmute(securityflags), ::core::mem::transmute(mappings), ::core::mem::transmute(loginoptions), key.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(key)), ispersistent.into(), ::core::mem::transmute(uniquesessionid), ::core::mem::transmute(uniqueconnectionid)))
+    ::core::mem::transmute(LoginIScsiTargetW(targetname.into(), isinformationalsession.into(), initiatorinstance.into(), initiatorportnumber, ::core::mem::transmute(targetportal), securityflags, ::core::mem::transmute(mappings), ::core::mem::transmute(loginoptions), key.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(key)), ispersistent.into(), ::core::mem::transmute(uniquesessionid), ::core::mem::transmute(uniqueconnectionid)))
 }
 #[doc = "*Required features: `\"Win32_Storage_IscsiDisc\"`*"]
 #[inline]
@@ -3452,7 +3452,7 @@ where
     extern "system" {
         fn RefreshIScsiSendTargetPortalA(initiatorinstance: ::windows::core::PCSTR, initiatorportnumber: u32, portal: *mut ISCSI_TARGET_PORTALA) -> u32;
     }
-    ::core::mem::transmute(RefreshIScsiSendTargetPortalA(initiatorinstance.into(), ::core::mem::transmute(initiatorportnumber), ::core::mem::transmute(portal)))
+    ::core::mem::transmute(RefreshIScsiSendTargetPortalA(initiatorinstance.into(), initiatorportnumber, ::core::mem::transmute(portal)))
 }
 #[doc = "*Required features: `\"Win32_Storage_IscsiDisc\"`*"]
 #[inline]
@@ -3464,7 +3464,7 @@ where
     extern "system" {
         fn RefreshIScsiSendTargetPortalW(initiatorinstance: ::windows::core::PCWSTR, initiatorportnumber: u32, portal: *mut ISCSI_TARGET_PORTALW) -> u32;
     }
-    ::core::mem::transmute(RefreshIScsiSendTargetPortalW(initiatorinstance.into(), ::core::mem::transmute(initiatorportnumber), ::core::mem::transmute(portal)))
+    ::core::mem::transmute(RefreshIScsiSendTargetPortalW(initiatorinstance.into(), initiatorportnumber, ::core::mem::transmute(portal)))
 }
 #[doc = "*Required features: `\"Win32_Storage_IscsiDisc\"`*"]
 #[inline]
@@ -3511,7 +3511,7 @@ where
     extern "system" {
         fn RemoveIScsiPersistentTargetA(initiatorinstance: ::windows::core::PCSTR, initiatorportnumber: u32, targetname: ::windows::core::PCSTR, portal: *mut ISCSI_TARGET_PORTALA) -> u32;
     }
-    ::core::mem::transmute(RemoveIScsiPersistentTargetA(initiatorinstance.into(), ::core::mem::transmute(initiatorportnumber), targetname.into(), ::core::mem::transmute(portal)))
+    ::core::mem::transmute(RemoveIScsiPersistentTargetA(initiatorinstance.into(), initiatorportnumber, targetname.into(), ::core::mem::transmute(portal)))
 }
 #[doc = "*Required features: `\"Win32_Storage_IscsiDisc\"`*"]
 #[inline]
@@ -3524,7 +3524,7 @@ where
     extern "system" {
         fn RemoveIScsiPersistentTargetW(initiatorinstance: ::windows::core::PCWSTR, initiatorportnumber: u32, targetname: ::windows::core::PCWSTR, portal: *mut ISCSI_TARGET_PORTALW) -> u32;
     }
-    ::core::mem::transmute(RemoveIScsiPersistentTargetW(initiatorinstance.into(), ::core::mem::transmute(initiatorportnumber), targetname.into(), ::core::mem::transmute(portal)))
+    ::core::mem::transmute(RemoveIScsiPersistentTargetW(initiatorinstance.into(), initiatorportnumber, targetname.into(), ::core::mem::transmute(portal)))
 }
 #[doc = "*Required features: `\"Win32_Storage_IscsiDisc\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -3537,7 +3537,7 @@ where
     extern "system" {
         fn RemoveIScsiSendTargetPortalA(initiatorinstance: ::windows::core::PCSTR, initiatorportnumber: u32, portal: *mut ISCSI_TARGET_PORTALA) -> u32;
     }
-    ::core::mem::transmute(RemoveIScsiSendTargetPortalA(initiatorinstance.into(), ::core::mem::transmute(initiatorportnumber), ::core::mem::transmute(portal)))
+    ::core::mem::transmute(RemoveIScsiSendTargetPortalA(initiatorinstance.into(), initiatorportnumber, ::core::mem::transmute(portal)))
 }
 #[doc = "*Required features: `\"Win32_Storage_IscsiDisc\"`*"]
 #[inline]
@@ -3549,7 +3549,7 @@ where
     extern "system" {
         fn RemoveIScsiSendTargetPortalW(initiatorinstance: ::windows::core::PCWSTR, initiatorportnumber: u32, portal: *mut ISCSI_TARGET_PORTALW) -> u32;
     }
-    ::core::mem::transmute(RemoveIScsiSendTargetPortalW(initiatorinstance.into(), ::core::mem::transmute(initiatorportnumber), ::core::mem::transmute(portal)))
+    ::core::mem::transmute(RemoveIScsiSendTargetPortalW(initiatorinstance.into(), initiatorportnumber, ::core::mem::transmute(portal)))
 }
 #[doc = "*Required features: `\"Win32_Storage_IscsiDisc\"`*"]
 #[inline]
@@ -5026,7 +5026,7 @@ pub unsafe fn SendScsiInquiry(uniquesessionid: *mut ISCSI_UNIQUE_SESSION_ID, lun
     extern "system" {
         fn SendScsiInquiry(uniquesessionid: *mut ISCSI_UNIQUE_SESSION_ID, lun: u64, evpdcmddt: u8, pagecode: u8, scsistatus: *mut u8, responsesize: *mut u32, responsebuffer: *mut u8, sensesize: *mut u32, sensebuffer: *mut u8) -> u32;
     }
-    ::core::mem::transmute(SendScsiInquiry(::core::mem::transmute(uniquesessionid), ::core::mem::transmute(lun), ::core::mem::transmute(evpdcmddt), ::core::mem::transmute(pagecode), ::core::mem::transmute(scsistatus), ::core::mem::transmute(responsesize), ::core::mem::transmute(responsebuffer), ::core::mem::transmute(sensesize), ::core::mem::transmute(sensebuffer)))
+    ::core::mem::transmute(SendScsiInquiry(::core::mem::transmute(uniquesessionid), lun, evpdcmddt, pagecode, ::core::mem::transmute(scsistatus), ::core::mem::transmute(responsesize), ::core::mem::transmute(responsebuffer), ::core::mem::transmute(sensesize), ::core::mem::transmute(sensebuffer)))
 }
 #[doc = "*Required features: `\"Win32_Storage_IscsiDisc\"`*"]
 #[inline]
@@ -5035,7 +5035,7 @@ pub unsafe fn SendScsiReadCapacity(uniquesessionid: *mut ISCSI_UNIQUE_SESSION_ID
     extern "system" {
         fn SendScsiReadCapacity(uniquesessionid: *mut ISCSI_UNIQUE_SESSION_ID, lun: u64, scsistatus: *mut u8, responsesize: *mut u32, responsebuffer: *mut u8, sensesize: *mut u32, sensebuffer: *mut u8) -> u32;
     }
-    ::core::mem::transmute(SendScsiReadCapacity(::core::mem::transmute(uniquesessionid), ::core::mem::transmute(lun), ::core::mem::transmute(scsistatus), ::core::mem::transmute(responsesize), ::core::mem::transmute(responsebuffer), ::core::mem::transmute(sensesize), ::core::mem::transmute(sensebuffer)))
+    ::core::mem::transmute(SendScsiReadCapacity(::core::mem::transmute(uniquesessionid), lun, ::core::mem::transmute(scsistatus), ::core::mem::transmute(responsesize), ::core::mem::transmute(responsebuffer), ::core::mem::transmute(sensesize), ::core::mem::transmute(sensebuffer)))
 }
 #[doc = "*Required features: `\"Win32_Storage_IscsiDisc\"`*"]
 #[inline]
@@ -5057,7 +5057,7 @@ where
     extern "system" {
         fn SetIScsiGroupPresharedKey(keylength: u32, key: *mut u8, persist: super::super::Foundation::BOOLEAN) -> u32;
     }
-    ::core::mem::transmute(SetIScsiGroupPresharedKey(::core::mem::transmute(keylength), ::core::mem::transmute(key), persist.into()))
+    ::core::mem::transmute(SetIScsiGroupPresharedKey(keylength, ::core::mem::transmute(key), persist.into()))
 }
 #[doc = "*Required features: `\"Win32_Storage_IscsiDisc\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -5071,7 +5071,7 @@ where
     extern "system" {
         fn SetIScsiIKEInfoA(initiatorname: ::windows::core::PCSTR, initiatorportnumber: u32, authinfo: *mut IKE_AUTHENTICATION_INFORMATION, persist: super::super::Foundation::BOOLEAN) -> u32;
     }
-    ::core::mem::transmute(SetIScsiIKEInfoA(initiatorname.into(), ::core::mem::transmute(initiatorportnumber), ::core::mem::transmute(authinfo), persist.into()))
+    ::core::mem::transmute(SetIScsiIKEInfoA(initiatorname.into(), initiatorportnumber, ::core::mem::transmute(authinfo), persist.into()))
 }
 #[doc = "*Required features: `\"Win32_Storage_IscsiDisc\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -5085,7 +5085,7 @@ where
     extern "system" {
         fn SetIScsiIKEInfoW(initiatorname: ::windows::core::PCWSTR, initiatorportnumber: u32, authinfo: *mut IKE_AUTHENTICATION_INFORMATION, persist: super::super::Foundation::BOOLEAN) -> u32;
     }
-    ::core::mem::transmute(SetIScsiIKEInfoW(initiatorname.into(), ::core::mem::transmute(initiatorportnumber), ::core::mem::transmute(authinfo), persist.into()))
+    ::core::mem::transmute(SetIScsiIKEInfoW(initiatorname.into(), initiatorportnumber, ::core::mem::transmute(authinfo), persist.into()))
 }
 #[doc = "*Required features: `\"Win32_Storage_IscsiDisc\"`*"]
 #[inline]
@@ -5094,7 +5094,7 @@ pub unsafe fn SetIScsiInitiatorCHAPSharedSecret(sharedsecretlength: u32, shareds
     extern "system" {
         fn SetIScsiInitiatorCHAPSharedSecret(sharedsecretlength: u32, sharedsecret: *mut u8) -> u32;
     }
-    ::core::mem::transmute(SetIScsiInitiatorCHAPSharedSecret(::core::mem::transmute(sharedsecretlength), ::core::mem::transmute(sharedsecret)))
+    ::core::mem::transmute(SetIScsiInitiatorCHAPSharedSecret(sharedsecretlength, ::core::mem::transmute(sharedsecret)))
 }
 #[doc = "*Required features: `\"Win32_Storage_IscsiDisc\"`*"]
 #[inline]
@@ -5127,7 +5127,7 @@ pub unsafe fn SetIScsiInitiatorRADIUSSharedSecret(sharedsecretlength: u32, share
     extern "system" {
         fn SetIScsiInitiatorRADIUSSharedSecret(sharedsecretlength: u32, sharedsecret: *mut u8) -> u32;
     }
-    ::core::mem::transmute(SetIScsiInitiatorRADIUSSharedSecret(::core::mem::transmute(sharedsecretlength), ::core::mem::transmute(sharedsecret)))
+    ::core::mem::transmute(SetIScsiInitiatorRADIUSSharedSecret(sharedsecretlength, ::core::mem::transmute(sharedsecret)))
 }
 #[doc = "*Required features: `\"Win32_Storage_IscsiDisc\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -5143,7 +5143,7 @@ where
     extern "system" {
         fn SetIScsiTunnelModeOuterAddressA(initiatorname: ::windows::core::PCSTR, initiatorportnumber: u32, destinationaddress: ::windows::core::PCSTR, outermodeaddress: ::windows::core::PCSTR, persist: super::super::Foundation::BOOLEAN) -> u32;
     }
-    ::core::mem::transmute(SetIScsiTunnelModeOuterAddressA(initiatorname.into(), ::core::mem::transmute(initiatorportnumber), destinationaddress.into(), outermodeaddress.into(), persist.into()))
+    ::core::mem::transmute(SetIScsiTunnelModeOuterAddressA(initiatorname.into(), initiatorportnumber, destinationaddress.into(), outermodeaddress.into(), persist.into()))
 }
 #[doc = "*Required features: `\"Win32_Storage_IscsiDisc\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -5159,7 +5159,7 @@ where
     extern "system" {
         fn SetIScsiTunnelModeOuterAddressW(initiatorname: ::windows::core::PCWSTR, initiatorportnumber: u32, destinationaddress: ::windows::core::PCWSTR, outermodeaddress: ::windows::core::PCWSTR, persist: super::super::Foundation::BOOLEAN) -> u32;
     }
-    ::core::mem::transmute(SetIScsiTunnelModeOuterAddressW(initiatorname.into(), ::core::mem::transmute(initiatorportnumber), destinationaddress.into(), outermodeaddress.into(), persist.into()))
+    ::core::mem::transmute(SetIScsiTunnelModeOuterAddressW(initiatorname.into(), initiatorportnumber, destinationaddress.into(), outermodeaddress.into(), persist.into()))
 }
 #[doc = "*Required features: `\"Win32_Storage_IscsiDisc\"`*"]
 #[inline]

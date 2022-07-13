@@ -406,7 +406,7 @@ pub unsafe fn XInputGetAudioDeviceIds(dwuserindex: u32, prenderdeviceid: ::windo
     extern "system" {
         fn XInputGetAudioDeviceIds(dwuserindex: u32, prenderdeviceid: ::windows::core::PWSTR, prendercount: *mut u32, pcapturedeviceid: ::windows::core::PWSTR, pcapturecount: *mut u32) -> u32;
     }
-    ::core::mem::transmute(XInputGetAudioDeviceIds(::core::mem::transmute(dwuserindex), ::core::mem::transmute(prenderdeviceid), ::core::mem::transmute(prendercount), ::core::mem::transmute(pcapturedeviceid), ::core::mem::transmute(pcapturecount)))
+    ::core::mem::transmute(XInputGetAudioDeviceIds(dwuserindex, ::core::mem::transmute(prenderdeviceid), ::core::mem::transmute(prendercount), ::core::mem::transmute(pcapturedeviceid), ::core::mem::transmute(pcapturecount)))
 }
 #[doc = "*Required features: `\"Win32_UI_Input_XboxController\"`*"]
 #[inline]
@@ -415,7 +415,7 @@ pub unsafe fn XInputGetBatteryInformation(dwuserindex: u32, devtype: u8, pbatter
     extern "system" {
         fn XInputGetBatteryInformation(dwuserindex: u32, devtype: u8, pbatteryinformation: *mut XINPUT_BATTERY_INFORMATION) -> u32;
     }
-    ::core::mem::transmute(XInputGetBatteryInformation(::core::mem::transmute(dwuserindex), ::core::mem::transmute(devtype), ::core::mem::transmute(pbatteryinformation)))
+    ::core::mem::transmute(XInputGetBatteryInformation(dwuserindex, devtype, ::core::mem::transmute(pbatteryinformation)))
 }
 #[doc = "*Required features: `\"Win32_UI_Input_XboxController\"`*"]
 #[inline]
@@ -424,7 +424,7 @@ pub unsafe fn XInputGetCapabilities(dwuserindex: u32, dwflags: u32, pcapabilitie
     extern "system" {
         fn XInputGetCapabilities(dwuserindex: u32, dwflags: u32, pcapabilities: *mut XINPUT_CAPABILITIES) -> u32;
     }
-    ::core::mem::transmute(XInputGetCapabilities(::core::mem::transmute(dwuserindex), ::core::mem::transmute(dwflags), ::core::mem::transmute(pcapabilities)))
+    ::core::mem::transmute(XInputGetCapabilities(dwuserindex, dwflags, ::core::mem::transmute(pcapabilities)))
 }
 #[doc = "*Required features: `\"Win32_UI_Input_XboxController\"`*"]
 #[inline]
@@ -433,7 +433,7 @@ pub unsafe fn XInputGetKeystroke(dwuserindex: u32, dwreserved: u32, pkeystroke: 
     extern "system" {
         fn XInputGetKeystroke(dwuserindex: u32, dwreserved: u32, pkeystroke: *mut XINPUT_KEYSTROKE) -> u32;
     }
-    ::core::mem::transmute(XInputGetKeystroke(::core::mem::transmute(dwuserindex), ::core::mem::transmute(dwreserved), ::core::mem::transmute(pkeystroke)))
+    ::core::mem::transmute(XInputGetKeystroke(dwuserindex, dwreserved, ::core::mem::transmute(pkeystroke)))
 }
 #[doc = "*Required features: `\"Win32_UI_Input_XboxController\"`*"]
 #[inline]
@@ -442,7 +442,7 @@ pub unsafe fn XInputGetState(dwuserindex: u32, pstate: *mut XINPUT_STATE) -> u32
     extern "system" {
         fn XInputGetState(dwuserindex: u32, pstate: *mut XINPUT_STATE) -> u32;
     }
-    ::core::mem::transmute(XInputGetState(::core::mem::transmute(dwuserindex), ::core::mem::transmute(pstate)))
+    ::core::mem::transmute(XInputGetState(dwuserindex, ::core::mem::transmute(pstate)))
 }
 #[doc = "*Required features: `\"Win32_UI_Input_XboxController\"`*"]
 #[inline]
@@ -451,7 +451,7 @@ pub unsafe fn XInputSetState(dwuserindex: u32, pvibration: *const XINPUT_VIBRATI
     extern "system" {
         fn XInputSetState(dwuserindex: u32, pvibration: *const XINPUT_VIBRATION) -> u32;
     }
-    ::core::mem::transmute(XInputSetState(::core::mem::transmute(dwuserindex), ::core::mem::transmute(pvibration)))
+    ::core::mem::transmute(XInputSetState(dwuserindex, ::core::mem::transmute(pvibration)))
 }
 #[doc = "*Required features: `\"Win32_UI_Input_XboxController\"`*"]
 pub const XUSER_INDEX_ANY: u32 = 255u32;

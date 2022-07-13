@@ -1762,7 +1762,7 @@ impl IFsrmAccessDeniedRemediationClient {
         P2: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::<i32>::zeroed();
-        (::windows::core::Interface::vtable(self).Show)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(parentwnd), accesspath.into().abi(), ::core::mem::transmute(errortype), ::core::mem::transmute(flags), windowtitle.into().abi(), windowmessage.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
+        (::windows::core::Interface::vtable(self).Show)(::windows::core::Interface::as_raw(self), parentwnd, accesspath.into().abi(), errortype, flags, windowtitle.into().abi(), windowmessage.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -1859,7 +1859,7 @@ impl IFsrmAction {
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
     pub unsafe fn SetRunLimitInterval(&self, minutes: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetRunLimitInterval)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(minutes)).ok()
+        (::windows::core::Interface::vtable(self).SetRunLimitInterval)(::windows::core::Interface::as_raw(self), minutes).ok()
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
     pub unsafe fn Delete(&self) -> ::windows::core::Result<()> {
@@ -1961,7 +1961,7 @@ impl IFsrmActionCommand {
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
     pub unsafe fn SetRunLimitInterval(&self, minutes: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetRunLimitInterval)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(minutes)).ok()
+        (::windows::core::Interface::vtable(self).base__.SetRunLimitInterval)(::windows::core::Interface::as_raw(self), minutes).ok()
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
     pub unsafe fn Delete(&self) -> ::windows::core::Result<()> {
@@ -2002,7 +2002,7 @@ impl IFsrmActionCommand {
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
     pub unsafe fn SetAccount(&self, account: FsrmAccountType) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetAccount)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(account)).ok()
+        (::windows::core::Interface::vtable(self).SetAccount)(::windows::core::Interface::as_raw(self), account).ok()
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -2025,7 +2025,7 @@ impl IFsrmActionCommand {
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
     pub unsafe fn SetMonitorCommand(&self, monitorcommand: i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetMonitorCommand)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(monitorcommand)).ok()
+        (::windows::core::Interface::vtable(self).SetMonitorCommand)(::windows::core::Interface::as_raw(self), monitorcommand).ok()
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
     pub unsafe fn KillTimeOut(&self) -> ::windows::core::Result<i32> {
@@ -2034,7 +2034,7 @@ impl IFsrmActionCommand {
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
     pub unsafe fn SetKillTimeOut(&self, minutes: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetKillTimeOut)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(minutes)).ok()
+        (::windows::core::Interface::vtable(self).SetKillTimeOut)(::windows::core::Interface::as_raw(self), minutes).ok()
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
     pub unsafe fn LogResult(&self) -> ::windows::core::Result<i16> {
@@ -2043,7 +2043,7 @@ impl IFsrmActionCommand {
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
     pub unsafe fn SetLogResult(&self, logresults: i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetLogResult)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(logresults)).ok()
+        (::windows::core::Interface::vtable(self).SetLogResult)(::windows::core::Interface::as_raw(self), logresults).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -2186,7 +2186,7 @@ impl IFsrmActionEmail {
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
     pub unsafe fn SetRunLimitInterval(&self, minutes: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetRunLimitInterval)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(minutes)).ok()
+        (::windows::core::Interface::vtable(self).base__.SetRunLimitInterval)(::windows::core::Interface::as_raw(self), minutes).ok()
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
     pub unsafe fn Delete(&self) -> ::windows::core::Result<()> {
@@ -2455,7 +2455,7 @@ impl IFsrmActionEmail2 {
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
     pub unsafe fn SetRunLimitInterval(&self, minutes: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.SetRunLimitInterval)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(minutes)).ok()
+        (::windows::core::Interface::vtable(self).base__.base__.SetRunLimitInterval)(::windows::core::Interface::as_raw(self), minutes).ok()
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
     pub unsafe fn Delete(&self) -> ::windows::core::Result<()> {
@@ -2566,7 +2566,7 @@ impl IFsrmActionEmail2 {
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
     pub unsafe fn SetAttachmentFileListSize(&self, attachmentfilelistsize: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetAttachmentFileListSize)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(attachmentfilelistsize)).ok()
+        (::windows::core::Interface::vtable(self).SetAttachmentFileListSize)(::windows::core::Interface::as_raw(self), attachmentfilelistsize).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -2697,7 +2697,7 @@ impl IFsrmActionEventLog {
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
     pub unsafe fn SetRunLimitInterval(&self, minutes: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetRunLimitInterval)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(minutes)).ok()
+        (::windows::core::Interface::vtable(self).base__.SetRunLimitInterval)(::windows::core::Interface::as_raw(self), minutes).ok()
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
     pub unsafe fn Delete(&self) -> ::windows::core::Result<()> {
@@ -2710,7 +2710,7 @@ impl IFsrmActionEventLog {
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
     pub unsafe fn SetEventType(&self, eventtype: FsrmEventType) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetEventType)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(eventtype)).ok()
+        (::windows::core::Interface::vtable(self).SetEventType)(::windows::core::Interface::as_raw(self), eventtype).ok()
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -2845,7 +2845,7 @@ impl IFsrmActionReport {
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
     pub unsafe fn SetRunLimitInterval(&self, minutes: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetRunLimitInterval)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(minutes)).ok()
+        (::windows::core::Interface::vtable(self).base__.SetRunLimitInterval)(::windows::core::Interface::as_raw(self), minutes).ok()
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
     pub unsafe fn Delete(&self) -> ::windows::core::Result<()> {
@@ -3032,7 +3032,7 @@ impl IFsrmAutoApplyQuota {
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
     pub unsafe fn SetQuotaFlags(&self, quotaflags: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.SetQuotaFlags)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(quotaflags)).ok()
+        (::windows::core::Interface::vtable(self).base__.base__.SetQuotaFlags)(::windows::core::Interface::as_raw(self), quotaflags).ok()
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -3042,27 +3042,27 @@ impl IFsrmAutoApplyQuota {
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
     pub unsafe fn AddThreshold(&self, threshold: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.AddThreshold)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(threshold)).ok()
+        (::windows::core::Interface::vtable(self).base__.base__.AddThreshold)(::windows::core::Interface::as_raw(self), threshold).ok()
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
     pub unsafe fn DeleteThreshold(&self, threshold: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.DeleteThreshold)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(threshold)).ok()
+        (::windows::core::Interface::vtable(self).base__.base__.DeleteThreshold)(::windows::core::Interface::as_raw(self), threshold).ok()
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
     pub unsafe fn ModifyThreshold(&self, threshold: i32, newthreshold: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.ModifyThreshold)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(threshold), ::core::mem::transmute(newthreshold)).ok()
+        (::windows::core::Interface::vtable(self).base__.base__.ModifyThreshold)(::windows::core::Interface::as_raw(self), threshold, newthreshold).ok()
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CreateThresholdAction(&self, threshold: i32, actiontype: FsrmActionType) -> ::windows::core::Result<IFsrmAction> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.base__.CreateThresholdAction)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(threshold), ::core::mem::transmute(actiontype), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IFsrmAction>(result__)
+        (::windows::core::Interface::vtable(self).base__.base__.CreateThresholdAction)(::windows::core::Interface::as_raw(self), threshold, actiontype, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IFsrmAction>(result__)
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn EnumThresholdActions(&self, threshold: i32) -> ::windows::core::Result<IFsrmCollection> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.base__.EnumThresholdActions)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(threshold), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IFsrmCollection>(result__)
+        (::windows::core::Interface::vtable(self).base__.base__.EnumThresholdActions)(::windows::core::Interface::as_raw(self), threshold, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IFsrmCollection>(result__)
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -3116,7 +3116,7 @@ impl IFsrmAutoApplyQuota {
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CommitAndUpdateDerived(&self, commitoptions: FsrmCommitOptions, applyoptions: FsrmTemplateApplyOptions) -> ::windows::core::Result<IFsrmDerivedObjectsResult> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).CommitAndUpdateDerived)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(commitoptions), ::core::mem::transmute(applyoptions), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IFsrmDerivedObjectsResult>(result__)
+        (::windows::core::Interface::vtable(self).CommitAndUpdateDerived)(::windows::core::Interface::as_raw(self), commitoptions, applyoptions, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IFsrmDerivedObjectsResult>(result__)
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -3276,7 +3276,7 @@ impl IFsrmClassificationManager {
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
     pub unsafe fn SetLogging(&self, logging: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetLogging)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(logging)).ok()
+        (::windows::core::Interface::vtable(self).SetLogging)(::windows::core::Interface::as_raw(self), logging).ok()
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -3299,7 +3299,7 @@ impl IFsrmClassificationManager {
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
     pub unsafe fn SetClassificationReportEnabled(&self, reportenabled: i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetClassificationReportEnabled)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(reportenabled)).ok()
+        (::windows::core::Interface::vtable(self).SetClassificationReportEnabled)(::windows::core::Interface::as_raw(self), reportenabled).ok()
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -3322,7 +3322,7 @@ impl IFsrmClassificationManager {
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn EnumPropertyDefinitions(&self, options: FsrmEnumOptions) -> ::windows::core::Result<IFsrmCollection> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).EnumPropertyDefinitions)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(options), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IFsrmCollection>(result__)
+        (::windows::core::Interface::vtable(self).EnumPropertyDefinitions)(::windows::core::Interface::as_raw(self), options, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IFsrmCollection>(result__)
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -3343,13 +3343,13 @@ impl IFsrmClassificationManager {
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn EnumRules(&self, ruletype: FsrmRuleType, options: FsrmEnumOptions) -> ::windows::core::Result<IFsrmCollection> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).EnumRules)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(ruletype), ::core::mem::transmute(options), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IFsrmCollection>(result__)
+        (::windows::core::Interface::vtable(self).EnumRules)(::windows::core::Interface::as_raw(self), ruletype, options, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IFsrmCollection>(result__)
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CreateRule(&self, ruletype: FsrmRuleType) -> ::windows::core::Result<IFsrmRule> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).CreateRule)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(ruletype), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IFsrmRule>(result__)
+        (::windows::core::Interface::vtable(self).CreateRule)(::windows::core::Interface::as_raw(self), ruletype, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IFsrmRule>(result__)
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
@@ -3358,19 +3358,19 @@ impl IFsrmClassificationManager {
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).GetRule)(::windows::core::Interface::as_raw(self), rulename.into().abi(), ::core::mem::transmute(ruletype), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IFsrmRule>(result__)
+        (::windows::core::Interface::vtable(self).GetRule)(::windows::core::Interface::as_raw(self), rulename.into().abi(), ruletype, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IFsrmRule>(result__)
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn EnumModuleDefinitions(&self, moduletype: FsrmPipelineModuleType, options: FsrmEnumOptions) -> ::windows::core::Result<IFsrmCollection> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).EnumModuleDefinitions)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(moduletype), ::core::mem::transmute(options), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IFsrmCollection>(result__)
+        (::windows::core::Interface::vtable(self).EnumModuleDefinitions)(::windows::core::Interface::as_raw(self), moduletype, options, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IFsrmCollection>(result__)
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CreateModuleDefinition(&self, moduletype: FsrmPipelineModuleType) -> ::windows::core::Result<IFsrmPipelineModuleDefinition> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).CreateModuleDefinition)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(moduletype), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IFsrmPipelineModuleDefinition>(result__)
+        (::windows::core::Interface::vtable(self).CreateModuleDefinition)(::windows::core::Interface::as_raw(self), moduletype, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IFsrmPipelineModuleDefinition>(result__)
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
@@ -3379,7 +3379,7 @@ impl IFsrmClassificationManager {
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).GetModuleDefinition)(::windows::core::Interface::as_raw(self), modulename.into().abi(), ::core::mem::transmute(moduletype), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IFsrmPipelineModuleDefinition>(result__)
+        (::windows::core::Interface::vtable(self).GetModuleDefinition)(::windows::core::Interface::as_raw(self), modulename.into().abi(), moduletype, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IFsrmPipelineModuleDefinition>(result__)
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -3387,12 +3387,12 @@ impl IFsrmClassificationManager {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
     {
-        (::windows::core::Interface::vtable(self).RunClassification)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(context), reserved.into().abi()).ok()
+        (::windows::core::Interface::vtable(self).RunClassification)(::windows::core::Interface::as_raw(self), context, reserved.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
     pub unsafe fn WaitForClassificationCompletion(&self, waitseconds: i32) -> ::windows::core::Result<i16> {
         let mut result__ = ::core::mem::MaybeUninit::<i16>::zeroed();
-        (::windows::core::Interface::vtable(self).WaitForClassificationCompletion)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(waitseconds), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i16>(result__)
+        (::windows::core::Interface::vtable(self).WaitForClassificationCompletion)(::windows::core::Interface::as_raw(self), waitseconds, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i16>(result__)
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
     pub unsafe fn CancelClassification(&self) -> ::windows::core::Result<()> {
@@ -3405,7 +3405,7 @@ impl IFsrmClassificationManager {
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).EnumFileProperties)(::windows::core::Interface::as_raw(self), filepath.into().abi(), ::core::mem::transmute(options), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IFsrmCollection>(result__)
+        (::windows::core::Interface::vtable(self).EnumFileProperties)(::windows::core::Interface::as_raw(self), filepath.into().abi(), options, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IFsrmCollection>(result__)
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
@@ -3415,7 +3415,7 @@ impl IFsrmClassificationManager {
         P1: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).GetFileProperty)(::windows::core::Interface::as_raw(self), filepath.into().abi(), propertyname.into().abi(), ::core::mem::transmute(options), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IFsrmProperty>(result__)
+        (::windows::core::Interface::vtable(self).GetFileProperty)(::windows::core::Interface::as_raw(self), filepath.into().abi(), propertyname.into().abi(), options, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IFsrmProperty>(result__)
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -3615,7 +3615,7 @@ impl IFsrmClassificationManager2 {
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
     pub unsafe fn SetLogging(&self, logging: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetLogging)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(logging)).ok()
+        (::windows::core::Interface::vtable(self).base__.SetLogging)(::windows::core::Interface::as_raw(self), logging).ok()
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -3638,7 +3638,7 @@ impl IFsrmClassificationManager2 {
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
     pub unsafe fn SetClassificationReportEnabled(&self, reportenabled: i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetClassificationReportEnabled)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(reportenabled)).ok()
+        (::windows::core::Interface::vtable(self).base__.SetClassificationReportEnabled)(::windows::core::Interface::as_raw(self), reportenabled).ok()
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -3661,7 +3661,7 @@ impl IFsrmClassificationManager2 {
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn EnumPropertyDefinitions(&self, options: FsrmEnumOptions) -> ::windows::core::Result<IFsrmCollection> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.EnumPropertyDefinitions)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(options), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IFsrmCollection>(result__)
+        (::windows::core::Interface::vtable(self).base__.EnumPropertyDefinitions)(::windows::core::Interface::as_raw(self), options, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IFsrmCollection>(result__)
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -3682,13 +3682,13 @@ impl IFsrmClassificationManager2 {
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn EnumRules(&self, ruletype: FsrmRuleType, options: FsrmEnumOptions) -> ::windows::core::Result<IFsrmCollection> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.EnumRules)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(ruletype), ::core::mem::transmute(options), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IFsrmCollection>(result__)
+        (::windows::core::Interface::vtable(self).base__.EnumRules)(::windows::core::Interface::as_raw(self), ruletype, options, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IFsrmCollection>(result__)
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CreateRule(&self, ruletype: FsrmRuleType) -> ::windows::core::Result<IFsrmRule> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.CreateRule)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(ruletype), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IFsrmRule>(result__)
+        (::windows::core::Interface::vtable(self).base__.CreateRule)(::windows::core::Interface::as_raw(self), ruletype, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IFsrmRule>(result__)
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
@@ -3697,19 +3697,19 @@ impl IFsrmClassificationManager2 {
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.GetRule)(::windows::core::Interface::as_raw(self), rulename.into().abi(), ::core::mem::transmute(ruletype), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IFsrmRule>(result__)
+        (::windows::core::Interface::vtable(self).base__.GetRule)(::windows::core::Interface::as_raw(self), rulename.into().abi(), ruletype, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IFsrmRule>(result__)
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn EnumModuleDefinitions(&self, moduletype: FsrmPipelineModuleType, options: FsrmEnumOptions) -> ::windows::core::Result<IFsrmCollection> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.EnumModuleDefinitions)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(moduletype), ::core::mem::transmute(options), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IFsrmCollection>(result__)
+        (::windows::core::Interface::vtable(self).base__.EnumModuleDefinitions)(::windows::core::Interface::as_raw(self), moduletype, options, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IFsrmCollection>(result__)
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CreateModuleDefinition(&self, moduletype: FsrmPipelineModuleType) -> ::windows::core::Result<IFsrmPipelineModuleDefinition> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.CreateModuleDefinition)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(moduletype), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IFsrmPipelineModuleDefinition>(result__)
+        (::windows::core::Interface::vtable(self).base__.CreateModuleDefinition)(::windows::core::Interface::as_raw(self), moduletype, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IFsrmPipelineModuleDefinition>(result__)
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
@@ -3718,7 +3718,7 @@ impl IFsrmClassificationManager2 {
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.GetModuleDefinition)(::windows::core::Interface::as_raw(self), modulename.into().abi(), ::core::mem::transmute(moduletype), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IFsrmPipelineModuleDefinition>(result__)
+        (::windows::core::Interface::vtable(self).base__.GetModuleDefinition)(::windows::core::Interface::as_raw(self), modulename.into().abi(), moduletype, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IFsrmPipelineModuleDefinition>(result__)
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -3726,12 +3726,12 @@ impl IFsrmClassificationManager2 {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
     {
-        (::windows::core::Interface::vtable(self).base__.RunClassification)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(context), reserved.into().abi()).ok()
+        (::windows::core::Interface::vtable(self).base__.RunClassification)(::windows::core::Interface::as_raw(self), context, reserved.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
     pub unsafe fn WaitForClassificationCompletion(&self, waitseconds: i32) -> ::windows::core::Result<i16> {
         let mut result__ = ::core::mem::MaybeUninit::<i16>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.WaitForClassificationCompletion)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(waitseconds), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i16>(result__)
+        (::windows::core::Interface::vtable(self).base__.WaitForClassificationCompletion)(::windows::core::Interface::as_raw(self), waitseconds, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i16>(result__)
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
     pub unsafe fn CancelClassification(&self) -> ::windows::core::Result<()> {
@@ -3744,7 +3744,7 @@ impl IFsrmClassificationManager2 {
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.EnumFileProperties)(::windows::core::Interface::as_raw(self), filepath.into().abi(), ::core::mem::transmute(options), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IFsrmCollection>(result__)
+        (::windows::core::Interface::vtable(self).base__.EnumFileProperties)(::windows::core::Interface::as_raw(self), filepath.into().abi(), options, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IFsrmCollection>(result__)
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
@@ -3754,7 +3754,7 @@ impl IFsrmClassificationManager2 {
         P1: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.GetFileProperty)(::windows::core::Interface::as_raw(self), filepath.into().abi(), propertyname.into().abi(), ::core::mem::transmute(options), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IFsrmProperty>(result__)
+        (::windows::core::Interface::vtable(self).base__.GetFileProperty)(::windows::core::Interface::as_raw(self), filepath.into().abi(), propertyname.into().abi(), options, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IFsrmProperty>(result__)
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -3778,7 +3778,7 @@ impl IFsrmClassificationManager2 {
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn ClassifyFiles(&self, filepaths: *const super::super::System::Com::SAFEARRAY, propertynames: *const super::super::System::Com::SAFEARRAY, propertyvalues: *const super::super::System::Com::SAFEARRAY, options: FsrmGetFilePropertyOptions) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).ClassifyFiles)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(filepaths), ::core::mem::transmute(propertynames), ::core::mem::transmute(propertyvalues), ::core::mem::transmute(options)).ok()
+        (::windows::core::Interface::vtable(self).ClassifyFiles)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(filepaths), ::core::mem::transmute(propertynames), ::core::mem::transmute(propertyvalues), options).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -3954,7 +3954,7 @@ impl IFsrmClassificationRule {
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
     pub unsafe fn SetRuleFlags(&self, ruleflags: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetRuleFlags)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(ruleflags)).ok()
+        (::windows::core::Interface::vtable(self).base__.SetRuleFlags)(::windows::core::Interface::as_raw(self), ruleflags).ok()
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -3980,7 +3980,7 @@ impl IFsrmClassificationRule {
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
     pub unsafe fn SetExecutionOption(&self, executionoption: FsrmExecutionOption) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetExecutionOption)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(executionoption)).ok()
+        (::windows::core::Interface::vtable(self).SetExecutionOption)(::windows::core::Interface::as_raw(self), executionoption).ok()
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -4233,7 +4233,7 @@ impl IFsrmClassifierModuleDefinition {
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
     pub unsafe fn SetEnabled(&self, enabled: i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetEnabled)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(enabled)).ok()
+        (::windows::core::Interface::vtable(self).base__.SetEnabled)(::windows::core::Interface::as_raw(self), enabled).ok()
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
     pub unsafe fn NeedsFileContent(&self) -> ::windows::core::Result<i16> {
@@ -4242,7 +4242,7 @@ impl IFsrmClassifierModuleDefinition {
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
     pub unsafe fn SetNeedsFileContent(&self, needsfilecontent: i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetNeedsFileContent)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(needsfilecontent)).ok()
+        (::windows::core::Interface::vtable(self).base__.SetNeedsFileContent)(::windows::core::Interface::as_raw(self), needsfilecontent).ok()
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
     pub unsafe fn Account(&self) -> ::windows::core::Result<FsrmAccountType> {
@@ -4251,7 +4251,7 @@ impl IFsrmClassifierModuleDefinition {
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
     pub unsafe fn SetAccount(&self, retrievalaccount: FsrmAccountType) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetAccount)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(retrievalaccount)).ok()
+        (::windows::core::Interface::vtable(self).base__.SetAccount)(::windows::core::Interface::as_raw(self), retrievalaccount).ok()
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -4304,7 +4304,7 @@ impl IFsrmClassifierModuleDefinition {
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
     pub unsafe fn SetNeedsExplicitValue(&self, needsexplicitvalue: i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetNeedsExplicitValue)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(needsexplicitvalue)).ok()
+        (::windows::core::Interface::vtable(self).SetNeedsExplicitValue)(::windows::core::Interface::as_raw(self), needsexplicitvalue).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -4613,7 +4613,7 @@ impl IFsrmCollection {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn get_Item(&self, index: i32) -> ::windows::core::Result<super::super::System::Com::VARIANT> {
         let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>>::zeroed();
-        (::windows::core::Interface::vtable(self).get_Item)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(index), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::System::Com::VARIANT>(result__)
+        (::windows::core::Interface::vtable(self).get_Item)(::windows::core::Interface::as_raw(self), index, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::System::Com::VARIANT>(result__)
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
     pub unsafe fn Count(&self) -> ::windows::core::Result<i32> {
@@ -4632,7 +4632,7 @@ impl IFsrmCollection {
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
     pub unsafe fn WaitForCompletion(&self, waitseconds: i32) -> ::windows::core::Result<i16> {
         let mut result__ = ::core::mem::MaybeUninit::<i16>::zeroed();
-        (::windows::core::Interface::vtable(self).WaitForCompletion)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(waitseconds), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i16>(result__)
+        (::windows::core::Interface::vtable(self).WaitForCompletion)(::windows::core::Interface::as_raw(self), waitseconds, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i16>(result__)
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -4736,7 +4736,7 @@ impl IFsrmCommittableCollection {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn get_Item(&self, index: i32) -> ::windows::core::Result<super::super::System::Com::VARIANT> {
         let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.base__.get_Item)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(index), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::System::Com::VARIANT>(result__)
+        (::windows::core::Interface::vtable(self).base__.base__.get_Item)(::windows::core::Interface::as_raw(self), index, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::System::Com::VARIANT>(result__)
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
     pub unsafe fn Count(&self) -> ::windows::core::Result<i32> {
@@ -4755,7 +4755,7 @@ impl IFsrmCommittableCollection {
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
     pub unsafe fn WaitForCompletion(&self, waitseconds: i32) -> ::windows::core::Result<i16> {
         let mut result__ = ::core::mem::MaybeUninit::<i16>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.base__.WaitForCompletion)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(waitseconds), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i16>(result__)
+        (::windows::core::Interface::vtable(self).base__.base__.WaitForCompletion)(::windows::core::Interface::as_raw(self), waitseconds, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i16>(result__)
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -4773,7 +4773,7 @@ impl IFsrmCommittableCollection {
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
     pub unsafe fn Remove(&self, index: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.Remove)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(index)).ok()
+        (::windows::core::Interface::vtable(self).base__.Remove)(::windows::core::Interface::as_raw(self), index).ok()
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
     pub unsafe fn RemoveById(&self, id: ::windows::core::GUID) -> ::windows::core::Result<()> {
@@ -4789,7 +4789,7 @@ impl IFsrmCommittableCollection {
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Commit(&self, options: FsrmCommitOptions) -> ::windows::core::Result<IFsrmCollection> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).Commit)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(options), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IFsrmCollection>(result__)
+        (::windows::core::Interface::vtable(self).Commit)(::windows::core::Interface::as_raw(self), options, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IFsrmCollection>(result__)
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -5269,7 +5269,7 @@ impl IFsrmFileConditionProperty {
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
     pub unsafe fn SetPropertyId(&self, newval: FsrmFileSystemPropertyId) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetPropertyId)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(newval)).ok()
+        (::windows::core::Interface::vtable(self).SetPropertyId)(::windows::core::Interface::as_raw(self), newval).ok()
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
     pub unsafe fn Operator(&self) -> ::windows::core::Result<FsrmPropertyConditionType> {
@@ -5278,7 +5278,7 @@ impl IFsrmFileConditionProperty {
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
     pub unsafe fn SetOperator(&self, newval: FsrmPropertyConditionType) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetOperator)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(newval)).ok()
+        (::windows::core::Interface::vtable(self).SetOperator)(::windows::core::Interface::as_raw(self), newval).ok()
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
     pub unsafe fn ValueType(&self) -> ::windows::core::Result<FsrmPropertyValueType> {
@@ -5287,7 +5287,7 @@ impl IFsrmFileConditionProperty {
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
     pub unsafe fn SetValueType(&self, newval: FsrmPropertyValueType) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetValueType)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(newval)).ok()
+        (::windows::core::Interface::vtable(self).SetValueType)(::windows::core::Interface::as_raw(self), newval).ok()
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -5678,7 +5678,7 @@ impl IFsrmFileGroupImported {
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
     pub unsafe fn SetOverwriteOnCommit(&self, overwrite: i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetOverwriteOnCommit)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(overwrite)).ok()
+        (::windows::core::Interface::vtable(self).SetOverwriteOnCommit)(::windows::core::Interface::as_raw(self), overwrite).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -5811,7 +5811,7 @@ impl IFsrmFileGroupManager {
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn EnumFileGroups(&self, options: FsrmEnumOptions) -> ::windows::core::Result<IFsrmCommittableCollection> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).EnumFileGroups)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(options), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IFsrmCommittableCollection>(result__)
+        (::windows::core::Interface::vtable(self).EnumFileGroups)(::windows::core::Interface::as_raw(self), options, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IFsrmCommittableCollection>(result__)
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -5981,7 +5981,7 @@ impl IFsrmFileManagementJob {
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
     pub unsafe fn SetEnabled(&self, enabled: i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetEnabled)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(enabled)).ok()
+        (::windows::core::Interface::vtable(self).SetEnabled)(::windows::core::Interface::as_raw(self), enabled).ok()
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
     pub unsafe fn OperationType(&self) -> ::windows::core::Result<FsrmFileManagementType> {
@@ -5990,7 +5990,7 @@ impl IFsrmFileManagementJob {
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
     pub unsafe fn SetOperationType(&self, operationtype: FsrmFileManagementType) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetOperationType)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(operationtype)).ok()
+        (::windows::core::Interface::vtable(self).SetOperationType)(::windows::core::Interface::as_raw(self), operationtype).ok()
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -6025,7 +6025,7 @@ impl IFsrmFileManagementJob {
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
     pub unsafe fn SetLogging(&self, loggingflags: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetLogging)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(loggingflags)).ok()
+        (::windows::core::Interface::vtable(self).SetLogging)(::windows::core::Interface::as_raw(self), loggingflags).ok()
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
     pub unsafe fn ReportEnabled(&self) -> ::windows::core::Result<i16> {
@@ -6034,7 +6034,7 @@ impl IFsrmFileManagementJob {
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
     pub unsafe fn SetReportEnabled(&self, reportenabled: i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetReportEnabled)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(reportenabled)).ok()
+        (::windows::core::Interface::vtable(self).SetReportEnabled)(::windows::core::Interface::as_raw(self), reportenabled).ok()
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -6068,7 +6068,7 @@ impl IFsrmFileManagementJob {
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
     pub unsafe fn SetDaysSinceFileCreated(&self, dayssincecreation: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetDaysSinceFileCreated)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(dayssincecreation)).ok()
+        (::windows::core::Interface::vtable(self).SetDaysSinceFileCreated)(::windows::core::Interface::as_raw(self), dayssincecreation).ok()
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
     pub unsafe fn DaysSinceFileLastAccessed(&self) -> ::windows::core::Result<i32> {
@@ -6077,7 +6077,7 @@ impl IFsrmFileManagementJob {
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
     pub unsafe fn SetDaysSinceFileLastAccessed(&self, dayssinceaccess: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetDaysSinceFileLastAccessed)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(dayssinceaccess)).ok()
+        (::windows::core::Interface::vtable(self).SetDaysSinceFileLastAccessed)(::windows::core::Interface::as_raw(self), dayssinceaccess).ok()
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
     pub unsafe fn DaysSinceFileLastModified(&self) -> ::windows::core::Result<i32> {
@@ -6086,7 +6086,7 @@ impl IFsrmFileManagementJob {
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
     pub unsafe fn SetDaysSinceFileLastModified(&self, dayssincemodify: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetDaysSinceFileLastModified)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(dayssincemodify)).ok()
+        (::windows::core::Interface::vtable(self).SetDaysSinceFileLastModified)(::windows::core::Interface::as_raw(self), dayssincemodify).ok()
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -6101,7 +6101,7 @@ impl IFsrmFileManagementJob {
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
     pub unsafe fn SetFromDate(&self, fromdate: f64) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetFromDate)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(fromdate)).ok()
+        (::windows::core::Interface::vtable(self).SetFromDate)(::windows::core::Interface::as_raw(self), fromdate).ok()
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -6166,12 +6166,12 @@ impl IFsrmFileManagementJob {
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
     pub unsafe fn Run(&self, context: FsrmReportGenerationContext) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Run)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(context)).ok()
+        (::windows::core::Interface::vtable(self).Run)(::windows::core::Interface::as_raw(self), context).ok()
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
     pub unsafe fn WaitForCompletion(&self, waitseconds: i32) -> ::windows::core::Result<i16> {
         let mut result__ = ::core::mem::MaybeUninit::<i16>::zeroed();
-        (::windows::core::Interface::vtable(self).WaitForCompletion)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(waitseconds), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i16>(result__)
+        (::windows::core::Interface::vtable(self).WaitForCompletion)(::windows::core::Interface::as_raw(self), waitseconds, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i16>(result__)
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
     pub unsafe fn Cancel(&self) -> ::windows::core::Result<()> {
@@ -6179,27 +6179,27 @@ impl IFsrmFileManagementJob {
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
     pub unsafe fn AddNotification(&self, days: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).AddNotification)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(days)).ok()
+        (::windows::core::Interface::vtable(self).AddNotification)(::windows::core::Interface::as_raw(self), days).ok()
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
     pub unsafe fn DeleteNotification(&self, days: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).DeleteNotification)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(days)).ok()
+        (::windows::core::Interface::vtable(self).DeleteNotification)(::windows::core::Interface::as_raw(self), days).ok()
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
     pub unsafe fn ModifyNotification(&self, days: i32, newdays: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).ModifyNotification)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(days), ::core::mem::transmute(newdays)).ok()
+        (::windows::core::Interface::vtable(self).ModifyNotification)(::windows::core::Interface::as_raw(self), days, newdays).ok()
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CreateNotificationAction(&self, days: i32, actiontype: FsrmActionType) -> ::windows::core::Result<IFsrmAction> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).CreateNotificationAction)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(days), ::core::mem::transmute(actiontype), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IFsrmAction>(result__)
+        (::windows::core::Interface::vtable(self).CreateNotificationAction)(::windows::core::Interface::as_raw(self), days, actiontype, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IFsrmAction>(result__)
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn EnumNotificationActions(&self, days: i32) -> ::windows::core::Result<IFsrmCollection> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).EnumNotificationActions)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(days), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IFsrmCollection>(result__)
+        (::windows::core::Interface::vtable(self).EnumNotificationActions)(::windows::core::Interface::as_raw(self), days, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IFsrmCollection>(result__)
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
@@ -6448,7 +6448,7 @@ impl IFsrmFileManagementJobManager {
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn EnumFileManagementJobs(&self, options: FsrmEnumOptions) -> ::windows::core::Result<IFsrmCollection> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).EnumFileManagementJobs)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(options), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IFsrmCollection>(result__)
+        (::windows::core::Interface::vtable(self).EnumFileManagementJobs)(::windows::core::Interface::as_raw(self), options, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IFsrmCollection>(result__)
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -6607,13 +6607,13 @@ impl IFsrmFileScreen {
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
     pub unsafe fn SetFileScreenFlags(&self, filescreenflags: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetFileScreenFlags)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(filescreenflags)).ok()
+        (::windows::core::Interface::vtable(self).base__.SetFileScreenFlags)(::windows::core::Interface::as_raw(self), filescreenflags).ok()
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CreateAction(&self, actiontype: FsrmActionType) -> ::windows::core::Result<IFsrmAction> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.CreateAction)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(actiontype), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IFsrmAction>(result__)
+        (::windows::core::Interface::vtable(self).base__.CreateAction)(::windows::core::Interface::as_raw(self), actiontype, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IFsrmAction>(result__)
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -6837,13 +6837,13 @@ impl IFsrmFileScreenBase {
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
     pub unsafe fn SetFileScreenFlags(&self, filescreenflags: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetFileScreenFlags)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(filescreenflags)).ok()
+        (::windows::core::Interface::vtable(self).SetFileScreenFlags)(::windows::core::Interface::as_raw(self), filescreenflags).ok()
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CreateAction(&self, actiontype: FsrmActionType) -> ::windows::core::Result<IFsrmAction> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).CreateAction)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(actiontype), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IFsrmAction>(result__)
+        (::windows::core::Interface::vtable(self).CreateAction)(::windows::core::Interface::as_raw(self), actiontype, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IFsrmAction>(result__)
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -7149,7 +7149,7 @@ impl IFsrmFileScreenManager {
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).EnumFileScreens)(::windows::core::Interface::as_raw(self), path.into().abi(), ::core::mem::transmute(options), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IFsrmCommittableCollection>(result__)
+        (::windows::core::Interface::vtable(self).EnumFileScreens)(::windows::core::Interface::as_raw(self), path.into().abi(), options, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IFsrmCommittableCollection>(result__)
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
@@ -7176,7 +7176,7 @@ impl IFsrmFileScreenManager {
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).EnumFileScreenExceptions)(::windows::core::Interface::as_raw(self), path.into().abi(), ::core::mem::transmute(options), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IFsrmCommittableCollection>(result__)
+        (::windows::core::Interface::vtable(self).EnumFileScreenExceptions)(::windows::core::Interface::as_raw(self), path.into().abi(), options, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IFsrmCommittableCollection>(result__)
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -7342,13 +7342,13 @@ impl IFsrmFileScreenTemplate {
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
     pub unsafe fn SetFileScreenFlags(&self, filescreenflags: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetFileScreenFlags)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(filescreenflags)).ok()
+        (::windows::core::Interface::vtable(self).base__.SetFileScreenFlags)(::windows::core::Interface::as_raw(self), filescreenflags).ok()
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CreateAction(&self, actiontype: FsrmActionType) -> ::windows::core::Result<IFsrmAction> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.CreateAction)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(actiontype), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IFsrmAction>(result__)
+        (::windows::core::Interface::vtable(self).base__.CreateAction)(::windows::core::Interface::as_raw(self), actiontype, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IFsrmAction>(result__)
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -7382,7 +7382,7 @@ impl IFsrmFileScreenTemplate {
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CommitAndUpdateDerived(&self, commitoptions: FsrmCommitOptions, applyoptions: FsrmTemplateApplyOptions) -> ::windows::core::Result<IFsrmDerivedObjectsResult> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).CommitAndUpdateDerived)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(commitoptions), ::core::mem::transmute(applyoptions), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IFsrmDerivedObjectsResult>(result__)
+        (::windows::core::Interface::vtable(self).CommitAndUpdateDerived)(::windows::core::Interface::as_raw(self), commitoptions, applyoptions, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IFsrmDerivedObjectsResult>(result__)
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -7558,13 +7558,13 @@ impl IFsrmFileScreenTemplateImported {
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
     pub unsafe fn SetFileScreenFlags(&self, filescreenflags: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.SetFileScreenFlags)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(filescreenflags)).ok()
+        (::windows::core::Interface::vtable(self).base__.base__.SetFileScreenFlags)(::windows::core::Interface::as_raw(self), filescreenflags).ok()
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CreateAction(&self, actiontype: FsrmActionType) -> ::windows::core::Result<IFsrmAction> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.base__.CreateAction)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(actiontype), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IFsrmAction>(result__)
+        (::windows::core::Interface::vtable(self).base__.base__.CreateAction)(::windows::core::Interface::as_raw(self), actiontype, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IFsrmAction>(result__)
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -7598,7 +7598,7 @@ impl IFsrmFileScreenTemplateImported {
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CommitAndUpdateDerived(&self, commitoptions: FsrmCommitOptions, applyoptions: FsrmTemplateApplyOptions) -> ::windows::core::Result<IFsrmDerivedObjectsResult> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.CommitAndUpdateDerived)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(commitoptions), ::core::mem::transmute(applyoptions), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IFsrmDerivedObjectsResult>(result__)
+        (::windows::core::Interface::vtable(self).base__.CommitAndUpdateDerived)(::windows::core::Interface::as_raw(self), commitoptions, applyoptions, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IFsrmDerivedObjectsResult>(result__)
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
     pub unsafe fn OverwriteOnCommit(&self) -> ::windows::core::Result<i16> {
@@ -7607,7 +7607,7 @@ impl IFsrmFileScreenTemplateImported {
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
     pub unsafe fn SetOverwriteOnCommit(&self, overwrite: i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetOverwriteOnCommit)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(overwrite)).ok()
+        (::windows::core::Interface::vtable(self).SetOverwriteOnCommit)(::windows::core::Interface::as_raw(self), overwrite).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -7758,7 +7758,7 @@ impl IFsrmFileScreenTemplateManager {
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn EnumTemplates(&self, options: FsrmEnumOptions) -> ::windows::core::Result<IFsrmCommittableCollection> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).EnumTemplates)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(options), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IFsrmCommittableCollection>(result__)
+        (::windows::core::Interface::vtable(self).EnumTemplates)(::windows::core::Interface::as_raw(self), options, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IFsrmCommittableCollection>(result__)
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -7878,7 +7878,7 @@ impl IFsrmMutableCollection {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn get_Item(&self, index: i32) -> ::windows::core::Result<super::super::System::Com::VARIANT> {
         let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.get_Item)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(index), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::System::Com::VARIANT>(result__)
+        (::windows::core::Interface::vtable(self).base__.get_Item)(::windows::core::Interface::as_raw(self), index, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::System::Com::VARIANT>(result__)
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
     pub unsafe fn Count(&self) -> ::windows::core::Result<i32> {
@@ -7897,7 +7897,7 @@ impl IFsrmMutableCollection {
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
     pub unsafe fn WaitForCompletion(&self, waitseconds: i32) -> ::windows::core::Result<i16> {
         let mut result__ = ::core::mem::MaybeUninit::<i16>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.WaitForCompletion)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(waitseconds), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i16>(result__)
+        (::windows::core::Interface::vtable(self).base__.WaitForCompletion)(::windows::core::Interface::as_raw(self), waitseconds, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i16>(result__)
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -7915,7 +7915,7 @@ impl IFsrmMutableCollection {
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
     pub unsafe fn Remove(&self, index: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Remove)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(index)).ok()
+        (::windows::core::Interface::vtable(self).Remove)(::windows::core::Interface::as_raw(self), index).ok()
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
     pub unsafe fn RemoveById(&self, id: ::windows::core::GUID) -> ::windows::core::Result<()> {
@@ -8446,7 +8446,7 @@ impl IFsrmPipelineModuleDefinition {
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
     pub unsafe fn SetEnabled(&self, enabled: i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetEnabled)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(enabled)).ok()
+        (::windows::core::Interface::vtable(self).SetEnabled)(::windows::core::Interface::as_raw(self), enabled).ok()
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
     pub unsafe fn NeedsFileContent(&self) -> ::windows::core::Result<i16> {
@@ -8455,7 +8455,7 @@ impl IFsrmPipelineModuleDefinition {
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
     pub unsafe fn SetNeedsFileContent(&self, needsfilecontent: i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetNeedsFileContent)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(needsfilecontent)).ok()
+        (::windows::core::Interface::vtable(self).SetNeedsFileContent)(::windows::core::Interface::as_raw(self), needsfilecontent).ok()
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
     pub unsafe fn Account(&self) -> ::windows::core::Result<FsrmAccountType> {
@@ -8464,7 +8464,7 @@ impl IFsrmPipelineModuleDefinition {
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
     pub unsafe fn SetAccount(&self, retrievalaccount: FsrmAccountType) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetAccount)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(retrievalaccount)).ok()
+        (::windows::core::Interface::vtable(self).SetAccount)(::windows::core::Interface::as_raw(self), retrievalaccount).ok()
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -8966,7 +8966,7 @@ impl IFsrmPropertyBag {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn GetFileStreamInterface(&self, accessmode: FsrmFileStreamingMode, interfacetype: FsrmFileStreamingInterfaceType) -> ::windows::core::Result<super::super::System::Com::VARIANT> {
         let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>>::zeroed();
-        (::windows::core::Interface::vtable(self).GetFileStreamInterface)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(accessmode), ::core::mem::transmute(interfacetype), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::System::Com::VARIANT>(result__)
+        (::windows::core::Interface::vtable(self).GetFileStreamInterface)(::windows::core::Interface::as_raw(self), accessmode, interfacetype, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::System::Com::VARIANT>(result__)
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -9246,13 +9246,13 @@ impl IFsrmPropertyBag2 {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn GetFileStreamInterface(&self, accessmode: FsrmFileStreamingMode, interfacetype: FsrmFileStreamingInterfaceType) -> ::windows::core::Result<super::super::System::Com::VARIANT> {
         let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.GetFileStreamInterface)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(accessmode), ::core::mem::transmute(interfacetype), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::System::Com::VARIANT>(result__)
+        (::windows::core::Interface::vtable(self).base__.GetFileStreamInterface)(::windows::core::Interface::as_raw(self), accessmode, interfacetype, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::System::Com::VARIANT>(result__)
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn GetFieldValue(&self, field: FsrmPropertyBagField) -> ::windows::core::Result<super::super::System::Com::VARIANT> {
         let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>>::zeroed();
-        (::windows::core::Interface::vtable(self).GetFieldValue)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(field), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::System::Com::VARIANT>(result__)
+        (::windows::core::Interface::vtable(self).GetFieldValue)(::windows::core::Interface::as_raw(self), field, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::System::Com::VARIANT>(result__)
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -9381,7 +9381,7 @@ impl IFsrmPropertyCondition {
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
     pub unsafe fn SetType(&self, r#type: FsrmPropertyConditionType) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetType)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(r#type)).ok()
+        (::windows::core::Interface::vtable(self).SetType)(::windows::core::Interface::as_raw(self), r#type).ok()
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -9542,7 +9542,7 @@ impl IFsrmPropertyDefinition {
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
     pub unsafe fn SetType(&self, r#type: FsrmPropertyDefinitionType) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetType)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(r#type)).ok()
+        (::windows::core::Interface::vtable(self).SetType)(::windows::core::Interface::as_raw(self), r#type).ok()
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -9751,7 +9751,7 @@ impl IFsrmPropertyDefinition2 {
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
     pub unsafe fn SetType(&self, r#type: FsrmPropertyDefinitionType) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetType)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(r#type)).ok()
+        (::windows::core::Interface::vtable(self).base__.SetType)(::windows::core::Interface::as_raw(self), r#type).ok()
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -10102,7 +10102,7 @@ impl IFsrmQuota {
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
     pub unsafe fn SetQuotaFlags(&self, quotaflags: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.SetQuotaFlags)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(quotaflags)).ok()
+        (::windows::core::Interface::vtable(self).base__.base__.SetQuotaFlags)(::windows::core::Interface::as_raw(self), quotaflags).ok()
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -10112,27 +10112,27 @@ impl IFsrmQuota {
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
     pub unsafe fn AddThreshold(&self, threshold: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.AddThreshold)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(threshold)).ok()
+        (::windows::core::Interface::vtable(self).base__.base__.AddThreshold)(::windows::core::Interface::as_raw(self), threshold).ok()
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
     pub unsafe fn DeleteThreshold(&self, threshold: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.DeleteThreshold)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(threshold)).ok()
+        (::windows::core::Interface::vtable(self).base__.base__.DeleteThreshold)(::windows::core::Interface::as_raw(self), threshold).ok()
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
     pub unsafe fn ModifyThreshold(&self, threshold: i32, newthreshold: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.ModifyThreshold)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(threshold), ::core::mem::transmute(newthreshold)).ok()
+        (::windows::core::Interface::vtable(self).base__.base__.ModifyThreshold)(::windows::core::Interface::as_raw(self), threshold, newthreshold).ok()
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CreateThresholdAction(&self, threshold: i32, actiontype: FsrmActionType) -> ::windows::core::Result<IFsrmAction> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.base__.CreateThresholdAction)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(threshold), ::core::mem::transmute(actiontype), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IFsrmAction>(result__)
+        (::windows::core::Interface::vtable(self).base__.base__.CreateThresholdAction)(::windows::core::Interface::as_raw(self), threshold, actiontype, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IFsrmAction>(result__)
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn EnumThresholdActions(&self, threshold: i32) -> ::windows::core::Result<IFsrmCollection> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.base__.EnumThresholdActions)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(threshold), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IFsrmCollection>(result__)
+        (::windows::core::Interface::vtable(self).base__.base__.EnumThresholdActions)(::windows::core::Interface::as_raw(self), threshold, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IFsrmCollection>(result__)
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -10383,7 +10383,7 @@ impl IFsrmQuotaBase {
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
     pub unsafe fn SetQuotaFlags(&self, quotaflags: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetQuotaFlags)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(quotaflags)).ok()
+        (::windows::core::Interface::vtable(self).SetQuotaFlags)(::windows::core::Interface::as_raw(self), quotaflags).ok()
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -10393,27 +10393,27 @@ impl IFsrmQuotaBase {
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
     pub unsafe fn AddThreshold(&self, threshold: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).AddThreshold)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(threshold)).ok()
+        (::windows::core::Interface::vtable(self).AddThreshold)(::windows::core::Interface::as_raw(self), threshold).ok()
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
     pub unsafe fn DeleteThreshold(&self, threshold: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).DeleteThreshold)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(threshold)).ok()
+        (::windows::core::Interface::vtable(self).DeleteThreshold)(::windows::core::Interface::as_raw(self), threshold).ok()
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
     pub unsafe fn ModifyThreshold(&self, threshold: i32, newthreshold: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).ModifyThreshold)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(threshold), ::core::mem::transmute(newthreshold)).ok()
+        (::windows::core::Interface::vtable(self).ModifyThreshold)(::windows::core::Interface::as_raw(self), threshold, newthreshold).ok()
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CreateThresholdAction(&self, threshold: i32, actiontype: FsrmActionType) -> ::windows::core::Result<IFsrmAction> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).CreateThresholdAction)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(threshold), ::core::mem::transmute(actiontype), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IFsrmAction>(result__)
+        (::windows::core::Interface::vtable(self).CreateThresholdAction)(::windows::core::Interface::as_raw(self), threshold, actiontype, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IFsrmAction>(result__)
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn EnumThresholdActions(&self, threshold: i32) -> ::windows::core::Result<IFsrmCollection> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).EnumThresholdActions)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(threshold), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IFsrmCollection>(result__)
+        (::windows::core::Interface::vtable(self).EnumThresholdActions)(::windows::core::Interface::as_raw(self), threshold, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IFsrmCollection>(result__)
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -10597,7 +10597,7 @@ impl IFsrmQuotaManager {
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).EnumQuotas)(::windows::core::Interface::as_raw(self), path.into().abi(), ::core::mem::transmute(options), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IFsrmCommittableCollection>(result__)
+        (::windows::core::Interface::vtable(self).EnumQuotas)(::windows::core::Interface::as_raw(self), path.into().abi(), options, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IFsrmCommittableCollection>(result__)
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
@@ -10606,7 +10606,7 @@ impl IFsrmQuotaManager {
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).EnumAutoApplyQuotas)(::windows::core::Interface::as_raw(self), path.into().abi(), ::core::mem::transmute(options), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IFsrmCommittableCollection>(result__)
+        (::windows::core::Interface::vtable(self).EnumAutoApplyQuotas)(::windows::core::Interface::as_raw(self), path.into().abi(), options, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IFsrmCommittableCollection>(result__)
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
@@ -10615,7 +10615,7 @@ impl IFsrmQuotaManager {
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).EnumEffectiveQuotas)(::windows::core::Interface::as_raw(self), path.into().abi(), ::core::mem::transmute(options), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IFsrmCommittableCollection>(result__)
+        (::windows::core::Interface::vtable(self).EnumEffectiveQuotas)(::windows::core::Interface::as_raw(self), path.into().abi(), options, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IFsrmCommittableCollection>(result__)
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -10818,7 +10818,7 @@ impl IFsrmQuotaManagerEx {
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.EnumQuotas)(::windows::core::Interface::as_raw(self), path.into().abi(), ::core::mem::transmute(options), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IFsrmCommittableCollection>(result__)
+        (::windows::core::Interface::vtable(self).base__.EnumQuotas)(::windows::core::Interface::as_raw(self), path.into().abi(), options, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IFsrmCommittableCollection>(result__)
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
@@ -10827,7 +10827,7 @@ impl IFsrmQuotaManagerEx {
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.EnumAutoApplyQuotas)(::windows::core::Interface::as_raw(self), path.into().abi(), ::core::mem::transmute(options), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IFsrmCommittableCollection>(result__)
+        (::windows::core::Interface::vtable(self).base__.EnumAutoApplyQuotas)(::windows::core::Interface::as_raw(self), path.into().abi(), options, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IFsrmCommittableCollection>(result__)
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
@@ -10836,7 +10836,7 @@ impl IFsrmQuotaManagerEx {
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.EnumEffectiveQuotas)(::windows::core::Interface::as_raw(self), path.into().abi(), ::core::mem::transmute(options), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IFsrmCommittableCollection>(result__)
+        (::windows::core::Interface::vtable(self).base__.EnumEffectiveQuotas)(::windows::core::Interface::as_raw(self), path.into().abi(), options, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IFsrmCommittableCollection>(result__)
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -10859,7 +10859,7 @@ impl IFsrmQuotaManagerEx {
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::<i16>::zeroed();
-        (::windows::core::Interface::vtable(self).IsAffectedByQuota)(::windows::core::Interface::as_raw(self), path.into().abi(), ::core::mem::transmute(options), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i16>(result__)
+        (::windows::core::Interface::vtable(self).IsAffectedByQuota)(::windows::core::Interface::as_raw(self), path.into().abi(), options, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i16>(result__)
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -11005,7 +11005,7 @@ impl IFsrmQuotaObject {
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
     pub unsafe fn SetQuotaFlags(&self, quotaflags: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetQuotaFlags)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(quotaflags)).ok()
+        (::windows::core::Interface::vtable(self).base__.SetQuotaFlags)(::windows::core::Interface::as_raw(self), quotaflags).ok()
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -11015,27 +11015,27 @@ impl IFsrmQuotaObject {
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
     pub unsafe fn AddThreshold(&self, threshold: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.AddThreshold)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(threshold)).ok()
+        (::windows::core::Interface::vtable(self).base__.AddThreshold)(::windows::core::Interface::as_raw(self), threshold).ok()
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
     pub unsafe fn DeleteThreshold(&self, threshold: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.DeleteThreshold)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(threshold)).ok()
+        (::windows::core::Interface::vtable(self).base__.DeleteThreshold)(::windows::core::Interface::as_raw(self), threshold).ok()
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
     pub unsafe fn ModifyThreshold(&self, threshold: i32, newthreshold: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.ModifyThreshold)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(threshold), ::core::mem::transmute(newthreshold)).ok()
+        (::windows::core::Interface::vtable(self).base__.ModifyThreshold)(::windows::core::Interface::as_raw(self), threshold, newthreshold).ok()
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CreateThresholdAction(&self, threshold: i32, actiontype: FsrmActionType) -> ::windows::core::Result<IFsrmAction> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.CreateThresholdAction)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(threshold), ::core::mem::transmute(actiontype), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IFsrmAction>(result__)
+        (::windows::core::Interface::vtable(self).base__.CreateThresholdAction)(::windows::core::Interface::as_raw(self), threshold, actiontype, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IFsrmAction>(result__)
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn EnumThresholdActions(&self, threshold: i32) -> ::windows::core::Result<IFsrmCollection> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.EnumThresholdActions)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(threshold), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IFsrmCollection>(result__)
+        (::windows::core::Interface::vtable(self).base__.EnumThresholdActions)(::windows::core::Interface::as_raw(self), threshold, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IFsrmCollection>(result__)
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -11253,7 +11253,7 @@ impl IFsrmQuotaTemplate {
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
     pub unsafe fn SetQuotaFlags(&self, quotaflags: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetQuotaFlags)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(quotaflags)).ok()
+        (::windows::core::Interface::vtable(self).base__.SetQuotaFlags)(::windows::core::Interface::as_raw(self), quotaflags).ok()
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -11263,27 +11263,27 @@ impl IFsrmQuotaTemplate {
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
     pub unsafe fn AddThreshold(&self, threshold: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.AddThreshold)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(threshold)).ok()
+        (::windows::core::Interface::vtable(self).base__.AddThreshold)(::windows::core::Interface::as_raw(self), threshold).ok()
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
     pub unsafe fn DeleteThreshold(&self, threshold: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.DeleteThreshold)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(threshold)).ok()
+        (::windows::core::Interface::vtable(self).base__.DeleteThreshold)(::windows::core::Interface::as_raw(self), threshold).ok()
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
     pub unsafe fn ModifyThreshold(&self, threshold: i32, newthreshold: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.ModifyThreshold)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(threshold), ::core::mem::transmute(newthreshold)).ok()
+        (::windows::core::Interface::vtable(self).base__.ModifyThreshold)(::windows::core::Interface::as_raw(self), threshold, newthreshold).ok()
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CreateThresholdAction(&self, threshold: i32, actiontype: FsrmActionType) -> ::windows::core::Result<IFsrmAction> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.CreateThresholdAction)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(threshold), ::core::mem::transmute(actiontype), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IFsrmAction>(result__)
+        (::windows::core::Interface::vtable(self).base__.CreateThresholdAction)(::windows::core::Interface::as_raw(self), threshold, actiontype, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IFsrmAction>(result__)
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn EnumThresholdActions(&self, threshold: i32) -> ::windows::core::Result<IFsrmCollection> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.EnumThresholdActions)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(threshold), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IFsrmCollection>(result__)
+        (::windows::core::Interface::vtable(self).base__.EnumThresholdActions)(::windows::core::Interface::as_raw(self), threshold, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IFsrmCollection>(result__)
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -11311,7 +11311,7 @@ impl IFsrmQuotaTemplate {
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CommitAndUpdateDerived(&self, commitoptions: FsrmCommitOptions, applyoptions: FsrmTemplateApplyOptions) -> ::windows::core::Result<IFsrmDerivedObjectsResult> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).CommitAndUpdateDerived)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(commitoptions), ::core::mem::transmute(applyoptions), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IFsrmDerivedObjectsResult>(result__)
+        (::windows::core::Interface::vtable(self).CommitAndUpdateDerived)(::windows::core::Interface::as_raw(self), commitoptions, applyoptions, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IFsrmDerivedObjectsResult>(result__)
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -11487,7 +11487,7 @@ impl IFsrmQuotaTemplateImported {
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
     pub unsafe fn SetQuotaFlags(&self, quotaflags: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.SetQuotaFlags)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(quotaflags)).ok()
+        (::windows::core::Interface::vtable(self).base__.base__.SetQuotaFlags)(::windows::core::Interface::as_raw(self), quotaflags).ok()
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -11497,27 +11497,27 @@ impl IFsrmQuotaTemplateImported {
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
     pub unsafe fn AddThreshold(&self, threshold: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.AddThreshold)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(threshold)).ok()
+        (::windows::core::Interface::vtable(self).base__.base__.AddThreshold)(::windows::core::Interface::as_raw(self), threshold).ok()
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
     pub unsafe fn DeleteThreshold(&self, threshold: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.DeleteThreshold)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(threshold)).ok()
+        (::windows::core::Interface::vtable(self).base__.base__.DeleteThreshold)(::windows::core::Interface::as_raw(self), threshold).ok()
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
     pub unsafe fn ModifyThreshold(&self, threshold: i32, newthreshold: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.ModifyThreshold)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(threshold), ::core::mem::transmute(newthreshold)).ok()
+        (::windows::core::Interface::vtable(self).base__.base__.ModifyThreshold)(::windows::core::Interface::as_raw(self), threshold, newthreshold).ok()
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CreateThresholdAction(&self, threshold: i32, actiontype: FsrmActionType) -> ::windows::core::Result<IFsrmAction> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.base__.CreateThresholdAction)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(threshold), ::core::mem::transmute(actiontype), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IFsrmAction>(result__)
+        (::windows::core::Interface::vtable(self).base__.base__.CreateThresholdAction)(::windows::core::Interface::as_raw(self), threshold, actiontype, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IFsrmAction>(result__)
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn EnumThresholdActions(&self, threshold: i32) -> ::windows::core::Result<IFsrmCollection> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.base__.EnumThresholdActions)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(threshold), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IFsrmCollection>(result__)
+        (::windows::core::Interface::vtable(self).base__.base__.EnumThresholdActions)(::windows::core::Interface::as_raw(self), threshold, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IFsrmCollection>(result__)
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -11545,7 +11545,7 @@ impl IFsrmQuotaTemplateImported {
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CommitAndUpdateDerived(&self, commitoptions: FsrmCommitOptions, applyoptions: FsrmTemplateApplyOptions) -> ::windows::core::Result<IFsrmDerivedObjectsResult> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.CommitAndUpdateDerived)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(commitoptions), ::core::mem::transmute(applyoptions), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IFsrmDerivedObjectsResult>(result__)
+        (::windows::core::Interface::vtable(self).base__.CommitAndUpdateDerived)(::windows::core::Interface::as_raw(self), commitoptions, applyoptions, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IFsrmDerivedObjectsResult>(result__)
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
     pub unsafe fn OverwriteOnCommit(&self) -> ::windows::core::Result<i16> {
@@ -11554,7 +11554,7 @@ impl IFsrmQuotaTemplateImported {
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
     pub unsafe fn SetOverwriteOnCommit(&self, overwrite: i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetOverwriteOnCommit)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(overwrite)).ok()
+        (::windows::core::Interface::vtable(self).SetOverwriteOnCommit)(::windows::core::Interface::as_raw(self), overwrite).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -11705,7 +11705,7 @@ impl IFsrmQuotaTemplateManager {
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn EnumTemplates(&self, options: FsrmEnumOptions) -> ::windows::core::Result<IFsrmCommittableCollection> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).EnumTemplates)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(options), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IFsrmCommittableCollection>(result__)
+        (::windows::core::Interface::vtable(self).EnumTemplates)(::windows::core::Interface::as_raw(self), options, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IFsrmCommittableCollection>(result__)
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -11859,7 +11859,7 @@ impl IFsrmReport {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn GetFilter(&self, filter: FsrmReportFilter) -> ::windows::core::Result<super::super::System::Com::VARIANT> {
         let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>>::zeroed();
-        (::windows::core::Interface::vtable(self).GetFilter)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(filter), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::System::Com::VARIANT>(result__)
+        (::windows::core::Interface::vtable(self).GetFilter)(::windows::core::Interface::as_raw(self), filter, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::System::Com::VARIANT>(result__)
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -11867,7 +11867,7 @@ impl IFsrmReport {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::System::Com::VARIANT>>,
     {
-        (::windows::core::Interface::vtable(self).SetFilter)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(filter), filtervalue.into().abi()).ok()
+        (::windows::core::Interface::vtable(self).SetFilter)(::windows::core::Interface::as_raw(self), filter, filtervalue.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
     pub unsafe fn Delete(&self) -> ::windows::core::Result<()> {
@@ -12086,16 +12086,16 @@ impl IFsrmReportJob {
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CreateReport(&self, reporttype: FsrmReportType) -> ::windows::core::Result<IFsrmReport> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).CreateReport)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(reporttype), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IFsrmReport>(result__)
+        (::windows::core::Interface::vtable(self).CreateReport)(::windows::core::Interface::as_raw(self), reporttype, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IFsrmReport>(result__)
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
     pub unsafe fn Run(&self, context: FsrmReportGenerationContext) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Run)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(context)).ok()
+        (::windows::core::Interface::vtable(self).Run)(::windows::core::Interface::as_raw(self), context).ok()
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
     pub unsafe fn WaitForCompletion(&self, waitseconds: i32) -> ::windows::core::Result<i16> {
         let mut result__ = ::core::mem::MaybeUninit::<i16>::zeroed();
-        (::windows::core::Interface::vtable(self).WaitForCompletion)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(waitseconds), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i16>(result__)
+        (::windows::core::Interface::vtable(self).WaitForCompletion)(::windows::core::Interface::as_raw(self), waitseconds, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i16>(result__)
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
     pub unsafe fn Cancel(&self) -> ::windows::core::Result<()> {
@@ -12250,7 +12250,7 @@ impl IFsrmReportManager {
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn EnumReportJobs(&self, options: FsrmEnumOptions) -> ::windows::core::Result<IFsrmCollection> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).EnumReportJobs)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(options), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IFsrmCollection>(result__)
+        (::windows::core::Interface::vtable(self).EnumReportJobs)(::windows::core::Interface::as_raw(self), options, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IFsrmCollection>(result__)
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -12271,7 +12271,7 @@ impl IFsrmReportManager {
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetOutputDirectory(&self, context: FsrmReportGenerationContext) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::Foundation::BSTR>>::zeroed();
-        (::windows::core::Interface::vtable(self).GetOutputDirectory)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(context), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).GetOutputDirectory)(::windows::core::Interface::as_raw(self), context, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -12279,18 +12279,18 @@ impl IFsrmReportManager {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
     {
-        (::windows::core::Interface::vtable(self).SetOutputDirectory)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(context), path.into().abi()).ok()
+        (::windows::core::Interface::vtable(self).SetOutputDirectory)(::windows::core::Interface::as_raw(self), context, path.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
     pub unsafe fn IsFilterValidForReportType(&self, reporttype: FsrmReportType, filter: FsrmReportFilter) -> ::windows::core::Result<i16> {
         let mut result__ = ::core::mem::MaybeUninit::<i16>::zeroed();
-        (::windows::core::Interface::vtable(self).IsFilterValidForReportType)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(reporttype), ::core::mem::transmute(filter), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i16>(result__)
+        (::windows::core::Interface::vtable(self).IsFilterValidForReportType)(::windows::core::Interface::as_raw(self), reporttype, filter, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i16>(result__)
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn GetDefaultFilter(&self, reporttype: FsrmReportType, filter: FsrmReportFilter) -> ::windows::core::Result<super::super::System::Com::VARIANT> {
         let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>>::zeroed();
-        (::windows::core::Interface::vtable(self).GetDefaultFilter)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(reporttype), ::core::mem::transmute(filter), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::System::Com::VARIANT>(result__)
+        (::windows::core::Interface::vtable(self).GetDefaultFilter)(::windows::core::Interface::as_raw(self), reporttype, filter, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::System::Com::VARIANT>(result__)
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -12298,13 +12298,13 @@ impl IFsrmReportManager {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::System::Com::VARIANT>>,
     {
-        (::windows::core::Interface::vtable(self).SetDefaultFilter)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(reporttype), ::core::mem::transmute(filter), filtervalue.into().abi()).ok()
+        (::windows::core::Interface::vtable(self).SetDefaultFilter)(::windows::core::Interface::as_raw(self), reporttype, filter, filtervalue.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn GetReportSizeLimit(&self, limit: FsrmReportLimit) -> ::windows::core::Result<super::super::System::Com::VARIANT> {
         let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>>::zeroed();
-        (::windows::core::Interface::vtable(self).GetReportSizeLimit)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(limit), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::System::Com::VARIANT>(result__)
+        (::windows::core::Interface::vtable(self).GetReportSizeLimit)(::windows::core::Interface::as_raw(self), limit, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::System::Com::VARIANT>(result__)
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -12312,7 +12312,7 @@ impl IFsrmReportManager {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::System::Com::VARIANT>>,
     {
-        (::windows::core::Interface::vtable(self).SetReportSizeLimit)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(limit), limitvalue.into().abi()).ok()
+        (::windows::core::Interface::vtable(self).SetReportSizeLimit)(::windows::core::Interface::as_raw(self), limit, limitvalue.into().abi()).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -12624,7 +12624,7 @@ impl IFsrmRule {
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
     pub unsafe fn SetRuleFlags(&self, ruleflags: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetRuleFlags)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(ruleflags)).ok()
+        (::windows::core::Interface::vtable(self).SetRuleFlags)(::windows::core::Interface::as_raw(self), ruleflags).ok()
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -12823,7 +12823,7 @@ impl IFsrmSetting {
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
     pub unsafe fn SetDisableCommandLine(&self, disablecommandline: i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetDisableCommandLine)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(disablecommandline)).ok()
+        (::windows::core::Interface::vtable(self).SetDisableCommandLine)(::windows::core::Interface::as_raw(self), disablecommandline).ok()
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
     pub unsafe fn EnableScreeningAudit(&self) -> ::windows::core::Result<i16> {
@@ -12832,7 +12832,7 @@ impl IFsrmSetting {
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
     pub unsafe fn SetEnableScreeningAudit(&self, enablescreeningaudit: i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetEnableScreeningAudit)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(enablescreeningaudit)).ok()
+        (::windows::core::Interface::vtable(self).SetEnableScreeningAudit)(::windows::core::Interface::as_raw(self), enablescreeningaudit).ok()
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -12844,12 +12844,12 @@ impl IFsrmSetting {
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
     pub unsafe fn SetActionRunLimitInterval(&self, actiontype: FsrmActionType, delaytimeminutes: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetActionRunLimitInterval)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(actiontype), ::core::mem::transmute(delaytimeminutes)).ok()
+        (::windows::core::Interface::vtable(self).SetActionRunLimitInterval)(::windows::core::Interface::as_raw(self), actiontype, delaytimeminutes).ok()
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
     pub unsafe fn GetActionRunLimitInterval(&self, actiontype: FsrmActionType) -> ::windows::core::Result<i32> {
         let mut result__ = ::core::mem::MaybeUninit::<i32>::zeroed();
-        (::windows::core::Interface::vtable(self).GetActionRunLimitInterval)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(actiontype), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
+        (::windows::core::Interface::vtable(self).GetActionRunLimitInterval)(::windows::core::Interface::as_raw(self), actiontype, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -13054,7 +13054,7 @@ impl IFsrmStorageModuleDefinition {
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
     pub unsafe fn SetEnabled(&self, enabled: i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetEnabled)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(enabled)).ok()
+        (::windows::core::Interface::vtable(self).base__.SetEnabled)(::windows::core::Interface::as_raw(self), enabled).ok()
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
     pub unsafe fn NeedsFileContent(&self) -> ::windows::core::Result<i16> {
@@ -13063,7 +13063,7 @@ impl IFsrmStorageModuleDefinition {
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
     pub unsafe fn SetNeedsFileContent(&self, needsfilecontent: i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetNeedsFileContent)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(needsfilecontent)).ok()
+        (::windows::core::Interface::vtable(self).base__.SetNeedsFileContent)(::windows::core::Interface::as_raw(self), needsfilecontent).ok()
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
     pub unsafe fn Account(&self) -> ::windows::core::Result<FsrmAccountType> {
@@ -13072,7 +13072,7 @@ impl IFsrmStorageModuleDefinition {
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
     pub unsafe fn SetAccount(&self, retrievalaccount: FsrmAccountType) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetAccount)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(retrievalaccount)).ok()
+        (::windows::core::Interface::vtable(self).base__.SetAccount)(::windows::core::Interface::as_raw(self), retrievalaccount).ok()
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -13103,7 +13103,7 @@ impl IFsrmStorageModuleDefinition {
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
     pub unsafe fn SetCapabilities(&self, capabilities: FsrmStorageModuleCaps) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetCapabilities)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(capabilities)).ok()
+        (::windows::core::Interface::vtable(self).SetCapabilities)(::windows::core::Interface::as_raw(self), capabilities).ok()
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
     pub unsafe fn StorageType(&self) -> ::windows::core::Result<FsrmStorageModuleType> {
@@ -13112,7 +13112,7 @@ impl IFsrmStorageModuleDefinition {
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
     pub unsafe fn SetStorageType(&self, storagetype: FsrmStorageModuleType) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetStorageType)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(storagetype)).ok()
+        (::windows::core::Interface::vtable(self).SetStorageType)(::windows::core::Interface::as_raw(self), storagetype).ok()
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
     pub unsafe fn UpdatesFileContent(&self) -> ::windows::core::Result<i16> {
@@ -13121,7 +13121,7 @@ impl IFsrmStorageModuleDefinition {
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
     pub unsafe fn SetUpdatesFileContent(&self, updatesfilecontent: i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetUpdatesFileContent)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(updatesfilecontent)).ok()
+        (::windows::core::Interface::vtable(self).SetUpdatesFileContent)(::windows::core::Interface::as_raw(self), updatesfilecontent).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]

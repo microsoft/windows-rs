@@ -1028,7 +1028,7 @@ where
         fn HcsOpenComputeSystem(id: ::windows::core::PCWSTR, requestedaccess: u32, computesystem: *mut HCS_SYSTEM) -> ::windows::core::HRESULT;
     }
     let mut result__ = ::core::mem::MaybeUninit::<HCS_SYSTEM>::zeroed();
-    HcsOpenComputeSystem(id.into(), ::core::mem::transmute(requestedaccess), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<HCS_SYSTEM>(result__)
+    HcsOpenComputeSystem(id.into(), requestedaccess, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<HCS_SYSTEM>(result__)
 }
 #[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`*"]
 #[inline]
@@ -1042,7 +1042,7 @@ where
         fn HcsOpenComputeSystemInNamespace(idnamespace: ::windows::core::PCWSTR, id: ::windows::core::PCWSTR, requestedaccess: u32, computesystem: *mut HCS_SYSTEM) -> ::windows::core::HRESULT;
     }
     let mut result__ = ::core::mem::MaybeUninit::<HCS_SYSTEM>::zeroed();
-    HcsOpenComputeSystemInNamespace(idnamespace.into(), id.into(), ::core::mem::transmute(requestedaccess), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<HCS_SYSTEM>(result__)
+    HcsOpenComputeSystemInNamespace(idnamespace.into(), id.into(), requestedaccess, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<HCS_SYSTEM>(result__)
 }
 #[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`*"]
 #[inline]
@@ -1055,7 +1055,7 @@ where
         fn HcsOpenProcess(computesystem: HCS_SYSTEM, processid: u32, requestedaccess: u32, process: *mut HCS_PROCESS) -> ::windows::core::HRESULT;
     }
     let mut result__ = ::core::mem::MaybeUninit::<HCS_PROCESS>::zeroed();
-    HcsOpenProcess(computesystem.into(), ::core::mem::transmute(processid), ::core::mem::transmute(requestedaccess), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<HCS_PROCESS>(result__)
+    HcsOpenProcess(computesystem.into(), processid, requestedaccess, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<HCS_PROCESS>(result__)
 }
 #[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`*"]
 #[inline]
@@ -1134,7 +1134,7 @@ where
     extern "system" {
         fn HcsSetComputeSystemCallback(computesystem: HCS_SYSTEM, callbackoptions: HCS_EVENT_OPTIONS, context: *const ::core::ffi::c_void, callback: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
     }
-    HcsSetComputeSystemCallback(computesystem.into(), ::core::mem::transmute(callbackoptions), ::core::mem::transmute(context), ::core::mem::transmute(callback)).ok()
+    HcsSetComputeSystemCallback(computesystem.into(), callbackoptions, ::core::mem::transmute(context), ::core::mem::transmute(callback)).ok()
 }
 #[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`*"]
 #[inline]
@@ -1170,7 +1170,7 @@ where
     extern "system" {
         fn HcsSetProcessCallback(process: HCS_PROCESS, callbackoptions: HCS_EVENT_OPTIONS, context: *const ::core::ffi::c_void, callback: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
     }
-    HcsSetProcessCallback(process.into(), ::core::mem::transmute(callbackoptions), ::core::mem::transmute(context), ::core::mem::transmute(callback)).ok()
+    HcsSetProcessCallback(process.into(), callbackoptions, ::core::mem::transmute(context), ::core::mem::transmute(callback)).ok()
 }
 #[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -1294,7 +1294,7 @@ where
         fn HcsWaitForComputeSystemExit(computesystem: HCS_SYSTEM, timeoutms: u32, result: *mut ::windows::core::PWSTR) -> ::windows::core::HRESULT;
     }
     let mut result__ = ::core::mem::MaybeUninit::<::windows::core::PWSTR>::zeroed();
-    HcsWaitForComputeSystemExit(computesystem.into(), ::core::mem::transmute(timeoutms), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::PWSTR>(result__)
+    HcsWaitForComputeSystemExit(computesystem.into(), timeoutms, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::PWSTR>(result__)
 }
 #[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`*"]
 #[inline]
@@ -1307,7 +1307,7 @@ where
         fn HcsWaitForOperationResult(operation: HCS_OPERATION, timeoutms: u32, resultdocument: *mut ::windows::core::PWSTR) -> ::windows::core::HRESULT;
     }
     let mut result__ = ::core::mem::MaybeUninit::<::windows::core::PWSTR>::zeroed();
-    HcsWaitForOperationResult(operation.into(), ::core::mem::transmute(timeoutms), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::PWSTR>(result__)
+    HcsWaitForOperationResult(operation.into(), timeoutms, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::PWSTR>(result__)
 }
 #[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -1320,7 +1320,7 @@ where
     extern "system" {
         fn HcsWaitForOperationResultAndProcessInfo(operation: HCS_OPERATION, timeoutms: u32, processinformation: *mut HCS_PROCESS_INFORMATION, resultdocument: *mut ::windows::core::PWSTR) -> ::windows::core::HRESULT;
     }
-    HcsWaitForOperationResultAndProcessInfo(operation.into(), ::core::mem::transmute(timeoutms), ::core::mem::transmute(processinformation), ::core::mem::transmute(resultdocument)).ok()
+    HcsWaitForOperationResultAndProcessInfo(operation.into(), timeoutms, ::core::mem::transmute(processinformation), ::core::mem::transmute(resultdocument)).ok()
 }
 #[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`*"]
 #[inline]
@@ -1333,7 +1333,7 @@ where
         fn HcsWaitForProcessExit(computesystem: HCS_PROCESS, timeoutms: u32, result: *mut ::windows::core::PWSTR) -> ::windows::core::HRESULT;
     }
     let mut result__ = ::core::mem::MaybeUninit::<::windows::core::PWSTR>::zeroed();
-    HcsWaitForProcessExit(computesystem.into(), ::core::mem::transmute(timeoutms), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::PWSTR>(result__)
+    HcsWaitForProcessExit(computesystem.into(), timeoutms, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::PWSTR>(result__)
 }
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

@@ -250,7 +250,7 @@ impl IPackageUtil {
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
         P1: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
     {
-        (::windows::core::Interface::vtable(self).InstallPackage)(::windows::core::Interface::as_raw(self), bstrpackagefile.into().abi(), bstrinstallpath.into().abi(), ::core::mem::transmute(loptions)).ok()
+        (::windows::core::Interface::vtable(self).InstallPackage)(::windows::core::Interface::as_raw(self), bstrpackagefile.into().abi(), bstrinstallpath.into().abi(), loptions).ok()
     }
     #[doc = "*Required features: `\"Win32_System_TransactionServer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -259,7 +259,7 @@ impl IPackageUtil {
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
         P1: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
     {
-        (::windows::core::Interface::vtable(self).ExportPackage)(::windows::core::Interface::as_raw(self), bstrpackageid.into().abi(), bstrpackagefile.into().abi(), ::core::mem::transmute(loptions)).ok()
+        (::windows::core::Interface::vtable(self).ExportPackage)(::windows::core::Interface::as_raw(self), bstrpackageid.into().abi(), bstrpackagefile.into().abi(), loptions).ok()
     }
     #[doc = "*Required features: `\"Win32_System_TransactionServer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]

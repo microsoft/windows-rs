@@ -177,7 +177,7 @@ pub struct IBitmapData(::windows::core::IUnknown);
 impl IBitmapData {
     #[doc = "*Required features: `\"Win32_UI_Xaml_Diagnostics\"`*"]
     pub unsafe fn CopyBytesTo(&self, sourceoffsetinbytes: u32, pvbytes: &mut [u8], numberofbytescopied: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).CopyBytesTo)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(sourceoffsetinbytes), pvbytes.len() as _, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(pvbytes)), ::core::mem::transmute(numberofbytescopied)).ok()
+        (::windows::core::Interface::vtable(self).CopyBytesTo)(::windows::core::Interface::as_raw(self), sourceoffsetinbytes, pvbytes.len() as _, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(pvbytes)), ::core::mem::transmute(numberofbytescopied)).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_Xaml_Diagnostics\"`*"]
     pub unsafe fn GetStride(&self) -> ::windows::core::Result<u32> {
@@ -283,37 +283,37 @@ impl IVisualTreeService {
     #[doc = "*Required features: `\"Win32_UI_Xaml_Diagnostics\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetPropertyValuesChain(&self, instancehandle: u64, psourcecount: *mut u32, pppropertysources: *mut *mut PropertyChainSource, ppropertycount: *mut u32, pppropertyvalues: *mut *mut PropertyChainValue) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetPropertyValuesChain)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(instancehandle), ::core::mem::transmute(psourcecount), ::core::mem::transmute(pppropertysources), ::core::mem::transmute(ppropertycount), ::core::mem::transmute(pppropertyvalues)).ok()
+        (::windows::core::Interface::vtable(self).GetPropertyValuesChain)(::windows::core::Interface::as_raw(self), instancehandle, ::core::mem::transmute(psourcecount), ::core::mem::transmute(pppropertysources), ::core::mem::transmute(ppropertycount), ::core::mem::transmute(pppropertyvalues)).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_Xaml_Diagnostics\"`*"]
     pub unsafe fn SetProperty(&self, instancehandle: u64, value: u64, propertyindex: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetProperty)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(instancehandle), ::core::mem::transmute(value), ::core::mem::transmute(propertyindex)).ok()
+        (::windows::core::Interface::vtable(self).SetProperty)(::windows::core::Interface::as_raw(self), instancehandle, value, propertyindex).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_Xaml_Diagnostics\"`*"]
     pub unsafe fn ClearProperty(&self, instancehandle: u64, propertyindex: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).ClearProperty)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(instancehandle), ::core::mem::transmute(propertyindex)).ok()
+        (::windows::core::Interface::vtable(self).ClearProperty)(::windows::core::Interface::as_raw(self), instancehandle, propertyindex).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_Xaml_Diagnostics\"`*"]
     pub unsafe fn GetCollectionCount(&self, instancehandle: u64) -> ::windows::core::Result<u32> {
         let mut result__ = ::core::mem::MaybeUninit::<u32>::zeroed();
-        (::windows::core::Interface::vtable(self).GetCollectionCount)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(instancehandle), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
+        (::windows::core::Interface::vtable(self).GetCollectionCount)(::windows::core::Interface::as_raw(self), instancehandle, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
     }
     #[doc = "*Required features: `\"Win32_UI_Xaml_Diagnostics\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetCollectionElements(&self, instancehandle: u64, startindex: u32, pelementcount: *mut u32, ppelementvalues: *mut *mut CollectionElementValue) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetCollectionElements)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(instancehandle), ::core::mem::transmute(startindex), ::core::mem::transmute(pelementcount), ::core::mem::transmute(ppelementvalues)).ok()
+        (::windows::core::Interface::vtable(self).GetCollectionElements)(::windows::core::Interface::as_raw(self), instancehandle, startindex, ::core::mem::transmute(pelementcount), ::core::mem::transmute(ppelementvalues)).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_Xaml_Diagnostics\"`*"]
     pub unsafe fn AddChild(&self, parent: u64, child: u64, index: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).AddChild)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(parent), ::core::mem::transmute(child), ::core::mem::transmute(index)).ok()
+        (::windows::core::Interface::vtable(self).AddChild)(::windows::core::Interface::as_raw(self), parent, child, index).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_Xaml_Diagnostics\"`*"]
     pub unsafe fn RemoveChild(&self, parent: u64, index: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).RemoveChild)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(parent), ::core::mem::transmute(index)).ok()
+        (::windows::core::Interface::vtable(self).RemoveChild)(::windows::core::Interface::as_raw(self), parent, index).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_Xaml_Diagnostics\"`*"]
     pub unsafe fn ClearChildren(&self, parent: u64) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).ClearChildren)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(parent)).ok()
+        (::windows::core::Interface::vtable(self).ClearChildren)(::windows::core::Interface::as_raw(self), parent).ok()
     }
 }
 impl ::core::convert::From<IVisualTreeService> for ::windows::core::IUnknown {
@@ -416,37 +416,37 @@ impl IVisualTreeService2 {
     #[doc = "*Required features: `\"Win32_UI_Xaml_Diagnostics\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetPropertyValuesChain(&self, instancehandle: u64, psourcecount: *mut u32, pppropertysources: *mut *mut PropertyChainSource, ppropertycount: *mut u32, pppropertyvalues: *mut *mut PropertyChainValue) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.GetPropertyValuesChain)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(instancehandle), ::core::mem::transmute(psourcecount), ::core::mem::transmute(pppropertysources), ::core::mem::transmute(ppropertycount), ::core::mem::transmute(pppropertyvalues)).ok()
+        (::windows::core::Interface::vtable(self).base__.GetPropertyValuesChain)(::windows::core::Interface::as_raw(self), instancehandle, ::core::mem::transmute(psourcecount), ::core::mem::transmute(pppropertysources), ::core::mem::transmute(ppropertycount), ::core::mem::transmute(pppropertyvalues)).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_Xaml_Diagnostics\"`*"]
     pub unsafe fn SetProperty(&self, instancehandle: u64, value: u64, propertyindex: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetProperty)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(instancehandle), ::core::mem::transmute(value), ::core::mem::transmute(propertyindex)).ok()
+        (::windows::core::Interface::vtable(self).base__.SetProperty)(::windows::core::Interface::as_raw(self), instancehandle, value, propertyindex).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_Xaml_Diagnostics\"`*"]
     pub unsafe fn ClearProperty(&self, instancehandle: u64, propertyindex: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.ClearProperty)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(instancehandle), ::core::mem::transmute(propertyindex)).ok()
+        (::windows::core::Interface::vtable(self).base__.ClearProperty)(::windows::core::Interface::as_raw(self), instancehandle, propertyindex).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_Xaml_Diagnostics\"`*"]
     pub unsafe fn GetCollectionCount(&self, instancehandle: u64) -> ::windows::core::Result<u32> {
         let mut result__ = ::core::mem::MaybeUninit::<u32>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.GetCollectionCount)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(instancehandle), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
+        (::windows::core::Interface::vtable(self).base__.GetCollectionCount)(::windows::core::Interface::as_raw(self), instancehandle, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
     }
     #[doc = "*Required features: `\"Win32_UI_Xaml_Diagnostics\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetCollectionElements(&self, instancehandle: u64, startindex: u32, pelementcount: *mut u32, ppelementvalues: *mut *mut CollectionElementValue) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.GetCollectionElements)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(instancehandle), ::core::mem::transmute(startindex), ::core::mem::transmute(pelementcount), ::core::mem::transmute(ppelementvalues)).ok()
+        (::windows::core::Interface::vtable(self).base__.GetCollectionElements)(::windows::core::Interface::as_raw(self), instancehandle, startindex, ::core::mem::transmute(pelementcount), ::core::mem::transmute(ppelementvalues)).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_Xaml_Diagnostics\"`*"]
     pub unsafe fn AddChild(&self, parent: u64, child: u64, index: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.AddChild)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(parent), ::core::mem::transmute(child), ::core::mem::transmute(index)).ok()
+        (::windows::core::Interface::vtable(self).base__.AddChild)(::windows::core::Interface::as_raw(self), parent, child, index).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_Xaml_Diagnostics\"`*"]
     pub unsafe fn RemoveChild(&self, parent: u64, index: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.RemoveChild)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(parent), ::core::mem::transmute(index)).ok()
+        (::windows::core::Interface::vtable(self).base__.RemoveChild)(::windows::core::Interface::as_raw(self), parent, index).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_Xaml_Diagnostics\"`*"]
     pub unsafe fn ClearChildren(&self, parent: u64) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.ClearChildren)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(parent)).ok()
+        (::windows::core::Interface::vtable(self).base__.ClearChildren)(::windows::core::Interface::as_raw(self), parent).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_Xaml_Diagnostics\"`*"]
     pub unsafe fn GetPropertyIndex<'a, P0>(&self, object: u64, propertyname: P0) -> ::windows::core::Result<u32>
@@ -454,21 +454,21 @@ impl IVisualTreeService2 {
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
         let mut result__ = ::core::mem::MaybeUninit::<u32>::zeroed();
-        (::windows::core::Interface::vtable(self).GetPropertyIndex)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(object), propertyname.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
+        (::windows::core::Interface::vtable(self).GetPropertyIndex)(::windows::core::Interface::as_raw(self), object, propertyname.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
     }
     #[doc = "*Required features: `\"Win32_UI_Xaml_Diagnostics\"`*"]
     pub unsafe fn GetProperty(&self, object: u64, propertyindex: u32) -> ::windows::core::Result<u64> {
         let mut result__ = ::core::mem::MaybeUninit::<u64>::zeroed();
-        (::windows::core::Interface::vtable(self).GetProperty)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(object), ::core::mem::transmute(propertyindex), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u64>(result__)
+        (::windows::core::Interface::vtable(self).GetProperty)(::windows::core::Interface::as_raw(self), object, propertyindex, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u64>(result__)
     }
     #[doc = "*Required features: `\"Win32_UI_Xaml_Diagnostics\"`*"]
     pub unsafe fn ReplaceResource(&self, resourcedictionary: u64, key: u64, newvalue: u64) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).ReplaceResource)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(resourcedictionary), ::core::mem::transmute(key), ::core::mem::transmute(newvalue)).ok()
+        (::windows::core::Interface::vtable(self).ReplaceResource)(::windows::core::Interface::as_raw(self), resourcedictionary, key, newvalue).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_Xaml_Diagnostics\"`*"]
     pub unsafe fn RenderTargetBitmap(&self, handle: u64, options: RenderTargetBitmapOptions, maxpixelwidth: u32, maxpixelheight: u32) -> ::windows::core::Result<IBitmapData> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).RenderTargetBitmap)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(handle), ::core::mem::transmute(options), ::core::mem::transmute(maxpixelwidth), ::core::mem::transmute(maxpixelheight), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IBitmapData>(result__)
+        (::windows::core::Interface::vtable(self).RenderTargetBitmap)(::windows::core::Interface::as_raw(self), handle, options, maxpixelwidth, maxpixelheight, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IBitmapData>(result__)
     }
 }
 impl ::core::convert::From<IVisualTreeService2> for ::windows::core::IUnknown {
@@ -566,37 +566,37 @@ impl IVisualTreeService3 {
     #[doc = "*Required features: `\"Win32_UI_Xaml_Diagnostics\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetPropertyValuesChain(&self, instancehandle: u64, psourcecount: *mut u32, pppropertysources: *mut *mut PropertyChainSource, ppropertycount: *mut u32, pppropertyvalues: *mut *mut PropertyChainValue) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.GetPropertyValuesChain)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(instancehandle), ::core::mem::transmute(psourcecount), ::core::mem::transmute(pppropertysources), ::core::mem::transmute(ppropertycount), ::core::mem::transmute(pppropertyvalues)).ok()
+        (::windows::core::Interface::vtable(self).base__.base__.GetPropertyValuesChain)(::windows::core::Interface::as_raw(self), instancehandle, ::core::mem::transmute(psourcecount), ::core::mem::transmute(pppropertysources), ::core::mem::transmute(ppropertycount), ::core::mem::transmute(pppropertyvalues)).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_Xaml_Diagnostics\"`*"]
     pub unsafe fn SetProperty(&self, instancehandle: u64, value: u64, propertyindex: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.SetProperty)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(instancehandle), ::core::mem::transmute(value), ::core::mem::transmute(propertyindex)).ok()
+        (::windows::core::Interface::vtable(self).base__.base__.SetProperty)(::windows::core::Interface::as_raw(self), instancehandle, value, propertyindex).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_Xaml_Diagnostics\"`*"]
     pub unsafe fn ClearProperty(&self, instancehandle: u64, propertyindex: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.ClearProperty)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(instancehandle), ::core::mem::transmute(propertyindex)).ok()
+        (::windows::core::Interface::vtable(self).base__.base__.ClearProperty)(::windows::core::Interface::as_raw(self), instancehandle, propertyindex).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_Xaml_Diagnostics\"`*"]
     pub unsafe fn GetCollectionCount(&self, instancehandle: u64) -> ::windows::core::Result<u32> {
         let mut result__ = ::core::mem::MaybeUninit::<u32>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.base__.GetCollectionCount)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(instancehandle), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
+        (::windows::core::Interface::vtable(self).base__.base__.GetCollectionCount)(::windows::core::Interface::as_raw(self), instancehandle, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
     }
     #[doc = "*Required features: `\"Win32_UI_Xaml_Diagnostics\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetCollectionElements(&self, instancehandle: u64, startindex: u32, pelementcount: *mut u32, ppelementvalues: *mut *mut CollectionElementValue) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.GetCollectionElements)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(instancehandle), ::core::mem::transmute(startindex), ::core::mem::transmute(pelementcount), ::core::mem::transmute(ppelementvalues)).ok()
+        (::windows::core::Interface::vtable(self).base__.base__.GetCollectionElements)(::windows::core::Interface::as_raw(self), instancehandle, startindex, ::core::mem::transmute(pelementcount), ::core::mem::transmute(ppelementvalues)).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_Xaml_Diagnostics\"`*"]
     pub unsafe fn AddChild(&self, parent: u64, child: u64, index: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.AddChild)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(parent), ::core::mem::transmute(child), ::core::mem::transmute(index)).ok()
+        (::windows::core::Interface::vtable(self).base__.base__.AddChild)(::windows::core::Interface::as_raw(self), parent, child, index).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_Xaml_Diagnostics\"`*"]
     pub unsafe fn RemoveChild(&self, parent: u64, index: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.RemoveChild)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(parent), ::core::mem::transmute(index)).ok()
+        (::windows::core::Interface::vtable(self).base__.base__.RemoveChild)(::windows::core::Interface::as_raw(self), parent, index).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_Xaml_Diagnostics\"`*"]
     pub unsafe fn ClearChildren(&self, parent: u64) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.ClearChildren)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(parent)).ok()
+        (::windows::core::Interface::vtable(self).base__.base__.ClearChildren)(::windows::core::Interface::as_raw(self), parent).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_Xaml_Diagnostics\"`*"]
     pub unsafe fn GetPropertyIndex<'a, P0>(&self, object: u64, propertyname: P0) -> ::windows::core::Result<u32>
@@ -604,28 +604,28 @@ impl IVisualTreeService3 {
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
         let mut result__ = ::core::mem::MaybeUninit::<u32>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.GetPropertyIndex)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(object), propertyname.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
+        (::windows::core::Interface::vtable(self).base__.GetPropertyIndex)(::windows::core::Interface::as_raw(self), object, propertyname.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
     }
     #[doc = "*Required features: `\"Win32_UI_Xaml_Diagnostics\"`*"]
     pub unsafe fn GetProperty(&self, object: u64, propertyindex: u32) -> ::windows::core::Result<u64> {
         let mut result__ = ::core::mem::MaybeUninit::<u64>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.GetProperty)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(object), ::core::mem::transmute(propertyindex), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u64>(result__)
+        (::windows::core::Interface::vtable(self).base__.GetProperty)(::windows::core::Interface::as_raw(self), object, propertyindex, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u64>(result__)
     }
     #[doc = "*Required features: `\"Win32_UI_Xaml_Diagnostics\"`*"]
     pub unsafe fn ReplaceResource(&self, resourcedictionary: u64, key: u64, newvalue: u64) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.ReplaceResource)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(resourcedictionary), ::core::mem::transmute(key), ::core::mem::transmute(newvalue)).ok()
+        (::windows::core::Interface::vtable(self).base__.ReplaceResource)(::windows::core::Interface::as_raw(self), resourcedictionary, key, newvalue).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_Xaml_Diagnostics\"`*"]
     pub unsafe fn RenderTargetBitmap(&self, handle: u64, options: RenderTargetBitmapOptions, maxpixelwidth: u32, maxpixelheight: u32) -> ::windows::core::Result<IBitmapData> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.RenderTargetBitmap)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(handle), ::core::mem::transmute(options), ::core::mem::transmute(maxpixelwidth), ::core::mem::transmute(maxpixelheight), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IBitmapData>(result__)
+        (::windows::core::Interface::vtable(self).base__.RenderTargetBitmap)(::windows::core::Interface::as_raw(self), handle, options, maxpixelwidth, maxpixelheight, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IBitmapData>(result__)
     }
     #[doc = "*Required features: `\"Win32_UI_Xaml_Diagnostics\"`*"]
     pub unsafe fn ResolveResource<'a, P0>(&self, resourcecontext: u64, resourcename: P0, resourcetype: ResourceType, propertyindex: u32) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
-        (::windows::core::Interface::vtable(self).ResolveResource)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(resourcecontext), resourcename.into(), ::core::mem::transmute(resourcetype), ::core::mem::transmute(propertyindex)).ok()
+        (::windows::core::Interface::vtable(self).ResolveResource)(::windows::core::Interface::as_raw(self), resourcecontext, resourcename.into(), resourcetype, propertyindex).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_Xaml_Diagnostics\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -635,15 +635,15 @@ impl IVisualTreeService3 {
         P1: ::std::convert::Into<super::super::super::Foundation::BOOL>,
     {
         let mut result__ = ::core::mem::MaybeUninit::<u64>::zeroed();
-        (::windows::core::Interface::vtable(self).GetDictionaryItem)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(dictionaryhandle), resourcename.into(), resourceisimplicitstyle.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u64>(result__)
+        (::windows::core::Interface::vtable(self).GetDictionaryItem)(::windows::core::Interface::as_raw(self), dictionaryhandle, resourcename.into(), resourceisimplicitstyle.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u64>(result__)
     }
     #[doc = "*Required features: `\"Win32_UI_Xaml_Diagnostics\"`*"]
     pub unsafe fn AddDictionaryItem(&self, dictionaryhandle: u64, resourcekey: u64, resourcehandle: u64) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).AddDictionaryItem)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(dictionaryhandle), ::core::mem::transmute(resourcekey), ::core::mem::transmute(resourcehandle)).ok()
+        (::windows::core::Interface::vtable(self).AddDictionaryItem)(::windows::core::Interface::as_raw(self), dictionaryhandle, resourcekey, resourcehandle).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_Xaml_Diagnostics\"`*"]
     pub unsafe fn RemoveDictionaryItem(&self, dictionaryhandle: u64, resourcekey: u64) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).RemoveDictionaryItem)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(dictionaryhandle), ::core::mem::transmute(resourcekey)).ok()
+        (::windows::core::Interface::vtable(self).RemoveDictionaryItem)(::windows::core::Interface::as_raw(self), dictionaryhandle, resourcekey).ok()
     }
 }
 impl ::core::convert::From<IVisualTreeService3> for ::windows::core::IUnknown {
@@ -733,7 +733,7 @@ impl IVisualTreeServiceCallback {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, VisualElement>>,
     {
-        (::windows::core::Interface::vtable(self).OnVisualTreeChange)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(relation), element.into().abi(), ::core::mem::transmute(mutationtype)).ok()
+        (::windows::core::Interface::vtable(self).OnVisualTreeChange)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(relation), element.into().abi(), mutationtype).ok()
     }
 }
 impl ::core::convert::From<IVisualTreeServiceCallback> for ::windows::core::IUnknown {
@@ -790,14 +790,14 @@ impl IVisualTreeServiceCallback2 {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, VisualElement>>,
     {
-        (::windows::core::Interface::vtable(self).base__.OnVisualTreeChange)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(relation), element.into().abi(), ::core::mem::transmute(mutationtype)).ok()
+        (::windows::core::Interface::vtable(self).base__.OnVisualTreeChange)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(relation), element.into().abi(), mutationtype).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_Xaml_Diagnostics\"`*"]
     pub unsafe fn OnElementStateChanged<'a, P0>(&self, element: u64, elementstate: VisualElementState, context: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
-        (::windows::core::Interface::vtable(self).OnElementStateChanged)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(element), ::core::mem::transmute(elementstate), context.into()).ok()
+        (::windows::core::Interface::vtable(self).OnElementStateChanged)(::windows::core::Interface::as_raw(self), element, elementstate, context.into()).ok()
     }
 }
 impl ::core::convert::From<IVisualTreeServiceCallback2> for ::windows::core::IUnknown {
@@ -878,7 +878,7 @@ impl IXamlDiagnostics {
     #[doc = "*Required features: `\"Win32_UI_Xaml_Diagnostics\"`*"]
     pub unsafe fn GetIInspectableFromHandle(&self, instancehandle: u64) -> ::windows::core::Result<::windows::core::IInspectable> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).GetIInspectableFromHandle)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(instancehandle), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::IInspectable>(result__)
+        (::windows::core::Interface::vtable(self).GetIInspectableFromHandle)(::windows::core::Interface::as_raw(self), instancehandle, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::IInspectable>(result__)
     }
     #[doc = "*Required features: `\"Win32_UI_Xaml_Diagnostics\"`*"]
     pub unsafe fn GetHandleFromIInspectable<'a, P0>(&self, pinstance: P0) -> ::windows::core::Result<u64>
@@ -974,7 +974,7 @@ where
     extern "system" {
         fn InitializeXamlDiagnostic(endpointname: ::windows::core::PCWSTR, pid: u32, wszdllxamldiagnostics: ::windows::core::PCWSTR, wsztapdllname: ::windows::core::PCWSTR, tapclsid: ::windows::core::GUID) -> ::windows::core::HRESULT;
     }
-    InitializeXamlDiagnostic(endpointname.into(), ::core::mem::transmute(pid), wszdllxamldiagnostics.into(), wsztapdllname.into(), ::core::mem::transmute(tapclsid)).ok()
+    InitializeXamlDiagnostic(endpointname.into(), pid, wszdllxamldiagnostics.into(), wsztapdllname.into(), ::core::mem::transmute(tapclsid)).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Xaml_Diagnostics\"`*"]
 #[inline]
@@ -989,7 +989,7 @@ where
     extern "system" {
         fn InitializeXamlDiagnosticsEx(endpointname: ::windows::core::PCWSTR, pid: u32, wszdllxamldiagnostics: ::windows::core::PCWSTR, wsztapdllname: ::windows::core::PCWSTR, tapclsid: ::windows::core::GUID, wszinitializationdata: ::windows::core::PCWSTR) -> ::windows::core::HRESULT;
     }
-    InitializeXamlDiagnosticsEx(endpointname.into(), ::core::mem::transmute(pid), wszdllxamldiagnostics.into(), wsztapdllname.into(), ::core::mem::transmute(tapclsid), wszinitializationdata.into()).ok()
+    InitializeXamlDiagnosticsEx(endpointname.into(), pid, wszdllxamldiagnostics.into(), wsztapdllname.into(), ::core::mem::transmute(tapclsid), wszinitializationdata.into()).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Xaml_Diagnostics\"`*"]
 #[repr(transparent)]

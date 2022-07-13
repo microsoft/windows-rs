@@ -119,7 +119,7 @@ pub unsafe fn AllJoynCreateBus(outbuffersize: u32, inbuffersize: u32, lpsecurity
     extern "system" {
         fn AllJoynCreateBus(outbuffersize: u32, inbuffersize: u32, lpsecurityattributes: *const super::super::Security::SECURITY_ATTRIBUTES) -> super::super::Foundation::HANDLE;
     }
-    ::core::mem::transmute(AllJoynCreateBus(::core::mem::transmute(outbuffersize), ::core::mem::transmute(inbuffersize), ::core::mem::transmute(lpsecurityattributes)))
+    ::core::mem::transmute(AllJoynCreateBus(outbuffersize, inbuffersize, ::core::mem::transmute(lpsecurityattributes)))
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -147,7 +147,7 @@ where
     extern "system" {
         fn AllJoynEventSelect(connectedbushandle: super::super::Foundation::HANDLE, eventhandle: super::super::Foundation::HANDLE, eventtypes: u32) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(AllJoynEventSelect(connectedbushandle.into(), eventhandle.into(), ::core::mem::transmute(eventtypes)))
+    ::core::mem::transmute(AllJoynEventSelect(connectedbushandle.into(), eventhandle.into(), eventtypes))
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -160,7 +160,7 @@ where
     extern "system" {
         fn AllJoynReceiveFromBus(connectedbushandle: super::super::Foundation::HANDLE, buffer: *mut ::core::ffi::c_void, bytestoread: u32, bytestransferred: *mut u32, reserved: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(AllJoynReceiveFromBus(connectedbushandle.into(), ::core::mem::transmute(buffer), ::core::mem::transmute(bytestoread), ::core::mem::transmute(bytestransferred), ::core::mem::transmute(reserved)))
+    ::core::mem::transmute(AllJoynReceiveFromBus(connectedbushandle.into(), ::core::mem::transmute(buffer), bytestoread, ::core::mem::transmute(bytestransferred), ::core::mem::transmute(reserved)))
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -173,7 +173,7 @@ where
     extern "system" {
         fn AllJoynSendToBus(connectedbushandle: super::super::Foundation::HANDLE, buffer: *const ::core::ffi::c_void, bytestowrite: u32, bytestransferred: *mut u32, reserved: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(AllJoynSendToBus(connectedbushandle.into(), ::core::mem::transmute(buffer), ::core::mem::transmute(bytestowrite), ::core::mem::transmute(bytestransferred), ::core::mem::transmute(reserved)))
+    ::core::mem::transmute(AllJoynSendToBus(connectedbushandle.into(), ::core::mem::transmute(buffer), bytestowrite, ::core::mem::transmute(bytestransferred), ::core::mem::transmute(reserved)))
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 pub const QCC_FALSE: u32 = 0u32;
@@ -184,7 +184,7 @@ pub unsafe fn QCC_StatusText(status: QStatus) -> ::windows::core::PSTR {
     extern "system" {
         fn QCC_StatusText(status: QStatus) -> ::windows::core::PSTR;
     }
-    ::core::mem::transmute(QCC_StatusText(::core::mem::transmute(status)))
+    ::core::mem::transmute(QCC_StatusText(status))
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 pub const QCC_TRUE: u32 = 1u32;
@@ -1286,7 +1286,7 @@ where
     extern "system" {
         fn alljoyn_aboutdata_getfields(data: alljoyn_aboutdata, fields: *const *const i8, num_fields: usize) -> usize;
     }
-    ::core::mem::transmute(alljoyn_aboutdata_getfields(data.into(), ::core::mem::transmute(fields), ::core::mem::transmute(num_fields)))
+    ::core::mem::transmute(alljoyn_aboutdata_getfields(data.into(), ::core::mem::transmute(fields), num_fields))
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
@@ -1360,7 +1360,7 @@ where
     extern "system" {
         fn alljoyn_aboutdata_getsupportedlanguages(data: alljoyn_aboutdata, languagetags: *const *const i8, num: usize) -> usize;
     }
-    ::core::mem::transmute(alljoyn_aboutdata_getsupportedlanguages(data.into(), ::core::mem::transmute(languagetags), ::core::mem::transmute(num)))
+    ::core::mem::transmute(alljoyn_aboutdata_getsupportedlanguages(data.into(), ::core::mem::transmute(languagetags), num))
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
@@ -1436,7 +1436,7 @@ where
     extern "system" {
         fn alljoyn_aboutdata_setappid(data: alljoyn_aboutdata, appid: *const u8, num: usize) -> QStatus;
     }
-    ::core::mem::transmute(alljoyn_aboutdata_setappid(data.into(), ::core::mem::transmute(appid), ::core::mem::transmute(num)))
+    ::core::mem::transmute(alljoyn_aboutdata_setappid(data.into(), ::core::mem::transmute(appid), num))
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
@@ -1764,7 +1764,7 @@ where
     extern "system" {
         fn alljoyn_abouticon_setcontent(icon: *mut _alljoyn_abouticon_handle, r#type: ::windows::core::PCSTR, data: *mut u8, csize: usize, ownsdata: u8) -> QStatus;
     }
-    ::core::mem::transmute(alljoyn_abouticon_setcontent(::core::mem::transmute(icon), r#type.into(), ::core::mem::transmute(data), ::core::mem::transmute(csize), ::core::mem::transmute(ownsdata)))
+    ::core::mem::transmute(alljoyn_abouticon_setcontent(::core::mem::transmute(icon), r#type.into(), ::core::mem::transmute(data), csize, ownsdata))
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
@@ -1823,7 +1823,7 @@ where
     extern "system" {
         fn alljoyn_abouticonproxy_create(bus: alljoyn_busattachment, busname: ::windows::core::PCSTR, sessionid: u32) -> *mut _alljoyn_abouticonproxy_handle;
     }
-    ::core::mem::transmute(alljoyn_abouticonproxy_create(bus.into(), busname.into(), ::core::mem::transmute(sessionid)))
+    ::core::mem::transmute(alljoyn_abouticonproxy_create(bus.into(), busname.into(), sessionid))
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
@@ -1968,7 +1968,7 @@ where
     extern "system" {
         fn alljoyn_aboutobj_announce(obj: alljoyn_aboutobj, sessionport: u16, aboutdata: alljoyn_aboutdata) -> QStatus;
     }
-    ::core::mem::transmute(alljoyn_aboutobj_announce(obj.into(), ::core::mem::transmute(sessionport), aboutdata.into()))
+    ::core::mem::transmute(alljoyn_aboutobj_announce(obj.into(), sessionport, aboutdata.into()))
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
@@ -1981,7 +1981,7 @@ where
     extern "system" {
         fn alljoyn_aboutobj_announce_using_datalistener(obj: alljoyn_aboutobj, sessionport: u16, aboutlistener: alljoyn_aboutdatalistener) -> QStatus;
     }
-    ::core::mem::transmute(alljoyn_aboutobj_announce_using_datalistener(obj.into(), ::core::mem::transmute(sessionport), aboutlistener.into()))
+    ::core::mem::transmute(alljoyn_aboutobj_announce_using_datalistener(obj.into(), sessionport, aboutlistener.into()))
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
@@ -1993,7 +1993,7 @@ where
     extern "system" {
         fn alljoyn_aboutobj_create(bus: alljoyn_busattachment, isannounced: alljoyn_about_announceflag) -> alljoyn_aboutobj;
     }
-    ::core::mem::transmute(alljoyn_aboutobj_create(bus.into(), ::core::mem::transmute(isannounced)))
+    ::core::mem::transmute(alljoyn_aboutobj_create(bus.into(), isannounced))
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
@@ -2115,7 +2115,7 @@ where
     extern "system" {
         fn alljoyn_aboutobjectdescription_getinterfacepaths(description: alljoyn_aboutobjectdescription, interfacename: ::windows::core::PCSTR, paths: *const *const i8, numpaths: usize) -> usize;
     }
-    ::core::mem::transmute(alljoyn_aboutobjectdescription_getinterfacepaths(description.into(), interfacename.into(), ::core::mem::transmute(paths), ::core::mem::transmute(numpaths)))
+    ::core::mem::transmute(alljoyn_aboutobjectdescription_getinterfacepaths(description.into(), interfacename.into(), ::core::mem::transmute(paths), numpaths))
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
@@ -2128,7 +2128,7 @@ where
     extern "system" {
         fn alljoyn_aboutobjectdescription_getinterfaces(description: alljoyn_aboutobjectdescription, path: ::windows::core::PCSTR, interfaces: *const *const i8, numinterfaces: usize) -> usize;
     }
-    ::core::mem::transmute(alljoyn_aboutobjectdescription_getinterfaces(description.into(), path.into(), ::core::mem::transmute(interfaces), ::core::mem::transmute(numinterfaces)))
+    ::core::mem::transmute(alljoyn_aboutobjectdescription_getinterfaces(description.into(), path.into(), ::core::mem::transmute(interfaces), numinterfaces))
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
@@ -2153,7 +2153,7 @@ where
     extern "system" {
         fn alljoyn_aboutobjectdescription_getpaths(description: alljoyn_aboutobjectdescription, paths: *const *const i8, numpaths: usize) -> usize;
     }
-    ::core::mem::transmute(alljoyn_aboutobjectdescription_getpaths(description.into(), ::core::mem::transmute(paths), ::core::mem::transmute(numpaths)))
+    ::core::mem::transmute(alljoyn_aboutobjectdescription_getpaths(description.into(), ::core::mem::transmute(paths), numpaths))
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
@@ -2233,7 +2233,7 @@ where
     extern "system" {
         fn alljoyn_aboutproxy_create(bus: alljoyn_busattachment, busname: ::windows::core::PCSTR, sessionid: u32) -> alljoyn_aboutproxy;
     }
-    ::core::mem::transmute(alljoyn_aboutproxy_create(bus.into(), busname.into(), ::core::mem::transmute(sessionid)))
+    ::core::mem::transmute(alljoyn_aboutproxy_create(bus.into(), busname.into(), sessionid))
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
@@ -2495,7 +2495,7 @@ where
     extern "system" {
         fn alljoyn_authlistener_requestcredentialsresponse(listener: alljoyn_authlistener, authcontext: *mut ::core::ffi::c_void, accept: i32, credentials: alljoyn_credentials) -> QStatus;
     }
-    ::core::mem::transmute(alljoyn_authlistener_requestcredentialsresponse(listener.into(), ::core::mem::transmute(authcontext), ::core::mem::transmute(accept), credentials.into()))
+    ::core::mem::transmute(alljoyn_authlistener_requestcredentialsresponse(listener.into(), ::core::mem::transmute(authcontext), accept, credentials.into()))
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 pub type alljoyn_authlistener_securityviolation_ptr = ::core::option::Option<unsafe extern "system" fn(context: *const ::core::ffi::c_void, status: QStatus, msg: alljoyn_message)>;
@@ -2509,7 +2509,7 @@ where
     extern "system" {
         fn alljoyn_authlistener_setsharedsecret(listener: alljoyn_authlistener, sharedsecret: *const u8, sharedsecretsize: usize) -> QStatus;
     }
-    ::core::mem::transmute(alljoyn_authlistener_setsharedsecret(listener.into(), ::core::mem::transmute(sharedsecret), ::core::mem::transmute(sharedsecretsize)))
+    ::core::mem::transmute(alljoyn_authlistener_setsharedsecret(listener.into(), ::core::mem::transmute(sharedsecret), sharedsecretsize))
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 pub type alljoyn_authlistener_verifycredentials_ptr = ::core::option::Option<unsafe extern "system" fn(context: *const ::core::ffi::c_void, authmechanism: ::windows::core::PCSTR, peername: ::windows::core::PCSTR, credentials: alljoyn_credentials) -> i32>;
@@ -2525,7 +2525,7 @@ where
     extern "system" {
         fn alljoyn_authlistener_verifycredentialsresponse(listener: alljoyn_authlistener, authcontext: *mut ::core::ffi::c_void, accept: i32) -> QStatus;
     }
-    ::core::mem::transmute(alljoyn_authlistener_verifycredentialsresponse(listener.into(), ::core::mem::transmute(authcontext), ::core::mem::transmute(accept)))
+    ::core::mem::transmute(alljoyn_authlistener_verifycredentialsresponse(listener.into(), ::core::mem::transmute(authcontext), accept))
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
@@ -2634,7 +2634,7 @@ where
     extern "system" {
         fn alljoyn_autopinger_addpinggroup(autopinger: alljoyn_autopinger, group: ::windows::core::PCSTR, listener: alljoyn_pinglistener, pinginterval: u32);
     }
-    alljoyn_autopinger_addpinggroup(autopinger.into(), group.into(), listener.into(), ::core::mem::transmute(pinginterval))
+    alljoyn_autopinger_addpinggroup(autopinger.into(), group.into(), listener.into(), pinginterval)
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
@@ -2688,7 +2688,7 @@ where
     extern "system" {
         fn alljoyn_autopinger_removedestination(autopinger: alljoyn_autopinger, group: ::windows::core::PCSTR, destination: ::windows::core::PCSTR, removeall: i32) -> QStatus;
     }
-    ::core::mem::transmute(alljoyn_autopinger_removedestination(autopinger.into(), group.into(), destination.into(), ::core::mem::transmute(removeall)))
+    ::core::mem::transmute(alljoyn_autopinger_removedestination(autopinger.into(), group.into(), destination.into(), removeall))
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
@@ -2726,7 +2726,7 @@ where
     extern "system" {
         fn alljoyn_autopinger_setpinginterval(autopinger: alljoyn_autopinger, group: ::windows::core::PCSTR, pinginterval: u32) -> QStatus;
     }
-    ::core::mem::transmute(alljoyn_autopinger_setpinginterval(autopinger.into(), group.into(), ::core::mem::transmute(pinginterval)))
+    ::core::mem::transmute(alljoyn_autopinger_setpinginterval(autopinger.into(), group.into(), pinginterval))
 }
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
@@ -2794,7 +2794,7 @@ where
     extern "system" {
         fn alljoyn_busattachment_advertisename(bus: alljoyn_busattachment, name: ::windows::core::PCSTR, transports: u16) -> QStatus;
     }
-    ::core::mem::transmute(alljoyn_busattachment_advertisename(bus.into(), name.into(), ::core::mem::transmute(transports)))
+    ::core::mem::transmute(alljoyn_busattachment_advertisename(bus.into(), name.into(), transports))
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
@@ -2821,7 +2821,7 @@ where
     extern "system" {
         fn alljoyn_busattachment_canceladvertisename(bus: alljoyn_busattachment, name: ::windows::core::PCSTR, transports: u16) -> QStatus;
     }
-    ::core::mem::transmute(alljoyn_busattachment_canceladvertisename(bus.into(), name.into(), ::core::mem::transmute(transports)))
+    ::core::mem::transmute(alljoyn_busattachment_canceladvertisename(bus.into(), name.into(), transports))
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
@@ -2847,7 +2847,7 @@ where
     extern "system" {
         fn alljoyn_busattachment_cancelfindadvertisednamebytransport(bus: alljoyn_busattachment, nameprefix: ::windows::core::PCSTR, transports: u16) -> QStatus;
     }
-    ::core::mem::transmute(alljoyn_busattachment_cancelfindadvertisednamebytransport(bus.into(), nameprefix.into(), ::core::mem::transmute(transports)))
+    ::core::mem::transmute(alljoyn_busattachment_cancelfindadvertisednamebytransport(bus.into(), nameprefix.into(), transports))
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
@@ -2872,7 +2872,7 @@ where
     extern "system" {
         fn alljoyn_busattachment_cancelwhoimplements_interfaces(bus: alljoyn_busattachment, implementsinterfaces: *const *const i8, numberinterfaces: usize) -> QStatus;
     }
-    ::core::mem::transmute(alljoyn_busattachment_cancelwhoimplements_interfaces(bus.into(), ::core::mem::transmute(implementsinterfaces), ::core::mem::transmute(numberinterfaces)))
+    ::core::mem::transmute(alljoyn_busattachment_cancelwhoimplements_interfaces(bus.into(), ::core::mem::transmute(implementsinterfaces), numberinterfaces))
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
@@ -2922,7 +2922,7 @@ where
     extern "system" {
         fn alljoyn_busattachment_create(applicationname: ::windows::core::PCSTR, allowremotemessages: i32) -> alljoyn_busattachment;
     }
-    ::core::mem::transmute(alljoyn_busattachment_create(applicationname.into(), ::core::mem::transmute(allowremotemessages)))
+    ::core::mem::transmute(alljoyn_busattachment_create(applicationname.into(), allowremotemessages))
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
@@ -2934,7 +2934,7 @@ where
     extern "system" {
         fn alljoyn_busattachment_create_concurrency(applicationname: ::windows::core::PCSTR, allowremotemessages: i32, concurrency: u32) -> alljoyn_busattachment;
     }
-    ::core::mem::transmute(alljoyn_busattachment_create_concurrency(applicationname.into(), ::core::mem::transmute(allowremotemessages), ::core::mem::transmute(concurrency)))
+    ::core::mem::transmute(alljoyn_busattachment_create_concurrency(applicationname.into(), allowremotemessages, concurrency))
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
@@ -2960,7 +2960,7 @@ where
     extern "system" {
         fn alljoyn_busattachment_createinterface_secure(bus: alljoyn_busattachment, name: ::windows::core::PCSTR, iface: *mut alljoyn_interfacedescription, secpolicy: alljoyn_interfacedescription_securitypolicy) -> QStatus;
     }
-    ::core::mem::transmute(alljoyn_busattachment_createinterface_secure(bus.into(), name.into(), ::core::mem::transmute(iface), ::core::mem::transmute(secpolicy)))
+    ::core::mem::transmute(alljoyn_busattachment_createinterface_secure(bus.into(), name.into(), ::core::mem::transmute(iface), secpolicy))
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
@@ -3050,7 +3050,7 @@ where
     extern "system" {
         fn alljoyn_busattachment_enablepeersecurity(bus: alljoyn_busattachment, authmechanisms: ::windows::core::PCSTR, listener: alljoyn_authlistener, keystorefilename: ::windows::core::PCSTR, isshared: i32) -> QStatus;
     }
-    ::core::mem::transmute(alljoyn_busattachment_enablepeersecurity(bus.into(), authmechanisms.into(), listener.into(), keystorefilename.into(), ::core::mem::transmute(isshared)))
+    ::core::mem::transmute(alljoyn_busattachment_enablepeersecurity(bus.into(), authmechanisms.into(), listener.into(), keystorefilename.into(), isshared))
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
@@ -3066,7 +3066,7 @@ where
     extern "system" {
         fn alljoyn_busattachment_enablepeersecuritywithpermissionconfigurationlistener(bus: alljoyn_busattachment, authmechanisms: ::windows::core::PCSTR, authlistener: alljoyn_authlistener, keystorefilename: ::windows::core::PCSTR, isshared: i32, permissionconfigurationlistener: alljoyn_permissionconfigurationlistener) -> QStatus;
     }
-    ::core::mem::transmute(alljoyn_busattachment_enablepeersecuritywithpermissionconfigurationlistener(bus.into(), authmechanisms.into(), authlistener.into(), keystorefilename.into(), ::core::mem::transmute(isshared), permissionconfigurationlistener.into()))
+    ::core::mem::transmute(alljoyn_busattachment_enablepeersecuritywithpermissionconfigurationlistener(bus.into(), authmechanisms.into(), authlistener.into(), keystorefilename.into(), isshared, permissionconfigurationlistener.into()))
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
@@ -3092,7 +3092,7 @@ where
     extern "system" {
         fn alljoyn_busattachment_findadvertisednamebytransport(bus: alljoyn_busattachment, nameprefix: ::windows::core::PCSTR, transports: u16) -> QStatus;
     }
-    ::core::mem::transmute(alljoyn_busattachment_findadvertisednamebytransport(bus.into(), nameprefix.into(), ::core::mem::transmute(transports)))
+    ::core::mem::transmute(alljoyn_busattachment_findadvertisednamebytransport(bus.into(), nameprefix.into(), transports))
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
@@ -3189,7 +3189,7 @@ where
     extern "system" {
         fn alljoyn_busattachment_getinterfaces(bus: alljoyn_busattachment, ifaces: *const alljoyn_interfacedescription, numifaces: usize) -> usize;
     }
-    ::core::mem::transmute(alljoyn_busattachment_getinterfaces(bus.into(), ::core::mem::transmute(ifaces), ::core::mem::transmute(numifaces)))
+    ::core::mem::transmute(alljoyn_busattachment_getinterfaces(bus.into(), ::core::mem::transmute(ifaces), numifaces))
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
@@ -3324,7 +3324,7 @@ where
     extern "system" {
         fn alljoyn_busattachment_joinsession(bus: alljoyn_busattachment, sessionhost: ::windows::core::PCSTR, sessionport: u16, listener: alljoyn_sessionlistener, sessionid: *mut u32, opts: alljoyn_sessionopts) -> QStatus;
     }
-    ::core::mem::transmute(alljoyn_busattachment_joinsession(bus.into(), sessionhost.into(), ::core::mem::transmute(sessionport), listener.into(), ::core::mem::transmute(sessionid), opts.into()))
+    ::core::mem::transmute(alljoyn_busattachment_joinsession(bus.into(), sessionhost.into(), sessionport, listener.into(), ::core::mem::transmute(sessionid), opts.into()))
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
@@ -3339,7 +3339,7 @@ where
     extern "system" {
         fn alljoyn_busattachment_joinsessionasync(bus: alljoyn_busattachment, sessionhost: ::windows::core::PCSTR, sessionport: u16, listener: alljoyn_sessionlistener, opts: alljoyn_sessionopts, callback: *mut ::core::ffi::c_void, context: *mut ::core::ffi::c_void) -> QStatus;
     }
-    ::core::mem::transmute(alljoyn_busattachment_joinsessionasync(bus.into(), sessionhost.into(), ::core::mem::transmute(sessionport), listener.into(), opts.into(), ::core::mem::transmute(callback), ::core::mem::transmute(context)))
+    ::core::mem::transmute(alljoyn_busattachment_joinsessionasync(bus.into(), sessionhost.into(), sessionport, listener.into(), opts.into(), ::core::mem::transmute(callback), ::core::mem::transmute(context)))
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 pub type alljoyn_busattachment_joinsessioncb_ptr = ::core::option::Option<unsafe extern "system" fn(status: QStatus, sessionid: u32, opts: alljoyn_sessionopts, context: *mut ::core::ffi::c_void)>;
@@ -3353,7 +3353,7 @@ where
     extern "system" {
         fn alljoyn_busattachment_leavesession(bus: alljoyn_busattachment, sessionid: u32) -> QStatus;
     }
-    ::core::mem::transmute(alljoyn_busattachment_leavesession(bus.into(), ::core::mem::transmute(sessionid)))
+    ::core::mem::transmute(alljoyn_busattachment_leavesession(bus.into(), sessionid))
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
@@ -3379,7 +3379,7 @@ where
     extern "system" {
         fn alljoyn_busattachment_ping(bus: alljoyn_busattachment, name: ::windows::core::PCSTR, timeout: u32) -> QStatus;
     }
-    ::core::mem::transmute(alljoyn_busattachment_ping(bus.into(), name.into(), ::core::mem::transmute(timeout)))
+    ::core::mem::transmute(alljoyn_busattachment_ping(bus.into(), name.into(), timeout))
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
@@ -3534,7 +3534,7 @@ where
     extern "system" {
         fn alljoyn_busattachment_removesessionmember(bus: alljoyn_busattachment, sessionid: u32, membername: ::windows::core::PCSTR) -> QStatus;
     }
-    ::core::mem::transmute(alljoyn_busattachment_removesessionmember(bus.into(), ::core::mem::transmute(sessionid), membername.into()))
+    ::core::mem::transmute(alljoyn_busattachment_removesessionmember(bus.into(), sessionid, membername.into()))
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
@@ -3547,7 +3547,7 @@ where
     extern "system" {
         fn alljoyn_busattachment_requestname(bus: alljoyn_busattachment, requestedname: ::windows::core::PCSTR, flags: u32) -> QStatus;
     }
-    ::core::mem::transmute(alljoyn_busattachment_requestname(bus.into(), requestedname.into(), ::core::mem::transmute(flags)))
+    ::core::mem::transmute(alljoyn_busattachment_requestname(bus.into(), requestedname.into(), flags))
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
@@ -3560,7 +3560,7 @@ where
     extern "system" {
         fn alljoyn_busattachment_secureconnection(bus: alljoyn_busattachment, name: ::windows::core::PCSTR, forceauth: i32) -> QStatus;
     }
-    ::core::mem::transmute(alljoyn_busattachment_secureconnection(bus.into(), name.into(), ::core::mem::transmute(forceauth)))
+    ::core::mem::transmute(alljoyn_busattachment_secureconnection(bus.into(), name.into(), forceauth))
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
@@ -3573,7 +3573,7 @@ where
     extern "system" {
         fn alljoyn_busattachment_secureconnectionasync(bus: alljoyn_busattachment, name: ::windows::core::PCSTR, forceauth: i32) -> QStatus;
     }
-    ::core::mem::transmute(alljoyn_busattachment_secureconnectionasync(bus.into(), name.into(), ::core::mem::transmute(forceauth)))
+    ::core::mem::transmute(alljoyn_busattachment_secureconnectionasync(bus.into(), name.into(), forceauth))
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
@@ -3586,7 +3586,7 @@ where
     extern "system" {
         fn alljoyn_busattachment_setdaemondebug(bus: alljoyn_busattachment, module: ::windows::core::PCSTR, level: u32) -> QStatus;
     }
-    ::core::mem::transmute(alljoyn_busattachment_setdaemondebug(bus.into(), module.into(), ::core::mem::transmute(level)))
+    ::core::mem::transmute(alljoyn_busattachment_setdaemondebug(bus.into(), module.into(), level))
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
@@ -3599,7 +3599,7 @@ where
     extern "system" {
         fn alljoyn_busattachment_setkeyexpiration(bus: alljoyn_busattachment, guid: ::windows::core::PCSTR, timeout: u32) -> QStatus;
     }
-    ::core::mem::transmute(alljoyn_busattachment_setkeyexpiration(bus.into(), guid.into(), ::core::mem::transmute(timeout)))
+    ::core::mem::transmute(alljoyn_busattachment_setkeyexpiration(bus.into(), guid.into(), timeout))
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
@@ -3611,7 +3611,7 @@ where
     extern "system" {
         fn alljoyn_busattachment_setlinktimeout(bus: alljoyn_busattachment, sessionid: u32, linktimeout: *mut u32) -> QStatus;
     }
-    ::core::mem::transmute(alljoyn_busattachment_setlinktimeout(bus.into(), ::core::mem::transmute(sessionid), ::core::mem::transmute(linktimeout)))
+    ::core::mem::transmute(alljoyn_busattachment_setlinktimeout(bus.into(), sessionid, ::core::mem::transmute(linktimeout)))
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
@@ -3623,7 +3623,7 @@ where
     extern "system" {
         fn alljoyn_busattachment_setlinktimeoutasync(bus: alljoyn_busattachment, sessionid: u32, linktimeout: u32, callback: *mut ::core::ffi::c_void, context: *mut ::core::ffi::c_void) -> QStatus;
     }
-    ::core::mem::transmute(alljoyn_busattachment_setlinktimeoutasync(bus.into(), ::core::mem::transmute(sessionid), ::core::mem::transmute(linktimeout), ::core::mem::transmute(callback), ::core::mem::transmute(context)))
+    ::core::mem::transmute(alljoyn_busattachment_setlinktimeoutasync(bus.into(), sessionid, linktimeout, ::core::mem::transmute(callback), ::core::mem::transmute(context)))
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 pub type alljoyn_busattachment_setlinktimeoutcb_ptr = ::core::option::Option<unsafe extern "system" fn(status: QStatus, timeout: u32, context: *mut ::core::ffi::c_void)>;
@@ -3638,7 +3638,7 @@ where
     extern "system" {
         fn alljoyn_busattachment_setsessionlistener(bus: alljoyn_busattachment, sessionid: u32, listener: alljoyn_sessionlistener) -> QStatus;
     }
-    ::core::mem::transmute(alljoyn_busattachment_setsessionlistener(bus.into(), ::core::mem::transmute(sessionid), listener.into()))
+    ::core::mem::transmute(alljoyn_busattachment_setsessionlistener(bus.into(), sessionid, listener.into()))
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
@@ -3674,7 +3674,7 @@ where
     extern "system" {
         fn alljoyn_busattachment_unbindsessionport(bus: alljoyn_busattachment, sessionport: u16) -> QStatus;
     }
-    ::core::mem::transmute(alljoyn_busattachment_unbindsessionport(bus.into(), ::core::mem::transmute(sessionport)))
+    ::core::mem::transmute(alljoyn_busattachment_unbindsessionport(bus.into(), sessionport))
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
@@ -3801,7 +3801,7 @@ where
     extern "system" {
         fn alljoyn_busattachment_whoimplements_interfaces(bus: alljoyn_busattachment, implementsinterfaces: *const *const i8, numberinterfaces: usize) -> QStatus;
     }
-    ::core::mem::transmute(alljoyn_busattachment_whoimplements_interfaces(bus.into(), ::core::mem::transmute(implementsinterfaces), ::core::mem::transmute(numberinterfaces)))
+    ::core::mem::transmute(alljoyn_busattachment_whoimplements_interfaces(bus.into(), ::core::mem::transmute(implementsinterfaces), numberinterfaces))
 }
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
@@ -3988,7 +3988,7 @@ where
     extern "system" {
         fn alljoyn_busobject_addmethodhandlers(bus: alljoyn_busobject, entries: *const alljoyn_busobject_methodentry, numentries: usize) -> QStatus;
     }
-    ::core::mem::transmute(alljoyn_busobject_addmethodhandlers(bus.into(), ::core::mem::transmute(entries), ::core::mem::transmute(numentries)))
+    ::core::mem::transmute(alljoyn_busobject_addmethodhandlers(bus.into(), ::core::mem::transmute(entries), numentries))
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
@@ -4046,7 +4046,7 @@ where
     extern "system" {
         fn alljoyn_busobject_cancelsessionlessmessage_serial(bus: alljoyn_busobject, serialnumber: u32) -> QStatus;
     }
-    ::core::mem::transmute(alljoyn_busobject_cancelsessionlessmessage_serial(bus.into(), ::core::mem::transmute(serialnumber)))
+    ::core::mem::transmute(alljoyn_busobject_cancelsessionlessmessage_serial(bus.into(), serialnumber))
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
@@ -4058,7 +4058,7 @@ where
     extern "system" {
         fn alljoyn_busobject_create(path: ::windows::core::PCSTR, isplaceholder: i32, callbacks_in: *const alljoyn_busobject_callbacks, context_in: *const ::core::ffi::c_void) -> alljoyn_busobject;
     }
-    ::core::mem::transmute(alljoyn_busobject_create(path.into(), ::core::mem::transmute(isplaceholder), ::core::mem::transmute(callbacks_in), ::core::mem::transmute(context_in)))
+    ::core::mem::transmute(alljoyn_busobject_create(path.into(), isplaceholder, ::core::mem::transmute(callbacks_in), ::core::mem::transmute(context_in)))
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
@@ -4083,7 +4083,7 @@ where
     extern "system" {
         fn alljoyn_busobject_emitpropertieschanged(bus: alljoyn_busobject, ifcname: ::windows::core::PCSTR, propnames: *const *const i8, numprops: usize, id: u32);
     }
-    alljoyn_busobject_emitpropertieschanged(bus.into(), ifcname.into(), ::core::mem::transmute(propnames), ::core::mem::transmute(numprops), ::core::mem::transmute(id))
+    alljoyn_busobject_emitpropertieschanged(bus.into(), ifcname.into(), ::core::mem::transmute(propnames), numprops, id)
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
@@ -4098,7 +4098,7 @@ where
     extern "system" {
         fn alljoyn_busobject_emitpropertychanged(bus: alljoyn_busobject, ifcname: ::windows::core::PCSTR, propname: ::windows::core::PCSTR, val: alljoyn_msgarg, id: u32);
     }
-    alljoyn_busobject_emitpropertychanged(bus.into(), ifcname.into(), propname.into(), val.into(), ::core::mem::transmute(id))
+    alljoyn_busobject_emitpropertychanged(bus.into(), ifcname.into(), propname.into(), val.into(), id)
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
@@ -4110,7 +4110,7 @@ where
     extern "system" {
         fn alljoyn_busobject_getannouncedinterfacenames(bus: alljoyn_busobject, interfaces: *const *const i8, numinterfaces: usize) -> usize;
     }
-    ::core::mem::transmute(alljoyn_busobject_getannouncedinterfacenames(bus.into(), ::core::mem::transmute(interfaces), ::core::mem::transmute(numinterfaces)))
+    ::core::mem::transmute(alljoyn_busobject_getannouncedinterfacenames(bus.into(), ::core::mem::transmute(interfaces), numinterfaces))
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
@@ -4135,7 +4135,7 @@ where
     extern "system" {
         fn alljoyn_busobject_getname(bus: alljoyn_busobject, buffer: ::windows::core::PCSTR, buffersz: usize) -> usize;
     }
-    ::core::mem::transmute(alljoyn_busobject_getname(bus.into(), buffer.into(), ::core::mem::transmute(buffersz)))
+    ::core::mem::transmute(alljoyn_busobject_getname(bus.into(), buffer.into(), buffersz))
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
@@ -4204,7 +4204,7 @@ where
     extern "system" {
         fn alljoyn_busobject_methodreply_args(bus: alljoyn_busobject, msg: alljoyn_message, args: alljoyn_msgarg, numargs: usize) -> QStatus;
     }
-    ::core::mem::transmute(alljoyn_busobject_methodreply_args(bus.into(), msg.into(), args.into(), ::core::mem::transmute(numargs)))
+    ::core::mem::transmute(alljoyn_busobject_methodreply_args(bus.into(), msg.into(), args.into(), numargs))
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
@@ -4232,7 +4232,7 @@ where
     extern "system" {
         fn alljoyn_busobject_methodreply_status(bus: alljoyn_busobject, msg: alljoyn_message, status: QStatus) -> QStatus;
     }
-    ::core::mem::transmute(alljoyn_busobject_methodreply_status(bus.into(), msg.into(), ::core::mem::transmute(status)))
+    ::core::mem::transmute(alljoyn_busobject_methodreply_status(bus.into(), msg.into(), status))
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 pub type alljoyn_busobject_object_registration_ptr = ::core::option::Option<unsafe extern "system" fn(context: *const ::core::ffi::c_void)>;
@@ -4251,7 +4251,7 @@ where
     extern "system" {
         fn alljoyn_busobject_setannounceflag(bus: alljoyn_busobject, iface: alljoyn_interfacedescription, isannounced: alljoyn_about_announceflag) -> QStatus;
     }
-    ::core::mem::transmute(alljoyn_busobject_setannounceflag(bus.into(), iface.into(), ::core::mem::transmute(isannounced)))
+    ::core::mem::transmute(alljoyn_busobject_setannounceflag(bus.into(), iface.into(), isannounced))
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
@@ -4266,7 +4266,7 @@ where
     extern "system" {
         fn alljoyn_busobject_signal(bus: alljoyn_busobject, destination: ::windows::core::PCSTR, sessionid: u32, signal: alljoyn_interfacedescription_member, args: alljoyn_msgarg, numargs: usize, timetolive: u16, flags: u8, msg: alljoyn_message) -> QStatus;
     }
-    ::core::mem::transmute(alljoyn_busobject_signal(bus.into(), destination.into(), ::core::mem::transmute(sessionid), ::core::mem::transmute(signal), args.into(), ::core::mem::transmute(numargs), ::core::mem::transmute(timetolive), ::core::mem::transmute(flags), msg.into()))
+    ::core::mem::transmute(alljoyn_busobject_signal(bus.into(), destination.into(), sessionid, ::core::mem::transmute(signal), args.into(), numargs, timetolive, flags, msg.into()))
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
@@ -4531,7 +4531,7 @@ where
     extern "system" {
         fn alljoyn_credentials_isset(cred: alljoyn_credentials, creds: u16) -> i32;
     }
-    ::core::mem::transmute(alljoyn_credentials_isset(cred.into(), ::core::mem::transmute(creds)))
+    ::core::mem::transmute(alljoyn_credentials_isset(cred.into(), creds))
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
@@ -4556,7 +4556,7 @@ where
     extern "system" {
         fn alljoyn_credentials_setexpiration(cred: alljoyn_credentials, expiration: u32);
     }
-    alljoyn_credentials_setexpiration(cred.into(), ::core::mem::transmute(expiration))
+    alljoyn_credentials_setexpiration(cred.into(), expiration)
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
@@ -4729,7 +4729,7 @@ where
     extern "system" {
         fn alljoyn_interfacedescription_addmember(iface: alljoyn_interfacedescription, r#type: alljoyn_messagetype, name: ::windows::core::PCSTR, inputsig: ::windows::core::PCSTR, outsig: ::windows::core::PCSTR, argnames: ::windows::core::PCSTR, annotation: u8) -> QStatus;
     }
-    ::core::mem::transmute(alljoyn_interfacedescription_addmember(iface.into(), ::core::mem::transmute(r#type), name.into(), inputsig.into(), outsig.into(), argnames.into(), ::core::mem::transmute(annotation)))
+    ::core::mem::transmute(alljoyn_interfacedescription_addmember(iface.into(), r#type, name.into(), inputsig.into(), outsig.into(), argnames.into(), annotation))
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
@@ -4761,7 +4761,7 @@ where
     extern "system" {
         fn alljoyn_interfacedescription_addmethod(iface: alljoyn_interfacedescription, name: ::windows::core::PCSTR, inputsig: ::windows::core::PCSTR, outsig: ::windows::core::PCSTR, argnames: ::windows::core::PCSTR, annotation: u8, accessperms: ::windows::core::PCSTR) -> QStatus;
     }
-    ::core::mem::transmute(alljoyn_interfacedescription_addmethod(iface.into(), name.into(), inputsig.into(), outsig.into(), argnames.into(), ::core::mem::transmute(annotation), accessperms.into()))
+    ::core::mem::transmute(alljoyn_interfacedescription_addmethod(iface.into(), name.into(), inputsig.into(), outsig.into(), argnames.into(), annotation, accessperms.into()))
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
@@ -4775,7 +4775,7 @@ where
     extern "system" {
         fn alljoyn_interfacedescription_addproperty(iface: alljoyn_interfacedescription, name: ::windows::core::PCSTR, signature: ::windows::core::PCSTR, access: u8) -> QStatus;
     }
-    ::core::mem::transmute(alljoyn_interfacedescription_addproperty(iface.into(), name.into(), signature.into(), ::core::mem::transmute(access)))
+    ::core::mem::transmute(alljoyn_interfacedescription_addproperty(iface.into(), name.into(), signature.into(), access))
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
@@ -4806,7 +4806,7 @@ where
     extern "system" {
         fn alljoyn_interfacedescription_addsignal(iface: alljoyn_interfacedescription, name: ::windows::core::PCSTR, sig: ::windows::core::PCSTR, argnames: ::windows::core::PCSTR, annotation: u8, accessperms: ::windows::core::PCSTR) -> QStatus;
     }
-    ::core::mem::transmute(alljoyn_interfacedescription_addsignal(iface.into(), name.into(), sig.into(), argnames.into(), ::core::mem::transmute(annotation), accessperms.into()))
+    ::core::mem::transmute(alljoyn_interfacedescription_addsignal(iface.into(), name.into(), sig.into(), argnames.into(), annotation, accessperms.into()))
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
@@ -4847,7 +4847,7 @@ where
     extern "system" {
         fn alljoyn_interfacedescription_getannotationatindex(iface: alljoyn_interfacedescription, index: usize, name: ::windows::core::PCSTR, name_size: *mut usize, value: ::windows::core::PCSTR, value_size: *mut usize);
     }
-    alljoyn_interfacedescription_getannotationatindex(iface.into(), ::core::mem::transmute(index), name.into(), ::core::mem::transmute(name_size), value.into(), ::core::mem::transmute(value_size))
+    alljoyn_interfacedescription_getannotationatindex(iface.into(), index, name.into(), ::core::mem::transmute(name_size), value.into(), ::core::mem::transmute(value_size))
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
@@ -4875,7 +4875,7 @@ where
     extern "system" {
         fn alljoyn_interfacedescription_getargdescriptionforlanguage(iface: alljoyn_interfacedescription, member: ::windows::core::PCSTR, arg: ::windows::core::PCSTR, description: ::windows::core::PCSTR, maxlanguagelength: usize, languagetag: ::windows::core::PCSTR) -> usize;
     }
-    ::core::mem::transmute(alljoyn_interfacedescription_getargdescriptionforlanguage(iface.into(), member.into(), arg.into(), description.into(), ::core::mem::transmute(maxlanguagelength), languagetag.into()))
+    ::core::mem::transmute(alljoyn_interfacedescription_getargdescriptionforlanguage(iface.into(), member.into(), arg.into(), description.into(), maxlanguagelength, languagetag.into()))
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
@@ -4889,7 +4889,7 @@ where
     extern "system" {
         fn alljoyn_interfacedescription_getdescriptionforlanguage(iface: alljoyn_interfacedescription, description: ::windows::core::PCSTR, maxlanguagelength: usize, languagetag: ::windows::core::PCSTR) -> usize;
     }
-    ::core::mem::transmute(alljoyn_interfacedescription_getdescriptionforlanguage(iface.into(), description.into(), ::core::mem::transmute(maxlanguagelength), languagetag.into()))
+    ::core::mem::transmute(alljoyn_interfacedescription_getdescriptionforlanguage(iface.into(), description.into(), maxlanguagelength, languagetag.into()))
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
@@ -4901,7 +4901,7 @@ where
     extern "system" {
         fn alljoyn_interfacedescription_getdescriptionlanguages(iface: alljoyn_interfacedescription, languages: *const *const i8, size: usize) -> usize;
     }
-    ::core::mem::transmute(alljoyn_interfacedescription_getdescriptionlanguages(iface.into(), ::core::mem::transmute(languages), ::core::mem::transmute(size)))
+    ::core::mem::transmute(alljoyn_interfacedescription_getdescriptionlanguages(iface.into(), ::core::mem::transmute(languages), size))
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
@@ -4914,7 +4914,7 @@ where
     extern "system" {
         fn alljoyn_interfacedescription_getdescriptionlanguages2(iface: alljoyn_interfacedescription, languages: ::windows::core::PCSTR, languagessize: usize) -> usize;
     }
-    ::core::mem::transmute(alljoyn_interfacedescription_getdescriptionlanguages2(iface.into(), languages.into(), ::core::mem::transmute(languagessize)))
+    ::core::mem::transmute(alljoyn_interfacedescription_getdescriptionlanguages2(iface.into(), languages.into(), languagessize))
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
@@ -4985,7 +4985,7 @@ where
     extern "system" {
         fn alljoyn_interfacedescription_getmemberdescriptionforlanguage(iface: alljoyn_interfacedescription, member: ::windows::core::PCSTR, description: ::windows::core::PCSTR, maxlanguagelength: usize, languagetag: ::windows::core::PCSTR) -> usize;
     }
-    ::core::mem::transmute(alljoyn_interfacedescription_getmemberdescriptionforlanguage(iface.into(), member.into(), description.into(), ::core::mem::transmute(maxlanguagelength), languagetag.into()))
+    ::core::mem::transmute(alljoyn_interfacedescription_getmemberdescriptionforlanguage(iface.into(), member.into(), description.into(), maxlanguagelength, languagetag.into()))
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
@@ -4997,7 +4997,7 @@ where
     extern "system" {
         fn alljoyn_interfacedescription_getmembers(iface: alljoyn_interfacedescription, members: *mut alljoyn_interfacedescription_member, nummembers: usize) -> usize;
     }
-    ::core::mem::transmute(alljoyn_interfacedescription_getmembers(iface.into(), ::core::mem::transmute(members), ::core::mem::transmute(nummembers)))
+    ::core::mem::transmute(alljoyn_interfacedescription_getmembers(iface.into(), ::core::mem::transmute(members), nummembers))
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
@@ -5034,7 +5034,7 @@ where
     extern "system" {
         fn alljoyn_interfacedescription_getproperties(iface: alljoyn_interfacedescription, props: *mut alljoyn_interfacedescription_property, numprops: usize) -> usize;
     }
-    ::core::mem::transmute(alljoyn_interfacedescription_getproperties(iface.into(), ::core::mem::transmute(props), ::core::mem::transmute(numprops)))
+    ::core::mem::transmute(alljoyn_interfacedescription_getproperties(iface.into(), ::core::mem::transmute(props), numprops))
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
@@ -5077,7 +5077,7 @@ where
     extern "system" {
         fn alljoyn_interfacedescription_getpropertydescriptionforlanguage(iface: alljoyn_interfacedescription, property: ::windows::core::PCSTR, description: ::windows::core::PCSTR, maxlanguagelength: usize, languagetag: ::windows::core::PCSTR) -> usize;
     }
-    ::core::mem::transmute(alljoyn_interfacedescription_getpropertydescriptionforlanguage(iface.into(), property.into(), description.into(), ::core::mem::transmute(maxlanguagelength), languagetag.into()))
+    ::core::mem::transmute(alljoyn_interfacedescription_getpropertydescriptionforlanguage(iface.into(), property.into(), description.into(), maxlanguagelength, languagetag.into()))
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
@@ -5167,7 +5167,7 @@ where
     extern "system" {
         fn alljoyn_interfacedescription_introspect(iface: alljoyn_interfacedescription, str: ::windows::core::PCSTR, buf: usize, indent: usize) -> usize;
     }
-    ::core::mem::transmute(alljoyn_interfacedescription_introspect(iface.into(), str.into(), ::core::mem::transmute(buf), ::core::mem::transmute(indent)))
+    ::core::mem::transmute(alljoyn_interfacedescription_introspect(iface.into(), str.into(), buf, indent))
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
@@ -5250,7 +5250,7 @@ where
     extern "system" {
         fn alljoyn_interfacedescription_member_getannotationatindex(member: alljoyn_interfacedescription_member, index: usize, name: ::windows::core::PCSTR, name_size: *mut usize, value: ::windows::core::PCSTR, value_size: *mut usize);
     }
-    alljoyn_interfacedescription_member_getannotationatindex(::core::mem::transmute(member), ::core::mem::transmute(index), name.into(), ::core::mem::transmute(name_size), value.into(), ::core::mem::transmute(value_size))
+    alljoyn_interfacedescription_member_getannotationatindex(::core::mem::transmute(member), index, name.into(), ::core::mem::transmute(name_size), value.into(), ::core::mem::transmute(value_size))
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
@@ -5287,7 +5287,7 @@ where
     extern "system" {
         fn alljoyn_interfacedescription_member_getargannotationatindex(member: alljoyn_interfacedescription_member, argname: ::windows::core::PCSTR, index: usize, name: ::windows::core::PCSTR, name_size: *mut usize, value: ::windows::core::PCSTR, value_size: *mut usize);
     }
-    alljoyn_interfacedescription_member_getargannotationatindex(::core::mem::transmute(member), argname.into(), ::core::mem::transmute(index), name.into(), ::core::mem::transmute(name_size), value.into(), ::core::mem::transmute(value_size))
+    alljoyn_interfacedescription_member_getargannotationatindex(::core::mem::transmute(member), argname.into(), index, name.into(), ::core::mem::transmute(name_size), value.into(), ::core::mem::transmute(value_size))
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
@@ -5367,7 +5367,7 @@ where
     extern "system" {
         fn alljoyn_interfacedescription_property_getannotationatindex(property: alljoyn_interfacedescription_property, index: usize, name: ::windows::core::PCSTR, name_size: *mut usize, value: ::windows::core::PCSTR, value_size: *mut usize);
     }
-    alljoyn_interfacedescription_property_getannotationatindex(::core::mem::transmute(property), ::core::mem::transmute(index), name.into(), ::core::mem::transmute(name_size), value.into(), ::core::mem::transmute(value_size))
+    alljoyn_interfacedescription_property_getannotationatindex(::core::mem::transmute(property), index, name.into(), ::core::mem::transmute(name_size), value.into(), ::core::mem::transmute(value_size))
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
@@ -5816,7 +5816,7 @@ where
     extern "system" {
         fn alljoyn_message_description(msg: alljoyn_message, str: ::windows::core::PCSTR, buf: usize) -> usize;
     }
-    ::core::mem::transmute(alljoyn_message_description(msg.into(), str.into(), ::core::mem::transmute(buf)))
+    ::core::mem::transmute(alljoyn_message_description(msg.into(), str.into(), buf))
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
@@ -5853,7 +5853,7 @@ where
     extern "system" {
         fn alljoyn_message_getarg(msg: alljoyn_message, argn: usize) -> alljoyn_msgarg;
     }
-    ::core::mem::transmute(alljoyn_message_getarg(msg.into(), ::core::mem::transmute(argn)))
+    ::core::mem::transmute(alljoyn_message_getarg(msg.into(), argn))
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
@@ -6152,7 +6152,7 @@ pub unsafe fn alljoyn_message_setendianess(endian: i8) {
     extern "system" {
         fn alljoyn_message_setendianess(endian: i8);
     }
-    alljoyn_message_setendianess(::core::mem::transmute(endian))
+    alljoyn_message_setendianess(endian)
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
@@ -6165,7 +6165,7 @@ where
     extern "system" {
         fn alljoyn_message_tostring(msg: alljoyn_message, str: ::windows::core::PCSTR, buf: usize) -> usize;
     }
-    ::core::mem::transmute(alljoyn_message_tostring(msg.into(), str.into(), ::core::mem::transmute(buf)))
+    ::core::mem::transmute(alljoyn_message_tostring(msg.into(), str.into(), buf))
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 pub type alljoyn_messagereceiver_methodhandler_ptr = ::core::option::Option<unsafe extern "system" fn(bus: alljoyn_busobject, member: *const alljoyn_interfacedescription_member, message: alljoyn_message)>;
@@ -6240,7 +6240,7 @@ pub unsafe fn alljoyn_msgarg_array_create(size: usize) -> alljoyn_msgarg {
     extern "system" {
         fn alljoyn_msgarg_array_create(size: usize) -> alljoyn_msgarg;
     }
-    ::core::mem::transmute(alljoyn_msgarg_array_create(::core::mem::transmute(size)))
+    ::core::mem::transmute(alljoyn_msgarg_array_create(size))
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
@@ -6252,7 +6252,7 @@ where
     extern "system" {
         fn alljoyn_msgarg_array_element(arg: alljoyn_msgarg, index: usize) -> alljoyn_msgarg;
     }
-    ::core::mem::transmute(alljoyn_msgarg_array_element(arg.into(), ::core::mem::transmute(index)))
+    ::core::mem::transmute(alljoyn_msgarg_array_element(arg.into(), index))
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
@@ -6265,7 +6265,7 @@ where
     extern "system" {
         fn alljoyn_msgarg_array_get(args: alljoyn_msgarg, numargs: usize, signature: ::windows::core::PCSTR) -> QStatus;
     }
-    ::core::mem::transmute(alljoyn_msgarg_array_get(args.into(), ::core::mem::transmute(numargs), signature.into()))
+    ::core::mem::transmute(alljoyn_msgarg_array_get(args.into(), numargs, signature.into()))
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
@@ -6291,7 +6291,7 @@ where
     extern "system" {
         fn alljoyn_msgarg_array_set_offset(args: alljoyn_msgarg, argoffset: usize, numargs: *mut usize, signature: ::windows::core::PCSTR) -> QStatus;
     }
-    ::core::mem::transmute(alljoyn_msgarg_array_set_offset(args.into(), ::core::mem::transmute(argoffset), ::core::mem::transmute(numargs), signature.into()))
+    ::core::mem::transmute(alljoyn_msgarg_array_set_offset(args.into(), argoffset, ::core::mem::transmute(numargs), signature.into()))
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
@@ -6304,7 +6304,7 @@ where
     extern "system" {
         fn alljoyn_msgarg_array_signature(values: alljoyn_msgarg, numvalues: usize, str: ::windows::core::PCSTR, buf: usize) -> usize;
     }
-    ::core::mem::transmute(alljoyn_msgarg_array_signature(values.into(), ::core::mem::transmute(numvalues), str.into(), ::core::mem::transmute(buf)))
+    ::core::mem::transmute(alljoyn_msgarg_array_signature(values.into(), numvalues, str.into(), buf))
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
@@ -6317,7 +6317,7 @@ where
     extern "system" {
         fn alljoyn_msgarg_array_tostring(args: alljoyn_msgarg, numargs: usize, str: ::windows::core::PCSTR, buf: usize, indent: usize) -> usize;
     }
-    ::core::mem::transmute(alljoyn_msgarg_array_tostring(args.into(), ::core::mem::transmute(numargs), str.into(), ::core::mem::transmute(buf), ::core::mem::transmute(indent)))
+    ::core::mem::transmute(alljoyn_msgarg_array_tostring(args.into(), numargs, str.into(), buf, indent))
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
@@ -6425,7 +6425,7 @@ where
     extern "system" {
         fn alljoyn_msgarg_get_array_element(arg: alljoyn_msgarg, index: usize, element: *mut alljoyn_msgarg);
     }
-    alljoyn_msgarg_get_array_element(arg.into(), ::core::mem::transmute(index), ::core::mem::transmute(element))
+    alljoyn_msgarg_get_array_element(arg.into(), index, ::core::mem::transmute(element))
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
@@ -6437,7 +6437,7 @@ where
     extern "system" {
         fn alljoyn_msgarg_get_array_elementsignature(arg: alljoyn_msgarg, index: usize) -> ::windows::core::PSTR;
     }
-    ::core::mem::transmute(alljoyn_msgarg_get_array_elementsignature(arg.into(), ::core::mem::transmute(index)))
+    ::core::mem::transmute(alljoyn_msgarg_get_array_elementsignature(arg.into(), index))
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
@@ -6764,7 +6764,7 @@ where
     extern "system" {
         fn alljoyn_msgarg_getmember(arg: alljoyn_msgarg, index: usize) -> alljoyn_msgarg;
     }
-    ::core::mem::transmute(alljoyn_msgarg_getmember(arg.into(), ::core::mem::transmute(index)))
+    ::core::mem::transmute(alljoyn_msgarg_getmember(arg.into(), index))
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
@@ -6851,7 +6851,7 @@ where
     extern "system" {
         fn alljoyn_msgarg_set_bool(arg: alljoyn_msgarg, b: i32) -> QStatus;
     }
-    ::core::mem::transmute(alljoyn_msgarg_set_bool(arg.into(), ::core::mem::transmute(b)))
+    ::core::mem::transmute(alljoyn_msgarg_set_bool(arg.into(), b))
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
@@ -6863,7 +6863,7 @@ where
     extern "system" {
         fn alljoyn_msgarg_set_bool_array(arg: alljoyn_msgarg, length: usize, ab: *mut i32) -> QStatus;
     }
-    ::core::mem::transmute(alljoyn_msgarg_set_bool_array(arg.into(), ::core::mem::transmute(length), ::core::mem::transmute(ab)))
+    ::core::mem::transmute(alljoyn_msgarg_set_bool_array(arg.into(), length, ::core::mem::transmute(ab)))
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
@@ -6875,7 +6875,7 @@ where
     extern "system" {
         fn alljoyn_msgarg_set_double(arg: alljoyn_msgarg, d: f64) -> QStatus;
     }
-    ::core::mem::transmute(alljoyn_msgarg_set_double(arg.into(), ::core::mem::transmute(d)))
+    ::core::mem::transmute(alljoyn_msgarg_set_double(arg.into(), d))
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
@@ -6887,7 +6887,7 @@ where
     extern "system" {
         fn alljoyn_msgarg_set_double_array(arg: alljoyn_msgarg, length: usize, ad: *mut f64) -> QStatus;
     }
-    ::core::mem::transmute(alljoyn_msgarg_set_double_array(arg.into(), ::core::mem::transmute(length), ::core::mem::transmute(ad)))
+    ::core::mem::transmute(alljoyn_msgarg_set_double_array(arg.into(), length, ::core::mem::transmute(ad)))
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
@@ -6899,7 +6899,7 @@ where
     extern "system" {
         fn alljoyn_msgarg_set_int16(arg: alljoyn_msgarg, n: i16) -> QStatus;
     }
-    ::core::mem::transmute(alljoyn_msgarg_set_int16(arg.into(), ::core::mem::transmute(n)))
+    ::core::mem::transmute(alljoyn_msgarg_set_int16(arg.into(), n))
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
@@ -6911,7 +6911,7 @@ where
     extern "system" {
         fn alljoyn_msgarg_set_int16_array(arg: alljoyn_msgarg, length: usize, an: *mut i16) -> QStatus;
     }
-    ::core::mem::transmute(alljoyn_msgarg_set_int16_array(arg.into(), ::core::mem::transmute(length), ::core::mem::transmute(an)))
+    ::core::mem::transmute(alljoyn_msgarg_set_int16_array(arg.into(), length, ::core::mem::transmute(an)))
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
@@ -6923,7 +6923,7 @@ where
     extern "system" {
         fn alljoyn_msgarg_set_int32(arg: alljoyn_msgarg, i: i32) -> QStatus;
     }
-    ::core::mem::transmute(alljoyn_msgarg_set_int32(arg.into(), ::core::mem::transmute(i)))
+    ::core::mem::transmute(alljoyn_msgarg_set_int32(arg.into(), i))
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
@@ -6935,7 +6935,7 @@ where
     extern "system" {
         fn alljoyn_msgarg_set_int32_array(arg: alljoyn_msgarg, length: usize, ai: *mut i32) -> QStatus;
     }
-    ::core::mem::transmute(alljoyn_msgarg_set_int32_array(arg.into(), ::core::mem::transmute(length), ::core::mem::transmute(ai)))
+    ::core::mem::transmute(alljoyn_msgarg_set_int32_array(arg.into(), length, ::core::mem::transmute(ai)))
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
@@ -6947,7 +6947,7 @@ where
     extern "system" {
         fn alljoyn_msgarg_set_int64(arg: alljoyn_msgarg, x: i64) -> QStatus;
     }
-    ::core::mem::transmute(alljoyn_msgarg_set_int64(arg.into(), ::core::mem::transmute(x)))
+    ::core::mem::transmute(alljoyn_msgarg_set_int64(arg.into(), x))
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
@@ -6959,7 +6959,7 @@ where
     extern "system" {
         fn alljoyn_msgarg_set_int64_array(arg: alljoyn_msgarg, length: usize, ax: *mut i64) -> QStatus;
     }
-    ::core::mem::transmute(alljoyn_msgarg_set_int64_array(arg.into(), ::core::mem::transmute(length), ::core::mem::transmute(ax)))
+    ::core::mem::transmute(alljoyn_msgarg_set_int64_array(arg.into(), length, ::core::mem::transmute(ax)))
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
@@ -6984,7 +6984,7 @@ where
     extern "system" {
         fn alljoyn_msgarg_set_objectpath_array(arg: alljoyn_msgarg, length: usize, ao: *const *const i8) -> QStatus;
     }
-    ::core::mem::transmute(alljoyn_msgarg_set_objectpath_array(arg.into(), ::core::mem::transmute(length), ::core::mem::transmute(ao)))
+    ::core::mem::transmute(alljoyn_msgarg_set_objectpath_array(arg.into(), length, ::core::mem::transmute(ao)))
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
@@ -7009,7 +7009,7 @@ where
     extern "system" {
         fn alljoyn_msgarg_set_signature_array(arg: alljoyn_msgarg, length: usize, ag: *const *const i8) -> QStatus;
     }
-    ::core::mem::transmute(alljoyn_msgarg_set_signature_array(arg.into(), ::core::mem::transmute(length), ::core::mem::transmute(ag)))
+    ::core::mem::transmute(alljoyn_msgarg_set_signature_array(arg.into(), length, ::core::mem::transmute(ag)))
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
@@ -7034,7 +7034,7 @@ where
     extern "system" {
         fn alljoyn_msgarg_set_string_array(arg: alljoyn_msgarg, length: usize, r#as: *const *const i8) -> QStatus;
     }
-    ::core::mem::transmute(alljoyn_msgarg_set_string_array(arg.into(), ::core::mem::transmute(length), ::core::mem::transmute(r#as)))
+    ::core::mem::transmute(alljoyn_msgarg_set_string_array(arg.into(), length, ::core::mem::transmute(r#as)))
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
@@ -7046,7 +7046,7 @@ where
     extern "system" {
         fn alljoyn_msgarg_set_uint16(arg: alljoyn_msgarg, q: u16) -> QStatus;
     }
-    ::core::mem::transmute(alljoyn_msgarg_set_uint16(arg.into(), ::core::mem::transmute(q)))
+    ::core::mem::transmute(alljoyn_msgarg_set_uint16(arg.into(), q))
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
@@ -7058,7 +7058,7 @@ where
     extern "system" {
         fn alljoyn_msgarg_set_uint16_array(arg: alljoyn_msgarg, length: usize, aq: *mut u16) -> QStatus;
     }
-    ::core::mem::transmute(alljoyn_msgarg_set_uint16_array(arg.into(), ::core::mem::transmute(length), ::core::mem::transmute(aq)))
+    ::core::mem::transmute(alljoyn_msgarg_set_uint16_array(arg.into(), length, ::core::mem::transmute(aq)))
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
@@ -7070,7 +7070,7 @@ where
     extern "system" {
         fn alljoyn_msgarg_set_uint32(arg: alljoyn_msgarg, u: u32) -> QStatus;
     }
-    ::core::mem::transmute(alljoyn_msgarg_set_uint32(arg.into(), ::core::mem::transmute(u)))
+    ::core::mem::transmute(alljoyn_msgarg_set_uint32(arg.into(), u))
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
@@ -7082,7 +7082,7 @@ where
     extern "system" {
         fn alljoyn_msgarg_set_uint32_array(arg: alljoyn_msgarg, length: usize, au: *mut u32) -> QStatus;
     }
-    ::core::mem::transmute(alljoyn_msgarg_set_uint32_array(arg.into(), ::core::mem::transmute(length), ::core::mem::transmute(au)))
+    ::core::mem::transmute(alljoyn_msgarg_set_uint32_array(arg.into(), length, ::core::mem::transmute(au)))
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
@@ -7094,7 +7094,7 @@ where
     extern "system" {
         fn alljoyn_msgarg_set_uint64(arg: alljoyn_msgarg, t: u64) -> QStatus;
     }
-    ::core::mem::transmute(alljoyn_msgarg_set_uint64(arg.into(), ::core::mem::transmute(t)))
+    ::core::mem::transmute(alljoyn_msgarg_set_uint64(arg.into(), t))
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
@@ -7106,7 +7106,7 @@ where
     extern "system" {
         fn alljoyn_msgarg_set_uint64_array(arg: alljoyn_msgarg, length: usize, at: *mut u64) -> QStatus;
     }
-    ::core::mem::transmute(alljoyn_msgarg_set_uint64_array(arg.into(), ::core::mem::transmute(length), ::core::mem::transmute(at)))
+    ::core::mem::transmute(alljoyn_msgarg_set_uint64_array(arg.into(), length, ::core::mem::transmute(at)))
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
@@ -7118,7 +7118,7 @@ where
     extern "system" {
         fn alljoyn_msgarg_set_uint8(arg: alljoyn_msgarg, y: u8) -> QStatus;
     }
-    ::core::mem::transmute(alljoyn_msgarg_set_uint8(arg.into(), ::core::mem::transmute(y)))
+    ::core::mem::transmute(alljoyn_msgarg_set_uint8(arg.into(), y))
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
@@ -7130,7 +7130,7 @@ where
     extern "system" {
         fn alljoyn_msgarg_set_uint8_array(arg: alljoyn_msgarg, length: usize, ay: *mut u8) -> QStatus;
     }
-    ::core::mem::transmute(alljoyn_msgarg_set_uint8_array(arg.into(), ::core::mem::transmute(length), ::core::mem::transmute(ay)))
+    ::core::mem::transmute(alljoyn_msgarg_set_uint8_array(arg.into(), length, ::core::mem::transmute(ay)))
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
@@ -7157,7 +7157,7 @@ where
     extern "system" {
         fn alljoyn_msgarg_setstruct(arg: alljoyn_msgarg, struct_members: alljoyn_msgarg, num_members: usize) -> QStatus;
     }
-    ::core::mem::transmute(alljoyn_msgarg_setstruct(arg.into(), struct_members.into(), ::core::mem::transmute(num_members)))
+    ::core::mem::transmute(alljoyn_msgarg_setstruct(arg.into(), struct_members.into(), num_members))
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
@@ -7170,7 +7170,7 @@ where
     extern "system" {
         fn alljoyn_msgarg_signature(arg: alljoyn_msgarg, str: ::windows::core::PCSTR, buf: usize) -> usize;
     }
-    ::core::mem::transmute(alljoyn_msgarg_signature(arg.into(), str.into(), ::core::mem::transmute(buf)))
+    ::core::mem::transmute(alljoyn_msgarg_signature(arg.into(), str.into(), buf))
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
@@ -7195,7 +7195,7 @@ where
     extern "system" {
         fn alljoyn_msgarg_tostring(arg: alljoyn_msgarg, str: ::windows::core::PCSTR, buf: usize, indent: usize) -> usize;
     }
-    ::core::mem::transmute(alljoyn_msgarg_tostring(arg.into(), str.into(), ::core::mem::transmute(buf), ::core::mem::transmute(indent)))
+    ::core::mem::transmute(alljoyn_msgarg_tostring(arg.into(), str.into(), buf, indent))
 }
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
@@ -7234,7 +7234,7 @@ where
     extern "system" {
         fn alljoyn_observer_create(bus: alljoyn_busattachment, mandatoryinterfaces: *const *const i8, nummandatoryinterfaces: usize) -> alljoyn_observer;
     }
-    ::core::mem::transmute(alljoyn_observer_create(bus.into(), ::core::mem::transmute(mandatoryinterfaces), ::core::mem::transmute(nummandatoryinterfaces)))
+    ::core::mem::transmute(alljoyn_observer_create(bus.into(), ::core::mem::transmute(mandatoryinterfaces), nummandatoryinterfaces))
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
@@ -7302,7 +7302,7 @@ where
     extern "system" {
         fn alljoyn_observer_registerlistener(observer: alljoyn_observer, listener: alljoyn_observerlistener, triggeronexisting: i32);
     }
-    alljoyn_observer_registerlistener(observer.into(), listener.into(), ::core::mem::transmute(triggeronexisting))
+    alljoyn_observer_registerlistener(observer.into(), listener.into(), triggeronexisting)
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
@@ -7574,7 +7574,7 @@ where
     extern "system" {
         fn alljoyn_permissionconfigurator_claim(configurator: alljoyn_permissionconfigurator, cakey: *mut i8, identitycertificatechain: *mut i8, groupid: *const u8, groupsize: usize, groupauthority: *mut i8, manifestsxmls: *mut *mut i8, manifestscount: usize) -> QStatus;
     }
-    ::core::mem::transmute(alljoyn_permissionconfigurator_claim(configurator.into(), ::core::mem::transmute(cakey), ::core::mem::transmute(identitycertificatechain), ::core::mem::transmute(groupid), ::core::mem::transmute(groupsize), ::core::mem::transmute(groupauthority), ::core::mem::transmute(manifestsxmls), ::core::mem::transmute(manifestscount)))
+    ::core::mem::transmute(alljoyn_permissionconfigurator_claim(configurator.into(), ::core::mem::transmute(cakey), ::core::mem::transmute(identitycertificatechain), ::core::mem::transmute(groupid), groupsize, ::core::mem::transmute(groupauthority), ::core::mem::transmute(manifestsxmls), manifestscount))
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
@@ -7739,7 +7739,7 @@ where
     extern "system" {
         fn alljoyn_permissionconfigurator_installmanifests(configurator: alljoyn_permissionconfigurator, manifestsxmls: *mut *mut i8, manifestscount: usize, append: i32) -> QStatus;
     }
-    ::core::mem::transmute(alljoyn_permissionconfigurator_installmanifests(configurator.into(), ::core::mem::transmute(manifestsxmls), ::core::mem::transmute(manifestscount), ::core::mem::transmute(append)))
+    ::core::mem::transmute(alljoyn_permissionconfigurator_installmanifests(configurator.into(), ::core::mem::transmute(manifestsxmls), manifestscount, append))
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
@@ -7799,7 +7799,7 @@ where
     extern "system" {
         fn alljoyn_permissionconfigurator_removemembership(configurator: alljoyn_permissionconfigurator, serial: *const u8, seriallen: usize, issuerpublickey: *mut i8, issueraki: *const u8, issuerakilen: usize) -> QStatus;
     }
-    ::core::mem::transmute(alljoyn_permissionconfigurator_removemembership(configurator.into(), ::core::mem::transmute(serial), ::core::mem::transmute(seriallen), ::core::mem::transmute(issuerpublickey), ::core::mem::transmute(issueraki), ::core::mem::transmute(issuerakilen)))
+    ::core::mem::transmute(alljoyn_permissionconfigurator_removemembership(configurator.into(), ::core::mem::transmute(serial), seriallen, ::core::mem::transmute(issuerpublickey), ::core::mem::transmute(issueraki), issuerakilen))
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
@@ -7835,7 +7835,7 @@ where
     extern "system" {
         fn alljoyn_permissionconfigurator_setapplicationstate(configurator: alljoyn_permissionconfigurator, state: alljoyn_applicationstate) -> QStatus;
     }
-    ::core::mem::transmute(alljoyn_permissionconfigurator_setapplicationstate(configurator.into(), ::core::mem::transmute(state)))
+    ::core::mem::transmute(alljoyn_permissionconfigurator_setapplicationstate(configurator.into(), state))
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
@@ -7847,7 +7847,7 @@ where
     extern "system" {
         fn alljoyn_permissionconfigurator_setclaimcapabilities(configurator: alljoyn_permissionconfigurator, claimcapabilities: u16) -> QStatus;
     }
-    ::core::mem::transmute(alljoyn_permissionconfigurator_setclaimcapabilities(configurator.into(), ::core::mem::transmute(claimcapabilities)))
+    ::core::mem::transmute(alljoyn_permissionconfigurator_setclaimcapabilities(configurator.into(), claimcapabilities))
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
@@ -7859,7 +7859,7 @@ where
     extern "system" {
         fn alljoyn_permissionconfigurator_setclaimcapabilitiesadditionalinfo(configurator: alljoyn_permissionconfigurator, additionalinfo: u16) -> QStatus;
     }
-    ::core::mem::transmute(alljoyn_permissionconfigurator_setclaimcapabilitiesadditionalinfo(configurator.into(), ::core::mem::transmute(additionalinfo)))
+    ::core::mem::transmute(alljoyn_permissionconfigurator_setclaimcapabilitiesadditionalinfo(configurator.into(), additionalinfo))
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
@@ -7895,7 +7895,7 @@ where
     extern "system" {
         fn alljoyn_permissionconfigurator_updateidentity(configurator: alljoyn_permissionconfigurator, identitycertificatechain: *mut i8, manifestsxmls: *mut *mut i8, manifestscount: usize) -> QStatus;
     }
-    ::core::mem::transmute(alljoyn_permissionconfigurator_updateidentity(configurator.into(), ::core::mem::transmute(identitycertificatechain), ::core::mem::transmute(manifestsxmls), ::core::mem::transmute(manifestscount)))
+    ::core::mem::transmute(alljoyn_permissionconfigurator_updateidentity(configurator.into(), ::core::mem::transmute(identitycertificatechain), ::core::mem::transmute(manifestsxmls), manifestscount))
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
@@ -8078,7 +8078,7 @@ where
     extern "system" {
         fn alljoyn_proxybusobject_create(bus: alljoyn_busattachment, service: ::windows::core::PCSTR, path: ::windows::core::PCSTR, sessionid: u32) -> alljoyn_proxybusobject;
     }
-    ::core::mem::transmute(alljoyn_proxybusobject_create(bus.into(), service.into(), path.into(), ::core::mem::transmute(sessionid)))
+    ::core::mem::transmute(alljoyn_proxybusobject_create(bus.into(), service.into(), path.into(), sessionid))
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
@@ -8092,7 +8092,7 @@ where
     extern "system" {
         fn alljoyn_proxybusobject_create_secure(bus: alljoyn_busattachment, service: ::windows::core::PCSTR, path: ::windows::core::PCSTR, sessionid: u32) -> alljoyn_proxybusobject;
     }
-    ::core::mem::transmute(alljoyn_proxybusobject_create_secure(bus.into(), service.into(), path.into(), ::core::mem::transmute(sessionid)))
+    ::core::mem::transmute(alljoyn_proxybusobject_create_secure(bus.into(), service.into(), path.into(), sessionid))
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
@@ -8143,7 +8143,7 @@ where
     extern "system" {
         fn alljoyn_proxybusobject_getallpropertiesasync(proxyobj: alljoyn_proxybusobject, iface: ::windows::core::PCSTR, callback: *mut ::core::ffi::c_void, timeout: u32, context: *mut ::core::ffi::c_void) -> QStatus;
     }
-    ::core::mem::transmute(alljoyn_proxybusobject_getallpropertiesasync(proxyobj.into(), iface.into(), ::core::mem::transmute(callback), ::core::mem::transmute(timeout), ::core::mem::transmute(context)))
+    ::core::mem::transmute(alljoyn_proxybusobject_getallpropertiesasync(proxyobj.into(), iface.into(), ::core::mem::transmute(callback), timeout, ::core::mem::transmute(context)))
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
@@ -8168,7 +8168,7 @@ where
     extern "system" {
         fn alljoyn_proxybusobject_getchildren(proxyobj: alljoyn_proxybusobject, children: *mut alljoyn_proxybusobject, numchildren: usize) -> usize;
     }
-    ::core::mem::transmute(alljoyn_proxybusobject_getchildren(proxyobj.into(), ::core::mem::transmute(children), ::core::mem::transmute(numchildren)))
+    ::core::mem::transmute(alljoyn_proxybusobject_getchildren(proxyobj.into(), ::core::mem::transmute(children), numchildren))
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
@@ -8193,7 +8193,7 @@ where
     extern "system" {
         fn alljoyn_proxybusobject_getinterfaces(proxyobj: alljoyn_proxybusobject, ifaces: *const alljoyn_interfacedescription, numifaces: usize) -> usize;
     }
-    ::core::mem::transmute(alljoyn_proxybusobject_getinterfaces(proxyobj.into(), ::core::mem::transmute(ifaces), ::core::mem::transmute(numifaces)))
+    ::core::mem::transmute(alljoyn_proxybusobject_getinterfaces(proxyobj.into(), ::core::mem::transmute(ifaces), numifaces))
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
@@ -8234,7 +8234,7 @@ where
     extern "system" {
         fn alljoyn_proxybusobject_getpropertyasync(proxyobj: alljoyn_proxybusobject, iface: ::windows::core::PCSTR, property: ::windows::core::PCSTR, callback: *mut ::core::ffi::c_void, timeout: u32, context: *mut ::core::ffi::c_void) -> QStatus;
     }
-    ::core::mem::transmute(alljoyn_proxybusobject_getpropertyasync(proxyobj.into(), iface.into(), property.into(), ::core::mem::transmute(callback), ::core::mem::transmute(timeout), ::core::mem::transmute(context)))
+    ::core::mem::transmute(alljoyn_proxybusobject_getpropertyasync(proxyobj.into(), iface.into(), property.into(), ::core::mem::transmute(callback), timeout, ::core::mem::transmute(context)))
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
@@ -8357,7 +8357,7 @@ where
     extern "system" {
         fn alljoyn_proxybusobject_methodcall(proxyobj: alljoyn_proxybusobject, ifacename: ::windows::core::PCSTR, methodname: ::windows::core::PCSTR, args: alljoyn_msgarg, numargs: usize, replymsg: alljoyn_message, timeout: u32, flags: u8) -> QStatus;
     }
-    ::core::mem::transmute(alljoyn_proxybusobject_methodcall(proxyobj.into(), ifacename.into(), methodname.into(), args.into(), ::core::mem::transmute(numargs), replymsg.into(), ::core::mem::transmute(timeout), ::core::mem::transmute(flags)))
+    ::core::mem::transmute(alljoyn_proxybusobject_methodcall(proxyobj.into(), ifacename.into(), methodname.into(), args.into(), numargs, replymsg.into(), timeout, flags))
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
@@ -8371,7 +8371,7 @@ where
     extern "system" {
         fn alljoyn_proxybusobject_methodcall_member(proxyobj: alljoyn_proxybusobject, method: alljoyn_interfacedescription_member, args: alljoyn_msgarg, numargs: usize, replymsg: alljoyn_message, timeout: u32, flags: u8) -> QStatus;
     }
-    ::core::mem::transmute(alljoyn_proxybusobject_methodcall_member(proxyobj.into(), ::core::mem::transmute(method), args.into(), ::core::mem::transmute(numargs), replymsg.into(), ::core::mem::transmute(timeout), ::core::mem::transmute(flags)))
+    ::core::mem::transmute(alljoyn_proxybusobject_methodcall_member(proxyobj.into(), ::core::mem::transmute(method), args.into(), numargs, replymsg.into(), timeout, flags))
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
@@ -8384,7 +8384,7 @@ where
     extern "system" {
         fn alljoyn_proxybusobject_methodcall_member_noreply(proxyobj: alljoyn_proxybusobject, method: alljoyn_interfacedescription_member, args: alljoyn_msgarg, numargs: usize, flags: u8) -> QStatus;
     }
-    ::core::mem::transmute(alljoyn_proxybusobject_methodcall_member_noreply(proxyobj.into(), ::core::mem::transmute(method), args.into(), ::core::mem::transmute(numargs), ::core::mem::transmute(flags)))
+    ::core::mem::transmute(alljoyn_proxybusobject_methodcall_member_noreply(proxyobj.into(), ::core::mem::transmute(method), args.into(), numargs, flags))
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
@@ -8399,7 +8399,7 @@ where
     extern "system" {
         fn alljoyn_proxybusobject_methodcall_noreply(proxyobj: alljoyn_proxybusobject, ifacename: ::windows::core::PCSTR, methodname: ::windows::core::PCSTR, args: alljoyn_msgarg, numargs: usize, flags: u8) -> QStatus;
     }
-    ::core::mem::transmute(alljoyn_proxybusobject_methodcall_noreply(proxyobj.into(), ifacename.into(), methodname.into(), args.into(), ::core::mem::transmute(numargs), ::core::mem::transmute(flags)))
+    ::core::mem::transmute(alljoyn_proxybusobject_methodcall_noreply(proxyobj.into(), ifacename.into(), methodname.into(), args.into(), numargs, flags))
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
@@ -8414,7 +8414,7 @@ where
     extern "system" {
         fn alljoyn_proxybusobject_methodcallasync(proxyobj: alljoyn_proxybusobject, ifacename: ::windows::core::PCSTR, methodname: ::windows::core::PCSTR, replyfunc: *mut ::core::ffi::c_void, args: alljoyn_msgarg, numargs: usize, context: *mut ::core::ffi::c_void, timeout: u32, flags: u8) -> QStatus;
     }
-    ::core::mem::transmute(alljoyn_proxybusobject_methodcallasync(proxyobj.into(), ifacename.into(), methodname.into(), ::core::mem::transmute(replyfunc), args.into(), ::core::mem::transmute(numargs), ::core::mem::transmute(context), ::core::mem::transmute(timeout), ::core::mem::transmute(flags)))
+    ::core::mem::transmute(alljoyn_proxybusobject_methodcallasync(proxyobj.into(), ifacename.into(), methodname.into(), ::core::mem::transmute(replyfunc), args.into(), numargs, ::core::mem::transmute(context), timeout, flags))
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
@@ -8427,7 +8427,7 @@ where
     extern "system" {
         fn alljoyn_proxybusobject_methodcallasync_member(proxyobj: alljoyn_proxybusobject, method: alljoyn_interfacedescription_member, replyfunc: *mut ::core::ffi::c_void, args: alljoyn_msgarg, numargs: usize, context: *mut ::core::ffi::c_void, timeout: u32, flags: u8) -> QStatus;
     }
-    ::core::mem::transmute(alljoyn_proxybusobject_methodcallasync_member(proxyobj.into(), ::core::mem::transmute(method), ::core::mem::transmute(replyfunc), args.into(), ::core::mem::transmute(numargs), ::core::mem::transmute(context), ::core::mem::transmute(timeout), ::core::mem::transmute(flags)))
+    ::core::mem::transmute(alljoyn_proxybusobject_methodcallasync_member(proxyobj.into(), ::core::mem::transmute(method), ::core::mem::transmute(replyfunc), args.into(), numargs, ::core::mem::transmute(context), timeout, flags))
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
@@ -8529,7 +8529,7 @@ where
     extern "system" {
         fn alljoyn_proxybusobject_registerpropertieschangedlistener(proxyobj: alljoyn_proxybusobject, iface: ::windows::core::PCSTR, properties: *const *const i8, numproperties: usize, callback: *mut ::core::ffi::c_void, context: *mut ::core::ffi::c_void) -> QStatus;
     }
-    ::core::mem::transmute(alljoyn_proxybusobject_registerpropertieschangedlistener(proxyobj.into(), iface.into(), ::core::mem::transmute(properties), ::core::mem::transmute(numproperties), ::core::mem::transmute(callback), ::core::mem::transmute(context)))
+    ::core::mem::transmute(alljoyn_proxybusobject_registerpropertieschangedlistener(proxyobj.into(), iface.into(), ::core::mem::transmute(properties), numproperties, ::core::mem::transmute(callback), ::core::mem::transmute(context)))
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
@@ -8554,7 +8554,7 @@ where
     extern "system" {
         fn alljoyn_proxybusobject_secureconnection(proxyobj: alljoyn_proxybusobject, forceauth: i32) -> QStatus;
     }
-    ::core::mem::transmute(alljoyn_proxybusobject_secureconnection(proxyobj.into(), ::core::mem::transmute(forceauth)))
+    ::core::mem::transmute(alljoyn_proxybusobject_secureconnection(proxyobj.into(), forceauth))
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
@@ -8566,7 +8566,7 @@ where
     extern "system" {
         fn alljoyn_proxybusobject_secureconnectionasync(proxyobj: alljoyn_proxybusobject, forceauth: i32) -> QStatus;
     }
-    ::core::mem::transmute(alljoyn_proxybusobject_secureconnectionasync(proxyobj.into(), ::core::mem::transmute(forceauth)))
+    ::core::mem::transmute(alljoyn_proxybusobject_secureconnectionasync(proxyobj.into(), forceauth))
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
@@ -8596,7 +8596,7 @@ where
     extern "system" {
         fn alljoyn_proxybusobject_setpropertyasync(proxyobj: alljoyn_proxybusobject, iface: ::windows::core::PCSTR, property: ::windows::core::PCSTR, value: alljoyn_msgarg, callback: *mut ::core::ffi::c_void, timeout: u32, context: *mut ::core::ffi::c_void) -> QStatus;
     }
-    ::core::mem::transmute(alljoyn_proxybusobject_setpropertyasync(proxyobj.into(), iface.into(), property.into(), value.into(), ::core::mem::transmute(callback), ::core::mem::transmute(timeout), ::core::mem::transmute(context)))
+    ::core::mem::transmute(alljoyn_proxybusobject_setpropertyasync(proxyobj.into(), iface.into(), property.into(), value.into(), ::core::mem::transmute(callback), timeout, ::core::mem::transmute(context)))
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
@@ -8675,7 +8675,7 @@ where
     extern "system" {
         fn alljoyn_securityapplicationproxy_claim(proxy: alljoyn_securityapplicationproxy, cakey: *mut i8, identitycertificatechain: *mut i8, groupid: *const u8, groupsize: usize, groupauthority: *mut i8, manifestsxmls: *mut *mut i8, manifestscount: usize) -> QStatus;
     }
-    ::core::mem::transmute(alljoyn_securityapplicationproxy_claim(proxy.into(), ::core::mem::transmute(cakey), ::core::mem::transmute(identitycertificatechain), ::core::mem::transmute(groupid), ::core::mem::transmute(groupsize), ::core::mem::transmute(groupauthority), ::core::mem::transmute(manifestsxmls), ::core::mem::transmute(manifestscount)))
+    ::core::mem::transmute(alljoyn_securityapplicationproxy_claim(proxy.into(), ::core::mem::transmute(cakey), ::core::mem::transmute(identitycertificatechain), ::core::mem::transmute(groupid), groupsize, ::core::mem::transmute(groupauthority), ::core::mem::transmute(manifestsxmls), manifestscount))
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
@@ -8696,7 +8696,7 @@ where
     extern "system" {
         fn alljoyn_securityapplicationproxy_create(bus: alljoyn_busattachment, appbusname: *mut i8, sessionid: u32) -> alljoyn_securityapplicationproxy;
     }
-    ::core::mem::transmute(alljoyn_securityapplicationproxy_create(bus.into(), ::core::mem::transmute(appbusname), ::core::mem::transmute(sessionid)))
+    ::core::mem::transmute(alljoyn_securityapplicationproxy_create(bus.into(), ::core::mem::transmute(appbusname), sessionid))
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
@@ -8903,7 +8903,7 @@ pub unsafe fn alljoyn_securityapplicationproxy_setmanifestsignature(unsignedmani
     extern "system" {
         fn alljoyn_securityapplicationproxy_setmanifestsignature(unsignedmanifestxml: *mut i8, identitycertificatepem: *mut i8, signature: *const u8, signaturesize: usize, signedmanifestxml: *mut *mut i8) -> QStatus;
     }
-    ::core::mem::transmute(alljoyn_securityapplicationproxy_setmanifestsignature(::core::mem::transmute(unsignedmanifestxml), ::core::mem::transmute(identitycertificatepem), ::core::mem::transmute(signature), ::core::mem::transmute(signaturesize), ::core::mem::transmute(signedmanifestxml)))
+    ::core::mem::transmute(alljoyn_securityapplicationproxy_setmanifestsignature(::core::mem::transmute(unsignedmanifestxml), ::core::mem::transmute(identitycertificatepem), ::core::mem::transmute(signature), signaturesize, ::core::mem::transmute(signedmanifestxml)))
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
@@ -8936,7 +8936,7 @@ where
     extern "system" {
         fn alljoyn_securityapplicationproxy_updateidentity(proxy: alljoyn_securityapplicationproxy, identitycertificatechain: *mut i8, manifestsxmls: *mut *mut i8, manifestscount: usize) -> QStatus;
     }
-    ::core::mem::transmute(alljoyn_securityapplicationproxy_updateidentity(proxy.into(), ::core::mem::transmute(identitycertificatechain), ::core::mem::transmute(manifestsxmls), ::core::mem::transmute(manifestscount)))
+    ::core::mem::transmute(alljoyn_securityapplicationproxy_updateidentity(proxy.into(), ::core::mem::transmute(identitycertificatechain), ::core::mem::transmute(manifestsxmls), manifestscount))
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
@@ -9118,7 +9118,7 @@ pub unsafe fn alljoyn_sessionopts_create(traffic: u8, ismultipoint: i32, proximi
     extern "system" {
         fn alljoyn_sessionopts_create(traffic: u8, ismultipoint: i32, proximity: u8, transports: u16) -> alljoyn_sessionopts;
     }
-    ::core::mem::transmute(alljoyn_sessionopts_create(::core::mem::transmute(traffic), ::core::mem::transmute(ismultipoint), ::core::mem::transmute(proximity), ::core::mem::transmute(transports)))
+    ::core::mem::transmute(alljoyn_sessionopts_create(traffic, ismultipoint, proximity, transports))
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
@@ -9203,7 +9203,7 @@ where
     extern "system" {
         fn alljoyn_sessionopts_set_multipoint(opts: alljoyn_sessionopts, ismultipoint: i32);
     }
-    alljoyn_sessionopts_set_multipoint(opts.into(), ::core::mem::transmute(ismultipoint))
+    alljoyn_sessionopts_set_multipoint(opts.into(), ismultipoint)
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
@@ -9215,7 +9215,7 @@ where
     extern "system" {
         fn alljoyn_sessionopts_set_proximity(opts: alljoyn_sessionopts, proximity: u8);
     }
-    alljoyn_sessionopts_set_proximity(opts.into(), ::core::mem::transmute(proximity))
+    alljoyn_sessionopts_set_proximity(opts.into(), proximity)
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
@@ -9227,7 +9227,7 @@ where
     extern "system" {
         fn alljoyn_sessionopts_set_traffic(opts: alljoyn_sessionopts, traffic: u8);
     }
-    alljoyn_sessionopts_set_traffic(opts.into(), ::core::mem::transmute(traffic))
+    alljoyn_sessionopts_set_traffic(opts.into(), traffic)
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
@@ -9239,7 +9239,7 @@ where
     extern "system" {
         fn alljoyn_sessionopts_set_transports(opts: alljoyn_sessionopts, transports: u16);
     }
-    alljoyn_sessionopts_set_transports(opts.into(), ::core::mem::transmute(transports))
+    alljoyn_sessionopts_set_transports(opts.into(), transports)
 }
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
@@ -9436,7 +9436,7 @@ pub unsafe fn alljoyn_unity_set_deferred_callback_mainthread_only(mainthread_onl
     extern "system" {
         fn alljoyn_unity_set_deferred_callback_mainthread_only(mainthread_only: i32);
     }
-    alljoyn_unity_set_deferred_callback_mainthread_only(::core::mem::transmute(mainthread_only))
+    alljoyn_unity_set_deferred_callback_mainthread_only(mainthread_only)
 }
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

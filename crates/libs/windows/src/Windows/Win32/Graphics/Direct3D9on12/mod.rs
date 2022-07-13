@@ -52,7 +52,7 @@ pub unsafe fn Direct3DCreate9On12(sdkversion: u32, poverridelist: *mut D3D9ON12_
     extern "system" {
         fn Direct3DCreate9On12(sdkversion: u32, poverridelist: *mut D3D9ON12_ARGS, numoverrideentries: u32) -> ::core::option::Option<super::Direct3D9::IDirect3D9>;
     }
-    ::core::mem::transmute(Direct3DCreate9On12(::core::mem::transmute(sdkversion), ::core::mem::transmute(poverridelist), ::core::mem::transmute(numoverrideentries)))
+    ::core::mem::transmute(Direct3DCreate9On12(sdkversion, ::core::mem::transmute(poverridelist), numoverrideentries))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D9on12\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Direct3D9\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D9"))]
@@ -62,7 +62,7 @@ pub unsafe fn Direct3DCreate9On12Ex(sdkversion: u32, poverridelist: *mut D3D9ON1
     extern "system" {
         fn Direct3DCreate9On12Ex(sdkversion: u32, poverridelist: *mut D3D9ON12_ARGS, numoverrideentries: u32, ppoutputinterface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
     }
-    Direct3DCreate9On12Ex(::core::mem::transmute(sdkversion), ::core::mem::transmute(poverridelist), ::core::mem::transmute(numoverrideentries), ::core::mem::transmute(ppoutputinterface)).ok()
+    Direct3DCreate9On12Ex(sdkversion, ::core::mem::transmute(poverridelist), numoverrideentries, ::core::mem::transmute(ppoutputinterface)).ok()
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D9on12\"`*"]
 #[repr(transparent)]
@@ -87,7 +87,7 @@ impl IDirect3DDevice9On12 {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::Direct3D9::IDirect3DResource9>>,
     {
-        (::windows::core::Interface::vtable(self).ReturnUnderlyingResource)(::windows::core::Interface::as_raw(self), presource.into().abi(), ::core::mem::transmute(numsync), ::core::mem::transmute(psignalvalues), ::core::mem::transmute(ppfences)).ok()
+        (::windows::core::Interface::vtable(self).ReturnUnderlyingResource)(::windows::core::Interface::as_raw(self), presource.into().abi(), numsync, ::core::mem::transmute(psignalvalues), ::core::mem::transmute(ppfences)).ok()
     }
 }
 impl ::core::convert::From<IDirect3DDevice9On12> for ::windows::core::IUnknown {

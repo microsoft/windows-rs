@@ -160,7 +160,7 @@ where
     extern "system" {
         fn DavAddConnection(connectionhandle: *mut super::super::Foundation::HANDLE, remotename: ::windows::core::PCWSTR, username: ::windows::core::PCWSTR, password: ::windows::core::PCWSTR, clientcert: *const u8, certsize: u32) -> u32;
     }
-    ::core::mem::transmute(DavAddConnection(::core::mem::transmute(connectionhandle), remotename.into(), username.into(), password.into(), ::core::mem::transmute(clientcert), ::core::mem::transmute(certsize)))
+    ::core::mem::transmute(DavAddConnection(::core::mem::transmute(connectionhandle), remotename.into(), username.into(), password.into(), ::core::mem::transmute(clientcert), certsize))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_WebDav\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -271,7 +271,7 @@ pub unsafe fn DavRegisterAuthCallback(callback: PFNDAVAUTHCALLBACK, version: u32
     extern "system" {
         fn DavRegisterAuthCallback(callback: *mut ::core::ffi::c_void, version: u32) -> u32;
     }
-    ::core::mem::transmute(DavRegisterAuthCallback(::core::mem::transmute(callback), ::core::mem::transmute(version)))
+    ::core::mem::transmute(DavRegisterAuthCallback(::core::mem::transmute(callback), version))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_WebDav\"`*"]
 #[inline]
@@ -280,7 +280,7 @@ pub unsafe fn DavUnregisterAuthCallback(hcallback: u32) {
     extern "system" {
         fn DavUnregisterAuthCallback(hcallback: u32);
     }
-    DavUnregisterAuthCallback(::core::mem::transmute(hcallback))
+    DavUnregisterAuthCallback(hcallback)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_WebDav\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]

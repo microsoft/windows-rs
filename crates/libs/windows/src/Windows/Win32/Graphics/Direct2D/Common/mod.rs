@@ -1289,15 +1289,15 @@ pub struct ID2D1SimplifiedGeometrySink(::windows::core::IUnknown);
 impl ID2D1SimplifiedGeometrySink {
     #[doc = "*Required features: `\"Win32_Graphics_Direct2D_Common\"`*"]
     pub unsafe fn SetFillMode(&self, fillmode: D2D1_FILL_MODE) {
-        (::windows::core::Interface::vtable(self).SetFillMode)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(fillmode))
+        (::windows::core::Interface::vtable(self).SetFillMode)(::windows::core::Interface::as_raw(self), fillmode)
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct2D_Common\"`*"]
     pub unsafe fn SetSegmentFlags(&self, vertexflags: D2D1_PATH_SEGMENT) {
-        (::windows::core::Interface::vtable(self).SetSegmentFlags)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(vertexflags))
+        (::windows::core::Interface::vtable(self).SetSegmentFlags)(::windows::core::Interface::as_raw(self), vertexflags)
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct2D_Common\"`*"]
     pub unsafe fn BeginFigure(&self, startpoint: D2D_POINT_2F, figurebegin: D2D1_FIGURE_BEGIN) {
-        (::windows::core::Interface::vtable(self).BeginFigure)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(startpoint), ::core::mem::transmute(figurebegin))
+        (::windows::core::Interface::vtable(self).BeginFigure)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(startpoint), figurebegin)
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct2D_Common\"`*"]
     pub unsafe fn AddLines(&self, points: &[D2D_POINT_2F]) {
@@ -1309,7 +1309,7 @@ impl ID2D1SimplifiedGeometrySink {
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct2D_Common\"`*"]
     pub unsafe fn EndFigure(&self, figureend: D2D1_FIGURE_END) {
-        (::windows::core::Interface::vtable(self).EndFigure)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(figureend))
+        (::windows::core::Interface::vtable(self).EndFigure)(::windows::core::Interface::as_raw(self), figureend)
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct2D_Common\"`*"]
     pub unsafe fn Close(&self) -> ::windows::core::Result<()> {

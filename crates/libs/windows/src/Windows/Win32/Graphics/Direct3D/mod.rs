@@ -1969,7 +1969,7 @@ impl ID3DDestructionNotifier {
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D\"`*"]
     pub unsafe fn UnregisterDestructionCallback(&self, callbackid: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).UnregisterDestructionCallback)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(callbackid)).ok()
+        (::windows::core::Interface::vtable(self).UnregisterDestructionCallback)(::windows::core::Interface::as_raw(self), callbackid).ok()
     }
 }
 impl ::core::convert::From<ID3DDestructionNotifier> for ::windows::core::IUnknown {
@@ -2025,7 +2025,7 @@ impl ID3DInclude {
     where
         P0: ::std::convert::Into<::windows::core::PCSTR>,
     {
-        (::windows::core::Interface::vtable(self).Open)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(includetype), pfilename.into(), ::core::mem::transmute(pparentdata), ::core::mem::transmute(ppdata), ::core::mem::transmute(pbytes)).ok()
+        (::windows::core::Interface::vtable(self).Open)(::windows::core::Interface::as_raw(self), includetype, pfilename.into(), ::core::mem::transmute(pparentdata), ::core::mem::transmute(ppdata), ::core::mem::transmute(pbytes)).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D\"`*"]
     pub unsafe fn Close(&self, pdata: *const ::core::ffi::c_void) -> ::windows::core::Result<()> {

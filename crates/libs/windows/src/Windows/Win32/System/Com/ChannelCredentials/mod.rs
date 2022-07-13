@@ -11,7 +11,7 @@ impl IChannelCredentials {
         P2: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::BSTR>>,
         P3: ::std::convert::Into<super::super::super::Foundation::BOOL>,
     {
-        (::windows::core::Interface::vtable(self).SetWindowsCredential)(::windows::core::Interface::as_raw(self), domain.into().abi(), username.into().abi(), password.into().abi(), ::core::mem::transmute(impersonationlevel), allowntlm.into()).ok()
+        (::windows::core::Interface::vtable(self).SetWindowsCredential)(::windows::core::Interface::as_raw(self), domain.into().abi(), username.into().abi(), password.into().abi(), impersonationlevel, allowntlm.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Com_ChannelCredentials\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]

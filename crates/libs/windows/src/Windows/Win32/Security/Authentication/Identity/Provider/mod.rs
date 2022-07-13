@@ -166,7 +166,7 @@ impl AsyncIConnectedIdentityProvider {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::super::System::Com::IBindCtx>>,
     {
-        (::windows::core::Interface::vtable(self).Begin_GetUrl)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(identifier), context.into().abi()).ok()
+        (::windows::core::Interface::vtable(self).Begin_GetUrl)(::windows::core::Interface::as_raw(self), identifier, context.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Authentication_Identity_Provider\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -251,7 +251,7 @@ impl AsyncIIdentityAdvise {
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
-        (::windows::core::Interface::vtable(self).Begin_IdentityUpdated)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(dwidentityupdateevents), lpszuniqueid.into()).ok()
+        (::windows::core::Interface::vtable(self).Begin_IdentityUpdated)(::windows::core::Interface::as_raw(self), dwidentityupdateevents, lpszuniqueid.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Authentication_Identity_Provider\"`*"]
     pub unsafe fn Finish_IdentityUpdated(&self) -> ::windows::core::Result<()> {
@@ -380,7 +380,7 @@ impl AsyncIIdentityProvider {
     #[doc = "*Required features: `\"Win32_Security_Authentication_Identity_Provider\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_UI_Shell_PropertiesSystem\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_UI_Shell_PropertiesSystem"))]
     pub unsafe fn Begin_GetIdentityEnum(&self, eidentitytype: IDENTITY_TYPE, pfilterkey: *const super::super::super::super::UI::Shell::PropertiesSystem::PROPERTYKEY, pfilterpropvarvalue: *const super::super::super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Begin_GetIdentityEnum)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(eidentitytype), ::core::mem::transmute(pfilterkey), ::core::mem::transmute(pfilterpropvarvalue)).ok()
+        (::windows::core::Interface::vtable(self).Begin_GetIdentityEnum)(::windows::core::Interface::as_raw(self), eidentitytype, ::core::mem::transmute(pfilterkey), ::core::mem::transmute(pfilterpropvarvalue)).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Authentication_Identity_Provider\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -454,7 +454,7 @@ impl AsyncIIdentityProvider {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, IIdentityAdvise>>,
     {
-        (::windows::core::Interface::vtable(self).Begin_Advise)(::windows::core::Interface::as_raw(self), pidentityadvise.into().abi(), ::core::mem::transmute(dwidentityupdateevents)).ok()
+        (::windows::core::Interface::vtable(self).Begin_Advise)(::windows::core::Interface::as_raw(self), pidentityadvise.into().abi(), dwidentityupdateevents).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Authentication_Identity_Provider\"`*"]
     pub unsafe fn Finish_Advise(&self) -> ::windows::core::Result<u32> {
@@ -463,7 +463,7 @@ impl AsyncIIdentityProvider {
     }
     #[doc = "*Required features: `\"Win32_Security_Authentication_Identity_Provider\"`*"]
     pub unsafe fn Begin_UnAdvise(&self, dwcookie: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Begin_UnAdvise)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(dwcookie)).ok()
+        (::windows::core::Interface::vtable(self).Begin_UnAdvise)(::windows::core::Interface::as_raw(self), dwcookie).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Authentication_Identity_Provider\"`*"]
     pub unsafe fn Finish_UnAdvise(&self) -> ::windows::core::Result<()> {
@@ -565,7 +565,7 @@ impl AsyncIIdentityStore {
     }
     #[doc = "*Required features: `\"Win32_Security_Authentication_Identity_Provider\"`*"]
     pub unsafe fn Begin_GetAt(&self, dwprovider: u32, pprovguid: *mut ::windows::core::GUID) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Begin_GetAt)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(dwprovider), ::core::mem::transmute(pprovguid)).ok()
+        (::windows::core::Interface::vtable(self).Begin_GetAt)(::windows::core::Interface::as_raw(self), dwprovider, ::core::mem::transmute(pprovguid)).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Authentication_Identity_Provider\"`*"]
     pub unsafe fn Finish_GetAt(&self, pprovguid: *mut ::windows::core::GUID, ppidentityprovider: *mut ::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()> {
@@ -587,7 +587,7 @@ impl AsyncIIdentityStore {
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
-        (::windows::core::Interface::vtable(self).Begin_ConvertToSid)(::windows::core::Interface::as_raw(self), lpszuniqueid.into(), ::core::mem::transmute(providerguid), ::core::mem::transmute(cbsid), ::core::mem::transmute(psid)).ok()
+        (::windows::core::Interface::vtable(self).Begin_ConvertToSid)(::windows::core::Interface::as_raw(self), lpszuniqueid.into(), ::core::mem::transmute(providerguid), cbsid, ::core::mem::transmute(psid)).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Authentication_Identity_Provider\"`*"]
     pub unsafe fn Finish_ConvertToSid(&self, psid: *mut u8, pcbrequiredsid: *mut u16) -> ::windows::core::Result<()> {
@@ -596,7 +596,7 @@ impl AsyncIIdentityStore {
     #[doc = "*Required features: `\"Win32_Security_Authentication_Identity_Provider\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_UI_Shell_PropertiesSystem\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_UI_Shell_PropertiesSystem"))]
     pub unsafe fn Begin_EnumerateIdentities(&self, eidentitytype: IDENTITY_TYPE, pfilterkey: *const super::super::super::super::UI::Shell::PropertiesSystem::PROPERTYKEY, pfilterpropvarvalue: *const super::super::super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Begin_EnumerateIdentities)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(eidentitytype), ::core::mem::transmute(pfilterkey), ::core::mem::transmute(pfilterpropvarvalue)).ok()
+        (::windows::core::Interface::vtable(self).Begin_EnumerateIdentities)(::windows::core::Interface::as_raw(self), eidentitytype, ::core::mem::transmute(pfilterkey), ::core::mem::transmute(pfilterpropvarvalue)).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Authentication_Identity_Provider\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -853,7 +853,7 @@ impl IConnectedIdentityProvider {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::super::System::Com::IBindCtx>>,
     {
-        (::windows::core::Interface::vtable(self).GetUrl)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(identifier), context.into().abi(), ::core::mem::transmute(postdata), ::core::mem::transmute(url)).ok()
+        (::windows::core::Interface::vtable(self).GetUrl)(::windows::core::Interface::as_raw(self), identifier, context.into().abi(), ::core::mem::transmute(postdata), ::core::mem::transmute(url)).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Authentication_Identity_Provider\"`*"]
     pub unsafe fn GetAccountState(&self) -> ::windows::core::Result<ACCOUNT_STATE> {
@@ -993,7 +993,7 @@ impl IIdentityAdvise {
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
-        (::windows::core::Interface::vtable(self).IdentityUpdated)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(dwidentityupdateevents), lpszuniqueid.into()).ok()
+        (::windows::core::Interface::vtable(self).IdentityUpdated)(::windows::core::Interface::as_raw(self), dwidentityupdateevents, lpszuniqueid.into()).ok()
     }
 }
 impl ::core::convert::From<IIdentityAdvise> for ::windows::core::IUnknown {
@@ -1104,7 +1104,7 @@ impl IIdentityProvider {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_UI_Shell_PropertiesSystem"))]
     pub unsafe fn GetIdentityEnum(&self, eidentitytype: IDENTITY_TYPE, pfilterkey: *const super::super::super::super::UI::Shell::PropertiesSystem::PROPERTYKEY, pfilterpropvarvalue: *const super::super::super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::Result<super::super::super::super::System::Com::IEnumUnknown> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).GetIdentityEnum)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(eidentitytype), ::core::mem::transmute(pfilterkey), ::core::mem::transmute(pfilterpropvarvalue), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::super::System::Com::IEnumUnknown>(result__)
+        (::windows::core::Interface::vtable(self).GetIdentityEnum)(::windows::core::Interface::as_raw(self), eidentitytype, ::core::mem::transmute(pfilterkey), ::core::mem::transmute(pfilterpropvarvalue), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::super::System::Com::IEnumUnknown>(result__)
     }
     #[doc = "*Required features: `\"Win32_Security_Authentication_Identity_Provider\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_UI_Shell_PropertiesSystem\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_UI_Shell_PropertiesSystem"))]
@@ -1151,11 +1151,11 @@ impl IIdentityProvider {
         P0: ::std::convert::Into<::windows::core::InParam<'a, IIdentityAdvise>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::<u32>::zeroed();
-        (::windows::core::Interface::vtable(self).Advise)(::windows::core::Interface::as_raw(self), pidentityadvise.into().abi(), ::core::mem::transmute(dwidentityupdateevents), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
+        (::windows::core::Interface::vtable(self).Advise)(::windows::core::Interface::as_raw(self), pidentityadvise.into().abi(), dwidentityupdateevents, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
     }
     #[doc = "*Required features: `\"Win32_Security_Authentication_Identity_Provider\"`*"]
     pub unsafe fn UnAdvise(&self, dwcookie: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).UnAdvise)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(dwcookie)).ok()
+        (::windows::core::Interface::vtable(self).UnAdvise)(::windows::core::Interface::as_raw(self), dwcookie).ok()
     }
 }
 impl ::core::convert::From<IIdentityProvider> for ::windows::core::IUnknown {
@@ -1235,7 +1235,7 @@ impl IIdentityStore {
     }
     #[doc = "*Required features: `\"Win32_Security_Authentication_Identity_Provider\"`*"]
     pub unsafe fn GetAt(&self, dwprovider: u32, pprovguid: *mut ::windows::core::GUID, ppidentityprovider: *mut ::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetAt)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(dwprovider), ::core::mem::transmute(pprovguid), ::core::mem::transmute(ppidentityprovider)).ok()
+        (::windows::core::Interface::vtable(self).GetAt)(::windows::core::Interface::as_raw(self), dwprovider, ::core::mem::transmute(pprovguid), ::core::mem::transmute(ppidentityprovider)).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Authentication_Identity_Provider\"`*"]
     pub unsafe fn AddToCache<'a, P0>(&self, lpszuniqueid: P0, providerguid: *const ::windows::core::GUID) -> ::windows::core::Result<()>
@@ -1255,7 +1255,7 @@ impl IIdentityStore {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_UI_Shell_PropertiesSystem"))]
     pub unsafe fn EnumerateIdentities(&self, eidentitytype: IDENTITY_TYPE, pfilterkey: *const super::super::super::super::UI::Shell::PropertiesSystem::PROPERTYKEY, pfilterpropvarvalue: *const super::super::super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::Result<super::super::super::super::System::Com::IEnumUnknown> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).EnumerateIdentities)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(eidentitytype), ::core::mem::transmute(pfilterkey), ::core::mem::transmute(pfilterpropvarvalue), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::super::System::Com::IEnumUnknown>(result__)
+        (::windows::core::Interface::vtable(self).EnumerateIdentities)(::windows::core::Interface::as_raw(self), eidentitytype, ::core::mem::transmute(pfilterkey), ::core::mem::transmute(pfilterpropvarvalue), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::super::System::Com::IEnumUnknown>(result__)
     }
     #[doc = "*Required features: `\"Win32_Security_Authentication_Identity_Provider\"`*"]
     pub unsafe fn Reset(&self) -> ::windows::core::Result<()> {

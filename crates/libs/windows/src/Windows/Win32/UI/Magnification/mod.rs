@@ -170,7 +170,7 @@ where
     extern "system" {
         fn MagGetWindowFilterList(hwnd: super::super::Foundation::HWND, pdwfiltermode: *mut u32, count: i32, phwnd: *mut super::super::Foundation::HWND) -> i32;
     }
-    ::core::mem::transmute(MagGetWindowFilterList(hwnd.into(), ::core::mem::transmute(pdwfiltermode), ::core::mem::transmute(count), ::core::mem::transmute(phwnd)))
+    ::core::mem::transmute(MagGetWindowFilterList(hwnd.into(), ::core::mem::transmute(pdwfiltermode), count, ::core::mem::transmute(phwnd)))
 }
 #[doc = "*Required features: `\"Win32_UI_Magnification\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -242,7 +242,7 @@ pub unsafe fn MagSetFullscreenTransform(maglevel: f32, xoffset: i32, yoffset: i3
     extern "system" {
         fn MagSetFullscreenTransform(maglevel: f32, xoffset: i32, yoffset: i32) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(MagSetFullscreenTransform(::core::mem::transmute(maglevel), ::core::mem::transmute(xoffset), ::core::mem::transmute(yoffset)))
+    ::core::mem::transmute(MagSetFullscreenTransform(maglevel, xoffset, yoffset))
 }
 #[doc = "*Required features: `\"Win32_UI_Magnification\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
@@ -281,7 +281,7 @@ where
     extern "system" {
         fn MagSetWindowFilterList(hwnd: super::super::Foundation::HWND, dwfiltermode: u32, count: i32, phwnd: *mut super::super::Foundation::HWND) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(MagSetWindowFilterList(hwnd.into(), ::core::mem::transmute(dwfiltermode), ::core::mem::transmute(count), ::core::mem::transmute(phwnd)))
+    ::core::mem::transmute(MagSetWindowFilterList(hwnd.into(), dwfiltermode, count, ::core::mem::transmute(phwnd)))
 }
 #[doc = "*Required features: `\"Win32_UI_Magnification\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]

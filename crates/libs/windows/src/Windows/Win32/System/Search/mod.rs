@@ -7145,7 +7145,7 @@ impl DataSource {
     #[doc = "*Required features: `\"Win32_System_Search\"`*"]
     pub unsafe fn getDataMemberName(&self, lindex: i32) -> ::windows::core::Result<*mut u16> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut u16>::zeroed();
-        (::windows::core::Interface::vtable(self).getDataMemberName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lindex), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<*mut u16>(result__)
+        (::windows::core::Interface::vtable(self).getDataMemberName)(::windows::core::Interface::as_raw(self), lindex, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<*mut u16>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Search\"`*"]
     pub unsafe fn getDataMemberCount(&self) -> ::windows::core::Result<i32> {
@@ -8469,22 +8469,22 @@ impl IAccessor {
     #[doc = "*Required features: `\"Win32_System_Search\"`*"]
     pub unsafe fn AddRefAccessor(&self, haccessor: usize) -> ::windows::core::Result<u32> {
         let mut result__ = ::core::mem::MaybeUninit::<u32>::zeroed();
-        (::windows::core::Interface::vtable(self).AddRefAccessor)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(haccessor), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
+        (::windows::core::Interface::vtable(self).AddRefAccessor)(::windows::core::Interface::as_raw(self), haccessor, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Search\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CreateAccessor(&self, dwaccessorflags: u32, cbindings: usize, rgbindings: *const DBBINDING, cbrowsize: usize, phaccessor: *mut usize, rgstatus: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).CreateAccessor)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(dwaccessorflags), ::core::mem::transmute(cbindings), ::core::mem::transmute(rgbindings), ::core::mem::transmute(cbrowsize), ::core::mem::transmute(phaccessor), ::core::mem::transmute(rgstatus)).ok()
+        (::windows::core::Interface::vtable(self).CreateAccessor)(::windows::core::Interface::as_raw(self), dwaccessorflags, ::core::mem::transmute(cbindings), ::core::mem::transmute(rgbindings), cbrowsize, ::core::mem::transmute(phaccessor), ::core::mem::transmute(rgstatus)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Search\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetBindings(&self, haccessor: usize, pdwaccessorflags: *mut u32, pcbindings: *mut usize, prgbindings: *mut *mut DBBINDING) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetBindings)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(haccessor), ::core::mem::transmute(pdwaccessorflags), ::core::mem::transmute(pcbindings), ::core::mem::transmute(prgbindings)).ok()
+        (::windows::core::Interface::vtable(self).GetBindings)(::windows::core::Interface::as_raw(self), haccessor, ::core::mem::transmute(pdwaccessorflags), ::core::mem::transmute(pcbindings), ::core::mem::transmute(prgbindings)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Search\"`*"]
     pub unsafe fn ReleaseAccessor(&self, haccessor: usize) -> ::windows::core::Result<u32> {
         let mut result__ = ::core::mem::MaybeUninit::<u32>::zeroed();
-        (::windows::core::Interface::vtable(self).ReleaseAccessor)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(haccessor), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
+        (::windows::core::Interface::vtable(self).ReleaseAccessor)(::windows::core::Interface::as_raw(self), haccessor, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
     }
 }
 impl ::core::convert::From<IAccessor> for ::windows::core::IUnknown {
@@ -8544,7 +8544,7 @@ impl IAlterIndex {
     #[doc = "*Required features: `\"Win32_System_Search\"`, `\"Win32_Foundation\"`, `\"Win32_Storage_IndexServer\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn AlterIndex(&self, ptableid: *mut super::super::Storage::IndexServer::DBID, pindexid: *mut super::super::Storage::IndexServer::DBID, pnewindexid: *mut super::super::Storage::IndexServer::DBID, cpropertysets: u32, rgpropertysets: *mut DBPROPSET) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).AlterIndex)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(ptableid), ::core::mem::transmute(pindexid), ::core::mem::transmute(pnewindexid), ::core::mem::transmute(cpropertysets), ::core::mem::transmute(rgpropertysets)).ok()
+        (::windows::core::Interface::vtable(self).AlterIndex)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(ptableid), ::core::mem::transmute(pindexid), ::core::mem::transmute(pnewindexid), cpropertysets, ::core::mem::transmute(rgpropertysets)).ok()
     }
 }
 impl ::core::convert::From<IAlterIndex> for ::windows::core::IUnknown {
@@ -8598,12 +8598,12 @@ impl IAlterTable {
     #[doc = "*Required features: `\"Win32_System_Search\"`, `\"Win32_Foundation\"`, `\"Win32_Storage_IndexServer\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn AlterColumn(&self, ptableid: *mut super::super::Storage::IndexServer::DBID, pcolumnid: *mut super::super::Storage::IndexServer::DBID, dwcolumndescflags: u32, pcolumndesc: *mut DBCOLUMNDESC) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).AlterColumn)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(ptableid), ::core::mem::transmute(pcolumnid), ::core::mem::transmute(dwcolumndescflags), ::core::mem::transmute(pcolumndesc)).ok()
+        (::windows::core::Interface::vtable(self).AlterColumn)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(ptableid), ::core::mem::transmute(pcolumnid), dwcolumndescflags, ::core::mem::transmute(pcolumndesc)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Search\"`, `\"Win32_Foundation\"`, `\"Win32_Storage_IndexServer\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn AlterTable(&self, ptableid: *mut super::super::Storage::IndexServer::DBID, pnewtableid: *mut super::super::Storage::IndexServer::DBID, cpropertysets: u32, rgpropertysets: *mut DBPROPSET) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).AlterTable)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(ptableid), ::core::mem::transmute(pnewtableid), ::core::mem::transmute(cpropertysets), ::core::mem::transmute(rgpropertysets)).ok()
+        (::windows::core::Interface::vtable(self).AlterTable)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(ptableid), ::core::mem::transmute(pnewtableid), cpropertysets, ::core::mem::transmute(rgpropertysets)).ok()
     }
 }
 impl ::core::convert::From<IAlterTable> for ::windows::core::IUnknown {
@@ -8666,7 +8666,7 @@ impl IBindResource {
         P1: ::std::convert::Into<::windows::core::PCWSTR>,
         P2: ::std::convert::Into<::windows::core::InParam<'a, super::Com::IAuthenticate>>,
     {
-        (::windows::core::Interface::vtable(self).Bind)(::windows::core::Interface::as_raw(self), punkouter.into().abi(), pwszurl.into(), ::core::mem::transmute(dwbindurlflags), ::core::mem::transmute(rguid), ::core::mem::transmute(riid), pauthenticate.into().abi(), ::core::mem::transmute(pimplsession), ::core::mem::transmute(pdwbindstatus), ::core::mem::transmute(ppunk)).ok()
+        (::windows::core::Interface::vtable(self).Bind)(::windows::core::Interface::as_raw(self), punkouter.into().abi(), pwszurl.into(), dwbindurlflags, ::core::mem::transmute(rguid), ::core::mem::transmute(riid), pauthenticate.into().abi(), ::core::mem::transmute(pimplsession), ::core::mem::transmute(pdwbindstatus), ::core::mem::transmute(ppunk)).ok()
     }
 }
 impl ::core::convert::From<IBindResource> for ::windows::core::IUnknown {
@@ -8720,12 +8720,12 @@ impl IChapteredRowset {
     #[doc = "*Required features: `\"Win32_System_Search\"`*"]
     pub unsafe fn AddRefChapter(&self, hchapter: usize) -> ::windows::core::Result<u32> {
         let mut result__ = ::core::mem::MaybeUninit::<u32>::zeroed();
-        (::windows::core::Interface::vtable(self).AddRefChapter)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(hchapter), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
+        (::windows::core::Interface::vtable(self).AddRefChapter)(::windows::core::Interface::as_raw(self), hchapter, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Search\"`*"]
     pub unsafe fn ReleaseChapter(&self, hchapter: usize) -> ::windows::core::Result<u32> {
         let mut result__ = ::core::mem::MaybeUninit::<u32>::zeroed();
-        (::windows::core::Interface::vtable(self).ReleaseChapter)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(hchapter), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
+        (::windows::core::Interface::vtable(self).ReleaseChapter)(::windows::core::Interface::as_raw(self), hchapter, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
     }
 }
 impl ::core::convert::From<IChapteredRowset> for ::windows::core::IUnknown {
@@ -8790,7 +8790,7 @@ impl IColumnMapper {
     #[doc = "*Required features: `\"Win32_System_Search\"`, `\"Win32_Storage_IndexServer\"`*"]
     #[cfg(feature = "Win32_Storage_IndexServer")]
     pub unsafe fn EnumPropInfo(&self, ientry: u32, pwcsname: *const *const u16, pppropid: *mut *mut super::super::Storage::IndexServer::DBID, pproptype: *mut u16, puiwidth: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).EnumPropInfo)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(ientry), ::core::mem::transmute(pwcsname), ::core::mem::transmute(pppropid), ::core::mem::transmute(pproptype), ::core::mem::transmute(puiwidth)).ok()
+        (::windows::core::Interface::vtable(self).EnumPropInfo)(::windows::core::Interface::as_raw(self), ientry, ::core::mem::transmute(pwcsname), ::core::mem::transmute(pppropid), ::core::mem::transmute(pproptype), ::core::mem::transmute(puiwidth)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Search\"`*"]
     pub unsafe fn IsMapUpToDate(&self) -> ::windows::core::Result<()> {
@@ -8985,7 +8985,7 @@ impl IColumnsInfo2 {
     #[doc = "*Required features: `\"Win32_System_Search\"`, `\"Win32_Storage_IndexServer\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com"))]
     pub unsafe fn GetRestrictedColumnInfo(&self, rgcolumnidmasks: &[super::super::Storage::IndexServer::DBID], dwflags: u32, pccolumns: *mut usize, prgcolumnids: *mut *mut super::super::Storage::IndexServer::DBID, prgcolumninfo: *mut *mut DBCOLUMNINFO, ppstringsbuffer: *mut *mut u16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetRestrictedColumnInfo)(::windows::core::Interface::as_raw(self), rgcolumnidmasks.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(rgcolumnidmasks)), ::core::mem::transmute(dwflags), ::core::mem::transmute(pccolumns), ::core::mem::transmute(prgcolumnids), ::core::mem::transmute(prgcolumninfo), ::core::mem::transmute(ppstringsbuffer)).ok()
+        (::windows::core::Interface::vtable(self).GetRestrictedColumnInfo)(::windows::core::Interface::as_raw(self), rgcolumnidmasks.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(rgcolumnidmasks)), dwflags, ::core::mem::transmute(pccolumns), ::core::mem::transmute(prgcolumnids), ::core::mem::transmute(prgcolumninfo), ::core::mem::transmute(ppstringsbuffer)).ok()
     }
 }
 impl ::core::convert::From<IColumnsInfo2> for ::windows::core::IUnknown {
@@ -9214,14 +9214,14 @@ impl ICommandCost {
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
-        (::windows::core::Interface::vtable(self).SetCostGoals)(::windows::core::Interface::as_raw(self), pwszrowsetname.into(), ::core::mem::transmute(ccostgoals), ::core::mem::transmute(rgcostgoals)).ok()
+        (::windows::core::Interface::vtable(self).SetCostGoals)(::windows::core::Interface::as_raw(self), pwszrowsetname.into(), ccostgoals, ::core::mem::transmute(rgcostgoals)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Search\"`*"]
     pub unsafe fn SetCostLimits<'a, P0>(&self, pwszrowsetname: P0, ccostlimits: u32, prgcostlimits: *mut DBCOST, dwexecutionflags: u32) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
-        (::windows::core::Interface::vtable(self).SetCostLimits)(::windows::core::Interface::as_raw(self), pwszrowsetname.into(), ::core::mem::transmute(ccostlimits), ::core::mem::transmute(prgcostlimits), ::core::mem::transmute(dwexecutionflags)).ok()
+        (::windows::core::Interface::vtable(self).SetCostLimits)(::windows::core::Interface::as_raw(self), pwszrowsetname.into(), ccostlimits, ::core::mem::transmute(prgcostlimits), dwexecutionflags).ok()
     }
 }
 impl ::core::convert::From<ICommandCost> for ::windows::core::IUnknown {
@@ -9287,12 +9287,12 @@ impl ICommandPersist {
     #[doc = "*Required features: `\"Win32_System_Search\"`, `\"Win32_Storage_IndexServer\"`*"]
     #[cfg(feature = "Win32_Storage_IndexServer")]
     pub unsafe fn LoadCommand(&self, pcommandid: *mut super::super::Storage::IndexServer::DBID, dwflags: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).LoadCommand)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pcommandid), ::core::mem::transmute(dwflags)).ok()
+        (::windows::core::Interface::vtable(self).LoadCommand)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pcommandid), dwflags).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Search\"`, `\"Win32_Storage_IndexServer\"`*"]
     #[cfg(feature = "Win32_Storage_IndexServer")]
     pub unsafe fn SaveCommand(&self, pcommandid: *mut super::super::Storage::IndexServer::DBID, dwflags: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SaveCommand)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pcommandid), ::core::mem::transmute(dwflags)).ok()
+        (::windows::core::Interface::vtable(self).SaveCommand)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pcommandid), dwflags).ok()
     }
 }
 impl ::core::convert::From<ICommandPersist> for ::windows::core::IUnknown {
@@ -9357,7 +9357,7 @@ pub struct ICommandPrepare(::windows::core::IUnknown);
 impl ICommandPrepare {
     #[doc = "*Required features: `\"Win32_System_Search\"`*"]
     pub unsafe fn Prepare(&self, cexpectedruns: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Prepare)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(cexpectedruns)).ok()
+        (::windows::core::Interface::vtable(self).Prepare)(::windows::core::Interface::as_raw(self), cexpectedruns).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Search\"`*"]
     pub unsafe fn Unprepare(&self) -> ::windows::core::Result<()> {
@@ -10136,7 +10136,7 @@ impl IConditionFactory {
         P1: ::std::convert::Into<super::super::Foundation::BOOL>,
     {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).MakeAndOr)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(ct), peusubs.into().abi(), fsimplify.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ICondition>(result__)
+        (::windows::core::Interface::vtable(self).MakeAndOr)(::windows::core::Interface::as_raw(self), ct, peusubs.into().abi(), fsimplify.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ICondition>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Search\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Search_Common\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Search_Common"))]
@@ -10150,7 +10150,7 @@ impl IConditionFactory {
         P5: ::std::convert::Into<super::super::Foundation::BOOL>,
     {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).MakeLeaf)(::windows::core::Interface::as_raw(self), pszpropertyname.into(), ::core::mem::transmute(cop), pszvaluetype.into(), ::core::mem::transmute(ppropvar), ppropertynameterm.into().abi(), poperationterm.into().abi(), pvalueterm.into().abi(), fexpand.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ICondition>(result__)
+        (::windows::core::Interface::vtable(self).MakeLeaf)(::windows::core::Interface::as_raw(self), pszpropertyname.into(), cop, pszvaluetype.into(), ::core::mem::transmute(ppropvar), ppropertynameterm.into().abi(), poperationterm.into().abi(), pvalueterm.into().abi(), fexpand.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ICondition>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Search\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
@@ -10159,7 +10159,7 @@ impl IConditionFactory {
         P0: ::std::convert::Into<::windows::core::InParam<'a, ICondition>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).Resolve)(::windows::core::Interface::as_raw(self), pc.into().abi(), ::core::mem::transmute(sqro), ::core::mem::transmute(pstreferencetime), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ICondition>(result__)
+        (::windows::core::Interface::vtable(self).Resolve)(::windows::core::Interface::as_raw(self), pc.into().abi(), sqro, ::core::mem::transmute(pstreferencetime), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ICondition>(result__)
     }
 }
 impl ::core::convert::From<IConditionFactory> for ::windows::core::IUnknown {
@@ -10240,7 +10240,7 @@ impl IConditionFactory2 {
         P1: ::std::convert::Into<super::super::Foundation::BOOL>,
     {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.MakeAndOr)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(ct), peusubs.into().abi(), fsimplify.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ICondition>(result__)
+        (::windows::core::Interface::vtable(self).base__.MakeAndOr)(::windows::core::Interface::as_raw(self), ct, peusubs.into().abi(), fsimplify.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ICondition>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Search\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Search_Common\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Search_Common"))]
@@ -10254,7 +10254,7 @@ impl IConditionFactory2 {
         P5: ::std::convert::Into<super::super::Foundation::BOOL>,
     {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.MakeLeaf)(::windows::core::Interface::as_raw(self), pszpropertyname.into(), ::core::mem::transmute(cop), pszvaluetype.into(), ::core::mem::transmute(ppropvar), ppropertynameterm.into().abi(), poperationterm.into().abi(), pvalueterm.into().abi(), fexpand.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ICondition>(result__)
+        (::windows::core::Interface::vtable(self).base__.MakeLeaf)(::windows::core::Interface::as_raw(self), pszpropertyname.into(), cop, pszvaluetype.into(), ::core::mem::transmute(ppropvar), ppropertynameterm.into().abi(), poperationterm.into().abi(), pvalueterm.into().abi(), fexpand.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ICondition>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Search\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
@@ -10263,7 +10263,7 @@ impl IConditionFactory2 {
         P0: ::std::convert::Into<::windows::core::InParam<'a, ICondition>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.Resolve)(::windows::core::Interface::as_raw(self), pc.into().abi(), ::core::mem::transmute(sqro), ::core::mem::transmute(pstreferencetime), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ICondition>(result__)
+        (::windows::core::Interface::vtable(self).base__.Resolve)(::windows::core::Interface::as_raw(self), pc.into().abi(), sqro, ::core::mem::transmute(pstreferencetime), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ICondition>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Search\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -10273,7 +10273,7 @@ impl IConditionFactory2 {
         T: ::windows::core::Interface,
     {
         let mut result__ = ::core::option::Option::None;
-        (::windows::core::Interface::vtable(self).CreateTrueFalse)(::windows::core::Interface::as_raw(self), fval.into(), ::core::mem::transmute(cco), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
+        (::windows::core::Interface::vtable(self).CreateTrueFalse)(::windows::core::Interface::as_raw(self), fval.into(), cco, &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Search\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -10283,7 +10283,7 @@ impl IConditionFactory2 {
         T: ::windows::core::Interface,
     {
         let mut result__ = ::core::option::Option::None;
-        (::windows::core::Interface::vtable(self).CreateNegation)(::windows::core::Interface::as_raw(self), pcsub.into().abi(), ::core::mem::transmute(cco), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
+        (::windows::core::Interface::vtable(self).CreateNegation)(::windows::core::Interface::as_raw(self), pcsub.into().abi(), cco, &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Search\"`, `\"Win32_System_Search_Common\"`, `\"Win32_UI_Shell_Common\"`*"]
     #[cfg(all(feature = "Win32_System_Search_Common", feature = "Win32_UI_Shell_Common"))]
@@ -10293,7 +10293,7 @@ impl IConditionFactory2 {
         T: ::windows::core::Interface,
     {
         let mut result__ = ::core::option::Option::None;
-        (::windows::core::Interface::vtable(self).CreateCompoundFromObjectArray)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(ct), poasubs.into().abi(), ::core::mem::transmute(cco), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
+        (::windows::core::Interface::vtable(self).CreateCompoundFromObjectArray)(::windows::core::Interface::as_raw(self), ct, poasubs.into().abi(), cco, &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Search\"`, `\"Win32_System_Com\"`, `\"Win32_System_Search_Common\"`*"]
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Search_Common"))]
@@ -10302,7 +10302,7 @@ impl IConditionFactory2 {
         T: ::windows::core::Interface,
     {
         let mut result__ = ::core::option::Option::None;
-        (::windows::core::Interface::vtable(self).CreateCompoundFromArray)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(ct), ::core::mem::transmute(::windows::core::as_ptr_or_null(ppcondsubs)), ppcondsubs.len() as _, ::core::mem::transmute(cco), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
+        (::windows::core::Interface::vtable(self).CreateCompoundFromArray)(::windows::core::Interface::as_raw(self), ct, ::core::mem::transmute(::windows::core::as_ptr_or_null(ppcondsubs)), ppcondsubs.len() as _, cco, &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Search\"`, `\"Win32_System_Search_Common\"`, `\"Win32_UI_Shell_PropertiesSystem\"`*"]
     #[cfg(all(feature = "Win32_System_Search_Common", feature = "Win32_UI_Shell_PropertiesSystem"))]
@@ -10313,7 +10313,7 @@ impl IConditionFactory2 {
         T: ::windows::core::Interface,
     {
         let mut result__ = ::core::option::Option::None;
-        (::windows::core::Interface::vtable(self).CreateStringLeaf)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(propkey), ::core::mem::transmute(cop), pszvalue.into(), pszlocalename.into(), ::core::mem::transmute(cco), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
+        (::windows::core::Interface::vtable(self).CreateStringLeaf)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(propkey), cop, pszvalue.into(), pszlocalename.into(), cco, &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Search\"`, `\"Win32_System_Search_Common\"`, `\"Win32_UI_Shell_PropertiesSystem\"`*"]
     #[cfg(all(feature = "Win32_System_Search_Common", feature = "Win32_UI_Shell_PropertiesSystem"))]
@@ -10322,7 +10322,7 @@ impl IConditionFactory2 {
         T: ::windows::core::Interface,
     {
         let mut result__ = ::core::option::Option::None;
-        (::windows::core::Interface::vtable(self).CreateIntegerLeaf)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(propkey), ::core::mem::transmute(cop), ::core::mem::transmute(lvalue), ::core::mem::transmute(cco), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
+        (::windows::core::Interface::vtable(self).CreateIntegerLeaf)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(propkey), cop, lvalue, cco, &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Search\"`, `\"Win32_Foundation\"`, `\"Win32_System_Search_Common\"`, `\"Win32_UI_Shell_PropertiesSystem\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Search_Common", feature = "Win32_UI_Shell_PropertiesSystem"))]
@@ -10332,7 +10332,7 @@ impl IConditionFactory2 {
         T: ::windows::core::Interface,
     {
         let mut result__ = ::core::option::Option::None;
-        (::windows::core::Interface::vtable(self).CreateBooleanLeaf)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(propkey), ::core::mem::transmute(cop), fvalue.into(), ::core::mem::transmute(cco), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
+        (::windows::core::Interface::vtable(self).CreateBooleanLeaf)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(propkey), cop, fvalue.into(), cco, &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Search\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Search_Common\"`, `\"Win32_UI_Shell_PropertiesSystem\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Search_Common", feature = "Win32_UI_Shell_PropertiesSystem"))]
@@ -10346,7 +10346,7 @@ impl IConditionFactory2 {
         T: ::windows::core::Interface,
     {
         let mut result__ = ::core::option::Option::None;
-        (::windows::core::Interface::vtable(self).CreateLeaf)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(propkey), ::core::mem::transmute(cop), ::core::mem::transmute(propvar), pszsemantictype.into(), pszlocalename.into(), ppropertynameterm.into().abi(), poperationterm.into().abi(), pvalueterm.into().abi(), ::core::mem::transmute(cco), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
+        (::windows::core::Interface::vtable(self).CreateLeaf)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(propkey), cop, ::core::mem::transmute(propvar), pszsemantictype.into(), pszlocalename.into(), ppropertynameterm.into().abi(), poperationterm.into().abi(), pvalueterm.into().abi(), cco, &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Search\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
@@ -10356,7 +10356,7 @@ impl IConditionFactory2 {
         T: ::windows::core::Interface,
     {
         let mut result__ = ::core::option::Option::None;
-        (::windows::core::Interface::vtable(self).ResolveCondition)(::windows::core::Interface::as_raw(self), pc.into().abi(), ::core::mem::transmute(sqro), ::core::mem::transmute(pstreferencetime), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
+        (::windows::core::Interface::vtable(self).ResolveCondition)(::windows::core::Interface::as_raw(self), pc.into().abi(), sqro, ::core::mem::transmute(pstreferencetime), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
     }
 }
 impl ::core::convert::From<IConditionFactory2> for ::windows::core::IUnknown {
@@ -10468,7 +10468,7 @@ impl IConditionGenerator {
         P1: ::std::convert::Into<::windows::core::InParam<'a, ITokenCollection>>,
         P2: ::std::convert::Into<::windows::core::InParam<'a, INamedEntityCollector>>,
     {
-        (::windows::core::Interface::vtable(self).RecognizeNamedEntities)(::windows::core::Interface::as_raw(self), pszinputstring.into(), ::core::mem::transmute(lciduserlocale), ptokencollection.into().abi(), pnamedentities.into().abi()).ok()
+        (::windows::core::Interface::vtable(self).RecognizeNamedEntities)(::windows::core::Interface::as_raw(self), pszinputstring.into(), lciduserlocale, ptokencollection.into().abi(), pnamedentities.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Search\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Search_Common\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Search_Common"))]
@@ -10484,7 +10484,7 @@ impl IConditionGenerator {
         P7: ::std::convert::Into<::windows::core::InParam<'a, IRichChunk>>,
         P8: ::std::convert::Into<super::super::Foundation::BOOL>,
     {
-        (::windows::core::Interface::vtable(self).GenerateForLeaf)(::windows::core::Interface::as_raw(self), pconditionfactory.into().abi(), pszpropertyname.into(), ::core::mem::transmute(cop), pszvaluetype.into(), pszvalue.into(), pszvalue2.into(), ppropertynameterm.into().abi(), poperationterm.into().abi(), pvalueterm.into().abi(), automaticwildcard.into(), ::core::mem::transmute(pnostringquery), ::core::mem::transmute(ppqueryexpression)).ok()
+        (::windows::core::Interface::vtable(self).GenerateForLeaf)(::windows::core::Interface::as_raw(self), pconditionfactory.into().abi(), pszpropertyname.into(), cop, pszvaluetype.into(), pszvalue.into(), pszvalue2.into(), ppropertynameterm.into().abi(), poperationterm.into().abi(), pvalueterm.into().abi(), automaticwildcard.into(), ::core::mem::transmute(pnostringquery), ::core::mem::transmute(ppqueryexpression)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Search\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
@@ -10553,7 +10553,7 @@ pub struct IConvertType(::windows::core::IUnknown);
 impl IConvertType {
     #[doc = "*Required features: `\"Win32_System_Search\"`*"]
     pub unsafe fn CanConvert(&self, wfromtype: u16, wtotype: u16, dwconvertflags: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).CanConvert)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(wfromtype), ::core::mem::transmute(wtotype), ::core::mem::transmute(dwconvertflags)).ok()
+        (::windows::core::Interface::vtable(self).CanConvert)(::windows::core::Interface::as_raw(self), wfromtype, wtotype, dwconvertflags).ok()
     }
 }
 impl ::core::convert::From<IConvertType> for ::windows::core::IUnknown {
@@ -10609,7 +10609,7 @@ impl ICreateRow {
         P1: ::std::convert::Into<::windows::core::PCWSTR>,
         P2: ::std::convert::Into<::windows::core::InParam<'a, super::Com::IAuthenticate>>,
     {
-        (::windows::core::Interface::vtable(self).CreateRow)(::windows::core::Interface::as_raw(self), punkouter.into().abi(), pwszurl.into(), ::core::mem::transmute(dwbindurlflags), ::core::mem::transmute(rguid), ::core::mem::transmute(riid), pauthenticate.into().abi(), ::core::mem::transmute(pimplsession), ::core::mem::transmute(pdwbindstatus), ::core::mem::transmute(ppwsznewurl), ::core::mem::transmute(ppunk)).ok()
+        (::windows::core::Interface::vtable(self).CreateRow)(::windows::core::Interface::as_raw(self), punkouter.into().abi(), pwszurl.into(), dwbindurlflags, ::core::mem::transmute(rguid), ::core::mem::transmute(riid), pauthenticate.into().abi(), ::core::mem::transmute(pimplsession), ::core::mem::transmute(pdwbindstatus), ::core::mem::transmute(ppwsznewurl), ::core::mem::transmute(ppunk)).ok()
     }
 }
 impl ::core::convert::From<ICreateRow> for ::windows::core::IUnknown {
@@ -10662,21 +10662,21 @@ pub struct IDBAsynchNotify(::windows::core::IUnknown);
 impl IDBAsynchNotify {
     #[doc = "*Required features: `\"Win32_System_Search\"`*"]
     pub unsafe fn OnLowResource(&self, dwreserved: usize) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).OnLowResource)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(dwreserved)).ok()
+        (::windows::core::Interface::vtable(self).OnLowResource)(::windows::core::Interface::as_raw(self), dwreserved).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Search\"`*"]
     pub unsafe fn OnProgress<'a, P0>(&self, hchapter: usize, eoperation: u32, ulprogress: usize, ulprogressmax: usize, easynchphase: u32, pwszstatustext: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
-        (::windows::core::Interface::vtable(self).OnProgress)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(hchapter), ::core::mem::transmute(eoperation), ::core::mem::transmute(ulprogress), ::core::mem::transmute(ulprogressmax), ::core::mem::transmute(easynchphase), pwszstatustext.into()).ok()
+        (::windows::core::Interface::vtable(self).OnProgress)(::windows::core::Interface::as_raw(self), hchapter, eoperation, ulprogress, ulprogressmax, easynchphase, pwszstatustext.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Search\"`*"]
     pub unsafe fn OnStop<'a, P0>(&self, hchapter: usize, eoperation: u32, hrstatus: ::windows::core::HRESULT, pwszstatustext: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
-        (::windows::core::Interface::vtable(self).OnStop)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(hchapter), ::core::mem::transmute(eoperation), ::core::mem::transmute(hrstatus), pwszstatustext.into()).ok()
+        (::windows::core::Interface::vtable(self).OnStop)(::windows::core::Interface::as_raw(self), hchapter, eoperation, hrstatus, pwszstatustext.into()).ok()
     }
 }
 impl ::core::convert::From<IDBAsynchNotify> for ::windows::core::IUnknown {
@@ -10728,11 +10728,11 @@ pub struct IDBAsynchStatus(::windows::core::IUnknown);
 impl IDBAsynchStatus {
     #[doc = "*Required features: `\"Win32_System_Search\"`*"]
     pub unsafe fn Abort(&self, hchapter: usize, eoperation: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Abort)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(hchapter), ::core::mem::transmute(eoperation)).ok()
+        (::windows::core::Interface::vtable(self).Abort)(::windows::core::Interface::as_raw(self), hchapter, eoperation).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Search\"`*"]
     pub unsafe fn GetStatus(&self, hchapter: usize, eoperation: u32, pulprogress: *mut usize, pulprogressmax: *mut usize, peasynchphase: *mut u32, ppwszstatustext: *mut ::windows::core::PWSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetStatus)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(hchapter), ::core::mem::transmute(eoperation), ::core::mem::transmute(pulprogress), ::core::mem::transmute(pulprogressmax), ::core::mem::transmute(peasynchphase), ::core::mem::transmute(ppwszstatustext)).ok()
+        (::windows::core::Interface::vtable(self).GetStatus)(::windows::core::Interface::as_raw(self), hchapter, eoperation, ::core::mem::transmute(pulprogress), ::core::mem::transmute(pulprogressmax), ::core::mem::transmute(peasynchphase), ::core::mem::transmute(ppwszstatustext)).ok()
     }
 }
 impl ::core::convert::From<IDBAsynchStatus> for ::windows::core::IUnknown {
@@ -11172,7 +11172,7 @@ impl IDBPromptInitialize {
         P1: ::std::convert::Into<super::super::Foundation::HWND>,
         P2: ::std::convert::Into<::windows::core::PCWSTR>,
     {
-        (::windows::core::Interface::vtable(self).PromptDataSource)(::windows::core::Interface::as_raw(self), punkouter.into().abi(), hwndparent.into(), ::core::mem::transmute(dwpromptoptions), rgsourcetypefilter.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(rgsourcetypefilter)), pwszszzproviderfilter.into(), ::core::mem::transmute(riid), ::core::mem::transmute(ppdatasource)).ok()
+        (::windows::core::Interface::vtable(self).PromptDataSource)(::windows::core::Interface::as_raw(self), punkouter.into().abi(), hwndparent.into(), dwpromptoptions, rgsourcetypefilter.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(rgsourcetypefilter)), pwszszzproviderfilter.into(), ::core::mem::transmute(riid), ::core::mem::transmute(ppdatasource)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Search\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -11183,7 +11183,7 @@ impl IDBPromptInitialize {
         P2: ::std::convert::Into<::windows::core::PCWSTR>,
     {
         let mut result__ = ::core::mem::MaybeUninit::<::windows::core::PWSTR>::zeroed();
-        (::windows::core::Interface::vtable(self).PromptFileName)(::windows::core::Interface::as_raw(self), hwndparent.into(), ::core::mem::transmute(dwpromptoptions), pwszinitialdirectory.into(), pwszinitialfile.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::PWSTR>(result__)
+        (::windows::core::Interface::vtable(self).PromptFileName)(::windows::core::Interface::as_raw(self), hwndparent.into(), dwpromptoptions, pwszinitialdirectory.into(), pwszinitialfile.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::PWSTR>(result__)
     }
 }
 impl ::core::convert::From<IDBPromptInitialize> for ::windows::core::IUnknown {
@@ -11612,15 +11612,15 @@ pub struct IDataConvert(::windows::core::IUnknown);
 impl IDataConvert {
     #[doc = "*Required features: `\"Win32_System_Search\"`*"]
     pub unsafe fn DataConvert(&self, wsrctype: u16, wdsttype: u16, cbsrclength: usize, pcbdstlength: *mut usize, psrc: *const ::core::ffi::c_void, pdst: *mut ::core::ffi::c_void, cbdstmaxlength: usize, dbssrcstatus: u32, pdbsstatus: *mut u32, bprecision: u8, bscale: u8, dwflags: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).DataConvert)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(wsrctype), ::core::mem::transmute(wdsttype), ::core::mem::transmute(cbsrclength), ::core::mem::transmute(pcbdstlength), ::core::mem::transmute(psrc), ::core::mem::transmute(pdst), ::core::mem::transmute(cbdstmaxlength), ::core::mem::transmute(dbssrcstatus), ::core::mem::transmute(pdbsstatus), ::core::mem::transmute(bprecision), ::core::mem::transmute(bscale), ::core::mem::transmute(dwflags)).ok()
+        (::windows::core::Interface::vtable(self).DataConvert)(::windows::core::Interface::as_raw(self), wsrctype, wdsttype, cbsrclength, ::core::mem::transmute(pcbdstlength), ::core::mem::transmute(psrc), ::core::mem::transmute(pdst), cbdstmaxlength, dbssrcstatus, ::core::mem::transmute(pdbsstatus), bprecision, bscale, dwflags).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Search\"`*"]
     pub unsafe fn CanConvert(&self, wsrctype: u16, wdsttype: u16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).CanConvert)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(wsrctype), ::core::mem::transmute(wdsttype)).ok()
+        (::windows::core::Interface::vtable(self).CanConvert)(::windows::core::Interface::as_raw(self), wsrctype, wdsttype).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Search\"`*"]
     pub unsafe fn GetConversionSize(&self, wsrctype: u16, wdsttype: u16, pcbsrclength: *const usize, pcbdstlength: *mut usize, psrc: *const ::core::ffi::c_void) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetConversionSize)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(wsrctype), ::core::mem::transmute(wdsttype), ::core::mem::transmute(pcbsrclength), ::core::mem::transmute(pcbdstlength), ::core::mem::transmute(psrc)).ok()
+        (::windows::core::Interface::vtable(self).GetConversionSize)(::windows::core::Interface::as_raw(self), wsrctype, wdsttype, ::core::mem::transmute(pcbsrclength), ::core::mem::transmute(pcbdstlength), ::core::mem::transmute(psrc)).ok()
     }
 }
 impl ::core::convert::From<IDataConvert> for ::windows::core::IUnknown {
@@ -11676,7 +11676,7 @@ impl IDataInitialize {
         P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>,
         P1: ::std::convert::Into<::windows::core::PCWSTR>,
     {
-        (::windows::core::Interface::vtable(self).GetDataSource)(::windows::core::Interface::as_raw(self), punkouter.into().abi(), ::core::mem::transmute(dwclsctx), pwszinitializationstring.into(), ::core::mem::transmute(riid), ::core::mem::transmute(ppdatasource)).ok()
+        (::windows::core::Interface::vtable(self).GetDataSource)(::windows::core::Interface::as_raw(self), punkouter.into().abi(), dwclsctx, pwszinitializationstring.into(), ::core::mem::transmute(riid), ::core::mem::transmute(ppdatasource)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Search\"`*"]
     pub unsafe fn GetInitializationString<'a, P0>(&self, pdatasource: P0, fincludepassword: u8) -> ::windows::core::Result<::windows::core::PWSTR>
@@ -11684,7 +11684,7 @@ impl IDataInitialize {
         P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::<::windows::core::PWSTR>::zeroed();
-        (::windows::core::Interface::vtable(self).GetInitializationString)(::windows::core::Interface::as_raw(self), pdatasource.into().abi(), ::core::mem::transmute(fincludepassword), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::PWSTR>(result__)
+        (::windows::core::Interface::vtable(self).GetInitializationString)(::windows::core::Interface::as_raw(self), pdatasource.into().abi(), fincludepassword, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::PWSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Search\"`*"]
     pub unsafe fn CreateDBInstance<'a, P0, P1>(&self, clsidprovider: *const ::windows::core::GUID, punkouter: P0, dwclsctx: u32, pwszreserved: P1, riid: *const ::windows::core::GUID) -> ::windows::core::Result<::windows::core::IUnknown>
@@ -11693,7 +11693,7 @@ impl IDataInitialize {
         P1: ::std::convert::Into<::windows::core::PCWSTR>,
     {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).CreateDBInstance)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(clsidprovider), punkouter.into().abi(), ::core::mem::transmute(dwclsctx), pwszreserved.into(), ::core::mem::transmute(riid), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::IUnknown>(result__)
+        (::windows::core::Interface::vtable(self).CreateDBInstance)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(clsidprovider), punkouter.into().abi(), dwclsctx, pwszreserved.into(), ::core::mem::transmute(riid), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::IUnknown>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Search\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -11702,7 +11702,7 @@ impl IDataInitialize {
         P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>,
         P1: ::std::convert::Into<::windows::core::PCWSTR>,
     {
-        (::windows::core::Interface::vtable(self).CreateDBInstanceEx)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(clsidprovider), punkouter.into().abi(), ::core::mem::transmute(dwclsctx), pwszreserved.into(), ::core::mem::transmute(pserverinfo), rgmqresults.len() as _, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(rgmqresults))).ok()
+        (::windows::core::Interface::vtable(self).CreateDBInstanceEx)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(clsidprovider), punkouter.into().abi(), dwclsctx, pwszreserved.into(), ::core::mem::transmute(pserverinfo), rgmqresults.len() as _, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(rgmqresults))).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Search\"`*"]
     pub unsafe fn LoadStringFromStorage<'a, P0>(&self, pwszfilename: P0) -> ::windows::core::Result<::windows::core::PWSTR>
@@ -11718,7 +11718,7 @@ impl IDataInitialize {
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
         P1: ::std::convert::Into<::windows::core::PCWSTR>,
     {
-        (::windows::core::Interface::vtable(self).WriteStringToStorage)(::windows::core::Interface::as_raw(self), pwszfilename.into(), pwszinitializationstring.into(), ::core::mem::transmute(dwcreationdisposition)).ok()
+        (::windows::core::Interface::vtable(self).WriteStringToStorage)(::windows::core::Interface::as_raw(self), pwszfilename.into(), pwszinitializationstring.into(), dwcreationdisposition).ok()
     }
 }
 impl ::core::convert::From<IDataInitialize> for ::windows::core::IUnknown {
@@ -11783,7 +11783,7 @@ impl IDataSourceLocator {
     }
     #[doc = "*Required features: `\"Win32_System_Search\"`*"]
     pub unsafe fn SethWnd(&self, hwndparent: i64) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SethWnd)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(hwndparent)).ok()
+        (::windows::core::Interface::vtable(self).SethWnd)(::windows::core::Interface::as_raw(self), hwndparent).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Search\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -11993,7 +11993,7 @@ impl IEnumItemProperties {
     }
     #[doc = "*Required features: `\"Win32_System_Search\"`*"]
     pub unsafe fn Skip(&self, celt: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Skip)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(celt)).ok()
+        (::windows::core::Interface::vtable(self).Skip)(::windows::core::Interface::as_raw(self), celt).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Search\"`*"]
     pub unsafe fn Reset(&self) -> ::windows::core::Result<()> {
@@ -12068,7 +12068,7 @@ impl IEnumSearchRoots {
     }
     #[doc = "*Required features: `\"Win32_System_Search\"`*"]
     pub unsafe fn Skip(&self, celt: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Skip)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(celt)).ok()
+        (::windows::core::Interface::vtable(self).Skip)(::windows::core::Interface::as_raw(self), celt).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Search\"`*"]
     pub unsafe fn Reset(&self) -> ::windows::core::Result<()> {
@@ -12134,7 +12134,7 @@ impl IEnumSearchScopeRules {
     }
     #[doc = "*Required features: `\"Win32_System_Search\"`*"]
     pub unsafe fn Skip(&self, celt: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Skip)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(celt)).ok()
+        (::windows::core::Interface::vtable(self).Skip)(::windows::core::Interface::as_raw(self), celt).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Search\"`*"]
     pub unsafe fn Reset(&self) -> ::windows::core::Result<()> {
@@ -12200,7 +12200,7 @@ impl IEnumSubscription {
     }
     #[doc = "*Required features: `\"Win32_System_Search\"`*"]
     pub unsafe fn Skip(&self, celt: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Skip)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(celt)).ok()
+        (::windows::core::Interface::vtable(self).Skip)(::windows::core::Interface::as_raw(self), celt).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Search\"`*"]
     pub unsafe fn Reset(&self) -> ::windows::core::Result<()> {
@@ -12269,16 +12269,16 @@ impl IErrorLookup {
     #[doc = "*Required features: `\"Win32_System_Search\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn GetErrorDescription(&self, hrerror: ::windows::core::HRESULT, dwlookupid: u32, pdispparams: *const super::Com::DISPPARAMS, lcid: u32, pbstrsource: *mut super::super::Foundation::BSTR, pbstrdescription: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetErrorDescription)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(hrerror), ::core::mem::transmute(dwlookupid), ::core::mem::transmute(pdispparams), ::core::mem::transmute(lcid), ::core::mem::transmute(pbstrsource), ::core::mem::transmute(pbstrdescription)).ok()
+        (::windows::core::Interface::vtable(self).GetErrorDescription)(::windows::core::Interface::as_raw(self), hrerror, dwlookupid, ::core::mem::transmute(pdispparams), lcid, ::core::mem::transmute(pbstrsource), ::core::mem::transmute(pbstrdescription)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Search\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetHelpInfo(&self, hrerror: ::windows::core::HRESULT, dwlookupid: u32, lcid: u32, pbstrhelpfile: *mut super::super::Foundation::BSTR, pdwhelpcontext: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetHelpInfo)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(hrerror), ::core::mem::transmute(dwlookupid), ::core::mem::transmute(lcid), ::core::mem::transmute(pbstrhelpfile), ::core::mem::transmute(pdwhelpcontext)).ok()
+        (::windows::core::Interface::vtable(self).GetHelpInfo)(::windows::core::Interface::as_raw(self), hrerror, dwlookupid, lcid, ::core::mem::transmute(pbstrhelpfile), ::core::mem::transmute(pdwhelpcontext)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Search\"`*"]
     pub unsafe fn ReleaseErrors(&self, dwdynamicerrorid: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).ReleaseErrors)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(dwdynamicerrorid)).ok()
+        (::windows::core::Interface::vtable(self).ReleaseErrors)(::windows::core::Interface::as_raw(self), dwdynamicerrorid).ok()
     }
 }
 impl ::core::convert::From<IErrorLookup> for ::windows::core::IUnknown {
@@ -12340,29 +12340,29 @@ impl IErrorRecords {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>,
     {
-        (::windows::core::Interface::vtable(self).AddErrorRecord)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(perrorinfo), ::core::mem::transmute(dwlookupid), ::core::mem::transmute(pdispparams), punkcustomerror.into().abi(), ::core::mem::transmute(dwdynamicerrorid)).ok()
+        (::windows::core::Interface::vtable(self).AddErrorRecord)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(perrorinfo), dwlookupid, ::core::mem::transmute(pdispparams), punkcustomerror.into().abi(), dwdynamicerrorid).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Search\"`*"]
     pub unsafe fn GetBasicErrorInfo(&self, ulrecordnum: u32) -> ::windows::core::Result<ERRORINFO> {
         let mut result__ = ::core::mem::MaybeUninit::<ERRORINFO>::zeroed();
-        (::windows::core::Interface::vtable(self).GetBasicErrorInfo)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(ulrecordnum), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ERRORINFO>(result__)
+        (::windows::core::Interface::vtable(self).GetBasicErrorInfo)(::windows::core::Interface::as_raw(self), ulrecordnum, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ERRORINFO>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Search\"`*"]
     pub unsafe fn GetCustomErrorObject(&self, ulrecordnum: u32, riid: *const ::windows::core::GUID) -> ::windows::core::Result<::windows::core::IUnknown> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).GetCustomErrorObject)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(ulrecordnum), ::core::mem::transmute(riid), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::IUnknown>(result__)
+        (::windows::core::Interface::vtable(self).GetCustomErrorObject)(::windows::core::Interface::as_raw(self), ulrecordnum, ::core::mem::transmute(riid), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::IUnknown>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Search\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetErrorInfo(&self, ulrecordnum: u32, lcid: u32) -> ::windows::core::Result<super::Com::IErrorInfo> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).GetErrorInfo)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(ulrecordnum), ::core::mem::transmute(lcid), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::Com::IErrorInfo>(result__)
+        (::windows::core::Interface::vtable(self).GetErrorInfo)(::windows::core::Interface::as_raw(self), ulrecordnum, lcid, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::Com::IErrorInfo>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Search\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn GetErrorParameters(&self, ulrecordnum: u32) -> ::windows::core::Result<super::Com::DISPPARAMS> {
         let mut result__ = ::core::mem::MaybeUninit::<super::Com::DISPPARAMS>::zeroed();
-        (::windows::core::Interface::vtable(self).GetErrorParameters)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(ulrecordnum), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::Com::DISPPARAMS>(result__)
+        (::windows::core::Interface::vtable(self).GetErrorParameters)(::windows::core::Interface::as_raw(self), ulrecordnum, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::Com::DISPPARAMS>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Search\"`*"]
     pub unsafe fn GetRecordCount(&self) -> ::windows::core::Result<u32> {
@@ -12486,12 +12486,12 @@ impl IGetRow {
         P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).GetRowFromHROW)(::windows::core::Interface::as_raw(self), punkouter.into().abi(), ::core::mem::transmute(hrow), ::core::mem::transmute(riid), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::IUnknown>(result__)
+        (::windows::core::Interface::vtable(self).GetRowFromHROW)(::windows::core::Interface::as_raw(self), punkouter.into().abi(), hrow, ::core::mem::transmute(riid), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::IUnknown>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Search\"`*"]
     pub unsafe fn GetURLFromHROW(&self, hrow: usize) -> ::windows::core::Result<::windows::core::PWSTR> {
         let mut result__ = ::core::mem::MaybeUninit::<::windows::core::PWSTR>::zeroed();
-        (::windows::core::Interface::vtable(self).GetURLFromHROW)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(hrow), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::PWSTR>(result__)
+        (::windows::core::Interface::vtable(self).GetURLFromHROW)(::windows::core::Interface::as_raw(self), hrow, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::PWSTR>(result__)
     }
 }
 impl ::core::convert::From<IGetRow> for ::windows::core::IUnknown {
@@ -12952,7 +12952,7 @@ pub struct IMDDataset(::windows::core::IUnknown);
 impl IMDDataset {
     #[doc = "*Required features: `\"Win32_System_Search\"`*"]
     pub unsafe fn FreeAxisInfo(&self, caxes: usize, rgaxisinfo: *mut MDAXISINFO) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).FreeAxisInfo)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(caxes), ::core::mem::transmute(rgaxisinfo)).ok()
+        (::windows::core::Interface::vtable(self).FreeAxisInfo)(::windows::core::Interface::as_raw(self), caxes, ::core::mem::transmute(rgaxisinfo)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Search\"`*"]
     pub unsafe fn GetAxisInfo(&self, pcaxes: *mut usize, prgaxisinfo: *mut *mut MDAXISINFO) -> ::windows::core::Result<()> {
@@ -12964,11 +12964,11 @@ impl IMDDataset {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>,
     {
-        (::windows::core::Interface::vtable(self).GetAxisRowset)(::windows::core::Interface::as_raw(self), punkouter.into().abi(), ::core::mem::transmute(iaxis), ::core::mem::transmute(riid), ::core::mem::transmute(cpropertysets), ::core::mem::transmute(rgpropertysets), ::core::mem::transmute(pprowset)).ok()
+        (::windows::core::Interface::vtable(self).GetAxisRowset)(::windows::core::Interface::as_raw(self), punkouter.into().abi(), iaxis, ::core::mem::transmute(riid), cpropertysets, ::core::mem::transmute(rgpropertysets), ::core::mem::transmute(pprowset)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Search\"`*"]
     pub unsafe fn GetCellData(&self, haccessor: usize, ulstartcell: usize, ulendcell: usize, pdata: *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetCellData)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(haccessor), ::core::mem::transmute(ulstartcell), ::core::mem::transmute(ulendcell), ::core::mem::transmute(pdata)).ok()
+        (::windows::core::Interface::vtable(self).GetCellData)(::windows::core::Interface::as_raw(self), haccessor, ulstartcell, ulendcell, ::core::mem::transmute(pdata)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Search\"`*"]
     pub unsafe fn GetSpecification(&self, riid: *const ::windows::core::GUID) -> ::windows::core::Result<::windows::core::IUnknown> {
@@ -13030,11 +13030,11 @@ pub struct IMDFind(::windows::core::IUnknown);
 impl IMDFind {
     #[doc = "*Required features: `\"Win32_System_Search\"`*"]
     pub unsafe fn FindCell(&self, ulstartingordinal: usize, cmembers: usize, rgpwszmember: *mut ::windows::core::PWSTR, pulcellordinal: *mut usize) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).FindCell)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(ulstartingordinal), ::core::mem::transmute(cmembers), ::core::mem::transmute(rgpwszmember), ::core::mem::transmute(pulcellordinal)).ok()
+        (::windows::core::Interface::vtable(self).FindCell)(::windows::core::Interface::as_raw(self), ulstartingordinal, cmembers, ::core::mem::transmute(rgpwszmember), ::core::mem::transmute(pulcellordinal)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Search\"`*"]
     pub unsafe fn FindTuple(&self, ulaxisidentifier: u32, ulstartingordinal: usize, cmembers: usize, rgpwszmember: *mut ::windows::core::PWSTR, pultupleordinal: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).FindTuple)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(ulaxisidentifier), ::core::mem::transmute(ulstartingordinal), ::core::mem::transmute(cmembers), ::core::mem::transmute(rgpwszmember), ::core::mem::transmute(pultupleordinal)).ok()
+        (::windows::core::Interface::vtable(self).FindTuple)(::windows::core::Interface::as_raw(self), ulaxisidentifier, ulstartingordinal, cmembers, ::core::mem::transmute(rgpwszmember), ::core::mem::transmute(pultupleordinal)).ok()
     }
 }
 impl ::core::convert::From<IMDFind> for ::windows::core::IUnknown {
@@ -13089,7 +13089,7 @@ impl IMDRangeRowset {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>,
     {
-        (::windows::core::Interface::vtable(self).GetRangeRowset)(::windows::core::Interface::as_raw(self), punkouter.into().abi(), ::core::mem::transmute(ulstartcell), ::core::mem::transmute(ulendcell), ::core::mem::transmute(riid), ::core::mem::transmute(cpropertysets), ::core::mem::transmute(rgpropertysets), ::core::mem::transmute(pprowset)).ok()
+        (::windows::core::Interface::vtable(self).GetRangeRowset)(::windows::core::Interface::as_raw(self), punkouter.into().abi(), ulstartcell, ulendcell, ::core::mem::transmute(riid), cpropertysets, ::core::mem::transmute(rgpropertysets), ::core::mem::transmute(pprowset)).ok()
     }
 }
 impl ::core::convert::From<IMDRangeRowset> for ::windows::core::IUnknown {
@@ -13195,7 +13195,7 @@ impl IMultipleResults {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>,
     {
-        (::windows::core::Interface::vtable(self).GetResult)(::windows::core::Interface::as_raw(self), punkouter.into().abi(), ::core::mem::transmute(lresultflag), ::core::mem::transmute(riid), ::core::mem::transmute(pcrowsaffected), ::core::mem::transmute(pprowset)).ok()
+        (::windows::core::Interface::vtable(self).GetResult)(::windows::core::Interface::as_raw(self), punkouter.into().abi(), lresultflag, ::core::mem::transmute(riid), ::core::mem::transmute(pcrowsaffected), ::core::mem::transmute(pprowset)).ok()
     }
 }
 impl ::core::convert::From<IMultipleResults> for ::windows::core::IUnknown {
@@ -13396,7 +13396,7 @@ impl INamedEntityCollector {
         P0: ::std::convert::Into<::windows::core::InParam<'a, IEntity>>,
         P1: ::std::convert::Into<::windows::core::PCWSTR>,
     {
-        (::windows::core::Interface::vtable(self).Add)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(beginspan), ::core::mem::transmute(endspan), ::core::mem::transmute(beginactual), ::core::mem::transmute(endactual), ptype.into().abi(), pszvalue.into(), ::core::mem::transmute(certainty)).ok()
+        (::windows::core::Interface::vtable(self).Add)(::windows::core::Interface::as_raw(self), beginspan, endspan, beginactual, endactual, ptype.into().abi(), pszvalue.into(), certainty).ok()
     }
 }
 impl ::core::convert::From<INamedEntityCollector> for ::windows::core::IUnknown {
@@ -13462,7 +13462,7 @@ impl IObjectAccessControl {
     #[doc = "*Required features: `\"Win32_System_Search\"`, `\"Win32_Security_Authorization\"`, `\"Win32_Storage_IndexServer\"`*"]
     #[cfg(all(feature = "Win32_Security_Authorization", feature = "Win32_Storage_IndexServer"))]
     pub unsafe fn SetObjectAccessRights(&self, pobject: *mut SEC_OBJECT, caccessentries: u32, prgaccessentries: *mut super::super::Security::Authorization::EXPLICIT_ACCESS_W) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetObjectAccessRights)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pobject), ::core::mem::transmute(caccessentries), ::core::mem::transmute(prgaccessentries)).ok()
+        (::windows::core::Interface::vtable(self).SetObjectAccessRights)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pobject), caccessentries, ::core::mem::transmute(prgaccessentries)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Search\"`, `\"Win32_Security_Authorization\"`, `\"Win32_Storage_IndexServer\"`*"]
     #[cfg(all(feature = "Win32_Security_Authorization", feature = "Win32_Storage_IndexServer"))]
@@ -13672,7 +13672,7 @@ impl IParentRowset {
         P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).GetChildRowset)(::windows::core::Interface::as_raw(self), punkouter.into().abi(), ::core::mem::transmute(iordinal), ::core::mem::transmute(riid), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::IUnknown>(result__)
+        (::windows::core::Interface::vtable(self).GetChildRowset)(::windows::core::Interface::as_raw(self), punkouter.into().abi(), iordinal, ::core::mem::transmute(riid), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::IUnknown>(result__)
     }
 }
 impl ::core::convert::From<IParentRowset> for ::windows::core::IUnknown {
@@ -13846,13 +13846,13 @@ impl IQueryParser {
     #[doc = "*Required features: `\"Win32_System_Search\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
     pub unsafe fn SetOption(&self, option: STRUCTURED_QUERY_SINGLE_OPTION, poptionvalue: *const super::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetOption)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(option), ::core::mem::transmute(poptionvalue)).ok()
+        (::windows::core::Interface::vtable(self).SetOption)(::windows::core::Interface::as_raw(self), option, ::core::mem::transmute(poptionvalue)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Search\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
     pub unsafe fn GetOption(&self, option: STRUCTURED_QUERY_SINGLE_OPTION) -> ::windows::core::Result<super::Com::StructuredStorage::PROPVARIANT> {
         let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::Com::StructuredStorage::PROPVARIANT>>::zeroed();
-        (::windows::core::Interface::vtable(self).GetOption)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(option), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::Com::StructuredStorage::PROPVARIANT>(result__)
+        (::windows::core::Interface::vtable(self).GetOption)(::windows::core::Interface::as_raw(self), option, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::Com::StructuredStorage::PROPVARIANT>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Search\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
@@ -13860,7 +13860,7 @@ impl IQueryParser {
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
-        (::windows::core::Interface::vtable(self).SetMultiOption)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(option), pszoptionkey.into(), ::core::mem::transmute(poptionvalue)).ok()
+        (::windows::core::Interface::vtable(self).SetMultiOption)(::windows::core::Interface::as_raw(self), option, pszoptionkey.into(), ::core::mem::transmute(poptionvalue)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Search\"`*"]
     pub unsafe fn GetSchemaProvider(&self) -> ::windows::core::Result<ISchemaProvider> {
@@ -13973,7 +13973,7 @@ impl IQueryParserManager {
         T: ::windows::core::Interface,
     {
         let mut result__ = ::core::option::Option::None;
-        (::windows::core::Interface::vtable(self).CreateLoadedParser)(::windows::core::Interface::as_raw(self), pszcatalog.into(), ::core::mem::transmute(langidforkeywords), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
+        (::windows::core::Interface::vtable(self).CreateLoadedParser)(::windows::core::Interface::as_raw(self), pszcatalog.into(), langidforkeywords, &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Search\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -13988,7 +13988,7 @@ impl IQueryParserManager {
     #[doc = "*Required features: `\"Win32_System_Search\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
     pub unsafe fn SetOption(&self, option: QUERY_PARSER_MANAGER_OPTION, poptionvalue: *const super::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetOption)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(option), ::core::mem::transmute(poptionvalue)).ok()
+        (::windows::core::Interface::vtable(self).SetOption)(::windows::core::Interface::as_raw(self), option, ::core::mem::transmute(poptionvalue)).ok()
     }
 }
 impl ::core::convert::From<IQueryParserManager> for ::windows::core::IUnknown {
@@ -14062,7 +14062,7 @@ impl IQuerySolution {
         P1: ::std::convert::Into<super::super::Foundation::BOOL>,
     {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.MakeAndOr)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(ct), peusubs.into().abi(), fsimplify.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ICondition>(result__)
+        (::windows::core::Interface::vtable(self).base__.MakeAndOr)(::windows::core::Interface::as_raw(self), ct, peusubs.into().abi(), fsimplify.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ICondition>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Search\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Search_Common\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Search_Common"))]
@@ -14076,7 +14076,7 @@ impl IQuerySolution {
         P5: ::std::convert::Into<super::super::Foundation::BOOL>,
     {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.MakeLeaf)(::windows::core::Interface::as_raw(self), pszpropertyname.into(), ::core::mem::transmute(cop), pszvaluetype.into(), ::core::mem::transmute(ppropvar), ppropertynameterm.into().abi(), poperationterm.into().abi(), pvalueterm.into().abi(), fexpand.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ICondition>(result__)
+        (::windows::core::Interface::vtable(self).base__.MakeLeaf)(::windows::core::Interface::as_raw(self), pszpropertyname.into(), cop, pszvaluetype.into(), ::core::mem::transmute(ppropvar), ppropertynameterm.into().abi(), poperationterm.into().abi(), pvalueterm.into().abi(), fexpand.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ICondition>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Search\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
@@ -14085,7 +14085,7 @@ impl IQuerySolution {
         P0: ::std::convert::Into<::windows::core::InParam<'a, ICondition>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.Resolve)(::windows::core::Interface::as_raw(self), pc.into().abi(), ::core::mem::transmute(sqro), ::core::mem::transmute(pstreferencetime), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ICondition>(result__)
+        (::windows::core::Interface::vtable(self).base__.Resolve)(::windows::core::Interface::as_raw(self), pc.into().abi(), sqro, ::core::mem::transmute(pstreferencetime), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ICondition>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Search\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -14172,11 +14172,11 @@ pub struct IReadData(::windows::core::IUnknown);
 impl IReadData {
     #[doc = "*Required features: `\"Win32_System_Search\"`*"]
     pub unsafe fn ReadData(&self, hchapter: usize, cbbookmark: usize, pbookmark: *const u8, lrowsoffset: isize, haccessor: usize, crows: isize, pcrowsobtained: *mut usize, ppfixeddata: *mut *mut u8, pcbvariabletotal: *mut usize, ppvariabledata: *mut *mut u8) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).ReadData)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(hchapter), ::core::mem::transmute(cbbookmark), ::core::mem::transmute(pbookmark), ::core::mem::transmute(lrowsoffset), ::core::mem::transmute(haccessor), ::core::mem::transmute(crows), ::core::mem::transmute(pcrowsobtained), ::core::mem::transmute(ppfixeddata), ::core::mem::transmute(pcbvariabletotal), ::core::mem::transmute(ppvariabledata)).ok()
+        (::windows::core::Interface::vtable(self).ReadData)(::windows::core::Interface::as_raw(self), hchapter, cbbookmark, ::core::mem::transmute(pbookmark), lrowsoffset, haccessor, crows, ::core::mem::transmute(pcrowsobtained), ::core::mem::transmute(ppfixeddata), ::core::mem::transmute(pcbvariabletotal), ::core::mem::transmute(ppvariabledata)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Search\"`*"]
     pub unsafe fn ReleaseChapter(&self, hchapter: usize) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).ReleaseChapter)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(hchapter)).ok()
+        (::windows::core::Interface::vtable(self).ReleaseChapter)(::windows::core::Interface::as_raw(self), hchapter).ok()
     }
 }
 impl ::core::convert::From<IReadData> for ::windows::core::IUnknown {
@@ -14231,21 +14231,21 @@ impl IRegisterProvider {
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
         let mut result__ = ::core::mem::MaybeUninit::<::windows::core::GUID>::zeroed();
-        (::windows::core::Interface::vtable(self).GetURLMapping)(::windows::core::Interface::as_raw(self), pwszurl.into(), ::core::mem::transmute(dwreserved), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::GUID>(result__)
+        (::windows::core::Interface::vtable(self).GetURLMapping)(::windows::core::Interface::as_raw(self), pwszurl.into(), dwreserved, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::GUID>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Search\"`*"]
     pub unsafe fn SetURLMapping<'a, P0>(&self, pwszurl: P0, dwreserved: usize, rclsidprovider: *const ::windows::core::GUID) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
-        (::windows::core::Interface::vtable(self).SetURLMapping)(::windows::core::Interface::as_raw(self), pwszurl.into(), ::core::mem::transmute(dwreserved), ::core::mem::transmute(rclsidprovider)).ok()
+        (::windows::core::Interface::vtable(self).SetURLMapping)(::windows::core::Interface::as_raw(self), pwszurl.into(), dwreserved, ::core::mem::transmute(rclsidprovider)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Search\"`*"]
     pub unsafe fn UnregisterProvider<'a, P0>(&self, pwszurl: P0, dwreserved: usize, rclsidprovider: *const ::windows::core::GUID) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
-        (::windows::core::Interface::vtable(self).UnregisterProvider)(::windows::core::Interface::as_raw(self), pwszurl.into(), ::core::mem::transmute(dwreserved), ::core::mem::transmute(rclsidprovider)).ok()
+        (::windows::core::Interface::vtable(self).UnregisterProvider)(::windows::core::Interface::as_raw(self), pwszurl.into(), dwreserved, ::core::mem::transmute(rclsidprovider)).ok()
     }
 }
 impl ::core::convert::From<IRegisterProvider> for ::windows::core::IUnknown {
@@ -14447,7 +14447,7 @@ impl IRow {
         P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).Open)(::windows::core::Interface::as_raw(self), punkouter.into().abi(), ::core::mem::transmute(pcolumnid), ::core::mem::transmute(rguidcolumntype), ::core::mem::transmute(dwbindflags), ::core::mem::transmute(riid), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::IUnknown>(result__)
+        (::windows::core::Interface::vtable(self).Open)(::windows::core::Interface::as_raw(self), punkouter.into().abi(), ::core::mem::transmute(pcolumnid), ::core::mem::transmute(rguidcolumntype), dwbindflags, ::core::mem::transmute(riid), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::IUnknown>(result__)
     }
 }
 impl ::core::convert::From<IRow> for ::windows::core::IUnknown {
@@ -14579,7 +14579,7 @@ impl IRowPosition {
     }
     #[doc = "*Required features: `\"Win32_System_Search\"`*"]
     pub unsafe fn SetRowPosition(&self, hchapter: usize, hrow: usize, dwpositionflags: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetRowPosition)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(hchapter), ::core::mem::transmute(hrow), ::core::mem::transmute(dwpositionflags)).ok()
+        (::windows::core::Interface::vtable(self).SetRowPosition)(::windows::core::Interface::as_raw(self), hchapter, hrow, dwpositionflags).ok()
     }
 }
 impl ::core::convert::From<IRowPosition> for ::windows::core::IUnknown {
@@ -14637,7 +14637,7 @@ impl IRowPositionChange {
     where
         P0: ::std::convert::Into<super::super::Foundation::BOOL>,
     {
-        (::windows::core::Interface::vtable(self).OnRowPositionChange)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(ereason), ::core::mem::transmute(ephase), fcantdeny.into()).ok()
+        (::windows::core::Interface::vtable(self).OnRowPositionChange)(::windows::core::Interface::as_raw(self), ereason, ephase, fcantdeny.into()).ok()
     }
 }
 impl ::core::convert::From<IRowPositionChange> for ::windows::core::IUnknown {
@@ -14696,12 +14696,12 @@ impl IRowSchemaChange {
     #[doc = "*Required features: `\"Win32_System_Search\"`, `\"Win32_Storage_IndexServer\"`*"]
     #[cfg(feature = "Win32_Storage_IndexServer")]
     pub unsafe fn DeleteColumns(&self, ccolumns: usize, rgcolumnids: *const super::super::Storage::IndexServer::DBID, rgdwstatus: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).DeleteColumns)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(ccolumns), ::core::mem::transmute(rgcolumnids), ::core::mem::transmute(rgdwstatus)).ok()
+        (::windows::core::Interface::vtable(self).DeleteColumns)(::windows::core::Interface::as_raw(self), ccolumns, ::core::mem::transmute(rgcolumnids), ::core::mem::transmute(rgdwstatus)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Search\"`, `\"Win32_Storage_IndexServer\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com"))]
     pub unsafe fn AddColumns(&self, ccolumns: usize, rgnewcolumninfo: *const DBCOLUMNINFO, rgcolumns: *mut DBCOLUMNACCESS) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).AddColumns)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(ccolumns), ::core::mem::transmute(rgnewcolumninfo), ::core::mem::transmute(rgcolumns)).ok()
+        (::windows::core::Interface::vtable(self).AddColumns)(::windows::core::Interface::as_raw(self), ccolumns, ::core::mem::transmute(rgnewcolumninfo), ::core::mem::transmute(rgcolumns)).ok()
     }
 }
 impl ::core::convert::From<IRowSchemaChange> for ::windows::core::IUnknown {
@@ -14773,23 +14773,23 @@ pub struct IRowset(::windows::core::IUnknown);
 impl IRowset {
     #[doc = "*Required features: `\"Win32_System_Search\"`*"]
     pub unsafe fn AddRefRows(&self, crows: usize, rghrows: *const usize, rgrefcounts: *mut u32, rgrowstatus: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).AddRefRows)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(crows), ::core::mem::transmute(rghrows), ::core::mem::transmute(rgrefcounts), ::core::mem::transmute(rgrowstatus)).ok()
+        (::windows::core::Interface::vtable(self).AddRefRows)(::windows::core::Interface::as_raw(self), crows, ::core::mem::transmute(rghrows), ::core::mem::transmute(rgrefcounts), ::core::mem::transmute(rgrowstatus)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Search\"`*"]
     pub unsafe fn GetData(&self, hrow: usize, haccessor: usize, pdata: *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetData)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(hrow), ::core::mem::transmute(haccessor), ::core::mem::transmute(pdata)).ok()
+        (::windows::core::Interface::vtable(self).GetData)(::windows::core::Interface::as_raw(self), hrow, haccessor, ::core::mem::transmute(pdata)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Search\"`*"]
     pub unsafe fn GetNextRows(&self, hreserved: usize, lrowsoffset: isize, crows: isize, pcrowsobtained: *mut usize, prghrows: *mut *mut usize) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetNextRows)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(hreserved), ::core::mem::transmute(lrowsoffset), ::core::mem::transmute(crows), ::core::mem::transmute(pcrowsobtained), ::core::mem::transmute(prghrows)).ok()
+        (::windows::core::Interface::vtable(self).GetNextRows)(::windows::core::Interface::as_raw(self), hreserved, lrowsoffset, crows, ::core::mem::transmute(pcrowsobtained), ::core::mem::transmute(prghrows)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Search\"`*"]
     pub unsafe fn ReleaseRows(&self, crows: usize, rghrows: *const usize, rgrowoptions: *mut u32, rgrefcounts: *mut u32, rgrowstatus: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).ReleaseRows)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(crows), ::core::mem::transmute(rghrows), ::core::mem::transmute(rgrowoptions), ::core::mem::transmute(rgrefcounts), ::core::mem::transmute(rgrowstatus)).ok()
+        (::windows::core::Interface::vtable(self).ReleaseRows)(::windows::core::Interface::as_raw(self), crows, ::core::mem::transmute(rghrows), ::core::mem::transmute(rgrowoptions), ::core::mem::transmute(rgrefcounts), ::core::mem::transmute(rgrowstatus)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Search\"`*"]
     pub unsafe fn RestartPosition(&self, hreserved: usize) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).RestartPosition)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(hreserved)).ok()
+        (::windows::core::Interface::vtable(self).RestartPosition)(::windows::core::Interface::as_raw(self), hreserved).ok()
     }
 }
 impl ::core::convert::From<IRowset> for ::windows::core::IUnknown {
@@ -14902,7 +14902,7 @@ pub struct IRowsetBookmark(::windows::core::IUnknown);
 impl IRowsetBookmark {
     #[doc = "*Required features: `\"Win32_System_Search\"`*"]
     pub unsafe fn PositionOnBookmark(&self, hchapter: usize, cbbookmark: usize, pbookmark: *const u8) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).PositionOnBookmark)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(hchapter), ::core::mem::transmute(cbbookmark), ::core::mem::transmute(pbookmark)).ok()
+        (::windows::core::Interface::vtable(self).PositionOnBookmark)(::windows::core::Interface::as_raw(self), hchapter, cbbookmark, ::core::mem::transmute(pbookmark)).ok()
     }
 }
 impl ::core::convert::From<IRowsetBookmark> for ::windows::core::IUnknown {
@@ -14952,15 +14952,15 @@ pub struct IRowsetChange(::windows::core::IUnknown);
 impl IRowsetChange {
     #[doc = "*Required features: `\"Win32_System_Search\"`*"]
     pub unsafe fn DeleteRows(&self, hreserved: usize, crows: usize, rghrows: *const usize, rgrowstatus: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).DeleteRows)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(hreserved), ::core::mem::transmute(crows), ::core::mem::transmute(rghrows), ::core::mem::transmute(rgrowstatus)).ok()
+        (::windows::core::Interface::vtable(self).DeleteRows)(::windows::core::Interface::as_raw(self), hreserved, crows, ::core::mem::transmute(rghrows), ::core::mem::transmute(rgrowstatus)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Search\"`*"]
     pub unsafe fn SetData(&self, hrow: usize, haccessor: usize, pdata: *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetData)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(hrow), ::core::mem::transmute(haccessor), ::core::mem::transmute(pdata)).ok()
+        (::windows::core::Interface::vtable(self).SetData)(::windows::core::Interface::as_raw(self), hrow, haccessor, ::core::mem::transmute(pdata)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Search\"`*"]
     pub unsafe fn InsertRow(&self, hreserved: usize, haccessor: usize, pdata: *mut ::core::ffi::c_void, phrow: *mut usize) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).InsertRow)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(hreserved), ::core::mem::transmute(haccessor), ::core::mem::transmute(pdata), ::core::mem::transmute(phrow)).ok()
+        (::windows::core::Interface::vtable(self).InsertRow)(::windows::core::Interface::as_raw(self), hreserved, haccessor, ::core::mem::transmute(pdata), ::core::mem::transmute(phrow)).ok()
     }
 }
 impl ::core::convert::From<IRowsetChange> for ::windows::core::IUnknown {
@@ -15012,11 +15012,11 @@ pub struct IRowsetChangeExtInfo(::windows::core::IUnknown);
 impl IRowsetChangeExtInfo {
     #[doc = "*Required features: `\"Win32_System_Search\"`*"]
     pub unsafe fn GetOriginalRow(&self, hreserved: usize, hrow: usize, phroworiginal: *mut usize) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetOriginalRow)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(hreserved), ::core::mem::transmute(hrow), ::core::mem::transmute(phroworiginal)).ok()
+        (::windows::core::Interface::vtable(self).GetOriginalRow)(::windows::core::Interface::as_raw(self), hreserved, hrow, ::core::mem::transmute(phroworiginal)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Search\"`*"]
     pub unsafe fn GetPendingColumns(&self, hreserved: usize, hrow: usize, ccolumnordinals: u32, rgiordinals: *const u32, rgcolumnstatus: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetPendingColumns)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(hreserved), ::core::mem::transmute(hrow), ::core::mem::transmute(ccolumnordinals), ::core::mem::transmute(rgiordinals), ::core::mem::transmute(rgcolumnstatus)).ok()
+        (::windows::core::Interface::vtable(self).GetPendingColumns)(::windows::core::Interface::as_raw(self), hreserved, hrow, ccolumnordinals, ::core::mem::transmute(rgiordinals), ::core::mem::transmute(rgcolumnstatus)).ok()
     }
 }
 impl ::core::convert::From<IRowsetChangeExtInfo> for ::windows::core::IUnknown {
@@ -15067,7 +15067,7 @@ pub struct IRowsetChapterMember(::windows::core::IUnknown);
 impl IRowsetChapterMember {
     #[doc = "*Required features: `\"Win32_System_Search\"`*"]
     pub unsafe fn IsRowInChapter(&self, hchapter: usize, hrow: usize) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).IsRowInChapter)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(hchapter), ::core::mem::transmute(hrow)).ok()
+        (::windows::core::Interface::vtable(self).IsRowInChapter)(::windows::core::Interface::as_raw(self), hchapter, hrow).ok()
     }
 }
 impl ::core::convert::From<IRowsetChapterMember> for ::windows::core::IUnknown {
@@ -15117,22 +15117,22 @@ pub struct IRowsetCopyRows(::windows::core::IUnknown);
 impl IRowsetCopyRows {
     #[doc = "*Required features: `\"Win32_System_Search\"`*"]
     pub unsafe fn CloseSource(&self, hsourceid: u16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).CloseSource)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(hsourceid)).ok()
+        (::windows::core::Interface::vtable(self).CloseSource)(::windows::core::Interface::as_raw(self), hsourceid).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Search\"`*"]
     pub unsafe fn CopyByHROWS(&self, hsourceid: u16, hreserved: usize, crows: isize, rghrows: *const usize, bflags: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).CopyByHROWS)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(hsourceid), ::core::mem::transmute(hreserved), ::core::mem::transmute(crows), ::core::mem::transmute(rghrows), ::core::mem::transmute(bflags)).ok()
+        (::windows::core::Interface::vtable(self).CopyByHROWS)(::windows::core::Interface::as_raw(self), hsourceid, hreserved, crows, ::core::mem::transmute(rghrows), bflags).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Search\"`*"]
     pub unsafe fn CopyRows(&self, hsourceid: u16, hreserved: usize, crows: isize, bflags: u32, pcrowscopied: *mut usize) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).CopyRows)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(hsourceid), ::core::mem::transmute(hreserved), ::core::mem::transmute(crows), ::core::mem::transmute(bflags), ::core::mem::transmute(pcrowscopied)).ok()
+        (::windows::core::Interface::vtable(self).CopyRows)(::windows::core::Interface::as_raw(self), hsourceid, hreserved, crows, bflags, ::core::mem::transmute(pcrowscopied)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Search\"`*"]
     pub unsafe fn DefineSource<'a, P0>(&self, prowsetsource: P0, ccolids: usize, rgsourcecolumns: *const isize, rgtargetcolumns: *const isize, phsourceid: *mut u16) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, IRowset>>,
     {
-        (::windows::core::Interface::vtable(self).DefineSource)(::windows::core::Interface::as_raw(self), prowsetsource.into().abi(), ::core::mem::transmute(ccolids), ::core::mem::transmute(rgsourcecolumns), ::core::mem::transmute(rgtargetcolumns), ::core::mem::transmute(phsourceid)).ok()
+        (::windows::core::Interface::vtable(self).DefineSource)(::windows::core::Interface::as_raw(self), prowsetsource.into().abi(), ccolids, ::core::mem::transmute(rgsourcecolumns), ::core::mem::transmute(rgtargetcolumns), ::core::mem::transmute(phsourceid)).ok()
     }
 }
 impl ::core::convert::From<IRowsetCopyRows> for ::windows::core::IUnknown {
@@ -15190,11 +15190,11 @@ impl IRowsetCurrentIndex {
     }
     #[doc = "*Required features: `\"Win32_System_Search\"`*"]
     pub unsafe fn Seek(&self, haccessor: usize, ckeyvalues: usize, pdata: *mut ::core::ffi::c_void, dwseekoptions: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.Seek)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(haccessor), ::core::mem::transmute(ckeyvalues), ::core::mem::transmute(pdata), ::core::mem::transmute(dwseekoptions)).ok()
+        (::windows::core::Interface::vtable(self).base__.Seek)(::windows::core::Interface::as_raw(self), haccessor, ckeyvalues, ::core::mem::transmute(pdata), dwseekoptions).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Search\"`*"]
     pub unsafe fn SetRange(&self, haccessor: usize, cstartkeycolumns: usize, pstartdata: *mut ::core::ffi::c_void, cendkeycolumns: usize, penddata: *mut ::core::ffi::c_void, dwrangeoptions: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetRange)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(haccessor), ::core::mem::transmute(cstartkeycolumns), ::core::mem::transmute(pstartdata), ::core::mem::transmute(cendkeycolumns), ::core::mem::transmute(penddata), ::core::mem::transmute(dwrangeoptions)).ok()
+        (::windows::core::Interface::vtable(self).base__.SetRange)(::windows::core::Interface::as_raw(self), haccessor, cstartkeycolumns, ::core::mem::transmute(pstartdata), cendkeycolumns, ::core::mem::transmute(penddata), dwrangeoptions).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Search\"`, `\"Win32_Storage_IndexServer\"`*"]
     #[cfg(feature = "Win32_Storage_IndexServer")]
@@ -15277,22 +15277,22 @@ impl IRowsetEvents {
     #[doc = "*Required features: `\"Win32_System_Search\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
     pub unsafe fn OnNewItem(&self, itemid: *const super::Com::StructuredStorage::PROPVARIANT, newitemstate: ROWSETEVENT_ITEMSTATE) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).OnNewItem)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(itemid), ::core::mem::transmute(newitemstate)).ok()
+        (::windows::core::Interface::vtable(self).OnNewItem)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(itemid), newitemstate).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Search\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
     pub unsafe fn OnChangedItem(&self, itemid: *const super::Com::StructuredStorage::PROPVARIANT, rowsetitemstate: ROWSETEVENT_ITEMSTATE, changeditemstate: ROWSETEVENT_ITEMSTATE) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).OnChangedItem)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(itemid), ::core::mem::transmute(rowsetitemstate), ::core::mem::transmute(changeditemstate)).ok()
+        (::windows::core::Interface::vtable(self).OnChangedItem)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(itemid), rowsetitemstate, changeditemstate).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Search\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
     pub unsafe fn OnDeletedItem(&self, itemid: *const super::Com::StructuredStorage::PROPVARIANT, deleteditemstate: ROWSETEVENT_ITEMSTATE) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).OnDeletedItem)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(itemid), ::core::mem::transmute(deleteditemstate)).ok()
+        (::windows::core::Interface::vtable(self).OnDeletedItem)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(itemid), deleteditemstate).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Search\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
     pub unsafe fn OnRowsetEvent(&self, eventtype: ROWSETEVENT_TYPE, eventdata: *const super::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).OnRowsetEvent)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(eventtype), ::core::mem::transmute(eventdata)).ok()
+        (::windows::core::Interface::vtable(self).OnRowsetEvent)(::windows::core::Interface::as_raw(self), eventtype, ::core::mem::transmute(eventdata)).ok()
     }
 }
 impl ::core::convert::From<IRowsetEvents> for ::windows::core::IUnknown {
@@ -15359,7 +15359,7 @@ pub struct IRowsetFastLoad(::windows::core::IUnknown);
 impl IRowsetFastLoad {
     #[doc = "*Required features: `\"Win32_System_Search\"`*"]
     pub unsafe fn InsertRow(&self, haccessor: usize, pdata: *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).InsertRow)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(haccessor), ::core::mem::transmute(pdata)).ok()
+        (::windows::core::Interface::vtable(self).InsertRow)(::windows::core::Interface::as_raw(self), haccessor, ::core::mem::transmute(pdata)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Search\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -15421,7 +15421,7 @@ pub struct IRowsetFind(::windows::core::IUnknown);
 impl IRowsetFind {
     #[doc = "*Required features: `\"Win32_System_Search\"`*"]
     pub unsafe fn FindNextRow(&self, hchapter: usize, haccessor: usize, pfindvalue: *mut ::core::ffi::c_void, compareop: u32, cbbookmark: usize, pbookmark: *const u8, lrowsoffset: isize, crows: isize, pcrowsobtained: *mut usize, prghrows: *mut *mut usize) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).FindNextRow)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(hchapter), ::core::mem::transmute(haccessor), ::core::mem::transmute(pfindvalue), ::core::mem::transmute(compareop), ::core::mem::transmute(cbbookmark), ::core::mem::transmute(pbookmark), ::core::mem::transmute(lrowsoffset), ::core::mem::transmute(crows), ::core::mem::transmute(pcrowsobtained), ::core::mem::transmute(prghrows)).ok()
+        (::windows::core::Interface::vtable(self).FindNextRow)(::windows::core::Interface::as_raw(self), hchapter, haccessor, ::core::mem::transmute(pfindvalue), compareop, cbbookmark, ::core::mem::transmute(pbookmark), lrowsoffset, crows, ::core::mem::transmute(pcrowsobtained), ::core::mem::transmute(prghrows)).ok()
     }
 }
 impl ::core::convert::From<IRowsetFind> for ::windows::core::IUnknown {
@@ -15471,7 +15471,7 @@ pub struct IRowsetIdentity(::windows::core::IUnknown);
 impl IRowsetIdentity {
     #[doc = "*Required features: `\"Win32_System_Search\"`*"]
     pub unsafe fn IsSameRow(&self, hthisrow: usize, hthatrow: usize) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).IsSameRow)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(hthisrow), ::core::mem::transmute(hthatrow)).ok()
+        (::windows::core::Interface::vtable(self).IsSameRow)(::windows::core::Interface::as_raw(self), hthisrow, hthatrow).ok()
     }
 }
 impl ::core::convert::From<IRowsetIdentity> for ::windows::core::IUnknown {
@@ -15526,11 +15526,11 @@ impl IRowsetIndex {
     }
     #[doc = "*Required features: `\"Win32_System_Search\"`*"]
     pub unsafe fn Seek(&self, haccessor: usize, ckeyvalues: usize, pdata: *mut ::core::ffi::c_void, dwseekoptions: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Seek)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(haccessor), ::core::mem::transmute(ckeyvalues), ::core::mem::transmute(pdata), ::core::mem::transmute(dwseekoptions)).ok()
+        (::windows::core::Interface::vtable(self).Seek)(::windows::core::Interface::as_raw(self), haccessor, ckeyvalues, ::core::mem::transmute(pdata), dwseekoptions).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Search\"`*"]
     pub unsafe fn SetRange(&self, haccessor: usize, cstartkeycolumns: usize, pstartdata: *mut ::core::ffi::c_void, cendkeycolumns: usize, penddata: *mut ::core::ffi::c_void, dwrangeoptions: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetRange)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(haccessor), ::core::mem::transmute(cstartkeycolumns), ::core::mem::transmute(pstartdata), ::core::mem::transmute(cendkeycolumns), ::core::mem::transmute(penddata), ::core::mem::transmute(dwrangeoptions)).ok()
+        (::windows::core::Interface::vtable(self).SetRange)(::windows::core::Interface::as_raw(self), haccessor, cstartkeycolumns, ::core::mem::transmute(pstartdata), cendkeycolumns, ::core::mem::transmute(penddata), dwrangeoptions).ok()
     }
 }
 impl ::core::convert::From<IRowsetIndex> for ::windows::core::IUnknown {
@@ -15591,7 +15591,7 @@ impl IRowsetInfo {
     #[doc = "*Required features: `\"Win32_System_Search\"`*"]
     pub unsafe fn GetReferencedRowset(&self, iordinal: usize, riid: *const ::windows::core::GUID) -> ::windows::core::Result<::windows::core::IUnknown> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).GetReferencedRowset)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(iordinal), ::core::mem::transmute(riid), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::IUnknown>(result__)
+        (::windows::core::Interface::vtable(self).GetReferencedRowset)(::windows::core::Interface::as_raw(self), iordinal, ::core::mem::transmute(riid), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::IUnknown>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Search\"`*"]
     pub unsafe fn GetSpecification(&self, riid: *const ::windows::core::GUID) -> ::windows::core::Result<::windows::core::IUnknown> {
@@ -15701,39 +15701,39 @@ pub struct IRowsetLocate(::windows::core::IUnknown);
 impl IRowsetLocate {
     #[doc = "*Required features: `\"Win32_System_Search\"`*"]
     pub unsafe fn AddRefRows(&self, crows: usize, rghrows: *const usize, rgrefcounts: *mut u32, rgrowstatus: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.AddRefRows)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(crows), ::core::mem::transmute(rghrows), ::core::mem::transmute(rgrefcounts), ::core::mem::transmute(rgrowstatus)).ok()
+        (::windows::core::Interface::vtable(self).base__.AddRefRows)(::windows::core::Interface::as_raw(self), crows, ::core::mem::transmute(rghrows), ::core::mem::transmute(rgrefcounts), ::core::mem::transmute(rgrowstatus)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Search\"`*"]
     pub unsafe fn GetData(&self, hrow: usize, haccessor: usize, pdata: *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.GetData)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(hrow), ::core::mem::transmute(haccessor), ::core::mem::transmute(pdata)).ok()
+        (::windows::core::Interface::vtable(self).base__.GetData)(::windows::core::Interface::as_raw(self), hrow, haccessor, ::core::mem::transmute(pdata)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Search\"`*"]
     pub unsafe fn GetNextRows(&self, hreserved: usize, lrowsoffset: isize, crows: isize, pcrowsobtained: *mut usize, prghrows: *mut *mut usize) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.GetNextRows)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(hreserved), ::core::mem::transmute(lrowsoffset), ::core::mem::transmute(crows), ::core::mem::transmute(pcrowsobtained), ::core::mem::transmute(prghrows)).ok()
+        (::windows::core::Interface::vtable(self).base__.GetNextRows)(::windows::core::Interface::as_raw(self), hreserved, lrowsoffset, crows, ::core::mem::transmute(pcrowsobtained), ::core::mem::transmute(prghrows)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Search\"`*"]
     pub unsafe fn ReleaseRows(&self, crows: usize, rghrows: *const usize, rgrowoptions: *mut u32, rgrefcounts: *mut u32, rgrowstatus: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.ReleaseRows)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(crows), ::core::mem::transmute(rghrows), ::core::mem::transmute(rgrowoptions), ::core::mem::transmute(rgrefcounts), ::core::mem::transmute(rgrowstatus)).ok()
+        (::windows::core::Interface::vtable(self).base__.ReleaseRows)(::windows::core::Interface::as_raw(self), crows, ::core::mem::transmute(rghrows), ::core::mem::transmute(rgrowoptions), ::core::mem::transmute(rgrefcounts), ::core::mem::transmute(rgrowstatus)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Search\"`*"]
     pub unsafe fn RestartPosition(&self, hreserved: usize) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.RestartPosition)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(hreserved)).ok()
+        (::windows::core::Interface::vtable(self).base__.RestartPosition)(::windows::core::Interface::as_raw(self), hreserved).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Search\"`*"]
     pub unsafe fn Compare(&self, hreserved: usize, cbbookmark1: usize, pbookmark1: *const u8, cbbookmark2: usize, pbookmark2: *const u8, pcomparison: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Compare)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(hreserved), ::core::mem::transmute(cbbookmark1), ::core::mem::transmute(pbookmark1), ::core::mem::transmute(cbbookmark2), ::core::mem::transmute(pbookmark2), ::core::mem::transmute(pcomparison)).ok()
+        (::windows::core::Interface::vtable(self).Compare)(::windows::core::Interface::as_raw(self), hreserved, cbbookmark1, ::core::mem::transmute(pbookmark1), cbbookmark2, ::core::mem::transmute(pbookmark2), ::core::mem::transmute(pcomparison)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Search\"`*"]
     pub unsafe fn GetRowsAt(&self, hreserved1: usize, hreserved2: usize, cbbookmark: usize, pbookmark: *const u8, lrowsoffset: isize, crows: isize, pcrowsobtained: *mut usize, prghrows: *mut *mut usize) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetRowsAt)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(hreserved1), ::core::mem::transmute(hreserved2), ::core::mem::transmute(cbbookmark), ::core::mem::transmute(pbookmark), ::core::mem::transmute(lrowsoffset), ::core::mem::transmute(crows), ::core::mem::transmute(pcrowsobtained), ::core::mem::transmute(prghrows)).ok()
+        (::windows::core::Interface::vtable(self).GetRowsAt)(::windows::core::Interface::as_raw(self), hreserved1, hreserved2, cbbookmark, ::core::mem::transmute(pbookmark), lrowsoffset, crows, ::core::mem::transmute(pcrowsobtained), ::core::mem::transmute(prghrows)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Search\"`*"]
     pub unsafe fn GetRowsByBookmark(&self, hreserved: usize, crows: usize, rgcbbookmarks: *const usize, rgpbookmarks: *const *const u8, rghrows: *mut usize, rgrowstatus: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetRowsByBookmark)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(hreserved), ::core::mem::transmute(crows), ::core::mem::transmute(rgcbbookmarks), ::core::mem::transmute(rgpbookmarks), ::core::mem::transmute(rghrows), ::core::mem::transmute(rgrowstatus)).ok()
+        (::windows::core::Interface::vtable(self).GetRowsByBookmark)(::windows::core::Interface::as_raw(self), hreserved, crows, ::core::mem::transmute(rgcbbookmarks), ::core::mem::transmute(rgpbookmarks), ::core::mem::transmute(rghrows), ::core::mem::transmute(rgrowstatus)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Search\"`*"]
     pub unsafe fn Hash(&self, hreserved: usize, cbookmarks: usize, rgcbbookmarks: *const usize, rgpbookmarks: *const *const u8, rghashedvalues: *mut usize, rgbookmarkstatus: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Hash)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(hreserved), ::core::mem::transmute(cbookmarks), ::core::mem::transmute(rgcbbookmarks), ::core::mem::transmute(rgpbookmarks), ::core::mem::transmute(rghashedvalues), ::core::mem::transmute(rgbookmarkstatus)).ok()
+        (::windows::core::Interface::vtable(self).Hash)(::windows::core::Interface::as_raw(self), hreserved, cbookmarks, ::core::mem::transmute(rgcbbookmarks), ::core::mem::transmute(rgpbookmarks), ::core::mem::transmute(rghashedvalues), ::core::mem::transmute(rgbookmarkstatus)).ok()
     }
 }
 impl ::core::convert::From<IRowsetLocate> for ::windows::core::IUnknown {
@@ -15801,7 +15801,7 @@ pub struct IRowsetNewRowAfter(::windows::core::IUnknown);
 impl IRowsetNewRowAfter {
     #[doc = "*Required features: `\"Win32_System_Search\"`*"]
     pub unsafe fn SetNewDataAfter(&self, hchapter: usize, cbbmprevious: u32, pbmprevious: *const u8, haccessor: usize, pdata: *mut u8, phrow: *mut usize) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetNewDataAfter)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(hchapter), ::core::mem::transmute(cbbmprevious), ::core::mem::transmute(pbmprevious), ::core::mem::transmute(haccessor), ::core::mem::transmute(pdata), ::core::mem::transmute(phrow)).ok()
+        (::windows::core::Interface::vtable(self).SetNewDataAfter)(::windows::core::Interface::as_raw(self), hchapter, cbbmprevious, ::core::mem::transmute(pbmprevious), haccessor, ::core::mem::transmute(pdata), ::core::mem::transmute(phrow)).ok()
     }
 }
 impl ::core::convert::From<IRowsetNewRowAfter> for ::windows::core::IUnknown {
@@ -15910,7 +15910,7 @@ impl IRowsetNotify {
         P0: ::std::convert::Into<::windows::core::InParam<'a, IRowset>>,
         P1: ::std::convert::Into<super::super::Foundation::BOOL>,
     {
-        (::windows::core::Interface::vtable(self).OnFieldChange)(::windows::core::Interface::as_raw(self), prowset.into().abi(), ::core::mem::transmute(hrow), rgcolumns.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(rgcolumns)), ::core::mem::transmute(ereason), ::core::mem::transmute(ephase), fcantdeny.into()).ok()
+        (::windows::core::Interface::vtable(self).OnFieldChange)(::windows::core::Interface::as_raw(self), prowset.into().abi(), hrow, rgcolumns.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(rgcolumns)), ereason, ephase, fcantdeny.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Search\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -15919,7 +15919,7 @@ impl IRowsetNotify {
         P0: ::std::convert::Into<::windows::core::InParam<'a, IRowset>>,
         P1: ::std::convert::Into<super::super::Foundation::BOOL>,
     {
-        (::windows::core::Interface::vtable(self).OnRowChange)(::windows::core::Interface::as_raw(self), prowset.into().abi(), rghrows.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(rghrows)), ::core::mem::transmute(ereason), ::core::mem::transmute(ephase), fcantdeny.into()).ok()
+        (::windows::core::Interface::vtable(self).OnRowChange)(::windows::core::Interface::as_raw(self), prowset.into().abi(), rghrows.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(rghrows)), ereason, ephase, fcantdeny.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Search\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -15928,7 +15928,7 @@ impl IRowsetNotify {
         P0: ::std::convert::Into<::windows::core::InParam<'a, IRowset>>,
         P1: ::std::convert::Into<super::super::Foundation::BOOL>,
     {
-        (::windows::core::Interface::vtable(self).OnRowsetChange)(::windows::core::Interface::as_raw(self), prowset.into().abi(), ::core::mem::transmute(ereason), ::core::mem::transmute(ephase), fcantdeny.into()).ok()
+        (::windows::core::Interface::vtable(self).OnRowsetChange)(::windows::core::Interface::as_raw(self), prowset.into().abi(), ereason, ephase, fcantdeny.into()).ok()
     }
 }
 impl ::core::convert::From<IRowsetNotify> for ::windows::core::IUnknown {
@@ -15989,7 +15989,7 @@ pub struct IRowsetPrioritization(::windows::core::IUnknown);
 impl IRowsetPrioritization {
     #[doc = "*Required features: `\"Win32_System_Search\"`*"]
     pub unsafe fn SetScopePriority(&self, priority: PRIORITY_LEVEL, scopestatisticseventfrequency: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetScopePriority)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(priority), ::core::mem::transmute(scopestatisticseventfrequency)).ok()
+        (::windows::core::Interface::vtable(self).SetScopePriority)(::windows::core::Interface::as_raw(self), priority, scopestatisticseventfrequency).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Search\"`*"]
     pub unsafe fn GetScopePriority(&self, priority: *mut PRIORITY_LEVEL, scopestatisticseventfrequency: *mut u32) -> ::windows::core::Result<()> {
@@ -16053,7 +16053,7 @@ impl IRowsetQueryStatus {
     }
     #[doc = "*Required features: `\"Win32_System_Search\"`*"]
     pub unsafe fn GetStatusEx(&self, pdwstatus: *mut u32, pcfiltereddocuments: *mut u32, pcdocumentstofilter: *mut u32, pdwratiofinisheddenominator: *mut usize, pdwratiofinishednumerator: *mut usize, cbbmk: usize, pbmk: *const u8, pirowbmk: *mut usize, pcrowstotal: *mut usize) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetStatusEx)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pdwstatus), ::core::mem::transmute(pcfiltereddocuments), ::core::mem::transmute(pcdocumentstofilter), ::core::mem::transmute(pdwratiofinisheddenominator), ::core::mem::transmute(pdwratiofinishednumerator), ::core::mem::transmute(cbbmk), ::core::mem::transmute(pbmk), ::core::mem::transmute(pirowbmk), ::core::mem::transmute(pcrowstotal)).ok()
+        (::windows::core::Interface::vtable(self).GetStatusEx)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pdwstatus), ::core::mem::transmute(pcfiltereddocuments), ::core::mem::transmute(pcdocumentstofilter), ::core::mem::transmute(pdwratiofinisheddenominator), ::core::mem::transmute(pdwratiofinishednumerator), cbbmk, ::core::mem::transmute(pbmk), ::core::mem::transmute(pirowbmk), ::core::mem::transmute(pcrowstotal)).ok()
     }
 }
 impl ::core::convert::From<IRowsetQueryStatus> for ::windows::core::IUnknown {
@@ -16108,11 +16108,11 @@ impl IRowsetRefresh {
     where
         P0: ::std::convert::Into<super::super::Foundation::BOOL>,
     {
-        (::windows::core::Interface::vtable(self).RefreshVisibleData)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(hchapter), ::core::mem::transmute(crows), ::core::mem::transmute(rghrows), foverwrite.into(), ::core::mem::transmute(pcrowsrefreshed), ::core::mem::transmute(prghrowsrefreshed), ::core::mem::transmute(prgrowstatus)).ok()
+        (::windows::core::Interface::vtable(self).RefreshVisibleData)(::windows::core::Interface::as_raw(self), hchapter, crows, ::core::mem::transmute(rghrows), foverwrite.into(), ::core::mem::transmute(pcrowsrefreshed), ::core::mem::transmute(prghrowsrefreshed), ::core::mem::transmute(prgrowstatus)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Search\"`*"]
     pub unsafe fn GetLastVisibleData(&self, hrow: usize, haccessor: usize, pdata: *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetLastVisibleData)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(hrow), ::core::mem::transmute(haccessor), ::core::mem::transmute(pdata)).ok()
+        (::windows::core::Interface::vtable(self).GetLastVisibleData)(::windows::core::Interface::as_raw(self), hrow, haccessor, ::core::mem::transmute(pdata)).ok()
     }
 }
 impl ::core::convert::From<IRowsetRefresh> for ::windows::core::IUnknown {
@@ -16166,11 +16166,11 @@ pub struct IRowsetResynch(::windows::core::IUnknown);
 impl IRowsetResynch {
     #[doc = "*Required features: `\"Win32_System_Search\"`*"]
     pub unsafe fn GetVisibleData(&self, hrow: usize, haccessor: usize, pdata: *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetVisibleData)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(hrow), ::core::mem::transmute(haccessor), ::core::mem::transmute(pdata)).ok()
+        (::windows::core::Interface::vtable(self).GetVisibleData)(::windows::core::Interface::as_raw(self), hrow, haccessor, ::core::mem::transmute(pdata)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Search\"`*"]
     pub unsafe fn ResynchRows(&self, crows: usize, rghrows: *const usize, pcrowsresynched: *mut usize, prghrowsresynched: *mut *mut usize, prgrowstatus: *mut *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).ResynchRows)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(crows), ::core::mem::transmute(rghrows), ::core::mem::transmute(pcrowsresynched), ::core::mem::transmute(prghrowsresynched), ::core::mem::transmute(prgrowstatus)).ok()
+        (::windows::core::Interface::vtable(self).ResynchRows)(::windows::core::Interface::as_raw(self), crows, ::core::mem::transmute(rghrows), ::core::mem::transmute(pcrowsresynched), ::core::mem::transmute(prghrowsresynched), ::core::mem::transmute(prgrowstatus)).ok()
     }
 }
 impl ::core::convert::From<IRowsetResynch> for ::windows::core::IUnknown {
@@ -16221,47 +16221,47 @@ pub struct IRowsetScroll(::windows::core::IUnknown);
 impl IRowsetScroll {
     #[doc = "*Required features: `\"Win32_System_Search\"`*"]
     pub unsafe fn AddRefRows(&self, crows: usize, rghrows: *const usize, rgrefcounts: *mut u32, rgrowstatus: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.AddRefRows)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(crows), ::core::mem::transmute(rghrows), ::core::mem::transmute(rgrefcounts), ::core::mem::transmute(rgrowstatus)).ok()
+        (::windows::core::Interface::vtable(self).base__.base__.AddRefRows)(::windows::core::Interface::as_raw(self), crows, ::core::mem::transmute(rghrows), ::core::mem::transmute(rgrefcounts), ::core::mem::transmute(rgrowstatus)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Search\"`*"]
     pub unsafe fn GetData(&self, hrow: usize, haccessor: usize, pdata: *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.GetData)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(hrow), ::core::mem::transmute(haccessor), ::core::mem::transmute(pdata)).ok()
+        (::windows::core::Interface::vtable(self).base__.base__.GetData)(::windows::core::Interface::as_raw(self), hrow, haccessor, ::core::mem::transmute(pdata)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Search\"`*"]
     pub unsafe fn GetNextRows(&self, hreserved: usize, lrowsoffset: isize, crows: isize, pcrowsobtained: *mut usize, prghrows: *mut *mut usize) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.GetNextRows)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(hreserved), ::core::mem::transmute(lrowsoffset), ::core::mem::transmute(crows), ::core::mem::transmute(pcrowsobtained), ::core::mem::transmute(prghrows)).ok()
+        (::windows::core::Interface::vtable(self).base__.base__.GetNextRows)(::windows::core::Interface::as_raw(self), hreserved, lrowsoffset, crows, ::core::mem::transmute(pcrowsobtained), ::core::mem::transmute(prghrows)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Search\"`*"]
     pub unsafe fn ReleaseRows(&self, crows: usize, rghrows: *const usize, rgrowoptions: *mut u32, rgrefcounts: *mut u32, rgrowstatus: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.ReleaseRows)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(crows), ::core::mem::transmute(rghrows), ::core::mem::transmute(rgrowoptions), ::core::mem::transmute(rgrefcounts), ::core::mem::transmute(rgrowstatus)).ok()
+        (::windows::core::Interface::vtable(self).base__.base__.ReleaseRows)(::windows::core::Interface::as_raw(self), crows, ::core::mem::transmute(rghrows), ::core::mem::transmute(rgrowoptions), ::core::mem::transmute(rgrefcounts), ::core::mem::transmute(rgrowstatus)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Search\"`*"]
     pub unsafe fn RestartPosition(&self, hreserved: usize) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.RestartPosition)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(hreserved)).ok()
+        (::windows::core::Interface::vtable(self).base__.base__.RestartPosition)(::windows::core::Interface::as_raw(self), hreserved).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Search\"`*"]
     pub unsafe fn Compare(&self, hreserved: usize, cbbookmark1: usize, pbookmark1: *const u8, cbbookmark2: usize, pbookmark2: *const u8, pcomparison: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.Compare)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(hreserved), ::core::mem::transmute(cbbookmark1), ::core::mem::transmute(pbookmark1), ::core::mem::transmute(cbbookmark2), ::core::mem::transmute(pbookmark2), ::core::mem::transmute(pcomparison)).ok()
+        (::windows::core::Interface::vtable(self).base__.Compare)(::windows::core::Interface::as_raw(self), hreserved, cbbookmark1, ::core::mem::transmute(pbookmark1), cbbookmark2, ::core::mem::transmute(pbookmark2), ::core::mem::transmute(pcomparison)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Search\"`*"]
     pub unsafe fn GetRowsAt(&self, hreserved1: usize, hreserved2: usize, cbbookmark: usize, pbookmark: *const u8, lrowsoffset: isize, crows: isize, pcrowsobtained: *mut usize, prghrows: *mut *mut usize) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.GetRowsAt)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(hreserved1), ::core::mem::transmute(hreserved2), ::core::mem::transmute(cbbookmark), ::core::mem::transmute(pbookmark), ::core::mem::transmute(lrowsoffset), ::core::mem::transmute(crows), ::core::mem::transmute(pcrowsobtained), ::core::mem::transmute(prghrows)).ok()
+        (::windows::core::Interface::vtable(self).base__.GetRowsAt)(::windows::core::Interface::as_raw(self), hreserved1, hreserved2, cbbookmark, ::core::mem::transmute(pbookmark), lrowsoffset, crows, ::core::mem::transmute(pcrowsobtained), ::core::mem::transmute(prghrows)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Search\"`*"]
     pub unsafe fn GetRowsByBookmark(&self, hreserved: usize, crows: usize, rgcbbookmarks: *const usize, rgpbookmarks: *const *const u8, rghrows: *mut usize, rgrowstatus: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.GetRowsByBookmark)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(hreserved), ::core::mem::transmute(crows), ::core::mem::transmute(rgcbbookmarks), ::core::mem::transmute(rgpbookmarks), ::core::mem::transmute(rghrows), ::core::mem::transmute(rgrowstatus)).ok()
+        (::windows::core::Interface::vtable(self).base__.GetRowsByBookmark)(::windows::core::Interface::as_raw(self), hreserved, crows, ::core::mem::transmute(rgcbbookmarks), ::core::mem::transmute(rgpbookmarks), ::core::mem::transmute(rghrows), ::core::mem::transmute(rgrowstatus)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Search\"`*"]
     pub unsafe fn Hash(&self, hreserved: usize, cbookmarks: usize, rgcbbookmarks: *const usize, rgpbookmarks: *const *const u8, rghashedvalues: *mut usize, rgbookmarkstatus: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.Hash)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(hreserved), ::core::mem::transmute(cbookmarks), ::core::mem::transmute(rgcbbookmarks), ::core::mem::transmute(rgpbookmarks), ::core::mem::transmute(rghashedvalues), ::core::mem::transmute(rgbookmarkstatus)).ok()
+        (::windows::core::Interface::vtable(self).base__.Hash)(::windows::core::Interface::as_raw(self), hreserved, cbookmarks, ::core::mem::transmute(rgcbbookmarks), ::core::mem::transmute(rgpbookmarks), ::core::mem::transmute(rghashedvalues), ::core::mem::transmute(rgbookmarkstatus)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Search\"`*"]
     pub unsafe fn GetApproximatePosition(&self, hreserved: usize, cbbookmark: usize, pbookmark: *const u8, pulposition: *mut usize, pcrows: *mut usize) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetApproximatePosition)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(hreserved), ::core::mem::transmute(cbbookmark), ::core::mem::transmute(pbookmark), ::core::mem::transmute(pulposition), ::core::mem::transmute(pcrows)).ok()
+        (::windows::core::Interface::vtable(self).GetApproximatePosition)(::windows::core::Interface::as_raw(self), hreserved, cbbookmark, ::core::mem::transmute(pbookmark), ::core::mem::transmute(pulposition), ::core::mem::transmute(pcrows)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Search\"`*"]
     pub unsafe fn GetRowsAtRatio(&self, hreserved1: usize, hreserved2: usize, ulnumerator: usize, uldenominator: usize, crows: isize, pcrowsobtained: *mut usize, prghrows: *mut *mut usize) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetRowsAtRatio)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(hreserved1), ::core::mem::transmute(hreserved2), ::core::mem::transmute(ulnumerator), ::core::mem::transmute(uldenominator), ::core::mem::transmute(crows), ::core::mem::transmute(pcrowsobtained), ::core::mem::transmute(prghrows)).ok()
+        (::windows::core::Interface::vtable(self).GetRowsAtRatio)(::windows::core::Interface::as_raw(self), hreserved1, hreserved2, ulnumerator, uldenominator, crows, ::core::mem::transmute(pcrowsobtained), ::core::mem::transmute(prghrows)).ok()
     }
 }
 impl ::core::convert::From<IRowsetScroll> for ::windows::core::IUnknown {
@@ -16342,35 +16342,35 @@ pub struct IRowsetUpdate(::windows::core::IUnknown);
 impl IRowsetUpdate {
     #[doc = "*Required features: `\"Win32_System_Search\"`*"]
     pub unsafe fn DeleteRows(&self, hreserved: usize, crows: usize, rghrows: *const usize, rgrowstatus: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.DeleteRows)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(hreserved), ::core::mem::transmute(crows), ::core::mem::transmute(rghrows), ::core::mem::transmute(rgrowstatus)).ok()
+        (::windows::core::Interface::vtable(self).base__.DeleteRows)(::windows::core::Interface::as_raw(self), hreserved, crows, ::core::mem::transmute(rghrows), ::core::mem::transmute(rgrowstatus)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Search\"`*"]
     pub unsafe fn SetData(&self, hrow: usize, haccessor: usize, pdata: *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetData)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(hrow), ::core::mem::transmute(haccessor), ::core::mem::transmute(pdata)).ok()
+        (::windows::core::Interface::vtable(self).base__.SetData)(::windows::core::Interface::as_raw(self), hrow, haccessor, ::core::mem::transmute(pdata)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Search\"`*"]
     pub unsafe fn InsertRow(&self, hreserved: usize, haccessor: usize, pdata: *mut ::core::ffi::c_void, phrow: *mut usize) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.InsertRow)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(hreserved), ::core::mem::transmute(haccessor), ::core::mem::transmute(pdata), ::core::mem::transmute(phrow)).ok()
+        (::windows::core::Interface::vtable(self).base__.InsertRow)(::windows::core::Interface::as_raw(self), hreserved, haccessor, ::core::mem::transmute(pdata), ::core::mem::transmute(phrow)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Search\"`*"]
     pub unsafe fn GetOriginalData(&self, hrow: usize, haccessor: usize, pdata: *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetOriginalData)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(hrow), ::core::mem::transmute(haccessor), ::core::mem::transmute(pdata)).ok()
+        (::windows::core::Interface::vtable(self).GetOriginalData)(::windows::core::Interface::as_raw(self), hrow, haccessor, ::core::mem::transmute(pdata)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Search\"`*"]
     pub unsafe fn GetPendingRows(&self, hreserved: usize, dwrowstatus: u32, pcpendingrows: *mut usize, prgpendingrows: *mut *mut usize, prgpendingstatus: *mut *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetPendingRows)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(hreserved), ::core::mem::transmute(dwrowstatus), ::core::mem::transmute(pcpendingrows), ::core::mem::transmute(prgpendingrows), ::core::mem::transmute(prgpendingstatus)).ok()
+        (::windows::core::Interface::vtable(self).GetPendingRows)(::windows::core::Interface::as_raw(self), hreserved, dwrowstatus, ::core::mem::transmute(pcpendingrows), ::core::mem::transmute(prgpendingrows), ::core::mem::transmute(prgpendingstatus)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Search\"`*"]
     pub unsafe fn GetRowStatus(&self, hreserved: usize, crows: usize, rghrows: *const usize, rgpendingstatus: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetRowStatus)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(hreserved), ::core::mem::transmute(crows), ::core::mem::transmute(rghrows), ::core::mem::transmute(rgpendingstatus)).ok()
+        (::windows::core::Interface::vtable(self).GetRowStatus)(::windows::core::Interface::as_raw(self), hreserved, crows, ::core::mem::transmute(rghrows), ::core::mem::transmute(rgpendingstatus)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Search\"`*"]
     pub unsafe fn Undo(&self, hreserved: usize, crows: usize, rghrows: *const usize, pcrowsundone: *mut usize, prgrowsundone: *mut *mut usize, prgrowstatus: *mut *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Undo)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(hreserved), ::core::mem::transmute(crows), ::core::mem::transmute(rghrows), ::core::mem::transmute(pcrowsundone), ::core::mem::transmute(prgrowsundone), ::core::mem::transmute(prgrowstatus)).ok()
+        (::windows::core::Interface::vtable(self).Undo)(::windows::core::Interface::as_raw(self), hreserved, crows, ::core::mem::transmute(rghrows), ::core::mem::transmute(pcrowsundone), ::core::mem::transmute(prgrowsundone), ::core::mem::transmute(prgrowstatus)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Search\"`*"]
     pub unsafe fn Update(&self, hreserved: usize, crows: usize, rghrows: *const usize, pcrows: *mut usize, prgrows: *mut *mut usize, prgrowstatus: *mut *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Update)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(hreserved), ::core::mem::transmute(crows), ::core::mem::transmute(rghrows), ::core::mem::transmute(pcrows), ::core::mem::transmute(prgrows), ::core::mem::transmute(prgrowstatus)).ok()
+        (::windows::core::Interface::vtable(self).Update)(::windows::core::Interface::as_raw(self), hreserved, crows, ::core::mem::transmute(rghrows), ::core::mem::transmute(pcrows), ::core::mem::transmute(prgrows), ::core::mem::transmute(prgrowstatus)).ok()
     }
 }
 impl ::core::convert::From<IRowsetUpdate> for ::windows::core::IUnknown {
@@ -16447,7 +16447,7 @@ impl IRowsetView {
     }
     #[doc = "*Required features: `\"Win32_System_Search\"`*"]
     pub unsafe fn GetView(&self, hchapter: usize, riid: *const ::windows::core::GUID, phchaptersource: *mut usize, ppview: *mut ::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetView)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(hchapter), ::core::mem::transmute(riid), ::core::mem::transmute(phchaptersource), ::core::mem::transmute(ppview)).ok()
+        (::windows::core::Interface::vtable(self).GetView)(::windows::core::Interface::as_raw(self), hchapter, ::core::mem::transmute(riid), ::core::mem::transmute(phchaptersource), ::core::mem::transmute(ppview)).ok()
     }
 }
 impl ::core::convert::From<IRowsetView> for ::windows::core::IUnknown {
@@ -16561,7 +16561,7 @@ impl IRowsetWatchNotify {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, IRowset>>,
     {
-        (::windows::core::Interface::vtable(self).OnChange)(::windows::core::Interface::as_raw(self), prowset.into().abi(), ::core::mem::transmute(echangereason)).ok()
+        (::windows::core::Interface::vtable(self).OnChange)(::windows::core::Interface::as_raw(self), prowset.into().abi(), echangereason).ok()
     }
 }
 impl ::core::convert::From<IRowsetWatchNotify> for ::windows::core::IUnknown {
@@ -16623,19 +16623,19 @@ impl IRowsetWatchRegion {
     }
     #[doc = "*Required features: `\"Win32_System_Search\"`*"]
     pub unsafe fn CreateWatchRegion(&self, dwwatchmode: u32, phregion: *mut usize) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).CreateWatchRegion)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(dwwatchmode), ::core::mem::transmute(phregion)).ok()
+        (::windows::core::Interface::vtable(self).CreateWatchRegion)(::windows::core::Interface::as_raw(self), dwwatchmode, ::core::mem::transmute(phregion)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Search\"`*"]
     pub unsafe fn ChangeWatchMode(&self, hregion: usize, dwwatchmode: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).ChangeWatchMode)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(hregion), ::core::mem::transmute(dwwatchmode)).ok()
+        (::windows::core::Interface::vtable(self).ChangeWatchMode)(::windows::core::Interface::as_raw(self), hregion, dwwatchmode).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Search\"`*"]
     pub unsafe fn DeleteWatchRegion(&self, hregion: usize) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).DeleteWatchRegion)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(hregion)).ok()
+        (::windows::core::Interface::vtable(self).DeleteWatchRegion)(::windows::core::Interface::as_raw(self), hregion).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Search\"`*"]
     pub unsafe fn GetWatchRegionInfo(&self, hregion: usize, pdwwatchmode: *mut u32, phchapter: *mut usize, pcbbookmark: *mut usize, ppbookmark: *mut *mut u8, pcrows: *mut isize) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetWatchRegionInfo)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(hregion), ::core::mem::transmute(pdwwatchmode), ::core::mem::transmute(phchapter), ::core::mem::transmute(pcbbookmark), ::core::mem::transmute(ppbookmark), ::core::mem::transmute(pcrows)).ok()
+        (::windows::core::Interface::vtable(self).GetWatchRegionInfo)(::windows::core::Interface::as_raw(self), hregion, ::core::mem::transmute(pdwwatchmode), ::core::mem::transmute(phchapter), ::core::mem::transmute(pcbbookmark), ::core::mem::transmute(ppbookmark), ::core::mem::transmute(pcrows)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Search\"`*"]
     pub unsafe fn Refresh(&self, pcchangesobtained: *mut usize, prgchanges: *mut *mut tagDBROWWATCHRANGE) -> ::windows::core::Result<()> {
@@ -16643,7 +16643,7 @@ impl IRowsetWatchRegion {
     }
     #[doc = "*Required features: `\"Win32_System_Search\"`*"]
     pub unsafe fn ShrinkWatchRegion(&self, hregion: usize, hchapter: usize, cbbookmark: usize, pbookmark: *mut u8, crows: isize) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).ShrinkWatchRegion)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(hregion), ::core::mem::transmute(hchapter), ::core::mem::transmute(cbbookmark), ::core::mem::transmute(pbookmark), ::core::mem::transmute(crows)).ok()
+        (::windows::core::Interface::vtable(self).ShrinkWatchRegion)(::windows::core::Interface::as_raw(self), hregion, hchapter, cbbookmark, ::core::mem::transmute(pbookmark), crows).ok()
     }
 }
 impl ::core::convert::From<IRowsetWatchRegion> for ::windows::core::IUnknown {
@@ -17035,7 +17035,7 @@ impl ISchemaLock {
     #[doc = "*Required features: `\"Win32_System_Search\"`, `\"Win32_Foundation\"`, `\"Win32_Storage_IndexServer\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer"))]
     pub unsafe fn GetSchemaLock(&self, ptableid: *mut super::super::Storage::IndexServer::DBID, lmmode: u32, phlockhandle: *mut super::super::Foundation::HANDLE, ptableversion: *mut u64) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetSchemaLock)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(ptableid), ::core::mem::transmute(lmmode), ::core::mem::transmute(phlockhandle), ::core::mem::transmute(ptableversion)).ok()
+        (::windows::core::Interface::vtable(self).GetSchemaLock)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(ptableid), lmmode, ::core::mem::transmute(phlockhandle), ::core::mem::transmute(ptableversion)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Search\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -17132,7 +17132,7 @@ impl ISchemaProvider {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ISchemaLocalizerSupport>>,
     {
-        (::windows::core::Interface::vtable(self).Localize)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lcid), pschemalocalizersupport.into().abi()).ok()
+        (::windows::core::Interface::vtable(self).Localize)(::windows::core::Interface::as_raw(self), lcid, pschemalocalizersupport.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Search\"`*"]
     pub unsafe fn SaveBinary<'a, P0>(&self, pszschemabinarypath: P0) -> ::windows::core::Result<()>
@@ -17148,7 +17148,7 @@ impl ISchemaProvider {
         P1: ::std::convert::Into<::windows::core::PCWSTR>,
         P2: ::std::convert::Into<::windows::core::InParam<'a, ITokenCollection>>,
     {
-        (::windows::core::Interface::vtable(self).LookupAuthoredNamedEntity)(::windows::core::Interface::as_raw(self), pentity.into().abi(), pszinputstring.into(), ptokencollection.into().abi(), ::core::mem::transmute(ctokensbegin), ::core::mem::transmute(pctokenslength), ::core::mem::transmute(ppszvalue)).ok()
+        (::windows::core::Interface::vtable(self).LookupAuthoredNamedEntity)(::windows::core::Interface::as_raw(self), pentity.into().abi(), pszinputstring.into(), ptokencollection.into().abi(), ctokensbegin, ::core::mem::transmute(pctokenslength), ::core::mem::transmute(ppszvalue)).ok()
     }
 }
 impl ::core::convert::From<ISchemaProvider> for ::windows::core::IUnknown {
@@ -17210,7 +17210,7 @@ impl IScopedOperations {
         P1: ::std::convert::Into<::windows::core::PCWSTR>,
         P2: ::std::convert::Into<::windows::core::InParam<'a, super::Com::IAuthenticate>>,
     {
-        (::windows::core::Interface::vtable(self).base__.Bind)(::windows::core::Interface::as_raw(self), punkouter.into().abi(), pwszurl.into(), ::core::mem::transmute(dwbindurlflags), ::core::mem::transmute(rguid), ::core::mem::transmute(riid), pauthenticate.into().abi(), ::core::mem::transmute(pimplsession), ::core::mem::transmute(pdwbindstatus), ::core::mem::transmute(ppunk)).ok()
+        (::windows::core::Interface::vtable(self).base__.Bind)(::windows::core::Interface::as_raw(self), punkouter.into().abi(), pwszurl.into(), dwbindurlflags, ::core::mem::transmute(rguid), ::core::mem::transmute(riid), pauthenticate.into().abi(), ::core::mem::transmute(pimplsession), ::core::mem::transmute(pdwbindstatus), ::core::mem::transmute(ppunk)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Search\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -17218,7 +17218,7 @@ impl IScopedOperations {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::Com::IAuthenticate>>,
     {
-        (::windows::core::Interface::vtable(self).Copy)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(crows), ::core::mem::transmute(rgpwszsourceurls), ::core::mem::transmute(rgpwszdesturls), ::core::mem::transmute(dwcopyflags), pauthenticate.into().abi(), ::core::mem::transmute(rgdwstatus), ::core::mem::transmute(rgpwsznewurls), ::core::mem::transmute(ppstringsbuffer)).ok()
+        (::windows::core::Interface::vtable(self).Copy)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(crows), ::core::mem::transmute(rgpwszsourceurls), ::core::mem::transmute(rgpwszdesturls), dwcopyflags, pauthenticate.into().abi(), ::core::mem::transmute(rgdwstatus), ::core::mem::transmute(rgpwsznewurls), ::core::mem::transmute(ppstringsbuffer)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Search\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -17226,11 +17226,11 @@ impl IScopedOperations {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::Com::IAuthenticate>>,
     {
-        (::windows::core::Interface::vtable(self).Move)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(crows), ::core::mem::transmute(rgpwszsourceurls), ::core::mem::transmute(rgpwszdesturls), ::core::mem::transmute(dwmoveflags), pauthenticate.into().abi(), ::core::mem::transmute(rgdwstatus), ::core::mem::transmute(rgpwsznewurls), ::core::mem::transmute(ppstringsbuffer)).ok()
+        (::windows::core::Interface::vtable(self).Move)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(crows), ::core::mem::transmute(rgpwszsourceurls), ::core::mem::transmute(rgpwszdesturls), dwmoveflags, pauthenticate.into().abi(), ::core::mem::transmute(rgdwstatus), ::core::mem::transmute(rgpwsznewurls), ::core::mem::transmute(ppstringsbuffer)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Search\"`*"]
     pub unsafe fn Delete(&self, crows: usize, rgpwszurls: *const ::windows::core::PWSTR, dwdeleteflags: u32, rgdwstatus: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Delete)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(crows), ::core::mem::transmute(rgpwszurls), ::core::mem::transmute(dwdeleteflags), ::core::mem::transmute(rgdwstatus)).ok()
+        (::windows::core::Interface::vtable(self).Delete)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(crows), ::core::mem::transmute(rgpwszurls), dwdeleteflags, ::core::mem::transmute(rgdwstatus)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Search\"`, `\"Win32_Foundation\"`, `\"Win32_Storage_IndexServer\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -17363,7 +17363,7 @@ impl ISearchCatalogManager {
     }
     #[doc = "*Required features: `\"Win32_System_Search\"`*"]
     pub unsafe fn SetConnectTimeout(&self, dwconnecttimeout: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetConnectTimeout)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(dwconnecttimeout)).ok()
+        (::windows::core::Interface::vtable(self).SetConnectTimeout)(::windows::core::Interface::as_raw(self), dwconnecttimeout).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Search\"`*"]
     pub unsafe fn ConnectTimeout(&self) -> ::windows::core::Result<u32> {
@@ -17372,7 +17372,7 @@ impl ISearchCatalogManager {
     }
     #[doc = "*Required features: `\"Win32_System_Search\"`*"]
     pub unsafe fn SetDataTimeout(&self, dwdatatimeout: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetDataTimeout)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(dwdatatimeout)).ok()
+        (::windows::core::Interface::vtable(self).SetDataTimeout)(::windows::core::Interface::as_raw(self), dwdatatimeout).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Search\"`*"]
     pub unsafe fn DataTimeout(&self) -> ::windows::core::Result<u32> {
@@ -17424,7 +17424,7 @@ impl ISearchCatalogManager {
     }
     #[doc = "*Required features: `\"Win32_System_Search\"`*"]
     pub unsafe fn UnregisterViewForNotification(&self, dwcookie: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).UnregisterViewForNotification)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(dwcookie)).ok()
+        (::windows::core::Interface::vtable(self).UnregisterViewForNotification)(::windows::core::Interface::as_raw(self), dwcookie).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Search\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -17604,7 +17604,7 @@ impl ISearchCatalogManager2 {
     }
     #[doc = "*Required features: `\"Win32_System_Search\"`*"]
     pub unsafe fn SetConnectTimeout(&self, dwconnecttimeout: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetConnectTimeout)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(dwconnecttimeout)).ok()
+        (::windows::core::Interface::vtable(self).base__.SetConnectTimeout)(::windows::core::Interface::as_raw(self), dwconnecttimeout).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Search\"`*"]
     pub unsafe fn ConnectTimeout(&self) -> ::windows::core::Result<u32> {
@@ -17613,7 +17613,7 @@ impl ISearchCatalogManager2 {
     }
     #[doc = "*Required features: `\"Win32_System_Search\"`*"]
     pub unsafe fn SetDataTimeout(&self, dwdatatimeout: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetDataTimeout)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(dwdatatimeout)).ok()
+        (::windows::core::Interface::vtable(self).base__.SetDataTimeout)(::windows::core::Interface::as_raw(self), dwdatatimeout).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Search\"`*"]
     pub unsafe fn DataTimeout(&self) -> ::windows::core::Result<u32> {
@@ -17665,7 +17665,7 @@ impl ISearchCatalogManager2 {
     }
     #[doc = "*Required features: `\"Win32_System_Search\"`*"]
     pub unsafe fn UnregisterViewForNotification(&self, dwcookie: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.UnregisterViewForNotification)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(dwcookie)).ok()
+        (::windows::core::Interface::vtable(self).base__.UnregisterViewForNotification)(::windows::core::Interface::as_raw(self), dwcookie).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Search\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -17711,7 +17711,7 @@ impl ISearchCatalogManager2 {
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
-        (::windows::core::Interface::vtable(self).PrioritizeMatchingURLs)(::windows::core::Interface::as_raw(self), pszpattern.into(), ::core::mem::transmute(dwprioritizeflags)).ok()
+        (::windows::core::Interface::vtable(self).PrioritizeMatchingURLs)(::windows::core::Interface::as_raw(self), pszpattern.into(), dwprioritizeflags).ok()
     }
 }
 impl ::core::convert::From<ISearchCatalogManager2> for ::windows::core::IUnknown {
@@ -17781,7 +17781,7 @@ impl ISearchCrawlScopeManager {
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
         P1: ::std::convert::Into<super::super::Foundation::BOOL>,
     {
-        (::windows::core::Interface::vtable(self).AddDefaultScopeRule)(::windows::core::Interface::as_raw(self), pszurl.into(), finclude.into(), ::core::mem::transmute(ffollowflags)).ok()
+        (::windows::core::Interface::vtable(self).AddDefaultScopeRule)(::windows::core::Interface::as_raw(self), pszurl.into(), finclude.into(), ffollowflags).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Search\"`*"]
     pub unsafe fn AddRoot<'a, P0>(&self, psearchroot: P0) -> ::windows::core::Result<()>
@@ -17821,7 +17821,7 @@ impl ISearchCrawlScopeManager {
         P1: ::std::convert::Into<super::super::Foundation::BOOL>,
         P2: ::std::convert::Into<super::super::Foundation::BOOL>,
     {
-        (::windows::core::Interface::vtable(self).AddUserScopeRule)(::windows::core::Interface::as_raw(self), pszurl.into(), finclude.into(), foverridechildren.into(), ::core::mem::transmute(ffollowflags)).ok()
+        (::windows::core::Interface::vtable(self).AddUserScopeRule)(::windows::core::Interface::as_raw(self), pszurl.into(), finclude.into(), foverridechildren.into(), ffollowflags).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Search\"`*"]
     pub unsafe fn RemoveScopeRule<'a, P0>(&self, pszrule: P0) -> ::windows::core::Result<()>
@@ -17982,7 +17982,7 @@ impl ISearchCrawlScopeManager2 {
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
         P1: ::std::convert::Into<super::super::Foundation::BOOL>,
     {
-        (::windows::core::Interface::vtable(self).base__.AddDefaultScopeRule)(::windows::core::Interface::as_raw(self), pszurl.into(), finclude.into(), ::core::mem::transmute(ffollowflags)).ok()
+        (::windows::core::Interface::vtable(self).base__.AddDefaultScopeRule)(::windows::core::Interface::as_raw(self), pszurl.into(), finclude.into(), ffollowflags).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Search\"`*"]
     pub unsafe fn AddRoot<'a, P0>(&self, psearchroot: P0) -> ::windows::core::Result<()>
@@ -18022,7 +18022,7 @@ impl ISearchCrawlScopeManager2 {
         P1: ::std::convert::Into<super::super::Foundation::BOOL>,
         P2: ::std::convert::Into<super::super::Foundation::BOOL>,
     {
-        (::windows::core::Interface::vtable(self).base__.AddUserScopeRule)(::windows::core::Interface::as_raw(self), pszurl.into(), finclude.into(), foverridechildren.into(), ::core::mem::transmute(ffollowflags)).ok()
+        (::windows::core::Interface::vtable(self).base__.AddUserScopeRule)(::windows::core::Interface::as_raw(self), pszurl.into(), finclude.into(), foverridechildren.into(), ffollowflags).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Search\"`*"]
     pub unsafe fn RemoveScopeRule<'a, P0>(&self, pszrule: P0) -> ::windows::core::Result<()>
@@ -18249,11 +18249,11 @@ impl ISearchLanguageSupport {
     }
     #[doc = "*Required features: `\"Win32_System_Search\"`*"]
     pub unsafe fn LoadWordBreaker(&self, lcid: u32, riid: *const ::windows::core::GUID, ppwordbreaker: *mut *mut ::core::ffi::c_void, plcidused: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).LoadWordBreaker)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lcid), ::core::mem::transmute(riid), ::core::mem::transmute(ppwordbreaker), ::core::mem::transmute(plcidused)).ok()
+        (::windows::core::Interface::vtable(self).LoadWordBreaker)(::windows::core::Interface::as_raw(self), lcid, ::core::mem::transmute(riid), ::core::mem::transmute(ppwordbreaker), ::core::mem::transmute(plcidused)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Search\"`*"]
     pub unsafe fn LoadStemmer(&self, lcid: u32, riid: *const ::windows::core::GUID, ppstemmer: *mut *mut ::core::ffi::c_void, plcidused: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).LoadStemmer)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lcid), ::core::mem::transmute(riid), ::core::mem::transmute(ppstemmer), ::core::mem::transmute(plcidused)).ok()
+        (::windows::core::Interface::vtable(self).LoadStemmer)(::windows::core::Interface::as_raw(self), lcid, ::core::mem::transmute(riid), ::core::mem::transmute(ppstemmer), ::core::mem::transmute(plcidused)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Search\"`*"]
     pub unsafe fn IsPrefixNormalized(&self, pwcsquerytoken: &[u16], pwcsdocumenttoken: &[u16]) -> ::windows::core::Result<u32> {
@@ -18360,7 +18360,7 @@ impl ISearchManager {
         P1: ::std::convert::Into<::windows::core::PCWSTR>,
         P2: ::std::convert::Into<::windows::core::PCWSTR>,
     {
-        (::windows::core::Interface::vtable(self).SetProxy)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(suseproxy), flocalbypassproxy.into(), ::core::mem::transmute(dwportnumber), pszproxyname.into(), pszbypasslist.into()).ok()
+        (::windows::core::Interface::vtable(self).SetProxy)(::windows::core::Interface::as_raw(self), suseproxy, flocalbypassproxy.into(), dwportnumber, pszproxyname.into(), pszbypasslist.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Search\"`*"]
     pub unsafe fn GetCatalog<'a, P0>(&self, pszcatalog: P0) -> ::windows::core::Result<ISearchCatalogManager>
@@ -18512,7 +18512,7 @@ impl ISearchManager2 {
         P1: ::std::convert::Into<::windows::core::PCWSTR>,
         P2: ::std::convert::Into<::windows::core::PCWSTR>,
     {
-        (::windows::core::Interface::vtable(self).base__.SetProxy)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(suseproxy), flocalbypassproxy.into(), ::core::mem::transmute(dwportnumber), pszproxyname.into(), pszbypasslist.into()).ok()
+        (::windows::core::Interface::vtable(self).base__.SetProxy)(::windows::core::Interface::as_raw(self), suseproxy, flocalbypassproxy.into(), dwportnumber, pszproxyname.into(), pszbypasslist.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Search\"`*"]
     pub unsafe fn GetCatalog<'a, P0>(&self, pszcatalog: P0) -> ::windows::core::Result<ISearchCatalogManager>
@@ -18629,11 +18629,11 @@ pub struct ISearchNotifyInlineSite(::windows::core::IUnknown);
 impl ISearchNotifyInlineSite {
     #[doc = "*Required features: `\"Win32_System_Search\"`*"]
     pub unsafe fn OnItemIndexedStatusChange(&self, sipstatus: SEARCH_INDEXING_PHASE, rgitemstatusentries: &[SEARCH_ITEM_INDEXING_STATUS]) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).OnItemIndexedStatusChange)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(sipstatus), rgitemstatusentries.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(rgitemstatusentries))).ok()
+        (::windows::core::Interface::vtable(self).OnItemIndexedStatusChange)(::windows::core::Interface::as_raw(self), sipstatus, rgitemstatusentries.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(rgitemstatusentries))).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Search\"`*"]
     pub unsafe fn OnCatalogStatusChange(&self, guidcatalogresetsignature: *const ::windows::core::GUID, guidcheckpointsignature: *const ::windows::core::GUID, dwlastcheckpointnumber: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).OnCatalogStatusChange)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(guidcatalogresetsignature), ::core::mem::transmute(guidcheckpointsignature), ::core::mem::transmute(dwlastcheckpointnumber)).ok()
+        (::windows::core::Interface::vtable(self).OnCatalogStatusChange)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(guidcatalogresetsignature), ::core::mem::transmute(guidcheckpointsignature), dwlastcheckpointnumber).ok()
     }
 }
 impl ::core::convert::From<ISearchNotifyInlineSite> for ::windows::core::IUnknown {
@@ -18939,7 +18939,7 @@ impl ISearchProtocolThreadContext {
     }
     #[doc = "*Required features: `\"Win32_System_Search\"`*"]
     pub unsafe fn ThreadIdle(&self, dwtimeelaspedsincelastcallinms: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).ThreadIdle)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(dwtimeelaspedsincelastcallinms)).ok()
+        (::windows::core::Interface::vtable(self).ThreadIdle)(::windows::core::Interface::as_raw(self), dwtimeelaspedsincelastcallinms).ok()
     }
 }
 impl ::core::convert::From<ISearchProtocolThreadContext> for ::windows::core::IUnknown {
@@ -18996,7 +18996,7 @@ impl ISearchQueryHelper {
     }
     #[doc = "*Required features: `\"Win32_System_Search\"`*"]
     pub unsafe fn SetQueryContentLocale(&self, lcid: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetQueryContentLocale)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lcid)).ok()
+        (::windows::core::Interface::vtable(self).SetQueryContentLocale)(::windows::core::Interface::as_raw(self), lcid).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Search\"`*"]
     pub unsafe fn QueryContentLocale(&self) -> ::windows::core::Result<u32> {
@@ -19005,7 +19005,7 @@ impl ISearchQueryHelper {
     }
     #[doc = "*Required features: `\"Win32_System_Search\"`*"]
     pub unsafe fn SetQueryKeywordLocale(&self, lcid: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetQueryKeywordLocale)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lcid)).ok()
+        (::windows::core::Interface::vtable(self).SetQueryKeywordLocale)(::windows::core::Interface::as_raw(self), lcid).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Search\"`*"]
     pub unsafe fn QueryKeywordLocale(&self) -> ::windows::core::Result<u32> {
@@ -19014,7 +19014,7 @@ impl ISearchQueryHelper {
     }
     #[doc = "*Required features: `\"Win32_System_Search\"`*"]
     pub unsafe fn SetQueryTermExpansion(&self, expandterms: SEARCH_TERM_EXPANSION) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetQueryTermExpansion)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(expandterms)).ok()
+        (::windows::core::Interface::vtable(self).SetQueryTermExpansion)(::windows::core::Interface::as_raw(self), expandterms).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Search\"`*"]
     pub unsafe fn QueryTermExpansion(&self) -> ::windows::core::Result<SEARCH_TERM_EXPANSION> {
@@ -19023,7 +19023,7 @@ impl ISearchQueryHelper {
     }
     #[doc = "*Required features: `\"Win32_System_Search\"`*"]
     pub unsafe fn SetQuerySyntax(&self, querysyntax: SEARCH_QUERY_SYNTAX) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetQuerySyntax)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(querysyntax)).ok()
+        (::windows::core::Interface::vtable(self).SetQuerySyntax)(::windows::core::Interface::as_raw(self), querysyntax).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Search\"`*"]
     pub unsafe fn QuerySyntax(&self) -> ::windows::core::Result<SEARCH_QUERY_SYNTAX> {
@@ -19089,11 +19089,11 @@ impl ISearchQueryHelper {
     #[doc = "*Required features: `\"Win32_System_Search\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_UI_Shell_PropertiesSystem\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_UI_Shell_PropertiesSystem"))]
     pub unsafe fn WriteProperties(&self, itemid: i32, dwnumberofcolumns: u32, pcolumns: *const super::super::UI::Shell::PropertiesSystem::PROPERTYKEY, pvalues: *const SEARCH_COLUMN_PROPERTIES, pftgathermodifiedtime: *const super::super::Foundation::FILETIME) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).WriteProperties)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(itemid), ::core::mem::transmute(dwnumberofcolumns), ::core::mem::transmute(pcolumns), ::core::mem::transmute(pvalues), ::core::mem::transmute(pftgathermodifiedtime)).ok()
+        (::windows::core::Interface::vtable(self).WriteProperties)(::windows::core::Interface::as_raw(self), itemid, ::core::mem::transmute(dwnumberofcolumns), ::core::mem::transmute(pcolumns), ::core::mem::transmute(pvalues), ::core::mem::transmute(pftgathermodifiedtime)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Search\"`*"]
     pub unsafe fn SetQueryMaxResults(&self, cmaxresults: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetQueryMaxResults)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(cmaxresults)).ok()
+        (::windows::core::Interface::vtable(self).SetQueryMaxResults)(::windows::core::Interface::as_raw(self), cmaxresults).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Search\"`*"]
     pub unsafe fn QueryMaxResults(&self) -> ::windows::core::Result<i32> {
@@ -19175,7 +19175,7 @@ impl ISearchQueryHits {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Storage::IndexServer::IFilter>>,
     {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).Init)(::windows::core::Interface::as_raw(self), pflt.into().abi(), ::core::mem::transmute(ulflags)))
+        ::core::mem::transmute((::windows::core::Interface::vtable(self).Init)(::windows::core::Interface::as_raw(self), pflt.into().abi(), ulflags))
     }
     #[doc = "*Required features: `\"Win32_System_Search\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -19312,7 +19312,7 @@ impl ISearchRoot {
     }
     #[doc = "*Required features: `\"Win32_System_Search\"`*"]
     pub unsafe fn SetEnumerationDepth(&self, dwdepth: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetEnumerationDepth)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(dwdepth)).ok()
+        (::windows::core::Interface::vtable(self).SetEnumerationDepth)(::windows::core::Interface::as_raw(self), dwdepth).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Search\"`*"]
     pub unsafe fn EnumerationDepth(&self) -> ::windows::core::Result<u32> {
@@ -19321,7 +19321,7 @@ impl ISearchRoot {
     }
     #[doc = "*Required features: `\"Win32_System_Search\"`*"]
     pub unsafe fn SetHostDepth(&self, dwdepth: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetHostDepth)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(dwdepth)).ok()
+        (::windows::core::Interface::vtable(self).SetHostDepth)(::windows::core::Interface::as_raw(self), dwdepth).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Search\"`*"]
     pub unsafe fn HostDepth(&self) -> ::windows::core::Result<u32> {
@@ -19344,7 +19344,7 @@ impl ISearchRoot {
     }
     #[doc = "*Required features: `\"Win32_System_Search\"`*"]
     pub unsafe fn SetAuthenticationType(&self, authtype: AUTH_TYPE) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetAuthenticationType)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(authtype)).ok()
+        (::windows::core::Interface::vtable(self).SetAuthenticationType)(::windows::core::Interface::as_raw(self), authtype).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Search\"`*"]
     pub unsafe fn AuthenticationType(&self) -> ::windows::core::Result<AUTH_TYPE> {
@@ -19797,7 +19797,7 @@ impl ISimpleCommandCreator {
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
-        (::windows::core::Interface::vtable(self).GetDefaultCatalog)(::windows::core::Interface::as_raw(self), pwszcatalogname.into(), ::core::mem::transmute(cwcin), ::core::mem::transmute(pcwcout)).ok()
+        (::windows::core::Interface::vtable(self).GetDefaultCatalog)(::windows::core::Interface::as_raw(self), pwszcatalogname.into(), cwcin, ::core::mem::transmute(pcwcout)).ok()
     }
 }
 impl ::core::convert::From<ISimpleCommandCreator> for ::windows::core::IUnknown {
@@ -19907,7 +19907,7 @@ impl IStemmer {
     #[doc = "*Required features: `\"Win32_System_Search\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Init(&self, ulmaxtokensize: u32, pflicense: *mut super::super::Foundation::BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Init)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(ulmaxtokensize), ::core::mem::transmute(pflicense)).ok()
+        (::windows::core::Interface::vtable(self).Init)(::windows::core::Interface::as_raw(self), ulmaxtokensize, ::core::mem::transmute(pflicense)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Search\"`*"]
     pub unsafe fn GenerateWordForms<'a, P0, P1>(&self, pwcinbuf: P0, cwc: u32, pstemsink: P1) -> ::windows::core::Result<()>
@@ -19915,7 +19915,7 @@ impl IStemmer {
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
         P1: ::std::convert::Into<::windows::core::InParam<'a, IWordFormSink>>,
     {
-        (::windows::core::Interface::vtable(self).GenerateWordForms)(::windows::core::Interface::as_raw(self), pwcinbuf.into(), ::core::mem::transmute(cwc), pstemsink.into().abi()).ok()
+        (::windows::core::Interface::vtable(self).GenerateWordForms)(::windows::core::Interface::as_raw(self), pwcinbuf.into(), cwc, pstemsink.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Search\"`*"]
     pub unsafe fn GetLicenseToUse(&self, ppwcslicense: *const *const u16) -> ::windows::core::Result<()> {
@@ -20105,7 +20105,7 @@ impl ISubscriptionMgr {
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetDefaultInfo(&self, subtype: SUBSCRIPTIONTYPE) -> ::windows::core::Result<SUBSCRIPTIONINFO> {
         let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<SUBSCRIPTIONINFO>>::zeroed();
-        (::windows::core::Interface::vtable(self).GetDefaultInfo)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(subtype), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<SUBSCRIPTIONINFO>(result__)
+        (::windows::core::Interface::vtable(self).GetDefaultInfo)(::windows::core::Interface::as_raw(self), subtype, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<SUBSCRIPTIONINFO>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Search\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -20124,7 +20124,7 @@ impl ISubscriptionMgr {
         P1: ::std::convert::Into<::windows::core::PCWSTR>,
         P2: ::std::convert::Into<::windows::core::PCWSTR>,
     {
-        (::windows::core::Interface::vtable(self).CreateSubscription)(::windows::core::Interface::as_raw(self), hwnd.into(), pwszurl.into(), pwszfriendlyname.into(), ::core::mem::transmute(dwflags), ::core::mem::transmute(substype), ::core::mem::transmute(pinfo)).ok()
+        (::windows::core::Interface::vtable(self).CreateSubscription)(::windows::core::Interface::as_raw(self), hwnd.into(), pwszurl.into(), pwszfriendlyname.into(), dwflags, substype, ::core::mem::transmute(pinfo)).ok()
     }
 }
 impl ::core::convert::From<ISubscriptionMgr> for ::windows::core::IUnknown {
@@ -20239,7 +20239,7 @@ impl ISubscriptionMgr2 {
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetDefaultInfo(&self, subtype: SUBSCRIPTIONTYPE) -> ::windows::core::Result<SUBSCRIPTIONINFO> {
         let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<SUBSCRIPTIONINFO>>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.GetDefaultInfo)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(subtype), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<SUBSCRIPTIONINFO>(result__)
+        (::windows::core::Interface::vtable(self).base__.GetDefaultInfo)(::windows::core::Interface::as_raw(self), subtype, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<SUBSCRIPTIONINFO>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Search\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -20258,7 +20258,7 @@ impl ISubscriptionMgr2 {
         P1: ::std::convert::Into<::windows::core::PCWSTR>,
         P2: ::std::convert::Into<::windows::core::PCWSTR>,
     {
-        (::windows::core::Interface::vtable(self).base__.CreateSubscription)(::windows::core::Interface::as_raw(self), hwnd.into(), pwszurl.into(), pwszfriendlyname.into(), ::core::mem::transmute(dwflags), ::core::mem::transmute(substype), ::core::mem::transmute(pinfo)).ok()
+        (::windows::core::Interface::vtable(self).base__.CreateSubscription)(::windows::core::Interface::as_raw(self), hwnd.into(), pwszurl.into(), pwszfriendlyname.into(), dwflags, substype, ::core::mem::transmute(pinfo)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Search\"`*"]
     pub unsafe fn GetItemFromURL<'a, P0>(&self, pwszurl: P0) -> ::windows::core::Result<ISubscriptionItem>
@@ -20280,11 +20280,11 @@ impl ISubscriptionMgr2 {
     #[doc = "*Required features: `\"Win32_System_Search\"`*"]
     pub unsafe fn EnumSubscriptions(&self, dwflags: u32) -> ::windows::core::Result<IEnumSubscription> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).EnumSubscriptions)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(dwflags), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IEnumSubscription>(result__)
+        (::windows::core::Interface::vtable(self).EnumSubscriptions)(::windows::core::Interface::as_raw(self), dwflags, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IEnumSubscription>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Search\"`*"]
     pub unsafe fn UpdateItems(&self, dwflags: u32, pcookies: &[::windows::core::GUID]) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).UpdateItems)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(dwflags), pcookies.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(pcookies))).ok()
+        (::windows::core::Interface::vtable(self).UpdateItems)(::windows::core::Interface::as_raw(self), dwflags, pcookies.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(pcookies))).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Search\"`*"]
     pub unsafe fn AbortItems(&self, pcookies: &[::windows::core::GUID]) -> ::windows::core::Result<()> {
@@ -20644,7 +20644,7 @@ impl ITableDefinitionWithConstraints {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>,
     {
-        (::windows::core::Interface::vtable(self).CreateTableWithConstraints)(::windows::core::Interface::as_raw(self), punkouter.into().abi(), ::core::mem::transmute(ptableid), ::core::mem::transmute(ccolumndescs), ::core::mem::transmute(rgcolumndescs), ::core::mem::transmute(cconstraintdescs), ::core::mem::transmute(rgconstraintdescs), ::core::mem::transmute(riid), ::core::mem::transmute(cpropertysets), ::core::mem::transmute(rgpropertysets), ::core::mem::transmute(pptableid), ::core::mem::transmute(pprowset)).ok()
+        (::windows::core::Interface::vtable(self).CreateTableWithConstraints)(::windows::core::Interface::as_raw(self), punkouter.into().abi(), ::core::mem::transmute(ptableid), ccolumndescs, ::core::mem::transmute(rgcolumndescs), cconstraintdescs, ::core::mem::transmute(rgconstraintdescs), ::core::mem::transmute(riid), cpropertysets, ::core::mem::transmute(rgpropertysets), ::core::mem::transmute(pptableid), ::core::mem::transmute(pprowset)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Search\"`, `\"Win32_Storage_IndexServer\"`*"]
     #[cfg(feature = "Win32_Storage_IndexServer")]
@@ -20807,7 +20807,7 @@ impl ITokenCollection {
     }
     #[doc = "*Required features: `\"Win32_System_Search\"`*"]
     pub unsafe fn GetToken(&self, i: u32, pbegin: *mut u32, plength: *mut u32, ppsz: *mut ::windows::core::PWSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetToken)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(i), ::core::mem::transmute(pbegin), ::core::mem::transmute(plength), ::core::mem::transmute(ppsz)).ok()
+        (::windows::core::Interface::vtable(self).GetToken)(::windows::core::Interface::as_raw(self), i, ::core::mem::transmute(pbegin), ::core::mem::transmute(plength), ::core::mem::transmute(ppsz)).ok()
     }
 }
 impl ::core::convert::From<ITokenCollection> for ::windows::core::IUnknown {
@@ -20869,7 +20869,7 @@ impl ITransactionJoin {
         P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>,
         P1: ::std::convert::Into<::windows::core::InParam<'a, super::DistributedTransactionCoordinator::ITransactionOptions>>,
     {
-        (::windows::core::Interface::vtable(self).JoinTransaction)(::windows::core::Interface::as_raw(self), punktransactioncoord.into().abi(), ::core::mem::transmute(isolevel), ::core::mem::transmute(isoflags), potheroptions.into().abi()).ok()
+        (::windows::core::Interface::vtable(self).JoinTransaction)(::windows::core::Interface::as_raw(self), punktransactioncoord.into().abi(), isolevel, isoflags, potheroptions.into().abi()).ok()
     }
 }
 impl ::core::convert::From<ITransactionJoin> for ::windows::core::IUnknown {
@@ -20932,7 +20932,7 @@ impl ITransactionLocal {
     where
         P0: ::std::convert::Into<super::super::Foundation::BOOL>,
     {
-        (::windows::core::Interface::vtable(self).base__.Commit)(::windows::core::Interface::as_raw(self), fretaining.into(), ::core::mem::transmute(grftc), ::core::mem::transmute(grfrm)).ok()
+        (::windows::core::Interface::vtable(self).base__.Commit)(::windows::core::Interface::as_raw(self), fretaining.into(), grftc, grfrm).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Search\"`, `\"Win32_Foundation\"`, `\"Win32_System_DistributedTransactionCoordinator\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_DistributedTransactionCoordinator"))]
@@ -20962,7 +20962,7 @@ impl ITransactionLocal {
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::DistributedTransactionCoordinator::ITransactionOptions>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::<u32>::zeroed();
-        (::windows::core::Interface::vtable(self).StartTransaction)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(isolevel), ::core::mem::transmute(isoflags), potheroptions.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
+        (::windows::core::Interface::vtable(self).StartTransaction)(::windows::core::Interface::as_raw(self), isolevel, isoflags, potheroptions.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
     }
 }
 #[cfg(feature = "Win32_System_DistributedTransactionCoordinator")]
@@ -21048,7 +21048,7 @@ impl ITransactionObject {
     #[cfg(feature = "Win32_System_DistributedTransactionCoordinator")]
     pub unsafe fn GetTransactionObject(&self, ultransactionlevel: u32) -> ::windows::core::Result<super::DistributedTransactionCoordinator::ITransaction> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).GetTransactionObject)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(ultransactionlevel), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::DistributedTransactionCoordinator::ITransaction>(result__)
+        (::windows::core::Interface::vtable(self).GetTransactionObject)(::windows::core::Interface::as_raw(self), ultransactionlevel, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::DistributedTransactionCoordinator::ITransaction>(result__)
     }
 }
 impl ::core::convert::From<ITransactionObject> for ::windows::core::IUnknown {
@@ -21107,7 +21107,7 @@ impl ITrusteeAdmin {
     #[doc = "*Required features: `\"Win32_System_Search\"`, `\"Win32_Foundation\"`, `\"Win32_Security_Authorization\"`, `\"Win32_Storage_IndexServer\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Authorization", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn CreateTrustee(&self, ptrustee: *mut super::super::Security::Authorization::TRUSTEE_W, cpropertysets: u32, rgpropertysets: *mut DBPROPSET) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).CreateTrustee)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(ptrustee), ::core::mem::transmute(cpropertysets), ::core::mem::transmute(rgpropertysets)).ok()
+        (::windows::core::Interface::vtable(self).CreateTrustee)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(ptrustee), cpropertysets, ::core::mem::transmute(rgpropertysets)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Search\"`, `\"Win32_Security_Authorization\"`*"]
     #[cfg(feature = "Win32_Security_Authorization")]
@@ -21117,12 +21117,12 @@ impl ITrusteeAdmin {
     #[doc = "*Required features: `\"Win32_System_Search\"`, `\"Win32_Foundation\"`, `\"Win32_Security_Authorization\"`, `\"Win32_Storage_IndexServer\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Authorization", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn SetTrusteeProperties(&self, ptrustee: *mut super::super::Security::Authorization::TRUSTEE_W, cpropertysets: u32, rgpropertysets: *mut DBPROPSET) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetTrusteeProperties)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(ptrustee), ::core::mem::transmute(cpropertysets), ::core::mem::transmute(rgpropertysets)).ok()
+        (::windows::core::Interface::vtable(self).SetTrusteeProperties)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(ptrustee), cpropertysets, ::core::mem::transmute(rgpropertysets)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Search\"`, `\"Win32_Foundation\"`, `\"Win32_Security_Authorization\"`, `\"Win32_Storage_IndexServer\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Authorization", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn GetTrusteeProperties(&self, ptrustee: *mut super::super::Security::Authorization::TRUSTEE_W, cpropertyidsets: u32, rgpropertyidsets: *const DBPROPIDSET, pcpropertysets: *mut u32, prgpropertysets: *mut *mut DBPROPSET) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetTrusteeProperties)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(ptrustee), ::core::mem::transmute(cpropertyidsets), ::core::mem::transmute(rgpropertyidsets), ::core::mem::transmute(pcpropertysets), ::core::mem::transmute(prgpropertysets)).ok()
+        (::windows::core::Interface::vtable(self).GetTrusteeProperties)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(ptrustee), cpropertyidsets, ::core::mem::transmute(rgpropertyidsets), ::core::mem::transmute(pcpropertysets), ::core::mem::transmute(prgpropertysets)).ok()
     }
 }
 impl ::core::convert::From<ITrusteeAdmin> for ::windows::core::IUnknown {
@@ -21281,11 +21281,11 @@ pub struct IUMS(::windows::core::IUnknown);
 impl IUMS {
     #[doc = "*Required features: `\"Win32_System_Search\"`*"]
     pub unsafe fn SqlUmsSuspend(&self, ticks: u32) {
-        (::windows::core::Interface::vtable(self).SqlUmsSuspend)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(ticks))
+        (::windows::core::Interface::vtable(self).SqlUmsSuspend)(::windows::core::Interface::as_raw(self), ticks)
     }
     #[doc = "*Required features: `\"Win32_System_Search\"`*"]
     pub unsafe fn SqlUmsYield(&self, ticks: u32) {
-        (::windows::core::Interface::vtable(self).SqlUmsYield)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(ticks))
+        (::windows::core::Interface::vtable(self).SqlUmsYield)(::windows::core::Interface::as_raw(self), ticks)
     }
     #[doc = "*Required features: `\"Win32_System_Search\"`*"]
     pub unsafe fn SqlUmsSwitchPremptive(&self) {
@@ -21394,7 +21394,7 @@ impl IUrlAccessor {
     }
     #[doc = "*Required features: `\"Win32_System_Search\"`*"]
     pub unsafe fn GetDocFormat(&self, wszdocformat: ::windows::core::PWSTR, dwsize: u32, pdwlength: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetDocFormat)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(wszdocformat), ::core::mem::transmute(dwsize), ::core::mem::transmute(pdwlength)).ok()
+        (::windows::core::Interface::vtable(self).GetDocFormat)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(wszdocformat), dwsize, ::core::mem::transmute(pdwlength)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Search\"`*"]
     pub unsafe fn GetCLSID(&self) -> ::windows::core::Result<::windows::core::GUID> {
@@ -21403,7 +21403,7 @@ impl IUrlAccessor {
     }
     #[doc = "*Required features: `\"Win32_System_Search\"`*"]
     pub unsafe fn GetHost(&self, wszhost: ::windows::core::PWSTR, dwsize: u32, pdwlength: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetHost)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(wszhost), ::core::mem::transmute(dwsize), ::core::mem::transmute(pdwlength)).ok()
+        (::windows::core::Interface::vtable(self).GetHost)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(wszhost), dwsize, ::core::mem::transmute(pdwlength)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Search\"`*"]
     pub unsafe fn IsDirectory(&self) -> ::windows::core::Result<()> {
@@ -21422,7 +21422,7 @@ impl IUrlAccessor {
     }
     #[doc = "*Required features: `\"Win32_System_Search\"`*"]
     pub unsafe fn GetFileName(&self, wszfilename: ::windows::core::PWSTR, dwsize: u32, pdwlength: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetFileName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(wszfilename), ::core::mem::transmute(dwsize), ::core::mem::transmute(pdwlength)).ok()
+        (::windows::core::Interface::vtable(self).GetFileName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(wszfilename), dwsize, ::core::mem::transmute(pdwlength)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Search\"`*"]
     pub unsafe fn GetSecurityDescriptor(&self, psd: &mut [u8], pdwlength: *mut u32) -> ::windows::core::Result<()> {
@@ -21430,7 +21430,7 @@ impl IUrlAccessor {
     }
     #[doc = "*Required features: `\"Win32_System_Search\"`*"]
     pub unsafe fn GetRedirectedURL(&self, wszredirectedurl: ::windows::core::PWSTR, dwsize: u32, pdwlength: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetRedirectedURL)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(wszredirectedurl), ::core::mem::transmute(dwsize), ::core::mem::transmute(pdwlength)).ok()
+        (::windows::core::Interface::vtable(self).GetRedirectedURL)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(wszredirectedurl), dwsize, ::core::mem::transmute(pdwlength)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Search\"`*"]
     pub unsafe fn GetSecurityProvider(&self) -> ::windows::core::Result<::windows::core::GUID> {
@@ -21526,7 +21526,7 @@ impl IUrlAccessor2 {
     }
     #[doc = "*Required features: `\"Win32_System_Search\"`*"]
     pub unsafe fn GetDocFormat(&self, wszdocformat: ::windows::core::PWSTR, dwsize: u32, pdwlength: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.GetDocFormat)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(wszdocformat), ::core::mem::transmute(dwsize), ::core::mem::transmute(pdwlength)).ok()
+        (::windows::core::Interface::vtable(self).base__.GetDocFormat)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(wszdocformat), dwsize, ::core::mem::transmute(pdwlength)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Search\"`*"]
     pub unsafe fn GetCLSID(&self) -> ::windows::core::Result<::windows::core::GUID> {
@@ -21535,7 +21535,7 @@ impl IUrlAccessor2 {
     }
     #[doc = "*Required features: `\"Win32_System_Search\"`*"]
     pub unsafe fn GetHost(&self, wszhost: ::windows::core::PWSTR, dwsize: u32, pdwlength: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.GetHost)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(wszhost), ::core::mem::transmute(dwsize), ::core::mem::transmute(pdwlength)).ok()
+        (::windows::core::Interface::vtable(self).base__.GetHost)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(wszhost), dwsize, ::core::mem::transmute(pdwlength)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Search\"`*"]
     pub unsafe fn IsDirectory(&self) -> ::windows::core::Result<()> {
@@ -21554,7 +21554,7 @@ impl IUrlAccessor2 {
     }
     #[doc = "*Required features: `\"Win32_System_Search\"`*"]
     pub unsafe fn GetFileName(&self, wszfilename: ::windows::core::PWSTR, dwsize: u32, pdwlength: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.GetFileName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(wszfilename), ::core::mem::transmute(dwsize), ::core::mem::transmute(pdwlength)).ok()
+        (::windows::core::Interface::vtable(self).base__.GetFileName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(wszfilename), dwsize, ::core::mem::transmute(pdwlength)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Search\"`*"]
     pub unsafe fn GetSecurityDescriptor(&self, psd: &mut [u8], pdwlength: *mut u32) -> ::windows::core::Result<()> {
@@ -21562,7 +21562,7 @@ impl IUrlAccessor2 {
     }
     #[doc = "*Required features: `\"Win32_System_Search\"`*"]
     pub unsafe fn GetRedirectedURL(&self, wszredirectedurl: ::windows::core::PWSTR, dwsize: u32, pdwlength: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.GetRedirectedURL)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(wszredirectedurl), ::core::mem::transmute(dwsize), ::core::mem::transmute(pdwlength)).ok()
+        (::windows::core::Interface::vtable(self).base__.GetRedirectedURL)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(wszredirectedurl), dwsize, ::core::mem::transmute(pdwlength)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Search\"`*"]
     pub unsafe fn GetSecurityProvider(&self) -> ::windows::core::Result<::windows::core::GUID> {
@@ -21583,7 +21583,7 @@ impl IUrlAccessor2 {
     }
     #[doc = "*Required features: `\"Win32_System_Search\"`*"]
     pub unsafe fn GetDisplayUrl(&self, wszdocurl: ::windows::core::PWSTR, dwsize: u32, pdwlength: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetDisplayUrl)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(wszdocurl), ::core::mem::transmute(dwsize), ::core::mem::transmute(pdwlength)).ok()
+        (::windows::core::Interface::vtable(self).GetDisplayUrl)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(wszdocurl), dwsize, ::core::mem::transmute(pdwlength)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Search\"`*"]
     pub unsafe fn IsDocument(&self) -> ::windows::core::Result<()> {
@@ -21591,7 +21591,7 @@ impl IUrlAccessor2 {
     }
     #[doc = "*Required features: `\"Win32_System_Search\"`*"]
     pub unsafe fn GetCodePage(&self, wszcodepage: ::windows::core::PWSTR, dwsize: u32, pdwlength: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetCodePage)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(wszcodepage), ::core::mem::transmute(dwsize), ::core::mem::transmute(pdwlength)).ok()
+        (::windows::core::Interface::vtable(self).GetCodePage)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(wszcodepage), dwsize, ::core::mem::transmute(pdwlength)).ok()
     }
 }
 impl ::core::convert::From<IUrlAccessor2> for ::windows::core::IUnknown {
@@ -21663,7 +21663,7 @@ impl IUrlAccessor3 {
     }
     #[doc = "*Required features: `\"Win32_System_Search\"`*"]
     pub unsafe fn GetDocFormat(&self, wszdocformat: ::windows::core::PWSTR, dwsize: u32, pdwlength: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.GetDocFormat)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(wszdocformat), ::core::mem::transmute(dwsize), ::core::mem::transmute(pdwlength)).ok()
+        (::windows::core::Interface::vtable(self).base__.base__.GetDocFormat)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(wszdocformat), dwsize, ::core::mem::transmute(pdwlength)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Search\"`*"]
     pub unsafe fn GetCLSID(&self) -> ::windows::core::Result<::windows::core::GUID> {
@@ -21672,7 +21672,7 @@ impl IUrlAccessor3 {
     }
     #[doc = "*Required features: `\"Win32_System_Search\"`*"]
     pub unsafe fn GetHost(&self, wszhost: ::windows::core::PWSTR, dwsize: u32, pdwlength: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.GetHost)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(wszhost), ::core::mem::transmute(dwsize), ::core::mem::transmute(pdwlength)).ok()
+        (::windows::core::Interface::vtable(self).base__.base__.GetHost)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(wszhost), dwsize, ::core::mem::transmute(pdwlength)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Search\"`*"]
     pub unsafe fn IsDirectory(&self) -> ::windows::core::Result<()> {
@@ -21691,7 +21691,7 @@ impl IUrlAccessor3 {
     }
     #[doc = "*Required features: `\"Win32_System_Search\"`*"]
     pub unsafe fn GetFileName(&self, wszfilename: ::windows::core::PWSTR, dwsize: u32, pdwlength: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.GetFileName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(wszfilename), ::core::mem::transmute(dwsize), ::core::mem::transmute(pdwlength)).ok()
+        (::windows::core::Interface::vtable(self).base__.base__.GetFileName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(wszfilename), dwsize, ::core::mem::transmute(pdwlength)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Search\"`*"]
     pub unsafe fn GetSecurityDescriptor(&self, psd: &mut [u8], pdwlength: *mut u32) -> ::windows::core::Result<()> {
@@ -21699,7 +21699,7 @@ impl IUrlAccessor3 {
     }
     #[doc = "*Required features: `\"Win32_System_Search\"`*"]
     pub unsafe fn GetRedirectedURL(&self, wszredirectedurl: ::windows::core::PWSTR, dwsize: u32, pdwlength: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.GetRedirectedURL)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(wszredirectedurl), ::core::mem::transmute(dwsize), ::core::mem::transmute(pdwlength)).ok()
+        (::windows::core::Interface::vtable(self).base__.base__.GetRedirectedURL)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(wszredirectedurl), dwsize, ::core::mem::transmute(pdwlength)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Search\"`*"]
     pub unsafe fn GetSecurityProvider(&self) -> ::windows::core::Result<::windows::core::GUID> {
@@ -21720,7 +21720,7 @@ impl IUrlAccessor3 {
     }
     #[doc = "*Required features: `\"Win32_System_Search\"`*"]
     pub unsafe fn GetDisplayUrl(&self, wszdocurl: ::windows::core::PWSTR, dwsize: u32, pdwlength: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.GetDisplayUrl)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(wszdocurl), ::core::mem::transmute(dwsize), ::core::mem::transmute(pdwlength)).ok()
+        (::windows::core::Interface::vtable(self).base__.GetDisplayUrl)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(wszdocurl), dwsize, ::core::mem::transmute(pdwlength)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Search\"`*"]
     pub unsafe fn IsDocument(&self) -> ::windows::core::Result<()> {
@@ -21728,7 +21728,7 @@ impl IUrlAccessor3 {
     }
     #[doc = "*Required features: `\"Win32_System_Search\"`*"]
     pub unsafe fn GetCodePage(&self, wszcodepage: ::windows::core::PWSTR, dwsize: u32, pdwlength: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.GetCodePage)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(wszcodepage), ::core::mem::transmute(dwsize), ::core::mem::transmute(pdwlength)).ok()
+        (::windows::core::Interface::vtable(self).base__.GetCodePage)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(wszcodepage), dwsize, ::core::mem::transmute(pdwlength)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Search\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -21824,7 +21824,7 @@ impl IUrlAccessor4 {
     }
     #[doc = "*Required features: `\"Win32_System_Search\"`*"]
     pub unsafe fn GetDocFormat(&self, wszdocformat: ::windows::core::PWSTR, dwsize: u32, pdwlength: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.base__.GetDocFormat)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(wszdocformat), ::core::mem::transmute(dwsize), ::core::mem::transmute(pdwlength)).ok()
+        (::windows::core::Interface::vtable(self).base__.base__.base__.GetDocFormat)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(wszdocformat), dwsize, ::core::mem::transmute(pdwlength)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Search\"`*"]
     pub unsafe fn GetCLSID(&self) -> ::windows::core::Result<::windows::core::GUID> {
@@ -21833,7 +21833,7 @@ impl IUrlAccessor4 {
     }
     #[doc = "*Required features: `\"Win32_System_Search\"`*"]
     pub unsafe fn GetHost(&self, wszhost: ::windows::core::PWSTR, dwsize: u32, pdwlength: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.base__.GetHost)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(wszhost), ::core::mem::transmute(dwsize), ::core::mem::transmute(pdwlength)).ok()
+        (::windows::core::Interface::vtable(self).base__.base__.base__.GetHost)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(wszhost), dwsize, ::core::mem::transmute(pdwlength)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Search\"`*"]
     pub unsafe fn IsDirectory(&self) -> ::windows::core::Result<()> {
@@ -21852,7 +21852,7 @@ impl IUrlAccessor4 {
     }
     #[doc = "*Required features: `\"Win32_System_Search\"`*"]
     pub unsafe fn GetFileName(&self, wszfilename: ::windows::core::PWSTR, dwsize: u32, pdwlength: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.base__.GetFileName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(wszfilename), ::core::mem::transmute(dwsize), ::core::mem::transmute(pdwlength)).ok()
+        (::windows::core::Interface::vtable(self).base__.base__.base__.GetFileName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(wszfilename), dwsize, ::core::mem::transmute(pdwlength)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Search\"`*"]
     pub unsafe fn GetSecurityDescriptor(&self, psd: &mut [u8], pdwlength: *mut u32) -> ::windows::core::Result<()> {
@@ -21860,7 +21860,7 @@ impl IUrlAccessor4 {
     }
     #[doc = "*Required features: `\"Win32_System_Search\"`*"]
     pub unsafe fn GetRedirectedURL(&self, wszredirectedurl: ::windows::core::PWSTR, dwsize: u32, pdwlength: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.base__.GetRedirectedURL)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(wszredirectedurl), ::core::mem::transmute(dwsize), ::core::mem::transmute(pdwlength)).ok()
+        (::windows::core::Interface::vtable(self).base__.base__.base__.GetRedirectedURL)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(wszredirectedurl), dwsize, ::core::mem::transmute(pdwlength)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Search\"`*"]
     pub unsafe fn GetSecurityProvider(&self) -> ::windows::core::Result<::windows::core::GUID> {
@@ -21881,7 +21881,7 @@ impl IUrlAccessor4 {
     }
     #[doc = "*Required features: `\"Win32_System_Search\"`*"]
     pub unsafe fn GetDisplayUrl(&self, wszdocurl: ::windows::core::PWSTR, dwsize: u32, pdwlength: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.GetDisplayUrl)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(wszdocurl), ::core::mem::transmute(dwsize), ::core::mem::transmute(pdwlength)).ok()
+        (::windows::core::Interface::vtable(self).base__.base__.GetDisplayUrl)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(wszdocurl), dwsize, ::core::mem::transmute(pdwlength)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Search\"`*"]
     pub unsafe fn IsDocument(&self) -> ::windows::core::Result<()> {
@@ -21889,7 +21889,7 @@ impl IUrlAccessor4 {
     }
     #[doc = "*Required features: `\"Win32_System_Search\"`*"]
     pub unsafe fn GetCodePage(&self, wszcodepage: ::windows::core::PWSTR, dwsize: u32, pdwlength: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.GetCodePage)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(wszcodepage), ::core::mem::transmute(dwsize), ::core::mem::transmute(pdwlength)).ok()
+        (::windows::core::Interface::vtable(self).base__.base__.GetCodePage)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(wszcodepage), dwsize, ::core::mem::transmute(pdwlength)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Search\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -22017,7 +22017,7 @@ impl IViewChapter {
     #[doc = "*Required features: `\"Win32_System_Search\"`*"]
     pub unsafe fn OpenViewChapter(&self, hsource: usize) -> ::windows::core::Result<usize> {
         let mut result__ = ::core::mem::MaybeUninit::<usize>::zeroed();
-        (::windows::core::Interface::vtable(self).OpenViewChapter)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(hsource), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<usize>(result__)
+        (::windows::core::Interface::vtable(self).OpenViewChapter)(::windows::core::Interface::as_raw(self), hsource, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<usize>(result__)
     }
 }
 impl ::core::convert::From<IViewChapter> for ::windows::core::IUnknown {
@@ -22068,7 +22068,7 @@ pub struct IViewFilter(::windows::core::IUnknown);
 impl IViewFilter {
     #[doc = "*Required features: `\"Win32_System_Search\"`*"]
     pub unsafe fn GetFilter(&self, haccessor: usize, pcrows: *mut usize, pcompareops: *mut *mut u32, pcriteriadata: *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetFilter)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(haccessor), ::core::mem::transmute(pcrows), ::core::mem::transmute(pcompareops), ::core::mem::transmute(pcriteriadata)).ok()
+        (::windows::core::Interface::vtable(self).GetFilter)(::windows::core::Interface::as_raw(self), haccessor, ::core::mem::transmute(pcrows), ::core::mem::transmute(pcompareops), ::core::mem::transmute(pcriteriadata)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Search\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -22077,7 +22077,7 @@ impl IViewFilter {
     }
     #[doc = "*Required features: `\"Win32_System_Search\"`*"]
     pub unsafe fn SetFilter(&self, haccessor: usize, compareops: &[u32], pcriteriadata: *const ::core::ffi::c_void) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetFilter)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(haccessor), compareops.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(compareops)), ::core::mem::transmute(pcriteriadata)).ok()
+        (::windows::core::Interface::vtable(self).SetFilter)(::windows::core::Interface::as_raw(self), haccessor, compareops.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(compareops)), ::core::mem::transmute(pcriteriadata)).ok()
     }
 }
 impl ::core::convert::From<IViewFilter> for ::windows::core::IUnknown {
@@ -22251,7 +22251,7 @@ impl IWordBreaker {
     where
         P0: ::std::convert::Into<super::super::Foundation::BOOL>,
     {
-        (::windows::core::Interface::vtable(self).Init)(::windows::core::Interface::as_raw(self), fquery.into(), ::core::mem::transmute(ulmaxtokensize), ::core::mem::transmute(pflicense)).ok()
+        (::windows::core::Interface::vtable(self).Init)(::windows::core::Interface::as_raw(self), fquery.into(), ulmaxtokensize, ::core::mem::transmute(pflicense)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Search\"`, `\"Win32_Storage_IndexServer\"`*"]
     #[cfg(feature = "Win32_Storage_IndexServer")]
@@ -22269,7 +22269,7 @@ impl IWordBreaker {
         P1: ::std::convert::Into<::windows::core::PCWSTR>,
         P2: ::std::convert::Into<::windows::core::PCWSTR>,
     {
-        (::windows::core::Interface::vtable(self).ComposePhrase)(::windows::core::Interface::as_raw(self), pwcnoun.into(), ::core::mem::transmute(cwcnoun), pwcmodifier.into(), ::core::mem::transmute(cwcmodifier), ::core::mem::transmute(ulattachmenttype), pwcphrase.into(), ::core::mem::transmute(pcwcphrase)).ok()
+        (::windows::core::Interface::vtable(self).ComposePhrase)(::windows::core::Interface::as_raw(self), pwcnoun.into(), cwcnoun, pwcmodifier.into(), cwcmodifier, ulattachmenttype, pwcphrase.into(), ::core::mem::transmute(pcwcphrase)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Search\"`*"]
     pub unsafe fn GetLicenseToUse(&self, ppwcslicense: *const *const u16) -> ::windows::core::Result<()> {
@@ -22335,14 +22335,14 @@ impl IWordFormSink {
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
-        (::windows::core::Interface::vtable(self).PutAltWord)(::windows::core::Interface::as_raw(self), pwcinbuf.into(), ::core::mem::transmute(cwc)).ok()
+        (::windows::core::Interface::vtable(self).PutAltWord)(::windows::core::Interface::as_raw(self), pwcinbuf.into(), cwc).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Search\"`*"]
     pub unsafe fn PutWord<'a, P0>(&self, pwcinbuf: P0, cwc: u32) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
-        (::windows::core::Interface::vtable(self).PutWord)(::windows::core::Interface::as_raw(self), pwcinbuf.into(), ::core::mem::transmute(cwc)).ok()
+        (::windows::core::Interface::vtable(self).PutWord)(::windows::core::Interface::as_raw(self), pwcinbuf.into(), cwc).ok()
     }
 }
 impl ::core::convert::From<IWordFormSink> for ::windows::core::IUnknown {
@@ -22396,14 +22396,14 @@ impl IWordSink {
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
-        (::windows::core::Interface::vtable(self).PutWord)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(cwc), pwcinbuf.into(), ::core::mem::transmute(cwcsrclen), ::core::mem::transmute(cwcsrcpos)).ok()
+        (::windows::core::Interface::vtable(self).PutWord)(::windows::core::Interface::as_raw(self), cwc, pwcinbuf.into(), cwcsrclen, cwcsrcpos).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Search\"`*"]
     pub unsafe fn PutAltWord<'a, P0>(&self, cwc: u32, pwcinbuf: P0, cwcsrclen: u32, cwcsrcpos: u32) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
-        (::windows::core::Interface::vtable(self).PutAltWord)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(cwc), pwcinbuf.into(), ::core::mem::transmute(cwcsrclen), ::core::mem::transmute(cwcsrcpos)).ok()
+        (::windows::core::Interface::vtable(self).PutAltWord)(::windows::core::Interface::as_raw(self), cwc, pwcinbuf.into(), cwcsrclen, cwcsrcpos).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Search\"`*"]
     pub unsafe fn StartAltPhrase(&self) -> ::windows::core::Result<()> {
@@ -22416,7 +22416,7 @@ impl IWordSink {
     #[doc = "*Required features: `\"Win32_System_Search\"`, `\"Win32_Storage_IndexServer\"`*"]
     #[cfg(feature = "Win32_Storage_IndexServer")]
     pub unsafe fn PutBreak(&self, breaktype: super::super::Storage::IndexServer::WORDREP_BREAK_TYPE) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).PutBreak)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(breaktype)).ok()
+        (::windows::core::Interface::vtable(self).PutBreak)(::windows::core::Interface::as_raw(self), breaktype).ok()
     }
 }
 impl ::core::convert::From<IWordSink> for ::windows::core::IUnknown {
@@ -23391,7 +23391,7 @@ pub unsafe fn ODBCSetTryWaitValue(dwvalue: u32) -> super::super::Foundation::BOO
     extern "system" {
         fn ODBCSetTryWaitValue(dwvalue: u32) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(ODBCSetTryWaitValue(::core::mem::transmute(dwvalue)))
+    ::core::mem::transmute(ODBCSetTryWaitValue(dwvalue))
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 pub const ODBCVER: u32 = 896u32;
@@ -23581,13 +23581,13 @@ impl OLEDBSimpleProvider {
     #[doc = "*Required features: `\"Win32_System_Search\"`*"]
     pub unsafe fn getRWStatus(&self, irow: isize, icolumn: isize) -> ::windows::core::Result<OSPRW> {
         let mut result__ = ::core::mem::MaybeUninit::<OSPRW>::zeroed();
-        (::windows::core::Interface::vtable(self).getRWStatus)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(irow), ::core::mem::transmute(icolumn), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<OSPRW>(result__)
+        (::windows::core::Interface::vtable(self).getRWStatus)(::windows::core::Interface::as_raw(self), irow, icolumn, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<OSPRW>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Search\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn getVariant(&self, irow: isize, icolumn: isize, format: OSPFORMAT) -> ::windows::core::Result<super::Com::VARIANT> {
         let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::Com::VARIANT>>::zeroed();
-        (::windows::core::Interface::vtable(self).getVariant)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(irow), ::core::mem::transmute(icolumn), ::core::mem::transmute(format), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::Com::VARIANT>(result__)
+        (::windows::core::Interface::vtable(self).getVariant)(::windows::core::Interface::as_raw(self), irow, icolumn, format, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::Com::VARIANT>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Search\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -23595,7 +23595,7 @@ impl OLEDBSimpleProvider {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::Com::VARIANT>>,
     {
-        (::windows::core::Interface::vtable(self).setVariant)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(irow), ::core::mem::transmute(icolumn), ::core::mem::transmute(format), var.into().abi()).ok()
+        (::windows::core::Interface::vtable(self).setVariant)(::windows::core::Interface::as_raw(self), irow, icolumn, format, var.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Search\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -23606,12 +23606,12 @@ impl OLEDBSimpleProvider {
     #[doc = "*Required features: `\"Win32_System_Search\"`*"]
     pub unsafe fn deleteRows(&self, irow: isize, crows: isize) -> ::windows::core::Result<isize> {
         let mut result__ = ::core::mem::MaybeUninit::<isize>::zeroed();
-        (::windows::core::Interface::vtable(self).deleteRows)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(irow), ::core::mem::transmute(crows), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<isize>(result__)
+        (::windows::core::Interface::vtable(self).deleteRows)(::windows::core::Interface::as_raw(self), irow, crows, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<isize>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Search\"`*"]
     pub unsafe fn insertRows(&self, irow: isize, crows: isize) -> ::windows::core::Result<isize> {
         let mut result__ = ::core::mem::MaybeUninit::<isize>::zeroed();
-        (::windows::core::Interface::vtable(self).insertRows)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(irow), ::core::mem::transmute(crows), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<isize>(result__)
+        (::windows::core::Interface::vtable(self).insertRows)(::windows::core::Interface::as_raw(self), irow, crows, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<isize>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Search\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -23620,7 +23620,7 @@ impl OLEDBSimpleProvider {
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::Com::VARIANT>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::<isize>::zeroed();
-        (::windows::core::Interface::vtable(self).find)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(irowstart), ::core::mem::transmute(icolumn), val.into().abi(), ::core::mem::transmute(findflags), ::core::mem::transmute(comptype), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<isize>(result__)
+        (::windows::core::Interface::vtable(self).find)(::windows::core::Interface::as_raw(self), irowstart, icolumn, val.into().abi(), findflags, comptype, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<isize>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Search\"`*"]
     pub unsafe fn addOLEDBSimpleProviderListener<'a, P0>(&self, pospilistener: P0) -> ::windows::core::Result<()>
@@ -23727,35 +23727,35 @@ pub struct OLEDBSimpleProviderListener(::windows::core::IUnknown);
 impl OLEDBSimpleProviderListener {
     #[doc = "*Required features: `\"Win32_System_Search\"`*"]
     pub unsafe fn aboutToChangeCell(&self, irow: isize, icolumn: isize) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).aboutToChangeCell)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(irow), ::core::mem::transmute(icolumn)).ok()
+        (::windows::core::Interface::vtable(self).aboutToChangeCell)(::windows::core::Interface::as_raw(self), irow, icolumn).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Search\"`*"]
     pub unsafe fn cellChanged(&self, irow: isize, icolumn: isize) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).cellChanged)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(irow), ::core::mem::transmute(icolumn)).ok()
+        (::windows::core::Interface::vtable(self).cellChanged)(::windows::core::Interface::as_raw(self), irow, icolumn).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Search\"`*"]
     pub unsafe fn aboutToDeleteRows(&self, irow: isize, crows: isize) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).aboutToDeleteRows)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(irow), ::core::mem::transmute(crows)).ok()
+        (::windows::core::Interface::vtable(self).aboutToDeleteRows)(::windows::core::Interface::as_raw(self), irow, crows).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Search\"`*"]
     pub unsafe fn deletedRows(&self, irow: isize, crows: isize) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).deletedRows)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(irow), ::core::mem::transmute(crows)).ok()
+        (::windows::core::Interface::vtable(self).deletedRows)(::windows::core::Interface::as_raw(self), irow, crows).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Search\"`*"]
     pub unsafe fn aboutToInsertRows(&self, irow: isize, crows: isize) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).aboutToInsertRows)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(irow), ::core::mem::transmute(crows)).ok()
+        (::windows::core::Interface::vtable(self).aboutToInsertRows)(::windows::core::Interface::as_raw(self), irow, crows).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Search\"`*"]
     pub unsafe fn insertedRows(&self, irow: isize, crows: isize) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).insertedRows)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(irow), ::core::mem::transmute(crows)).ok()
+        (::windows::core::Interface::vtable(self).insertedRows)(::windows::core::Interface::as_raw(self), irow, crows).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Search\"`*"]
     pub unsafe fn rowsAvailable(&self, irow: isize, crows: isize) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).rowsAvailable)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(irow), ::core::mem::transmute(crows)).ok()
+        (::windows::core::Interface::vtable(self).rowsAvailable)(::windows::core::Interface::as_raw(self), irow, crows).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Search\"`*"]
     pub unsafe fn transferComplete(&self, xfer: OSPXFER) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).transferComplete)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(xfer)).ok()
+        (::windows::core::Interface::vtable(self).transferComplete)(::windows::core::Interface::as_raw(self), xfer).ok()
     }
 }
 impl ::core::convert::From<OLEDBSimpleProviderListener> for ::windows::core::IUnknown {
@@ -25349,7 +25349,7 @@ pub unsafe fn SQLAllocHandle(handletype: i16, inputhandle: *mut ::core::ffi::c_v
     extern "system" {
         fn SQLAllocHandle(handletype: i16, inputhandle: *mut ::core::ffi::c_void, outputhandle: *mut *mut ::core::ffi::c_void) -> i16;
     }
-    ::core::mem::transmute(SQLAllocHandle(::core::mem::transmute(handletype), ::core::mem::transmute(inputhandle), ::core::mem::transmute(outputhandle)))
+    ::core::mem::transmute(SQLAllocHandle(handletype, ::core::mem::transmute(inputhandle), ::core::mem::transmute(outputhandle)))
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[inline]
@@ -25358,7 +25358,7 @@ pub unsafe fn SQLAllocHandleStd(fhandletype: i16, hinput: *mut ::core::ffi::c_vo
     extern "system" {
         fn SQLAllocHandleStd(fhandletype: i16, hinput: *mut ::core::ffi::c_void, phoutput: *mut *mut ::core::ffi::c_void) -> i16;
     }
-    ::core::mem::transmute(SQLAllocHandleStd(::core::mem::transmute(fhandletype), ::core::mem::transmute(hinput), ::core::mem::transmute(phoutput)))
+    ::core::mem::transmute(SQLAllocHandleStd(fhandletype, ::core::mem::transmute(hinput), ::core::mem::transmute(phoutput)))
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[inline]
@@ -25391,7 +25391,7 @@ pub unsafe fn SQLBindCol(statementhandle: *mut ::core::ffi::c_void, columnnumber
     extern "system" {
         fn SQLBindCol(statementhandle: *mut ::core::ffi::c_void, columnnumber: u16, targettype: i16, targetvalue: *mut ::core::ffi::c_void, bufferlength: i64, strlen_or_ind: *mut i64) -> i16;
     }
-    ::core::mem::transmute(SQLBindCol(::core::mem::transmute(statementhandle), ::core::mem::transmute(columnnumber), ::core::mem::transmute(targettype), ::core::mem::transmute(targetvalue), ::core::mem::transmute(bufferlength), ::core::mem::transmute(strlen_or_ind)))
+    ::core::mem::transmute(SQLBindCol(::core::mem::transmute(statementhandle), columnnumber, targettype, ::core::mem::transmute(targetvalue), bufferlength, ::core::mem::transmute(strlen_or_ind)))
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[cfg(target_arch = "x86")]
@@ -25401,7 +25401,7 @@ pub unsafe fn SQLBindCol(statementhandle: *mut ::core::ffi::c_void, columnnumber
     extern "system" {
         fn SQLBindCol(statementhandle: *mut ::core::ffi::c_void, columnnumber: u16, targettype: i16, targetvalue: *mut ::core::ffi::c_void, bufferlength: i32, strlen_or_ind: *mut i32) -> i16;
     }
-    ::core::mem::transmute(SQLBindCol(::core::mem::transmute(statementhandle), ::core::mem::transmute(columnnumber), ::core::mem::transmute(targettype), ::core::mem::transmute(targetvalue), ::core::mem::transmute(bufferlength), ::core::mem::transmute(strlen_or_ind)))
+    ::core::mem::transmute(SQLBindCol(::core::mem::transmute(statementhandle), columnnumber, targettype, ::core::mem::transmute(targetvalue), bufferlength, ::core::mem::transmute(strlen_or_ind)))
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
@@ -25411,7 +25411,7 @@ pub unsafe fn SQLBindParam(statementhandle: *mut ::core::ffi::c_void, parametern
     extern "system" {
         fn SQLBindParam(statementhandle: *mut ::core::ffi::c_void, parameternumber: u16, valuetype: i16, parametertype: i16, lengthprecision: u64, parameterscale: i16, parametervalue: *mut ::core::ffi::c_void, strlen_or_ind: *mut i64) -> i16;
     }
-    ::core::mem::transmute(SQLBindParam(::core::mem::transmute(statementhandle), ::core::mem::transmute(parameternumber), ::core::mem::transmute(valuetype), ::core::mem::transmute(parametertype), ::core::mem::transmute(lengthprecision), ::core::mem::transmute(parameterscale), ::core::mem::transmute(parametervalue), ::core::mem::transmute(strlen_or_ind)))
+    ::core::mem::transmute(SQLBindParam(::core::mem::transmute(statementhandle), parameternumber, valuetype, parametertype, lengthprecision, parameterscale, ::core::mem::transmute(parametervalue), ::core::mem::transmute(strlen_or_ind)))
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[cfg(target_arch = "x86")]
@@ -25421,7 +25421,7 @@ pub unsafe fn SQLBindParam(statementhandle: *mut ::core::ffi::c_void, parametern
     extern "system" {
         fn SQLBindParam(statementhandle: *mut ::core::ffi::c_void, parameternumber: u16, valuetype: i16, parametertype: i16, lengthprecision: u32, parameterscale: i16, parametervalue: *mut ::core::ffi::c_void, strlen_or_ind: *mut i32) -> i16;
     }
-    ::core::mem::transmute(SQLBindParam(::core::mem::transmute(statementhandle), ::core::mem::transmute(parameternumber), ::core::mem::transmute(valuetype), ::core::mem::transmute(parametertype), ::core::mem::transmute(lengthprecision), ::core::mem::transmute(parameterscale), ::core::mem::transmute(parametervalue), ::core::mem::transmute(strlen_or_ind)))
+    ::core::mem::transmute(SQLBindParam(::core::mem::transmute(statementhandle), parameternumber, valuetype, parametertype, lengthprecision, parameterscale, ::core::mem::transmute(parametervalue), ::core::mem::transmute(strlen_or_ind)))
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
@@ -25431,7 +25431,7 @@ pub unsafe fn SQLBindParameter(hstmt: *mut ::core::ffi::c_void, ipar: u16, fpara
     extern "system" {
         fn SQLBindParameter(hstmt: *mut ::core::ffi::c_void, ipar: u16, fparamtype: i16, fctype: i16, fsqltype: i16, cbcoldef: u64, ibscale: i16, rgbvalue: *mut ::core::ffi::c_void, cbvaluemax: i64, pcbvalue: *mut i64) -> i16;
     }
-    ::core::mem::transmute(SQLBindParameter(::core::mem::transmute(hstmt), ::core::mem::transmute(ipar), ::core::mem::transmute(fparamtype), ::core::mem::transmute(fctype), ::core::mem::transmute(fsqltype), ::core::mem::transmute(cbcoldef), ::core::mem::transmute(ibscale), ::core::mem::transmute(rgbvalue), ::core::mem::transmute(cbvaluemax), ::core::mem::transmute(pcbvalue)))
+    ::core::mem::transmute(SQLBindParameter(::core::mem::transmute(hstmt), ipar, fparamtype, fctype, fsqltype, cbcoldef, ibscale, ::core::mem::transmute(rgbvalue), cbvaluemax, ::core::mem::transmute(pcbvalue)))
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[cfg(target_arch = "x86")]
@@ -25441,7 +25441,7 @@ pub unsafe fn SQLBindParameter(hstmt: *mut ::core::ffi::c_void, ipar: u16, fpara
     extern "system" {
         fn SQLBindParameter(hstmt: *mut ::core::ffi::c_void, ipar: u16, fparamtype: i16, fctype: i16, fsqltype: i16, cbcoldef: u32, ibscale: i16, rgbvalue: *mut ::core::ffi::c_void, cbvaluemax: i32, pcbvalue: *mut i32) -> i16;
     }
-    ::core::mem::transmute(SQLBindParameter(::core::mem::transmute(hstmt), ::core::mem::transmute(ipar), ::core::mem::transmute(fparamtype), ::core::mem::transmute(fctype), ::core::mem::transmute(fsqltype), ::core::mem::transmute(cbcoldef), ::core::mem::transmute(ibscale), ::core::mem::transmute(rgbvalue), ::core::mem::transmute(cbvaluemax), ::core::mem::transmute(pcbvalue)))
+    ::core::mem::transmute(SQLBindParameter(::core::mem::transmute(hstmt), ipar, fparamtype, fctype, fsqltype, cbcoldef, ibscale, ::core::mem::transmute(rgbvalue), cbvaluemax, ::core::mem::transmute(pcbvalue)))
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[inline]
@@ -25477,7 +25477,7 @@ pub unsafe fn SQLBulkOperations(statementhandle: *mut ::core::ffi::c_void, opera
     extern "system" {
         fn SQLBulkOperations(statementhandle: *mut ::core::ffi::c_void, operation: i16) -> i16;
     }
-    ::core::mem::transmute(SQLBulkOperations(::core::mem::transmute(statementhandle), ::core::mem::transmute(operation)))
+    ::core::mem::transmute(SQLBulkOperations(::core::mem::transmute(statementhandle), operation))
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 pub const SQLCHARACTER: u32 = 47u32;
@@ -25497,7 +25497,7 @@ pub unsafe fn SQLCancelHandle(handletype: i16, inputhandle: *mut ::core::ffi::c_
     extern "system" {
         fn SQLCancelHandle(handletype: i16, inputhandle: *mut ::core::ffi::c_void) -> i16;
     }
-    ::core::mem::transmute(SQLCancelHandle(::core::mem::transmute(handletype), ::core::mem::transmute(inputhandle)))
+    ::core::mem::transmute(SQLCancelHandle(handletype, ::core::mem::transmute(inputhandle)))
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[inline]
@@ -25529,7 +25529,7 @@ pub unsafe fn SQLColAttribute(statementhandle: *mut ::core::ffi::c_void, columnn
     extern "system" {
         fn SQLColAttribute(statementhandle: *mut ::core::ffi::c_void, columnnumber: u16, fieldidentifier: u16, characterattribute: *mut ::core::ffi::c_void, bufferlength: i16, stringlength: *mut i16, numericattribute: *mut i64) -> i16;
     }
-    ::core::mem::transmute(SQLColAttribute(::core::mem::transmute(statementhandle), ::core::mem::transmute(columnnumber), ::core::mem::transmute(fieldidentifier), ::core::mem::transmute(characterattribute), ::core::mem::transmute(bufferlength), ::core::mem::transmute(stringlength), ::core::mem::transmute(numericattribute)))
+    ::core::mem::transmute(SQLColAttribute(::core::mem::transmute(statementhandle), columnnumber, fieldidentifier, ::core::mem::transmute(characterattribute), bufferlength, ::core::mem::transmute(stringlength), ::core::mem::transmute(numericattribute)))
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[cfg(target_arch = "x86")]
@@ -25539,7 +25539,7 @@ pub unsafe fn SQLColAttribute(statementhandle: *mut ::core::ffi::c_void, columnn
     extern "system" {
         fn SQLColAttribute(statementhandle: *mut ::core::ffi::c_void, columnnumber: u16, fieldidentifier: u16, characterattribute: *mut ::core::ffi::c_void, bufferlength: i16, stringlength: *mut i16, numericattribute: *mut ::core::ffi::c_void) -> i16;
     }
-    ::core::mem::transmute(SQLColAttribute(::core::mem::transmute(statementhandle), ::core::mem::transmute(columnnumber), ::core::mem::transmute(fieldidentifier), ::core::mem::transmute(characterattribute), ::core::mem::transmute(bufferlength), ::core::mem::transmute(stringlength), ::core::mem::transmute(numericattribute)))
+    ::core::mem::transmute(SQLColAttribute(::core::mem::transmute(statementhandle), columnnumber, fieldidentifier, ::core::mem::transmute(characterattribute), bufferlength, ::core::mem::transmute(stringlength), ::core::mem::transmute(numericattribute)))
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
@@ -25549,7 +25549,7 @@ pub unsafe fn SQLColAttributeA(hstmt: *mut ::core::ffi::c_void, icol: i16, ifiel
     extern "system" {
         fn SQLColAttributeA(hstmt: *mut ::core::ffi::c_void, icol: i16, ifield: i16, pcharattr: *mut ::core::ffi::c_void, cbcharattrmax: i16, pcbcharattr: *mut i16, pnumattr: *mut i64) -> i16;
     }
-    ::core::mem::transmute(SQLColAttributeA(::core::mem::transmute(hstmt), ::core::mem::transmute(icol), ::core::mem::transmute(ifield), ::core::mem::transmute(pcharattr), ::core::mem::transmute(cbcharattrmax), ::core::mem::transmute(pcbcharattr), ::core::mem::transmute(pnumattr)))
+    ::core::mem::transmute(SQLColAttributeA(::core::mem::transmute(hstmt), icol, ifield, ::core::mem::transmute(pcharattr), cbcharattrmax, ::core::mem::transmute(pcbcharattr), ::core::mem::transmute(pnumattr)))
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[cfg(target_arch = "x86")]
@@ -25559,7 +25559,7 @@ pub unsafe fn SQLColAttributeA(hstmt: *mut ::core::ffi::c_void, icol: i16, ifiel
     extern "system" {
         fn SQLColAttributeA(hstmt: *mut ::core::ffi::c_void, icol: i16, ifield: i16, pcharattr: *mut ::core::ffi::c_void, cbcharattrmax: i16, pcbcharattr: *mut i16, pnumattr: *mut ::core::ffi::c_void) -> i16;
     }
-    ::core::mem::transmute(SQLColAttributeA(::core::mem::transmute(hstmt), ::core::mem::transmute(icol), ::core::mem::transmute(ifield), ::core::mem::transmute(pcharattr), ::core::mem::transmute(cbcharattrmax), ::core::mem::transmute(pcbcharattr), ::core::mem::transmute(pnumattr)))
+    ::core::mem::transmute(SQLColAttributeA(::core::mem::transmute(hstmt), icol, ifield, ::core::mem::transmute(pcharattr), cbcharattrmax, ::core::mem::transmute(pcbcharattr), ::core::mem::transmute(pnumattr)))
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
@@ -25569,7 +25569,7 @@ pub unsafe fn SQLColAttributeW(hstmt: *mut ::core::ffi::c_void, icol: u16, ifiel
     extern "system" {
         fn SQLColAttributeW(hstmt: *mut ::core::ffi::c_void, icol: u16, ifield: u16, pcharattr: *mut ::core::ffi::c_void, cbdescmax: i16, pcbcharattr: *mut i16, pnumattr: *mut i64) -> i16;
     }
-    ::core::mem::transmute(SQLColAttributeW(::core::mem::transmute(hstmt), ::core::mem::transmute(icol), ::core::mem::transmute(ifield), ::core::mem::transmute(pcharattr), ::core::mem::transmute(cbdescmax), ::core::mem::transmute(pcbcharattr), ::core::mem::transmute(pnumattr)))
+    ::core::mem::transmute(SQLColAttributeW(::core::mem::transmute(hstmt), icol, ifield, ::core::mem::transmute(pcharattr), cbdescmax, ::core::mem::transmute(pcbcharattr), ::core::mem::transmute(pnumattr)))
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[cfg(target_arch = "x86")]
@@ -25579,7 +25579,7 @@ pub unsafe fn SQLColAttributeW(hstmt: *mut ::core::ffi::c_void, icol: u16, ifiel
     extern "system" {
         fn SQLColAttributeW(hstmt: *mut ::core::ffi::c_void, icol: u16, ifield: u16, pcharattr: *mut ::core::ffi::c_void, cbdescmax: i16, pcbcharattr: *mut i16, pnumattr: *mut ::core::ffi::c_void) -> i16;
     }
-    ::core::mem::transmute(SQLColAttributeW(::core::mem::transmute(hstmt), ::core::mem::transmute(icol), ::core::mem::transmute(ifield), ::core::mem::transmute(pcharattr), ::core::mem::transmute(cbdescmax), ::core::mem::transmute(pcbcharattr), ::core::mem::transmute(pnumattr)))
+    ::core::mem::transmute(SQLColAttributeW(::core::mem::transmute(hstmt), icol, ifield, ::core::mem::transmute(pcharattr), cbdescmax, ::core::mem::transmute(pcbcharattr), ::core::mem::transmute(pnumattr)))
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
@@ -25589,7 +25589,7 @@ pub unsafe fn SQLColAttributes(hstmt: *mut ::core::ffi::c_void, icol: u16, fdesc
     extern "system" {
         fn SQLColAttributes(hstmt: *mut ::core::ffi::c_void, icol: u16, fdesctype: u16, rgbdesc: *mut ::core::ffi::c_void, cbdescmax: i16, pcbdesc: *mut i16, pfdesc: *mut i64) -> i16;
     }
-    ::core::mem::transmute(SQLColAttributes(::core::mem::transmute(hstmt), ::core::mem::transmute(icol), ::core::mem::transmute(fdesctype), ::core::mem::transmute(rgbdesc), ::core::mem::transmute(cbdescmax), ::core::mem::transmute(pcbdesc), ::core::mem::transmute(pfdesc)))
+    ::core::mem::transmute(SQLColAttributes(::core::mem::transmute(hstmt), icol, fdesctype, ::core::mem::transmute(rgbdesc), cbdescmax, ::core::mem::transmute(pcbdesc), ::core::mem::transmute(pfdesc)))
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[cfg(target_arch = "x86")]
@@ -25599,7 +25599,7 @@ pub unsafe fn SQLColAttributes(hstmt: *mut ::core::ffi::c_void, icol: u16, fdesc
     extern "system" {
         fn SQLColAttributes(hstmt: *mut ::core::ffi::c_void, icol: u16, fdesctype: u16, rgbdesc: *mut ::core::ffi::c_void, cbdescmax: i16, pcbdesc: *mut i16, pfdesc: *mut i32) -> i16;
     }
-    ::core::mem::transmute(SQLColAttributes(::core::mem::transmute(hstmt), ::core::mem::transmute(icol), ::core::mem::transmute(fdesctype), ::core::mem::transmute(rgbdesc), ::core::mem::transmute(cbdescmax), ::core::mem::transmute(pcbdesc), ::core::mem::transmute(pfdesc)))
+    ::core::mem::transmute(SQLColAttributes(::core::mem::transmute(hstmt), icol, fdesctype, ::core::mem::transmute(rgbdesc), cbdescmax, ::core::mem::transmute(pcbdesc), ::core::mem::transmute(pfdesc)))
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
@@ -25609,7 +25609,7 @@ pub unsafe fn SQLColAttributesA(hstmt: *mut ::core::ffi::c_void, icol: u16, fdes
     extern "system" {
         fn SQLColAttributesA(hstmt: *mut ::core::ffi::c_void, icol: u16, fdesctype: u16, rgbdesc: *mut ::core::ffi::c_void, cbdescmax: i16, pcbdesc: *mut i16, pfdesc: *mut i64) -> i16;
     }
-    ::core::mem::transmute(SQLColAttributesA(::core::mem::transmute(hstmt), ::core::mem::transmute(icol), ::core::mem::transmute(fdesctype), ::core::mem::transmute(rgbdesc), ::core::mem::transmute(cbdescmax), ::core::mem::transmute(pcbdesc), ::core::mem::transmute(pfdesc)))
+    ::core::mem::transmute(SQLColAttributesA(::core::mem::transmute(hstmt), icol, fdesctype, ::core::mem::transmute(rgbdesc), cbdescmax, ::core::mem::transmute(pcbdesc), ::core::mem::transmute(pfdesc)))
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[cfg(target_arch = "x86")]
@@ -25619,7 +25619,7 @@ pub unsafe fn SQLColAttributesA(hstmt: *mut ::core::ffi::c_void, icol: u16, fdes
     extern "system" {
         fn SQLColAttributesA(hstmt: *mut ::core::ffi::c_void, icol: u16, fdesctype: u16, rgbdesc: *mut ::core::ffi::c_void, cbdescmax: i16, pcbdesc: *mut i16, pfdesc: *mut i32) -> i16;
     }
-    ::core::mem::transmute(SQLColAttributesA(::core::mem::transmute(hstmt), ::core::mem::transmute(icol), ::core::mem::transmute(fdesctype), ::core::mem::transmute(rgbdesc), ::core::mem::transmute(cbdescmax), ::core::mem::transmute(pcbdesc), ::core::mem::transmute(pfdesc)))
+    ::core::mem::transmute(SQLColAttributesA(::core::mem::transmute(hstmt), icol, fdesctype, ::core::mem::transmute(rgbdesc), cbdescmax, ::core::mem::transmute(pcbdesc), ::core::mem::transmute(pfdesc)))
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
@@ -25629,7 +25629,7 @@ pub unsafe fn SQLColAttributesW(hstmt: *mut ::core::ffi::c_void, icol: u16, fdes
     extern "system" {
         fn SQLColAttributesW(hstmt: *mut ::core::ffi::c_void, icol: u16, fdesctype: u16, rgbdesc: *mut ::core::ffi::c_void, cbdescmax: i16, pcbdesc: *mut i16, pfdesc: *mut i64) -> i16;
     }
-    ::core::mem::transmute(SQLColAttributesW(::core::mem::transmute(hstmt), ::core::mem::transmute(icol), ::core::mem::transmute(fdesctype), ::core::mem::transmute(rgbdesc), ::core::mem::transmute(cbdescmax), ::core::mem::transmute(pcbdesc), ::core::mem::transmute(pfdesc)))
+    ::core::mem::transmute(SQLColAttributesW(::core::mem::transmute(hstmt), icol, fdesctype, ::core::mem::transmute(rgbdesc), cbdescmax, ::core::mem::transmute(pcbdesc), ::core::mem::transmute(pfdesc)))
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[cfg(target_arch = "x86")]
@@ -25639,7 +25639,7 @@ pub unsafe fn SQLColAttributesW(hstmt: *mut ::core::ffi::c_void, icol: u16, fdes
     extern "system" {
         fn SQLColAttributesW(hstmt: *mut ::core::ffi::c_void, icol: u16, fdesctype: u16, rgbdesc: *mut ::core::ffi::c_void, cbdescmax: i16, pcbdesc: *mut i16, pfdesc: *mut i32) -> i16;
     }
-    ::core::mem::transmute(SQLColAttributesW(::core::mem::transmute(hstmt), ::core::mem::transmute(icol), ::core::mem::transmute(fdesctype), ::core::mem::transmute(rgbdesc), ::core::mem::transmute(cbdescmax), ::core::mem::transmute(pcbdesc), ::core::mem::transmute(pfdesc)))
+    ::core::mem::transmute(SQLColAttributesW(::core::mem::transmute(hstmt), icol, fdesctype, ::core::mem::transmute(rgbdesc), cbdescmax, ::core::mem::transmute(pcbdesc), ::core::mem::transmute(pfdesc)))
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[inline]
@@ -25702,7 +25702,7 @@ pub unsafe fn SQLCompleteAsync(handletype: i16, handle: *mut ::core::ffi::c_void
     extern "system" {
         fn SQLCompleteAsync(handletype: i16, handle: *mut ::core::ffi::c_void, asyncretcodeptr: *mut i16) -> i16;
     }
-    ::core::mem::transmute(SQLCompleteAsync(::core::mem::transmute(handletype), ::core::mem::transmute(handle), ::core::mem::transmute(asyncretcodeptr)))
+    ::core::mem::transmute(SQLCompleteAsync(handletype, ::core::mem::transmute(handle), ::core::mem::transmute(asyncretcodeptr)))
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[inline]
@@ -25757,7 +25757,7 @@ pub unsafe fn SQLDataSources(environmenthandle: *mut ::core::ffi::c_void, direct
     extern "system" {
         fn SQLDataSources(environmenthandle: *mut ::core::ffi::c_void, direction: u16, servername: *mut u8, bufferlength1: i16, namelength1ptr: *mut i16, description: *mut u8, bufferlength2: i16, namelength2ptr: *mut i16) -> i16;
     }
-    ::core::mem::transmute(SQLDataSources(::core::mem::transmute(environmenthandle), ::core::mem::transmute(direction), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(servername)), servername.len() as _, ::core::mem::transmute(namelength1ptr), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(description)), description.len() as _, ::core::mem::transmute(namelength2ptr)))
+    ::core::mem::transmute(SQLDataSources(::core::mem::transmute(environmenthandle), direction, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(servername)), servername.len() as _, ::core::mem::transmute(namelength1ptr), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(description)), description.len() as _, ::core::mem::transmute(namelength2ptr)))
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[inline]
@@ -25766,7 +25766,7 @@ pub unsafe fn SQLDataSourcesA(henv: *mut ::core::ffi::c_void, fdirection: u16, s
     extern "system" {
         fn SQLDataSourcesA(henv: *mut ::core::ffi::c_void, fdirection: u16, szdsn: *mut u8, cbdsnmax: i16, pcbdsn: *mut i16, szdescription: *mut u8, cbdescriptionmax: i16, pcbdescription: *mut i16) -> i16;
     }
-    ::core::mem::transmute(SQLDataSourcesA(::core::mem::transmute(henv), ::core::mem::transmute(fdirection), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(szdsn)), szdsn.len() as _, ::core::mem::transmute(pcbdsn), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(szdescription)), szdescription.len() as _, ::core::mem::transmute(pcbdescription)))
+    ::core::mem::transmute(SQLDataSourcesA(::core::mem::transmute(henv), fdirection, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(szdsn)), szdsn.len() as _, ::core::mem::transmute(pcbdsn), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(szdescription)), szdescription.len() as _, ::core::mem::transmute(pcbdescription)))
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[inline]
@@ -25775,7 +25775,7 @@ pub unsafe fn SQLDataSourcesW(henv: *mut ::core::ffi::c_void, fdirection: u16, s
     extern "system" {
         fn SQLDataSourcesW(henv: *mut ::core::ffi::c_void, fdirection: u16, szdsn: *mut u16, cchdsnmax: i16, pcchdsn: *mut i16, wszdescription: *mut u16, cchdescriptionmax: i16, pcchdescription: *mut i16) -> i16;
     }
-    ::core::mem::transmute(SQLDataSourcesW(::core::mem::transmute(henv), ::core::mem::transmute(fdirection), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(szdsn)), szdsn.len() as _, ::core::mem::transmute(pcchdsn), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(wszdescription)), wszdescription.len() as _, ::core::mem::transmute(pcchdescription)))
+    ::core::mem::transmute(SQLDataSourcesW(::core::mem::transmute(henv), fdirection, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(szdsn)), szdsn.len() as _, ::core::mem::transmute(pcchdsn), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(wszdescription)), wszdescription.len() as _, ::core::mem::transmute(pcchdescription)))
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
@@ -25785,7 +25785,7 @@ pub unsafe fn SQLDescribeCol(statementhandle: *mut ::core::ffi::c_void, columnnu
     extern "system" {
         fn SQLDescribeCol(statementhandle: *mut ::core::ffi::c_void, columnnumber: u16, columnname: *mut u8, bufferlength: i16, namelength: *mut i16, datatype: *mut i16, columnsize: *mut u64, decimaldigits: *mut i16, nullable: *mut i16) -> i16;
     }
-    ::core::mem::transmute(SQLDescribeCol(::core::mem::transmute(statementhandle), ::core::mem::transmute(columnnumber), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(columnname)), columnname.len() as _, ::core::mem::transmute(namelength), ::core::mem::transmute(datatype), ::core::mem::transmute(columnsize), ::core::mem::transmute(decimaldigits), ::core::mem::transmute(nullable)))
+    ::core::mem::transmute(SQLDescribeCol(::core::mem::transmute(statementhandle), columnnumber, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(columnname)), columnname.len() as _, ::core::mem::transmute(namelength), ::core::mem::transmute(datatype), ::core::mem::transmute(columnsize), ::core::mem::transmute(decimaldigits), ::core::mem::transmute(nullable)))
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[cfg(target_arch = "x86")]
@@ -25795,7 +25795,7 @@ pub unsafe fn SQLDescribeCol(statementhandle: *mut ::core::ffi::c_void, columnnu
     extern "system" {
         fn SQLDescribeCol(statementhandle: *mut ::core::ffi::c_void, columnnumber: u16, columnname: *mut u8, bufferlength: i16, namelength: *mut i16, datatype: *mut i16, columnsize: *mut u32, decimaldigits: *mut i16, nullable: *mut i16) -> i16;
     }
-    ::core::mem::transmute(SQLDescribeCol(::core::mem::transmute(statementhandle), ::core::mem::transmute(columnnumber), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(columnname)), columnname.len() as _, ::core::mem::transmute(namelength), ::core::mem::transmute(datatype), ::core::mem::transmute(columnsize), ::core::mem::transmute(decimaldigits), ::core::mem::transmute(nullable)))
+    ::core::mem::transmute(SQLDescribeCol(::core::mem::transmute(statementhandle), columnnumber, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(columnname)), columnname.len() as _, ::core::mem::transmute(namelength), ::core::mem::transmute(datatype), ::core::mem::transmute(columnsize), ::core::mem::transmute(decimaldigits), ::core::mem::transmute(nullable)))
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
@@ -25805,7 +25805,7 @@ pub unsafe fn SQLDescribeColA(hstmt: *mut ::core::ffi::c_void, icol: u16, szcoln
     extern "system" {
         fn SQLDescribeColA(hstmt: *mut ::core::ffi::c_void, icol: u16, szcolname: *mut u8, cbcolnamemax: i16, pcbcolname: *mut i16, pfsqltype: *mut i16, pcbcoldef: *mut u64, pibscale: *mut i16, pfnullable: *mut i16) -> i16;
     }
-    ::core::mem::transmute(SQLDescribeColA(::core::mem::transmute(hstmt), ::core::mem::transmute(icol), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(szcolname)), szcolname.len() as _, ::core::mem::transmute(pcbcolname), ::core::mem::transmute(pfsqltype), ::core::mem::transmute(pcbcoldef), ::core::mem::transmute(pibscale), ::core::mem::transmute(pfnullable)))
+    ::core::mem::transmute(SQLDescribeColA(::core::mem::transmute(hstmt), icol, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(szcolname)), szcolname.len() as _, ::core::mem::transmute(pcbcolname), ::core::mem::transmute(pfsqltype), ::core::mem::transmute(pcbcoldef), ::core::mem::transmute(pibscale), ::core::mem::transmute(pfnullable)))
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[cfg(target_arch = "x86")]
@@ -25815,7 +25815,7 @@ pub unsafe fn SQLDescribeColA(hstmt: *mut ::core::ffi::c_void, icol: u16, szcoln
     extern "system" {
         fn SQLDescribeColA(hstmt: *mut ::core::ffi::c_void, icol: u16, szcolname: *mut u8, cbcolnamemax: i16, pcbcolname: *mut i16, pfsqltype: *mut i16, pcbcoldef: *mut u32, pibscale: *mut i16, pfnullable: *mut i16) -> i16;
     }
-    ::core::mem::transmute(SQLDescribeColA(::core::mem::transmute(hstmt), ::core::mem::transmute(icol), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(szcolname)), szcolname.len() as _, ::core::mem::transmute(pcbcolname), ::core::mem::transmute(pfsqltype), ::core::mem::transmute(pcbcoldef), ::core::mem::transmute(pibscale), ::core::mem::transmute(pfnullable)))
+    ::core::mem::transmute(SQLDescribeColA(::core::mem::transmute(hstmt), icol, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(szcolname)), szcolname.len() as _, ::core::mem::transmute(pcbcolname), ::core::mem::transmute(pfsqltype), ::core::mem::transmute(pcbcoldef), ::core::mem::transmute(pibscale), ::core::mem::transmute(pfnullable)))
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
@@ -25825,7 +25825,7 @@ pub unsafe fn SQLDescribeColW(hstmt: *mut ::core::ffi::c_void, icol: u16, szcoln
     extern "system" {
         fn SQLDescribeColW(hstmt: *mut ::core::ffi::c_void, icol: u16, szcolname: *mut u16, cchcolnamemax: i16, pcchcolname: *mut i16, pfsqltype: *mut i16, pcbcoldef: *mut u64, pibscale: *mut i16, pfnullable: *mut i16) -> i16;
     }
-    ::core::mem::transmute(SQLDescribeColW(::core::mem::transmute(hstmt), ::core::mem::transmute(icol), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(szcolname)), szcolname.len() as _, ::core::mem::transmute(pcchcolname), ::core::mem::transmute(pfsqltype), ::core::mem::transmute(pcbcoldef), ::core::mem::transmute(pibscale), ::core::mem::transmute(pfnullable)))
+    ::core::mem::transmute(SQLDescribeColW(::core::mem::transmute(hstmt), icol, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(szcolname)), szcolname.len() as _, ::core::mem::transmute(pcchcolname), ::core::mem::transmute(pfsqltype), ::core::mem::transmute(pcbcoldef), ::core::mem::transmute(pibscale), ::core::mem::transmute(pfnullable)))
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[cfg(target_arch = "x86")]
@@ -25835,7 +25835,7 @@ pub unsafe fn SQLDescribeColW(hstmt: *mut ::core::ffi::c_void, icol: u16, szcoln
     extern "system" {
         fn SQLDescribeColW(hstmt: *mut ::core::ffi::c_void, icol: u16, szcolname: *mut u16, cchcolnamemax: i16, pcchcolname: *mut i16, pfsqltype: *mut i16, pcbcoldef: *mut u32, pibscale: *mut i16, pfnullable: *mut i16) -> i16;
     }
-    ::core::mem::transmute(SQLDescribeColW(::core::mem::transmute(hstmt), ::core::mem::transmute(icol), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(szcolname)), szcolname.len() as _, ::core::mem::transmute(pcchcolname), ::core::mem::transmute(pfsqltype), ::core::mem::transmute(pcbcoldef), ::core::mem::transmute(pibscale), ::core::mem::transmute(pfnullable)))
+    ::core::mem::transmute(SQLDescribeColW(::core::mem::transmute(hstmt), icol, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(szcolname)), szcolname.len() as _, ::core::mem::transmute(pcchcolname), ::core::mem::transmute(pfsqltype), ::core::mem::transmute(pcbcoldef), ::core::mem::transmute(pibscale), ::core::mem::transmute(pfnullable)))
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
@@ -25845,7 +25845,7 @@ pub unsafe fn SQLDescribeParam(hstmt: *mut ::core::ffi::c_void, ipar: u16, pfsql
     extern "system" {
         fn SQLDescribeParam(hstmt: *mut ::core::ffi::c_void, ipar: u16, pfsqltype: *mut i16, pcbparamdef: *mut u64, pibscale: *mut i16, pfnullable: *mut i16) -> i16;
     }
-    ::core::mem::transmute(SQLDescribeParam(::core::mem::transmute(hstmt), ::core::mem::transmute(ipar), ::core::mem::transmute(pfsqltype), ::core::mem::transmute(pcbparamdef), ::core::mem::transmute(pibscale), ::core::mem::transmute(pfnullable)))
+    ::core::mem::transmute(SQLDescribeParam(::core::mem::transmute(hstmt), ipar, ::core::mem::transmute(pfsqltype), ::core::mem::transmute(pcbparamdef), ::core::mem::transmute(pibscale), ::core::mem::transmute(pfnullable)))
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[cfg(target_arch = "x86")]
@@ -25855,7 +25855,7 @@ pub unsafe fn SQLDescribeParam(hstmt: *mut ::core::ffi::c_void, ipar: u16, pfsql
     extern "system" {
         fn SQLDescribeParam(hstmt: *mut ::core::ffi::c_void, ipar: u16, pfsqltype: *mut i16, pcbparamdef: *mut u32, pibscale: *mut i16, pfnullable: *mut i16) -> i16;
     }
-    ::core::mem::transmute(SQLDescribeParam(::core::mem::transmute(hstmt), ::core::mem::transmute(ipar), ::core::mem::transmute(pfsqltype), ::core::mem::transmute(pcbparamdef), ::core::mem::transmute(pibscale), ::core::mem::transmute(pfnullable)))
+    ::core::mem::transmute(SQLDescribeParam(::core::mem::transmute(hstmt), ipar, ::core::mem::transmute(pfsqltype), ::core::mem::transmute(pcbparamdef), ::core::mem::transmute(pibscale), ::core::mem::transmute(pfnullable)))
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[inline]
@@ -25873,7 +25873,7 @@ pub unsafe fn SQLDriverConnect(hdbc: *mut ::core::ffi::c_void, hwnd: isize, szco
     extern "system" {
         fn SQLDriverConnect(hdbc: *mut ::core::ffi::c_void, hwnd: isize, szconnstrin: *const u8, cchconnstrin: i16, szconnstrout: *mut u8, cchconnstroutmax: i16, pcchconnstrout: *mut i16, fdrivercompletion: u16) -> i16;
     }
-    ::core::mem::transmute(SQLDriverConnect(::core::mem::transmute(hdbc), ::core::mem::transmute(hwnd), ::core::mem::transmute(::windows::core::as_ptr_or_null(szconnstrin)), szconnstrin.len() as _, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(szconnstrout)), szconnstrout.len() as _, ::core::mem::transmute(pcchconnstrout), ::core::mem::transmute(fdrivercompletion)))
+    ::core::mem::transmute(SQLDriverConnect(::core::mem::transmute(hdbc), hwnd, ::core::mem::transmute(::windows::core::as_ptr_or_null(szconnstrin)), szconnstrin.len() as _, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(szconnstrout)), szconnstrout.len() as _, ::core::mem::transmute(pcchconnstrout), fdrivercompletion))
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[inline]
@@ -25882,7 +25882,7 @@ pub unsafe fn SQLDriverConnectA(hdbc: *mut ::core::ffi::c_void, hwnd: isize, szc
     extern "system" {
         fn SQLDriverConnectA(hdbc: *mut ::core::ffi::c_void, hwnd: isize, szconnstrin: *const u8, cbconnstrin: i16, szconnstrout: *mut u8, cbconnstroutmax: i16, pcbconnstrout: *mut i16, fdrivercompletion: u16) -> i16;
     }
-    ::core::mem::transmute(SQLDriverConnectA(::core::mem::transmute(hdbc), ::core::mem::transmute(hwnd), ::core::mem::transmute(::windows::core::as_ptr_or_null(szconnstrin)), szconnstrin.len() as _, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(szconnstrout)), szconnstrout.len() as _, ::core::mem::transmute(pcbconnstrout), ::core::mem::transmute(fdrivercompletion)))
+    ::core::mem::transmute(SQLDriverConnectA(::core::mem::transmute(hdbc), hwnd, ::core::mem::transmute(::windows::core::as_ptr_or_null(szconnstrin)), szconnstrin.len() as _, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(szconnstrout)), szconnstrout.len() as _, ::core::mem::transmute(pcbconnstrout), fdrivercompletion))
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[inline]
@@ -25891,7 +25891,7 @@ pub unsafe fn SQLDriverConnectW(hdbc: *mut ::core::ffi::c_void, hwnd: isize, szc
     extern "system" {
         fn SQLDriverConnectW(hdbc: *mut ::core::ffi::c_void, hwnd: isize, szconnstrin: *const u16, cchconnstrin: i16, szconnstrout: *mut u16, cchconnstroutmax: i16, pcchconnstrout: *mut i16, fdrivercompletion: u16) -> i16;
     }
-    ::core::mem::transmute(SQLDriverConnectW(::core::mem::transmute(hdbc), ::core::mem::transmute(hwnd), ::core::mem::transmute(::windows::core::as_ptr_or_null(szconnstrin)), szconnstrin.len() as _, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(szconnstrout)), szconnstrout.len() as _, ::core::mem::transmute(pcchconnstrout), ::core::mem::transmute(fdrivercompletion)))
+    ::core::mem::transmute(SQLDriverConnectW(::core::mem::transmute(hdbc), hwnd, ::core::mem::transmute(::windows::core::as_ptr_or_null(szconnstrin)), szconnstrin.len() as _, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(szconnstrout)), szconnstrout.len() as _, ::core::mem::transmute(pcchconnstrout), fdrivercompletion))
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[inline]
@@ -25900,7 +25900,7 @@ pub unsafe fn SQLDrivers(henv: *mut ::core::ffi::c_void, fdirection: u16, szdriv
     extern "system" {
         fn SQLDrivers(henv: *mut ::core::ffi::c_void, fdirection: u16, szdriverdesc: *mut u8, cchdriverdescmax: i16, pcchdriverdesc: *mut i16, szdriverattributes: *mut u8, cchdrvrattrmax: i16, pcchdrvrattr: *mut i16) -> i16;
     }
-    ::core::mem::transmute(SQLDrivers(::core::mem::transmute(henv), ::core::mem::transmute(fdirection), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(szdriverdesc)), szdriverdesc.len() as _, ::core::mem::transmute(pcchdriverdesc), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(szdriverattributes)), szdriverattributes.len() as _, ::core::mem::transmute(pcchdrvrattr)))
+    ::core::mem::transmute(SQLDrivers(::core::mem::transmute(henv), fdirection, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(szdriverdesc)), szdriverdesc.len() as _, ::core::mem::transmute(pcchdriverdesc), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(szdriverattributes)), szdriverattributes.len() as _, ::core::mem::transmute(pcchdrvrattr)))
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[inline]
@@ -25909,7 +25909,7 @@ pub unsafe fn SQLDriversA(henv: *mut ::core::ffi::c_void, fdirection: u16, szdri
     extern "system" {
         fn SQLDriversA(henv: *mut ::core::ffi::c_void, fdirection: u16, szdriverdesc: *mut u8, cbdriverdescmax: i16, pcbdriverdesc: *mut i16, szdriverattributes: *mut u8, cbdrvrattrmax: i16, pcbdrvrattr: *mut i16) -> i16;
     }
-    ::core::mem::transmute(SQLDriversA(::core::mem::transmute(henv), ::core::mem::transmute(fdirection), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(szdriverdesc)), szdriverdesc.len() as _, ::core::mem::transmute(pcbdriverdesc), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(szdriverattributes)), szdriverattributes.len() as _, ::core::mem::transmute(pcbdrvrattr)))
+    ::core::mem::transmute(SQLDriversA(::core::mem::transmute(henv), fdirection, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(szdriverdesc)), szdriverdesc.len() as _, ::core::mem::transmute(pcbdriverdesc), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(szdriverattributes)), szdriverattributes.len() as _, ::core::mem::transmute(pcbdrvrattr)))
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[inline]
@@ -25918,7 +25918,7 @@ pub unsafe fn SQLDriversW(henv: *mut ::core::ffi::c_void, fdirection: u16, szdri
     extern "system" {
         fn SQLDriversW(henv: *mut ::core::ffi::c_void, fdirection: u16, szdriverdesc: *mut u16, cchdriverdescmax: i16, pcchdriverdesc: *mut i16, szdriverattributes: *mut u16, cchdrvrattrmax: i16, pcchdrvrattr: *mut i16) -> i16;
     }
-    ::core::mem::transmute(SQLDriversW(::core::mem::transmute(henv), ::core::mem::transmute(fdirection), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(szdriverdesc)), szdriverdesc.len() as _, ::core::mem::transmute(pcchdriverdesc), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(szdriverattributes)), szdriverattributes.len() as _, ::core::mem::transmute(pcchdrvrattr)))
+    ::core::mem::transmute(SQLDriversW(::core::mem::transmute(henv), fdirection, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(szdriverdesc)), szdriverdesc.len() as _, ::core::mem::transmute(pcchdriverdesc), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(szdriverattributes)), szdriverattributes.len() as _, ::core::mem::transmute(pcchdrvrattr)))
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[inline]
@@ -25927,7 +25927,7 @@ pub unsafe fn SQLEndTran(handletype: i16, handle: *mut ::core::ffi::c_void, comp
     extern "system" {
         fn SQLEndTran(handletype: i16, handle: *mut ::core::ffi::c_void, completiontype: i16) -> i16;
     }
-    ::core::mem::transmute(SQLEndTran(::core::mem::transmute(handletype), ::core::mem::transmute(handle), ::core::mem::transmute(completiontype)))
+    ::core::mem::transmute(SQLEndTran(handletype, ::core::mem::transmute(handle), completiontype))
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[inline]
@@ -26000,7 +26000,7 @@ pub unsafe fn SQLExtendedFetch(hstmt: *mut ::core::ffi::c_void, ffetchtype: u16,
     extern "system" {
         fn SQLExtendedFetch(hstmt: *mut ::core::ffi::c_void, ffetchtype: u16, irow: i64, pcrow: *mut u64, rgfrowstatus: *mut u16) -> i16;
     }
-    ::core::mem::transmute(SQLExtendedFetch(::core::mem::transmute(hstmt), ::core::mem::transmute(ffetchtype), ::core::mem::transmute(irow), ::core::mem::transmute(pcrow), ::core::mem::transmute(rgfrowstatus)))
+    ::core::mem::transmute(SQLExtendedFetch(::core::mem::transmute(hstmt), ffetchtype, irow, ::core::mem::transmute(pcrow), ::core::mem::transmute(rgfrowstatus)))
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[cfg(target_arch = "x86")]
@@ -26010,7 +26010,7 @@ pub unsafe fn SQLExtendedFetch(hstmt: *mut ::core::ffi::c_void, ffetchtype: u16,
     extern "system" {
         fn SQLExtendedFetch(hstmt: *mut ::core::ffi::c_void, ffetchtype: u16, irow: i32, pcrow: *mut u32, rgfrowstatus: *mut u16) -> i16;
     }
-    ::core::mem::transmute(SQLExtendedFetch(::core::mem::transmute(hstmt), ::core::mem::transmute(ffetchtype), ::core::mem::transmute(irow), ::core::mem::transmute(pcrow), ::core::mem::transmute(rgfrowstatus)))
+    ::core::mem::transmute(SQLExtendedFetch(::core::mem::transmute(hstmt), ffetchtype, irow, ::core::mem::transmute(pcrow), ::core::mem::transmute(rgfrowstatus)))
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 pub const SQLFLT4: u32 = 59u32;
@@ -26035,7 +26035,7 @@ pub unsafe fn SQLFetchScroll(statementhandle: *mut ::core::ffi::c_void, fetchori
     extern "system" {
         fn SQLFetchScroll(statementhandle: *mut ::core::ffi::c_void, fetchorientation: i16, fetchoffset: i64) -> i16;
     }
-    ::core::mem::transmute(SQLFetchScroll(::core::mem::transmute(statementhandle), ::core::mem::transmute(fetchorientation), ::core::mem::transmute(fetchoffset)))
+    ::core::mem::transmute(SQLFetchScroll(::core::mem::transmute(statementhandle), fetchorientation, fetchoffset))
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[cfg(target_arch = "x86")]
@@ -26045,7 +26045,7 @@ pub unsafe fn SQLFetchScroll(statementhandle: *mut ::core::ffi::c_void, fetchori
     extern "system" {
         fn SQLFetchScroll(statementhandle: *mut ::core::ffi::c_void, fetchorientation: i16, fetchoffset: i32) -> i16;
     }
-    ::core::mem::transmute(SQLFetchScroll(::core::mem::transmute(statementhandle), ::core::mem::transmute(fetchorientation), ::core::mem::transmute(fetchoffset)))
+    ::core::mem::transmute(SQLFetchScroll(::core::mem::transmute(statementhandle), fetchorientation, fetchoffset))
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[inline]
@@ -26141,7 +26141,7 @@ pub unsafe fn SQLFreeHandle(handletype: i16, handle: *mut ::core::ffi::c_void) -
     extern "system" {
         fn SQLFreeHandle(handletype: i16, handle: *mut ::core::ffi::c_void) -> i16;
     }
-    ::core::mem::transmute(SQLFreeHandle(::core::mem::transmute(handletype), ::core::mem::transmute(handle)))
+    ::core::mem::transmute(SQLFreeHandle(handletype, ::core::mem::transmute(handle)))
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[inline]
@@ -26150,7 +26150,7 @@ pub unsafe fn SQLFreeStmt(statementhandle: *mut ::core::ffi::c_void, option: u16
     extern "system" {
         fn SQLFreeStmt(statementhandle: *mut ::core::ffi::c_void, option: u16) -> i16;
     }
-    ::core::mem::transmute(SQLFreeStmt(::core::mem::transmute(statementhandle), ::core::mem::transmute(option)))
+    ::core::mem::transmute(SQLFreeStmt(::core::mem::transmute(statementhandle), option))
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[inline]
@@ -26159,7 +26159,7 @@ pub unsafe fn SQLGetConnectAttr(connectionhandle: *mut ::core::ffi::c_void, attr
     extern "system" {
         fn SQLGetConnectAttr(connectionhandle: *mut ::core::ffi::c_void, attribute: i32, value: *mut ::core::ffi::c_void, bufferlength: i32, stringlengthptr: *mut i32) -> i16;
     }
-    ::core::mem::transmute(SQLGetConnectAttr(::core::mem::transmute(connectionhandle), ::core::mem::transmute(attribute), ::core::mem::transmute(value), ::core::mem::transmute(bufferlength), ::core::mem::transmute(stringlengthptr)))
+    ::core::mem::transmute(SQLGetConnectAttr(::core::mem::transmute(connectionhandle), attribute, ::core::mem::transmute(value), bufferlength, ::core::mem::transmute(stringlengthptr)))
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[inline]
@@ -26168,7 +26168,7 @@ pub unsafe fn SQLGetConnectAttrA(hdbc: *mut ::core::ffi::c_void, fattribute: i32
     extern "system" {
         fn SQLGetConnectAttrA(hdbc: *mut ::core::ffi::c_void, fattribute: i32, rgbvalue: *mut ::core::ffi::c_void, cbvaluemax: i32, pcbvalue: *mut i32) -> i16;
     }
-    ::core::mem::transmute(SQLGetConnectAttrA(::core::mem::transmute(hdbc), ::core::mem::transmute(fattribute), ::core::mem::transmute(rgbvalue), ::core::mem::transmute(cbvaluemax), ::core::mem::transmute(pcbvalue)))
+    ::core::mem::transmute(SQLGetConnectAttrA(::core::mem::transmute(hdbc), fattribute, ::core::mem::transmute(rgbvalue), cbvaluemax, ::core::mem::transmute(pcbvalue)))
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[inline]
@@ -26177,7 +26177,7 @@ pub unsafe fn SQLGetConnectAttrW(hdbc: *mut ::core::ffi::c_void, fattribute: i32
     extern "system" {
         fn SQLGetConnectAttrW(hdbc: *mut ::core::ffi::c_void, fattribute: i32, rgbvalue: *mut ::core::ffi::c_void, cbvaluemax: i32, pcbvalue: *mut i32) -> i16;
     }
-    ::core::mem::transmute(SQLGetConnectAttrW(::core::mem::transmute(hdbc), ::core::mem::transmute(fattribute), ::core::mem::transmute(rgbvalue), ::core::mem::transmute(cbvaluemax), ::core::mem::transmute(pcbvalue)))
+    ::core::mem::transmute(SQLGetConnectAttrW(::core::mem::transmute(hdbc), fattribute, ::core::mem::transmute(rgbvalue), cbvaluemax, ::core::mem::transmute(pcbvalue)))
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[inline]
@@ -26186,7 +26186,7 @@ pub unsafe fn SQLGetConnectOption(connectionhandle: *mut ::core::ffi::c_void, op
     extern "system" {
         fn SQLGetConnectOption(connectionhandle: *mut ::core::ffi::c_void, option: u16, value: *mut ::core::ffi::c_void) -> i16;
     }
-    ::core::mem::transmute(SQLGetConnectOption(::core::mem::transmute(connectionhandle), ::core::mem::transmute(option), ::core::mem::transmute(value)))
+    ::core::mem::transmute(SQLGetConnectOption(::core::mem::transmute(connectionhandle), option, ::core::mem::transmute(value)))
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[inline]
@@ -26195,7 +26195,7 @@ pub unsafe fn SQLGetConnectOptionA(hdbc: *mut ::core::ffi::c_void, foption: u16,
     extern "system" {
         fn SQLGetConnectOptionA(hdbc: *mut ::core::ffi::c_void, foption: u16, pvparam: *mut ::core::ffi::c_void) -> i16;
     }
-    ::core::mem::transmute(SQLGetConnectOptionA(::core::mem::transmute(hdbc), ::core::mem::transmute(foption), ::core::mem::transmute(pvparam)))
+    ::core::mem::transmute(SQLGetConnectOptionA(::core::mem::transmute(hdbc), foption, ::core::mem::transmute(pvparam)))
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[inline]
@@ -26204,7 +26204,7 @@ pub unsafe fn SQLGetConnectOptionW(hdbc: *mut ::core::ffi::c_void, foption: u16,
     extern "system" {
         fn SQLGetConnectOptionW(hdbc: *mut ::core::ffi::c_void, foption: u16, pvparam: *mut ::core::ffi::c_void) -> i16;
     }
-    ::core::mem::transmute(SQLGetConnectOptionW(::core::mem::transmute(hdbc), ::core::mem::transmute(foption), ::core::mem::transmute(pvparam)))
+    ::core::mem::transmute(SQLGetConnectOptionW(::core::mem::transmute(hdbc), foption, ::core::mem::transmute(pvparam)))
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[inline]
@@ -26241,7 +26241,7 @@ pub unsafe fn SQLGetData(statementhandle: *mut ::core::ffi::c_void, columnnumber
     extern "system" {
         fn SQLGetData(statementhandle: *mut ::core::ffi::c_void, columnnumber: u16, targettype: i16, targetvalue: *mut ::core::ffi::c_void, bufferlength: i64, strlen_or_indptr: *mut i64) -> i16;
     }
-    ::core::mem::transmute(SQLGetData(::core::mem::transmute(statementhandle), ::core::mem::transmute(columnnumber), ::core::mem::transmute(targettype), ::core::mem::transmute(targetvalue), ::core::mem::transmute(bufferlength), ::core::mem::transmute(strlen_or_indptr)))
+    ::core::mem::transmute(SQLGetData(::core::mem::transmute(statementhandle), columnnumber, targettype, ::core::mem::transmute(targetvalue), bufferlength, ::core::mem::transmute(strlen_or_indptr)))
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[cfg(target_arch = "x86")]
@@ -26251,7 +26251,7 @@ pub unsafe fn SQLGetData(statementhandle: *mut ::core::ffi::c_void, columnnumber
     extern "system" {
         fn SQLGetData(statementhandle: *mut ::core::ffi::c_void, columnnumber: u16, targettype: i16, targetvalue: *mut ::core::ffi::c_void, bufferlength: i32, strlen_or_indptr: *mut i32) -> i16;
     }
-    ::core::mem::transmute(SQLGetData(::core::mem::transmute(statementhandle), ::core::mem::transmute(columnnumber), ::core::mem::transmute(targettype), ::core::mem::transmute(targetvalue), ::core::mem::transmute(bufferlength), ::core::mem::transmute(strlen_or_indptr)))
+    ::core::mem::transmute(SQLGetData(::core::mem::transmute(statementhandle), columnnumber, targettype, ::core::mem::transmute(targetvalue), bufferlength, ::core::mem::transmute(strlen_or_indptr)))
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[inline]
@@ -26260,7 +26260,7 @@ pub unsafe fn SQLGetDescField(descriptorhandle: *mut ::core::ffi::c_void, recnum
     extern "system" {
         fn SQLGetDescField(descriptorhandle: *mut ::core::ffi::c_void, recnumber: i16, fieldidentifier: i16, value: *mut ::core::ffi::c_void, bufferlength: i32, stringlength: *mut i32) -> i16;
     }
-    ::core::mem::transmute(SQLGetDescField(::core::mem::transmute(descriptorhandle), ::core::mem::transmute(recnumber), ::core::mem::transmute(fieldidentifier), ::core::mem::transmute(value), ::core::mem::transmute(bufferlength), ::core::mem::transmute(stringlength)))
+    ::core::mem::transmute(SQLGetDescField(::core::mem::transmute(descriptorhandle), recnumber, fieldidentifier, ::core::mem::transmute(value), bufferlength, ::core::mem::transmute(stringlength)))
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[inline]
@@ -26269,7 +26269,7 @@ pub unsafe fn SQLGetDescFieldA(hdesc: *mut ::core::ffi::c_void, irecord: i16, if
     extern "system" {
         fn SQLGetDescFieldA(hdesc: *mut ::core::ffi::c_void, irecord: i16, ifield: i16, rgbvalue: *mut ::core::ffi::c_void, cbbufferlength: i32, stringlength: *mut i32) -> i16;
     }
-    ::core::mem::transmute(SQLGetDescFieldA(::core::mem::transmute(hdesc), ::core::mem::transmute(irecord), ::core::mem::transmute(ifield), ::core::mem::transmute(rgbvalue), ::core::mem::transmute(cbbufferlength), ::core::mem::transmute(stringlength)))
+    ::core::mem::transmute(SQLGetDescFieldA(::core::mem::transmute(hdesc), irecord, ifield, ::core::mem::transmute(rgbvalue), cbbufferlength, ::core::mem::transmute(stringlength)))
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[inline]
@@ -26278,7 +26278,7 @@ pub unsafe fn SQLGetDescFieldW(hdesc: *mut ::core::ffi::c_void, irecord: i16, if
     extern "system" {
         fn SQLGetDescFieldW(hdesc: *mut ::core::ffi::c_void, irecord: i16, ifield: i16, rgbvalue: *mut ::core::ffi::c_void, cbbufferlength: i32, stringlength: *mut i32) -> i16;
     }
-    ::core::mem::transmute(SQLGetDescFieldW(::core::mem::transmute(hdesc), ::core::mem::transmute(irecord), ::core::mem::transmute(ifield), ::core::mem::transmute(rgbvalue), ::core::mem::transmute(cbbufferlength), ::core::mem::transmute(stringlength)))
+    ::core::mem::transmute(SQLGetDescFieldW(::core::mem::transmute(hdesc), irecord, ifield, ::core::mem::transmute(rgbvalue), cbbufferlength, ::core::mem::transmute(stringlength)))
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
@@ -26288,7 +26288,7 @@ pub unsafe fn SQLGetDescRec(descriptorhandle: *mut ::core::ffi::c_void, recnumbe
     extern "system" {
         fn SQLGetDescRec(descriptorhandle: *mut ::core::ffi::c_void, recnumber: i16, name: *mut u8, bufferlength: i16, stringlengthptr: *mut i16, typeptr: *mut i16, subtypeptr: *mut i16, lengthptr: *mut i64, precisionptr: *mut i16, scaleptr: *mut i16, nullableptr: *mut i16) -> i16;
     }
-    ::core::mem::transmute(SQLGetDescRec(::core::mem::transmute(descriptorhandle), ::core::mem::transmute(recnumber), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(name)), name.len() as _, ::core::mem::transmute(stringlengthptr), ::core::mem::transmute(typeptr), ::core::mem::transmute(subtypeptr), ::core::mem::transmute(lengthptr), ::core::mem::transmute(precisionptr), ::core::mem::transmute(scaleptr), ::core::mem::transmute(nullableptr)))
+    ::core::mem::transmute(SQLGetDescRec(::core::mem::transmute(descriptorhandle), recnumber, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(name)), name.len() as _, ::core::mem::transmute(stringlengthptr), ::core::mem::transmute(typeptr), ::core::mem::transmute(subtypeptr), ::core::mem::transmute(lengthptr), ::core::mem::transmute(precisionptr), ::core::mem::transmute(scaleptr), ::core::mem::transmute(nullableptr)))
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[cfg(target_arch = "x86")]
@@ -26298,7 +26298,7 @@ pub unsafe fn SQLGetDescRec(descriptorhandle: *mut ::core::ffi::c_void, recnumbe
     extern "system" {
         fn SQLGetDescRec(descriptorhandle: *mut ::core::ffi::c_void, recnumber: i16, name: *mut u8, bufferlength: i16, stringlengthptr: *mut i16, typeptr: *mut i16, subtypeptr: *mut i16, lengthptr: *mut i32, precisionptr: *mut i16, scaleptr: *mut i16, nullableptr: *mut i16) -> i16;
     }
-    ::core::mem::transmute(SQLGetDescRec(::core::mem::transmute(descriptorhandle), ::core::mem::transmute(recnumber), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(name)), name.len() as _, ::core::mem::transmute(stringlengthptr), ::core::mem::transmute(typeptr), ::core::mem::transmute(subtypeptr), ::core::mem::transmute(lengthptr), ::core::mem::transmute(precisionptr), ::core::mem::transmute(scaleptr), ::core::mem::transmute(nullableptr)))
+    ::core::mem::transmute(SQLGetDescRec(::core::mem::transmute(descriptorhandle), recnumber, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(name)), name.len() as _, ::core::mem::transmute(stringlengthptr), ::core::mem::transmute(typeptr), ::core::mem::transmute(subtypeptr), ::core::mem::transmute(lengthptr), ::core::mem::transmute(precisionptr), ::core::mem::transmute(scaleptr), ::core::mem::transmute(nullableptr)))
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
@@ -26308,7 +26308,7 @@ pub unsafe fn SQLGetDescRecA(hdesc: *mut ::core::ffi::c_void, irecord: i16, szna
     extern "system" {
         fn SQLGetDescRecA(hdesc: *mut ::core::ffi::c_void, irecord: i16, szname: *mut u8, cbnamemax: i16, pcbname: *mut i16, pftype: *mut i16, pfsubtype: *mut i16, plength: *mut i64, pprecision: *mut i16, pscale: *mut i16, pnullable: *mut i16) -> i16;
     }
-    ::core::mem::transmute(SQLGetDescRecA(::core::mem::transmute(hdesc), ::core::mem::transmute(irecord), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(szname)), szname.len() as _, ::core::mem::transmute(pcbname), ::core::mem::transmute(pftype), ::core::mem::transmute(pfsubtype), ::core::mem::transmute(plength), ::core::mem::transmute(pprecision), ::core::mem::transmute(pscale), ::core::mem::transmute(pnullable)))
+    ::core::mem::transmute(SQLGetDescRecA(::core::mem::transmute(hdesc), irecord, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(szname)), szname.len() as _, ::core::mem::transmute(pcbname), ::core::mem::transmute(pftype), ::core::mem::transmute(pfsubtype), ::core::mem::transmute(plength), ::core::mem::transmute(pprecision), ::core::mem::transmute(pscale), ::core::mem::transmute(pnullable)))
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[cfg(target_arch = "x86")]
@@ -26318,7 +26318,7 @@ pub unsafe fn SQLGetDescRecA(hdesc: *mut ::core::ffi::c_void, irecord: i16, szna
     extern "system" {
         fn SQLGetDescRecA(hdesc: *mut ::core::ffi::c_void, irecord: i16, szname: *mut u8, cbnamemax: i16, pcbname: *mut i16, pftype: *mut i16, pfsubtype: *mut i16, plength: *mut i32, pprecision: *mut i16, pscale: *mut i16, pnullable: *mut i16) -> i16;
     }
-    ::core::mem::transmute(SQLGetDescRecA(::core::mem::transmute(hdesc), ::core::mem::transmute(irecord), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(szname)), szname.len() as _, ::core::mem::transmute(pcbname), ::core::mem::transmute(pftype), ::core::mem::transmute(pfsubtype), ::core::mem::transmute(plength), ::core::mem::transmute(pprecision), ::core::mem::transmute(pscale), ::core::mem::transmute(pnullable)))
+    ::core::mem::transmute(SQLGetDescRecA(::core::mem::transmute(hdesc), irecord, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(szname)), szname.len() as _, ::core::mem::transmute(pcbname), ::core::mem::transmute(pftype), ::core::mem::transmute(pfsubtype), ::core::mem::transmute(plength), ::core::mem::transmute(pprecision), ::core::mem::transmute(pscale), ::core::mem::transmute(pnullable)))
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
@@ -26328,7 +26328,7 @@ pub unsafe fn SQLGetDescRecW(hdesc: *mut ::core::ffi::c_void, irecord: i16, szna
     extern "system" {
         fn SQLGetDescRecW(hdesc: *mut ::core::ffi::c_void, irecord: i16, szname: *mut u16, cchnamemax: i16, pcchname: *mut i16, pftype: *mut i16, pfsubtype: *mut i16, plength: *mut i64, pprecision: *mut i16, pscale: *mut i16, pnullable: *mut i16) -> i16;
     }
-    ::core::mem::transmute(SQLGetDescRecW(::core::mem::transmute(hdesc), ::core::mem::transmute(irecord), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(szname)), szname.len() as _, ::core::mem::transmute(pcchname), ::core::mem::transmute(pftype), ::core::mem::transmute(pfsubtype), ::core::mem::transmute(plength), ::core::mem::transmute(pprecision), ::core::mem::transmute(pscale), ::core::mem::transmute(pnullable)))
+    ::core::mem::transmute(SQLGetDescRecW(::core::mem::transmute(hdesc), irecord, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(szname)), szname.len() as _, ::core::mem::transmute(pcchname), ::core::mem::transmute(pftype), ::core::mem::transmute(pfsubtype), ::core::mem::transmute(plength), ::core::mem::transmute(pprecision), ::core::mem::transmute(pscale), ::core::mem::transmute(pnullable)))
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[cfg(target_arch = "x86")]
@@ -26338,7 +26338,7 @@ pub unsafe fn SQLGetDescRecW(hdesc: *mut ::core::ffi::c_void, irecord: i16, szna
     extern "system" {
         fn SQLGetDescRecW(hdesc: *mut ::core::ffi::c_void, irecord: i16, szname: *mut u16, cchnamemax: i16, pcchname: *mut i16, pftype: *mut i16, pfsubtype: *mut i16, plength: *mut i32, pprecision: *mut i16, pscale: *mut i16, pnullable: *mut i16) -> i16;
     }
-    ::core::mem::transmute(SQLGetDescRecW(::core::mem::transmute(hdesc), ::core::mem::transmute(irecord), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(szname)), szname.len() as _, ::core::mem::transmute(pcchname), ::core::mem::transmute(pftype), ::core::mem::transmute(pfsubtype), ::core::mem::transmute(plength), ::core::mem::transmute(pprecision), ::core::mem::transmute(pscale), ::core::mem::transmute(pnullable)))
+    ::core::mem::transmute(SQLGetDescRecW(::core::mem::transmute(hdesc), irecord, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(szname)), szname.len() as _, ::core::mem::transmute(pcchname), ::core::mem::transmute(pftype), ::core::mem::transmute(pfsubtype), ::core::mem::transmute(plength), ::core::mem::transmute(pprecision), ::core::mem::transmute(pscale), ::core::mem::transmute(pnullable)))
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[inline]
@@ -26347,7 +26347,7 @@ pub unsafe fn SQLGetDiagField(handletype: i16, handle: *mut ::core::ffi::c_void,
     extern "system" {
         fn SQLGetDiagField(handletype: i16, handle: *mut ::core::ffi::c_void, recnumber: i16, diagidentifier: i16, diaginfo: *mut ::core::ffi::c_void, bufferlength: i16, stringlength: *mut i16) -> i16;
     }
-    ::core::mem::transmute(SQLGetDiagField(::core::mem::transmute(handletype), ::core::mem::transmute(handle), ::core::mem::transmute(recnumber), ::core::mem::transmute(diagidentifier), ::core::mem::transmute(diaginfo), ::core::mem::transmute(bufferlength), ::core::mem::transmute(stringlength)))
+    ::core::mem::transmute(SQLGetDiagField(handletype, ::core::mem::transmute(handle), recnumber, diagidentifier, ::core::mem::transmute(diaginfo), bufferlength, ::core::mem::transmute(stringlength)))
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[inline]
@@ -26356,7 +26356,7 @@ pub unsafe fn SQLGetDiagFieldA(fhandletype: i16, handle: *mut ::core::ffi::c_voi
     extern "system" {
         fn SQLGetDiagFieldA(fhandletype: i16, handle: *mut ::core::ffi::c_void, irecord: i16, fdiagfield: i16, rgbdiaginfo: *mut ::core::ffi::c_void, cbdiaginfomax: i16, pcbdiaginfo: *mut i16) -> i16;
     }
-    ::core::mem::transmute(SQLGetDiagFieldA(::core::mem::transmute(fhandletype), ::core::mem::transmute(handle), ::core::mem::transmute(irecord), ::core::mem::transmute(fdiagfield), ::core::mem::transmute(rgbdiaginfo), ::core::mem::transmute(cbdiaginfomax), ::core::mem::transmute(pcbdiaginfo)))
+    ::core::mem::transmute(SQLGetDiagFieldA(fhandletype, ::core::mem::transmute(handle), irecord, fdiagfield, ::core::mem::transmute(rgbdiaginfo), cbdiaginfomax, ::core::mem::transmute(pcbdiaginfo)))
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[inline]
@@ -26365,7 +26365,7 @@ pub unsafe fn SQLGetDiagFieldW(fhandletype: i16, handle: *mut ::core::ffi::c_voi
     extern "system" {
         fn SQLGetDiagFieldW(fhandletype: i16, handle: *mut ::core::ffi::c_void, irecord: i16, fdiagfield: i16, rgbdiaginfo: *mut ::core::ffi::c_void, cbbufferlength: i16, pcbstringlength: *mut i16) -> i16;
     }
-    ::core::mem::transmute(SQLGetDiagFieldW(::core::mem::transmute(fhandletype), ::core::mem::transmute(handle), ::core::mem::transmute(irecord), ::core::mem::transmute(fdiagfield), ::core::mem::transmute(rgbdiaginfo), ::core::mem::transmute(cbbufferlength), ::core::mem::transmute(pcbstringlength)))
+    ::core::mem::transmute(SQLGetDiagFieldW(fhandletype, ::core::mem::transmute(handle), irecord, fdiagfield, ::core::mem::transmute(rgbdiaginfo), cbbufferlength, ::core::mem::transmute(pcbstringlength)))
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[inline]
@@ -26374,7 +26374,7 @@ pub unsafe fn SQLGetDiagRec(handletype: i16, handle: *mut ::core::ffi::c_void, r
     extern "system" {
         fn SQLGetDiagRec(handletype: i16, handle: *mut ::core::ffi::c_void, recnumber: i16, sqlstate: *mut u8, nativeerror: *mut i32, messagetext: *mut u8, bufferlength: i16, textlength: *mut i16) -> i16;
     }
-    ::core::mem::transmute(SQLGetDiagRec(::core::mem::transmute(handletype), ::core::mem::transmute(handle), ::core::mem::transmute(recnumber), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(sqlstate)), ::core::mem::transmute(nativeerror), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(messagetext)), messagetext.len() as _, ::core::mem::transmute(textlength)))
+    ::core::mem::transmute(SQLGetDiagRec(handletype, ::core::mem::transmute(handle), recnumber, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(sqlstate)), ::core::mem::transmute(nativeerror), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(messagetext)), messagetext.len() as _, ::core::mem::transmute(textlength)))
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[inline]
@@ -26383,7 +26383,7 @@ pub unsafe fn SQLGetDiagRecA(fhandletype: i16, handle: *mut ::core::ffi::c_void,
     extern "system" {
         fn SQLGetDiagRecA(fhandletype: i16, handle: *mut ::core::ffi::c_void, irecord: i16, szsqlstate: *mut u8, pfnativeerror: *mut i32, szerrormsg: *mut u8, cberrormsgmax: i16, pcberrormsg: *mut i16) -> i16;
     }
-    ::core::mem::transmute(SQLGetDiagRecA(::core::mem::transmute(fhandletype), ::core::mem::transmute(handle), ::core::mem::transmute(irecord), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(szsqlstate)), ::core::mem::transmute(pfnativeerror), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(szerrormsg)), szerrormsg.len() as _, ::core::mem::transmute(pcberrormsg)))
+    ::core::mem::transmute(SQLGetDiagRecA(fhandletype, ::core::mem::transmute(handle), irecord, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(szsqlstate)), ::core::mem::transmute(pfnativeerror), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(szerrormsg)), szerrormsg.len() as _, ::core::mem::transmute(pcberrormsg)))
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[inline]
@@ -26392,7 +26392,7 @@ pub unsafe fn SQLGetDiagRecW(fhandletype: i16, handle: *mut ::core::ffi::c_void,
     extern "system" {
         fn SQLGetDiagRecW(fhandletype: i16, handle: *mut ::core::ffi::c_void, irecord: i16, szsqlstate: *mut u16, pfnativeerror: *mut i32, szerrormsg: *mut u16, ccherrormsgmax: i16, pccherrormsg: *mut i16) -> i16;
     }
-    ::core::mem::transmute(SQLGetDiagRecW(::core::mem::transmute(fhandletype), ::core::mem::transmute(handle), ::core::mem::transmute(irecord), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(szsqlstate)), ::core::mem::transmute(pfnativeerror), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(szerrormsg)), szerrormsg.len() as _, ::core::mem::transmute(pccherrormsg)))
+    ::core::mem::transmute(SQLGetDiagRecW(fhandletype, ::core::mem::transmute(handle), irecord, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(szsqlstate)), ::core::mem::transmute(pfnativeerror), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(szerrormsg)), szerrormsg.len() as _, ::core::mem::transmute(pccherrormsg)))
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[inline]
@@ -26401,7 +26401,7 @@ pub unsafe fn SQLGetEnvAttr(environmenthandle: *mut ::core::ffi::c_void, attribu
     extern "system" {
         fn SQLGetEnvAttr(environmenthandle: *mut ::core::ffi::c_void, attribute: i32, value: *mut ::core::ffi::c_void, bufferlength: i32, stringlength: *mut i32) -> i16;
     }
-    ::core::mem::transmute(SQLGetEnvAttr(::core::mem::transmute(environmenthandle), ::core::mem::transmute(attribute), ::core::mem::transmute(value), ::core::mem::transmute(bufferlength), ::core::mem::transmute(stringlength)))
+    ::core::mem::transmute(SQLGetEnvAttr(::core::mem::transmute(environmenthandle), attribute, ::core::mem::transmute(value), bufferlength, ::core::mem::transmute(stringlength)))
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[inline]
@@ -26410,7 +26410,7 @@ pub unsafe fn SQLGetFunctions(connectionhandle: *mut ::core::ffi::c_void, functi
     extern "system" {
         fn SQLGetFunctions(connectionhandle: *mut ::core::ffi::c_void, functionid: u16, supported: *mut u16) -> i16;
     }
-    ::core::mem::transmute(SQLGetFunctions(::core::mem::transmute(connectionhandle), ::core::mem::transmute(functionid), ::core::mem::transmute(supported)))
+    ::core::mem::transmute(SQLGetFunctions(::core::mem::transmute(connectionhandle), functionid, ::core::mem::transmute(supported)))
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[inline]
@@ -26419,7 +26419,7 @@ pub unsafe fn SQLGetInfo(connectionhandle: *mut ::core::ffi::c_void, infotype: u
     extern "system" {
         fn SQLGetInfo(connectionhandle: *mut ::core::ffi::c_void, infotype: u16, infovalue: *mut ::core::ffi::c_void, bufferlength: i16, stringlengthptr: *mut i16) -> i16;
     }
-    ::core::mem::transmute(SQLGetInfo(::core::mem::transmute(connectionhandle), ::core::mem::transmute(infotype), ::core::mem::transmute(infovalue), ::core::mem::transmute(bufferlength), ::core::mem::transmute(stringlengthptr)))
+    ::core::mem::transmute(SQLGetInfo(::core::mem::transmute(connectionhandle), infotype, ::core::mem::transmute(infovalue), bufferlength, ::core::mem::transmute(stringlengthptr)))
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[inline]
@@ -26428,7 +26428,7 @@ pub unsafe fn SQLGetInfoA(hdbc: *mut ::core::ffi::c_void, finfotype: u16, rgbinf
     extern "system" {
         fn SQLGetInfoA(hdbc: *mut ::core::ffi::c_void, finfotype: u16, rgbinfovalue: *mut ::core::ffi::c_void, cbinfovaluemax: i16, pcbinfovalue: *mut i16) -> i16;
     }
-    ::core::mem::transmute(SQLGetInfoA(::core::mem::transmute(hdbc), ::core::mem::transmute(finfotype), ::core::mem::transmute(rgbinfovalue), ::core::mem::transmute(cbinfovaluemax), ::core::mem::transmute(pcbinfovalue)))
+    ::core::mem::transmute(SQLGetInfoA(::core::mem::transmute(hdbc), finfotype, ::core::mem::transmute(rgbinfovalue), cbinfovaluemax, ::core::mem::transmute(pcbinfovalue)))
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[inline]
@@ -26437,7 +26437,7 @@ pub unsafe fn SQLGetInfoW(hdbc: *mut ::core::ffi::c_void, finfotype: u16, rgbinf
     extern "system" {
         fn SQLGetInfoW(hdbc: *mut ::core::ffi::c_void, finfotype: u16, rgbinfovalue: *mut ::core::ffi::c_void, cbinfovaluemax: i16, pcbinfovalue: *mut i16) -> i16;
     }
-    ::core::mem::transmute(SQLGetInfoW(::core::mem::transmute(hdbc), ::core::mem::transmute(finfotype), ::core::mem::transmute(rgbinfovalue), ::core::mem::transmute(cbinfovaluemax), ::core::mem::transmute(pcbinfovalue)))
+    ::core::mem::transmute(SQLGetInfoW(::core::mem::transmute(hdbc), finfotype, ::core::mem::transmute(rgbinfovalue), cbinfovaluemax, ::core::mem::transmute(pcbinfovalue)))
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -26459,7 +26459,7 @@ pub unsafe fn SQLGetStmtAttr(statementhandle: *mut ::core::ffi::c_void, attribut
     extern "system" {
         fn SQLGetStmtAttr(statementhandle: *mut ::core::ffi::c_void, attribute: i32, value: *mut ::core::ffi::c_void, bufferlength: i32, stringlength: *mut i32) -> i16;
     }
-    ::core::mem::transmute(SQLGetStmtAttr(::core::mem::transmute(statementhandle), ::core::mem::transmute(attribute), ::core::mem::transmute(value), ::core::mem::transmute(bufferlength), ::core::mem::transmute(stringlength)))
+    ::core::mem::transmute(SQLGetStmtAttr(::core::mem::transmute(statementhandle), attribute, ::core::mem::transmute(value), bufferlength, ::core::mem::transmute(stringlength)))
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[inline]
@@ -26468,7 +26468,7 @@ pub unsafe fn SQLGetStmtAttrA(hstmt: *mut ::core::ffi::c_void, fattribute: i32, 
     extern "system" {
         fn SQLGetStmtAttrA(hstmt: *mut ::core::ffi::c_void, fattribute: i32, rgbvalue: *mut ::core::ffi::c_void, cbvaluemax: i32, pcbvalue: *mut i32) -> i16;
     }
-    ::core::mem::transmute(SQLGetStmtAttrA(::core::mem::transmute(hstmt), ::core::mem::transmute(fattribute), ::core::mem::transmute(rgbvalue), ::core::mem::transmute(cbvaluemax), ::core::mem::transmute(pcbvalue)))
+    ::core::mem::transmute(SQLGetStmtAttrA(::core::mem::transmute(hstmt), fattribute, ::core::mem::transmute(rgbvalue), cbvaluemax, ::core::mem::transmute(pcbvalue)))
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[inline]
@@ -26477,7 +26477,7 @@ pub unsafe fn SQLGetStmtAttrW(hstmt: *mut ::core::ffi::c_void, fattribute: i32, 
     extern "system" {
         fn SQLGetStmtAttrW(hstmt: *mut ::core::ffi::c_void, fattribute: i32, rgbvalue: *mut ::core::ffi::c_void, cbvaluemax: i32, pcbvalue: *mut i32) -> i16;
     }
-    ::core::mem::transmute(SQLGetStmtAttrW(::core::mem::transmute(hstmt), ::core::mem::transmute(fattribute), ::core::mem::transmute(rgbvalue), ::core::mem::transmute(cbvaluemax), ::core::mem::transmute(pcbvalue)))
+    ::core::mem::transmute(SQLGetStmtAttrW(::core::mem::transmute(hstmt), fattribute, ::core::mem::transmute(rgbvalue), cbvaluemax, ::core::mem::transmute(pcbvalue)))
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[inline]
@@ -26486,7 +26486,7 @@ pub unsafe fn SQLGetStmtOption(statementhandle: *mut ::core::ffi::c_void, option
     extern "system" {
         fn SQLGetStmtOption(statementhandle: *mut ::core::ffi::c_void, option: u16, value: *mut ::core::ffi::c_void) -> i16;
     }
-    ::core::mem::transmute(SQLGetStmtOption(::core::mem::transmute(statementhandle), ::core::mem::transmute(option), ::core::mem::transmute(value)))
+    ::core::mem::transmute(SQLGetStmtOption(::core::mem::transmute(statementhandle), option, ::core::mem::transmute(value)))
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[inline]
@@ -26495,7 +26495,7 @@ pub unsafe fn SQLGetTypeInfo(statementhandle: *mut ::core::ffi::c_void, datatype
     extern "system" {
         fn SQLGetTypeInfo(statementhandle: *mut ::core::ffi::c_void, datatype: i16) -> i16;
     }
-    ::core::mem::transmute(SQLGetTypeInfo(::core::mem::transmute(statementhandle), ::core::mem::transmute(datatype)))
+    ::core::mem::transmute(SQLGetTypeInfo(::core::mem::transmute(statementhandle), datatype))
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[inline]
@@ -26504,7 +26504,7 @@ pub unsafe fn SQLGetTypeInfoA(statementhandle: *mut ::core::ffi::c_void, datatyp
     extern "system" {
         fn SQLGetTypeInfoA(statementhandle: *mut ::core::ffi::c_void, datatype: i16) -> i16;
     }
-    ::core::mem::transmute(SQLGetTypeInfoA(::core::mem::transmute(statementhandle), ::core::mem::transmute(datatype)))
+    ::core::mem::transmute(SQLGetTypeInfoA(::core::mem::transmute(statementhandle), datatype))
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[inline]
@@ -26513,7 +26513,7 @@ pub unsafe fn SQLGetTypeInfoW(statementhandle: *mut ::core::ffi::c_void, datatyp
     extern "system" {
         fn SQLGetTypeInfoW(statementhandle: *mut ::core::ffi::c_void, datatype: i16) -> i16;
     }
-    ::core::mem::transmute(SQLGetTypeInfoW(::core::mem::transmute(statementhandle), ::core::mem::transmute(datatype)))
+    ::core::mem::transmute(SQLGetTypeInfoW(::core::mem::transmute(statementhandle), datatype))
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 pub const SQLIMAGE: u32 = 34u32;
@@ -26600,7 +26600,7 @@ where
     extern "system" {
         fn SQLLinkedCatalogsA(param0: *mut ::core::ffi::c_void, param1: ::windows::core::PCSTR, param2: i16) -> i16;
     }
-    ::core::mem::transmute(SQLLinkedCatalogsA(::core::mem::transmute(param0), param1.into(), ::core::mem::transmute(param2)))
+    ::core::mem::transmute(SQLLinkedCatalogsA(::core::mem::transmute(param0), param1.into(), param2))
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[inline]
@@ -26612,7 +26612,7 @@ where
     extern "system" {
         fn SQLLinkedCatalogsW(param0: *mut ::core::ffi::c_void, param1: ::windows::core::PCWSTR, param2: i16) -> i16;
     }
-    ::core::mem::transmute(SQLLinkedCatalogsW(::core::mem::transmute(param0), param1.into(), ::core::mem::transmute(param2)))
+    ::core::mem::transmute(SQLLinkedCatalogsW(::core::mem::transmute(param0), param1.into(), param2))
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[inline]
@@ -26710,7 +26710,7 @@ pub unsafe fn SQLParamOptions(hstmt: *mut ::core::ffi::c_void, crow: u64, pirow:
     extern "system" {
         fn SQLParamOptions(hstmt: *mut ::core::ffi::c_void, crow: u64, pirow: *mut u64) -> i16;
     }
-    ::core::mem::transmute(SQLParamOptions(::core::mem::transmute(hstmt), ::core::mem::transmute(crow), ::core::mem::transmute(pirow)))
+    ::core::mem::transmute(SQLParamOptions(::core::mem::transmute(hstmt), crow, ::core::mem::transmute(pirow)))
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[cfg(target_arch = "x86")]
@@ -26720,7 +26720,7 @@ pub unsafe fn SQLParamOptions(hstmt: *mut ::core::ffi::c_void, crow: u32, pirow:
     extern "system" {
         fn SQLParamOptions(hstmt: *mut ::core::ffi::c_void, crow: u32, pirow: *mut u32) -> i16;
     }
-    ::core::mem::transmute(SQLParamOptions(::core::mem::transmute(hstmt), ::core::mem::transmute(crow), ::core::mem::transmute(pirow)))
+    ::core::mem::transmute(SQLParamOptions(::core::mem::transmute(hstmt), crow, ::core::mem::transmute(pirow)))
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[inline]
@@ -26838,7 +26838,7 @@ pub unsafe fn SQLPutData(statementhandle: *mut ::core::ffi::c_void, data: *const
     extern "system" {
         fn SQLPutData(statementhandle: *mut ::core::ffi::c_void, data: *const ::core::ffi::c_void, strlen_or_ind: i64) -> i16;
     }
-    ::core::mem::transmute(SQLPutData(::core::mem::transmute(statementhandle), ::core::mem::transmute(data), ::core::mem::transmute(strlen_or_ind)))
+    ::core::mem::transmute(SQLPutData(::core::mem::transmute(statementhandle), ::core::mem::transmute(data), strlen_or_ind))
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[cfg(target_arch = "x86")]
@@ -26848,7 +26848,7 @@ pub unsafe fn SQLPutData(statementhandle: *mut ::core::ffi::c_void, data: *const
     extern "system" {
         fn SQLPutData(statementhandle: *mut ::core::ffi::c_void, data: *const ::core::ffi::c_void, strlen_or_ind: i32) -> i16;
     }
-    ::core::mem::transmute(SQLPutData(::core::mem::transmute(statementhandle), ::core::mem::transmute(data), ::core::mem::transmute(strlen_or_ind)))
+    ::core::mem::transmute(SQLPutData(::core::mem::transmute(statementhandle), ::core::mem::transmute(data), strlen_or_ind))
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
@@ -26877,7 +26877,7 @@ pub unsafe fn SQLSetConnectAttr(connectionhandle: *mut ::core::ffi::c_void, attr
     extern "system" {
         fn SQLSetConnectAttr(connectionhandle: *mut ::core::ffi::c_void, attribute: i32, value: *const ::core::ffi::c_void, stringlength: i32) -> i16;
     }
-    ::core::mem::transmute(SQLSetConnectAttr(::core::mem::transmute(connectionhandle), ::core::mem::transmute(attribute), ::core::mem::transmute(value), ::core::mem::transmute(stringlength)))
+    ::core::mem::transmute(SQLSetConnectAttr(::core::mem::transmute(connectionhandle), attribute, ::core::mem::transmute(value), stringlength))
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[inline]
@@ -26886,7 +26886,7 @@ pub unsafe fn SQLSetConnectAttrA(hdbc: *mut ::core::ffi::c_void, fattribute: i32
     extern "system" {
         fn SQLSetConnectAttrA(hdbc: *mut ::core::ffi::c_void, fattribute: i32, rgbvalue: *const ::core::ffi::c_void, cbvalue: i32) -> i16;
     }
-    ::core::mem::transmute(SQLSetConnectAttrA(::core::mem::transmute(hdbc), ::core::mem::transmute(fattribute), ::core::mem::transmute(rgbvalue), ::core::mem::transmute(cbvalue)))
+    ::core::mem::transmute(SQLSetConnectAttrA(::core::mem::transmute(hdbc), fattribute, ::core::mem::transmute(rgbvalue), cbvalue))
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[inline]
@@ -26895,7 +26895,7 @@ pub unsafe fn SQLSetConnectAttrW(hdbc: *mut ::core::ffi::c_void, fattribute: i32
     extern "system" {
         fn SQLSetConnectAttrW(hdbc: *mut ::core::ffi::c_void, fattribute: i32, rgbvalue: *const ::core::ffi::c_void, cbvalue: i32) -> i16;
     }
-    ::core::mem::transmute(SQLSetConnectAttrW(::core::mem::transmute(hdbc), ::core::mem::transmute(fattribute), ::core::mem::transmute(rgbvalue), ::core::mem::transmute(cbvalue)))
+    ::core::mem::transmute(SQLSetConnectAttrW(::core::mem::transmute(hdbc), fattribute, ::core::mem::transmute(rgbvalue), cbvalue))
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
@@ -26905,7 +26905,7 @@ pub unsafe fn SQLSetConnectOption(connectionhandle: *mut ::core::ffi::c_void, op
     extern "system" {
         fn SQLSetConnectOption(connectionhandle: *mut ::core::ffi::c_void, option: u16, value: u64) -> i16;
     }
-    ::core::mem::transmute(SQLSetConnectOption(::core::mem::transmute(connectionhandle), ::core::mem::transmute(option), ::core::mem::transmute(value)))
+    ::core::mem::transmute(SQLSetConnectOption(::core::mem::transmute(connectionhandle), option, value))
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[cfg(target_arch = "x86")]
@@ -26915,7 +26915,7 @@ pub unsafe fn SQLSetConnectOption(connectionhandle: *mut ::core::ffi::c_void, op
     extern "system" {
         fn SQLSetConnectOption(connectionhandle: *mut ::core::ffi::c_void, option: u16, value: u32) -> i16;
     }
-    ::core::mem::transmute(SQLSetConnectOption(::core::mem::transmute(connectionhandle), ::core::mem::transmute(option), ::core::mem::transmute(value)))
+    ::core::mem::transmute(SQLSetConnectOption(::core::mem::transmute(connectionhandle), option, value))
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
@@ -26925,7 +26925,7 @@ pub unsafe fn SQLSetConnectOptionA(hdbc: *mut ::core::ffi::c_void, foption: u16,
     extern "system" {
         fn SQLSetConnectOptionA(hdbc: *mut ::core::ffi::c_void, foption: u16, vparam: u64) -> i16;
     }
-    ::core::mem::transmute(SQLSetConnectOptionA(::core::mem::transmute(hdbc), ::core::mem::transmute(foption), ::core::mem::transmute(vparam)))
+    ::core::mem::transmute(SQLSetConnectOptionA(::core::mem::transmute(hdbc), foption, vparam))
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[cfg(target_arch = "x86")]
@@ -26935,7 +26935,7 @@ pub unsafe fn SQLSetConnectOptionA(hdbc: *mut ::core::ffi::c_void, foption: u16,
     extern "system" {
         fn SQLSetConnectOptionA(hdbc: *mut ::core::ffi::c_void, foption: u16, vparam: u32) -> i16;
     }
-    ::core::mem::transmute(SQLSetConnectOptionA(::core::mem::transmute(hdbc), ::core::mem::transmute(foption), ::core::mem::transmute(vparam)))
+    ::core::mem::transmute(SQLSetConnectOptionA(::core::mem::transmute(hdbc), foption, vparam))
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
@@ -26945,7 +26945,7 @@ pub unsafe fn SQLSetConnectOptionW(hdbc: *mut ::core::ffi::c_void, foption: u16,
     extern "system" {
         fn SQLSetConnectOptionW(hdbc: *mut ::core::ffi::c_void, foption: u16, vparam: u64) -> i16;
     }
-    ::core::mem::transmute(SQLSetConnectOptionW(::core::mem::transmute(hdbc), ::core::mem::transmute(foption), ::core::mem::transmute(vparam)))
+    ::core::mem::transmute(SQLSetConnectOptionW(::core::mem::transmute(hdbc), foption, vparam))
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[cfg(target_arch = "x86")]
@@ -26955,7 +26955,7 @@ pub unsafe fn SQLSetConnectOptionW(hdbc: *mut ::core::ffi::c_void, foption: u16,
     extern "system" {
         fn SQLSetConnectOptionW(hdbc: *mut ::core::ffi::c_void, foption: u16, vparam: u32) -> i16;
     }
-    ::core::mem::transmute(SQLSetConnectOptionW(::core::mem::transmute(hdbc), ::core::mem::transmute(foption), ::core::mem::transmute(vparam)))
+    ::core::mem::transmute(SQLSetConnectOptionW(::core::mem::transmute(hdbc), foption, vparam))
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[inline]
@@ -26991,7 +26991,7 @@ pub unsafe fn SQLSetDescField(descriptorhandle: *mut ::core::ffi::c_void, recnum
     extern "system" {
         fn SQLSetDescField(descriptorhandle: *mut ::core::ffi::c_void, recnumber: i16, fieldidentifier: i16, value: *const ::core::ffi::c_void, bufferlength: i32) -> i16;
     }
-    ::core::mem::transmute(SQLSetDescField(::core::mem::transmute(descriptorhandle), ::core::mem::transmute(recnumber), ::core::mem::transmute(fieldidentifier), ::core::mem::transmute(value), ::core::mem::transmute(bufferlength)))
+    ::core::mem::transmute(SQLSetDescField(::core::mem::transmute(descriptorhandle), recnumber, fieldidentifier, ::core::mem::transmute(value), bufferlength))
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[inline]
@@ -27000,7 +27000,7 @@ pub unsafe fn SQLSetDescFieldW(descriptorhandle: *mut ::core::ffi::c_void, recnu
     extern "system" {
         fn SQLSetDescFieldW(descriptorhandle: *mut ::core::ffi::c_void, recnumber: i16, fieldidentifier: i16, value: *mut ::core::ffi::c_void, bufferlength: i32) -> i16;
     }
-    ::core::mem::transmute(SQLSetDescFieldW(::core::mem::transmute(descriptorhandle), ::core::mem::transmute(recnumber), ::core::mem::transmute(fieldidentifier), ::core::mem::transmute(value), ::core::mem::transmute(bufferlength)))
+    ::core::mem::transmute(SQLSetDescFieldW(::core::mem::transmute(descriptorhandle), recnumber, fieldidentifier, ::core::mem::transmute(value), bufferlength))
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
@@ -27010,7 +27010,7 @@ pub unsafe fn SQLSetDescRec(descriptorhandle: *mut ::core::ffi::c_void, recnumbe
     extern "system" {
         fn SQLSetDescRec(descriptorhandle: *mut ::core::ffi::c_void, recnumber: i16, r#type: i16, subtype: i16, length: i64, precision: i16, scale: i16, data: *mut ::core::ffi::c_void, stringlength: *mut i64, indicator: *mut i64) -> i16;
     }
-    ::core::mem::transmute(SQLSetDescRec(::core::mem::transmute(descriptorhandle), ::core::mem::transmute(recnumber), ::core::mem::transmute(r#type), ::core::mem::transmute(subtype), ::core::mem::transmute(length), ::core::mem::transmute(precision), ::core::mem::transmute(scale), ::core::mem::transmute(data), ::core::mem::transmute(stringlength), ::core::mem::transmute(indicator)))
+    ::core::mem::transmute(SQLSetDescRec(::core::mem::transmute(descriptorhandle), recnumber, r#type, subtype, length, precision, scale, ::core::mem::transmute(data), ::core::mem::transmute(stringlength), ::core::mem::transmute(indicator)))
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[cfg(target_arch = "x86")]
@@ -27020,7 +27020,7 @@ pub unsafe fn SQLSetDescRec(descriptorhandle: *mut ::core::ffi::c_void, recnumbe
     extern "system" {
         fn SQLSetDescRec(descriptorhandle: *mut ::core::ffi::c_void, recnumber: i16, r#type: i16, subtype: i16, length: i32, precision: i16, scale: i16, data: *mut ::core::ffi::c_void, stringlength: *mut i32, indicator: *mut i32) -> i16;
     }
-    ::core::mem::transmute(SQLSetDescRec(::core::mem::transmute(descriptorhandle), ::core::mem::transmute(recnumber), ::core::mem::transmute(r#type), ::core::mem::transmute(subtype), ::core::mem::transmute(length), ::core::mem::transmute(precision), ::core::mem::transmute(scale), ::core::mem::transmute(data), ::core::mem::transmute(stringlength), ::core::mem::transmute(indicator)))
+    ::core::mem::transmute(SQLSetDescRec(::core::mem::transmute(descriptorhandle), recnumber, r#type, subtype, length, precision, scale, ::core::mem::transmute(data), ::core::mem::transmute(stringlength), ::core::mem::transmute(indicator)))
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[inline]
@@ -27029,7 +27029,7 @@ pub unsafe fn SQLSetEnvAttr(environmenthandle: *mut ::core::ffi::c_void, attribu
     extern "system" {
         fn SQLSetEnvAttr(environmenthandle: *mut ::core::ffi::c_void, attribute: i32, value: *const ::core::ffi::c_void, stringlength: i32) -> i16;
     }
-    ::core::mem::transmute(SQLSetEnvAttr(::core::mem::transmute(environmenthandle), ::core::mem::transmute(attribute), ::core::mem::transmute(value), ::core::mem::transmute(stringlength)))
+    ::core::mem::transmute(SQLSetEnvAttr(::core::mem::transmute(environmenthandle), attribute, ::core::mem::transmute(value), stringlength))
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
@@ -27039,7 +27039,7 @@ pub unsafe fn SQLSetParam(statementhandle: *mut ::core::ffi::c_void, parameternu
     extern "system" {
         fn SQLSetParam(statementhandle: *mut ::core::ffi::c_void, parameternumber: u16, valuetype: i16, parametertype: i16, lengthprecision: u64, parameterscale: i16, parametervalue: *const ::core::ffi::c_void, strlen_or_ind: *mut i64) -> i16;
     }
-    ::core::mem::transmute(SQLSetParam(::core::mem::transmute(statementhandle), ::core::mem::transmute(parameternumber), ::core::mem::transmute(valuetype), ::core::mem::transmute(parametertype), ::core::mem::transmute(lengthprecision), ::core::mem::transmute(parameterscale), ::core::mem::transmute(parametervalue), ::core::mem::transmute(strlen_or_ind)))
+    ::core::mem::transmute(SQLSetParam(::core::mem::transmute(statementhandle), parameternumber, valuetype, parametertype, lengthprecision, parameterscale, ::core::mem::transmute(parametervalue), ::core::mem::transmute(strlen_or_ind)))
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[cfg(target_arch = "x86")]
@@ -27049,7 +27049,7 @@ pub unsafe fn SQLSetParam(statementhandle: *mut ::core::ffi::c_void, parameternu
     extern "system" {
         fn SQLSetParam(statementhandle: *mut ::core::ffi::c_void, parameternumber: u16, valuetype: i16, parametertype: i16, lengthprecision: u32, parameterscale: i16, parametervalue: *const ::core::ffi::c_void, strlen_or_ind: *mut i32) -> i16;
     }
-    ::core::mem::transmute(SQLSetParam(::core::mem::transmute(statementhandle), ::core::mem::transmute(parameternumber), ::core::mem::transmute(valuetype), ::core::mem::transmute(parametertype), ::core::mem::transmute(lengthprecision), ::core::mem::transmute(parameterscale), ::core::mem::transmute(parametervalue), ::core::mem::transmute(strlen_or_ind)))
+    ::core::mem::transmute(SQLSetParam(::core::mem::transmute(statementhandle), parameternumber, valuetype, parametertype, lengthprecision, parameterscale, ::core::mem::transmute(parametervalue), ::core::mem::transmute(strlen_or_ind)))
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
@@ -27059,7 +27059,7 @@ pub unsafe fn SQLSetPos(hstmt: *mut ::core::ffi::c_void, irow: u64, foption: u16
     extern "system" {
         fn SQLSetPos(hstmt: *mut ::core::ffi::c_void, irow: u64, foption: u16, flock: u16) -> i16;
     }
-    ::core::mem::transmute(SQLSetPos(::core::mem::transmute(hstmt), ::core::mem::transmute(irow), ::core::mem::transmute(foption), ::core::mem::transmute(flock)))
+    ::core::mem::transmute(SQLSetPos(::core::mem::transmute(hstmt), irow, foption, flock))
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[cfg(target_arch = "x86")]
@@ -27069,7 +27069,7 @@ pub unsafe fn SQLSetPos(hstmt: *mut ::core::ffi::c_void, irow: u16, foption: u16
     extern "system" {
         fn SQLSetPos(hstmt: *mut ::core::ffi::c_void, irow: u16, foption: u16, flock: u16) -> i16;
     }
-    ::core::mem::transmute(SQLSetPos(::core::mem::transmute(hstmt), ::core::mem::transmute(irow), ::core::mem::transmute(foption), ::core::mem::transmute(flock)))
+    ::core::mem::transmute(SQLSetPos(::core::mem::transmute(hstmt), irow, foption, flock))
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
@@ -27079,7 +27079,7 @@ pub unsafe fn SQLSetScrollOptions(hstmt: *mut ::core::ffi::c_void, fconcurrency:
     extern "system" {
         fn SQLSetScrollOptions(hstmt: *mut ::core::ffi::c_void, fconcurrency: u16, crowkeyset: i64, crowrowset: u16) -> i16;
     }
-    ::core::mem::transmute(SQLSetScrollOptions(::core::mem::transmute(hstmt), ::core::mem::transmute(fconcurrency), ::core::mem::transmute(crowkeyset), ::core::mem::transmute(crowrowset)))
+    ::core::mem::transmute(SQLSetScrollOptions(::core::mem::transmute(hstmt), fconcurrency, crowkeyset, crowrowset))
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[cfg(target_arch = "x86")]
@@ -27089,7 +27089,7 @@ pub unsafe fn SQLSetScrollOptions(hstmt: *mut ::core::ffi::c_void, fconcurrency:
     extern "system" {
         fn SQLSetScrollOptions(hstmt: *mut ::core::ffi::c_void, fconcurrency: u16, crowkeyset: i32, crowrowset: u16) -> i16;
     }
-    ::core::mem::transmute(SQLSetScrollOptions(::core::mem::transmute(hstmt), ::core::mem::transmute(fconcurrency), ::core::mem::transmute(crowkeyset), ::core::mem::transmute(crowrowset)))
+    ::core::mem::transmute(SQLSetScrollOptions(::core::mem::transmute(hstmt), fconcurrency, crowkeyset, crowrowset))
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[inline]
@@ -27098,7 +27098,7 @@ pub unsafe fn SQLSetStmtAttr(statementhandle: *mut ::core::ffi::c_void, attribut
     extern "system" {
         fn SQLSetStmtAttr(statementhandle: *mut ::core::ffi::c_void, attribute: i32, value: *const ::core::ffi::c_void, stringlength: i32) -> i16;
     }
-    ::core::mem::transmute(SQLSetStmtAttr(::core::mem::transmute(statementhandle), ::core::mem::transmute(attribute), ::core::mem::transmute(value), ::core::mem::transmute(stringlength)))
+    ::core::mem::transmute(SQLSetStmtAttr(::core::mem::transmute(statementhandle), attribute, ::core::mem::transmute(value), stringlength))
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[inline]
@@ -27107,7 +27107,7 @@ pub unsafe fn SQLSetStmtAttrW(hstmt: *mut ::core::ffi::c_void, fattribute: i32, 
     extern "system" {
         fn SQLSetStmtAttrW(hstmt: *mut ::core::ffi::c_void, fattribute: i32, rgbvalue: *mut ::core::ffi::c_void, cbvaluemax: i32) -> i16;
     }
-    ::core::mem::transmute(SQLSetStmtAttrW(::core::mem::transmute(hstmt), ::core::mem::transmute(fattribute), ::core::mem::transmute(rgbvalue), ::core::mem::transmute(cbvaluemax)))
+    ::core::mem::transmute(SQLSetStmtAttrW(::core::mem::transmute(hstmt), fattribute, ::core::mem::transmute(rgbvalue), cbvaluemax))
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
@@ -27117,7 +27117,7 @@ pub unsafe fn SQLSetStmtOption(statementhandle: *mut ::core::ffi::c_void, option
     extern "system" {
         fn SQLSetStmtOption(statementhandle: *mut ::core::ffi::c_void, option: u16, value: u64) -> i16;
     }
-    ::core::mem::transmute(SQLSetStmtOption(::core::mem::transmute(statementhandle), ::core::mem::transmute(option), ::core::mem::transmute(value)))
+    ::core::mem::transmute(SQLSetStmtOption(::core::mem::transmute(statementhandle), option, value))
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[cfg(target_arch = "x86")]
@@ -27127,7 +27127,7 @@ pub unsafe fn SQLSetStmtOption(statementhandle: *mut ::core::ffi::c_void, option
     extern "system" {
         fn SQLSetStmtOption(statementhandle: *mut ::core::ffi::c_void, option: u16, value: u32) -> i16;
     }
-    ::core::mem::transmute(SQLSetStmtOption(::core::mem::transmute(statementhandle), ::core::mem::transmute(option), ::core::mem::transmute(value)))
+    ::core::mem::transmute(SQLSetStmtOption(::core::mem::transmute(statementhandle), option, value))
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[inline]
@@ -27136,7 +27136,7 @@ pub unsafe fn SQLSpecialColumns(statementhandle: *mut ::core::ffi::c_void, ident
     extern "system" {
         fn SQLSpecialColumns(statementhandle: *mut ::core::ffi::c_void, identifiertype: u16, catalogname: *const u8, namelength1: i16, schemaname: *const u8, namelength2: i16, tablename: *const u8, namelength3: i16, scope: u16, nullable: u16) -> i16;
     }
-    ::core::mem::transmute(SQLSpecialColumns(::core::mem::transmute(statementhandle), ::core::mem::transmute(identifiertype), ::core::mem::transmute(::windows::core::as_ptr_or_null(catalogname)), catalogname.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(schemaname)), schemaname.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(tablename)), tablename.len() as _, ::core::mem::transmute(scope), ::core::mem::transmute(nullable)))
+    ::core::mem::transmute(SQLSpecialColumns(::core::mem::transmute(statementhandle), identifiertype, ::core::mem::transmute(::windows::core::as_ptr_or_null(catalogname)), catalogname.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(schemaname)), schemaname.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(tablename)), tablename.len() as _, scope, nullable))
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[inline]
@@ -27145,7 +27145,7 @@ pub unsafe fn SQLSpecialColumnsA(hstmt: *mut ::core::ffi::c_void, fcoltype: u16,
     extern "system" {
         fn SQLSpecialColumnsA(hstmt: *mut ::core::ffi::c_void, fcoltype: u16, szcatalogname: *const u8, cbcatalogname: i16, szschemaname: *const u8, cbschemaname: i16, sztablename: *const u8, cbtablename: i16, fscope: u16, fnullable: u16) -> i16;
     }
-    ::core::mem::transmute(SQLSpecialColumnsA(::core::mem::transmute(hstmt), ::core::mem::transmute(fcoltype), ::core::mem::transmute(::windows::core::as_ptr_or_null(szcatalogname)), szcatalogname.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(szschemaname)), szschemaname.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(sztablename)), sztablename.len() as _, ::core::mem::transmute(fscope), ::core::mem::transmute(fnullable)))
+    ::core::mem::transmute(SQLSpecialColumnsA(::core::mem::transmute(hstmt), fcoltype, ::core::mem::transmute(::windows::core::as_ptr_or_null(szcatalogname)), szcatalogname.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(szschemaname)), szschemaname.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(sztablename)), sztablename.len() as _, fscope, fnullable))
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[inline]
@@ -27154,7 +27154,7 @@ pub unsafe fn SQLSpecialColumnsW(hstmt: *mut ::core::ffi::c_void, fcoltype: u16,
     extern "system" {
         fn SQLSpecialColumnsW(hstmt: *mut ::core::ffi::c_void, fcoltype: u16, szcatalogname: *const u16, cchcatalogname: i16, szschemaname: *const u16, cchschemaname: i16, sztablename: *const u16, cchtablename: i16, fscope: u16, fnullable: u16) -> i16;
     }
-    ::core::mem::transmute(SQLSpecialColumnsW(::core::mem::transmute(hstmt), ::core::mem::transmute(fcoltype), ::core::mem::transmute(::windows::core::as_ptr_or_null(szcatalogname)), szcatalogname.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(szschemaname)), szschemaname.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(sztablename)), sztablename.len() as _, ::core::mem::transmute(fscope), ::core::mem::transmute(fnullable)))
+    ::core::mem::transmute(SQLSpecialColumnsW(::core::mem::transmute(hstmt), fcoltype, ::core::mem::transmute(::windows::core::as_ptr_or_null(szcatalogname)), szcatalogname.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(szschemaname)), szschemaname.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(sztablename)), sztablename.len() as _, fscope, fnullable))
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[inline]
@@ -27163,7 +27163,7 @@ pub unsafe fn SQLStatistics(statementhandle: *mut ::core::ffi::c_void, catalogna
     extern "system" {
         fn SQLStatistics(statementhandle: *mut ::core::ffi::c_void, catalogname: *const u8, namelength1: i16, schemaname: *const u8, namelength2: i16, tablename: *const u8, namelength3: i16, unique: u16, reserved: u16) -> i16;
     }
-    ::core::mem::transmute(SQLStatistics(::core::mem::transmute(statementhandle), ::core::mem::transmute(::windows::core::as_ptr_or_null(catalogname)), catalogname.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(schemaname)), schemaname.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(tablename)), tablename.len() as _, ::core::mem::transmute(unique), ::core::mem::transmute(reserved)))
+    ::core::mem::transmute(SQLStatistics(::core::mem::transmute(statementhandle), ::core::mem::transmute(::windows::core::as_ptr_or_null(catalogname)), catalogname.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(schemaname)), schemaname.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(tablename)), tablename.len() as _, unique, reserved))
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[inline]
@@ -27172,7 +27172,7 @@ pub unsafe fn SQLStatisticsA(hstmt: *mut ::core::ffi::c_void, szcatalogname: &[u
     extern "system" {
         fn SQLStatisticsA(hstmt: *mut ::core::ffi::c_void, szcatalogname: *const u8, cbcatalogname: i16, szschemaname: *const u8, cbschemaname: i16, sztablename: *const u8, cbtablename: i16, funique: u16, faccuracy: u16) -> i16;
     }
-    ::core::mem::transmute(SQLStatisticsA(::core::mem::transmute(hstmt), ::core::mem::transmute(::windows::core::as_ptr_or_null(szcatalogname)), szcatalogname.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(szschemaname)), szschemaname.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(sztablename)), sztablename.len() as _, ::core::mem::transmute(funique), ::core::mem::transmute(faccuracy)))
+    ::core::mem::transmute(SQLStatisticsA(::core::mem::transmute(hstmt), ::core::mem::transmute(::windows::core::as_ptr_or_null(szcatalogname)), szcatalogname.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(szschemaname)), szschemaname.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(sztablename)), sztablename.len() as _, funique, faccuracy))
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[inline]
@@ -27181,7 +27181,7 @@ pub unsafe fn SQLStatisticsW(hstmt: *mut ::core::ffi::c_void, szcatalogname: &[u
     extern "system" {
         fn SQLStatisticsW(hstmt: *mut ::core::ffi::c_void, szcatalogname: *const u16, cchcatalogname: i16, szschemaname: *const u16, cchschemaname: i16, sztablename: *const u16, cchtablename: i16, funique: u16, faccuracy: u16) -> i16;
     }
-    ::core::mem::transmute(SQLStatisticsW(::core::mem::transmute(hstmt), ::core::mem::transmute(::windows::core::as_ptr_or_null(szcatalogname)), szcatalogname.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(szschemaname)), szschemaname.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(sztablename)), sztablename.len() as _, ::core::mem::transmute(funique), ::core::mem::transmute(faccuracy)))
+    ::core::mem::transmute(SQLStatisticsW(::core::mem::transmute(hstmt), ::core::mem::transmute(::windows::core::as_ptr_or_null(szcatalogname)), szcatalogname.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(szschemaname)), szschemaname.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(sztablename)), sztablename.len() as _, funique, faccuracy))
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 pub const SQLTEXT: u32 = 35u32;
@@ -27246,7 +27246,7 @@ pub unsafe fn SQLTransact(environmenthandle: *mut ::core::ffi::c_void, connectio
     extern "system" {
         fn SQLTransact(environmenthandle: *mut ::core::ffi::c_void, connectionhandle: *mut ::core::ffi::c_void, completiontype: u16) -> i16;
     }
-    ::core::mem::transmute(SQLTransact(::core::mem::transmute(environmenthandle), ::core::mem::transmute(connectionhandle), ::core::mem::transmute(completiontype)))
+    ::core::mem::transmute(SQLTransact(::core::mem::transmute(environmenthandle), ::core::mem::transmute(connectionhandle), completiontype))
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 pub const SQLUNIQUEID: u32 = 36u32;
@@ -31796,7 +31796,7 @@ pub unsafe fn bcp_bind(param0: *mut ::core::ffi::c_void, param1: *mut u8, param2
     extern "system" {
         fn bcp_bind(param0: *mut ::core::ffi::c_void, param1: *mut u8, param2: i32, param3: i32, param4: *mut u8, param5: i32, param6: i32, param7: i32) -> i16;
     }
-    ::core::mem::transmute(bcp_bind(::core::mem::transmute(param0), ::core::mem::transmute(param1), ::core::mem::transmute(param2), ::core::mem::transmute(param3), ::core::mem::transmute(param4), ::core::mem::transmute(param5), ::core::mem::transmute(param6), ::core::mem::transmute(param7)))
+    ::core::mem::transmute(bcp_bind(::core::mem::transmute(param0), ::core::mem::transmute(param1), param2, param3, ::core::mem::transmute(param4), param5, param6, param7))
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[inline]
@@ -31805,7 +31805,7 @@ pub unsafe fn bcp_colfmt(param0: *mut ::core::ffi::c_void, param1: i32, param2: 
     extern "system" {
         fn bcp_colfmt(param0: *mut ::core::ffi::c_void, param1: i32, param2: u8, param3: i32, param4: i32, param5: *mut u8, param6: i32, param7: i32) -> i16;
     }
-    ::core::mem::transmute(bcp_colfmt(::core::mem::transmute(param0), ::core::mem::transmute(param1), ::core::mem::transmute(param2), ::core::mem::transmute(param3), ::core::mem::transmute(param4), ::core::mem::transmute(param5), ::core::mem::transmute(param6), ::core::mem::transmute(param7)))
+    ::core::mem::transmute(bcp_colfmt(::core::mem::transmute(param0), param1, param2, param3, param4, ::core::mem::transmute(param5), param6, param7))
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[inline]
@@ -31814,7 +31814,7 @@ pub unsafe fn bcp_collen(param0: *mut ::core::ffi::c_void, param1: i32, param2: 
     extern "system" {
         fn bcp_collen(param0: *mut ::core::ffi::c_void, param1: i32, param2: i32) -> i16;
     }
-    ::core::mem::transmute(bcp_collen(::core::mem::transmute(param0), ::core::mem::transmute(param1), ::core::mem::transmute(param2)))
+    ::core::mem::transmute(bcp_collen(::core::mem::transmute(param0), param1, param2))
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[inline]
@@ -31823,7 +31823,7 @@ pub unsafe fn bcp_colptr(param0: *mut ::core::ffi::c_void, param1: *mut u8, para
     extern "system" {
         fn bcp_colptr(param0: *mut ::core::ffi::c_void, param1: *mut u8, param2: i32) -> i16;
     }
-    ::core::mem::transmute(bcp_colptr(::core::mem::transmute(param0), ::core::mem::transmute(param1), ::core::mem::transmute(param2)))
+    ::core::mem::transmute(bcp_colptr(::core::mem::transmute(param0), ::core::mem::transmute(param1), param2))
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[inline]
@@ -31832,7 +31832,7 @@ pub unsafe fn bcp_columns(param0: *mut ::core::ffi::c_void, param1: i32) -> i16 
     extern "system" {
         fn bcp_columns(param0: *mut ::core::ffi::c_void, param1: i32) -> i16;
     }
-    ::core::mem::transmute(bcp_columns(::core::mem::transmute(param0), ::core::mem::transmute(param1)))
+    ::core::mem::transmute(bcp_columns(::core::mem::transmute(param0), param1))
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[inline]
@@ -31841,7 +31841,7 @@ pub unsafe fn bcp_control(param0: *mut ::core::ffi::c_void, param1: i32, param2:
     extern "system" {
         fn bcp_control(param0: *mut ::core::ffi::c_void, param1: i32, param2: *mut ::core::ffi::c_void) -> i16;
     }
-    ::core::mem::transmute(bcp_control(::core::mem::transmute(param0), ::core::mem::transmute(param1), ::core::mem::transmute(param2)))
+    ::core::mem::transmute(bcp_control(::core::mem::transmute(param0), param1, ::core::mem::transmute(param2)))
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[inline]
@@ -31868,7 +31868,7 @@ pub unsafe fn bcp_getcolfmt(param0: *mut ::core::ffi::c_void, param1: i32, param
     extern "system" {
         fn bcp_getcolfmt(param0: *mut ::core::ffi::c_void, param1: i32, param2: i32, param3: *mut ::core::ffi::c_void, param4: i32, param5: *mut i32) -> i16;
     }
-    ::core::mem::transmute(bcp_getcolfmt(::core::mem::transmute(param0), ::core::mem::transmute(param1), ::core::mem::transmute(param2), ::core::mem::transmute(param3), ::core::mem::transmute(param4), ::core::mem::transmute(param5)))
+    ::core::mem::transmute(bcp_getcolfmt(::core::mem::transmute(param0), param1, param2, ::core::mem::transmute(param3), param4, ::core::mem::transmute(param5)))
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[inline]
@@ -31882,7 +31882,7 @@ where
     extern "system" {
         fn bcp_initA(param0: *mut ::core::ffi::c_void, param1: ::windows::core::PCSTR, param2: ::windows::core::PCSTR, param3: ::windows::core::PCSTR, param4: i32) -> i16;
     }
-    ::core::mem::transmute(bcp_initA(::core::mem::transmute(param0), param1.into(), param2.into(), param3.into(), ::core::mem::transmute(param4)))
+    ::core::mem::transmute(bcp_initA(::core::mem::transmute(param0), param1.into(), param2.into(), param3.into(), param4))
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[inline]
@@ -31896,7 +31896,7 @@ where
     extern "system" {
         fn bcp_initW(param0: *mut ::core::ffi::c_void, param1: ::windows::core::PCWSTR, param2: ::windows::core::PCWSTR, param3: ::windows::core::PCWSTR, param4: i32) -> i16;
     }
-    ::core::mem::transmute(bcp_initW(::core::mem::transmute(param0), param1.into(), param2.into(), param3.into(), ::core::mem::transmute(param4)))
+    ::core::mem::transmute(bcp_initW(::core::mem::transmute(param0), param1.into(), param2.into(), param3.into(), param4))
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[inline]
@@ -31905,7 +31905,7 @@ pub unsafe fn bcp_moretext(param0: *mut ::core::ffi::c_void, param1: i32, param2
     extern "system" {
         fn bcp_moretext(param0: *mut ::core::ffi::c_void, param1: i32, param2: *mut u8) -> i16;
     }
-    ::core::mem::transmute(bcp_moretext(::core::mem::transmute(param0), ::core::mem::transmute(param1), ::core::mem::transmute(param2)))
+    ::core::mem::transmute(bcp_moretext(::core::mem::transmute(param0), param1, ::core::mem::transmute(param2)))
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[inline]
@@ -31947,7 +31947,7 @@ pub unsafe fn bcp_setcolfmt(param0: *mut ::core::ffi::c_void, param1: i32, param
     extern "system" {
         fn bcp_setcolfmt(param0: *mut ::core::ffi::c_void, param1: i32, param2: i32, param3: *mut ::core::ffi::c_void, param4: i32) -> i16;
     }
-    ::core::mem::transmute(bcp_setcolfmt(::core::mem::transmute(param0), ::core::mem::transmute(param1), ::core::mem::transmute(param2), ::core::mem::transmute(param3), ::core::mem::transmute(param4)))
+    ::core::mem::transmute(bcp_setcolfmt(::core::mem::transmute(param0), param1, param2, ::core::mem::transmute(param3), param4))
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[inline]
@@ -32073,7 +32073,7 @@ pub unsafe fn dbprtypeA(param0: i32) -> ::windows::core::PSTR {
     extern "system" {
         fn dbprtypeA(param0: i32) -> ::windows::core::PSTR;
     }
-    ::core::mem::transmute(dbprtypeA(::core::mem::transmute(param0)))
+    ::core::mem::transmute(dbprtypeA(param0))
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[inline]
@@ -32082,7 +32082,7 @@ pub unsafe fn dbprtypeW(param0: i32) -> ::windows::core::PWSTR {
     extern "system" {
         fn dbprtypeW(param0: i32) -> ::windows::core::PWSTR;
     }
-    ::core::mem::transmute(dbprtypeW(::core::mem::transmute(param0)))
+    ::core::mem::transmute(dbprtypeW(param0))
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]

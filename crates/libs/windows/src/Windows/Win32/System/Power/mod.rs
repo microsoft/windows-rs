@@ -662,7 +662,7 @@ pub unsafe fn CallNtPowerInformation(informationlevel: POWER_INFORMATION_LEVEL, 
     extern "system" {
         fn CallNtPowerInformation(informationlevel: POWER_INFORMATION_LEVEL, inputbuffer: *const ::core::ffi::c_void, inputbufferlength: u32, outputbuffer: *mut ::core::ffi::c_void, outputbufferlength: u32) -> i32;
     }
-    ::core::mem::transmute(CallNtPowerInformation(::core::mem::transmute(informationlevel), ::core::mem::transmute(inputbuffer), ::core::mem::transmute(inputbufferlength), ::core::mem::transmute(outputbuffer), ::core::mem::transmute(outputbufferlength)))
+    ::core::mem::transmute(CallNtPowerInformation(informationlevel, ::core::mem::transmute(inputbuffer), inputbufferlength, ::core::mem::transmute(outputbuffer), outputbufferlength))
 }
 #[doc = "*Required features: `\"Win32_System_Power\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -766,7 +766,7 @@ pub unsafe fn DeletePwrScheme(uiid: u32) -> super::super::Foundation::BOOLEAN {
     extern "system" {
         fn DeletePwrScheme(uiid: u32) -> super::super::Foundation::BOOLEAN;
     }
-    ::core::mem::transmute(DeletePwrScheme(::core::mem::transmute(uiid)))
+    ::core::mem::transmute(DeletePwrScheme(uiid))
 }
 #[doc = "*Required features: `\"Win32_System_Power\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -786,7 +786,7 @@ pub unsafe fn DevicePowerEnumDevices(queryindex: u32, queryinterpretationflags: 
     extern "system" {
         fn DevicePowerEnumDevices(queryindex: u32, queryinterpretationflags: u32, queryflags: u32, preturnbuffer: *mut u8, pbuffersize: *mut u32) -> super::super::Foundation::BOOLEAN;
     }
-    ::core::mem::transmute(DevicePowerEnumDevices(::core::mem::transmute(queryindex), ::core::mem::transmute(queryinterpretationflags), ::core::mem::transmute(queryflags), ::core::mem::transmute(preturnbuffer), ::core::mem::transmute(pbuffersize)))
+    ::core::mem::transmute(DevicePowerEnumDevices(queryindex, queryinterpretationflags, queryflags, ::core::mem::transmute(preturnbuffer), ::core::mem::transmute(pbuffersize)))
 }
 #[doc = "*Required features: `\"Win32_System_Power\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -796,7 +796,7 @@ pub unsafe fn DevicePowerOpen(debugmask: u32) -> super::super::Foundation::BOOLE
     extern "system" {
         fn DevicePowerOpen(debugmask: u32) -> super::super::Foundation::BOOLEAN;
     }
-    ::core::mem::transmute(DevicePowerOpen(::core::mem::transmute(debugmask)))
+    ::core::mem::transmute(DevicePowerOpen(debugmask))
 }
 #[doc = "*Required features: `\"Win32_System_Power\"`*"]
 #[inline]
@@ -808,7 +808,7 @@ where
     extern "system" {
         fn DevicePowerSetDeviceState(devicedescription: ::windows::core::PCWSTR, setflags: u32, setdata: *const ::core::ffi::c_void) -> u32;
     }
-    ::core::mem::transmute(DevicePowerSetDeviceState(devicedescription.into(), ::core::mem::transmute(setflags), ::core::mem::transmute(setdata)))
+    ::core::mem::transmute(DevicePowerSetDeviceState(devicedescription.into(), setflags, ::core::mem::transmute(setdata)))
 }
 #[doc = "*Required features: `\"Win32_System_Power\"`*"]
 #[repr(transparent)]
@@ -2472,7 +2472,7 @@ where
     extern "system" {
         fn PowerClearRequest(powerrequest: super::super::Foundation::HANDLE, requesttype: POWER_REQUEST_TYPE) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(PowerClearRequest(powerrequest.into(), ::core::mem::transmute(requesttype)))
+    ::core::mem::transmute(PowerClearRequest(powerrequest.into(), requesttype))
 }
 #[doc = "*Required features: `\"Win32_System_Power\"`, `\"Win32_System_Registry\"`*"]
 #[cfg(feature = "Win32_System_Registry")]
@@ -2485,7 +2485,7 @@ where
     extern "system" {
         fn PowerCreatePossibleSetting(rootsystempowerkey: super::Registry::HKEY, subgroupofpowersettingsguid: *const ::windows::core::GUID, powersettingguid: *const ::windows::core::GUID, possiblesettingindex: u32) -> u32;
     }
-    ::core::mem::transmute(PowerCreatePossibleSetting(rootsystempowerkey.into(), ::core::mem::transmute(subgroupofpowersettingsguid), ::core::mem::transmute(powersettingguid), ::core::mem::transmute(possiblesettingindex)))
+    ::core::mem::transmute(PowerCreatePossibleSetting(rootsystempowerkey.into(), ::core::mem::transmute(subgroupofpowersettingsguid), ::core::mem::transmute(powersettingguid), possiblesettingindex))
 }
 #[doc = "*Required features: `\"Win32_System_Power\"`, `\"Win32_Foundation\"`, `\"Win32_System_Threading\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Threading"))]
@@ -2540,7 +2540,7 @@ pub unsafe fn PowerDeterminePlatformRoleEx(version: POWER_PLATFORM_ROLE_VERSION)
     extern "system" {
         fn PowerDeterminePlatformRoleEx(version: POWER_PLATFORM_ROLE_VERSION) -> POWER_PLATFORM_ROLE;
     }
-    ::core::mem::transmute(PowerDeterminePlatformRoleEx(::core::mem::transmute(version)))
+    ::core::mem::transmute(PowerDeterminePlatformRoleEx(version))
 }
 #[doc = "*Required features: `\"Win32_System_Power\"`, `\"Win32_System_Registry\"`*"]
 #[cfg(feature = "Win32_System_Registry")]
@@ -2566,7 +2566,7 @@ where
     extern "system" {
         fn PowerEnumerate(rootpowerkey: super::Registry::HKEY, schemeguid: *const ::windows::core::GUID, subgroupofpowersettingsguid: *const ::windows::core::GUID, accessflags: POWER_DATA_ACCESSOR, index: u32, buffer: *mut u8, buffersize: *mut u32) -> u32;
     }
-    ::core::mem::transmute(PowerEnumerate(rootpowerkey.into(), ::core::mem::transmute(schemeguid), ::core::mem::transmute(subgroupofpowersettingsguid), ::core::mem::transmute(accessflags), ::core::mem::transmute(index), ::core::mem::transmute(buffer), ::core::mem::transmute(buffersize)))
+    ::core::mem::transmute(PowerEnumerate(rootpowerkey.into(), ::core::mem::transmute(schemeguid), ::core::mem::transmute(subgroupofpowersettingsguid), accessflags, index, ::core::mem::transmute(buffer), ::core::mem::transmute(buffersize)))
 }
 #[doc = "*Required features: `\"Win32_System_Power\"`, `\"Win32_System_Registry\"`*"]
 #[cfg(feature = "Win32_System_Registry")]
@@ -2616,7 +2616,7 @@ where
     extern "system" {
         fn PowerOpenSystemPowerKey(phsystempowerkey: *mut super::Registry::HKEY, access: u32, openexisting: super::super::Foundation::BOOL) -> u32;
     }
-    ::core::mem::transmute(PowerOpenSystemPowerKey(::core::mem::transmute(phsystempowerkey), ::core::mem::transmute(access), openexisting.into()))
+    ::core::mem::transmute(PowerOpenSystemPowerKey(::core::mem::transmute(phsystempowerkey), access, openexisting.into()))
 }
 #[doc = "*Required features: `\"Win32_System_Power\"`, `\"Win32_Foundation\"`, `\"Win32_System_Registry\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
@@ -2629,7 +2629,7 @@ where
     extern "system" {
         fn PowerOpenUserPowerKey(phuserpowerkey: *mut super::Registry::HKEY, access: u32, openexisting: super::super::Foundation::BOOL) -> u32;
     }
-    ::core::mem::transmute(PowerOpenUserPowerKey(::core::mem::transmute(phuserpowerkey), ::core::mem::transmute(access), openexisting.into()))
+    ::core::mem::transmute(PowerOpenUserPowerKey(::core::mem::transmute(phuserpowerkey), access, openexisting.into()))
 }
 #[doc = "*Required features: `\"Win32_System_Power\"`, `\"Win32_System_Registry\"`*"]
 #[cfg(feature = "Win32_System_Registry")]
@@ -2759,7 +2759,7 @@ where
     extern "system" {
         fn PowerReadPossibleDescription(rootpowerkey: super::Registry::HKEY, subgroupofpowersettingsguid: *const ::windows::core::GUID, powersettingguid: *const ::windows::core::GUID, possiblesettingindex: u32, buffer: *mut u8, buffersize: *mut u32) -> u32;
     }
-    ::core::mem::transmute(PowerReadPossibleDescription(rootpowerkey.into(), ::core::mem::transmute(subgroupofpowersettingsguid), ::core::mem::transmute(powersettingguid), ::core::mem::transmute(possiblesettingindex), ::core::mem::transmute(buffer), ::core::mem::transmute(buffersize)))
+    ::core::mem::transmute(PowerReadPossibleDescription(rootpowerkey.into(), ::core::mem::transmute(subgroupofpowersettingsguid), ::core::mem::transmute(powersettingguid), possiblesettingindex, ::core::mem::transmute(buffer), ::core::mem::transmute(buffersize)))
 }
 #[doc = "*Required features: `\"Win32_System_Power\"`, `\"Win32_System_Registry\"`*"]
 #[cfg(feature = "Win32_System_Registry")]
@@ -2772,7 +2772,7 @@ where
     extern "system" {
         fn PowerReadPossibleFriendlyName(rootpowerkey: super::Registry::HKEY, subgroupofpowersettingsguid: *const ::windows::core::GUID, powersettingguid: *const ::windows::core::GUID, possiblesettingindex: u32, buffer: *mut u8, buffersize: *mut u32) -> u32;
     }
-    ::core::mem::transmute(PowerReadPossibleFriendlyName(rootpowerkey.into(), ::core::mem::transmute(subgroupofpowersettingsguid), ::core::mem::transmute(powersettingguid), ::core::mem::transmute(possiblesettingindex), ::core::mem::transmute(buffer), ::core::mem::transmute(buffersize)))
+    ::core::mem::transmute(PowerReadPossibleFriendlyName(rootpowerkey.into(), ::core::mem::transmute(subgroupofpowersettingsguid), ::core::mem::transmute(powersettingguid), possiblesettingindex, ::core::mem::transmute(buffer), ::core::mem::transmute(buffersize)))
 }
 #[doc = "*Required features: `\"Win32_System_Power\"`, `\"Win32_System_Registry\"`*"]
 #[cfg(feature = "Win32_System_Registry")]
@@ -2785,7 +2785,7 @@ where
     extern "system" {
         fn PowerReadPossibleValue(rootpowerkey: super::Registry::HKEY, subgroupofpowersettingsguid: *const ::windows::core::GUID, powersettingguid: *const ::windows::core::GUID, r#type: *mut u32, possiblesettingindex: u32, buffer: *mut u8, buffersize: *mut u32) -> u32;
     }
-    ::core::mem::transmute(PowerReadPossibleValue(rootpowerkey.into(), ::core::mem::transmute(subgroupofpowersettingsguid), ::core::mem::transmute(powersettingguid), ::core::mem::transmute(r#type), ::core::mem::transmute(possiblesettingindex), ::core::mem::transmute(buffer), ::core::mem::transmute(buffersize)))
+    ::core::mem::transmute(PowerReadPossibleValue(rootpowerkey.into(), ::core::mem::transmute(subgroupofpowersettingsguid), ::core::mem::transmute(powersettingguid), ::core::mem::transmute(r#type), possiblesettingindex, ::core::mem::transmute(buffer), ::core::mem::transmute(buffersize)))
 }
 #[doc = "*Required features: `\"Win32_System_Power\"`*"]
 #[inline]
@@ -2855,7 +2855,7 @@ pub unsafe fn PowerRegisterForEffectivePowerModeNotifications(version: u32, call
     extern "system" {
         fn PowerRegisterForEffectivePowerModeNotifications(version: u32, callback: *mut ::core::ffi::c_void, context: *const ::core::ffi::c_void, registrationhandle: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
     }
-    PowerRegisterForEffectivePowerModeNotifications(::core::mem::transmute(version), ::core::mem::transmute(callback), ::core::mem::transmute(context), ::core::mem::transmute(registrationhandle)).ok()
+    PowerRegisterForEffectivePowerModeNotifications(version, ::core::mem::transmute(callback), ::core::mem::transmute(context), ::core::mem::transmute(registrationhandle)).ok()
 }
 #[doc = "*Required features: `\"Win32_System_Power\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -2868,7 +2868,7 @@ where
     extern "system" {
         fn PowerRegisterSuspendResumeNotification(flags: u32, recipient: super::super::Foundation::HANDLE, registrationhandle: *mut *mut ::core::ffi::c_void) -> u32;
     }
-    ::core::mem::transmute(PowerRegisterSuspendResumeNotification(::core::mem::transmute(flags), recipient.into(), ::core::mem::transmute(registrationhandle)))
+    ::core::mem::transmute(PowerRegisterSuspendResumeNotification(flags, recipient.into(), ::core::mem::transmute(registrationhandle)))
 }
 #[doc = "*Required features: `\"Win32_System_Power\"`*"]
 #[inline]
@@ -2939,7 +2939,7 @@ where
     extern "system" {
         fn PowerSetRequest(powerrequest: super::super::Foundation::HANDLE, requesttype: POWER_REQUEST_TYPE) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(PowerSetRequest(powerrequest.into(), ::core::mem::transmute(requesttype)))
+    ::core::mem::transmute(PowerSetRequest(powerrequest.into(), requesttype))
 }
 #[doc = "*Required features: `\"Win32_System_Power\"`*"]
 #[inline]
@@ -2948,7 +2948,7 @@ pub unsafe fn PowerSettingAccessCheck(accessflags: POWER_DATA_ACCESSOR, powergui
     extern "system" {
         fn PowerSettingAccessCheck(accessflags: POWER_DATA_ACCESSOR, powerguid: *const ::windows::core::GUID) -> u32;
     }
-    ::core::mem::transmute(PowerSettingAccessCheck(::core::mem::transmute(accessflags), ::core::mem::transmute(powerguid)))
+    ::core::mem::transmute(PowerSettingAccessCheck(accessflags, ::core::mem::transmute(powerguid)))
 }
 #[doc = "*Required features: `\"Win32_System_Power\"`, `\"Win32_System_Registry\"`*"]
 #[cfg(feature = "Win32_System_Registry")]
@@ -2958,7 +2958,7 @@ pub unsafe fn PowerSettingAccessCheckEx(accessflags: POWER_DATA_ACCESSOR, powerg
     extern "system" {
         fn PowerSettingAccessCheckEx(accessflags: POWER_DATA_ACCESSOR, powerguid: *const ::windows::core::GUID, accesstype: super::Registry::REG_SAM_FLAGS) -> u32;
     }
-    ::core::mem::transmute(PowerSettingAccessCheckEx(::core::mem::transmute(accessflags), ::core::mem::transmute(powerguid), ::core::mem::transmute(accesstype)))
+    ::core::mem::transmute(PowerSettingAccessCheckEx(accessflags, ::core::mem::transmute(powerguid), accesstype))
 }
 #[doc = "*Required features: `\"Win32_System_Power\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -2971,7 +2971,7 @@ where
     extern "system" {
         fn PowerSettingRegisterNotification(settingguid: *const ::windows::core::GUID, flags: POWER_SETTING_REGISTER_NOTIFICATION_FLAGS, recipient: super::super::Foundation::HANDLE, registrationhandle: *mut *mut ::core::ffi::c_void) -> u32;
     }
-    ::core::mem::transmute(PowerSettingRegisterNotification(::core::mem::transmute(settingguid), ::core::mem::transmute(flags), recipient.into(), ::core::mem::transmute(registrationhandle)))
+    ::core::mem::transmute(PowerSettingRegisterNotification(::core::mem::transmute(settingguid), flags, recipient.into(), ::core::mem::transmute(registrationhandle)))
 }
 #[doc = "*Required features: `\"Win32_System_Power\"`*"]
 #[inline]
@@ -3017,7 +3017,7 @@ where
     extern "system" {
         fn PowerWriteACDefaultIndex(rootsystempowerkey: super::Registry::HKEY, schemepersonalityguid: *const ::windows::core::GUID, subgroupofpowersettingsguid: *const ::windows::core::GUID, powersettingguid: *const ::windows::core::GUID, defaultacindex: u32) -> u32;
     }
-    ::core::mem::transmute(PowerWriteACDefaultIndex(rootsystempowerkey.into(), ::core::mem::transmute(schemepersonalityguid), ::core::mem::transmute(subgroupofpowersettingsguid), ::core::mem::transmute(powersettingguid), ::core::mem::transmute(defaultacindex)))
+    ::core::mem::transmute(PowerWriteACDefaultIndex(rootsystempowerkey.into(), ::core::mem::transmute(schemepersonalityguid), ::core::mem::transmute(subgroupofpowersettingsguid), ::core::mem::transmute(powersettingguid), defaultacindex))
 }
 #[doc = "*Required features: `\"Win32_System_Power\"`, `\"Win32_System_Registry\"`*"]
 #[cfg(feature = "Win32_System_Registry")]
@@ -3030,7 +3030,7 @@ where
     extern "system" {
         fn PowerWriteACValueIndex(rootpowerkey: super::Registry::HKEY, schemeguid: *const ::windows::core::GUID, subgroupofpowersettingsguid: *const ::windows::core::GUID, powersettingguid: *const ::windows::core::GUID, acvalueindex: u32) -> u32;
     }
-    ::core::mem::transmute(PowerWriteACValueIndex(rootpowerkey.into(), ::core::mem::transmute(schemeguid), ::core::mem::transmute(subgroupofpowersettingsguid), ::core::mem::transmute(powersettingguid), ::core::mem::transmute(acvalueindex)))
+    ::core::mem::transmute(PowerWriteACValueIndex(rootpowerkey.into(), ::core::mem::transmute(schemeguid), ::core::mem::transmute(subgroupofpowersettingsguid), ::core::mem::transmute(powersettingguid), acvalueindex))
 }
 #[doc = "*Required features: `\"Win32_System_Power\"`, `\"Win32_System_Registry\"`*"]
 #[cfg(feature = "Win32_System_Registry")]
@@ -3043,7 +3043,7 @@ where
     extern "system" {
         fn PowerWriteDCDefaultIndex(rootsystempowerkey: super::Registry::HKEY, schemepersonalityguid: *const ::windows::core::GUID, subgroupofpowersettingsguid: *const ::windows::core::GUID, powersettingguid: *const ::windows::core::GUID, defaultdcindex: u32) -> u32;
     }
-    ::core::mem::transmute(PowerWriteDCDefaultIndex(rootsystempowerkey.into(), ::core::mem::transmute(schemepersonalityguid), ::core::mem::transmute(subgroupofpowersettingsguid), ::core::mem::transmute(powersettingguid), ::core::mem::transmute(defaultdcindex)))
+    ::core::mem::transmute(PowerWriteDCDefaultIndex(rootsystempowerkey.into(), ::core::mem::transmute(schemepersonalityguid), ::core::mem::transmute(subgroupofpowersettingsguid), ::core::mem::transmute(powersettingguid), defaultdcindex))
 }
 #[doc = "*Required features: `\"Win32_System_Power\"`, `\"Win32_System_Registry\"`*"]
 #[cfg(feature = "Win32_System_Registry")]
@@ -3056,7 +3056,7 @@ where
     extern "system" {
         fn PowerWriteDCValueIndex(rootpowerkey: super::Registry::HKEY, schemeguid: *const ::windows::core::GUID, subgroupofpowersettingsguid: *const ::windows::core::GUID, powersettingguid: *const ::windows::core::GUID, dcvalueindex: u32) -> u32;
     }
-    ::core::mem::transmute(PowerWriteDCValueIndex(rootpowerkey.into(), ::core::mem::transmute(schemeguid), ::core::mem::transmute(subgroupofpowersettingsguid), ::core::mem::transmute(powersettingguid), ::core::mem::transmute(dcvalueindex)))
+    ::core::mem::transmute(PowerWriteDCValueIndex(rootpowerkey.into(), ::core::mem::transmute(schemeguid), ::core::mem::transmute(subgroupofpowersettingsguid), ::core::mem::transmute(powersettingguid), dcvalueindex))
 }
 #[doc = "*Required features: `\"Win32_System_Power\"`, `\"Win32_System_Registry\"`*"]
 #[cfg(feature = "Win32_System_Registry")]
@@ -3069,7 +3069,7 @@ where
     extern "system" {
         fn PowerWriteDescription(rootpowerkey: super::Registry::HKEY, schemeguid: *const ::windows::core::GUID, subgroupofpowersettingsguid: *const ::windows::core::GUID, powersettingguid: *const ::windows::core::GUID, buffer: *const u8, buffersize: u32) -> u32;
     }
-    ::core::mem::transmute(PowerWriteDescription(rootpowerkey.into(), ::core::mem::transmute(schemeguid), ::core::mem::transmute(subgroupofpowersettingsguid), ::core::mem::transmute(powersettingguid), ::core::mem::transmute(buffer), ::core::mem::transmute(buffersize)))
+    ::core::mem::transmute(PowerWriteDescription(rootpowerkey.into(), ::core::mem::transmute(schemeguid), ::core::mem::transmute(subgroupofpowersettingsguid), ::core::mem::transmute(powersettingguid), ::core::mem::transmute(buffer), buffersize))
 }
 #[doc = "*Required features: `\"Win32_System_Power\"`, `\"Win32_System_Registry\"`*"]
 #[cfg(feature = "Win32_System_Registry")]
@@ -3082,7 +3082,7 @@ where
     extern "system" {
         fn PowerWriteFriendlyName(rootpowerkey: super::Registry::HKEY, schemeguid: *const ::windows::core::GUID, subgroupofpowersettingsguid: *const ::windows::core::GUID, powersettingguid: *const ::windows::core::GUID, buffer: *const u8, buffersize: u32) -> u32;
     }
-    ::core::mem::transmute(PowerWriteFriendlyName(rootpowerkey.into(), ::core::mem::transmute(schemeguid), ::core::mem::transmute(subgroupofpowersettingsguid), ::core::mem::transmute(powersettingguid), ::core::mem::transmute(buffer), ::core::mem::transmute(buffersize)))
+    ::core::mem::transmute(PowerWriteFriendlyName(rootpowerkey.into(), ::core::mem::transmute(schemeguid), ::core::mem::transmute(subgroupofpowersettingsguid), ::core::mem::transmute(powersettingguid), ::core::mem::transmute(buffer), buffersize))
 }
 #[doc = "*Required features: `\"Win32_System_Power\"`, `\"Win32_System_Registry\"`*"]
 #[cfg(feature = "Win32_System_Registry")]
@@ -3095,7 +3095,7 @@ where
     extern "system" {
         fn PowerWriteIconResourceSpecifier(rootpowerkey: super::Registry::HKEY, schemeguid: *const ::windows::core::GUID, subgroupofpowersettingsguid: *const ::windows::core::GUID, powersettingguid: *const ::windows::core::GUID, buffer: *const u8, buffersize: u32) -> u32;
     }
-    ::core::mem::transmute(PowerWriteIconResourceSpecifier(rootpowerkey.into(), ::core::mem::transmute(schemeguid), ::core::mem::transmute(subgroupofpowersettingsguid), ::core::mem::transmute(powersettingguid), ::core::mem::transmute(buffer), ::core::mem::transmute(buffersize)))
+    ::core::mem::transmute(PowerWriteIconResourceSpecifier(rootpowerkey.into(), ::core::mem::transmute(schemeguid), ::core::mem::transmute(subgroupofpowersettingsguid), ::core::mem::transmute(powersettingguid), ::core::mem::transmute(buffer), buffersize))
 }
 #[doc = "*Required features: `\"Win32_System_Power\"`, `\"Win32_System_Registry\"`*"]
 #[cfg(feature = "Win32_System_Registry")]
@@ -3108,7 +3108,7 @@ where
     extern "system" {
         fn PowerWritePossibleDescription(rootpowerkey: super::Registry::HKEY, subgroupofpowersettingsguid: *const ::windows::core::GUID, powersettingguid: *const ::windows::core::GUID, possiblesettingindex: u32, buffer: *const u8, buffersize: u32) -> u32;
     }
-    ::core::mem::transmute(PowerWritePossibleDescription(rootpowerkey.into(), ::core::mem::transmute(subgroupofpowersettingsguid), ::core::mem::transmute(powersettingguid), ::core::mem::transmute(possiblesettingindex), ::core::mem::transmute(buffer), ::core::mem::transmute(buffersize)))
+    ::core::mem::transmute(PowerWritePossibleDescription(rootpowerkey.into(), ::core::mem::transmute(subgroupofpowersettingsguid), ::core::mem::transmute(powersettingguid), possiblesettingindex, ::core::mem::transmute(buffer), buffersize))
 }
 #[doc = "*Required features: `\"Win32_System_Power\"`, `\"Win32_System_Registry\"`*"]
 #[cfg(feature = "Win32_System_Registry")]
@@ -3121,7 +3121,7 @@ where
     extern "system" {
         fn PowerWritePossibleFriendlyName(rootpowerkey: super::Registry::HKEY, subgroupofpowersettingsguid: *const ::windows::core::GUID, powersettingguid: *const ::windows::core::GUID, possiblesettingindex: u32, buffer: *const u8, buffersize: u32) -> u32;
     }
-    ::core::mem::transmute(PowerWritePossibleFriendlyName(rootpowerkey.into(), ::core::mem::transmute(subgroupofpowersettingsguid), ::core::mem::transmute(powersettingguid), ::core::mem::transmute(possiblesettingindex), ::core::mem::transmute(buffer), ::core::mem::transmute(buffersize)))
+    ::core::mem::transmute(PowerWritePossibleFriendlyName(rootpowerkey.into(), ::core::mem::transmute(subgroupofpowersettingsguid), ::core::mem::transmute(powersettingguid), possiblesettingindex, ::core::mem::transmute(buffer), buffersize))
 }
 #[doc = "*Required features: `\"Win32_System_Power\"`, `\"Win32_System_Registry\"`*"]
 #[cfg(feature = "Win32_System_Registry")]
@@ -3134,7 +3134,7 @@ where
     extern "system" {
         fn PowerWritePossibleValue(rootpowerkey: super::Registry::HKEY, subgroupofpowersettingsguid: *const ::windows::core::GUID, powersettingguid: *const ::windows::core::GUID, r#type: u32, possiblesettingindex: u32, buffer: *const u8, buffersize: u32) -> u32;
     }
-    ::core::mem::transmute(PowerWritePossibleValue(rootpowerkey.into(), ::core::mem::transmute(subgroupofpowersettingsguid), ::core::mem::transmute(powersettingguid), ::core::mem::transmute(r#type), ::core::mem::transmute(possiblesettingindex), ::core::mem::transmute(buffer), ::core::mem::transmute(buffersize)))
+    ::core::mem::transmute(PowerWritePossibleValue(rootpowerkey.into(), ::core::mem::transmute(subgroupofpowersettingsguid), ::core::mem::transmute(powersettingguid), r#type, possiblesettingindex, ::core::mem::transmute(buffer), buffersize))
 }
 #[doc = "*Required features: `\"Win32_System_Power\"`*"]
 #[inline]
@@ -3143,7 +3143,7 @@ pub unsafe fn PowerWriteSettingAttributes(subgroupguid: *const ::windows::core::
     extern "system" {
         fn PowerWriteSettingAttributes(subgroupguid: *const ::windows::core::GUID, powersettingguid: *const ::windows::core::GUID, attributes: u32) -> u32;
     }
-    ::core::mem::transmute(PowerWriteSettingAttributes(::core::mem::transmute(subgroupguid), ::core::mem::transmute(powersettingguid), ::core::mem::transmute(attributes)))
+    ::core::mem::transmute(PowerWriteSettingAttributes(::core::mem::transmute(subgroupguid), ::core::mem::transmute(powersettingguid), attributes))
 }
 #[doc = "*Required features: `\"Win32_System_Power\"`, `\"Win32_System_Registry\"`*"]
 #[cfg(feature = "Win32_System_Registry")]
@@ -3156,7 +3156,7 @@ where
     extern "system" {
         fn PowerWriteValueIncrement(rootpowerkey: super::Registry::HKEY, subgroupofpowersettingsguid: *const ::windows::core::GUID, powersettingguid: *const ::windows::core::GUID, valueincrement: u32) -> u32;
     }
-    ::core::mem::transmute(PowerWriteValueIncrement(rootpowerkey.into(), ::core::mem::transmute(subgroupofpowersettingsguid), ::core::mem::transmute(powersettingguid), ::core::mem::transmute(valueincrement)))
+    ::core::mem::transmute(PowerWriteValueIncrement(rootpowerkey.into(), ::core::mem::transmute(subgroupofpowersettingsguid), ::core::mem::transmute(powersettingguid), valueincrement))
 }
 #[doc = "*Required features: `\"Win32_System_Power\"`, `\"Win32_System_Registry\"`*"]
 #[cfg(feature = "Win32_System_Registry")]
@@ -3169,7 +3169,7 @@ where
     extern "system" {
         fn PowerWriteValueMax(rootpowerkey: super::Registry::HKEY, subgroupofpowersettingsguid: *const ::windows::core::GUID, powersettingguid: *const ::windows::core::GUID, valuemaximum: u32) -> u32;
     }
-    ::core::mem::transmute(PowerWriteValueMax(rootpowerkey.into(), ::core::mem::transmute(subgroupofpowersettingsguid), ::core::mem::transmute(powersettingguid), ::core::mem::transmute(valuemaximum)))
+    ::core::mem::transmute(PowerWriteValueMax(rootpowerkey.into(), ::core::mem::transmute(subgroupofpowersettingsguid), ::core::mem::transmute(powersettingguid), valuemaximum))
 }
 #[doc = "*Required features: `\"Win32_System_Power\"`, `\"Win32_System_Registry\"`*"]
 #[cfg(feature = "Win32_System_Registry")]
@@ -3182,7 +3182,7 @@ where
     extern "system" {
         fn PowerWriteValueMin(rootpowerkey: super::Registry::HKEY, subgroupofpowersettingsguid: *const ::windows::core::GUID, powersettingguid: *const ::windows::core::GUID, valueminimum: u32) -> u32;
     }
-    ::core::mem::transmute(PowerWriteValueMin(rootpowerkey.into(), ::core::mem::transmute(subgroupofpowersettingsguid), ::core::mem::transmute(powersettingguid), ::core::mem::transmute(valueminimum)))
+    ::core::mem::transmute(PowerWriteValueMin(rootpowerkey.into(), ::core::mem::transmute(subgroupofpowersettingsguid), ::core::mem::transmute(powersettingguid), valueminimum))
 }
 #[doc = "*Required features: `\"Win32_System_Power\"`, `\"Win32_System_Registry\"`*"]
 #[cfg(feature = "Win32_System_Registry")]
@@ -3195,7 +3195,7 @@ where
     extern "system" {
         fn PowerWriteValueUnitsSpecifier(rootpowerkey: super::Registry::HKEY, subgroupofpowersettingsguid: *const ::windows::core::GUID, powersettingguid: *const ::windows::core::GUID, buffer: *const u8, buffersize: u32) -> u32;
     }
-    ::core::mem::transmute(PowerWriteValueUnitsSpecifier(rootpowerkey.into(), ::core::mem::transmute(subgroupofpowersettingsguid), ::core::mem::transmute(powersettingguid), ::core::mem::transmute(buffer), ::core::mem::transmute(buffersize)))
+    ::core::mem::transmute(PowerWriteValueUnitsSpecifier(rootpowerkey.into(), ::core::mem::transmute(subgroupofpowersettingsguid), ::core::mem::transmute(powersettingguid), ::core::mem::transmute(buffer), buffersize))
 }
 #[doc = "*Required features: `\"Win32_System_Power\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -3215,7 +3215,7 @@ pub unsafe fn ReadProcessorPwrScheme(uiid: u32, pmachineprocessorpowerpolicy: *m
     extern "system" {
         fn ReadProcessorPwrScheme(uiid: u32, pmachineprocessorpowerpolicy: *mut MACHINE_PROCESSOR_POWER_POLICY) -> super::super::Foundation::BOOLEAN;
     }
-    ::core::mem::transmute(ReadProcessorPwrScheme(::core::mem::transmute(uiid), ::core::mem::transmute(pmachineprocessorpowerpolicy)))
+    ::core::mem::transmute(ReadProcessorPwrScheme(uiid, ::core::mem::transmute(pmachineprocessorpowerpolicy)))
 }
 #[doc = "*Required features: `\"Win32_System_Power\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -3225,7 +3225,7 @@ pub unsafe fn ReadPwrScheme(uiid: u32, ppowerpolicy: *mut POWER_POLICY) -> super
     extern "system" {
         fn ReadPwrScheme(uiid: u32, ppowerpolicy: *mut POWER_POLICY) -> super::super::Foundation::BOOLEAN;
     }
-    ::core::mem::transmute(ReadPwrScheme(::core::mem::transmute(uiid), ::core::mem::transmute(ppowerpolicy)))
+    ::core::mem::transmute(ReadPwrScheme(uiid, ::core::mem::transmute(ppowerpolicy)))
 }
 #[doc = "*Required features: `\"Win32_System_Power\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -3238,7 +3238,7 @@ where
     extern "system" {
         fn RegisterPowerSettingNotification(hrecipient: super::super::Foundation::HANDLE, powersettingguid: *const ::windows::core::GUID, flags: u32) -> HPOWERNOTIFY;
     }
-    let result__ = RegisterPowerSettingNotification(hrecipient.into(), ::core::mem::transmute(powersettingguid), ::core::mem::transmute(flags));
+    let result__ = RegisterPowerSettingNotification(hrecipient.into(), ::core::mem::transmute(powersettingguid), flags);
     (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
 }
 #[doc = "*Required features: `\"Win32_System_Power\"`, `\"Win32_Foundation\"`*"]
@@ -3252,7 +3252,7 @@ where
     extern "system" {
         fn RegisterSuspendResumeNotification(hrecipient: super::super::Foundation::HANDLE, flags: u32) -> HPOWERNOTIFY;
     }
-    let result__ = RegisterSuspendResumeNotification(hrecipient.into(), ::core::mem::transmute(flags));
+    let result__ = RegisterSuspendResumeNotification(hrecipient.into(), flags);
     (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
 }
 #[doc = "*Required features: `\"Win32_System_Power\"`, `\"Win32_Foundation\"`*"]
@@ -3263,7 +3263,7 @@ pub unsafe fn RequestWakeupLatency(latency: LATENCY_TIME) -> super::super::Found
     extern "system" {
         fn RequestWakeupLatency(latency: LATENCY_TIME) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(RequestWakeupLatency(::core::mem::transmute(latency)))
+    ::core::mem::transmute(RequestWakeupLatency(latency))
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_System_Power\"`*"]
@@ -3732,7 +3732,7 @@ pub unsafe fn SetActivePwrScheme(uiid: u32, pglobalpowerpolicy: *const GLOBAL_PO
     extern "system" {
         fn SetActivePwrScheme(uiid: u32, pglobalpowerpolicy: *const GLOBAL_POWER_POLICY, ppowerpolicy: *const POWER_POLICY) -> super::super::Foundation::BOOLEAN;
     }
-    ::core::mem::transmute(SetActivePwrScheme(::core::mem::transmute(uiid), ::core::mem::transmute(pglobalpowerpolicy), ::core::mem::transmute(ppowerpolicy)))
+    ::core::mem::transmute(SetActivePwrScheme(uiid, ::core::mem::transmute(pglobalpowerpolicy), ::core::mem::transmute(ppowerpolicy)))
 }
 #[doc = "*Required features: `\"Win32_System_Power\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -3770,7 +3770,7 @@ pub unsafe fn SetThreadExecutionState(esflags: EXECUTION_STATE) -> EXECUTION_STA
     extern "system" {
         fn SetThreadExecutionState(esflags: EXECUTION_STATE) -> EXECUTION_STATE;
     }
-    ::core::mem::transmute(SetThreadExecutionState(::core::mem::transmute(esflags)))
+    ::core::mem::transmute(SetThreadExecutionState(esflags))
 }
 #[doc = "*Required features: `\"Win32_System_Power\"`*"]
 pub const THERMAL_COOLING_INTERFACE_VERSION: u32 = 1u32;
@@ -4153,7 +4153,7 @@ pub unsafe fn WriteProcessorPwrScheme(uiid: u32, pmachineprocessorpowerpolicy: *
     extern "system" {
         fn WriteProcessorPwrScheme(uiid: u32, pmachineprocessorpowerpolicy: *const MACHINE_PROCESSOR_POWER_POLICY) -> super::super::Foundation::BOOLEAN;
     }
-    ::core::mem::transmute(WriteProcessorPwrScheme(::core::mem::transmute(uiid), ::core::mem::transmute(pmachineprocessorpowerpolicy)))
+    ::core::mem::transmute(WriteProcessorPwrScheme(uiid, ::core::mem::transmute(pmachineprocessorpowerpolicy)))
 }
 #[doc = "*Required features: `\"Win32_System_Power\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]

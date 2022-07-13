@@ -17,7 +17,7 @@ impl IWindowsMediaLibrarySharingDevice {
     }
     #[doc = "*Required features: `\"Win32_Media_LibrarySharingServices\"`*"]
     pub unsafe fn SetAuthorization(&self, authorization: WindowsMediaLibrarySharingDeviceAuthorizationStatus) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetAuthorization)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(authorization)).ok()
+        (::windows::core::Interface::vtable(self).SetAuthorization)(::windows::core::Interface::as_raw(self), authorization).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_LibrarySharingServices\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -113,7 +113,7 @@ impl IWindowsMediaLibrarySharingDeviceProperties {
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn get_Item(&self, index: i32) -> ::windows::core::Result<IWindowsMediaLibrarySharingDeviceProperty> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).get_Item)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(index), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IWindowsMediaLibrarySharingDeviceProperty>(result__)
+        (::windows::core::Interface::vtable(self).get_Item)(::windows::core::Interface::as_raw(self), index, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IWindowsMediaLibrarySharingDeviceProperty>(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_LibrarySharingServices\"`*"]
     pub unsafe fn Count(&self) -> ::windows::core::Result<i32> {
@@ -310,7 +310,7 @@ impl IWindowsMediaLibrarySharingDevices {
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn get_Item(&self, index: i32) -> ::windows::core::Result<IWindowsMediaLibrarySharingDevice> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).get_Item)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(index), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IWindowsMediaLibrarySharingDevice>(result__)
+        (::windows::core::Interface::vtable(self).get_Item)(::windows::core::Interface::as_raw(self), index, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IWindowsMediaLibrarySharingDevice>(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_LibrarySharingServices\"`*"]
     pub unsafe fn Count(&self) -> ::windows::core::Result<i32> {
@@ -424,7 +424,7 @@ impl IWindowsMediaLibrarySharingServices {
     }
     #[doc = "*Required features: `\"Win32_Media_LibrarySharingServices\"`*"]
     pub unsafe fn SetuserHomeMediaSharingState(&self, sharingenabled: i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetuserHomeMediaSharingState)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(sharingenabled)).ok()
+        (::windows::core::Interface::vtable(self).SetuserHomeMediaSharingState)(::windows::core::Interface::as_raw(self), sharingenabled).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_LibrarySharingServices\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -447,7 +447,7 @@ impl IWindowsMediaLibrarySharingServices {
     }
     #[doc = "*Required features: `\"Win32_Media_LibrarySharingServices\"`*"]
     pub unsafe fn SetcomputerHomeMediaSharingAllowedState(&self, sharingallowed: i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetcomputerHomeMediaSharingAllowedState)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(sharingallowed)).ok()
+        (::windows::core::Interface::vtable(self).SetcomputerHomeMediaSharingAllowedState)(::windows::core::Interface::as_raw(self), sharingallowed).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_LibrarySharingServices\"`*"]
     pub unsafe fn userInternetMediaSharingState(&self) -> ::windows::core::Result<i16> {
@@ -456,7 +456,7 @@ impl IWindowsMediaLibrarySharingServices {
     }
     #[doc = "*Required features: `\"Win32_Media_LibrarySharingServices\"`*"]
     pub unsafe fn SetuserInternetMediaSharingState(&self, sharingenabled: i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetuserInternetMediaSharingState)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(sharingenabled)).ok()
+        (::windows::core::Interface::vtable(self).SetuserInternetMediaSharingState)(::windows::core::Interface::as_raw(self), sharingenabled).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_LibrarySharingServices\"`*"]
     pub unsafe fn computerInternetMediaSharingAllowedState(&self) -> ::windows::core::Result<i16> {
@@ -465,7 +465,7 @@ impl IWindowsMediaLibrarySharingServices {
     }
     #[doc = "*Required features: `\"Win32_Media_LibrarySharingServices\"`*"]
     pub unsafe fn SetcomputerInternetMediaSharingAllowedState(&self, sharingallowed: i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetcomputerInternetMediaSharingAllowedState)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(sharingallowed)).ok()
+        (::windows::core::Interface::vtable(self).SetcomputerInternetMediaSharingAllowedState)(::windows::core::Interface::as_raw(self), sharingallowed).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_LibrarySharingServices\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -488,7 +488,7 @@ impl IWindowsMediaLibrarySharingServices {
     }
     #[doc = "*Required features: `\"Win32_Media_LibrarySharingServices\"`*"]
     pub unsafe fn SetallowSharingToAllDevices(&self, sharingenabled: i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetallowSharingToAllDevices)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(sharingenabled)).ok()
+        (::windows::core::Interface::vtable(self).SetallowSharingToAllDevices)(::windows::core::Interface::as_raw(self), sharingenabled).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_LibrarySharingServices\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -497,7 +497,7 @@ impl IWindowsMediaLibrarySharingServices {
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
         P1: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
     {
-        (::windows::core::Interface::vtable(self).setDefaultAuthorization)(::windows::core::Interface::as_raw(self), macaddresses.into().abi(), friendlyname.into().abi(), ::core::mem::transmute(authorization)).ok()
+        (::windows::core::Interface::vtable(self).setDefaultAuthorization)(::windows::core::Interface::as_raw(self), macaddresses.into().abi(), friendlyname.into().abi(), authorization).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_LibrarySharingServices\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -505,7 +505,7 @@ impl IWindowsMediaLibrarySharingServices {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
     {
-        (::windows::core::Interface::vtable(self).setAuthorizationState)(::windows::core::Interface::as_raw(self), macaddress.into().abi(), ::core::mem::transmute(authorizationstate)).ok()
+        (::windows::core::Interface::vtable(self).setAuthorizationState)(::windows::core::Interface::as_raw(self), macaddress.into().abi(), authorizationstate).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_LibrarySharingServices\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]

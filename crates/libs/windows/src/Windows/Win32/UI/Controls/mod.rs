@@ -487,7 +487,7 @@ where
     extern "system" {
         fn BeginBufferedAnimation(hwnd: super::super::Foundation::HWND, hdctarget: super::super::Graphics::Gdi::HDC, prctarget: *const super::super::Foundation::RECT, dwformat: BP_BUFFERFORMAT, ppaintparams: *const BP_PAINTPARAMS, panimationparams: *const BP_ANIMATIONPARAMS, phdcfrom: *mut super::super::Graphics::Gdi::HDC, phdcto: *mut super::super::Graphics::Gdi::HDC) -> isize;
     }
-    ::core::mem::transmute(BeginBufferedAnimation(hwnd.into(), hdctarget.into(), ::core::mem::transmute(prctarget), ::core::mem::transmute(dwformat), ::core::mem::transmute(ppaintparams), ::core::mem::transmute(panimationparams), ::core::mem::transmute(phdcfrom), ::core::mem::transmute(phdcto)))
+    ::core::mem::transmute(BeginBufferedAnimation(hwnd.into(), hdctarget.into(), ::core::mem::transmute(prctarget), dwformat, ::core::mem::transmute(ppaintparams), ::core::mem::transmute(panimationparams), ::core::mem::transmute(phdcfrom), ::core::mem::transmute(phdcto)))
 }
 #[doc = "*Required features: `\"Win32_UI_Controls\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
@@ -500,7 +500,7 @@ where
     extern "system" {
         fn BeginBufferedPaint(hdctarget: super::super::Graphics::Gdi::HDC, prctarget: *const super::super::Foundation::RECT, dwformat: BP_BUFFERFORMAT, ppaintparams: *const BP_PAINTPARAMS, phdc: *mut super::super::Graphics::Gdi::HDC) -> isize;
     }
-    ::core::mem::transmute(BeginBufferedPaint(hdctarget.into(), ::core::mem::transmute(prctarget), ::core::mem::transmute(dwformat), ::core::mem::transmute(ppaintparams), ::core::mem::transmute(phdc)))
+    ::core::mem::transmute(BeginBufferedPaint(hdctarget.into(), ::core::mem::transmute(prctarget), dwformat, ::core::mem::transmute(ppaintparams), ::core::mem::transmute(phdc)))
 }
 #[doc = "*Required features: `\"Win32_UI_Controls\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -523,7 +523,7 @@ pub unsafe fn BufferedPaintClear(hbufferedpaint: isize, prc: *const super::super
     extern "system" {
         fn BufferedPaintClear(hbufferedpaint: isize, prc: *const super::super::Foundation::RECT) -> ::windows::core::HRESULT;
     }
-    BufferedPaintClear(::core::mem::transmute(hbufferedpaint), ::core::mem::transmute(prc)).ok()
+    BufferedPaintClear(hbufferedpaint, ::core::mem::transmute(prc)).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 #[inline]
@@ -556,7 +556,7 @@ pub unsafe fn BufferedPaintSetAlpha(hbufferedpaint: isize, prc: *const super::su
     extern "system" {
         fn BufferedPaintSetAlpha(hbufferedpaint: isize, prc: *const super::super::Foundation::RECT, alpha: u8) -> ::windows::core::HRESULT;
     }
-    BufferedPaintSetAlpha(::core::mem::transmute(hbufferedpaint), ::core::mem::transmute(prc), ::core::mem::transmute(alpha)).ok()
+    BufferedPaintSetAlpha(hbufferedpaint, ::core::mem::transmute(prc), alpha).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Controls\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -1476,7 +1476,7 @@ where
     extern "system" {
         fn CheckDlgButton(hdlg: super::super::Foundation::HWND, nidbutton: i32, ucheck: DLG_BUTTON_CHECK_STATE) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(CheckDlgButton(hdlg.into(), ::core::mem::transmute(nidbutton), ::core::mem::transmute(ucheck)))
+    ::core::mem::transmute(CheckDlgButton(hdlg.into(), nidbutton, ucheck))
 }
 #[doc = "*Required features: `\"Win32_UI_Controls\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -1489,7 +1489,7 @@ where
     extern "system" {
         fn CheckRadioButton(hdlg: super::super::Foundation::HWND, nidfirstbutton: i32, nidlastbutton: i32, nidcheckbutton: i32) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(CheckRadioButton(hdlg.into(), ::core::mem::transmute(nidfirstbutton), ::core::mem::transmute(nidlastbutton), ::core::mem::transmute(nidcheckbutton)))
+    ::core::mem::transmute(CheckRadioButton(hdlg.into(), nidfirstbutton, nidlastbutton, nidcheckbutton))
 }
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 #[inline]
@@ -1498,7 +1498,7 @@ pub unsafe fn CloseThemeData(htheme: isize) -> ::windows::core::Result<()> {
     extern "system" {
         fn CloseThemeData(htheme: isize) -> ::windows::core::HRESULT;
     }
-    CloseThemeData(::core::mem::transmute(htheme)).ok()
+    CloseThemeData(htheme).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Controls\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
@@ -1511,7 +1511,7 @@ where
     extern "system" {
         fn CreateMappedBitmap(hinstance: super::super::Foundation::HINSTANCE, idbitmap: isize, wflags: u32, lpcolormap: *const COLORMAP, inummaps: i32) -> super::super::Graphics::Gdi::HBITMAP;
     }
-    let result__ = CreateMappedBitmap(hinstance.into(), ::core::mem::transmute(idbitmap), ::core::mem::transmute(wflags), ::core::mem::transmute(lpcolormap), ::core::mem::transmute(inummaps));
+    let result__ = CreateMappedBitmap(hinstance.into(), idbitmap, wflags, ::core::mem::transmute(lpcolormap), inummaps);
     (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
 }
 #[doc = "*Required features: `\"Win32_UI_Controls\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`, `\"Win32_UI_WindowsAndMessaging\"`*"]
@@ -1546,7 +1546,7 @@ where
     extern "system" {
         fn CreateStatusWindowA(style: i32, lpsztext: ::windows::core::PCSTR, hwndparent: super::super::Foundation::HWND, wid: u32) -> super::super::Foundation::HWND;
     }
-    ::core::mem::transmute(CreateStatusWindowA(::core::mem::transmute(style), lpsztext.into(), hwndparent.into(), ::core::mem::transmute(wid)))
+    ::core::mem::transmute(CreateStatusWindowA(style, lpsztext.into(), hwndparent.into(), wid))
 }
 #[doc = "*Required features: `\"Win32_UI_Controls\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -1560,7 +1560,7 @@ where
     extern "system" {
         fn CreateStatusWindowW(style: i32, lpsztext: ::windows::core::PCWSTR, hwndparent: super::super::Foundation::HWND, wid: u32) -> super::super::Foundation::HWND;
     }
-    ::core::mem::transmute(CreateStatusWindowW(::core::mem::transmute(style), lpsztext.into(), hwndparent.into(), ::core::mem::transmute(wid)))
+    ::core::mem::transmute(CreateStatusWindowW(style, lpsztext.into(), hwndparent.into(), wid))
 }
 #[doc = "*Required features: `\"Win32_UI_Controls\"`, `\"Win32_UI_WindowsAndMessaging\"`*"]
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
@@ -1570,7 +1570,7 @@ pub unsafe fn CreateSyntheticPointerDevice(pointertype: super::WindowsAndMessagi
     extern "system" {
         fn CreateSyntheticPointerDevice(pointertype: super::WindowsAndMessaging::POINTER_INPUT_TYPE, maxcount: u32, mode: POINTER_FEEDBACK_MODE) -> HSYNTHETICPOINTERDEVICE;
     }
-    let result__ = CreateSyntheticPointerDevice(::core::mem::transmute(pointertype), ::core::mem::transmute(maxcount), ::core::mem::transmute(mode));
+    let result__ = CreateSyntheticPointerDevice(pointertype, maxcount, mode);
     (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
 }
 #[doc = "*Required features: `\"Win32_UI_Controls\"`, `\"Win32_Foundation\"`*"]
@@ -1585,7 +1585,7 @@ where
     extern "system" {
         fn CreateToolbarEx(hwnd: super::super::Foundation::HWND, ws: u32, wid: u32, nbitmaps: i32, hbminst: super::super::Foundation::HINSTANCE, wbmid: usize, lpbuttons: *mut TBBUTTON, inumbuttons: i32, dxbutton: i32, dybutton: i32, dxbitmap: i32, dybitmap: i32, ustructsize: u32) -> super::super::Foundation::HWND;
     }
-    ::core::mem::transmute(CreateToolbarEx(hwnd.into(), ::core::mem::transmute(ws), ::core::mem::transmute(wid), ::core::mem::transmute(nbitmaps), hbminst.into(), ::core::mem::transmute(wbmid), ::core::mem::transmute(lpbuttons), ::core::mem::transmute(inumbuttons), ::core::mem::transmute(dxbutton), ::core::mem::transmute(dybutton), ::core::mem::transmute(dxbitmap), ::core::mem::transmute(dybitmap), ::core::mem::transmute(ustructsize)))
+    ::core::mem::transmute(CreateToolbarEx(hwnd.into(), ws, wid, nbitmaps, hbminst.into(), wbmid, ::core::mem::transmute(lpbuttons), inumbuttons, dxbutton, dybutton, dxbitmap, dybitmap, ustructsize))
 }
 #[doc = "*Required features: `\"Win32_UI_Controls\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -1600,7 +1600,7 @@ where
     extern "system" {
         fn CreateUpDownControl(dwstyle: u32, x: i32, y: i32, cx: i32, cy: i32, hparent: super::super::Foundation::HWND, nid: i32, hinst: super::super::Foundation::HINSTANCE, hbuddy: super::super::Foundation::HWND, nupper: i32, nlower: i32, npos: i32) -> super::super::Foundation::HWND;
     }
-    ::core::mem::transmute(CreateUpDownControl(::core::mem::transmute(dwstyle), ::core::mem::transmute(x), ::core::mem::transmute(y), ::core::mem::transmute(cx), ::core::mem::transmute(cy), hparent.into(), ::core::mem::transmute(nid), hinst.into(), hbuddy.into(), ::core::mem::transmute(nupper), ::core::mem::transmute(nlower), ::core::mem::transmute(npos)))
+    ::core::mem::transmute(CreateUpDownControl(dwstyle, x, y, cx, cy, hparent.into(), nid, hinst.into(), hbuddy.into(), nupper, nlower, npos))
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_UI_Controls\"`, `\"Win32_Foundation\"`*"]
@@ -1901,7 +1901,7 @@ pub unsafe fn DPA_Create(citemgrow: i32) -> HDPA {
     extern "system" {
         fn DPA_Create(citemgrow: i32) -> HDPA;
     }
-    ::core::mem::transmute(DPA_Create(::core::mem::transmute(citemgrow)))
+    ::core::mem::transmute(DPA_Create(citemgrow))
 }
 #[doc = "*Required features: `\"Win32_UI_Controls\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -1914,7 +1914,7 @@ where
     extern "system" {
         fn DPA_CreateEx(cpgrow: i32, hheap: super::super::Foundation::HANDLE) -> HDPA;
     }
-    ::core::mem::transmute(DPA_CreateEx(::core::mem::transmute(cpgrow), hheap.into()))
+    ::core::mem::transmute(DPA_CreateEx(cpgrow, hheap.into()))
 }
 #[doc = "*Required features: `\"Win32_UI_Controls\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -1939,7 +1939,7 @@ where
     extern "system" {
         fn DPA_DeletePtr(hdpa: HDPA, i: i32) -> *mut ::core::ffi::c_void;
     }
-    ::core::mem::transmute(DPA_DeletePtr(hdpa.into(), ::core::mem::transmute(i)))
+    ::core::mem::transmute(DPA_DeletePtr(hdpa.into(), i))
 }
 #[doc = "*Required features: `\"Win32_UI_Controls\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -1990,7 +1990,7 @@ where
     extern "system" {
         fn DPA_GetPtr(hdpa: HDPA, i: isize) -> *mut ::core::ffi::c_void;
     }
-    ::core::mem::transmute(DPA_GetPtr(hdpa.into(), ::core::mem::transmute(i)))
+    ::core::mem::transmute(DPA_GetPtr(hdpa.into(), i))
 }
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 #[inline]
@@ -2027,7 +2027,7 @@ where
     extern "system" {
         fn DPA_Grow(pdpa: HDPA, cp: i32) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(DPA_Grow(pdpa.into(), ::core::mem::transmute(cp)))
+    ::core::mem::transmute(DPA_Grow(pdpa.into(), cp))
 }
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 #[inline]
@@ -2039,7 +2039,7 @@ where
     extern "system" {
         fn DPA_InsertPtr(hdpa: HDPA, i: i32, p: *const ::core::ffi::c_void) -> i32;
     }
-    ::core::mem::transmute(DPA_InsertPtr(hdpa.into(), ::core::mem::transmute(i), ::core::mem::transmute(p)))
+    ::core::mem::transmute(DPA_InsertPtr(hdpa.into(), i, ::core::mem::transmute(p)))
 }
 #[doc = "*Required features: `\"Win32_UI_Controls\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
@@ -2067,7 +2067,7 @@ where
     extern "system" {
         fn DPA_Merge(hdpadest: HDPA, hdpasrc: HDPA, dwflags: u32, pfncompare: *mut ::core::ffi::c_void, pfnmerge: *mut ::core::ffi::c_void, lparam: super::super::Foundation::LPARAM) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(DPA_Merge(hdpadest.into(), hdpasrc.into(), ::core::mem::transmute(dwflags), ::core::mem::transmute(pfncompare), ::core::mem::transmute(pfnmerge), lparam.into()))
+    ::core::mem::transmute(DPA_Merge(hdpadest.into(), hdpasrc.into(), dwflags, ::core::mem::transmute(pfncompare), ::core::mem::transmute(pfnmerge), lparam.into()))
 }
 #[doc = "*Required features: `\"Win32_UI_Controls\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
@@ -2095,7 +2095,7 @@ where
     extern "system" {
         fn DPA_Search(hdpa: HDPA, pfind: *const ::core::ffi::c_void, istart: i32, pfncompare: *mut ::core::ffi::c_void, lparam: super::super::Foundation::LPARAM, options: u32) -> i32;
     }
-    ::core::mem::transmute(DPA_Search(hdpa.into(), ::core::mem::transmute(pfind), ::core::mem::transmute(istart), ::core::mem::transmute(pfncompare), lparam.into(), ::core::mem::transmute(options)))
+    ::core::mem::transmute(DPA_Search(hdpa.into(), ::core::mem::transmute(pfind), istart, ::core::mem::transmute(pfncompare), lparam.into(), options))
 }
 #[doc = "*Required features: `\"Win32_UI_Controls\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -2108,7 +2108,7 @@ where
     extern "system" {
         fn DPA_SetPtr(hdpa: HDPA, i: i32, p: *const ::core::ffi::c_void) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(DPA_SetPtr(hdpa.into(), ::core::mem::transmute(i), ::core::mem::transmute(p)))
+    ::core::mem::transmute(DPA_SetPtr(hdpa.into(), i, ::core::mem::transmute(p)))
 }
 #[doc = "*Required features: `\"Win32_UI_Controls\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -2358,7 +2358,7 @@ pub unsafe fn DSA_Create(cbitem: i32, citemgrow: i32) -> HDSA {
     extern "system" {
         fn DSA_Create(cbitem: i32, citemgrow: i32) -> HDSA;
     }
-    ::core::mem::transmute(DSA_Create(::core::mem::transmute(cbitem), ::core::mem::transmute(citemgrow)))
+    ::core::mem::transmute(DSA_Create(cbitem, citemgrow))
 }
 #[doc = "*Required features: `\"Win32_UI_Controls\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -2384,7 +2384,7 @@ where
     extern "system" {
         fn DSA_DeleteItem(hdsa: HDSA, i: i32) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(DSA_DeleteItem(hdsa.into(), ::core::mem::transmute(i)))
+    ::core::mem::transmute(DSA_DeleteItem(hdsa.into(), i))
 }
 #[doc = "*Required features: `\"Win32_UI_Controls\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -2436,7 +2436,7 @@ where
     extern "system" {
         fn DSA_GetItem(hdsa: HDSA, i: i32, pitem: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(DSA_GetItem(hdsa.into(), ::core::mem::transmute(i), ::core::mem::transmute(pitem)))
+    ::core::mem::transmute(DSA_GetItem(hdsa.into(), i, ::core::mem::transmute(pitem)))
 }
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 #[inline]
@@ -2448,7 +2448,7 @@ where
     extern "system" {
         fn DSA_GetItemPtr(hdsa: HDSA, i: i32) -> *mut ::core::ffi::c_void;
     }
-    ::core::mem::transmute(DSA_GetItemPtr(hdsa.into(), ::core::mem::transmute(i)))
+    ::core::mem::transmute(DSA_GetItemPtr(hdsa.into(), i))
 }
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 #[inline]
@@ -2472,7 +2472,7 @@ where
     extern "system" {
         fn DSA_InsertItem(hdsa: HDSA, i: i32, pitem: *const ::core::ffi::c_void) -> i32;
     }
-    ::core::mem::transmute(DSA_InsertItem(hdsa.into(), ::core::mem::transmute(i), ::core::mem::transmute(pitem)))
+    ::core::mem::transmute(DSA_InsertItem(hdsa.into(), i, ::core::mem::transmute(pitem)))
 }
 #[doc = "*Required features: `\"Win32_UI_Controls\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -2485,7 +2485,7 @@ where
     extern "system" {
         fn DSA_SetItem(hdsa: HDSA, i: i32, pitem: *const ::core::ffi::c_void) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(DSA_SetItem(hdsa.into(), ::core::mem::transmute(i), ::core::mem::transmute(pitem)))
+    ::core::mem::transmute(DSA_SetItem(hdsa.into(), i, ::core::mem::transmute(pitem)))
 }
 #[doc = "*Required features: `\"Win32_UI_Controls\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -2718,7 +2718,7 @@ where
     extern "system" {
         fn DlgDirListA(hdlg: super::super::Foundation::HWND, lppathspec: ::windows::core::PSTR, nidlistbox: i32, nidstaticpath: i32, ufiletype: DLG_DIR_LIST_FILE_TYPE) -> i32;
     }
-    ::core::mem::transmute(DlgDirListA(hdlg.into(), ::core::mem::transmute(lppathspec), ::core::mem::transmute(nidlistbox), ::core::mem::transmute(nidstaticpath), ::core::mem::transmute(ufiletype)))
+    ::core::mem::transmute(DlgDirListA(hdlg.into(), ::core::mem::transmute(lppathspec), nidlistbox, nidstaticpath, ufiletype))
 }
 #[doc = "*Required features: `\"Win32_UI_Controls\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -2731,7 +2731,7 @@ where
     extern "system" {
         fn DlgDirListComboBoxA(hdlg: super::super::Foundation::HWND, lppathspec: ::windows::core::PSTR, nidcombobox: i32, nidstaticpath: i32, ufiletype: DLG_DIR_LIST_FILE_TYPE) -> i32;
     }
-    ::core::mem::transmute(DlgDirListComboBoxA(hdlg.into(), ::core::mem::transmute(lppathspec), ::core::mem::transmute(nidcombobox), ::core::mem::transmute(nidstaticpath), ::core::mem::transmute(ufiletype)))
+    ::core::mem::transmute(DlgDirListComboBoxA(hdlg.into(), ::core::mem::transmute(lppathspec), nidcombobox, nidstaticpath, ufiletype))
 }
 #[doc = "*Required features: `\"Win32_UI_Controls\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -2744,7 +2744,7 @@ where
     extern "system" {
         fn DlgDirListComboBoxW(hdlg: super::super::Foundation::HWND, lppathspec: ::windows::core::PWSTR, nidcombobox: i32, nidstaticpath: i32, ufiletype: DLG_DIR_LIST_FILE_TYPE) -> i32;
     }
-    ::core::mem::transmute(DlgDirListComboBoxW(hdlg.into(), ::core::mem::transmute(lppathspec), ::core::mem::transmute(nidcombobox), ::core::mem::transmute(nidstaticpath), ::core::mem::transmute(ufiletype)))
+    ::core::mem::transmute(DlgDirListComboBoxW(hdlg.into(), ::core::mem::transmute(lppathspec), nidcombobox, nidstaticpath, ufiletype))
 }
 #[doc = "*Required features: `\"Win32_UI_Controls\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -2757,7 +2757,7 @@ where
     extern "system" {
         fn DlgDirListW(hdlg: super::super::Foundation::HWND, lppathspec: ::windows::core::PWSTR, nidlistbox: i32, nidstaticpath: i32, ufiletype: DLG_DIR_LIST_FILE_TYPE) -> i32;
     }
-    ::core::mem::transmute(DlgDirListW(hdlg.into(), ::core::mem::transmute(lppathspec), ::core::mem::transmute(nidlistbox), ::core::mem::transmute(nidstaticpath), ::core::mem::transmute(ufiletype)))
+    ::core::mem::transmute(DlgDirListW(hdlg.into(), ::core::mem::transmute(lppathspec), nidlistbox, nidstaticpath, ufiletype))
 }
 #[doc = "*Required features: `\"Win32_UI_Controls\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -2770,7 +2770,7 @@ where
     extern "system" {
         fn DlgDirSelectComboBoxExA(hwnddlg: super::super::Foundation::HWND, lpstring: ::windows::core::PSTR, cchout: i32, idcombobox: i32) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(DlgDirSelectComboBoxExA(hwnddlg.into(), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(lpstring)), lpstring.len() as _, ::core::mem::transmute(idcombobox)))
+    ::core::mem::transmute(DlgDirSelectComboBoxExA(hwnddlg.into(), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(lpstring)), lpstring.len() as _, idcombobox))
 }
 #[doc = "*Required features: `\"Win32_UI_Controls\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -2783,7 +2783,7 @@ where
     extern "system" {
         fn DlgDirSelectComboBoxExW(hwnddlg: super::super::Foundation::HWND, lpstring: ::windows::core::PWSTR, cchout: i32, idcombobox: i32) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(DlgDirSelectComboBoxExW(hwnddlg.into(), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(lpstring)), lpstring.len() as _, ::core::mem::transmute(idcombobox)))
+    ::core::mem::transmute(DlgDirSelectComboBoxExW(hwnddlg.into(), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(lpstring)), lpstring.len() as _, idcombobox))
 }
 #[doc = "*Required features: `\"Win32_UI_Controls\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -2796,7 +2796,7 @@ where
     extern "system" {
         fn DlgDirSelectExA(hwnddlg: super::super::Foundation::HWND, lpstring: ::windows::core::PSTR, chcount: i32, idlistbox: i32) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(DlgDirSelectExA(hwnddlg.into(), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(lpstring)), lpstring.len() as _, ::core::mem::transmute(idlistbox)))
+    ::core::mem::transmute(DlgDirSelectExA(hwnddlg.into(), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(lpstring)), lpstring.len() as _, idlistbox))
 }
 #[doc = "*Required features: `\"Win32_UI_Controls\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -2809,7 +2809,7 @@ where
     extern "system" {
         fn DlgDirSelectExW(hwnddlg: super::super::Foundation::HWND, lpstring: ::windows::core::PWSTR, chcount: i32, idlistbox: i32) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(DlgDirSelectExW(hwnddlg.into(), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(lpstring)), lpstring.len() as _, ::core::mem::transmute(idlistbox)))
+    ::core::mem::transmute(DlgDirSelectExW(hwnddlg.into(), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(lpstring)), lpstring.len() as _, idlistbox))
 }
 #[doc = "*Required features: `\"Win32_UI_Controls\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -2823,7 +2823,7 @@ where
     extern "system" {
         fn DrawInsert(handparent: super::super::Foundation::HWND, hlb: super::super::Foundation::HWND, nitem: i32);
     }
-    DrawInsert(handparent.into(), hlb.into(), ::core::mem::transmute(nitem))
+    DrawInsert(handparent.into(), hlb.into(), nitem)
 }
 #[doc = "*Required features: `\"Win32_UI_Controls\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
@@ -2836,7 +2836,7 @@ where
     extern "system" {
         fn DrawShadowText(hdc: super::super::Graphics::Gdi::HDC, psztext: ::windows::core::PCWSTR, cch: u32, prc: *const super::super::Foundation::RECT, dwflags: u32, crtext: u32, crshadow: u32, ixoffset: i32, iyoffset: i32) -> i32;
     }
-    ::core::mem::transmute(DrawShadowText(hdc.into(), ::core::mem::transmute(::windows::core::as_ptr_or_null(psztext)), psztext.len() as _, ::core::mem::transmute(prc), ::core::mem::transmute(dwflags), ::core::mem::transmute(crtext), ::core::mem::transmute(crshadow), ::core::mem::transmute(ixoffset), ::core::mem::transmute(iyoffset)))
+    ::core::mem::transmute(DrawShadowText(hdc.into(), ::core::mem::transmute(::windows::core::as_ptr_or_null(psztext)), psztext.len() as _, ::core::mem::transmute(prc), dwflags, crtext, crshadow, ixoffset, iyoffset))
 }
 #[doc = "*Required features: `\"Win32_UI_Controls\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
@@ -2850,7 +2850,7 @@ where
     extern "system" {
         fn DrawStatusTextA(hdc: super::super::Graphics::Gdi::HDC, lprc: *mut super::super::Foundation::RECT, psztext: ::windows::core::PCSTR, uflags: u32);
     }
-    DrawStatusTextA(hdc.into(), ::core::mem::transmute(lprc), psztext.into(), ::core::mem::transmute(uflags))
+    DrawStatusTextA(hdc.into(), ::core::mem::transmute(lprc), psztext.into(), uflags)
 }
 #[doc = "*Required features: `\"Win32_UI_Controls\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
@@ -2864,7 +2864,7 @@ where
     extern "system" {
         fn DrawStatusTextW(hdc: super::super::Graphics::Gdi::HDC, lprc: *mut super::super::Foundation::RECT, psztext: ::windows::core::PCWSTR, uflags: u32);
     }
-    DrawStatusTextW(hdc.into(), ::core::mem::transmute(lprc), psztext.into(), ::core::mem::transmute(uflags))
+    DrawStatusTextW(hdc.into(), ::core::mem::transmute(lprc), psztext.into(), uflags)
 }
 #[doc = "*Required features: `\"Win32_UI_Controls\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
@@ -2877,7 +2877,7 @@ where
     extern "system" {
         fn DrawThemeBackground(htheme: isize, hdc: super::super::Graphics::Gdi::HDC, ipartid: i32, istateid: i32, prect: *const super::super::Foundation::RECT, pcliprect: *const super::super::Foundation::RECT) -> ::windows::core::HRESULT;
     }
-    DrawThemeBackground(::core::mem::transmute(htheme), hdc.into(), ::core::mem::transmute(ipartid), ::core::mem::transmute(istateid), ::core::mem::transmute(prect), ::core::mem::transmute(pcliprect)).ok()
+    DrawThemeBackground(htheme, hdc.into(), ipartid, istateid, ::core::mem::transmute(prect), ::core::mem::transmute(pcliprect)).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Controls\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
@@ -2890,7 +2890,7 @@ where
     extern "system" {
         fn DrawThemeBackgroundEx(htheme: isize, hdc: super::super::Graphics::Gdi::HDC, ipartid: i32, istateid: i32, prect: *const super::super::Foundation::RECT, poptions: *const DTBGOPTS) -> ::windows::core::HRESULT;
     }
-    DrawThemeBackgroundEx(::core::mem::transmute(htheme), hdc.into(), ::core::mem::transmute(ipartid), ::core::mem::transmute(istateid), ::core::mem::transmute(prect), ::core::mem::transmute(poptions)).ok()
+    DrawThemeBackgroundEx(htheme, hdc.into(), ipartid, istateid, ::core::mem::transmute(prect), ::core::mem::transmute(poptions)).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Controls\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
@@ -2904,7 +2904,7 @@ where
         fn DrawThemeEdge(htheme: isize, hdc: super::super::Graphics::Gdi::HDC, ipartid: i32, istateid: i32, pdestrect: *const super::super::Foundation::RECT, uedge: u32, uflags: u32, pcontentrect: *mut super::super::Foundation::RECT) -> ::windows::core::HRESULT;
     }
     let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::RECT>::zeroed();
-    DrawThemeEdge(::core::mem::transmute(htheme), hdc.into(), ::core::mem::transmute(ipartid), ::core::mem::transmute(istateid), ::core::mem::transmute(pdestrect), ::core::mem::transmute(uedge), ::core::mem::transmute(uflags), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::RECT>(result__)
+    DrawThemeEdge(htheme, hdc.into(), ipartid, istateid, ::core::mem::transmute(pdestrect), uedge, uflags, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::RECT>(result__)
 }
 #[doc = "*Required features: `\"Win32_UI_Controls\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
@@ -2918,7 +2918,7 @@ where
     extern "system" {
         fn DrawThemeIcon(htheme: isize, hdc: super::super::Graphics::Gdi::HDC, ipartid: i32, istateid: i32, prect: *const super::super::Foundation::RECT, himl: HIMAGELIST, iimageindex: i32) -> ::windows::core::HRESULT;
     }
-    DrawThemeIcon(::core::mem::transmute(htheme), hdc.into(), ::core::mem::transmute(ipartid), ::core::mem::transmute(istateid), ::core::mem::transmute(prect), himl.into(), ::core::mem::transmute(iimageindex)).ok()
+    DrawThemeIcon(htheme, hdc.into(), ipartid, istateid, ::core::mem::transmute(prect), himl.into(), iimageindex).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Controls\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
@@ -2946,7 +2946,7 @@ where
     extern "system" {
         fn DrawThemeParentBackgroundEx(hwnd: super::super::Foundation::HWND, hdc: super::super::Graphics::Gdi::HDC, dwflags: DRAW_THEME_PARENT_BACKGROUND_FLAGS, prc: *const super::super::Foundation::RECT) -> ::windows::core::HRESULT;
     }
-    DrawThemeParentBackgroundEx(hwnd.into(), hdc.into(), ::core::mem::transmute(dwflags), ::core::mem::transmute(prc)).ok()
+    DrawThemeParentBackgroundEx(hwnd.into(), hdc.into(), dwflags, ::core::mem::transmute(prc)).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Controls\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
@@ -2959,7 +2959,7 @@ where
     extern "system" {
         fn DrawThemeText(htheme: isize, hdc: super::super::Graphics::Gdi::HDC, ipartid: i32, istateid: i32, psztext: ::windows::core::PCWSTR, cchtext: i32, dwtextflags: u32, dwtextflags2: u32, prect: *const super::super::Foundation::RECT) -> ::windows::core::HRESULT;
     }
-    DrawThemeText(::core::mem::transmute(htheme), hdc.into(), ::core::mem::transmute(ipartid), ::core::mem::transmute(istateid), ::core::mem::transmute(::windows::core::as_ptr_or_null(psztext)), psztext.len() as _, ::core::mem::transmute(dwtextflags), ::core::mem::transmute(dwtextflags2), ::core::mem::transmute(prect)).ok()
+    DrawThemeText(htheme, hdc.into(), ipartid, istateid, ::core::mem::transmute(::windows::core::as_ptr_or_null(psztext)), psztext.len() as _, dwtextflags, dwtextflags2, ::core::mem::transmute(prect)).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Controls\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
@@ -2972,7 +2972,7 @@ where
     extern "system" {
         fn DrawThemeTextEx(htheme: isize, hdc: super::super::Graphics::Gdi::HDC, ipartid: i32, istateid: i32, psztext: ::windows::core::PCWSTR, cchtext: i32, dwtextflags: u32, prect: *mut super::super::Foundation::RECT, poptions: *const DTTOPTS) -> ::windows::core::HRESULT;
     }
-    DrawThemeTextEx(::core::mem::transmute(htheme), hdc.into(), ::core::mem::transmute(ipartid), ::core::mem::transmute(istateid), ::core::mem::transmute(::windows::core::as_ptr_or_null(psztext)), psztext.len() as _, ::core::mem::transmute(dwtextflags), ::core::mem::transmute(prect), ::core::mem::transmute(poptions)).ok()
+    DrawThemeTextEx(htheme, hdc.into(), ipartid, istateid, ::core::mem::transmute(::windows::core::as_ptr_or_null(psztext)), psztext.len() as _, dwtextflags, ::core::mem::transmute(prect), ::core::mem::transmute(poptions)).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const ECM_FIRST: u32 = 5376u32;
@@ -3321,7 +3321,7 @@ where
     extern "system" {
         fn EnableScrollBar(hwnd: super::super::Foundation::HWND, wsbflags: super::WindowsAndMessaging::SCROLLBAR_CONSTANTS, warrows: ENABLE_SCROLL_BAR_ARROWS) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(EnableScrollBar(hwnd.into(), ::core::mem::transmute(wsbflags), ::core::mem::transmute(warrows)))
+    ::core::mem::transmute(EnableScrollBar(hwnd.into(), wsbflags, warrows))
 }
 #[doc = "*Required features: `\"Win32_UI_Controls\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -3334,7 +3334,7 @@ where
     extern "system" {
         fn EnableThemeDialogTexture(hwnd: super::super::Foundation::HWND, dwflags: u32) -> ::windows::core::HRESULT;
     }
-    EnableThemeDialogTexture(hwnd.into(), ::core::mem::transmute(dwflags)).ok()
+    EnableThemeDialogTexture(hwnd.into(), dwflags).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Controls\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -3360,7 +3360,7 @@ where
     extern "system" {
         fn EndBufferedAnimation(hbpanimation: isize, fupdatetarget: super::super::Foundation::BOOL) -> ::windows::core::HRESULT;
     }
-    EndBufferedAnimation(::core::mem::transmute(hbpanimation), fupdatetarget.into()).ok()
+    EndBufferedAnimation(hbpanimation, fupdatetarget.into()).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Controls\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -3373,7 +3373,7 @@ where
     extern "system" {
         fn EndBufferedPaint(hbufferedpaint: isize, fupdatetarget: super::super::Foundation::BOOL) -> ::windows::core::HRESULT;
     }
-    EndBufferedPaint(::core::mem::transmute(hbufferedpaint), fupdatetarget.into()).ok()
+    EndBufferedPaint(hbufferedpaint, fupdatetarget.into()).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Controls\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -3516,7 +3516,7 @@ where
     extern "system" {
         fn FlatSB_EnableScrollBar(param0: super::super::Foundation::HWND, param1: i32, param2: u32) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(FlatSB_EnableScrollBar(param0.into(), ::core::mem::transmute(param1), ::core::mem::transmute(param2)))
+    ::core::mem::transmute(FlatSB_EnableScrollBar(param0.into(), param1, param2))
 }
 #[doc = "*Required features: `\"Win32_UI_Controls\"`, `\"Win32_Foundation\"`, `\"Win32_UI_WindowsAndMessaging\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
@@ -3529,7 +3529,7 @@ where
     extern "system" {
         fn FlatSB_GetScrollInfo(param0: super::super::Foundation::HWND, code: super::WindowsAndMessaging::SCROLLBAR_CONSTANTS, param2: *mut super::WindowsAndMessaging::SCROLLINFO) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(FlatSB_GetScrollInfo(param0.into(), ::core::mem::transmute(code), ::core::mem::transmute(param2)))
+    ::core::mem::transmute(FlatSB_GetScrollInfo(param0.into(), code, ::core::mem::transmute(param2)))
 }
 #[doc = "*Required features: `\"Win32_UI_Controls\"`, `\"Win32_Foundation\"`, `\"Win32_UI_WindowsAndMessaging\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
@@ -3542,7 +3542,7 @@ where
     extern "system" {
         fn FlatSB_GetScrollPos(param0: super::super::Foundation::HWND, code: super::WindowsAndMessaging::SCROLLBAR_CONSTANTS) -> i32;
     }
-    ::core::mem::transmute(FlatSB_GetScrollPos(param0.into(), ::core::mem::transmute(code)))
+    ::core::mem::transmute(FlatSB_GetScrollPos(param0.into(), code))
 }
 #[doc = "*Required features: `\"Win32_UI_Controls\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -3555,7 +3555,7 @@ where
     extern "system" {
         fn FlatSB_GetScrollProp(param0: super::super::Foundation::HWND, propindex: WSB_PROP, param2: *mut i32) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(FlatSB_GetScrollProp(param0.into(), ::core::mem::transmute(propindex), ::core::mem::transmute(param2)))
+    ::core::mem::transmute(FlatSB_GetScrollProp(param0.into(), propindex, ::core::mem::transmute(param2)))
 }
 #[doc = "*Required features: `\"Win32_UI_Controls\"`, `\"Win32_Foundation\"`, `\"Win32_UI_WindowsAndMessaging\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
@@ -3568,7 +3568,7 @@ where
     extern "system" {
         fn FlatSB_GetScrollRange(param0: super::super::Foundation::HWND, code: super::WindowsAndMessaging::SCROLLBAR_CONSTANTS, param2: *mut i32, param3: *mut i32) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(FlatSB_GetScrollRange(param0.into(), ::core::mem::transmute(code), ::core::mem::transmute(param2), ::core::mem::transmute(param3)))
+    ::core::mem::transmute(FlatSB_GetScrollRange(param0.into(), code, ::core::mem::transmute(param2), ::core::mem::transmute(param3)))
 }
 #[doc = "*Required features: `\"Win32_UI_Controls\"`, `\"Win32_Foundation\"`, `\"Win32_UI_WindowsAndMessaging\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
@@ -3582,7 +3582,7 @@ where
     extern "system" {
         fn FlatSB_SetScrollInfo(param0: super::super::Foundation::HWND, code: super::WindowsAndMessaging::SCROLLBAR_CONSTANTS, psi: *mut super::WindowsAndMessaging::SCROLLINFO, fredraw: super::super::Foundation::BOOL) -> i32;
     }
-    ::core::mem::transmute(FlatSB_SetScrollInfo(param0.into(), ::core::mem::transmute(code), ::core::mem::transmute(psi), fredraw.into()))
+    ::core::mem::transmute(FlatSB_SetScrollInfo(param0.into(), code, ::core::mem::transmute(psi), fredraw.into()))
 }
 #[doc = "*Required features: `\"Win32_UI_Controls\"`, `\"Win32_Foundation\"`, `\"Win32_UI_WindowsAndMessaging\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
@@ -3596,7 +3596,7 @@ where
     extern "system" {
         fn FlatSB_SetScrollPos(param0: super::super::Foundation::HWND, code: super::WindowsAndMessaging::SCROLLBAR_CONSTANTS, pos: i32, fredraw: super::super::Foundation::BOOL) -> i32;
     }
-    ::core::mem::transmute(FlatSB_SetScrollPos(param0.into(), ::core::mem::transmute(code), ::core::mem::transmute(pos), fredraw.into()))
+    ::core::mem::transmute(FlatSB_SetScrollPos(param0.into(), code, pos, fredraw.into()))
 }
 #[doc = "*Required features: `\"Win32_UI_Controls\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -3610,7 +3610,7 @@ where
     extern "system" {
         fn FlatSB_SetScrollProp(param0: super::super::Foundation::HWND, index: WSB_PROP, newvalue: isize, param3: super::super::Foundation::BOOL) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(FlatSB_SetScrollProp(param0.into(), ::core::mem::transmute(index), ::core::mem::transmute(newvalue), param3.into()))
+    ::core::mem::transmute(FlatSB_SetScrollProp(param0.into(), index, newvalue, param3.into()))
 }
 #[doc = "*Required features: `\"Win32_UI_Controls\"`, `\"Win32_Foundation\"`, `\"Win32_UI_WindowsAndMessaging\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
@@ -3624,7 +3624,7 @@ where
     extern "system" {
         fn FlatSB_SetScrollRange(param0: super::super::Foundation::HWND, code: super::WindowsAndMessaging::SCROLLBAR_CONSTANTS, min: i32, max: i32, fredraw: super::super::Foundation::BOOL) -> i32;
     }
-    ::core::mem::transmute(FlatSB_SetScrollRange(param0.into(), ::core::mem::transmute(code), ::core::mem::transmute(min), ::core::mem::transmute(max), fredraw.into()))
+    ::core::mem::transmute(FlatSB_SetScrollRange(param0.into(), code, min, max, fredraw.into()))
 }
 #[doc = "*Required features: `\"Win32_UI_Controls\"`, `\"Win32_Foundation\"`, `\"Win32_UI_WindowsAndMessaging\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
@@ -3638,7 +3638,7 @@ where
     extern "system" {
         fn FlatSB_ShowScrollBar(param0: super::super::Foundation::HWND, code: super::WindowsAndMessaging::SCROLLBAR_CONSTANTS, param2: super::super::Foundation::BOOL) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(FlatSB_ShowScrollBar(param0.into(), ::core::mem::transmute(code), param2.into()))
+    ::core::mem::transmute(FlatSB_ShowScrollBar(param0.into(), code, param2.into()))
 }
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const GDTR_MAX: u32 = 2u32;
@@ -3854,7 +3854,7 @@ pub unsafe fn GetBufferedPaintBits(hbufferedpaint: isize, ppbbuffer: *mut *mut s
     extern "system" {
         fn GetBufferedPaintBits(hbufferedpaint: isize, ppbbuffer: *mut *mut super::super::Graphics::Gdi::RGBQUAD, pcxrow: *mut i32) -> ::windows::core::HRESULT;
     }
-    GetBufferedPaintBits(::core::mem::transmute(hbufferedpaint), ::core::mem::transmute(ppbbuffer), ::core::mem::transmute(pcxrow)).ok()
+    GetBufferedPaintBits(hbufferedpaint, ::core::mem::transmute(ppbbuffer), ::core::mem::transmute(pcxrow)).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Controls\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(feature = "Win32_Graphics_Gdi")]
@@ -3864,7 +3864,7 @@ pub unsafe fn GetBufferedPaintDC(hbufferedpaint: isize) -> super::super::Graphic
     extern "system" {
         fn GetBufferedPaintDC(hbufferedpaint: isize) -> super::super::Graphics::Gdi::HDC;
     }
-    ::core::mem::transmute(GetBufferedPaintDC(::core::mem::transmute(hbufferedpaint)))
+    ::core::mem::transmute(GetBufferedPaintDC(hbufferedpaint))
 }
 #[doc = "*Required features: `\"Win32_UI_Controls\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(feature = "Win32_Graphics_Gdi")]
@@ -3874,7 +3874,7 @@ pub unsafe fn GetBufferedPaintTargetDC(hbufferedpaint: isize) -> super::super::G
     extern "system" {
         fn GetBufferedPaintTargetDC(hbufferedpaint: isize) -> super::super::Graphics::Gdi::HDC;
     }
-    ::core::mem::transmute(GetBufferedPaintTargetDC(::core::mem::transmute(hbufferedpaint)))
+    ::core::mem::transmute(GetBufferedPaintTargetDC(hbufferedpaint))
 }
 #[doc = "*Required features: `\"Win32_UI_Controls\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -3885,7 +3885,7 @@ pub unsafe fn GetBufferedPaintTargetRect(hbufferedpaint: isize) -> ::windows::co
         fn GetBufferedPaintTargetRect(hbufferedpaint: isize, prc: *mut super::super::Foundation::RECT) -> ::windows::core::HRESULT;
     }
     let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::RECT>::zeroed();
-    GetBufferedPaintTargetRect(::core::mem::transmute(hbufferedpaint), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::RECT>(result__)
+    GetBufferedPaintTargetRect(hbufferedpaint, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::RECT>(result__)
 }
 #[doc = "*Required features: `\"Win32_UI_Controls\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -3951,7 +3951,7 @@ pub unsafe fn GetThemeAnimationProperty(htheme: isize, istoryboardid: i32, itarg
     extern "system" {
         fn GetThemeAnimationProperty(htheme: isize, istoryboardid: i32, itargetid: i32, eproperty: TA_PROPERTY, pvproperty: *mut ::core::ffi::c_void, cbsize: u32, pcbsizeout: *mut u32) -> ::windows::core::HRESULT;
     }
-    GetThemeAnimationProperty(::core::mem::transmute(htheme), ::core::mem::transmute(istoryboardid), ::core::mem::transmute(itargetid), ::core::mem::transmute(eproperty), ::core::mem::transmute(pvproperty), ::core::mem::transmute(cbsize), ::core::mem::transmute(pcbsizeout)).ok()
+    GetThemeAnimationProperty(htheme, istoryboardid, itargetid, eproperty, ::core::mem::transmute(pvproperty), cbsize, ::core::mem::transmute(pcbsizeout)).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 #[inline]
@@ -3960,7 +3960,7 @@ pub unsafe fn GetThemeAnimationTransform(htheme: isize, istoryboardid: i32, itar
     extern "system" {
         fn GetThemeAnimationTransform(htheme: isize, istoryboardid: i32, itargetid: i32, dwtransformindex: u32, ptransform: *mut TA_TRANSFORM, cbsize: u32, pcbsizeout: *mut u32) -> ::windows::core::HRESULT;
     }
-    GetThemeAnimationTransform(::core::mem::transmute(htheme), ::core::mem::transmute(istoryboardid), ::core::mem::transmute(itargetid), ::core::mem::transmute(dwtransformindex), ::core::mem::transmute(ptransform), ::core::mem::transmute(cbsize), ::core::mem::transmute(pcbsizeout)).ok()
+    GetThemeAnimationTransform(htheme, istoryboardid, itargetid, dwtransformindex, ::core::mem::transmute(ptransform), cbsize, ::core::mem::transmute(pcbsizeout)).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 #[inline]
@@ -3983,7 +3983,7 @@ where
         fn GetThemeBackgroundContentRect(htheme: isize, hdc: super::super::Graphics::Gdi::HDC, ipartid: i32, istateid: i32, pboundingrect: *const super::super::Foundation::RECT, pcontentrect: *mut super::super::Foundation::RECT) -> ::windows::core::HRESULT;
     }
     let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::RECT>::zeroed();
-    GetThemeBackgroundContentRect(::core::mem::transmute(htheme), hdc.into(), ::core::mem::transmute(ipartid), ::core::mem::transmute(istateid), ::core::mem::transmute(pboundingrect), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::RECT>(result__)
+    GetThemeBackgroundContentRect(htheme, hdc.into(), ipartid, istateid, ::core::mem::transmute(pboundingrect), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::RECT>(result__)
 }
 #[doc = "*Required features: `\"Win32_UI_Controls\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
@@ -3997,7 +3997,7 @@ where
         fn GetThemeBackgroundExtent(htheme: isize, hdc: super::super::Graphics::Gdi::HDC, ipartid: i32, istateid: i32, pcontentrect: *const super::super::Foundation::RECT, pextentrect: *mut super::super::Foundation::RECT) -> ::windows::core::HRESULT;
     }
     let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::RECT>::zeroed();
-    GetThemeBackgroundExtent(::core::mem::transmute(htheme), hdc.into(), ::core::mem::transmute(ipartid), ::core::mem::transmute(istateid), ::core::mem::transmute(pcontentrect), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::RECT>(result__)
+    GetThemeBackgroundExtent(htheme, hdc.into(), ipartid, istateid, ::core::mem::transmute(pcontentrect), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::RECT>(result__)
 }
 #[doc = "*Required features: `\"Win32_UI_Controls\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
@@ -4011,7 +4011,7 @@ where
         fn GetThemeBackgroundRegion(htheme: isize, hdc: super::super::Graphics::Gdi::HDC, ipartid: i32, istateid: i32, prect: *const super::super::Foundation::RECT, pregion: *mut super::super::Graphics::Gdi::HRGN) -> ::windows::core::HRESULT;
     }
     let mut result__ = ::core::mem::MaybeUninit::<super::super::Graphics::Gdi::HRGN>::zeroed();
-    GetThemeBackgroundRegion(::core::mem::transmute(htheme), hdc.into(), ::core::mem::transmute(ipartid), ::core::mem::transmute(istateid), ::core::mem::transmute(prect), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Graphics::Gdi::HRGN>(result__)
+    GetThemeBackgroundRegion(htheme, hdc.into(), ipartid, istateid, ::core::mem::transmute(prect), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Graphics::Gdi::HRGN>(result__)
 }
 #[doc = "*Required features: `\"Win32_UI_Controls\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(feature = "Win32_Graphics_Gdi")]
@@ -4022,7 +4022,7 @@ pub unsafe fn GetThemeBitmap(htheme: isize, ipartid: i32, istateid: i32, ipropid
         fn GetThemeBitmap(htheme: isize, ipartid: i32, istateid: i32, ipropid: THEME_PROPERTY_SYMBOL_ID, dwflags: GET_THEME_BITMAP_FLAGS, phbitmap: *mut super::super::Graphics::Gdi::HBITMAP) -> ::windows::core::HRESULT;
     }
     let mut result__ = ::core::mem::MaybeUninit::<super::super::Graphics::Gdi::HBITMAP>::zeroed();
-    GetThemeBitmap(::core::mem::transmute(htheme), ::core::mem::transmute(ipartid), ::core::mem::transmute(istateid), ::core::mem::transmute(ipropid), ::core::mem::transmute(dwflags), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Graphics::Gdi::HBITMAP>(result__)
+    GetThemeBitmap(htheme, ipartid, istateid, ipropid, dwflags, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Graphics::Gdi::HBITMAP>(result__)
 }
 #[doc = "*Required features: `\"Win32_UI_Controls\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -4033,7 +4033,7 @@ pub unsafe fn GetThemeBool(htheme: isize, ipartid: i32, istateid: i32, ipropid: 
         fn GetThemeBool(htheme: isize, ipartid: i32, istateid: i32, ipropid: THEME_PROPERTY_SYMBOL_ID, pfval: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT;
     }
     let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::BOOL>::zeroed();
-    GetThemeBool(::core::mem::transmute(htheme), ::core::mem::transmute(ipartid), ::core::mem::transmute(istateid), ::core::mem::transmute(ipropid), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BOOL>(result__)
+    GetThemeBool(htheme, ipartid, istateid, ipropid, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BOOL>(result__)
 }
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 #[inline]
@@ -4043,7 +4043,7 @@ pub unsafe fn GetThemeColor(htheme: isize, ipartid: i32, istateid: i32, ipropid:
         fn GetThemeColor(htheme: isize, ipartid: i32, istateid: i32, ipropid: i32, pcolor: *mut u32) -> ::windows::core::HRESULT;
     }
     let mut result__ = ::core::mem::MaybeUninit::<u32>::zeroed();
-    GetThemeColor(::core::mem::transmute(htheme), ::core::mem::transmute(ipartid), ::core::mem::transmute(istateid), ::core::mem::transmute(ipropid), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
+    GetThemeColor(htheme, ipartid, istateid, ipropid, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
 }
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 #[inline]
@@ -4066,7 +4066,7 @@ pub unsafe fn GetThemeEnumValue(htheme: isize, ipartid: i32, istateid: i32, ipro
         fn GetThemeEnumValue(htheme: isize, ipartid: i32, istateid: i32, ipropid: i32, pival: *mut i32) -> ::windows::core::HRESULT;
     }
     let mut result__ = ::core::mem::MaybeUninit::<i32>::zeroed();
-    GetThemeEnumValue(::core::mem::transmute(htheme), ::core::mem::transmute(ipartid), ::core::mem::transmute(istateid), ::core::mem::transmute(ipropid), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
+    GetThemeEnumValue(htheme, ipartid, istateid, ipropid, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
 }
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 #[inline]
@@ -4075,7 +4075,7 @@ pub unsafe fn GetThemeFilename(htheme: isize, ipartid: i32, istateid: i32, iprop
     extern "system" {
         fn GetThemeFilename(htheme: isize, ipartid: i32, istateid: i32, ipropid: i32, pszthemefilename: ::windows::core::PWSTR, cchmaxbuffchars: i32) -> ::windows::core::HRESULT;
     }
-    GetThemeFilename(::core::mem::transmute(htheme), ::core::mem::transmute(ipartid), ::core::mem::transmute(istateid), ::core::mem::transmute(ipropid), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(pszthemefilename)), pszthemefilename.len() as _).ok()
+    GetThemeFilename(htheme, ipartid, istateid, ipropid, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(pszthemefilename)), pszthemefilename.len() as _).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Controls\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(feature = "Win32_Graphics_Gdi")]
@@ -4089,7 +4089,7 @@ where
         fn GetThemeFont(htheme: isize, hdc: super::super::Graphics::Gdi::HDC, ipartid: i32, istateid: i32, ipropid: i32, pfont: *mut super::super::Graphics::Gdi::LOGFONTW) -> ::windows::core::HRESULT;
     }
     let mut result__ = ::core::mem::MaybeUninit::<super::super::Graphics::Gdi::LOGFONTW>::zeroed();
-    GetThemeFont(::core::mem::transmute(htheme), hdc.into(), ::core::mem::transmute(ipartid), ::core::mem::transmute(istateid), ::core::mem::transmute(ipropid), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Graphics::Gdi::LOGFONTW>(result__)
+    GetThemeFont(htheme, hdc.into(), ipartid, istateid, ipropid, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Graphics::Gdi::LOGFONTW>(result__)
 }
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 #[inline]
@@ -4099,7 +4099,7 @@ pub unsafe fn GetThemeInt(htheme: isize, ipartid: i32, istateid: i32, ipropid: i
         fn GetThemeInt(htheme: isize, ipartid: i32, istateid: i32, ipropid: i32, pival: *mut i32) -> ::windows::core::HRESULT;
     }
     let mut result__ = ::core::mem::MaybeUninit::<i32>::zeroed();
-    GetThemeInt(::core::mem::transmute(htheme), ::core::mem::transmute(ipartid), ::core::mem::transmute(istateid), ::core::mem::transmute(ipropid), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
+    GetThemeInt(htheme, ipartid, istateid, ipropid, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
 }
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 #[inline]
@@ -4109,7 +4109,7 @@ pub unsafe fn GetThemeIntList(htheme: isize, ipartid: i32, istateid: i32, ipropi
         fn GetThemeIntList(htheme: isize, ipartid: i32, istateid: i32, ipropid: i32, pintlist: *mut INTLIST) -> ::windows::core::HRESULT;
     }
     let mut result__ = ::core::mem::MaybeUninit::<INTLIST>::zeroed();
-    GetThemeIntList(::core::mem::transmute(htheme), ::core::mem::transmute(ipartid), ::core::mem::transmute(istateid), ::core::mem::transmute(ipropid), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<INTLIST>(result__)
+    GetThemeIntList(htheme, ipartid, istateid, ipropid, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<INTLIST>(result__)
 }
 #[doc = "*Required features: `\"Win32_UI_Controls\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
@@ -4123,7 +4123,7 @@ where
         fn GetThemeMargins(htheme: isize, hdc: super::super::Graphics::Gdi::HDC, ipartid: i32, istateid: i32, ipropid: i32, prc: *const super::super::Foundation::RECT, pmargins: *mut MARGINS) -> ::windows::core::HRESULT;
     }
     let mut result__ = ::core::mem::MaybeUninit::<MARGINS>::zeroed();
-    GetThemeMargins(::core::mem::transmute(htheme), hdc.into(), ::core::mem::transmute(ipartid), ::core::mem::transmute(istateid), ::core::mem::transmute(ipropid), ::core::mem::transmute(prc), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<MARGINS>(result__)
+    GetThemeMargins(htheme, hdc.into(), ipartid, istateid, ipropid, ::core::mem::transmute(prc), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<MARGINS>(result__)
 }
 #[doc = "*Required features: `\"Win32_UI_Controls\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(feature = "Win32_Graphics_Gdi")]
@@ -4137,7 +4137,7 @@ where
         fn GetThemeMetric(htheme: isize, hdc: super::super::Graphics::Gdi::HDC, ipartid: i32, istateid: i32, ipropid: THEME_PROPERTY_SYMBOL_ID, pival: *mut i32) -> ::windows::core::HRESULT;
     }
     let mut result__ = ::core::mem::MaybeUninit::<i32>::zeroed();
-    GetThemeMetric(::core::mem::transmute(htheme), hdc.into(), ::core::mem::transmute(ipartid), ::core::mem::transmute(istateid), ::core::mem::transmute(ipropid), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
+    GetThemeMetric(htheme, hdc.into(), ipartid, istateid, ipropid, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
 }
 #[doc = "*Required features: `\"Win32_UI_Controls\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
@@ -4151,7 +4151,7 @@ where
         fn GetThemePartSize(htheme: isize, hdc: super::super::Graphics::Gdi::HDC, ipartid: i32, istateid: i32, prc: *const super::super::Foundation::RECT, esize: THEMESIZE, psz: *mut super::super::Foundation::SIZE) -> ::windows::core::HRESULT;
     }
     let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::SIZE>::zeroed();
-    GetThemePartSize(::core::mem::transmute(htheme), hdc.into(), ::core::mem::transmute(ipartid), ::core::mem::transmute(istateid), ::core::mem::transmute(prc), ::core::mem::transmute(esize), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::SIZE>(result__)
+    GetThemePartSize(htheme, hdc.into(), ipartid, istateid, ::core::mem::transmute(prc), esize, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::SIZE>(result__)
 }
 #[doc = "*Required features: `\"Win32_UI_Controls\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -4162,7 +4162,7 @@ pub unsafe fn GetThemePosition(htheme: isize, ipartid: i32, istateid: i32, iprop
         fn GetThemePosition(htheme: isize, ipartid: i32, istateid: i32, ipropid: i32, ppoint: *mut super::super::Foundation::POINT) -> ::windows::core::HRESULT;
     }
     let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::POINT>::zeroed();
-    GetThemePosition(::core::mem::transmute(htheme), ::core::mem::transmute(ipartid), ::core::mem::transmute(istateid), ::core::mem::transmute(ipropid), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::POINT>(result__)
+    GetThemePosition(htheme, ipartid, istateid, ipropid, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::POINT>(result__)
 }
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 #[inline]
@@ -4172,7 +4172,7 @@ pub unsafe fn GetThemePropertyOrigin(htheme: isize, ipartid: i32, istateid: i32,
         fn GetThemePropertyOrigin(htheme: isize, ipartid: i32, istateid: i32, ipropid: i32, porigin: *mut PROPERTYORIGIN) -> ::windows::core::HRESULT;
     }
     let mut result__ = ::core::mem::MaybeUninit::<PROPERTYORIGIN>::zeroed();
-    GetThemePropertyOrigin(::core::mem::transmute(htheme), ::core::mem::transmute(ipartid), ::core::mem::transmute(istateid), ::core::mem::transmute(ipropid), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<PROPERTYORIGIN>(result__)
+    GetThemePropertyOrigin(htheme, ipartid, istateid, ipropid, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<PROPERTYORIGIN>(result__)
 }
 #[doc = "*Required features: `\"Win32_UI_Controls\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -4183,7 +4183,7 @@ pub unsafe fn GetThemeRect(htheme: isize, ipartid: i32, istateid: i32, ipropid: 
         fn GetThemeRect(htheme: isize, ipartid: i32, istateid: i32, ipropid: i32, prect: *mut super::super::Foundation::RECT) -> ::windows::core::HRESULT;
     }
     let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::RECT>::zeroed();
-    GetThemeRect(::core::mem::transmute(htheme), ::core::mem::transmute(ipartid), ::core::mem::transmute(istateid), ::core::mem::transmute(ipropid), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::RECT>(result__)
+    GetThemeRect(htheme, ipartid, istateid, ipropid, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::RECT>(result__)
 }
 #[doc = "*Required features: `\"Win32_UI_Controls\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -4196,7 +4196,7 @@ where
     extern "system" {
         fn GetThemeStream(htheme: isize, ipartid: i32, istateid: i32, ipropid: i32, ppvstream: *mut *mut ::core::ffi::c_void, pcbstream: *mut u32, hinst: super::super::Foundation::HINSTANCE) -> ::windows::core::HRESULT;
     }
-    GetThemeStream(::core::mem::transmute(htheme), ::core::mem::transmute(ipartid), ::core::mem::transmute(istateid), ::core::mem::transmute(ipropid), ::core::mem::transmute(ppvstream), ::core::mem::transmute(pcbstream), hinst.into()).ok()
+    GetThemeStream(htheme, ipartid, istateid, ipropid, ::core::mem::transmute(ppvstream), ::core::mem::transmute(pcbstream), hinst.into()).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 #[inline]
@@ -4205,7 +4205,7 @@ pub unsafe fn GetThemeString(htheme: isize, ipartid: i32, istateid: i32, ipropid
     extern "system" {
         fn GetThemeString(htheme: isize, ipartid: i32, istateid: i32, ipropid: i32, pszbuff: ::windows::core::PWSTR, cchmaxbuffchars: i32) -> ::windows::core::HRESULT;
     }
-    GetThemeString(::core::mem::transmute(htheme), ::core::mem::transmute(ipartid), ::core::mem::transmute(istateid), ::core::mem::transmute(ipropid), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(pszbuff)), pszbuff.len() as _).ok()
+    GetThemeString(htheme, ipartid, istateid, ipropid, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(pszbuff)), pszbuff.len() as _).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Controls\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -4215,7 +4215,7 @@ pub unsafe fn GetThemeSysBool(htheme: isize, iboolid: i32) -> super::super::Foun
     extern "system" {
         fn GetThemeSysBool(htheme: isize, iboolid: i32) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(GetThemeSysBool(::core::mem::transmute(htheme), ::core::mem::transmute(iboolid)))
+    ::core::mem::transmute(GetThemeSysBool(htheme, iboolid))
 }
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 #[inline]
@@ -4224,7 +4224,7 @@ pub unsafe fn GetThemeSysColor(htheme: isize, icolorid: i32) -> u32 {
     extern "system" {
         fn GetThemeSysColor(htheme: isize, icolorid: i32) -> u32;
     }
-    ::core::mem::transmute(GetThemeSysColor(::core::mem::transmute(htheme), ::core::mem::transmute(icolorid)))
+    ::core::mem::transmute(GetThemeSysColor(htheme, icolorid))
 }
 #[doc = "*Required features: `\"Win32_UI_Controls\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(feature = "Win32_Graphics_Gdi")]
@@ -4234,7 +4234,7 @@ pub unsafe fn GetThemeSysColorBrush(htheme: isize, icolorid: THEME_PROPERTY_SYMB
     extern "system" {
         fn GetThemeSysColorBrush(htheme: isize, icolorid: THEME_PROPERTY_SYMBOL_ID) -> super::super::Graphics::Gdi::HBRUSH;
     }
-    ::core::mem::transmute(GetThemeSysColorBrush(::core::mem::transmute(htheme), ::core::mem::transmute(icolorid)))
+    ::core::mem::transmute(GetThemeSysColorBrush(htheme, icolorid))
 }
 #[doc = "*Required features: `\"Win32_UI_Controls\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(feature = "Win32_Graphics_Gdi")]
@@ -4245,7 +4245,7 @@ pub unsafe fn GetThemeSysFont(htheme: isize, ifontid: THEME_PROPERTY_SYMBOL_ID) 
         fn GetThemeSysFont(htheme: isize, ifontid: THEME_PROPERTY_SYMBOL_ID, plf: *mut super::super::Graphics::Gdi::LOGFONTW) -> ::windows::core::HRESULT;
     }
     let mut result__ = ::core::mem::MaybeUninit::<super::super::Graphics::Gdi::LOGFONTW>::zeroed();
-    GetThemeSysFont(::core::mem::transmute(htheme), ::core::mem::transmute(ifontid), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Graphics::Gdi::LOGFONTW>(result__)
+    GetThemeSysFont(htheme, ifontid, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Graphics::Gdi::LOGFONTW>(result__)
 }
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 #[inline]
@@ -4255,7 +4255,7 @@ pub unsafe fn GetThemeSysInt(htheme: isize, iintid: i32) -> ::windows::core::Res
         fn GetThemeSysInt(htheme: isize, iintid: i32, pivalue: *mut i32) -> ::windows::core::HRESULT;
     }
     let mut result__ = ::core::mem::MaybeUninit::<i32>::zeroed();
-    GetThemeSysInt(::core::mem::transmute(htheme), ::core::mem::transmute(iintid), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
+    GetThemeSysInt(htheme, iintid, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
 }
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 #[inline]
@@ -4264,7 +4264,7 @@ pub unsafe fn GetThemeSysSize(htheme: isize, isizeid: i32) -> i32 {
     extern "system" {
         fn GetThemeSysSize(htheme: isize, isizeid: i32) -> i32;
     }
-    ::core::mem::transmute(GetThemeSysSize(::core::mem::transmute(htheme), ::core::mem::transmute(isizeid)))
+    ::core::mem::transmute(GetThemeSysSize(htheme, isizeid))
 }
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 #[inline]
@@ -4273,7 +4273,7 @@ pub unsafe fn GetThemeSysString(htheme: isize, istringid: THEME_PROPERTY_SYMBOL_
     extern "system" {
         fn GetThemeSysString(htheme: isize, istringid: THEME_PROPERTY_SYMBOL_ID, pszstringbuff: ::windows::core::PWSTR, cchmaxstringchars: i32) -> ::windows::core::HRESULT;
     }
-    GetThemeSysString(::core::mem::transmute(htheme), ::core::mem::transmute(istringid), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(pszstringbuff)), pszstringbuff.len() as _).ok()
+    GetThemeSysString(htheme, istringid, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(pszstringbuff)), pszstringbuff.len() as _).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Controls\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
@@ -4287,7 +4287,7 @@ where
         fn GetThemeTextExtent(htheme: isize, hdc: super::super::Graphics::Gdi::HDC, ipartid: i32, istateid: i32, psztext: ::windows::core::PCWSTR, cchcharcount: i32, dwtextflags: u32, pboundingrect: *const super::super::Foundation::RECT, pextentrect: *mut super::super::Foundation::RECT) -> ::windows::core::HRESULT;
     }
     let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::RECT>::zeroed();
-    GetThemeTextExtent(::core::mem::transmute(htheme), hdc.into(), ::core::mem::transmute(ipartid), ::core::mem::transmute(istateid), ::core::mem::transmute(::windows::core::as_ptr_or_null(psztext)), psztext.len() as _, ::core::mem::transmute(dwtextflags), ::core::mem::transmute(pboundingrect), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::RECT>(result__)
+    GetThemeTextExtent(htheme, hdc.into(), ipartid, istateid, ::core::mem::transmute(::windows::core::as_ptr_or_null(psztext)), psztext.len() as _, dwtextflags, ::core::mem::transmute(pboundingrect), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::RECT>(result__)
 }
 #[doc = "*Required features: `\"Win32_UI_Controls\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(feature = "Win32_Graphics_Gdi")]
@@ -4301,7 +4301,7 @@ where
         fn GetThemeTextMetrics(htheme: isize, hdc: super::super::Graphics::Gdi::HDC, ipartid: i32, istateid: i32, ptm: *mut super::super::Graphics::Gdi::TEXTMETRICW) -> ::windows::core::HRESULT;
     }
     let mut result__ = ::core::mem::MaybeUninit::<super::super::Graphics::Gdi::TEXTMETRICW>::zeroed();
-    GetThemeTextMetrics(::core::mem::transmute(htheme), hdc.into(), ::core::mem::transmute(ipartid), ::core::mem::transmute(istateid), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Graphics::Gdi::TEXTMETRICW>(result__)
+    GetThemeTextMetrics(htheme, hdc.into(), ipartid, istateid, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Graphics::Gdi::TEXTMETRICW>(result__)
 }
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 #[inline]
@@ -4310,7 +4310,7 @@ pub unsafe fn GetThemeTimingFunction(htheme: isize, itimingfunctionid: i32, ptim
     extern "system" {
         fn GetThemeTimingFunction(htheme: isize, itimingfunctionid: i32, ptimingfunction: *mut TA_TIMINGFUNCTION, cbsize: u32, pcbsizeout: *mut u32) -> ::windows::core::HRESULT;
     }
-    GetThemeTimingFunction(::core::mem::transmute(htheme), ::core::mem::transmute(itimingfunctionid), ::core::mem::transmute(ptimingfunction), ::core::mem::transmute(cbsize), ::core::mem::transmute(pcbsizeout)).ok()
+    GetThemeTimingFunction(htheme, itimingfunctionid, ::core::mem::transmute(ptimingfunction), cbsize, ::core::mem::transmute(pcbsizeout)).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 #[inline]
@@ -4320,7 +4320,7 @@ pub unsafe fn GetThemeTransitionDuration(htheme: isize, ipartid: i32, istateidfr
         fn GetThemeTransitionDuration(htheme: isize, ipartid: i32, istateidfrom: i32, istateidto: i32, ipropid: i32, pdwduration: *mut u32) -> ::windows::core::HRESULT;
     }
     let mut result__ = ::core::mem::MaybeUninit::<u32>::zeroed();
-    GetThemeTransitionDuration(::core::mem::transmute(htheme), ::core::mem::transmute(ipartid), ::core::mem::transmute(istateidfrom), ::core::mem::transmute(istateidto), ::core::mem::transmute(ipropid), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
+    GetThemeTransitionDuration(htheme, ipartid, istateidfrom, istateidto, ipropid, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
 }
 #[doc = "*Required features: `\"Win32_UI_Controls\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -4333,7 +4333,7 @@ where
     extern "system" {
         fn GetWindowFeedbackSetting(hwnd: super::super::Foundation::HWND, feedback: FEEDBACK_TYPE, dwflags: u32, psize: *mut u32, config: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(GetWindowFeedbackSetting(hwnd.into(), ::core::mem::transmute(feedback), ::core::mem::transmute(dwflags), ::core::mem::transmute(psize), ::core::mem::transmute(config)))
+    ::core::mem::transmute(GetWindowFeedbackSetting(hwnd.into(), feedback, dwflags, ::core::mem::transmute(psize), ::core::mem::transmute(config)))
 }
 #[doc = "*Required features: `\"Win32_UI_Controls\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -5183,7 +5183,7 @@ where
         fn HitTestThemeBackground(htheme: isize, hdc: super::super::Graphics::Gdi::HDC, ipartid: i32, istateid: i32, dwoptions: u32, prect: *const super::super::Foundation::RECT, hrgn: super::super::Graphics::Gdi::HRGN, pttest: super::super::Foundation::POINT, pwhittestcode: *mut u16) -> ::windows::core::HRESULT;
     }
     let mut result__ = ::core::mem::MaybeUninit::<u16>::zeroed();
-    HitTestThemeBackground(::core::mem::transmute(htheme), hdc.into(), ::core::mem::transmute(ipartid), ::core::mem::transmute(istateid), ::core::mem::transmute(dwoptions), ::core::mem::transmute(prect), hrgn.into(), ::core::mem::transmute(pttest), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u16>(result__)
+    HitTestThemeBackground(htheme, hdc.into(), ipartid, istateid, dwoptions, ::core::mem::transmute(prect), hrgn.into(), ::core::mem::transmute(pttest), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u16>(result__)
 }
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 #[repr(transparent)]
@@ -5263,11 +5263,11 @@ impl IImageList {
         P0: ::std::convert::Into<super::WindowsAndMessaging::HICON>,
     {
         let mut result__ = ::core::mem::MaybeUninit::<i32>::zeroed();
-        (::windows::core::Interface::vtable(self).ReplaceIcon)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(i), hicon.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
+        (::windows::core::Interface::vtable(self).ReplaceIcon)(::windows::core::Interface::as_raw(self), i, hicon.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
     }
     #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
     pub unsafe fn SetOverlayImage(&self, iimage: i32, ioverlay: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetOverlayImage)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(iimage), ::core::mem::transmute(ioverlay)).ok()
+        (::windows::core::Interface::vtable(self).SetOverlayImage)(::windows::core::Interface::as_raw(self), iimage, ioverlay).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_Controls\"`, `\"Win32_Graphics_Gdi\"`*"]
     #[cfg(feature = "Win32_Graphics_Gdi")]
@@ -5276,7 +5276,7 @@ impl IImageList {
         P0: ::std::convert::Into<super::super::Graphics::Gdi::HBITMAP>,
         P1: ::std::convert::Into<super::super::Graphics::Gdi::HBITMAP>,
     {
-        (::windows::core::Interface::vtable(self).Replace)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(i), hbmimage.into(), hbmmask.into()).ok()
+        (::windows::core::Interface::vtable(self).Replace)(::windows::core::Interface::as_raw(self), i, hbmimage.into(), hbmmask.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_Controls\"`, `\"Win32_Graphics_Gdi\"`*"]
     #[cfg(feature = "Win32_Graphics_Gdi")]
@@ -5285,7 +5285,7 @@ impl IImageList {
         P0: ::std::convert::Into<super::super::Graphics::Gdi::HBITMAP>,
     {
         let mut result__ = ::core::mem::MaybeUninit::<i32>::zeroed();
-        (::windows::core::Interface::vtable(self).AddMasked)(::windows::core::Interface::as_raw(self), hbmimage.into(), ::core::mem::transmute(crmask), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
+        (::windows::core::Interface::vtable(self).AddMasked)(::windows::core::Interface::as_raw(self), hbmimage.into(), crmask, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
     }
     #[doc = "*Required features: `\"Win32_UI_Controls\"`, `\"Win32_Graphics_Gdi\"`*"]
     #[cfg(feature = "Win32_Graphics_Gdi")]
@@ -5294,33 +5294,33 @@ impl IImageList {
     }
     #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
     pub unsafe fn Remove(&self, i: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Remove)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(i)).ok()
+        (::windows::core::Interface::vtable(self).Remove)(::windows::core::Interface::as_raw(self), i).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_Controls\"`, `\"Win32_UI_WindowsAndMessaging\"`*"]
     #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
     pub unsafe fn GetIcon(&self, i: i32, flags: u32) -> ::windows::core::Result<super::WindowsAndMessaging::HICON> {
         let mut result__ = ::core::mem::MaybeUninit::<super::WindowsAndMessaging::HICON>::zeroed();
-        (::windows::core::Interface::vtable(self).GetIcon)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(i), ::core::mem::transmute(flags), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::WindowsAndMessaging::HICON>(result__)
+        (::windows::core::Interface::vtable(self).GetIcon)(::windows::core::Interface::as_raw(self), i, flags, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::WindowsAndMessaging::HICON>(result__)
     }
     #[doc = "*Required features: `\"Win32_UI_Controls\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
     pub unsafe fn GetImageInfo(&self, i: i32) -> ::windows::core::Result<IMAGEINFO> {
         let mut result__ = ::core::mem::MaybeUninit::<IMAGEINFO>::zeroed();
-        (::windows::core::Interface::vtable(self).GetImageInfo)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(i), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IMAGEINFO>(result__)
+        (::windows::core::Interface::vtable(self).GetImageInfo)(::windows::core::Interface::as_raw(self), i, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IMAGEINFO>(result__)
     }
     #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
     pub unsafe fn Copy<'a, P0>(&self, idst: i32, punksrc: P0, isrc: i32, uflags: u32) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>,
     {
-        (::windows::core::Interface::vtable(self).Copy)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(idst), punksrc.into().abi(), ::core::mem::transmute(isrc), ::core::mem::transmute(uflags)).ok()
+        (::windows::core::Interface::vtable(self).Copy)(::windows::core::Interface::as_raw(self), idst, punksrc.into().abi(), isrc, uflags).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
     pub unsafe fn Merge<'a, P0>(&self, i1: i32, punk2: P0, i2: i32, dx: i32, dy: i32, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>,
     {
-        (::windows::core::Interface::vtable(self).Merge)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(i1), punk2.into().abi(), ::core::mem::transmute(i2), ::core::mem::transmute(dx), ::core::mem::transmute(dy), ::core::mem::transmute(riid), ::core::mem::transmute(ppv)).ok()
+        (::windows::core::Interface::vtable(self).Merge)(::windows::core::Interface::as_raw(self), i1, punk2.into().abi(), i2, dx, dy, ::core::mem::transmute(riid), ::core::mem::transmute(ppv)).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
     pub unsafe fn Clone(&self, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
@@ -5330,7 +5330,7 @@ impl IImageList {
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetImageRect(&self, i: i32) -> ::windows::core::Result<super::super::Foundation::RECT> {
         let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::RECT>::zeroed();
-        (::windows::core::Interface::vtable(self).GetImageRect)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(i), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::RECT>(result__)
+        (::windows::core::Interface::vtable(self).GetImageRect)(::windows::core::Interface::as_raw(self), i, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::RECT>(result__)
     }
     #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
     pub unsafe fn GetIconSize(&self, cx: *mut i32, cy: *mut i32) -> ::windows::core::Result<()> {
@@ -5338,7 +5338,7 @@ impl IImageList {
     }
     #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
     pub unsafe fn SetIconSize(&self, cx: i32, cy: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetIconSize)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(cx), ::core::mem::transmute(cy)).ok()
+        (::windows::core::Interface::vtable(self).SetIconSize)(::windows::core::Interface::as_raw(self), cx, cy).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
     pub unsafe fn GetImageCount(&self) -> ::windows::core::Result<i32> {
@@ -5347,12 +5347,12 @@ impl IImageList {
     }
     #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
     pub unsafe fn SetImageCount(&self, unewcount: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetImageCount)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(unewcount)).ok()
+        (::windows::core::Interface::vtable(self).SetImageCount)(::windows::core::Interface::as_raw(self), unewcount).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
     pub unsafe fn SetBkColor(&self, clrbk: u32) -> ::windows::core::Result<u32> {
         let mut result__ = ::core::mem::MaybeUninit::<u32>::zeroed();
-        (::windows::core::Interface::vtable(self).SetBkColor)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(clrbk), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
+        (::windows::core::Interface::vtable(self).SetBkColor)(::windows::core::Interface::as_raw(self), clrbk, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
     }
     #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
     pub unsafe fn GetBkColor(&self) -> ::windows::core::Result<u32> {
@@ -5361,7 +5361,7 @@ impl IImageList {
     }
     #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
     pub unsafe fn BeginDrag(&self, itrack: i32, dxhotspot: i32, dyhotspot: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).BeginDrag)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(itrack), ::core::mem::transmute(dxhotspot), ::core::mem::transmute(dyhotspot)).ok()
+        (::windows::core::Interface::vtable(self).BeginDrag)(::windows::core::Interface::as_raw(self), itrack, dxhotspot, dyhotspot).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
     pub unsafe fn EndDrag(&self) -> ::windows::core::Result<()> {
@@ -5373,7 +5373,7 @@ impl IImageList {
     where
         P0: ::std::convert::Into<super::super::Foundation::HWND>,
     {
-        (::windows::core::Interface::vtable(self).DragEnter)(::windows::core::Interface::as_raw(self), hwndlock.into(), ::core::mem::transmute(x), ::core::mem::transmute(y)).ok()
+        (::windows::core::Interface::vtable(self).DragEnter)(::windows::core::Interface::as_raw(self), hwndlock.into(), x, y).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_Controls\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -5385,14 +5385,14 @@ impl IImageList {
     }
     #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
     pub unsafe fn DragMove(&self, x: i32, y: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).DragMove)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(x), ::core::mem::transmute(y)).ok()
+        (::windows::core::Interface::vtable(self).DragMove)(::windows::core::Interface::as_raw(self), x, y).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
     pub unsafe fn SetDragCursorImage<'a, P0>(&self, punk: P0, idrag: i32, dxhotspot: i32, dyhotspot: i32) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>,
     {
-        (::windows::core::Interface::vtable(self).SetDragCursorImage)(::windows::core::Interface::as_raw(self), punk.into().abi(), ::core::mem::transmute(idrag), ::core::mem::transmute(dxhotspot), ::core::mem::transmute(dyhotspot)).ok()
+        (::windows::core::Interface::vtable(self).SetDragCursorImage)(::windows::core::Interface::as_raw(self), punk.into().abi(), idrag, dxhotspot, dyhotspot).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_Controls\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -5410,12 +5410,12 @@ impl IImageList {
     #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
     pub unsafe fn GetItemFlags(&self, i: i32) -> ::windows::core::Result<IMAGE_LIST_ITEM_FLAGS> {
         let mut result__ = ::core::mem::MaybeUninit::<IMAGE_LIST_ITEM_FLAGS>::zeroed();
-        (::windows::core::Interface::vtable(self).GetItemFlags)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(i), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IMAGE_LIST_ITEM_FLAGS>(result__)
+        (::windows::core::Interface::vtable(self).GetItemFlags)(::windows::core::Interface::as_raw(self), i, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IMAGE_LIST_ITEM_FLAGS>(result__)
     }
     #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
     pub unsafe fn GetOverlayImage(&self, ioverlay: i32) -> ::windows::core::Result<i32> {
         let mut result__ = ::core::mem::MaybeUninit::<i32>::zeroed();
-        (::windows::core::Interface::vtable(self).GetOverlayImage)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(ioverlay), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
+        (::windows::core::Interface::vtable(self).GetOverlayImage)(::windows::core::Interface::as_raw(self), ioverlay, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
     }
 }
 impl ::core::convert::From<IImageList> for ::windows::core::IUnknown {
@@ -5544,11 +5544,11 @@ impl IImageList2 {
         P0: ::std::convert::Into<super::WindowsAndMessaging::HICON>,
     {
         let mut result__ = ::core::mem::MaybeUninit::<i32>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.ReplaceIcon)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(i), hicon.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
+        (::windows::core::Interface::vtable(self).base__.ReplaceIcon)(::windows::core::Interface::as_raw(self), i, hicon.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
     }
     #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
     pub unsafe fn SetOverlayImage(&self, iimage: i32, ioverlay: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetOverlayImage)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(iimage), ::core::mem::transmute(ioverlay)).ok()
+        (::windows::core::Interface::vtable(self).base__.SetOverlayImage)(::windows::core::Interface::as_raw(self), iimage, ioverlay).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_Controls\"`, `\"Win32_Graphics_Gdi\"`*"]
     #[cfg(feature = "Win32_Graphics_Gdi")]
@@ -5557,7 +5557,7 @@ impl IImageList2 {
         P0: ::std::convert::Into<super::super::Graphics::Gdi::HBITMAP>,
         P1: ::std::convert::Into<super::super::Graphics::Gdi::HBITMAP>,
     {
-        (::windows::core::Interface::vtable(self).base__.Replace)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(i), hbmimage.into(), hbmmask.into()).ok()
+        (::windows::core::Interface::vtable(self).base__.Replace)(::windows::core::Interface::as_raw(self), i, hbmimage.into(), hbmmask.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_Controls\"`, `\"Win32_Graphics_Gdi\"`*"]
     #[cfg(feature = "Win32_Graphics_Gdi")]
@@ -5566,7 +5566,7 @@ impl IImageList2 {
         P0: ::std::convert::Into<super::super::Graphics::Gdi::HBITMAP>,
     {
         let mut result__ = ::core::mem::MaybeUninit::<i32>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.AddMasked)(::windows::core::Interface::as_raw(self), hbmimage.into(), ::core::mem::transmute(crmask), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
+        (::windows::core::Interface::vtable(self).base__.AddMasked)(::windows::core::Interface::as_raw(self), hbmimage.into(), crmask, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
     }
     #[doc = "*Required features: `\"Win32_UI_Controls\"`, `\"Win32_Graphics_Gdi\"`*"]
     #[cfg(feature = "Win32_Graphics_Gdi")]
@@ -5575,33 +5575,33 @@ impl IImageList2 {
     }
     #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
     pub unsafe fn Remove(&self, i: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.Remove)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(i)).ok()
+        (::windows::core::Interface::vtable(self).base__.Remove)(::windows::core::Interface::as_raw(self), i).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_Controls\"`, `\"Win32_UI_WindowsAndMessaging\"`*"]
     #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
     pub unsafe fn GetIcon(&self, i: i32, flags: u32) -> ::windows::core::Result<super::WindowsAndMessaging::HICON> {
         let mut result__ = ::core::mem::MaybeUninit::<super::WindowsAndMessaging::HICON>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.GetIcon)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(i), ::core::mem::transmute(flags), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::WindowsAndMessaging::HICON>(result__)
+        (::windows::core::Interface::vtable(self).base__.GetIcon)(::windows::core::Interface::as_raw(self), i, flags, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::WindowsAndMessaging::HICON>(result__)
     }
     #[doc = "*Required features: `\"Win32_UI_Controls\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
     pub unsafe fn GetImageInfo(&self, i: i32) -> ::windows::core::Result<IMAGEINFO> {
         let mut result__ = ::core::mem::MaybeUninit::<IMAGEINFO>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.GetImageInfo)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(i), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IMAGEINFO>(result__)
+        (::windows::core::Interface::vtable(self).base__.GetImageInfo)(::windows::core::Interface::as_raw(self), i, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IMAGEINFO>(result__)
     }
     #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
     pub unsafe fn Copy<'a, P0>(&self, idst: i32, punksrc: P0, isrc: i32, uflags: u32) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>,
     {
-        (::windows::core::Interface::vtable(self).base__.Copy)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(idst), punksrc.into().abi(), ::core::mem::transmute(isrc), ::core::mem::transmute(uflags)).ok()
+        (::windows::core::Interface::vtable(self).base__.Copy)(::windows::core::Interface::as_raw(self), idst, punksrc.into().abi(), isrc, uflags).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
     pub unsafe fn Merge<'a, P0>(&self, i1: i32, punk2: P0, i2: i32, dx: i32, dy: i32, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>,
     {
-        (::windows::core::Interface::vtable(self).base__.Merge)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(i1), punk2.into().abi(), ::core::mem::transmute(i2), ::core::mem::transmute(dx), ::core::mem::transmute(dy), ::core::mem::transmute(riid), ::core::mem::transmute(ppv)).ok()
+        (::windows::core::Interface::vtable(self).base__.Merge)(::windows::core::Interface::as_raw(self), i1, punk2.into().abi(), i2, dx, dy, ::core::mem::transmute(riid), ::core::mem::transmute(ppv)).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
     pub unsafe fn Clone(&self, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
@@ -5611,7 +5611,7 @@ impl IImageList2 {
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetImageRect(&self, i: i32) -> ::windows::core::Result<super::super::Foundation::RECT> {
         let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::RECT>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.GetImageRect)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(i), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::RECT>(result__)
+        (::windows::core::Interface::vtable(self).base__.GetImageRect)(::windows::core::Interface::as_raw(self), i, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::RECT>(result__)
     }
     #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
     pub unsafe fn GetIconSize(&self, cx: *mut i32, cy: *mut i32) -> ::windows::core::Result<()> {
@@ -5619,7 +5619,7 @@ impl IImageList2 {
     }
     #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
     pub unsafe fn SetIconSize(&self, cx: i32, cy: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetIconSize)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(cx), ::core::mem::transmute(cy)).ok()
+        (::windows::core::Interface::vtable(self).base__.SetIconSize)(::windows::core::Interface::as_raw(self), cx, cy).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
     pub unsafe fn GetImageCount(&self) -> ::windows::core::Result<i32> {
@@ -5628,12 +5628,12 @@ impl IImageList2 {
     }
     #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
     pub unsafe fn SetImageCount(&self, unewcount: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetImageCount)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(unewcount)).ok()
+        (::windows::core::Interface::vtable(self).base__.SetImageCount)(::windows::core::Interface::as_raw(self), unewcount).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
     pub unsafe fn SetBkColor(&self, clrbk: u32) -> ::windows::core::Result<u32> {
         let mut result__ = ::core::mem::MaybeUninit::<u32>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.SetBkColor)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(clrbk), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
+        (::windows::core::Interface::vtable(self).base__.SetBkColor)(::windows::core::Interface::as_raw(self), clrbk, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
     }
     #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
     pub unsafe fn GetBkColor(&self) -> ::windows::core::Result<u32> {
@@ -5642,7 +5642,7 @@ impl IImageList2 {
     }
     #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
     pub unsafe fn BeginDrag(&self, itrack: i32, dxhotspot: i32, dyhotspot: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.BeginDrag)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(itrack), ::core::mem::transmute(dxhotspot), ::core::mem::transmute(dyhotspot)).ok()
+        (::windows::core::Interface::vtable(self).base__.BeginDrag)(::windows::core::Interface::as_raw(self), itrack, dxhotspot, dyhotspot).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
     pub unsafe fn EndDrag(&self) -> ::windows::core::Result<()> {
@@ -5654,7 +5654,7 @@ impl IImageList2 {
     where
         P0: ::std::convert::Into<super::super::Foundation::HWND>,
     {
-        (::windows::core::Interface::vtable(self).base__.DragEnter)(::windows::core::Interface::as_raw(self), hwndlock.into(), ::core::mem::transmute(x), ::core::mem::transmute(y)).ok()
+        (::windows::core::Interface::vtable(self).base__.DragEnter)(::windows::core::Interface::as_raw(self), hwndlock.into(), x, y).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_Controls\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -5666,14 +5666,14 @@ impl IImageList2 {
     }
     #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
     pub unsafe fn DragMove(&self, x: i32, y: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.DragMove)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(x), ::core::mem::transmute(y)).ok()
+        (::windows::core::Interface::vtable(self).base__.DragMove)(::windows::core::Interface::as_raw(self), x, y).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
     pub unsafe fn SetDragCursorImage<'a, P0>(&self, punk: P0, idrag: i32, dxhotspot: i32, dyhotspot: i32) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>,
     {
-        (::windows::core::Interface::vtable(self).base__.SetDragCursorImage)(::windows::core::Interface::as_raw(self), punk.into().abi(), ::core::mem::transmute(idrag), ::core::mem::transmute(dxhotspot), ::core::mem::transmute(dyhotspot)).ok()
+        (::windows::core::Interface::vtable(self).base__.SetDragCursorImage)(::windows::core::Interface::as_raw(self), punk.into().abi(), idrag, dxhotspot, dyhotspot).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_Controls\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -5691,24 +5691,24 @@ impl IImageList2 {
     #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
     pub unsafe fn GetItemFlags(&self, i: i32) -> ::windows::core::Result<IMAGE_LIST_ITEM_FLAGS> {
         let mut result__ = ::core::mem::MaybeUninit::<IMAGE_LIST_ITEM_FLAGS>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.GetItemFlags)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(i), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IMAGE_LIST_ITEM_FLAGS>(result__)
+        (::windows::core::Interface::vtable(self).base__.GetItemFlags)(::windows::core::Interface::as_raw(self), i, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IMAGE_LIST_ITEM_FLAGS>(result__)
     }
     #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
     pub unsafe fn GetOverlayImage(&self, ioverlay: i32) -> ::windows::core::Result<i32> {
         let mut result__ = ::core::mem::MaybeUninit::<i32>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.GetOverlayImage)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(ioverlay), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
+        (::windows::core::Interface::vtable(self).base__.GetOverlayImage)(::windows::core::Interface::as_raw(self), ioverlay, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
     }
     #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
     pub unsafe fn Resize(&self, cxnewiconsize: i32, cynewiconsize: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Resize)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(cxnewiconsize), ::core::mem::transmute(cynewiconsize)).ok()
+        (::windows::core::Interface::vtable(self).Resize)(::windows::core::Interface::as_raw(self), cxnewiconsize, cynewiconsize).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
     pub unsafe fn GetOriginalSize(&self, iimage: i32, dwflags: u32, pcx: *mut i32, pcy: *mut i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetOriginalSize)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(iimage), ::core::mem::transmute(dwflags), ::core::mem::transmute(pcx), ::core::mem::transmute(pcy)).ok()
+        (::windows::core::Interface::vtable(self).GetOriginalSize)(::windows::core::Interface::as_raw(self), iimage, dwflags, ::core::mem::transmute(pcx), ::core::mem::transmute(pcy)).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
     pub unsafe fn SetOriginalSize(&self, iimage: i32, cx: i32, cy: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetOriginalSize)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(iimage), ::core::mem::transmute(cx), ::core::mem::transmute(cy)).ok()
+        (::windows::core::Interface::vtable(self).SetOriginalSize)(::windows::core::Interface::as_raw(self), iimage, cx, cy).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
     pub unsafe fn SetCallback<'a, P0>(&self, punk: P0) -> ::windows::core::Result<()>
@@ -5723,11 +5723,11 @@ impl IImageList2 {
     }
     #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
     pub unsafe fn ForceImagePresent(&self, iimage: i32, dwflags: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).ForceImagePresent)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(iimage), ::core::mem::transmute(dwflags)).ok()
+        (::windows::core::Interface::vtable(self).ForceImagePresent)(::windows::core::Interface::as_raw(self), iimage, dwflags).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
     pub unsafe fn DiscardImages(&self, ifirstimage: i32, ilastimage: i32, dwflags: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).DiscardImages)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(ifirstimage), ::core::mem::transmute(ilastimage), ::core::mem::transmute(dwflags)).ok()
+        (::windows::core::Interface::vtable(self).DiscardImages)(::windows::core::Interface::as_raw(self), ifirstimage, ilastimage, dwflags).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_Controls\"`, `\"Win32_Graphics_Gdi\"`*"]
     #[cfg(feature = "Win32_Graphics_Gdi")]
@@ -5740,7 +5740,7 @@ impl IImageList2 {
     }
     #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
     pub unsafe fn Initialize(&self, cx: i32, cy: i32, flags: IMAGELIST_CREATION_FLAGS, cinitial: i32, cgrow: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Initialize)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(cx), ::core::mem::transmute(cy), ::core::mem::transmute(flags), ::core::mem::transmute(cinitial), ::core::mem::transmute(cgrow)).ok()
+        (::windows::core::Interface::vtable(self).Initialize)(::windows::core::Interface::as_raw(self), cx, cy, flags, cinitial, cgrow).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_Controls\"`, `\"Win32_Graphics_Gdi\"`*"]
     #[cfg(feature = "Win32_Graphics_Gdi")]
@@ -5750,7 +5750,7 @@ impl IImageList2 {
         P1: ::std::convert::Into<super::super::Graphics::Gdi::HBITMAP>,
         P2: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>,
     {
-        (::windows::core::Interface::vtable(self).Replace2)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(i), hbmimage.into(), hbmmask.into(), punk.into().abi(), ::core::mem::transmute(dwflags)).ok()
+        (::windows::core::Interface::vtable(self).Replace2)(::windows::core::Interface::as_raw(self), i, hbmimage.into(), hbmmask.into(), punk.into().abi(), dwflags).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
     pub unsafe fn ReplaceFromImageList<'a, P0, P1>(&self, i: i32, pil: P0, isrc: i32, punk: P1, dwflags: u32) -> ::windows::core::Result<()>
@@ -5758,7 +5758,7 @@ impl IImageList2 {
         P0: ::std::convert::Into<::windows::core::InParam<'a, IImageList>>,
         P1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>,
     {
-        (::windows::core::Interface::vtable(self).ReplaceFromImageList)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(i), pil.into().abi(), ::core::mem::transmute(isrc), punk.into().abi(), ::core::mem::transmute(dwflags)).ok()
+        (::windows::core::Interface::vtable(self).ReplaceFromImageList)(::windows::core::Interface::as_raw(self), i, pil.into().abi(), isrc, punk.into().abi(), dwflags).ok()
     }
 }
 impl ::core::convert::From<IImageList2> for ::windows::core::IUnknown {
@@ -6502,7 +6502,7 @@ where
     extern "system" {
         fn ImageList_AddMasked(himl: HIMAGELIST, hbmimage: super::super::Graphics::Gdi::HBITMAP, crmask: u32) -> i32;
     }
-    ::core::mem::transmute(ImageList_AddMasked(himl.into(), hbmimage.into(), ::core::mem::transmute(crmask)))
+    ::core::mem::transmute(ImageList_AddMasked(himl.into(), hbmimage.into(), crmask))
 }
 #[doc = "*Required features: `\"Win32_UI_Controls\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -6515,7 +6515,7 @@ where
     extern "system" {
         fn ImageList_BeginDrag(himltrack: HIMAGELIST, itrack: i32, dxhotspot: i32, dyhotspot: i32) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(ImageList_BeginDrag(himltrack.into(), ::core::mem::transmute(itrack), ::core::mem::transmute(dxhotspot), ::core::mem::transmute(dyhotspot)))
+    ::core::mem::transmute(ImageList_BeginDrag(himltrack.into(), itrack, dxhotspot, dyhotspot))
 }
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 #[inline]
@@ -6543,7 +6543,7 @@ where
     extern "system" {
         fn ImageList_Copy(himldst: HIMAGELIST, idst: i32, himlsrc: HIMAGELIST, isrc: i32, uflags: IMAGE_LIST_COPY_FLAGS) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(ImageList_Copy(himldst.into(), ::core::mem::transmute(idst), himlsrc.into(), ::core::mem::transmute(isrc), ::core::mem::transmute(uflags)))
+    ::core::mem::transmute(ImageList_Copy(himldst.into(), idst, himlsrc.into(), isrc, uflags))
 }
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 #[inline]
@@ -6552,7 +6552,7 @@ pub unsafe fn ImageList_Create(cx: i32, cy: i32, flags: IMAGELIST_CREATION_FLAGS
     extern "system" {
         fn ImageList_Create(cx: i32, cy: i32, flags: IMAGELIST_CREATION_FLAGS, cinitial: i32, cgrow: i32) -> HIMAGELIST;
     }
-    ::core::mem::transmute(ImageList_Create(::core::mem::transmute(cx), ::core::mem::transmute(cy), ::core::mem::transmute(flags), ::core::mem::transmute(cinitial), ::core::mem::transmute(cgrow)))
+    ::core::mem::transmute(ImageList_Create(cx, cy, flags, cinitial, cgrow))
 }
 #[doc = "*Required features: `\"Win32_UI_Controls\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -6578,7 +6578,7 @@ where
     extern "system" {
         fn ImageList_DragEnter(hwndlock: super::super::Foundation::HWND, x: i32, y: i32) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(ImageList_DragEnter(hwndlock.into(), ::core::mem::transmute(x), ::core::mem::transmute(y)))
+    ::core::mem::transmute(ImageList_DragEnter(hwndlock.into(), x, y))
 }
 #[doc = "*Required features: `\"Win32_UI_Controls\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -6601,7 +6601,7 @@ pub unsafe fn ImageList_DragMove(x: i32, y: i32) -> super::super::Foundation::BO
     extern "system" {
         fn ImageList_DragMove(x: i32, y: i32) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(ImageList_DragMove(::core::mem::transmute(x), ::core::mem::transmute(y)))
+    ::core::mem::transmute(ImageList_DragMove(x, y))
 }
 #[doc = "*Required features: `\"Win32_UI_Controls\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -6628,7 +6628,7 @@ where
     extern "system" {
         fn ImageList_Draw(himl: HIMAGELIST, i: i32, hdcdst: super::super::Graphics::Gdi::HDC, x: i32, y: i32, fstyle: IMAGE_LIST_DRAW_STYLE) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(ImageList_Draw(himl.into(), ::core::mem::transmute(i), hdcdst.into(), ::core::mem::transmute(x), ::core::mem::transmute(y), ::core::mem::transmute(fstyle)))
+    ::core::mem::transmute(ImageList_Draw(himl.into(), i, hdcdst.into(), x, y, fstyle))
 }
 #[doc = "*Required features: `\"Win32_UI_Controls\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
@@ -6642,7 +6642,7 @@ where
     extern "system" {
         fn ImageList_DrawEx(himl: HIMAGELIST, i: i32, hdcdst: super::super::Graphics::Gdi::HDC, x: i32, y: i32, dx: i32, dy: i32, rgbbk: u32, rgbfg: u32, fstyle: IMAGE_LIST_DRAW_STYLE) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(ImageList_DrawEx(himl.into(), ::core::mem::transmute(i), hdcdst.into(), ::core::mem::transmute(x), ::core::mem::transmute(y), ::core::mem::transmute(dx), ::core::mem::transmute(dy), ::core::mem::transmute(rgbbk), ::core::mem::transmute(rgbfg), ::core::mem::transmute(fstyle)))
+    ::core::mem::transmute(ImageList_DrawEx(himl.into(), i, hdcdst.into(), x, y, dx, dy, rgbbk, rgbfg, fstyle))
 }
 #[doc = "*Required features: `\"Win32_UI_Controls\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
@@ -6708,7 +6708,7 @@ where
     extern "system" {
         fn ImageList_GetIcon(himl: HIMAGELIST, i: i32, flags: u32) -> super::WindowsAndMessaging::HICON;
     }
-    ::core::mem::transmute(ImageList_GetIcon(himl.into(), ::core::mem::transmute(i), ::core::mem::transmute(flags)))
+    ::core::mem::transmute(ImageList_GetIcon(himl.into(), i, flags))
 }
 #[doc = "*Required features: `\"Win32_UI_Controls\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -6746,7 +6746,7 @@ where
     extern "system" {
         fn ImageList_GetImageInfo(himl: HIMAGELIST, i: i32, pimageinfo: *mut IMAGEINFO) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(ImageList_GetImageInfo(himl.into(), ::core::mem::transmute(i), ::core::mem::transmute(pimageinfo)))
+    ::core::mem::transmute(ImageList_GetImageInfo(himl.into(), i, ::core::mem::transmute(pimageinfo)))
 }
 #[doc = "*Required features: `\"Win32_UI_Controls\"`, `\"Win32_Foundation\"`, `\"Win32_UI_WindowsAndMessaging\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
@@ -6760,7 +6760,7 @@ where
     extern "system" {
         fn ImageList_LoadImageA(hi: super::super::Foundation::HINSTANCE, lpbmp: ::windows::core::PCSTR, cx: i32, cgrow: i32, crmask: u32, utype: u32, uflags: super::WindowsAndMessaging::IMAGE_FLAGS) -> HIMAGELIST;
     }
-    ::core::mem::transmute(ImageList_LoadImageA(hi.into(), lpbmp.into(), ::core::mem::transmute(cx), ::core::mem::transmute(cgrow), ::core::mem::transmute(crmask), ::core::mem::transmute(utype), ::core::mem::transmute(uflags)))
+    ::core::mem::transmute(ImageList_LoadImageA(hi.into(), lpbmp.into(), cx, cgrow, crmask, utype, uflags))
 }
 #[doc = "*Required features: `\"Win32_UI_Controls\"`, `\"Win32_Foundation\"`, `\"Win32_UI_WindowsAndMessaging\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
@@ -6774,7 +6774,7 @@ where
     extern "system" {
         fn ImageList_LoadImageW(hi: super::super::Foundation::HINSTANCE, lpbmp: ::windows::core::PCWSTR, cx: i32, cgrow: i32, crmask: u32, utype: u32, uflags: super::WindowsAndMessaging::IMAGE_FLAGS) -> HIMAGELIST;
     }
-    ::core::mem::transmute(ImageList_LoadImageW(hi.into(), lpbmp.into(), ::core::mem::transmute(cx), ::core::mem::transmute(cgrow), ::core::mem::transmute(crmask), ::core::mem::transmute(utype), ::core::mem::transmute(uflags)))
+    ::core::mem::transmute(ImageList_LoadImageW(hi.into(), lpbmp.into(), cx, cgrow, crmask, utype, uflags))
 }
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 #[inline]
@@ -6787,7 +6787,7 @@ where
     extern "system" {
         fn ImageList_Merge(himl1: HIMAGELIST, i1: i32, himl2: HIMAGELIST, i2: i32, dx: i32, dy: i32) -> HIMAGELIST;
     }
-    ::core::mem::transmute(ImageList_Merge(himl1.into(), ::core::mem::transmute(i1), himl2.into(), ::core::mem::transmute(i2), ::core::mem::transmute(dx), ::core::mem::transmute(dy)))
+    ::core::mem::transmute(ImageList_Merge(himl1.into(), i1, himl2.into(), i2, dx, dy))
 }
 #[doc = "*Required features: `\"Win32_UI_Controls\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
@@ -6813,7 +6813,7 @@ where
     extern "system" {
         fn ImageList_ReadEx(dwflags: u32, pstm: *mut ::core::ffi::c_void, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
     }
-    ImageList_ReadEx(::core::mem::transmute(dwflags), pstm.into().abi(), ::core::mem::transmute(riid), ::core::mem::transmute(ppv)).ok()
+    ImageList_ReadEx(dwflags, pstm.into().abi(), ::core::mem::transmute(riid), ::core::mem::transmute(ppv)).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Controls\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -6826,7 +6826,7 @@ where
     extern "system" {
         fn ImageList_Remove(himl: HIMAGELIST, i: i32) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(ImageList_Remove(himl.into(), ::core::mem::transmute(i)))
+    ::core::mem::transmute(ImageList_Remove(himl.into(), i))
 }
 #[doc = "*Required features: `\"Win32_UI_Controls\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
@@ -6841,7 +6841,7 @@ where
     extern "system" {
         fn ImageList_Replace(himl: HIMAGELIST, i: i32, hbmimage: super::super::Graphics::Gdi::HBITMAP, hbmmask: super::super::Graphics::Gdi::HBITMAP) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(ImageList_Replace(himl.into(), ::core::mem::transmute(i), hbmimage.into(), hbmmask.into()))
+    ::core::mem::transmute(ImageList_Replace(himl.into(), i, hbmimage.into(), hbmmask.into()))
 }
 #[doc = "*Required features: `\"Win32_UI_Controls\"`, `\"Win32_UI_WindowsAndMessaging\"`*"]
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
@@ -6855,7 +6855,7 @@ where
     extern "system" {
         fn ImageList_ReplaceIcon(himl: HIMAGELIST, i: i32, hicon: super::WindowsAndMessaging::HICON) -> i32;
     }
-    ::core::mem::transmute(ImageList_ReplaceIcon(himl.into(), ::core::mem::transmute(i), hicon.into()))
+    ::core::mem::transmute(ImageList_ReplaceIcon(himl.into(), i, hicon.into()))
 }
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 #[inline]
@@ -6867,7 +6867,7 @@ where
     extern "system" {
         fn ImageList_SetBkColor(himl: HIMAGELIST, clrbk: u32) -> u32;
     }
-    ::core::mem::transmute(ImageList_SetBkColor(himl.into(), ::core::mem::transmute(clrbk)))
+    ::core::mem::transmute(ImageList_SetBkColor(himl.into(), clrbk))
 }
 #[doc = "*Required features: `\"Win32_UI_Controls\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -6880,7 +6880,7 @@ where
     extern "system" {
         fn ImageList_SetDragCursorImage(himldrag: HIMAGELIST, idrag: i32, dxhotspot: i32, dyhotspot: i32) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(ImageList_SetDragCursorImage(himldrag.into(), ::core::mem::transmute(idrag), ::core::mem::transmute(dxhotspot), ::core::mem::transmute(dyhotspot)))
+    ::core::mem::transmute(ImageList_SetDragCursorImage(himldrag.into(), idrag, dxhotspot, dyhotspot))
 }
 #[doc = "*Required features: `\"Win32_UI_Controls\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -6893,7 +6893,7 @@ where
     extern "system" {
         fn ImageList_SetIconSize(himl: HIMAGELIST, cx: i32, cy: i32) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(ImageList_SetIconSize(himl.into(), ::core::mem::transmute(cx), ::core::mem::transmute(cy)))
+    ::core::mem::transmute(ImageList_SetIconSize(himl.into(), cx, cy))
 }
 #[doc = "*Required features: `\"Win32_UI_Controls\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -6906,7 +6906,7 @@ where
     extern "system" {
         fn ImageList_SetImageCount(himl: HIMAGELIST, unewcount: u32) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(ImageList_SetImageCount(himl.into(), ::core::mem::transmute(unewcount)))
+    ::core::mem::transmute(ImageList_SetImageCount(himl.into(), unewcount))
 }
 #[doc = "*Required features: `\"Win32_UI_Controls\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -6919,7 +6919,7 @@ where
     extern "system" {
         fn ImageList_SetOverlayImage(himl: HIMAGELIST, iimage: i32, ioverlay: i32) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(ImageList_SetOverlayImage(himl.into(), ::core::mem::transmute(iimage), ::core::mem::transmute(ioverlay)))
+    ::core::mem::transmute(ImageList_SetOverlayImage(himl.into(), iimage, ioverlay))
 }
 #[doc = "*Required features: `\"Win32_UI_Controls\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
@@ -6947,7 +6947,7 @@ where
     extern "system" {
         fn ImageList_WriteEx(himl: HIMAGELIST, dwflags: u32, pstm: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
     }
-    ImageList_WriteEx(himl.into(), ::core::mem::transmute(dwflags), pstm.into().abi()).ok()
+    ImageList_WriteEx(himl.into(), dwflags, pstm.into().abi()).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 #[inline]
@@ -6975,7 +6975,7 @@ pub unsafe fn InitMUILanguage(uilang: u16) {
     extern "system" {
         fn InitMUILanguage(uilang: u16);
     }
-    InitMUILanguage(::core::mem::transmute(uilang))
+    InitMUILanguage(uilang)
 }
 #[doc = "*Required features: `\"Win32_UI_Controls\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -7008,7 +7008,7 @@ pub unsafe fn IsCharLowerW(ch: u16) -> super::super::Foundation::BOOL {
     extern "system" {
         fn IsCharLowerW(ch: u16) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(IsCharLowerW(::core::mem::transmute(ch)))
+    ::core::mem::transmute(IsCharLowerW(ch))
 }
 #[doc = "*Required features: `\"Win32_UI_Controls\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -7031,7 +7031,7 @@ where
     extern "system" {
         fn IsDlgButtonChecked(hdlg: super::super::Foundation::HWND, nidbutton: i32) -> u32;
     }
-    ::core::mem::transmute(IsDlgButtonChecked(hdlg.into(), ::core::mem::transmute(nidbutton)))
+    ::core::mem::transmute(IsDlgButtonChecked(hdlg.into(), nidbutton))
 }
 #[doc = "*Required features: `\"Win32_UI_Controls\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -7051,7 +7051,7 @@ pub unsafe fn IsThemeBackgroundPartiallyTransparent(htheme: isize, ipartid: i32,
     extern "system" {
         fn IsThemeBackgroundPartiallyTransparent(htheme: isize, ipartid: i32, istateid: i32) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(IsThemeBackgroundPartiallyTransparent(::core::mem::transmute(htheme), ::core::mem::transmute(ipartid), ::core::mem::transmute(istateid)))
+    ::core::mem::transmute(IsThemeBackgroundPartiallyTransparent(htheme, ipartid, istateid))
 }
 #[doc = "*Required features: `\"Win32_UI_Controls\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -7074,7 +7074,7 @@ pub unsafe fn IsThemePartDefined(htheme: isize, ipartid: i32, istateid: i32) -> 
     extern "system" {
         fn IsThemePartDefined(htheme: isize, ipartid: i32, istateid: i32) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(IsThemePartDefined(::core::mem::transmute(htheme), ::core::mem::transmute(ipartid), ::core::mem::transmute(istateid)))
+    ::core::mem::transmute(IsThemePartDefined(htheme, ipartid, istateid))
 }
 #[doc = "*Required features: `\"Win32_UI_Controls\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -9201,7 +9201,7 @@ where
         fn LoadIconMetric(hinst: super::super::Foundation::HINSTANCE, pszname: ::windows::core::PCWSTR, lims: _LI_METRIC, phico: *mut super::WindowsAndMessaging::HICON) -> ::windows::core::HRESULT;
     }
     let mut result__ = ::core::mem::MaybeUninit::<super::WindowsAndMessaging::HICON>::zeroed();
-    LoadIconMetric(hinst.into(), pszname.into(), ::core::mem::transmute(lims), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::WindowsAndMessaging::HICON>(result__)
+    LoadIconMetric(hinst.into(), pszname.into(), lims, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::WindowsAndMessaging::HICON>(result__)
 }
 #[doc = "*Required features: `\"Win32_UI_Controls\"`, `\"Win32_Foundation\"`, `\"Win32_UI_WindowsAndMessaging\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
@@ -9216,7 +9216,7 @@ where
         fn LoadIconWithScaleDown(hinst: super::super::Foundation::HINSTANCE, pszname: ::windows::core::PCWSTR, cx: i32, cy: i32, phico: *mut super::WindowsAndMessaging::HICON) -> ::windows::core::HRESULT;
     }
     let mut result__ = ::core::mem::MaybeUninit::<super::WindowsAndMessaging::HICON>::zeroed();
-    LoadIconWithScaleDown(hinst.into(), pszname.into(), ::core::mem::transmute(cx), ::core::mem::transmute(cy), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::WindowsAndMessaging::HICON>(result__)
+    LoadIconWithScaleDown(hinst.into(), pszname.into(), cx, cy, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::WindowsAndMessaging::HICON>(result__)
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
@@ -9879,7 +9879,7 @@ where
     extern "system" {
         fn MenuHelp(umsg: u32, wparam: super::super::Foundation::WPARAM, lparam: super::super::Foundation::LPARAM, hmainmenu: super::WindowsAndMessaging::HMENU, hinst: super::super::Foundation::HINSTANCE, hwndstatus: super::super::Foundation::HWND, lpwids: *const u32);
     }
-    MenuHelp(::core::mem::transmute(umsg), wparam.into(), lparam.into(), hmainmenu.into(), hinst.into(), hwndstatus.into(), ::core::mem::transmute(lpwids))
+    MenuHelp(umsg, wparam.into(), lparam.into(), hmainmenu.into(), hinst.into(), hwndstatus.into(), ::core::mem::transmute(lpwids))
 }
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 #[repr(transparent)]
@@ -14284,7 +14284,7 @@ where
     extern "system" {
         fn OpenThemeDataEx(hwnd: super::super::Foundation::HWND, pszclasslist: ::windows::core::PCWSTR, dwflags: OPEN_THEME_DATA_FLAGS) -> isize;
     }
-    ::core::mem::transmute(OpenThemeDataEx(hwnd.into(), pszclasslist.into(), ::core::mem::transmute(dwflags)))
+    ::core::mem::transmute(OpenThemeDataEx(hwnd.into(), pszclasslist.into(), dwflags))
 }
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 #[repr(transparent)]
@@ -17220,7 +17220,7 @@ where
     extern "system" {
         fn RegisterTouchHitTestingWindow(hwnd: super::super::Foundation::HWND, value: u32) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(RegisterTouchHitTestingWindow(hwnd.into(), ::core::mem::transmute(value)))
+    ::core::mem::transmute(RegisterTouchHitTestingWindow(hwnd.into(), value))
 }
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const SBARS_SIZEGRIP: u32 = 256u32;
@@ -17494,7 +17494,7 @@ where
     extern "system" {
         fn SetScrollInfo(hwnd: super::super::Foundation::HWND, nbar: super::WindowsAndMessaging::SCROLLBAR_CONSTANTS, lpsi: *const super::WindowsAndMessaging::SCROLLINFO, redraw: super::super::Foundation::BOOL) -> i32;
     }
-    ::core::mem::transmute(SetScrollInfo(hwnd.into(), ::core::mem::transmute(nbar), ::core::mem::transmute(lpsi), redraw.into()))
+    ::core::mem::transmute(SetScrollInfo(hwnd.into(), nbar, ::core::mem::transmute(lpsi), redraw.into()))
 }
 #[doc = "*Required features: `\"Win32_UI_Controls\"`, `\"Win32_Foundation\"`, `\"Win32_UI_WindowsAndMessaging\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
@@ -17508,7 +17508,7 @@ where
     extern "system" {
         fn SetScrollPos(hwnd: super::super::Foundation::HWND, nbar: super::WindowsAndMessaging::SCROLLBAR_CONSTANTS, npos: i32, bredraw: super::super::Foundation::BOOL) -> i32;
     }
-    ::core::mem::transmute(SetScrollPos(hwnd.into(), ::core::mem::transmute(nbar), ::core::mem::transmute(npos), bredraw.into()))
+    ::core::mem::transmute(SetScrollPos(hwnd.into(), nbar, npos, bredraw.into()))
 }
 #[doc = "*Required features: `\"Win32_UI_Controls\"`, `\"Win32_Foundation\"`, `\"Win32_UI_WindowsAndMessaging\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
@@ -17522,7 +17522,7 @@ where
     extern "system" {
         fn SetScrollRange(hwnd: super::super::Foundation::HWND, nbar: super::WindowsAndMessaging::SCROLLBAR_CONSTANTS, nminpos: i32, nmaxpos: i32, bredraw: super::super::Foundation::BOOL) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(SetScrollRange(hwnd.into(), ::core::mem::transmute(nbar), ::core::mem::transmute(nminpos), ::core::mem::transmute(nmaxpos), bredraw.into()))
+    ::core::mem::transmute(SetScrollRange(hwnd.into(), nbar, nminpos, nmaxpos, bredraw.into()))
 }
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 #[inline]
@@ -17531,7 +17531,7 @@ pub unsafe fn SetThemeAppProperties(dwflags: u32) {
     extern "system" {
         fn SetThemeAppProperties(dwflags: u32);
     }
-    SetThemeAppProperties(::core::mem::transmute(dwflags))
+    SetThemeAppProperties(dwflags)
 }
 #[doc = "*Required features: `\"Win32_UI_Controls\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -17544,7 +17544,7 @@ where
     extern "system" {
         fn SetWindowFeedbackSetting(hwnd: super::super::Foundation::HWND, feedback: FEEDBACK_TYPE, dwflags: u32, size: u32, configuration: *const ::core::ffi::c_void) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(SetWindowFeedbackSetting(hwnd.into(), ::core::mem::transmute(feedback), ::core::mem::transmute(dwflags), ::core::mem::transmute(size), ::core::mem::transmute(configuration)))
+    ::core::mem::transmute(SetWindowFeedbackSetting(hwnd.into(), feedback, dwflags, size, ::core::mem::transmute(configuration)))
 }
 #[doc = "*Required features: `\"Win32_UI_Controls\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -17572,7 +17572,7 @@ where
     extern "system" {
         fn SetWindowThemeAttribute(hwnd: super::super::Foundation::HWND, eattribute: WINDOWTHEMEATTRIBUTETYPE, pvattribute: *const ::core::ffi::c_void, cbattribute: u32) -> ::windows::core::HRESULT;
     }
-    SetWindowThemeAttribute(hwnd.into(), ::core::mem::transmute(eattribute), ::core::mem::transmute(pvattribute), ::core::mem::transmute(cbattribute)).ok()
+    SetWindowThemeAttribute(hwnd.into(), eattribute, ::core::mem::transmute(pvattribute), cbattribute).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Controls\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -17585,7 +17585,7 @@ where
     extern "system" {
         fn ShowHideMenuCtl(hwnd: super::super::Foundation::HWND, uflags: usize, lpinfo: *const i32) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(ShowHideMenuCtl(hwnd.into(), ::core::mem::transmute(uflags), ::core::mem::transmute(lpinfo)))
+    ::core::mem::transmute(ShowHideMenuCtl(hwnd.into(), uflags, ::core::mem::transmute(lpinfo)))
 }
 #[doc = "*Required features: `\"Win32_UI_Controls\"`, `\"Win32_Foundation\"`, `\"Win32_UI_WindowsAndMessaging\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
@@ -17599,7 +17599,7 @@ where
     extern "system" {
         fn ShowScrollBar(hwnd: super::super::Foundation::HWND, wbar: super::WindowsAndMessaging::SCROLLBAR_CONSTANTS, bshow: super::super::Foundation::BOOL) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(ShowScrollBar(hwnd.into(), ::core::mem::transmute(wbar), bshow.into()))
+    ::core::mem::transmute(ShowScrollBar(hwnd.into(), wbar, bshow.into()))
 }
 #[doc = "*Required features: `\"Win32_UI_Controls\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -22031,7 +22031,7 @@ where
         fn TaskDialog(hwndowner: super::super::Foundation::HWND, hinstance: super::super::Foundation::HINSTANCE, pszwindowtitle: ::windows::core::PCWSTR, pszmaininstruction: ::windows::core::PCWSTR, pszcontent: ::windows::core::PCWSTR, dwcommonbuttons: TASKDIALOG_COMMON_BUTTON_FLAGS, pszicon: ::windows::core::PCWSTR, pnbutton: *mut i32) -> ::windows::core::HRESULT;
     }
     let mut result__ = ::core::mem::MaybeUninit::<i32>::zeroed();
-    TaskDialog(hwndowner.into(), hinstance.into(), pszwindowtitle.into(), pszmaininstruction.into(), pszcontent.into(), ::core::mem::transmute(dwcommonbuttons), pszicon.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
+    TaskDialog(hwndowner.into(), hinstance.into(), pszwindowtitle.into(), pszmaininstruction.into(), pszcontent.into(), dwcommonbuttons, pszicon.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
 }
 #[doc = "*Required features: `\"Win32_UI_Controls\"`, `\"Win32_Foundation\"`, `\"Win32_UI_WindowsAndMessaging\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
@@ -22196,7 +22196,7 @@ where
     extern "system" {
         fn UpdatePanningFeedback(hwnd: super::super::Foundation::HWND, ltotaloverpanoffsetx: i32, ltotaloverpanoffsety: i32, fininertia: super::super::Foundation::BOOL) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(UpdatePanningFeedback(hwnd.into(), ::core::mem::transmute(ltotaloverpanoffsetx), ::core::mem::transmute(ltotaloverpanoffsety), fininertia.into()))
+    ::core::mem::transmute(UpdatePanningFeedback(hwnd.into(), ltotaloverpanoffsetx, ltotaloverpanoffsety, fininertia.into()))
 }
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 #[repr(transparent)]

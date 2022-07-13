@@ -67,7 +67,7 @@ pub unsafe fn GetDeviceRegistrationInfo(deviceinformationclass: REGISTRATION_INF
     extern "system" {
         fn GetDeviceRegistrationInfo(deviceinformationclass: REGISTRATION_INFORMATION_CLASS, ppdeviceregistrationinfo: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
     }
-    GetDeviceRegistrationInfo(::core::mem::transmute(deviceinformationclass), ::core::mem::transmute(ppdeviceregistrationinfo)).ok()
+    GetDeviceRegistrationInfo(deviceinformationclass, ::core::mem::transmute(ppdeviceregistrationinfo)).ok()
 }
 #[doc = "*Required features: `\"Win32_Management_MobileDeviceManagementRegistration\"`*"]
 #[inline]

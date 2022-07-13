@@ -2870,7 +2870,7 @@ where
     extern "system" {
         fn MgmAddGroupMembershipEntry(hprotocol: super::super::Foundation::HANDLE, dwsourceaddr: u32, dwsourcemask: u32, dwgroupaddr: u32, dwgroupmask: u32, dwifindex: u32, dwifnexthopipaddr: u32, dwflags: u32) -> u32;
     }
-    ::core::mem::transmute(MgmAddGroupMembershipEntry(hprotocol.into(), ::core::mem::transmute(dwsourceaddr), ::core::mem::transmute(dwsourcemask), ::core::mem::transmute(dwgroupaddr), ::core::mem::transmute(dwgroupmask), ::core::mem::transmute(dwifindex), ::core::mem::transmute(dwifnexthopipaddr), ::core::mem::transmute(dwflags)))
+    ::core::mem::transmute(MgmAddGroupMembershipEntry(hprotocol.into(), dwsourceaddr, dwsourcemask, dwgroupaddr, dwgroupmask, dwifindex, dwifnexthopipaddr, dwflags))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -2896,7 +2896,7 @@ where
     extern "system" {
         fn MgmDeleteGroupMembershipEntry(hprotocol: super::super::Foundation::HANDLE, dwsourceaddr: u32, dwsourcemask: u32, dwgroupaddr: u32, dwgroupmask: u32, dwifindex: u32, dwifnexthopipaddr: u32, dwflags: u32) -> u32;
     }
-    ::core::mem::transmute(MgmDeleteGroupMembershipEntry(hprotocol.into(), ::core::mem::transmute(dwsourceaddr), ::core::mem::transmute(dwsourcemask), ::core::mem::transmute(dwgroupaddr), ::core::mem::transmute(dwgroupmask), ::core::mem::transmute(dwifindex), ::core::mem::transmute(dwifnexthopipaddr), ::core::mem::transmute(dwflags)))
+    ::core::mem::transmute(MgmDeleteGroupMembershipEntry(hprotocol.into(), dwsourceaddr, dwsourcemask, dwgroupaddr, dwgroupmask, dwifindex, dwifnexthopipaddr, dwflags))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"]
 #[inline]
@@ -2914,7 +2914,7 @@ pub unsafe fn MgmGetFirstMfeStats(pdwbuffersize: *mut u32, pbbuffer: *mut u8, pd
     extern "system" {
         fn MgmGetFirstMfeStats(pdwbuffersize: *mut u32, pbbuffer: *mut u8, pdwnumentries: *mut u32, dwflags: u32) -> u32;
     }
-    ::core::mem::transmute(MgmGetFirstMfeStats(::core::mem::transmute(pdwbuffersize), ::core::mem::transmute(pbbuffer), ::core::mem::transmute(pdwnumentries), ::core::mem::transmute(dwflags)))
+    ::core::mem::transmute(MgmGetFirstMfeStats(::core::mem::transmute(pdwbuffersize), ::core::mem::transmute(pbbuffer), ::core::mem::transmute(pdwnumentries), dwflags))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_NetworkManagement_IpHelper\"`*"]
 #[cfg(feature = "Win32_NetworkManagement_IpHelper")]
@@ -2934,7 +2934,7 @@ pub unsafe fn MgmGetMfeStats(pimm: *mut super::IpHelper::MIB_IPMCAST_MFE, pdwbuf
     extern "system" {
         fn MgmGetMfeStats(pimm: *mut super::IpHelper::MIB_IPMCAST_MFE, pdwbuffersize: *mut u32, pbbuffer: *mut u8, dwflags: u32) -> u32;
     }
-    ::core::mem::transmute(MgmGetMfeStats(::core::mem::transmute(pimm), ::core::mem::transmute(pdwbuffersize), ::core::mem::transmute(pbbuffer), ::core::mem::transmute(dwflags)))
+    ::core::mem::transmute(MgmGetMfeStats(::core::mem::transmute(pimm), ::core::mem::transmute(pdwbuffersize), ::core::mem::transmute(pbbuffer), dwflags))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_NetworkManagement_IpHelper\"`*"]
 #[cfg(feature = "Win32_NetworkManagement_IpHelper")]
@@ -2954,7 +2954,7 @@ pub unsafe fn MgmGetNextMfeStats(pimmstart: *mut super::IpHelper::MIB_IPMCAST_MF
     extern "system" {
         fn MgmGetNextMfeStats(pimmstart: *mut super::IpHelper::MIB_IPMCAST_MFE, pdwbuffersize: *mut u32, pbbuffer: *mut u8, pdwnumentries: *mut u32, dwflags: u32) -> u32;
     }
-    ::core::mem::transmute(MgmGetNextMfeStats(::core::mem::transmute(pimmstart), ::core::mem::transmute(pdwbuffersize), ::core::mem::transmute(pbbuffer), ::core::mem::transmute(pdwnumentries), ::core::mem::transmute(dwflags)))
+    ::core::mem::transmute(MgmGetNextMfeStats(::core::mem::transmute(pimmstart), ::core::mem::transmute(pdwbuffersize), ::core::mem::transmute(pbbuffer), ::core::mem::transmute(pdwnumentries), dwflags))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"]
 #[inline]
@@ -2963,7 +2963,7 @@ pub unsafe fn MgmGetProtocolOnInterface(dwifindex: u32, dwifnexthopaddr: u32, pd
     extern "system" {
         fn MgmGetProtocolOnInterface(dwifindex: u32, dwifnexthopaddr: u32, pdwifprotocolid: *mut u32, pdwifcomponentid: *mut u32) -> u32;
     }
-    ::core::mem::transmute(MgmGetProtocolOnInterface(::core::mem::transmute(dwifindex), ::core::mem::transmute(dwifnexthopaddr), ::core::mem::transmute(pdwifprotocolid), ::core::mem::transmute(pdwifcomponentid)))
+    ::core::mem::transmute(MgmGetProtocolOnInterface(dwifindex, dwifnexthopaddr, ::core::mem::transmute(pdwifprotocolid), ::core::mem::transmute(pdwifcomponentid)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -3002,7 +3002,7 @@ where
     extern "system" {
         fn MgmGroupEnumerationStart(hprotocol: super::super::Foundation::HANDLE, metenumtype: MGM_ENUM_TYPES, phenumhandle: *mut super::super::Foundation::HANDLE) -> u32;
     }
-    ::core::mem::transmute(MgmGroupEnumerationStart(hprotocol.into(), ::core::mem::transmute(metenumtype), ::core::mem::transmute(phenumhandle)))
+    ::core::mem::transmute(MgmGroupEnumerationStart(hprotocol.into(), metenumtype, ::core::mem::transmute(phenumhandle)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -3012,7 +3012,7 @@ pub unsafe fn MgmRegisterMProtocol(prpiinfo: *mut ROUTING_PROTOCOL_CONFIG, dwpro
     extern "system" {
         fn MgmRegisterMProtocol(prpiinfo: *mut ROUTING_PROTOCOL_CONFIG, dwprotocolid: u32, dwcomponentid: u32, phprotocol: *mut super::super::Foundation::HANDLE) -> u32;
     }
-    ::core::mem::transmute(MgmRegisterMProtocol(::core::mem::transmute(prpiinfo), ::core::mem::transmute(dwprotocolid), ::core::mem::transmute(dwcomponentid), ::core::mem::transmute(phprotocol)))
+    ::core::mem::transmute(MgmRegisterMProtocol(::core::mem::transmute(prpiinfo), dwprotocolid, dwcomponentid, ::core::mem::transmute(phprotocol)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -3025,7 +3025,7 @@ where
     extern "system" {
         fn MgmReleaseInterfaceOwnership(hprotocol: super::super::Foundation::HANDLE, dwifindex: u32, dwifnexthopaddr: u32) -> u32;
     }
-    ::core::mem::transmute(MgmReleaseInterfaceOwnership(hprotocol.into(), ::core::mem::transmute(dwifindex), ::core::mem::transmute(dwifnexthopaddr)))
+    ::core::mem::transmute(MgmReleaseInterfaceOwnership(hprotocol.into(), dwifindex, dwifnexthopaddr))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -3038,7 +3038,7 @@ where
     extern "system" {
         fn MgmTakeInterfaceOwnership(hprotocol: super::super::Foundation::HANDLE, dwifindex: u32, dwifnexthopaddr: u32) -> u32;
     }
-    ::core::mem::transmute(MgmTakeInterfaceOwnership(hprotocol.into(), ::core::mem::transmute(dwifindex), ::core::mem::transmute(dwifnexthopaddr)))
+    ::core::mem::transmute(MgmTakeInterfaceOwnership(hprotocol.into(), dwifindex, dwifnexthopaddr))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"]
 #[inline]
@@ -3060,7 +3060,7 @@ where
     extern "system" {
         fn MprAdminConnectionClearStats(hrasserver: isize, hrasconnection: super::super::Foundation::HANDLE) -> u32;
     }
-    ::core::mem::transmute(MprAdminConnectionClearStats(::core::mem::transmute(hrasserver), hrasconnection.into()))
+    ::core::mem::transmute(MprAdminConnectionClearStats(hrasserver, hrasconnection.into()))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"]
 #[inline]
@@ -3069,7 +3069,7 @@ pub unsafe fn MprAdminConnectionEnum(hrasserver: isize, dwlevel: u32, lplpbbuffe
     extern "system" {
         fn MprAdminConnectionEnum(hrasserver: isize, dwlevel: u32, lplpbbuffer: *mut *mut u8, dwprefmaxlen: u32, lpdwentriesread: *mut u32, lpdwtotalentries: *mut u32, lpdwresumehandle: *const u32) -> u32;
     }
-    ::core::mem::transmute(MprAdminConnectionEnum(::core::mem::transmute(hrasserver), ::core::mem::transmute(dwlevel), ::core::mem::transmute(lplpbbuffer), ::core::mem::transmute(dwprefmaxlen), ::core::mem::transmute(lpdwentriesread), ::core::mem::transmute(lpdwtotalentries), ::core::mem::transmute(lpdwresumehandle)))
+    ::core::mem::transmute(MprAdminConnectionEnum(hrasserver, dwlevel, ::core::mem::transmute(lplpbbuffer), dwprefmaxlen, ::core::mem::transmute(lpdwentriesread), ::core::mem::transmute(lpdwtotalentries), ::core::mem::transmute(lpdwresumehandle)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -3079,7 +3079,7 @@ pub unsafe fn MprAdminConnectionEnumEx(hrasserver: isize, pobjectheader: *const 
     extern "system" {
         fn MprAdminConnectionEnumEx(hrasserver: isize, pobjectheader: *const MPRAPI_OBJECT_HEADER, dwpreferedmaxlen: u32, lpdwentriesread: *mut u32, lpdwtotalentries: *mut u32, pprasconn: *mut *mut RAS_CONNECTION_EX, lpdwresumehandle: *const u32) -> u32;
     }
-    ::core::mem::transmute(MprAdminConnectionEnumEx(::core::mem::transmute(hrasserver), ::core::mem::transmute(pobjectheader), ::core::mem::transmute(dwpreferedmaxlen), ::core::mem::transmute(lpdwentriesread), ::core::mem::transmute(lpdwtotalentries), ::core::mem::transmute(pprasconn), ::core::mem::transmute(lpdwresumehandle)))
+    ::core::mem::transmute(MprAdminConnectionEnumEx(hrasserver, ::core::mem::transmute(pobjectheader), dwpreferedmaxlen, ::core::mem::transmute(lpdwentriesread), ::core::mem::transmute(lpdwtotalentries), ::core::mem::transmute(pprasconn), ::core::mem::transmute(lpdwresumehandle)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -3092,7 +3092,7 @@ where
     extern "system" {
         fn MprAdminConnectionGetInfo(hrasserver: isize, dwlevel: u32, hrasconnection: super::super::Foundation::HANDLE, lplpbbuffer: *mut *mut u8) -> u32;
     }
-    ::core::mem::transmute(MprAdminConnectionGetInfo(::core::mem::transmute(hrasserver), ::core::mem::transmute(dwlevel), hrasconnection.into(), ::core::mem::transmute(lplpbbuffer)))
+    ::core::mem::transmute(MprAdminConnectionGetInfo(hrasserver, dwlevel, hrasconnection.into(), ::core::mem::transmute(lplpbbuffer)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -3105,7 +3105,7 @@ where
     extern "system" {
         fn MprAdminConnectionGetInfoEx(hrasserver: isize, hrasconnection: super::super::Foundation::HANDLE, prasconnection: *mut RAS_CONNECTION_EX) -> u32;
     }
-    ::core::mem::transmute(MprAdminConnectionGetInfoEx(::core::mem::transmute(hrasserver), hrasconnection.into(), ::core::mem::transmute(prasconnection)))
+    ::core::mem::transmute(MprAdminConnectionGetInfoEx(hrasserver, hrasconnection.into(), ::core::mem::transmute(prasconnection)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -3133,7 +3133,7 @@ where
     extern "system" {
         fn MprAdminDeregisterConnectionNotification(hmprserver: isize, heventnotification: super::super::Foundation::HANDLE) -> u32;
     }
-    ::core::mem::transmute(MprAdminDeregisterConnectionNotification(::core::mem::transmute(hmprserver), heventnotification.into()))
+    ::core::mem::transmute(MprAdminDeregisterConnectionNotification(hmprserver, heventnotification.into()))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"]
 #[inline]
@@ -3142,7 +3142,7 @@ pub unsafe fn MprAdminDeviceEnum(hmprserver: isize, dwlevel: u32, lplpbbuffer: *
     extern "system" {
         fn MprAdminDeviceEnum(hmprserver: isize, dwlevel: u32, lplpbbuffer: *mut *mut u8, lpdwtotalentries: *mut u32) -> u32;
     }
-    ::core::mem::transmute(MprAdminDeviceEnum(::core::mem::transmute(hmprserver), ::core::mem::transmute(dwlevel), ::core::mem::transmute(lplpbbuffer), ::core::mem::transmute(lpdwtotalentries)))
+    ::core::mem::transmute(MprAdminDeviceEnum(hmprserver, dwlevel, ::core::mem::transmute(lplpbbuffer), ::core::mem::transmute(lpdwtotalentries)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -3166,7 +3166,7 @@ pub unsafe fn MprAdminGetErrorString(dwerror: u32, lplpwserrorstring: *mut ::win
     extern "system" {
         fn MprAdminGetErrorString(dwerror: u32, lplpwserrorstring: *mut ::windows::core::PWSTR) -> u32;
     }
-    ::core::mem::transmute(MprAdminGetErrorString(::core::mem::transmute(dwerror), ::core::mem::transmute(lplpwserrorstring)))
+    ::core::mem::transmute(MprAdminGetErrorString(dwerror, ::core::mem::transmute(lplpwserrorstring)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"]
 #[inline]
@@ -3194,7 +3194,7 @@ where
     extern "system" {
         fn MprAdminInterfaceConnect(hmprserver: isize, hinterface: super::super::Foundation::HANDLE, hevent: super::super::Foundation::HANDLE, fsynchronous: super::super::Foundation::BOOL) -> u32;
     }
-    ::core::mem::transmute(MprAdminInterfaceConnect(::core::mem::transmute(hmprserver), hinterface.into(), hevent.into(), fsynchronous.into()))
+    ::core::mem::transmute(MprAdminInterfaceConnect(hmprserver, hinterface.into(), hevent.into(), fsynchronous.into()))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -3204,7 +3204,7 @@ pub unsafe fn MprAdminInterfaceCreate(hmprserver: isize, dwlevel: u32, lpbbuffer
     extern "system" {
         fn MprAdminInterfaceCreate(hmprserver: isize, dwlevel: u32, lpbbuffer: *const u8, phinterface: *mut super::super::Foundation::HANDLE) -> u32;
     }
-    ::core::mem::transmute(MprAdminInterfaceCreate(::core::mem::transmute(hmprserver), ::core::mem::transmute(dwlevel), ::core::mem::transmute(lpbbuffer), ::core::mem::transmute(phinterface)))
+    ::core::mem::transmute(MprAdminInterfaceCreate(hmprserver, dwlevel, ::core::mem::transmute(lpbbuffer), ::core::mem::transmute(phinterface)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -3217,7 +3217,7 @@ where
     extern "system" {
         fn MprAdminInterfaceDelete(hmprserver: isize, hinterface: super::super::Foundation::HANDLE) -> u32;
     }
-    ::core::mem::transmute(MprAdminInterfaceDelete(::core::mem::transmute(hmprserver), hinterface.into()))
+    ::core::mem::transmute(MprAdminInterfaceDelete(hmprserver, hinterface.into()))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -3230,7 +3230,7 @@ where
     extern "system" {
         fn MprAdminInterfaceDeviceGetInfo(hmprserver: isize, hinterface: super::super::Foundation::HANDLE, dwindex: u32, dwlevel: u32, lplpbuffer: *mut *mut u8) -> u32;
     }
-    ::core::mem::transmute(MprAdminInterfaceDeviceGetInfo(::core::mem::transmute(hmprserver), hinterface.into(), ::core::mem::transmute(dwindex), ::core::mem::transmute(dwlevel), ::core::mem::transmute(lplpbuffer)))
+    ::core::mem::transmute(MprAdminInterfaceDeviceGetInfo(hmprserver, hinterface.into(), dwindex, dwlevel, ::core::mem::transmute(lplpbuffer)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -3243,7 +3243,7 @@ where
     extern "system" {
         fn MprAdminInterfaceDeviceSetInfo(hmprserver: isize, hinterface: super::super::Foundation::HANDLE, dwindex: u32, dwlevel: u32, lpbbuffer: *const u8) -> u32;
     }
-    ::core::mem::transmute(MprAdminInterfaceDeviceSetInfo(::core::mem::transmute(hmprserver), hinterface.into(), ::core::mem::transmute(dwindex), ::core::mem::transmute(dwlevel), ::core::mem::transmute(lpbbuffer)))
+    ::core::mem::transmute(MprAdminInterfaceDeviceSetInfo(hmprserver, hinterface.into(), dwindex, dwlevel, ::core::mem::transmute(lpbbuffer)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -3256,7 +3256,7 @@ where
     extern "system" {
         fn MprAdminInterfaceDisconnect(hmprserver: isize, hinterface: super::super::Foundation::HANDLE) -> u32;
     }
-    ::core::mem::transmute(MprAdminInterfaceDisconnect(::core::mem::transmute(hmprserver), hinterface.into()))
+    ::core::mem::transmute(MprAdminInterfaceDisconnect(hmprserver, hinterface.into()))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"]
 #[inline]
@@ -3265,7 +3265,7 @@ pub unsafe fn MprAdminInterfaceEnum(hmprserver: isize, dwlevel: u32, lplpbbuffer
     extern "system" {
         fn MprAdminInterfaceEnum(hmprserver: isize, dwlevel: u32, lplpbbuffer: *mut *mut u8, dwprefmaxlen: u32, lpdwentriesread: *mut u32, lpdwtotalentries: *mut u32, lpdwresumehandle: *const u32) -> u32;
     }
-    ::core::mem::transmute(MprAdminInterfaceEnum(::core::mem::transmute(hmprserver), ::core::mem::transmute(dwlevel), ::core::mem::transmute(lplpbbuffer), ::core::mem::transmute(dwprefmaxlen), ::core::mem::transmute(lpdwentriesread), ::core::mem::transmute(lpdwtotalentries), ::core::mem::transmute(lpdwresumehandle)))
+    ::core::mem::transmute(MprAdminInterfaceEnum(hmprserver, dwlevel, ::core::mem::transmute(lplpbbuffer), dwprefmaxlen, ::core::mem::transmute(lpdwentriesread), ::core::mem::transmute(lpdwtotalentries), ::core::mem::transmute(lpdwresumehandle)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"]
 #[inline]
@@ -3291,7 +3291,7 @@ where
     extern "system" {
         fn MprAdminInterfaceGetCredentialsEx(hmprserver: isize, hinterface: super::super::Foundation::HANDLE, dwlevel: u32, lplpbbuffer: *mut *mut u8) -> u32;
     }
-    ::core::mem::transmute(MprAdminInterfaceGetCredentialsEx(::core::mem::transmute(hmprserver), hinterface.into(), ::core::mem::transmute(dwlevel), ::core::mem::transmute(lplpbbuffer)))
+    ::core::mem::transmute(MprAdminInterfaceGetCredentialsEx(hmprserver, hinterface.into(), dwlevel, ::core::mem::transmute(lplpbbuffer)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`, `\"Win32_Networking_WinSock\"`, `\"Win32_Security_Cryptography\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock", feature = "Win32_Security_Cryptography"))]
@@ -3304,7 +3304,7 @@ where
     extern "system" {
         fn MprAdminInterfaceGetCustomInfoEx(hmprserver: isize, hinterface: super::super::Foundation::HANDLE, pcustominfo: *mut MPR_IF_CUSTOMINFOEX2) -> u32;
     }
-    ::core::mem::transmute(MprAdminInterfaceGetCustomInfoEx(::core::mem::transmute(hmprserver), hinterface.into(), ::core::mem::transmute(pcustominfo)))
+    ::core::mem::transmute(MprAdminInterfaceGetCustomInfoEx(hmprserver, hinterface.into(), ::core::mem::transmute(pcustominfo)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -3318,7 +3318,7 @@ where
     extern "system" {
         fn MprAdminInterfaceGetHandle(hmprserver: isize, lpwsinterfacename: ::windows::core::PCWSTR, phinterface: *mut super::super::Foundation::HANDLE, fincludeclientinterfaces: super::super::Foundation::BOOL) -> u32;
     }
-    ::core::mem::transmute(MprAdminInterfaceGetHandle(::core::mem::transmute(hmprserver), lpwsinterfacename.into(), ::core::mem::transmute(phinterface), fincludeclientinterfaces.into()))
+    ::core::mem::transmute(MprAdminInterfaceGetHandle(hmprserver, lpwsinterfacename.into(), ::core::mem::transmute(phinterface), fincludeclientinterfaces.into()))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -3331,7 +3331,7 @@ where
     extern "system" {
         fn MprAdminInterfaceGetInfo(hmprserver: isize, hinterface: super::super::Foundation::HANDLE, dwlevel: u32, lplpbbuffer: *const *const u8) -> u32;
     }
-    ::core::mem::transmute(MprAdminInterfaceGetInfo(::core::mem::transmute(hmprserver), hinterface.into(), ::core::mem::transmute(dwlevel), ::core::mem::transmute(lplpbbuffer)))
+    ::core::mem::transmute(MprAdminInterfaceGetInfo(hmprserver, hinterface.into(), dwlevel, ::core::mem::transmute(lplpbbuffer)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -3344,7 +3344,7 @@ where
     extern "system" {
         fn MprAdminInterfaceQueryUpdateResult(hmprserver: isize, hinterface: super::super::Foundation::HANDLE, dwprotocolid: u32, lpdwupdateresult: *mut u32) -> u32;
     }
-    ::core::mem::transmute(MprAdminInterfaceQueryUpdateResult(::core::mem::transmute(hmprserver), hinterface.into(), ::core::mem::transmute(dwprotocolid), ::core::mem::transmute(lpdwupdateresult)))
+    ::core::mem::transmute(MprAdminInterfaceQueryUpdateResult(hmprserver, hinterface.into(), dwprotocolid, ::core::mem::transmute(lpdwupdateresult)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"]
 #[inline]
@@ -3373,7 +3373,7 @@ where
     extern "system" {
         fn MprAdminInterfaceSetCredentialsEx(hmprserver: isize, hinterface: super::super::Foundation::HANDLE, dwlevel: u32, lpbbuffer: *const u8) -> u32;
     }
-    ::core::mem::transmute(MprAdminInterfaceSetCredentialsEx(::core::mem::transmute(hmprserver), hinterface.into(), ::core::mem::transmute(dwlevel), ::core::mem::transmute(lpbbuffer)))
+    ::core::mem::transmute(MprAdminInterfaceSetCredentialsEx(hmprserver, hinterface.into(), dwlevel, ::core::mem::transmute(lpbbuffer)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`, `\"Win32_Networking_WinSock\"`, `\"Win32_Security_Cryptography\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock", feature = "Win32_Security_Cryptography"))]
@@ -3386,7 +3386,7 @@ where
     extern "system" {
         fn MprAdminInterfaceSetCustomInfoEx(hmprserver: isize, hinterface: super::super::Foundation::HANDLE, pcustominfo: *const MPR_IF_CUSTOMINFOEX2) -> u32;
     }
-    ::core::mem::transmute(MprAdminInterfaceSetCustomInfoEx(::core::mem::transmute(hmprserver), hinterface.into(), ::core::mem::transmute(pcustominfo)))
+    ::core::mem::transmute(MprAdminInterfaceSetCustomInfoEx(hmprserver, hinterface.into(), ::core::mem::transmute(pcustominfo)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -3399,7 +3399,7 @@ where
     extern "system" {
         fn MprAdminInterfaceSetInfo(hmprserver: isize, hinterface: super::super::Foundation::HANDLE, dwlevel: u32, lpbbuffer: *const u8) -> u32;
     }
-    ::core::mem::transmute(MprAdminInterfaceSetInfo(::core::mem::transmute(hmprserver), hinterface.into(), ::core::mem::transmute(dwlevel), ::core::mem::transmute(lpbbuffer)))
+    ::core::mem::transmute(MprAdminInterfaceSetInfo(hmprserver, hinterface.into(), dwlevel, ::core::mem::transmute(lpbbuffer)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -3412,7 +3412,7 @@ where
     extern "system" {
         fn MprAdminInterfaceTransportAdd(hmprserver: isize, hinterface: super::super::Foundation::HANDLE, dwtransportid: u32, pinterfaceinfo: *const u8, dwinterfaceinfosize: u32) -> u32;
     }
-    ::core::mem::transmute(MprAdminInterfaceTransportAdd(::core::mem::transmute(hmprserver), hinterface.into(), ::core::mem::transmute(dwtransportid), ::core::mem::transmute(pinterfaceinfo), ::core::mem::transmute(dwinterfaceinfosize)))
+    ::core::mem::transmute(MprAdminInterfaceTransportAdd(hmprserver, hinterface.into(), dwtransportid, ::core::mem::transmute(pinterfaceinfo), dwinterfaceinfosize))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -3425,7 +3425,7 @@ where
     extern "system" {
         fn MprAdminInterfaceTransportGetInfo(hmprserver: isize, hinterface: super::super::Foundation::HANDLE, dwtransportid: u32, ppinterfaceinfo: *mut *mut u8, lpdwinterfaceinfosize: *mut u32) -> u32;
     }
-    ::core::mem::transmute(MprAdminInterfaceTransportGetInfo(::core::mem::transmute(hmprserver), hinterface.into(), ::core::mem::transmute(dwtransportid), ::core::mem::transmute(ppinterfaceinfo), ::core::mem::transmute(lpdwinterfaceinfosize)))
+    ::core::mem::transmute(MprAdminInterfaceTransportGetInfo(hmprserver, hinterface.into(), dwtransportid, ::core::mem::transmute(ppinterfaceinfo), ::core::mem::transmute(lpdwinterfaceinfosize)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -3438,7 +3438,7 @@ where
     extern "system" {
         fn MprAdminInterfaceTransportRemove(hmprserver: isize, hinterface: super::super::Foundation::HANDLE, dwtransportid: u32) -> u32;
     }
-    ::core::mem::transmute(MprAdminInterfaceTransportRemove(::core::mem::transmute(hmprserver), hinterface.into(), ::core::mem::transmute(dwtransportid)))
+    ::core::mem::transmute(MprAdminInterfaceTransportRemove(hmprserver, hinterface.into(), dwtransportid))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -3451,7 +3451,7 @@ where
     extern "system" {
         fn MprAdminInterfaceTransportSetInfo(hmprserver: isize, hinterface: super::super::Foundation::HANDLE, dwtransportid: u32, pinterfaceinfo: *const u8, dwinterfaceinfosize: u32) -> u32;
     }
-    ::core::mem::transmute(MprAdminInterfaceTransportSetInfo(::core::mem::transmute(hmprserver), hinterface.into(), ::core::mem::transmute(dwtransportid), ::core::mem::transmute(pinterfaceinfo), ::core::mem::transmute(dwinterfaceinfosize)))
+    ::core::mem::transmute(MprAdminInterfaceTransportSetInfo(hmprserver, hinterface.into(), dwtransportid, ::core::mem::transmute(pinterfaceinfo), dwinterfaceinfosize))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -3464,7 +3464,7 @@ where
     extern "system" {
         fn MprAdminInterfaceUpdatePhonebookInfo(hmprserver: isize, hinterface: super::super::Foundation::HANDLE) -> u32;
     }
-    ::core::mem::transmute(MprAdminInterfaceUpdatePhonebookInfo(::core::mem::transmute(hmprserver), hinterface.into()))
+    ::core::mem::transmute(MprAdminInterfaceUpdatePhonebookInfo(hmprserver, hinterface.into()))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -3478,7 +3478,7 @@ where
     extern "system" {
         fn MprAdminInterfaceUpdateRoutes(hmprserver: isize, hinterface: super::super::Foundation::HANDLE, dwprotocolid: u32, hevent: super::super::Foundation::HANDLE) -> u32;
     }
-    ::core::mem::transmute(MprAdminInterfaceUpdateRoutes(::core::mem::transmute(hmprserver), hinterface.into(), ::core::mem::transmute(dwprotocolid), hevent.into()))
+    ::core::mem::transmute(MprAdminInterfaceUpdateRoutes(hmprserver, hinterface.into(), dwprotocolid, hevent.into()))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -3536,7 +3536,7 @@ pub unsafe fn MprAdminMIBEntryCreate(hmibserver: isize, dwpid: u32, dwroutingpid
     extern "system" {
         fn MprAdminMIBEntryCreate(hmibserver: isize, dwpid: u32, dwroutingpid: u32, lpentry: *const ::core::ffi::c_void, dwentrysize: u32) -> u32;
     }
-    ::core::mem::transmute(MprAdminMIBEntryCreate(::core::mem::transmute(hmibserver), ::core::mem::transmute(dwpid), ::core::mem::transmute(dwroutingpid), ::core::mem::transmute(lpentry), ::core::mem::transmute(dwentrysize)))
+    ::core::mem::transmute(MprAdminMIBEntryCreate(hmibserver, dwpid, dwroutingpid, ::core::mem::transmute(lpentry), dwentrysize))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"]
 #[inline]
@@ -3545,7 +3545,7 @@ pub unsafe fn MprAdminMIBEntryDelete(hmibserver: isize, dwprotocolid: u32, dwrou
     extern "system" {
         fn MprAdminMIBEntryDelete(hmibserver: isize, dwprotocolid: u32, dwroutingpid: u32, lpentry: *const ::core::ffi::c_void, dwentrysize: u32) -> u32;
     }
-    ::core::mem::transmute(MprAdminMIBEntryDelete(::core::mem::transmute(hmibserver), ::core::mem::transmute(dwprotocolid), ::core::mem::transmute(dwroutingpid), ::core::mem::transmute(lpentry), ::core::mem::transmute(dwentrysize)))
+    ::core::mem::transmute(MprAdminMIBEntryDelete(hmibserver, dwprotocolid, dwroutingpid, ::core::mem::transmute(lpentry), dwentrysize))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"]
 #[inline]
@@ -3554,7 +3554,7 @@ pub unsafe fn MprAdminMIBEntryGet(hmibserver: isize, dwprotocolid: u32, dwroutin
     extern "system" {
         fn MprAdminMIBEntryGet(hmibserver: isize, dwprotocolid: u32, dwroutingpid: u32, lpinentry: *const ::core::ffi::c_void, dwinentrysize: u32, lplpoutentry: *mut *mut ::core::ffi::c_void, lpoutentrysize: *mut u32) -> u32;
     }
-    ::core::mem::transmute(MprAdminMIBEntryGet(::core::mem::transmute(hmibserver), ::core::mem::transmute(dwprotocolid), ::core::mem::transmute(dwroutingpid), ::core::mem::transmute(lpinentry), ::core::mem::transmute(dwinentrysize), ::core::mem::transmute(lplpoutentry), ::core::mem::transmute(lpoutentrysize)))
+    ::core::mem::transmute(MprAdminMIBEntryGet(hmibserver, dwprotocolid, dwroutingpid, ::core::mem::transmute(lpinentry), dwinentrysize, ::core::mem::transmute(lplpoutentry), ::core::mem::transmute(lpoutentrysize)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"]
 #[inline]
@@ -3563,7 +3563,7 @@ pub unsafe fn MprAdminMIBEntryGetFirst(hmibserver: isize, dwprotocolid: u32, dwr
     extern "system" {
         fn MprAdminMIBEntryGetFirst(hmibserver: isize, dwprotocolid: u32, dwroutingpid: u32, lpinentry: *const ::core::ffi::c_void, dwinentrysize: u32, lplpoutentry: *mut *mut ::core::ffi::c_void, lpoutentrysize: *mut u32) -> u32;
     }
-    ::core::mem::transmute(MprAdminMIBEntryGetFirst(::core::mem::transmute(hmibserver), ::core::mem::transmute(dwprotocolid), ::core::mem::transmute(dwroutingpid), ::core::mem::transmute(lpinentry), ::core::mem::transmute(dwinentrysize), ::core::mem::transmute(lplpoutentry), ::core::mem::transmute(lpoutentrysize)))
+    ::core::mem::transmute(MprAdminMIBEntryGetFirst(hmibserver, dwprotocolid, dwroutingpid, ::core::mem::transmute(lpinentry), dwinentrysize, ::core::mem::transmute(lplpoutentry), ::core::mem::transmute(lpoutentrysize)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"]
 #[inline]
@@ -3572,7 +3572,7 @@ pub unsafe fn MprAdminMIBEntryGetNext(hmibserver: isize, dwprotocolid: u32, dwro
     extern "system" {
         fn MprAdminMIBEntryGetNext(hmibserver: isize, dwprotocolid: u32, dwroutingpid: u32, lpinentry: *const ::core::ffi::c_void, dwinentrysize: u32, lplpoutentry: *mut *mut ::core::ffi::c_void, lpoutentrysize: *mut u32) -> u32;
     }
-    ::core::mem::transmute(MprAdminMIBEntryGetNext(::core::mem::transmute(hmibserver), ::core::mem::transmute(dwprotocolid), ::core::mem::transmute(dwroutingpid), ::core::mem::transmute(lpinentry), ::core::mem::transmute(dwinentrysize), ::core::mem::transmute(lplpoutentry), ::core::mem::transmute(lpoutentrysize)))
+    ::core::mem::transmute(MprAdminMIBEntryGetNext(hmibserver, dwprotocolid, dwroutingpid, ::core::mem::transmute(lpinentry), dwinentrysize, ::core::mem::transmute(lplpoutentry), ::core::mem::transmute(lpoutentrysize)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"]
 #[inline]
@@ -3581,7 +3581,7 @@ pub unsafe fn MprAdminMIBEntrySet(hmibserver: isize, dwprotocolid: u32, dwroutin
     extern "system" {
         fn MprAdminMIBEntrySet(hmibserver: isize, dwprotocolid: u32, dwroutingpid: u32, lpentry: *const ::core::ffi::c_void, dwentrysize: u32) -> u32;
     }
-    ::core::mem::transmute(MprAdminMIBEntrySet(::core::mem::transmute(hmibserver), ::core::mem::transmute(dwprotocolid), ::core::mem::transmute(dwroutingpid), ::core::mem::transmute(lpentry), ::core::mem::transmute(dwentrysize)))
+    ::core::mem::transmute(MprAdminMIBEntrySet(hmibserver, dwprotocolid, dwroutingpid, ::core::mem::transmute(lpentry), dwentrysize))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"]
 #[inline]
@@ -3602,7 +3602,7 @@ pub unsafe fn MprAdminMIBServerDisconnect(hmibserver: isize) {
     extern "system" {
         fn MprAdminMIBServerDisconnect(hmibserver: isize);
     }
-    MprAdminMIBServerDisconnect(::core::mem::transmute(hmibserver))
+    MprAdminMIBServerDisconnect(hmibserver)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -3615,7 +3615,7 @@ where
     extern "system" {
         fn MprAdminPortClearStats(hrasserver: isize, hport: super::super::Foundation::HANDLE) -> u32;
     }
-    ::core::mem::transmute(MprAdminPortClearStats(::core::mem::transmute(hrasserver), hport.into()))
+    ::core::mem::transmute(MprAdminPortClearStats(hrasserver, hport.into()))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -3628,7 +3628,7 @@ where
     extern "system" {
         fn MprAdminPortDisconnect(hrasserver: isize, hport: super::super::Foundation::HANDLE) -> u32;
     }
-    ::core::mem::transmute(MprAdminPortDisconnect(::core::mem::transmute(hrasserver), hport.into()))
+    ::core::mem::transmute(MprAdminPortDisconnect(hrasserver, hport.into()))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -3641,7 +3641,7 @@ where
     extern "system" {
         fn MprAdminPortEnum(hrasserver: isize, dwlevel: u32, hrasconnection: super::super::Foundation::HANDLE, lplpbbuffer: *mut *mut u8, dwprefmaxlen: u32, lpdwentriesread: *mut u32, lpdwtotalentries: *mut u32, lpdwresumehandle: *const u32) -> u32;
     }
-    ::core::mem::transmute(MprAdminPortEnum(::core::mem::transmute(hrasserver), ::core::mem::transmute(dwlevel), hrasconnection.into(), ::core::mem::transmute(lplpbbuffer), ::core::mem::transmute(dwprefmaxlen), ::core::mem::transmute(lpdwentriesread), ::core::mem::transmute(lpdwtotalentries), ::core::mem::transmute(lpdwresumehandle)))
+    ::core::mem::transmute(MprAdminPortEnum(hrasserver, dwlevel, hrasconnection.into(), ::core::mem::transmute(lplpbbuffer), dwprefmaxlen, ::core::mem::transmute(lpdwentriesread), ::core::mem::transmute(lpdwtotalentries), ::core::mem::transmute(lpdwresumehandle)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -3654,7 +3654,7 @@ where
     extern "system" {
         fn MprAdminPortGetInfo(hrasserver: isize, dwlevel: u32, hport: super::super::Foundation::HANDLE, lplpbbuffer: *mut *mut u8) -> u32;
     }
-    ::core::mem::transmute(MprAdminPortGetInfo(::core::mem::transmute(hrasserver), ::core::mem::transmute(dwlevel), hport.into(), ::core::mem::transmute(lplpbbuffer)))
+    ::core::mem::transmute(MprAdminPortGetInfo(hrasserver, dwlevel, hport.into(), ::core::mem::transmute(lplpbbuffer)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -3667,7 +3667,7 @@ where
     extern "system" {
         fn MprAdminPortReset(hrasserver: isize, hport: super::super::Foundation::HANDLE) -> u32;
     }
-    ::core::mem::transmute(MprAdminPortReset(::core::mem::transmute(hrasserver), hport.into()))
+    ::core::mem::transmute(MprAdminPortReset(hrasserver, hport.into()))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -3680,7 +3680,7 @@ where
     extern "system" {
         fn MprAdminRegisterConnectionNotification(hmprserver: isize, heventnotification: super::super::Foundation::HANDLE) -> u32;
     }
-    ::core::mem::transmute(MprAdminRegisterConnectionNotification(::core::mem::transmute(hmprserver), heventnotification.into()))
+    ::core::mem::transmute(MprAdminRegisterConnectionNotification(hmprserver, heventnotification.into()))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -3694,7 +3694,7 @@ where
     extern "system" {
         fn MprAdminSendUserMessage(hmprserver: isize, hconnection: super::super::Foundation::HANDLE, lpwszmessage: ::windows::core::PCWSTR) -> u32;
     }
-    ::core::mem::transmute(MprAdminSendUserMessage(::core::mem::transmute(hmprserver), hconnection.into(), lpwszmessage.into()))
+    ::core::mem::transmute(MprAdminSendUserMessage(hmprserver, hconnection.into(), lpwszmessage.into()))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"]
 #[inline]
@@ -3715,7 +3715,7 @@ pub unsafe fn MprAdminServerDisconnect(hmprserver: isize) {
     extern "system" {
         fn MprAdminServerDisconnect(hmprserver: isize);
     }
-    MprAdminServerDisconnect(::core::mem::transmute(hmprserver))
+    MprAdminServerDisconnect(hmprserver)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"]
 #[inline]
@@ -3724,7 +3724,7 @@ pub unsafe fn MprAdminServerGetCredentials(hmprserver: isize, dwlevel: u32, lplp
     extern "system" {
         fn MprAdminServerGetCredentials(hmprserver: isize, dwlevel: u32, lplpbbuffer: *const *const u8) -> u32;
     }
-    ::core::mem::transmute(MprAdminServerGetCredentials(::core::mem::transmute(hmprserver), ::core::mem::transmute(dwlevel), ::core::mem::transmute(lplpbbuffer)))
+    ::core::mem::transmute(MprAdminServerGetCredentials(hmprserver, dwlevel, ::core::mem::transmute(lplpbbuffer)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"]
 #[inline]
@@ -3733,7 +3733,7 @@ pub unsafe fn MprAdminServerGetInfo(hmprserver: isize, dwlevel: u32, lplpbbuffer
     extern "system" {
         fn MprAdminServerGetInfo(hmprserver: isize, dwlevel: u32, lplpbbuffer: *mut *mut u8) -> u32;
     }
-    ::core::mem::transmute(MprAdminServerGetInfo(::core::mem::transmute(hmprserver), ::core::mem::transmute(dwlevel), ::core::mem::transmute(lplpbbuffer)))
+    ::core::mem::transmute(MprAdminServerGetInfo(hmprserver, dwlevel, ::core::mem::transmute(lplpbbuffer)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`, `\"Win32_Security_Cryptography\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
@@ -3743,7 +3743,7 @@ pub unsafe fn MprAdminServerGetInfoEx(hmprserver: isize, pserverinfo: *mut MPR_S
     extern "system" {
         fn MprAdminServerGetInfoEx(hmprserver: isize, pserverinfo: *mut MPR_SERVER_EX1) -> u32;
     }
-    ::core::mem::transmute(MprAdminServerGetInfoEx(::core::mem::transmute(hmprserver), ::core::mem::transmute(pserverinfo)))
+    ::core::mem::transmute(MprAdminServerGetInfoEx(hmprserver, ::core::mem::transmute(pserverinfo)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"]
 #[inline]
@@ -3752,7 +3752,7 @@ pub unsafe fn MprAdminServerSetCredentials(hmprserver: isize, dwlevel: u32, lpbb
     extern "system" {
         fn MprAdminServerSetCredentials(hmprserver: isize, dwlevel: u32, lpbbuffer: *const u8) -> u32;
     }
-    ::core::mem::transmute(MprAdminServerSetCredentials(::core::mem::transmute(hmprserver), ::core::mem::transmute(dwlevel), ::core::mem::transmute(lpbbuffer)))
+    ::core::mem::transmute(MprAdminServerSetCredentials(hmprserver, dwlevel, ::core::mem::transmute(lpbbuffer)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"]
 #[inline]
@@ -3761,7 +3761,7 @@ pub unsafe fn MprAdminServerSetInfo(hmprserver: isize, dwlevel: u32, lpbbuffer: 
     extern "system" {
         fn MprAdminServerSetInfo(hmprserver: isize, dwlevel: u32, lpbbuffer: *const u8) -> u32;
     }
-    ::core::mem::transmute(MprAdminServerSetInfo(::core::mem::transmute(hmprserver), ::core::mem::transmute(dwlevel), ::core::mem::transmute(lpbbuffer)))
+    ::core::mem::transmute(MprAdminServerSetInfo(hmprserver, dwlevel, ::core::mem::transmute(lpbbuffer)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`, `\"Win32_Security_Cryptography\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
@@ -3771,7 +3771,7 @@ pub unsafe fn MprAdminServerSetInfoEx(hmprserver: isize, pserverinfo: *const MPR
     extern "system" {
         fn MprAdminServerSetInfoEx(hmprserver: isize, pserverinfo: *const MPR_SERVER_SET_CONFIG_EX1) -> u32;
     }
-    ::core::mem::transmute(MprAdminServerSetInfoEx(::core::mem::transmute(hmprserver), ::core::mem::transmute(pserverinfo)))
+    ::core::mem::transmute(MprAdminServerSetInfoEx(hmprserver, ::core::mem::transmute(pserverinfo)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"]
 #[inline]
@@ -3784,7 +3784,7 @@ where
     extern "system" {
         fn MprAdminTransportCreate(hmprserver: isize, dwtransportid: u32, lpwstransportname: ::windows::core::PCWSTR, pglobalinfo: *const u8, dwglobalinfosize: u32, pclientinterfaceinfo: *const u8, dwclientinterfaceinfosize: u32, lpwsdllpath: ::windows::core::PCWSTR) -> u32;
     }
-    ::core::mem::transmute(MprAdminTransportCreate(::core::mem::transmute(hmprserver), ::core::mem::transmute(dwtransportid), lpwstransportname.into(), ::core::mem::transmute(pglobalinfo), ::core::mem::transmute(dwglobalinfosize), ::core::mem::transmute(pclientinterfaceinfo), ::core::mem::transmute(dwclientinterfaceinfosize), lpwsdllpath.into()))
+    ::core::mem::transmute(MprAdminTransportCreate(hmprserver, dwtransportid, lpwstransportname.into(), ::core::mem::transmute(pglobalinfo), dwglobalinfosize, ::core::mem::transmute(pclientinterfaceinfo), dwclientinterfaceinfosize, lpwsdllpath.into()))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"]
 #[inline]
@@ -3793,7 +3793,7 @@ pub unsafe fn MprAdminTransportGetInfo(hmprserver: isize, dwtransportid: u32, pp
     extern "system" {
         fn MprAdminTransportGetInfo(hmprserver: isize, dwtransportid: u32, ppglobalinfo: *mut *mut u8, lpdwglobalinfosize: *mut u32, ppclientinterfaceinfo: *mut *mut u8, lpdwclientinterfaceinfosize: *mut u32) -> u32;
     }
-    ::core::mem::transmute(MprAdminTransportGetInfo(::core::mem::transmute(hmprserver), ::core::mem::transmute(dwtransportid), ::core::mem::transmute(ppglobalinfo), ::core::mem::transmute(lpdwglobalinfosize), ::core::mem::transmute(ppclientinterfaceinfo), ::core::mem::transmute(lpdwclientinterfaceinfosize)))
+    ::core::mem::transmute(MprAdminTransportGetInfo(hmprserver, dwtransportid, ::core::mem::transmute(ppglobalinfo), ::core::mem::transmute(lpdwglobalinfosize), ::core::mem::transmute(ppclientinterfaceinfo), ::core::mem::transmute(lpdwclientinterfaceinfosize)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"]
 #[inline]
@@ -3802,7 +3802,7 @@ pub unsafe fn MprAdminTransportSetInfo(hmprserver: isize, dwtransportid: u32, pg
     extern "system" {
         fn MprAdminTransportSetInfo(hmprserver: isize, dwtransportid: u32, pglobalinfo: *const u8, dwglobalinfosize: u32, pclientinterfaceinfo: *const u8, dwclientinterfaceinfosize: u32) -> u32;
     }
-    ::core::mem::transmute(MprAdminTransportSetInfo(::core::mem::transmute(hmprserver), ::core::mem::transmute(dwtransportid), ::core::mem::transmute(pglobalinfo), ::core::mem::transmute(dwglobalinfosize), ::core::mem::transmute(pclientinterfaceinfo), ::core::mem::transmute(dwclientinterfaceinfosize)))
+    ::core::mem::transmute(MprAdminTransportSetInfo(hmprserver, dwtransportid, ::core::mem::transmute(pglobalinfo), dwglobalinfosize, ::core::mem::transmute(pclientinterfaceinfo), dwclientinterfaceinfosize))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -3815,7 +3815,7 @@ where
     extern "system" {
         fn MprAdminUpdateConnection(hrasserver: isize, hrasconnection: super::super::Foundation::HANDLE, prasupdateconnection: *const RAS_UPDATE_CONNECTION) -> u32;
     }
-    ::core::mem::transmute(MprAdminUpdateConnection(::core::mem::transmute(hrasserver), hrasconnection.into(), ::core::mem::transmute(prasupdateconnection)))
+    ::core::mem::transmute(MprAdminUpdateConnection(hrasserver, hrasconnection.into(), ::core::mem::transmute(prasupdateconnection)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"]
 #[inline]
@@ -3828,7 +3828,7 @@ where
     extern "system" {
         fn MprAdminUserGetInfo(lpszserver: ::windows::core::PCWSTR, lpszuser: ::windows::core::PCWSTR, dwlevel: u32, lpbbuffer: *mut u8) -> u32;
     }
-    ::core::mem::transmute(MprAdminUserGetInfo(lpszserver.into(), lpszuser.into(), ::core::mem::transmute(dwlevel), ::core::mem::transmute(lpbbuffer)))
+    ::core::mem::transmute(MprAdminUserGetInfo(lpszserver.into(), lpszuser.into(), dwlevel, ::core::mem::transmute(lpbbuffer)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"]
 #[inline]
@@ -3841,7 +3841,7 @@ where
     extern "system" {
         fn MprAdminUserSetInfo(lpszserver: ::windows::core::PCWSTR, lpszuser: ::windows::core::PCWSTR, dwlevel: u32, lpbbuffer: *const u8) -> u32;
     }
-    ::core::mem::transmute(MprAdminUserSetInfo(lpszserver.into(), lpszuser.into(), ::core::mem::transmute(dwlevel), ::core::mem::transmute(lpbbuffer)))
+    ::core::mem::transmute(MprAdminUserSetInfo(lpszserver.into(), lpszuser.into(), dwlevel, ::core::mem::transmute(lpbbuffer)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"]
 #[inline]
@@ -3863,7 +3863,7 @@ where
     extern "system" {
         fn MprConfigFilterGetInfo(hmprconfig: super::super::Foundation::HANDLE, dwlevel: u32, dwtransportid: u32, lpbuffer: *mut u8) -> u32;
     }
-    ::core::mem::transmute(MprConfigFilterGetInfo(hmprconfig.into(), ::core::mem::transmute(dwlevel), ::core::mem::transmute(dwtransportid), ::core::mem::transmute(lpbuffer)))
+    ::core::mem::transmute(MprConfigFilterGetInfo(hmprconfig.into(), dwlevel, dwtransportid, ::core::mem::transmute(lpbuffer)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -3876,7 +3876,7 @@ where
     extern "system" {
         fn MprConfigFilterSetInfo(hmprconfig: super::super::Foundation::HANDLE, dwlevel: u32, dwtransportid: u32, lpbuffer: *const u8) -> u32;
     }
-    ::core::mem::transmute(MprConfigFilterSetInfo(hmprconfig.into(), ::core::mem::transmute(dwlevel), ::core::mem::transmute(dwtransportid), ::core::mem::transmute(lpbuffer)))
+    ::core::mem::transmute(MprConfigFilterSetInfo(hmprconfig.into(), dwlevel, dwtransportid, ::core::mem::transmute(lpbuffer)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -3890,7 +3890,7 @@ where
     extern "system" {
         fn MprConfigGetFriendlyName(hmprconfig: super::super::Foundation::HANDLE, pszguidname: ::windows::core::PCWSTR, pszbuffer: ::windows::core::PWSTR, dwbuffersize: u32) -> u32;
     }
-    ::core::mem::transmute(MprConfigGetFriendlyName(hmprconfig.into(), pszguidname.into(), ::core::mem::transmute(pszbuffer), ::core::mem::transmute(dwbuffersize)))
+    ::core::mem::transmute(MprConfigGetFriendlyName(hmprconfig.into(), pszguidname.into(), ::core::mem::transmute(pszbuffer), dwbuffersize))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -3904,7 +3904,7 @@ where
     extern "system" {
         fn MprConfigGetGuidName(hmprconfig: super::super::Foundation::HANDLE, pszfriendlyname: ::windows::core::PCWSTR, pszbuffer: ::windows::core::PWSTR, dwbuffersize: u32) -> u32;
     }
-    ::core::mem::transmute(MprConfigGetGuidName(hmprconfig.into(), pszfriendlyname.into(), ::core::mem::transmute(pszbuffer), ::core::mem::transmute(dwbuffersize)))
+    ::core::mem::transmute(MprConfigGetGuidName(hmprconfig.into(), pszfriendlyname.into(), ::core::mem::transmute(pszbuffer), dwbuffersize))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -3917,7 +3917,7 @@ where
     extern "system" {
         fn MprConfigInterfaceCreate(hmprconfig: super::super::Foundation::HANDLE, dwlevel: u32, lpbbuffer: *const u8, phrouterinterface: *mut super::super::Foundation::HANDLE) -> u32;
     }
-    ::core::mem::transmute(MprConfigInterfaceCreate(hmprconfig.into(), ::core::mem::transmute(dwlevel), ::core::mem::transmute(lpbbuffer), ::core::mem::transmute(phrouterinterface)))
+    ::core::mem::transmute(MprConfigInterfaceCreate(hmprconfig.into(), dwlevel, ::core::mem::transmute(lpbbuffer), ::core::mem::transmute(phrouterinterface)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -3944,7 +3944,7 @@ where
     extern "system" {
         fn MprConfigInterfaceEnum(hmprconfig: super::super::Foundation::HANDLE, dwlevel: u32, lplpbuffer: *mut *mut u8, dwprefmaxlen: u32, lpdwentriesread: *mut u32, lpdwtotalentries: *mut u32, lpdwresumehandle: *mut u32) -> u32;
     }
-    ::core::mem::transmute(MprConfigInterfaceEnum(hmprconfig.into(), ::core::mem::transmute(dwlevel), ::core::mem::transmute(lplpbuffer), ::core::mem::transmute(dwprefmaxlen), ::core::mem::transmute(lpdwentriesread), ::core::mem::transmute(lpdwtotalentries), ::core::mem::transmute(lpdwresumehandle)))
+    ::core::mem::transmute(MprConfigInterfaceEnum(hmprconfig.into(), dwlevel, ::core::mem::transmute(lplpbuffer), dwprefmaxlen, ::core::mem::transmute(lpdwentriesread), ::core::mem::transmute(lpdwtotalentries), ::core::mem::transmute(lpdwresumehandle)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`, `\"Win32_Networking_WinSock\"`, `\"Win32_Security_Cryptography\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock", feature = "Win32_Security_Cryptography"))]
@@ -3986,7 +3986,7 @@ where
     extern "system" {
         fn MprConfigInterfaceGetInfo(hmprconfig: super::super::Foundation::HANDLE, hrouterinterface: super::super::Foundation::HANDLE, dwlevel: u32, lplpbuffer: *mut *mut u8, lpdwbuffersize: *mut u32) -> u32;
     }
-    ::core::mem::transmute(MprConfigInterfaceGetInfo(hmprconfig.into(), hrouterinterface.into(), ::core::mem::transmute(dwlevel), ::core::mem::transmute(lplpbuffer), ::core::mem::transmute(lpdwbuffersize)))
+    ::core::mem::transmute(MprConfigInterfaceGetInfo(hmprconfig.into(), hrouterinterface.into(), dwlevel, ::core::mem::transmute(lplpbuffer), ::core::mem::transmute(lpdwbuffersize)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`, `\"Win32_Networking_WinSock\"`, `\"Win32_Security_Cryptography\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock", feature = "Win32_Security_Cryptography"))]
@@ -4014,7 +4014,7 @@ where
     extern "system" {
         fn MprConfigInterfaceSetInfo(hmprconfig: super::super::Foundation::HANDLE, hrouterinterface: super::super::Foundation::HANDLE, dwlevel: u32, lpbbuffer: *const u8) -> u32;
     }
-    ::core::mem::transmute(MprConfigInterfaceSetInfo(hmprconfig.into(), hrouterinterface.into(), ::core::mem::transmute(dwlevel), ::core::mem::transmute(lpbbuffer)))
+    ::core::mem::transmute(MprConfigInterfaceSetInfo(hmprconfig.into(), hrouterinterface.into(), dwlevel, ::core::mem::transmute(lpbbuffer)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -4029,7 +4029,7 @@ where
     extern "system" {
         fn MprConfigInterfaceTransportAdd(hmprconfig: super::super::Foundation::HANDLE, hrouterinterface: super::super::Foundation::HANDLE, dwtransportid: u32, lpwstransportname: ::windows::core::PCWSTR, pinterfaceinfo: *const u8, dwinterfaceinfosize: u32, phrouteriftransport: *mut super::super::Foundation::HANDLE) -> u32;
     }
-    ::core::mem::transmute(MprConfigInterfaceTransportAdd(hmprconfig.into(), hrouterinterface.into(), ::core::mem::transmute(dwtransportid), lpwstransportname.into(), ::core::mem::transmute(pinterfaceinfo), ::core::mem::transmute(dwinterfaceinfosize), ::core::mem::transmute(phrouteriftransport)))
+    ::core::mem::transmute(MprConfigInterfaceTransportAdd(hmprconfig.into(), hrouterinterface.into(), dwtransportid, lpwstransportname.into(), ::core::mem::transmute(pinterfaceinfo), dwinterfaceinfosize, ::core::mem::transmute(phrouteriftransport)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -4043,7 +4043,7 @@ where
     extern "system" {
         fn MprConfigInterfaceTransportEnum(hmprconfig: super::super::Foundation::HANDLE, hrouterinterface: super::super::Foundation::HANDLE, dwlevel: u32, lplpbuffer: *mut *mut u8, dwprefmaxlen: u32, lpdwentriesread: *mut u32, lpdwtotalentries: *mut u32, lpdwresumehandle: *mut u32) -> u32;
     }
-    ::core::mem::transmute(MprConfigInterfaceTransportEnum(hmprconfig.into(), hrouterinterface.into(), ::core::mem::transmute(dwlevel), ::core::mem::transmute(lplpbuffer), ::core::mem::transmute(dwprefmaxlen), ::core::mem::transmute(lpdwentriesread), ::core::mem::transmute(lpdwtotalentries), ::core::mem::transmute(lpdwresumehandle)))
+    ::core::mem::transmute(MprConfigInterfaceTransportEnum(hmprconfig.into(), hrouterinterface.into(), dwlevel, ::core::mem::transmute(lplpbuffer), dwprefmaxlen, ::core::mem::transmute(lpdwentriesread), ::core::mem::transmute(lpdwtotalentries), ::core::mem::transmute(lpdwresumehandle)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -4057,7 +4057,7 @@ where
     extern "system" {
         fn MprConfigInterfaceTransportGetHandle(hmprconfig: super::super::Foundation::HANDLE, hrouterinterface: super::super::Foundation::HANDLE, dwtransportid: u32, phrouteriftransport: *mut super::super::Foundation::HANDLE) -> u32;
     }
-    ::core::mem::transmute(MprConfigInterfaceTransportGetHandle(hmprconfig.into(), hrouterinterface.into(), ::core::mem::transmute(dwtransportid), ::core::mem::transmute(phrouteriftransport)))
+    ::core::mem::transmute(MprConfigInterfaceTransportGetHandle(hmprconfig.into(), hrouterinterface.into(), dwtransportid, ::core::mem::transmute(phrouteriftransport)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -4102,7 +4102,7 @@ where
     extern "system" {
         fn MprConfigInterfaceTransportSetInfo(hmprconfig: super::super::Foundation::HANDLE, hrouterinterface: super::super::Foundation::HANDLE, hrouteriftransport: super::super::Foundation::HANDLE, pinterfaceinfo: *const u8, dwinterfaceinfosize: u32) -> u32;
     }
-    ::core::mem::transmute(MprConfigInterfaceTransportSetInfo(hmprconfig.into(), hrouterinterface.into(), hrouteriftransport.into(), ::core::mem::transmute(pinterfaceinfo), ::core::mem::transmute(dwinterfaceinfosize)))
+    ::core::mem::transmute(MprConfigInterfaceTransportSetInfo(hmprconfig.into(), hrouterinterface.into(), hrouteriftransport.into(), ::core::mem::transmute(pinterfaceinfo), dwinterfaceinfosize))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -4155,7 +4155,7 @@ where
     extern "system" {
         fn MprConfigServerGetInfo(hmprconfig: super::super::Foundation::HANDLE, dwlevel: u32, lplpbbuffer: *mut *mut u8) -> u32;
     }
-    ::core::mem::transmute(MprConfigServerGetInfo(hmprconfig.into(), ::core::mem::transmute(dwlevel), ::core::mem::transmute(lplpbbuffer)))
+    ::core::mem::transmute(MprConfigServerGetInfo(hmprconfig.into(), dwlevel, ::core::mem::transmute(lplpbbuffer)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`, `\"Win32_Security_Cryptography\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
@@ -4177,7 +4177,7 @@ pub unsafe fn MprConfigServerInstall(dwlevel: u32, pbuffer: *const ::core::ffi::
     extern "system" {
         fn MprConfigServerInstall(dwlevel: u32, pbuffer: *const ::core::ffi::c_void) -> u32;
     }
-    ::core::mem::transmute(MprConfigServerInstall(::core::mem::transmute(dwlevel), ::core::mem::transmute(pbuffer)))
+    ::core::mem::transmute(MprConfigServerInstall(dwlevel, ::core::mem::transmute(pbuffer)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -4213,7 +4213,7 @@ pub unsafe fn MprConfigServerSetInfo(hmprserver: isize, dwlevel: u32, lpbbuffer:
     extern "system" {
         fn MprConfigServerSetInfo(hmprserver: isize, dwlevel: u32, lpbbuffer: *const u8) -> u32;
     }
-    ::core::mem::transmute(MprConfigServerSetInfo(::core::mem::transmute(hmprserver), ::core::mem::transmute(dwlevel), ::core::mem::transmute(lpbbuffer)))
+    ::core::mem::transmute(MprConfigServerSetInfo(hmprserver, dwlevel, ::core::mem::transmute(lpbbuffer)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`, `\"Win32_Security_Cryptography\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
@@ -4241,7 +4241,7 @@ where
     extern "system" {
         fn MprConfigTransportCreate(hmprconfig: super::super::Foundation::HANDLE, dwtransportid: u32, lpwstransportname: ::windows::core::PCWSTR, pglobalinfo: *const u8, dwglobalinfosize: u32, pclientinterfaceinfo: *const u8, dwclientinterfaceinfosize: u32, lpwsdllpath: ::windows::core::PCWSTR, phroutertransport: *mut super::super::Foundation::HANDLE) -> u32;
     }
-    ::core::mem::transmute(MprConfigTransportCreate(hmprconfig.into(), ::core::mem::transmute(dwtransportid), lpwstransportname.into(), ::core::mem::transmute(pglobalinfo), ::core::mem::transmute(dwglobalinfosize), ::core::mem::transmute(pclientinterfaceinfo), ::core::mem::transmute(dwclientinterfaceinfosize), lpwsdllpath.into(), ::core::mem::transmute(phroutertransport)))
+    ::core::mem::transmute(MprConfigTransportCreate(hmprconfig.into(), dwtransportid, lpwstransportname.into(), ::core::mem::transmute(pglobalinfo), dwglobalinfosize, ::core::mem::transmute(pclientinterfaceinfo), dwclientinterfaceinfosize, lpwsdllpath.into(), ::core::mem::transmute(phroutertransport)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -4268,7 +4268,7 @@ where
     extern "system" {
         fn MprConfigTransportEnum(hmprconfig: super::super::Foundation::HANDLE, dwlevel: u32, lplpbuffer: *mut *mut u8, dwprefmaxlen: u32, lpdwentriesread: *mut u32, lpdwtotalentries: *mut u32, lpdwresumehandle: *mut u32) -> u32;
     }
-    ::core::mem::transmute(MprConfigTransportEnum(hmprconfig.into(), ::core::mem::transmute(dwlevel), ::core::mem::transmute(lplpbuffer), ::core::mem::transmute(dwprefmaxlen), ::core::mem::transmute(lpdwentriesread), ::core::mem::transmute(lpdwtotalentries), ::core::mem::transmute(lpdwresumehandle)))
+    ::core::mem::transmute(MprConfigTransportEnum(hmprconfig.into(), dwlevel, ::core::mem::transmute(lplpbuffer), dwprefmaxlen, ::core::mem::transmute(lpdwentriesread), ::core::mem::transmute(lpdwtotalentries), ::core::mem::transmute(lpdwresumehandle)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -4281,7 +4281,7 @@ where
     extern "system" {
         fn MprConfigTransportGetHandle(hmprconfig: super::super::Foundation::HANDLE, dwtransportid: u32, phroutertransport: *mut super::super::Foundation::HANDLE) -> u32;
     }
-    ::core::mem::transmute(MprConfigTransportGetHandle(hmprconfig.into(), ::core::mem::transmute(dwtransportid), ::core::mem::transmute(phroutertransport)))
+    ::core::mem::transmute(MprConfigTransportGetHandle(hmprconfig.into(), dwtransportid, ::core::mem::transmute(phroutertransport)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -4310,7 +4310,7 @@ where
     extern "system" {
         fn MprConfigTransportSetInfo(hmprconfig: super::super::Foundation::HANDLE, hroutertransport: super::super::Foundation::HANDLE, pglobalinfo: *const u8, dwglobalinfosize: u32, pclientinterfaceinfo: *const u8, dwclientinterfaceinfosize: u32, lpwsdllpath: ::windows::core::PCWSTR) -> u32;
     }
-    ::core::mem::transmute(MprConfigTransportSetInfo(hmprconfig.into(), hroutertransport.into(), ::core::mem::transmute(pglobalinfo), ::core::mem::transmute(dwglobalinfosize), ::core::mem::transmute(pclientinterfaceinfo), ::core::mem::transmute(dwclientinterfaceinfosize), lpwsdllpath.into()))
+    ::core::mem::transmute(MprConfigTransportSetInfo(hmprconfig.into(), hroutertransport.into(), ::core::mem::transmute(pglobalinfo), dwglobalinfosize, ::core::mem::transmute(pclientinterfaceinfo), dwclientinterfaceinfosize, lpwsdllpath.into()))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"]
 #[inline]
@@ -4319,7 +4319,7 @@ pub unsafe fn MprInfoBlockAdd(lpheader: *const ::core::ffi::c_void, dwinfotype: 
     extern "system" {
         fn MprInfoBlockAdd(lpheader: *const ::core::ffi::c_void, dwinfotype: u32, dwitemsize: u32, dwitemcount: u32, lpitemdata: *const u8, lplpnewheader: *mut *mut ::core::ffi::c_void) -> u32;
     }
-    ::core::mem::transmute(MprInfoBlockAdd(::core::mem::transmute(lpheader), ::core::mem::transmute(dwinfotype), ::core::mem::transmute(dwitemsize), ::core::mem::transmute(dwitemcount), ::core::mem::transmute(lpitemdata), ::core::mem::transmute(lplpnewheader)))
+    ::core::mem::transmute(MprInfoBlockAdd(::core::mem::transmute(lpheader), dwinfotype, dwitemsize, dwitemcount, ::core::mem::transmute(lpitemdata), ::core::mem::transmute(lplpnewheader)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"]
 #[inline]
@@ -4328,7 +4328,7 @@ pub unsafe fn MprInfoBlockFind(lpheader: *const ::core::ffi::c_void, dwinfotype:
     extern "system" {
         fn MprInfoBlockFind(lpheader: *const ::core::ffi::c_void, dwinfotype: u32, lpdwitemsize: *mut u32, lpdwitemcount: *mut u32, lplpitemdata: *mut *mut u8) -> u32;
     }
-    ::core::mem::transmute(MprInfoBlockFind(::core::mem::transmute(lpheader), ::core::mem::transmute(dwinfotype), ::core::mem::transmute(lpdwitemsize), ::core::mem::transmute(lpdwitemcount), ::core::mem::transmute(lplpitemdata)))
+    ::core::mem::transmute(MprInfoBlockFind(::core::mem::transmute(lpheader), dwinfotype, ::core::mem::transmute(lpdwitemsize), ::core::mem::transmute(lpdwitemcount), ::core::mem::transmute(lplpitemdata)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"]
 #[inline]
@@ -4346,7 +4346,7 @@ pub unsafe fn MprInfoBlockRemove(lpheader: *const ::core::ffi::c_void, dwinfotyp
     extern "system" {
         fn MprInfoBlockRemove(lpheader: *const ::core::ffi::c_void, dwinfotype: u32, lplpnewheader: *mut *mut ::core::ffi::c_void) -> u32;
     }
-    ::core::mem::transmute(MprInfoBlockRemove(::core::mem::transmute(lpheader), ::core::mem::transmute(dwinfotype), ::core::mem::transmute(lplpnewheader)))
+    ::core::mem::transmute(MprInfoBlockRemove(::core::mem::transmute(lpheader), dwinfotype, ::core::mem::transmute(lplpnewheader)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"]
 #[inline]
@@ -4355,7 +4355,7 @@ pub unsafe fn MprInfoBlockSet(lpheader: *const ::core::ffi::c_void, dwinfotype: 
     extern "system" {
         fn MprInfoBlockSet(lpheader: *const ::core::ffi::c_void, dwinfotype: u32, dwitemsize: u32, dwitemcount: u32, lpitemdata: *const u8, lplpnewheader: *mut *mut ::core::ffi::c_void) -> u32;
     }
-    ::core::mem::transmute(MprInfoBlockSet(::core::mem::transmute(lpheader), ::core::mem::transmute(dwinfotype), ::core::mem::transmute(dwitemsize), ::core::mem::transmute(dwitemcount), ::core::mem::transmute(lpitemdata), ::core::mem::transmute(lplpnewheader)))
+    ::core::mem::transmute(MprInfoBlockSet(::core::mem::transmute(lpheader), dwinfotype, dwitemsize, dwitemcount, ::core::mem::transmute(lpitemdata), ::core::mem::transmute(lplpnewheader)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"]
 #[inline]
@@ -4364,7 +4364,7 @@ pub unsafe fn MprInfoCreate(dwversion: u32, lplpnewheader: *mut *mut ::core::ffi
     extern "system" {
         fn MprInfoCreate(dwversion: u32, lplpnewheader: *mut *mut ::core::ffi::c_void) -> u32;
     }
-    ::core::mem::transmute(MprInfoCreate(::core::mem::transmute(dwversion), ::core::mem::transmute(lplpnewheader)))
+    ::core::mem::transmute(MprInfoCreate(dwversion, ::core::mem::transmute(lplpnewheader)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"]
 #[inline]
@@ -10120,7 +10120,7 @@ where
     extern "system" {
         fn RasClearLinkStatistics(hrasconn: HRASCONN, dwsubentry: u32) -> u32;
     }
-    ::core::mem::transmute(RasClearLinkStatistics(hrasconn.into(), ::core::mem::transmute(dwsubentry)))
+    ::core::mem::transmute(RasClearLinkStatistics(hrasconn.into(), dwsubentry))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -10134,7 +10134,7 @@ where
     extern "system" {
         fn RasConnectionNotificationA(param0: HRASCONN, param1: super::super::Foundation::HANDLE, param2: u32) -> u32;
     }
-    ::core::mem::transmute(RasConnectionNotificationA(param0.into(), param1.into(), ::core::mem::transmute(param2)))
+    ::core::mem::transmute(RasConnectionNotificationA(param0.into(), param1.into(), param2))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -10148,7 +10148,7 @@ where
     extern "system" {
         fn RasConnectionNotificationW(param0: HRASCONN, param1: super::super::Foundation::HANDLE, param2: u32) -> u32;
     }
-    ::core::mem::transmute(RasConnectionNotificationW(param0.into(), param1.into(), ::core::mem::transmute(param2)))
+    ::core::mem::transmute(RasConnectionNotificationW(param0.into(), param1.into(), param2))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -10231,7 +10231,7 @@ where
     extern "system" {
         fn RasDeleteSubEntryA(pszphonebook: ::windows::core::PCSTR, pszentry: ::windows::core::PCSTR, dwsubentryid: u32) -> u32;
     }
-    ::core::mem::transmute(RasDeleteSubEntryA(pszphonebook.into(), pszentry.into(), ::core::mem::transmute(dwsubentryid)))
+    ::core::mem::transmute(RasDeleteSubEntryA(pszphonebook.into(), pszentry.into(), dwsubentryid))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"]
 #[inline]
@@ -10244,7 +10244,7 @@ where
     extern "system" {
         fn RasDeleteSubEntryW(pszphonebook: ::windows::core::PCWSTR, pszentry: ::windows::core::PCWSTR, dwsubentryid: u32) -> u32;
     }
-    ::core::mem::transmute(RasDeleteSubEntryW(pszphonebook.into(), pszentry.into(), ::core::mem::transmute(dwsubentryid)))
+    ::core::mem::transmute(RasDeleteSubEntryW(pszphonebook.into(), pszentry.into(), dwsubentryid))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -10257,7 +10257,7 @@ where
     extern "system" {
         fn RasDialA(param0: *const RASDIALEXTENSIONS, param1: ::windows::core::PCSTR, param2: *const RASDIALPARAMSA, param3: u32, param4: *const ::core::ffi::c_void, param5: *mut HRASCONN) -> u32;
     }
-    ::core::mem::transmute(RasDialA(::core::mem::transmute(param0), param1.into(), ::core::mem::transmute(param2), ::core::mem::transmute(param3), ::core::mem::transmute(param4), ::core::mem::transmute(param5)))
+    ::core::mem::transmute(RasDialA(::core::mem::transmute(param0), param1.into(), ::core::mem::transmute(param2), param3, ::core::mem::transmute(param4), ::core::mem::transmute(param5)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -10300,7 +10300,7 @@ where
     extern "system" {
         fn RasDialW(param0: *const RASDIALEXTENSIONS, param1: ::windows::core::PCWSTR, param2: *const RASDIALPARAMSW, param3: u32, param4: *const ::core::ffi::c_void, param5: *mut HRASCONN) -> u32;
     }
-    ::core::mem::transmute(RasDialW(::core::mem::transmute(param0), param1.into(), ::core::mem::transmute(param2), ::core::mem::transmute(param3), ::core::mem::transmute(param4), ::core::mem::transmute(param5)))
+    ::core::mem::transmute(RasDialW(::core::mem::transmute(param0), param1.into(), ::core::mem::transmute(param2), param3, ::core::mem::transmute(param4), ::core::mem::transmute(param5)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -10495,7 +10495,7 @@ pub unsafe fn RasGetAutodialEnableA(param0: u32, param1: *mut i32) -> u32 {
     extern "system" {
         fn RasGetAutodialEnableA(param0: u32, param1: *mut i32) -> u32;
     }
-    ::core::mem::transmute(RasGetAutodialEnableA(::core::mem::transmute(param0), ::core::mem::transmute(param1)))
+    ::core::mem::transmute(RasGetAutodialEnableA(param0, ::core::mem::transmute(param1)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"]
 #[inline]
@@ -10504,7 +10504,7 @@ pub unsafe fn RasGetAutodialEnableW(param0: u32, param1: *mut i32) -> u32 {
     extern "system" {
         fn RasGetAutodialEnableW(param0: u32, param1: *mut i32) -> u32;
     }
-    ::core::mem::transmute(RasGetAutodialEnableW(::core::mem::transmute(param0), ::core::mem::transmute(param1)))
+    ::core::mem::transmute(RasGetAutodialEnableW(param0, ::core::mem::transmute(param1)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"]
 #[inline]
@@ -10513,7 +10513,7 @@ pub unsafe fn RasGetAutodialParamA(param0: u32, param1: *mut ::core::ffi::c_void
     extern "system" {
         fn RasGetAutodialParamA(param0: u32, param1: *mut ::core::ffi::c_void, param2: *mut u32) -> u32;
     }
-    ::core::mem::transmute(RasGetAutodialParamA(::core::mem::transmute(param0), ::core::mem::transmute(param1), ::core::mem::transmute(param2)))
+    ::core::mem::transmute(RasGetAutodialParamA(param0, ::core::mem::transmute(param1), ::core::mem::transmute(param2)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"]
 #[inline]
@@ -10522,7 +10522,7 @@ pub unsafe fn RasGetAutodialParamW(param0: u32, param1: *mut ::core::ffi::c_void
     extern "system" {
         fn RasGetAutodialParamW(param0: u32, param1: *mut ::core::ffi::c_void, param2: *mut u32) -> u32;
     }
-    ::core::mem::transmute(RasGetAutodialParamW(::core::mem::transmute(param0), ::core::mem::transmute(param1), ::core::mem::transmute(param2)))
+    ::core::mem::transmute(RasGetAutodialParamW(param0, ::core::mem::transmute(param1), ::core::mem::transmute(param2)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`, `\"Win32_Networking_WinSock\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
@@ -10676,7 +10676,7 @@ where
     extern "system" {
         fn RasGetEapUserIdentityA(pszphonebook: ::windows::core::PCSTR, pszentry: ::windows::core::PCSTR, dwflags: u32, hwnd: super::super::Foundation::HWND, ppraseapuseridentity: *mut *mut RASEAPUSERIDENTITYA) -> u32;
     }
-    ::core::mem::transmute(RasGetEapUserIdentityA(pszphonebook.into(), pszentry.into(), ::core::mem::transmute(dwflags), hwnd.into(), ::core::mem::transmute(ppraseapuseridentity)))
+    ::core::mem::transmute(RasGetEapUserIdentityA(pszphonebook.into(), pszentry.into(), dwflags, hwnd.into(), ::core::mem::transmute(ppraseapuseridentity)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -10691,7 +10691,7 @@ where
     extern "system" {
         fn RasGetEapUserIdentityW(pszphonebook: ::windows::core::PCWSTR, pszentry: ::windows::core::PCWSTR, dwflags: u32, hwnd: super::super::Foundation::HWND, ppraseapuseridentity: *mut *mut RASEAPUSERIDENTITYW) -> u32;
     }
-    ::core::mem::transmute(RasGetEapUserIdentityW(pszphonebook.into(), pszentry.into(), ::core::mem::transmute(dwflags), hwnd.into(), ::core::mem::transmute(ppraseapuseridentity)))
+    ::core::mem::transmute(RasGetEapUserIdentityW(pszphonebook.into(), pszentry.into(), dwflags, hwnd.into(), ::core::mem::transmute(ppraseapuseridentity)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -10753,7 +10753,7 @@ pub unsafe fn RasGetErrorStringA(resourceid: u32, lpszstring: &mut [u8]) -> u32 
     extern "system" {
         fn RasGetErrorStringA(resourceid: u32, lpszstring: ::windows::core::PSTR, inbufsize: u32) -> u32;
     }
-    ::core::mem::transmute(RasGetErrorStringA(::core::mem::transmute(resourceid), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(lpszstring)), lpszstring.len() as _))
+    ::core::mem::transmute(RasGetErrorStringA(resourceid, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(lpszstring)), lpszstring.len() as _))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"]
 #[inline]
@@ -10762,7 +10762,7 @@ pub unsafe fn RasGetErrorStringW(resourceid: u32, lpszstring: &mut [u16]) -> u32
     extern "system" {
         fn RasGetErrorStringW(resourceid: u32, lpszstring: ::windows::core::PWSTR, inbufsize: u32) -> u32;
     }
-    ::core::mem::transmute(RasGetErrorStringW(::core::mem::transmute(resourceid), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(lpszstring)), lpszstring.len() as _))
+    ::core::mem::transmute(RasGetErrorStringW(resourceid, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(lpszstring)), lpszstring.len() as _))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"]
 #[inline]
@@ -10774,7 +10774,7 @@ where
     extern "system" {
         fn RasGetLinkStatistics(hrasconn: HRASCONN, dwsubentry: u32, lpstatistics: *mut RAS_STATS) -> u32;
     }
-    ::core::mem::transmute(RasGetLinkStatistics(hrasconn.into(), ::core::mem::transmute(dwsubentry), ::core::mem::transmute(lpstatistics)))
+    ::core::mem::transmute(RasGetLinkStatistics(hrasconn.into(), dwsubentry, ::core::mem::transmute(lpstatistics)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"]
 #[inline]
@@ -10795,7 +10795,7 @@ where
     extern "system" {
         fn RasGetProjectionInfoA(param0: HRASCONN, param1: RASPROJECTION, param2: *mut ::core::ffi::c_void, param3: *mut u32) -> u32;
     }
-    ::core::mem::transmute(RasGetProjectionInfoA(param0.into(), ::core::mem::transmute(param1), ::core::mem::transmute(param2), ::core::mem::transmute(param3)))
+    ::core::mem::transmute(RasGetProjectionInfoA(param0.into(), param1, ::core::mem::transmute(param2), ::core::mem::transmute(param3)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`, `\"Win32_Networking_WinSock\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
@@ -10820,7 +10820,7 @@ where
     extern "system" {
         fn RasGetProjectionInfoW(param0: HRASCONN, param1: RASPROJECTION, param2: *mut ::core::ffi::c_void, param3: *mut u32) -> u32;
     }
-    ::core::mem::transmute(RasGetProjectionInfoW(param0.into(), ::core::mem::transmute(param1), ::core::mem::transmute(param2), ::core::mem::transmute(param3)))
+    ::core::mem::transmute(RasGetProjectionInfoW(param0.into(), param1, ::core::mem::transmute(param2), ::core::mem::transmute(param3)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"]
 #[inline]
@@ -10832,7 +10832,7 @@ where
     extern "system" {
         fn RasGetSubEntryHandleA(param0: HRASCONN, param1: u32, param2: *mut HRASCONN) -> u32;
     }
-    ::core::mem::transmute(RasGetSubEntryHandleA(param0.into(), ::core::mem::transmute(param1), ::core::mem::transmute(param2)))
+    ::core::mem::transmute(RasGetSubEntryHandleA(param0.into(), param1, ::core::mem::transmute(param2)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"]
 #[inline]
@@ -10844,7 +10844,7 @@ where
     extern "system" {
         fn RasGetSubEntryHandleW(param0: HRASCONN, param1: u32, param2: *mut HRASCONN) -> u32;
     }
-    ::core::mem::transmute(RasGetSubEntryHandleW(param0.into(), ::core::mem::transmute(param1), ::core::mem::transmute(param2)))
+    ::core::mem::transmute(RasGetSubEntryHandleW(param0.into(), param1, ::core::mem::transmute(param2)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -10858,7 +10858,7 @@ where
     extern "system" {
         fn RasGetSubEntryPropertiesA(param0: ::windows::core::PCSTR, param1: ::windows::core::PCSTR, param2: u32, param3: *mut RASSUBENTRYA, param4: *mut u32, param5: *mut u8, param6: *mut u32) -> u32;
     }
-    ::core::mem::transmute(RasGetSubEntryPropertiesA(param0.into(), param1.into(), ::core::mem::transmute(param2), ::core::mem::transmute(param3), ::core::mem::transmute(param4), ::core::mem::transmute(param5), ::core::mem::transmute(param6)))
+    ::core::mem::transmute(RasGetSubEntryPropertiesA(param0.into(), param1.into(), param2, ::core::mem::transmute(param3), ::core::mem::transmute(param4), ::core::mem::transmute(param5), ::core::mem::transmute(param6)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"]
 #[inline]
@@ -10871,7 +10871,7 @@ where
     extern "system" {
         fn RasGetSubEntryPropertiesW(param0: ::windows::core::PCWSTR, param1: ::windows::core::PCWSTR, param2: u32, param3: *mut RASSUBENTRYW, param4: *mut u32, param5: *mut u8, param6: *mut u32) -> u32;
     }
-    ::core::mem::transmute(RasGetSubEntryPropertiesW(param0.into(), param1.into(), ::core::mem::transmute(param2), ::core::mem::transmute(param3), ::core::mem::transmute(param4), ::core::mem::transmute(param5), ::core::mem::transmute(param6)))
+    ::core::mem::transmute(RasGetSubEntryPropertiesW(param0.into(), param1.into(), param2, ::core::mem::transmute(param3), ::core::mem::transmute(param4), ::core::mem::transmute(param5), ::core::mem::transmute(param6)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"]
 #[inline]
@@ -10909,7 +10909,7 @@ where
     extern "system" {
         fn RasInvokeEapUI(param0: HRASCONN, param1: u32, param2: *const RASDIALEXTENSIONS, param3: super::super::Foundation::HWND) -> u32;
     }
-    ::core::mem::transmute(RasInvokeEapUI(param0.into(), ::core::mem::transmute(param1), ::core::mem::transmute(param2), param3.into()))
+    ::core::mem::transmute(RasInvokeEapUI(param0.into(), param1, ::core::mem::transmute(param2), param3.into()))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -10978,7 +10978,7 @@ where
     extern "system" {
         fn RasSetAutodialAddressA(param0: ::windows::core::PCSTR, param1: u32, param2: *const RASAUTODIALENTRYA, param3: u32, param4: u32) -> u32;
     }
-    ::core::mem::transmute(RasSetAutodialAddressA(param0.into(), ::core::mem::transmute(param1), ::core::mem::transmute(param2), ::core::mem::transmute(param3), ::core::mem::transmute(param4)))
+    ::core::mem::transmute(RasSetAutodialAddressA(param0.into(), param1, ::core::mem::transmute(param2), param3, param4))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"]
 #[inline]
@@ -10990,7 +10990,7 @@ where
     extern "system" {
         fn RasSetAutodialAddressW(param0: ::windows::core::PCWSTR, param1: u32, param2: *const RASAUTODIALENTRYW, param3: u32, param4: u32) -> u32;
     }
-    ::core::mem::transmute(RasSetAutodialAddressW(param0.into(), ::core::mem::transmute(param1), ::core::mem::transmute(param2), ::core::mem::transmute(param3), ::core::mem::transmute(param4)))
+    ::core::mem::transmute(RasSetAutodialAddressW(param0.into(), param1, ::core::mem::transmute(param2), param3, param4))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -11003,7 +11003,7 @@ where
     extern "system" {
         fn RasSetAutodialEnableA(param0: u32, param1: super::super::Foundation::BOOL) -> u32;
     }
-    ::core::mem::transmute(RasSetAutodialEnableA(::core::mem::transmute(param0), param1.into()))
+    ::core::mem::transmute(RasSetAutodialEnableA(param0, param1.into()))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -11016,7 +11016,7 @@ where
     extern "system" {
         fn RasSetAutodialEnableW(param0: u32, param1: super::super::Foundation::BOOL) -> u32;
     }
-    ::core::mem::transmute(RasSetAutodialEnableW(::core::mem::transmute(param0), param1.into()))
+    ::core::mem::transmute(RasSetAutodialEnableW(param0, param1.into()))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"]
 #[inline]
@@ -11025,7 +11025,7 @@ pub unsafe fn RasSetAutodialParamA(param0: u32, param1: *const ::core::ffi::c_vo
     extern "system" {
         fn RasSetAutodialParamA(param0: u32, param1: *const ::core::ffi::c_void, param2: u32) -> u32;
     }
-    ::core::mem::transmute(RasSetAutodialParamA(::core::mem::transmute(param0), ::core::mem::transmute(param1), ::core::mem::transmute(param2)))
+    ::core::mem::transmute(RasSetAutodialParamA(param0, ::core::mem::transmute(param1), param2))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"]
 #[inline]
@@ -11034,7 +11034,7 @@ pub unsafe fn RasSetAutodialParamW(param0: u32, param1: *const ::core::ffi::c_vo
     extern "system" {
         fn RasSetAutodialParamW(param0: u32, param1: *const ::core::ffi::c_void, param2: u32) -> u32;
     }
-    ::core::mem::transmute(RasSetAutodialParamW(::core::mem::transmute(param0), ::core::mem::transmute(param1), ::core::mem::transmute(param2)))
+    ::core::mem::transmute(RasSetAutodialParamW(param0, ::core::mem::transmute(param1), param2))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -11077,7 +11077,7 @@ where
     extern "system" {
         fn RasSetCustomAuthDataA(pszphonebook: ::windows::core::PCSTR, pszentry: ::windows::core::PCSTR, pbcustomauthdata: *const u8, dwsizeofcustomauthdata: u32) -> u32;
     }
-    ::core::mem::transmute(RasSetCustomAuthDataA(pszphonebook.into(), pszentry.into(), ::core::mem::transmute(pbcustomauthdata), ::core::mem::transmute(dwsizeofcustomauthdata)))
+    ::core::mem::transmute(RasSetCustomAuthDataA(pszphonebook.into(), pszentry.into(), ::core::mem::transmute(pbcustomauthdata), dwsizeofcustomauthdata))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"]
 #[inline]
@@ -11090,7 +11090,7 @@ where
     extern "system" {
         fn RasSetCustomAuthDataW(pszphonebook: ::windows::core::PCWSTR, pszentry: ::windows::core::PCWSTR, pbcustomauthdata: *const u8, dwsizeofcustomauthdata: u32) -> u32;
     }
-    ::core::mem::transmute(RasSetCustomAuthDataW(pszphonebook.into(), pszentry.into(), ::core::mem::transmute(pbcustomauthdata), ::core::mem::transmute(dwsizeofcustomauthdata)))
+    ::core::mem::transmute(RasSetCustomAuthDataW(pszphonebook.into(), pszentry.into(), ::core::mem::transmute(pbcustomauthdata), dwsizeofcustomauthdata))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -11105,7 +11105,7 @@ where
     extern "system" {
         fn RasSetEapUserDataA(htoken: super::super::Foundation::HANDLE, pszphonebook: ::windows::core::PCSTR, pszentry: ::windows::core::PCSTR, pbeapdata: *const u8, dwsizeofeapdata: u32) -> u32;
     }
-    ::core::mem::transmute(RasSetEapUserDataA(htoken.into(), pszphonebook.into(), pszentry.into(), ::core::mem::transmute(pbeapdata), ::core::mem::transmute(dwsizeofeapdata)))
+    ::core::mem::transmute(RasSetEapUserDataA(htoken.into(), pszphonebook.into(), pszentry.into(), ::core::mem::transmute(pbeapdata), dwsizeofeapdata))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -11120,7 +11120,7 @@ where
     extern "system" {
         fn RasSetEapUserDataW(htoken: super::super::Foundation::HANDLE, pszphonebook: ::windows::core::PCWSTR, pszentry: ::windows::core::PCWSTR, pbeapdata: *const u8, dwsizeofeapdata: u32) -> u32;
     }
-    ::core::mem::transmute(RasSetEapUserDataW(htoken.into(), pszphonebook.into(), pszentry.into(), ::core::mem::transmute(pbeapdata), ::core::mem::transmute(dwsizeofeapdata)))
+    ::core::mem::transmute(RasSetEapUserDataW(htoken.into(), pszphonebook.into(), pszentry.into(), ::core::mem::transmute(pbeapdata), dwsizeofeapdata))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -11162,7 +11162,7 @@ where
     extern "system" {
         fn RasSetEntryPropertiesA(param0: ::windows::core::PCSTR, param1: ::windows::core::PCSTR, param2: *const RASENTRYA, param3: u32, param4: *const u8, param5: u32) -> u32;
     }
-    ::core::mem::transmute(RasSetEntryPropertiesA(param0.into(), param1.into(), ::core::mem::transmute(param2), ::core::mem::transmute(param3), ::core::mem::transmute(param4), ::core::mem::transmute(param5)))
+    ::core::mem::transmute(RasSetEntryPropertiesA(param0.into(), param1.into(), ::core::mem::transmute(param2), param3, ::core::mem::transmute(param4), param5))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`, `\"Win32_Networking_WinSock\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
@@ -11176,7 +11176,7 @@ where
     extern "system" {
         fn RasSetEntryPropertiesW(param0: ::windows::core::PCWSTR, param1: ::windows::core::PCWSTR, param2: *const RASENTRYW, param3: u32, param4: *const u8, param5: u32) -> u32;
     }
-    ::core::mem::transmute(RasSetEntryPropertiesW(param0.into(), param1.into(), ::core::mem::transmute(param2), ::core::mem::transmute(param3), ::core::mem::transmute(param4), ::core::mem::transmute(param5)))
+    ::core::mem::transmute(RasSetEntryPropertiesW(param0.into(), param1.into(), ::core::mem::transmute(param2), param3, ::core::mem::transmute(param4), param5))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -11190,7 +11190,7 @@ where
     extern "system" {
         fn RasSetSubEntryPropertiesA(param0: ::windows::core::PCSTR, param1: ::windows::core::PCSTR, param2: u32, param3: *const RASSUBENTRYA, param4: u32, param5: *const u8, param6: u32) -> u32;
     }
-    ::core::mem::transmute(RasSetSubEntryPropertiesA(param0.into(), param1.into(), ::core::mem::transmute(param2), ::core::mem::transmute(param3), ::core::mem::transmute(param4), ::core::mem::transmute(param5), ::core::mem::transmute(param6)))
+    ::core::mem::transmute(RasSetSubEntryPropertiesA(param0.into(), param1.into(), param2, ::core::mem::transmute(param3), param4, ::core::mem::transmute(param5), param6))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"]
 #[inline]
@@ -11203,7 +11203,7 @@ where
     extern "system" {
         fn RasSetSubEntryPropertiesW(param0: ::windows::core::PCWSTR, param1: ::windows::core::PCWSTR, param2: u32, param3: *const RASSUBENTRYW, param4: u32, param5: *const u8, param6: u32) -> u32;
     }
-    ::core::mem::transmute(RasSetSubEntryPropertiesW(param0.into(), param1.into(), ::core::mem::transmute(param2), ::core::mem::transmute(param3), ::core::mem::transmute(param4), ::core::mem::transmute(param5), ::core::mem::transmute(param6)))
+    ::core::mem::transmute(RasSetSubEntryPropertiesW(param0.into(), param1.into(), param2, ::core::mem::transmute(param3), param4, ::core::mem::transmute(param5), param6))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Networking_WinSock\"`*"]
 #[cfg(feature = "Win32_Networking_WinSock")]
@@ -11251,7 +11251,7 @@ pub unsafe fn RtmAddNextHop(rtmreghandle: isize, nexthopinfo: *mut RTM_NEXTHOP_I
     extern "system" {
         fn RtmAddNextHop(rtmreghandle: isize, nexthopinfo: *mut RTM_NEXTHOP_INFO, nexthophandle: *mut isize, changeflags: *mut u32) -> u32;
     }
-    ::core::mem::transmute(RtmAddNextHop(::core::mem::transmute(rtmreghandle), ::core::mem::transmute(nexthopinfo), ::core::mem::transmute(nexthophandle), ::core::mem::transmute(changeflags)))
+    ::core::mem::transmute(RtmAddNextHop(rtmreghandle, ::core::mem::transmute(nexthopinfo), ::core::mem::transmute(nexthophandle), ::core::mem::transmute(changeflags)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"]
 #[inline]
@@ -11260,7 +11260,7 @@ pub unsafe fn RtmAddRouteToDest(rtmreghandle: isize, routehandle: *mut isize, de
     extern "system" {
         fn RtmAddRouteToDest(rtmreghandle: isize, routehandle: *mut isize, destaddress: *mut RTM_NET_ADDRESS, routeinfo: *mut RTM_ROUTE_INFO, timetolive: u32, routelisthandle: isize, notifytype: u32, notifyhandle: isize, changeflags: *mut u32) -> u32;
     }
-    ::core::mem::transmute(RtmAddRouteToDest(::core::mem::transmute(rtmreghandle), ::core::mem::transmute(routehandle), ::core::mem::transmute(destaddress), ::core::mem::transmute(routeinfo), ::core::mem::transmute(timetolive), ::core::mem::transmute(routelisthandle), ::core::mem::transmute(notifytype), ::core::mem::transmute(notifyhandle), ::core::mem::transmute(changeflags)))
+    ::core::mem::transmute(RtmAddRouteToDest(rtmreghandle, ::core::mem::transmute(routehandle), ::core::mem::transmute(destaddress), ::core::mem::transmute(routeinfo), timetolive, routelisthandle, notifytype, notifyhandle, ::core::mem::transmute(changeflags)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -11273,7 +11273,7 @@ where
     extern "system" {
         fn RtmBlockMethods(rtmreghandle: isize, targethandle: super::super::Foundation::HANDLE, targettype: u8, blockingflag: u32) -> u32;
     }
-    ::core::mem::transmute(RtmBlockMethods(::core::mem::transmute(rtmreghandle), targethandle.into(), ::core::mem::transmute(targettype), ::core::mem::transmute(blockingflag)))
+    ::core::mem::transmute(RtmBlockMethods(rtmreghandle, targethandle.into(), targettype, blockingflag))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Networking_WinSock\"`*"]
 #[cfg(feature = "Win32_Networking_WinSock")]
@@ -11283,7 +11283,7 @@ pub unsafe fn RtmConvertIpv6AddressAndLengthToNetAddress(pnetaddress: *mut RTM_N
     extern "system" {
         fn RtmConvertIpv6AddressAndLengthToNetAddress(pnetaddress: *mut RTM_NET_ADDRESS, address: super::super::Networking::WinSock::IN6_ADDR, dwlength: u32, dwaddresssize: u32) -> u32;
     }
-    ::core::mem::transmute(RtmConvertIpv6AddressAndLengthToNetAddress(::core::mem::transmute(pnetaddress), ::core::mem::transmute(address), ::core::mem::transmute(dwlength), ::core::mem::transmute(dwaddresssize)))
+    ::core::mem::transmute(RtmConvertIpv6AddressAndLengthToNetAddress(::core::mem::transmute(pnetaddress), ::core::mem::transmute(address), dwlength, dwaddresssize))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Networking_WinSock\"`*"]
 #[cfg(feature = "Win32_Networking_WinSock")]
@@ -11293,7 +11293,7 @@ pub unsafe fn RtmConvertNetAddressToIpv6AddressAndLength(pnetaddress: *mut RTM_N
     extern "system" {
         fn RtmConvertNetAddressToIpv6AddressAndLength(pnetaddress: *mut RTM_NET_ADDRESS, paddress: *mut super::super::Networking::WinSock::IN6_ADDR, plength: *mut u32, dwaddresssize: u32) -> u32;
     }
-    ::core::mem::transmute(RtmConvertNetAddressToIpv6AddressAndLength(::core::mem::transmute(pnetaddress), ::core::mem::transmute(paddress), ::core::mem::transmute(plength), ::core::mem::transmute(dwaddresssize)))
+    ::core::mem::transmute(RtmConvertNetAddressToIpv6AddressAndLength(::core::mem::transmute(pnetaddress), ::core::mem::transmute(paddress), ::core::mem::transmute(plength), dwaddresssize))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"]
 #[inline]
@@ -11302,7 +11302,7 @@ pub unsafe fn RtmCreateDestEnum(rtmreghandle: isize, targetviews: u32, enumflags
     extern "system" {
         fn RtmCreateDestEnum(rtmreghandle: isize, targetviews: u32, enumflags: u32, netaddress: *mut RTM_NET_ADDRESS, protocolid: u32, rtmenumhandle: *mut isize) -> u32;
     }
-    ::core::mem::transmute(RtmCreateDestEnum(::core::mem::transmute(rtmreghandle), ::core::mem::transmute(targetviews), ::core::mem::transmute(enumflags), ::core::mem::transmute(netaddress), ::core::mem::transmute(protocolid), ::core::mem::transmute(rtmenumhandle)))
+    ::core::mem::transmute(RtmCreateDestEnum(rtmreghandle, targetviews, enumflags, ::core::mem::transmute(netaddress), protocolid, ::core::mem::transmute(rtmenumhandle)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"]
 #[inline]
@@ -11311,7 +11311,7 @@ pub unsafe fn RtmCreateNextHopEnum(rtmreghandle: isize, enumflags: u32, netaddre
     extern "system" {
         fn RtmCreateNextHopEnum(rtmreghandle: isize, enumflags: u32, netaddress: *mut RTM_NET_ADDRESS, rtmenumhandle: *mut isize) -> u32;
     }
-    ::core::mem::transmute(RtmCreateNextHopEnum(::core::mem::transmute(rtmreghandle), ::core::mem::transmute(enumflags), ::core::mem::transmute(netaddress), ::core::mem::transmute(rtmenumhandle)))
+    ::core::mem::transmute(RtmCreateNextHopEnum(rtmreghandle, enumflags, ::core::mem::transmute(netaddress), ::core::mem::transmute(rtmenumhandle)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"]
 #[inline]
@@ -11320,7 +11320,7 @@ pub unsafe fn RtmCreateRouteEnum(rtmreghandle: isize, desthandle: isize, targetv
     extern "system" {
         fn RtmCreateRouteEnum(rtmreghandle: isize, desthandle: isize, targetviews: u32, enumflags: u32, startdest: *mut RTM_NET_ADDRESS, matchingflags: u32, criteriaroute: *mut RTM_ROUTE_INFO, criteriainterface: u32, rtmenumhandle: *mut isize) -> u32;
     }
-    ::core::mem::transmute(RtmCreateRouteEnum(::core::mem::transmute(rtmreghandle), ::core::mem::transmute(desthandle), ::core::mem::transmute(targetviews), ::core::mem::transmute(enumflags), ::core::mem::transmute(startdest), ::core::mem::transmute(matchingflags), ::core::mem::transmute(criteriaroute), ::core::mem::transmute(criteriainterface), ::core::mem::transmute(rtmenumhandle)))
+    ::core::mem::transmute(RtmCreateRouteEnum(rtmreghandle, desthandle, targetviews, enumflags, ::core::mem::transmute(startdest), matchingflags, ::core::mem::transmute(criteriaroute), criteriainterface, ::core::mem::transmute(rtmenumhandle)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"]
 #[inline]
@@ -11329,7 +11329,7 @@ pub unsafe fn RtmCreateRouteList(rtmreghandle: isize, routelisthandle: *mut isiz
     extern "system" {
         fn RtmCreateRouteList(rtmreghandle: isize, routelisthandle: *mut isize) -> u32;
     }
-    ::core::mem::transmute(RtmCreateRouteList(::core::mem::transmute(rtmreghandle), ::core::mem::transmute(routelisthandle)))
+    ::core::mem::transmute(RtmCreateRouteList(rtmreghandle, ::core::mem::transmute(routelisthandle)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"]
 #[inline]
@@ -11338,7 +11338,7 @@ pub unsafe fn RtmCreateRouteListEnum(rtmreghandle: isize, routelisthandle: isize
     extern "system" {
         fn RtmCreateRouteListEnum(rtmreghandle: isize, routelisthandle: isize, rtmenumhandle: *mut isize) -> u32;
     }
-    ::core::mem::transmute(RtmCreateRouteListEnum(::core::mem::transmute(rtmreghandle), ::core::mem::transmute(routelisthandle), ::core::mem::transmute(rtmenumhandle)))
+    ::core::mem::transmute(RtmCreateRouteListEnum(rtmreghandle, routelisthandle, ::core::mem::transmute(rtmenumhandle)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"]
 #[inline]
@@ -11347,7 +11347,7 @@ pub unsafe fn RtmDeleteEnumHandle(rtmreghandle: isize, enumhandle: isize) -> u32
     extern "system" {
         fn RtmDeleteEnumHandle(rtmreghandle: isize, enumhandle: isize) -> u32;
     }
-    ::core::mem::transmute(RtmDeleteEnumHandle(::core::mem::transmute(rtmreghandle), ::core::mem::transmute(enumhandle)))
+    ::core::mem::transmute(RtmDeleteEnumHandle(rtmreghandle, enumhandle))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"]
 #[inline]
@@ -11356,7 +11356,7 @@ pub unsafe fn RtmDeleteNextHop(rtmreghandle: isize, nexthophandle: isize, nextho
     extern "system" {
         fn RtmDeleteNextHop(rtmreghandle: isize, nexthophandle: isize, nexthopinfo: *mut RTM_NEXTHOP_INFO) -> u32;
     }
-    ::core::mem::transmute(RtmDeleteNextHop(::core::mem::transmute(rtmreghandle), ::core::mem::transmute(nexthophandle), ::core::mem::transmute(nexthopinfo)))
+    ::core::mem::transmute(RtmDeleteNextHop(rtmreghandle, nexthophandle, ::core::mem::transmute(nexthopinfo)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"]
 #[inline]
@@ -11365,7 +11365,7 @@ pub unsafe fn RtmDeleteRouteList(rtmreghandle: isize, routelisthandle: isize) ->
     extern "system" {
         fn RtmDeleteRouteList(rtmreghandle: isize, routelisthandle: isize) -> u32;
     }
-    ::core::mem::transmute(RtmDeleteRouteList(::core::mem::transmute(rtmreghandle), ::core::mem::transmute(routelisthandle)))
+    ::core::mem::transmute(RtmDeleteRouteList(rtmreghandle, routelisthandle))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"]
 #[inline]
@@ -11374,7 +11374,7 @@ pub unsafe fn RtmDeleteRouteToDest(rtmreghandle: isize, routehandle: isize, chan
     extern "system" {
         fn RtmDeleteRouteToDest(rtmreghandle: isize, routehandle: isize, changeflags: *mut u32) -> u32;
     }
-    ::core::mem::transmute(RtmDeleteRouteToDest(::core::mem::transmute(rtmreghandle), ::core::mem::transmute(routehandle), ::core::mem::transmute(changeflags)))
+    ::core::mem::transmute(RtmDeleteRouteToDest(rtmreghandle, routehandle, ::core::mem::transmute(changeflags)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"]
 #[inline]
@@ -11383,7 +11383,7 @@ pub unsafe fn RtmDeregisterEntity(rtmreghandle: isize) -> u32 {
     extern "system" {
         fn RtmDeregisterEntity(rtmreghandle: isize) -> u32;
     }
-    ::core::mem::transmute(RtmDeregisterEntity(::core::mem::transmute(rtmreghandle)))
+    ::core::mem::transmute(RtmDeregisterEntity(rtmreghandle))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"]
 #[inline]
@@ -11392,7 +11392,7 @@ pub unsafe fn RtmDeregisterFromChangeNotification(rtmreghandle: isize, notifyhan
     extern "system" {
         fn RtmDeregisterFromChangeNotification(rtmreghandle: isize, notifyhandle: isize) -> u32;
     }
-    ::core::mem::transmute(RtmDeregisterFromChangeNotification(::core::mem::transmute(rtmreghandle), ::core::mem::transmute(notifyhandle)))
+    ::core::mem::transmute(RtmDeregisterFromChangeNotification(rtmreghandle, notifyhandle))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"]
 #[inline]
@@ -11401,7 +11401,7 @@ pub unsafe fn RtmFindNextHop(rtmreghandle: isize, nexthopinfo: *mut RTM_NEXTHOP_
     extern "system" {
         fn RtmFindNextHop(rtmreghandle: isize, nexthopinfo: *mut RTM_NEXTHOP_INFO, nexthophandle: *mut isize, nexthoppointer: *mut *mut RTM_NEXTHOP_INFO) -> u32;
     }
-    ::core::mem::transmute(RtmFindNextHop(::core::mem::transmute(rtmreghandle), ::core::mem::transmute(nexthopinfo), ::core::mem::transmute(nexthophandle), ::core::mem::transmute(nexthoppointer)))
+    ::core::mem::transmute(RtmFindNextHop(rtmreghandle, ::core::mem::transmute(nexthopinfo), ::core::mem::transmute(nexthophandle), ::core::mem::transmute(nexthoppointer)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -11411,7 +11411,7 @@ pub unsafe fn RtmGetChangeStatus(rtmreghandle: isize, notifyhandle: isize, desth
     extern "system" {
         fn RtmGetChangeStatus(rtmreghandle: isize, notifyhandle: isize, desthandle: isize, changestatus: *mut super::super::Foundation::BOOL) -> u32;
     }
-    ::core::mem::transmute(RtmGetChangeStatus(::core::mem::transmute(rtmreghandle), ::core::mem::transmute(notifyhandle), ::core::mem::transmute(desthandle), ::core::mem::transmute(changestatus)))
+    ::core::mem::transmute(RtmGetChangeStatus(rtmreghandle, notifyhandle, desthandle, ::core::mem::transmute(changestatus)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -11421,7 +11421,7 @@ pub unsafe fn RtmGetChangedDests(rtmreghandle: isize, notifyhandle: isize, numde
     extern "system" {
         fn RtmGetChangedDests(rtmreghandle: isize, notifyhandle: isize, numdests: *mut u32, changeddests: *mut RTM_DEST_INFO) -> u32;
     }
-    ::core::mem::transmute(RtmGetChangedDests(::core::mem::transmute(rtmreghandle), ::core::mem::transmute(notifyhandle), ::core::mem::transmute(numdests), ::core::mem::transmute(changeddests)))
+    ::core::mem::transmute(RtmGetChangedDests(rtmreghandle, notifyhandle, ::core::mem::transmute(numdests), ::core::mem::transmute(changeddests)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -11431,7 +11431,7 @@ pub unsafe fn RtmGetDestInfo(rtmreghandle: isize, desthandle: isize, protocolid:
     extern "system" {
         fn RtmGetDestInfo(rtmreghandle: isize, desthandle: isize, protocolid: u32, targetviews: u32, destinfo: *mut RTM_DEST_INFO) -> u32;
     }
-    ::core::mem::transmute(RtmGetDestInfo(::core::mem::transmute(rtmreghandle), ::core::mem::transmute(desthandle), ::core::mem::transmute(protocolid), ::core::mem::transmute(targetviews), ::core::mem::transmute(destinfo)))
+    ::core::mem::transmute(RtmGetDestInfo(rtmreghandle, desthandle, protocolid, targetviews, ::core::mem::transmute(destinfo)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"]
 #[inline]
@@ -11440,7 +11440,7 @@ pub unsafe fn RtmGetEntityInfo(rtmreghandle: isize, entityhandle: isize, entityi
     extern "system" {
         fn RtmGetEntityInfo(rtmreghandle: isize, entityhandle: isize, entityinfo: *mut RTM_ENTITY_INFO) -> u32;
     }
-    ::core::mem::transmute(RtmGetEntityInfo(::core::mem::transmute(rtmreghandle), ::core::mem::transmute(entityhandle), ::core::mem::transmute(entityinfo)))
+    ::core::mem::transmute(RtmGetEntityInfo(rtmreghandle, entityhandle, ::core::mem::transmute(entityinfo)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"]
 #[inline]
@@ -11449,7 +11449,7 @@ pub unsafe fn RtmGetEntityMethods(rtmreghandle: isize, entityhandle: isize, numm
     extern "system" {
         fn RtmGetEntityMethods(rtmreghandle: isize, entityhandle: isize, nummethods: *mut u32, exptmethods: *mut *mut ::core::ffi::c_void) -> u32;
     }
-    ::core::mem::transmute(RtmGetEntityMethods(::core::mem::transmute(rtmreghandle), ::core::mem::transmute(entityhandle), ::core::mem::transmute(nummethods), ::core::mem::transmute(exptmethods)))
+    ::core::mem::transmute(RtmGetEntityMethods(rtmreghandle, entityhandle, ::core::mem::transmute(nummethods), ::core::mem::transmute(exptmethods)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -11459,7 +11459,7 @@ pub unsafe fn RtmGetEnumDests(rtmreghandle: isize, enumhandle: isize, numdests: 
     extern "system" {
         fn RtmGetEnumDests(rtmreghandle: isize, enumhandle: isize, numdests: *mut u32, destinfos: *mut RTM_DEST_INFO) -> u32;
     }
-    ::core::mem::transmute(RtmGetEnumDests(::core::mem::transmute(rtmreghandle), ::core::mem::transmute(enumhandle), ::core::mem::transmute(numdests), ::core::mem::transmute(destinfos)))
+    ::core::mem::transmute(RtmGetEnumDests(rtmreghandle, enumhandle, ::core::mem::transmute(numdests), ::core::mem::transmute(destinfos)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"]
 #[inline]
@@ -11468,7 +11468,7 @@ pub unsafe fn RtmGetEnumNextHops(rtmreghandle: isize, enumhandle: isize, numnext
     extern "system" {
         fn RtmGetEnumNextHops(rtmreghandle: isize, enumhandle: isize, numnexthops: *mut u32, nexthophandles: *mut isize) -> u32;
     }
-    ::core::mem::transmute(RtmGetEnumNextHops(::core::mem::transmute(rtmreghandle), ::core::mem::transmute(enumhandle), ::core::mem::transmute(numnexthops), ::core::mem::transmute(nexthophandles)))
+    ::core::mem::transmute(RtmGetEnumNextHops(rtmreghandle, enumhandle, ::core::mem::transmute(numnexthops), ::core::mem::transmute(nexthophandles)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"]
 #[inline]
@@ -11477,7 +11477,7 @@ pub unsafe fn RtmGetEnumRoutes(rtmreghandle: isize, enumhandle: isize, numroutes
     extern "system" {
         fn RtmGetEnumRoutes(rtmreghandle: isize, enumhandle: isize, numroutes: *mut u32, routehandles: *mut isize) -> u32;
     }
-    ::core::mem::transmute(RtmGetEnumRoutes(::core::mem::transmute(rtmreghandle), ::core::mem::transmute(enumhandle), ::core::mem::transmute(numroutes), ::core::mem::transmute(routehandles)))
+    ::core::mem::transmute(RtmGetEnumRoutes(rtmreghandle, enumhandle, ::core::mem::transmute(numroutes), ::core::mem::transmute(routehandles)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -11487,7 +11487,7 @@ pub unsafe fn RtmGetExactMatchDestination(rtmreghandle: isize, destaddress: *mut
     extern "system" {
         fn RtmGetExactMatchDestination(rtmreghandle: isize, destaddress: *mut RTM_NET_ADDRESS, protocolid: u32, targetviews: u32, destinfo: *mut RTM_DEST_INFO) -> u32;
     }
-    ::core::mem::transmute(RtmGetExactMatchDestination(::core::mem::transmute(rtmreghandle), ::core::mem::transmute(destaddress), ::core::mem::transmute(protocolid), ::core::mem::transmute(targetviews), ::core::mem::transmute(destinfo)))
+    ::core::mem::transmute(RtmGetExactMatchDestination(rtmreghandle, ::core::mem::transmute(destaddress), protocolid, targetviews, ::core::mem::transmute(destinfo)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"]
 #[inline]
@@ -11496,7 +11496,7 @@ pub unsafe fn RtmGetExactMatchRoute(rtmreghandle: isize, destaddress: *mut RTM_N
     extern "system" {
         fn RtmGetExactMatchRoute(rtmreghandle: isize, destaddress: *mut RTM_NET_ADDRESS, matchingflags: u32, routeinfo: *mut RTM_ROUTE_INFO, interfaceindex: u32, targetviews: u32, routehandle: *mut isize) -> u32;
     }
-    ::core::mem::transmute(RtmGetExactMatchRoute(::core::mem::transmute(rtmreghandle), ::core::mem::transmute(destaddress), ::core::mem::transmute(matchingflags), ::core::mem::transmute(routeinfo), ::core::mem::transmute(interfaceindex), ::core::mem::transmute(targetviews), ::core::mem::transmute(routehandle)))
+    ::core::mem::transmute(RtmGetExactMatchRoute(rtmreghandle, ::core::mem::transmute(destaddress), matchingflags, ::core::mem::transmute(routeinfo), interfaceindex, targetviews, ::core::mem::transmute(routehandle)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -11506,7 +11506,7 @@ pub unsafe fn RtmGetLessSpecificDestination(rtmreghandle: isize, desthandle: isi
     extern "system" {
         fn RtmGetLessSpecificDestination(rtmreghandle: isize, desthandle: isize, protocolid: u32, targetviews: u32, destinfo: *mut RTM_DEST_INFO) -> u32;
     }
-    ::core::mem::transmute(RtmGetLessSpecificDestination(::core::mem::transmute(rtmreghandle), ::core::mem::transmute(desthandle), ::core::mem::transmute(protocolid), ::core::mem::transmute(targetviews), ::core::mem::transmute(destinfo)))
+    ::core::mem::transmute(RtmGetLessSpecificDestination(rtmreghandle, desthandle, protocolid, targetviews, ::core::mem::transmute(destinfo)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"]
 #[inline]
@@ -11515,7 +11515,7 @@ pub unsafe fn RtmGetListEnumRoutes(rtmreghandle: isize, enumhandle: isize, numro
     extern "system" {
         fn RtmGetListEnumRoutes(rtmreghandle: isize, enumhandle: isize, numroutes: *mut u32, routehandles: *mut isize) -> u32;
     }
-    ::core::mem::transmute(RtmGetListEnumRoutes(::core::mem::transmute(rtmreghandle), ::core::mem::transmute(enumhandle), ::core::mem::transmute(numroutes), ::core::mem::transmute(routehandles)))
+    ::core::mem::transmute(RtmGetListEnumRoutes(rtmreghandle, enumhandle, ::core::mem::transmute(numroutes), ::core::mem::transmute(routehandles)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -11525,7 +11525,7 @@ pub unsafe fn RtmGetMostSpecificDestination(rtmreghandle: isize, destaddress: *m
     extern "system" {
         fn RtmGetMostSpecificDestination(rtmreghandle: isize, destaddress: *mut RTM_NET_ADDRESS, protocolid: u32, targetviews: u32, destinfo: *mut RTM_DEST_INFO) -> u32;
     }
-    ::core::mem::transmute(RtmGetMostSpecificDestination(::core::mem::transmute(rtmreghandle), ::core::mem::transmute(destaddress), ::core::mem::transmute(protocolid), ::core::mem::transmute(targetviews), ::core::mem::transmute(destinfo)))
+    ::core::mem::transmute(RtmGetMostSpecificDestination(rtmreghandle, ::core::mem::transmute(destaddress), protocolid, targetviews, ::core::mem::transmute(destinfo)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"]
 #[inline]
@@ -11534,7 +11534,7 @@ pub unsafe fn RtmGetNextHopInfo(rtmreghandle: isize, nexthophandle: isize, nexth
     extern "system" {
         fn RtmGetNextHopInfo(rtmreghandle: isize, nexthophandle: isize, nexthopinfo: *mut RTM_NEXTHOP_INFO) -> u32;
     }
-    ::core::mem::transmute(RtmGetNextHopInfo(::core::mem::transmute(rtmreghandle), ::core::mem::transmute(nexthophandle), ::core::mem::transmute(nexthopinfo)))
+    ::core::mem::transmute(RtmGetNextHopInfo(rtmreghandle, nexthophandle, ::core::mem::transmute(nexthopinfo)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"]
 #[inline]
@@ -11543,7 +11543,7 @@ pub unsafe fn RtmGetNextHopPointer(rtmreghandle: isize, nexthophandle: isize, ne
     extern "system" {
         fn RtmGetNextHopPointer(rtmreghandle: isize, nexthophandle: isize, nexthoppointer: *mut *mut RTM_NEXTHOP_INFO) -> u32;
     }
-    ::core::mem::transmute(RtmGetNextHopPointer(::core::mem::transmute(rtmreghandle), ::core::mem::transmute(nexthophandle), ::core::mem::transmute(nexthoppointer)))
+    ::core::mem::transmute(RtmGetNextHopPointer(rtmreghandle, nexthophandle, ::core::mem::transmute(nexthoppointer)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"]
 #[inline]
@@ -11552,7 +11552,7 @@ pub unsafe fn RtmGetOpaqueInformationPointer(rtmreghandle: isize, desthandle: is
     extern "system" {
         fn RtmGetOpaqueInformationPointer(rtmreghandle: isize, desthandle: isize, opaqueinfopointer: *mut *mut ::core::ffi::c_void) -> u32;
     }
-    ::core::mem::transmute(RtmGetOpaqueInformationPointer(::core::mem::transmute(rtmreghandle), ::core::mem::transmute(desthandle), ::core::mem::transmute(opaqueinfopointer)))
+    ::core::mem::transmute(RtmGetOpaqueInformationPointer(rtmreghandle, desthandle, ::core::mem::transmute(opaqueinfopointer)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"]
 #[inline]
@@ -11561,7 +11561,7 @@ pub unsafe fn RtmGetRegisteredEntities(rtmreghandle: isize, numentities: *mut u3
     extern "system" {
         fn RtmGetRegisteredEntities(rtmreghandle: isize, numentities: *mut u32, entityhandles: *mut isize, entityinfos: *mut RTM_ENTITY_INFO) -> u32;
     }
-    ::core::mem::transmute(RtmGetRegisteredEntities(::core::mem::transmute(rtmreghandle), ::core::mem::transmute(numentities), ::core::mem::transmute(entityhandles), ::core::mem::transmute(entityinfos)))
+    ::core::mem::transmute(RtmGetRegisteredEntities(rtmreghandle, ::core::mem::transmute(numentities), ::core::mem::transmute(entityhandles), ::core::mem::transmute(entityinfos)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"]
 #[inline]
@@ -11570,7 +11570,7 @@ pub unsafe fn RtmGetRouteInfo(rtmreghandle: isize, routehandle: isize, routeinfo
     extern "system" {
         fn RtmGetRouteInfo(rtmreghandle: isize, routehandle: isize, routeinfo: *mut RTM_ROUTE_INFO, destaddress: *mut RTM_NET_ADDRESS) -> u32;
     }
-    ::core::mem::transmute(RtmGetRouteInfo(::core::mem::transmute(rtmreghandle), ::core::mem::transmute(routehandle), ::core::mem::transmute(routeinfo), ::core::mem::transmute(destaddress)))
+    ::core::mem::transmute(RtmGetRouteInfo(rtmreghandle, routehandle, ::core::mem::transmute(routeinfo), ::core::mem::transmute(destaddress)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"]
 #[inline]
@@ -11579,7 +11579,7 @@ pub unsafe fn RtmGetRoutePointer(rtmreghandle: isize, routehandle: isize, routep
     extern "system" {
         fn RtmGetRoutePointer(rtmreghandle: isize, routehandle: isize, routepointer: *mut *mut RTM_ROUTE_INFO) -> u32;
     }
-    ::core::mem::transmute(RtmGetRoutePointer(::core::mem::transmute(rtmreghandle), ::core::mem::transmute(routehandle), ::core::mem::transmute(routepointer)))
+    ::core::mem::transmute(RtmGetRoutePointer(rtmreghandle, routehandle, ::core::mem::transmute(routepointer)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"]
 #[inline]
@@ -11588,7 +11588,7 @@ pub unsafe fn RtmHoldDestination(rtmreghandle: isize, desthandle: isize, targetv
     extern "system" {
         fn RtmHoldDestination(rtmreghandle: isize, desthandle: isize, targetviews: u32, holdtime: u32) -> u32;
     }
-    ::core::mem::transmute(RtmHoldDestination(::core::mem::transmute(rtmreghandle), ::core::mem::transmute(desthandle), ::core::mem::transmute(targetviews), ::core::mem::transmute(holdtime)))
+    ::core::mem::transmute(RtmHoldDestination(rtmreghandle, desthandle, targetviews, holdtime))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"]
 #[inline]
@@ -11597,7 +11597,7 @@ pub unsafe fn RtmIgnoreChangedDests(rtmreghandle: isize, notifyhandle: isize, nu
     extern "system" {
         fn RtmIgnoreChangedDests(rtmreghandle: isize, notifyhandle: isize, numdests: u32, changeddests: *mut isize) -> u32;
     }
-    ::core::mem::transmute(RtmIgnoreChangedDests(::core::mem::transmute(rtmreghandle), ::core::mem::transmute(notifyhandle), ::core::mem::transmute(numdests), ::core::mem::transmute(changeddests)))
+    ::core::mem::transmute(RtmIgnoreChangedDests(rtmreghandle, notifyhandle, numdests, ::core::mem::transmute(changeddests)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"]
 #[inline]
@@ -11606,7 +11606,7 @@ pub unsafe fn RtmInsertInRouteList(rtmreghandle: isize, routelisthandle: isize, 
     extern "system" {
         fn RtmInsertInRouteList(rtmreghandle: isize, routelisthandle: isize, numroutes: u32, routehandles: *mut isize) -> u32;
     }
-    ::core::mem::transmute(RtmInsertInRouteList(::core::mem::transmute(rtmreghandle), ::core::mem::transmute(routelisthandle), ::core::mem::transmute(numroutes), ::core::mem::transmute(routehandles)))
+    ::core::mem::transmute(RtmInsertInRouteList(rtmreghandle, routelisthandle, numroutes, ::core::mem::transmute(routehandles)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"]
 #[inline]
@@ -11615,7 +11615,7 @@ pub unsafe fn RtmInvokeMethod(rtmreghandle: isize, entityhandle: isize, input: *
     extern "system" {
         fn RtmInvokeMethod(rtmreghandle: isize, entityhandle: isize, input: *mut RTM_ENTITY_METHOD_INPUT, outputsize: *mut u32, output: *mut RTM_ENTITY_METHOD_OUTPUT) -> u32;
     }
-    ::core::mem::transmute(RtmInvokeMethod(::core::mem::transmute(rtmreghandle), ::core::mem::transmute(entityhandle), ::core::mem::transmute(input), ::core::mem::transmute(outputsize), ::core::mem::transmute(output)))
+    ::core::mem::transmute(RtmInvokeMethod(rtmreghandle, entityhandle, ::core::mem::transmute(input), ::core::mem::transmute(outputsize), ::core::mem::transmute(output)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"]
 #[inline]
@@ -11624,7 +11624,7 @@ pub unsafe fn RtmIsBestRoute(rtmreghandle: isize, routehandle: isize, bestinview
     extern "system" {
         fn RtmIsBestRoute(rtmreghandle: isize, routehandle: isize, bestinviews: *mut u32) -> u32;
     }
-    ::core::mem::transmute(RtmIsBestRoute(::core::mem::transmute(rtmreghandle), ::core::mem::transmute(routehandle), ::core::mem::transmute(bestinviews)))
+    ::core::mem::transmute(RtmIsBestRoute(rtmreghandle, routehandle, ::core::mem::transmute(bestinviews)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -11634,7 +11634,7 @@ pub unsafe fn RtmIsMarkedForChangeNotification(rtmreghandle: isize, notifyhandle
     extern "system" {
         fn RtmIsMarkedForChangeNotification(rtmreghandle: isize, notifyhandle: isize, desthandle: isize, destmarked: *mut super::super::Foundation::BOOL) -> u32;
     }
-    ::core::mem::transmute(RtmIsMarkedForChangeNotification(::core::mem::transmute(rtmreghandle), ::core::mem::transmute(notifyhandle), ::core::mem::transmute(desthandle), ::core::mem::transmute(destmarked)))
+    ::core::mem::transmute(RtmIsMarkedForChangeNotification(rtmreghandle, notifyhandle, desthandle, ::core::mem::transmute(destmarked)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -11648,7 +11648,7 @@ where
     extern "system" {
         fn RtmLockDestination(rtmreghandle: isize, desthandle: isize, exclusive: super::super::Foundation::BOOL, lockdest: super::super::Foundation::BOOL) -> u32;
     }
-    ::core::mem::transmute(RtmLockDestination(::core::mem::transmute(rtmreghandle), ::core::mem::transmute(desthandle), exclusive.into(), lockdest.into()))
+    ::core::mem::transmute(RtmLockDestination(rtmreghandle, desthandle, exclusive.into(), lockdest.into()))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -11662,7 +11662,7 @@ where
     extern "system" {
         fn RtmLockNextHop(rtmreghandle: isize, nexthophandle: isize, exclusive: super::super::Foundation::BOOL, locknexthop: super::super::Foundation::BOOL, nexthoppointer: *mut *mut RTM_NEXTHOP_INFO) -> u32;
     }
-    ::core::mem::transmute(RtmLockNextHop(::core::mem::transmute(rtmreghandle), ::core::mem::transmute(nexthophandle), exclusive.into(), locknexthop.into(), ::core::mem::transmute(nexthoppointer)))
+    ::core::mem::transmute(RtmLockNextHop(rtmreghandle, nexthophandle, exclusive.into(), locknexthop.into(), ::core::mem::transmute(nexthoppointer)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -11676,7 +11676,7 @@ where
     extern "system" {
         fn RtmLockRoute(rtmreghandle: isize, routehandle: isize, exclusive: super::super::Foundation::BOOL, lockroute: super::super::Foundation::BOOL, routepointer: *mut *mut RTM_ROUTE_INFO) -> u32;
     }
-    ::core::mem::transmute(RtmLockRoute(::core::mem::transmute(rtmreghandle), ::core::mem::transmute(routehandle), exclusive.into(), lockroute.into(), ::core::mem::transmute(routepointer)))
+    ::core::mem::transmute(RtmLockRoute(rtmreghandle, routehandle, exclusive.into(), lockroute.into(), ::core::mem::transmute(routepointer)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -11689,7 +11689,7 @@ where
     extern "system" {
         fn RtmMarkDestForChangeNotification(rtmreghandle: isize, notifyhandle: isize, desthandle: isize, markdest: super::super::Foundation::BOOL) -> u32;
     }
-    ::core::mem::transmute(RtmMarkDestForChangeNotification(::core::mem::transmute(rtmreghandle), ::core::mem::transmute(notifyhandle), ::core::mem::transmute(desthandle), markdest.into()))
+    ::core::mem::transmute(RtmMarkDestForChangeNotification(rtmreghandle, notifyhandle, desthandle, markdest.into()))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -11699,7 +11699,7 @@ pub unsafe fn RtmReferenceHandles(rtmreghandle: isize, numhandles: u32, rtmhandl
     extern "system" {
         fn RtmReferenceHandles(rtmreghandle: isize, numhandles: u32, rtmhandles: *mut super::super::Foundation::HANDLE) -> u32;
     }
-    ::core::mem::transmute(RtmReferenceHandles(::core::mem::transmute(rtmreghandle), ::core::mem::transmute(numhandles), ::core::mem::transmute(rtmhandles)))
+    ::core::mem::transmute(RtmReferenceHandles(rtmreghandle, numhandles, ::core::mem::transmute(rtmhandles)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -11721,7 +11721,7 @@ pub unsafe fn RtmRegisterForChangeNotification(rtmreghandle: isize, targetviews:
     extern "system" {
         fn RtmRegisterForChangeNotification(rtmreghandle: isize, targetviews: u32, notifyflags: u32, notifycontext: *mut ::core::ffi::c_void, notifyhandle: *mut isize) -> u32;
     }
-    ::core::mem::transmute(RtmRegisterForChangeNotification(::core::mem::transmute(rtmreghandle), ::core::mem::transmute(targetviews), ::core::mem::transmute(notifyflags), ::core::mem::transmute(notifycontext), ::core::mem::transmute(notifyhandle)))
+    ::core::mem::transmute(RtmRegisterForChangeNotification(rtmreghandle, targetviews, notifyflags, ::core::mem::transmute(notifycontext), ::core::mem::transmute(notifyhandle)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -11731,7 +11731,7 @@ pub unsafe fn RtmReleaseChangedDests(rtmreghandle: isize, notifyhandle: isize, n
     extern "system" {
         fn RtmReleaseChangedDests(rtmreghandle: isize, notifyhandle: isize, numdests: u32, changeddests: *mut RTM_DEST_INFO) -> u32;
     }
-    ::core::mem::transmute(RtmReleaseChangedDests(::core::mem::transmute(rtmreghandle), ::core::mem::transmute(notifyhandle), ::core::mem::transmute(numdests), ::core::mem::transmute(changeddests)))
+    ::core::mem::transmute(RtmReleaseChangedDests(rtmreghandle, notifyhandle, numdests, ::core::mem::transmute(changeddests)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -11741,7 +11741,7 @@ pub unsafe fn RtmReleaseDestInfo(rtmreghandle: isize, destinfo: *mut RTM_DEST_IN
     extern "system" {
         fn RtmReleaseDestInfo(rtmreghandle: isize, destinfo: *mut RTM_DEST_INFO) -> u32;
     }
-    ::core::mem::transmute(RtmReleaseDestInfo(::core::mem::transmute(rtmreghandle), ::core::mem::transmute(destinfo)))
+    ::core::mem::transmute(RtmReleaseDestInfo(rtmreghandle, ::core::mem::transmute(destinfo)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -11751,7 +11751,7 @@ pub unsafe fn RtmReleaseDests(rtmreghandle: isize, numdests: u32, destinfos: *mu
     extern "system" {
         fn RtmReleaseDests(rtmreghandle: isize, numdests: u32, destinfos: *mut RTM_DEST_INFO) -> u32;
     }
-    ::core::mem::transmute(RtmReleaseDests(::core::mem::transmute(rtmreghandle), ::core::mem::transmute(numdests), ::core::mem::transmute(destinfos)))
+    ::core::mem::transmute(RtmReleaseDests(rtmreghandle, numdests, ::core::mem::transmute(destinfos)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"]
 #[inline]
@@ -11760,7 +11760,7 @@ pub unsafe fn RtmReleaseEntities(rtmreghandle: isize, numentities: u32, entityha
     extern "system" {
         fn RtmReleaseEntities(rtmreghandle: isize, numentities: u32, entityhandles: *mut isize) -> u32;
     }
-    ::core::mem::transmute(RtmReleaseEntities(::core::mem::transmute(rtmreghandle), ::core::mem::transmute(numentities), ::core::mem::transmute(entityhandles)))
+    ::core::mem::transmute(RtmReleaseEntities(rtmreghandle, numentities, ::core::mem::transmute(entityhandles)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"]
 #[inline]
@@ -11769,7 +11769,7 @@ pub unsafe fn RtmReleaseEntityInfo(rtmreghandle: isize, entityinfo: *mut RTM_ENT
     extern "system" {
         fn RtmReleaseEntityInfo(rtmreghandle: isize, entityinfo: *mut RTM_ENTITY_INFO) -> u32;
     }
-    ::core::mem::transmute(RtmReleaseEntityInfo(::core::mem::transmute(rtmreghandle), ::core::mem::transmute(entityinfo)))
+    ::core::mem::transmute(RtmReleaseEntityInfo(rtmreghandle, ::core::mem::transmute(entityinfo)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"]
 #[inline]
@@ -11778,7 +11778,7 @@ pub unsafe fn RtmReleaseNextHopInfo(rtmreghandle: isize, nexthopinfo: *mut RTM_N
     extern "system" {
         fn RtmReleaseNextHopInfo(rtmreghandle: isize, nexthopinfo: *mut RTM_NEXTHOP_INFO) -> u32;
     }
-    ::core::mem::transmute(RtmReleaseNextHopInfo(::core::mem::transmute(rtmreghandle), ::core::mem::transmute(nexthopinfo)))
+    ::core::mem::transmute(RtmReleaseNextHopInfo(rtmreghandle, ::core::mem::transmute(nexthopinfo)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"]
 #[inline]
@@ -11787,7 +11787,7 @@ pub unsafe fn RtmReleaseNextHops(rtmreghandle: isize, numnexthops: u32, nexthoph
     extern "system" {
         fn RtmReleaseNextHops(rtmreghandle: isize, numnexthops: u32, nexthophandles: *mut isize) -> u32;
     }
-    ::core::mem::transmute(RtmReleaseNextHops(::core::mem::transmute(rtmreghandle), ::core::mem::transmute(numnexthops), ::core::mem::transmute(nexthophandles)))
+    ::core::mem::transmute(RtmReleaseNextHops(rtmreghandle, numnexthops, ::core::mem::transmute(nexthophandles)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"]
 #[inline]
@@ -11796,7 +11796,7 @@ pub unsafe fn RtmReleaseRouteInfo(rtmreghandle: isize, routeinfo: *mut RTM_ROUTE
     extern "system" {
         fn RtmReleaseRouteInfo(rtmreghandle: isize, routeinfo: *mut RTM_ROUTE_INFO) -> u32;
     }
-    ::core::mem::transmute(RtmReleaseRouteInfo(::core::mem::transmute(rtmreghandle), ::core::mem::transmute(routeinfo)))
+    ::core::mem::transmute(RtmReleaseRouteInfo(rtmreghandle, ::core::mem::transmute(routeinfo)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"]
 #[inline]
@@ -11805,7 +11805,7 @@ pub unsafe fn RtmReleaseRoutes(rtmreghandle: isize, numroutes: u32, routehandles
     extern "system" {
         fn RtmReleaseRoutes(rtmreghandle: isize, numroutes: u32, routehandles: *mut isize) -> u32;
     }
-    ::core::mem::transmute(RtmReleaseRoutes(::core::mem::transmute(rtmreghandle), ::core::mem::transmute(numroutes), ::core::mem::transmute(routehandles)))
+    ::core::mem::transmute(RtmReleaseRoutes(rtmreghandle, numroutes, ::core::mem::transmute(routehandles)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"]
 #[inline]
@@ -11814,7 +11814,7 @@ pub unsafe fn RtmUpdateAndUnlockRoute(rtmreghandle: isize, routehandle: isize, t
     extern "system" {
         fn RtmUpdateAndUnlockRoute(rtmreghandle: isize, routehandle: isize, timetolive: u32, routelisthandle: isize, notifytype: u32, notifyhandle: isize, changeflags: *mut u32) -> u32;
     }
-    ::core::mem::transmute(RtmUpdateAndUnlockRoute(::core::mem::transmute(rtmreghandle), ::core::mem::transmute(routehandle), ::core::mem::transmute(timetolive), ::core::mem::transmute(routelisthandle), ::core::mem::transmute(notifytype), ::core::mem::transmute(notifyhandle), ::core::mem::transmute(changeflags)))
+    ::core::mem::transmute(RtmUpdateAndUnlockRoute(rtmreghandle, routehandle, timetolive, routelisthandle, notifytype, notifyhandle, ::core::mem::transmute(changeflags)))
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`*"]

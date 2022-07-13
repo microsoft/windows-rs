@@ -10,7 +10,7 @@ where
         fn CreateDeviceAccessInstance(deviceinterfacepath: ::windows::core::PCWSTR, desiredaccess: u32, createasync: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
     }
     let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-    CreateDeviceAccessInstance(deviceinterfacepath.into(), ::core::mem::transmute(desiredaccess), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ICreateDeviceAccessAsync>(result__)
+    CreateDeviceAccessInstance(deviceinterfacepath.into(), desiredaccess, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ICreateDeviceAccessAsync>(result__)
 }
 #[doc = "*Required features: `\"Win32_Devices_DeviceAccess\"`*"]
 pub const DEV_PORT_1394: u32 = 8u32;
@@ -110,7 +110,7 @@ impl ICreateDeviceAccessAsync {
     }
     #[doc = "*Required features: `\"Win32_Devices_DeviceAccess\"`*"]
     pub unsafe fn Wait(&self, timeout: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Wait)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(timeout)).ok()
+        (::windows::core::Interface::vtable(self).Wait)(::windows::core::Interface::as_raw(self), timeout).ok()
     }
     #[doc = "*Required features: `\"Win32_Devices_DeviceAccess\"`*"]
     pub unsafe fn Close(&self) -> ::windows::core::Result<()> {
@@ -175,18 +175,18 @@ pub struct IDeviceIoControl(::windows::core::IUnknown);
 impl IDeviceIoControl {
     #[doc = "*Required features: `\"Win32_Devices_DeviceAccess\"`*"]
     pub unsafe fn DeviceIoControlSync(&self, iocontrolcode: u32, inputbuffer: &[u8], outputbuffer: &mut [u8], bytesreturned: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).DeviceIoControlSync)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(iocontrolcode), ::core::mem::transmute(::windows::core::as_ptr_or_null(inputbuffer)), inputbuffer.len() as _, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(outputbuffer)), outputbuffer.len() as _, ::core::mem::transmute(bytesreturned)).ok()
+        (::windows::core::Interface::vtable(self).DeviceIoControlSync)(::windows::core::Interface::as_raw(self), iocontrolcode, ::core::mem::transmute(::windows::core::as_ptr_or_null(inputbuffer)), inputbuffer.len() as _, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(outputbuffer)), outputbuffer.len() as _, ::core::mem::transmute(bytesreturned)).ok()
     }
     #[doc = "*Required features: `\"Win32_Devices_DeviceAccess\"`*"]
     pub unsafe fn DeviceIoControlAsync<'a, P0>(&self, iocontrolcode: u32, inputbuffer: &[u8], outputbuffer: &mut [u8], requestcompletioncallback: P0, cancelcontext: *mut usize) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, IDeviceRequestCompletionCallback>>,
     {
-        (::windows::core::Interface::vtable(self).DeviceIoControlAsync)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(iocontrolcode), ::core::mem::transmute(::windows::core::as_ptr_or_null(inputbuffer)), inputbuffer.len() as _, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(outputbuffer)), outputbuffer.len() as _, requestcompletioncallback.into().abi(), ::core::mem::transmute(cancelcontext)).ok()
+        (::windows::core::Interface::vtable(self).DeviceIoControlAsync)(::windows::core::Interface::as_raw(self), iocontrolcode, ::core::mem::transmute(::windows::core::as_ptr_or_null(inputbuffer)), inputbuffer.len() as _, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(outputbuffer)), outputbuffer.len() as _, requestcompletioncallback.into().abi(), ::core::mem::transmute(cancelcontext)).ok()
     }
     #[doc = "*Required features: `\"Win32_Devices_DeviceAccess\"`*"]
     pub unsafe fn CancelOperation(&self, cancelcontext: usize) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).CancelOperation)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(cancelcontext)).ok()
+        (::windows::core::Interface::vtable(self).CancelOperation)(::windows::core::Interface::as_raw(self), cancelcontext).ok()
     }
 }
 impl ::core::convert::From<IDeviceIoControl> for ::windows::core::IUnknown {
@@ -238,7 +238,7 @@ pub struct IDeviceRequestCompletionCallback(::windows::core::IUnknown);
 impl IDeviceRequestCompletionCallback {
     #[doc = "*Required features: `\"Win32_Devices_DeviceAccess\"`*"]
     pub unsafe fn Invoke(&self, requestresult: ::windows::core::HRESULT, bytesreturned: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Invoke)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(requestresult), ::core::mem::transmute(bytesreturned)).ok()
+        (::windows::core::Interface::vtable(self).Invoke)(::windows::core::Interface::as_raw(self), requestresult, bytesreturned).ok()
     }
 }
 impl ::core::convert::From<IDeviceRequestCompletionCallback> for ::windows::core::IUnknown {

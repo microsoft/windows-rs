@@ -177,7 +177,7 @@ where
     extern "system" {
         fn VerifierEnumerateResource(process: super::super::Foundation::HANDLE, flags: VERIFIER_ENUM_RESOURCE_FLAGS, resourcetype: eAvrfResourceTypes, resourcecallback: *mut ::core::ffi::c_void, enumerationcontext: *mut ::core::ffi::c_void) -> u32;
     }
-    ::core::mem::transmute(VerifierEnumerateResource(process.into(), ::core::mem::transmute(flags), ::core::mem::transmute(resourcetype), ::core::mem::transmute(resourcecallback), ::core::mem::transmute(enumerationcontext)))
+    ::core::mem::transmute(VerifierEnumerateResource(process.into(), flags, resourcetype, ::core::mem::transmute(resourcecallback), ::core::mem::transmute(enumerationcontext)))
 }
 #[doc = "*Required features: `\"Win32_System_ApplicationVerifier\"`*"]
 #[repr(transparent)]

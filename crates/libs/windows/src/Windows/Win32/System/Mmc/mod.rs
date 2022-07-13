@@ -307,7 +307,7 @@ impl Column {
     }
     #[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
     pub unsafe fn SetWidth(&self, width: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetWidth)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(width)).ok()
+        (::windows::core::Interface::vtable(self).SetWidth)(::windows::core::Interface::as_raw(self), width).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
     pub unsafe fn DisplayPosition(&self) -> ::windows::core::Result<i32> {
@@ -316,7 +316,7 @@ impl Column {
     }
     #[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
     pub unsafe fn SetDisplayPosition(&self, index: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetDisplayPosition)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(index)).ok()
+        (::windows::core::Interface::vtable(self).SetDisplayPosition)(::windows::core::Interface::as_raw(self), index).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Mmc\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -334,7 +334,7 @@ impl Column {
     }
     #[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
     pub unsafe fn SetAsSortColumn(&self, sortorder: _ColumnSortOrder) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetAsSortColumn)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(sortorder)).ok()
+        (::windows::core::Interface::vtable(self).SetAsSortColumn)(::windows::core::Interface::as_raw(self), sortorder).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Mmc\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -441,7 +441,7 @@ impl Columns {
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Item(&self, index: i32) -> ::windows::core::Result<Column> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).Item)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(index), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<Column>(result__)
+        (::windows::core::Interface::vtable(self).Item)(::windows::core::Interface::as_raw(self), index, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<Column>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
     pub unsafe fn Count(&self) -> ::windows::core::Result<i32> {
@@ -733,7 +733,7 @@ impl Document {
     }
     #[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
     pub unsafe fn SetMode(&self, mode: _DocumentMode) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetMode)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(mode)).ok()
+        (::windows::core::Interface::vtable(self).SetMode)(::windows::core::Interface::as_raw(self), mode).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Mmc\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -1023,7 +1023,7 @@ impl Extensions {
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Item(&self, index: i32) -> ::windows::core::Result<Extension> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).Item)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(index), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<Extension>(result__)
+        (::windows::core::Interface::vtable(self).Item)(::windows::core::Interface::as_raw(self), index, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<Extension>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
     pub unsafe fn Count(&self) -> ::windows::core::Result<i32> {
@@ -1129,7 +1129,7 @@ impl Frame {
     }
     #[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
     pub unsafe fn SetTop(&self, top: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetTop)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(top)).ok()
+        (::windows::core::Interface::vtable(self).SetTop)(::windows::core::Interface::as_raw(self), top).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
     pub unsafe fn Bottom(&self) -> ::windows::core::Result<i32> {
@@ -1138,7 +1138,7 @@ impl Frame {
     }
     #[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
     pub unsafe fn SetBottom(&self, bottom: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetBottom)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(bottom)).ok()
+        (::windows::core::Interface::vtable(self).SetBottom)(::windows::core::Interface::as_raw(self), bottom).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
     pub unsafe fn Left(&self) -> ::windows::core::Result<i32> {
@@ -1147,7 +1147,7 @@ impl Frame {
     }
     #[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
     pub unsafe fn SetLeft(&self, left: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetLeft)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(left)).ok()
+        (::windows::core::Interface::vtable(self).SetLeft)(::windows::core::Interface::as_raw(self), left).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
     pub unsafe fn Right(&self) -> ::windows::core::Result<i32> {
@@ -1156,7 +1156,7 @@ impl Frame {
     }
     #[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
     pub unsafe fn SetRight(&self, right: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetRight)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(right)).ok()
+        (::windows::core::Interface::vtable(self).SetRight)(::windows::core::Interface::as_raw(self), right).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -1327,21 +1327,21 @@ impl IComponent {
         P1: ::std::convert::Into<super::super::Foundation::LPARAM>,
         P2: ::std::convert::Into<super::super::Foundation::LPARAM>,
     {
-        (::windows::core::Interface::vtable(self).Notify)(::windows::core::Interface::as_raw(self), lpdataobject.into().abi(), ::core::mem::transmute(event), arg.into(), param3.into()).ok()
+        (::windows::core::Interface::vtable(self).Notify)(::windows::core::Interface::as_raw(self), lpdataobject.into().abi(), event, arg.into(), param3.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
     pub unsafe fn Destroy(&self, cookie: isize) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Destroy)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(cookie)).ok()
+        (::windows::core::Interface::vtable(self).Destroy)(::windows::core::Interface::as_raw(self), cookie).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Mmc\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn QueryDataObject(&self, cookie: isize, r#type: DATA_OBJECT_TYPES) -> ::windows::core::Result<super::Com::IDataObject> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).QueryDataObject)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(cookie), ::core::mem::transmute(r#type), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::Com::IDataObject>(result__)
+        (::windows::core::Interface::vtable(self).QueryDataObject)(::windows::core::Interface::as_raw(self), cookie, r#type, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::Com::IDataObject>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
     pub unsafe fn GetResultViewType(&self, cookie: isize, ppviewtype: *mut ::windows::core::PWSTR, pviewoptions: *mut i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetResultViewType)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(cookie), ::core::mem::transmute(ppviewtype), ::core::mem::transmute(pviewoptions)).ok()
+        (::windows::core::Interface::vtable(self).GetResultViewType)(::windows::core::Interface::as_raw(self), cookie, ::core::mem::transmute(ppviewtype), ::core::mem::transmute(pviewoptions)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Mmc\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -1436,21 +1436,21 @@ impl IComponent2 {
         P1: ::std::convert::Into<super::super::Foundation::LPARAM>,
         P2: ::std::convert::Into<super::super::Foundation::LPARAM>,
     {
-        (::windows::core::Interface::vtable(self).base__.Notify)(::windows::core::Interface::as_raw(self), lpdataobject.into().abi(), ::core::mem::transmute(event), arg.into(), param3.into()).ok()
+        (::windows::core::Interface::vtable(self).base__.Notify)(::windows::core::Interface::as_raw(self), lpdataobject.into().abi(), event, arg.into(), param3.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
     pub unsafe fn Destroy(&self, cookie: isize) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.Destroy)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(cookie)).ok()
+        (::windows::core::Interface::vtable(self).base__.Destroy)(::windows::core::Interface::as_raw(self), cookie).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Mmc\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn QueryDataObject(&self, cookie: isize, r#type: DATA_OBJECT_TYPES) -> ::windows::core::Result<super::Com::IDataObject> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.QueryDataObject)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(cookie), ::core::mem::transmute(r#type), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::Com::IDataObject>(result__)
+        (::windows::core::Interface::vtable(self).base__.QueryDataObject)(::windows::core::Interface::as_raw(self), cookie, r#type, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::Com::IDataObject>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
     pub unsafe fn GetResultViewType(&self, cookie: isize, ppviewtype: *mut ::windows::core::PWSTR, pviewoptions: *mut i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.GetResultViewType)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(cookie), ::core::mem::transmute(ppviewtype), ::core::mem::transmute(pviewoptions)).ok()
+        (::windows::core::Interface::vtable(self).base__.GetResultViewType)(::windows::core::Interface::as_raw(self), cookie, ::core::mem::transmute(ppviewtype), ::core::mem::transmute(pviewoptions)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Mmc\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -1470,15 +1470,15 @@ impl IComponent2 {
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn QueryDispatch(&self, cookie: isize, r#type: DATA_OBJECT_TYPES) -> ::windows::core::Result<super::Com::IDispatch> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).QueryDispatch)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(cookie), ::core::mem::transmute(r#type), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::Com::IDispatch>(result__)
+        (::windows::core::Interface::vtable(self).QueryDispatch)(::windows::core::Interface::as_raw(self), cookie, r#type, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::Com::IDispatch>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
     pub unsafe fn GetResultViewType2(&self, cookie: isize, presultviewtype: *mut RESULT_VIEW_TYPE_INFO) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetResultViewType2)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(cookie), ::core::mem::transmute(presultviewtype)).ok()
+        (::windows::core::Interface::vtable(self).GetResultViewType2)(::windows::core::Interface::as_raw(self), cookie, ::core::mem::transmute(presultviewtype)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
     pub unsafe fn RestoreResultView(&self, cookie: isize, presultviewtype: *const RESULT_VIEW_TYPE_INFO) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).RestoreResultView)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(cookie), ::core::mem::transmute(presultviewtype)).ok()
+        (::windows::core::Interface::vtable(self).RestoreResultView)(::windows::core::Interface::as_raw(self), cookie, ::core::mem::transmute(presultviewtype)).ok()
     }
 }
 impl ::core::convert::From<IComponent2> for ::windows::core::IUnknown {
@@ -1566,7 +1566,7 @@ impl IComponentData {
         P1: ::std::convert::Into<super::super::Foundation::LPARAM>,
         P2: ::std::convert::Into<super::super::Foundation::LPARAM>,
     {
-        (::windows::core::Interface::vtable(self).Notify)(::windows::core::Interface::as_raw(self), lpdataobject.into().abi(), ::core::mem::transmute(event), arg.into(), param3.into()).ok()
+        (::windows::core::Interface::vtable(self).Notify)(::windows::core::Interface::as_raw(self), lpdataobject.into().abi(), event, arg.into(), param3.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
     pub unsafe fn Destroy(&self) -> ::windows::core::Result<()> {
@@ -1576,7 +1576,7 @@ impl IComponentData {
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn QueryDataObject(&self, cookie: isize, r#type: DATA_OBJECT_TYPES) -> ::windows::core::Result<super::Com::IDataObject> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).QueryDataObject)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(cookie), ::core::mem::transmute(r#type), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::Com::IDataObject>(result__)
+        (::windows::core::Interface::vtable(self).QueryDataObject)(::windows::core::Interface::as_raw(self), cookie, r#type, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::Com::IDataObject>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Mmc\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -1676,7 +1676,7 @@ impl IComponentData2 {
         P1: ::std::convert::Into<super::super::Foundation::LPARAM>,
         P2: ::std::convert::Into<super::super::Foundation::LPARAM>,
     {
-        (::windows::core::Interface::vtable(self).base__.Notify)(::windows::core::Interface::as_raw(self), lpdataobject.into().abi(), ::core::mem::transmute(event), arg.into(), param3.into()).ok()
+        (::windows::core::Interface::vtable(self).base__.Notify)(::windows::core::Interface::as_raw(self), lpdataobject.into().abi(), event, arg.into(), param3.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
     pub unsafe fn Destroy(&self) -> ::windows::core::Result<()> {
@@ -1686,7 +1686,7 @@ impl IComponentData2 {
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn QueryDataObject(&self, cookie: isize, r#type: DATA_OBJECT_TYPES) -> ::windows::core::Result<super::Com::IDataObject> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.QueryDataObject)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(cookie), ::core::mem::transmute(r#type), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::Com::IDataObject>(result__)
+        (::windows::core::Interface::vtable(self).base__.QueryDataObject)(::windows::core::Interface::as_raw(self), cookie, r#type, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::Com::IDataObject>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Mmc\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -1706,7 +1706,7 @@ impl IComponentData2 {
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn QueryDispatch(&self, cookie: isize, r#type: DATA_OBJECT_TYPES) -> ::windows::core::Result<super::Com::IDispatch> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).QueryDispatch)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(cookie), ::core::mem::transmute(r#type), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::Com::IDispatch>(result__)
+        (::windows::core::Interface::vtable(self).QueryDispatch)(::windows::core::Interface::as_raw(self), cookie, r#type, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::Com::IDispatch>(result__)
     }
 }
 impl ::core::convert::From<IComponentData2> for ::windows::core::IUnknown {
@@ -1808,7 +1808,7 @@ impl IConsole {
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::Com::IDataObject>>,
         P1: ::std::convert::Into<super::super::Foundation::LPARAM>,
     {
-        (::windows::core::Interface::vtable(self).UpdateAllViews)(::windows::core::Interface::as_raw(self), lpdataobject.into().abi(), data.into(), ::core::mem::transmute(hint)).ok()
+        (::windows::core::Interface::vtable(self).UpdateAllViews)(::windows::core::Interface::as_raw(self), lpdataobject.into().abi(), data.into(), hint).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
     pub unsafe fn MessageBox<'a, P0, P1>(&self, lpsztext: P0, lpsztitle: P1, fustyle: u32) -> ::windows::core::Result<i32>
@@ -1817,7 +1817,7 @@ impl IConsole {
         P1: ::std::convert::Into<::windows::core::PCWSTR>,
     {
         let mut result__ = ::core::mem::MaybeUninit::<i32>::zeroed();
-        (::windows::core::Interface::vtable(self).MessageBox)(::windows::core::Interface::as_raw(self), lpsztext.into(), lpsztitle.into(), ::core::mem::transmute(fustyle), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
+        (::windows::core::Interface::vtable(self).MessageBox)(::windows::core::Interface::as_raw(self), lpsztext.into(), lpsztitle.into(), fustyle, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
     pub unsafe fn QueryConsoleVerb(&self) -> ::windows::core::Result<IConsoleVerb> {
@@ -1826,7 +1826,7 @@ impl IConsole {
     }
     #[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
     pub unsafe fn SelectScopeItem(&self, hscopeitem: isize) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SelectScopeItem)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(hscopeitem)).ok()
+        (::windows::core::Interface::vtable(self).SelectScopeItem)(::windows::core::Interface::as_raw(self), hscopeitem).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Mmc\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -1836,7 +1836,7 @@ impl IConsole {
     }
     #[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
     pub unsafe fn NewWindow(&self, hscopeitem: isize, loptions: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).NewWindow)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(hscopeitem), ::core::mem::transmute(loptions)).ok()
+        (::windows::core::Interface::vtable(self).NewWindow)(::windows::core::Interface::as_raw(self), hscopeitem, loptions).ok()
     }
 }
 impl ::core::convert::From<IConsole> for ::windows::core::IUnknown {
@@ -1936,7 +1936,7 @@ impl IConsole2 {
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::Com::IDataObject>>,
         P1: ::std::convert::Into<super::super::Foundation::LPARAM>,
     {
-        (::windows::core::Interface::vtable(self).base__.UpdateAllViews)(::windows::core::Interface::as_raw(self), lpdataobject.into().abi(), data.into(), ::core::mem::transmute(hint)).ok()
+        (::windows::core::Interface::vtable(self).base__.UpdateAllViews)(::windows::core::Interface::as_raw(self), lpdataobject.into().abi(), data.into(), hint).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
     pub unsafe fn MessageBox<'a, P0, P1>(&self, lpsztext: P0, lpsztitle: P1, fustyle: u32) -> ::windows::core::Result<i32>
@@ -1945,7 +1945,7 @@ impl IConsole2 {
         P1: ::std::convert::Into<::windows::core::PCWSTR>,
     {
         let mut result__ = ::core::mem::MaybeUninit::<i32>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.MessageBox)(::windows::core::Interface::as_raw(self), lpsztext.into(), lpsztitle.into(), ::core::mem::transmute(fustyle), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
+        (::windows::core::Interface::vtable(self).base__.MessageBox)(::windows::core::Interface::as_raw(self), lpsztext.into(), lpsztitle.into(), fustyle, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
     pub unsafe fn QueryConsoleVerb(&self) -> ::windows::core::Result<IConsoleVerb> {
@@ -1954,7 +1954,7 @@ impl IConsole2 {
     }
     #[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
     pub unsafe fn SelectScopeItem(&self, hscopeitem: isize) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SelectScopeItem)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(hscopeitem)).ok()
+        (::windows::core::Interface::vtable(self).base__.SelectScopeItem)(::windows::core::Interface::as_raw(self), hscopeitem).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Mmc\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -1964,7 +1964,7 @@ impl IConsole2 {
     }
     #[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
     pub unsafe fn NewWindow(&self, hscopeitem: isize, loptions: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.NewWindow)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(hscopeitem), ::core::mem::transmute(loptions)).ok()
+        (::windows::core::Interface::vtable(self).base__.NewWindow)(::windows::core::Interface::as_raw(self), hscopeitem, loptions).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Mmc\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -1972,7 +1972,7 @@ impl IConsole2 {
     where
         P0: ::std::convert::Into<super::super::Foundation::BOOL>,
     {
-        (::windows::core::Interface::vtable(self).Expand)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(hitem), bexpand.into()).ok()
+        (::windows::core::Interface::vtable(self).Expand)(::windows::core::Interface::as_raw(self), hitem, bexpand.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
     pub unsafe fn IsTaskpadViewPreferred(&self) -> ::windows::core::Result<()> {
@@ -2087,7 +2087,7 @@ impl IConsole3 {
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::Com::IDataObject>>,
         P1: ::std::convert::Into<super::super::Foundation::LPARAM>,
     {
-        (::windows::core::Interface::vtable(self).base__.base__.UpdateAllViews)(::windows::core::Interface::as_raw(self), lpdataobject.into().abi(), data.into(), ::core::mem::transmute(hint)).ok()
+        (::windows::core::Interface::vtable(self).base__.base__.UpdateAllViews)(::windows::core::Interface::as_raw(self), lpdataobject.into().abi(), data.into(), hint).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
     pub unsafe fn MessageBox<'a, P0, P1>(&self, lpsztext: P0, lpsztitle: P1, fustyle: u32) -> ::windows::core::Result<i32>
@@ -2096,7 +2096,7 @@ impl IConsole3 {
         P1: ::std::convert::Into<::windows::core::PCWSTR>,
     {
         let mut result__ = ::core::mem::MaybeUninit::<i32>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.base__.MessageBox)(::windows::core::Interface::as_raw(self), lpsztext.into(), lpsztitle.into(), ::core::mem::transmute(fustyle), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
+        (::windows::core::Interface::vtable(self).base__.base__.MessageBox)(::windows::core::Interface::as_raw(self), lpsztext.into(), lpsztitle.into(), fustyle, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
     pub unsafe fn QueryConsoleVerb(&self) -> ::windows::core::Result<IConsoleVerb> {
@@ -2105,7 +2105,7 @@ impl IConsole3 {
     }
     #[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
     pub unsafe fn SelectScopeItem(&self, hscopeitem: isize) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.SelectScopeItem)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(hscopeitem)).ok()
+        (::windows::core::Interface::vtable(self).base__.base__.SelectScopeItem)(::windows::core::Interface::as_raw(self), hscopeitem).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Mmc\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -2115,7 +2115,7 @@ impl IConsole3 {
     }
     #[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
     pub unsafe fn NewWindow(&self, hscopeitem: isize, loptions: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.NewWindow)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(hscopeitem), ::core::mem::transmute(loptions)).ok()
+        (::windows::core::Interface::vtable(self).base__.base__.NewWindow)(::windows::core::Interface::as_raw(self), hscopeitem, loptions).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Mmc\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -2123,7 +2123,7 @@ impl IConsole3 {
     where
         P0: ::std::convert::Into<super::super::Foundation::BOOL>,
     {
-        (::windows::core::Interface::vtable(self).base__.Expand)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(hitem), bexpand.into()).ok()
+        (::windows::core::Interface::vtable(self).base__.Expand)(::windows::core::Interface::as_raw(self), hitem, bexpand.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
     pub unsafe fn IsTaskpadViewPreferred(&self) -> ::windows::core::Result<()> {
@@ -2138,7 +2138,7 @@ impl IConsole3 {
     }
     #[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
     pub unsafe fn RenameScopeItem(&self, hscopeitem: isize) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).RenameScopeItem)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(hscopeitem)).ok()
+        (::windows::core::Interface::vtable(self).RenameScopeItem)(::windows::core::Interface::as_raw(self), hscopeitem).ok()
     }
 }
 impl ::core::convert::From<IConsole3> for ::windows::core::IUnknown {
@@ -2223,7 +2223,7 @@ impl IConsoleNameSpace {
     }
     #[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
     pub unsafe fn DeleteItem(&self, hitem: isize, fdeletethis: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).DeleteItem)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(hitem), ::core::mem::transmute(fdeletethis)).ok()
+        (::windows::core::Interface::vtable(self).DeleteItem)(::windows::core::Interface::as_raw(self), hitem, fdeletethis).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Mmc\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -2237,15 +2237,15 @@ impl IConsoleNameSpace {
     }
     #[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
     pub unsafe fn GetChildItem(&self, item: isize, pitemchild: *mut isize, pcookie: *mut isize) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetChildItem)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(item), ::core::mem::transmute(pitemchild), ::core::mem::transmute(pcookie)).ok()
+        (::windows::core::Interface::vtable(self).GetChildItem)(::windows::core::Interface::as_raw(self), item, ::core::mem::transmute(pitemchild), ::core::mem::transmute(pcookie)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
     pub unsafe fn GetNextItem(&self, item: isize, pitemnext: *mut isize, pcookie: *mut isize) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetNextItem)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(item), ::core::mem::transmute(pitemnext), ::core::mem::transmute(pcookie)).ok()
+        (::windows::core::Interface::vtable(self).GetNextItem)(::windows::core::Interface::as_raw(self), item, ::core::mem::transmute(pitemnext), ::core::mem::transmute(pcookie)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
     pub unsafe fn GetParentItem(&self, item: isize, pitemparent: *mut isize, pcookie: *mut isize) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetParentItem)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(item), ::core::mem::transmute(pitemparent), ::core::mem::transmute(pcookie)).ok()
+        (::windows::core::Interface::vtable(self).GetParentItem)(::windows::core::Interface::as_raw(self), item, ::core::mem::transmute(pitemparent), ::core::mem::transmute(pcookie)).ok()
     }
 }
 impl ::core::convert::From<IConsoleNameSpace> for ::windows::core::IUnknown {
@@ -2315,7 +2315,7 @@ impl IConsoleNameSpace2 {
     }
     #[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
     pub unsafe fn DeleteItem(&self, hitem: isize, fdeletethis: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.DeleteItem)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(hitem), ::core::mem::transmute(fdeletethis)).ok()
+        (::windows::core::Interface::vtable(self).base__.DeleteItem)(::windows::core::Interface::as_raw(self), hitem, fdeletethis).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Mmc\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -2329,23 +2329,23 @@ impl IConsoleNameSpace2 {
     }
     #[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
     pub unsafe fn GetChildItem(&self, item: isize, pitemchild: *mut isize, pcookie: *mut isize) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.GetChildItem)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(item), ::core::mem::transmute(pitemchild), ::core::mem::transmute(pcookie)).ok()
+        (::windows::core::Interface::vtable(self).base__.GetChildItem)(::windows::core::Interface::as_raw(self), item, ::core::mem::transmute(pitemchild), ::core::mem::transmute(pcookie)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
     pub unsafe fn GetNextItem(&self, item: isize, pitemnext: *mut isize, pcookie: *mut isize) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.GetNextItem)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(item), ::core::mem::transmute(pitemnext), ::core::mem::transmute(pcookie)).ok()
+        (::windows::core::Interface::vtable(self).base__.GetNextItem)(::windows::core::Interface::as_raw(self), item, ::core::mem::transmute(pitemnext), ::core::mem::transmute(pcookie)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
     pub unsafe fn GetParentItem(&self, item: isize, pitemparent: *mut isize, pcookie: *mut isize) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.GetParentItem)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(item), ::core::mem::transmute(pitemparent), ::core::mem::transmute(pcookie)).ok()
+        (::windows::core::Interface::vtable(self).base__.GetParentItem)(::windows::core::Interface::as_raw(self), item, ::core::mem::transmute(pitemparent), ::core::mem::transmute(pcookie)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
     pub unsafe fn Expand(&self, hitem: isize) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Expand)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(hitem)).ok()
+        (::windows::core::Interface::vtable(self).Expand)(::windows::core::Interface::as_raw(self), hitem).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
     pub unsafe fn AddExtension(&self, hitem: isize, lpclsid: *const ::windows::core::GUID) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).AddExtension)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(hitem), ::core::mem::transmute(lpclsid)).ok()
+        (::windows::core::Interface::vtable(self).AddExtension)(::windows::core::Interface::as_raw(self), hitem, ::core::mem::transmute(lpclsid)).ok()
     }
 }
 impl ::core::convert::From<IConsoleNameSpace2> for ::windows::core::IUnknown {
@@ -2411,11 +2411,11 @@ pub struct IConsolePower(::windows::core::IUnknown);
 impl IConsolePower {
     #[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
     pub unsafe fn SetExecutionState(&self, dwadd: u32, dwremove: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetExecutionState)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(dwadd), ::core::mem::transmute(dwremove)).ok()
+        (::windows::core::Interface::vtable(self).SetExecutionState)(::windows::core::Interface::as_raw(self), dwadd, dwremove).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
     pub unsafe fn ResetIdleTimer(&self, dwflags: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).ResetIdleTimer)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(dwflags)).ok()
+        (::windows::core::Interface::vtable(self).ResetIdleTimer)(::windows::core::Interface::as_raw(self), dwflags).ok()
     }
 }
 impl ::core::convert::From<IConsolePower> for ::windows::core::IUnknown {
@@ -2471,7 +2471,7 @@ impl IConsolePowerSink {
         P0: ::std::convert::Into<super::super::Foundation::LPARAM>,
     {
         let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::LRESULT>::zeroed();
-        (::windows::core::Interface::vtable(self).OnPowerBroadcast)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(nevent), lparam.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::LRESULT>(result__)
+        (::windows::core::Interface::vtable(self).OnPowerBroadcast)(::windows::core::Interface::as_raw(self), nevent, lparam.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::LRESULT>(result__)
     }
 }
 impl ::core::convert::From<IConsolePowerSink> for ::windows::core::IUnknown {
@@ -2526,7 +2526,7 @@ impl IConsoleVerb {
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetVerbState(&self, ecmdid: MMC_CONSOLE_VERB, nstate: MMC_BUTTON_STATE) -> ::windows::core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::BOOL>::zeroed();
-        (::windows::core::Interface::vtable(self).GetVerbState)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(ecmdid), ::core::mem::transmute(nstate), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BOOL>(result__)
+        (::windows::core::Interface::vtable(self).GetVerbState)(::windows::core::Interface::as_raw(self), ecmdid, nstate, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BOOL>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Mmc\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -2534,11 +2534,11 @@ impl IConsoleVerb {
     where
         P0: ::std::convert::Into<super::super::Foundation::BOOL>,
     {
-        (::windows::core::Interface::vtable(self).SetVerbState)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(ecmdid), ::core::mem::transmute(nstate), bstate.into()).ok()
+        (::windows::core::Interface::vtable(self).SetVerbState)(::windows::core::Interface::as_raw(self), ecmdid, nstate, bstate.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
     pub unsafe fn SetDefaultVerb(&self, ecmdid: MMC_CONSOLE_VERB) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetDefaultVerb)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(ecmdid)).ok()
+        (::windows::core::Interface::vtable(self).SetDefaultVerb)(::windows::core::Interface::as_raw(self), ecmdid).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
     pub unsafe fn GetDefaultVerb(&self) -> ::windows::core::Result<MMC_CONSOLE_VERB> {
@@ -2732,7 +2732,7 @@ impl IContextMenuProvider {
         P0: ::std::convert::Into<super::super::Foundation::HWND>,
     {
         let mut result__ = ::core::mem::MaybeUninit::<i32>::zeroed();
-        (::windows::core::Interface::vtable(self).ShowContextMenu)(::windows::core::Interface::as_raw(self), hwndparent.into(), ::core::mem::transmute(xpos), ::core::mem::transmute(ypos), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
+        (::windows::core::Interface::vtable(self).ShowContextMenu)(::windows::core::Interface::as_raw(self), hwndparent.into(), xpos, ypos, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
     }
 }
 impl ::core::convert::From<IContextMenuProvider> for ::windows::core::IUnknown {
@@ -2813,14 +2813,14 @@ impl IControlbar {
         P0: ::std::convert::Into<::windows::core::InParam<'a, IExtendControlbar>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).Create)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(ntype), pextendcontrolbar.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::IUnknown>(result__)
+        (::windows::core::Interface::vtable(self).Create)(::windows::core::Interface::as_raw(self), ntype, pextendcontrolbar.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::IUnknown>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
     pub unsafe fn Attach<'a, P0>(&self, ntype: MMC_CONTROL_TYPE, lpunknown: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>,
     {
-        (::windows::core::Interface::vtable(self).Attach)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(ntype), lpunknown.into().abi()).ok()
+        (::windows::core::Interface::vtable(self).Attach)(::windows::core::Interface::as_raw(self), ntype, lpunknown.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
     pub unsafe fn Detach<'a, P0>(&self, lpunknown: P0) -> ::windows::core::Result<()>
@@ -2936,7 +2936,7 @@ impl IEnumTASK {
     }
     #[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
     pub unsafe fn Skip(&self, celt: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Skip)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(celt)).ok()
+        (::windows::core::Interface::vtable(self).Skip)(::windows::core::Interface::as_raw(self), celt).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
     pub unsafe fn Reset(&self) -> ::windows::core::Result<()> {
@@ -3011,7 +3011,7 @@ impl IExtendContextMenu {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::Com::IDataObject>>,
     {
-        (::windows::core::Interface::vtable(self).Command)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lcommandid), pidataobject.into().abi()).ok()
+        (::windows::core::Interface::vtable(self).Command)(::windows::core::Interface::as_raw(self), lcommandid, pidataobject.into().abi()).ok()
     }
 }
 impl ::core::convert::From<IExtendContextMenu> for ::windows::core::IUnknown {
@@ -3080,7 +3080,7 @@ impl IExtendControlbar {
         P0: ::std::convert::Into<super::super::Foundation::LPARAM>,
         P1: ::std::convert::Into<super::super::Foundation::LPARAM>,
     {
-        (::windows::core::Interface::vtable(self).ControlbarNotify)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(event), arg.into(), param2.into()).ok()
+        (::windows::core::Interface::vtable(self).ControlbarNotify)(::windows::core::Interface::as_raw(self), event, arg.into(), param2.into()).ok()
     }
 }
 impl ::core::convert::From<IExtendControlbar> for ::windows::core::IUnknown {
@@ -3139,7 +3139,7 @@ impl IExtendPropertySheet {
         P0: ::std::convert::Into<::windows::core::InParam<'a, IPropertySheetCallback>>,
         P1: ::std::convert::Into<::windows::core::InParam<'a, super::Com::IDataObject>>,
     {
-        (::windows::core::Interface::vtable(self).CreatePropertyPages)(::windows::core::Interface::as_raw(self), lpprovider.into().abi(), ::core::mem::transmute(handle), lpidataobject.into().abi()).ok()
+        (::windows::core::Interface::vtable(self).CreatePropertyPages)(::windows::core::Interface::as_raw(self), lpprovider.into().abi(), handle, lpidataobject.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Mmc\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -3209,7 +3209,7 @@ impl IExtendPropertySheet2 {
         P0: ::std::convert::Into<::windows::core::InParam<'a, IPropertySheetCallback>>,
         P1: ::std::convert::Into<::windows::core::InParam<'a, super::Com::IDataObject>>,
     {
-        (::windows::core::Interface::vtable(self).base__.CreatePropertyPages)(::windows::core::Interface::as_raw(self), lpprovider.into().abi(), ::core::mem::transmute(handle), lpidataobject.into().abi()).ok()
+        (::windows::core::Interface::vtable(self).base__.CreatePropertyPages)(::windows::core::Interface::as_raw(self), lpprovider.into().abi(), handle, lpidataobject.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Mmc\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -3461,32 +3461,32 @@ impl IHeaderCtrl {
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
-        (::windows::core::Interface::vtable(self).InsertColumn)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(ncol), title.into(), ::core::mem::transmute(nformat), ::core::mem::transmute(nwidth)).ok()
+        (::windows::core::Interface::vtable(self).InsertColumn)(::windows::core::Interface::as_raw(self), ncol, title.into(), nformat, nwidth).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
     pub unsafe fn DeleteColumn(&self, ncol: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).DeleteColumn)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(ncol)).ok()
+        (::windows::core::Interface::vtable(self).DeleteColumn)(::windows::core::Interface::as_raw(self), ncol).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
     pub unsafe fn SetColumnText<'a, P0>(&self, ncol: i32, title: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
-        (::windows::core::Interface::vtable(self).SetColumnText)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(ncol), title.into()).ok()
+        (::windows::core::Interface::vtable(self).SetColumnText)(::windows::core::Interface::as_raw(self), ncol, title.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
     pub unsafe fn GetColumnText(&self, ncol: i32) -> ::windows::core::Result<::windows::core::PWSTR> {
         let mut result__ = ::core::mem::MaybeUninit::<::windows::core::PWSTR>::zeroed();
-        (::windows::core::Interface::vtable(self).GetColumnText)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(ncol), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::PWSTR>(result__)
+        (::windows::core::Interface::vtable(self).GetColumnText)(::windows::core::Interface::as_raw(self), ncol, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::PWSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
     pub unsafe fn SetColumnWidth(&self, ncol: i32, nwidth: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetColumnWidth)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(ncol), ::core::mem::transmute(nwidth)).ok()
+        (::windows::core::Interface::vtable(self).SetColumnWidth)(::windows::core::Interface::as_raw(self), ncol, nwidth).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
     pub unsafe fn GetColumnWidth(&self, ncol: i32) -> ::windows::core::Result<i32> {
         let mut result__ = ::core::mem::MaybeUninit::<i32>::zeroed();
-        (::windows::core::Interface::vtable(self).GetColumnWidth)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(ncol), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
+        (::windows::core::Interface::vtable(self).GetColumnWidth)(::windows::core::Interface::as_raw(self), ncol, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
     }
 }
 impl ::core::convert::From<IHeaderCtrl> for ::windows::core::IUnknown {
@@ -3544,44 +3544,44 @@ impl IHeaderCtrl2 {
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
-        (::windows::core::Interface::vtable(self).base__.InsertColumn)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(ncol), title.into(), ::core::mem::transmute(nformat), ::core::mem::transmute(nwidth)).ok()
+        (::windows::core::Interface::vtable(self).base__.InsertColumn)(::windows::core::Interface::as_raw(self), ncol, title.into(), nformat, nwidth).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
     pub unsafe fn DeleteColumn(&self, ncol: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.DeleteColumn)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(ncol)).ok()
+        (::windows::core::Interface::vtable(self).base__.DeleteColumn)(::windows::core::Interface::as_raw(self), ncol).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
     pub unsafe fn SetColumnText<'a, P0>(&self, ncol: i32, title: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
-        (::windows::core::Interface::vtable(self).base__.SetColumnText)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(ncol), title.into()).ok()
+        (::windows::core::Interface::vtable(self).base__.SetColumnText)(::windows::core::Interface::as_raw(self), ncol, title.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
     pub unsafe fn GetColumnText(&self, ncol: i32) -> ::windows::core::Result<::windows::core::PWSTR> {
         let mut result__ = ::core::mem::MaybeUninit::<::windows::core::PWSTR>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.GetColumnText)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(ncol), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::PWSTR>(result__)
+        (::windows::core::Interface::vtable(self).base__.GetColumnText)(::windows::core::Interface::as_raw(self), ncol, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::PWSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
     pub unsafe fn SetColumnWidth(&self, ncol: i32, nwidth: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetColumnWidth)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(ncol), ::core::mem::transmute(nwidth)).ok()
+        (::windows::core::Interface::vtable(self).base__.SetColumnWidth)(::windows::core::Interface::as_raw(self), ncol, nwidth).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
     pub unsafe fn GetColumnWidth(&self, ncol: i32) -> ::windows::core::Result<i32> {
         let mut result__ = ::core::mem::MaybeUninit::<i32>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.GetColumnWidth)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(ncol), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
+        (::windows::core::Interface::vtable(self).base__.GetColumnWidth)(::windows::core::Interface::as_raw(self), ncol, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
     pub unsafe fn SetChangeTimeOut(&self, utimeout: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetChangeTimeOut)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(utimeout)).ok()
+        (::windows::core::Interface::vtable(self).SetChangeTimeOut)(::windows::core::Interface::as_raw(self), utimeout).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
     pub unsafe fn SetColumnFilter(&self, ncolumn: u32, dwtype: u32, pfilterdata: *const MMC_FILTERDATA) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetColumnFilter)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(ncolumn), ::core::mem::transmute(dwtype), ::core::mem::transmute(pfilterdata)).ok()
+        (::windows::core::Interface::vtable(self).SetColumnFilter)(::windows::core::Interface::as_raw(self), ncolumn, dwtype, ::core::mem::transmute(pfilterdata)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
     pub unsafe fn GetColumnFilter(&self, ncolumn: u32, pdwtype: *mut u32, pfilterdata: *mut MMC_FILTERDATA) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetColumnFilter)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(ncolumn), ::core::mem::transmute(pdwtype), ::core::mem::transmute(pfilterdata)).ok()
+        (::windows::core::Interface::vtable(self).GetColumnFilter)(::windows::core::Interface::as_raw(self), ncolumn, ::core::mem::transmute(pdwtype), ::core::mem::transmute(pfilterdata)).ok()
     }
 }
 impl ::core::convert::From<IHeaderCtrl2> for ::windows::core::IUnknown {
@@ -3648,11 +3648,11 @@ pub struct IImageList(::windows::core::IUnknown);
 impl IImageList {
     #[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
     pub unsafe fn ImageListSetIcon(&self, picon: *const isize, nloc: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).ImageListSetIcon)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(picon), ::core::mem::transmute(nloc)).ok()
+        (::windows::core::Interface::vtable(self).ImageListSetIcon)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(picon), nloc).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
     pub unsafe fn ImageListSetStrip(&self, pbmapsm: *const isize, pbmaplg: *const isize, nstartloc: i32, cmask: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).ImageListSetStrip)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pbmapsm), ::core::mem::transmute(pbmaplg), ::core::mem::transmute(nstartloc), ::core::mem::transmute(cmask)).ok()
+        (::windows::core::Interface::vtable(self).ImageListSetStrip)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pbmapsm), ::core::mem::transmute(pbmaplg), nstartloc, cmask).ok()
     }
 }
 impl ::core::convert::From<IImageList> for ::windows::core::IUnknown {
@@ -3761,7 +3761,7 @@ impl IMenuButton {
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
         P1: ::std::convert::Into<::windows::core::PCWSTR>,
     {
-        (::windows::core::Interface::vtable(self).AddButton)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(idcommand), lpbuttontext.into(), lptooltiptext.into()).ok()
+        (::windows::core::Interface::vtable(self).AddButton)(::windows::core::Interface::as_raw(self), idcommand, lpbuttontext.into(), lptooltiptext.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
     pub unsafe fn SetButton<'a, P0, P1>(&self, idcommand: i32, lpbuttontext: P0, lptooltiptext: P1) -> ::windows::core::Result<()>
@@ -3769,7 +3769,7 @@ impl IMenuButton {
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
         P1: ::std::convert::Into<::windows::core::PCWSTR>,
     {
-        (::windows::core::Interface::vtable(self).SetButton)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(idcommand), lpbuttontext.into(), lptooltiptext.into()).ok()
+        (::windows::core::Interface::vtable(self).SetButton)(::windows::core::Interface::as_raw(self), idcommand, lpbuttontext.into(), lptooltiptext.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Mmc\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -3777,7 +3777,7 @@ impl IMenuButton {
     where
         P0: ::std::convert::Into<super::super::Foundation::BOOL>,
     {
-        (::windows::core::Interface::vtable(self).SetButtonState)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(idcommand), ::core::mem::transmute(nstate), bstate.into()).ok()
+        (::windows::core::Interface::vtable(self).SetButtonState)(::windows::core::Interface::as_raw(self), idcommand, nstate, bstate.into()).ok()
     }
 }
 impl ::core::convert::From<IMenuButton> for ::windows::core::IUnknown {
@@ -3846,7 +3846,7 @@ impl IMessageView {
     }
     #[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
     pub unsafe fn SetIcon(&self, id: IconIdentifier) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetIcon)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(id)).ok()
+        (::windows::core::Interface::vtable(self).SetIcon)(::windows::core::Interface::as_raw(self), id).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
     pub unsafe fn Clear(&self) -> ::windows::core::Result<()> {
@@ -4036,7 +4036,7 @@ impl IPropertySheetProvider {
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
         P1: ::std::convert::Into<::windows::core::InParam<'a, super::Com::IDataObject>>,
     {
-        (::windows::core::Interface::vtable(self).CreatePropertySheet)(::windows::core::Interface::as_raw(self), title.into(), ::core::mem::transmute(r#type), ::core::mem::transmute(cookie), pidataobjectm.into().abi(), ::core::mem::transmute(dwoptions)).ok()
+        (::windows::core::Interface::vtable(self).CreatePropertySheet)(::windows::core::Interface::as_raw(self), title.into(), r#type, cookie, pidataobjectm.into().abi(), dwoptions).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Mmc\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -4045,7 +4045,7 @@ impl IPropertySheetProvider {
         P0: ::std::convert::Into<::windows::core::InParam<'a, IComponent>>,
         P1: ::std::convert::Into<::windows::core::InParam<'a, super::Com::IDataObject>>,
     {
-        (::windows::core::Interface::vtable(self).FindPropertySheet)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(hitem), lpcomponent.into().abi(), lpdataobject.into().abi()).ok()
+        (::windows::core::Interface::vtable(self).FindPropertySheet)(::windows::core::Interface::as_raw(self), hitem, lpcomponent.into().abi(), lpdataobject.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Mmc\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -4064,7 +4064,7 @@ impl IPropertySheetProvider {
     }
     #[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
     pub unsafe fn Show(&self, window: isize, page: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Show)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(window), ::core::mem::transmute(page)).ok()
+        (::windows::core::Interface::vtable(self).Show)(::windows::core::Interface::as_raw(self), window, page).ok()
     }
 }
 impl ::core::convert::From<IPropertySheetProvider> for ::windows::core::IUnknown {
@@ -4194,7 +4194,7 @@ impl IResultData {
     }
     #[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
     pub unsafe fn DeleteItem(&self, itemid: isize, ncol: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).DeleteItem)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(itemid), ::core::mem::transmute(ncol)).ok()
+        (::windows::core::Interface::vtable(self).DeleteItem)(::windows::core::Interface::as_raw(self), itemid, ncol).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Mmc\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -4226,15 +4226,15 @@ impl IResultData {
     }
     #[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
     pub unsafe fn ModifyItemState(&self, nindex: i32, itemid: isize, uadd: u32, uremove: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).ModifyItemState)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(nindex), ::core::mem::transmute(itemid), ::core::mem::transmute(uadd), ::core::mem::transmute(uremove)).ok()
+        (::windows::core::Interface::vtable(self).ModifyItemState)(::windows::core::Interface::as_raw(self), nindex, itemid, uadd, uremove).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
     pub unsafe fn ModifyViewStyle(&self, add: MMC_RESULT_VIEW_STYLE, remove: MMC_RESULT_VIEW_STYLE) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).ModifyViewStyle)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(add), ::core::mem::transmute(remove)).ok()
+        (::windows::core::Interface::vtable(self).ModifyViewStyle)(::windows::core::Interface::as_raw(self), add, remove).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
     pub unsafe fn SetViewMode(&self, lviewmode: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetViewMode)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lviewmode)).ok()
+        (::windows::core::Interface::vtable(self).SetViewMode)(::windows::core::Interface::as_raw(self), lviewmode).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
     pub unsafe fn GetViewMode(&self) -> ::windows::core::Result<i32> {
@@ -4243,7 +4243,7 @@ impl IResultData {
     }
     #[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
     pub unsafe fn UpdateItem(&self, itemid: isize) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).UpdateItem)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(itemid)).ok()
+        (::windows::core::Interface::vtable(self).UpdateItem)(::windows::core::Interface::as_raw(self), itemid).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Mmc\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -4251,7 +4251,7 @@ impl IResultData {
     where
         P0: ::std::convert::Into<super::super::Foundation::LPARAM>,
     {
-        (::windows::core::Interface::vtable(self).Sort)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(ncolumn), ::core::mem::transmute(dwsortoptions), luserparam.into()).ok()
+        (::windows::core::Interface::vtable(self).Sort)(::windows::core::Interface::as_raw(self), ncolumn, dwsortoptions, luserparam.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
     pub unsafe fn SetDescBarText<'a, P0>(&self, desctext: P0) -> ::windows::core::Result<()>
@@ -4262,7 +4262,7 @@ impl IResultData {
     }
     #[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
     pub unsafe fn SetItemCount(&self, nitemcount: i32, dwoptions: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetItemCount)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(nitemcount), ::core::mem::transmute(dwoptions)).ok()
+        (::windows::core::Interface::vtable(self).SetItemCount)(::windows::core::Interface::as_raw(self), nitemcount, dwoptions).ok()
     }
 }
 impl ::core::convert::From<IResultData> for ::windows::core::IUnknown {
@@ -4349,7 +4349,7 @@ impl IResultData2 {
     }
     #[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
     pub unsafe fn DeleteItem(&self, itemid: isize, ncol: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.DeleteItem)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(itemid), ::core::mem::transmute(ncol)).ok()
+        (::windows::core::Interface::vtable(self).base__.DeleteItem)(::windows::core::Interface::as_raw(self), itemid, ncol).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Mmc\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -4381,15 +4381,15 @@ impl IResultData2 {
     }
     #[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
     pub unsafe fn ModifyItemState(&self, nindex: i32, itemid: isize, uadd: u32, uremove: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.ModifyItemState)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(nindex), ::core::mem::transmute(itemid), ::core::mem::transmute(uadd), ::core::mem::transmute(uremove)).ok()
+        (::windows::core::Interface::vtable(self).base__.ModifyItemState)(::windows::core::Interface::as_raw(self), nindex, itemid, uadd, uremove).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
     pub unsafe fn ModifyViewStyle(&self, add: MMC_RESULT_VIEW_STYLE, remove: MMC_RESULT_VIEW_STYLE) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.ModifyViewStyle)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(add), ::core::mem::transmute(remove)).ok()
+        (::windows::core::Interface::vtable(self).base__.ModifyViewStyle)(::windows::core::Interface::as_raw(self), add, remove).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
     pub unsafe fn SetViewMode(&self, lviewmode: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetViewMode)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lviewmode)).ok()
+        (::windows::core::Interface::vtable(self).base__.SetViewMode)(::windows::core::Interface::as_raw(self), lviewmode).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
     pub unsafe fn GetViewMode(&self) -> ::windows::core::Result<i32> {
@@ -4398,7 +4398,7 @@ impl IResultData2 {
     }
     #[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
     pub unsafe fn UpdateItem(&self, itemid: isize) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.UpdateItem)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(itemid)).ok()
+        (::windows::core::Interface::vtable(self).base__.UpdateItem)(::windows::core::Interface::as_raw(self), itemid).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Mmc\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -4406,7 +4406,7 @@ impl IResultData2 {
     where
         P0: ::std::convert::Into<super::super::Foundation::LPARAM>,
     {
-        (::windows::core::Interface::vtable(self).base__.Sort)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(ncolumn), ::core::mem::transmute(dwsortoptions), luserparam.into()).ok()
+        (::windows::core::Interface::vtable(self).base__.Sort)(::windows::core::Interface::as_raw(self), ncolumn, dwsortoptions, luserparam.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
     pub unsafe fn SetDescBarText<'a, P0>(&self, desctext: P0) -> ::windows::core::Result<()>
@@ -4417,11 +4417,11 @@ impl IResultData2 {
     }
     #[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
     pub unsafe fn SetItemCount(&self, nitemcount: i32, dwoptions: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetItemCount)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(nitemcount), ::core::mem::transmute(dwoptions)).ok()
+        (::windows::core::Interface::vtable(self).base__.SetItemCount)(::windows::core::Interface::as_raw(self), nitemcount, dwoptions).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
     pub unsafe fn RenameResultItem(&self, itemid: isize) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).RenameResultItem)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(itemid)).ok()
+        (::windows::core::Interface::vtable(self).RenameResultItem)(::windows::core::Interface::as_raw(self), itemid).ok()
     }
 }
 impl ::core::convert::From<IResultData2> for ::windows::core::IUnknown {
@@ -4490,7 +4490,7 @@ impl IResultDataCompare {
     where
         P0: ::std::convert::Into<super::super::Foundation::LPARAM>,
     {
-        (::windows::core::Interface::vtable(self).Compare)(::windows::core::Interface::as_raw(self), luserparam.into(), ::core::mem::transmute(cookiea), ::core::mem::transmute(cookieb), ::core::mem::transmute(pnresult)).ok()
+        (::windows::core::Interface::vtable(self).Compare)(::windows::core::Interface::as_raw(self), luserparam.into(), cookiea, cookieb, ::core::mem::transmute(pnresult)).ok()
     }
 }
 impl ::core::convert::From<IResultDataCompare> for ::windows::core::IUnknown {
@@ -4603,7 +4603,7 @@ impl IResultOwnerData {
     }
     #[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
     pub unsafe fn CacheHint(&self, nstartindex: i32, nendindex: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).CacheHint)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(nstartindex), ::core::mem::transmute(nendindex)).ok()
+        (::windows::core::Interface::vtable(self).CacheHint)(::windows::core::Interface::as_raw(self), nstartindex, nendindex).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Mmc\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -4611,7 +4611,7 @@ impl IResultOwnerData {
     where
         P0: ::std::convert::Into<super::super::Foundation::LPARAM>,
     {
-        (::windows::core::Interface::vtable(self).SortItems)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(ncolumn), ::core::mem::transmute(dwsortoptions), luserparam.into()).ok()
+        (::windows::core::Interface::vtable(self).SortItems)(::windows::core::Interface::as_raw(self), ncolumn, dwsortoptions, luserparam.into()).ok()
     }
 }
 impl ::core::convert::From<IResultOwnerData> for ::windows::core::IUnknown {
@@ -4947,7 +4947,7 @@ impl ISnapinPropertiesCallback {
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
-        (::windows::core::Interface::vtable(self).AddPropertyName)(::windows::core::Interface::as_raw(self), pszpropname.into(), ::core::mem::transmute(dwflags)).ok()
+        (::windows::core::Interface::vtable(self).AddPropertyName)(::windows::core::Interface::as_raw(self), pszpropname.into(), dwflags).ok()
     }
 }
 impl ::core::convert::From<ISnapinPropertiesCallback> for ::windows::core::IUnknown {
@@ -5005,16 +5005,16 @@ impl IStringTable {
     }
     #[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
     pub unsafe fn GetString(&self, stringid: u32, lpbuffer: &mut [u16], pcchout: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetString)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(stringid), lpbuffer.len() as _, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(lpbuffer)), ::core::mem::transmute(pcchout)).ok()
+        (::windows::core::Interface::vtable(self).GetString)(::windows::core::Interface::as_raw(self), stringid, lpbuffer.len() as _, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(lpbuffer)), ::core::mem::transmute(pcchout)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
     pub unsafe fn GetStringLength(&self, stringid: u32) -> ::windows::core::Result<u32> {
         let mut result__ = ::core::mem::MaybeUninit::<u32>::zeroed();
-        (::windows::core::Interface::vtable(self).GetStringLength)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(stringid), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
+        (::windows::core::Interface::vtable(self).GetStringLength)(::windows::core::Interface::as_raw(self), stringid, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
     pub unsafe fn DeleteString(&self, stringid: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).DeleteString)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(stringid)).ok()
+        (::windows::core::Interface::vtable(self).DeleteString)(::windows::core::Interface::as_raw(self), stringid).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
     pub unsafe fn DeleteAllStrings(&self) -> ::windows::core::Result<()> {
@@ -5095,25 +5095,25 @@ impl IToolbar {
     where
         P0: ::std::convert::Into<super::super::Graphics::Gdi::HBITMAP>,
     {
-        (::windows::core::Interface::vtable(self).AddBitmap)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(nimages), hbmp.into(), ::core::mem::transmute(cxsize), ::core::mem::transmute(cysize), ::core::mem::transmute(crmask)).ok()
+        (::windows::core::Interface::vtable(self).AddBitmap)(::windows::core::Interface::as_raw(self), nimages, hbmp.into(), cxsize, cysize, crmask).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
     pub unsafe fn AddButtons(&self, nbuttons: i32, lpbuttons: *const MMCBUTTON) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).AddButtons)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(nbuttons), ::core::mem::transmute(lpbuttons)).ok()
+        (::windows::core::Interface::vtable(self).AddButtons)(::windows::core::Interface::as_raw(self), nbuttons, ::core::mem::transmute(lpbuttons)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
     pub unsafe fn InsertButton(&self, nindex: i32, lpbutton: *const MMCBUTTON) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).InsertButton)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(nindex), ::core::mem::transmute(lpbutton)).ok()
+        (::windows::core::Interface::vtable(self).InsertButton)(::windows::core::Interface::as_raw(self), nindex, ::core::mem::transmute(lpbutton)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
     pub unsafe fn DeleteButton(&self, nindex: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).DeleteButton)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(nindex)).ok()
+        (::windows::core::Interface::vtable(self).DeleteButton)(::windows::core::Interface::as_raw(self), nindex).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Mmc\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetButtonState(&self, idcommand: i32, nstate: MMC_BUTTON_STATE) -> ::windows::core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::BOOL>::zeroed();
-        (::windows::core::Interface::vtable(self).GetButtonState)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(idcommand), ::core::mem::transmute(nstate), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BOOL>(result__)
+        (::windows::core::Interface::vtable(self).GetButtonState)(::windows::core::Interface::as_raw(self), idcommand, nstate, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BOOL>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Mmc\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -5121,7 +5121,7 @@ impl IToolbar {
     where
         P0: ::std::convert::Into<super::super::Foundation::BOOL>,
     {
-        (::windows::core::Interface::vtable(self).SetButtonState)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(idcommand), ::core::mem::transmute(nstate), bstate.into()).ok()
+        (::windows::core::Interface::vtable(self).SetButtonState)(::windows::core::Interface::as_raw(self), idcommand, nstate, bstate.into()).ok()
     }
 }
 impl ::core::convert::From<IToolbar> for ::windows::core::IUnknown {
@@ -6680,7 +6680,7 @@ impl Nodes {
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Item(&self, index: i32) -> ::windows::core::Result<Node> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).Item)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(index), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<Node>(result__)
+        (::windows::core::Interface::vtable(self).Item)(::windows::core::Interface::as_raw(self), index, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<Node>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
     pub unsafe fn Count(&self) -> ::windows::core::Result<i32> {
@@ -7822,7 +7822,7 @@ impl SnapIns {
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Item(&self, index: i32) -> ::windows::core::Result<SnapIn> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).Item)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(index), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<SnapIn>(result__)
+        (::windows::core::Interface::vtable(self).Item)(::windows::core::Interface::as_raw(self), index, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<SnapIn>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
     pub unsafe fn Count(&self) -> ::windows::core::Result<i32> {
@@ -8195,7 +8195,7 @@ impl View {
         P0: ::std::convert::Into<::windows::core::InParam<'a, Node>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::<*mut u16>::zeroed();
-        (::windows::core::Interface::vtable(self).get_CellContents)(::windows::core::Interface::as_raw(self), node.into().abi(), ::core::mem::transmute(column), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<*mut u16>(result__)
+        (::windows::core::Interface::vtable(self).get_CellContents)(::windows::core::Interface::as_raw(self), node.into().abi(), column, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<*mut u16>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Mmc\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -8203,7 +8203,7 @@ impl View {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
     {
-        (::windows::core::Interface::vtable(self).ExportList)(::windows::core::Interface::as_raw(self), file.into().abi(), ::core::mem::transmute(exportoptions)).ok()
+        (::windows::core::Interface::vtable(self).ExportList)(::windows::core::Interface::as_raw(self), file.into().abi(), exportoptions).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
     pub unsafe fn ListViewMode(&self) -> ::windows::core::Result<_ListViewMode> {
@@ -8212,7 +8212,7 @@ impl View {
     }
     #[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
     pub unsafe fn SetListViewMode(&self, mode: _ListViewMode) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetListViewMode)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(mode)).ok()
+        (::windows::core::Interface::vtable(self).SetListViewMode)(::windows::core::Interface::as_raw(self), mode).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Mmc\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -8433,7 +8433,7 @@ impl Views {
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Item(&self, index: i32) -> ::windows::core::Result<View> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).Item)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(index), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<View>(result__)
+        (::windows::core::Interface::vtable(self).Item)(::windows::core::Interface::as_raw(self), index, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<View>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
     pub unsafe fn Count(&self) -> ::windows::core::Result<i32> {
@@ -8446,7 +8446,7 @@ impl Views {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, Node>>,
     {
-        (::windows::core::Interface::vtable(self).Add)(::windows::core::Interface::as_raw(self), node.into().abi(), ::core::mem::transmute(viewoptions)).ok()
+        (::windows::core::Interface::vtable(self).Add)(::windows::core::Interface::as_raw(self), node.into().abi(), viewoptions).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
     pub unsafe fn _NewEnum(&self) -> ::windows::core::Result<::windows::core::IUnknown> {

@@ -67,7 +67,7 @@ where
     extern "system" {
         fn WslConfigureDistribution(distributionname: ::windows::core::PCWSTR, defaultuid: u32, wsldistributionflags: WSL_DISTRIBUTION_FLAGS) -> ::windows::core::HRESULT;
     }
-    WslConfigureDistribution(distributionname.into(), ::core::mem::transmute(defaultuid), ::core::mem::transmute(wsldistributionflags)).ok()
+    WslConfigureDistribution(distributionname.into(), defaultuid, wsldistributionflags).ok()
 }
 #[doc = "*Required features: `\"Win32_System_SubsystemForLinux\"`*"]
 #[inline]

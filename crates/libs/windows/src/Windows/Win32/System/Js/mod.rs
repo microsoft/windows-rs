@@ -20,7 +20,7 @@ pub unsafe fn JsBoolToBoolean(value: u8, booleanvalue: *mut *mut ::core::ffi::c_
     extern "system" {
         fn JsBoolToBoolean(value: u8, booleanvalue: *mut *mut ::core::ffi::c_void) -> JsErrorCode;
     }
-    ::core::mem::transmute(JsBoolToBoolean(::core::mem::transmute(value), ::core::mem::transmute(booleanvalue)))
+    ::core::mem::transmute(JsBoolToBoolean(value, ::core::mem::transmute(booleanvalue)))
 }
 #[doc = "*Required features: `\"Win32_System_Js\"`*"]
 #[inline]
@@ -101,7 +101,7 @@ pub unsafe fn JsCreateArray(length: u32, result: *mut *mut ::core::ffi::c_void) 
     extern "system" {
         fn JsCreateArray(length: u32, result: *mut *mut ::core::ffi::c_void) -> JsErrorCode;
     }
-    ::core::mem::transmute(JsCreateArray(::core::mem::transmute(length), ::core::mem::transmute(result)))
+    ::core::mem::transmute(JsCreateArray(length, ::core::mem::transmute(result)))
 }
 #[doc = "*Required features: `\"Win32_System_Js\"`, `\"Win32_System_Diagnostics_Debug\"`*"]
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
@@ -192,7 +192,7 @@ pub unsafe fn JsCreateRuntime(attributes: JsRuntimeAttributes, runtimeversion: J
     extern "system" {
         fn JsCreateRuntime(attributes: JsRuntimeAttributes, runtimeversion: JsRuntimeVersion, threadservice: *mut ::core::ffi::c_void, runtime: *mut *mut ::core::ffi::c_void) -> JsErrorCode;
     }
-    ::core::mem::transmute(JsCreateRuntime(::core::mem::transmute(attributes), ::core::mem::transmute(runtimeversion), ::core::mem::transmute(threadservice), ::core::mem::transmute(runtime)))
+    ::core::mem::transmute(JsCreateRuntime(attributes, runtimeversion, ::core::mem::transmute(threadservice), ::core::mem::transmute(runtime)))
 }
 #[doc = "*Required features: `\"Win32_System_Js\"`*"]
 #[inline]
@@ -246,7 +246,7 @@ pub unsafe fn JsDeleteProperty(object: *const ::core::ffi::c_void, propertyid: *
     extern "system" {
         fn JsDeleteProperty(object: *const ::core::ffi::c_void, propertyid: *const ::core::ffi::c_void, usestrictrules: u8, result: *mut *mut ::core::ffi::c_void) -> JsErrorCode;
     }
-    ::core::mem::transmute(JsDeleteProperty(::core::mem::transmute(object), ::core::mem::transmute(propertyid), ::core::mem::transmute(usestrictrules), ::core::mem::transmute(result)))
+    ::core::mem::transmute(JsDeleteProperty(::core::mem::transmute(object), ::core::mem::transmute(propertyid), usestrictrules, ::core::mem::transmute(result)))
 }
 #[doc = "*Required features: `\"Win32_System_Js\"`*"]
 #[inline]
@@ -273,7 +273,7 @@ pub unsafe fn JsDoubleToNumber(doublevalue: f64, value: *mut *mut ::core::ffi::c
     extern "system" {
         fn JsDoubleToNumber(doublevalue: f64, value: *mut *mut ::core::ffi::c_void) -> JsErrorCode;
     }
-    ::core::mem::transmute(JsDoubleToNumber(::core::mem::transmute(doublevalue), ::core::mem::transmute(value)))
+    ::core::mem::transmute(JsDoubleToNumber(doublevalue, ::core::mem::transmute(value)))
 }
 #[doc = "*Required features: `\"Win32_System_Js\"`*"]
 #[inline]
@@ -630,7 +630,7 @@ pub unsafe fn JsIntToNumber(intvalue: i32, value: *mut *mut ::core::ffi::c_void)
     extern "system" {
         fn JsIntToNumber(intvalue: i32, value: *mut *mut ::core::ffi::c_void) -> JsErrorCode;
     }
-    ::core::mem::transmute(JsIntToNumber(::core::mem::transmute(intvalue), ::core::mem::transmute(value)))
+    ::core::mem::transmute(JsIntToNumber(intvalue, ::core::mem::transmute(value)))
 }
 #[doc = "*Required features: `\"Win32_System_Js\"`*"]
 #[inline]
@@ -703,7 +703,7 @@ where
     extern "system" {
         fn JsParseScript(script: ::windows::core::PCWSTR, sourcecontext: usize, sourceurl: ::windows::core::PCWSTR, result: *mut *mut ::core::ffi::c_void) -> JsErrorCode;
     }
-    ::core::mem::transmute(JsParseScript(script.into(), ::core::mem::transmute(sourcecontext), sourceurl.into(), ::core::mem::transmute(result)))
+    ::core::mem::transmute(JsParseScript(script.into(), sourcecontext, sourceurl.into(), ::core::mem::transmute(result)))
 }
 #[doc = "*Required features: `\"Win32_System_Js\"`*"]
 #[inline]
@@ -716,7 +716,7 @@ where
     extern "system" {
         fn JsParseSerializedScript(script: ::windows::core::PCWSTR, buffer: *const u8, sourcecontext: usize, sourceurl: ::windows::core::PCWSTR, result: *mut *mut ::core::ffi::c_void) -> JsErrorCode;
     }
-    ::core::mem::transmute(JsParseSerializedScript(script.into(), ::core::mem::transmute(buffer), ::core::mem::transmute(sourcecontext), sourceurl.into(), ::core::mem::transmute(result)))
+    ::core::mem::transmute(JsParseSerializedScript(script.into(), ::core::mem::transmute(buffer), sourcecontext, sourceurl.into(), ::core::mem::transmute(result)))
 }
 #[doc = "*Required features: `\"Win32_System_Js\"`*"]
 #[inline]
@@ -756,7 +756,7 @@ where
     extern "system" {
         fn JsRunScript(script: ::windows::core::PCWSTR, sourcecontext: usize, sourceurl: ::windows::core::PCWSTR, result: *mut *mut ::core::ffi::c_void) -> JsErrorCode;
     }
-    ::core::mem::transmute(JsRunScript(script.into(), ::core::mem::transmute(sourcecontext), sourceurl.into(), ::core::mem::transmute(result)))
+    ::core::mem::transmute(JsRunScript(script.into(), sourcecontext, sourceurl.into(), ::core::mem::transmute(result)))
 }
 #[doc = "*Required features: `\"Win32_System_Js\"`*"]
 #[inline]
@@ -769,7 +769,7 @@ where
     extern "system" {
         fn JsRunSerializedScript(script: ::windows::core::PCWSTR, buffer: *const u8, sourcecontext: usize, sourceurl: ::windows::core::PCWSTR, result: *mut *mut ::core::ffi::c_void) -> JsErrorCode;
     }
-    ::core::mem::transmute(JsRunSerializedScript(script.into(), ::core::mem::transmute(buffer), ::core::mem::transmute(sourcecontext), sourceurl.into(), ::core::mem::transmute(result)))
+    ::core::mem::transmute(JsRunSerializedScript(script.into(), ::core::mem::transmute(buffer), sourcecontext, sourceurl.into(), ::core::mem::transmute(result)))
 }
 #[doc = "*Required features: `\"Win32_System_Js\"`*"]
 #[repr(transparent)]
@@ -890,7 +890,7 @@ pub unsafe fn JsSetProperty(object: *const ::core::ffi::c_void, propertyid: *con
     extern "system" {
         fn JsSetProperty(object: *const ::core::ffi::c_void, propertyid: *const ::core::ffi::c_void, value: *const ::core::ffi::c_void, usestrictrules: u8) -> JsErrorCode;
     }
-    ::core::mem::transmute(JsSetProperty(::core::mem::transmute(object), ::core::mem::transmute(propertyid), ::core::mem::transmute(value), ::core::mem::transmute(usestrictrules)))
+    ::core::mem::transmute(JsSetProperty(::core::mem::transmute(object), ::core::mem::transmute(propertyid), ::core::mem::transmute(value), usestrictrules))
 }
 #[doc = "*Required features: `\"Win32_System_Js\"`*"]
 #[inline]
@@ -926,7 +926,7 @@ pub unsafe fn JsSetRuntimeMemoryLimit(runtime: *const ::core::ffi::c_void, memor
     extern "system" {
         fn JsSetRuntimeMemoryLimit(runtime: *const ::core::ffi::c_void, memorylimit: usize) -> JsErrorCode;
     }
-    ::core::mem::transmute(JsSetRuntimeMemoryLimit(::core::mem::transmute(runtime), ::core::mem::transmute(memorylimit)))
+    ::core::mem::transmute(JsSetRuntimeMemoryLimit(::core::mem::transmute(runtime), memorylimit))
 }
 #[doc = "*Required features: `\"Win32_System_Js\"`, `\"Win32_System_Diagnostics_Debug\"`*"]
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
@@ -967,7 +967,7 @@ where
     extern "system" {
         fn JsStartProfiling(callback: *mut ::core::ffi::c_void, eventmask: super::Diagnostics::Debug::PROFILER_EVENT_MASK, context: u32) -> JsErrorCode;
     }
-    ::core::mem::transmute(JsStartProfiling(callback.into().abi(), ::core::mem::transmute(eventmask), ::core::mem::transmute(context)))
+    ::core::mem::transmute(JsStartProfiling(callback.into().abi(), eventmask, context))
 }
 #[doc = "*Required features: `\"Win32_System_Js\"`*"]
 #[inline]
@@ -976,7 +976,7 @@ pub unsafe fn JsStopProfiling(reason: ::windows::core::HRESULT) -> JsErrorCode {
     extern "system" {
         fn JsStopProfiling(reason: ::windows::core::HRESULT) -> JsErrorCode;
     }
-    ::core::mem::transmute(JsStopProfiling(::core::mem::transmute(reason)))
+    ::core::mem::transmute(JsStopProfiling(reason))
 }
 #[doc = "*Required features: `\"Win32_System_Js\"`*"]
 #[inline]

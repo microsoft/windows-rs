@@ -821,7 +821,7 @@ pub unsafe fn RtlInterlockedPushListSListEx(listhead: *mut SLIST_HEADER, list: *
     extern "system" {
         fn RtlInterlockedPushListSListEx(listhead: *mut SLIST_HEADER, list: *mut SLIST_ENTRY, listend: *mut SLIST_ENTRY, count: u32) -> *mut SLIST_ENTRY;
     }
-    ::core::mem::transmute(RtlInterlockedPushListSListEx(::core::mem::transmute(listhead), ::core::mem::transmute(list), ::core::mem::transmute(listend), ::core::mem::transmute(count)))
+    ::core::mem::transmute(RtlInterlockedPushListSListEx(::core::mem::transmute(listhead), ::core::mem::transmute(list), ::core::mem::transmute(listend), count))
 }
 #[doc = "*Required features: `\"Win32_System_Kernel\"`*"]
 #[inline]

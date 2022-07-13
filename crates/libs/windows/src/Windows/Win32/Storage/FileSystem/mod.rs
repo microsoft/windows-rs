@@ -46,7 +46,7 @@ pub unsafe fn AdvanceLogBase(pvmarshal: *mut ::core::ffi::c_void, plsnbase: *mut
     extern "system" {
         fn AdvanceLogBase(pvmarshal: *mut ::core::ffi::c_void, plsnbase: *mut CLS_LSN, fflags: u32, poverlapped: *mut super::super::System::IO::OVERLAPPED) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(AdvanceLogBase(::core::mem::transmute(pvmarshal), ::core::mem::transmute(plsnbase), ::core::mem::transmute(fflags), ::core::mem::transmute(poverlapped)))
+    ::core::mem::transmute(AdvanceLogBase(::core::mem::transmute(pvmarshal), ::core::mem::transmute(plsnbase), fflags, ::core::mem::transmute(poverlapped)))
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -56,7 +56,7 @@ pub unsafe fn AlignReservedLog(pvmarshal: *mut ::core::ffi::c_void, creservedrec
     extern "system" {
         fn AlignReservedLog(pvmarshal: *mut ::core::ffi::c_void, creservedrecords: u32, rgcbreservation: *mut i64, pcbalignreservation: *mut i64) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(AlignReservedLog(::core::mem::transmute(pvmarshal), ::core::mem::transmute(creservedrecords), ::core::mem::transmute(rgcbreservation), ::core::mem::transmute(pcbalignreservation)))
+    ::core::mem::transmute(AlignReservedLog(::core::mem::transmute(pvmarshal), creservedrecords, ::core::mem::transmute(rgcbreservation), ::core::mem::transmute(pcbalignreservation)))
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -66,7 +66,7 @@ pub unsafe fn AllocReservedLog(pvmarshal: *mut ::core::ffi::c_void, creservedrec
     extern "system" {
         fn AllocReservedLog(pvmarshal: *mut ::core::ffi::c_void, creservedrecords: u32, pcbadjustment: *mut i64) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(AllocReservedLog(::core::mem::transmute(pvmarshal), ::core::mem::transmute(creservedrecords), ::core::mem::transmute(pcbadjustment)))
+    ::core::mem::transmute(AllocReservedLog(::core::mem::transmute(pvmarshal), creservedrecords, ::core::mem::transmute(pcbadjustment)))
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -162,7 +162,7 @@ where
     extern "system" {
         fn BackupRead(hfile: super::super::Foundation::HANDLE, lpbuffer: *mut u8, nnumberofbytestoread: u32, lpnumberofbytesread: *mut u32, babort: super::super::Foundation::BOOL, bprocesssecurity: super::super::Foundation::BOOL, lpcontext: *mut *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(BackupRead(hfile.into(), ::core::mem::transmute(lpbuffer), ::core::mem::transmute(nnumberofbytestoread), ::core::mem::transmute(lpnumberofbytesread), babort.into(), bprocesssecurity.into(), ::core::mem::transmute(lpcontext)))
+    ::core::mem::transmute(BackupRead(hfile.into(), ::core::mem::transmute(lpbuffer), nnumberofbytestoread, ::core::mem::transmute(lpnumberofbytesread), babort.into(), bprocesssecurity.into(), ::core::mem::transmute(lpcontext)))
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -175,7 +175,7 @@ where
     extern "system" {
         fn BackupSeek(hfile: super::super::Foundation::HANDLE, dwlowbytestoseek: u32, dwhighbytestoseek: u32, lpdwlowbyteseeked: *mut u32, lpdwhighbyteseeked: *mut u32, lpcontext: *mut *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(BackupSeek(hfile.into(), ::core::mem::transmute(dwlowbytestoseek), ::core::mem::transmute(dwhighbytestoseek), ::core::mem::transmute(lpdwlowbyteseeked), ::core::mem::transmute(lpdwhighbyteseeked), ::core::mem::transmute(lpcontext)))
+    ::core::mem::transmute(BackupSeek(hfile.into(), dwlowbytestoseek, dwhighbytestoseek, ::core::mem::transmute(lpdwlowbyteseeked), ::core::mem::transmute(lpdwhighbyteseeked), ::core::mem::transmute(lpcontext)))
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -190,7 +190,7 @@ where
     extern "system" {
         fn BackupWrite(hfile: super::super::Foundation::HANDLE, lpbuffer: *const u8, nnumberofbytestowrite: u32, lpnumberofbyteswritten: *mut u32, babort: super::super::Foundation::BOOL, bprocesssecurity: super::super::Foundation::BOOL, lpcontext: *mut *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(BackupWrite(hfile.into(), ::core::mem::transmute(lpbuffer), ::core::mem::transmute(nnumberofbytestowrite), ::core::mem::transmute(lpnumberofbyteswritten), babort.into(), bprocesssecurity.into(), ::core::mem::transmute(lpcontext)))
+    ::core::mem::transmute(BackupWrite(hfile.into(), ::core::mem::transmute(lpbuffer), nnumberofbytestowrite, ::core::mem::transmute(lpnumberofbyteswritten), babort.into(), bprocesssecurity.into(), ::core::mem::transmute(lpcontext)))
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -200,7 +200,7 @@ pub unsafe fn BuildIoRingCancelRequest(ioring: *const HIORING__, file: IORING_HA
     extern "system" {
         fn BuildIoRingCancelRequest(ioring: *const HIORING__, file: IORING_HANDLE_REF, optocancel: usize, userdata: usize) -> ::windows::core::HRESULT;
     }
-    BuildIoRingCancelRequest(::core::mem::transmute(ioring), ::core::mem::transmute(file), ::core::mem::transmute(optocancel), ::core::mem::transmute(userdata)).ok()
+    BuildIoRingCancelRequest(::core::mem::transmute(ioring), ::core::mem::transmute(file), optocancel, userdata).ok()
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -210,7 +210,7 @@ pub unsafe fn BuildIoRingReadFile(ioring: *const HIORING__, fileref: IORING_HAND
     extern "system" {
         fn BuildIoRingReadFile(ioring: *const HIORING__, fileref: IORING_HANDLE_REF, dataref: IORING_BUFFER_REF, numberofbytestoread: u32, fileoffset: u64, userdata: usize, flags: IORING_SQE_FLAGS) -> ::windows::core::HRESULT;
     }
-    BuildIoRingReadFile(::core::mem::transmute(ioring), ::core::mem::transmute(fileref), ::core::mem::transmute(dataref), ::core::mem::transmute(numberofbytestoread), ::core::mem::transmute(fileoffset), ::core::mem::transmute(userdata), ::core::mem::transmute(flags)).ok()
+    BuildIoRingReadFile(::core::mem::transmute(ioring), ::core::mem::transmute(fileref), ::core::mem::transmute(dataref), numberofbytestoread, fileoffset, userdata, flags).ok()
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 #[inline]
@@ -219,7 +219,7 @@ pub unsafe fn BuildIoRingRegisterBuffers(ioring: *const HIORING__, buffers: &[IO
     extern "system" {
         fn BuildIoRingRegisterBuffers(ioring: *const HIORING__, count: u32, buffers: *const IORING_BUFFER_INFO, userdata: usize) -> ::windows::core::HRESULT;
     }
-    BuildIoRingRegisterBuffers(::core::mem::transmute(ioring), buffers.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(buffers)), ::core::mem::transmute(userdata)).ok()
+    BuildIoRingRegisterBuffers(::core::mem::transmute(ioring), buffers.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(buffers)), userdata).ok()
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -229,7 +229,7 @@ pub unsafe fn BuildIoRingRegisterFileHandles(ioring: *const HIORING__, handles: 
     extern "system" {
         fn BuildIoRingRegisterFileHandles(ioring: *const HIORING__, count: u32, handles: *const super::super::Foundation::HANDLE, userdata: usize) -> ::windows::core::HRESULT;
     }
-    BuildIoRingRegisterFileHandles(::core::mem::transmute(ioring), handles.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(handles)), ::core::mem::transmute(userdata)).ok()
+    BuildIoRingRegisterFileHandles(::core::mem::transmute(ioring), handles.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(handles)), userdata).ok()
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
@@ -2352,7 +2352,7 @@ where
     extern "system" {
         fn CopyFileExA(lpexistingfilename: ::windows::core::PCSTR, lpnewfilename: ::windows::core::PCSTR, lpprogressroutine: *mut ::core::ffi::c_void, lpdata: *const ::core::ffi::c_void, pbcancel: *mut i32, dwcopyflags: u32) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(CopyFileExA(lpexistingfilename.into(), lpnewfilename.into(), ::core::mem::transmute(lpprogressroutine), ::core::mem::transmute(lpdata), ::core::mem::transmute(pbcancel), ::core::mem::transmute(dwcopyflags)))
+    ::core::mem::transmute(CopyFileExA(lpexistingfilename.into(), lpnewfilename.into(), ::core::mem::transmute(lpprogressroutine), ::core::mem::transmute(lpdata), ::core::mem::transmute(pbcancel), dwcopyflags))
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -2366,7 +2366,7 @@ where
     extern "system" {
         fn CopyFileExW(lpexistingfilename: ::windows::core::PCWSTR, lpnewfilename: ::windows::core::PCWSTR, lpprogressroutine: *mut ::core::ffi::c_void, lpdata: *const ::core::ffi::c_void, pbcancel: *mut i32, dwcopyflags: u32) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(CopyFileExW(lpexistingfilename.into(), lpnewfilename.into(), ::core::mem::transmute(lpprogressroutine), ::core::mem::transmute(lpdata), ::core::mem::transmute(pbcancel), ::core::mem::transmute(dwcopyflags)))
+    ::core::mem::transmute(CopyFileExW(lpexistingfilename.into(), lpnewfilename.into(), ::core::mem::transmute(lpprogressroutine), ::core::mem::transmute(lpdata), ::core::mem::transmute(pbcancel), dwcopyflags))
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -2396,7 +2396,7 @@ where
     extern "system" {
         fn CopyFileTransactedA(lpexistingfilename: ::windows::core::PCSTR, lpnewfilename: ::windows::core::PCSTR, lpprogressroutine: *mut ::core::ffi::c_void, lpdata: *const ::core::ffi::c_void, pbcancel: *const i32, dwcopyflags: u32, htransaction: super::super::Foundation::HANDLE) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(CopyFileTransactedA(lpexistingfilename.into(), lpnewfilename.into(), ::core::mem::transmute(lpprogressroutine), ::core::mem::transmute(lpdata), ::core::mem::transmute(pbcancel), ::core::mem::transmute(dwcopyflags), htransaction.into()))
+    ::core::mem::transmute(CopyFileTransactedA(lpexistingfilename.into(), lpnewfilename.into(), ::core::mem::transmute(lpprogressroutine), ::core::mem::transmute(lpdata), ::core::mem::transmute(pbcancel), dwcopyflags, htransaction.into()))
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -2411,7 +2411,7 @@ where
     extern "system" {
         fn CopyFileTransactedW(lpexistingfilename: ::windows::core::PCWSTR, lpnewfilename: ::windows::core::PCWSTR, lpprogressroutine: *mut ::core::ffi::c_void, lpdata: *const ::core::ffi::c_void, pbcancel: *const i32, dwcopyflags: u32, htransaction: super::super::Foundation::HANDLE) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(CopyFileTransactedW(lpexistingfilename.into(), lpnewfilename.into(), ::core::mem::transmute(lpprogressroutine), ::core::mem::transmute(lpdata), ::core::mem::transmute(pbcancel), ::core::mem::transmute(dwcopyflags), htransaction.into()))
+    ::core::mem::transmute(CopyFileTransactedW(lpexistingfilename.into(), lpnewfilename.into(), ::core::mem::transmute(lpprogressroutine), ::core::mem::transmute(lpdata), ::core::mem::transmute(pbcancel), dwcopyflags, htransaction.into()))
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -2435,7 +2435,7 @@ pub unsafe fn CopyLZFile(hfsource: i32, hfdest: i32) -> i32 {
     extern "system" {
         fn CopyLZFile(hfsource: i32, hfdest: i32) -> i32;
     }
-    ::core::mem::transmute(CopyLZFile(::core::mem::transmute(hfsource), ::core::mem::transmute(hfdest)))
+    ::core::mem::transmute(CopyLZFile(hfsource, hfdest))
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
@@ -2546,7 +2546,7 @@ where
     extern "system" {
         fn CreateEnlistment(lpenlistmentattributes: *mut super::super::Security::SECURITY_ATTRIBUTES, resourcemanagerhandle: super::super::Foundation::HANDLE, transactionhandle: super::super::Foundation::HANDLE, notificationmask: u32, createoptions: u32, enlistmentkey: *mut ::core::ffi::c_void) -> super::super::Foundation::HANDLE;
     }
-    let result__ = CreateEnlistment(::core::mem::transmute(lpenlistmentattributes), resourcemanagerhandle.into(), transactionhandle.into(), ::core::mem::transmute(notificationmask), ::core::mem::transmute(createoptions), ::core::mem::transmute(enlistmentkey));
+    let result__ = CreateEnlistment(::core::mem::transmute(lpenlistmentattributes), resourcemanagerhandle.into(), transactionhandle.into(), notificationmask, createoptions, ::core::mem::transmute(enlistmentkey));
     (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
@@ -2560,7 +2560,7 @@ where
     extern "system" {
         fn CreateFile2(lpfilename: ::windows::core::PCWSTR, dwdesiredaccess: FILE_ACCESS_FLAGS, dwsharemode: FILE_SHARE_MODE, dwcreationdisposition: FILE_CREATION_DISPOSITION, pcreateexparams: *const CREATEFILE2_EXTENDED_PARAMETERS) -> super::super::Foundation::HANDLE;
     }
-    let result__ = CreateFile2(lpfilename.into(), ::core::mem::transmute(dwdesiredaccess), ::core::mem::transmute(dwsharemode), ::core::mem::transmute(dwcreationdisposition), ::core::mem::transmute(pcreateexparams));
+    let result__ = CreateFile2(lpfilename.into(), dwdesiredaccess, dwsharemode, dwcreationdisposition, ::core::mem::transmute(pcreateexparams));
     (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
@@ -2574,7 +2574,7 @@ where
     extern "system" {
         fn CreateFile2FromAppW(lpfilename: ::windows::core::PCWSTR, dwdesiredaccess: u32, dwsharemode: u32, dwcreationdisposition: u32, pcreateexparams: *const CREATEFILE2_EXTENDED_PARAMETERS) -> super::super::Foundation::HANDLE;
     }
-    ::core::mem::transmute(CreateFile2FromAppW(lpfilename.into(), ::core::mem::transmute(dwdesiredaccess), ::core::mem::transmute(dwsharemode), ::core::mem::transmute(dwcreationdisposition), ::core::mem::transmute(pcreateexparams)))
+    ::core::mem::transmute(CreateFile2FromAppW(lpfilename.into(), dwdesiredaccess, dwsharemode, dwcreationdisposition, ::core::mem::transmute(pcreateexparams)))
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
@@ -2588,7 +2588,7 @@ where
     extern "system" {
         fn CreateFileA(lpfilename: ::windows::core::PCSTR, dwdesiredaccess: FILE_ACCESS_FLAGS, dwsharemode: FILE_SHARE_MODE, lpsecurityattributes: *const super::super::Security::SECURITY_ATTRIBUTES, dwcreationdisposition: FILE_CREATION_DISPOSITION, dwflagsandattributes: FILE_FLAGS_AND_ATTRIBUTES, htemplatefile: super::super::Foundation::HANDLE) -> super::super::Foundation::HANDLE;
     }
-    let result__ = CreateFileA(lpfilename.into(), ::core::mem::transmute(dwdesiredaccess), ::core::mem::transmute(dwsharemode), ::core::mem::transmute(lpsecurityattributes), ::core::mem::transmute(dwcreationdisposition), ::core::mem::transmute(dwflagsandattributes), htemplatefile.into());
+    let result__ = CreateFileA(lpfilename.into(), dwdesiredaccess, dwsharemode, ::core::mem::transmute(lpsecurityattributes), dwcreationdisposition, dwflagsandattributes, htemplatefile.into());
     (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
@@ -2603,7 +2603,7 @@ where
     extern "system" {
         fn CreateFileFromAppW(lpfilename: ::windows::core::PCWSTR, dwdesiredaccess: u32, dwsharemode: u32, lpsecurityattributes: *const super::super::Security::SECURITY_ATTRIBUTES, dwcreationdisposition: u32, dwflagsandattributes: u32, htemplatefile: super::super::Foundation::HANDLE) -> super::super::Foundation::HANDLE;
     }
-    ::core::mem::transmute(CreateFileFromAppW(lpfilename.into(), ::core::mem::transmute(dwdesiredaccess), ::core::mem::transmute(dwsharemode), ::core::mem::transmute(lpsecurityattributes), ::core::mem::transmute(dwcreationdisposition), ::core::mem::transmute(dwflagsandattributes), htemplatefile.into()))
+    ::core::mem::transmute(CreateFileFromAppW(lpfilename.into(), dwdesiredaccess, dwsharemode, ::core::mem::transmute(lpsecurityattributes), dwcreationdisposition, dwflagsandattributes, htemplatefile.into()))
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
@@ -2618,7 +2618,7 @@ where
     extern "system" {
         fn CreateFileTransactedA(lpfilename: ::windows::core::PCSTR, dwdesiredaccess: u32, dwsharemode: FILE_SHARE_MODE, lpsecurityattributes: *const super::super::Security::SECURITY_ATTRIBUTES, dwcreationdisposition: FILE_CREATION_DISPOSITION, dwflagsandattributes: FILE_FLAGS_AND_ATTRIBUTES, htemplatefile: super::super::Foundation::HANDLE, htransaction: super::super::Foundation::HANDLE, pusminiversion: *const TXFS_MINIVERSION, lpextendedparameter: *mut ::core::ffi::c_void) -> super::super::Foundation::HANDLE;
     }
-    let result__ = CreateFileTransactedA(lpfilename.into(), ::core::mem::transmute(dwdesiredaccess), ::core::mem::transmute(dwsharemode), ::core::mem::transmute(lpsecurityattributes), ::core::mem::transmute(dwcreationdisposition), ::core::mem::transmute(dwflagsandattributes), htemplatefile.into(), htransaction.into(), ::core::mem::transmute(pusminiversion), ::core::mem::transmute(lpextendedparameter));
+    let result__ = CreateFileTransactedA(lpfilename.into(), dwdesiredaccess, dwsharemode, ::core::mem::transmute(lpsecurityattributes), dwcreationdisposition, dwflagsandattributes, htemplatefile.into(), htransaction.into(), ::core::mem::transmute(pusminiversion), ::core::mem::transmute(lpextendedparameter));
     (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
@@ -2634,7 +2634,7 @@ where
     extern "system" {
         fn CreateFileTransactedW(lpfilename: ::windows::core::PCWSTR, dwdesiredaccess: u32, dwsharemode: FILE_SHARE_MODE, lpsecurityattributes: *const super::super::Security::SECURITY_ATTRIBUTES, dwcreationdisposition: FILE_CREATION_DISPOSITION, dwflagsandattributes: FILE_FLAGS_AND_ATTRIBUTES, htemplatefile: super::super::Foundation::HANDLE, htransaction: super::super::Foundation::HANDLE, pusminiversion: *const TXFS_MINIVERSION, lpextendedparameter: *mut ::core::ffi::c_void) -> super::super::Foundation::HANDLE;
     }
-    let result__ = CreateFileTransactedW(lpfilename.into(), ::core::mem::transmute(dwdesiredaccess), ::core::mem::transmute(dwsharemode), ::core::mem::transmute(lpsecurityattributes), ::core::mem::transmute(dwcreationdisposition), ::core::mem::transmute(dwflagsandattributes), htemplatefile.into(), htransaction.into(), ::core::mem::transmute(pusminiversion), ::core::mem::transmute(lpextendedparameter));
+    let result__ = CreateFileTransactedW(lpfilename.into(), dwdesiredaccess, dwsharemode, ::core::mem::transmute(lpsecurityattributes), dwcreationdisposition, dwflagsandattributes, htemplatefile.into(), htransaction.into(), ::core::mem::transmute(pusminiversion), ::core::mem::transmute(lpextendedparameter));
     (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
@@ -2649,7 +2649,7 @@ where
     extern "system" {
         fn CreateFileW(lpfilename: ::windows::core::PCWSTR, dwdesiredaccess: FILE_ACCESS_FLAGS, dwsharemode: FILE_SHARE_MODE, lpsecurityattributes: *const super::super::Security::SECURITY_ATTRIBUTES, dwcreationdisposition: FILE_CREATION_DISPOSITION, dwflagsandattributes: FILE_FLAGS_AND_ATTRIBUTES, htemplatefile: super::super::Foundation::HANDLE) -> super::super::Foundation::HANDLE;
     }
-    let result__ = CreateFileW(lpfilename.into(), ::core::mem::transmute(dwdesiredaccess), ::core::mem::transmute(dwsharemode), ::core::mem::transmute(lpsecurityattributes), ::core::mem::transmute(dwcreationdisposition), ::core::mem::transmute(dwflagsandattributes), htemplatefile.into());
+    let result__ = CreateFileW(lpfilename.into(), dwdesiredaccess, dwsharemode, ::core::mem::transmute(lpsecurityattributes), dwcreationdisposition, dwflagsandattributes, htemplatefile.into());
     (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
@@ -2718,7 +2718,7 @@ pub unsafe fn CreateIoRing(ioringversion: IORING_VERSION, flags: IORING_CREATE_F
         fn CreateIoRing(ioringversion: IORING_VERSION, flags: IORING_CREATE_FLAGS, submissionqueuesize: u32, completionqueuesize: u32, h: *mut *mut HIORING__) -> ::windows::core::HRESULT;
     }
     let mut result__ = ::core::mem::MaybeUninit::<*mut HIORING__>::zeroed();
-    CreateIoRing(::core::mem::transmute(ioringversion), ::core::mem::transmute(flags), ::core::mem::transmute(submissionqueuesize), ::core::mem::transmute(completionqueuesize), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<*mut HIORING__>(result__)
+    CreateIoRing(ioringversion, ::core::mem::transmute(flags), submissionqueuesize, completionqueuesize, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<*mut HIORING__>(result__)
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_IO\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
@@ -2731,7 +2731,7 @@ where
     extern "system" {
         fn CreateLogContainerScanContext(hlog: super::super::Foundation::HANDLE, cfromcontainer: u32, ccontainers: u32, escanmode: u8, pcxscan: *mut CLS_SCAN_CONTEXT, poverlapped: *mut super::super::System::IO::OVERLAPPED) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(CreateLogContainerScanContext(hlog.into(), ::core::mem::transmute(cfromcontainer), ::core::mem::transmute(ccontainers), ::core::mem::transmute(escanmode), ::core::mem::transmute(pcxscan), ::core::mem::transmute(poverlapped)))
+    ::core::mem::transmute(CreateLogContainerScanContext(hlog.into(), cfromcontainer, ccontainers, escanmode, ::core::mem::transmute(pcxscan), ::core::mem::transmute(poverlapped)))
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
@@ -2744,7 +2744,7 @@ where
     extern "system" {
         fn CreateLogFile(pszlogfilename: ::windows::core::PCWSTR, fdesiredaccess: FILE_ACCESS_FLAGS, dwsharemode: FILE_SHARE_MODE, psalogfile: *mut super::super::Security::SECURITY_ATTRIBUTES, fcreatedisposition: FILE_CREATION_DISPOSITION, fflagsandattributes: FILE_FLAGS_AND_ATTRIBUTES) -> super::super::Foundation::HANDLE;
     }
-    let result__ = CreateLogFile(pszlogfilename.into(), ::core::mem::transmute(fdesiredaccess), ::core::mem::transmute(dwsharemode), ::core::mem::transmute(psalogfile), ::core::mem::transmute(fcreatedisposition), ::core::mem::transmute(fflagsandattributes));
+    let result__ = CreateLogFile(pszlogfilename.into(), fdesiredaccess, dwsharemode, ::core::mem::transmute(psalogfile), fcreatedisposition, fflagsandattributes);
     (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
@@ -2758,7 +2758,7 @@ where
     extern "system" {
         fn CreateLogMarshallingArea(hlog: super::super::Foundation::HANDLE, pfnallocbuffer: *mut ::core::ffi::c_void, pfnfreebuffer: *mut ::core::ffi::c_void, pvblockalloccontext: *mut ::core::ffi::c_void, cbmarshallingbuffer: u32, cmaxwritebuffers: u32, cmaxreadbuffers: u32, ppvmarshal: *mut *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(CreateLogMarshallingArea(hlog.into(), ::core::mem::transmute(pfnallocbuffer), ::core::mem::transmute(pfnfreebuffer), ::core::mem::transmute(pvblockalloccontext), ::core::mem::transmute(cbmarshallingbuffer), ::core::mem::transmute(cmaxwritebuffers), ::core::mem::transmute(cmaxreadbuffers), ::core::mem::transmute(ppvmarshal)))
+    ::core::mem::transmute(CreateLogMarshallingArea(hlog.into(), ::core::mem::transmute(pfnallocbuffer), ::core::mem::transmute(pfnfreebuffer), ::core::mem::transmute(pvblockalloccontext), cbmarshallingbuffer, cmaxwritebuffers, cmaxreadbuffers, ::core::mem::transmute(ppvmarshal)))
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
@@ -2772,7 +2772,7 @@ where
     extern "system" {
         fn CreateResourceManager(lpresourcemanagerattributes: *mut super::super::Security::SECURITY_ATTRIBUTES, resourcemanagerid: *mut ::windows::core::GUID, createoptions: u32, tmhandle: super::super::Foundation::HANDLE, description: ::windows::core::PCWSTR) -> super::super::Foundation::HANDLE;
     }
-    let result__ = CreateResourceManager(::core::mem::transmute(lpresourcemanagerattributes), ::core::mem::transmute(resourcemanagerid), ::core::mem::transmute(createoptions), tmhandle.into(), description.into());
+    let result__ = CreateResourceManager(::core::mem::transmute(lpresourcemanagerattributes), ::core::mem::transmute(resourcemanagerid), createoptions, tmhandle.into(), description.into());
     (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
@@ -2787,7 +2787,7 @@ where
     extern "system" {
         fn CreateSymbolicLinkA(lpsymlinkfilename: ::windows::core::PCSTR, lptargetfilename: ::windows::core::PCSTR, dwflags: SYMBOLIC_LINK_FLAGS) -> super::super::Foundation::BOOLEAN;
     }
-    ::core::mem::transmute(CreateSymbolicLinkA(lpsymlinkfilename.into(), lptargetfilename.into(), ::core::mem::transmute(dwflags)))
+    ::core::mem::transmute(CreateSymbolicLinkA(lpsymlinkfilename.into(), lptargetfilename.into(), dwflags))
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -2802,7 +2802,7 @@ where
     extern "system" {
         fn CreateSymbolicLinkTransactedA(lpsymlinkfilename: ::windows::core::PCSTR, lptargetfilename: ::windows::core::PCSTR, dwflags: SYMBOLIC_LINK_FLAGS, htransaction: super::super::Foundation::HANDLE) -> super::super::Foundation::BOOLEAN;
     }
-    ::core::mem::transmute(CreateSymbolicLinkTransactedA(lpsymlinkfilename.into(), lptargetfilename.into(), ::core::mem::transmute(dwflags), htransaction.into()))
+    ::core::mem::transmute(CreateSymbolicLinkTransactedA(lpsymlinkfilename.into(), lptargetfilename.into(), dwflags, htransaction.into()))
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -2817,7 +2817,7 @@ where
     extern "system" {
         fn CreateSymbolicLinkTransactedW(lpsymlinkfilename: ::windows::core::PCWSTR, lptargetfilename: ::windows::core::PCWSTR, dwflags: SYMBOLIC_LINK_FLAGS, htransaction: super::super::Foundation::HANDLE) -> super::super::Foundation::BOOLEAN;
     }
-    ::core::mem::transmute(CreateSymbolicLinkTransactedW(lpsymlinkfilename.into(), lptargetfilename.into(), ::core::mem::transmute(dwflags), htransaction.into()))
+    ::core::mem::transmute(CreateSymbolicLinkTransactedW(lpsymlinkfilename.into(), lptargetfilename.into(), dwflags, htransaction.into()))
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -2831,7 +2831,7 @@ where
     extern "system" {
         fn CreateSymbolicLinkW(lpsymlinkfilename: ::windows::core::PCWSTR, lptargetfilename: ::windows::core::PCWSTR, dwflags: SYMBOLIC_LINK_FLAGS) -> super::super::Foundation::BOOLEAN;
     }
-    ::core::mem::transmute(CreateSymbolicLinkW(lpsymlinkfilename.into(), lptargetfilename.into(), ::core::mem::transmute(dwflags)))
+    ::core::mem::transmute(CreateSymbolicLinkW(lpsymlinkfilename.into(), lptargetfilename.into(), dwflags))
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -2844,7 +2844,7 @@ where
     extern "system" {
         fn CreateTapePartition(hdevice: super::super::Foundation::HANDLE, dwpartitionmethod: CREATE_TAPE_PARTITION_METHOD, dwcount: u32, dwsize: u32) -> u32;
     }
-    ::core::mem::transmute(CreateTapePartition(hdevice.into(), ::core::mem::transmute(dwpartitionmethod), ::core::mem::transmute(dwcount), ::core::mem::transmute(dwsize)))
+    ::core::mem::transmute(CreateTapePartition(hdevice.into(), dwpartitionmethod, dwcount, dwsize))
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
@@ -2857,7 +2857,7 @@ where
     extern "system" {
         fn CreateTransaction(lptransactionattributes: *mut super::super::Security::SECURITY_ATTRIBUTES, uow: *mut ::windows::core::GUID, createoptions: u32, isolationlevel: u32, isolationflags: u32, timeout: u32, description: ::windows::core::PCWSTR) -> super::super::Foundation::HANDLE;
     }
-    let result__ = CreateTransaction(::core::mem::transmute(lptransactionattributes), ::core::mem::transmute(uow), ::core::mem::transmute(createoptions), ::core::mem::transmute(isolationlevel), ::core::mem::transmute(isolationflags), ::core::mem::transmute(timeout), description.into());
+    let result__ = CreateTransaction(::core::mem::transmute(lptransactionattributes), ::core::mem::transmute(uow), createoptions, isolationlevel, isolationflags, timeout, description.into());
     (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
@@ -2871,7 +2871,7 @@ where
     extern "system" {
         fn CreateTransactionManager(lptransactionattributes: *mut super::super::Security::SECURITY_ATTRIBUTES, logfilename: ::windows::core::PCWSTR, createoptions: u32, commitstrength: u32) -> super::super::Foundation::HANDLE;
     }
-    let result__ = CreateTransactionManager(::core::mem::transmute(lptransactionattributes), logfilename.into(), ::core::mem::transmute(createoptions), ::core::mem::transmute(commitstrength));
+    let result__ = CreateTransactionManager(::core::mem::transmute(lptransactionattributes), logfilename.into(), createoptions, commitstrength);
     (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
@@ -3093,7 +3093,7 @@ where
     extern "system" {
         fn DecryptFileA(lpfilename: ::windows::core::PCSTR, dwreserved: u32) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(DecryptFileA(lpfilename.into(), ::core::mem::transmute(dwreserved)))
+    ::core::mem::transmute(DecryptFileA(lpfilename.into(), dwreserved))
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -3106,7 +3106,7 @@ where
     extern "system" {
         fn DecryptFileW(lpfilename: ::windows::core::PCWSTR, dwreserved: u32) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(DecryptFileW(lpfilename.into(), ::core::mem::transmute(dwreserved)))
+    ::core::mem::transmute(DecryptFileW(lpfilename.into(), dwreserved))
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -3120,7 +3120,7 @@ where
     extern "system" {
         fn DefineDosDeviceA(dwflags: DEFINE_DOS_DEVICE_FLAGS, lpdevicename: ::windows::core::PCSTR, lptargetpath: ::windows::core::PCSTR) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(DefineDosDeviceA(::core::mem::transmute(dwflags), lpdevicename.into(), lptargetpath.into()))
+    ::core::mem::transmute(DefineDosDeviceA(dwflags, lpdevicename.into(), lptargetpath.into()))
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -3134,7 +3134,7 @@ where
     extern "system" {
         fn DefineDosDeviceW(dwflags: DEFINE_DOS_DEVICE_FLAGS, lpdevicename: ::windows::core::PCWSTR, lptargetpath: ::windows::core::PCWSTR) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(DefineDosDeviceW(::core::mem::transmute(dwflags), lpdevicename.into(), lptargetpath.into()))
+    ::core::mem::transmute(DefineDosDeviceW(dwflags, lpdevicename.into(), lptargetpath.into()))
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -3290,7 +3290,7 @@ where
     extern "system" {
         fn DuplicateEncryptionInfoFile(srcfilename: ::windows::core::PCWSTR, dstfilename: ::windows::core::PCWSTR, dwcreationdistribution: u32, dwattributes: u32, lpsecurityattributes: *const super::super::Security::SECURITY_ATTRIBUTES) -> u32;
     }
-    ::core::mem::transmute(DuplicateEncryptionInfoFile(srcfilename.into(), dstfilename.into(), ::core::mem::transmute(dwcreationdistribution), ::core::mem::transmute(dwattributes), ::core::mem::transmute(lpsecurityattributes)))
+    ::core::mem::transmute(DuplicateEncryptionInfoFile(srcfilename.into(), dstfilename.into(), dwcreationdistribution, dwattributes, ::core::mem::transmute(lpsecurityattributes)))
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const EA_CONTAINER_NAME: &str = "ContainerName";
@@ -3971,7 +3971,7 @@ where
     extern "system" {
         fn EraseTape(hdevice: super::super::Foundation::HANDLE, dwerasetype: ERASE_TAPE_TYPE, bimmediate: super::super::Foundation::BOOL) -> u32;
     }
-    ::core::mem::transmute(EraseTape(hdevice.into(), ::core::mem::transmute(dwerasetype), bimmediate.into()))
+    ::core::mem::transmute(EraseTape(hdevice.into(), dwerasetype, bimmediate.into()))
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -6178,7 +6178,7 @@ where
     extern "system" {
         fn FindFirstChangeNotificationA(lppathname: ::windows::core::PCSTR, bwatchsubtree: super::super::Foundation::BOOL, dwnotifyfilter: FILE_NOTIFY_CHANGE) -> FindChangeNotificationHandle;
     }
-    let result__ = FindFirstChangeNotificationA(lppathname.into(), bwatchsubtree.into(), ::core::mem::transmute(dwnotifyfilter));
+    let result__ = FindFirstChangeNotificationA(lppathname.into(), bwatchsubtree.into(), dwnotifyfilter);
     (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
@@ -6193,7 +6193,7 @@ where
     extern "system" {
         fn FindFirstChangeNotificationW(lppathname: ::windows::core::PCWSTR, bwatchsubtree: super::super::Foundation::BOOL, dwnotifyfilter: FILE_NOTIFY_CHANGE) -> FindChangeNotificationHandle;
     }
-    let result__ = FindFirstChangeNotificationW(lppathname.into(), bwatchsubtree.into(), ::core::mem::transmute(dwnotifyfilter));
+    let result__ = FindFirstChangeNotificationW(lppathname.into(), bwatchsubtree.into(), dwnotifyfilter);
     (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
@@ -6220,7 +6220,7 @@ where
     extern "system" {
         fn FindFirstFileExA(lpfilename: ::windows::core::PCSTR, finfolevelid: FINDEX_INFO_LEVELS, lpfindfiledata: *mut ::core::ffi::c_void, fsearchop: FINDEX_SEARCH_OPS, lpsearchfilter: *mut ::core::ffi::c_void, dwadditionalflags: FIND_FIRST_EX_FLAGS) -> FindFileHandle;
     }
-    let result__ = FindFirstFileExA(lpfilename.into(), ::core::mem::transmute(finfolevelid), ::core::mem::transmute(lpfindfiledata), ::core::mem::transmute(fsearchop), ::core::mem::transmute(lpsearchfilter), ::core::mem::transmute(dwadditionalflags));
+    let result__ = FindFirstFileExA(lpfilename.into(), finfolevelid, ::core::mem::transmute(lpfindfiledata), fsearchop, ::core::mem::transmute(lpsearchfilter), dwadditionalflags);
     (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
@@ -6234,7 +6234,7 @@ where
     extern "system" {
         fn FindFirstFileExFromAppW(lpfilename: ::windows::core::PCWSTR, finfolevelid: FINDEX_INFO_LEVELS, lpfindfiledata: *mut ::core::ffi::c_void, fsearchop: FINDEX_SEARCH_OPS, lpsearchfilter: *mut ::core::ffi::c_void, dwadditionalflags: u32) -> super::super::Foundation::HANDLE;
     }
-    ::core::mem::transmute(FindFirstFileExFromAppW(lpfilename.into(), ::core::mem::transmute(finfolevelid), ::core::mem::transmute(lpfindfiledata), ::core::mem::transmute(fsearchop), ::core::mem::transmute(lpsearchfilter), ::core::mem::transmute(dwadditionalflags)))
+    ::core::mem::transmute(FindFirstFileExFromAppW(lpfilename.into(), finfolevelid, ::core::mem::transmute(lpfindfiledata), fsearchop, ::core::mem::transmute(lpsearchfilter), dwadditionalflags))
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 #[inline]
@@ -6246,7 +6246,7 @@ where
     extern "system" {
         fn FindFirstFileExW(lpfilename: ::windows::core::PCWSTR, finfolevelid: FINDEX_INFO_LEVELS, lpfindfiledata: *mut ::core::ffi::c_void, fsearchop: FINDEX_SEARCH_OPS, lpsearchfilter: *mut ::core::ffi::c_void, dwadditionalflags: FIND_FIRST_EX_FLAGS) -> FindFileHandle;
     }
-    let result__ = FindFirstFileExW(lpfilename.into(), ::core::mem::transmute(finfolevelid), ::core::mem::transmute(lpfindfiledata), ::core::mem::transmute(fsearchop), ::core::mem::transmute(lpsearchfilter), ::core::mem::transmute(dwadditionalflags));
+    let result__ = FindFirstFileExW(lpfilename.into(), finfolevelid, ::core::mem::transmute(lpfindfiledata), fsearchop, ::core::mem::transmute(lpsearchfilter), dwadditionalflags);
     (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
@@ -6261,7 +6261,7 @@ where
     extern "system" {
         fn FindFirstFileNameTransactedW(lpfilename: ::windows::core::PCWSTR, dwflags: u32, stringlength: *mut u32, linkname: ::windows::core::PWSTR, htransaction: super::super::Foundation::HANDLE) -> FindFileNameHandle;
     }
-    let result__ = FindFirstFileNameTransactedW(lpfilename.into(), ::core::mem::transmute(dwflags), ::core::mem::transmute(stringlength), ::core::mem::transmute(linkname), htransaction.into());
+    let result__ = FindFirstFileNameTransactedW(lpfilename.into(), dwflags, ::core::mem::transmute(stringlength), ::core::mem::transmute(linkname), htransaction.into());
     (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
@@ -6274,7 +6274,7 @@ where
     extern "system" {
         fn FindFirstFileNameW(lpfilename: ::windows::core::PCWSTR, dwflags: u32, stringlength: *mut u32, linkname: ::windows::core::PWSTR) -> FindFileNameHandle;
     }
-    let result__ = FindFirstFileNameW(lpfilename.into(), ::core::mem::transmute(dwflags), ::core::mem::transmute(stringlength), ::core::mem::transmute(linkname));
+    let result__ = FindFirstFileNameW(lpfilename.into(), dwflags, ::core::mem::transmute(stringlength), ::core::mem::transmute(linkname));
     (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
@@ -6289,7 +6289,7 @@ where
     extern "system" {
         fn FindFirstFileTransactedA(lpfilename: ::windows::core::PCSTR, finfolevelid: FINDEX_INFO_LEVELS, lpfindfiledata: *mut ::core::ffi::c_void, fsearchop: FINDEX_SEARCH_OPS, lpsearchfilter: *mut ::core::ffi::c_void, dwadditionalflags: u32, htransaction: super::super::Foundation::HANDLE) -> FindFileHandle;
     }
-    let result__ = FindFirstFileTransactedA(lpfilename.into(), ::core::mem::transmute(finfolevelid), ::core::mem::transmute(lpfindfiledata), ::core::mem::transmute(fsearchop), ::core::mem::transmute(lpsearchfilter), ::core::mem::transmute(dwadditionalflags), htransaction.into());
+    let result__ = FindFirstFileTransactedA(lpfilename.into(), finfolevelid, ::core::mem::transmute(lpfindfiledata), fsearchop, ::core::mem::transmute(lpsearchfilter), dwadditionalflags, htransaction.into());
     (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
@@ -6304,7 +6304,7 @@ where
     extern "system" {
         fn FindFirstFileTransactedW(lpfilename: ::windows::core::PCWSTR, finfolevelid: FINDEX_INFO_LEVELS, lpfindfiledata: *mut ::core::ffi::c_void, fsearchop: FINDEX_SEARCH_OPS, lpsearchfilter: *mut ::core::ffi::c_void, dwadditionalflags: u32, htransaction: super::super::Foundation::HANDLE) -> FindFileHandle;
     }
-    let result__ = FindFirstFileTransactedW(lpfilename.into(), ::core::mem::transmute(finfolevelid), ::core::mem::transmute(lpfindfiledata), ::core::mem::transmute(fsearchop), ::core::mem::transmute(lpsearchfilter), ::core::mem::transmute(dwadditionalflags), htransaction.into());
+    let result__ = FindFirstFileTransactedW(lpfilename.into(), finfolevelid, ::core::mem::transmute(lpfindfiledata), fsearchop, ::core::mem::transmute(lpsearchfilter), dwadditionalflags, htransaction.into());
     (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
@@ -6333,7 +6333,7 @@ where
     extern "system" {
         fn FindFirstStreamTransactedW(lpfilename: ::windows::core::PCWSTR, infolevel: STREAM_INFO_LEVELS, lpfindstreamdata: *mut ::core::ffi::c_void, dwflags: u32, htransaction: super::super::Foundation::HANDLE) -> FindStreamHandle;
     }
-    let result__ = FindFirstStreamTransactedW(lpfilename.into(), ::core::mem::transmute(infolevel), ::core::mem::transmute(lpfindstreamdata), ::core::mem::transmute(dwflags), htransaction.into());
+    let result__ = FindFirstStreamTransactedW(lpfilename.into(), infolevel, ::core::mem::transmute(lpfindstreamdata), dwflags, htransaction.into());
     (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
@@ -6346,7 +6346,7 @@ where
     extern "system" {
         fn FindFirstStreamW(lpfilename: ::windows::core::PCWSTR, infolevel: STREAM_INFO_LEVELS, lpfindstreamdata: *mut ::core::ffi::c_void, dwflags: u32) -> FindStreamHandle;
     }
-    let result__ = FindFirstStreamW(lpfilename.into(), ::core::mem::transmute(infolevel), ::core::mem::transmute(lpfindstreamdata), ::core::mem::transmute(dwflags));
+    let result__ = FindFirstStreamW(lpfilename.into(), infolevel, ::core::mem::transmute(lpfindstreamdata), dwflags);
     (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
@@ -6694,7 +6694,7 @@ pub unsafe fn FreeReservedLog(pvmarshal: *mut ::core::ffi::c_void, creservedreco
     extern "system" {
         fn FreeReservedLog(pvmarshal: *mut ::core::ffi::c_void, creservedrecords: u32, pcbadjustment: *mut i64) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(FreeReservedLog(::core::mem::transmute(pvmarshal), ::core::mem::transmute(creservedrecords), ::core::mem::transmute(pcbadjustment)))
+    ::core::mem::transmute(FreeReservedLog(::core::mem::transmute(pvmarshal), creservedrecords, ::core::mem::transmute(pcbadjustment)))
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 #[repr(transparent)]
@@ -7036,7 +7036,7 @@ where
     extern "system" {
         fn GetEnlistmentRecoveryInformation(enlistmenthandle: super::super::Foundation::HANDLE, buffersize: u32, buffer: *mut ::core::ffi::c_void, bufferused: *mut u32) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(GetEnlistmentRecoveryInformation(enlistmenthandle.into(), ::core::mem::transmute(buffersize), ::core::mem::transmute(buffer), ::core::mem::transmute(bufferused)))
+    ::core::mem::transmute(GetEnlistmentRecoveryInformation(enlistmenthandle.into(), buffersize, ::core::mem::transmute(buffer), ::core::mem::transmute(bufferused)))
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 #[inline]
@@ -7085,7 +7085,7 @@ where
     extern "system" {
         fn GetFileAttributesExA(lpfilename: ::windows::core::PCSTR, finfolevelid: GET_FILEEX_INFO_LEVELS, lpfileinformation: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(GetFileAttributesExA(lpfilename.into(), ::core::mem::transmute(finfolevelid), ::core::mem::transmute(lpfileinformation)))
+    ::core::mem::transmute(GetFileAttributesExA(lpfilename.into(), finfolevelid, ::core::mem::transmute(lpfileinformation)))
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -7098,7 +7098,7 @@ where
     extern "system" {
         fn GetFileAttributesExFromAppW(lpfilename: ::windows::core::PCWSTR, finfolevelid: GET_FILEEX_INFO_LEVELS, lpfileinformation: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(GetFileAttributesExFromAppW(lpfilename.into(), ::core::mem::transmute(finfolevelid), ::core::mem::transmute(lpfileinformation)))
+    ::core::mem::transmute(GetFileAttributesExFromAppW(lpfilename.into(), finfolevelid, ::core::mem::transmute(lpfileinformation)))
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -7111,7 +7111,7 @@ where
     extern "system" {
         fn GetFileAttributesExW(lpfilename: ::windows::core::PCWSTR, finfolevelid: GET_FILEEX_INFO_LEVELS, lpfileinformation: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(GetFileAttributesExW(lpfilename.into(), ::core::mem::transmute(finfolevelid), ::core::mem::transmute(lpfileinformation)))
+    ::core::mem::transmute(GetFileAttributesExW(lpfilename.into(), finfolevelid, ::core::mem::transmute(lpfileinformation)))
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -7125,7 +7125,7 @@ where
     extern "system" {
         fn GetFileAttributesTransactedA(lpfilename: ::windows::core::PCSTR, finfolevelid: GET_FILEEX_INFO_LEVELS, lpfileinformation: *mut ::core::ffi::c_void, htransaction: super::super::Foundation::HANDLE) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(GetFileAttributesTransactedA(lpfilename.into(), ::core::mem::transmute(finfolevelid), ::core::mem::transmute(lpfileinformation), htransaction.into()))
+    ::core::mem::transmute(GetFileAttributesTransactedA(lpfilename.into(), finfolevelid, ::core::mem::transmute(lpfileinformation), htransaction.into()))
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -7139,7 +7139,7 @@ where
     extern "system" {
         fn GetFileAttributesTransactedW(lpfilename: ::windows::core::PCWSTR, finfolevelid: GET_FILEEX_INFO_LEVELS, lpfileinformation: *mut ::core::ffi::c_void, htransaction: super::super::Foundation::HANDLE) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(GetFileAttributesTransactedW(lpfilename.into(), ::core::mem::transmute(finfolevelid), ::core::mem::transmute(lpfileinformation), htransaction.into()))
+    ::core::mem::transmute(GetFileAttributesTransactedW(lpfilename.into(), finfolevelid, ::core::mem::transmute(lpfileinformation), htransaction.into()))
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 #[inline]
@@ -7190,7 +7190,7 @@ where
     extern "system" {
         fn GetFileInformationByHandleEx(hfile: super::super::Foundation::HANDLE, fileinformationclass: FILE_INFO_BY_HANDLE_CLASS, lpfileinformation: *mut ::core::ffi::c_void, dwbuffersize: u32) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(GetFileInformationByHandleEx(hfile.into(), ::core::mem::transmute(fileinformationclass), ::core::mem::transmute(lpfileinformation), ::core::mem::transmute(dwbuffersize)))
+    ::core::mem::transmute(GetFileInformationByHandleEx(hfile.into(), fileinformationclass, ::core::mem::transmute(lpfileinformation), dwbuffersize))
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -7255,7 +7255,7 @@ where
     extern "system" {
         fn GetFileVersionInfoA(lptstrfilename: ::windows::core::PCSTR, dwhandle: u32, dwlen: u32, lpdata: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(GetFileVersionInfoA(lptstrfilename.into(), ::core::mem::transmute(dwhandle), ::core::mem::transmute(dwlen), ::core::mem::transmute(lpdata)))
+    ::core::mem::transmute(GetFileVersionInfoA(lptstrfilename.into(), dwhandle, dwlen, ::core::mem::transmute(lpdata)))
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -7268,7 +7268,7 @@ where
     extern "system" {
         fn GetFileVersionInfoExA(dwflags: GET_FILE_VERSION_INFO_FLAGS, lpwstrfilename: ::windows::core::PCSTR, dwhandle: u32, dwlen: u32, lpdata: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(GetFileVersionInfoExA(::core::mem::transmute(dwflags), lpwstrfilename.into(), ::core::mem::transmute(dwhandle), ::core::mem::transmute(dwlen), ::core::mem::transmute(lpdata)))
+    ::core::mem::transmute(GetFileVersionInfoExA(dwflags, lpwstrfilename.into(), dwhandle, dwlen, ::core::mem::transmute(lpdata)))
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -7281,7 +7281,7 @@ where
     extern "system" {
         fn GetFileVersionInfoExW(dwflags: GET_FILE_VERSION_INFO_FLAGS, lpwstrfilename: ::windows::core::PCWSTR, dwhandle: u32, dwlen: u32, lpdata: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(GetFileVersionInfoExW(::core::mem::transmute(dwflags), lpwstrfilename.into(), ::core::mem::transmute(dwhandle), ::core::mem::transmute(dwlen), ::core::mem::transmute(lpdata)))
+    ::core::mem::transmute(GetFileVersionInfoExW(dwflags, lpwstrfilename.into(), dwhandle, dwlen, ::core::mem::transmute(lpdata)))
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 #[inline]
@@ -7305,7 +7305,7 @@ where
     extern "system" {
         fn GetFileVersionInfoSizeExA(dwflags: GET_FILE_VERSION_INFO_FLAGS, lpwstrfilename: ::windows::core::PCSTR, lpdwhandle: *mut u32) -> u32;
     }
-    ::core::mem::transmute(GetFileVersionInfoSizeExA(::core::mem::transmute(dwflags), lpwstrfilename.into(), ::core::mem::transmute(lpdwhandle)))
+    ::core::mem::transmute(GetFileVersionInfoSizeExA(dwflags, lpwstrfilename.into(), ::core::mem::transmute(lpdwhandle)))
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 #[inline]
@@ -7317,7 +7317,7 @@ where
     extern "system" {
         fn GetFileVersionInfoSizeExW(dwflags: GET_FILE_VERSION_INFO_FLAGS, lpwstrfilename: ::windows::core::PCWSTR, lpdwhandle: *mut u32) -> u32;
     }
-    ::core::mem::transmute(GetFileVersionInfoSizeExW(::core::mem::transmute(dwflags), lpwstrfilename.into(), ::core::mem::transmute(lpdwhandle)))
+    ::core::mem::transmute(GetFileVersionInfoSizeExW(dwflags, lpwstrfilename.into(), ::core::mem::transmute(lpdwhandle)))
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 #[inline]
@@ -7342,7 +7342,7 @@ where
     extern "system" {
         fn GetFileVersionInfoW(lptstrfilename: ::windows::core::PCWSTR, dwhandle: u32, dwlen: u32, lpdata: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(GetFileVersionInfoW(lptstrfilename.into(), ::core::mem::transmute(dwhandle), ::core::mem::transmute(dwlen), ::core::mem::transmute(lpdata)))
+    ::core::mem::transmute(GetFileVersionInfoW(lptstrfilename.into(), dwhandle, dwlen, ::core::mem::transmute(lpdata)))
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -7355,7 +7355,7 @@ where
     extern "system" {
         fn GetFinalPathNameByHandleA(hfile: super::super::Foundation::HANDLE, lpszfilepath: ::windows::core::PSTR, cchfilepath: u32, dwflags: FILE_NAME) -> u32;
     }
-    ::core::mem::transmute(GetFinalPathNameByHandleA(hfile.into(), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(lpszfilepath)), lpszfilepath.len() as _, ::core::mem::transmute(dwflags)))
+    ::core::mem::transmute(GetFinalPathNameByHandleA(hfile.into(), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(lpszfilepath)), lpszfilepath.len() as _, dwflags))
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -7368,7 +7368,7 @@ where
     extern "system" {
         fn GetFinalPathNameByHandleW(hfile: super::super::Foundation::HANDLE, lpszfilepath: ::windows::core::PWSTR, cchfilepath: u32, dwflags: FILE_NAME) -> u32;
     }
-    ::core::mem::transmute(GetFinalPathNameByHandleW(hfile.into(), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(lpszfilepath)), lpszfilepath.len() as _, ::core::mem::transmute(dwflags)))
+    ::core::mem::transmute(GetFinalPathNameByHandleW(hfile.into(), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(lpszfilepath)), lpszfilepath.len() as _, dwflags))
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 #[inline]
@@ -7444,7 +7444,7 @@ where
     extern "system" {
         fn GetLogContainerName(hlog: super::super::Foundation::HANDLE, cidlogicalcontainer: u32, pwstrcontainername: ::windows::core::PCWSTR, clencontainername: u32, pcactuallencontainername: *mut u32) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(GetLogContainerName(hlog.into(), ::core::mem::transmute(cidlogicalcontainer), pwstrcontainername.into(), ::core::mem::transmute(clencontainername), ::core::mem::transmute(pcactuallencontainername)))
+    ::core::mem::transmute(GetLogContainerName(hlog.into(), cidlogicalcontainer, pwstrcontainername.into(), clencontainername, ::core::mem::transmute(pcactuallencontainername)))
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -7470,7 +7470,7 @@ where
     extern "system" {
         fn GetLogIoStatistics(hlog: super::super::Foundation::HANDLE, pvstatsbuffer: *mut ::core::ffi::c_void, cbstatsbuffer: u32, estatsclass: CLFS_IOSTATS_CLASS, pcbstatswritten: *mut u32) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(GetLogIoStatistics(hlog.into(), ::core::mem::transmute(pvstatsbuffer), ::core::mem::transmute(cbstatsbuffer), ::core::mem::transmute(estatsclass), ::core::mem::transmute(pcbstatswritten)))
+    ::core::mem::transmute(GetLogIoStatistics(hlog.into(), ::core::mem::transmute(pvstatsbuffer), cbstatsbuffer, estatsclass, ::core::mem::transmute(pcbstatswritten)))
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -7569,7 +7569,7 @@ pub unsafe fn GetNextLogArchiveExtent(pvarchivecontext: *mut ::core::ffi::c_void
     extern "system" {
         fn GetNextLogArchiveExtent(pvarchivecontext: *mut ::core::ffi::c_void, rgadextent: *mut CLS_ARCHIVE_DESCRIPTOR, cdescriptors: u32, pcdescriptorsreturned: *mut u32) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(GetNextLogArchiveExtent(::core::mem::transmute(pvarchivecontext), ::core::mem::transmute(rgadextent), ::core::mem::transmute(cdescriptors), ::core::mem::transmute(pcdescriptorsreturned)))
+    ::core::mem::transmute(GetNextLogArchiveExtent(::core::mem::transmute(pvarchivecontext), ::core::mem::transmute(rgadextent), cdescriptors, ::core::mem::transmute(pcdescriptorsreturned)))
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -7582,7 +7582,7 @@ where
     extern "system" {
         fn GetNotificationResourceManager(resourcemanagerhandle: super::super::Foundation::HANDLE, transactionnotification: *mut TRANSACTION_NOTIFICATION, notificationlength: u32, dwmilliseconds: u32, returnlength: *mut u32) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(GetNotificationResourceManager(resourcemanagerhandle.into(), ::core::mem::transmute(transactionnotification), ::core::mem::transmute(notificationlength), ::core::mem::transmute(dwmilliseconds), ::core::mem::transmute(returnlength)))
+    ::core::mem::transmute(GetNotificationResourceManager(resourcemanagerhandle.into(), ::core::mem::transmute(transactionnotification), notificationlength, dwmilliseconds, ::core::mem::transmute(returnlength)))
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_IO\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
@@ -7595,7 +7595,7 @@ where
     extern "system" {
         fn GetNotificationResourceManagerAsync(resourcemanagerhandle: super::super::Foundation::HANDLE, transactionnotification: *mut TRANSACTION_NOTIFICATION, transactionnotificationlength: u32, returnlength: *mut u32, lpoverlapped: *mut super::super::System::IO::OVERLAPPED) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(GetNotificationResourceManagerAsync(resourcemanagerhandle.into(), ::core::mem::transmute(transactionnotification), ::core::mem::transmute(transactionnotificationlength), ::core::mem::transmute(returnlength), ::core::mem::transmute(lpoverlapped)))
+    ::core::mem::transmute(GetNotificationResourceManagerAsync(resourcemanagerhandle.into(), ::core::mem::transmute(transactionnotification), transactionnotificationlength, ::core::mem::transmute(returnlength), ::core::mem::transmute(lpoverlapped)))
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 #[inline]
@@ -7632,7 +7632,7 @@ where
     extern "system" {
         fn GetTapeParameters(hdevice: super::super::Foundation::HANDLE, dwoperation: GET_TAPE_DRIVE_PARAMETERS_OPERATION, lpdwsize: *mut u32, lptapeinformation: *mut ::core::ffi::c_void) -> u32;
     }
-    ::core::mem::transmute(GetTapeParameters(hdevice.into(), ::core::mem::transmute(dwoperation), ::core::mem::transmute(lpdwsize), ::core::mem::transmute(lptapeinformation)))
+    ::core::mem::transmute(GetTapeParameters(hdevice.into(), dwoperation, ::core::mem::transmute(lpdwsize), ::core::mem::transmute(lptapeinformation)))
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -7645,7 +7645,7 @@ where
     extern "system" {
         fn GetTapePosition(hdevice: super::super::Foundation::HANDLE, dwpositiontype: TAPE_POSITION_TYPE, lpdwpartition: *mut u32, lpdwoffsetlow: *mut u32, lpdwoffsethigh: *mut u32) -> u32;
     }
-    ::core::mem::transmute(GetTapePosition(hdevice.into(), ::core::mem::transmute(dwpositiontype), ::core::mem::transmute(lpdwpartition), ::core::mem::transmute(lpdwoffsetlow), ::core::mem::transmute(lpdwoffsethigh)))
+    ::core::mem::transmute(GetTapePosition(hdevice.into(), dwpositiontype, ::core::mem::transmute(lpdwpartition), ::core::mem::transmute(lpdwoffsetlow), ::core::mem::transmute(lpdwoffsethigh)))
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -7671,7 +7671,7 @@ where
     extern "system" {
         fn GetTempFileNameA(lppathname: ::windows::core::PCSTR, lpprefixstring: ::windows::core::PCSTR, uunique: u32, lptempfilename: ::windows::core::PSTR) -> u32;
     }
-    ::core::mem::transmute(GetTempFileNameA(lppathname.into(), lpprefixstring.into(), ::core::mem::transmute(uunique), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(lptempfilename))))
+    ::core::mem::transmute(GetTempFileNameA(lppathname.into(), lpprefixstring.into(), uunique, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(lptempfilename))))
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 #[inline]
@@ -7684,7 +7684,7 @@ where
     extern "system" {
         fn GetTempFileNameW(lppathname: ::windows::core::PCWSTR, lpprefixstring: ::windows::core::PCWSTR, uunique: u32, lptempfilename: ::windows::core::PWSTR) -> u32;
     }
-    ::core::mem::transmute(GetTempFileNameW(lppathname.into(), lpprefixstring.into(), ::core::mem::transmute(uunique), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(lptempfilename))))
+    ::core::mem::transmute(GetTempFileNameW(lppathname.into(), lpprefixstring.into(), uunique, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(lptempfilename))))
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 #[inline]
@@ -7950,7 +7950,7 @@ impl IDiskQuotaControl {
     }
     #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
     pub unsafe fn SetQuotaState(&self, dwstate: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetQuotaState)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(dwstate)).ok()
+        (::windows::core::Interface::vtable(self).SetQuotaState)(::windows::core::Interface::as_raw(self), dwstate).ok()
     }
     #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
     pub unsafe fn GetQuotaState(&self, pdwstate: *mut u32) -> ::windows::core::Result<()> {
@@ -7958,7 +7958,7 @@ impl IDiskQuotaControl {
     }
     #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
     pub unsafe fn SetQuotaLogFlags(&self, dwflags: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetQuotaLogFlags)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(dwflags)).ok()
+        (::windows::core::Interface::vtable(self).SetQuotaLogFlags)(::windows::core::Interface::as_raw(self), dwflags).ok()
     }
     #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
     pub unsafe fn GetQuotaLogFlags(&self, pdwflags: *mut u32) -> ::windows::core::Result<()> {
@@ -7966,7 +7966,7 @@ impl IDiskQuotaControl {
     }
     #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
     pub unsafe fn SetDefaultQuotaThreshold(&self, llthreshold: i64) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetDefaultQuotaThreshold)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(llthreshold)).ok()
+        (::windows::core::Interface::vtable(self).SetDefaultQuotaThreshold)(::windows::core::Interface::as_raw(self), llthreshold).ok()
     }
     #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
     pub unsafe fn GetDefaultQuotaThreshold(&self, pllthreshold: *mut i64) -> ::windows::core::Result<()> {
@@ -7977,11 +7977,11 @@ impl IDiskQuotaControl {
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
-        (::windows::core::Interface::vtable(self).GetDefaultQuotaThresholdText)(::windows::core::Interface::as_raw(self), psztext.into(), ::core::mem::transmute(cchtext)).ok()
+        (::windows::core::Interface::vtable(self).GetDefaultQuotaThresholdText)(::windows::core::Interface::as_raw(self), psztext.into(), cchtext).ok()
     }
     #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
     pub unsafe fn SetDefaultQuotaLimit(&self, lllimit: i64) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetDefaultQuotaLimit)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lllimit)).ok()
+        (::windows::core::Interface::vtable(self).SetDefaultQuotaLimit)(::windows::core::Interface::as_raw(self), lllimit).ok()
     }
     #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
     pub unsafe fn GetDefaultQuotaLimit(&self, plllimit: *mut i64) -> ::windows::core::Result<()> {
@@ -7992,7 +7992,7 @@ impl IDiskQuotaControl {
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
-        (::windows::core::Interface::vtable(self).GetDefaultQuotaLimitText)(::windows::core::Interface::as_raw(self), psztext.into(), ::core::mem::transmute(cchtext)).ok()
+        (::windows::core::Interface::vtable(self).GetDefaultQuotaLimitText)(::windows::core::Interface::as_raw(self), psztext.into(), cchtext).ok()
     }
     #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -8001,7 +8001,7 @@ impl IDiskQuotaControl {
         P0: ::std::convert::Into<super::super::Foundation::PSID>,
     {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).AddUserSid)(::windows::core::Interface::as_raw(self), pusersid.into(), ::core::mem::transmute(fnameresolution), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IDiskQuotaUser>(result__)
+        (::windows::core::Interface::vtable(self).AddUserSid)(::windows::core::Interface::as_raw(self), pusersid.into(), fnameresolution, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IDiskQuotaUser>(result__)
     }
     #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
     pub unsafe fn AddUserName<'a, P0>(&self, pszlogonname: P0, fnameresolution: DISKQUOTA_USERNAME_RESOLVE) -> ::windows::core::Result<IDiskQuotaUser>
@@ -8009,7 +8009,7 @@ impl IDiskQuotaControl {
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).AddUserName)(::windows::core::Interface::as_raw(self), pszlogonname.into(), ::core::mem::transmute(fnameresolution), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IDiskQuotaUser>(result__)
+        (::windows::core::Interface::vtable(self).AddUserName)(::windows::core::Interface::as_raw(self), pszlogonname.into(), fnameresolution, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IDiskQuotaUser>(result__)
     }
     #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
     pub unsafe fn DeleteUser<'a, P0>(&self, puser: P0) -> ::windows::core::Result<()>
@@ -8025,7 +8025,7 @@ impl IDiskQuotaControl {
         P0: ::std::convert::Into<super::super::Foundation::PSID>,
     {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).FindUserSid)(::windows::core::Interface::as_raw(self), pusersid.into(), ::core::mem::transmute(fnameresolution), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IDiskQuotaUser>(result__)
+        (::windows::core::Interface::vtable(self).FindUserSid)(::windows::core::Interface::as_raw(self), pusersid.into(), fnameresolution, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IDiskQuotaUser>(result__)
     }
     #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
     pub unsafe fn FindUserName<'a, P0>(&self, pszlogonname: P0) -> ::windows::core::Result<IDiskQuotaUser>
@@ -8038,7 +8038,7 @@ impl IDiskQuotaControl {
     #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CreateEnumUsers(&self, rgpusersids: *mut super::super::Foundation::PSID, cpsids: u32, fnameresolution: DISKQUOTA_USERNAME_RESOLVE, ppenum: *mut ::core::option::Option<IEnumDiskQuotaUsers>) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).CreateEnumUsers)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(rgpusersids), ::core::mem::transmute(cpsids), ::core::mem::transmute(fnameresolution), ::core::mem::transmute(ppenum)).ok()
+        (::windows::core::Interface::vtable(self).CreateEnumUsers)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(rgpusersids), cpsids, fnameresolution, ::core::mem::transmute(ppenum)).ok()
     }
     #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
     pub unsafe fn CreateUserBatch(&self) -> ::windows::core::Result<IDiskQuotaUserBatch> {
@@ -8229,7 +8229,7 @@ impl IDiskQuotaUser {
         P1: ::std::convert::Into<::windows::core::PCWSTR>,
         P2: ::std::convert::Into<::windows::core::PCWSTR>,
     {
-        (::windows::core::Interface::vtable(self).GetName)(::windows::core::Interface::as_raw(self), pszaccountcontainer.into(), ::core::mem::transmute(cchaccountcontainer), pszlogonname.into(), ::core::mem::transmute(cchlogonname), pszdisplayname.into(), ::core::mem::transmute(cchdisplayname)).ok()
+        (::windows::core::Interface::vtable(self).GetName)(::windows::core::Interface::as_raw(self), pszaccountcontainer.into(), cchaccountcontainer, pszlogonname.into(), cchlogonname, pszdisplayname.into(), cchdisplayname).ok()
     }
     #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
     pub unsafe fn GetSidLength(&self, pdwlength: *mut u32) -> ::windows::core::Result<()> {
@@ -8237,7 +8237,7 @@ impl IDiskQuotaUser {
     }
     #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
     pub unsafe fn GetSid(&self, pbsidbuffer: *mut u8, cbsidbuffer: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetSid)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pbsidbuffer), ::core::mem::transmute(cbsidbuffer)).ok()
+        (::windows::core::Interface::vtable(self).GetSid)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pbsidbuffer), cbsidbuffer).ok()
     }
     #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
     pub unsafe fn GetQuotaThreshold(&self, pllthreshold: *mut i64) -> ::windows::core::Result<()> {
@@ -8248,7 +8248,7 @@ impl IDiskQuotaUser {
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
-        (::windows::core::Interface::vtable(self).GetQuotaThresholdText)(::windows::core::Interface::as_raw(self), psztext.into(), ::core::mem::transmute(cchtext)).ok()
+        (::windows::core::Interface::vtable(self).GetQuotaThresholdText)(::windows::core::Interface::as_raw(self), psztext.into(), cchtext).ok()
     }
     #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
     pub unsafe fn GetQuotaLimit(&self, plllimit: *mut i64) -> ::windows::core::Result<()> {
@@ -8259,7 +8259,7 @@ impl IDiskQuotaUser {
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
-        (::windows::core::Interface::vtable(self).GetQuotaLimitText)(::windows::core::Interface::as_raw(self), psztext.into(), ::core::mem::transmute(cchtext)).ok()
+        (::windows::core::Interface::vtable(self).GetQuotaLimitText)(::windows::core::Interface::as_raw(self), psztext.into(), cchtext).ok()
     }
     #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
     pub unsafe fn GetQuotaUsed(&self, pllused: *mut i64) -> ::windows::core::Result<()> {
@@ -8270,11 +8270,11 @@ impl IDiskQuotaUser {
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
-        (::windows::core::Interface::vtable(self).GetQuotaUsedText)(::windows::core::Interface::as_raw(self), psztext.into(), ::core::mem::transmute(cchtext)).ok()
+        (::windows::core::Interface::vtable(self).GetQuotaUsedText)(::windows::core::Interface::as_raw(self), psztext.into(), cchtext).ok()
     }
     #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
     pub unsafe fn GetQuotaInformation(&self, pbquotainfo: *mut ::core::ffi::c_void, cbquotainfo: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetQuotaInformation)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pbquotainfo), ::core::mem::transmute(cbquotainfo)).ok()
+        (::windows::core::Interface::vtable(self).GetQuotaInformation)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pbquotainfo), cbquotainfo).ok()
     }
     #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -8282,7 +8282,7 @@ impl IDiskQuotaUser {
     where
         P0: ::std::convert::Into<super::super::Foundation::BOOL>,
     {
-        (::windows::core::Interface::vtable(self).SetQuotaThreshold)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(llthreshold), fwritethrough.into()).ok()
+        (::windows::core::Interface::vtable(self).SetQuotaThreshold)(::windows::core::Interface::as_raw(self), llthreshold, fwritethrough.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -8290,7 +8290,7 @@ impl IDiskQuotaUser {
     where
         P0: ::std::convert::Into<super::super::Foundation::BOOL>,
     {
-        (::windows::core::Interface::vtable(self).SetQuotaLimit)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lllimit), fwritethrough.into()).ok()
+        (::windows::core::Interface::vtable(self).SetQuotaLimit)(::windows::core::Interface::as_raw(self), lllimit, fwritethrough.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
     pub unsafe fn Invalidate(&self) -> ::windows::core::Result<()> {
@@ -8439,11 +8439,11 @@ pub struct IEnumDiskQuotaUsers(::windows::core::IUnknown);
 impl IEnumDiskQuotaUsers {
     #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
     pub unsafe fn Next(&self, cusers: u32, rgusers: *mut ::core::option::Option<IDiskQuotaUser>, pcusersfetched: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Next)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(cusers), ::core::mem::transmute(rgusers), ::core::mem::transmute(pcusersfetched)).ok()
+        (::windows::core::Interface::vtable(self).Next)(::windows::core::Interface::as_raw(self), cusers, ::core::mem::transmute(rgusers), ::core::mem::transmute(pcusersfetched)).ok()
     }
     #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
     pub unsafe fn Skip(&self, cusers: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Skip)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(cusers)).ok()
+        (::windows::core::Interface::vtable(self).Skip)(::windows::core::Interface::as_raw(self), cusers).ok()
     }
     #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
     pub unsafe fn Reset(&self) -> ::windows::core::Result<()> {
@@ -9082,7 +9082,7 @@ pub unsafe fn IsIoRingOpSupported(ioring: *const HIORING__, op: IORING_OP_CODE) 
     extern "system" {
         fn IsIoRingOpSupported(ioring: *const HIORING__, op: IORING_OP_CODE) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(IsIoRingOpSupported(::core::mem::transmute(ioring), ::core::mem::transmute(op)))
+    ::core::mem::transmute(IsIoRingOpSupported(::core::mem::transmute(ioring), op))
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
@@ -9327,7 +9327,7 @@ pub unsafe fn LZClose(hfile: i32) {
     extern "system" {
         fn LZClose(hfile: i32);
     }
-    LZClose(::core::mem::transmute(hfile))
+    LZClose(hfile)
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 #[inline]
@@ -9336,7 +9336,7 @@ pub unsafe fn LZCopy(hfsource: i32, hfdest: i32) -> i32 {
     extern "system" {
         fn LZCopy(hfsource: i32, hfdest: i32) -> i32;
     }
-    ::core::mem::transmute(LZCopy(::core::mem::transmute(hfsource), ::core::mem::transmute(hfdest)))
+    ::core::mem::transmute(LZCopy(hfsource, hfdest))
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 #[inline]
@@ -9370,7 +9370,7 @@ pub unsafe fn LZInit(hfsource: i32) -> i32 {
     extern "system" {
         fn LZInit(hfsource: i32) -> i32;
     }
-    ::core::mem::transmute(LZInit(::core::mem::transmute(hfsource)))
+    ::core::mem::transmute(LZInit(hfsource))
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 #[repr(transparent)]
@@ -9466,7 +9466,7 @@ where
     extern "system" {
         fn LZOpenFileA(lpfilename: ::windows::core::PCSTR, lpreopenbuf: *mut OFSTRUCT, wstyle: LZOPENFILE_STYLE) -> i32;
     }
-    ::core::mem::transmute(LZOpenFileA(lpfilename.into(), ::core::mem::transmute(lpreopenbuf), ::core::mem::transmute(wstyle)))
+    ::core::mem::transmute(LZOpenFileA(lpfilename.into(), ::core::mem::transmute(lpreopenbuf), wstyle))
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -9479,7 +9479,7 @@ where
     extern "system" {
         fn LZOpenFileW(lpfilename: ::windows::core::PCWSTR, lpreopenbuf: *mut OFSTRUCT, wstyle: LZOPENFILE_STYLE) -> i32;
     }
-    ::core::mem::transmute(LZOpenFileW(lpfilename.into(), ::core::mem::transmute(lpreopenbuf), ::core::mem::transmute(wstyle)))
+    ::core::mem::transmute(LZOpenFileW(lpfilename.into(), ::core::mem::transmute(lpreopenbuf), wstyle))
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 #[inline]
@@ -9488,7 +9488,7 @@ pub unsafe fn LZRead(hfile: i32, lpbuffer: ::windows::core::PSTR, cbread: i32) -
     extern "system" {
         fn LZRead(hfile: i32, lpbuffer: ::windows::core::PSTR, cbread: i32) -> i32;
     }
-    ::core::mem::transmute(LZRead(::core::mem::transmute(hfile), ::core::mem::transmute(lpbuffer), ::core::mem::transmute(cbread)))
+    ::core::mem::transmute(LZRead(hfile, ::core::mem::transmute(lpbuffer), cbread))
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 #[inline]
@@ -9497,7 +9497,7 @@ pub unsafe fn LZSeek(hfile: i32, loffset: i32, iorigin: i32) -> i32 {
     extern "system" {
         fn LZSeek(hfile: i32, loffset: i32, iorigin: i32) -> i32;
     }
-    ::core::mem::transmute(LZSeek(::core::mem::transmute(hfile), ::core::mem::transmute(loffset), ::core::mem::transmute(iorigin)))
+    ::core::mem::transmute(LZSeek(hfile, loffset, iorigin))
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 #[inline]
@@ -9529,7 +9529,7 @@ where
     extern "system" {
         fn LockFile(hfile: super::super::Foundation::HANDLE, dwfileoffsetlow: u32, dwfileoffsethigh: u32, nnumberofbytestolocklow: u32, nnumberofbytestolockhigh: u32) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(LockFile(hfile.into(), ::core::mem::transmute(dwfileoffsetlow), ::core::mem::transmute(dwfileoffsethigh), ::core::mem::transmute(nnumberofbytestolocklow), ::core::mem::transmute(nnumberofbytestolockhigh)))
+    ::core::mem::transmute(LockFile(hfile.into(), dwfileoffsetlow, dwfileoffsethigh, nnumberofbytestolocklow, nnumberofbytestolockhigh))
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_IO\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
@@ -9542,7 +9542,7 @@ where
     extern "system" {
         fn LockFileEx(hfile: super::super::Foundation::HANDLE, dwflags: LOCK_FILE_FLAGS, dwreserved: u32, nnumberofbytestolocklow: u32, nnumberofbytestolockhigh: u32, lpoverlapped: *mut super::super::System::IO::OVERLAPPED) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(LockFileEx(hfile.into(), ::core::mem::transmute(dwflags), ::core::mem::transmute(dwreserved), ::core::mem::transmute(nnumberofbytestolocklow), ::core::mem::transmute(nnumberofbytestolockhigh), ::core::mem::transmute(lpoverlapped)))
+    ::core::mem::transmute(LockFileEx(hfile.into(), dwflags, dwreserved, nnumberofbytestolocklow, nnumberofbytestolockhigh, ::core::mem::transmute(lpoverlapped)))
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -9555,7 +9555,7 @@ where
     extern "system" {
         fn LogTailAdvanceFailure(hlog: super::super::Foundation::HANDLE, dwreason: u32) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(LogTailAdvanceFailure(hlog.into(), ::core::mem::transmute(dwreason)))
+    ::core::mem::transmute(LogTailAdvanceFailure(hlog.into(), dwreason))
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 #[inline]
@@ -9582,7 +9582,7 @@ pub unsafe fn LsnCreate(cidcontainer: u32, offblock: u32, crecord: u32) -> CLS_L
     extern "system" {
         fn LsnCreate(cidcontainer: u32, offblock: u32, crecord: u32) -> CLS_LSN;
     }
-    ::core::mem::transmute(LsnCreate(::core::mem::transmute(cidcontainer), ::core::mem::transmute(offblock), ::core::mem::transmute(crecord)))
+    ::core::mem::transmute(LsnCreate(cidcontainer, offblock, crecord))
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -9784,7 +9784,7 @@ where
     extern "system" {
         fn MoveFileExA(lpexistingfilename: ::windows::core::PCSTR, lpnewfilename: ::windows::core::PCSTR, dwflags: MOVE_FILE_FLAGS) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(MoveFileExA(lpexistingfilename.into(), lpnewfilename.into(), ::core::mem::transmute(dwflags)))
+    ::core::mem::transmute(MoveFileExA(lpexistingfilename.into(), lpnewfilename.into(), dwflags))
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -9798,7 +9798,7 @@ where
     extern "system" {
         fn MoveFileExW(lpexistingfilename: ::windows::core::PCWSTR, lpnewfilename: ::windows::core::PCWSTR, dwflags: MOVE_FILE_FLAGS) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(MoveFileExW(lpexistingfilename.into(), lpnewfilename.into(), ::core::mem::transmute(dwflags)))
+    ::core::mem::transmute(MoveFileExW(lpexistingfilename.into(), lpnewfilename.into(), dwflags))
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -9827,7 +9827,7 @@ where
     extern "system" {
         fn MoveFileTransactedA(lpexistingfilename: ::windows::core::PCSTR, lpnewfilename: ::windows::core::PCSTR, lpprogressroutine: *mut ::core::ffi::c_void, lpdata: *const ::core::ffi::c_void, dwflags: MOVE_FILE_FLAGS, htransaction: super::super::Foundation::HANDLE) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(MoveFileTransactedA(lpexistingfilename.into(), lpnewfilename.into(), ::core::mem::transmute(lpprogressroutine), ::core::mem::transmute(lpdata), ::core::mem::transmute(dwflags), htransaction.into()))
+    ::core::mem::transmute(MoveFileTransactedA(lpexistingfilename.into(), lpnewfilename.into(), ::core::mem::transmute(lpprogressroutine), ::core::mem::transmute(lpdata), dwflags, htransaction.into()))
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -9842,7 +9842,7 @@ where
     extern "system" {
         fn MoveFileTransactedW(lpexistingfilename: ::windows::core::PCWSTR, lpnewfilename: ::windows::core::PCWSTR, lpprogressroutine: *mut ::core::ffi::c_void, lpdata: *const ::core::ffi::c_void, dwflags: MOVE_FILE_FLAGS, htransaction: super::super::Foundation::HANDLE) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(MoveFileTransactedW(lpexistingfilename.into(), lpnewfilename.into(), ::core::mem::transmute(lpprogressroutine), ::core::mem::transmute(lpdata), ::core::mem::transmute(dwflags), htransaction.into()))
+    ::core::mem::transmute(MoveFileTransactedW(lpexistingfilename.into(), lpnewfilename.into(), ::core::mem::transmute(lpprogressroutine), ::core::mem::transmute(lpdata), dwflags, htransaction.into()))
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -9870,7 +9870,7 @@ where
     extern "system" {
         fn MoveFileWithProgressA(lpexistingfilename: ::windows::core::PCSTR, lpnewfilename: ::windows::core::PCSTR, lpprogressroutine: *mut ::core::ffi::c_void, lpdata: *const ::core::ffi::c_void, dwflags: MOVE_FILE_FLAGS) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(MoveFileWithProgressA(lpexistingfilename.into(), lpnewfilename.into(), ::core::mem::transmute(lpprogressroutine), ::core::mem::transmute(lpdata), ::core::mem::transmute(dwflags)))
+    ::core::mem::transmute(MoveFileWithProgressA(lpexistingfilename.into(), lpnewfilename.into(), ::core::mem::transmute(lpprogressroutine), ::core::mem::transmute(lpdata), dwflags))
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -9884,7 +9884,7 @@ where
     extern "system" {
         fn MoveFileWithProgressW(lpexistingfilename: ::windows::core::PCWSTR, lpnewfilename: ::windows::core::PCWSTR, lpprogressroutine: *mut ::core::ffi::c_void, lpdata: *const ::core::ffi::c_void, dwflags: MOVE_FILE_FLAGS) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(MoveFileWithProgressW(lpexistingfilename.into(), lpnewfilename.into(), ::core::mem::transmute(lpprogressroutine), ::core::mem::transmute(lpdata), ::core::mem::transmute(dwflags)))
+    ::core::mem::transmute(MoveFileWithProgressW(lpexistingfilename.into(), lpnewfilename.into(), ::core::mem::transmute(lpprogressroutine), ::core::mem::transmute(lpdata), dwflags))
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
@@ -12230,7 +12230,7 @@ where
     extern "system" {
         fn NetConnectionEnum(servername: ::windows::core::PCWSTR, qualifier: ::windows::core::PCWSTR, level: u32, bufptr: *mut *mut u8, prefmaxlen: u32, entriesread: *mut u32, totalentries: *mut u32, resume_handle: *mut u32) -> u32;
     }
-    ::core::mem::transmute(NetConnectionEnum(servername.into(), qualifier.into(), ::core::mem::transmute(level), ::core::mem::transmute(bufptr), ::core::mem::transmute(prefmaxlen), ::core::mem::transmute(entriesread), ::core::mem::transmute(totalentries), ::core::mem::transmute(resume_handle)))
+    ::core::mem::transmute(NetConnectionEnum(servername.into(), qualifier.into(), level, ::core::mem::transmute(bufptr), prefmaxlen, ::core::mem::transmute(entriesread), ::core::mem::transmute(totalentries), ::core::mem::transmute(resume_handle)))
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 #[inline]
@@ -12242,7 +12242,7 @@ where
     extern "system" {
         fn NetFileClose(servername: ::windows::core::PCWSTR, fileid: u32) -> u32;
     }
-    ::core::mem::transmute(NetFileClose(servername.into(), ::core::mem::transmute(fileid)))
+    ::core::mem::transmute(NetFileClose(servername.into(), fileid))
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 #[inline]
@@ -12256,7 +12256,7 @@ where
     extern "system" {
         fn NetFileEnum(servername: ::windows::core::PCWSTR, basepath: ::windows::core::PCWSTR, username: ::windows::core::PCWSTR, level: u32, bufptr: *mut *mut u8, prefmaxlen: u32, entriesread: *mut u32, totalentries: *mut u32, resume_handle: *mut usize) -> u32;
     }
-    ::core::mem::transmute(NetFileEnum(servername.into(), basepath.into(), username.into(), ::core::mem::transmute(level), ::core::mem::transmute(bufptr), ::core::mem::transmute(prefmaxlen), ::core::mem::transmute(entriesread), ::core::mem::transmute(totalentries), ::core::mem::transmute(resume_handle)))
+    ::core::mem::transmute(NetFileEnum(servername.into(), basepath.into(), username.into(), level, ::core::mem::transmute(bufptr), prefmaxlen, ::core::mem::transmute(entriesread), ::core::mem::transmute(totalentries), ::core::mem::transmute(resume_handle)))
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 #[inline]
@@ -12268,7 +12268,7 @@ where
     extern "system" {
         fn NetFileGetInfo(servername: ::windows::core::PCWSTR, fileid: u32, level: u32, bufptr: *mut *mut u8) -> u32;
     }
-    ::core::mem::transmute(NetFileGetInfo(servername.into(), ::core::mem::transmute(fileid), ::core::mem::transmute(level), ::core::mem::transmute(bufptr)))
+    ::core::mem::transmute(NetFileGetInfo(servername.into(), fileid, level, ::core::mem::transmute(bufptr)))
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 #[inline]
@@ -12280,7 +12280,7 @@ where
     extern "system" {
         fn NetServerAliasAdd(servername: ::windows::core::PCWSTR, level: u32, buf: *const u8) -> u32;
     }
-    ::core::mem::transmute(NetServerAliasAdd(servername.into(), ::core::mem::transmute(level), ::core::mem::transmute(buf)))
+    ::core::mem::transmute(NetServerAliasAdd(servername.into(), level, ::core::mem::transmute(buf)))
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 #[inline]
@@ -12292,7 +12292,7 @@ where
     extern "system" {
         fn NetServerAliasDel(servername: ::windows::core::PCWSTR, level: u32, buf: *const u8) -> u32;
     }
-    ::core::mem::transmute(NetServerAliasDel(servername.into(), ::core::mem::transmute(level), ::core::mem::transmute(buf)))
+    ::core::mem::transmute(NetServerAliasDel(servername.into(), level, ::core::mem::transmute(buf)))
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 #[inline]
@@ -12304,7 +12304,7 @@ where
     extern "system" {
         fn NetServerAliasEnum(servername: ::windows::core::PCWSTR, level: u32, bufptr: *mut *mut u8, prefmaxlen: u32, entriesread: *mut u32, totalentries: *mut u32, resumehandle: *mut u32) -> u32;
     }
-    ::core::mem::transmute(NetServerAliasEnum(servername.into(), ::core::mem::transmute(level), ::core::mem::transmute(bufptr), ::core::mem::transmute(prefmaxlen), ::core::mem::transmute(entriesread), ::core::mem::transmute(totalentries), ::core::mem::transmute(resumehandle)))
+    ::core::mem::transmute(NetServerAliasEnum(servername.into(), level, ::core::mem::transmute(bufptr), prefmaxlen, ::core::mem::transmute(entriesread), ::core::mem::transmute(totalentries), ::core::mem::transmute(resumehandle)))
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 #[inline]
@@ -12332,7 +12332,7 @@ where
     extern "system" {
         fn NetSessionEnum(servername: ::windows::core::PCWSTR, uncclientname: ::windows::core::PCWSTR, username: ::windows::core::PCWSTR, level: u32, bufptr: *mut *mut u8, prefmaxlen: u32, entriesread: *mut u32, totalentries: *mut u32, resume_handle: *mut u32) -> u32;
     }
-    ::core::mem::transmute(NetSessionEnum(servername.into(), uncclientname.into(), username.into(), ::core::mem::transmute(level), ::core::mem::transmute(bufptr), ::core::mem::transmute(prefmaxlen), ::core::mem::transmute(entriesread), ::core::mem::transmute(totalentries), ::core::mem::transmute(resume_handle)))
+    ::core::mem::transmute(NetSessionEnum(servername.into(), uncclientname.into(), username.into(), level, ::core::mem::transmute(bufptr), prefmaxlen, ::core::mem::transmute(entriesread), ::core::mem::transmute(totalentries), ::core::mem::transmute(resume_handle)))
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 #[inline]
@@ -12346,7 +12346,7 @@ where
     extern "system" {
         fn NetSessionGetInfo(servername: ::windows::core::PCWSTR, uncclientname: ::windows::core::PCWSTR, username: ::windows::core::PCWSTR, level: u32, bufptr: *mut *mut u8) -> u32;
     }
-    ::core::mem::transmute(NetSessionGetInfo(servername.into(), uncclientname.into(), username.into(), ::core::mem::transmute(level), ::core::mem::transmute(bufptr)))
+    ::core::mem::transmute(NetSessionGetInfo(servername.into(), uncclientname.into(), username.into(), level, ::core::mem::transmute(bufptr)))
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 #[inline]
@@ -12358,7 +12358,7 @@ where
     extern "system" {
         fn NetShareAdd(servername: ::windows::core::PCWSTR, level: u32, buf: *const u8, parm_err: *mut u32) -> u32;
     }
-    ::core::mem::transmute(NetShareAdd(servername.into(), ::core::mem::transmute(level), ::core::mem::transmute(buf), ::core::mem::transmute(parm_err)))
+    ::core::mem::transmute(NetShareAdd(servername.into(), level, ::core::mem::transmute(buf), ::core::mem::transmute(parm_err)))
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 #[inline]
@@ -12384,7 +12384,7 @@ where
     extern "system" {
         fn NetShareDel(servername: ::windows::core::PCWSTR, netname: ::windows::core::PCWSTR, reserved: u32) -> u32;
     }
-    ::core::mem::transmute(NetShareDel(servername.into(), netname.into(), ::core::mem::transmute(reserved)))
+    ::core::mem::transmute(NetShareDel(servername.into(), netname.into(), reserved))
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 #[inline]
@@ -12396,7 +12396,7 @@ where
     extern "system" {
         fn NetShareDelEx(servername: ::windows::core::PCWSTR, level: u32, buf: *const u8) -> u32;
     }
-    ::core::mem::transmute(NetShareDelEx(servername.into(), ::core::mem::transmute(level), ::core::mem::transmute(buf)))
+    ::core::mem::transmute(NetShareDelEx(servername.into(), level, ::core::mem::transmute(buf)))
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 #[inline]
@@ -12409,7 +12409,7 @@ where
     extern "system" {
         fn NetShareDelSticky(servername: ::windows::core::PCWSTR, netname: ::windows::core::PCWSTR, reserved: u32) -> u32;
     }
-    ::core::mem::transmute(NetShareDelSticky(servername.into(), netname.into(), ::core::mem::transmute(reserved)))
+    ::core::mem::transmute(NetShareDelSticky(servername.into(), netname.into(), reserved))
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 #[inline]
@@ -12421,7 +12421,7 @@ where
     extern "system" {
         fn NetShareEnum(servername: ::windows::core::PCWSTR, level: u32, bufptr: *mut *mut u8, prefmaxlen: u32, entriesread: *mut u32, totalentries: *mut u32, resume_handle: *mut u32) -> u32;
     }
-    ::core::mem::transmute(NetShareEnum(servername.into(), ::core::mem::transmute(level), ::core::mem::transmute(bufptr), ::core::mem::transmute(prefmaxlen), ::core::mem::transmute(entriesread), ::core::mem::transmute(totalentries), ::core::mem::transmute(resume_handle)))
+    ::core::mem::transmute(NetShareEnum(servername.into(), level, ::core::mem::transmute(bufptr), prefmaxlen, ::core::mem::transmute(entriesread), ::core::mem::transmute(totalentries), ::core::mem::transmute(resume_handle)))
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 #[inline]
@@ -12433,7 +12433,7 @@ where
     extern "system" {
         fn NetShareEnumSticky(servername: ::windows::core::PCWSTR, level: u32, bufptr: *mut *mut u8, prefmaxlen: u32, entriesread: *mut u32, totalentries: *mut u32, resume_handle: *mut u32) -> u32;
     }
-    ::core::mem::transmute(NetShareEnumSticky(servername.into(), ::core::mem::transmute(level), ::core::mem::transmute(bufptr), ::core::mem::transmute(prefmaxlen), ::core::mem::transmute(entriesread), ::core::mem::transmute(totalentries), ::core::mem::transmute(resume_handle)))
+    ::core::mem::transmute(NetShareEnumSticky(servername.into(), level, ::core::mem::transmute(bufptr), prefmaxlen, ::core::mem::transmute(entriesread), ::core::mem::transmute(totalentries), ::core::mem::transmute(resume_handle)))
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 #[inline]
@@ -12446,7 +12446,7 @@ where
     extern "system" {
         fn NetShareGetInfo(servername: ::windows::core::PCWSTR, netname: ::windows::core::PCWSTR, level: u32, bufptr: *mut *mut u8) -> u32;
     }
-    ::core::mem::transmute(NetShareGetInfo(servername.into(), netname.into(), ::core::mem::transmute(level), ::core::mem::transmute(bufptr)))
+    ::core::mem::transmute(NetShareGetInfo(servername.into(), netname.into(), level, ::core::mem::transmute(bufptr)))
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 #[inline]
@@ -12459,7 +12459,7 @@ where
     extern "system" {
         fn NetShareSetInfo(servername: ::windows::core::PCWSTR, netname: ::windows::core::PCWSTR, level: u32, buf: *const u8, parm_err: *mut u32) -> u32;
     }
-    ::core::mem::transmute(NetShareSetInfo(servername.into(), netname.into(), ::core::mem::transmute(level), ::core::mem::transmute(buf), ::core::mem::transmute(parm_err)))
+    ::core::mem::transmute(NetShareSetInfo(servername.into(), netname.into(), level, ::core::mem::transmute(buf), ::core::mem::transmute(parm_err)))
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 #[inline]
@@ -12468,7 +12468,7 @@ pub unsafe fn NetStatisticsGet(servername: *const i8, service: *const i8, level:
     extern "system" {
         fn NetStatisticsGet(servername: *const i8, service: *const i8, level: u32, options: u32, buffer: *mut *mut u8) -> u32;
     }
-    ::core::mem::transmute(NetStatisticsGet(::core::mem::transmute(servername), ::core::mem::transmute(service), ::core::mem::transmute(level), ::core::mem::transmute(options), ::core::mem::transmute(buffer)))
+    ::core::mem::transmute(NetStatisticsGet(::core::mem::transmute(servername), ::core::mem::transmute(service), level, options, ::core::mem::transmute(buffer)))
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_WindowsProgramming\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_WindowsProgramming"))]
@@ -12478,7 +12478,7 @@ pub unsafe fn NtCreateFile(filehandle: *mut super::super::Foundation::HANDLE, de
     extern "system" {
         fn NtCreateFile(filehandle: *mut super::super::Foundation::HANDLE, desiredaccess: u32, objectattributes: *mut super::super::System::WindowsProgramming::OBJECT_ATTRIBUTES, iostatusblock: *mut super::super::System::WindowsProgramming::IO_STATUS_BLOCK, allocationsize: *mut i64, fileattributes: u32, shareaccess: FILE_SHARE_MODE, createdisposition: NT_CREATE_FILE_DISPOSITION, createoptions: u32, eabuffer: *mut ::core::ffi::c_void, ealength: u32) -> super::super::Foundation::NTSTATUS;
     }
-    NtCreateFile(::core::mem::transmute(filehandle), ::core::mem::transmute(desiredaccess), ::core::mem::transmute(objectattributes), ::core::mem::transmute(iostatusblock), ::core::mem::transmute(allocationsize), ::core::mem::transmute(fileattributes), ::core::mem::transmute(shareaccess), ::core::mem::transmute(createdisposition), ::core::mem::transmute(createoptions), ::core::mem::transmute(eabuffer), ::core::mem::transmute(ealength)).ok()
+    NtCreateFile(::core::mem::transmute(filehandle), desiredaccess, ::core::mem::transmute(objectattributes), ::core::mem::transmute(iostatusblock), ::core::mem::transmute(allocationsize), fileattributes, shareaccess, createdisposition, createoptions, ::core::mem::transmute(eabuffer), ealength).ok()
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 #[repr(transparent)]
@@ -13886,7 +13886,7 @@ where
     extern "system" {
         fn OpenEncryptedFileRawA(lpfilename: ::windows::core::PCSTR, ulflags: u32, pvcontext: *mut *mut ::core::ffi::c_void) -> u32;
     }
-    ::core::mem::transmute(OpenEncryptedFileRawA(lpfilename.into(), ::core::mem::transmute(ulflags), ::core::mem::transmute(pvcontext)))
+    ::core::mem::transmute(OpenEncryptedFileRawA(lpfilename.into(), ulflags, ::core::mem::transmute(pvcontext)))
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 #[inline]
@@ -13898,7 +13898,7 @@ where
     extern "system" {
         fn OpenEncryptedFileRawW(lpfilename: ::windows::core::PCWSTR, ulflags: u32, pvcontext: *mut *mut ::core::ffi::c_void) -> u32;
     }
-    ::core::mem::transmute(OpenEncryptedFileRawW(lpfilename.into(), ::core::mem::transmute(ulflags), ::core::mem::transmute(pvcontext)))
+    ::core::mem::transmute(OpenEncryptedFileRawW(lpfilename.into(), ulflags, ::core::mem::transmute(pvcontext)))
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -13911,7 +13911,7 @@ where
     extern "system" {
         fn OpenEnlistment(dwdesiredaccess: u32, resourcemanagerhandle: super::super::Foundation::HANDLE, enlistmentid: *mut ::windows::core::GUID) -> super::super::Foundation::HANDLE;
     }
-    let result__ = OpenEnlistment(::core::mem::transmute(dwdesiredaccess), resourcemanagerhandle.into(), ::core::mem::transmute(enlistmentid));
+    let result__ = OpenEnlistment(dwdesiredaccess, resourcemanagerhandle.into(), ::core::mem::transmute(enlistmentid));
     (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
@@ -13925,7 +13925,7 @@ where
     extern "system" {
         fn OpenFile(lpfilename: ::windows::core::PCSTR, lpreopenbuff: *mut OFSTRUCT, ustyle: LZOPENFILE_STYLE) -> i32;
     }
-    ::core::mem::transmute(OpenFile(lpfilename.into(), ::core::mem::transmute(lpreopenbuff), ::core::mem::transmute(ustyle)))
+    ::core::mem::transmute(OpenFile(lpfilename.into(), ::core::mem::transmute(lpreopenbuff), ustyle))
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
@@ -13938,7 +13938,7 @@ where
     extern "system" {
         fn OpenFileById(hvolumehint: super::super::Foundation::HANDLE, lpfileid: *const FILE_ID_DESCRIPTOR, dwdesiredaccess: FILE_ACCESS_FLAGS, dwsharemode: FILE_SHARE_MODE, lpsecurityattributes: *const super::super::Security::SECURITY_ATTRIBUTES, dwflagsandattributes: FILE_FLAGS_AND_ATTRIBUTES) -> super::super::Foundation::HANDLE;
     }
-    let result__ = OpenFileById(hvolumehint.into(), ::core::mem::transmute(lpfileid), ::core::mem::transmute(dwdesiredaccess), ::core::mem::transmute(dwsharemode), ::core::mem::transmute(lpsecurityattributes), ::core::mem::transmute(dwflagsandattributes));
+    let result__ = OpenFileById(hvolumehint.into(), ::core::mem::transmute(lpfileid), dwdesiredaccess, dwsharemode, ::core::mem::transmute(lpsecurityattributes), dwflagsandattributes);
     (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
@@ -13952,7 +13952,7 @@ where
     extern "system" {
         fn OpenResourceManager(dwdesiredaccess: u32, tmhandle: super::super::Foundation::HANDLE, resourcemanagerid: *mut ::windows::core::GUID) -> super::super::Foundation::HANDLE;
     }
-    let result__ = OpenResourceManager(::core::mem::transmute(dwdesiredaccess), tmhandle.into(), ::core::mem::transmute(resourcemanagerid));
+    let result__ = OpenResourceManager(dwdesiredaccess, tmhandle.into(), ::core::mem::transmute(resourcemanagerid));
     (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
@@ -13963,7 +13963,7 @@ pub unsafe fn OpenTransaction(dwdesiredaccess: u32, transactionid: *mut ::window
     extern "system" {
         fn OpenTransaction(dwdesiredaccess: u32, transactionid: *mut ::windows::core::GUID) -> super::super::Foundation::HANDLE;
     }
-    let result__ = OpenTransaction(::core::mem::transmute(dwdesiredaccess), ::core::mem::transmute(transactionid));
+    let result__ = OpenTransaction(dwdesiredaccess, ::core::mem::transmute(transactionid));
     (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
@@ -13977,7 +13977,7 @@ where
     extern "system" {
         fn OpenTransactionManager(logfilename: ::windows::core::PCWSTR, desiredaccess: u32, openoptions: u32) -> super::super::Foundation::HANDLE;
     }
-    let result__ = OpenTransactionManager(logfilename.into(), ::core::mem::transmute(desiredaccess), ::core::mem::transmute(openoptions));
+    let result__ = OpenTransactionManager(logfilename.into(), desiredaccess, openoptions);
     (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
@@ -13988,7 +13988,7 @@ pub unsafe fn OpenTransactionManagerById(transactionmanagerid: *const ::windows:
     extern "system" {
         fn OpenTransactionManagerById(transactionmanagerid: *const ::windows::core::GUID, desiredaccess: u32, openoptions: u32) -> super::super::Foundation::HANDLE;
     }
-    let result__ = OpenTransactionManagerById(::core::mem::transmute(transactionmanagerid), ::core::mem::transmute(desiredaccess), ::core::mem::transmute(openoptions));
+    let result__ = OpenTransactionManagerById(::core::mem::transmute(transactionmanagerid), desiredaccess, openoptions);
     (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
 }
 pub const PARTITION_BASIC_DATA_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xebd0a0a2_b9e5_4433_87c0_68b6b72699c7);
@@ -14202,7 +14202,7 @@ where
     extern "system" {
         fn PrepareTape(hdevice: super::super::Foundation::HANDLE, dwoperation: PREPARE_TAPE_OPERATION, bimmediate: super::super::Foundation::BOOL) -> u32;
     }
-    ::core::mem::transmute(PrepareTape(hdevice.into(), ::core::mem::transmute(dwoperation), bimmediate.into()))
+    ::core::mem::transmute(PrepareTape(hdevice.into(), dwoperation, bimmediate.into()))
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 #[inline]
@@ -14249,7 +14249,7 @@ where
     extern "system" {
         fn QueryLogPolicy(hlog: super::super::Foundation::HANDLE, epolicytype: CLFS_MGMT_POLICY_TYPE, ppolicybuffer: *mut CLFS_MGMT_POLICY, pcbpolicybuffer: *mut u32) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(QueryLogPolicy(hlog.into(), ::core::mem::transmute(epolicytype), ::core::mem::transmute(ppolicybuffer), ::core::mem::transmute(pcbpolicybuffer)))
+    ::core::mem::transmute(QueryLogPolicy(hlog.into(), epolicytype, ::core::mem::transmute(ppolicybuffer), ::core::mem::transmute(pcbpolicybuffer)))
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Security\"`*"]
 #[cfg(feature = "Win32_Security")]
@@ -14444,7 +14444,7 @@ where
     extern "system" {
         fn ReOpenFile(horiginalfile: super::super::Foundation::HANDLE, dwdesiredaccess: FILE_ACCESS_FLAGS, dwsharemode: FILE_SHARE_MODE, dwflagsandattributes: FILE_FLAGS_AND_ATTRIBUTES) -> super::super::Foundation::HANDLE;
     }
-    let result__ = ReOpenFile(horiginalfile.into(), ::core::mem::transmute(dwdesiredaccess), ::core::mem::transmute(dwsharemode), ::core::mem::transmute(dwflagsandattributes));
+    let result__ = ReOpenFile(horiginalfile.into(), dwdesiredaccess, dwsharemode, dwflagsandattributes);
     (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_IO\"`*"]
@@ -14459,7 +14459,7 @@ where
     extern "system" {
         fn ReadDirectoryChangesExW(hdirectory: super::super::Foundation::HANDLE, lpbuffer: *mut ::core::ffi::c_void, nbufferlength: u32, bwatchsubtree: super::super::Foundation::BOOL, dwnotifyfilter: FILE_NOTIFY_CHANGE, lpbytesreturned: *mut u32, lpoverlapped: *mut super::super::System::IO::OVERLAPPED, lpcompletionroutine: *mut ::core::ffi::c_void, readdirectorynotifyinformationclass: READ_DIRECTORY_NOTIFY_INFORMATION_CLASS) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(ReadDirectoryChangesExW(hdirectory.into(), ::core::mem::transmute(lpbuffer), ::core::mem::transmute(nbufferlength), bwatchsubtree.into(), ::core::mem::transmute(dwnotifyfilter), ::core::mem::transmute(lpbytesreturned), ::core::mem::transmute(lpoverlapped), ::core::mem::transmute(lpcompletionroutine), ::core::mem::transmute(readdirectorynotifyinformationclass)))
+    ::core::mem::transmute(ReadDirectoryChangesExW(hdirectory.into(), ::core::mem::transmute(lpbuffer), nbufferlength, bwatchsubtree.into(), dwnotifyfilter, ::core::mem::transmute(lpbytesreturned), ::core::mem::transmute(lpoverlapped), ::core::mem::transmute(lpcompletionroutine), readdirectorynotifyinformationclass))
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_IO\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
@@ -14473,7 +14473,7 @@ where
     extern "system" {
         fn ReadDirectoryChangesW(hdirectory: super::super::Foundation::HANDLE, lpbuffer: *mut ::core::ffi::c_void, nbufferlength: u32, bwatchsubtree: super::super::Foundation::BOOL, dwnotifyfilter: FILE_NOTIFY_CHANGE, lpbytesreturned: *mut u32, lpoverlapped: *mut super::super::System::IO::OVERLAPPED, lpcompletionroutine: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(ReadDirectoryChangesW(hdirectory.into(), ::core::mem::transmute(lpbuffer), ::core::mem::transmute(nbufferlength), bwatchsubtree.into(), ::core::mem::transmute(dwnotifyfilter), ::core::mem::transmute(lpbytesreturned), ::core::mem::transmute(lpoverlapped), ::core::mem::transmute(lpcompletionroutine)))
+    ::core::mem::transmute(ReadDirectoryChangesW(hdirectory.into(), ::core::mem::transmute(lpbuffer), nbufferlength, bwatchsubtree.into(), dwnotifyfilter, ::core::mem::transmute(lpbytesreturned), ::core::mem::transmute(lpoverlapped), ::core::mem::transmute(lpcompletionroutine)))
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 #[inline]
@@ -14495,7 +14495,7 @@ where
     extern "system" {
         fn ReadFile(hfile: super::super::Foundation::HANDLE, lpbuffer: *mut ::core::ffi::c_void, nnumberofbytestoread: u32, lpnumberofbytesread: *mut u32, lpoverlapped: *mut super::super::System::IO::OVERLAPPED) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(ReadFile(hfile.into(), ::core::mem::transmute(lpbuffer), ::core::mem::transmute(nnumberofbytestoread), ::core::mem::transmute(lpnumberofbytesread), ::core::mem::transmute(lpoverlapped)))
+    ::core::mem::transmute(ReadFile(hfile.into(), ::core::mem::transmute(lpbuffer), nnumberofbytestoread, ::core::mem::transmute(lpnumberofbytesread), ::core::mem::transmute(lpoverlapped)))
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_IO\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
@@ -14508,7 +14508,7 @@ where
     extern "system" {
         fn ReadFileEx(hfile: super::super::Foundation::HANDLE, lpbuffer: *mut ::core::ffi::c_void, nnumberofbytestoread: u32, lpoverlapped: *mut super::super::System::IO::OVERLAPPED, lpcompletionroutine: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(ReadFileEx(hfile.into(), ::core::mem::transmute(lpbuffer), ::core::mem::transmute(nnumberofbytestoread), ::core::mem::transmute(lpoverlapped), ::core::mem::transmute(lpcompletionroutine)))
+    ::core::mem::transmute(ReadFileEx(hfile.into(), ::core::mem::transmute(lpbuffer), nnumberofbytestoread, ::core::mem::transmute(lpoverlapped), ::core::mem::transmute(lpcompletionroutine)))
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_IO\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
@@ -14521,7 +14521,7 @@ where
     extern "system" {
         fn ReadFileScatter(hfile: super::super::Foundation::HANDLE, asegmentarray: *const FILE_SEGMENT_ELEMENT, nnumberofbytestoread: u32, lpreserved: *mut u32, lpoverlapped: *mut super::super::System::IO::OVERLAPPED) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(ReadFileScatter(hfile.into(), ::core::mem::transmute(asegmentarray), ::core::mem::transmute(nnumberofbytestoread), ::core::mem::transmute(lpreserved), ::core::mem::transmute(lpoverlapped)))
+    ::core::mem::transmute(ReadFileScatter(hfile.into(), ::core::mem::transmute(asegmentarray), nnumberofbytestoread, ::core::mem::transmute(lpreserved), ::core::mem::transmute(lpoverlapped)))
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -14531,7 +14531,7 @@ pub unsafe fn ReadLogArchiveMetadata(pvarchivecontext: *mut ::core::ffi::c_void,
     extern "system" {
         fn ReadLogArchiveMetadata(pvarchivecontext: *mut ::core::ffi::c_void, cboffset: u32, cbbytestoread: u32, pbreadbuffer: *mut u8, pcbbytesread: *mut u32) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(ReadLogArchiveMetadata(::core::mem::transmute(pvarchivecontext), ::core::mem::transmute(cboffset), ::core::mem::transmute(cbbytestoread), ::core::mem::transmute(pbreadbuffer), ::core::mem::transmute(pcbbytesread)))
+    ::core::mem::transmute(ReadLogArchiveMetadata(::core::mem::transmute(pvarchivecontext), cboffset, cbbytestoread, ::core::mem::transmute(pbreadbuffer), ::core::mem::transmute(pcbbytesread)))
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_IO\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
@@ -14554,7 +14554,7 @@ pub unsafe fn ReadLogRecord(pvmarshal: *mut ::core::ffi::c_void, plsnfirst: *mut
     extern "system" {
         fn ReadLogRecord(pvmarshal: *mut ::core::ffi::c_void, plsnfirst: *mut CLS_LSN, econtextmode: CLFS_CONTEXT_MODE, ppvreadbuffer: *mut *mut ::core::ffi::c_void, pcbreadbuffer: *mut u32, perecordtype: *mut u8, plsnundonext: *mut CLS_LSN, plsnprevious: *mut CLS_LSN, ppvreadcontext: *mut *mut ::core::ffi::c_void, poverlapped: *mut super::super::System::IO::OVERLAPPED) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(ReadLogRecord(::core::mem::transmute(pvmarshal), ::core::mem::transmute(plsnfirst), ::core::mem::transmute(econtextmode), ::core::mem::transmute(ppvreadbuffer), ::core::mem::transmute(pcbreadbuffer), ::core::mem::transmute(perecordtype), ::core::mem::transmute(plsnundonext), ::core::mem::transmute(plsnprevious), ::core::mem::transmute(ppvreadcontext), ::core::mem::transmute(poverlapped)))
+    ::core::mem::transmute(ReadLogRecord(::core::mem::transmute(pvmarshal), ::core::mem::transmute(plsnfirst), econtextmode, ::core::mem::transmute(ppvreadbuffer), ::core::mem::transmute(pcbreadbuffer), ::core::mem::transmute(perecordtype), ::core::mem::transmute(plsnundonext), ::core::mem::transmute(plsnprevious), ::core::mem::transmute(ppvreadcontext), ::core::mem::transmute(poverlapped)))
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_IO\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
@@ -14650,7 +14650,7 @@ where
     extern "system" {
         fn RegisterForLogWriteNotification(hlog: super::super::Foundation::HANDLE, cbthreshold: u32, fenable: super::super::Foundation::BOOL) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(RegisterForLogWriteNotification(hlog.into(), ::core::mem::transmute(cbthreshold), fenable.into()))
+    ::core::mem::transmute(RegisterForLogWriteNotification(hlog.into(), cbthreshold, fenable.into()))
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -14772,7 +14772,7 @@ where
     extern "system" {
         fn RemoveLogPolicy(hlog: super::super::Foundation::HANDLE, epolicytype: CLFS_MGMT_POLICY_TYPE) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(RemoveLogPolicy(hlog.into(), ::core::mem::transmute(epolicytype)))
+    ::core::mem::transmute(RemoveLogPolicy(hlog.into(), epolicytype))
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Security\"`*"]
 #[cfg(feature = "Win32_Security")]
@@ -14813,7 +14813,7 @@ where
     extern "system" {
         fn ReplaceFileA(lpreplacedfilename: ::windows::core::PCSTR, lpreplacementfilename: ::windows::core::PCSTR, lpbackupfilename: ::windows::core::PCSTR, dwreplaceflags: REPLACE_FILE_FLAGS, lpexclude: *mut ::core::ffi::c_void, lpreserved: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(ReplaceFileA(lpreplacedfilename.into(), lpreplacementfilename.into(), lpbackupfilename.into(), ::core::mem::transmute(dwreplaceflags), ::core::mem::transmute(lpexclude), ::core::mem::transmute(lpreserved)))
+    ::core::mem::transmute(ReplaceFileA(lpreplacedfilename.into(), lpreplacementfilename.into(), lpbackupfilename.into(), dwreplaceflags, ::core::mem::transmute(lpexclude), ::core::mem::transmute(lpreserved)))
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -14828,7 +14828,7 @@ where
     extern "system" {
         fn ReplaceFileFromAppW(lpreplacedfilename: ::windows::core::PCWSTR, lpreplacementfilename: ::windows::core::PCWSTR, lpbackupfilename: ::windows::core::PCWSTR, dwreplaceflags: u32, lpexclude: *mut ::core::ffi::c_void, lpreserved: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(ReplaceFileFromAppW(lpreplacedfilename.into(), lpreplacementfilename.into(), lpbackupfilename.into(), ::core::mem::transmute(dwreplaceflags), ::core::mem::transmute(lpexclude), ::core::mem::transmute(lpreserved)))
+    ::core::mem::transmute(ReplaceFileFromAppW(lpreplacedfilename.into(), lpreplacementfilename.into(), lpbackupfilename.into(), dwreplaceflags, ::core::mem::transmute(lpexclude), ::core::mem::transmute(lpreserved)))
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -14843,7 +14843,7 @@ where
     extern "system" {
         fn ReplaceFileW(lpreplacedfilename: ::windows::core::PCWSTR, lpreplacementfilename: ::windows::core::PCWSTR, lpbackupfilename: ::windows::core::PCWSTR, dwreplaceflags: REPLACE_FILE_FLAGS, lpexclude: *mut ::core::ffi::c_void, lpreserved: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(ReplaceFileW(lpreplacedfilename.into(), lpreplacementfilename.into(), lpbackupfilename.into(), ::core::mem::transmute(dwreplaceflags), ::core::mem::transmute(lpexclude), ::core::mem::transmute(lpreserved)))
+    ::core::mem::transmute(ReplaceFileW(lpreplacedfilename.into(), lpreplacementfilename.into(), lpbackupfilename.into(), dwreplaceflags, ::core::mem::transmute(lpexclude), ::core::mem::transmute(lpreserved)))
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_IO\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
@@ -14853,7 +14853,7 @@ pub unsafe fn ReserveAndAppendLog(pvmarshal: *mut ::core::ffi::c_void, rgwriteen
     extern "system" {
         fn ReserveAndAppendLog(pvmarshal: *mut ::core::ffi::c_void, rgwriteentries: *mut CLS_WRITE_ENTRY, cwriteentries: u32, plsnundonext: *mut CLS_LSN, plsnprevious: *mut CLS_LSN, creserverecords: u32, rgcbreservation: *mut i64, fflags: CLFS_FLAG, plsn: *mut CLS_LSN, poverlapped: *mut super::super::System::IO::OVERLAPPED) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(ReserveAndAppendLog(::core::mem::transmute(pvmarshal), ::core::mem::transmute(rgwriteentries), ::core::mem::transmute(cwriteentries), ::core::mem::transmute(plsnundonext), ::core::mem::transmute(plsnprevious), ::core::mem::transmute(creserverecords), ::core::mem::transmute(rgcbreservation), ::core::mem::transmute(fflags), ::core::mem::transmute(plsn), ::core::mem::transmute(poverlapped)))
+    ::core::mem::transmute(ReserveAndAppendLog(::core::mem::transmute(pvmarshal), ::core::mem::transmute(rgwriteentries), cwriteentries, ::core::mem::transmute(plsnundonext), ::core::mem::transmute(plsnprevious), creserverecords, ::core::mem::transmute(rgcbreservation), fflags, ::core::mem::transmute(plsn), ::core::mem::transmute(poverlapped)))
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_IO\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
@@ -14863,7 +14863,7 @@ pub unsafe fn ReserveAndAppendLogAligned(pvmarshal: *mut ::core::ffi::c_void, rg
     extern "system" {
         fn ReserveAndAppendLogAligned(pvmarshal: *mut ::core::ffi::c_void, rgwriteentries: *mut CLS_WRITE_ENTRY, cwriteentries: u32, cbentryalignment: u32, plsnundonext: *mut CLS_LSN, plsnprevious: *mut CLS_LSN, creserverecords: u32, rgcbreservation: *mut i64, fflags: CLFS_FLAG, plsn: *mut CLS_LSN, poverlapped: *mut super::super::System::IO::OVERLAPPED) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(ReserveAndAppendLogAligned(::core::mem::transmute(pvmarshal), ::core::mem::transmute(rgwriteentries), ::core::mem::transmute(cwriteentries), ::core::mem::transmute(cbentryalignment), ::core::mem::transmute(plsnundonext), ::core::mem::transmute(plsnprevious), ::core::mem::transmute(creserverecords), ::core::mem::transmute(rgcbreservation), ::core::mem::transmute(fflags), ::core::mem::transmute(plsn), ::core::mem::transmute(poverlapped)))
+    ::core::mem::transmute(ReserveAndAppendLogAligned(::core::mem::transmute(pvmarshal), ::core::mem::transmute(rgwriteentries), cwriteentries, cbentryalignment, ::core::mem::transmute(plsnundonext), ::core::mem::transmute(plsnprevious), creserverecords, ::core::mem::transmute(rgcbreservation), fflags, ::core::mem::transmute(plsn), ::core::mem::transmute(poverlapped)))
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -16195,7 +16195,7 @@ pub unsafe fn ScanLogContainers(pcxscan: *mut CLS_SCAN_CONTEXT, escanmode: u8, p
     extern "system" {
         fn ScanLogContainers(pcxscan: *mut CLS_SCAN_CONTEXT, escanmode: u8, preserved: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(ScanLogContainers(::core::mem::transmute(pcxscan), ::core::mem::transmute(escanmode), ::core::mem::transmute(preserved)))
+    ::core::mem::transmute(ScanLogContainers(::core::mem::transmute(pcxscan), escanmode, ::core::mem::transmute(preserved)))
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 #[inline]
@@ -16236,7 +16236,7 @@ where
     extern "system" {
         fn SetEncryptedFileMetadata(lpfilename: ::windows::core::PCWSTR, pboldmetadata: *const u8, pbnewmetadata: *const u8, pownerhash: *const ENCRYPTION_CERTIFICATE_HASH, dwoperation: u32, pcertificatesadded: *const ENCRYPTION_CERTIFICATE_HASH_LIST) -> u32;
     }
-    ::core::mem::transmute(SetEncryptedFileMetadata(lpfilename.into(), ::core::mem::transmute(pboldmetadata), ::core::mem::transmute(pbnewmetadata), ::core::mem::transmute(pownerhash), ::core::mem::transmute(dwoperation), ::core::mem::transmute(pcertificatesadded)))
+    ::core::mem::transmute(SetEncryptedFileMetadata(lpfilename.into(), ::core::mem::transmute(pboldmetadata), ::core::mem::transmute(pbnewmetadata), ::core::mem::transmute(pownerhash), dwoperation, ::core::mem::transmute(pcertificatesadded)))
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -16275,7 +16275,7 @@ where
     extern "system" {
         fn SetEnlistmentRecoveryInformation(enlistmenthandle: super::super::Foundation::HANDLE, buffersize: u32, buffer: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(SetEnlistmentRecoveryInformation(enlistmenthandle.into(), ::core::mem::transmute(buffersize), ::core::mem::transmute(buffer)))
+    ::core::mem::transmute(SetEnlistmentRecoveryInformation(enlistmenthandle.into(), buffersize, ::core::mem::transmute(buffer)))
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 #[inline]
@@ -16306,7 +16306,7 @@ where
     extern "system" {
         fn SetFileAttributesA(lpfilename: ::windows::core::PCSTR, dwfileattributes: FILE_FLAGS_AND_ATTRIBUTES) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(SetFileAttributesA(lpfilename.into(), ::core::mem::transmute(dwfileattributes)))
+    ::core::mem::transmute(SetFileAttributesA(lpfilename.into(), dwfileattributes))
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -16319,7 +16319,7 @@ where
     extern "system" {
         fn SetFileAttributesFromAppW(lpfilename: ::windows::core::PCWSTR, dwfileattributes: u32) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(SetFileAttributesFromAppW(lpfilename.into(), ::core::mem::transmute(dwfileattributes)))
+    ::core::mem::transmute(SetFileAttributesFromAppW(lpfilename.into(), dwfileattributes))
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -16333,7 +16333,7 @@ where
     extern "system" {
         fn SetFileAttributesTransactedA(lpfilename: ::windows::core::PCSTR, dwfileattributes: u32, htransaction: super::super::Foundation::HANDLE) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(SetFileAttributesTransactedA(lpfilename.into(), ::core::mem::transmute(dwfileattributes), htransaction.into()))
+    ::core::mem::transmute(SetFileAttributesTransactedA(lpfilename.into(), dwfileattributes, htransaction.into()))
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -16347,7 +16347,7 @@ where
     extern "system" {
         fn SetFileAttributesTransactedW(lpfilename: ::windows::core::PCWSTR, dwfileattributes: u32, htransaction: super::super::Foundation::HANDLE) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(SetFileAttributesTransactedW(lpfilename.into(), ::core::mem::transmute(dwfileattributes), htransaction.into()))
+    ::core::mem::transmute(SetFileAttributesTransactedW(lpfilename.into(), dwfileattributes, htransaction.into()))
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -16360,7 +16360,7 @@ where
     extern "system" {
         fn SetFileAttributesW(lpfilename: ::windows::core::PCWSTR, dwfileattributes: FILE_FLAGS_AND_ATTRIBUTES) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(SetFileAttributesW(lpfilename.into(), ::core::mem::transmute(dwfileattributes)))
+    ::core::mem::transmute(SetFileAttributesW(lpfilename.into(), dwfileattributes))
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -16374,7 +16374,7 @@ where
     extern "system" {
         fn SetFileBandwidthReservation(hfile: super::super::Foundation::HANDLE, nperiodmilliseconds: u32, nbytesperperiod: u32, bdiscardable: super::super::Foundation::BOOL, lptransfersize: *mut u32, lpnumoutstandingrequests: *mut u32) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(SetFileBandwidthReservation(hfile.into(), ::core::mem::transmute(nperiodmilliseconds), ::core::mem::transmute(nbytesperperiod), bdiscardable.into(), ::core::mem::transmute(lptransfersize), ::core::mem::transmute(lpnumoutstandingrequests)))
+    ::core::mem::transmute(SetFileBandwidthReservation(hfile.into(), nperiodmilliseconds, nbytesperperiod, bdiscardable.into(), ::core::mem::transmute(lptransfersize), ::core::mem::transmute(lpnumoutstandingrequests)))
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -16387,7 +16387,7 @@ where
     extern "system" {
         fn SetFileCompletionNotificationModes(filehandle: super::super::Foundation::HANDLE, flags: u8) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(SetFileCompletionNotificationModes(filehandle.into(), ::core::mem::transmute(flags)))
+    ::core::mem::transmute(SetFileCompletionNotificationModes(filehandle.into(), flags))
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -16400,7 +16400,7 @@ where
     extern "system" {
         fn SetFileInformationByHandle(hfile: super::super::Foundation::HANDLE, fileinformationclass: FILE_INFO_BY_HANDLE_CLASS, lpfileinformation: *const ::core::ffi::c_void, dwbuffersize: u32) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(SetFileInformationByHandle(hfile.into(), ::core::mem::transmute(fileinformationclass), ::core::mem::transmute(lpfileinformation), ::core::mem::transmute(dwbuffersize)))
+    ::core::mem::transmute(SetFileInformationByHandle(hfile.into(), fileinformationclass, ::core::mem::transmute(lpfileinformation), dwbuffersize))
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -16413,7 +16413,7 @@ where
     extern "system" {
         fn SetFileIoOverlappedRange(filehandle: super::super::Foundation::HANDLE, overlappedrangestart: *const u8, length: u32) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(SetFileIoOverlappedRange(filehandle.into(), ::core::mem::transmute(overlappedrangestart), ::core::mem::transmute(length)))
+    ::core::mem::transmute(SetFileIoOverlappedRange(filehandle.into(), ::core::mem::transmute(overlappedrangestart), length))
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -16426,7 +16426,7 @@ where
     extern "system" {
         fn SetFilePointer(hfile: super::super::Foundation::HANDLE, ldistancetomove: i32, lpdistancetomovehigh: *mut i32, dwmovemethod: SET_FILE_POINTER_MOVE_METHOD) -> u32;
     }
-    ::core::mem::transmute(SetFilePointer(hfile.into(), ::core::mem::transmute(ldistancetomove), ::core::mem::transmute(lpdistancetomovehigh), ::core::mem::transmute(dwmovemethod)))
+    ::core::mem::transmute(SetFilePointer(hfile.into(), ldistancetomove, ::core::mem::transmute(lpdistancetomovehigh), dwmovemethod))
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -16439,7 +16439,7 @@ where
     extern "system" {
         fn SetFilePointerEx(hfile: super::super::Foundation::HANDLE, lidistancetomove: i64, lpnewfilepointer: *mut i64, dwmovemethod: SET_FILE_POINTER_MOVE_METHOD) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(SetFilePointerEx(hfile.into(), ::core::mem::transmute(lidistancetomove), ::core::mem::transmute(lpnewfilepointer), ::core::mem::transmute(dwmovemethod)))
+    ::core::mem::transmute(SetFilePointerEx(hfile.into(), lidistancetomove, ::core::mem::transmute(lpnewfilepointer), dwmovemethod))
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -16493,7 +16493,7 @@ where
     extern "system" {
         fn SetFileValidData(hfile: super::super::Foundation::HANDLE, validdatalength: i64) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(SetFileValidData(hfile.into(), ::core::mem::transmute(validdatalength)))
+    ::core::mem::transmute(SetFileValidData(hfile.into(), validdatalength))
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -16519,7 +16519,7 @@ where
     extern "system" {
         fn SetLogArchiveMode(hlog: super::super::Foundation::HANDLE, emode: CLFS_LOG_ARCHIVE_MODE) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(SetLogArchiveMode(hlog.into(), ::core::mem::transmute(emode)))
+    ::core::mem::transmute(SetLogArchiveMode(hlog.into(), emode))
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -16559,7 +16559,7 @@ where
     extern "system" {
         fn SetResourceManagerCompletionPort(resourcemanagerhandle: super::super::Foundation::HANDLE, iocompletionporthandle: super::super::Foundation::HANDLE, completionkey: usize) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(SetResourceManagerCompletionPort(resourcemanagerhandle.into(), iocompletionporthandle.into(), ::core::mem::transmute(completionkey)))
+    ::core::mem::transmute(SetResourceManagerCompletionPort(resourcemanagerhandle.into(), iocompletionporthandle.into(), completionkey))
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -16569,7 +16569,7 @@ pub unsafe fn SetSearchPathMode(flags: u32) -> super::super::Foundation::BOOL {
     extern "system" {
         fn SetSearchPathMode(flags: u32) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(SetSearchPathMode(::core::mem::transmute(flags)))
+    ::core::mem::transmute(SetSearchPathMode(flags))
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -16582,7 +16582,7 @@ where
     extern "system" {
         fn SetTapeParameters(hdevice: super::super::Foundation::HANDLE, dwoperation: TAPE_INFORMATION_TYPE, lptapeinformation: *const ::core::ffi::c_void) -> u32;
     }
-    ::core::mem::transmute(SetTapeParameters(hdevice.into(), ::core::mem::transmute(dwoperation), ::core::mem::transmute(lptapeinformation)))
+    ::core::mem::transmute(SetTapeParameters(hdevice.into(), dwoperation, ::core::mem::transmute(lptapeinformation)))
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -16596,7 +16596,7 @@ where
     extern "system" {
         fn SetTapePosition(hdevice: super::super::Foundation::HANDLE, dwpositionmethod: TAPE_POSITION_METHOD, dwpartition: u32, dwoffsetlow: u32, dwoffsethigh: u32, bimmediate: super::super::Foundation::BOOL) -> u32;
     }
-    ::core::mem::transmute(SetTapePosition(hdevice.into(), ::core::mem::transmute(dwpositionmethod), ::core::mem::transmute(dwpartition), ::core::mem::transmute(dwoffsetlow), ::core::mem::transmute(dwoffsethigh), bimmediate.into()))
+    ::core::mem::transmute(SetTapePosition(hdevice.into(), dwpositionmethod, dwpartition, dwoffsetlow, dwoffsethigh, bimmediate.into()))
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -16610,7 +16610,7 @@ where
     extern "system" {
         fn SetTransactionInformation(transactionhandle: super::super::Foundation::HANDLE, isolationlevel: u32, isolationflags: u32, timeout: u32, description: ::windows::core::PCWSTR) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(SetTransactionInformation(transactionhandle.into(), ::core::mem::transmute(isolationlevel), ::core::mem::transmute(isolationflags), ::core::mem::transmute(timeout), description.into()))
+    ::core::mem::transmute(SetTransactionInformation(transactionhandle.into(), isolationlevel, isolationflags, timeout, description.into()))
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Security\"`*"]
 #[cfg(feature = "Win32_Security")]
@@ -16630,7 +16630,7 @@ pub unsafe fn SetUserFileEncryptionKeyEx(pencryptioncertificate: *const ENCRYPTI
     extern "system" {
         fn SetUserFileEncryptionKeyEx(pencryptioncertificate: *const ENCRYPTION_CERTIFICATE, dwcapabilities: u32, dwflags: u32, pvreserved: *mut ::core::ffi::c_void) -> u32;
     }
-    ::core::mem::transmute(SetUserFileEncryptionKeyEx(::core::mem::transmute(pencryptioncertificate), ::core::mem::transmute(dwcapabilities), ::core::mem::transmute(dwflags), ::core::mem::transmute(pvreserved)))
+    ::core::mem::transmute(SetUserFileEncryptionKeyEx(::core::mem::transmute(pencryptioncertificate), dwcapabilities, dwflags, ::core::mem::transmute(pvreserved)))
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -16709,7 +16709,7 @@ pub unsafe fn SubmitIoRing(ioring: *const HIORING__, waitoperations: u32, millis
         fn SubmitIoRing(ioring: *const HIORING__, waitoperations: u32, milliseconds: u32, submittedentries: *mut u32) -> ::windows::core::HRESULT;
     }
     let mut result__ = ::core::mem::MaybeUninit::<u32>::zeroed();
-    SubmitIoRing(::core::mem::transmute(ioring), ::core::mem::transmute(waitoperations), ::core::mem::transmute(milliseconds), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
+    SubmitIoRing(::core::mem::transmute(ioring), waitoperations, milliseconds, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 #[repr(transparent)]
@@ -17637,7 +17637,7 @@ where
     extern "system" {
         fn TxfLogCreateRangeReadContext(logpath: ::windows::core::PCWSTR, beginninglsn: CLS_LSN, endinglsn: CLS_LSN, beginningvirtualclock: *const i64, endingvirtualclock: *const i64, recordtypemask: u32, txflogcontext: *mut *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(TxfLogCreateRangeReadContext(logpath.into(), ::core::mem::transmute(beginninglsn), ::core::mem::transmute(endinglsn), ::core::mem::transmute(beginningvirtualclock), ::core::mem::transmute(endingvirtualclock), ::core::mem::transmute(recordtypemask), ::core::mem::transmute(txflogcontext)))
+    ::core::mem::transmute(TxfLogCreateRangeReadContext(logpath.into(), ::core::mem::transmute(beginninglsn), ::core::mem::transmute(endinglsn), ::core::mem::transmute(beginningvirtualclock), ::core::mem::transmute(endingvirtualclock), recordtypemask, ::core::mem::transmute(txflogcontext)))
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -17657,7 +17657,7 @@ pub unsafe fn TxfLogReadRecords(txflogcontext: *const ::core::ffi::c_void, buffe
     extern "system" {
         fn TxfLogReadRecords(txflogcontext: *const ::core::ffi::c_void, bufferlength: u32, buffer: *mut ::core::ffi::c_void, bytesused: *mut u32, recordcount: *mut u32) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(TxfLogReadRecords(::core::mem::transmute(txflogcontext), ::core::mem::transmute(bufferlength), ::core::mem::transmute(buffer), ::core::mem::transmute(bytesused), ::core::mem::transmute(recordcount)))
+    ::core::mem::transmute(TxfLogReadRecords(::core::mem::transmute(txflogcontext), bufferlength, ::core::mem::transmute(buffer), ::core::mem::transmute(bytesused), ::core::mem::transmute(recordcount)))
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -17667,7 +17667,7 @@ pub unsafe fn TxfLogRecordGetFileName(recordbuffer: *const ::core::ffi::c_void, 
     extern "system" {
         fn TxfLogRecordGetFileName(recordbuffer: *const ::core::ffi::c_void, recordbufferlengthinbytes: u32, namebuffer: ::windows::core::PWSTR, namebufferlengthinbytes: *mut u32, txfid: *mut TXF_ID) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(TxfLogRecordGetFileName(::core::mem::transmute(recordbuffer), ::core::mem::transmute(recordbufferlengthinbytes), ::core::mem::transmute(namebuffer), ::core::mem::transmute(namebufferlengthinbytes), ::core::mem::transmute(txfid)))
+    ::core::mem::transmute(TxfLogRecordGetFileName(::core::mem::transmute(recordbuffer), recordbufferlengthinbytes, ::core::mem::transmute(namebuffer), ::core::mem::transmute(namebufferlengthinbytes), ::core::mem::transmute(txfid)))
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -17677,7 +17677,7 @@ pub unsafe fn TxfLogRecordGetGenericType(recordbuffer: *const ::core::ffi::c_voi
     extern "system" {
         fn TxfLogRecordGetGenericType(recordbuffer: *const ::core::ffi::c_void, recordbufferlengthinbytes: u32, generictype: *mut u32, virtualclock: *mut i64) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(TxfLogRecordGetGenericType(::core::mem::transmute(recordbuffer), ::core::mem::transmute(recordbufferlengthinbytes), ::core::mem::transmute(generictype), ::core::mem::transmute(virtualclock)))
+    ::core::mem::transmute(TxfLogRecordGetGenericType(::core::mem::transmute(recordbuffer), recordbufferlengthinbytes, ::core::mem::transmute(generictype), ::core::mem::transmute(virtualclock)))
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -17699,7 +17699,7 @@ pub unsafe fn TxfSetThreadMiniVersionForCreate(miniversion: u16) {
     extern "system" {
         fn TxfSetThreadMiniVersionForCreate(miniversion: u16);
     }
-    TxfSetThreadMiniVersionForCreate(::core::mem::transmute(miniversion))
+    TxfSetThreadMiniVersionForCreate(miniversion)
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -17712,7 +17712,7 @@ where
     extern "system" {
         fn UnlockFile(hfile: super::super::Foundation::HANDLE, dwfileoffsetlow: u32, dwfileoffsethigh: u32, nnumberofbytestounlocklow: u32, nnumberofbytestounlockhigh: u32) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(UnlockFile(hfile.into(), ::core::mem::transmute(dwfileoffsetlow), ::core::mem::transmute(dwfileoffsethigh), ::core::mem::transmute(nnumberofbytestounlocklow), ::core::mem::transmute(nnumberofbytestounlockhigh)))
+    ::core::mem::transmute(UnlockFile(hfile.into(), dwfileoffsetlow, dwfileoffsethigh, nnumberofbytestounlocklow, nnumberofbytestounlockhigh))
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_IO\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
@@ -17725,7 +17725,7 @@ where
     extern "system" {
         fn UnlockFileEx(hfile: super::super::Foundation::HANDLE, dwreserved: u32, nnumberofbytestounlocklow: u32, nnumberofbytestounlockhigh: u32, lpoverlapped: *mut super::super::System::IO::OVERLAPPED) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(UnlockFileEx(hfile.into(), ::core::mem::transmute(dwreserved), ::core::mem::transmute(nnumberofbytestounlocklow), ::core::mem::transmute(nnumberofbytestounlockhigh), ::core::mem::transmute(lpoverlapped)))
+    ::core::mem::transmute(UnlockFileEx(hfile.into(), dwreserved, nnumberofbytestounlocklow, nnumberofbytestounlockhigh, ::core::mem::transmute(lpoverlapped)))
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 #[repr(transparent)]
@@ -18730,7 +18730,7 @@ where
     extern "system" {
         fn VerFindFileA(uflags: VER_FIND_FILE_FLAGS, szfilename: ::windows::core::PCSTR, szwindir: ::windows::core::PCSTR, szappdir: ::windows::core::PCSTR, szcurdir: ::windows::core::PSTR, pucurdirlen: *mut u32, szdestdir: ::windows::core::PSTR, pudestdirlen: *mut u32) -> VER_FIND_FILE_STATUS;
     }
-    ::core::mem::transmute(VerFindFileA(::core::mem::transmute(uflags), szfilename.into(), szwindir.into(), szappdir.into(), ::core::mem::transmute(szcurdir), ::core::mem::transmute(pucurdirlen), ::core::mem::transmute(szdestdir), ::core::mem::transmute(pudestdirlen)))
+    ::core::mem::transmute(VerFindFileA(uflags, szfilename.into(), szwindir.into(), szappdir.into(), ::core::mem::transmute(szcurdir), ::core::mem::transmute(pucurdirlen), ::core::mem::transmute(szdestdir), ::core::mem::transmute(pudestdirlen)))
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 #[inline]
@@ -18744,7 +18744,7 @@ where
     extern "system" {
         fn VerFindFileW(uflags: VER_FIND_FILE_FLAGS, szfilename: ::windows::core::PCWSTR, szwindir: ::windows::core::PCWSTR, szappdir: ::windows::core::PCWSTR, szcurdir: ::windows::core::PWSTR, pucurdirlen: *mut u32, szdestdir: ::windows::core::PWSTR, pudestdirlen: *mut u32) -> VER_FIND_FILE_STATUS;
     }
-    ::core::mem::transmute(VerFindFileW(::core::mem::transmute(uflags), szfilename.into(), szwindir.into(), szappdir.into(), ::core::mem::transmute(szcurdir), ::core::mem::transmute(pucurdirlen), ::core::mem::transmute(szdestdir), ::core::mem::transmute(pudestdirlen)))
+    ::core::mem::transmute(VerFindFileW(uflags, szfilename.into(), szwindir.into(), szappdir.into(), ::core::mem::transmute(szcurdir), ::core::mem::transmute(pucurdirlen), ::core::mem::transmute(szdestdir), ::core::mem::transmute(pudestdirlen)))
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 #[inline]
@@ -18760,7 +18760,7 @@ where
     extern "system" {
         fn VerInstallFileA(uflags: VER_INSTALL_FILE_FLAGS, szsrcfilename: ::windows::core::PCSTR, szdestfilename: ::windows::core::PCSTR, szsrcdir: ::windows::core::PCSTR, szdestdir: ::windows::core::PCSTR, szcurdir: ::windows::core::PCSTR, sztmpfile: ::windows::core::PSTR, putmpfilelen: *mut u32) -> VER_INSTALL_FILE_STATUS;
     }
-    ::core::mem::transmute(VerInstallFileA(::core::mem::transmute(uflags), szsrcfilename.into(), szdestfilename.into(), szsrcdir.into(), szdestdir.into(), szcurdir.into(), ::core::mem::transmute(sztmpfile), ::core::mem::transmute(putmpfilelen)))
+    ::core::mem::transmute(VerInstallFileA(uflags, szsrcfilename.into(), szdestfilename.into(), szsrcdir.into(), szdestdir.into(), szcurdir.into(), ::core::mem::transmute(sztmpfile), ::core::mem::transmute(putmpfilelen)))
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 #[inline]
@@ -18776,7 +18776,7 @@ where
     extern "system" {
         fn VerInstallFileW(uflags: VER_INSTALL_FILE_FLAGS, szsrcfilename: ::windows::core::PCWSTR, szdestfilename: ::windows::core::PCWSTR, szsrcdir: ::windows::core::PCWSTR, szdestdir: ::windows::core::PCWSTR, szcurdir: ::windows::core::PCWSTR, sztmpfile: ::windows::core::PWSTR, putmpfilelen: *mut u32) -> VER_INSTALL_FILE_STATUS;
     }
-    ::core::mem::transmute(VerInstallFileW(::core::mem::transmute(uflags), szsrcfilename.into(), szdestfilename.into(), szsrcdir.into(), szdestdir.into(), szcurdir.into(), ::core::mem::transmute(sztmpfile), ::core::mem::transmute(putmpfilelen)))
+    ::core::mem::transmute(VerInstallFileW(uflags, szsrcfilename.into(), szdestfilename.into(), szsrcdir.into(), szdestdir.into(), szcurdir.into(), ::core::mem::transmute(sztmpfile), ::core::mem::transmute(putmpfilelen)))
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 #[inline]
@@ -18785,7 +18785,7 @@ pub unsafe fn VerLanguageNameA(wlang: u32, szlang: &mut [u8]) -> u32 {
     extern "system" {
         fn VerLanguageNameA(wlang: u32, szlang: ::windows::core::PSTR, cchlang: u32) -> u32;
     }
-    ::core::mem::transmute(VerLanguageNameA(::core::mem::transmute(wlang), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(szlang)), szlang.len() as _))
+    ::core::mem::transmute(VerLanguageNameA(wlang, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(szlang)), szlang.len() as _))
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 #[inline]
@@ -18794,7 +18794,7 @@ pub unsafe fn VerLanguageNameW(wlang: u32, szlang: &mut [u16]) -> u32 {
     extern "system" {
         fn VerLanguageNameW(wlang: u32, szlang: ::windows::core::PWSTR, cchlang: u32) -> u32;
     }
-    ::core::mem::transmute(VerLanguageNameW(::core::mem::transmute(wlang), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(szlang)), szlang.len() as _))
+    ::core::mem::transmute(VerLanguageNameW(wlang, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(szlang)), szlang.len() as _))
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -19249,7 +19249,7 @@ where
     extern "system" {
         fn WofEnumEntries(volumename: ::windows::core::PCWSTR, provider: u32, enumproc: *mut ::core::ffi::c_void, userdata: *const ::core::ffi::c_void) -> ::windows::core::HRESULT;
     }
-    WofEnumEntries(volumename.into(), ::core::mem::transmute(provider), ::core::mem::transmute(enumproc), ::core::mem::transmute(userdata)).ok()
+    WofEnumEntries(volumename.into(), provider, ::core::mem::transmute(enumproc), ::core::mem::transmute(userdata)).ok()
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -19268,7 +19268,7 @@ where
     extern "system" {
         fn WofFileEnumFiles(volumename: ::windows::core::PCWSTR, algorithm: u32, enumproc: *mut ::core::ffi::c_void, userdata: *const ::core::ffi::c_void) -> ::windows::core::HRESULT;
     }
-    WofFileEnumFiles(volumename.into(), ::core::mem::transmute(algorithm), ::core::mem::transmute(enumproc), ::core::mem::transmute(userdata)).ok()
+    WofFileEnumFiles(volumename.into(), algorithm, ::core::mem::transmute(enumproc), ::core::mem::transmute(userdata)).ok()
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -19282,7 +19282,7 @@ where
         fn WofGetDriverVersion(fileorvolumehandle: super::super::Foundation::HANDLE, provider: u32, wofversion: *mut u32) -> ::windows::core::HRESULT;
     }
     let mut result__ = ::core::mem::MaybeUninit::<u32>::zeroed();
-    WofGetDriverVersion(fileorvolumehandle.into(), ::core::mem::transmute(provider), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
+    WofGetDriverVersion(fileorvolumehandle.into(), provider, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -19308,7 +19308,7 @@ where
     extern "system" {
         fn WofSetFileDataLocation(filehandle: super::super::Foundation::HANDLE, provider: u32, externalfileinfo: *const ::core::ffi::c_void, length: u32) -> ::windows::core::HRESULT;
     }
-    WofSetFileDataLocation(filehandle.into(), ::core::mem::transmute(provider), ::core::mem::transmute(externalfileinfo), ::core::mem::transmute(length)).ok()
+    WofSetFileDataLocation(filehandle.into(), provider, ::core::mem::transmute(externalfileinfo), length).ok()
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -19335,7 +19335,7 @@ where
         fn WofWimAddEntry(volumename: ::windows::core::PCWSTR, wimpath: ::windows::core::PCWSTR, wimtype: u32, wimindex: u32, datasourceid: *mut i64) -> ::windows::core::HRESULT;
     }
     let mut result__ = ::core::mem::MaybeUninit::<i64>::zeroed();
-    WofWimAddEntry(volumename.into(), wimpath.into(), ::core::mem::transmute(wimtype), ::core::mem::transmute(wimindex), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i64>(result__)
+    WofWimAddEntry(volumename.into(), wimpath.into(), wimtype, wimindex, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i64>(result__)
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -19348,7 +19348,7 @@ where
     extern "system" {
         fn WofWimEnumFiles(volumename: ::windows::core::PCWSTR, datasourceid: i64, enumproc: *mut ::core::ffi::c_void, userdata: *const ::core::ffi::c_void) -> ::windows::core::HRESULT;
     }
-    WofWimEnumFiles(volumename.into(), ::core::mem::transmute(datasourceid), ::core::mem::transmute(enumproc), ::core::mem::transmute(userdata)).ok()
+    WofWimEnumFiles(volumename.into(), datasourceid, ::core::mem::transmute(enumproc), ::core::mem::transmute(userdata)).ok()
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 #[inline]
@@ -19360,7 +19360,7 @@ where
     extern "system" {
         fn WofWimRemoveEntry(volumename: ::windows::core::PCWSTR, datasourceid: i64) -> ::windows::core::HRESULT;
     }
-    WofWimRemoveEntry(volumename.into(), ::core::mem::transmute(datasourceid)).ok()
+    WofWimRemoveEntry(volumename.into(), datasourceid).ok()
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 #[inline]
@@ -19372,7 +19372,7 @@ where
     extern "system" {
         fn WofWimSuspendEntry(volumename: ::windows::core::PCWSTR, datasourceid: i64) -> ::windows::core::HRESULT;
     }
-    WofWimSuspendEntry(volumename.into(), ::core::mem::transmute(datasourceid)).ok()
+    WofWimSuspendEntry(volumename.into(), datasourceid).ok()
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 #[inline]
@@ -19385,7 +19385,7 @@ where
     extern "system" {
         fn WofWimUpdateEntry(volumename: ::windows::core::PCWSTR, datasourceid: i64, newwimpath: ::windows::core::PCWSTR) -> ::windows::core::HRESULT;
     }
-    WofWimUpdateEntry(volumename.into(), ::core::mem::transmute(datasourceid), newwimpath.into()).ok()
+    WofWimUpdateEntry(volumename.into(), datasourceid, newwimpath.into()).ok()
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -19440,7 +19440,7 @@ where
     extern "system" {
         fn WriteFile(hfile: super::super::Foundation::HANDLE, lpbuffer: *const ::core::ffi::c_void, nnumberofbytestowrite: u32, lpnumberofbyteswritten: *mut u32, lpoverlapped: *mut super::super::System::IO::OVERLAPPED) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(WriteFile(hfile.into(), ::core::mem::transmute(lpbuffer), ::core::mem::transmute(nnumberofbytestowrite), ::core::mem::transmute(lpnumberofbyteswritten), ::core::mem::transmute(lpoverlapped)))
+    ::core::mem::transmute(WriteFile(hfile.into(), ::core::mem::transmute(lpbuffer), nnumberofbytestowrite, ::core::mem::transmute(lpnumberofbyteswritten), ::core::mem::transmute(lpoverlapped)))
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_IO\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
@@ -19453,7 +19453,7 @@ where
     extern "system" {
         fn WriteFileEx(hfile: super::super::Foundation::HANDLE, lpbuffer: *const ::core::ffi::c_void, nnumberofbytestowrite: u32, lpoverlapped: *mut super::super::System::IO::OVERLAPPED, lpcompletionroutine: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(WriteFileEx(hfile.into(), ::core::mem::transmute(lpbuffer), ::core::mem::transmute(nnumberofbytestowrite), ::core::mem::transmute(lpoverlapped), ::core::mem::transmute(lpcompletionroutine)))
+    ::core::mem::transmute(WriteFileEx(hfile.into(), ::core::mem::transmute(lpbuffer), nnumberofbytestowrite, ::core::mem::transmute(lpoverlapped), ::core::mem::transmute(lpcompletionroutine)))
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_IO\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
@@ -19466,7 +19466,7 @@ where
     extern "system" {
         fn WriteFileGather(hfile: super::super::Foundation::HANDLE, asegmentarray: *const FILE_SEGMENT_ELEMENT, nnumberofbytestowrite: u32, lpreserved: *mut u32, lpoverlapped: *mut super::super::System::IO::OVERLAPPED) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(WriteFileGather(hfile.into(), ::core::mem::transmute(asegmentarray), ::core::mem::transmute(nnumberofbytestowrite), ::core::mem::transmute(lpreserved), ::core::mem::transmute(lpoverlapped)))
+    ::core::mem::transmute(WriteFileGather(hfile.into(), ::core::mem::transmute(asegmentarray), nnumberofbytestowrite, ::core::mem::transmute(lpreserved), ::core::mem::transmute(lpoverlapped)))
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_IO\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
@@ -19476,7 +19476,7 @@ pub unsafe fn WriteLogRestartArea(pvmarshal: *mut ::core::ffi::c_void, pvrestart
     extern "system" {
         fn WriteLogRestartArea(pvmarshal: *mut ::core::ffi::c_void, pvrestartbuffer: *mut ::core::ffi::c_void, cbrestartbuffer: u32, plsnbase: *mut CLS_LSN, fflags: CLFS_FLAG, pcbwritten: *mut u32, plsnnext: *mut CLS_LSN, poverlapped: *mut super::super::System::IO::OVERLAPPED) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(WriteLogRestartArea(::core::mem::transmute(pvmarshal), ::core::mem::transmute(pvrestartbuffer), ::core::mem::transmute(cbrestartbuffer), ::core::mem::transmute(plsnbase), ::core::mem::transmute(fflags), ::core::mem::transmute(pcbwritten), ::core::mem::transmute(plsnnext), ::core::mem::transmute(poverlapped)))
+    ::core::mem::transmute(WriteLogRestartArea(::core::mem::transmute(pvmarshal), ::core::mem::transmute(pvrestartbuffer), cbrestartbuffer, ::core::mem::transmute(plsnbase), fflags, ::core::mem::transmute(pcbwritten), ::core::mem::transmute(plsnnext), ::core::mem::transmute(poverlapped)))
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -19490,7 +19490,7 @@ where
     extern "system" {
         fn WriteTapemark(hdevice: super::super::Foundation::HANDLE, dwtapemarktype: TAPEMARK_TYPE, dwtapemarkcount: u32, bimmediate: super::super::Foundation::BOOL) -> u32;
     }
-    ::core::mem::transmute(WriteTapemark(hdevice.into(), ::core::mem::transmute(dwtapemarktype), ::core::mem::transmute(dwtapemarkcount), bimmediate.into()))
+    ::core::mem::transmute(WriteTapemark(hdevice.into(), dwtapemarktype, dwtapemarkcount, bimmediate.into()))
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const _FT_TYPES_DEFINITION_: u32 = 1u32;

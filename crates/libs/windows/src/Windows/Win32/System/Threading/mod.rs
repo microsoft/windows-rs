@@ -119,7 +119,7 @@ where
     extern "system" {
         fn AttachThreadInput(idattach: u32, idattachto: u32, fattach: super::super::Foundation::BOOL) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(AttachThreadInput(::core::mem::transmute(idattach), ::core::mem::transmute(idattachto), fattach.into()))
+    ::core::mem::transmute(AttachThreadInput(idattach, idattachto, fattach.into()))
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -304,7 +304,7 @@ where
     extern "system" {
         fn AvSetMmThreadPriority(avrthandle: super::super::Foundation::HANDLE, priority: AVRT_PRIORITY) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(AvSetMmThreadPriority(avrthandle.into(), ::core::mem::transmute(priority)))
+    ::core::mem::transmute(AvSetMmThreadPriority(avrthandle.into(), priority))
 }
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
@@ -472,7 +472,7 @@ where
     extern "system" {
         fn ChangeTimerQueueTimer(timerqueue: super::super::Foundation::HANDLE, timer: super::super::Foundation::HANDLE, duetime: u32, period: u32) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(ChangeTimerQueueTimer(timerqueue.into(), timer.into(), ::core::mem::transmute(duetime), ::core::mem::transmute(period)))
+    ::core::mem::transmute(ChangeTimerQueueTimer(timerqueue.into(), timer.into(), duetime, period))
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -485,7 +485,7 @@ where
     extern "system" {
         fn ClosePrivateNamespace(handle: NamespaceHandle, flags: u32) -> super::super::Foundation::BOOLEAN;
     }
-    ::core::mem::transmute(ClosePrivateNamespace(handle.into(), ::core::mem::transmute(flags)))
+    ::core::mem::transmute(ClosePrivateNamespace(handle.into(), flags))
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`*"]
 #[inline]
@@ -506,7 +506,7 @@ pub unsafe fn CloseThreadpoolCleanupGroup(ptpcg: isize) {
     extern "system" {
         fn CloseThreadpoolCleanupGroup(ptpcg: isize);
     }
-    CloseThreadpoolCleanupGroup(::core::mem::transmute(ptpcg))
+    CloseThreadpoolCleanupGroup(ptpcg)
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -519,7 +519,7 @@ where
     extern "system" {
         fn CloseThreadpoolCleanupGroupMembers(ptpcg: isize, fcancelpendingcallbacks: super::super::Foundation::BOOL, pvcleanupcontext: *mut ::core::ffi::c_void);
     }
-    CloseThreadpoolCleanupGroupMembers(::core::mem::transmute(ptpcg), fcancelpendingcallbacks.into(), ::core::mem::transmute(pvcleanupcontext))
+    CloseThreadpoolCleanupGroupMembers(ptpcg, fcancelpendingcallbacks.into(), ::core::mem::transmute(pvcleanupcontext))
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`*"]
 #[inline]
@@ -583,7 +583,7 @@ pub unsafe fn ConvertThreadToFiberEx(lpparameter: *const ::core::ffi::c_void, dw
     extern "system" {
         fn ConvertThreadToFiberEx(lpparameter: *const ::core::ffi::c_void, dwflags: u32) -> *mut ::core::ffi::c_void;
     }
-    ::core::mem::transmute(ConvertThreadToFiberEx(::core::mem::transmute(lpparameter), ::core::mem::transmute(dwflags)))
+    ::core::mem::transmute(ConvertThreadToFiberEx(::core::mem::transmute(lpparameter), dwflags))
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`*"]
 #[inline]
@@ -595,7 +595,7 @@ where
     extern "system" {
         fn CreateBoundaryDescriptorA(name: ::windows::core::PCSTR, flags: u32) -> BoundaryDescriptorHandle;
     }
-    let result__ = CreateBoundaryDescriptorA(name.into(), ::core::mem::transmute(flags));
+    let result__ = CreateBoundaryDescriptorA(name.into(), flags);
     (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`*"]
@@ -608,7 +608,7 @@ where
     extern "system" {
         fn CreateBoundaryDescriptorW(name: ::windows::core::PCWSTR, flags: u32) -> BoundaryDescriptorHandle;
     }
-    ::core::mem::transmute(CreateBoundaryDescriptorW(name.into(), ::core::mem::transmute(flags)))
+    ::core::mem::transmute(CreateBoundaryDescriptorW(name.into(), flags))
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
@@ -637,7 +637,7 @@ where
     extern "system" {
         fn CreateEventExA(lpeventattributes: *const super::super::Security::SECURITY_ATTRIBUTES, lpname: ::windows::core::PCSTR, dwflags: CREATE_EVENT, dwdesiredaccess: u32) -> super::super::Foundation::HANDLE;
     }
-    let result__ = CreateEventExA(::core::mem::transmute(lpeventattributes), lpname.into(), ::core::mem::transmute(dwflags), ::core::mem::transmute(dwdesiredaccess));
+    let result__ = CreateEventExA(::core::mem::transmute(lpeventattributes), lpname.into(), dwflags, dwdesiredaccess);
     (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
@@ -651,7 +651,7 @@ where
     extern "system" {
         fn CreateEventExW(lpeventattributes: *const super::super::Security::SECURITY_ATTRIBUTES, lpname: ::windows::core::PCWSTR, dwflags: CREATE_EVENT, dwdesiredaccess: u32) -> super::super::Foundation::HANDLE;
     }
-    let result__ = CreateEventExW(::core::mem::transmute(lpeventattributes), lpname.into(), ::core::mem::transmute(dwflags), ::core::mem::transmute(dwdesiredaccess));
+    let result__ = CreateEventExW(::core::mem::transmute(lpeventattributes), lpname.into(), dwflags, dwdesiredaccess);
     (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
@@ -677,7 +677,7 @@ pub unsafe fn CreateFiber(dwstacksize: usize, lpstartaddress: LPFIBER_START_ROUT
     extern "system" {
         fn CreateFiber(dwstacksize: usize, lpstartaddress: *mut ::core::ffi::c_void, lpparameter: *const ::core::ffi::c_void) -> *mut ::core::ffi::c_void;
     }
-    ::core::mem::transmute(CreateFiber(::core::mem::transmute(dwstacksize), ::core::mem::transmute(lpstartaddress), ::core::mem::transmute(lpparameter)))
+    ::core::mem::transmute(CreateFiber(dwstacksize, ::core::mem::transmute(lpstartaddress), ::core::mem::transmute(lpparameter)))
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`*"]
 #[inline]
@@ -686,7 +686,7 @@ pub unsafe fn CreateFiberEx(dwstackcommitsize: usize, dwstackreservesize: usize,
     extern "system" {
         fn CreateFiberEx(dwstackcommitsize: usize, dwstackreservesize: usize, dwflags: u32, lpstartaddress: *mut ::core::ffi::c_void, lpparameter: *const ::core::ffi::c_void) -> *mut ::core::ffi::c_void;
     }
-    ::core::mem::transmute(CreateFiberEx(::core::mem::transmute(dwstackcommitsize), ::core::mem::transmute(dwstackreservesize), ::core::mem::transmute(dwflags), ::core::mem::transmute(lpstartaddress), ::core::mem::transmute(lpparameter)))
+    ::core::mem::transmute(CreateFiberEx(dwstackcommitsize, dwstackreservesize, dwflags, ::core::mem::transmute(lpstartaddress), ::core::mem::transmute(lpparameter)))
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
@@ -714,7 +714,7 @@ where
     extern "system" {
         fn CreateMutexExA(lpmutexattributes: *const super::super::Security::SECURITY_ATTRIBUTES, lpname: ::windows::core::PCSTR, dwflags: u32, dwdesiredaccess: u32) -> super::super::Foundation::HANDLE;
     }
-    let result__ = CreateMutexExA(::core::mem::transmute(lpmutexattributes), lpname.into(), ::core::mem::transmute(dwflags), ::core::mem::transmute(dwdesiredaccess));
+    let result__ = CreateMutexExA(::core::mem::transmute(lpmutexattributes), lpname.into(), dwflags, dwdesiredaccess);
     (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
@@ -728,7 +728,7 @@ where
     extern "system" {
         fn CreateMutexExW(lpmutexattributes: *const super::super::Security::SECURITY_ATTRIBUTES, lpname: ::windows::core::PCWSTR, dwflags: u32, dwdesiredaccess: u32) -> super::super::Foundation::HANDLE;
     }
-    let result__ = CreateMutexExW(::core::mem::transmute(lpmutexattributes), lpname.into(), ::core::mem::transmute(dwflags), ::core::mem::transmute(dwdesiredaccess));
+    let result__ = CreateMutexExW(::core::mem::transmute(lpmutexattributes), lpname.into(), dwflags, dwdesiredaccess);
     (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
@@ -786,7 +786,7 @@ where
     extern "system" {
         fn CreateProcessA(lpapplicationname: ::windows::core::PCSTR, lpcommandline: ::windows::core::PSTR, lpprocessattributes: *const super::super::Security::SECURITY_ATTRIBUTES, lpthreadattributes: *const super::super::Security::SECURITY_ATTRIBUTES, binherithandles: super::super::Foundation::BOOL, dwcreationflags: PROCESS_CREATION_FLAGS, lpenvironment: *const ::core::ffi::c_void, lpcurrentdirectory: ::windows::core::PCSTR, lpstartupinfo: *const STARTUPINFOA, lpprocessinformation: *mut PROCESS_INFORMATION) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(CreateProcessA(lpapplicationname.into(), ::core::mem::transmute(lpcommandline), ::core::mem::transmute(lpprocessattributes), ::core::mem::transmute(lpthreadattributes), binherithandles.into(), ::core::mem::transmute(dwcreationflags), ::core::mem::transmute(lpenvironment), lpcurrentdirectory.into(), ::core::mem::transmute(lpstartupinfo), ::core::mem::transmute(lpprocessinformation)))
+    ::core::mem::transmute(CreateProcessA(lpapplicationname.into(), ::core::mem::transmute(lpcommandline), ::core::mem::transmute(lpprocessattributes), ::core::mem::transmute(lpthreadattributes), binherithandles.into(), dwcreationflags, ::core::mem::transmute(lpenvironment), lpcurrentdirectory.into(), ::core::mem::transmute(lpstartupinfo), ::core::mem::transmute(lpprocessinformation)))
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
@@ -802,7 +802,7 @@ where
     extern "system" {
         fn CreateProcessAsUserA(htoken: super::super::Foundation::HANDLE, lpapplicationname: ::windows::core::PCSTR, lpcommandline: ::windows::core::PSTR, lpprocessattributes: *const super::super::Security::SECURITY_ATTRIBUTES, lpthreadattributes: *const super::super::Security::SECURITY_ATTRIBUTES, binherithandles: super::super::Foundation::BOOL, dwcreationflags: u32, lpenvironment: *const ::core::ffi::c_void, lpcurrentdirectory: ::windows::core::PCSTR, lpstartupinfo: *const STARTUPINFOA, lpprocessinformation: *mut PROCESS_INFORMATION) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(CreateProcessAsUserA(htoken.into(), lpapplicationname.into(), ::core::mem::transmute(lpcommandline), ::core::mem::transmute(lpprocessattributes), ::core::mem::transmute(lpthreadattributes), binherithandles.into(), ::core::mem::transmute(dwcreationflags), ::core::mem::transmute(lpenvironment), lpcurrentdirectory.into(), ::core::mem::transmute(lpstartupinfo), ::core::mem::transmute(lpprocessinformation)))
+    ::core::mem::transmute(CreateProcessAsUserA(htoken.into(), lpapplicationname.into(), ::core::mem::transmute(lpcommandline), ::core::mem::transmute(lpprocessattributes), ::core::mem::transmute(lpthreadattributes), binherithandles.into(), dwcreationflags, ::core::mem::transmute(lpenvironment), lpcurrentdirectory.into(), ::core::mem::transmute(lpstartupinfo), ::core::mem::transmute(lpprocessinformation)))
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
@@ -818,7 +818,7 @@ where
     extern "system" {
         fn CreateProcessAsUserW(htoken: super::super::Foundation::HANDLE, lpapplicationname: ::windows::core::PCWSTR, lpcommandline: ::windows::core::PWSTR, lpprocessattributes: *const super::super::Security::SECURITY_ATTRIBUTES, lpthreadattributes: *const super::super::Security::SECURITY_ATTRIBUTES, binherithandles: super::super::Foundation::BOOL, dwcreationflags: u32, lpenvironment: *const ::core::ffi::c_void, lpcurrentdirectory: ::windows::core::PCWSTR, lpstartupinfo: *const STARTUPINFOW, lpprocessinformation: *mut PROCESS_INFORMATION) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(CreateProcessAsUserW(htoken.into(), lpapplicationname.into(), ::core::mem::transmute(lpcommandline), ::core::mem::transmute(lpprocessattributes), ::core::mem::transmute(lpthreadattributes), binherithandles.into(), ::core::mem::transmute(dwcreationflags), ::core::mem::transmute(lpenvironment), lpcurrentdirectory.into(), ::core::mem::transmute(lpstartupinfo), ::core::mem::transmute(lpprocessinformation)))
+    ::core::mem::transmute(CreateProcessAsUserW(htoken.into(), lpapplicationname.into(), ::core::mem::transmute(lpcommandline), ::core::mem::transmute(lpprocessattributes), ::core::mem::transmute(lpthreadattributes), binherithandles.into(), dwcreationflags, ::core::mem::transmute(lpenvironment), lpcurrentdirectory.into(), ::core::mem::transmute(lpstartupinfo), ::core::mem::transmute(lpprocessinformation)))
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
@@ -833,7 +833,7 @@ where
     extern "system" {
         fn CreateProcessW(lpapplicationname: ::windows::core::PCWSTR, lpcommandline: ::windows::core::PWSTR, lpprocessattributes: *const super::super::Security::SECURITY_ATTRIBUTES, lpthreadattributes: *const super::super::Security::SECURITY_ATTRIBUTES, binherithandles: super::super::Foundation::BOOL, dwcreationflags: PROCESS_CREATION_FLAGS, lpenvironment: *const ::core::ffi::c_void, lpcurrentdirectory: ::windows::core::PCWSTR, lpstartupinfo: *const STARTUPINFOW, lpprocessinformation: *mut PROCESS_INFORMATION) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(CreateProcessW(lpapplicationname.into(), ::core::mem::transmute(lpcommandline), ::core::mem::transmute(lpprocessattributes), ::core::mem::transmute(lpthreadattributes), binherithandles.into(), ::core::mem::transmute(dwcreationflags), ::core::mem::transmute(lpenvironment), lpcurrentdirectory.into(), ::core::mem::transmute(lpstartupinfo), ::core::mem::transmute(lpprocessinformation)))
+    ::core::mem::transmute(CreateProcessW(lpapplicationname.into(), ::core::mem::transmute(lpcommandline), ::core::mem::transmute(lpprocessattributes), ::core::mem::transmute(lpthreadattributes), binherithandles.into(), dwcreationflags, ::core::mem::transmute(lpenvironment), lpcurrentdirectory.into(), ::core::mem::transmute(lpstartupinfo), ::core::mem::transmute(lpprocessinformation)))
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -850,7 +850,7 @@ where
     extern "system" {
         fn CreateProcessWithLogonW(lpusername: ::windows::core::PCWSTR, lpdomain: ::windows::core::PCWSTR, lppassword: ::windows::core::PCWSTR, dwlogonflags: CREATE_PROCESS_LOGON_FLAGS, lpapplicationname: ::windows::core::PCWSTR, lpcommandline: ::windows::core::PWSTR, dwcreationflags: u32, lpenvironment: *const ::core::ffi::c_void, lpcurrentdirectory: ::windows::core::PCWSTR, lpstartupinfo: *const STARTUPINFOW, lpprocessinformation: *mut PROCESS_INFORMATION) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(CreateProcessWithLogonW(lpusername.into(), lpdomain.into(), lppassword.into(), ::core::mem::transmute(dwlogonflags), lpapplicationname.into(), ::core::mem::transmute(lpcommandline), ::core::mem::transmute(dwcreationflags), ::core::mem::transmute(lpenvironment), lpcurrentdirectory.into(), ::core::mem::transmute(lpstartupinfo), ::core::mem::transmute(lpprocessinformation)))
+    ::core::mem::transmute(CreateProcessWithLogonW(lpusername.into(), lpdomain.into(), lppassword.into(), dwlogonflags, lpapplicationname.into(), ::core::mem::transmute(lpcommandline), dwcreationflags, ::core::mem::transmute(lpenvironment), lpcurrentdirectory.into(), ::core::mem::transmute(lpstartupinfo), ::core::mem::transmute(lpprocessinformation)))
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -865,7 +865,7 @@ where
     extern "system" {
         fn CreateProcessWithTokenW(htoken: super::super::Foundation::HANDLE, dwlogonflags: CREATE_PROCESS_LOGON_FLAGS, lpapplicationname: ::windows::core::PCWSTR, lpcommandline: ::windows::core::PWSTR, dwcreationflags: u32, lpenvironment: *const ::core::ffi::c_void, lpcurrentdirectory: ::windows::core::PCWSTR, lpstartupinfo: *const STARTUPINFOW, lpprocessinformation: *mut PROCESS_INFORMATION) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(CreateProcessWithTokenW(htoken.into(), ::core::mem::transmute(dwlogonflags), lpapplicationname.into(), ::core::mem::transmute(lpcommandline), ::core::mem::transmute(dwcreationflags), ::core::mem::transmute(lpenvironment), lpcurrentdirectory.into(), ::core::mem::transmute(lpstartupinfo), ::core::mem::transmute(lpprocessinformation)))
+    ::core::mem::transmute(CreateProcessWithTokenW(htoken.into(), dwlogonflags, lpapplicationname.into(), ::core::mem::transmute(lpcommandline), dwcreationflags, ::core::mem::transmute(lpenvironment), lpcurrentdirectory.into(), ::core::mem::transmute(lpstartupinfo), ::core::mem::transmute(lpprocessinformation)))
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
@@ -878,7 +878,7 @@ where
     extern "system" {
         fn CreateRemoteThread(hprocess: super::super::Foundation::HANDLE, lpthreadattributes: *const super::super::Security::SECURITY_ATTRIBUTES, dwstacksize: usize, lpstartaddress: *mut ::core::ffi::c_void, lpparameter: *const ::core::ffi::c_void, dwcreationflags: u32, lpthreadid: *mut u32) -> super::super::Foundation::HANDLE;
     }
-    let result__ = CreateRemoteThread(hprocess.into(), ::core::mem::transmute(lpthreadattributes), ::core::mem::transmute(dwstacksize), ::core::mem::transmute(lpstartaddress), ::core::mem::transmute(lpparameter), ::core::mem::transmute(dwcreationflags), ::core::mem::transmute(lpthreadid));
+    let result__ = CreateRemoteThread(hprocess.into(), ::core::mem::transmute(lpthreadattributes), dwstacksize, ::core::mem::transmute(lpstartaddress), ::core::mem::transmute(lpparameter), dwcreationflags, ::core::mem::transmute(lpthreadid));
     (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
@@ -893,7 +893,7 @@ where
     extern "system" {
         fn CreateRemoteThreadEx(hprocess: super::super::Foundation::HANDLE, lpthreadattributes: *const super::super::Security::SECURITY_ATTRIBUTES, dwstacksize: usize, lpstartaddress: *mut ::core::ffi::c_void, lpparameter: *const ::core::ffi::c_void, dwcreationflags: u32, lpattributelist: LPPROC_THREAD_ATTRIBUTE_LIST, lpthreadid: *mut u32) -> super::super::Foundation::HANDLE;
     }
-    let result__ = CreateRemoteThreadEx(hprocess.into(), ::core::mem::transmute(lpthreadattributes), ::core::mem::transmute(dwstacksize), ::core::mem::transmute(lpstartaddress), ::core::mem::transmute(lpparameter), ::core::mem::transmute(dwcreationflags), lpattributelist.into(), ::core::mem::transmute(lpthreadid));
+    let result__ = CreateRemoteThreadEx(hprocess.into(), ::core::mem::transmute(lpthreadattributes), dwstacksize, ::core::mem::transmute(lpstartaddress), ::core::mem::transmute(lpparameter), dwcreationflags, lpattributelist.into(), ::core::mem::transmute(lpthreadid));
     (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
@@ -907,7 +907,7 @@ where
     extern "system" {
         fn CreateSemaphoreA(lpsemaphoreattributes: *const super::super::Security::SECURITY_ATTRIBUTES, linitialcount: i32, lmaximumcount: i32, lpname: ::windows::core::PCSTR) -> super::super::Foundation::HANDLE;
     }
-    let result__ = CreateSemaphoreA(::core::mem::transmute(lpsemaphoreattributes), ::core::mem::transmute(linitialcount), ::core::mem::transmute(lmaximumcount), lpname.into());
+    let result__ = CreateSemaphoreA(::core::mem::transmute(lpsemaphoreattributes), linitialcount, lmaximumcount, lpname.into());
     (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
@@ -921,7 +921,7 @@ where
     extern "system" {
         fn CreateSemaphoreExA(lpsemaphoreattributes: *const super::super::Security::SECURITY_ATTRIBUTES, linitialcount: i32, lmaximumcount: i32, lpname: ::windows::core::PCSTR, dwflags: u32, dwdesiredaccess: u32) -> super::super::Foundation::HANDLE;
     }
-    let result__ = CreateSemaphoreExA(::core::mem::transmute(lpsemaphoreattributes), ::core::mem::transmute(linitialcount), ::core::mem::transmute(lmaximumcount), lpname.into(), ::core::mem::transmute(dwflags), ::core::mem::transmute(dwdesiredaccess));
+    let result__ = CreateSemaphoreExA(::core::mem::transmute(lpsemaphoreattributes), linitialcount, lmaximumcount, lpname.into(), dwflags, dwdesiredaccess);
     (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
@@ -935,7 +935,7 @@ where
     extern "system" {
         fn CreateSemaphoreExW(lpsemaphoreattributes: *const super::super::Security::SECURITY_ATTRIBUTES, linitialcount: i32, lmaximumcount: i32, lpname: ::windows::core::PCWSTR, dwflags: u32, dwdesiredaccess: u32) -> super::super::Foundation::HANDLE;
     }
-    let result__ = CreateSemaphoreExW(::core::mem::transmute(lpsemaphoreattributes), ::core::mem::transmute(linitialcount), ::core::mem::transmute(lmaximumcount), lpname.into(), ::core::mem::transmute(dwflags), ::core::mem::transmute(dwdesiredaccess));
+    let result__ = CreateSemaphoreExW(::core::mem::transmute(lpsemaphoreattributes), linitialcount, lmaximumcount, lpname.into(), dwflags, dwdesiredaccess);
     (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
@@ -949,7 +949,7 @@ where
     extern "system" {
         fn CreateSemaphoreW(lpsemaphoreattributes: *const super::super::Security::SECURITY_ATTRIBUTES, linitialcount: i32, lmaximumcount: i32, lpname: ::windows::core::PCWSTR) -> super::super::Foundation::HANDLE;
     }
-    let result__ = CreateSemaphoreW(::core::mem::transmute(lpsemaphoreattributes), ::core::mem::transmute(linitialcount), ::core::mem::transmute(lmaximumcount), lpname.into());
+    let result__ = CreateSemaphoreW(::core::mem::transmute(lpsemaphoreattributes), linitialcount, lmaximumcount, lpname.into());
     (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
@@ -960,7 +960,7 @@ pub unsafe fn CreateThread(lpthreadattributes: *const super::super::Security::SE
     extern "system" {
         fn CreateThread(lpthreadattributes: *const super::super::Security::SECURITY_ATTRIBUTES, dwstacksize: usize, lpstartaddress: *mut ::core::ffi::c_void, lpparameter: *const ::core::ffi::c_void, dwcreationflags: THREAD_CREATION_FLAGS, lpthreadid: *mut u32) -> super::super::Foundation::HANDLE;
     }
-    let result__ = CreateThread(::core::mem::transmute(lpthreadattributes), ::core::mem::transmute(dwstacksize), ::core::mem::transmute(lpstartaddress), ::core::mem::transmute(lpparameter), ::core::mem::transmute(dwcreationflags), ::core::mem::transmute(lpthreadid));
+    let result__ = CreateThread(::core::mem::transmute(lpthreadattributes), dwstacksize, ::core::mem::transmute(lpstartaddress), ::core::mem::transmute(lpparameter), dwcreationflags, ::core::mem::transmute(lpthreadid));
     (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`*"]
@@ -1043,7 +1043,7 @@ where
     extern "system" {
         fn CreateTimerQueueTimer(phnewtimer: *mut super::super::Foundation::HANDLE, timerqueue: super::super::Foundation::HANDLE, callback: *mut ::core::ffi::c_void, parameter: *const ::core::ffi::c_void, duetime: u32, period: u32, flags: WORKER_THREAD_FLAGS) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(CreateTimerQueueTimer(::core::mem::transmute(phnewtimer), timerqueue.into(), ::core::mem::transmute(callback), ::core::mem::transmute(parameter), ::core::mem::transmute(duetime), ::core::mem::transmute(period), ::core::mem::transmute(flags)))
+    ::core::mem::transmute(CreateTimerQueueTimer(::core::mem::transmute(phnewtimer), timerqueue.into(), ::core::mem::transmute(callback), ::core::mem::transmute(parameter), duetime, period, flags))
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -1076,7 +1076,7 @@ where
     extern "system" {
         fn CreateWaitableTimerExW(lptimerattributes: *const super::super::Security::SECURITY_ATTRIBUTES, lptimername: ::windows::core::PCWSTR, dwflags: u32, dwdesiredaccess: u32) -> super::super::Foundation::HANDLE;
     }
-    let result__ = CreateWaitableTimerExW(::core::mem::transmute(lptimerattributes), lptimername.into(), ::core::mem::transmute(dwflags), ::core::mem::transmute(dwdesiredaccess));
+    let result__ = CreateWaitableTimerExW(::core::mem::transmute(lptimerattributes), lptimername.into(), dwflags, dwdesiredaccess);
     (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
@@ -1217,7 +1217,7 @@ pub unsafe fn DequeueUmsCompletionListItems(umscompletionlist: *const ::core::ff
     extern "system" {
         fn DequeueUmsCompletionListItems(umscompletionlist: *const ::core::ffi::c_void, waittimeout: u32, umsthreadlist: *mut *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(DequeueUmsCompletionListItems(::core::mem::transmute(umscompletionlist), ::core::mem::transmute(waittimeout), ::core::mem::transmute(umsthreadlist)))
+    ::core::mem::transmute(DequeueUmsCompletionListItems(::core::mem::transmute(umscompletionlist), waittimeout, ::core::mem::transmute(umsthreadlist)))
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`*"]
 #[inline]
@@ -1246,7 +1246,7 @@ pub unsafe fn EnterSynchronizationBarrier(lpbarrier: *mut RTL_BARRIER, dwflags: 
     extern "system" {
         fn EnterSynchronizationBarrier(lpbarrier: *mut RTL_BARRIER, dwflags: u32) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(EnterSynchronizationBarrier(::core::mem::transmute(lpbarrier), ::core::mem::transmute(dwflags)))
+    ::core::mem::transmute(EnterSynchronizationBarrier(::core::mem::transmute(lpbarrier), dwflags))
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`, `\"Win32_System_SystemServices\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
@@ -1275,7 +1275,7 @@ pub unsafe fn ExitProcess(uexitcode: u32) -> ! {
     extern "system" {
         fn ExitProcess(uexitcode: u32) -> !;
     }
-    ExitProcess(::core::mem::transmute(uexitcode))
+    ExitProcess(uexitcode)
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`*"]
 #[inline]
@@ -1284,7 +1284,7 @@ pub unsafe fn ExitThread(dwexitcode: u32) -> ! {
     extern "system" {
         fn ExitThread(dwexitcode: u32) -> !;
     }
-    ExitThread(::core::mem::transmute(dwexitcode))
+    ExitThread(dwexitcode)
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`*"]
 #[inline]
@@ -1303,7 +1303,7 @@ pub unsafe fn FlsFree(dwflsindex: u32) -> super::super::Foundation::BOOL {
     extern "system" {
         fn FlsFree(dwflsindex: u32) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(FlsFree(::core::mem::transmute(dwflsindex)))
+    ::core::mem::transmute(FlsFree(dwflsindex))
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`*"]
 #[inline]
@@ -1312,7 +1312,7 @@ pub unsafe fn FlsGetValue(dwflsindex: u32) -> *mut ::core::ffi::c_void {
     extern "system" {
         fn FlsGetValue(dwflsindex: u32) -> *mut ::core::ffi::c_void;
     }
-    ::core::mem::transmute(FlsGetValue(::core::mem::transmute(dwflsindex)))
+    ::core::mem::transmute(FlsGetValue(dwflsindex))
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -1322,7 +1322,7 @@ pub unsafe fn FlsSetValue(dwflsindex: u32, lpflsdata: *const ::core::ffi::c_void
     extern "system" {
         fn FlsSetValue(dwflsindex: u32, lpflsdata: *const ::core::ffi::c_void) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(FlsSetValue(::core::mem::transmute(dwflsindex), ::core::mem::transmute(lpflsdata)))
+    ::core::mem::transmute(FlsSetValue(dwflsindex, ::core::mem::transmute(lpflsdata)))
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`*"]
 #[inline]
@@ -1384,7 +1384,7 @@ pub unsafe fn GetActiveProcessorCount(groupnumber: u16) -> u32 {
     extern "system" {
         fn GetActiveProcessorCount(groupnumber: u16) -> u32;
     }
-    ::core::mem::transmute(GetActiveProcessorCount(::core::mem::transmute(groupnumber)))
+    ::core::mem::transmute(GetActiveProcessorCount(groupnumber))
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`*"]
 #[inline]
@@ -1507,7 +1507,7 @@ where
     extern "system" {
         fn GetGuiResources(hprocess: super::super::Foundation::HANDLE, uiflags: GET_GUI_RESOURCES_FLAGS) -> u32;
     }
-    ::core::mem::transmute(GetGuiResources(hprocess.into(), ::core::mem::transmute(uiflags)))
+    ::core::mem::transmute(GetGuiResources(hprocess.into(), uiflags))
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`*"]
 #[inline]
@@ -1517,7 +1517,7 @@ pub unsafe fn GetMachineTypeAttributes(machine: u16) -> ::windows::core::Result<
         fn GetMachineTypeAttributes(machine: u16, machinetypeattributes: *mut MACHINE_ATTRIBUTES) -> ::windows::core::HRESULT;
     }
     let mut result__ = ::core::mem::MaybeUninit::<MACHINE_ATTRIBUTES>::zeroed();
-    GetMachineTypeAttributes(::core::mem::transmute(machine), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<MACHINE_ATTRIBUTES>(result__)
+    GetMachineTypeAttributes(machine, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<MACHINE_ATTRIBUTES>(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`*"]
 #[inline]
@@ -1526,7 +1526,7 @@ pub unsafe fn GetMaximumProcessorCount(groupnumber: u16) -> u32 {
     extern "system" {
         fn GetMaximumProcessorCount(groupnumber: u16) -> u32;
     }
-    ::core::mem::transmute(GetMaximumProcessorCount(::core::mem::transmute(groupnumber)))
+    ::core::mem::transmute(GetMaximumProcessorCount(groupnumber))
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`*"]
 #[inline]
@@ -1554,7 +1554,7 @@ pub unsafe fn GetNumaAvailableMemoryNode(node: u8, availablebytes: *mut u64) -> 
     extern "system" {
         fn GetNumaAvailableMemoryNode(node: u8, availablebytes: *mut u64) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(GetNumaAvailableMemoryNode(::core::mem::transmute(node), ::core::mem::transmute(availablebytes)))
+    ::core::mem::transmute(GetNumaAvailableMemoryNode(node, ::core::mem::transmute(availablebytes)))
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -1564,7 +1564,7 @@ pub unsafe fn GetNumaAvailableMemoryNodeEx(node: u16, availablebytes: *mut u64) 
     extern "system" {
         fn GetNumaAvailableMemoryNodeEx(node: u16, availablebytes: *mut u64) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(GetNumaAvailableMemoryNodeEx(::core::mem::transmute(node), ::core::mem::transmute(availablebytes)))
+    ::core::mem::transmute(GetNumaAvailableMemoryNodeEx(node, ::core::mem::transmute(availablebytes)))
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -1597,7 +1597,7 @@ pub unsafe fn GetNumaNodeProcessorMask(node: u8, processormask: *mut u64) -> sup
     extern "system" {
         fn GetNumaNodeProcessorMask(node: u8, processormask: *mut u64) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(GetNumaNodeProcessorMask(::core::mem::transmute(node), ::core::mem::transmute(processormask)))
+    ::core::mem::transmute(GetNumaNodeProcessorMask(node, ::core::mem::transmute(processormask)))
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`, `\"Win32_System_SystemInformation\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemInformation"))]
@@ -1607,7 +1607,7 @@ pub unsafe fn GetNumaNodeProcessorMask2(nodenumber: u16, processormasks: &mut [s
     extern "system" {
         fn GetNumaNodeProcessorMask2(nodenumber: u16, processormasks: *mut super::SystemInformation::GROUP_AFFINITY, processormaskcount: u16, requiredmaskcount: *mut u16) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(GetNumaNodeProcessorMask2(::core::mem::transmute(nodenumber), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(processormasks)), processormasks.len() as _, ::core::mem::transmute(requiredmaskcount)))
+    ::core::mem::transmute(GetNumaNodeProcessorMask2(nodenumber, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(processormasks)), processormasks.len() as _, ::core::mem::transmute(requiredmaskcount)))
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`, `\"Win32_System_SystemInformation\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemInformation"))]
@@ -1617,7 +1617,7 @@ pub unsafe fn GetNumaNodeProcessorMaskEx(node: u16, processormask: *mut super::S
     extern "system" {
         fn GetNumaNodeProcessorMaskEx(node: u16, processormask: *mut super::SystemInformation::GROUP_AFFINITY) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(GetNumaNodeProcessorMaskEx(::core::mem::transmute(node), ::core::mem::transmute(processormask)))
+    ::core::mem::transmute(GetNumaNodeProcessorMaskEx(node, ::core::mem::transmute(processormask)))
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -1627,7 +1627,7 @@ pub unsafe fn GetNumaProcessorNode(processor: u8, nodenumber: *mut u8) -> super:
     extern "system" {
         fn GetNumaProcessorNode(processor: u8, nodenumber: *mut u8) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(GetNumaProcessorNode(::core::mem::transmute(processor), ::core::mem::transmute(nodenumber)))
+    ::core::mem::transmute(GetNumaProcessorNode(processor, ::core::mem::transmute(nodenumber)))
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`, `\"Win32_System_Kernel\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
@@ -1647,7 +1647,7 @@ pub unsafe fn GetNumaProximityNode(proximityid: u32, nodenumber: *mut u8) -> sup
     extern "system" {
         fn GetNumaProximityNode(proximityid: u32, nodenumber: *mut u8) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(GetNumaProximityNode(::core::mem::transmute(proximityid), ::core::mem::transmute(nodenumber)))
+    ::core::mem::transmute(GetNumaProximityNode(proximityid, ::core::mem::transmute(nodenumber)))
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -1657,7 +1657,7 @@ pub unsafe fn GetNumaProximityNodeEx(proximityid: u32, nodenumber: *mut u16) -> 
     extern "system" {
         fn GetNumaProximityNodeEx(proximityid: u32, nodenumber: *mut u16) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(GetNumaProximityNodeEx(::core::mem::transmute(proximityid), ::core::mem::transmute(nodenumber)))
+    ::core::mem::transmute(GetNumaProximityNodeEx(proximityid, ::core::mem::transmute(nodenumber)))
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -1787,7 +1787,7 @@ where
     extern "system" {
         fn GetProcessInformation(hprocess: super::super::Foundation::HANDLE, processinformationclass: PROCESS_INFORMATION_CLASS, processinformation: *mut ::core::ffi::c_void, processinformationsize: u32) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(GetProcessInformation(hprocess.into(), ::core::mem::transmute(processinformationclass), ::core::mem::transmute(processinformation), ::core::mem::transmute(processinformationsize)))
+    ::core::mem::transmute(GetProcessInformation(hprocess.into(), processinformationclass, ::core::mem::transmute(processinformation), processinformationsize))
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -1813,7 +1813,7 @@ where
     extern "system" {
         fn GetProcessMitigationPolicy(hprocess: super::super::Foundation::HANDLE, mitigationpolicy: PROCESS_MITIGATION_POLICY, lpbuffer: *mut ::core::ffi::c_void, dwlength: usize) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(GetProcessMitigationPolicy(hprocess.into(), ::core::mem::transmute(mitigationpolicy), ::core::mem::transmute(lpbuffer), ::core::mem::transmute(dwlength)))
+    ::core::mem::transmute(GetProcessMitigationPolicy(hprocess.into(), mitigationpolicy, ::core::mem::transmute(lpbuffer), dwlength))
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -1858,7 +1858,7 @@ pub unsafe fn GetProcessVersion(processid: u32) -> u32 {
     extern "system" {
         fn GetProcessVersion(processid: u32) -> u32;
     }
-    ::core::mem::transmute(GetProcessVersion(::core::mem::transmute(processid)))
+    ::core::mem::transmute(GetProcessVersion(processid))
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -1980,7 +1980,7 @@ where
     extern "system" {
         fn GetThreadInformation(hthread: super::super::Foundation::HANDLE, threadinformationclass: THREAD_INFORMATION_CLASS, threadinformation: *mut ::core::ffi::c_void, threadinformationsize: u32) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(GetThreadInformation(hthread.into(), ::core::mem::transmute(threadinformationclass), ::core::mem::transmute(threadinformation), ::core::mem::transmute(threadinformationsize)))
+    ::core::mem::transmute(GetThreadInformation(hthread.into(), threadinformationclass, ::core::mem::transmute(threadinformation), threadinformationsize))
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -2121,7 +2121,7 @@ pub unsafe fn InitOnceBeginInitialize(lpinitonce: *mut RTL_RUN_ONCE, dwflags: u3
     extern "system" {
         fn InitOnceBeginInitialize(lpinitonce: *mut RTL_RUN_ONCE, dwflags: u32, fpending: *mut super::super::Foundation::BOOL, lpcontext: *mut *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(InitOnceBeginInitialize(::core::mem::transmute(lpinitonce), ::core::mem::transmute(dwflags), ::core::mem::transmute(fpending), ::core::mem::transmute(lpcontext)))
+    ::core::mem::transmute(InitOnceBeginInitialize(::core::mem::transmute(lpinitonce), dwflags, ::core::mem::transmute(fpending), ::core::mem::transmute(lpcontext)))
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -2131,7 +2131,7 @@ pub unsafe fn InitOnceComplete(lpinitonce: *mut RTL_RUN_ONCE, dwflags: u32, lpco
     extern "system" {
         fn InitOnceComplete(lpinitonce: *mut RTL_RUN_ONCE, dwflags: u32, lpcontext: *const ::core::ffi::c_void) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(InitOnceComplete(::core::mem::transmute(lpinitonce), ::core::mem::transmute(dwflags), ::core::mem::transmute(lpcontext)))
+    ::core::mem::transmute(InitOnceComplete(::core::mem::transmute(lpinitonce), dwflags, ::core::mem::transmute(lpcontext)))
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -2179,7 +2179,7 @@ pub unsafe fn InitializeCriticalSectionAndSpinCount(lpcriticalsection: *mut RTL_
     extern "system" {
         fn InitializeCriticalSectionAndSpinCount(lpcriticalsection: *mut RTL_CRITICAL_SECTION, dwspincount: u32) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(InitializeCriticalSectionAndSpinCount(::core::mem::transmute(lpcriticalsection), ::core::mem::transmute(dwspincount)))
+    ::core::mem::transmute(InitializeCriticalSectionAndSpinCount(::core::mem::transmute(lpcriticalsection), dwspincount))
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`, `\"Win32_System_Kernel\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
@@ -2189,7 +2189,7 @@ pub unsafe fn InitializeCriticalSectionEx(lpcriticalsection: *mut RTL_CRITICAL_S
     extern "system" {
         fn InitializeCriticalSectionEx(lpcriticalsection: *mut RTL_CRITICAL_SECTION, dwspincount: u32, flags: u32) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(InitializeCriticalSectionEx(::core::mem::transmute(lpcriticalsection), ::core::mem::transmute(dwspincount), ::core::mem::transmute(flags)))
+    ::core::mem::transmute(InitializeCriticalSectionEx(::core::mem::transmute(lpcriticalsection), dwspincount, flags))
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -2199,7 +2199,7 @@ pub unsafe fn InitializeProcThreadAttributeList(lpattributelist: LPPROC_THREAD_A
     extern "system" {
         fn InitializeProcThreadAttributeList(lpattributelist: LPPROC_THREAD_ATTRIBUTE_LIST, dwattributecount: u32, dwflags: u32, lpsize: *mut usize) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(InitializeProcThreadAttributeList(::core::mem::transmute(lpattributelist), ::core::mem::transmute(dwattributecount), ::core::mem::transmute(dwflags), ::core::mem::transmute(lpsize)))
+    ::core::mem::transmute(InitializeProcThreadAttributeList(::core::mem::transmute(lpattributelist), dwattributecount, dwflags, ::core::mem::transmute(lpsize)))
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_System_Kernel\"`*"]
 #[cfg(feature = "Win32_System_Kernel")]
@@ -2228,7 +2228,7 @@ pub unsafe fn InitializeSynchronizationBarrier(lpbarrier: *mut RTL_BARRIER, ltot
     extern "system" {
         fn InitializeSynchronizationBarrier(lpbarrier: *mut RTL_BARRIER, ltotalthreads: i32, lspincount: i32) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(InitializeSynchronizationBarrier(::core::mem::transmute(lpbarrier), ::core::mem::transmute(ltotalthreads), ::core::mem::transmute(lspincount)))
+    ::core::mem::transmute(InitializeSynchronizationBarrier(::core::mem::transmute(lpbarrier), ltotalthreads, lspincount))
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_System_Kernel\"`*"]
 #[cfg(feature = "Win32_System_Kernel")]
@@ -2268,7 +2268,7 @@ pub unsafe fn InterlockedPushListSListEx(listhead: *mut super::Kernel::SLIST_HEA
     extern "system" {
         fn InterlockedPushListSListEx(listhead: *mut super::Kernel::SLIST_HEADER, list: *mut super::Kernel::SLIST_ENTRY, listend: *mut super::Kernel::SLIST_ENTRY, count: u32) -> *mut super::Kernel::SLIST_ENTRY;
     }
-    ::core::mem::transmute(InterlockedPushListSListEx(::core::mem::transmute(listhead), ::core::mem::transmute(list), ::core::mem::transmute(listend), ::core::mem::transmute(count)))
+    ::core::mem::transmute(InterlockedPushListSListEx(::core::mem::transmute(listhead), ::core::mem::transmute(list), ::core::mem::transmute(listend), count))
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -2304,7 +2304,7 @@ pub unsafe fn IsProcessorFeaturePresent(processorfeature: PROCESSOR_FEATURE_ID) 
     extern "system" {
         fn IsProcessorFeaturePresent(processorfeature: PROCESSOR_FEATURE_ID) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(IsProcessorFeaturePresent(::core::mem::transmute(processorfeature)))
+    ::core::mem::transmute(IsProcessorFeaturePresent(processorfeature))
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -2573,7 +2573,7 @@ where
     extern "system" {
         fn NtQueryInformationProcess(processhandle: super::super::Foundation::HANDLE, processinformationclass: PROCESSINFOCLASS, processinformation: *mut ::core::ffi::c_void, processinformationlength: u32, returnlength: *mut u32) -> super::super::Foundation::NTSTATUS;
     }
-    NtQueryInformationProcess(processhandle.into(), ::core::mem::transmute(processinformationclass), ::core::mem::transmute(processinformation), ::core::mem::transmute(processinformationlength), ::core::mem::transmute(returnlength)).ok()
+    NtQueryInformationProcess(processhandle.into(), processinformationclass, ::core::mem::transmute(processinformation), processinformationlength, ::core::mem::transmute(returnlength)).ok()
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -2586,7 +2586,7 @@ where
     extern "system" {
         fn NtQueryInformationThread(threadhandle: super::super::Foundation::HANDLE, threadinformationclass: THREADINFOCLASS, threadinformation: *mut ::core::ffi::c_void, threadinformationlength: u32, returnlength: *mut u32) -> super::super::Foundation::NTSTATUS;
     }
-    NtQueryInformationThread(threadhandle.into(), ::core::mem::transmute(threadinformationclass), ::core::mem::transmute(threadinformation), ::core::mem::transmute(threadinformationlength), ::core::mem::transmute(returnlength)).ok()
+    NtQueryInformationThread(threadhandle.into(), threadinformationclass, ::core::mem::transmute(threadinformation), threadinformationlength, ::core::mem::transmute(returnlength)).ok()
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -2599,7 +2599,7 @@ where
     extern "system" {
         fn NtSetInformationThread(threadhandle: super::super::Foundation::HANDLE, threadinformationclass: THREADINFOCLASS, threadinformation: *const ::core::ffi::c_void, threadinformationlength: u32) -> super::super::Foundation::NTSTATUS;
     }
-    NtSetInformationThread(threadhandle.into(), ::core::mem::transmute(threadinformationclass), ::core::mem::transmute(threadinformation), ::core::mem::transmute(threadinformationlength)).ok()
+    NtSetInformationThread(threadhandle.into(), threadinformationclass, ::core::mem::transmute(threadinformation), threadinformationlength).ok()
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -2613,7 +2613,7 @@ where
     extern "system" {
         fn OpenEventA(dwdesiredaccess: u32, binherithandle: super::super::Foundation::BOOL, lpname: ::windows::core::PCSTR) -> super::super::Foundation::HANDLE;
     }
-    let result__ = OpenEventA(::core::mem::transmute(dwdesiredaccess), binherithandle.into(), lpname.into());
+    let result__ = OpenEventA(dwdesiredaccess, binherithandle.into(), lpname.into());
     (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"]
@@ -2628,7 +2628,7 @@ where
     extern "system" {
         fn OpenEventW(dwdesiredaccess: u32, binherithandle: super::super::Foundation::BOOL, lpname: ::windows::core::PCWSTR) -> super::super::Foundation::HANDLE;
     }
-    let result__ = OpenEventW(::core::mem::transmute(dwdesiredaccess), binherithandle.into(), lpname.into());
+    let result__ = OpenEventW(dwdesiredaccess, binherithandle.into(), lpname.into());
     (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"]
@@ -2643,7 +2643,7 @@ where
     extern "system" {
         fn OpenMutexW(dwdesiredaccess: u32, binherithandle: super::super::Foundation::BOOL, lpname: ::windows::core::PCWSTR) -> super::super::Foundation::HANDLE;
     }
-    let result__ = OpenMutexW(::core::mem::transmute(dwdesiredaccess), binherithandle.into(), lpname.into());
+    let result__ = OpenMutexW(dwdesiredaccess, binherithandle.into(), lpname.into());
     (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`*"]
@@ -2681,7 +2681,7 @@ where
     extern "system" {
         fn OpenProcess(dwdesiredaccess: PROCESS_ACCESS_RIGHTS, binherithandle: super::super::Foundation::BOOL, dwprocessid: u32) -> super::super::Foundation::HANDLE;
     }
-    let result__ = OpenProcess(::core::mem::transmute(dwdesiredaccess), binherithandle.into(), ::core::mem::transmute(dwprocessid));
+    let result__ = OpenProcess(dwdesiredaccess, binherithandle.into(), dwprocessid);
     (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
@@ -2695,7 +2695,7 @@ where
     extern "system" {
         fn OpenProcessToken(processhandle: super::super::Foundation::HANDLE, desiredaccess: super::super::Security::TOKEN_ACCESS_MASK, tokenhandle: *mut super::super::Foundation::HANDLE) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(OpenProcessToken(processhandle.into(), ::core::mem::transmute(desiredaccess), ::core::mem::transmute(tokenhandle)))
+    ::core::mem::transmute(OpenProcessToken(processhandle.into(), desiredaccess, ::core::mem::transmute(tokenhandle)))
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -2709,7 +2709,7 @@ where
     extern "system" {
         fn OpenSemaphoreW(dwdesiredaccess: u32, binherithandle: super::super::Foundation::BOOL, lpname: ::windows::core::PCWSTR) -> super::super::Foundation::HANDLE;
     }
-    let result__ = OpenSemaphoreW(::core::mem::transmute(dwdesiredaccess), binherithandle.into(), lpname.into());
+    let result__ = OpenSemaphoreW(dwdesiredaccess, binherithandle.into(), lpname.into());
     (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"]
@@ -2723,7 +2723,7 @@ where
     extern "system" {
         fn OpenThread(dwdesiredaccess: THREAD_ACCESS_RIGHTS, binherithandle: super::super::Foundation::BOOL, dwthreadid: u32) -> super::super::Foundation::HANDLE;
     }
-    let result__ = OpenThread(::core::mem::transmute(dwdesiredaccess), binherithandle.into(), ::core::mem::transmute(dwthreadid));
+    let result__ = OpenThread(dwdesiredaccess, binherithandle.into(), dwthreadid);
     (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
@@ -2738,7 +2738,7 @@ where
     extern "system" {
         fn OpenThreadToken(threadhandle: super::super::Foundation::HANDLE, desiredaccess: super::super::Security::TOKEN_ACCESS_MASK, openasself: super::super::Foundation::BOOL, tokenhandle: *mut super::super::Foundation::HANDLE) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(OpenThreadToken(threadhandle.into(), ::core::mem::transmute(desiredaccess), openasself.into(), ::core::mem::transmute(tokenhandle)))
+    ::core::mem::transmute(OpenThreadToken(threadhandle.into(), desiredaccess, openasself.into(), ::core::mem::transmute(tokenhandle)))
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -2752,7 +2752,7 @@ where
     extern "system" {
         fn OpenWaitableTimerW(dwdesiredaccess: u32, binherithandle: super::super::Foundation::BOOL, lptimername: ::windows::core::PCWSTR) -> super::super::Foundation::HANDLE;
     }
-    let result__ = OpenWaitableTimerW(::core::mem::transmute(dwdesiredaccess), binherithandle.into(), lptimername.into());
+    let result__ = OpenWaitableTimerW(dwdesiredaccess, binherithandle.into(), lptimername.into());
     (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
 }
 #[repr(C)]
@@ -4112,7 +4112,7 @@ where
     extern "system" {
         fn QueryFullProcessImageNameA(hprocess: super::super::Foundation::HANDLE, dwflags: PROCESS_NAME_FORMAT, lpexename: ::windows::core::PSTR, lpdwsize: *mut u32) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(QueryFullProcessImageNameA(hprocess.into(), ::core::mem::transmute(dwflags), ::core::mem::transmute(lpexename), ::core::mem::transmute(lpdwsize)))
+    ::core::mem::transmute(QueryFullProcessImageNameA(hprocess.into(), dwflags, ::core::mem::transmute(lpexename), ::core::mem::transmute(lpdwsize)))
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -4125,7 +4125,7 @@ where
     extern "system" {
         fn QueryFullProcessImageNameW(hprocess: super::super::Foundation::HANDLE, dwflags: PROCESS_NAME_FORMAT, lpexename: ::windows::core::PWSTR, lpdwsize: *mut u32) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(QueryFullProcessImageNameW(hprocess.into(), ::core::mem::transmute(dwflags), ::core::mem::transmute(lpexename), ::core::mem::transmute(lpdwsize)))
+    ::core::mem::transmute(QueryFullProcessImageNameW(hprocess.into(), dwflags, ::core::mem::transmute(lpexename), ::core::mem::transmute(lpdwsize)))
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -4171,7 +4171,7 @@ pub unsafe fn QueryUmsThreadInformation(umsthread: *const ::core::ffi::c_void, u
     extern "system" {
         fn QueryUmsThreadInformation(umsthread: *const ::core::ffi::c_void, umsthreadinfoclass: RTL_UMS_THREAD_INFO_CLASS, umsthreadinformation: *mut ::core::ffi::c_void, umsthreadinformationlength: u32, returnlength: *mut u32) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(QueryUmsThreadInformation(::core::mem::transmute(umsthread), ::core::mem::transmute(umsthreadinfoclass), ::core::mem::transmute(umsthreadinformation), ::core::mem::transmute(umsthreadinformationlength), ::core::mem::transmute(returnlength)))
+    ::core::mem::transmute(QueryUmsThreadInformation(::core::mem::transmute(umsthread), umsthreadinfoclass, ::core::mem::transmute(umsthreadinformation), umsthreadinformationlength, ::core::mem::transmute(returnlength)))
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -4184,7 +4184,7 @@ where
     extern "system" {
         fn QueueUserAPC(pfnapc: *mut ::core::ffi::c_void, hthread: super::super::Foundation::HANDLE, dwdata: usize) -> u32;
     }
-    ::core::mem::transmute(QueueUserAPC(::core::mem::transmute(pfnapc), hthread.into(), ::core::mem::transmute(dwdata)))
+    ::core::mem::transmute(QueueUserAPC(::core::mem::transmute(pfnapc), hthread.into(), dwdata))
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -4197,7 +4197,7 @@ where
     extern "system" {
         fn QueueUserAPC2(apcroutine: *mut ::core::ffi::c_void, thread: super::super::Foundation::HANDLE, data: usize, flags: QUEUE_USER_APC_FLAGS) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(QueueUserAPC2(::core::mem::transmute(apcroutine), thread.into(), ::core::mem::transmute(data), ::core::mem::transmute(flags)))
+    ::core::mem::transmute(QueueUserAPC2(::core::mem::transmute(apcroutine), thread.into(), data, flags))
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -4207,7 +4207,7 @@ pub unsafe fn QueueUserWorkItem(function: LPTHREAD_START_ROUTINE, context: *cons
     extern "system" {
         fn QueueUserWorkItem(function: *mut ::core::ffi::c_void, context: *const ::core::ffi::c_void, flags: WORKER_THREAD_FLAGS) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(QueueUserWorkItem(::core::mem::transmute(function), ::core::mem::transmute(context), ::core::mem::transmute(flags)))
+    ::core::mem::transmute(QueueUserWorkItem(::core::mem::transmute(function), ::core::mem::transmute(context), flags))
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"]
@@ -4616,7 +4616,7 @@ where
     extern "system" {
         fn RegisterWaitForSingleObject(phnewwaitobject: *mut super::super::Foundation::HANDLE, hobject: super::super::Foundation::HANDLE, callback: *mut ::core::ffi::c_void, context: *const ::core::ffi::c_void, dwmilliseconds: u32, dwflags: WORKER_THREAD_FLAGS) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(RegisterWaitForSingleObject(::core::mem::transmute(phnewwaitobject), hobject.into(), ::core::mem::transmute(callback), ::core::mem::transmute(context), ::core::mem::transmute(dwmilliseconds), ::core::mem::transmute(dwflags)))
+    ::core::mem::transmute(RegisterWaitForSingleObject(::core::mem::transmute(phnewwaitobject), hobject.into(), ::core::mem::transmute(callback), ::core::mem::transmute(context), dwmilliseconds, dwflags))
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -4673,7 +4673,7 @@ where
     extern "system" {
         fn ReleaseSemaphore(hsemaphore: super::super::Foundation::HANDLE, lreleasecount: i32, lppreviouscount: *mut i32) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(ReleaseSemaphore(hsemaphore.into(), ::core::mem::transmute(lreleasecount), ::core::mem::transmute(lppreviouscount)))
+    ::core::mem::transmute(ReleaseSemaphore(hsemaphore.into(), lreleasecount, ::core::mem::transmute(lppreviouscount)))
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -4686,7 +4686,7 @@ where
     extern "system" {
         fn ReleaseSemaphoreWhenCallbackReturns(pci: *mut TP_CALLBACK_INSTANCE, sem: super::super::Foundation::HANDLE, crel: u32);
     }
-    ReleaseSemaphoreWhenCallbackReturns(::core::mem::transmute(pci), sem.into(), ::core::mem::transmute(crel))
+    ReleaseSemaphoreWhenCallbackReturns(::core::mem::transmute(pci), sem.into(), crel)
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -5033,7 +5033,7 @@ pub unsafe fn SetCriticalSectionSpinCount(lpcriticalsection: *mut RTL_CRITICAL_S
     extern "system" {
         fn SetCriticalSectionSpinCount(lpcriticalsection: *mut RTL_CRITICAL_SECTION, dwspincount: u32) -> u32;
     }
-    ::core::mem::transmute(SetCriticalSectionSpinCount(::core::mem::transmute(lpcriticalsection), ::core::mem::transmute(dwspincount)))
+    ::core::mem::transmute(SetCriticalSectionSpinCount(::core::mem::transmute(lpcriticalsection), dwspincount))
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -5072,7 +5072,7 @@ where
     extern "system" {
         fn SetPriorityClass(hprocess: super::super::Foundation::HANDLE, dwpriorityclass: PROCESS_CREATION_FLAGS) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(SetPriorityClass(hprocess.into(), ::core::mem::transmute(dwpriorityclass)))
+    ::core::mem::transmute(SetPriorityClass(hprocess.into(), dwpriorityclass))
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -5085,7 +5085,7 @@ where
     extern "system" {
         fn SetProcessAffinityMask(hprocess: super::super::Foundation::HANDLE, dwprocessaffinitymask: usize) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(SetProcessAffinityMask(hprocess.into(), ::core::mem::transmute(dwprocessaffinitymask)))
+    ::core::mem::transmute(SetProcessAffinityMask(hprocess.into(), dwprocessaffinitymask))
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -5098,7 +5098,7 @@ where
     extern "system" {
         fn SetProcessAffinityUpdateMode(hprocess: super::super::Foundation::HANDLE, dwflags: PROCESS_AFFINITY_AUTO_UPDATE_FLAGS) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(SetProcessAffinityUpdateMode(hprocess.into(), ::core::mem::transmute(dwflags)))
+    ::core::mem::transmute(SetProcessAffinityUpdateMode(hprocess.into(), dwflags))
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -5108,7 +5108,7 @@ pub unsafe fn SetProcessDEPPolicy(dwflags: PROCESS_DEP_FLAGS) -> super::super::F
     extern "system" {
         fn SetProcessDEPPolicy(dwflags: PROCESS_DEP_FLAGS) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(SetProcessDEPPolicy(::core::mem::transmute(dwflags)))
+    ::core::mem::transmute(SetProcessDEPPolicy(dwflags))
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`, `\"Win32_System_SystemInformation\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemInformation"))]
@@ -5173,7 +5173,7 @@ where
     extern "system" {
         fn SetProcessInformation(hprocess: super::super::Foundation::HANDLE, processinformationclass: PROCESS_INFORMATION_CLASS, processinformation: *const ::core::ffi::c_void, processinformationsize: u32) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(SetProcessInformation(hprocess.into(), ::core::mem::transmute(processinformationclass), ::core::mem::transmute(processinformation), ::core::mem::transmute(processinformationsize)))
+    ::core::mem::transmute(SetProcessInformation(hprocess.into(), processinformationclass, ::core::mem::transmute(processinformation), processinformationsize))
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -5183,7 +5183,7 @@ pub unsafe fn SetProcessMitigationPolicy(mitigationpolicy: PROCESS_MITIGATION_PO
     extern "system" {
         fn SetProcessMitigationPolicy(mitigationpolicy: PROCESS_MITIGATION_POLICY, lpbuffer: *const ::core::ffi::c_void, dwlength: usize) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(SetProcessMitigationPolicy(::core::mem::transmute(mitigationpolicy), ::core::mem::transmute(lpbuffer), ::core::mem::transmute(dwlength)))
+    ::core::mem::transmute(SetProcessMitigationPolicy(mitigationpolicy, ::core::mem::transmute(lpbuffer), dwlength))
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -5220,7 +5220,7 @@ pub unsafe fn SetProcessShutdownParameters(dwlevel: u32, dwflags: u32) -> super:
     extern "system" {
         fn SetProcessShutdownParameters(dwlevel: u32, dwflags: u32) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(SetProcessShutdownParameters(::core::mem::transmute(dwlevel), ::core::mem::transmute(dwflags)))
+    ::core::mem::transmute(SetProcessShutdownParameters(dwlevel, dwflags))
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -5233,7 +5233,7 @@ where
     extern "system" {
         fn SetProcessWorkingSetSize(hprocess: super::super::Foundation::HANDLE, dwminimumworkingsetsize: usize, dwmaximumworkingsetsize: usize) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(SetProcessWorkingSetSize(hprocess.into(), ::core::mem::transmute(dwminimumworkingsetsize), ::core::mem::transmute(dwmaximumworkingsetsize)))
+    ::core::mem::transmute(SetProcessWorkingSetSize(hprocess.into(), dwminimumworkingsetsize, dwmaximumworkingsetsize))
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -5243,7 +5243,7 @@ pub unsafe fn SetProtectedPolicy(policyguid: *const ::windows::core::GUID, polic
     extern "system" {
         fn SetProtectedPolicy(policyguid: *const ::windows::core::GUID, policyvalue: usize, oldpolicyvalue: *mut usize) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(SetProtectedPolicy(::core::mem::transmute(policyguid), ::core::mem::transmute(policyvalue), ::core::mem::transmute(oldpolicyvalue)))
+    ::core::mem::transmute(SetProtectedPolicy(::core::mem::transmute(policyguid), policyvalue, ::core::mem::transmute(oldpolicyvalue)))
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -5256,7 +5256,7 @@ where
     extern "system" {
         fn SetThreadAffinityMask(hthread: super::super::Foundation::HANDLE, dwthreadaffinitymask: usize) -> usize;
     }
-    ::core::mem::transmute(SetThreadAffinityMask(hthread.into(), ::core::mem::transmute(dwthreadaffinitymask)))
+    ::core::mem::transmute(SetThreadAffinityMask(hthread.into(), dwthreadaffinitymask))
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -5296,7 +5296,7 @@ where
     extern "system" {
         fn SetThreadIdealProcessor(hthread: super::super::Foundation::HANDLE, dwidealprocessor: u32) -> u32;
     }
-    ::core::mem::transmute(SetThreadIdealProcessor(hthread.into(), ::core::mem::transmute(dwidealprocessor)))
+    ::core::mem::transmute(SetThreadIdealProcessor(hthread.into(), dwidealprocessor))
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`, `\"Win32_System_Kernel\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
@@ -5322,7 +5322,7 @@ where
     extern "system" {
         fn SetThreadInformation(hthread: super::super::Foundation::HANDLE, threadinformationclass: THREAD_INFORMATION_CLASS, threadinformation: *const ::core::ffi::c_void, threadinformationsize: u32) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(SetThreadInformation(hthread.into(), ::core::mem::transmute(threadinformationclass), ::core::mem::transmute(threadinformation), ::core::mem::transmute(threadinformationsize)))
+    ::core::mem::transmute(SetThreadInformation(hthread.into(), threadinformationclass, ::core::mem::transmute(threadinformation), threadinformationsize))
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -5335,7 +5335,7 @@ where
     extern "system" {
         fn SetThreadPriority(hthread: super::super::Foundation::HANDLE, npriority: THREAD_PRIORITY) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(SetThreadPriority(hthread.into(), ::core::mem::transmute(npriority)))
+    ::core::mem::transmute(SetThreadPriority(hthread.into(), npriority))
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -5423,7 +5423,7 @@ where
     extern "system" {
         fn SetThreadpoolThreadMaximum(ptpp: PTP_POOL, cthrdmost: u32);
     }
-    SetThreadpoolThreadMaximum(ptpp.into(), ::core::mem::transmute(cthrdmost))
+    SetThreadpoolThreadMaximum(ptpp.into(), cthrdmost)
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -5436,7 +5436,7 @@ where
     extern "system" {
         fn SetThreadpoolThreadMinimum(ptpp: PTP_POOL, cthrdmic: u32) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(SetThreadpoolThreadMinimum(ptpp.into(), ::core::mem::transmute(cthrdmic)))
+    ::core::mem::transmute(SetThreadpoolThreadMinimum(ptpp.into(), cthrdmic))
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -5446,7 +5446,7 @@ pub unsafe fn SetThreadpoolTimer(pti: *mut TP_TIMER, pftduetime: *const super::s
     extern "system" {
         fn SetThreadpoolTimer(pti: *mut TP_TIMER, pftduetime: *const super::super::Foundation::FILETIME, msperiod: u32, mswindowlength: u32);
     }
-    SetThreadpoolTimer(::core::mem::transmute(pti), ::core::mem::transmute(pftduetime), ::core::mem::transmute(msperiod), ::core::mem::transmute(mswindowlength))
+    SetThreadpoolTimer(::core::mem::transmute(pti), ::core::mem::transmute(pftduetime), msperiod, mswindowlength)
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -5456,7 +5456,7 @@ pub unsafe fn SetThreadpoolTimerEx(pti: *mut TP_TIMER, pftduetime: *const super:
     extern "system" {
         fn SetThreadpoolTimerEx(pti: *mut TP_TIMER, pftduetime: *const super::super::Foundation::FILETIME, msperiod: u32, mswindowlength: u32) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(SetThreadpoolTimerEx(::core::mem::transmute(pti), ::core::mem::transmute(pftduetime), ::core::mem::transmute(msperiod), ::core::mem::transmute(mswindowlength)))
+    ::core::mem::transmute(SetThreadpoolTimerEx(::core::mem::transmute(pti), ::core::mem::transmute(pftduetime), msperiod, mswindowlength))
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -5496,7 +5496,7 @@ where
     extern "system" {
         fn SetTimerQueueTimer(timerqueue: super::super::Foundation::HANDLE, callback: *mut ::core::ffi::c_void, parameter: *const ::core::ffi::c_void, duetime: u32, period: u32, preferio: super::super::Foundation::BOOL) -> super::super::Foundation::HANDLE;
     }
-    ::core::mem::transmute(SetTimerQueueTimer(timerqueue.into(), ::core::mem::transmute(callback), ::core::mem::transmute(parameter), ::core::mem::transmute(duetime), ::core::mem::transmute(period), preferio.into()))
+    ::core::mem::transmute(SetTimerQueueTimer(timerqueue.into(), ::core::mem::transmute(callback), ::core::mem::transmute(parameter), duetime, period, preferio.into()))
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -5506,7 +5506,7 @@ pub unsafe fn SetUmsThreadInformation(umsthread: *const ::core::ffi::c_void, ums
     extern "system" {
         fn SetUmsThreadInformation(umsthread: *const ::core::ffi::c_void, umsthreadinfoclass: RTL_UMS_THREAD_INFO_CLASS, umsthreadinformation: *const ::core::ffi::c_void, umsthreadinformationlength: u32) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(SetUmsThreadInformation(::core::mem::transmute(umsthread), ::core::mem::transmute(umsthreadinfoclass), ::core::mem::transmute(umsthreadinformation), ::core::mem::transmute(umsthreadinformationlength)))
+    ::core::mem::transmute(SetUmsThreadInformation(::core::mem::transmute(umsthread), umsthreadinfoclass, ::core::mem::transmute(umsthreadinformation), umsthreadinformationlength))
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -5520,7 +5520,7 @@ where
     extern "system" {
         fn SetWaitableTimer(htimer: super::super::Foundation::HANDLE, lpduetime: *const i64, lperiod: i32, pfncompletionroutine: *mut ::core::ffi::c_void, lpargtocompletionroutine: *const ::core::ffi::c_void, fresume: super::super::Foundation::BOOL) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(SetWaitableTimer(htimer.into(), ::core::mem::transmute(lpduetime), ::core::mem::transmute(lperiod), ::core::mem::transmute(pfncompletionroutine), ::core::mem::transmute(lpargtocompletionroutine), fresume.into()))
+    ::core::mem::transmute(SetWaitableTimer(htimer.into(), ::core::mem::transmute(lpduetime), lperiod, ::core::mem::transmute(pfncompletionroutine), ::core::mem::transmute(lpargtocompletionroutine), fresume.into()))
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -5533,7 +5533,7 @@ where
     extern "system" {
         fn SetWaitableTimerEx(htimer: super::super::Foundation::HANDLE, lpduetime: *const i64, lperiod: i32, pfncompletionroutine: *mut ::core::ffi::c_void, lpargtocompletionroutine: *const ::core::ffi::c_void, wakecontext: *const REASON_CONTEXT, tolerabledelay: u32) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(SetWaitableTimerEx(htimer.into(), ::core::mem::transmute(lpduetime), ::core::mem::transmute(lperiod), ::core::mem::transmute(pfncompletionroutine), ::core::mem::transmute(lpargtocompletionroutine), ::core::mem::transmute(wakecontext), ::core::mem::transmute(tolerabledelay)))
+    ::core::mem::transmute(SetWaitableTimerEx(htimer.into(), ::core::mem::transmute(lpduetime), lperiod, ::core::mem::transmute(pfncompletionroutine), ::core::mem::transmute(lpargtocompletionroutine), ::core::mem::transmute(wakecontext), tolerabledelay))
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`*"]
 #[inline]
@@ -5542,7 +5542,7 @@ pub unsafe fn Sleep(dwmilliseconds: u32) {
     extern "system" {
         fn Sleep(dwmilliseconds: u32);
     }
-    Sleep(::core::mem::transmute(dwmilliseconds))
+    Sleep(dwmilliseconds)
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`, `\"Win32_System_Kernel\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
@@ -5552,7 +5552,7 @@ pub unsafe fn SleepConditionVariableCS(conditionvariable: *mut RTL_CONDITION_VAR
     extern "system" {
         fn SleepConditionVariableCS(conditionvariable: *mut RTL_CONDITION_VARIABLE, criticalsection: *mut RTL_CRITICAL_SECTION, dwmilliseconds: u32) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(SleepConditionVariableCS(::core::mem::transmute(conditionvariable), ::core::mem::transmute(criticalsection), ::core::mem::transmute(dwmilliseconds)))
+    ::core::mem::transmute(SleepConditionVariableCS(::core::mem::transmute(conditionvariable), ::core::mem::transmute(criticalsection), dwmilliseconds))
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -5562,7 +5562,7 @@ pub unsafe fn SleepConditionVariableSRW(conditionvariable: *mut RTL_CONDITION_VA
     extern "system" {
         fn SleepConditionVariableSRW(conditionvariable: *mut RTL_CONDITION_VARIABLE, srwlock: *mut RTL_SRWLOCK, dwmilliseconds: u32, flags: u32) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(SleepConditionVariableSRW(::core::mem::transmute(conditionvariable), ::core::mem::transmute(srwlock), ::core::mem::transmute(dwmilliseconds), ::core::mem::transmute(flags)))
+    ::core::mem::transmute(SleepConditionVariableSRW(::core::mem::transmute(conditionvariable), ::core::mem::transmute(srwlock), dwmilliseconds, flags))
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -5575,7 +5575,7 @@ where
     extern "system" {
         fn SleepEx(dwmilliseconds: u32, balertable: super::super::Foundation::BOOL) -> u32;
     }
-    ::core::mem::transmute(SleepEx(::core::mem::transmute(dwmilliseconds), balertable.into()))
+    ::core::mem::transmute(SleepEx(dwmilliseconds, balertable.into()))
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`*"]
 #[inline]
@@ -6091,7 +6091,7 @@ where
     extern "system" {
         fn TerminateProcess(hprocess: super::super::Foundation::HANDLE, uexitcode: u32) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(TerminateProcess(hprocess.into(), ::core::mem::transmute(uexitcode)))
+    ::core::mem::transmute(TerminateProcess(hprocess.into(), uexitcode))
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -6104,7 +6104,7 @@ where
     extern "system" {
         fn TerminateThread(hthread: super::super::Foundation::HANDLE, dwexitcode: u32) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(TerminateThread(hthread.into(), ::core::mem::transmute(dwexitcode)))
+    ::core::mem::transmute(TerminateThread(hthread.into(), dwexitcode))
 }
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
@@ -6155,7 +6155,7 @@ pub unsafe fn TlsFree(dwtlsindex: u32) -> super::super::Foundation::BOOL {
     extern "system" {
         fn TlsFree(dwtlsindex: u32) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(TlsFree(::core::mem::transmute(dwtlsindex)))
+    ::core::mem::transmute(TlsFree(dwtlsindex))
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`*"]
 #[inline]
@@ -6164,7 +6164,7 @@ pub unsafe fn TlsGetValue(dwtlsindex: u32) -> *mut ::core::ffi::c_void {
     extern "system" {
         fn TlsGetValue(dwtlsindex: u32) -> *mut ::core::ffi::c_void;
     }
-    ::core::mem::transmute(TlsGetValue(::core::mem::transmute(dwtlsindex)))
+    ::core::mem::transmute(TlsGetValue(dwtlsindex))
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -6174,7 +6174,7 @@ pub unsafe fn TlsSetValue(dwtlsindex: u32, lptlsvalue: *const ::core::ffi::c_voi
     extern "system" {
         fn TlsSetValue(dwtlsindex: u32, lptlsvalue: *const ::core::ffi::c_void) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(TlsSetValue(::core::mem::transmute(dwtlsindex), ::core::mem::transmute(lptlsvalue)))
+    ::core::mem::transmute(TlsSetValue(dwtlsindex, ::core::mem::transmute(lptlsvalue)))
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -6387,7 +6387,7 @@ where
     extern "system" {
         fn UpdateProcThreadAttribute(lpattributelist: LPPROC_THREAD_ATTRIBUTE_LIST, dwflags: u32, attribute: usize, lpvalue: *const ::core::ffi::c_void, cbsize: usize, lppreviousvalue: *mut ::core::ffi::c_void, lpreturnsize: *const usize) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(UpdateProcThreadAttribute(lpattributelist.into(), ::core::mem::transmute(dwflags), ::core::mem::transmute(attribute), ::core::mem::transmute(lpvalue), ::core::mem::transmute(cbsize), ::core::mem::transmute(lppreviousvalue), ::core::mem::transmute(lpreturnsize)))
+    ::core::mem::transmute(UpdateProcThreadAttribute(lpattributelist.into(), dwflags, attribute, ::core::mem::transmute(lpvalue), cbsize, ::core::mem::transmute(lppreviousvalue), ::core::mem::transmute(lpreturnsize)))
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -6470,7 +6470,7 @@ where
     extern "system" {
         fn WaitForInputIdle(hprocess: super::super::Foundation::HANDLE, dwmilliseconds: u32) -> u32;
     }
-    ::core::mem::transmute(WaitForInputIdle(hprocess.into(), ::core::mem::transmute(dwmilliseconds)))
+    ::core::mem::transmute(WaitForInputIdle(hprocess.into(), dwmilliseconds))
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -6483,7 +6483,7 @@ where
     extern "system" {
         fn WaitForMultipleObjects(ncount: u32, lphandles: *const super::super::Foundation::HANDLE, bwaitall: super::super::Foundation::BOOL, dwmilliseconds: u32) -> u32;
     }
-    ::core::mem::transmute(WaitForMultipleObjects(lphandles.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(lphandles)), bwaitall.into(), ::core::mem::transmute(dwmilliseconds)))
+    ::core::mem::transmute(WaitForMultipleObjects(lphandles.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(lphandles)), bwaitall.into(), dwmilliseconds))
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -6497,7 +6497,7 @@ where
     extern "system" {
         fn WaitForMultipleObjectsEx(ncount: u32, lphandles: *const super::super::Foundation::HANDLE, bwaitall: super::super::Foundation::BOOL, dwmilliseconds: u32, balertable: super::super::Foundation::BOOL) -> u32;
     }
-    ::core::mem::transmute(WaitForMultipleObjectsEx(lphandles.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(lphandles)), bwaitall.into(), ::core::mem::transmute(dwmilliseconds), balertable.into()))
+    ::core::mem::transmute(WaitForMultipleObjectsEx(lphandles.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(lphandles)), bwaitall.into(), dwmilliseconds, balertable.into()))
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -6510,7 +6510,7 @@ where
     extern "system" {
         fn WaitForSingleObject(hhandle: super::super::Foundation::HANDLE, dwmilliseconds: u32) -> u32;
     }
-    ::core::mem::transmute(WaitForSingleObject(hhandle.into(), ::core::mem::transmute(dwmilliseconds)))
+    ::core::mem::transmute(WaitForSingleObject(hhandle.into(), dwmilliseconds))
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -6524,7 +6524,7 @@ where
     extern "system" {
         fn WaitForSingleObjectEx(hhandle: super::super::Foundation::HANDLE, dwmilliseconds: u32, balertable: super::super::Foundation::BOOL) -> u32;
     }
-    ::core::mem::transmute(WaitForSingleObjectEx(hhandle.into(), ::core::mem::transmute(dwmilliseconds), balertable.into()))
+    ::core::mem::transmute(WaitForSingleObjectEx(hhandle.into(), dwmilliseconds, balertable.into()))
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -6586,7 +6586,7 @@ pub unsafe fn WaitOnAddress(address: *const ::core::ffi::c_void, compareaddress:
     extern "system" {
         fn WaitOnAddress(address: *const ::core::ffi::c_void, compareaddress: *const ::core::ffi::c_void, addresssize: usize, dwmilliseconds: u32) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(WaitOnAddress(::core::mem::transmute(address), ::core::mem::transmute(compareaddress), ::core::mem::transmute(addresssize), ::core::mem::transmute(dwmilliseconds)))
+    ::core::mem::transmute(WaitOnAddress(::core::mem::transmute(address), ::core::mem::transmute(compareaddress), addresssize, dwmilliseconds))
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`*"]
 #[inline]
@@ -6634,7 +6634,7 @@ where
     extern "system" {
         fn WinExec(lpcmdline: ::windows::core::PCSTR, ucmdshow: u32) -> u32;
     }
-    ::core::mem::transmute(WinExec(lpcmdline.into(), ::core::mem::transmute(ucmdshow)))
+    ::core::mem::transmute(WinExec(lpcmdline.into(), ucmdshow))
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`*"]
 #[inline]
@@ -6643,7 +6643,7 @@ pub unsafe fn Wow64SetThreadDefaultGuestMachine(machine: u16) -> u16 {
     extern "system" {
         fn Wow64SetThreadDefaultGuestMachine(machine: u16) -> u16;
     }
-    ::core::mem::transmute(Wow64SetThreadDefaultGuestMachine(::core::mem::transmute(machine)))
+    ::core::mem::transmute(Wow64SetThreadDefaultGuestMachine(machine))
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]

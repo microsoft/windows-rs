@@ -8,7 +8,7 @@ where
     extern "system" {
         fn AddPointerInteractionContext(interactioncontext: HINTERACTIONCONTEXT, pointerid: u32) -> ::windows::core::HRESULT;
     }
-    AddPointerInteractionContext(interactioncontext.into(), ::core::mem::transmute(pointerid)).ok()
+    AddPointerInteractionContext(interactioncontext.into(), pointerid).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_InteractionContext\"`, `\"Win32_Foundation\"`, `\"Win32_UI_Input_Pointer\"`, `\"Win32_UI_WindowsAndMessaging\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Input_Pointer", feature = "Win32_UI_WindowsAndMessaging"))]
@@ -183,7 +183,7 @@ where
         fn GetCrossSlideParameterInteractionContext(interactioncontext: HINTERACTIONCONTEXT, threshold: CROSS_SLIDE_THRESHOLD, distance: *mut f32) -> ::windows::core::HRESULT;
     }
     let mut result__ = ::core::mem::MaybeUninit::<f32>::zeroed();
-    GetCrossSlideParameterInteractionContext(interactioncontext.into(), ::core::mem::transmute(threshold), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<f32>(result__)
+    GetCrossSlideParameterInteractionContext(interactioncontext.into(), threshold, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<f32>(result__)
 }
 #[doc = "*Required features: `\"Win32_UI_InteractionContext\"`*"]
 #[inline]
@@ -196,7 +196,7 @@ where
         fn GetHoldParameterInteractionContext(interactioncontext: HINTERACTIONCONTEXT, parameter: HOLD_PARAMETER, value: *mut f32) -> ::windows::core::HRESULT;
     }
     let mut result__ = ::core::mem::MaybeUninit::<f32>::zeroed();
-    GetHoldParameterInteractionContext(interactioncontext.into(), ::core::mem::transmute(parameter), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<f32>(result__)
+    GetHoldParameterInteractionContext(interactioncontext.into(), parameter, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<f32>(result__)
 }
 #[doc = "*Required features: `\"Win32_UI_InteractionContext\"`*"]
 #[inline]
@@ -209,7 +209,7 @@ where
         fn GetInertiaParameterInteractionContext(interactioncontext: HINTERACTIONCONTEXT, inertiaparameter: INERTIA_PARAMETER, value: *mut f32) -> ::windows::core::HRESULT;
     }
     let mut result__ = ::core::mem::MaybeUninit::<f32>::zeroed();
-    GetInertiaParameterInteractionContext(interactioncontext.into(), ::core::mem::transmute(inertiaparameter), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<f32>(result__)
+    GetInertiaParameterInteractionContext(interactioncontext.into(), inertiaparameter, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<f32>(result__)
 }
 #[doc = "*Required features: `\"Win32_UI_InteractionContext\"`*"]
 #[inline]
@@ -234,7 +234,7 @@ where
         fn GetMouseWheelParameterInteractionContext(interactioncontext: HINTERACTIONCONTEXT, parameter: MOUSE_WHEEL_PARAMETER, value: *mut f32) -> ::windows::core::HRESULT;
     }
     let mut result__ = ::core::mem::MaybeUninit::<f32>::zeroed();
-    GetMouseWheelParameterInteractionContext(interactioncontext.into(), ::core::mem::transmute(parameter), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<f32>(result__)
+    GetMouseWheelParameterInteractionContext(interactioncontext.into(), parameter, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<f32>(result__)
 }
 #[doc = "*Required features: `\"Win32_UI_InteractionContext\"`*"]
 #[inline]
@@ -247,7 +247,7 @@ where
         fn GetPropertyInteractionContext(interactioncontext: HINTERACTIONCONTEXT, contextproperty: INTERACTION_CONTEXT_PROPERTY, value: *mut u32) -> ::windows::core::HRESULT;
     }
     let mut result__ = ::core::mem::MaybeUninit::<u32>::zeroed();
-    GetPropertyInteractionContext(interactioncontext.into(), ::core::mem::transmute(contextproperty), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
+    GetPropertyInteractionContext(interactioncontext.into(), contextproperty, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
 }
 #[doc = "*Required features: `\"Win32_UI_InteractionContext\"`, `\"Win32_Foundation\"`, `\"Win32_UI_Input_Pointer\"`, `\"Win32_UI_WindowsAndMessaging\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Input_Pointer", feature = "Win32_UI_WindowsAndMessaging"))]
@@ -274,7 +274,7 @@ where
         fn GetTapParameterInteractionContext(interactioncontext: HINTERACTIONCONTEXT, parameter: TAP_PARAMETER, value: *mut f32) -> ::windows::core::HRESULT;
     }
     let mut result__ = ::core::mem::MaybeUninit::<f32>::zeroed();
-    GetTapParameterInteractionContext(interactioncontext.into(), ::core::mem::transmute(parameter), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<f32>(result__)
+    GetTapParameterInteractionContext(interactioncontext.into(), parameter, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<f32>(result__)
 }
 #[doc = "*Required features: `\"Win32_UI_InteractionContext\"`*"]
 #[inline]
@@ -287,7 +287,7 @@ where
         fn GetTranslationParameterInteractionContext(interactioncontext: HINTERACTIONCONTEXT, parameter: TRANSLATION_PARAMETER, value: *mut f32) -> ::windows::core::HRESULT;
     }
     let mut result__ = ::core::mem::MaybeUninit::<f32>::zeroed();
-    GetTranslationParameterInteractionContext(interactioncontext.into(), ::core::mem::transmute(parameter), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<f32>(result__)
+    GetTranslationParameterInteractionContext(interactioncontext.into(), parameter, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<f32>(result__)
 }
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
@@ -1106,7 +1106,7 @@ where
     extern "system" {
         fn ProcessPointerFramesInteractionContext(interactioncontext: HINTERACTIONCONTEXT, entriescount: u32, pointercount: u32, pointerinfo: *const super::Input::Pointer::POINTER_INFO) -> ::windows::core::HRESULT;
     }
-    ProcessPointerFramesInteractionContext(interactioncontext.into(), ::core::mem::transmute(entriescount), ::core::mem::transmute(pointercount), ::core::mem::transmute(pointerinfo)).ok()
+    ProcessPointerFramesInteractionContext(interactioncontext.into(), entriescount, pointercount, ::core::mem::transmute(pointerinfo)).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_InteractionContext\"`, `\"Win32_UI_WindowsAndMessaging\"`*"]
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
@@ -1144,7 +1144,7 @@ where
     extern "system" {
         fn RemovePointerInteractionContext(interactioncontext: HINTERACTIONCONTEXT, pointerid: u32) -> ::windows::core::HRESULT;
     }
-    RemovePointerInteractionContext(interactioncontext.into(), ::core::mem::transmute(pointerid)).ok()
+    RemovePointerInteractionContext(interactioncontext.into(), pointerid).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_InteractionContext\"`*"]
 #[inline]
@@ -1180,7 +1180,7 @@ where
     extern "system" {
         fn SetHoldParameterInteractionContext(interactioncontext: HINTERACTIONCONTEXT, parameter: HOLD_PARAMETER, value: f32) -> ::windows::core::HRESULT;
     }
-    SetHoldParameterInteractionContext(interactioncontext.into(), ::core::mem::transmute(parameter), ::core::mem::transmute(value)).ok()
+    SetHoldParameterInteractionContext(interactioncontext.into(), parameter, value).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_InteractionContext\"`*"]
 #[inline]
@@ -1192,7 +1192,7 @@ where
     extern "system" {
         fn SetInertiaParameterInteractionContext(interactioncontext: HINTERACTIONCONTEXT, inertiaparameter: INERTIA_PARAMETER, value: f32) -> ::windows::core::HRESULT;
     }
-    SetInertiaParameterInteractionContext(interactioncontext.into(), ::core::mem::transmute(inertiaparameter), ::core::mem::transmute(value)).ok()
+    SetInertiaParameterInteractionContext(interactioncontext.into(), inertiaparameter, value).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_InteractionContext\"`*"]
 #[inline]
@@ -1216,7 +1216,7 @@ where
     extern "system" {
         fn SetMouseWheelParameterInteractionContext(interactioncontext: HINTERACTIONCONTEXT, parameter: MOUSE_WHEEL_PARAMETER, value: f32) -> ::windows::core::HRESULT;
     }
-    SetMouseWheelParameterInteractionContext(interactioncontext.into(), ::core::mem::transmute(parameter), ::core::mem::transmute(value)).ok()
+    SetMouseWheelParameterInteractionContext(interactioncontext.into(), parameter, value).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_InteractionContext\"`*"]
 #[inline]
@@ -1228,7 +1228,7 @@ where
     extern "system" {
         fn SetPivotInteractionContext(interactioncontext: HINTERACTIONCONTEXT, x: f32, y: f32, radius: f32) -> ::windows::core::HRESULT;
     }
-    SetPivotInteractionContext(interactioncontext.into(), ::core::mem::transmute(x), ::core::mem::transmute(y), ::core::mem::transmute(radius)).ok()
+    SetPivotInteractionContext(interactioncontext.into(), x, y, radius).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_InteractionContext\"`*"]
 #[inline]
@@ -1240,7 +1240,7 @@ where
     extern "system" {
         fn SetPropertyInteractionContext(interactioncontext: HINTERACTIONCONTEXT, contextproperty: INTERACTION_CONTEXT_PROPERTY, value: u32) -> ::windows::core::HRESULT;
     }
-    SetPropertyInteractionContext(interactioncontext.into(), ::core::mem::transmute(contextproperty), ::core::mem::transmute(value)).ok()
+    SetPropertyInteractionContext(interactioncontext.into(), contextproperty, value).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_InteractionContext\"`*"]
 #[inline]
@@ -1252,7 +1252,7 @@ where
     extern "system" {
         fn SetTapParameterInteractionContext(interactioncontext: HINTERACTIONCONTEXT, parameter: TAP_PARAMETER, value: f32) -> ::windows::core::HRESULT;
     }
-    SetTapParameterInteractionContext(interactioncontext.into(), ::core::mem::transmute(parameter), ::core::mem::transmute(value)).ok()
+    SetTapParameterInteractionContext(interactioncontext.into(), parameter, value).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_InteractionContext\"`*"]
 #[inline]
@@ -1264,7 +1264,7 @@ where
     extern "system" {
         fn SetTranslationParameterInteractionContext(interactioncontext: HINTERACTIONCONTEXT, parameter: TRANSLATION_PARAMETER, value: f32) -> ::windows::core::HRESULT;
     }
-    SetTranslationParameterInteractionContext(interactioncontext.into(), ::core::mem::transmute(parameter), ::core::mem::transmute(value)).ok()
+    SetTranslationParameterInteractionContext(interactioncontext.into(), parameter, value).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_InteractionContext\"`*"]
 #[inline]

@@ -170,7 +170,7 @@ impl ISensLogon2 {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
     {
-        (::windows::core::Interface::vtable(self).Logon)(::windows::core::Interface::as_raw(self), bstrusername.into().abi(), ::core::mem::transmute(dwsessionid)).ok()
+        (::windows::core::Interface::vtable(self).Logon)(::windows::core::Interface::as_raw(self), bstrusername.into().abi(), dwsessionid).ok()
     }
     #[doc = "*Required features: `\"Win32_System_EventNotificationService\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -178,7 +178,7 @@ impl ISensLogon2 {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
     {
-        (::windows::core::Interface::vtable(self).Logoff)(::windows::core::Interface::as_raw(self), bstrusername.into().abi(), ::core::mem::transmute(dwsessionid)).ok()
+        (::windows::core::Interface::vtable(self).Logoff)(::windows::core::Interface::as_raw(self), bstrusername.into().abi(), dwsessionid).ok()
     }
     #[doc = "*Required features: `\"Win32_System_EventNotificationService\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -186,7 +186,7 @@ impl ISensLogon2 {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
     {
-        (::windows::core::Interface::vtable(self).SessionDisconnect)(::windows::core::Interface::as_raw(self), bstrusername.into().abi(), ::core::mem::transmute(dwsessionid)).ok()
+        (::windows::core::Interface::vtable(self).SessionDisconnect)(::windows::core::Interface::as_raw(self), bstrusername.into().abi(), dwsessionid).ok()
     }
     #[doc = "*Required features: `\"Win32_System_EventNotificationService\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -194,7 +194,7 @@ impl ISensLogon2 {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
     {
-        (::windows::core::Interface::vtable(self).SessionReconnect)(::windows::core::Interface::as_raw(self), bstrusername.into().abi(), ::core::mem::transmute(dwsessionid)).ok()
+        (::windows::core::Interface::vtable(self).SessionReconnect)(::windows::core::Interface::as_raw(self), bstrusername.into().abi(), dwsessionid).ok()
     }
     #[doc = "*Required features: `\"Win32_System_EventNotificationService\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -202,7 +202,7 @@ impl ISensLogon2 {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
     {
-        (::windows::core::Interface::vtable(self).PostShell)(::windows::core::Interface::as_raw(self), bstrusername.into().abi(), ::core::mem::transmute(dwsessionid)).ok()
+        (::windows::core::Interface::vtable(self).PostShell)(::windows::core::Interface::as_raw(self), bstrusername.into().abi(), dwsessionid).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -304,7 +304,7 @@ impl ISensNetwork {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
     {
-        (::windows::core::Interface::vtable(self).ConnectionMade)(::windows::core::Interface::as_raw(self), bstrconnection.into().abi(), ::core::mem::transmute(ultype), ::core::mem::transmute(lpqocinfo)).ok()
+        (::windows::core::Interface::vtable(self).ConnectionMade)(::windows::core::Interface::as_raw(self), bstrconnection.into().abi(), ultype, ::core::mem::transmute(lpqocinfo)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_EventNotificationService\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -312,7 +312,7 @@ impl ISensNetwork {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
     {
-        (::windows::core::Interface::vtable(self).ConnectionMadeNoQOCInfo)(::windows::core::Interface::as_raw(self), bstrconnection.into().abi(), ::core::mem::transmute(ultype)).ok()
+        (::windows::core::Interface::vtable(self).ConnectionMadeNoQOCInfo)(::windows::core::Interface::as_raw(self), bstrconnection.into().abi(), ultype).ok()
     }
     #[doc = "*Required features: `\"Win32_System_EventNotificationService\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -320,7 +320,7 @@ impl ISensNetwork {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
     {
-        (::windows::core::Interface::vtable(self).ConnectionLost)(::windows::core::Interface::as_raw(self), bstrconnection.into().abi(), ::core::mem::transmute(ultype)).ok()
+        (::windows::core::Interface::vtable(self).ConnectionLost)(::windows::core::Interface::as_raw(self), bstrconnection.into().abi(), ultype).ok()
     }
     #[doc = "*Required features: `\"Win32_System_EventNotificationService\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -329,7 +329,7 @@ impl ISensNetwork {
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
         P1: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
     {
-        (::windows::core::Interface::vtable(self).DestinationReachable)(::windows::core::Interface::as_raw(self), bstrdestination.into().abi(), bstrconnection.into().abi(), ::core::mem::transmute(ultype), ::core::mem::transmute(lpqocinfo)).ok()
+        (::windows::core::Interface::vtable(self).DestinationReachable)(::windows::core::Interface::as_raw(self), bstrdestination.into().abi(), bstrconnection.into().abi(), ultype, ::core::mem::transmute(lpqocinfo)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_EventNotificationService\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -338,7 +338,7 @@ impl ISensNetwork {
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
         P1: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
     {
-        (::windows::core::Interface::vtable(self).DestinationReachableNoQOCInfo)(::windows::core::Interface::as_raw(self), bstrdestination.into().abi(), bstrconnection.into().abi(), ::core::mem::transmute(ultype)).ok()
+        (::windows::core::Interface::vtable(self).DestinationReachableNoQOCInfo)(::windows::core::Interface::as_raw(self), bstrdestination.into().abi(), bstrconnection.into().abi(), ultype).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -440,11 +440,11 @@ impl ISensOnNow {
     }
     #[doc = "*Required features: `\"Win32_System_EventNotificationService\"`*"]
     pub unsafe fn OnBatteryPower(&self, dwbatterylifepercent: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).OnBatteryPower)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(dwbatterylifepercent)).ok()
+        (::windows::core::Interface::vtable(self).OnBatteryPower)(::windows::core::Interface::as_raw(self), dwbatterylifepercent).ok()
     }
     #[doc = "*Required features: `\"Win32_System_EventNotificationService\"`*"]
     pub unsafe fn BatteryLow(&self, dwbatterylifepercent: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).BatteryLow)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(dwbatterylifepercent)).ok()
+        (::windows::core::Interface::vtable(self).BatteryLow)(::windows::core::Interface::as_raw(self), dwbatterylifepercent).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]

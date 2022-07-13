@@ -101,7 +101,7 @@ impl IObjectArray {
         T: ::windows::core::Interface,
     {
         let mut result__ = ::core::option::Option::None;
-        (::windows::core::Interface::vtable(self).GetAt)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(uiindex), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
+        (::windows::core::Interface::vtable(self).GetAt)(::windows::core::Interface::as_raw(self), uiindex, &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
     }
 }
 impl ::core::convert::From<IObjectArray> for ::windows::core::IUnknown {
@@ -161,7 +161,7 @@ impl IObjectCollection {
         T: ::windows::core::Interface,
     {
         let mut result__ = ::core::option::Option::None;
-        (::windows::core::Interface::vtable(self).base__.GetAt)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(uiindex), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
+        (::windows::core::Interface::vtable(self).base__.GetAt)(::windows::core::Interface::as_raw(self), uiindex, &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
     }
     #[doc = "*Required features: `\"Win32_UI_Shell_Common\"`*"]
     pub unsafe fn AddObject<'a, P0>(&self, punk: P0) -> ::windows::core::Result<()>
@@ -179,7 +179,7 @@ impl IObjectCollection {
     }
     #[doc = "*Required features: `\"Win32_UI_Shell_Common\"`*"]
     pub unsafe fn RemoveObjectAt(&self, uiindex: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).RemoveObjectAt)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(uiindex)).ok()
+        (::windows::core::Interface::vtable(self).RemoveObjectAt)(::windows::core::Interface::as_raw(self), uiindex).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_Shell_Common\"`*"]
     pub unsafe fn Clear(&self) -> ::windows::core::Result<()> {

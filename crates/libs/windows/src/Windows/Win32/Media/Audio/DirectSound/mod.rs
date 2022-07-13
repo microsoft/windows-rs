@@ -1618,7 +1618,7 @@ where
     extern "system" {
         fn DirectSoundFullDuplexCreate(pcguidcapturedevice: *const ::windows::core::GUID, pcguidrenderdevice: *const ::windows::core::GUID, pcdscbufferdesc: *const DSCBUFFERDESC, pcdsbufferdesc: *const DSBUFFERDESC, hwnd: super::super::super::Foundation::HWND, dwlevel: u32, ppdsfd: *mut *mut ::core::ffi::c_void, ppdscbuffer8: *mut *mut ::core::ffi::c_void, ppdsbuffer8: *mut *mut ::core::ffi::c_void, punkouter: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
     }
-    DirectSoundFullDuplexCreate(::core::mem::transmute(pcguidcapturedevice), ::core::mem::transmute(pcguidrenderdevice), ::core::mem::transmute(pcdscbufferdesc), ::core::mem::transmute(pcdsbufferdesc), hwnd.into(), ::core::mem::transmute(dwlevel), ::core::mem::transmute(ppdsfd), ::core::mem::transmute(ppdscbuffer8), ::core::mem::transmute(ppdsbuffer8), punkouter.into().abi()).ok()
+    DirectSoundFullDuplexCreate(::core::mem::transmute(pcguidcapturedevice), ::core::mem::transmute(pcguidrenderdevice), ::core::mem::transmute(pcdscbufferdesc), ::core::mem::transmute(pcdsbufferdesc), hwnd.into(), dwlevel, ::core::mem::transmute(ppdsfd), ::core::mem::transmute(ppdscbuffer8), ::core::mem::transmute(ppdsbuffer8), punkouter.into().abi()).ok()
 }
 pub const GUID_All_Objects: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xaa114de5_c262_4169_a1c8_23d698cc73b5);
 pub const GUID_DSCFX_CLASS_AEC: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbf963d80_c559_11d0_8a2b_00a0c9255ac1);
@@ -1676,7 +1676,7 @@ impl IDirectSound {
     where
         P0: ::std::convert::Into<super::super::super::Foundation::HWND>,
     {
-        (::windows::core::Interface::vtable(self).SetCooperativeLevel)(::windows::core::Interface::as_raw(self), hwnd.into(), ::core::mem::transmute(dwlevel)).ok()
+        (::windows::core::Interface::vtable(self).SetCooperativeLevel)(::windows::core::Interface::as_raw(self), hwnd.into(), dwlevel).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
     pub unsafe fn Compact(&self) -> ::windows::core::Result<()> {
@@ -1689,7 +1689,7 @@ impl IDirectSound {
     }
     #[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
     pub unsafe fn SetSpeakerConfig(&self, dwspeakerconfig: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetSpeakerConfig)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(dwspeakerconfig)).ok()
+        (::windows::core::Interface::vtable(self).SetSpeakerConfig)(::windows::core::Interface::as_raw(self), dwspeakerconfig).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
     pub unsafe fn Initialize(&self, pcguiddevice: *const ::windows::core::GUID) -> ::windows::core::Result<()> {
@@ -1802,39 +1802,39 @@ impl IDirectSound3DBuffer {
     #[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`, `\"Win32_Graphics_Direct3D\"`*"]
     #[cfg(feature = "Win32_Graphics_Direct3D")]
     pub unsafe fn SetAllParameters(&self, pcds3dbuffer: *const DS3DBUFFER, dwapply: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetAllParameters)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pcds3dbuffer), ::core::mem::transmute(dwapply)).ok()
+        (::windows::core::Interface::vtable(self).SetAllParameters)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pcds3dbuffer), dwapply).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
     pub unsafe fn SetConeAngles(&self, dwinsideconeangle: u32, dwoutsideconeangle: u32, dwapply: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetConeAngles)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(dwinsideconeangle), ::core::mem::transmute(dwoutsideconeangle), ::core::mem::transmute(dwapply)).ok()
+        (::windows::core::Interface::vtable(self).SetConeAngles)(::windows::core::Interface::as_raw(self), dwinsideconeangle, dwoutsideconeangle, dwapply).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
     pub unsafe fn SetConeOrientation(&self, x: f32, y: f32, z: f32, dwapply: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetConeOrientation)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(x), ::core::mem::transmute(y), ::core::mem::transmute(z), ::core::mem::transmute(dwapply)).ok()
+        (::windows::core::Interface::vtable(self).SetConeOrientation)(::windows::core::Interface::as_raw(self), x, y, z, dwapply).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
     pub unsafe fn SetConeOutsideVolume(&self, lconeoutsidevolume: i32, dwapply: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetConeOutsideVolume)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lconeoutsidevolume), ::core::mem::transmute(dwapply)).ok()
+        (::windows::core::Interface::vtable(self).SetConeOutsideVolume)(::windows::core::Interface::as_raw(self), lconeoutsidevolume, dwapply).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
     pub unsafe fn SetMaxDistance(&self, flmaxdistance: f32, dwapply: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetMaxDistance)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(flmaxdistance), ::core::mem::transmute(dwapply)).ok()
+        (::windows::core::Interface::vtable(self).SetMaxDistance)(::windows::core::Interface::as_raw(self), flmaxdistance, dwapply).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
     pub unsafe fn SetMinDistance(&self, flmindistance: f32, dwapply: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetMinDistance)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(flmindistance), ::core::mem::transmute(dwapply)).ok()
+        (::windows::core::Interface::vtable(self).SetMinDistance)(::windows::core::Interface::as_raw(self), flmindistance, dwapply).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
     pub unsafe fn SetMode(&self, dwmode: u32, dwapply: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetMode)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(dwmode), ::core::mem::transmute(dwapply)).ok()
+        (::windows::core::Interface::vtable(self).SetMode)(::windows::core::Interface::as_raw(self), dwmode, dwapply).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
     pub unsafe fn SetPosition(&self, x: f32, y: f32, z: f32, dwapply: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetPosition)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(x), ::core::mem::transmute(y), ::core::mem::transmute(z), ::core::mem::transmute(dwapply)).ok()
+        (::windows::core::Interface::vtable(self).SetPosition)(::windows::core::Interface::as_raw(self), x, y, z, dwapply).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
     pub unsafe fn SetVelocity(&self, x: f32, y: f32, z: f32, dwapply: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetVelocity)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(x), ::core::mem::transmute(y), ::core::mem::transmute(z), ::core::mem::transmute(dwapply)).ok()
+        (::windows::core::Interface::vtable(self).SetVelocity)(::windows::core::Interface::as_raw(self), x, y, z, dwapply).ok()
     }
 }
 impl ::core::convert::From<IDirectSound3DBuffer> for ::windows::core::IUnknown {
@@ -1955,31 +1955,31 @@ impl IDirectSound3DListener {
     #[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`, `\"Win32_Graphics_Direct3D\"`*"]
     #[cfg(feature = "Win32_Graphics_Direct3D")]
     pub unsafe fn SetAllParameters(&self, pclistener: *const DS3DLISTENER, dwapply: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetAllParameters)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pclistener), ::core::mem::transmute(dwapply)).ok()
+        (::windows::core::Interface::vtable(self).SetAllParameters)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pclistener), dwapply).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
     pub unsafe fn SetDistanceFactor(&self, fldistancefactor: f32, dwapply: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetDistanceFactor)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(fldistancefactor), ::core::mem::transmute(dwapply)).ok()
+        (::windows::core::Interface::vtable(self).SetDistanceFactor)(::windows::core::Interface::as_raw(self), fldistancefactor, dwapply).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
     pub unsafe fn SetDopplerFactor(&self, fldopplerfactor: f32, dwapply: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetDopplerFactor)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(fldopplerfactor), ::core::mem::transmute(dwapply)).ok()
+        (::windows::core::Interface::vtable(self).SetDopplerFactor)(::windows::core::Interface::as_raw(self), fldopplerfactor, dwapply).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
     pub unsafe fn SetOrientation(&self, xfront: f32, yfront: f32, zfront: f32, xtop: f32, ytop: f32, ztop: f32, dwapply: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetOrientation)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(xfront), ::core::mem::transmute(yfront), ::core::mem::transmute(zfront), ::core::mem::transmute(xtop), ::core::mem::transmute(ytop), ::core::mem::transmute(ztop), ::core::mem::transmute(dwapply)).ok()
+        (::windows::core::Interface::vtable(self).SetOrientation)(::windows::core::Interface::as_raw(self), xfront, yfront, zfront, xtop, ytop, ztop, dwapply).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
     pub unsafe fn SetPosition(&self, x: f32, y: f32, z: f32, dwapply: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetPosition)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(x), ::core::mem::transmute(y), ::core::mem::transmute(z), ::core::mem::transmute(dwapply)).ok()
+        (::windows::core::Interface::vtable(self).SetPosition)(::windows::core::Interface::as_raw(self), x, y, z, dwapply).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
     pub unsafe fn SetRolloffFactor(&self, flrollofffactor: f32, dwapply: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetRolloffFactor)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(flrollofffactor), ::core::mem::transmute(dwapply)).ok()
+        (::windows::core::Interface::vtable(self).SetRolloffFactor)(::windows::core::Interface::as_raw(self), flrollofffactor, dwapply).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
     pub unsafe fn SetVelocity(&self, x: f32, y: f32, z: f32, dwapply: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetVelocity)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(x), ::core::mem::transmute(y), ::core::mem::transmute(z), ::core::mem::transmute(dwapply)).ok()
+        (::windows::core::Interface::vtable(self).SetVelocity)(::windows::core::Interface::as_raw(self), x, y, z, dwapply).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
     pub unsafe fn CommitDeferredSettings(&self) -> ::windows::core::Result<()> {
@@ -2086,7 +2086,7 @@ impl IDirectSound8 {
     where
         P0: ::std::convert::Into<super::super::super::Foundation::HWND>,
     {
-        (::windows::core::Interface::vtable(self).base__.SetCooperativeLevel)(::windows::core::Interface::as_raw(self), hwnd.into(), ::core::mem::transmute(dwlevel)).ok()
+        (::windows::core::Interface::vtable(self).base__.SetCooperativeLevel)(::windows::core::Interface::as_raw(self), hwnd.into(), dwlevel).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
     pub unsafe fn Compact(&self) -> ::windows::core::Result<()> {
@@ -2099,7 +2099,7 @@ impl IDirectSound8 {
     }
     #[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
     pub unsafe fn SetSpeakerConfig(&self, dwspeakerconfig: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetSpeakerConfig)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(dwspeakerconfig)).ok()
+        (::windows::core::Interface::vtable(self).base__.SetSpeakerConfig)(::windows::core::Interface::as_raw(self), dwspeakerconfig).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
     pub unsafe fn Initialize(&self, pcguiddevice: *const ::windows::core::GUID) -> ::windows::core::Result<()> {
@@ -2182,7 +2182,7 @@ impl IDirectSoundBuffer {
     }
     #[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
     pub unsafe fn GetFormat(&self, pwfxformat: *mut super::WAVEFORMATEX, dwsizeallocated: u32, pdwsizewritten: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetFormat)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pwfxformat), ::core::mem::transmute(dwsizeallocated), ::core::mem::transmute(pdwsizewritten)).ok()
+        (::windows::core::Interface::vtable(self).GetFormat)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pwfxformat), dwsizeallocated, ::core::mem::transmute(pdwsizewritten)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
     pub unsafe fn GetVolume(&self) -> ::windows::core::Result<i32> {
@@ -2213,15 +2213,15 @@ impl IDirectSoundBuffer {
     }
     #[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
     pub unsafe fn Lock(&self, dwoffset: u32, dwbytes: u32, ppvaudioptr1: *mut *mut ::core::ffi::c_void, pdwaudiobytes1: *mut u32, ppvaudioptr2: *mut *mut ::core::ffi::c_void, pdwaudiobytes2: *mut u32, dwflags: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Lock)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(dwoffset), ::core::mem::transmute(dwbytes), ::core::mem::transmute(ppvaudioptr1), ::core::mem::transmute(pdwaudiobytes1), ::core::mem::transmute(ppvaudioptr2), ::core::mem::transmute(pdwaudiobytes2), ::core::mem::transmute(dwflags)).ok()
+        (::windows::core::Interface::vtable(self).Lock)(::windows::core::Interface::as_raw(self), dwoffset, dwbytes, ::core::mem::transmute(ppvaudioptr1), ::core::mem::transmute(pdwaudiobytes1), ::core::mem::transmute(ppvaudioptr2), ::core::mem::transmute(pdwaudiobytes2), dwflags).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
     pub unsafe fn Play(&self, dwreserved1: u32, dwpriority: u32, dwflags: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Play)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(dwreserved1), ::core::mem::transmute(dwpriority), ::core::mem::transmute(dwflags)).ok()
+        (::windows::core::Interface::vtable(self).Play)(::windows::core::Interface::as_raw(self), dwreserved1, dwpriority, dwflags).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
     pub unsafe fn SetCurrentPosition(&self, dwnewposition: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetCurrentPosition)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(dwnewposition)).ok()
+        (::windows::core::Interface::vtable(self).SetCurrentPosition)(::windows::core::Interface::as_raw(self), dwnewposition).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
     pub unsafe fn SetFormat(&self, pcfxformat: *const super::WAVEFORMATEX) -> ::windows::core::Result<()> {
@@ -2229,15 +2229,15 @@ impl IDirectSoundBuffer {
     }
     #[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
     pub unsafe fn SetVolume(&self, lvolume: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetVolume)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lvolume)).ok()
+        (::windows::core::Interface::vtable(self).SetVolume)(::windows::core::Interface::as_raw(self), lvolume).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
     pub unsafe fn SetPan(&self, lpan: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetPan)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lpan)).ok()
+        (::windows::core::Interface::vtable(self).SetPan)(::windows::core::Interface::as_raw(self), lpan).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
     pub unsafe fn SetFrequency(&self, dwfrequency: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetFrequency)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(dwfrequency)).ok()
+        (::windows::core::Interface::vtable(self).SetFrequency)(::windows::core::Interface::as_raw(self), dwfrequency).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
     pub unsafe fn Stop(&self) -> ::windows::core::Result<()> {
@@ -2245,7 +2245,7 @@ impl IDirectSoundBuffer {
     }
     #[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
     pub unsafe fn Unlock(&self, pvaudioptr1: *const ::core::ffi::c_void, dwaudiobytes1: u32, pvaudioptr2: *const ::core::ffi::c_void, dwaudiobytes2: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Unlock)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pvaudioptr1), ::core::mem::transmute(dwaudiobytes1), ::core::mem::transmute(pvaudioptr2), ::core::mem::transmute(dwaudiobytes2)).ok()
+        (::windows::core::Interface::vtable(self).Unlock)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pvaudioptr1), dwaudiobytes1, ::core::mem::transmute(pvaudioptr2), dwaudiobytes2).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
     pub unsafe fn Restore(&self) -> ::windows::core::Result<()> {
@@ -2325,7 +2325,7 @@ impl IDirectSoundBuffer8 {
     }
     #[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
     pub unsafe fn GetFormat(&self, pwfxformat: *mut super::WAVEFORMATEX, dwsizeallocated: u32, pdwsizewritten: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.GetFormat)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pwfxformat), ::core::mem::transmute(dwsizeallocated), ::core::mem::transmute(pdwsizewritten)).ok()
+        (::windows::core::Interface::vtable(self).base__.GetFormat)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pwfxformat), dwsizeallocated, ::core::mem::transmute(pdwsizewritten)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
     pub unsafe fn GetVolume(&self) -> ::windows::core::Result<i32> {
@@ -2356,15 +2356,15 @@ impl IDirectSoundBuffer8 {
     }
     #[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
     pub unsafe fn Lock(&self, dwoffset: u32, dwbytes: u32, ppvaudioptr1: *mut *mut ::core::ffi::c_void, pdwaudiobytes1: *mut u32, ppvaudioptr2: *mut *mut ::core::ffi::c_void, pdwaudiobytes2: *mut u32, dwflags: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.Lock)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(dwoffset), ::core::mem::transmute(dwbytes), ::core::mem::transmute(ppvaudioptr1), ::core::mem::transmute(pdwaudiobytes1), ::core::mem::transmute(ppvaudioptr2), ::core::mem::transmute(pdwaudiobytes2), ::core::mem::transmute(dwflags)).ok()
+        (::windows::core::Interface::vtable(self).base__.Lock)(::windows::core::Interface::as_raw(self), dwoffset, dwbytes, ::core::mem::transmute(ppvaudioptr1), ::core::mem::transmute(pdwaudiobytes1), ::core::mem::transmute(ppvaudioptr2), ::core::mem::transmute(pdwaudiobytes2), dwflags).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
     pub unsafe fn Play(&self, dwreserved1: u32, dwpriority: u32, dwflags: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.Play)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(dwreserved1), ::core::mem::transmute(dwpriority), ::core::mem::transmute(dwflags)).ok()
+        (::windows::core::Interface::vtable(self).base__.Play)(::windows::core::Interface::as_raw(self), dwreserved1, dwpriority, dwflags).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
     pub unsafe fn SetCurrentPosition(&self, dwnewposition: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetCurrentPosition)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(dwnewposition)).ok()
+        (::windows::core::Interface::vtable(self).base__.SetCurrentPosition)(::windows::core::Interface::as_raw(self), dwnewposition).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
     pub unsafe fn SetFormat(&self, pcfxformat: *const super::WAVEFORMATEX) -> ::windows::core::Result<()> {
@@ -2372,15 +2372,15 @@ impl IDirectSoundBuffer8 {
     }
     #[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
     pub unsafe fn SetVolume(&self, lvolume: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetVolume)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lvolume)).ok()
+        (::windows::core::Interface::vtable(self).base__.SetVolume)(::windows::core::Interface::as_raw(self), lvolume).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
     pub unsafe fn SetPan(&self, lpan: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetPan)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lpan)).ok()
+        (::windows::core::Interface::vtable(self).base__.SetPan)(::windows::core::Interface::as_raw(self), lpan).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
     pub unsafe fn SetFrequency(&self, dwfrequency: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetFrequency)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(dwfrequency)).ok()
+        (::windows::core::Interface::vtable(self).base__.SetFrequency)(::windows::core::Interface::as_raw(self), dwfrequency).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
     pub unsafe fn Stop(&self) -> ::windows::core::Result<()> {
@@ -2388,7 +2388,7 @@ impl IDirectSoundBuffer8 {
     }
     #[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
     pub unsafe fn Unlock(&self, pvaudioptr1: *const ::core::ffi::c_void, dwaudiobytes1: u32, pvaudioptr2: *const ::core::ffi::c_void, dwaudiobytes2: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.Unlock)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pvaudioptr1), ::core::mem::transmute(dwaudiobytes1), ::core::mem::transmute(pvaudioptr2), ::core::mem::transmute(dwaudiobytes2)).ok()
+        (::windows::core::Interface::vtable(self).base__.Unlock)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pvaudioptr1), dwaudiobytes1, ::core::mem::transmute(pvaudioptr2), dwaudiobytes2).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
     pub unsafe fn Restore(&self) -> ::windows::core::Result<()> {
@@ -2400,11 +2400,11 @@ impl IDirectSoundBuffer8 {
     }
     #[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
     pub unsafe fn AcquireResources(&self, dwflags: u32, pdwresultcodes: &mut [u32]) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).AcquireResources)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(dwflags), pdwresultcodes.len() as _, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(pdwresultcodes))).ok()
+        (::windows::core::Interface::vtable(self).AcquireResources)(::windows::core::Interface::as_raw(self), dwflags, pdwresultcodes.len() as _, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(pdwresultcodes))).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
     pub unsafe fn GetObjectInPath(&self, rguidobject: *const ::windows::core::GUID, dwindex: u32, rguidinterface: *const ::windows::core::GUID, ppobject: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetObjectInPath)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(rguidobject), ::core::mem::transmute(dwindex), ::core::mem::transmute(rguidinterface), ::core::mem::transmute(ppobject)).ok()
+        (::windows::core::Interface::vtable(self).GetObjectInPath)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(rguidobject), dwindex, ::core::mem::transmute(rguidinterface), ::core::mem::transmute(ppobject)).ok()
     }
 }
 impl ::core::convert::From<IDirectSoundBuffer8> for ::windows::core::IUnknown {
@@ -2544,7 +2544,7 @@ impl IDirectSoundCaptureBuffer {
     }
     #[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
     pub unsafe fn GetFormat(&self, pwfxformat: *mut super::WAVEFORMATEX, dwsizeallocated: u32, pdwsizewritten: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetFormat)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pwfxformat), ::core::mem::transmute(dwsizeallocated), ::core::mem::transmute(pdwsizewritten)).ok()
+        (::windows::core::Interface::vtable(self).GetFormat)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pwfxformat), dwsizeallocated, ::core::mem::transmute(pdwsizewritten)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
     pub unsafe fn GetStatus(&self) -> ::windows::core::Result<u32> {
@@ -2560,11 +2560,11 @@ impl IDirectSoundCaptureBuffer {
     }
     #[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
     pub unsafe fn Lock(&self, dwoffset: u32, dwbytes: u32, ppvaudioptr1: *mut *mut ::core::ffi::c_void, pdwaudiobytes1: *mut u32, ppvaudioptr2: *mut *mut ::core::ffi::c_void, pdwaudiobytes2: *mut u32, dwflags: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Lock)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(dwoffset), ::core::mem::transmute(dwbytes), ::core::mem::transmute(ppvaudioptr1), ::core::mem::transmute(pdwaudiobytes1), ::core::mem::transmute(ppvaudioptr2), ::core::mem::transmute(pdwaudiobytes2), ::core::mem::transmute(dwflags)).ok()
+        (::windows::core::Interface::vtable(self).Lock)(::windows::core::Interface::as_raw(self), dwoffset, dwbytes, ::core::mem::transmute(ppvaudioptr1), ::core::mem::transmute(pdwaudiobytes1), ::core::mem::transmute(ppvaudioptr2), ::core::mem::transmute(pdwaudiobytes2), dwflags).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
     pub unsafe fn Start(&self, dwflags: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Start)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(dwflags)).ok()
+        (::windows::core::Interface::vtable(self).Start)(::windows::core::Interface::as_raw(self), dwflags).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
     pub unsafe fn Stop(&self) -> ::windows::core::Result<()> {
@@ -2572,7 +2572,7 @@ impl IDirectSoundCaptureBuffer {
     }
     #[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
     pub unsafe fn Unlock(&self, pvaudioptr1: *const ::core::ffi::c_void, dwaudiobytes1: u32, pvaudioptr2: *const ::core::ffi::c_void, dwaudiobytes2: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Unlock)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pvaudioptr1), ::core::mem::transmute(dwaudiobytes1), ::core::mem::transmute(pvaudioptr2), ::core::mem::transmute(dwaudiobytes2)).ok()
+        (::windows::core::Interface::vtable(self).Unlock)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pvaudioptr1), dwaudiobytes1, ::core::mem::transmute(pvaudioptr2), dwaudiobytes2).ok()
     }
 }
 impl ::core::convert::From<IDirectSoundCaptureBuffer> for ::windows::core::IUnknown {
@@ -2639,7 +2639,7 @@ impl IDirectSoundCaptureBuffer8 {
     }
     #[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
     pub unsafe fn GetFormat(&self, pwfxformat: *mut super::WAVEFORMATEX, dwsizeallocated: u32, pdwsizewritten: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.GetFormat)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pwfxformat), ::core::mem::transmute(dwsizeallocated), ::core::mem::transmute(pdwsizewritten)).ok()
+        (::windows::core::Interface::vtable(self).base__.GetFormat)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pwfxformat), dwsizeallocated, ::core::mem::transmute(pdwsizewritten)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
     pub unsafe fn GetStatus(&self) -> ::windows::core::Result<u32> {
@@ -2655,11 +2655,11 @@ impl IDirectSoundCaptureBuffer8 {
     }
     #[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
     pub unsafe fn Lock(&self, dwoffset: u32, dwbytes: u32, ppvaudioptr1: *mut *mut ::core::ffi::c_void, pdwaudiobytes1: *mut u32, ppvaudioptr2: *mut *mut ::core::ffi::c_void, pdwaudiobytes2: *mut u32, dwflags: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.Lock)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(dwoffset), ::core::mem::transmute(dwbytes), ::core::mem::transmute(ppvaudioptr1), ::core::mem::transmute(pdwaudiobytes1), ::core::mem::transmute(ppvaudioptr2), ::core::mem::transmute(pdwaudiobytes2), ::core::mem::transmute(dwflags)).ok()
+        (::windows::core::Interface::vtable(self).base__.Lock)(::windows::core::Interface::as_raw(self), dwoffset, dwbytes, ::core::mem::transmute(ppvaudioptr1), ::core::mem::transmute(pdwaudiobytes1), ::core::mem::transmute(ppvaudioptr2), ::core::mem::transmute(pdwaudiobytes2), dwflags).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
     pub unsafe fn Start(&self, dwflags: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.Start)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(dwflags)).ok()
+        (::windows::core::Interface::vtable(self).base__.Start)(::windows::core::Interface::as_raw(self), dwflags).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
     pub unsafe fn Stop(&self) -> ::windows::core::Result<()> {
@@ -2667,11 +2667,11 @@ impl IDirectSoundCaptureBuffer8 {
     }
     #[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
     pub unsafe fn Unlock(&self, pvaudioptr1: *const ::core::ffi::c_void, dwaudiobytes1: u32, pvaudioptr2: *const ::core::ffi::c_void, dwaudiobytes2: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.Unlock)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pvaudioptr1), ::core::mem::transmute(dwaudiobytes1), ::core::mem::transmute(pvaudioptr2), ::core::mem::transmute(dwaudiobytes2)).ok()
+        (::windows::core::Interface::vtable(self).base__.Unlock)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pvaudioptr1), dwaudiobytes1, ::core::mem::transmute(pvaudioptr2), dwaudiobytes2).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
     pub unsafe fn GetObjectInPath(&self, rguidobject: *const ::windows::core::GUID, dwindex: u32, rguidinterface: *const ::windows::core::GUID, ppobject: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetObjectInPath)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(rguidobject), ::core::mem::transmute(dwindex), ::core::mem::transmute(rguidinterface), ::core::mem::transmute(ppobject)).ok()
+        (::windows::core::Interface::vtable(self).GetObjectInPath)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(rguidobject), dwindex, ::core::mem::transmute(rguidinterface), ::core::mem::transmute(ppobject)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
     pub unsafe fn GetFXStatus(&self, pdwfxstatus: &mut [u32]) -> ::windows::core::Result<()> {
@@ -3230,7 +3230,7 @@ impl IDirectSoundFXI3DL2Reverb {
     }
     #[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
     pub unsafe fn SetPreset(&self, dwpreset: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetPreset)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(dwpreset)).ok()
+        (::windows::core::Interface::vtable(self).SetPreset)(::windows::core::Interface::as_raw(self), dwpreset).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
     pub unsafe fn GetPreset(&self) -> ::windows::core::Result<u32> {
@@ -3239,7 +3239,7 @@ impl IDirectSoundFXI3DL2Reverb {
     }
     #[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
     pub unsafe fn SetQuality(&self, lquality: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetQuality)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lquality)).ok()
+        (::windows::core::Interface::vtable(self).SetQuality)(::windows::core::Interface::as_raw(self), lquality).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
     pub unsafe fn GetQuality(&self) -> ::windows::core::Result<i32> {
@@ -3415,7 +3415,7 @@ impl IDirectSoundFullDuplex {
     where
         P0: ::std::convert::Into<super::super::super::Foundation::HWND>,
     {
-        (::windows::core::Interface::vtable(self).Initialize)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pcaptureguid), ::core::mem::transmute(prenderguid), ::core::mem::transmute(lpdscbufferdesc), ::core::mem::transmute(lpdsbufferdesc), hwnd.into(), ::core::mem::transmute(dwlevel), ::core::mem::transmute(lplpdirectsoundcapturebuffer8), ::core::mem::transmute(lplpdirectsoundbuffer8)).ok()
+        (::windows::core::Interface::vtable(self).Initialize)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pcaptureguid), ::core::mem::transmute(prenderguid), ::core::mem::transmute(lpdscbufferdesc), ::core::mem::transmute(lpdsbufferdesc), hwnd.into(), dwlevel, ::core::mem::transmute(lplpdirectsoundcapturebuffer8), ::core::mem::transmute(lplpdirectsoundbuffer8)).ok()
     }
 }
 impl ::core::convert::From<IDirectSoundFullDuplex> for ::windows::core::IUnknown {

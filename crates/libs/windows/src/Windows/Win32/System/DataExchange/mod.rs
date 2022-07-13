@@ -854,7 +854,7 @@ where
     extern "system" {
         fn DdeAbandonTransaction(idinst: u32, hconv: HCONV, idtransaction: u32) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(DdeAbandonTransaction(::core::mem::transmute(idinst), hconv.into(), ::core::mem::transmute(idtransaction)))
+    ::core::mem::transmute(DdeAbandonTransaction(idinst, hconv.into(), idtransaction))
 }
 #[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
 #[inline]
@@ -878,7 +878,7 @@ where
     extern "system" {
         fn DdeAddData(hdata: HDDEDATA, psrc: *const u8, cb: u32, cboff: u32) -> HDDEDATA;
     }
-    ::core::mem::transmute(DdeAddData(hdata.into(), ::core::mem::transmute(psrc), ::core::mem::transmute(cb), ::core::mem::transmute(cboff)))
+    ::core::mem::transmute(DdeAddData(hdata.into(), ::core::mem::transmute(psrc), cb, cboff))
 }
 #[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
 #[inline]
@@ -891,7 +891,7 @@ where
     extern "system" {
         fn DdeClientTransaction(pdata: *const u8, cbdata: u32, hconv: HCONV, hszitem: HSZ, wfmt: u32, wtype: DDE_CLIENT_TRANSACTION_TYPE, dwtimeout: u32, pdwresult: *mut u32) -> HDDEDATA;
     }
-    ::core::mem::transmute(DdeClientTransaction(::core::mem::transmute(pdata), ::core::mem::transmute(cbdata), hconv.into(), hszitem.into(), ::core::mem::transmute(wfmt), ::core::mem::transmute(wtype), ::core::mem::transmute(dwtimeout), ::core::mem::transmute(pdwresult)))
+    ::core::mem::transmute(DdeClientTransaction(::core::mem::transmute(pdata), cbdata, hconv.into(), hszitem.into(), wfmt, wtype, dwtimeout, ::core::mem::transmute(pdwresult)))
 }
 #[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
 #[inline]
@@ -918,7 +918,7 @@ where
     extern "system" {
         fn DdeConnect(idinst: u32, hszservice: HSZ, hsztopic: HSZ, pcc: *const CONVCONTEXT) -> HCONV;
     }
-    ::core::mem::transmute(DdeConnect(::core::mem::transmute(idinst), hszservice.into(), hsztopic.into(), ::core::mem::transmute(pcc)))
+    ::core::mem::transmute(DdeConnect(idinst, hszservice.into(), hsztopic.into(), ::core::mem::transmute(pcc)))
 }
 #[doc = "*Required features: `\"Win32_System_DataExchange\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
@@ -933,7 +933,7 @@ where
     extern "system" {
         fn DdeConnectList(idinst: u32, hszservice: HSZ, hsztopic: HSZ, hconvlist: HCONVLIST, pcc: *const CONVCONTEXT) -> HCONVLIST;
     }
-    ::core::mem::transmute(DdeConnectList(::core::mem::transmute(idinst), hszservice.into(), hsztopic.into(), hconvlist.into(), ::core::mem::transmute(pcc)))
+    ::core::mem::transmute(DdeConnectList(idinst, hszservice.into(), hsztopic.into(), hconvlist.into(), ::core::mem::transmute(pcc)))
 }
 #[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
 #[inline]
@@ -945,7 +945,7 @@ where
     extern "system" {
         fn DdeCreateDataHandle(idinst: u32, psrc: *const u8, cb: u32, cboff: u32, hszitem: HSZ, wfmt: u32, afcmd: u32) -> HDDEDATA;
     }
-    ::core::mem::transmute(DdeCreateDataHandle(::core::mem::transmute(idinst), ::core::mem::transmute(psrc), ::core::mem::transmute(cb), ::core::mem::transmute(cboff), hszitem.into(), ::core::mem::transmute(wfmt), ::core::mem::transmute(afcmd)))
+    ::core::mem::transmute(DdeCreateDataHandle(idinst, ::core::mem::transmute(psrc), cb, cboff, hszitem.into(), wfmt, afcmd))
 }
 #[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
 #[inline]
@@ -957,7 +957,7 @@ where
     extern "system" {
         fn DdeCreateStringHandleA(idinst: u32, psz: ::windows::core::PCSTR, icodepage: i32) -> HSZ;
     }
-    ::core::mem::transmute(DdeCreateStringHandleA(::core::mem::transmute(idinst), psz.into(), ::core::mem::transmute(icodepage)))
+    ::core::mem::transmute(DdeCreateStringHandleA(idinst, psz.into(), icodepage))
 }
 #[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
 #[inline]
@@ -969,7 +969,7 @@ where
     extern "system" {
         fn DdeCreateStringHandleW(idinst: u32, psz: ::windows::core::PCWSTR, icodepage: i32) -> HSZ;
     }
-    ::core::mem::transmute(DdeCreateStringHandleW(::core::mem::transmute(idinst), psz.into(), ::core::mem::transmute(icodepage)))
+    ::core::mem::transmute(DdeCreateStringHandleW(idinst, psz.into(), icodepage))
 }
 #[doc = "*Required features: `\"Win32_System_DataExchange\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -1008,7 +1008,7 @@ where
     extern "system" {
         fn DdeEnableCallback(idinst: u32, hconv: HCONV, wcmd: DDE_ENABLE_CALLBACK_CMD) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(DdeEnableCallback(::core::mem::transmute(idinst), hconv.into(), ::core::mem::transmute(wcmd)))
+    ::core::mem::transmute(DdeEnableCallback(idinst, hconv.into(), wcmd))
 }
 #[doc = "*Required features: `\"Win32_System_DataExchange\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -1034,7 +1034,7 @@ where
     extern "system" {
         fn DdeFreeStringHandle(idinst: u32, hsz: HSZ) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(DdeFreeStringHandle(::core::mem::transmute(idinst), hsz.into()))
+    ::core::mem::transmute(DdeFreeStringHandle(idinst, hsz.into()))
 }
 #[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
 #[inline]
@@ -1046,7 +1046,7 @@ where
     extern "system" {
         fn DdeGetData(hdata: HDDEDATA, pdst: *mut u8, cbmax: u32, cboff: u32) -> u32;
     }
-    ::core::mem::transmute(DdeGetData(hdata.into(), ::core::mem::transmute(pdst), ::core::mem::transmute(cbmax), ::core::mem::transmute(cboff)))
+    ::core::mem::transmute(DdeGetData(hdata.into(), ::core::mem::transmute(pdst), cbmax, cboff))
 }
 #[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
 #[inline]
@@ -1055,7 +1055,7 @@ pub unsafe fn DdeGetLastError(idinst: u32) -> u32 {
     extern "system" {
         fn DdeGetLastError(idinst: u32) -> u32;
     }
-    ::core::mem::transmute(DdeGetLastError(::core::mem::transmute(idinst)))
+    ::core::mem::transmute(DdeGetLastError(idinst))
 }
 #[doc = "*Required features: `\"Win32_System_DataExchange\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -1077,7 +1077,7 @@ pub unsafe fn DdeInitializeA(pidinst: *mut u32, pfncallback: PFNCALLBACK, afcmd:
     extern "system" {
         fn DdeInitializeA(pidinst: *mut u32, pfncallback: *mut ::core::ffi::c_void, afcmd: DDE_INITIALIZE_COMMAND, ulres: u32) -> u32;
     }
-    ::core::mem::transmute(DdeInitializeA(::core::mem::transmute(pidinst), ::core::mem::transmute(pfncallback), ::core::mem::transmute(afcmd), ::core::mem::transmute(ulres)))
+    ::core::mem::transmute(DdeInitializeA(::core::mem::transmute(pidinst), ::core::mem::transmute(pfncallback), afcmd, ulres))
 }
 #[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
 #[inline]
@@ -1086,7 +1086,7 @@ pub unsafe fn DdeInitializeW(pidinst: *mut u32, pfncallback: PFNCALLBACK, afcmd:
     extern "system" {
         fn DdeInitializeW(pidinst: *mut u32, pfncallback: *mut ::core::ffi::c_void, afcmd: DDE_INITIALIZE_COMMAND, ulres: u32) -> u32;
     }
-    ::core::mem::transmute(DdeInitializeW(::core::mem::transmute(pidinst), ::core::mem::transmute(pfncallback), ::core::mem::transmute(afcmd), ::core::mem::transmute(ulres)))
+    ::core::mem::transmute(DdeInitializeW(::core::mem::transmute(pidinst), ::core::mem::transmute(pfncallback), afcmd, ulres))
 }
 #[doc = "*Required features: `\"Win32_System_DataExchange\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -1099,7 +1099,7 @@ where
     extern "system" {
         fn DdeKeepStringHandle(idinst: u32, hsz: HSZ) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(DdeKeepStringHandle(::core::mem::transmute(idinst), hsz.into()))
+    ::core::mem::transmute(DdeKeepStringHandle(idinst, hsz.into()))
 }
 #[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
 #[inline]
@@ -1112,7 +1112,7 @@ where
     extern "system" {
         fn DdeNameService(idinst: u32, hsz1: HSZ, hsz2: HSZ, afcmd: DDE_NAME_SERVICE_CMD) -> HDDEDATA;
     }
-    ::core::mem::transmute(DdeNameService(::core::mem::transmute(idinst), hsz1.into(), hsz2.into(), ::core::mem::transmute(afcmd)))
+    ::core::mem::transmute(DdeNameService(idinst, hsz1.into(), hsz2.into(), afcmd))
 }
 #[doc = "*Required features: `\"Win32_System_DataExchange\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -1126,7 +1126,7 @@ where
     extern "system" {
         fn DdePostAdvise(idinst: u32, hsztopic: HSZ, hszitem: HSZ) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(DdePostAdvise(::core::mem::transmute(idinst), hsztopic.into(), hszitem.into()))
+    ::core::mem::transmute(DdePostAdvise(idinst, hsztopic.into(), hszitem.into()))
 }
 #[doc = "*Required features: `\"Win32_System_DataExchange\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
@@ -1139,7 +1139,7 @@ where
     extern "system" {
         fn DdeQueryConvInfo(hconv: HCONV, idtransaction: u32, pconvinfo: *mut CONVINFO) -> u32;
     }
-    ::core::mem::transmute(DdeQueryConvInfo(hconv.into(), ::core::mem::transmute(idtransaction), ::core::mem::transmute(pconvinfo)))
+    ::core::mem::transmute(DdeQueryConvInfo(hconv.into(), idtransaction, ::core::mem::transmute(pconvinfo)))
 }
 #[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
 #[inline]
@@ -1164,7 +1164,7 @@ where
     extern "system" {
         fn DdeQueryStringA(idinst: u32, hsz: HSZ, psz: ::windows::core::PSTR, cchmax: u32, icodepage: i32) -> u32;
     }
-    ::core::mem::transmute(DdeQueryStringA(::core::mem::transmute(idinst), hsz.into(), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(psz)), psz.len() as _, ::core::mem::transmute(icodepage)))
+    ::core::mem::transmute(DdeQueryStringA(idinst, hsz.into(), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(psz)), psz.len() as _, icodepage))
 }
 #[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
 #[inline]
@@ -1176,7 +1176,7 @@ where
     extern "system" {
         fn DdeQueryStringW(idinst: u32, hsz: HSZ, psz: ::windows::core::PWSTR, cchmax: u32, icodepage: i32) -> u32;
     }
-    ::core::mem::transmute(DdeQueryStringW(::core::mem::transmute(idinst), hsz.into(), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(psz)), psz.len() as _, ::core::mem::transmute(icodepage)))
+    ::core::mem::transmute(DdeQueryStringW(idinst, hsz.into(), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(psz)), psz.len() as _, icodepage))
 }
 #[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
 #[inline]
@@ -1214,7 +1214,7 @@ where
     extern "system" {
         fn DdeSetUserHandle(hconv: HCONV, id: u32, huser: usize) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(DdeSetUserHandle(hconv.into(), ::core::mem::transmute(id), ::core::mem::transmute(huser)))
+    ::core::mem::transmute(DdeSetUserHandle(hconv.into(), id, huser))
 }
 #[doc = "*Required features: `\"Win32_System_DataExchange\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -1237,7 +1237,7 @@ pub unsafe fn DdeUninitialize(idinst: u32) -> super::super::Foundation::BOOL {
     extern "system" {
         fn DdeUninitialize(idinst: u32) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(DdeUninitialize(::core::mem::transmute(idinst)))
+    ::core::mem::transmute(DdeUninitialize(idinst))
 }
 #[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
 #[inline]
@@ -1246,7 +1246,7 @@ pub unsafe fn DeleteAtom(natom: u16) -> u16 {
     extern "system" {
         fn DeleteAtom(natom: u16) -> u16;
     }
-    ::core::mem::transmute(DeleteAtom(::core::mem::transmute(natom)))
+    ::core::mem::transmute(DeleteAtom(natom))
 }
 #[doc = "*Required features: `\"Win32_System_DataExchange\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -1265,7 +1265,7 @@ pub unsafe fn EnumClipboardFormats(format: u32) -> u32 {
     extern "system" {
         fn EnumClipboardFormats(format: u32) -> u32;
     }
-    ::core::mem::transmute(EnumClipboardFormats(::core::mem::transmute(format)))
+    ::core::mem::transmute(EnumClipboardFormats(format))
 }
 #[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
 #[inline]
@@ -1302,7 +1302,7 @@ where
     extern "system" {
         fn FreeDDElParam(msg: u32, lparam: super::super::Foundation::LPARAM) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(FreeDDElParam(::core::mem::transmute(msg), lparam.into()))
+    ::core::mem::transmute(FreeDDElParam(msg, lparam.into()))
 }
 #[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
 #[inline]
@@ -1311,7 +1311,7 @@ pub unsafe fn GetAtomNameA(natom: u16, lpbuffer: &mut [u8]) -> u32 {
     extern "system" {
         fn GetAtomNameA(natom: u16, lpbuffer: ::windows::core::PSTR, nsize: i32) -> u32;
     }
-    ::core::mem::transmute(GetAtomNameA(::core::mem::transmute(natom), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(lpbuffer)), lpbuffer.len() as _))
+    ::core::mem::transmute(GetAtomNameA(natom, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(lpbuffer)), lpbuffer.len() as _))
 }
 #[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
 #[inline]
@@ -1320,7 +1320,7 @@ pub unsafe fn GetAtomNameW(natom: u16, lpbuffer: &mut [u16]) -> u32 {
     extern "system" {
         fn GetAtomNameW(natom: u16, lpbuffer: ::windows::core::PWSTR, nsize: i32) -> u32;
     }
-    ::core::mem::transmute(GetAtomNameW(::core::mem::transmute(natom), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(lpbuffer)), lpbuffer.len() as _))
+    ::core::mem::transmute(GetAtomNameW(natom, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(lpbuffer)), lpbuffer.len() as _))
 }
 #[doc = "*Required features: `\"Win32_System_DataExchange\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -1330,7 +1330,7 @@ pub unsafe fn GetClipboardData(uformat: u32) -> ::windows::core::Result<super::s
     extern "system" {
         fn GetClipboardData(uformat: u32) -> super::super::Foundation::HANDLE;
     }
-    let result__ = GetClipboardData(::core::mem::transmute(uformat));
+    let result__ = GetClipboardData(uformat);
     (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
 }
 #[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
@@ -1340,7 +1340,7 @@ pub unsafe fn GetClipboardFormatNameA(format: u32, lpszformatname: &mut [u8]) ->
     extern "system" {
         fn GetClipboardFormatNameA(format: u32, lpszformatname: ::windows::core::PSTR, cchmaxcount: i32) -> i32;
     }
-    ::core::mem::transmute(GetClipboardFormatNameA(::core::mem::transmute(format), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(lpszformatname)), lpszformatname.len() as _))
+    ::core::mem::transmute(GetClipboardFormatNameA(format, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(lpszformatname)), lpszformatname.len() as _))
 }
 #[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
 #[inline]
@@ -1349,7 +1349,7 @@ pub unsafe fn GetClipboardFormatNameW(format: u32, lpszformatname: &mut [u16]) -
     extern "system" {
         fn GetClipboardFormatNameW(format: u32, lpszformatname: ::windows::core::PWSTR, cchmaxcount: i32) -> i32;
     }
-    ::core::mem::transmute(GetClipboardFormatNameW(::core::mem::transmute(format), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(lpszformatname)), lpszformatname.len() as _))
+    ::core::mem::transmute(GetClipboardFormatNameW(format, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(lpszformatname)), lpszformatname.len() as _))
 }
 #[doc = "*Required features: `\"Win32_System_DataExchange\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -1431,7 +1431,7 @@ where
     extern "system" {
         fn GlobalAddAtomExA(lpstring: ::windows::core::PCSTR, flags: u32) -> u16;
     }
-    ::core::mem::transmute(GlobalAddAtomExA(lpstring.into(), ::core::mem::transmute(flags)))
+    ::core::mem::transmute(GlobalAddAtomExA(lpstring.into(), flags))
 }
 #[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
 #[inline]
@@ -1443,7 +1443,7 @@ where
     extern "system" {
         fn GlobalAddAtomExW(lpstring: ::windows::core::PCWSTR, flags: u32) -> u16;
     }
-    ::core::mem::transmute(GlobalAddAtomExW(lpstring.into(), ::core::mem::transmute(flags)))
+    ::core::mem::transmute(GlobalAddAtomExW(lpstring.into(), flags))
 }
 #[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
 #[inline]
@@ -1464,7 +1464,7 @@ pub unsafe fn GlobalDeleteAtom(natom: u16) -> u16 {
     extern "system" {
         fn GlobalDeleteAtom(natom: u16) -> u16;
     }
-    ::core::mem::transmute(GlobalDeleteAtom(::core::mem::transmute(natom)))
+    ::core::mem::transmute(GlobalDeleteAtom(natom))
 }
 #[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
 #[inline]
@@ -1497,7 +1497,7 @@ pub unsafe fn GlobalGetAtomNameA(natom: u16, lpbuffer: &mut [u8]) -> u32 {
     extern "system" {
         fn GlobalGetAtomNameA(natom: u16, lpbuffer: ::windows::core::PSTR, nsize: i32) -> u32;
     }
-    ::core::mem::transmute(GlobalGetAtomNameA(::core::mem::transmute(natom), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(lpbuffer)), lpbuffer.len() as _))
+    ::core::mem::transmute(GlobalGetAtomNameA(natom, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(lpbuffer)), lpbuffer.len() as _))
 }
 #[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
 #[inline]
@@ -1506,7 +1506,7 @@ pub unsafe fn GlobalGetAtomNameW(natom: u16, lpbuffer: &mut [u16]) -> u32 {
     extern "system" {
         fn GlobalGetAtomNameW(natom: u16, lpbuffer: ::windows::core::PWSTR, nsize: i32) -> u32;
     }
-    ::core::mem::transmute(GlobalGetAtomNameW(::core::mem::transmute(natom), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(lpbuffer)), lpbuffer.len() as _))
+    ::core::mem::transmute(GlobalGetAtomNameW(natom, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(lpbuffer)), lpbuffer.len() as _))
 }
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
@@ -1691,7 +1691,7 @@ pub unsafe fn InitAtomTable(nsize: u32) -> super::super::Foundation::BOOL {
     extern "system" {
         fn InitAtomTable(nsize: u32) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(InitAtomTable(::core::mem::transmute(nsize)))
+    ::core::mem::transmute(InitAtomTable(nsize))
 }
 #[doc = "*Required features: `\"Win32_System_DataExchange\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -1701,7 +1701,7 @@ pub unsafe fn IsClipboardFormatAvailable(format: u32) -> super::super::Foundatio
     extern "system" {
         fn IsClipboardFormatAvailable(format: u32) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(IsClipboardFormatAvailable(::core::mem::transmute(format)))
+    ::core::mem::transmute(IsClipboardFormatAvailable(format))
 }
 #[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
 pub const MAX_MONITORS: u32 = 4u32;
@@ -2099,7 +2099,7 @@ pub unsafe fn PackDDElParam(msg: u32, uilo: usize, uihi: usize) -> super::super:
     extern "system" {
         fn PackDDElParam(msg: u32, uilo: usize, uihi: usize) -> super::super::Foundation::LPARAM;
     }
-    ::core::mem::transmute(PackDDElParam(::core::mem::transmute(msg), ::core::mem::transmute(uilo), ::core::mem::transmute(uihi)))
+    ::core::mem::transmute(PackDDElParam(msg, uilo, uihi))
 }
 #[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
 pub const QID_SYNC: u32 = 4294967295u32;
@@ -2151,7 +2151,7 @@ where
     extern "system" {
         fn ReuseDDElParam(lparam: super::super::Foundation::LPARAM, msgin: u32, msgout: u32, uilo: usize, uihi: usize) -> super::super::Foundation::LPARAM;
     }
-    ::core::mem::transmute(ReuseDDElParam(lparam.into(), ::core::mem::transmute(msgin), ::core::mem::transmute(msgout), ::core::mem::transmute(uilo), ::core::mem::transmute(uihi)))
+    ::core::mem::transmute(ReuseDDElParam(lparam.into(), msgin, msgout, uilo, uihi))
 }
 #[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
 pub const SZDDESYS_ITEM_FORMATS: &str = "Formats";
@@ -2180,7 +2180,7 @@ where
     extern "system" {
         fn SetClipboardData(uformat: u32, hmem: super::super::Foundation::HANDLE) -> super::super::Foundation::HANDLE;
     }
-    let result__ = SetClipboardData(::core::mem::transmute(uformat), hmem.into());
+    let result__ = SetClipboardData(uformat, hmem.into());
     (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
 }
 #[doc = "*Required features: `\"Win32_System_DataExchange\"`, `\"Win32_Foundation\"`*"]
@@ -2207,7 +2207,7 @@ where
     extern "system" {
         fn SetWinMetaFileBits(nsize: u32, lpmeta16data: *const u8, hdcref: super::super::Graphics::Gdi::HDC, lpmfp: *const METAFILEPICT) -> super::super::Graphics::Gdi::HENHMETAFILE;
     }
-    ::core::mem::transmute(SetWinMetaFileBits(::core::mem::transmute(nsize), ::core::mem::transmute(lpmeta16data), hdcref.into(), ::core::mem::transmute(lpmfp)))
+    ::core::mem::transmute(SetWinMetaFileBits(nsize, ::core::mem::transmute(lpmeta16data), hdcref.into(), ::core::mem::transmute(lpmfp)))
 }
 #[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
 pub const TIMEOUT_ASYNC: u32 = 4294967295u32;
@@ -2222,7 +2222,7 @@ where
     extern "system" {
         fn UnpackDDElParam(msg: u32, lparam: super::super::Foundation::LPARAM, puilo: *mut usize, puihi: *mut usize) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(UnpackDDElParam(::core::mem::transmute(msg), lparam.into(), ::core::mem::transmute(puilo), ::core::mem::transmute(puihi)))
+    ::core::mem::transmute(UnpackDDElParam(msg, lparam.into(), ::core::mem::transmute(puilo), ::core::mem::transmute(puihi)))
 }
 #[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
 pub const WM_DDE_ACK: u32 = 996u32;

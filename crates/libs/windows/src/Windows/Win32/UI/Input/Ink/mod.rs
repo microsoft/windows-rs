@@ -117,7 +117,7 @@ impl IInkD2DRenderer2 {
         P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>,
         P1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>,
     {
-        (::windows::core::Interface::vtable(self).Draw)(::windows::core::Interface::as_raw(self), pd2d1devicecontext.into().abi(), pinkstrokeiterable.into().abi(), ::core::mem::transmute(highcontrastadjustment)).ok()
+        (::windows::core::Interface::vtable(self).Draw)(::windows::core::Interface::as_raw(self), pd2d1devicecontext.into().abi(), pinkstrokeiterable.into().abi(), highcontrastadjustment).ok()
     }
 }
 impl ::core::convert::From<IInkD2DRenderer2> for ::windows::core::IUnknown {
@@ -187,7 +187,7 @@ impl IInkDesktopHost {
         T: ::windows::core::Interface,
     {
         let mut result__ = ::core::option::Option::None;
-        (::windows::core::Interface::vtable(self).CreateAndInitializeInkPresenter)(::windows::core::Interface::as_raw(self), rootvisual.into().abi(), ::core::mem::transmute(width), ::core::mem::transmute(height), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
+        (::windows::core::Interface::vtable(self).CreateAndInitializeInkPresenter)(::windows::core::Interface::as_raw(self), rootvisual.into().abi(), width, height, &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
     }
 }
 impl ::core::convert::From<IInkDesktopHost> for ::windows::core::IUnknown {
@@ -308,7 +308,7 @@ impl IInkPresenterDesktop {
     }
     #[doc = "*Required features: `\"Win32_UI_Input_Ink\"`*"]
     pub unsafe fn SetSize(&self, width: f32, height: f32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetSize)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(width), ::core::mem::transmute(height)).ok()
+        (::windows::core::Interface::vtable(self).SetSize)(::windows::core::Interface::as_raw(self), width, height).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_Input_Ink\"`*"]
     pub unsafe fn OnHighContrastChanged(&self) -> ::windows::core::Result<()> {

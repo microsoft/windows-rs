@@ -2619,7 +2619,7 @@ where
     extern "system" {
         fn CertSrvBackupOpenFileW(hbc: *mut ::core::ffi::c_void, pwszattachmentname: ::windows::core::PCWSTR, cbreadhintsize: u32, plifilesize: *mut i64) -> ::windows::core::HRESULT;
     }
-    CertSrvBackupOpenFileW(::core::mem::transmute(hbc), pwszattachmentname.into(), ::core::mem::transmute(cbreadhintsize), ::core::mem::transmute(plifilesize)).ok()
+    CertSrvBackupOpenFileW(::core::mem::transmute(hbc), pwszattachmentname.into(), cbreadhintsize, ::core::mem::transmute(plifilesize)).ok()
 }
 #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 #[inline]
@@ -2631,7 +2631,7 @@ where
     extern "system" {
         fn CertSrvBackupPrepareW(pwszservername: ::windows::core::PCWSTR, grbitjet: u32, dwbackupflags: CSBACKUP_TYPE, phbc: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
     }
-    CertSrvBackupPrepareW(pwszservername.into(), ::core::mem::transmute(grbitjet), ::core::mem::transmute(dwbackupflags), ::core::mem::transmute(phbc)).ok()
+    CertSrvBackupPrepareW(pwszservername.into(), grbitjet, dwbackupflags, ::core::mem::transmute(phbc)).ok()
 }
 #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 #[inline]
@@ -2640,7 +2640,7 @@ pub unsafe fn CertSrvBackupRead(hbc: *mut ::core::ffi::c_void, pvbuffer: *mut ::
     extern "system" {
         fn CertSrvBackupRead(hbc: *mut ::core::ffi::c_void, pvbuffer: *mut ::core::ffi::c_void, cbbuffer: u32, pcbread: *mut u32) -> ::windows::core::HRESULT;
     }
-    CertSrvBackupRead(::core::mem::transmute(hbc), ::core::mem::transmute(pvbuffer), ::core::mem::transmute(cbbuffer), ::core::mem::transmute(pcbread)).ok()
+    CertSrvBackupRead(::core::mem::transmute(hbc), ::core::mem::transmute(pvbuffer), cbbuffer, ::core::mem::transmute(pcbread)).ok()
 }
 #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 #[inline]
@@ -2692,7 +2692,7 @@ where
     extern "system" {
         fn CertSrvRestorePrepareW(pwszservername: ::windows::core::PCWSTR, dwrestoreflags: u32, phbc: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
     }
-    CertSrvRestorePrepareW(pwszservername.into(), ::core::mem::transmute(dwrestoreflags), ::core::mem::transmute(phbc)).ok()
+    CertSrvRestorePrepareW(pwszservername.into(), dwrestoreflags, ::core::mem::transmute(phbc)).ok()
 }
 #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 #[inline]
@@ -2701,7 +2701,7 @@ pub unsafe fn CertSrvRestoreRegisterComplete(hbc: *mut ::core::ffi::c_void, hrre
     extern "system" {
         fn CertSrvRestoreRegisterComplete(hbc: *mut ::core::ffi::c_void, hrrestorestate: ::windows::core::HRESULT) -> ::windows::core::HRESULT;
     }
-    CertSrvRestoreRegisterComplete(::core::mem::transmute(hbc), ::core::mem::transmute(hrrestorestate)).ok()
+    CertSrvRestoreRegisterComplete(::core::mem::transmute(hbc), hrrestorestate).ok()
 }
 #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 #[inline]
@@ -2715,7 +2715,7 @@ where
     extern "system" {
         fn CertSrvRestoreRegisterThroughFile(hbc: *mut ::core::ffi::c_void, pwszcheckpointfilepath: ::windows::core::PCWSTR, pwszlogpath: ::windows::core::PCWSTR, rgrstmap: *mut CSEDB_RSTMAPW, crstmap: i32, pwszbackuplogpath: ::windows::core::PCWSTR, genlow: u32, genhigh: u32) -> ::windows::core::HRESULT;
     }
-    CertSrvRestoreRegisterThroughFile(::core::mem::transmute(hbc), pwszcheckpointfilepath.into(), pwszlogpath.into(), ::core::mem::transmute(rgrstmap), ::core::mem::transmute(crstmap), pwszbackuplogpath.into(), ::core::mem::transmute(genlow), ::core::mem::transmute(genhigh)).ok()
+    CertSrvRestoreRegisterThroughFile(::core::mem::transmute(hbc), pwszcheckpointfilepath.into(), pwszlogpath.into(), ::core::mem::transmute(rgrstmap), crstmap, pwszbackuplogpath.into(), genlow, genhigh).ok()
 }
 #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 #[inline]
@@ -2729,7 +2729,7 @@ where
     extern "system" {
         fn CertSrvRestoreRegisterW(hbc: *mut ::core::ffi::c_void, pwszcheckpointfilepath: ::windows::core::PCWSTR, pwszlogpath: ::windows::core::PCWSTR, rgrstmap: *mut CSEDB_RSTMAPW, crstmap: i32, pwszbackuplogpath: ::windows::core::PCWSTR, genlow: u32, genhigh: u32) -> ::windows::core::HRESULT;
     }
-    CertSrvRestoreRegisterW(::core::mem::transmute(hbc), pwszcheckpointfilepath.into(), pwszlogpath.into(), ::core::mem::transmute(rgrstmap), ::core::mem::transmute(crstmap), pwszbackuplogpath.into(), ::core::mem::transmute(genlow), ::core::mem::transmute(genhigh)).ok()
+    CertSrvRestoreRegisterW(::core::mem::transmute(hbc), pwszcheckpointfilepath.into(), pwszlogpath.into(), ::core::mem::transmute(rgrstmap), crstmap, pwszbackuplogpath.into(), genlow, genhigh).ok()
 }
 #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 #[inline]
@@ -2741,7 +2741,7 @@ where
     extern "system" {
         fn CertSrvServerControlW(pwszservername: ::windows::core::PCWSTR, dwcontrolflags: u32, pcbout: *mut u32, ppbout: *mut *mut u8) -> ::windows::core::HRESULT;
     }
-    CertSrvServerControlW(pwszservername.into(), ::core::mem::transmute(dwcontrolflags), ::core::mem::transmute(pcbout), ::core::mem::transmute(ppbout)).ok()
+    CertSrvServerControlW(pwszservername.into(), dwcontrolflags, ::core::mem::transmute(pcbout), ::core::mem::transmute(ppbout)).ok()
 }
 #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 #[repr(transparent)]
@@ -3509,7 +3509,7 @@ impl IAlternativeName {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::BSTR>>,
     {
-        (::windows::core::Interface::vtable(self).InitializeFromString)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(r#type), strvalue.into().abi()).ok()
+        (::windows::core::Interface::vtable(self).InitializeFromString)(::windows::core::Interface::as_raw(self), r#type, strvalue.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -3517,7 +3517,7 @@ impl IAlternativeName {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::BSTR>>,
     {
-        (::windows::core::Interface::vtable(self).InitializeFromRawData)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(r#type), ::core::mem::transmute(encoding), strrawdata.into().abi()).ok()
+        (::windows::core::Interface::vtable(self).InitializeFromRawData)(::windows::core::Interface::as_raw(self), r#type, encoding, strrawdata.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
@@ -3526,7 +3526,7 @@ impl IAlternativeName {
         P0: ::std::convert::Into<::windows::core::InParam<'a, IObjectId>>,
         P1: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::BSTR>>,
     {
-        (::windows::core::Interface::vtable(self).InitializeFromOtherName)(::windows::core::Interface::as_raw(self), pobjectid.into().abi(), ::core::mem::transmute(encoding), strrawdata.into().abi(), ::core::mem::transmute(tobewrapped)).ok()
+        (::windows::core::Interface::vtable(self).InitializeFromOtherName)(::windows::core::Interface::as_raw(self), pobjectid.into().abi(), encoding, strrawdata.into().abi(), tobewrapped).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn Type(&self) -> ::windows::core::Result<AlternativeNameType> {
@@ -3549,7 +3549,7 @@ impl IAlternativeName {
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn get_RawData(&self, encoding: EncodingType) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>>::zeroed();
-        (::windows::core::Interface::vtable(self).get_RawData)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(encoding), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).get_RawData)(::windows::core::Interface::as_raw(self), encoding, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -3654,7 +3654,7 @@ impl IAlternativeNames {
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn get_ItemByIndex(&self, index: i32) -> ::windows::core::Result<IAlternativeName> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).get_ItemByIndex)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(index), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IAlternativeName>(result__)
+        (::windows::core::Interface::vtable(self).get_ItemByIndex)(::windows::core::Interface::as_raw(self), index, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IAlternativeName>(result__)
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn Count(&self) -> ::windows::core::Result<i32> {
@@ -3676,7 +3676,7 @@ impl IAlternativeNames {
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn Remove(&self, index: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Remove)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(index)).ok()
+        (::windows::core::Interface::vtable(self).Remove)(::windows::core::Interface::as_raw(self), index).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn Clear(&self) -> ::windows::core::Result<()> {
@@ -3775,13 +3775,13 @@ impl IBinaryConverter {
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::BSTR>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>>::zeroed();
-        (::windows::core::Interface::vtable(self).StringToString)(::windows::core::Interface::as_raw(self), strencodedin.into().abi(), ::core::mem::transmute(encodingin), ::core::mem::transmute(encoding), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).StringToString)(::windows::core::Interface::as_raw(self), strencodedin.into().abi(), encodingin, encoding, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn VariantByteArrayToString(&self, pvarbytearray: *const super::super::super::System::Com::VARIANT, encoding: EncodingType) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>>::zeroed();
-        (::windows::core::Interface::vtable(self).VariantByteArrayToString)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pvarbytearray), ::core::mem::transmute(encoding), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).VariantByteArrayToString)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pvarbytearray), encoding, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -3790,7 +3790,7 @@ impl IBinaryConverter {
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::BSTR>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::System::Com::VARIANT>>::zeroed();
-        (::windows::core::Interface::vtable(self).StringToVariantByteArray)(::windows::core::Interface::as_raw(self), strencoded.into().abi(), ::core::mem::transmute(encoding), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::System::Com::VARIANT>(result__)
+        (::windows::core::Interface::vtable(self).StringToVariantByteArray)(::windows::core::Interface::as_raw(self), strencoded.into().abi(), encoding, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::System::Com::VARIANT>(result__)
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -3885,13 +3885,13 @@ impl IBinaryConverter2 {
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::BSTR>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.StringToString)(::windows::core::Interface::as_raw(self), strencodedin.into().abi(), ::core::mem::transmute(encodingin), ::core::mem::transmute(encoding), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).base__.StringToString)(::windows::core::Interface::as_raw(self), strencodedin.into().abi(), encodingin, encoding, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn VariantByteArrayToString(&self, pvarbytearray: *const super::super::super::System::Com::VARIANT, encoding: EncodingType) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.VariantByteArrayToString)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pvarbytearray), ::core::mem::transmute(encoding), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).base__.VariantByteArrayToString)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pvarbytearray), encoding, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -3900,7 +3900,7 @@ impl IBinaryConverter2 {
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::BSTR>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::System::Com::VARIANT>>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.StringToVariantByteArray)(::windows::core::Interface::as_raw(self), strencoded.into().abi(), ::core::mem::transmute(encoding), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::System::Com::VARIANT>(result__)
+        (::windows::core::Interface::vtable(self).base__.StringToVariantByteArray)(::windows::core::Interface::as_raw(self), strencoded.into().abi(), encoding, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::System::Com::VARIANT>(result__)
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -4063,13 +4063,13 @@ impl ICEnroll {
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn enumProviders(&self, dwindex: i32, dwflags: i32) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>>::zeroed();
-        (::windows::core::Interface::vtable(self).enumProviders)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(dwindex), ::core::mem::transmute(dwflags), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).enumProviders)(::windows::core::Interface::as_raw(self), dwindex, dwflags, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn enumContainers(&self, dwindex: i32) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>>::zeroed();
-        (::windows::core::Interface::vtable(self).enumContainers)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(dwindex), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).enumContainers)(::windows::core::Interface::as_raw(self), dwindex, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -4114,7 +4114,7 @@ impl ICEnroll {
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn SetMyStoreFlags(&self, dwflags: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetMyStoreFlags)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(dwflags)).ok()
+        (::windows::core::Interface::vtable(self).SetMyStoreFlags)(::windows::core::Interface::as_raw(self), dwflags).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -4151,7 +4151,7 @@ impl ICEnroll {
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn SetCAStoreFlags(&self, dwflags: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetCAStoreFlags)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(dwflags)).ok()
+        (::windows::core::Interface::vtable(self).SetCAStoreFlags)(::windows::core::Interface::as_raw(self), dwflags).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -4188,7 +4188,7 @@ impl ICEnroll {
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn SetRootStoreFlags(&self, dwflags: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetRootStoreFlags)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(dwflags)).ok()
+        (::windows::core::Interface::vtable(self).SetRootStoreFlags)(::windows::core::Interface::as_raw(self), dwflags).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -4225,7 +4225,7 @@ impl ICEnroll {
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn SetRequestStoreFlags(&self, dwflags: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetRequestStoreFlags)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(dwflags)).ok()
+        (::windows::core::Interface::vtable(self).SetRequestStoreFlags)(::windows::core::Interface::as_raw(self), dwflags).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -4262,7 +4262,7 @@ impl ICEnroll {
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn SetProviderType(&self, dwtype: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetProviderType)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(dwtype)).ok()
+        (::windows::core::Interface::vtable(self).SetProviderType)(::windows::core::Interface::as_raw(self), dwtype).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn KeySpec(&self) -> ::windows::core::Result<i32> {
@@ -4271,7 +4271,7 @@ impl ICEnroll {
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn SetKeySpec(&self, dw: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetKeySpec)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(dw)).ok()
+        (::windows::core::Interface::vtable(self).SetKeySpec)(::windows::core::Interface::as_raw(self), dw).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn ProviderFlags(&self) -> ::windows::core::Result<i32> {
@@ -4280,7 +4280,7 @@ impl ICEnroll {
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn SetProviderFlags(&self, dwflags: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetProviderFlags)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(dwflags)).ok()
+        (::windows::core::Interface::vtable(self).SetProviderFlags)(::windows::core::Interface::as_raw(self), dwflags).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -4303,7 +4303,7 @@ impl ICEnroll {
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn SetGenKeyFlags(&self, dwflags: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetGenKeyFlags)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(dwflags)).ok()
+        (::windows::core::Interface::vtable(self).SetGenKeyFlags)(::windows::core::Interface::as_raw(self), dwflags).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -4674,13 +4674,13 @@ impl ICEnroll2 {
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn enumProviders(&self, dwindex: i32, dwflags: i32) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.enumProviders)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(dwindex), ::core::mem::transmute(dwflags), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).base__.enumProviders)(::windows::core::Interface::as_raw(self), dwindex, dwflags, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn enumContainers(&self, dwindex: i32) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.enumContainers)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(dwindex), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).base__.enumContainers)(::windows::core::Interface::as_raw(self), dwindex, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -4725,7 +4725,7 @@ impl ICEnroll2 {
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn SetMyStoreFlags(&self, dwflags: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetMyStoreFlags)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(dwflags)).ok()
+        (::windows::core::Interface::vtable(self).base__.SetMyStoreFlags)(::windows::core::Interface::as_raw(self), dwflags).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -4762,7 +4762,7 @@ impl ICEnroll2 {
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn SetCAStoreFlags(&self, dwflags: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetCAStoreFlags)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(dwflags)).ok()
+        (::windows::core::Interface::vtable(self).base__.SetCAStoreFlags)(::windows::core::Interface::as_raw(self), dwflags).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -4799,7 +4799,7 @@ impl ICEnroll2 {
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn SetRootStoreFlags(&self, dwflags: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetRootStoreFlags)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(dwflags)).ok()
+        (::windows::core::Interface::vtable(self).base__.SetRootStoreFlags)(::windows::core::Interface::as_raw(self), dwflags).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -4836,7 +4836,7 @@ impl ICEnroll2 {
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn SetRequestStoreFlags(&self, dwflags: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetRequestStoreFlags)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(dwflags)).ok()
+        (::windows::core::Interface::vtable(self).base__.SetRequestStoreFlags)(::windows::core::Interface::as_raw(self), dwflags).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -4873,7 +4873,7 @@ impl ICEnroll2 {
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn SetProviderType(&self, dwtype: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetProviderType)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(dwtype)).ok()
+        (::windows::core::Interface::vtable(self).base__.SetProviderType)(::windows::core::Interface::as_raw(self), dwtype).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn KeySpec(&self) -> ::windows::core::Result<i32> {
@@ -4882,7 +4882,7 @@ impl ICEnroll2 {
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn SetKeySpec(&self, dw: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetKeySpec)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(dw)).ok()
+        (::windows::core::Interface::vtable(self).base__.SetKeySpec)(::windows::core::Interface::as_raw(self), dw).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn ProviderFlags(&self) -> ::windows::core::Result<i32> {
@@ -4891,7 +4891,7 @@ impl ICEnroll2 {
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn SetProviderFlags(&self, dwflags: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetProviderFlags)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(dwflags)).ok()
+        (::windows::core::Interface::vtable(self).base__.SetProviderFlags)(::windows::core::Interface::as_raw(self), dwflags).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -4914,7 +4914,7 @@ impl ICEnroll2 {
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn SetGenKeyFlags(&self, dwflags: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetGenKeyFlags)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(dwflags)).ok()
+        (::windows::core::Interface::vtable(self).base__.SetGenKeyFlags)(::windows::core::Interface::as_raw(self), dwflags).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -5196,13 +5196,13 @@ impl ICEnroll3 {
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn enumProviders(&self, dwindex: i32, dwflags: i32) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.base__.enumProviders)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(dwindex), ::core::mem::transmute(dwflags), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).base__.base__.enumProviders)(::windows::core::Interface::as_raw(self), dwindex, dwflags, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn enumContainers(&self, dwindex: i32) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.base__.enumContainers)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(dwindex), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).base__.base__.enumContainers)(::windows::core::Interface::as_raw(self), dwindex, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -5247,7 +5247,7 @@ impl ICEnroll3 {
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn SetMyStoreFlags(&self, dwflags: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.SetMyStoreFlags)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(dwflags)).ok()
+        (::windows::core::Interface::vtable(self).base__.base__.SetMyStoreFlags)(::windows::core::Interface::as_raw(self), dwflags).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -5284,7 +5284,7 @@ impl ICEnroll3 {
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn SetCAStoreFlags(&self, dwflags: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.SetCAStoreFlags)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(dwflags)).ok()
+        (::windows::core::Interface::vtable(self).base__.base__.SetCAStoreFlags)(::windows::core::Interface::as_raw(self), dwflags).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -5321,7 +5321,7 @@ impl ICEnroll3 {
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn SetRootStoreFlags(&self, dwflags: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.SetRootStoreFlags)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(dwflags)).ok()
+        (::windows::core::Interface::vtable(self).base__.base__.SetRootStoreFlags)(::windows::core::Interface::as_raw(self), dwflags).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -5358,7 +5358,7 @@ impl ICEnroll3 {
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn SetRequestStoreFlags(&self, dwflags: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.SetRequestStoreFlags)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(dwflags)).ok()
+        (::windows::core::Interface::vtable(self).base__.base__.SetRequestStoreFlags)(::windows::core::Interface::as_raw(self), dwflags).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -5395,7 +5395,7 @@ impl ICEnroll3 {
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn SetProviderType(&self, dwtype: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.SetProviderType)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(dwtype)).ok()
+        (::windows::core::Interface::vtable(self).base__.base__.SetProviderType)(::windows::core::Interface::as_raw(self), dwtype).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn KeySpec(&self) -> ::windows::core::Result<i32> {
@@ -5404,7 +5404,7 @@ impl ICEnroll3 {
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn SetKeySpec(&self, dw: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.SetKeySpec)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(dw)).ok()
+        (::windows::core::Interface::vtable(self).base__.base__.SetKeySpec)(::windows::core::Interface::as_raw(self), dw).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn ProviderFlags(&self) -> ::windows::core::Result<i32> {
@@ -5413,7 +5413,7 @@ impl ICEnroll3 {
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn SetProviderFlags(&self, dwflags: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.SetProviderFlags)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(dwflags)).ok()
+        (::windows::core::Interface::vtable(self).base__.base__.SetProviderFlags)(::windows::core::Interface::as_raw(self), dwflags).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -5436,7 +5436,7 @@ impl ICEnroll3 {
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn SetGenKeyFlags(&self, dwflags: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.SetGenKeyFlags)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(dwflags)).ok()
+        (::windows::core::Interface::vtable(self).base__.base__.SetGenKeyFlags)(::windows::core::Interface::as_raw(self), dwflags).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -5583,13 +5583,13 @@ impl ICEnroll3 {
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn EnumAlgs(&self, dwindex: i32, algclass: i32) -> ::windows::core::Result<i32> {
         let mut result__ = ::core::mem::MaybeUninit::<i32>::zeroed();
-        (::windows::core::Interface::vtable(self).EnumAlgs)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(dwindex), ::core::mem::transmute(algclass), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
+        (::windows::core::Interface::vtable(self).EnumAlgs)(::windows::core::Interface::as_raw(self), dwindex, algclass, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetAlgName(&self, algid: i32) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>>::zeroed();
-        (::windows::core::Interface::vtable(self).GetAlgName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(algid), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).GetAlgName)(::windows::core::Interface::as_raw(self), algid, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -5607,7 +5607,7 @@ impl ICEnroll3 {
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn SetHashAlgID(&self, hashalgid: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetHashAlgID)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(hashalgid)).ok()
+        (::windows::core::Interface::vtable(self).SetHashAlgID)(::windows::core::Interface::as_raw(self), hashalgid).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn HashAlgID(&self) -> ::windows::core::Result<i32> {
@@ -5842,13 +5842,13 @@ impl ICEnroll4 {
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn enumProviders(&self, dwindex: i32, dwflags: i32) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.base__.base__.enumProviders)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(dwindex), ::core::mem::transmute(dwflags), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).base__.base__.base__.enumProviders)(::windows::core::Interface::as_raw(self), dwindex, dwflags, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn enumContainers(&self, dwindex: i32) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.base__.base__.enumContainers)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(dwindex), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).base__.base__.base__.enumContainers)(::windows::core::Interface::as_raw(self), dwindex, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -5893,7 +5893,7 @@ impl ICEnroll4 {
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn SetMyStoreFlags(&self, dwflags: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.base__.SetMyStoreFlags)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(dwflags)).ok()
+        (::windows::core::Interface::vtable(self).base__.base__.base__.SetMyStoreFlags)(::windows::core::Interface::as_raw(self), dwflags).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -5930,7 +5930,7 @@ impl ICEnroll4 {
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn SetCAStoreFlags(&self, dwflags: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.base__.SetCAStoreFlags)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(dwflags)).ok()
+        (::windows::core::Interface::vtable(self).base__.base__.base__.SetCAStoreFlags)(::windows::core::Interface::as_raw(self), dwflags).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -5967,7 +5967,7 @@ impl ICEnroll4 {
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn SetRootStoreFlags(&self, dwflags: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.base__.SetRootStoreFlags)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(dwflags)).ok()
+        (::windows::core::Interface::vtable(self).base__.base__.base__.SetRootStoreFlags)(::windows::core::Interface::as_raw(self), dwflags).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -6004,7 +6004,7 @@ impl ICEnroll4 {
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn SetRequestStoreFlags(&self, dwflags: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.base__.SetRequestStoreFlags)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(dwflags)).ok()
+        (::windows::core::Interface::vtable(self).base__.base__.base__.SetRequestStoreFlags)(::windows::core::Interface::as_raw(self), dwflags).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -6041,7 +6041,7 @@ impl ICEnroll4 {
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn SetProviderType(&self, dwtype: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.base__.SetProviderType)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(dwtype)).ok()
+        (::windows::core::Interface::vtable(self).base__.base__.base__.SetProviderType)(::windows::core::Interface::as_raw(self), dwtype).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn KeySpec(&self) -> ::windows::core::Result<i32> {
@@ -6050,7 +6050,7 @@ impl ICEnroll4 {
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn SetKeySpec(&self, dw: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.base__.SetKeySpec)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(dw)).ok()
+        (::windows::core::Interface::vtable(self).base__.base__.base__.SetKeySpec)(::windows::core::Interface::as_raw(self), dw).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn ProviderFlags(&self) -> ::windows::core::Result<i32> {
@@ -6059,7 +6059,7 @@ impl ICEnroll4 {
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn SetProviderFlags(&self, dwflags: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.base__.SetProviderFlags)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(dwflags)).ok()
+        (::windows::core::Interface::vtable(self).base__.base__.base__.SetProviderFlags)(::windows::core::Interface::as_raw(self), dwflags).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -6082,7 +6082,7 @@ impl ICEnroll4 {
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn SetGenKeyFlags(&self, dwflags: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.base__.SetGenKeyFlags)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(dwflags)).ok()
+        (::windows::core::Interface::vtable(self).base__.base__.base__.SetGenKeyFlags)(::windows::core::Interface::as_raw(self), dwflags).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -6229,13 +6229,13 @@ impl ICEnroll4 {
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn EnumAlgs(&self, dwindex: i32, algclass: i32) -> ::windows::core::Result<i32> {
         let mut result__ = ::core::mem::MaybeUninit::<i32>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.EnumAlgs)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(dwindex), ::core::mem::transmute(algclass), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
+        (::windows::core::Interface::vtable(self).base__.EnumAlgs)(::windows::core::Interface::as_raw(self), dwindex, algclass, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetAlgName(&self, algid: i32) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.GetAlgName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(algid), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).base__.GetAlgName)(::windows::core::Interface::as_raw(self), algid, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -6253,7 +6253,7 @@ impl ICEnroll4 {
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn SetHashAlgID(&self, hashalgid: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetHashAlgID)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(hashalgid)).ok()
+        (::windows::core::Interface::vtable(self).base__.SetHashAlgID)(::windows::core::Interface::as_raw(self), hashalgid).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn HashAlgID(&self) -> ::windows::core::Result<i32> {
@@ -6323,7 +6323,7 @@ impl ICEnroll4 {
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::BSTR>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>>::zeroed();
-        (::windows::core::Interface::vtable(self).binaryToString)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(flags), strbinary.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).binaryToString)(::windows::core::Interface::as_raw(self), flags, strbinary.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -6332,7 +6332,7 @@ impl ICEnroll4 {
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::BSTR>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>>::zeroed();
-        (::windows::core::Interface::vtable(self).stringToBinary)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(flags), strencoded.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).stringToBinary)(::windows::core::Interface::as_raw(self), flags, strencoded.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -6341,7 +6341,7 @@ impl ICEnroll4 {
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::BSTR>>,
         P1: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::BSTR>>,
     {
-        (::windows::core::Interface::vtable(self).addExtensionToRequest)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(flags), strname.into().abi(), strvalue.into().abi()).ok()
+        (::windows::core::Interface::vtable(self).addExtensionToRequest)(::windows::core::Interface::as_raw(self), flags, strname.into().abi(), strvalue.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -6350,7 +6350,7 @@ impl ICEnroll4 {
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::BSTR>>,
         P1: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::BSTR>>,
     {
-        (::windows::core::Interface::vtable(self).addAttributeToRequest)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(flags), strname.into().abi(), strvalue.into().abi()).ok()
+        (::windows::core::Interface::vtable(self).addAttributeToRequest)(::windows::core::Interface::as_raw(self), flags, strname.into().abi(), strvalue.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -6359,7 +6359,7 @@ impl ICEnroll4 {
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::BSTR>>,
         P1: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::BSTR>>,
     {
-        (::windows::core::Interface::vtable(self).addNameValuePairToRequest)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(flags), strname.into().abi(), strvalue.into().abi()).ok()
+        (::windows::core::Interface::vtable(self).addNameValuePairToRequest)(::windows::core::Interface::as_raw(self), flags, strname.into().abi(), strvalue.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn resetExtensions(&self) -> ::windows::core::Result<()> {
@@ -6377,7 +6377,7 @@ impl ICEnroll4 {
         P1: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::BSTR>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>>::zeroed();
-        (::windows::core::Interface::vtable(self).createRequest)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(flags), strdnname.into().abi(), usage.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).createRequest)(::windows::core::Interface::as_raw(self), flags, strdnname.into().abi(), usage.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -6387,7 +6387,7 @@ impl ICEnroll4 {
         P1: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::BSTR>>,
         P2: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::BSTR>>,
     {
-        (::windows::core::Interface::vtable(self).createFileRequest)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(flags), strdnname.into().abi(), strusage.into().abi(), strrequestfilename.into().abi()).ok()
+        (::windows::core::Interface::vtable(self).createFileRequest)(::windows::core::Interface::as_raw(self), flags, strdnname.into().abi(), strusage.into().abi(), strrequestfilename.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -6449,13 +6449,13 @@ impl ICEnroll4 {
         P1: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::BSTR>>,
         P2: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::BSTR>>,
     {
-        (::windows::core::Interface::vtable(self).setPendingRequestInfo)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lrequestid), strcadns.into().abi(), strcaname.into().abi(), strfriendlyname.into().abi()).ok()
+        (::windows::core::Interface::vtable(self).setPendingRequestInfo)(::windows::core::Interface::as_raw(self), lrequestid, strcadns.into().abi(), strcaname.into().abi(), strfriendlyname.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn enumPendingRequest(&self, lindex: i32, ldesiredproperty: PENDING_REQUEST_DESIRED_PROPERTY) -> ::windows::core::Result<super::super::super::System::Com::VARIANT> {
         let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::System::Com::VARIANT>>::zeroed();
-        (::windows::core::Interface::vtable(self).enumPendingRequest)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lindex), ::core::mem::transmute(ldesiredproperty), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::System::Com::VARIANT>(result__)
+        (::windows::core::Interface::vtable(self).enumPendingRequest)(::windows::core::Interface::as_raw(self), lindex, ldesiredproperty, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::System::Com::VARIANT>(result__)
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -6468,7 +6468,7 @@ impl ICEnroll4 {
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn GetKeyLenEx(&self, lsizespec: XEKL_KEYSIZE, lkeyspec: XEKL_KEYSPEC) -> ::windows::core::Result<i32> {
         let mut result__ = ::core::mem::MaybeUninit::<i32>::zeroed();
-        (::windows::core::Interface::vtable(self).GetKeyLenEx)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lsizespec), ::core::mem::transmute(lkeyspec), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
+        (::windows::core::Interface::vtable(self).GetKeyLenEx)(::windows::core::Interface::as_raw(self), lsizespec, lkeyspec, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -6486,7 +6486,7 @@ impl ICEnroll4 {
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::BSTR>>,
         P1: ::std::convert::Into<super::super::super::Foundation::BOOL>,
     {
-        (::windows::core::Interface::vtable(self).addCertTypeToRequestEx)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(ltype), bstroidorname.into().abi(), ::core::mem::transmute(lmajorversion), fminorversion.into(), ::core::mem::transmute(lminorversion)).ok()
+        (::windows::core::Interface::vtable(self).addCertTypeToRequestEx)(::windows::core::Interface::as_raw(self), ltype, bstroidorname.into().abi(), lmajorversion, fminorversion.into(), lminorversion).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -6507,7 +6507,7 @@ impl ICEnroll4 {
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn SetClientId(&self, lclientid: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetClientId)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lclientid)).ok()
+        (::windows::core::Interface::vtable(self).SetClientId)(::windows::core::Interface::as_raw(self), lclientid).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn ClientId(&self) -> ::windows::core::Result<i32> {
@@ -6520,7 +6520,7 @@ impl ICEnroll4 {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::BSTR>>,
     {
-        (::windows::core::Interface::vtable(self).addBlobPropertyToCertificate)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lpropertyid), ::core::mem::transmute(lreserved), bstrproperty.into().abi()).ok()
+        (::windows::core::Interface::vtable(self).addBlobPropertyToCertificate)(::windows::core::Interface::as_raw(self), lpropertyid, lreserved, bstrproperty.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn resetBlobProperties(&self) -> ::windows::core::Result<()> {
@@ -6808,7 +6808,7 @@ impl ICertAdmin {
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::BSTR>>,
         P1: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::BSTR>>,
     {
-        (::windows::core::Interface::vtable(self).RevokeCertificate)(::windows::core::Interface::as_raw(self), strconfig.into().abi(), strserialnumber.into().abi(), ::core::mem::transmute(reason), ::core::mem::transmute(date)).ok()
+        (::windows::core::Interface::vtable(self).RevokeCertificate)(::windows::core::Interface::as_raw(self), strconfig.into().abi(), strserialnumber.into().abi(), reason, date).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -6817,7 +6817,7 @@ impl ICertAdmin {
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::BSTR>>,
         P1: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::BSTR>>,
     {
-        (::windows::core::Interface::vtable(self).SetRequestAttributes)(::windows::core::Interface::as_raw(self), strconfig.into().abi(), ::core::mem::transmute(requestid), strattributes.into().abi()).ok()
+        (::windows::core::Interface::vtable(self).SetRequestAttributes)(::windows::core::Interface::as_raw(self), strconfig.into().abi(), requestid, strattributes.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -6826,7 +6826,7 @@ impl ICertAdmin {
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::BSTR>>,
         P1: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::BSTR>>,
     {
-        (::windows::core::Interface::vtable(self).SetCertificateExtension)(::windows::core::Interface::as_raw(self), strconfig.into().abi(), ::core::mem::transmute(requestid), strextensionname.into().abi(), ::core::mem::transmute(r#type), ::core::mem::transmute(flags), ::core::mem::transmute(pvarvalue)).ok()
+        (::windows::core::Interface::vtable(self).SetCertificateExtension)(::windows::core::Interface::as_raw(self), strconfig.into().abi(), requestid, strextensionname.into().abi(), r#type, flags, ::core::mem::transmute(pvarvalue)).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -6834,7 +6834,7 @@ impl ICertAdmin {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::BSTR>>,
     {
-        (::windows::core::Interface::vtable(self).DenyRequest)(::windows::core::Interface::as_raw(self), strconfig.into().abi(), ::core::mem::transmute(requestid)).ok()
+        (::windows::core::Interface::vtable(self).DenyRequest)(::windows::core::Interface::as_raw(self), strconfig.into().abi(), requestid).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -6843,7 +6843,7 @@ impl ICertAdmin {
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::BSTR>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::<i32>::zeroed();
-        (::windows::core::Interface::vtable(self).ResubmitRequest)(::windows::core::Interface::as_raw(self), strconfig.into().abi(), ::core::mem::transmute(requestid), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
+        (::windows::core::Interface::vtable(self).ResubmitRequest)(::windows::core::Interface::as_raw(self), strconfig.into().abi(), requestid, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -6851,7 +6851,7 @@ impl ICertAdmin {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::BSTR>>,
     {
-        (::windows::core::Interface::vtable(self).PublishCRL)(::windows::core::Interface::as_raw(self), strconfig.into().abi(), ::core::mem::transmute(date)).ok()
+        (::windows::core::Interface::vtable(self).PublishCRL)(::windows::core::Interface::as_raw(self), strconfig.into().abi(), date).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -6860,7 +6860,7 @@ impl ICertAdmin {
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::BSTR>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>>::zeroed();
-        (::windows::core::Interface::vtable(self).GetCRL)(::windows::core::Interface::as_raw(self), strconfig.into().abi(), ::core::mem::transmute(flags), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).GetCRL)(::windows::core::Interface::as_raw(self), strconfig.into().abi(), flags, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -6870,7 +6870,7 @@ impl ICertAdmin {
         P1: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::BSTR>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::<i32>::zeroed();
-        (::windows::core::Interface::vtable(self).ImportCertificate)(::windows::core::Interface::as_raw(self), strconfig.into().abi(), strcertificate.into().abi(), ::core::mem::transmute(flags), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
+        (::windows::core::Interface::vtable(self).ImportCertificate)(::windows::core::Interface::as_raw(self), strconfig.into().abi(), strcertificate.into().abi(), flags, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -7005,7 +7005,7 @@ impl ICertAdmin2 {
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::BSTR>>,
         P1: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::BSTR>>,
     {
-        (::windows::core::Interface::vtable(self).base__.RevokeCertificate)(::windows::core::Interface::as_raw(self), strconfig.into().abi(), strserialnumber.into().abi(), ::core::mem::transmute(reason), ::core::mem::transmute(date)).ok()
+        (::windows::core::Interface::vtable(self).base__.RevokeCertificate)(::windows::core::Interface::as_raw(self), strconfig.into().abi(), strserialnumber.into().abi(), reason, date).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -7014,7 +7014,7 @@ impl ICertAdmin2 {
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::BSTR>>,
         P1: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::BSTR>>,
     {
-        (::windows::core::Interface::vtable(self).base__.SetRequestAttributes)(::windows::core::Interface::as_raw(self), strconfig.into().abi(), ::core::mem::transmute(requestid), strattributes.into().abi()).ok()
+        (::windows::core::Interface::vtable(self).base__.SetRequestAttributes)(::windows::core::Interface::as_raw(self), strconfig.into().abi(), requestid, strattributes.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -7023,7 +7023,7 @@ impl ICertAdmin2 {
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::BSTR>>,
         P1: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::BSTR>>,
     {
-        (::windows::core::Interface::vtable(self).base__.SetCertificateExtension)(::windows::core::Interface::as_raw(self), strconfig.into().abi(), ::core::mem::transmute(requestid), strextensionname.into().abi(), ::core::mem::transmute(r#type), ::core::mem::transmute(flags), ::core::mem::transmute(pvarvalue)).ok()
+        (::windows::core::Interface::vtable(self).base__.SetCertificateExtension)(::windows::core::Interface::as_raw(self), strconfig.into().abi(), requestid, strextensionname.into().abi(), r#type, flags, ::core::mem::transmute(pvarvalue)).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -7031,7 +7031,7 @@ impl ICertAdmin2 {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::BSTR>>,
     {
-        (::windows::core::Interface::vtable(self).base__.DenyRequest)(::windows::core::Interface::as_raw(self), strconfig.into().abi(), ::core::mem::transmute(requestid)).ok()
+        (::windows::core::Interface::vtable(self).base__.DenyRequest)(::windows::core::Interface::as_raw(self), strconfig.into().abi(), requestid).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -7040,7 +7040,7 @@ impl ICertAdmin2 {
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::BSTR>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::<i32>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.ResubmitRequest)(::windows::core::Interface::as_raw(self), strconfig.into().abi(), ::core::mem::transmute(requestid), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
+        (::windows::core::Interface::vtable(self).base__.ResubmitRequest)(::windows::core::Interface::as_raw(self), strconfig.into().abi(), requestid, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -7048,7 +7048,7 @@ impl ICertAdmin2 {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::BSTR>>,
     {
-        (::windows::core::Interface::vtable(self).base__.PublishCRL)(::windows::core::Interface::as_raw(self), strconfig.into().abi(), ::core::mem::transmute(date)).ok()
+        (::windows::core::Interface::vtable(self).base__.PublishCRL)(::windows::core::Interface::as_raw(self), strconfig.into().abi(), date).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -7057,7 +7057,7 @@ impl ICertAdmin2 {
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::BSTR>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.GetCRL)(::windows::core::Interface::as_raw(self), strconfig.into().abi(), ::core::mem::transmute(flags), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).base__.GetCRL)(::windows::core::Interface::as_raw(self), strconfig.into().abi(), flags, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -7067,7 +7067,7 @@ impl ICertAdmin2 {
         P1: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::BSTR>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::<i32>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.ImportCertificate)(::windows::core::Interface::as_raw(self), strconfig.into().abi(), strcertificate.into().abi(), ::core::mem::transmute(flags), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
+        (::windows::core::Interface::vtable(self).base__.ImportCertificate)(::windows::core::Interface::as_raw(self), strconfig.into().abi(), strcertificate.into().abi(), flags, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -7075,7 +7075,7 @@ impl ICertAdmin2 {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::BSTR>>,
     {
-        (::windows::core::Interface::vtable(self).PublishCRLs)(::windows::core::Interface::as_raw(self), strconfig.into().abi(), ::core::mem::transmute(date), ::core::mem::transmute(crlflags)).ok()
+        (::windows::core::Interface::vtable(self).PublishCRLs)(::windows::core::Interface::as_raw(self), strconfig.into().abi(), date, crlflags).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -7084,7 +7084,7 @@ impl ICertAdmin2 {
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::BSTR>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::System::Com::VARIANT>>::zeroed();
-        (::windows::core::Interface::vtable(self).GetCAProperty)(::windows::core::Interface::as_raw(self), strconfig.into().abi(), ::core::mem::transmute(propid), ::core::mem::transmute(propindex), ::core::mem::transmute(proptype), ::core::mem::transmute(flags), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::System::Com::VARIANT>(result__)
+        (::windows::core::Interface::vtable(self).GetCAProperty)(::windows::core::Interface::as_raw(self), strconfig.into().abi(), propid, propindex, proptype, flags, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::System::Com::VARIANT>(result__)
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -7092,7 +7092,7 @@ impl ICertAdmin2 {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::BSTR>>,
     {
-        (::windows::core::Interface::vtable(self).SetCAProperty)(::windows::core::Interface::as_raw(self), strconfig.into().abi(), ::core::mem::transmute(propid), ::core::mem::transmute(propindex), ::core::mem::transmute(proptype), ::core::mem::transmute(pvarpropertyvalue)).ok()
+        (::windows::core::Interface::vtable(self).SetCAProperty)(::windows::core::Interface::as_raw(self), strconfig.into().abi(), propid, propindex, proptype, ::core::mem::transmute(pvarpropertyvalue)).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -7101,7 +7101,7 @@ impl ICertAdmin2 {
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::BSTR>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::<i32>::zeroed();
-        (::windows::core::Interface::vtable(self).GetCAPropertyFlags)(::windows::core::Interface::as_raw(self), strconfig.into().abi(), ::core::mem::transmute(propid), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
+        (::windows::core::Interface::vtable(self).GetCAPropertyFlags)(::windows::core::Interface::as_raw(self), strconfig.into().abi(), propid, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -7110,7 +7110,7 @@ impl ICertAdmin2 {
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::BSTR>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>>::zeroed();
-        (::windows::core::Interface::vtable(self).GetCAPropertyDisplayName)(::windows::core::Interface::as_raw(self), strconfig.into().abi(), ::core::mem::transmute(propid), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).GetCAPropertyDisplayName)(::windows::core::Interface::as_raw(self), strconfig.into().abi(), propid, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -7119,7 +7119,7 @@ impl ICertAdmin2 {
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::BSTR>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>>::zeroed();
-        (::windows::core::Interface::vtable(self).GetArchivedKey)(::windows::core::Interface::as_raw(self), strconfig.into().abi(), ::core::mem::transmute(requestid), ::core::mem::transmute(flags), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).GetArchivedKey)(::windows::core::Interface::as_raw(self), strconfig.into().abi(), requestid, flags, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -7150,7 +7150,7 @@ impl ICertAdmin2 {
         P1: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::BSTR>>,
         P2: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::BSTR>>,
     {
-        (::windows::core::Interface::vtable(self).ImportKey)(::windows::core::Interface::as_raw(self), strconfig.into().abi(), ::core::mem::transmute(requestid), strcerthash.into().abi(), ::core::mem::transmute(flags), strkey.into().abi()).ok()
+        (::windows::core::Interface::vtable(self).ImportKey)(::windows::core::Interface::as_raw(self), strconfig.into().abi(), requestid, strcerthash.into().abi(), flags, strkey.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -7168,7 +7168,7 @@ impl ICertAdmin2 {
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::BSTR>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::<i32>::zeroed();
-        (::windows::core::Interface::vtable(self).DeleteRow)(::windows::core::Interface::as_raw(self), strconfig.into().abi(), ::core::mem::transmute(flags), ::core::mem::transmute(date), ::core::mem::transmute(table), ::core::mem::transmute(rowid), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
+        (::windows::core::Interface::vtable(self).DeleteRow)(::windows::core::Interface::as_raw(self), strconfig.into().abi(), flags, date, table, rowid, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -7309,7 +7309,7 @@ impl ICertConfig {
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn Reset(&self, index: i32) -> ::windows::core::Result<i32> {
         let mut result__ = ::core::mem::MaybeUninit::<i32>::zeroed();
-        (::windows::core::Interface::vtable(self).Reset)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(index), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
+        (::windows::core::Interface::vtable(self).Reset)(::windows::core::Interface::as_raw(self), index, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn Next(&self) -> ::windows::core::Result<i32> {
@@ -7329,7 +7329,7 @@ impl ICertConfig {
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetConfig(&self, flags: i32) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>>::zeroed();
-        (::windows::core::Interface::vtable(self).GetConfig)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(flags), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).GetConfig)(::windows::core::Interface::as_raw(self), flags, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -7418,7 +7418,7 @@ impl ICertConfig2 {
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn Reset(&self, index: i32) -> ::windows::core::Result<i32> {
         let mut result__ = ::core::mem::MaybeUninit::<i32>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.Reset)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(index), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
+        (::windows::core::Interface::vtable(self).base__.Reset)(::windows::core::Interface::as_raw(self), index, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn Next(&self) -> ::windows::core::Result<i32> {
@@ -7438,7 +7438,7 @@ impl ICertConfig2 {
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetConfig(&self, flags: i32) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.GetConfig)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(flags), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).base__.GetConfig)(::windows::core::Interface::as_raw(self), flags, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -7560,17 +7560,17 @@ impl ICertEncodeAltName {
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn GetNameChoice(&self, nameindex: i32) -> ::windows::core::Result<i32> {
         let mut result__ = ::core::mem::MaybeUninit::<i32>::zeroed();
-        (::windows::core::Interface::vtable(self).GetNameChoice)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(nameindex), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
+        (::windows::core::Interface::vtable(self).GetNameChoice)(::windows::core::Interface::as_raw(self), nameindex, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetName(&self, nameindex: i32) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>>::zeroed();
-        (::windows::core::Interface::vtable(self).GetName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(nameindex), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).GetName)(::windows::core::Interface::as_raw(self), nameindex, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn Reset(&self, namecount: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Reset)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(namecount)).ok()
+        (::windows::core::Interface::vtable(self).Reset)(::windows::core::Interface::as_raw(self), namecount).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -7578,7 +7578,7 @@ impl ICertEncodeAltName {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::BSTR>>,
     {
-        (::windows::core::Interface::vtable(self).SetNameEntry)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(nameindex), ::core::mem::transmute(namechoice), strname.into().abi()).ok()
+        (::windows::core::Interface::vtable(self).SetNameEntry)(::windows::core::Interface::as_raw(self), nameindex, namechoice, strname.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -7695,17 +7695,17 @@ impl ICertEncodeAltName2 {
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn GetNameChoice(&self, nameindex: i32) -> ::windows::core::Result<i32> {
         let mut result__ = ::core::mem::MaybeUninit::<i32>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.GetNameChoice)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(nameindex), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
+        (::windows::core::Interface::vtable(self).base__.GetNameChoice)(::windows::core::Interface::as_raw(self), nameindex, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetName(&self, nameindex: i32) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.GetName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(nameindex), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).base__.GetName)(::windows::core::Interface::as_raw(self), nameindex, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn Reset(&self, namecount: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.Reset)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(namecount)).ok()
+        (::windows::core::Interface::vtable(self).base__.Reset)(::windows::core::Interface::as_raw(self), namecount).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -7713,7 +7713,7 @@ impl ICertEncodeAltName2 {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::BSTR>>,
     {
-        (::windows::core::Interface::vtable(self).base__.SetNameEntry)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(nameindex), ::core::mem::transmute(namechoice), strname.into().abi()).ok()
+        (::windows::core::Interface::vtable(self).base__.SetNameEntry)(::windows::core::Interface::as_raw(self), nameindex, namechoice, strname.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -7727,19 +7727,19 @@ impl ICertEncodeAltName2 {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::BSTR>>,
     {
-        (::windows::core::Interface::vtable(self).DecodeBlob)(::windows::core::Interface::as_raw(self), strencodeddata.into().abi(), ::core::mem::transmute(encoding)).ok()
+        (::windows::core::Interface::vtable(self).DecodeBlob)(::windows::core::Interface::as_raw(self), strencodeddata.into().abi(), encoding).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn EncodeBlob(&self, encoding: EncodingType) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>>::zeroed();
-        (::windows::core::Interface::vtable(self).EncodeBlob)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(encoding), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).EncodeBlob)(::windows::core::Interface::as_raw(self), encoding, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetNameBlob(&self, nameindex: i32, encoding: EncodingType) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>>::zeroed();
-        (::windows::core::Interface::vtable(self).GetNameBlob)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(nameindex), ::core::mem::transmute(encoding), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).GetNameBlob)(::windows::core::Interface::as_raw(self), nameindex, encoding, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -7747,7 +7747,7 @@ impl ICertEncodeAltName2 {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::BSTR>>,
     {
-        (::windows::core::Interface::vtable(self).SetNameEntryBlob)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(nameindex), ::core::mem::transmute(namechoice), strname.into().abi(), ::core::mem::transmute(encoding)).ok()
+        (::windows::core::Interface::vtable(self).SetNameEntryBlob)(::windows::core::Interface::as_raw(self), nameindex, namechoice, strname.into().abi(), encoding).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -7883,7 +7883,7 @@ impl ICertEncodeBitString {
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::BSTR>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>>::zeroed();
-        (::windows::core::Interface::vtable(self).Encode)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(bitcount), strbitstring.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).Encode)(::windows::core::Interface::as_raw(self), bitcount, strbitstring.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -7998,7 +7998,7 @@ impl ICertEncodeBitString2 {
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::BSTR>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.Encode)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(bitcount), strbitstring.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).base__.Encode)(::windows::core::Interface::as_raw(self), bitcount, strbitstring.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -8006,7 +8006,7 @@ impl ICertEncodeBitString2 {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::BSTR>>,
     {
-        (::windows::core::Interface::vtable(self).DecodeBlob)(::windows::core::Interface::as_raw(self), strencodeddata.into().abi(), ::core::mem::transmute(encoding)).ok()
+        (::windows::core::Interface::vtable(self).DecodeBlob)(::windows::core::Interface::as_raw(self), strencodeddata.into().abi(), encoding).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -8015,13 +8015,13 @@ impl ICertEncodeBitString2 {
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::BSTR>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>>::zeroed();
-        (::windows::core::Interface::vtable(self).EncodeBlob)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(bitcount), strbitstring.into().abi(), ::core::mem::transmute(encodingin), ::core::mem::transmute(encoding), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).EncodeBlob)(::windows::core::Interface::as_raw(self), bitcount, strbitstring.into().abi(), encodingin, encoding, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetBitStringBlob(&self, encoding: EncodingType) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>>::zeroed();
-        (::windows::core::Interface::vtable(self).GetBitStringBlob)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(encoding), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).GetBitStringBlob)(::windows::core::Interface::as_raw(self), encoding, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -8143,26 +8143,26 @@ impl ICertEncodeCRLDistInfo {
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn GetNameCount(&self, distpointindex: i32) -> ::windows::core::Result<i32> {
         let mut result__ = ::core::mem::MaybeUninit::<i32>::zeroed();
-        (::windows::core::Interface::vtable(self).GetNameCount)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(distpointindex), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
+        (::windows::core::Interface::vtable(self).GetNameCount)(::windows::core::Interface::as_raw(self), distpointindex, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn GetNameChoice(&self, distpointindex: i32, nameindex: i32) -> ::windows::core::Result<i32> {
         let mut result__ = ::core::mem::MaybeUninit::<i32>::zeroed();
-        (::windows::core::Interface::vtable(self).GetNameChoice)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(distpointindex), ::core::mem::transmute(nameindex), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
+        (::windows::core::Interface::vtable(self).GetNameChoice)(::windows::core::Interface::as_raw(self), distpointindex, nameindex, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetName(&self, distpointindex: i32, nameindex: i32) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>>::zeroed();
-        (::windows::core::Interface::vtable(self).GetName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(distpointindex), ::core::mem::transmute(nameindex), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).GetName)(::windows::core::Interface::as_raw(self), distpointindex, nameindex, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn Reset(&self, distpointcount: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Reset)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(distpointcount)).ok()
+        (::windows::core::Interface::vtable(self).Reset)(::windows::core::Interface::as_raw(self), distpointcount).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn SetNameCount(&self, distpointindex: i32, namecount: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetNameCount)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(distpointindex), ::core::mem::transmute(namecount)).ok()
+        (::windows::core::Interface::vtable(self).SetNameCount)(::windows::core::Interface::as_raw(self), distpointindex, namecount).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -8170,7 +8170,7 @@ impl ICertEncodeCRLDistInfo {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::BSTR>>,
     {
-        (::windows::core::Interface::vtable(self).SetNameEntry)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(distpointindex), ::core::mem::transmute(nameindex), ::core::mem::transmute(namechoice), strname.into().abi()).ok()
+        (::windows::core::Interface::vtable(self).SetNameEntry)(::windows::core::Interface::as_raw(self), distpointindex, nameindex, namechoice, strname.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -8289,26 +8289,26 @@ impl ICertEncodeCRLDistInfo2 {
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn GetNameCount(&self, distpointindex: i32) -> ::windows::core::Result<i32> {
         let mut result__ = ::core::mem::MaybeUninit::<i32>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.GetNameCount)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(distpointindex), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
+        (::windows::core::Interface::vtable(self).base__.GetNameCount)(::windows::core::Interface::as_raw(self), distpointindex, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn GetNameChoice(&self, distpointindex: i32, nameindex: i32) -> ::windows::core::Result<i32> {
         let mut result__ = ::core::mem::MaybeUninit::<i32>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.GetNameChoice)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(distpointindex), ::core::mem::transmute(nameindex), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
+        (::windows::core::Interface::vtable(self).base__.GetNameChoice)(::windows::core::Interface::as_raw(self), distpointindex, nameindex, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetName(&self, distpointindex: i32, nameindex: i32) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.GetName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(distpointindex), ::core::mem::transmute(nameindex), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).base__.GetName)(::windows::core::Interface::as_raw(self), distpointindex, nameindex, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn Reset(&self, distpointcount: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.Reset)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(distpointcount)).ok()
+        (::windows::core::Interface::vtable(self).base__.Reset)(::windows::core::Interface::as_raw(self), distpointcount).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn SetNameCount(&self, distpointindex: i32, namecount: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetNameCount)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(distpointindex), ::core::mem::transmute(namecount)).ok()
+        (::windows::core::Interface::vtable(self).base__.SetNameCount)(::windows::core::Interface::as_raw(self), distpointindex, namecount).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -8316,7 +8316,7 @@ impl ICertEncodeCRLDistInfo2 {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::BSTR>>,
     {
-        (::windows::core::Interface::vtable(self).base__.SetNameEntry)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(distpointindex), ::core::mem::transmute(nameindex), ::core::mem::transmute(namechoice), strname.into().abi()).ok()
+        (::windows::core::Interface::vtable(self).base__.SetNameEntry)(::windows::core::Interface::as_raw(self), distpointindex, nameindex, namechoice, strname.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -8330,13 +8330,13 @@ impl ICertEncodeCRLDistInfo2 {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::BSTR>>,
     {
-        (::windows::core::Interface::vtable(self).DecodeBlob)(::windows::core::Interface::as_raw(self), strencodeddata.into().abi(), ::core::mem::transmute(encoding)).ok()
+        (::windows::core::Interface::vtable(self).DecodeBlob)(::windows::core::Interface::as_raw(self), strencodeddata.into().abi(), encoding).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn EncodeBlob(&self, encoding: EncodingType) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>>::zeroed();
-        (::windows::core::Interface::vtable(self).EncodeBlob)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(encoding), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).EncodeBlob)(::windows::core::Interface::as_raw(self), encoding, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -8454,15 +8454,15 @@ impl ICertEncodeDateArray {
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn GetValue(&self, index: i32) -> ::windows::core::Result<f64> {
         let mut result__ = ::core::mem::MaybeUninit::<f64>::zeroed();
-        (::windows::core::Interface::vtable(self).GetValue)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(index), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<f64>(result__)
+        (::windows::core::Interface::vtable(self).GetValue)(::windows::core::Interface::as_raw(self), index, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<f64>(result__)
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn Reset(&self, count: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Reset)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(count)).ok()
+        (::windows::core::Interface::vtable(self).Reset)(::windows::core::Interface::as_raw(self), count).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn SetValue(&self, index: i32, value: f64) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetValue)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(index), ::core::mem::transmute(value)).ok()
+        (::windows::core::Interface::vtable(self).SetValue)(::windows::core::Interface::as_raw(self), index, value).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -8572,15 +8572,15 @@ impl ICertEncodeDateArray2 {
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn GetValue(&self, index: i32) -> ::windows::core::Result<f64> {
         let mut result__ = ::core::mem::MaybeUninit::<f64>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.GetValue)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(index), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<f64>(result__)
+        (::windows::core::Interface::vtable(self).base__.GetValue)(::windows::core::Interface::as_raw(self), index, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<f64>(result__)
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn Reset(&self, count: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.Reset)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(count)).ok()
+        (::windows::core::Interface::vtable(self).base__.Reset)(::windows::core::Interface::as_raw(self), count).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn SetValue(&self, index: i32, value: f64) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetValue)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(index), ::core::mem::transmute(value)).ok()
+        (::windows::core::Interface::vtable(self).base__.SetValue)(::windows::core::Interface::as_raw(self), index, value).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -8594,13 +8594,13 @@ impl ICertEncodeDateArray2 {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::BSTR>>,
     {
-        (::windows::core::Interface::vtable(self).DecodeBlob)(::windows::core::Interface::as_raw(self), strencodeddata.into().abi(), ::core::mem::transmute(encoding)).ok()
+        (::windows::core::Interface::vtable(self).DecodeBlob)(::windows::core::Interface::as_raw(self), strencodeddata.into().abi(), encoding).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn EncodeBlob(&self, encoding: EncodingType) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>>::zeroed();
-        (::windows::core::Interface::vtable(self).EncodeBlob)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(encoding), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).EncodeBlob)(::windows::core::Interface::as_raw(self), encoding, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -8718,15 +8718,15 @@ impl ICertEncodeLongArray {
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn GetValue(&self, index: i32) -> ::windows::core::Result<i32> {
         let mut result__ = ::core::mem::MaybeUninit::<i32>::zeroed();
-        (::windows::core::Interface::vtable(self).GetValue)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(index), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
+        (::windows::core::Interface::vtable(self).GetValue)(::windows::core::Interface::as_raw(self), index, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn Reset(&self, count: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Reset)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(count)).ok()
+        (::windows::core::Interface::vtable(self).Reset)(::windows::core::Interface::as_raw(self), count).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn SetValue(&self, index: i32, value: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetValue)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(index), ::core::mem::transmute(value)).ok()
+        (::windows::core::Interface::vtable(self).SetValue)(::windows::core::Interface::as_raw(self), index, value).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -8836,15 +8836,15 @@ impl ICertEncodeLongArray2 {
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn GetValue(&self, index: i32) -> ::windows::core::Result<i32> {
         let mut result__ = ::core::mem::MaybeUninit::<i32>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.GetValue)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(index), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
+        (::windows::core::Interface::vtable(self).base__.GetValue)(::windows::core::Interface::as_raw(self), index, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn Reset(&self, count: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.Reset)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(count)).ok()
+        (::windows::core::Interface::vtable(self).base__.Reset)(::windows::core::Interface::as_raw(self), count).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn SetValue(&self, index: i32, value: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetValue)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(index), ::core::mem::transmute(value)).ok()
+        (::windows::core::Interface::vtable(self).base__.SetValue)(::windows::core::Interface::as_raw(self), index, value).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -8858,13 +8858,13 @@ impl ICertEncodeLongArray2 {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::BSTR>>,
     {
-        (::windows::core::Interface::vtable(self).DecodeBlob)(::windows::core::Interface::as_raw(self), strencodeddata.into().abi(), ::core::mem::transmute(encoding)).ok()
+        (::windows::core::Interface::vtable(self).DecodeBlob)(::windows::core::Interface::as_raw(self), strencodeddata.into().abi(), encoding).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn EncodeBlob(&self, encoding: EncodingType) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>>::zeroed();
-        (::windows::core::Interface::vtable(self).EncodeBlob)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(encoding), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).EncodeBlob)(::windows::core::Interface::as_raw(self), encoding, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -8988,11 +8988,11 @@ impl ICertEncodeStringArray {
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetValue(&self, index: i32) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>>::zeroed();
-        (::windows::core::Interface::vtable(self).GetValue)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(index), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).GetValue)(::windows::core::Interface::as_raw(self), index, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn Reset(&self, count: i32, stringtype: super::CERT_RDN_ATTR_VALUE_TYPE) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Reset)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(count), ::core::mem::transmute(stringtype)).ok()
+        (::windows::core::Interface::vtable(self).Reset)(::windows::core::Interface::as_raw(self), count, stringtype).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -9000,7 +9000,7 @@ impl ICertEncodeStringArray {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::BSTR>>,
     {
-        (::windows::core::Interface::vtable(self).SetValue)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(index), str.into().abi()).ok()
+        (::windows::core::Interface::vtable(self).SetValue)(::windows::core::Interface::as_raw(self), index, str.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -9123,11 +9123,11 @@ impl ICertEncodeStringArray2 {
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetValue(&self, index: i32) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.GetValue)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(index), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).base__.GetValue)(::windows::core::Interface::as_raw(self), index, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn Reset(&self, count: i32, stringtype: super::CERT_RDN_ATTR_VALUE_TYPE) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.Reset)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(count), ::core::mem::transmute(stringtype)).ok()
+        (::windows::core::Interface::vtable(self).base__.Reset)(::windows::core::Interface::as_raw(self), count, stringtype).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -9135,7 +9135,7 @@ impl ICertEncodeStringArray2 {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::BSTR>>,
     {
-        (::windows::core::Interface::vtable(self).base__.SetValue)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(index), str.into().abi()).ok()
+        (::windows::core::Interface::vtable(self).base__.SetValue)(::windows::core::Interface::as_raw(self), index, str.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -9149,13 +9149,13 @@ impl ICertEncodeStringArray2 {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::BSTR>>,
     {
-        (::windows::core::Interface::vtable(self).DecodeBlob)(::windows::core::Interface::as_raw(self), strencodeddata.into().abi(), ::core::mem::transmute(encoding)).ok()
+        (::windows::core::Interface::vtable(self).DecodeBlob)(::windows::core::Interface::as_raw(self), strencodeddata.into().abi(), encoding).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn EncodeBlob(&self, encoding: EncodingType) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>>::zeroed();
-        (::windows::core::Interface::vtable(self).EncodeBlob)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(encoding), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).EncodeBlob)(::windows::core::Interface::as_raw(self), encoding, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -9268,7 +9268,7 @@ impl ICertExit {
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn Notify(&self, exitevent: i32, context: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Notify)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(exitevent), ::core::mem::transmute(context)).ok()
+        (::windows::core::Interface::vtable(self).Notify)(::windows::core::Interface::as_raw(self), exitevent, context).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -9370,7 +9370,7 @@ impl ICertExit2 {
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn Notify(&self, exitevent: i32, context: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.Notify)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(exitevent), ::core::mem::transmute(context)).ok()
+        (::windows::core::Interface::vtable(self).base__.Notify)(::windows::core::Interface::as_raw(self), exitevent, context).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -9484,7 +9484,7 @@ impl ICertGetConfig {
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetConfig(&self, flags: CERT_GET_CONFIG_FLAGS) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>>::zeroed();
-        (::windows::core::Interface::vtable(self).GetConfig)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(flags), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).GetConfig)(::windows::core::Interface::as_raw(self), flags, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -9573,7 +9573,7 @@ impl ICertManageModule {
         P2: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::BSTR>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::System::Com::VARIANT>>::zeroed();
-        (::windows::core::Interface::vtable(self).GetProperty)(::windows::core::Interface::as_raw(self), strconfig.into().abi(), strstoragelocation.into().abi(), strpropertyname.into().abi(), ::core::mem::transmute(flags), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::System::Com::VARIANT>(result__)
+        (::windows::core::Interface::vtable(self).GetProperty)(::windows::core::Interface::as_raw(self), strconfig.into().abi(), strstoragelocation.into().abi(), strpropertyname.into().abi(), flags, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::System::Com::VARIANT>(result__)
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -9583,7 +9583,7 @@ impl ICertManageModule {
         P1: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::BSTR>>,
         P2: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::BSTR>>,
     {
-        (::windows::core::Interface::vtable(self).SetProperty)(::windows::core::Interface::as_raw(self), strconfig.into().abi(), strstoragelocation.into().abi(), strpropertyname.into().abi(), ::core::mem::transmute(flags), ::core::mem::transmute(pvarproperty)).ok()
+        (::windows::core::Interface::vtable(self).SetProperty)(::windows::core::Interface::as_raw(self), strconfig.into().abi(), strstoragelocation.into().abi(), strpropertyname.into().abi(), flags, ::core::mem::transmute(pvarproperty)).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -9592,7 +9592,7 @@ impl ICertManageModule {
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::BSTR>>,
         P1: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::BSTR>>,
     {
-        (::windows::core::Interface::vtable(self).Configure)(::windows::core::Interface::as_raw(self), strconfig.into().abi(), strstoragelocation.into().abi(), ::core::mem::transmute(flags)).ok()
+        (::windows::core::Interface::vtable(self).Configure)(::windows::core::Interface::as_raw(self), strconfig.into().abi(), strstoragelocation.into().abi(), flags).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -9695,7 +9695,7 @@ impl ICertPolicy {
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::BSTR>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::<i32>::zeroed();
-        (::windows::core::Interface::vtable(self).VerifyRequest)(::windows::core::Interface::as_raw(self), strconfig.into().abi(), ::core::mem::transmute(context), ::core::mem::transmute(bnewrequest), ::core::mem::transmute(flags), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
+        (::windows::core::Interface::vtable(self).VerifyRequest)(::windows::core::Interface::as_raw(self), strconfig.into().abi(), context, bnewrequest, flags, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -9809,7 +9809,7 @@ impl ICertPolicy2 {
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::BSTR>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::<i32>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.VerifyRequest)(::windows::core::Interface::as_raw(self), strconfig.into().abi(), ::core::mem::transmute(context), ::core::mem::transmute(bnewrequest), ::core::mem::transmute(flags), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
+        (::windows::core::Interface::vtable(self).base__.VerifyRequest)(::windows::core::Interface::as_raw(self), strconfig.into().abi(), context, bnewrequest, flags, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -9927,7 +9927,7 @@ impl ICertProperties {
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn get_ItemByIndex(&self, index: i32) -> ::windows::core::Result<ICertProperty> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).get_ItemByIndex)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(index), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ICertProperty>(result__)
+        (::windows::core::Interface::vtable(self).get_ItemByIndex)(::windows::core::Interface::as_raw(self), index, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ICertProperty>(result__)
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn Count(&self) -> ::windows::core::Result<i32> {
@@ -9949,7 +9949,7 @@ impl ICertProperties {
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn Remove(&self, index: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Remove)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(index)).ok()
+        (::windows::core::Interface::vtable(self).Remove)(::windows::core::Interface::as_raw(self), index).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn Clear(&self) -> ::windows::core::Result<()> {
@@ -9961,7 +9961,7 @@ impl ICertProperties {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::BSTR>>,
     {
-        (::windows::core::Interface::vtable(self).InitializeFromCertificate)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(machinecontext), ::core::mem::transmute(encoding), strcertificate.into().abi()).ok()
+        (::windows::core::Interface::vtable(self).InitializeFromCertificate)(::windows::core::Interface::as_raw(self), machinecontext, encoding, strcertificate.into().abi()).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -10059,7 +10059,7 @@ impl ICertProperty {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::BSTR>>,
     {
-        (::windows::core::Interface::vtable(self).InitializeFromCertificate)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(machinecontext), ::core::mem::transmute(encoding), strcertificate.into().abi()).ok()
+        (::windows::core::Interface::vtable(self).InitializeFromCertificate)(::windows::core::Interface::as_raw(self), machinecontext, encoding, strcertificate.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -10067,7 +10067,7 @@ impl ICertProperty {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::BSTR>>,
     {
-        (::windows::core::Interface::vtable(self).InitializeDecode)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(encoding), strencodeddata.into().abi()).ok()
+        (::windows::core::Interface::vtable(self).InitializeDecode)(::windows::core::Interface::as_raw(self), encoding, strencodeddata.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn PropertyId(&self) -> ::windows::core::Result<CERTENROLL_PROPERTYID> {
@@ -10076,13 +10076,13 @@ impl ICertProperty {
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn SetPropertyId(&self, value: CERTENROLL_PROPERTYID) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetPropertyId)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(value)).ok()
+        (::windows::core::Interface::vtable(self).SetPropertyId)(::windows::core::Interface::as_raw(self), value).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn get_RawData(&self, encoding: EncodingType) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>>::zeroed();
-        (::windows::core::Interface::vtable(self).get_RawData)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(encoding), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).get_RawData)(::windows::core::Interface::as_raw(self), encoding, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -10090,7 +10090,7 @@ impl ICertProperty {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::BSTR>>,
     {
-        (::windows::core::Interface::vtable(self).RemoveFromCertificate)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(machinecontext), ::core::mem::transmute(encoding), strcertificate.into().abi()).ok()
+        (::windows::core::Interface::vtable(self).RemoveFromCertificate)(::windows::core::Interface::as_raw(self), machinecontext, encoding, strcertificate.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -10098,7 +10098,7 @@ impl ICertProperty {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::BSTR>>,
     {
-        (::windows::core::Interface::vtable(self).SetValueOnCertificate)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(machinecontext), ::core::mem::transmute(encoding), strcertificate.into().abi()).ok()
+        (::windows::core::Interface::vtable(self).SetValueOnCertificate)(::windows::core::Interface::as_raw(self), machinecontext, encoding, strcertificate.into().abi()).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -10202,7 +10202,7 @@ impl ICertPropertyArchived {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::BSTR>>,
     {
-        (::windows::core::Interface::vtable(self).base__.InitializeFromCertificate)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(machinecontext), ::core::mem::transmute(encoding), strcertificate.into().abi()).ok()
+        (::windows::core::Interface::vtable(self).base__.InitializeFromCertificate)(::windows::core::Interface::as_raw(self), machinecontext, encoding, strcertificate.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -10210,7 +10210,7 @@ impl ICertPropertyArchived {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::BSTR>>,
     {
-        (::windows::core::Interface::vtable(self).base__.InitializeDecode)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(encoding), strencodeddata.into().abi()).ok()
+        (::windows::core::Interface::vtable(self).base__.InitializeDecode)(::windows::core::Interface::as_raw(self), encoding, strencodeddata.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn PropertyId(&self) -> ::windows::core::Result<CERTENROLL_PROPERTYID> {
@@ -10219,13 +10219,13 @@ impl ICertPropertyArchived {
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn SetPropertyId(&self, value: CERTENROLL_PROPERTYID) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetPropertyId)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(value)).ok()
+        (::windows::core::Interface::vtable(self).base__.SetPropertyId)(::windows::core::Interface::as_raw(self), value).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn get_RawData(&self, encoding: EncodingType) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.get_RawData)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(encoding), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).base__.get_RawData)(::windows::core::Interface::as_raw(self), encoding, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -10233,7 +10233,7 @@ impl ICertPropertyArchived {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::BSTR>>,
     {
-        (::windows::core::Interface::vtable(self).base__.RemoveFromCertificate)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(machinecontext), ::core::mem::transmute(encoding), strcertificate.into().abi()).ok()
+        (::windows::core::Interface::vtable(self).base__.RemoveFromCertificate)(::windows::core::Interface::as_raw(self), machinecontext, encoding, strcertificate.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -10241,11 +10241,11 @@ impl ICertPropertyArchived {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::BSTR>>,
     {
-        (::windows::core::Interface::vtable(self).base__.SetValueOnCertificate)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(machinecontext), ::core::mem::transmute(encoding), strcertificate.into().abi()).ok()
+        (::windows::core::Interface::vtable(self).base__.SetValueOnCertificate)(::windows::core::Interface::as_raw(self), machinecontext, encoding, strcertificate.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn Initialize(&self, archivedvalue: i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Initialize)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(archivedvalue)).ok()
+        (::windows::core::Interface::vtable(self).Initialize)(::windows::core::Interface::as_raw(self), archivedvalue).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn Archived(&self) -> ::windows::core::Result<i16> {
@@ -10352,7 +10352,7 @@ impl ICertPropertyArchivedKeyHash {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::BSTR>>,
     {
-        (::windows::core::Interface::vtable(self).base__.InitializeFromCertificate)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(machinecontext), ::core::mem::transmute(encoding), strcertificate.into().abi()).ok()
+        (::windows::core::Interface::vtable(self).base__.InitializeFromCertificate)(::windows::core::Interface::as_raw(self), machinecontext, encoding, strcertificate.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -10360,7 +10360,7 @@ impl ICertPropertyArchivedKeyHash {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::BSTR>>,
     {
-        (::windows::core::Interface::vtable(self).base__.InitializeDecode)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(encoding), strencodeddata.into().abi()).ok()
+        (::windows::core::Interface::vtable(self).base__.InitializeDecode)(::windows::core::Interface::as_raw(self), encoding, strencodeddata.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn PropertyId(&self) -> ::windows::core::Result<CERTENROLL_PROPERTYID> {
@@ -10369,13 +10369,13 @@ impl ICertPropertyArchivedKeyHash {
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn SetPropertyId(&self, value: CERTENROLL_PROPERTYID) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetPropertyId)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(value)).ok()
+        (::windows::core::Interface::vtable(self).base__.SetPropertyId)(::windows::core::Interface::as_raw(self), value).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn get_RawData(&self, encoding: EncodingType) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.get_RawData)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(encoding), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).base__.get_RawData)(::windows::core::Interface::as_raw(self), encoding, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -10383,7 +10383,7 @@ impl ICertPropertyArchivedKeyHash {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::BSTR>>,
     {
-        (::windows::core::Interface::vtable(self).base__.RemoveFromCertificate)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(machinecontext), ::core::mem::transmute(encoding), strcertificate.into().abi()).ok()
+        (::windows::core::Interface::vtable(self).base__.RemoveFromCertificate)(::windows::core::Interface::as_raw(self), machinecontext, encoding, strcertificate.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -10391,7 +10391,7 @@ impl ICertPropertyArchivedKeyHash {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::BSTR>>,
     {
-        (::windows::core::Interface::vtable(self).base__.SetValueOnCertificate)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(machinecontext), ::core::mem::transmute(encoding), strcertificate.into().abi()).ok()
+        (::windows::core::Interface::vtable(self).base__.SetValueOnCertificate)(::windows::core::Interface::as_raw(self), machinecontext, encoding, strcertificate.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -10399,13 +10399,13 @@ impl ICertPropertyArchivedKeyHash {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::BSTR>>,
     {
-        (::windows::core::Interface::vtable(self).Initialize)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(encoding), strarchivedkeyhashvalue.into().abi()).ok()
+        (::windows::core::Interface::vtable(self).Initialize)(::windows::core::Interface::as_raw(self), encoding, strarchivedkeyhashvalue.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn get_ArchivedKeyHash(&self, encoding: EncodingType) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>>::zeroed();
-        (::windows::core::Interface::vtable(self).get_ArchivedKeyHash)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(encoding), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).get_ArchivedKeyHash)(::windows::core::Interface::as_raw(self), encoding, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -10513,7 +10513,7 @@ impl ICertPropertyAutoEnroll {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::BSTR>>,
     {
-        (::windows::core::Interface::vtable(self).base__.InitializeFromCertificate)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(machinecontext), ::core::mem::transmute(encoding), strcertificate.into().abi()).ok()
+        (::windows::core::Interface::vtable(self).base__.InitializeFromCertificate)(::windows::core::Interface::as_raw(self), machinecontext, encoding, strcertificate.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -10521,7 +10521,7 @@ impl ICertPropertyAutoEnroll {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::BSTR>>,
     {
-        (::windows::core::Interface::vtable(self).base__.InitializeDecode)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(encoding), strencodeddata.into().abi()).ok()
+        (::windows::core::Interface::vtable(self).base__.InitializeDecode)(::windows::core::Interface::as_raw(self), encoding, strencodeddata.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn PropertyId(&self) -> ::windows::core::Result<CERTENROLL_PROPERTYID> {
@@ -10530,13 +10530,13 @@ impl ICertPropertyAutoEnroll {
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn SetPropertyId(&self, value: CERTENROLL_PROPERTYID) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetPropertyId)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(value)).ok()
+        (::windows::core::Interface::vtable(self).base__.SetPropertyId)(::windows::core::Interface::as_raw(self), value).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn get_RawData(&self, encoding: EncodingType) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.get_RawData)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(encoding), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).base__.get_RawData)(::windows::core::Interface::as_raw(self), encoding, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -10544,7 +10544,7 @@ impl ICertPropertyAutoEnroll {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::BSTR>>,
     {
-        (::windows::core::Interface::vtable(self).base__.RemoveFromCertificate)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(machinecontext), ::core::mem::transmute(encoding), strcertificate.into().abi()).ok()
+        (::windows::core::Interface::vtable(self).base__.RemoveFromCertificate)(::windows::core::Interface::as_raw(self), machinecontext, encoding, strcertificate.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -10552,7 +10552,7 @@ impl ICertPropertyAutoEnroll {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::BSTR>>,
     {
-        (::windows::core::Interface::vtable(self).base__.SetValueOnCertificate)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(machinecontext), ::core::mem::transmute(encoding), strcertificate.into().abi()).ok()
+        (::windows::core::Interface::vtable(self).base__.SetValueOnCertificate)(::windows::core::Interface::as_raw(self), machinecontext, encoding, strcertificate.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -10674,7 +10674,7 @@ impl ICertPropertyBackedUp {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::BSTR>>,
     {
-        (::windows::core::Interface::vtable(self).base__.InitializeFromCertificate)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(machinecontext), ::core::mem::transmute(encoding), strcertificate.into().abi()).ok()
+        (::windows::core::Interface::vtable(self).base__.InitializeFromCertificate)(::windows::core::Interface::as_raw(self), machinecontext, encoding, strcertificate.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -10682,7 +10682,7 @@ impl ICertPropertyBackedUp {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::BSTR>>,
     {
-        (::windows::core::Interface::vtable(self).base__.InitializeDecode)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(encoding), strencodeddata.into().abi()).ok()
+        (::windows::core::Interface::vtable(self).base__.InitializeDecode)(::windows::core::Interface::as_raw(self), encoding, strencodeddata.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn PropertyId(&self) -> ::windows::core::Result<CERTENROLL_PROPERTYID> {
@@ -10691,13 +10691,13 @@ impl ICertPropertyBackedUp {
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn SetPropertyId(&self, value: CERTENROLL_PROPERTYID) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetPropertyId)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(value)).ok()
+        (::windows::core::Interface::vtable(self).base__.SetPropertyId)(::windows::core::Interface::as_raw(self), value).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn get_RawData(&self, encoding: EncodingType) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.get_RawData)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(encoding), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).base__.get_RawData)(::windows::core::Interface::as_raw(self), encoding, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -10705,7 +10705,7 @@ impl ICertPropertyBackedUp {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::BSTR>>,
     {
-        (::windows::core::Interface::vtable(self).base__.RemoveFromCertificate)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(machinecontext), ::core::mem::transmute(encoding), strcertificate.into().abi()).ok()
+        (::windows::core::Interface::vtable(self).base__.RemoveFromCertificate)(::windows::core::Interface::as_raw(self), machinecontext, encoding, strcertificate.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -10713,15 +10713,15 @@ impl ICertPropertyBackedUp {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::BSTR>>,
     {
-        (::windows::core::Interface::vtable(self).base__.SetValueOnCertificate)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(machinecontext), ::core::mem::transmute(encoding), strcertificate.into().abi()).ok()
+        (::windows::core::Interface::vtable(self).base__.SetValueOnCertificate)(::windows::core::Interface::as_raw(self), machinecontext, encoding, strcertificate.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn InitializeFromCurrentTime(&self, backedupvalue: i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).InitializeFromCurrentTime)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(backedupvalue)).ok()
+        (::windows::core::Interface::vtable(self).InitializeFromCurrentTime)(::windows::core::Interface::as_raw(self), backedupvalue).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn Initialize(&self, backedupvalue: i16, date: f64) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Initialize)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(backedupvalue), ::core::mem::transmute(date)).ok()
+        (::windows::core::Interface::vtable(self).Initialize)(::windows::core::Interface::as_raw(self), backedupvalue, date).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn BackedUpValue(&self) -> ::windows::core::Result<i16> {
@@ -10835,7 +10835,7 @@ impl ICertPropertyDescription {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::BSTR>>,
     {
-        (::windows::core::Interface::vtable(self).base__.InitializeFromCertificate)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(machinecontext), ::core::mem::transmute(encoding), strcertificate.into().abi()).ok()
+        (::windows::core::Interface::vtable(self).base__.InitializeFromCertificate)(::windows::core::Interface::as_raw(self), machinecontext, encoding, strcertificate.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -10843,7 +10843,7 @@ impl ICertPropertyDescription {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::BSTR>>,
     {
-        (::windows::core::Interface::vtable(self).base__.InitializeDecode)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(encoding), strencodeddata.into().abi()).ok()
+        (::windows::core::Interface::vtable(self).base__.InitializeDecode)(::windows::core::Interface::as_raw(self), encoding, strencodeddata.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn PropertyId(&self) -> ::windows::core::Result<CERTENROLL_PROPERTYID> {
@@ -10852,13 +10852,13 @@ impl ICertPropertyDescription {
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn SetPropertyId(&self, value: CERTENROLL_PROPERTYID) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetPropertyId)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(value)).ok()
+        (::windows::core::Interface::vtable(self).base__.SetPropertyId)(::windows::core::Interface::as_raw(self), value).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn get_RawData(&self, encoding: EncodingType) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.get_RawData)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(encoding), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).base__.get_RawData)(::windows::core::Interface::as_raw(self), encoding, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -10866,7 +10866,7 @@ impl ICertPropertyDescription {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::BSTR>>,
     {
-        (::windows::core::Interface::vtable(self).base__.RemoveFromCertificate)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(machinecontext), ::core::mem::transmute(encoding), strcertificate.into().abi()).ok()
+        (::windows::core::Interface::vtable(self).base__.RemoveFromCertificate)(::windows::core::Interface::as_raw(self), machinecontext, encoding, strcertificate.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -10874,7 +10874,7 @@ impl ICertPropertyDescription {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::BSTR>>,
     {
-        (::windows::core::Interface::vtable(self).base__.SetValueOnCertificate)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(machinecontext), ::core::mem::transmute(encoding), strcertificate.into().abi()).ok()
+        (::windows::core::Interface::vtable(self).base__.SetValueOnCertificate)(::windows::core::Interface::as_raw(self), machinecontext, encoding, strcertificate.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -10996,7 +10996,7 @@ impl ICertPropertyEnrollment {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::BSTR>>,
     {
-        (::windows::core::Interface::vtable(self).base__.InitializeFromCertificate)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(machinecontext), ::core::mem::transmute(encoding), strcertificate.into().abi()).ok()
+        (::windows::core::Interface::vtable(self).base__.InitializeFromCertificate)(::windows::core::Interface::as_raw(self), machinecontext, encoding, strcertificate.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -11004,7 +11004,7 @@ impl ICertPropertyEnrollment {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::BSTR>>,
     {
-        (::windows::core::Interface::vtable(self).base__.InitializeDecode)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(encoding), strencodeddata.into().abi()).ok()
+        (::windows::core::Interface::vtable(self).base__.InitializeDecode)(::windows::core::Interface::as_raw(self), encoding, strencodeddata.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn PropertyId(&self) -> ::windows::core::Result<CERTENROLL_PROPERTYID> {
@@ -11013,13 +11013,13 @@ impl ICertPropertyEnrollment {
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn SetPropertyId(&self, value: CERTENROLL_PROPERTYID) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetPropertyId)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(value)).ok()
+        (::windows::core::Interface::vtable(self).base__.SetPropertyId)(::windows::core::Interface::as_raw(self), value).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn get_RawData(&self, encoding: EncodingType) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.get_RawData)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(encoding), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).base__.get_RawData)(::windows::core::Interface::as_raw(self), encoding, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -11027,7 +11027,7 @@ impl ICertPropertyEnrollment {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::BSTR>>,
     {
-        (::windows::core::Interface::vtable(self).base__.RemoveFromCertificate)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(machinecontext), ::core::mem::transmute(encoding), strcertificate.into().abi()).ok()
+        (::windows::core::Interface::vtable(self).base__.RemoveFromCertificate)(::windows::core::Interface::as_raw(self), machinecontext, encoding, strcertificate.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -11035,7 +11035,7 @@ impl ICertPropertyEnrollment {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::BSTR>>,
     {
-        (::windows::core::Interface::vtable(self).base__.SetValueOnCertificate)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(machinecontext), ::core::mem::transmute(encoding), strcertificate.into().abi()).ok()
+        (::windows::core::Interface::vtable(self).base__.SetValueOnCertificate)(::windows::core::Interface::as_raw(self), machinecontext, encoding, strcertificate.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -11045,7 +11045,7 @@ impl ICertPropertyEnrollment {
         P1: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::BSTR>>,
         P2: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::BSTR>>,
     {
-        (::windows::core::Interface::vtable(self).Initialize)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(requestid), strcadnsname.into().abi(), strcaname.into().abi(), strfriendlyname.into().abi()).ok()
+        (::windows::core::Interface::vtable(self).Initialize)(::windows::core::Interface::as_raw(self), requestid, strcadnsname.into().abi(), strcaname.into().abi(), strfriendlyname.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn RequestId(&self) -> ::windows::core::Result<i32> {
@@ -11185,7 +11185,7 @@ impl ICertPropertyEnrollmentPolicyServer {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::BSTR>>,
     {
-        (::windows::core::Interface::vtable(self).base__.InitializeFromCertificate)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(machinecontext), ::core::mem::transmute(encoding), strcertificate.into().abi()).ok()
+        (::windows::core::Interface::vtable(self).base__.InitializeFromCertificate)(::windows::core::Interface::as_raw(self), machinecontext, encoding, strcertificate.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -11193,7 +11193,7 @@ impl ICertPropertyEnrollmentPolicyServer {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::BSTR>>,
     {
-        (::windows::core::Interface::vtable(self).base__.InitializeDecode)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(encoding), strencodeddata.into().abi()).ok()
+        (::windows::core::Interface::vtable(self).base__.InitializeDecode)(::windows::core::Interface::as_raw(self), encoding, strencodeddata.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn PropertyId(&self) -> ::windows::core::Result<CERTENROLL_PROPERTYID> {
@@ -11202,13 +11202,13 @@ impl ICertPropertyEnrollmentPolicyServer {
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn SetPropertyId(&self, value: CERTENROLL_PROPERTYID) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetPropertyId)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(value)).ok()
+        (::windows::core::Interface::vtable(self).base__.SetPropertyId)(::windows::core::Interface::as_raw(self), value).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn get_RawData(&self, encoding: EncodingType) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.get_RawData)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(encoding), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).base__.get_RawData)(::windows::core::Interface::as_raw(self), encoding, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -11216,7 +11216,7 @@ impl ICertPropertyEnrollmentPolicyServer {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::BSTR>>,
     {
-        (::windows::core::Interface::vtable(self).base__.RemoveFromCertificate)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(machinecontext), ::core::mem::transmute(encoding), strcertificate.into().abi()).ok()
+        (::windows::core::Interface::vtable(self).base__.RemoveFromCertificate)(::windows::core::Interface::as_raw(self), machinecontext, encoding, strcertificate.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -11224,7 +11224,7 @@ impl ICertPropertyEnrollmentPolicyServer {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::BSTR>>,
     {
-        (::windows::core::Interface::vtable(self).base__.SetValueOnCertificate)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(machinecontext), ::core::mem::transmute(encoding), strcertificate.into().abi()).ok()
+        (::windows::core::Interface::vtable(self).base__.SetValueOnCertificate)(::windows::core::Interface::as_raw(self), machinecontext, encoding, strcertificate.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -11235,7 +11235,7 @@ impl ICertPropertyEnrollmentPolicyServer {
         P2: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::BSTR>>,
         P3: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::BSTR>>,
     {
-        (::windows::core::Interface::vtable(self).Initialize)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(propertyflags), ::core::mem::transmute(authflags), ::core::mem::transmute(enrollmentserverauthflags), ::core::mem::transmute(urlflags), strrequestid.into().abi(), strurl.into().abi(), strid.into().abi(), strenrollmentserverurl.into().abi()).ok()
+        (::windows::core::Interface::vtable(self).Initialize)(::windows::core::Interface::as_raw(self), propertyflags, authflags, enrollmentserverauthflags, urlflags, strrequestid.into().abi(), strurl.into().abi(), strid.into().abi(), strenrollmentserverurl.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -11403,7 +11403,7 @@ impl ICertPropertyFriendlyName {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::BSTR>>,
     {
-        (::windows::core::Interface::vtable(self).base__.InitializeFromCertificate)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(machinecontext), ::core::mem::transmute(encoding), strcertificate.into().abi()).ok()
+        (::windows::core::Interface::vtable(self).base__.InitializeFromCertificate)(::windows::core::Interface::as_raw(self), machinecontext, encoding, strcertificate.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -11411,7 +11411,7 @@ impl ICertPropertyFriendlyName {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::BSTR>>,
     {
-        (::windows::core::Interface::vtable(self).base__.InitializeDecode)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(encoding), strencodeddata.into().abi()).ok()
+        (::windows::core::Interface::vtable(self).base__.InitializeDecode)(::windows::core::Interface::as_raw(self), encoding, strencodeddata.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn PropertyId(&self) -> ::windows::core::Result<CERTENROLL_PROPERTYID> {
@@ -11420,13 +11420,13 @@ impl ICertPropertyFriendlyName {
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn SetPropertyId(&self, value: CERTENROLL_PROPERTYID) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetPropertyId)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(value)).ok()
+        (::windows::core::Interface::vtable(self).base__.SetPropertyId)(::windows::core::Interface::as_raw(self), value).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn get_RawData(&self, encoding: EncodingType) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.get_RawData)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(encoding), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).base__.get_RawData)(::windows::core::Interface::as_raw(self), encoding, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -11434,7 +11434,7 @@ impl ICertPropertyFriendlyName {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::BSTR>>,
     {
-        (::windows::core::Interface::vtable(self).base__.RemoveFromCertificate)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(machinecontext), ::core::mem::transmute(encoding), strcertificate.into().abi()).ok()
+        (::windows::core::Interface::vtable(self).base__.RemoveFromCertificate)(::windows::core::Interface::as_raw(self), machinecontext, encoding, strcertificate.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -11442,7 +11442,7 @@ impl ICertPropertyFriendlyName {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::BSTR>>,
     {
-        (::windows::core::Interface::vtable(self).base__.SetValueOnCertificate)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(machinecontext), ::core::mem::transmute(encoding), strcertificate.into().abi()).ok()
+        (::windows::core::Interface::vtable(self).base__.SetValueOnCertificate)(::windows::core::Interface::as_raw(self), machinecontext, encoding, strcertificate.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -11564,7 +11564,7 @@ impl ICertPropertyKeyProvInfo {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::BSTR>>,
     {
-        (::windows::core::Interface::vtable(self).base__.InitializeFromCertificate)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(machinecontext), ::core::mem::transmute(encoding), strcertificate.into().abi()).ok()
+        (::windows::core::Interface::vtable(self).base__.InitializeFromCertificate)(::windows::core::Interface::as_raw(self), machinecontext, encoding, strcertificate.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -11572,7 +11572,7 @@ impl ICertPropertyKeyProvInfo {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::BSTR>>,
     {
-        (::windows::core::Interface::vtable(self).base__.InitializeDecode)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(encoding), strencodeddata.into().abi()).ok()
+        (::windows::core::Interface::vtable(self).base__.InitializeDecode)(::windows::core::Interface::as_raw(self), encoding, strencodeddata.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn PropertyId(&self) -> ::windows::core::Result<CERTENROLL_PROPERTYID> {
@@ -11581,13 +11581,13 @@ impl ICertPropertyKeyProvInfo {
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn SetPropertyId(&self, value: CERTENROLL_PROPERTYID) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetPropertyId)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(value)).ok()
+        (::windows::core::Interface::vtable(self).base__.SetPropertyId)(::windows::core::Interface::as_raw(self), value).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn get_RawData(&self, encoding: EncodingType) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.get_RawData)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(encoding), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).base__.get_RawData)(::windows::core::Interface::as_raw(self), encoding, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -11595,7 +11595,7 @@ impl ICertPropertyKeyProvInfo {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::BSTR>>,
     {
-        (::windows::core::Interface::vtable(self).base__.RemoveFromCertificate)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(machinecontext), ::core::mem::transmute(encoding), strcertificate.into().abi()).ok()
+        (::windows::core::Interface::vtable(self).base__.RemoveFromCertificate)(::windows::core::Interface::as_raw(self), machinecontext, encoding, strcertificate.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -11603,7 +11603,7 @@ impl ICertPropertyKeyProvInfo {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::BSTR>>,
     {
-        (::windows::core::Interface::vtable(self).base__.SetValueOnCertificate)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(machinecontext), ::core::mem::transmute(encoding), strcertificate.into().abi()).ok()
+        (::windows::core::Interface::vtable(self).base__.SetValueOnCertificate)(::windows::core::Interface::as_raw(self), machinecontext, encoding, strcertificate.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -11725,7 +11725,7 @@ impl ICertPropertyRenewal {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::BSTR>>,
     {
-        (::windows::core::Interface::vtable(self).base__.InitializeFromCertificate)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(machinecontext), ::core::mem::transmute(encoding), strcertificate.into().abi()).ok()
+        (::windows::core::Interface::vtable(self).base__.InitializeFromCertificate)(::windows::core::Interface::as_raw(self), machinecontext, encoding, strcertificate.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -11733,7 +11733,7 @@ impl ICertPropertyRenewal {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::BSTR>>,
     {
-        (::windows::core::Interface::vtable(self).base__.InitializeDecode)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(encoding), strencodeddata.into().abi()).ok()
+        (::windows::core::Interface::vtable(self).base__.InitializeDecode)(::windows::core::Interface::as_raw(self), encoding, strencodeddata.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn PropertyId(&self) -> ::windows::core::Result<CERTENROLL_PROPERTYID> {
@@ -11742,13 +11742,13 @@ impl ICertPropertyRenewal {
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn SetPropertyId(&self, value: CERTENROLL_PROPERTYID) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetPropertyId)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(value)).ok()
+        (::windows::core::Interface::vtable(self).base__.SetPropertyId)(::windows::core::Interface::as_raw(self), value).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn get_RawData(&self, encoding: EncodingType) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.get_RawData)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(encoding), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).base__.get_RawData)(::windows::core::Interface::as_raw(self), encoding, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -11756,7 +11756,7 @@ impl ICertPropertyRenewal {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::BSTR>>,
     {
-        (::windows::core::Interface::vtable(self).base__.RemoveFromCertificate)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(machinecontext), ::core::mem::transmute(encoding), strcertificate.into().abi()).ok()
+        (::windows::core::Interface::vtable(self).base__.RemoveFromCertificate)(::windows::core::Interface::as_raw(self), machinecontext, encoding, strcertificate.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -11764,7 +11764,7 @@ impl ICertPropertyRenewal {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::BSTR>>,
     {
-        (::windows::core::Interface::vtable(self).base__.SetValueOnCertificate)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(machinecontext), ::core::mem::transmute(encoding), strcertificate.into().abi()).ok()
+        (::windows::core::Interface::vtable(self).base__.SetValueOnCertificate)(::windows::core::Interface::as_raw(self), machinecontext, encoding, strcertificate.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -11772,7 +11772,7 @@ impl ICertPropertyRenewal {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::BSTR>>,
     {
-        (::windows::core::Interface::vtable(self).Initialize)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(encoding), strrenewalvalue.into().abi()).ok()
+        (::windows::core::Interface::vtable(self).Initialize)(::windows::core::Interface::as_raw(self), encoding, strrenewalvalue.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -11780,13 +11780,13 @@ impl ICertPropertyRenewal {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::BSTR>>,
     {
-        (::windows::core::Interface::vtable(self).InitializeFromCertificateHash)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(machinecontext), ::core::mem::transmute(encoding), strcertificate.into().abi()).ok()
+        (::windows::core::Interface::vtable(self).InitializeFromCertificateHash)(::windows::core::Interface::as_raw(self), machinecontext, encoding, strcertificate.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn get_Renewal(&self, encoding: EncodingType) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>>::zeroed();
-        (::windows::core::Interface::vtable(self).get_Renewal)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(encoding), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).get_Renewal)(::windows::core::Interface::as_raw(self), encoding, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -11898,7 +11898,7 @@ impl ICertPropertyRequestOriginator {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::BSTR>>,
     {
-        (::windows::core::Interface::vtable(self).base__.InitializeFromCertificate)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(machinecontext), ::core::mem::transmute(encoding), strcertificate.into().abi()).ok()
+        (::windows::core::Interface::vtable(self).base__.InitializeFromCertificate)(::windows::core::Interface::as_raw(self), machinecontext, encoding, strcertificate.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -11906,7 +11906,7 @@ impl ICertPropertyRequestOriginator {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::BSTR>>,
     {
-        (::windows::core::Interface::vtable(self).base__.InitializeDecode)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(encoding), strencodeddata.into().abi()).ok()
+        (::windows::core::Interface::vtable(self).base__.InitializeDecode)(::windows::core::Interface::as_raw(self), encoding, strencodeddata.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn PropertyId(&self) -> ::windows::core::Result<CERTENROLL_PROPERTYID> {
@@ -11915,13 +11915,13 @@ impl ICertPropertyRequestOriginator {
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn SetPropertyId(&self, value: CERTENROLL_PROPERTYID) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetPropertyId)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(value)).ok()
+        (::windows::core::Interface::vtable(self).base__.SetPropertyId)(::windows::core::Interface::as_raw(self), value).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn get_RawData(&self, encoding: EncodingType) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.get_RawData)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(encoding), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).base__.get_RawData)(::windows::core::Interface::as_raw(self), encoding, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -11929,7 +11929,7 @@ impl ICertPropertyRequestOriginator {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::BSTR>>,
     {
-        (::windows::core::Interface::vtable(self).base__.RemoveFromCertificate)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(machinecontext), ::core::mem::transmute(encoding), strcertificate.into().abi()).ok()
+        (::windows::core::Interface::vtable(self).base__.RemoveFromCertificate)(::windows::core::Interface::as_raw(self), machinecontext, encoding, strcertificate.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -11937,7 +11937,7 @@ impl ICertPropertyRequestOriginator {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::BSTR>>,
     {
-        (::windows::core::Interface::vtable(self).base__.SetValueOnCertificate)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(machinecontext), ::core::mem::transmute(encoding), strcertificate.into().abi()).ok()
+        (::windows::core::Interface::vtable(self).base__.SetValueOnCertificate)(::windows::core::Interface::as_raw(self), machinecontext, encoding, strcertificate.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -12064,7 +12064,7 @@ impl ICertPropertySHA1Hash {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::BSTR>>,
     {
-        (::windows::core::Interface::vtable(self).base__.InitializeFromCertificate)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(machinecontext), ::core::mem::transmute(encoding), strcertificate.into().abi()).ok()
+        (::windows::core::Interface::vtable(self).base__.InitializeFromCertificate)(::windows::core::Interface::as_raw(self), machinecontext, encoding, strcertificate.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -12072,7 +12072,7 @@ impl ICertPropertySHA1Hash {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::BSTR>>,
     {
-        (::windows::core::Interface::vtable(self).base__.InitializeDecode)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(encoding), strencodeddata.into().abi()).ok()
+        (::windows::core::Interface::vtable(self).base__.InitializeDecode)(::windows::core::Interface::as_raw(self), encoding, strencodeddata.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn PropertyId(&self) -> ::windows::core::Result<CERTENROLL_PROPERTYID> {
@@ -12081,13 +12081,13 @@ impl ICertPropertySHA1Hash {
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn SetPropertyId(&self, value: CERTENROLL_PROPERTYID) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetPropertyId)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(value)).ok()
+        (::windows::core::Interface::vtable(self).base__.SetPropertyId)(::windows::core::Interface::as_raw(self), value).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn get_RawData(&self, encoding: EncodingType) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.get_RawData)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(encoding), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).base__.get_RawData)(::windows::core::Interface::as_raw(self), encoding, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -12095,7 +12095,7 @@ impl ICertPropertySHA1Hash {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::BSTR>>,
     {
-        (::windows::core::Interface::vtable(self).base__.RemoveFromCertificate)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(machinecontext), ::core::mem::transmute(encoding), strcertificate.into().abi()).ok()
+        (::windows::core::Interface::vtable(self).base__.RemoveFromCertificate)(::windows::core::Interface::as_raw(self), machinecontext, encoding, strcertificate.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -12103,7 +12103,7 @@ impl ICertPropertySHA1Hash {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::BSTR>>,
     {
-        (::windows::core::Interface::vtable(self).base__.SetValueOnCertificate)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(machinecontext), ::core::mem::transmute(encoding), strcertificate.into().abi()).ok()
+        (::windows::core::Interface::vtable(self).base__.SetValueOnCertificate)(::windows::core::Interface::as_raw(self), machinecontext, encoding, strcertificate.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -12111,13 +12111,13 @@ impl ICertPropertySHA1Hash {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::BSTR>>,
     {
-        (::windows::core::Interface::vtable(self).Initialize)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(encoding), strrenewalvalue.into().abi()).ok()
+        (::windows::core::Interface::vtable(self).Initialize)(::windows::core::Interface::as_raw(self), encoding, strrenewalvalue.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn get_SHA1Hash(&self, encoding: EncodingType) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>>::zeroed();
-        (::windows::core::Interface::vtable(self).get_SHA1Hash)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(encoding), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).get_SHA1Hash)(::windows::core::Interface::as_raw(self), encoding, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -12228,7 +12228,7 @@ impl ICertRequest {
         P2: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::BSTR>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::<i32>::zeroed();
-        (::windows::core::Interface::vtable(self).Submit)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(flags), strrequest.into().abi(), strattributes.into().abi(), strconfig.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
+        (::windows::core::Interface::vtable(self).Submit)(::windows::core::Interface::as_raw(self), flags, strrequest.into().abi(), strattributes.into().abi(), strconfig.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -12237,7 +12237,7 @@ impl ICertRequest {
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::BSTR>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::<i32>::zeroed();
-        (::windows::core::Interface::vtable(self).RetrievePending)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(requestid), strconfig.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
+        (::windows::core::Interface::vtable(self).RetrievePending)(::windows::core::Interface::as_raw(self), requestid, strconfig.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn GetLastStatus(&self) -> ::windows::core::Result<i32> {
@@ -12262,13 +12262,13 @@ impl ICertRequest {
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::BSTR>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>>::zeroed();
-        (::windows::core::Interface::vtable(self).GetCACertificate)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(fexchangecertificate), strconfig.into().abi(), ::core::mem::transmute(flags), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).GetCACertificate)(::windows::core::Interface::as_raw(self), fexchangecertificate, strconfig.into().abi(), flags, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetCertificate(&self, flags: i32) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>>::zeroed();
-        (::windows::core::Interface::vtable(self).GetCertificate)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(flags), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).GetCertificate)(::windows::core::Interface::as_raw(self), flags, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -12375,7 +12375,7 @@ impl ICertRequest2 {
         P2: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::BSTR>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::<i32>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.Submit)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(flags), strrequest.into().abi(), strattributes.into().abi(), strconfig.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
+        (::windows::core::Interface::vtable(self).base__.Submit)(::windows::core::Interface::as_raw(self), flags, strrequest.into().abi(), strattributes.into().abi(), strconfig.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -12384,7 +12384,7 @@ impl ICertRequest2 {
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::BSTR>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::<i32>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.RetrievePending)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(requestid), strconfig.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
+        (::windows::core::Interface::vtable(self).base__.RetrievePending)(::windows::core::Interface::as_raw(self), requestid, strconfig.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn GetLastStatus(&self) -> ::windows::core::Result<i32> {
@@ -12409,13 +12409,13 @@ impl ICertRequest2 {
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::BSTR>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.GetCACertificate)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(fexchangecertificate), strconfig.into().abi(), ::core::mem::transmute(flags), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).base__.GetCACertificate)(::windows::core::Interface::as_raw(self), fexchangecertificate, strconfig.into().abi(), flags, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetCertificate(&self, flags: i32) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.GetCertificate)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(flags), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).base__.GetCertificate)(::windows::core::Interface::as_raw(self), flags, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -12425,13 +12425,13 @@ impl ICertRequest2 {
         P1: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::BSTR>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::<CR_DISP>::zeroed();
-        (::windows::core::Interface::vtable(self).GetIssuedCertificate)(::windows::core::Interface::as_raw(self), strconfig.into().abi(), ::core::mem::transmute(requestid), strserialnumber.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<CR_DISP>(result__)
+        (::windows::core::Interface::vtable(self).GetIssuedCertificate)(::windows::core::Interface::as_raw(self), strconfig.into().abi(), requestid, strserialnumber.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<CR_DISP>(result__)
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetErrorMessageText(&self, hrmessage: i32, flags: i32) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>>::zeroed();
-        (::windows::core::Interface::vtable(self).GetErrorMessageText)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(hrmessage), ::core::mem::transmute(flags), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).GetErrorMessageText)(::windows::core::Interface::as_raw(self), hrmessage, flags, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -12440,7 +12440,7 @@ impl ICertRequest2 {
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::BSTR>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::System::Com::VARIANT>>::zeroed();
-        (::windows::core::Interface::vtable(self).GetCAProperty)(::windows::core::Interface::as_raw(self), strconfig.into().abi(), ::core::mem::transmute(propid), ::core::mem::transmute(propindex), ::core::mem::transmute(proptype), ::core::mem::transmute(flags), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::System::Com::VARIANT>(result__)
+        (::windows::core::Interface::vtable(self).GetCAProperty)(::windows::core::Interface::as_raw(self), strconfig.into().abi(), propid, propindex, proptype, flags, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::System::Com::VARIANT>(result__)
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -12449,7 +12449,7 @@ impl ICertRequest2 {
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::BSTR>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::<i32>::zeroed();
-        (::windows::core::Interface::vtable(self).GetCAPropertyFlags)(::windows::core::Interface::as_raw(self), strconfig.into().abi(), ::core::mem::transmute(propid), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
+        (::windows::core::Interface::vtable(self).GetCAPropertyFlags)(::windows::core::Interface::as_raw(self), strconfig.into().abi(), propid, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -12458,13 +12458,13 @@ impl ICertRequest2 {
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::BSTR>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>>::zeroed();
-        (::windows::core::Interface::vtable(self).GetCAPropertyDisplayName)(::windows::core::Interface::as_raw(self), strconfig.into().abi(), ::core::mem::transmute(propid), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).GetCAPropertyDisplayName)(::windows::core::Interface::as_raw(self), strconfig.into().abi(), propid, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn GetFullResponseProperty(&self, propid: FULL_RESPONSE_PROPERTY_ID, propindex: i32, proptype: CERT_PROPERTY_TYPE, flags: CERT_REQUEST_OUT_TYPE) -> ::windows::core::Result<super::super::super::System::Com::VARIANT> {
         let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::System::Com::VARIANT>>::zeroed();
-        (::windows::core::Interface::vtable(self).GetFullResponseProperty)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(propid), ::core::mem::transmute(propindex), ::core::mem::transmute(proptype), ::core::mem::transmute(flags), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::System::Com::VARIANT>(result__)
+        (::windows::core::Interface::vtable(self).GetFullResponseProperty)(::windows::core::Interface::as_raw(self), propid, propindex, proptype, flags, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::System::Com::VARIANT>(result__)
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -12591,7 +12591,7 @@ impl ICertRequest3 {
         P2: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::BSTR>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::<i32>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.base__.Submit)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(flags), strrequest.into().abi(), strattributes.into().abi(), strconfig.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
+        (::windows::core::Interface::vtable(self).base__.base__.Submit)(::windows::core::Interface::as_raw(self), flags, strrequest.into().abi(), strattributes.into().abi(), strconfig.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -12600,7 +12600,7 @@ impl ICertRequest3 {
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::BSTR>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::<i32>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.base__.RetrievePending)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(requestid), strconfig.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
+        (::windows::core::Interface::vtable(self).base__.base__.RetrievePending)(::windows::core::Interface::as_raw(self), requestid, strconfig.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn GetLastStatus(&self) -> ::windows::core::Result<i32> {
@@ -12625,13 +12625,13 @@ impl ICertRequest3 {
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::BSTR>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.base__.GetCACertificate)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(fexchangecertificate), strconfig.into().abi(), ::core::mem::transmute(flags), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).base__.base__.GetCACertificate)(::windows::core::Interface::as_raw(self), fexchangecertificate, strconfig.into().abi(), flags, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetCertificate(&self, flags: i32) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.base__.GetCertificate)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(flags), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).base__.base__.GetCertificate)(::windows::core::Interface::as_raw(self), flags, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -12641,13 +12641,13 @@ impl ICertRequest3 {
         P1: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::BSTR>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::<CR_DISP>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.GetIssuedCertificate)(::windows::core::Interface::as_raw(self), strconfig.into().abi(), ::core::mem::transmute(requestid), strserialnumber.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<CR_DISP>(result__)
+        (::windows::core::Interface::vtable(self).base__.GetIssuedCertificate)(::windows::core::Interface::as_raw(self), strconfig.into().abi(), requestid, strserialnumber.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<CR_DISP>(result__)
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetErrorMessageText(&self, hrmessage: i32, flags: i32) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.GetErrorMessageText)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(hrmessage), ::core::mem::transmute(flags), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).base__.GetErrorMessageText)(::windows::core::Interface::as_raw(self), hrmessage, flags, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -12656,7 +12656,7 @@ impl ICertRequest3 {
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::BSTR>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::System::Com::VARIANT>>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.GetCAProperty)(::windows::core::Interface::as_raw(self), strconfig.into().abi(), ::core::mem::transmute(propid), ::core::mem::transmute(propindex), ::core::mem::transmute(proptype), ::core::mem::transmute(flags), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::System::Com::VARIANT>(result__)
+        (::windows::core::Interface::vtable(self).base__.GetCAProperty)(::windows::core::Interface::as_raw(self), strconfig.into().abi(), propid, propindex, proptype, flags, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::System::Com::VARIANT>(result__)
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -12665,7 +12665,7 @@ impl ICertRequest3 {
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::BSTR>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::<i32>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.GetCAPropertyFlags)(::windows::core::Interface::as_raw(self), strconfig.into().abi(), ::core::mem::transmute(propid), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
+        (::windows::core::Interface::vtable(self).base__.GetCAPropertyFlags)(::windows::core::Interface::as_raw(self), strconfig.into().abi(), propid, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -12674,13 +12674,13 @@ impl ICertRequest3 {
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::BSTR>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.GetCAPropertyDisplayName)(::windows::core::Interface::as_raw(self), strconfig.into().abi(), ::core::mem::transmute(propid), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).base__.GetCAPropertyDisplayName)(::windows::core::Interface::as_raw(self), strconfig.into().abi(), propid, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn GetFullResponseProperty(&self, propid: FULL_RESPONSE_PROPERTY_ID, propindex: i32, proptype: CERT_PROPERTY_TYPE, flags: CERT_REQUEST_OUT_TYPE) -> ::windows::core::Result<super::super::super::System::Com::VARIANT> {
         let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::System::Com::VARIANT>>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.GetFullResponseProperty)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(propid), ::core::mem::transmute(propindex), ::core::mem::transmute(proptype), ::core::mem::transmute(flags), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::System::Com::VARIANT>(result__)
+        (::windows::core::Interface::vtable(self).base__.GetFullResponseProperty)(::windows::core::Interface::as_raw(self), propid, propindex, proptype, flags, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::System::Com::VARIANT>(result__)
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -12689,7 +12689,7 @@ impl ICertRequest3 {
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::BSTR>>,
         P1: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::BSTR>>,
     {
-        (::windows::core::Interface::vtable(self).SetCredential)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(hwnd), ::core::mem::transmute(authtype), strcredential.into().abi(), strpassword.into().abi()).ok()
+        (::windows::core::Interface::vtable(self).SetCredential)(::windows::core::Interface::as_raw(self), hwnd, authtype, strcredential.into().abi(), strpassword.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -12840,7 +12840,7 @@ impl ICertRequestD {
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
         P1: ::std::convert::Into<::windows::core::PCWSTR>,
     {
-        (::windows::core::Interface::vtable(self).Request)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(dwflags), pwszauthority.into(), ::core::mem::transmute(pdwrequestid), ::core::mem::transmute(pdwdisposition), pwszattributes.into(), ::core::mem::transmute(pctbrequest), ::core::mem::transmute(pctbcertchain), ::core::mem::transmute(pctbencodedcert), ::core::mem::transmute(pctbdispositionmessage)).ok()
+        (::windows::core::Interface::vtable(self).Request)(::windows::core::Interface::as_raw(self), dwflags, pwszauthority.into(), ::core::mem::transmute(pdwrequestid), ::core::mem::transmute(pdwdisposition), pwszattributes.into(), ::core::mem::transmute(pctbrequest), ::core::mem::transmute(pctbcertchain), ::core::mem::transmute(pctbencodedcert), ::core::mem::transmute(pctbdispositionmessage)).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn GetCACert<'a, P0>(&self, fchain: u32, pwszauthority: P0) -> ::windows::core::Result<CERTTRANSBLOB>
@@ -12848,7 +12848,7 @@ impl ICertRequestD {
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
         let mut result__ = ::core::mem::MaybeUninit::<CERTTRANSBLOB>::zeroed();
-        (::windows::core::Interface::vtable(self).GetCACert)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(fchain), pwszauthority.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<CERTTRANSBLOB>(result__)
+        (::windows::core::Interface::vtable(self).GetCACert)(::windows::core::Interface::as_raw(self), fchain, pwszauthority.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<CERTTRANSBLOB>(result__)
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn Ping<'a, P0>(&self, pwszauthority: P0) -> ::windows::core::Result<()>
@@ -12911,7 +12911,7 @@ impl ICertRequestD2 {
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
         P1: ::std::convert::Into<::windows::core::PCWSTR>,
     {
-        (::windows::core::Interface::vtable(self).base__.Request)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(dwflags), pwszauthority.into(), ::core::mem::transmute(pdwrequestid), ::core::mem::transmute(pdwdisposition), pwszattributes.into(), ::core::mem::transmute(pctbrequest), ::core::mem::transmute(pctbcertchain), ::core::mem::transmute(pctbencodedcert), ::core::mem::transmute(pctbdispositionmessage)).ok()
+        (::windows::core::Interface::vtable(self).base__.Request)(::windows::core::Interface::as_raw(self), dwflags, pwszauthority.into(), ::core::mem::transmute(pdwrequestid), ::core::mem::transmute(pdwdisposition), pwszattributes.into(), ::core::mem::transmute(pctbrequest), ::core::mem::transmute(pctbcertchain), ::core::mem::transmute(pctbencodedcert), ::core::mem::transmute(pctbdispositionmessage)).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn GetCACert<'a, P0>(&self, fchain: u32, pwszauthority: P0) -> ::windows::core::Result<CERTTRANSBLOB>
@@ -12919,7 +12919,7 @@ impl ICertRequestD2 {
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
         let mut result__ = ::core::mem::MaybeUninit::<CERTTRANSBLOB>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.GetCACert)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(fchain), pwszauthority.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<CERTTRANSBLOB>(result__)
+        (::windows::core::Interface::vtable(self).base__.GetCACert)(::windows::core::Interface::as_raw(self), fchain, pwszauthority.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<CERTTRANSBLOB>(result__)
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn Ping<'a, P0>(&self, pwszauthority: P0) -> ::windows::core::Result<()>
@@ -12935,7 +12935,7 @@ impl ICertRequestD2 {
         P1: ::std::convert::Into<::windows::core::PCWSTR>,
         P2: ::std::convert::Into<::windows::core::PCWSTR>,
     {
-        (::windows::core::Interface::vtable(self).Request2)(::windows::core::Interface::as_raw(self), pwszauthority.into(), ::core::mem::transmute(dwflags), pwszserialnumber.into(), ::core::mem::transmute(pdwrequestid), ::core::mem::transmute(pdwdisposition), pwszattributes.into(), ::core::mem::transmute(pctbrequest), ::core::mem::transmute(pctbfullresponse), ::core::mem::transmute(pctbencodedcert), ::core::mem::transmute(pctbdispositionmessage)).ok()
+        (::windows::core::Interface::vtable(self).Request2)(::windows::core::Interface::as_raw(self), pwszauthority.into(), dwflags, pwszserialnumber.into(), ::core::mem::transmute(pdwrequestid), ::core::mem::transmute(pdwdisposition), pwszattributes.into(), ::core::mem::transmute(pctbrequest), ::core::mem::transmute(pctbfullresponse), ::core::mem::transmute(pctbencodedcert), ::core::mem::transmute(pctbdispositionmessage)).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn GetCAProperty<'a, P0>(&self, pwszauthority: P0, propid: i32, propindex: i32, proptype: i32) -> ::windows::core::Result<CERTTRANSBLOB>
@@ -12943,7 +12943,7 @@ impl ICertRequestD2 {
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
         let mut result__ = ::core::mem::MaybeUninit::<CERTTRANSBLOB>::zeroed();
-        (::windows::core::Interface::vtable(self).GetCAProperty)(::windows::core::Interface::as_raw(self), pwszauthority.into(), ::core::mem::transmute(propid), ::core::mem::transmute(propindex), ::core::mem::transmute(proptype), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<CERTTRANSBLOB>(result__)
+        (::windows::core::Interface::vtable(self).GetCAProperty)(::windows::core::Interface::as_raw(self), pwszauthority.into(), propid, propindex, proptype, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<CERTTRANSBLOB>(result__)
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn GetCAPropertyInfo<'a, P0>(&self, pwszauthority: P0, pcproperty: *mut i32, pctbpropinfo: *mut CERTTRANSBLOB) -> ::windows::core::Result<()>
@@ -13027,7 +13027,7 @@ pub struct ICertServerExit(::windows::core::IUnknown);
 impl ICertServerExit {
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn SetContext(&self, context: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetContext)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(context)).ok()
+        (::windows::core::Interface::vtable(self).SetContext)(::windows::core::Interface::as_raw(self), context).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -13036,7 +13036,7 @@ impl ICertServerExit {
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::BSTR>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::System::Com::VARIANT>>::zeroed();
-        (::windows::core::Interface::vtable(self).GetRequestProperty)(::windows::core::Interface::as_raw(self), strpropertyname.into().abi(), ::core::mem::transmute(propertytype), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::System::Com::VARIANT>(result__)
+        (::windows::core::Interface::vtable(self).GetRequestProperty)(::windows::core::Interface::as_raw(self), strpropertyname.into().abi(), propertytype, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::System::Com::VARIANT>(result__)
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -13054,7 +13054,7 @@ impl ICertServerExit {
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::BSTR>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::System::Com::VARIANT>>::zeroed();
-        (::windows::core::Interface::vtable(self).GetCertificateProperty)(::windows::core::Interface::as_raw(self), strpropertyname.into().abi(), ::core::mem::transmute(propertytype), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::System::Com::VARIANT>(result__)
+        (::windows::core::Interface::vtable(self).GetCertificateProperty)(::windows::core::Interface::as_raw(self), strpropertyname.into().abi(), propertytype, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::System::Com::VARIANT>(result__)
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -13063,7 +13063,7 @@ impl ICertServerExit {
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::BSTR>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::System::Com::VARIANT>>::zeroed();
-        (::windows::core::Interface::vtable(self).GetCertificateExtension)(::windows::core::Interface::as_raw(self), strextensionname.into().abi(), ::core::mem::transmute(r#type), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::System::Com::VARIANT>(result__)
+        (::windows::core::Interface::vtable(self).GetCertificateExtension)(::windows::core::Interface::as_raw(self), strextensionname.into().abi(), r#type, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::System::Com::VARIANT>(result__)
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn GetCertificateExtensionFlags(&self) -> ::windows::core::Result<i32> {
@@ -13072,7 +13072,7 @@ impl ICertServerExit {
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn EnumerateExtensionsSetup(&self, flags: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).EnumerateExtensionsSetup)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(flags)).ok()
+        (::windows::core::Interface::vtable(self).EnumerateExtensionsSetup)(::windows::core::Interface::as_raw(self), flags).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -13086,7 +13086,7 @@ impl ICertServerExit {
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn EnumerateAttributesSetup(&self, flags: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).EnumerateAttributesSetup)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(flags)).ok()
+        (::windows::core::Interface::vtable(self).EnumerateAttributesSetup)(::windows::core::Interface::as_raw(self), flags).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -13204,7 +13204,7 @@ pub struct ICertServerPolicy(::windows::core::IUnknown);
 impl ICertServerPolicy {
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn SetContext(&self, context: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetContext)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(context)).ok()
+        (::windows::core::Interface::vtable(self).SetContext)(::windows::core::Interface::as_raw(self), context).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -13213,7 +13213,7 @@ impl ICertServerPolicy {
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::BSTR>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::System::Com::VARIANT>>::zeroed();
-        (::windows::core::Interface::vtable(self).GetRequestProperty)(::windows::core::Interface::as_raw(self), strpropertyname.into().abi(), ::core::mem::transmute(propertytype), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::System::Com::VARIANT>(result__)
+        (::windows::core::Interface::vtable(self).GetRequestProperty)(::windows::core::Interface::as_raw(self), strpropertyname.into().abi(), propertytype, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::System::Com::VARIANT>(result__)
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -13231,7 +13231,7 @@ impl ICertServerPolicy {
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::BSTR>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::System::Com::VARIANT>>::zeroed();
-        (::windows::core::Interface::vtable(self).GetCertificateProperty)(::windows::core::Interface::as_raw(self), strpropertyname.into().abi(), ::core::mem::transmute(propertytype), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::System::Com::VARIANT>(result__)
+        (::windows::core::Interface::vtable(self).GetCertificateProperty)(::windows::core::Interface::as_raw(self), strpropertyname.into().abi(), propertytype, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::System::Com::VARIANT>(result__)
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -13239,7 +13239,7 @@ impl ICertServerPolicy {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::BSTR>>,
     {
-        (::windows::core::Interface::vtable(self).SetCertificateProperty)(::windows::core::Interface::as_raw(self), strpropertyname.into().abi(), ::core::mem::transmute(propertytype), ::core::mem::transmute(pvarpropertyvalue)).ok()
+        (::windows::core::Interface::vtable(self).SetCertificateProperty)(::windows::core::Interface::as_raw(self), strpropertyname.into().abi(), propertytype, ::core::mem::transmute(pvarpropertyvalue)).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -13248,7 +13248,7 @@ impl ICertServerPolicy {
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::BSTR>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::System::Com::VARIANT>>::zeroed();
-        (::windows::core::Interface::vtable(self).GetCertificateExtension)(::windows::core::Interface::as_raw(self), strextensionname.into().abi(), ::core::mem::transmute(r#type), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::System::Com::VARIANT>(result__)
+        (::windows::core::Interface::vtable(self).GetCertificateExtension)(::windows::core::Interface::as_raw(self), strextensionname.into().abi(), r#type, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::System::Com::VARIANT>(result__)
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn GetCertificateExtensionFlags(&self) -> ::windows::core::Result<i32> {
@@ -13261,11 +13261,11 @@ impl ICertServerPolicy {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::BSTR>>,
     {
-        (::windows::core::Interface::vtable(self).SetCertificateExtension)(::windows::core::Interface::as_raw(self), strextensionname.into().abi(), ::core::mem::transmute(r#type), ::core::mem::transmute(extflags), ::core::mem::transmute(pvarvalue)).ok()
+        (::windows::core::Interface::vtable(self).SetCertificateExtension)(::windows::core::Interface::as_raw(self), strextensionname.into().abi(), r#type, extflags, ::core::mem::transmute(pvarvalue)).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn EnumerateExtensionsSetup(&self, flags: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).EnumerateExtensionsSetup)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(flags)).ok()
+        (::windows::core::Interface::vtable(self).EnumerateExtensionsSetup)(::windows::core::Interface::as_raw(self), flags).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -13279,7 +13279,7 @@ impl ICertServerPolicy {
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn EnumerateAttributesSetup(&self, flags: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).EnumerateAttributesSetup)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(flags)).ok()
+        (::windows::core::Interface::vtable(self).EnumerateAttributesSetup)(::windows::core::Interface::as_raw(self), flags).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -13415,11 +13415,11 @@ impl ICertView {
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn EnumCertViewColumn(&self, fresultcolumn: CVRC_COLUMN) -> ::windows::core::Result<IEnumCERTVIEWCOLUMN> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).EnumCertViewColumn)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(fresultcolumn), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IEnumCERTVIEWCOLUMN>(result__)
+        (::windows::core::Interface::vtable(self).EnumCertViewColumn)(::windows::core::Interface::as_raw(self), fresultcolumn, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IEnumCERTVIEWCOLUMN>(result__)
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn GetColumnCount(&self, fresultcolumn: CVRC_COLUMN, pccolumn: *mut i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetColumnCount)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(fresultcolumn), ::core::mem::transmute(pccolumn)).ok()
+        (::windows::core::Interface::vtable(self).GetColumnCount)(::windows::core::Interface::as_raw(self), fresultcolumn, ::core::mem::transmute(pccolumn)).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -13427,20 +13427,20 @@ impl ICertView {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::BSTR>>,
     {
-        (::windows::core::Interface::vtable(self).GetColumnIndex)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(fresultcolumn), strcolumnname.into().abi(), ::core::mem::transmute(pcolumnindex)).ok()
+        (::windows::core::Interface::vtable(self).GetColumnIndex)(::windows::core::Interface::as_raw(self), fresultcolumn, strcolumnname.into().abi(), ::core::mem::transmute(pcolumnindex)).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn SetResultColumnCount(&self, cresultcolumn: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetResultColumnCount)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(cresultcolumn)).ok()
+        (::windows::core::Interface::vtable(self).SetResultColumnCount)(::windows::core::Interface::as_raw(self), cresultcolumn).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn SetResultColumn(&self, columnindex: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetResultColumn)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(columnindex)).ok()
+        (::windows::core::Interface::vtable(self).SetResultColumn)(::windows::core::Interface::as_raw(self), columnindex).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn SetRestriction(&self, columnindex: CERT_VIEW_COLUMN_INDEX, seekoperator: CERT_VIEW_SEEK_OPERATOR_FLAGS, sortorder: i32, pvarvalue: *const super::super::super::System::Com::VARIANT) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetRestriction)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(columnindex), ::core::mem::transmute(seekoperator), ::core::mem::transmute(sortorder), ::core::mem::transmute(pvarvalue)).ok()
+        (::windows::core::Interface::vtable(self).SetRestriction)(::windows::core::Interface::as_raw(self), columnindex, seekoperator, sortorder, ::core::mem::transmute(pvarvalue)).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -13557,11 +13557,11 @@ impl ICertView2 {
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn EnumCertViewColumn(&self, fresultcolumn: CVRC_COLUMN) -> ::windows::core::Result<IEnumCERTVIEWCOLUMN> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.EnumCertViewColumn)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(fresultcolumn), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IEnumCERTVIEWCOLUMN>(result__)
+        (::windows::core::Interface::vtable(self).base__.EnumCertViewColumn)(::windows::core::Interface::as_raw(self), fresultcolumn, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IEnumCERTVIEWCOLUMN>(result__)
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn GetColumnCount(&self, fresultcolumn: CVRC_COLUMN, pccolumn: *mut i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.GetColumnCount)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(fresultcolumn), ::core::mem::transmute(pccolumn)).ok()
+        (::windows::core::Interface::vtable(self).base__.GetColumnCount)(::windows::core::Interface::as_raw(self), fresultcolumn, ::core::mem::transmute(pccolumn)).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -13569,20 +13569,20 @@ impl ICertView2 {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::BSTR>>,
     {
-        (::windows::core::Interface::vtable(self).base__.GetColumnIndex)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(fresultcolumn), strcolumnname.into().abi(), ::core::mem::transmute(pcolumnindex)).ok()
+        (::windows::core::Interface::vtable(self).base__.GetColumnIndex)(::windows::core::Interface::as_raw(self), fresultcolumn, strcolumnname.into().abi(), ::core::mem::transmute(pcolumnindex)).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn SetResultColumnCount(&self, cresultcolumn: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetResultColumnCount)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(cresultcolumn)).ok()
+        (::windows::core::Interface::vtable(self).base__.SetResultColumnCount)(::windows::core::Interface::as_raw(self), cresultcolumn).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn SetResultColumn(&self, columnindex: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetResultColumn)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(columnindex)).ok()
+        (::windows::core::Interface::vtable(self).base__.SetResultColumn)(::windows::core::Interface::as_raw(self), columnindex).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn SetRestriction(&self, columnindex: CERT_VIEW_COLUMN_INDEX, seekoperator: CERT_VIEW_SEEK_OPERATOR_FLAGS, sortorder: i32, pvarvalue: *const super::super::super::System::Com::VARIANT) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetRestriction)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(columnindex), ::core::mem::transmute(seekoperator), ::core::mem::transmute(sortorder), ::core::mem::transmute(pvarvalue)).ok()
+        (::windows::core::Interface::vtable(self).base__.SetRestriction)(::windows::core::Interface::as_raw(self), columnindex, seekoperator, sortorder, ::core::mem::transmute(pvarvalue)).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -13592,7 +13592,7 @@ impl ICertView2 {
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn SetTable(&self, table: CVRC_TABLE) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetTable)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(table)).ok()
+        (::windows::core::Interface::vtable(self).SetTable)(::windows::core::Interface::as_raw(self), table).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -13693,13 +13693,13 @@ impl ICertificateAttestationChallenge {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::BSTR>>,
     {
-        (::windows::core::Interface::vtable(self).Initialize)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(encoding), strpendingfullcmcresponsewithchallenge.into().abi()).ok()
+        (::windows::core::Interface::vtable(self).Initialize)(::windows::core::Interface::as_raw(self), encoding, strpendingfullcmcresponsewithchallenge.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn DecryptChallenge(&self, encoding: EncodingType) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>>::zeroed();
-        (::windows::core::Interface::vtable(self).DecryptChallenge)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(encoding), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).DecryptChallenge)(::windows::core::Interface::as_raw(self), encoding, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -13799,13 +13799,13 @@ impl ICertificateAttestationChallenge2 {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::BSTR>>,
     {
-        (::windows::core::Interface::vtable(self).base__.Initialize)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(encoding), strpendingfullcmcresponsewithchallenge.into().abi()).ok()
+        (::windows::core::Interface::vtable(self).base__.Initialize)(::windows::core::Interface::as_raw(self), encoding, strpendingfullcmcresponsewithchallenge.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn DecryptChallenge(&self, encoding: EncodingType) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.DecryptChallenge)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(encoding), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).base__.DecryptChallenge)(::windows::core::Interface::as_raw(self), encoding, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -13827,7 +13827,7 @@ impl ICertificateAttestationChallenge2 {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::BSTR>>,
     {
-        (::windows::core::Interface::vtable(self).put_KeyBlob)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(encoding), value.into().abi()).ok()
+        (::windows::core::Interface::vtable(self).put_KeyBlob)(::windows::core::Interface::as_raw(self), encoding, value.into().abi()).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -13933,7 +13933,7 @@ impl ICertificatePolicies {
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn get_ItemByIndex(&self, index: i32) -> ::windows::core::Result<ICertificatePolicy> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).get_ItemByIndex)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(index), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ICertificatePolicy>(result__)
+        (::windows::core::Interface::vtable(self).get_ItemByIndex)(::windows::core::Interface::as_raw(self), index, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ICertificatePolicy>(result__)
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn Count(&self) -> ::windows::core::Result<i32> {
@@ -13955,7 +13955,7 @@ impl ICertificatePolicies {
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn Remove(&self, index: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Remove)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(index)).ok()
+        (::windows::core::Interface::vtable(self).Remove)(::windows::core::Interface::as_raw(self), index).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn Clear(&self) -> ::windows::core::Result<()> {
@@ -14157,7 +14157,7 @@ impl ICertificationAuthorities {
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn get_ItemByIndex(&self, index: i32) -> ::windows::core::Result<ICertificationAuthority> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).get_ItemByIndex)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(index), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ICertificationAuthority>(result__)
+        (::windows::core::Interface::vtable(self).get_ItemByIndex)(::windows::core::Interface::as_raw(self), index, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ICertificationAuthority>(result__)
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn Count(&self) -> ::windows::core::Result<i32> {
@@ -14179,7 +14179,7 @@ impl ICertificationAuthorities {
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn Remove(&self, index: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Remove)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(index)).ok()
+        (::windows::core::Interface::vtable(self).Remove)(::windows::core::Interface::as_raw(self), index).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn Clear(&self) -> ::windows::core::Result<()> {
@@ -14293,7 +14293,7 @@ impl ICertificationAuthority {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn get_Property(&self, property: EnrollmentCAProperty) -> ::windows::core::Result<super::super::super::System::Com::VARIANT> {
         let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::System::Com::VARIANT>>::zeroed();
-        (::windows::core::Interface::vtable(self).get_Property)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(property), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::System::Com::VARIANT>(result__)
+        (::windows::core::Interface::vtable(self).get_Property)(::windows::core::Interface::as_raw(self), property, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::System::Com::VARIANT>(result__)
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -14495,7 +14495,7 @@ impl ICryptAttributes {
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn get_ItemByIndex(&self, index: i32) -> ::windows::core::Result<ICryptAttribute> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).get_ItemByIndex)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(index), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ICryptAttribute>(result__)
+        (::windows::core::Interface::vtable(self).get_ItemByIndex)(::windows::core::Interface::as_raw(self), index, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ICryptAttribute>(result__)
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn Count(&self) -> ::windows::core::Result<i32> {
@@ -14517,7 +14517,7 @@ impl ICryptAttributes {
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn Remove(&self, index: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Remove)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(index)).ok()
+        (::windows::core::Interface::vtable(self).Remove)(::windows::core::Interface::as_raw(self), index).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn Clear(&self) -> ::windows::core::Result<()> {
@@ -14638,7 +14638,7 @@ impl ICspAlgorithm {
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetAlgorithmOid(&self, length: i32, algflags: AlgorithmFlags) -> ::windows::core::Result<IObjectId> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).GetAlgorithmOid)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(length), ::core::mem::transmute(algflags), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IObjectId>(result__)
+        (::windows::core::Interface::vtable(self).GetAlgorithmOid)(::windows::core::Interface::as_raw(self), length, algflags, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IObjectId>(result__)
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn DefaultLength(&self) -> ::windows::core::Result<i32> {
@@ -14784,7 +14784,7 @@ impl ICspAlgorithms {
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn get_ItemByIndex(&self, index: i32) -> ::windows::core::Result<ICspAlgorithm> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).get_ItemByIndex)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(index), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ICspAlgorithm>(result__)
+        (::windows::core::Interface::vtable(self).get_ItemByIndex)(::windows::core::Interface::as_raw(self), index, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ICspAlgorithm>(result__)
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn Count(&self) -> ::windows::core::Result<i32> {
@@ -14806,7 +14806,7 @@ impl ICspAlgorithms {
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn Remove(&self, index: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Remove)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(index)).ok()
+        (::windows::core::Interface::vtable(self).Remove)(::windows::core::Interface::as_raw(self), index).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn Clear(&self) -> ::windows::core::Result<()> {
@@ -14938,7 +14938,7 @@ impl ICspInformation {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, IObjectId>>,
     {
-        (::windows::core::Interface::vtable(self).InitializeFromType)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(r#type), palgorithm.into().abi(), ::core::mem::transmute(machinecontext)).ok()
+        (::windows::core::Interface::vtable(self).InitializeFromType)(::windows::core::Interface::as_raw(self), r#type, palgorithm.into().abi(), machinecontext).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -15006,7 +15006,7 @@ impl ICspInformation {
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetDefaultSecurityDescriptor(&self, machinecontext: i16) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>>::zeroed();
-        (::windows::core::Interface::vtable(self).GetDefaultSecurityDescriptor)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(machinecontext), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).GetDefaultSecurityDescriptor)(::windows::core::Interface::as_raw(self), machinecontext, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn LegacyCsp(&self) -> ::windows::core::Result<i16> {
@@ -15020,7 +15020,7 @@ impl ICspInformation {
         P0: ::std::convert::Into<::windows::core::InParam<'a, IObjectId>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).GetCspStatusFromOperations)(::windows::core::Interface::as_raw(self), palgorithm.into().abi(), ::core::mem::transmute(operations), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ICspStatus>(result__)
+        (::windows::core::Interface::vtable(self).GetCspStatusFromOperations)(::windows::core::Interface::as_raw(self), palgorithm.into().abi(), operations, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ICspStatus>(result__)
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -15135,7 +15135,7 @@ impl ICspInformations {
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn get_ItemByIndex(&self, index: i32) -> ::windows::core::Result<ICspInformation> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).get_ItemByIndex)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(index), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ICspInformation>(result__)
+        (::windows::core::Interface::vtable(self).get_ItemByIndex)(::windows::core::Interface::as_raw(self), index, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ICspInformation>(result__)
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn Count(&self) -> ::windows::core::Result<i32> {
@@ -15157,7 +15157,7 @@ impl ICspInformations {
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn Remove(&self, index: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Remove)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(index)).ok()
+        (::windows::core::Interface::vtable(self).Remove)(::windows::core::Interface::as_raw(self), index).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn Clear(&self) -> ::windows::core::Result<()> {
@@ -15183,7 +15183,7 @@ impl ICspInformations {
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::BSTR>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).GetCspStatusFromProviderName)(::windows::core::Interface::as_raw(self), strprovidername.into().abi(), ::core::mem::transmute(legacykeyspec), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ICspStatus>(result__)
+        (::windows::core::Interface::vtable(self).GetCspStatusFromProviderName)(::windows::core::Interface::as_raw(self), strprovidername.into().abi(), legacykeyspec, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ICspStatus>(result__)
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -15192,7 +15192,7 @@ impl ICspInformations {
         P0: ::std::convert::Into<::windows::core::InParam<'a, ICspInformation>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).GetCspStatusesFromOperations)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(operations), pcspinformation.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ICspStatuses>(result__)
+        (::windows::core::Interface::vtable(self).GetCspStatusesFromOperations)(::windows::core::Interface::as_raw(self), operations, pcspinformation.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ICspStatuses>(result__)
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -15335,7 +15335,7 @@ impl ICspStatus {
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn SetOrdinal(&self, value: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetOrdinal)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(value)).ok()
+        (::windows::core::Interface::vtable(self).SetOrdinal)(::windows::core::Interface::as_raw(self), value).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -15461,7 +15461,7 @@ impl ICspStatuses {
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn get_ItemByIndex(&self, index: i32) -> ::windows::core::Result<ICspStatus> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).get_ItemByIndex)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(index), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ICspStatus>(result__)
+        (::windows::core::Interface::vtable(self).get_ItemByIndex)(::windows::core::Interface::as_raw(self), index, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ICspStatus>(result__)
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn Count(&self) -> ::windows::core::Result<i32> {
@@ -15483,7 +15483,7 @@ impl ICspStatuses {
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn Remove(&self, index: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Remove)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(index)).ok()
+        (::windows::core::Interface::vtable(self).Remove)(::windows::core::Interface::as_raw(self), index).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn Clear(&self) -> ::windows::core::Result<()> {
@@ -15503,7 +15503,7 @@ impl ICspStatuses {
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn get_ItemByOrdinal(&self, ordinal: i32) -> ::windows::core::Result<ICspStatus> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).get_ItemByOrdinal)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(ordinal), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ICspStatus>(result__)
+        (::windows::core::Interface::vtable(self).get_ItemByOrdinal)(::windows::core::Interface::as_raw(self), ordinal, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ICspStatus>(result__)
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
@@ -15513,7 +15513,7 @@ impl ICspStatuses {
         P1: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::BSTR>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).get_ItemByOperations)(::windows::core::Interface::as_raw(self), strcspname.into().abi(), stralgorithmname.into().abi(), ::core::mem::transmute(operations), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ICspStatus>(result__)
+        (::windows::core::Interface::vtable(self).get_ItemByOperations)(::windows::core::Interface::as_raw(self), strcspname.into().abi(), stralgorithmname.into().abi(), operations, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ICspStatus>(result__)
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -15671,11 +15671,11 @@ impl IEnroll {
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn enumProvidersWStr(&self, dwindex: i32, dwflags: i32, pbstrprovname: *mut ::windows::core::PWSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).enumProvidersWStr)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(dwindex), ::core::mem::transmute(dwflags), ::core::mem::transmute(pbstrprovname)).ok()
+        (::windows::core::Interface::vtable(self).enumProvidersWStr)(::windows::core::Interface::as_raw(self), dwindex, dwflags, ::core::mem::transmute(pbstrprovname)).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn enumContainersWStr(&self, dwindex: i32, pbstr: *mut ::windows::core::PWSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).enumContainersWStr)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(dwindex), ::core::mem::transmute(pbstr)).ok()
+        (::windows::core::Interface::vtable(self).enumContainersWStr)(::windows::core::Interface::as_raw(self), dwindex, ::core::mem::transmute(pbstr)).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn freeRequestInfoBlob(&self, pkcs7orpkcs10: super::CRYPTOAPI_BLOB) -> ::windows::core::Result<()> {
@@ -15709,7 +15709,7 @@ impl IEnroll {
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn SetMyStoreFlags(&self, dwflags: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetMyStoreFlags)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(dwflags)).ok()
+        (::windows::core::Interface::vtable(self).SetMyStoreFlags)(::windows::core::Interface::as_raw(self), dwflags).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn CAStoreNameWStr(&self, szwname: *mut ::windows::core::PWSTR) -> ::windows::core::Result<()> {
@@ -15739,7 +15739,7 @@ impl IEnroll {
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn SetCAStoreFlags(&self, dwflags: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetCAStoreFlags)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(dwflags)).ok()
+        (::windows::core::Interface::vtable(self).SetCAStoreFlags)(::windows::core::Interface::as_raw(self), dwflags).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn RootStoreNameWStr(&self, szwname: *mut ::windows::core::PWSTR) -> ::windows::core::Result<()> {
@@ -15769,7 +15769,7 @@ impl IEnroll {
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn SetRootStoreFlags(&self, dwflags: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetRootStoreFlags)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(dwflags)).ok()
+        (::windows::core::Interface::vtable(self).SetRootStoreFlags)(::windows::core::Interface::as_raw(self), dwflags).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn RequestStoreNameWStr(&self, szwname: *mut ::windows::core::PWSTR) -> ::windows::core::Result<()> {
@@ -15799,7 +15799,7 @@ impl IEnroll {
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn SetRequestStoreFlags(&self, dwflags: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetRequestStoreFlags)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(dwflags)).ok()
+        (::windows::core::Interface::vtable(self).SetRequestStoreFlags)(::windows::core::Interface::as_raw(self), dwflags).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn ContainerNameWStr(&self, szwcontainer: *mut ::windows::core::PWSTR) -> ::windows::core::Result<()> {
@@ -15829,7 +15829,7 @@ impl IEnroll {
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn SetProviderType(&self, dwtype: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetProviderType)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(dwtype)).ok()
+        (::windows::core::Interface::vtable(self).SetProviderType)(::windows::core::Interface::as_raw(self), dwtype).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn KeySpec(&self, pdw: *mut i32) -> ::windows::core::Result<()> {
@@ -15837,7 +15837,7 @@ impl IEnroll {
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn SetKeySpec(&self, dw: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetKeySpec)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(dw)).ok()
+        (::windows::core::Interface::vtable(self).SetKeySpec)(::windows::core::Interface::as_raw(self), dw).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn ProviderFlags(&self, pdwflags: *mut i32) -> ::windows::core::Result<()> {
@@ -15845,7 +15845,7 @@ impl IEnroll {
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn SetProviderFlags(&self, dwflags: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetProviderFlags)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(dwflags)).ok()
+        (::windows::core::Interface::vtable(self).SetProviderFlags)(::windows::core::Interface::as_raw(self), dwflags).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -15866,7 +15866,7 @@ impl IEnroll {
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn SetGenKeyFlags(&self, dwflags: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetGenKeyFlags)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(dwflags)).ok()
+        (::windows::core::Interface::vtable(self).SetGenKeyFlags)(::windows::core::Interface::as_raw(self), dwflags).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -16199,11 +16199,11 @@ impl IEnroll2 {
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn enumProvidersWStr(&self, dwindex: i32, dwflags: i32, pbstrprovname: *mut ::windows::core::PWSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.enumProvidersWStr)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(dwindex), ::core::mem::transmute(dwflags), ::core::mem::transmute(pbstrprovname)).ok()
+        (::windows::core::Interface::vtable(self).base__.enumProvidersWStr)(::windows::core::Interface::as_raw(self), dwindex, dwflags, ::core::mem::transmute(pbstrprovname)).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn enumContainersWStr(&self, dwindex: i32, pbstr: *mut ::windows::core::PWSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.enumContainersWStr)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(dwindex), ::core::mem::transmute(pbstr)).ok()
+        (::windows::core::Interface::vtable(self).base__.enumContainersWStr)(::windows::core::Interface::as_raw(self), dwindex, ::core::mem::transmute(pbstr)).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn freeRequestInfoBlob(&self, pkcs7orpkcs10: super::CRYPTOAPI_BLOB) -> ::windows::core::Result<()> {
@@ -16237,7 +16237,7 @@ impl IEnroll2 {
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn SetMyStoreFlags(&self, dwflags: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetMyStoreFlags)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(dwflags)).ok()
+        (::windows::core::Interface::vtable(self).base__.SetMyStoreFlags)(::windows::core::Interface::as_raw(self), dwflags).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn CAStoreNameWStr(&self, szwname: *mut ::windows::core::PWSTR) -> ::windows::core::Result<()> {
@@ -16267,7 +16267,7 @@ impl IEnroll2 {
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn SetCAStoreFlags(&self, dwflags: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetCAStoreFlags)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(dwflags)).ok()
+        (::windows::core::Interface::vtable(self).base__.SetCAStoreFlags)(::windows::core::Interface::as_raw(self), dwflags).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn RootStoreNameWStr(&self, szwname: *mut ::windows::core::PWSTR) -> ::windows::core::Result<()> {
@@ -16297,7 +16297,7 @@ impl IEnroll2 {
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn SetRootStoreFlags(&self, dwflags: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetRootStoreFlags)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(dwflags)).ok()
+        (::windows::core::Interface::vtable(self).base__.SetRootStoreFlags)(::windows::core::Interface::as_raw(self), dwflags).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn RequestStoreNameWStr(&self, szwname: *mut ::windows::core::PWSTR) -> ::windows::core::Result<()> {
@@ -16327,7 +16327,7 @@ impl IEnroll2 {
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn SetRequestStoreFlags(&self, dwflags: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetRequestStoreFlags)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(dwflags)).ok()
+        (::windows::core::Interface::vtable(self).base__.SetRequestStoreFlags)(::windows::core::Interface::as_raw(self), dwflags).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn ContainerNameWStr(&self, szwcontainer: *mut ::windows::core::PWSTR) -> ::windows::core::Result<()> {
@@ -16357,7 +16357,7 @@ impl IEnroll2 {
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn SetProviderType(&self, dwtype: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetProviderType)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(dwtype)).ok()
+        (::windows::core::Interface::vtable(self).base__.SetProviderType)(::windows::core::Interface::as_raw(self), dwtype).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn KeySpec(&self, pdw: *mut i32) -> ::windows::core::Result<()> {
@@ -16365,7 +16365,7 @@ impl IEnroll2 {
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn SetKeySpec(&self, dw: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetKeySpec)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(dw)).ok()
+        (::windows::core::Interface::vtable(self).base__.SetKeySpec)(::windows::core::Interface::as_raw(self), dw).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn ProviderFlags(&self, pdwflags: *mut i32) -> ::windows::core::Result<()> {
@@ -16373,7 +16373,7 @@ impl IEnroll2 {
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn SetProviderFlags(&self, dwflags: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetProviderFlags)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(dwflags)).ok()
+        (::windows::core::Interface::vtable(self).base__.SetProviderFlags)(::windows::core::Interface::as_raw(self), dwflags).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -16394,7 +16394,7 @@ impl IEnroll2 {
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn SetGenKeyFlags(&self, dwflags: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetGenKeyFlags)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(dwflags)).ok()
+        (::windows::core::Interface::vtable(self).base__.SetGenKeyFlags)(::windows::core::Interface::as_raw(self), dwflags).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -16543,11 +16543,11 @@ impl IEnroll2 {
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn EnumAlgs(&self, dwindex: i32, algclass: i32, pdwalgid: *mut i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).EnumAlgs)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(dwindex), ::core::mem::transmute(algclass), ::core::mem::transmute(pdwalgid)).ok()
+        (::windows::core::Interface::vtable(self).EnumAlgs)(::windows::core::Interface::as_raw(self), dwindex, algclass, ::core::mem::transmute(pdwalgid)).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn GetAlgNameWStr(&self, algid: i32, ppwsz: *mut ::windows::core::PWSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetAlgNameWStr)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(algid), ::core::mem::transmute(ppwsz)).ok()
+        (::windows::core::Interface::vtable(self).GetAlgNameWStr)(::windows::core::Interface::as_raw(self), algid, ::core::mem::transmute(ppwsz)).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -16564,7 +16564,7 @@ impl IEnroll2 {
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn SetHashAlgID(&self, hashalgid: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetHashAlgID)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(hashalgid)).ok()
+        (::windows::core::Interface::vtable(self).SetHashAlgID)(::windows::core::Interface::as_raw(self), hashalgid).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn HashAlgID(&self, hashalgid: *mut i32) -> ::windows::core::Result<()> {
@@ -16770,11 +16770,11 @@ impl IEnroll4 {
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn enumProvidersWStr(&self, dwindex: i32, dwflags: i32, pbstrprovname: *mut ::windows::core::PWSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.enumProvidersWStr)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(dwindex), ::core::mem::transmute(dwflags), ::core::mem::transmute(pbstrprovname)).ok()
+        (::windows::core::Interface::vtable(self).base__.base__.enumProvidersWStr)(::windows::core::Interface::as_raw(self), dwindex, dwflags, ::core::mem::transmute(pbstrprovname)).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn enumContainersWStr(&self, dwindex: i32, pbstr: *mut ::windows::core::PWSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.enumContainersWStr)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(dwindex), ::core::mem::transmute(pbstr)).ok()
+        (::windows::core::Interface::vtable(self).base__.base__.enumContainersWStr)(::windows::core::Interface::as_raw(self), dwindex, ::core::mem::transmute(pbstr)).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn freeRequestInfoBlob(&self, pkcs7orpkcs10: super::CRYPTOAPI_BLOB) -> ::windows::core::Result<()> {
@@ -16808,7 +16808,7 @@ impl IEnroll4 {
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn SetMyStoreFlags(&self, dwflags: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.SetMyStoreFlags)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(dwflags)).ok()
+        (::windows::core::Interface::vtable(self).base__.base__.SetMyStoreFlags)(::windows::core::Interface::as_raw(self), dwflags).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn CAStoreNameWStr(&self, szwname: *mut ::windows::core::PWSTR) -> ::windows::core::Result<()> {
@@ -16838,7 +16838,7 @@ impl IEnroll4 {
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn SetCAStoreFlags(&self, dwflags: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.SetCAStoreFlags)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(dwflags)).ok()
+        (::windows::core::Interface::vtable(self).base__.base__.SetCAStoreFlags)(::windows::core::Interface::as_raw(self), dwflags).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn RootStoreNameWStr(&self, szwname: *mut ::windows::core::PWSTR) -> ::windows::core::Result<()> {
@@ -16868,7 +16868,7 @@ impl IEnroll4 {
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn SetRootStoreFlags(&self, dwflags: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.SetRootStoreFlags)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(dwflags)).ok()
+        (::windows::core::Interface::vtable(self).base__.base__.SetRootStoreFlags)(::windows::core::Interface::as_raw(self), dwflags).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn RequestStoreNameWStr(&self, szwname: *mut ::windows::core::PWSTR) -> ::windows::core::Result<()> {
@@ -16898,7 +16898,7 @@ impl IEnroll4 {
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn SetRequestStoreFlags(&self, dwflags: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.SetRequestStoreFlags)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(dwflags)).ok()
+        (::windows::core::Interface::vtable(self).base__.base__.SetRequestStoreFlags)(::windows::core::Interface::as_raw(self), dwflags).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn ContainerNameWStr(&self, szwcontainer: *mut ::windows::core::PWSTR) -> ::windows::core::Result<()> {
@@ -16928,7 +16928,7 @@ impl IEnroll4 {
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn SetProviderType(&self, dwtype: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.SetProviderType)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(dwtype)).ok()
+        (::windows::core::Interface::vtable(self).base__.base__.SetProviderType)(::windows::core::Interface::as_raw(self), dwtype).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn KeySpec(&self, pdw: *mut i32) -> ::windows::core::Result<()> {
@@ -16936,7 +16936,7 @@ impl IEnroll4 {
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn SetKeySpec(&self, dw: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.SetKeySpec)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(dw)).ok()
+        (::windows::core::Interface::vtable(self).base__.base__.SetKeySpec)(::windows::core::Interface::as_raw(self), dw).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn ProviderFlags(&self, pdwflags: *mut i32) -> ::windows::core::Result<()> {
@@ -16944,7 +16944,7 @@ impl IEnroll4 {
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn SetProviderFlags(&self, dwflags: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.SetProviderFlags)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(dwflags)).ok()
+        (::windows::core::Interface::vtable(self).base__.base__.SetProviderFlags)(::windows::core::Interface::as_raw(self), dwflags).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -16965,7 +16965,7 @@ impl IEnroll4 {
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn SetGenKeyFlags(&self, dwflags: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.SetGenKeyFlags)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(dwflags)).ok()
+        (::windows::core::Interface::vtable(self).base__.base__.SetGenKeyFlags)(::windows::core::Interface::as_raw(self), dwflags).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -17114,11 +17114,11 @@ impl IEnroll4 {
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn EnumAlgs(&self, dwindex: i32, algclass: i32, pdwalgid: *mut i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.EnumAlgs)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(dwindex), ::core::mem::transmute(algclass), ::core::mem::transmute(pdwalgid)).ok()
+        (::windows::core::Interface::vtable(self).base__.EnumAlgs)(::windows::core::Interface::as_raw(self), dwindex, algclass, ::core::mem::transmute(pdwalgid)).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn GetAlgNameWStr(&self, algid: i32, ppwsz: *mut ::windows::core::PWSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.GetAlgNameWStr)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(algid), ::core::mem::transmute(ppwsz)).ok()
+        (::windows::core::Interface::vtable(self).base__.GetAlgNameWStr)(::windows::core::Interface::as_raw(self), algid, ::core::mem::transmute(ppwsz)).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -17135,7 +17135,7 @@ impl IEnroll4 {
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn SetHashAlgID(&self, hashalgid: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetHashAlgID)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(hashalgid)).ok()
+        (::windows::core::Interface::vtable(self).base__.SetHashAlgID)(::windows::core::Interface::as_raw(self), hashalgid).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn HashAlgID(&self, hashalgid: *mut i32) -> ::windows::core::Result<()> {
@@ -17215,28 +17215,28 @@ impl IEnroll4 {
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn binaryBlobToString(&self, flags: i32, pblobbinary: *mut super::CRYPTOAPI_BLOB, ppwszstring: *mut ::windows::core::PWSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).binaryBlobToString)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(flags), ::core::mem::transmute(pblobbinary), ::core::mem::transmute(ppwszstring)).ok()
+        (::windows::core::Interface::vtable(self).binaryBlobToString)(::windows::core::Interface::as_raw(self), flags, ::core::mem::transmute(pblobbinary), ::core::mem::transmute(ppwszstring)).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn stringToBinaryBlob<'a, P0>(&self, flags: i32, pwszstring: P0, pblobbinary: *mut super::CRYPTOAPI_BLOB, pdwskip: *mut i32, pdwflags: *mut i32) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
-        (::windows::core::Interface::vtable(self).stringToBinaryBlob)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(flags), pwszstring.into(), ::core::mem::transmute(pblobbinary), ::core::mem::transmute(pdwskip), ::core::mem::transmute(pdwflags)).ok()
+        (::windows::core::Interface::vtable(self).stringToBinaryBlob)(::windows::core::Interface::as_raw(self), flags, pwszstring.into(), ::core::mem::transmute(pblobbinary), ::core::mem::transmute(pdwskip), ::core::mem::transmute(pdwflags)).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn addExtensionToRequestWStr<'a, P0>(&self, flags: i32, pwszname: P0, pblobvalue: *mut super::CRYPTOAPI_BLOB) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
-        (::windows::core::Interface::vtable(self).addExtensionToRequestWStr)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(flags), pwszname.into(), ::core::mem::transmute(pblobvalue)).ok()
+        (::windows::core::Interface::vtable(self).addExtensionToRequestWStr)(::windows::core::Interface::as_raw(self), flags, pwszname.into(), ::core::mem::transmute(pblobvalue)).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn addAttributeToRequestWStr<'a, P0>(&self, flags: i32, pwszname: P0, pblobvalue: *mut super::CRYPTOAPI_BLOB) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
-        (::windows::core::Interface::vtable(self).addAttributeToRequestWStr)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(flags), pwszname.into(), ::core::mem::transmute(pblobvalue)).ok()
+        (::windows::core::Interface::vtable(self).addAttributeToRequestWStr)(::windows::core::Interface::as_raw(self), flags, pwszname.into(), ::core::mem::transmute(pblobvalue)).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn addNameValuePairToRequestWStr<'a, P0, P1>(&self, flags: i32, pwszname: P0, pwszvalue: P1) -> ::windows::core::Result<()>
@@ -17244,7 +17244,7 @@ impl IEnroll4 {
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
         P1: ::std::convert::Into<::windows::core::PCWSTR>,
     {
-        (::windows::core::Interface::vtable(self).addNameValuePairToRequestWStr)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(flags), pwszname.into(), pwszvalue.into()).ok()
+        (::windows::core::Interface::vtable(self).addNameValuePairToRequestWStr)(::windows::core::Interface::as_raw(self), flags, pwszname.into(), pwszvalue.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn resetExtensions(&self) -> ::windows::core::Result<()> {
@@ -17260,7 +17260,7 @@ impl IEnroll4 {
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
         P1: ::std::convert::Into<::windows::core::PCWSTR>,
     {
-        (::windows::core::Interface::vtable(self).createRequestWStr)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(flags), pwszdnname.into(), pwszusage.into(), ::core::mem::transmute(pblobrequest)).ok()
+        (::windows::core::Interface::vtable(self).createRequestWStr)(::windows::core::Interface::as_raw(self), flags, pwszdnname.into(), pwszusage.into(), ::core::mem::transmute(pblobrequest)).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn createFileRequestWStr<'a, P0, P1, P2>(&self, flags: CERT_CREATE_REQUEST_FLAGS, pwszdnname: P0, pwszusage: P1, pwszrequestfilename: P2) -> ::windows::core::Result<()>
@@ -17269,7 +17269,7 @@ impl IEnroll4 {
         P1: ::std::convert::Into<::windows::core::PCWSTR>,
         P2: ::std::convert::Into<::windows::core::PCWSTR>,
     {
-        (::windows::core::Interface::vtable(self).createFileRequestWStr)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(flags), pwszdnname.into(), pwszusage.into(), pwszrequestfilename.into()).ok()
+        (::windows::core::Interface::vtable(self).createFileRequestWStr)(::windows::core::Interface::as_raw(self), flags, pwszdnname.into(), pwszusage.into(), pwszrequestfilename.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn acceptResponseBlob(&self, pblobresponse: *mut super::CRYPTOAPI_BLOB) -> ::windows::core::Result<()> {
@@ -17317,11 +17317,11 @@ impl IEnroll4 {
         P1: ::std::convert::Into<::windows::core::PCWSTR>,
         P2: ::std::convert::Into<::windows::core::PCWSTR>,
     {
-        (::windows::core::Interface::vtable(self).setPendingRequestInfoWStr)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lrequestid), pwszcadns.into(), pwszcaname.into(), pwszfriendlyname.into()).ok()
+        (::windows::core::Interface::vtable(self).setPendingRequestInfoWStr)(::windows::core::Interface::as_raw(self), lrequestid, pwszcadns.into(), pwszcaname.into(), pwszfriendlyname.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn enumPendingRequestWStr(&self, lindex: i32, ldesiredproperty: PENDING_REQUEST_DESIRED_PROPERTY, ppproperty: *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).enumPendingRequestWStr)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lindex), ::core::mem::transmute(ldesiredproperty), ::core::mem::transmute(ppproperty)).ok()
+        (::windows::core::Interface::vtable(self).enumPendingRequestWStr)(::windows::core::Interface::as_raw(self), lindex, ldesiredproperty, ::core::mem::transmute(ppproperty)).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn removePendingRequestWStr(&self, thumbprintblob: super::CRYPTOAPI_BLOB) -> ::windows::core::Result<()> {
@@ -17329,7 +17329,7 @@ impl IEnroll4 {
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn GetKeyLenEx(&self, lsizespec: XEKL_KEYSIZE, lkeyspec: XEKL_KEYSPEC, pdwkeysize: *mut i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetKeyLenEx)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lsizespec), ::core::mem::transmute(lkeyspec), ::core::mem::transmute(pdwkeysize)).ok()
+        (::windows::core::Interface::vtable(self).GetKeyLenEx)(::windows::core::Interface::as_raw(self), lsizespec, lkeyspec, ::core::mem::transmute(pdwkeysize)).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn InstallPKCS7BlobEx(&self, pblobpkcs7: *mut super::CRYPTOAPI_BLOB, plcertinstalled: *mut i32) -> ::windows::core::Result<()> {
@@ -17342,7 +17342,7 @@ impl IEnroll4 {
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
         P1: ::std::convert::Into<super::super::super::Foundation::BOOL>,
     {
-        (::windows::core::Interface::vtable(self).AddCertTypeToRequestWStrEx)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(ltype), pwszoidorname.into(), ::core::mem::transmute(lmajorversion), fminorversion.into(), ::core::mem::transmute(lminorversion)).ok()
+        (::windows::core::Interface::vtable(self).AddCertTypeToRequestWStrEx)(::windows::core::Interface::as_raw(self), ltype, pwszoidorname.into(), lmajorversion, fminorversion.into(), lminorversion).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn getProviderTypeWStr<'a, P0>(&self, pwszprovname: P0, plprovtype: *mut i32) -> ::windows::core::Result<()>
@@ -17353,7 +17353,7 @@ impl IEnroll4 {
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn addBlobPropertyToCertificateWStr(&self, lpropertyid: i32, lreserved: i32, pblobproperty: *mut super::CRYPTOAPI_BLOB) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).addBlobPropertyToCertificateWStr)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lpropertyid), ::core::mem::transmute(lreserved), ::core::mem::transmute(pblobproperty)).ok()
+        (::windows::core::Interface::vtable(self).addBlobPropertyToCertificateWStr)(::windows::core::Interface::as_raw(self), lpropertyid, lreserved, ::core::mem::transmute(pblobproperty)).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -17362,7 +17362,7 @@ impl IEnroll4 {
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn SetClientId(&self, lclientid: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetClientId)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lclientid)).ok()
+        (::windows::core::Interface::vtable(self).SetClientId)(::windows::core::Interface::as_raw(self), lclientid).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn ClientId(&self, plclientid: *mut i32) -> ::windows::core::Result<()> {
@@ -17530,7 +17530,7 @@ impl IEnumCERTVIEWATTRIBUTE {
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn Skip(&self, celt: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Skip)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(celt)).ok()
+        (::windows::core::Interface::vtable(self).Skip)(::windows::core::Interface::as_raw(self), celt).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn Reset(&self) -> ::windows::core::Result<()> {
@@ -17660,11 +17660,11 @@ impl IEnumCERTVIEWCOLUMN {
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn GetValue(&self, flags: ENUM_CERT_COLUMN_VALUE_FLAGS, pvarvalue: *mut super::super::super::System::Com::VARIANT) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetValue)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(flags), ::core::mem::transmute(pvarvalue)).ok()
+        (::windows::core::Interface::vtable(self).GetValue)(::windows::core::Interface::as_raw(self), flags, ::core::mem::transmute(pvarvalue)).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn Skip(&self, celt: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Skip)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(celt)).ok()
+        (::windows::core::Interface::vtable(self).Skip)(::windows::core::Interface::as_raw(self), celt).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn Reset(&self) -> ::windows::core::Result<()> {
@@ -17788,11 +17788,11 @@ impl IEnumCERTVIEWEXTENSION {
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn GetValue(&self, r#type: CERT_PROPERTY_TYPE, flags: ENUM_CERT_COLUMN_VALUE_FLAGS, pvarvalue: *mut super::super::super::System::Com::VARIANT) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetValue)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(r#type), ::core::mem::transmute(flags), ::core::mem::transmute(pvarvalue)).ok()
+        (::windows::core::Interface::vtable(self).GetValue)(::windows::core::Interface::as_raw(self), r#type, flags, ::core::mem::transmute(pvarvalue)).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn Skip(&self, celt: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Skip)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(celt)).ok()
+        (::windows::core::Interface::vtable(self).Skip)(::windows::core::Interface::as_raw(self), celt).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn Reset(&self) -> ::windows::core::Result<()> {
@@ -17908,17 +17908,17 @@ impl IEnumCERTVIEWROW {
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn EnumCertViewAttribute(&self, flags: i32) -> ::windows::core::Result<IEnumCERTVIEWATTRIBUTE> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).EnumCertViewAttribute)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(flags), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IEnumCERTVIEWATTRIBUTE>(result__)
+        (::windows::core::Interface::vtable(self).EnumCertViewAttribute)(::windows::core::Interface::as_raw(self), flags, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IEnumCERTVIEWATTRIBUTE>(result__)
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn EnumCertViewExtension(&self, flags: i32) -> ::windows::core::Result<IEnumCERTVIEWEXTENSION> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).EnumCertViewExtension)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(flags), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IEnumCERTVIEWEXTENSION>(result__)
+        (::windows::core::Interface::vtable(self).EnumCertViewExtension)(::windows::core::Interface::as_raw(self), flags, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IEnumCERTVIEWEXTENSION>(result__)
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn Skip(&self, celt: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Skip)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(celt)).ok()
+        (::windows::core::Interface::vtable(self).Skip)(::windows::core::Interface::as_raw(self), celt).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn Reset(&self) -> ::windows::core::Result<()> {
@@ -18086,7 +18086,7 @@ impl INDESPolicy {
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
         P1: ::std::convert::Into<::windows::core::PCWSTR>,
     {
-        (::windows::core::Interface::vtable(self).Notify)(::windows::core::Interface::as_raw(self), pwszchallenge.into(), pwsztransactionid.into(), ::core::mem::transmute(disposition), ::core::mem::transmute(lasthresult), ::core::mem::transmute(pctbissuedcertencoded)).ok()
+        (::windows::core::Interface::vtable(self).Notify)(::windows::core::Interface::as_raw(self), pwszchallenge.into(), pwsztransactionid.into(), disposition, lasthresult, ::core::mem::transmute(pctbissuedcertencoded)).ok()
     }
 }
 impl ::core::convert::From<INDESPolicy> for ::windows::core::IUnknown {
@@ -18161,7 +18161,7 @@ impl IOCSPAdmin {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::BSTR>>,
     {
-        (::windows::core::Interface::vtable(self).GetConfiguration)(::windows::core::Interface::as_raw(self), bstrservername.into().abi(), ::core::mem::transmute(bforce)).ok()
+        (::windows::core::Interface::vtable(self).GetConfiguration)(::windows::core::Interface::as_raw(self), bstrservername.into().abi(), bforce).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -18169,7 +18169,7 @@ impl IOCSPAdmin {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::BSTR>>,
     {
-        (::windows::core::Interface::vtable(self).SetConfiguration)(::windows::core::Interface::as_raw(self), bstrservername.into().abi(), ::core::mem::transmute(bforce)).ok()
+        (::windows::core::Interface::vtable(self).SetConfiguration)(::windows::core::Interface::as_raw(self), bstrservername.into().abi(), bforce).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -18372,7 +18372,7 @@ impl IOCSPCAConfiguration {
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn SetSigningFlags(&self, newval: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetSigningFlags)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(newval)).ok()
+        (::windows::core::Interface::vtable(self).SetSigningFlags)(::windows::core::Interface::as_raw(self), newval).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -18395,7 +18395,7 @@ impl IOCSPCAConfiguration {
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn SetReminderDuration(&self, newval: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetReminderDuration)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(newval)).ok()
+        (::windows::core::Interface::vtable(self).SetReminderDuration)(::windows::core::Interface::as_raw(self), newval).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn ErrorCode(&self) -> ::windows::core::Result<u32> {
@@ -18646,7 +18646,7 @@ impl IOCSPCAConfigurationCollection {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn get_Item(&self, index: i32) -> ::windows::core::Result<super::super::super::System::Com::VARIANT> {
         let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::System::Com::VARIANT>>::zeroed();
-        (::windows::core::Interface::vtable(self).get_Item)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(index), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::System::Com::VARIANT>(result__)
+        (::windows::core::Interface::vtable(self).get_Item)(::windows::core::Interface::as_raw(self), index, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::System::Com::VARIANT>(result__)
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn Count(&self) -> ::windows::core::Result<i32> {
@@ -18893,7 +18893,7 @@ impl IOCSPPropertyCollection {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn get_Item(&self, index: i32) -> ::windows::core::Result<super::super::super::System::Com::VARIANT> {
         let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::System::Com::VARIANT>>::zeroed();
-        (::windows::core::Interface::vtable(self).get_Item)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(index), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::System::Com::VARIANT>(result__)
+        (::windows::core::Interface::vtable(self).get_Item)(::windows::core::Interface::as_raw(self), index, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::System::Com::VARIANT>(result__)
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn Count(&self) -> ::windows::core::Result<i32> {
@@ -19039,7 +19039,7 @@ pub struct IObjectId(::windows::core::IUnknown);
 impl IObjectId {
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn InitializeFromName(&self, name: CERTENROLL_OBJECTID) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).InitializeFromName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(name)).ok()
+        (::windows::core::Interface::vtable(self).InitializeFromName)(::windows::core::Interface::as_raw(self), name).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -19055,7 +19055,7 @@ impl IObjectId {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::BSTR>>,
     {
-        (::windows::core::Interface::vtable(self).InitializeFromAlgorithmName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(groupid), ::core::mem::transmute(keyflags), ::core::mem::transmute(algflags), stralgorithmname.into().abi()).ok()
+        (::windows::core::Interface::vtable(self).InitializeFromAlgorithmName)(::windows::core::Interface::as_raw(self), groupid, keyflags, algflags, stralgorithmname.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn Name(&self) -> ::windows::core::Result<CERTENROLL_OBJECTID> {
@@ -19086,7 +19086,7 @@ impl IObjectId {
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetAlgorithmName(&self, groupid: ObjectIdGroupId, keyflags: ObjectIdPublicKeyFlags) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>>::zeroed();
-        (::windows::core::Interface::vtable(self).GetAlgorithmName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(groupid), ::core::mem::transmute(keyflags), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).GetAlgorithmName)(::windows::core::Interface::as_raw(self), groupid, keyflags, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -19192,7 +19192,7 @@ impl IObjectIds {
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn get_ItemByIndex(&self, index: i32) -> ::windows::core::Result<IObjectId> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).get_ItemByIndex)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(index), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IObjectId>(result__)
+        (::windows::core::Interface::vtable(self).get_ItemByIndex)(::windows::core::Interface::as_raw(self), index, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IObjectId>(result__)
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn Count(&self) -> ::windows::core::Result<i32> {
@@ -19214,7 +19214,7 @@ impl IObjectIds {
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn Remove(&self, index: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Remove)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(index)).ok()
+        (::windows::core::Interface::vtable(self).Remove)(::windows::core::Interface::as_raw(self), index).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn Clear(&self) -> ::windows::core::Result<()> {
@@ -19324,7 +19324,7 @@ impl IPolicyQualifier {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::BSTR>>,
     {
-        (::windows::core::Interface::vtable(self).InitializeEncode)(::windows::core::Interface::as_raw(self), strqualifier.into().abi(), ::core::mem::transmute(r#type)).ok()
+        (::windows::core::Interface::vtable(self).InitializeEncode)(::windows::core::Interface::as_raw(self), strqualifier.into().abi(), r#type).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -19347,7 +19347,7 @@ impl IPolicyQualifier {
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn get_RawData(&self, encoding: EncodingType) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>>::zeroed();
-        (::windows::core::Interface::vtable(self).get_RawData)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(encoding), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).get_RawData)(::windows::core::Interface::as_raw(self), encoding, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -19444,7 +19444,7 @@ impl IPolicyQualifiers {
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn get_ItemByIndex(&self, index: i32) -> ::windows::core::Result<IPolicyQualifier> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).get_ItemByIndex)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(index), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IPolicyQualifier>(result__)
+        (::windows::core::Interface::vtable(self).get_ItemByIndex)(::windows::core::Interface::as_raw(self), index, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IPolicyQualifier>(result__)
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn Count(&self) -> ::windows::core::Result<i32> {
@@ -19466,7 +19466,7 @@ impl IPolicyQualifiers {
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn Remove(&self, index: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Remove)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(index)).ok()
+        (::windows::core::Interface::vtable(self).Remove)(::windows::core::Interface::as_raw(self), index).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn Clear(&self) -> ::windows::core::Result<()> {
@@ -19580,13 +19580,13 @@ impl ISignerCertificate {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::BSTR>>,
     {
-        (::windows::core::Interface::vtable(self).Initialize)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(machinecontext), ::core::mem::transmute(verifytype), ::core::mem::transmute(encoding), strcertificate.into().abi()).ok()
+        (::windows::core::Interface::vtable(self).Initialize)(::windows::core::Interface::as_raw(self), machinecontext, verifytype, encoding, strcertificate.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn get_Certificate(&self, encoding: EncodingType) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>>::zeroed();
-        (::windows::core::Interface::vtable(self).get_Certificate)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(encoding), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).get_Certificate)(::windows::core::Interface::as_raw(self), encoding, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -19601,7 +19601,7 @@ impl ISignerCertificate {
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn SetSilent(&self, value: i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetSilent)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(value)).ok()
+        (::windows::core::Interface::vtable(self).SetSilent)(::windows::core::Interface::as_raw(self), value).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn ParentWindow(&self) -> ::windows::core::Result<i32> {
@@ -19610,7 +19610,7 @@ impl ISignerCertificate {
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn SetParentWindow(&self, value: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetParentWindow)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(value)).ok()
+        (::windows::core::Interface::vtable(self).SetParentWindow)(::windows::core::Interface::as_raw(self), value).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -19750,7 +19750,7 @@ impl ISignerCertificates {
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn get_ItemByIndex(&self, index: i32) -> ::windows::core::Result<ISignerCertificate> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).get_ItemByIndex)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(index), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ISignerCertificate>(result__)
+        (::windows::core::Interface::vtable(self).get_ItemByIndex)(::windows::core::Interface::as_raw(self), index, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ISignerCertificate>(result__)
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn Count(&self) -> ::windows::core::Result<i32> {
@@ -19772,7 +19772,7 @@ impl ISignerCertificates {
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn Remove(&self, index: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Remove)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(index)).ok()
+        (::windows::core::Interface::vtable(self).Remove)(::windows::core::Interface::as_raw(self), index).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn Clear(&self) -> ::windows::core::Result<()> {
@@ -19881,7 +19881,7 @@ impl ISmimeCapabilities {
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn get_ItemByIndex(&self, index: i32) -> ::windows::core::Result<ISmimeCapability> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).get_ItemByIndex)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(index), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ISmimeCapability>(result__)
+        (::windows::core::Interface::vtable(self).get_ItemByIndex)(::windows::core::Interface::as_raw(self), index, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ISmimeCapability>(result__)
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn Count(&self) -> ::windows::core::Result<i32> {
@@ -19903,7 +19903,7 @@ impl ISmimeCapabilities {
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn Remove(&self, index: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Remove)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(index)).ok()
+        (::windows::core::Interface::vtable(self).Remove)(::windows::core::Interface::as_raw(self), index).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn Clear(&self) -> ::windows::core::Result<()> {
@@ -19919,7 +19919,7 @@ impl ISmimeCapabilities {
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn AddAvailableSmimeCapabilities(&self, machinecontext: i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).AddAvailableSmimeCapabilities)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(machinecontext)).ok()
+        (::windows::core::Interface::vtable(self).AddAvailableSmimeCapabilities)(::windows::core::Interface::as_raw(self), machinecontext).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -20018,7 +20018,7 @@ impl ISmimeCapability {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, IObjectId>>,
     {
-        (::windows::core::Interface::vtable(self).Initialize)(::windows::core::Interface::as_raw(self), pobjectid.into().abi(), ::core::mem::transmute(bitcount)).ok()
+        (::windows::core::Interface::vtable(self).Initialize)(::windows::core::Interface::as_raw(self), pobjectid.into().abi(), bitcount).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -20120,7 +20120,7 @@ impl IX500DistinguishedName {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::BSTR>>,
     {
-        (::windows::core::Interface::vtable(self).Decode)(::windows::core::Interface::as_raw(self), strencodedname.into().abi(), ::core::mem::transmute(encoding), ::core::mem::transmute(nameflags)).ok()
+        (::windows::core::Interface::vtable(self).Decode)(::windows::core::Interface::as_raw(self), strencodedname.into().abi(), encoding, nameflags).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -20128,7 +20128,7 @@ impl IX500DistinguishedName {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::BSTR>>,
     {
-        (::windows::core::Interface::vtable(self).Encode)(::windows::core::Interface::as_raw(self), strname.into().abi(), ::core::mem::transmute(nameflags)).ok()
+        (::windows::core::Interface::vtable(self).Encode)(::windows::core::Interface::as_raw(self), strname.into().abi(), nameflags).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -20140,7 +20140,7 @@ impl IX500DistinguishedName {
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn get_EncodedName(&self, encoding: EncodingType) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>>::zeroed();
-        (::windows::core::Interface::vtable(self).get_EncodedName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(encoding), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).get_EncodedName)(::windows::core::Interface::as_raw(self), encoding, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -20239,7 +20239,7 @@ impl IX509Attribute {
         P0: ::std::convert::Into<::windows::core::InParam<'a, IObjectId>>,
         P1: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::BSTR>>,
     {
-        (::windows::core::Interface::vtable(self).Initialize)(::windows::core::Interface::as_raw(self), pobjectid.into().abi(), ::core::mem::transmute(encoding), strencodeddata.into().abi()).ok()
+        (::windows::core::Interface::vtable(self).Initialize)(::windows::core::Interface::as_raw(self), pobjectid.into().abi(), encoding, strencodeddata.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -20251,7 +20251,7 @@ impl IX509Attribute {
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn get_RawData(&self, encoding: EncodingType) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>>::zeroed();
-        (::windows::core::Interface::vtable(self).get_RawData)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(encoding), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).get_RawData)(::windows::core::Interface::as_raw(self), encoding, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -20346,7 +20346,7 @@ impl IX509AttributeArchiveKey {
         P0: ::std::convert::Into<::windows::core::InParam<'a, IObjectId>>,
         P1: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::BSTR>>,
     {
-        (::windows::core::Interface::vtable(self).base__.Initialize)(::windows::core::Interface::as_raw(self), pobjectid.into().abi(), ::core::mem::transmute(encoding), strencodeddata.into().abi()).ok()
+        (::windows::core::Interface::vtable(self).base__.Initialize)(::windows::core::Interface::as_raw(self), pobjectid.into().abi(), encoding, strencodeddata.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -20358,7 +20358,7 @@ impl IX509AttributeArchiveKey {
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn get_RawData(&self, encoding: EncodingType) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.get_RawData)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(encoding), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).base__.get_RawData)(::windows::core::Interface::as_raw(self), encoding, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
@@ -20368,7 +20368,7 @@ impl IX509AttributeArchiveKey {
         P1: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::BSTR>>,
         P2: ::std::convert::Into<::windows::core::InParam<'a, IObjectId>>,
     {
-        (::windows::core::Interface::vtable(self).InitializeEncode)(::windows::core::Interface::as_raw(self), pkey.into().abi(), ::core::mem::transmute(encoding), strcaxcert.into().abi(), palgorithm.into().abi(), ::core::mem::transmute(encryptionstrength)).ok()
+        (::windows::core::Interface::vtable(self).InitializeEncode)(::windows::core::Interface::as_raw(self), pkey.into().abi(), encoding, strcaxcert.into().abi(), palgorithm.into().abi(), encryptionstrength).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -20376,13 +20376,13 @@ impl IX509AttributeArchiveKey {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::BSTR>>,
     {
-        (::windows::core::Interface::vtable(self).InitializeDecode)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(encoding), strencodeddata.into().abi()).ok()
+        (::windows::core::Interface::vtable(self).InitializeDecode)(::windows::core::Interface::as_raw(self), encoding, strencodeddata.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn get_EncryptedKeyBlob(&self, encoding: EncodingType) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>>::zeroed();
-        (::windows::core::Interface::vtable(self).get_EncryptedKeyBlob)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(encoding), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).get_EncryptedKeyBlob)(::windows::core::Interface::as_raw(self), encoding, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -20511,7 +20511,7 @@ impl IX509AttributeArchiveKeyHash {
         P0: ::std::convert::Into<::windows::core::InParam<'a, IObjectId>>,
         P1: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::BSTR>>,
     {
-        (::windows::core::Interface::vtable(self).base__.Initialize)(::windows::core::Interface::as_raw(self), pobjectid.into().abi(), ::core::mem::transmute(encoding), strencodeddata.into().abi()).ok()
+        (::windows::core::Interface::vtable(self).base__.Initialize)(::windows::core::Interface::as_raw(self), pobjectid.into().abi(), encoding, strencodeddata.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -20523,7 +20523,7 @@ impl IX509AttributeArchiveKeyHash {
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn get_RawData(&self, encoding: EncodingType) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.get_RawData)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(encoding), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).base__.get_RawData)(::windows::core::Interface::as_raw(self), encoding, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -20531,7 +20531,7 @@ impl IX509AttributeArchiveKeyHash {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::BSTR>>,
     {
-        (::windows::core::Interface::vtable(self).InitializeEncodeFromEncryptedKeyBlob)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(encoding), strencryptedkeyblob.into().abi()).ok()
+        (::windows::core::Interface::vtable(self).InitializeEncodeFromEncryptedKeyBlob)(::windows::core::Interface::as_raw(self), encoding, strencryptedkeyblob.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -20539,13 +20539,13 @@ impl IX509AttributeArchiveKeyHash {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::BSTR>>,
     {
-        (::windows::core::Interface::vtable(self).InitializeDecode)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(encoding), strencodeddata.into().abi()).ok()
+        (::windows::core::Interface::vtable(self).InitializeDecode)(::windows::core::Interface::as_raw(self), encoding, strencodeddata.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn get_EncryptedKeyHashBlob(&self, encoding: EncodingType) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>>::zeroed();
-        (::windows::core::Interface::vtable(self).get_EncryptedKeyHashBlob)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(encoding), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).get_EncryptedKeyHashBlob)(::windows::core::Interface::as_raw(self), encoding, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -20658,7 +20658,7 @@ impl IX509AttributeClientId {
         P0: ::std::convert::Into<::windows::core::InParam<'a, IObjectId>>,
         P1: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::BSTR>>,
     {
-        (::windows::core::Interface::vtable(self).base__.Initialize)(::windows::core::Interface::as_raw(self), pobjectid.into().abi(), ::core::mem::transmute(encoding), strencodeddata.into().abi()).ok()
+        (::windows::core::Interface::vtable(self).base__.Initialize)(::windows::core::Interface::as_raw(self), pobjectid.into().abi(), encoding, strencodeddata.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -20670,7 +20670,7 @@ impl IX509AttributeClientId {
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn get_RawData(&self, encoding: EncodingType) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.get_RawData)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(encoding), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).base__.get_RawData)(::windows::core::Interface::as_raw(self), encoding, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -20680,7 +20680,7 @@ impl IX509AttributeClientId {
         P1: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::BSTR>>,
         P2: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::BSTR>>,
     {
-        (::windows::core::Interface::vtable(self).InitializeEncode)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(clientid), strmachinednsname.into().abi(), strusersamname.into().abi(), strprocessname.into().abi()).ok()
+        (::windows::core::Interface::vtable(self).InitializeEncode)(::windows::core::Interface::as_raw(self), clientid, strmachinednsname.into().abi(), strusersamname.into().abi(), strprocessname.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -20688,7 +20688,7 @@ impl IX509AttributeClientId {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::BSTR>>,
     {
-        (::windows::core::Interface::vtable(self).InitializeDecode)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(encoding), strencodeddata.into().abi()).ok()
+        (::windows::core::Interface::vtable(self).InitializeDecode)(::windows::core::Interface::as_raw(self), encoding, strencodeddata.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn ClientId(&self) -> ::windows::core::Result<RequestClientInfoClientId> {
@@ -20833,7 +20833,7 @@ impl IX509AttributeCspProvider {
         P0: ::std::convert::Into<::windows::core::InParam<'a, IObjectId>>,
         P1: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::BSTR>>,
     {
-        (::windows::core::Interface::vtable(self).base__.Initialize)(::windows::core::Interface::as_raw(self), pobjectid.into().abi(), ::core::mem::transmute(encoding), strencodeddata.into().abi()).ok()
+        (::windows::core::Interface::vtable(self).base__.Initialize)(::windows::core::Interface::as_raw(self), pobjectid.into().abi(), encoding, strencodeddata.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -20845,7 +20845,7 @@ impl IX509AttributeCspProvider {
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn get_RawData(&self, encoding: EncodingType) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.get_RawData)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(encoding), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).base__.get_RawData)(::windows::core::Interface::as_raw(self), encoding, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -20854,7 +20854,7 @@ impl IX509AttributeCspProvider {
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::BSTR>>,
         P1: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::BSTR>>,
     {
-        (::windows::core::Interface::vtable(self).InitializeEncode)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(keyspec), strprovidername.into().abi(), ::core::mem::transmute(encoding), strsignature.into().abi()).ok()
+        (::windows::core::Interface::vtable(self).InitializeEncode)(::windows::core::Interface::as_raw(self), keyspec, strprovidername.into().abi(), encoding, strsignature.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -20862,7 +20862,7 @@ impl IX509AttributeCspProvider {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::BSTR>>,
     {
-        (::windows::core::Interface::vtable(self).InitializeDecode)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(encoding), strencodeddata.into().abi()).ok()
+        (::windows::core::Interface::vtable(self).InitializeDecode)(::windows::core::Interface::as_raw(self), encoding, strencodeddata.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn KeySpec(&self) -> ::windows::core::Result<X509KeySpec> {
@@ -20879,7 +20879,7 @@ impl IX509AttributeCspProvider {
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn get_Signature(&self, encoding: EncodingType) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>>::zeroed();
-        (::windows::core::Interface::vtable(self).get_Signature)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(encoding), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).get_Signature)(::windows::core::Interface::as_raw(self), encoding, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -20997,7 +20997,7 @@ impl IX509AttributeExtensions {
         P0: ::std::convert::Into<::windows::core::InParam<'a, IObjectId>>,
         P1: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::BSTR>>,
     {
-        (::windows::core::Interface::vtable(self).base__.Initialize)(::windows::core::Interface::as_raw(self), pobjectid.into().abi(), ::core::mem::transmute(encoding), strencodeddata.into().abi()).ok()
+        (::windows::core::Interface::vtable(self).base__.Initialize)(::windows::core::Interface::as_raw(self), pobjectid.into().abi(), encoding, strencodeddata.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -21009,7 +21009,7 @@ impl IX509AttributeExtensions {
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn get_RawData(&self, encoding: EncodingType) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.get_RawData)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(encoding), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).base__.get_RawData)(::windows::core::Interface::as_raw(self), encoding, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -21025,7 +21025,7 @@ impl IX509AttributeExtensions {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::BSTR>>,
     {
-        (::windows::core::Interface::vtable(self).InitializeDecode)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(encoding), strencodeddata.into().abi()).ok()
+        (::windows::core::Interface::vtable(self).InitializeDecode)(::windows::core::Interface::as_raw(self), encoding, strencodeddata.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -21144,7 +21144,7 @@ impl IX509AttributeOSVersion {
         P0: ::std::convert::Into<::windows::core::InParam<'a, IObjectId>>,
         P1: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::BSTR>>,
     {
-        (::windows::core::Interface::vtable(self).base__.Initialize)(::windows::core::Interface::as_raw(self), pobjectid.into().abi(), ::core::mem::transmute(encoding), strencodeddata.into().abi()).ok()
+        (::windows::core::Interface::vtable(self).base__.Initialize)(::windows::core::Interface::as_raw(self), pobjectid.into().abi(), encoding, strencodeddata.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -21156,7 +21156,7 @@ impl IX509AttributeOSVersion {
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn get_RawData(&self, encoding: EncodingType) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.get_RawData)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(encoding), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).base__.get_RawData)(::windows::core::Interface::as_raw(self), encoding, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -21172,7 +21172,7 @@ impl IX509AttributeOSVersion {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::BSTR>>,
     {
-        (::windows::core::Interface::vtable(self).InitializeDecode)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(encoding), strencodeddata.into().abi()).ok()
+        (::windows::core::Interface::vtable(self).InitializeDecode)(::windows::core::Interface::as_raw(self), encoding, strencodeddata.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -21291,7 +21291,7 @@ impl IX509AttributeRenewalCertificate {
         P0: ::std::convert::Into<::windows::core::InParam<'a, IObjectId>>,
         P1: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::BSTR>>,
     {
-        (::windows::core::Interface::vtable(self).base__.Initialize)(::windows::core::Interface::as_raw(self), pobjectid.into().abi(), ::core::mem::transmute(encoding), strencodeddata.into().abi()).ok()
+        (::windows::core::Interface::vtable(self).base__.Initialize)(::windows::core::Interface::as_raw(self), pobjectid.into().abi(), encoding, strencodeddata.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -21303,7 +21303,7 @@ impl IX509AttributeRenewalCertificate {
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn get_RawData(&self, encoding: EncodingType) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.get_RawData)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(encoding), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).base__.get_RawData)(::windows::core::Interface::as_raw(self), encoding, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -21311,7 +21311,7 @@ impl IX509AttributeRenewalCertificate {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::BSTR>>,
     {
-        (::windows::core::Interface::vtable(self).InitializeEncode)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(encoding), strcert.into().abi()).ok()
+        (::windows::core::Interface::vtable(self).InitializeEncode)(::windows::core::Interface::as_raw(self), encoding, strcert.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -21319,13 +21319,13 @@ impl IX509AttributeRenewalCertificate {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::BSTR>>,
     {
-        (::windows::core::Interface::vtable(self).InitializeDecode)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(encoding), strencodeddata.into().abi()).ok()
+        (::windows::core::Interface::vtable(self).InitializeDecode)(::windows::core::Interface::as_raw(self), encoding, strencodeddata.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn get_RenewalCertificate(&self, encoding: EncodingType) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>>::zeroed();
-        (::windows::core::Interface::vtable(self).get_RenewalCertificate)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(encoding), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).get_RenewalCertificate)(::windows::core::Interface::as_raw(self), encoding, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -21435,7 +21435,7 @@ impl IX509Attributes {
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn get_ItemByIndex(&self, index: i32) -> ::windows::core::Result<IX509Attribute> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).get_ItemByIndex)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(index), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IX509Attribute>(result__)
+        (::windows::core::Interface::vtable(self).get_ItemByIndex)(::windows::core::Interface::as_raw(self), index, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IX509Attribute>(result__)
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn Count(&self) -> ::windows::core::Result<i32> {
@@ -21457,7 +21457,7 @@ impl IX509Attributes {
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn Remove(&self, index: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Remove)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(index)).ok()
+        (::windows::core::Interface::vtable(self).Remove)(::windows::core::Interface::as_raw(self), index).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn Clear(&self) -> ::windows::core::Result<()> {
@@ -21551,7 +21551,7 @@ pub struct IX509CertificateRequest(::windows::core::IUnknown);
 impl IX509CertificateRequest {
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn Initialize(&self, context: X509CertificateEnrollmentContext) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Initialize)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(context)).ok()
+        (::windows::core::Interface::vtable(self).Initialize)(::windows::core::Interface::as_raw(self), context).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn Encode(&self) -> ::windows::core::Result<()> {
@@ -21565,7 +21565,7 @@ impl IX509CertificateRequest {
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetInnerRequest(&self, level: InnerRequestLevel) -> ::windows::core::Result<IX509CertificateRequest> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).GetInnerRequest)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(level), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IX509CertificateRequest>(result__)
+        (::windows::core::Interface::vtable(self).GetInnerRequest)(::windows::core::Interface::as_raw(self), level, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IX509CertificateRequest>(result__)
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn Type(&self) -> ::windows::core::Result<X509RequestType> {
@@ -21584,7 +21584,7 @@ impl IX509CertificateRequest {
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn SetSilent(&self, value: i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetSilent)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(value)).ok()
+        (::windows::core::Interface::vtable(self).SetSilent)(::windows::core::Interface::as_raw(self), value).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn ParentWindow(&self) -> ::windows::core::Result<i32> {
@@ -21593,7 +21593,7 @@ impl IX509CertificateRequest {
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn SetParentWindow(&self, value: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetParentWindow)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(value)).ok()
+        (::windows::core::Interface::vtable(self).SetParentWindow)(::windows::core::Interface::as_raw(self), value).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -21616,13 +21616,13 @@ impl IX509CertificateRequest {
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn SetSuppressDefaults(&self, value: i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetSuppressDefaults)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(value)).ok()
+        (::windows::core::Interface::vtable(self).SetSuppressDefaults)(::windows::core::Interface::as_raw(self), value).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn get_RenewalCertificate(&self, encoding: EncodingType) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>>::zeroed();
-        (::windows::core::Interface::vtable(self).get_RenewalCertificate)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(encoding), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).get_RenewalCertificate)(::windows::core::Interface::as_raw(self), encoding, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -21630,7 +21630,7 @@ impl IX509CertificateRequest {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::BSTR>>,
     {
-        (::windows::core::Interface::vtable(self).put_RenewalCertificate)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(encoding), value.into().abi()).ok()
+        (::windows::core::Interface::vtable(self).put_RenewalCertificate)(::windows::core::Interface::as_raw(self), encoding, value.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn ClientId(&self) -> ::windows::core::Result<RequestClientInfoClientId> {
@@ -21639,7 +21639,7 @@ impl IX509CertificateRequest {
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn SetClientId(&self, value: RequestClientInfoClientId) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetClientId)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(value)).ok()
+        (::windows::core::Interface::vtable(self).SetClientId)(::windows::core::Interface::as_raw(self), value).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -21676,13 +21676,13 @@ impl IX509CertificateRequest {
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn SetAlternateSignatureAlgorithm(&self, value: i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetAlternateSignatureAlgorithm)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(value)).ok()
+        (::windows::core::Interface::vtable(self).SetAlternateSignatureAlgorithm)(::windows::core::Interface::as_raw(self), value).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn get_RawData(&self, encoding: EncodingType) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>>::zeroed();
-        (::windows::core::Interface::vtable(self).get_RawData)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(encoding), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).get_RawData)(::windows::core::Interface::as_raw(self), encoding, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -21815,7 +21815,7 @@ pub struct IX509CertificateRequestCertificate(::windows::core::IUnknown);
 impl IX509CertificateRequestCertificate {
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn Initialize(&self, context: X509CertificateEnrollmentContext) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.Initialize)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(context)).ok()
+        (::windows::core::Interface::vtable(self).base__.base__.Initialize)(::windows::core::Interface::as_raw(self), context).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn Encode(&self) -> ::windows::core::Result<()> {
@@ -21829,7 +21829,7 @@ impl IX509CertificateRequestCertificate {
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetInnerRequest(&self, level: InnerRequestLevel) -> ::windows::core::Result<IX509CertificateRequest> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.base__.GetInnerRequest)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(level), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IX509CertificateRequest>(result__)
+        (::windows::core::Interface::vtable(self).base__.base__.GetInnerRequest)(::windows::core::Interface::as_raw(self), level, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IX509CertificateRequest>(result__)
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn Type(&self) -> ::windows::core::Result<X509RequestType> {
@@ -21848,7 +21848,7 @@ impl IX509CertificateRequestCertificate {
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn SetSilent(&self, value: i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.SetSilent)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(value)).ok()
+        (::windows::core::Interface::vtable(self).base__.base__.SetSilent)(::windows::core::Interface::as_raw(self), value).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn ParentWindow(&self) -> ::windows::core::Result<i32> {
@@ -21857,7 +21857,7 @@ impl IX509CertificateRequestCertificate {
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn SetParentWindow(&self, value: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.SetParentWindow)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(value)).ok()
+        (::windows::core::Interface::vtable(self).base__.base__.SetParentWindow)(::windows::core::Interface::as_raw(self), value).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -21880,13 +21880,13 @@ impl IX509CertificateRequestCertificate {
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn SetSuppressDefaults(&self, value: i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.SetSuppressDefaults)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(value)).ok()
+        (::windows::core::Interface::vtable(self).base__.base__.SetSuppressDefaults)(::windows::core::Interface::as_raw(self), value).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn get_RenewalCertificate(&self, encoding: EncodingType) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.base__.get_RenewalCertificate)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(encoding), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).base__.base__.get_RenewalCertificate)(::windows::core::Interface::as_raw(self), encoding, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -21894,7 +21894,7 @@ impl IX509CertificateRequestCertificate {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::BSTR>>,
     {
-        (::windows::core::Interface::vtable(self).base__.base__.put_RenewalCertificate)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(encoding), value.into().abi()).ok()
+        (::windows::core::Interface::vtable(self).base__.base__.put_RenewalCertificate)(::windows::core::Interface::as_raw(self), encoding, value.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn ClientId(&self) -> ::windows::core::Result<RequestClientInfoClientId> {
@@ -21903,7 +21903,7 @@ impl IX509CertificateRequestCertificate {
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn SetClientId(&self, value: RequestClientInfoClientId) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.SetClientId)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(value)).ok()
+        (::windows::core::Interface::vtable(self).base__.base__.SetClientId)(::windows::core::Interface::as_raw(self), value).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -21940,13 +21940,13 @@ impl IX509CertificateRequestCertificate {
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn SetAlternateSignatureAlgorithm(&self, value: i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.SetAlternateSignatureAlgorithm)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(value)).ok()
+        (::windows::core::Interface::vtable(self).base__.base__.SetAlternateSignatureAlgorithm)(::windows::core::Interface::as_raw(self), value).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn get_RawData(&self, encoding: EncodingType) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.base__.get_RawData)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(encoding), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).base__.base__.get_RawData)(::windows::core::Interface::as_raw(self), encoding, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -21954,7 +21954,7 @@ impl IX509CertificateRequestCertificate {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::BSTR>>,
     {
-        (::windows::core::Interface::vtable(self).base__.InitializeFromTemplateName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(context), strtemplatename.into().abi()).ok()
+        (::windows::core::Interface::vtable(self).base__.InitializeFromTemplateName)(::windows::core::Interface::as_raw(self), context, strtemplatename.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
@@ -21963,7 +21963,7 @@ impl IX509CertificateRequestCertificate {
         P0: ::std::convert::Into<::windows::core::InParam<'a, IX509PrivateKey>>,
         P1: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::BSTR>>,
     {
-        (::windows::core::Interface::vtable(self).base__.InitializeFromPrivateKey)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(context), pprivatekey.into().abi(), strtemplatename.into().abi()).ok()
+        (::windows::core::Interface::vtable(self).base__.InitializeFromPrivateKey)(::windows::core::Interface::as_raw(self), context, pprivatekey.into().abi(), strtemplatename.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
@@ -21972,7 +21972,7 @@ impl IX509CertificateRequestCertificate {
         P0: ::std::convert::Into<::windows::core::InParam<'a, IX509PublicKey>>,
         P1: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::BSTR>>,
     {
-        (::windows::core::Interface::vtable(self).base__.InitializeFromPublicKey)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(context), ppublickey.into().abi(), strtemplatename.into().abi()).ok()
+        (::windows::core::Interface::vtable(self).base__.InitializeFromPublicKey)(::windows::core::Interface::as_raw(self), context, ppublickey.into().abi(), strtemplatename.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -21980,7 +21980,7 @@ impl IX509CertificateRequestCertificate {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::BSTR>>,
     {
-        (::windows::core::Interface::vtable(self).base__.InitializeFromCertificate)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(context), strcertificate.into().abi(), ::core::mem::transmute(encoding), ::core::mem::transmute(inheritoptions)).ok()
+        (::windows::core::Interface::vtable(self).base__.InitializeFromCertificate)(::windows::core::Interface::as_raw(self), context, strcertificate.into().abi(), encoding, inheritoptions).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -21988,11 +21988,11 @@ impl IX509CertificateRequestCertificate {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::BSTR>>,
     {
-        (::windows::core::Interface::vtable(self).base__.InitializeDecode)(::windows::core::Interface::as_raw(self), strencodeddata.into().abi(), ::core::mem::transmute(encoding)).ok()
+        (::windows::core::Interface::vtable(self).base__.InitializeDecode)(::windows::core::Interface::as_raw(self), strencodeddata.into().abi(), encoding).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn CheckSignature(&self, allowedsignaturetypes: Pkcs10AllowedSignatureTypes) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.CheckSignature)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(allowedsignaturetypes)).ok()
+        (::windows::core::Interface::vtable(self).base__.CheckSignature)(::windows::core::Interface::as_raw(self), allowedsignaturetypes).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn IsSmartCard(&self) -> ::windows::core::Result<i16> {
@@ -22031,7 +22031,7 @@ impl IX509CertificateRequestCertificate {
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn get_OldCertificate(&self, encoding: EncodingType) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.get_OldCertificate)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(encoding), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).base__.get_OldCertificate)(::windows::core::Interface::as_raw(self), encoding, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -22060,7 +22060,7 @@ impl IX509CertificateRequestCertificate {
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn SetSmimeCapabilities(&self, value: i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetSmimeCapabilities)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(value)).ok()
+        (::windows::core::Interface::vtable(self).base__.SetSmimeCapabilities)(::windows::core::Interface::as_raw(self), value).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -22110,19 +22110,19 @@ impl IX509CertificateRequestCertificate {
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn get_RawDataToBeSigned(&self, encoding: EncodingType) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.get_RawDataToBeSigned)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(encoding), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).base__.get_RawDataToBeSigned)(::windows::core::Interface::as_raw(self), encoding, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn get_Signature(&self, encoding: EncodingType) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.get_Signature)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(encoding), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).base__.get_Signature)(::windows::core::Interface::as_raw(self), encoding, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetCspStatuses(&self, keyspec: X509KeySpec) -> ::windows::core::Result<ICspStatuses> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.GetCspStatuses)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(keyspec), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ICspStatuses>(result__)
+        (::windows::core::Interface::vtable(self).base__.GetCspStatuses)(::windows::core::Interface::as_raw(self), keyspec, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ICspStatuses>(result__)
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -22153,7 +22153,7 @@ impl IX509CertificateRequestCertificate {
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn SetNotBefore(&self, value: f64) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetNotBefore)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(value)).ok()
+        (::windows::core::Interface::vtable(self).SetNotBefore)(::windows::core::Interface::as_raw(self), value).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn NotAfter(&self) -> ::windows::core::Result<f64> {
@@ -22162,13 +22162,13 @@ impl IX509CertificateRequestCertificate {
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn SetNotAfter(&self, value: f64) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetNotAfter)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(value)).ok()
+        (::windows::core::Interface::vtable(self).SetNotAfter)(::windows::core::Interface::as_raw(self), value).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn get_SerialNumber(&self, encoding: EncodingType) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>>::zeroed();
-        (::windows::core::Interface::vtable(self).get_SerialNumber)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(encoding), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).get_SerialNumber)(::windows::core::Interface::as_raw(self), encoding, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -22176,7 +22176,7 @@ impl IX509CertificateRequestCertificate {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::BSTR>>,
     {
-        (::windows::core::Interface::vtable(self).put_SerialNumber)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(encoding), value.into().abi()).ok()
+        (::windows::core::Interface::vtable(self).put_SerialNumber)(::windows::core::Interface::as_raw(self), encoding, value.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -22336,7 +22336,7 @@ pub struct IX509CertificateRequestCertificate2(::windows::core::IUnknown);
 impl IX509CertificateRequestCertificate2 {
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn Initialize(&self, context: X509CertificateEnrollmentContext) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.base__.Initialize)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(context)).ok()
+        (::windows::core::Interface::vtable(self).base__.base__.base__.Initialize)(::windows::core::Interface::as_raw(self), context).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn Encode(&self) -> ::windows::core::Result<()> {
@@ -22350,7 +22350,7 @@ impl IX509CertificateRequestCertificate2 {
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetInnerRequest(&self, level: InnerRequestLevel) -> ::windows::core::Result<IX509CertificateRequest> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.base__.base__.GetInnerRequest)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(level), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IX509CertificateRequest>(result__)
+        (::windows::core::Interface::vtable(self).base__.base__.base__.GetInnerRequest)(::windows::core::Interface::as_raw(self), level, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IX509CertificateRequest>(result__)
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn Type(&self) -> ::windows::core::Result<X509RequestType> {
@@ -22369,7 +22369,7 @@ impl IX509CertificateRequestCertificate2 {
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn SetSilent(&self, value: i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.base__.SetSilent)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(value)).ok()
+        (::windows::core::Interface::vtable(self).base__.base__.base__.SetSilent)(::windows::core::Interface::as_raw(self), value).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn ParentWindow(&self) -> ::windows::core::Result<i32> {
@@ -22378,7 +22378,7 @@ impl IX509CertificateRequestCertificate2 {
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn SetParentWindow(&self, value: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.base__.SetParentWindow)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(value)).ok()
+        (::windows::core::Interface::vtable(self).base__.base__.base__.SetParentWindow)(::windows::core::Interface::as_raw(self), value).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -22401,13 +22401,13 @@ impl IX509CertificateRequestCertificate2 {
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn SetSuppressDefaults(&self, value: i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.base__.SetSuppressDefaults)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(value)).ok()
+        (::windows::core::Interface::vtable(self).base__.base__.base__.SetSuppressDefaults)(::windows::core::Interface::as_raw(self), value).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn get_RenewalCertificate(&self, encoding: EncodingType) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.base__.base__.get_RenewalCertificate)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(encoding), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).base__.base__.base__.get_RenewalCertificate)(::windows::core::Interface::as_raw(self), encoding, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -22415,7 +22415,7 @@ impl IX509CertificateRequestCertificate2 {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::BSTR>>,
     {
-        (::windows::core::Interface::vtable(self).base__.base__.base__.put_RenewalCertificate)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(encoding), value.into().abi()).ok()
+        (::windows::core::Interface::vtable(self).base__.base__.base__.put_RenewalCertificate)(::windows::core::Interface::as_raw(self), encoding, value.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn ClientId(&self) -> ::windows::core::Result<RequestClientInfoClientId> {
@@ -22424,7 +22424,7 @@ impl IX509CertificateRequestCertificate2 {
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn SetClientId(&self, value: RequestClientInfoClientId) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.base__.SetClientId)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(value)).ok()
+        (::windows::core::Interface::vtable(self).base__.base__.base__.SetClientId)(::windows::core::Interface::as_raw(self), value).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -22461,13 +22461,13 @@ impl IX509CertificateRequestCertificate2 {
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn SetAlternateSignatureAlgorithm(&self, value: i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.base__.SetAlternateSignatureAlgorithm)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(value)).ok()
+        (::windows::core::Interface::vtable(self).base__.base__.base__.SetAlternateSignatureAlgorithm)(::windows::core::Interface::as_raw(self), value).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn get_RawData(&self, encoding: EncodingType) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.base__.base__.get_RawData)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(encoding), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).base__.base__.base__.get_RawData)(::windows::core::Interface::as_raw(self), encoding, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -22475,7 +22475,7 @@ impl IX509CertificateRequestCertificate2 {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::BSTR>>,
     {
-        (::windows::core::Interface::vtable(self).base__.base__.InitializeFromTemplateName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(context), strtemplatename.into().abi()).ok()
+        (::windows::core::Interface::vtable(self).base__.base__.InitializeFromTemplateName)(::windows::core::Interface::as_raw(self), context, strtemplatename.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
@@ -22484,7 +22484,7 @@ impl IX509CertificateRequestCertificate2 {
         P0: ::std::convert::Into<::windows::core::InParam<'a, IX509PrivateKey>>,
         P1: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::BSTR>>,
     {
-        (::windows::core::Interface::vtable(self).base__.base__.InitializeFromPrivateKey)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(context), pprivatekey.into().abi(), strtemplatename.into().abi()).ok()
+        (::windows::core::Interface::vtable(self).base__.base__.InitializeFromPrivateKey)(::windows::core::Interface::as_raw(self), context, pprivatekey.into().abi(), strtemplatename.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
@@ -22493,7 +22493,7 @@ impl IX509CertificateRequestCertificate2 {
         P0: ::std::convert::Into<::windows::core::InParam<'a, IX509PublicKey>>,
         P1: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::BSTR>>,
     {
-        (::windows::core::Interface::vtable(self).base__.base__.InitializeFromPublicKey)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(context), ppublickey.into().abi(), strtemplatename.into().abi()).ok()
+        (::windows::core::Interface::vtable(self).base__.base__.InitializeFromPublicKey)(::windows::core::Interface::as_raw(self), context, ppublickey.into().abi(), strtemplatename.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -22501,7 +22501,7 @@ impl IX509CertificateRequestCertificate2 {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::BSTR>>,
     {
-        (::windows::core::Interface::vtable(self).base__.base__.InitializeFromCertificate)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(context), strcertificate.into().abi(), ::core::mem::transmute(encoding), ::core::mem::transmute(inheritoptions)).ok()
+        (::windows::core::Interface::vtable(self).base__.base__.InitializeFromCertificate)(::windows::core::Interface::as_raw(self), context, strcertificate.into().abi(), encoding, inheritoptions).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -22509,11 +22509,11 @@ impl IX509CertificateRequestCertificate2 {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::BSTR>>,
     {
-        (::windows::core::Interface::vtable(self).base__.base__.InitializeDecode)(::windows::core::Interface::as_raw(self), strencodeddata.into().abi(), ::core::mem::transmute(encoding)).ok()
+        (::windows::core::Interface::vtable(self).base__.base__.InitializeDecode)(::windows::core::Interface::as_raw(self), strencodeddata.into().abi(), encoding).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn CheckSignature(&self, allowedsignaturetypes: Pkcs10AllowedSignatureTypes) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.CheckSignature)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(allowedsignaturetypes)).ok()
+        (::windows::core::Interface::vtable(self).base__.base__.CheckSignature)(::windows::core::Interface::as_raw(self), allowedsignaturetypes).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn IsSmartCard(&self) -> ::windows::core::Result<i16> {
@@ -22552,7 +22552,7 @@ impl IX509CertificateRequestCertificate2 {
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn get_OldCertificate(&self, encoding: EncodingType) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.base__.get_OldCertificate)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(encoding), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).base__.base__.get_OldCertificate)(::windows::core::Interface::as_raw(self), encoding, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -22581,7 +22581,7 @@ impl IX509CertificateRequestCertificate2 {
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn SetSmimeCapabilities(&self, value: i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.SetSmimeCapabilities)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(value)).ok()
+        (::windows::core::Interface::vtable(self).base__.base__.SetSmimeCapabilities)(::windows::core::Interface::as_raw(self), value).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -22631,19 +22631,19 @@ impl IX509CertificateRequestCertificate2 {
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn get_RawDataToBeSigned(&self, encoding: EncodingType) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.base__.get_RawDataToBeSigned)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(encoding), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).base__.base__.get_RawDataToBeSigned)(::windows::core::Interface::as_raw(self), encoding, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn get_Signature(&self, encoding: EncodingType) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.base__.get_Signature)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(encoding), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).base__.base__.get_Signature)(::windows::core::Interface::as_raw(self), encoding, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetCspStatuses(&self, keyspec: X509KeySpec) -> ::windows::core::Result<ICspStatuses> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.base__.GetCspStatuses)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(keyspec), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ICspStatuses>(result__)
+        (::windows::core::Interface::vtable(self).base__.base__.GetCspStatuses)(::windows::core::Interface::as_raw(self), keyspec, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ICspStatuses>(result__)
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -22674,7 +22674,7 @@ impl IX509CertificateRequestCertificate2 {
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn SetNotBefore(&self, value: f64) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetNotBefore)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(value)).ok()
+        (::windows::core::Interface::vtable(self).base__.SetNotBefore)(::windows::core::Interface::as_raw(self), value).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn NotAfter(&self) -> ::windows::core::Result<f64> {
@@ -22683,13 +22683,13 @@ impl IX509CertificateRequestCertificate2 {
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn SetNotAfter(&self, value: f64) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetNotAfter)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(value)).ok()
+        (::windows::core::Interface::vtable(self).base__.SetNotAfter)(::windows::core::Interface::as_raw(self), value).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn get_SerialNumber(&self, encoding: EncodingType) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.get_SerialNumber)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(encoding), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).base__.get_SerialNumber)(::windows::core::Interface::as_raw(self), encoding, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -22697,7 +22697,7 @@ impl IX509CertificateRequestCertificate2 {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::BSTR>>,
     {
-        (::windows::core::Interface::vtable(self).base__.put_SerialNumber)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(encoding), value.into().abi()).ok()
+        (::windows::core::Interface::vtable(self).base__.put_SerialNumber)(::windows::core::Interface::as_raw(self), encoding, value.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -22720,7 +22720,7 @@ impl IX509CertificateRequestCertificate2 {
         P0: ::std::convert::Into<::windows::core::InParam<'a, IX509EnrollmentPolicyServer>>,
         P1: ::std::convert::Into<::windows::core::InParam<'a, IX509CertificateTemplate>>,
     {
-        (::windows::core::Interface::vtable(self).InitializeFromTemplate)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(context), ppolicyserver.into().abi(), ptemplate.into().abi()).ok()
+        (::windows::core::Interface::vtable(self).InitializeFromTemplate)(::windows::core::Interface::as_raw(self), context, ppolicyserver.into().abi(), ptemplate.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -22730,7 +22730,7 @@ impl IX509CertificateRequestCertificate2 {
         P1: ::std::convert::Into<::windows::core::InParam<'a, IX509EnrollmentPolicyServer>>,
         P2: ::std::convert::Into<::windows::core::InParam<'a, IX509CertificateTemplate>>,
     {
-        (::windows::core::Interface::vtable(self).InitializeFromPrivateKeyTemplate)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(context), pprivatekey.into().abi(), ppolicyserver.into().abi(), ptemplate.into().abi()).ok()
+        (::windows::core::Interface::vtable(self).InitializeFromPrivateKeyTemplate)(::windows::core::Interface::as_raw(self), context, pprivatekey.into().abi(), ppolicyserver.into().abi(), ptemplate.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -22890,7 +22890,7 @@ pub struct IX509CertificateRequestCmc(::windows::core::IUnknown);
 impl IX509CertificateRequestCmc {
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn Initialize(&self, context: X509CertificateEnrollmentContext) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.Initialize)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(context)).ok()
+        (::windows::core::Interface::vtable(self).base__.base__.Initialize)(::windows::core::Interface::as_raw(self), context).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn Encode(&self) -> ::windows::core::Result<()> {
@@ -22904,7 +22904,7 @@ impl IX509CertificateRequestCmc {
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetInnerRequest(&self, level: InnerRequestLevel) -> ::windows::core::Result<IX509CertificateRequest> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.base__.GetInnerRequest)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(level), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IX509CertificateRequest>(result__)
+        (::windows::core::Interface::vtable(self).base__.base__.GetInnerRequest)(::windows::core::Interface::as_raw(self), level, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IX509CertificateRequest>(result__)
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn Type(&self) -> ::windows::core::Result<X509RequestType> {
@@ -22923,7 +22923,7 @@ impl IX509CertificateRequestCmc {
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn SetSilent(&self, value: i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.SetSilent)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(value)).ok()
+        (::windows::core::Interface::vtable(self).base__.base__.SetSilent)(::windows::core::Interface::as_raw(self), value).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn ParentWindow(&self) -> ::windows::core::Result<i32> {
@@ -22932,7 +22932,7 @@ impl IX509CertificateRequestCmc {
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn SetParentWindow(&self, value: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.SetParentWindow)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(value)).ok()
+        (::windows::core::Interface::vtable(self).base__.base__.SetParentWindow)(::windows::core::Interface::as_raw(self), value).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -22955,13 +22955,13 @@ impl IX509CertificateRequestCmc {
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn SetSuppressDefaults(&self, value: i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.SetSuppressDefaults)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(value)).ok()
+        (::windows::core::Interface::vtable(self).base__.base__.SetSuppressDefaults)(::windows::core::Interface::as_raw(self), value).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn get_RenewalCertificate(&self, encoding: EncodingType) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.base__.get_RenewalCertificate)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(encoding), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).base__.base__.get_RenewalCertificate)(::windows::core::Interface::as_raw(self), encoding, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -22969,7 +22969,7 @@ impl IX509CertificateRequestCmc {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::BSTR>>,
     {
-        (::windows::core::Interface::vtable(self).base__.base__.put_RenewalCertificate)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(encoding), value.into().abi()).ok()
+        (::windows::core::Interface::vtable(self).base__.base__.put_RenewalCertificate)(::windows::core::Interface::as_raw(self), encoding, value.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn ClientId(&self) -> ::windows::core::Result<RequestClientInfoClientId> {
@@ -22978,7 +22978,7 @@ impl IX509CertificateRequestCmc {
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn SetClientId(&self, value: RequestClientInfoClientId) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.SetClientId)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(value)).ok()
+        (::windows::core::Interface::vtable(self).base__.base__.SetClientId)(::windows::core::Interface::as_raw(self), value).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -23015,13 +23015,13 @@ impl IX509CertificateRequestCmc {
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn SetAlternateSignatureAlgorithm(&self, value: i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.SetAlternateSignatureAlgorithm)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(value)).ok()
+        (::windows::core::Interface::vtable(self).base__.base__.SetAlternateSignatureAlgorithm)(::windows::core::Interface::as_raw(self), value).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn get_RawData(&self, encoding: EncodingType) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.base__.get_RawData)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(encoding), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).base__.base__.get_RawData)(::windows::core::Interface::as_raw(self), encoding, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -23029,7 +23029,7 @@ impl IX509CertificateRequestCmc {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::BSTR>>,
     {
-        (::windows::core::Interface::vtable(self).base__.InitializeFromTemplateName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(context), strtemplatename.into().abi()).ok()
+        (::windows::core::Interface::vtable(self).base__.InitializeFromTemplateName)(::windows::core::Interface::as_raw(self), context, strtemplatename.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -23037,7 +23037,7 @@ impl IX509CertificateRequestCmc {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::BSTR>>,
     {
-        (::windows::core::Interface::vtable(self).base__.InitializeFromCertificate)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(context), ::core::mem::transmute(renewalrequest), strcertificate.into().abi(), ::core::mem::transmute(encoding), ::core::mem::transmute(inheritoptions)).ok()
+        (::windows::core::Interface::vtable(self).base__.InitializeFromCertificate)(::windows::core::Interface::as_raw(self), context, renewalrequest, strcertificate.into().abi(), encoding, inheritoptions).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -23053,7 +23053,7 @@ impl IX509CertificateRequestCmc {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::BSTR>>,
     {
-        (::windows::core::Interface::vtable(self).base__.InitializeDecode)(::windows::core::Interface::as_raw(self), strencodeddata.into().abi(), ::core::mem::transmute(encoding)).ok()
+        (::windows::core::Interface::vtable(self).base__.InitializeDecode)(::windows::core::Interface::as_raw(self), strencodeddata.into().abi(), encoding).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -23140,13 +23140,13 @@ impl IX509CertificateRequestCmc {
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn SetTransactionId(&self, value: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetTransactionId)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(value)).ok()
+        (::windows::core::Interface::vtable(self).SetTransactionId)(::windows::core::Interface::as_raw(self), value).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn get_SenderNonce(&self, encoding: EncodingType) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>>::zeroed();
-        (::windows::core::Interface::vtable(self).get_SenderNonce)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(encoding), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).get_SenderNonce)(::windows::core::Interface::as_raw(self), encoding, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -23154,7 +23154,7 @@ impl IX509CertificateRequestCmc {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::BSTR>>,
     {
-        (::windows::core::Interface::vtable(self).put_SenderNonce)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(encoding), value.into().abi()).ok()
+        (::windows::core::Interface::vtable(self).put_SenderNonce)(::windows::core::Interface::as_raw(self), encoding, value.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -23169,13 +23169,13 @@ impl IX509CertificateRequestCmc {
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn SetArchivePrivateKey(&self, value: i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetArchivePrivateKey)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(value)).ok()
+        (::windows::core::Interface::vtable(self).SetArchivePrivateKey)(::windows::core::Interface::as_raw(self), value).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn get_KeyArchivalCertificate(&self, encoding: EncodingType) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>>::zeroed();
-        (::windows::core::Interface::vtable(self).get_KeyArchivalCertificate)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(encoding), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).get_KeyArchivalCertificate)(::windows::core::Interface::as_raw(self), encoding, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -23183,7 +23183,7 @@ impl IX509CertificateRequestCmc {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::BSTR>>,
     {
-        (::windows::core::Interface::vtable(self).put_KeyArchivalCertificate)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(encoding), value.into().abi()).ok()
+        (::windows::core::Interface::vtable(self).put_KeyArchivalCertificate)(::windows::core::Interface::as_raw(self), encoding, value.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -23206,13 +23206,13 @@ impl IX509CertificateRequestCmc {
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn SetEncryptionStrength(&self, value: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetEncryptionStrength)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(value)).ok()
+        (::windows::core::Interface::vtable(self).SetEncryptionStrength)(::windows::core::Interface::as_raw(self), value).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn get_EncryptedKeyHash(&self, encoding: EncodingType) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>>::zeroed();
-        (::windows::core::Interface::vtable(self).get_EncryptedKeyHash)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(encoding), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).get_EncryptedKeyHash)(::windows::core::Interface::as_raw(self), encoding, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -23403,7 +23403,7 @@ pub struct IX509CertificateRequestCmc2(::windows::core::IUnknown);
 impl IX509CertificateRequestCmc2 {
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn Initialize(&self, context: X509CertificateEnrollmentContext) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.base__.Initialize)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(context)).ok()
+        (::windows::core::Interface::vtable(self).base__.base__.base__.Initialize)(::windows::core::Interface::as_raw(self), context).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn Encode(&self) -> ::windows::core::Result<()> {
@@ -23417,7 +23417,7 @@ impl IX509CertificateRequestCmc2 {
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetInnerRequest(&self, level: InnerRequestLevel) -> ::windows::core::Result<IX509CertificateRequest> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.base__.base__.GetInnerRequest)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(level), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IX509CertificateRequest>(result__)
+        (::windows::core::Interface::vtable(self).base__.base__.base__.GetInnerRequest)(::windows::core::Interface::as_raw(self), level, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IX509CertificateRequest>(result__)
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn Type(&self) -> ::windows::core::Result<X509RequestType> {
@@ -23436,7 +23436,7 @@ impl IX509CertificateRequestCmc2 {
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn SetSilent(&self, value: i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.base__.SetSilent)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(value)).ok()
+        (::windows::core::Interface::vtable(self).base__.base__.base__.SetSilent)(::windows::core::Interface::as_raw(self), value).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn ParentWindow(&self) -> ::windows::core::Result<i32> {
@@ -23445,7 +23445,7 @@ impl IX509CertificateRequestCmc2 {
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn SetParentWindow(&self, value: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.base__.SetParentWindow)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(value)).ok()
+        (::windows::core::Interface::vtable(self).base__.base__.base__.SetParentWindow)(::windows::core::Interface::as_raw(self), value).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -23468,13 +23468,13 @@ impl IX509CertificateRequestCmc2 {
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn SetSuppressDefaults(&self, value: i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.base__.SetSuppressDefaults)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(value)).ok()
+        (::windows::core::Interface::vtable(self).base__.base__.base__.SetSuppressDefaults)(::windows::core::Interface::as_raw(self), value).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn get_RenewalCertificate(&self, encoding: EncodingType) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.base__.base__.get_RenewalCertificate)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(encoding), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).base__.base__.base__.get_RenewalCertificate)(::windows::core::Interface::as_raw(self), encoding, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -23482,7 +23482,7 @@ impl IX509CertificateRequestCmc2 {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::BSTR>>,
     {
-        (::windows::core::Interface::vtable(self).base__.base__.base__.put_RenewalCertificate)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(encoding), value.into().abi()).ok()
+        (::windows::core::Interface::vtable(self).base__.base__.base__.put_RenewalCertificate)(::windows::core::Interface::as_raw(self), encoding, value.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn ClientId(&self) -> ::windows::core::Result<RequestClientInfoClientId> {
@@ -23491,7 +23491,7 @@ impl IX509CertificateRequestCmc2 {
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn SetClientId(&self, value: RequestClientInfoClientId) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.base__.SetClientId)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(value)).ok()
+        (::windows::core::Interface::vtable(self).base__.base__.base__.SetClientId)(::windows::core::Interface::as_raw(self), value).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -23528,13 +23528,13 @@ impl IX509CertificateRequestCmc2 {
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn SetAlternateSignatureAlgorithm(&self, value: i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.base__.SetAlternateSignatureAlgorithm)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(value)).ok()
+        (::windows::core::Interface::vtable(self).base__.base__.base__.SetAlternateSignatureAlgorithm)(::windows::core::Interface::as_raw(self), value).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn get_RawData(&self, encoding: EncodingType) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.base__.base__.get_RawData)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(encoding), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).base__.base__.base__.get_RawData)(::windows::core::Interface::as_raw(self), encoding, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -23542,7 +23542,7 @@ impl IX509CertificateRequestCmc2 {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::BSTR>>,
     {
-        (::windows::core::Interface::vtable(self).base__.base__.InitializeFromTemplateName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(context), strtemplatename.into().abi()).ok()
+        (::windows::core::Interface::vtable(self).base__.base__.InitializeFromTemplateName)(::windows::core::Interface::as_raw(self), context, strtemplatename.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -23550,7 +23550,7 @@ impl IX509CertificateRequestCmc2 {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::BSTR>>,
     {
-        (::windows::core::Interface::vtable(self).base__.base__.InitializeFromCertificate)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(context), ::core::mem::transmute(renewalrequest), strcertificate.into().abi(), ::core::mem::transmute(encoding), ::core::mem::transmute(inheritoptions)).ok()
+        (::windows::core::Interface::vtable(self).base__.base__.InitializeFromCertificate)(::windows::core::Interface::as_raw(self), context, renewalrequest, strcertificate.into().abi(), encoding, inheritoptions).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -23566,7 +23566,7 @@ impl IX509CertificateRequestCmc2 {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::BSTR>>,
     {
-        (::windows::core::Interface::vtable(self).base__.base__.InitializeDecode)(::windows::core::Interface::as_raw(self), strencodeddata.into().abi(), ::core::mem::transmute(encoding)).ok()
+        (::windows::core::Interface::vtable(self).base__.base__.InitializeDecode)(::windows::core::Interface::as_raw(self), strencodeddata.into().abi(), encoding).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -23653,13 +23653,13 @@ impl IX509CertificateRequestCmc2 {
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn SetTransactionId(&self, value: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetTransactionId)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(value)).ok()
+        (::windows::core::Interface::vtable(self).base__.SetTransactionId)(::windows::core::Interface::as_raw(self), value).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn get_SenderNonce(&self, encoding: EncodingType) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.get_SenderNonce)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(encoding), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).base__.get_SenderNonce)(::windows::core::Interface::as_raw(self), encoding, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -23667,7 +23667,7 @@ impl IX509CertificateRequestCmc2 {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::BSTR>>,
     {
-        (::windows::core::Interface::vtable(self).base__.put_SenderNonce)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(encoding), value.into().abi()).ok()
+        (::windows::core::Interface::vtable(self).base__.put_SenderNonce)(::windows::core::Interface::as_raw(self), encoding, value.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -23682,13 +23682,13 @@ impl IX509CertificateRequestCmc2 {
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn SetArchivePrivateKey(&self, value: i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetArchivePrivateKey)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(value)).ok()
+        (::windows::core::Interface::vtable(self).base__.SetArchivePrivateKey)(::windows::core::Interface::as_raw(self), value).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn get_KeyArchivalCertificate(&self, encoding: EncodingType) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.get_KeyArchivalCertificate)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(encoding), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).base__.get_KeyArchivalCertificate)(::windows::core::Interface::as_raw(self), encoding, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -23696,7 +23696,7 @@ impl IX509CertificateRequestCmc2 {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::BSTR>>,
     {
-        (::windows::core::Interface::vtable(self).base__.put_KeyArchivalCertificate)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(encoding), value.into().abi()).ok()
+        (::windows::core::Interface::vtable(self).base__.put_KeyArchivalCertificate)(::windows::core::Interface::as_raw(self), encoding, value.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -23719,13 +23719,13 @@ impl IX509CertificateRequestCmc2 {
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn SetEncryptionStrength(&self, value: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetEncryptionStrength)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(value)).ok()
+        (::windows::core::Interface::vtable(self).base__.SetEncryptionStrength)(::windows::core::Interface::as_raw(self), value).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn get_EncryptedKeyHash(&self, encoding: EncodingType) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.get_EncryptedKeyHash)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(encoding), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).base__.get_EncryptedKeyHash)(::windows::core::Interface::as_raw(self), encoding, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -23740,7 +23740,7 @@ impl IX509CertificateRequestCmc2 {
         P0: ::std::convert::Into<::windows::core::InParam<'a, IX509EnrollmentPolicyServer>>,
         P1: ::std::convert::Into<::windows::core::InParam<'a, IX509CertificateTemplate>>,
     {
-        (::windows::core::Interface::vtable(self).InitializeFromTemplate)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(context), ppolicyserver.into().abi(), ptemplate.into().abi()).ok()
+        (::windows::core::Interface::vtable(self).InitializeFromTemplate)(::windows::core::Interface::as_raw(self), context, ppolicyserver.into().abi(), ptemplate.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -23766,7 +23766,7 @@ impl IX509CertificateRequestCmc2 {
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn CheckSignature(&self, allowedsignaturetypes: Pkcs10AllowedSignatureTypes) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).CheckSignature)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(allowedsignaturetypes)).ok()
+        (::windows::core::Interface::vtable(self).CheckSignature)(::windows::core::Interface::as_raw(self), allowedsignaturetypes).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -23774,7 +23774,7 @@ impl IX509CertificateRequestCmc2 {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ISignerCertificate>>,
     {
-        (::windows::core::Interface::vtable(self).CheckCertificateSignature)(::windows::core::Interface::as_raw(self), psignercertificate.into().abi(), ::core::mem::transmute(validatecertificatechain)).ok()
+        (::windows::core::Interface::vtable(self).CheckCertificateSignature)(::windows::core::Interface::as_raw(self), psignercertificate.into().abi(), validatecertificatechain).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -23927,7 +23927,7 @@ pub struct IX509CertificateRequestPkcs10(::windows::core::IUnknown);
 impl IX509CertificateRequestPkcs10 {
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn Initialize(&self, context: X509CertificateEnrollmentContext) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.Initialize)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(context)).ok()
+        (::windows::core::Interface::vtable(self).base__.Initialize)(::windows::core::Interface::as_raw(self), context).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn Encode(&self) -> ::windows::core::Result<()> {
@@ -23941,7 +23941,7 @@ impl IX509CertificateRequestPkcs10 {
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetInnerRequest(&self, level: InnerRequestLevel) -> ::windows::core::Result<IX509CertificateRequest> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.GetInnerRequest)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(level), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IX509CertificateRequest>(result__)
+        (::windows::core::Interface::vtable(self).base__.GetInnerRequest)(::windows::core::Interface::as_raw(self), level, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IX509CertificateRequest>(result__)
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn Type(&self) -> ::windows::core::Result<X509RequestType> {
@@ -23960,7 +23960,7 @@ impl IX509CertificateRequestPkcs10 {
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn SetSilent(&self, value: i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetSilent)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(value)).ok()
+        (::windows::core::Interface::vtable(self).base__.SetSilent)(::windows::core::Interface::as_raw(self), value).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn ParentWindow(&self) -> ::windows::core::Result<i32> {
@@ -23969,7 +23969,7 @@ impl IX509CertificateRequestPkcs10 {
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn SetParentWindow(&self, value: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetParentWindow)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(value)).ok()
+        (::windows::core::Interface::vtable(self).base__.SetParentWindow)(::windows::core::Interface::as_raw(self), value).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -23992,13 +23992,13 @@ impl IX509CertificateRequestPkcs10 {
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn SetSuppressDefaults(&self, value: i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetSuppressDefaults)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(value)).ok()
+        (::windows::core::Interface::vtable(self).base__.SetSuppressDefaults)(::windows::core::Interface::as_raw(self), value).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn get_RenewalCertificate(&self, encoding: EncodingType) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.get_RenewalCertificate)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(encoding), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).base__.get_RenewalCertificate)(::windows::core::Interface::as_raw(self), encoding, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -24006,7 +24006,7 @@ impl IX509CertificateRequestPkcs10 {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::BSTR>>,
     {
-        (::windows::core::Interface::vtable(self).base__.put_RenewalCertificate)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(encoding), value.into().abi()).ok()
+        (::windows::core::Interface::vtable(self).base__.put_RenewalCertificate)(::windows::core::Interface::as_raw(self), encoding, value.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn ClientId(&self) -> ::windows::core::Result<RequestClientInfoClientId> {
@@ -24015,7 +24015,7 @@ impl IX509CertificateRequestPkcs10 {
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn SetClientId(&self, value: RequestClientInfoClientId) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetClientId)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(value)).ok()
+        (::windows::core::Interface::vtable(self).base__.SetClientId)(::windows::core::Interface::as_raw(self), value).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -24052,13 +24052,13 @@ impl IX509CertificateRequestPkcs10 {
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn SetAlternateSignatureAlgorithm(&self, value: i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetAlternateSignatureAlgorithm)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(value)).ok()
+        (::windows::core::Interface::vtable(self).base__.SetAlternateSignatureAlgorithm)(::windows::core::Interface::as_raw(self), value).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn get_RawData(&self, encoding: EncodingType) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.get_RawData)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(encoding), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).base__.get_RawData)(::windows::core::Interface::as_raw(self), encoding, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -24066,7 +24066,7 @@ impl IX509CertificateRequestPkcs10 {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::BSTR>>,
     {
-        (::windows::core::Interface::vtable(self).InitializeFromTemplateName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(context), strtemplatename.into().abi()).ok()
+        (::windows::core::Interface::vtable(self).InitializeFromTemplateName)(::windows::core::Interface::as_raw(self), context, strtemplatename.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
@@ -24075,7 +24075,7 @@ impl IX509CertificateRequestPkcs10 {
         P0: ::std::convert::Into<::windows::core::InParam<'a, IX509PrivateKey>>,
         P1: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::BSTR>>,
     {
-        (::windows::core::Interface::vtable(self).InitializeFromPrivateKey)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(context), pprivatekey.into().abi(), strtemplatename.into().abi()).ok()
+        (::windows::core::Interface::vtable(self).InitializeFromPrivateKey)(::windows::core::Interface::as_raw(self), context, pprivatekey.into().abi(), strtemplatename.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
@@ -24084,7 +24084,7 @@ impl IX509CertificateRequestPkcs10 {
         P0: ::std::convert::Into<::windows::core::InParam<'a, IX509PublicKey>>,
         P1: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::BSTR>>,
     {
-        (::windows::core::Interface::vtable(self).InitializeFromPublicKey)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(context), ppublickey.into().abi(), strtemplatename.into().abi()).ok()
+        (::windows::core::Interface::vtable(self).InitializeFromPublicKey)(::windows::core::Interface::as_raw(self), context, ppublickey.into().abi(), strtemplatename.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -24092,7 +24092,7 @@ impl IX509CertificateRequestPkcs10 {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::BSTR>>,
     {
-        (::windows::core::Interface::vtable(self).InitializeFromCertificate)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(context), strcertificate.into().abi(), ::core::mem::transmute(encoding), ::core::mem::transmute(inheritoptions)).ok()
+        (::windows::core::Interface::vtable(self).InitializeFromCertificate)(::windows::core::Interface::as_raw(self), context, strcertificate.into().abi(), encoding, inheritoptions).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -24100,11 +24100,11 @@ impl IX509CertificateRequestPkcs10 {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::BSTR>>,
     {
-        (::windows::core::Interface::vtable(self).InitializeDecode)(::windows::core::Interface::as_raw(self), strencodeddata.into().abi(), ::core::mem::transmute(encoding)).ok()
+        (::windows::core::Interface::vtable(self).InitializeDecode)(::windows::core::Interface::as_raw(self), strencodeddata.into().abi(), encoding).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn CheckSignature(&self, allowedsignaturetypes: Pkcs10AllowedSignatureTypes) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).CheckSignature)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(allowedsignaturetypes)).ok()
+        (::windows::core::Interface::vtable(self).CheckSignature)(::windows::core::Interface::as_raw(self), allowedsignaturetypes).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn IsSmartCard(&self) -> ::windows::core::Result<i16> {
@@ -24143,7 +24143,7 @@ impl IX509CertificateRequestPkcs10 {
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn get_OldCertificate(&self, encoding: EncodingType) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>>::zeroed();
-        (::windows::core::Interface::vtable(self).get_OldCertificate)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(encoding), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).get_OldCertificate)(::windows::core::Interface::as_raw(self), encoding, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -24172,7 +24172,7 @@ impl IX509CertificateRequestPkcs10 {
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn SetSmimeCapabilities(&self, value: i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetSmimeCapabilities)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(value)).ok()
+        (::windows::core::Interface::vtable(self).SetSmimeCapabilities)(::windows::core::Interface::as_raw(self), value).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -24222,19 +24222,19 @@ impl IX509CertificateRequestPkcs10 {
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn get_RawDataToBeSigned(&self, encoding: EncodingType) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>>::zeroed();
-        (::windows::core::Interface::vtable(self).get_RawDataToBeSigned)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(encoding), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).get_RawDataToBeSigned)(::windows::core::Interface::as_raw(self), encoding, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn get_Signature(&self, encoding: EncodingType) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>>::zeroed();
-        (::windows::core::Interface::vtable(self).get_Signature)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(encoding), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).get_Signature)(::windows::core::Interface::as_raw(self), encoding, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetCspStatuses(&self, keyspec: X509KeySpec) -> ::windows::core::Result<ICspStatuses> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).GetCspStatuses)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(keyspec), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ICspStatuses>(result__)
+        (::windows::core::Interface::vtable(self).GetCspStatuses)(::windows::core::Interface::as_raw(self), keyspec, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ICspStatuses>(result__)
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -24424,7 +24424,7 @@ pub struct IX509CertificateRequestPkcs10V2(::windows::core::IUnknown);
 impl IX509CertificateRequestPkcs10V2 {
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn Initialize(&self, context: X509CertificateEnrollmentContext) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.Initialize)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(context)).ok()
+        (::windows::core::Interface::vtable(self).base__.base__.Initialize)(::windows::core::Interface::as_raw(self), context).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn Encode(&self) -> ::windows::core::Result<()> {
@@ -24438,7 +24438,7 @@ impl IX509CertificateRequestPkcs10V2 {
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetInnerRequest(&self, level: InnerRequestLevel) -> ::windows::core::Result<IX509CertificateRequest> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.base__.GetInnerRequest)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(level), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IX509CertificateRequest>(result__)
+        (::windows::core::Interface::vtable(self).base__.base__.GetInnerRequest)(::windows::core::Interface::as_raw(self), level, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IX509CertificateRequest>(result__)
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn Type(&self) -> ::windows::core::Result<X509RequestType> {
@@ -24457,7 +24457,7 @@ impl IX509CertificateRequestPkcs10V2 {
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn SetSilent(&self, value: i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.SetSilent)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(value)).ok()
+        (::windows::core::Interface::vtable(self).base__.base__.SetSilent)(::windows::core::Interface::as_raw(self), value).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn ParentWindow(&self) -> ::windows::core::Result<i32> {
@@ -24466,7 +24466,7 @@ impl IX509CertificateRequestPkcs10V2 {
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn SetParentWindow(&self, value: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.SetParentWindow)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(value)).ok()
+        (::windows::core::Interface::vtable(self).base__.base__.SetParentWindow)(::windows::core::Interface::as_raw(self), value).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -24489,13 +24489,13 @@ impl IX509CertificateRequestPkcs10V2 {
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn SetSuppressDefaults(&self, value: i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.SetSuppressDefaults)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(value)).ok()
+        (::windows::core::Interface::vtable(self).base__.base__.SetSuppressDefaults)(::windows::core::Interface::as_raw(self), value).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn get_RenewalCertificate(&self, encoding: EncodingType) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.base__.get_RenewalCertificate)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(encoding), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).base__.base__.get_RenewalCertificate)(::windows::core::Interface::as_raw(self), encoding, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -24503,7 +24503,7 @@ impl IX509CertificateRequestPkcs10V2 {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::BSTR>>,
     {
-        (::windows::core::Interface::vtable(self).base__.base__.put_RenewalCertificate)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(encoding), value.into().abi()).ok()
+        (::windows::core::Interface::vtable(self).base__.base__.put_RenewalCertificate)(::windows::core::Interface::as_raw(self), encoding, value.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn ClientId(&self) -> ::windows::core::Result<RequestClientInfoClientId> {
@@ -24512,7 +24512,7 @@ impl IX509CertificateRequestPkcs10V2 {
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn SetClientId(&self, value: RequestClientInfoClientId) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.SetClientId)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(value)).ok()
+        (::windows::core::Interface::vtable(self).base__.base__.SetClientId)(::windows::core::Interface::as_raw(self), value).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -24549,13 +24549,13 @@ impl IX509CertificateRequestPkcs10V2 {
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn SetAlternateSignatureAlgorithm(&self, value: i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.SetAlternateSignatureAlgorithm)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(value)).ok()
+        (::windows::core::Interface::vtable(self).base__.base__.SetAlternateSignatureAlgorithm)(::windows::core::Interface::as_raw(self), value).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn get_RawData(&self, encoding: EncodingType) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.base__.get_RawData)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(encoding), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).base__.base__.get_RawData)(::windows::core::Interface::as_raw(self), encoding, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -24563,7 +24563,7 @@ impl IX509CertificateRequestPkcs10V2 {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::BSTR>>,
     {
-        (::windows::core::Interface::vtable(self).base__.InitializeFromTemplateName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(context), strtemplatename.into().abi()).ok()
+        (::windows::core::Interface::vtable(self).base__.InitializeFromTemplateName)(::windows::core::Interface::as_raw(self), context, strtemplatename.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
@@ -24572,7 +24572,7 @@ impl IX509CertificateRequestPkcs10V2 {
         P0: ::std::convert::Into<::windows::core::InParam<'a, IX509PrivateKey>>,
         P1: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::BSTR>>,
     {
-        (::windows::core::Interface::vtable(self).base__.InitializeFromPrivateKey)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(context), pprivatekey.into().abi(), strtemplatename.into().abi()).ok()
+        (::windows::core::Interface::vtable(self).base__.InitializeFromPrivateKey)(::windows::core::Interface::as_raw(self), context, pprivatekey.into().abi(), strtemplatename.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
@@ -24581,7 +24581,7 @@ impl IX509CertificateRequestPkcs10V2 {
         P0: ::std::convert::Into<::windows::core::InParam<'a, IX509PublicKey>>,
         P1: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::BSTR>>,
     {
-        (::windows::core::Interface::vtable(self).base__.InitializeFromPublicKey)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(context), ppublickey.into().abi(), strtemplatename.into().abi()).ok()
+        (::windows::core::Interface::vtable(self).base__.InitializeFromPublicKey)(::windows::core::Interface::as_raw(self), context, ppublickey.into().abi(), strtemplatename.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -24589,7 +24589,7 @@ impl IX509CertificateRequestPkcs10V2 {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::BSTR>>,
     {
-        (::windows::core::Interface::vtable(self).base__.InitializeFromCertificate)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(context), strcertificate.into().abi(), ::core::mem::transmute(encoding), ::core::mem::transmute(inheritoptions)).ok()
+        (::windows::core::Interface::vtable(self).base__.InitializeFromCertificate)(::windows::core::Interface::as_raw(self), context, strcertificate.into().abi(), encoding, inheritoptions).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -24597,11 +24597,11 @@ impl IX509CertificateRequestPkcs10V2 {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::BSTR>>,
     {
-        (::windows::core::Interface::vtable(self).base__.InitializeDecode)(::windows::core::Interface::as_raw(self), strencodeddata.into().abi(), ::core::mem::transmute(encoding)).ok()
+        (::windows::core::Interface::vtable(self).base__.InitializeDecode)(::windows::core::Interface::as_raw(self), strencodeddata.into().abi(), encoding).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn CheckSignature(&self, allowedsignaturetypes: Pkcs10AllowedSignatureTypes) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.CheckSignature)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(allowedsignaturetypes)).ok()
+        (::windows::core::Interface::vtable(self).base__.CheckSignature)(::windows::core::Interface::as_raw(self), allowedsignaturetypes).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn IsSmartCard(&self) -> ::windows::core::Result<i16> {
@@ -24640,7 +24640,7 @@ impl IX509CertificateRequestPkcs10V2 {
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn get_OldCertificate(&self, encoding: EncodingType) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.get_OldCertificate)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(encoding), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).base__.get_OldCertificate)(::windows::core::Interface::as_raw(self), encoding, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -24669,7 +24669,7 @@ impl IX509CertificateRequestPkcs10V2 {
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn SetSmimeCapabilities(&self, value: i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetSmimeCapabilities)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(value)).ok()
+        (::windows::core::Interface::vtable(self).base__.SetSmimeCapabilities)(::windows::core::Interface::as_raw(self), value).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -24719,19 +24719,19 @@ impl IX509CertificateRequestPkcs10V2 {
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn get_RawDataToBeSigned(&self, encoding: EncodingType) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.get_RawDataToBeSigned)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(encoding), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).base__.get_RawDataToBeSigned)(::windows::core::Interface::as_raw(self), encoding, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn get_Signature(&self, encoding: EncodingType) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.get_Signature)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(encoding), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).base__.get_Signature)(::windows::core::Interface::as_raw(self), encoding, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetCspStatuses(&self, keyspec: X509KeySpec) -> ::windows::core::Result<ICspStatuses> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.GetCspStatuses)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(keyspec), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ICspStatuses>(result__)
+        (::windows::core::Interface::vtable(self).base__.GetCspStatuses)(::windows::core::Interface::as_raw(self), keyspec, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ICspStatuses>(result__)
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -24740,7 +24740,7 @@ impl IX509CertificateRequestPkcs10V2 {
         P0: ::std::convert::Into<::windows::core::InParam<'a, IX509EnrollmentPolicyServer>>,
         P1: ::std::convert::Into<::windows::core::InParam<'a, IX509CertificateTemplate>>,
     {
-        (::windows::core::Interface::vtable(self).InitializeFromTemplate)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(context), ppolicyserver.into().abi(), ptemplate.into().abi()).ok()
+        (::windows::core::Interface::vtable(self).InitializeFromTemplate)(::windows::core::Interface::as_raw(self), context, ppolicyserver.into().abi(), ptemplate.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -24750,7 +24750,7 @@ impl IX509CertificateRequestPkcs10V2 {
         P1: ::std::convert::Into<::windows::core::InParam<'a, IX509EnrollmentPolicyServer>>,
         P2: ::std::convert::Into<::windows::core::InParam<'a, IX509CertificateTemplate>>,
     {
-        (::windows::core::Interface::vtable(self).InitializeFromPrivateKeyTemplate)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(context), pprivatekey.into().abi(), ppolicyserver.into().abi(), ptemplate.into().abi()).ok()
+        (::windows::core::Interface::vtable(self).InitializeFromPrivateKeyTemplate)(::windows::core::Interface::as_raw(self), context, pprivatekey.into().abi(), ppolicyserver.into().abi(), ptemplate.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -24760,7 +24760,7 @@ impl IX509CertificateRequestPkcs10V2 {
         P1: ::std::convert::Into<::windows::core::InParam<'a, IX509EnrollmentPolicyServer>>,
         P2: ::std::convert::Into<::windows::core::InParam<'a, IX509CertificateTemplate>>,
     {
-        (::windows::core::Interface::vtable(self).InitializeFromPublicKeyTemplate)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(context), ppublickey.into().abi(), ppolicyserver.into().abi(), ptemplate.into().abi()).ok()
+        (::windows::core::Interface::vtable(self).InitializeFromPublicKeyTemplate)(::windows::core::Interface::as_raw(self), context, ppublickey.into().abi(), ppolicyserver.into().abi(), ptemplate.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -24906,7 +24906,7 @@ pub struct IX509CertificateRequestPkcs10V3(::windows::core::IUnknown);
 impl IX509CertificateRequestPkcs10V3 {
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn Initialize(&self, context: X509CertificateEnrollmentContext) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.base__.Initialize)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(context)).ok()
+        (::windows::core::Interface::vtable(self).base__.base__.base__.Initialize)(::windows::core::Interface::as_raw(self), context).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn Encode(&self) -> ::windows::core::Result<()> {
@@ -24920,7 +24920,7 @@ impl IX509CertificateRequestPkcs10V3 {
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetInnerRequest(&self, level: InnerRequestLevel) -> ::windows::core::Result<IX509CertificateRequest> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.base__.base__.GetInnerRequest)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(level), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IX509CertificateRequest>(result__)
+        (::windows::core::Interface::vtable(self).base__.base__.base__.GetInnerRequest)(::windows::core::Interface::as_raw(self), level, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IX509CertificateRequest>(result__)
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn Type(&self) -> ::windows::core::Result<X509RequestType> {
@@ -24939,7 +24939,7 @@ impl IX509CertificateRequestPkcs10V3 {
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn SetSilent(&self, value: i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.base__.SetSilent)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(value)).ok()
+        (::windows::core::Interface::vtable(self).base__.base__.base__.SetSilent)(::windows::core::Interface::as_raw(self), value).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn ParentWindow(&self) -> ::windows::core::Result<i32> {
@@ -24948,7 +24948,7 @@ impl IX509CertificateRequestPkcs10V3 {
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn SetParentWindow(&self, value: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.base__.SetParentWindow)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(value)).ok()
+        (::windows::core::Interface::vtable(self).base__.base__.base__.SetParentWindow)(::windows::core::Interface::as_raw(self), value).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -24971,13 +24971,13 @@ impl IX509CertificateRequestPkcs10V3 {
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn SetSuppressDefaults(&self, value: i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.base__.SetSuppressDefaults)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(value)).ok()
+        (::windows::core::Interface::vtable(self).base__.base__.base__.SetSuppressDefaults)(::windows::core::Interface::as_raw(self), value).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn get_RenewalCertificate(&self, encoding: EncodingType) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.base__.base__.get_RenewalCertificate)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(encoding), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).base__.base__.base__.get_RenewalCertificate)(::windows::core::Interface::as_raw(self), encoding, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -24985,7 +24985,7 @@ impl IX509CertificateRequestPkcs10V3 {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::BSTR>>,
     {
-        (::windows::core::Interface::vtable(self).base__.base__.base__.put_RenewalCertificate)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(encoding), value.into().abi()).ok()
+        (::windows::core::Interface::vtable(self).base__.base__.base__.put_RenewalCertificate)(::windows::core::Interface::as_raw(self), encoding, value.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn ClientId(&self) -> ::windows::core::Result<RequestClientInfoClientId> {
@@ -24994,7 +24994,7 @@ impl IX509CertificateRequestPkcs10V3 {
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn SetClientId(&self, value: RequestClientInfoClientId) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.base__.SetClientId)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(value)).ok()
+        (::windows::core::Interface::vtable(self).base__.base__.base__.SetClientId)(::windows::core::Interface::as_raw(self), value).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -25031,13 +25031,13 @@ impl IX509CertificateRequestPkcs10V3 {
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn SetAlternateSignatureAlgorithm(&self, value: i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.base__.SetAlternateSignatureAlgorithm)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(value)).ok()
+        (::windows::core::Interface::vtable(self).base__.base__.base__.SetAlternateSignatureAlgorithm)(::windows::core::Interface::as_raw(self), value).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn get_RawData(&self, encoding: EncodingType) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.base__.base__.get_RawData)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(encoding), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).base__.base__.base__.get_RawData)(::windows::core::Interface::as_raw(self), encoding, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -25045,7 +25045,7 @@ impl IX509CertificateRequestPkcs10V3 {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::BSTR>>,
     {
-        (::windows::core::Interface::vtable(self).base__.base__.InitializeFromTemplateName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(context), strtemplatename.into().abi()).ok()
+        (::windows::core::Interface::vtable(self).base__.base__.InitializeFromTemplateName)(::windows::core::Interface::as_raw(self), context, strtemplatename.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
@@ -25054,7 +25054,7 @@ impl IX509CertificateRequestPkcs10V3 {
         P0: ::std::convert::Into<::windows::core::InParam<'a, IX509PrivateKey>>,
         P1: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::BSTR>>,
     {
-        (::windows::core::Interface::vtable(self).base__.base__.InitializeFromPrivateKey)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(context), pprivatekey.into().abi(), strtemplatename.into().abi()).ok()
+        (::windows::core::Interface::vtable(self).base__.base__.InitializeFromPrivateKey)(::windows::core::Interface::as_raw(self), context, pprivatekey.into().abi(), strtemplatename.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
@@ -25063,7 +25063,7 @@ impl IX509CertificateRequestPkcs10V3 {
         P0: ::std::convert::Into<::windows::core::InParam<'a, IX509PublicKey>>,
         P1: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::BSTR>>,
     {
-        (::windows::core::Interface::vtable(self).base__.base__.InitializeFromPublicKey)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(context), ppublickey.into().abi(), strtemplatename.into().abi()).ok()
+        (::windows::core::Interface::vtable(self).base__.base__.InitializeFromPublicKey)(::windows::core::Interface::as_raw(self), context, ppublickey.into().abi(), strtemplatename.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -25071,7 +25071,7 @@ impl IX509CertificateRequestPkcs10V3 {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::BSTR>>,
     {
-        (::windows::core::Interface::vtable(self).base__.base__.InitializeFromCertificate)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(context), strcertificate.into().abi(), ::core::mem::transmute(encoding), ::core::mem::transmute(inheritoptions)).ok()
+        (::windows::core::Interface::vtable(self).base__.base__.InitializeFromCertificate)(::windows::core::Interface::as_raw(self), context, strcertificate.into().abi(), encoding, inheritoptions).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -25079,11 +25079,11 @@ impl IX509CertificateRequestPkcs10V3 {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::BSTR>>,
     {
-        (::windows::core::Interface::vtable(self).base__.base__.InitializeDecode)(::windows::core::Interface::as_raw(self), strencodeddata.into().abi(), ::core::mem::transmute(encoding)).ok()
+        (::windows::core::Interface::vtable(self).base__.base__.InitializeDecode)(::windows::core::Interface::as_raw(self), strencodeddata.into().abi(), encoding).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn CheckSignature(&self, allowedsignaturetypes: Pkcs10AllowedSignatureTypes) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.CheckSignature)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(allowedsignaturetypes)).ok()
+        (::windows::core::Interface::vtable(self).base__.base__.CheckSignature)(::windows::core::Interface::as_raw(self), allowedsignaturetypes).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn IsSmartCard(&self) -> ::windows::core::Result<i16> {
@@ -25122,7 +25122,7 @@ impl IX509CertificateRequestPkcs10V3 {
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn get_OldCertificate(&self, encoding: EncodingType) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.base__.get_OldCertificate)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(encoding), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).base__.base__.get_OldCertificate)(::windows::core::Interface::as_raw(self), encoding, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -25151,7 +25151,7 @@ impl IX509CertificateRequestPkcs10V3 {
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn SetSmimeCapabilities(&self, value: i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.SetSmimeCapabilities)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(value)).ok()
+        (::windows::core::Interface::vtable(self).base__.base__.SetSmimeCapabilities)(::windows::core::Interface::as_raw(self), value).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -25201,19 +25201,19 @@ impl IX509CertificateRequestPkcs10V3 {
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn get_RawDataToBeSigned(&self, encoding: EncodingType) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.base__.get_RawDataToBeSigned)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(encoding), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).base__.base__.get_RawDataToBeSigned)(::windows::core::Interface::as_raw(self), encoding, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn get_Signature(&self, encoding: EncodingType) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.base__.get_Signature)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(encoding), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).base__.base__.get_Signature)(::windows::core::Interface::as_raw(self), encoding, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetCspStatuses(&self, keyspec: X509KeySpec) -> ::windows::core::Result<ICspStatuses> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.base__.GetCspStatuses)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(keyspec), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ICspStatuses>(result__)
+        (::windows::core::Interface::vtable(self).base__.base__.GetCspStatuses)(::windows::core::Interface::as_raw(self), keyspec, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ICspStatuses>(result__)
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -25222,7 +25222,7 @@ impl IX509CertificateRequestPkcs10V3 {
         P0: ::std::convert::Into<::windows::core::InParam<'a, IX509EnrollmentPolicyServer>>,
         P1: ::std::convert::Into<::windows::core::InParam<'a, IX509CertificateTemplate>>,
     {
-        (::windows::core::Interface::vtable(self).base__.InitializeFromTemplate)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(context), ppolicyserver.into().abi(), ptemplate.into().abi()).ok()
+        (::windows::core::Interface::vtable(self).base__.InitializeFromTemplate)(::windows::core::Interface::as_raw(self), context, ppolicyserver.into().abi(), ptemplate.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -25232,7 +25232,7 @@ impl IX509CertificateRequestPkcs10V3 {
         P1: ::std::convert::Into<::windows::core::InParam<'a, IX509EnrollmentPolicyServer>>,
         P2: ::std::convert::Into<::windows::core::InParam<'a, IX509CertificateTemplate>>,
     {
-        (::windows::core::Interface::vtable(self).base__.InitializeFromPrivateKeyTemplate)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(context), pprivatekey.into().abi(), ppolicyserver.into().abi(), ptemplate.into().abi()).ok()
+        (::windows::core::Interface::vtable(self).base__.InitializeFromPrivateKeyTemplate)(::windows::core::Interface::as_raw(self), context, pprivatekey.into().abi(), ppolicyserver.into().abi(), ptemplate.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -25242,7 +25242,7 @@ impl IX509CertificateRequestPkcs10V3 {
         P1: ::std::convert::Into<::windows::core::InParam<'a, IX509EnrollmentPolicyServer>>,
         P2: ::std::convert::Into<::windows::core::InParam<'a, IX509CertificateTemplate>>,
     {
-        (::windows::core::Interface::vtable(self).base__.InitializeFromPublicKeyTemplate)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(context), ppublickey.into().abi(), ppolicyserver.into().abi(), ptemplate.into().abi()).ok()
+        (::windows::core::Interface::vtable(self).base__.InitializeFromPublicKeyTemplate)(::windows::core::Interface::as_raw(self), context, ppublickey.into().abi(), ppolicyserver.into().abi(), ptemplate.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -25263,13 +25263,13 @@ impl IX509CertificateRequestPkcs10V3 {
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn SetAttestPrivateKey(&self, value: i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetAttestPrivateKey)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(value)).ok()
+        (::windows::core::Interface::vtable(self).SetAttestPrivateKey)(::windows::core::Interface::as_raw(self), value).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn get_AttestationEncryptionCertificate(&self, encoding: EncodingType) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>>::zeroed();
-        (::windows::core::Interface::vtable(self).get_AttestationEncryptionCertificate)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(encoding), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).get_AttestationEncryptionCertificate)(::windows::core::Interface::as_raw(self), encoding, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -25277,7 +25277,7 @@ impl IX509CertificateRequestPkcs10V3 {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::BSTR>>,
     {
-        (::windows::core::Interface::vtable(self).put_AttestationEncryptionCertificate)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(encoding), value.into().abi()).ok()
+        (::windows::core::Interface::vtable(self).put_AttestationEncryptionCertificate)(::windows::core::Interface::as_raw(self), encoding, value.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -25300,7 +25300,7 @@ impl IX509CertificateRequestPkcs10V3 {
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn SetEncryptionStrength(&self, value: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetEncryptionStrength)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(value)).ok()
+        (::windows::core::Interface::vtable(self).SetEncryptionStrength)(::windows::core::Interface::as_raw(self), value).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -25484,7 +25484,7 @@ pub struct IX509CertificateRequestPkcs10V4(::windows::core::IUnknown);
 impl IX509CertificateRequestPkcs10V4 {
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn Initialize(&self, context: X509CertificateEnrollmentContext) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.base__.base__.Initialize)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(context)).ok()
+        (::windows::core::Interface::vtable(self).base__.base__.base__.base__.Initialize)(::windows::core::Interface::as_raw(self), context).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn Encode(&self) -> ::windows::core::Result<()> {
@@ -25498,7 +25498,7 @@ impl IX509CertificateRequestPkcs10V4 {
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetInnerRequest(&self, level: InnerRequestLevel) -> ::windows::core::Result<IX509CertificateRequest> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.base__.base__.base__.GetInnerRequest)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(level), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IX509CertificateRequest>(result__)
+        (::windows::core::Interface::vtable(self).base__.base__.base__.base__.GetInnerRequest)(::windows::core::Interface::as_raw(self), level, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IX509CertificateRequest>(result__)
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn Type(&self) -> ::windows::core::Result<X509RequestType> {
@@ -25517,7 +25517,7 @@ impl IX509CertificateRequestPkcs10V4 {
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn SetSilent(&self, value: i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.base__.base__.SetSilent)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(value)).ok()
+        (::windows::core::Interface::vtable(self).base__.base__.base__.base__.SetSilent)(::windows::core::Interface::as_raw(self), value).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn ParentWindow(&self) -> ::windows::core::Result<i32> {
@@ -25526,7 +25526,7 @@ impl IX509CertificateRequestPkcs10V4 {
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn SetParentWindow(&self, value: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.base__.base__.SetParentWindow)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(value)).ok()
+        (::windows::core::Interface::vtable(self).base__.base__.base__.base__.SetParentWindow)(::windows::core::Interface::as_raw(self), value).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -25549,13 +25549,13 @@ impl IX509CertificateRequestPkcs10V4 {
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn SetSuppressDefaults(&self, value: i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.base__.base__.SetSuppressDefaults)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(value)).ok()
+        (::windows::core::Interface::vtable(self).base__.base__.base__.base__.SetSuppressDefaults)(::windows::core::Interface::as_raw(self), value).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn get_RenewalCertificate(&self, encoding: EncodingType) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.base__.base__.base__.get_RenewalCertificate)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(encoding), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).base__.base__.base__.base__.get_RenewalCertificate)(::windows::core::Interface::as_raw(self), encoding, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -25563,7 +25563,7 @@ impl IX509CertificateRequestPkcs10V4 {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::BSTR>>,
     {
-        (::windows::core::Interface::vtable(self).base__.base__.base__.base__.put_RenewalCertificate)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(encoding), value.into().abi()).ok()
+        (::windows::core::Interface::vtable(self).base__.base__.base__.base__.put_RenewalCertificate)(::windows::core::Interface::as_raw(self), encoding, value.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn ClientId(&self) -> ::windows::core::Result<RequestClientInfoClientId> {
@@ -25572,7 +25572,7 @@ impl IX509CertificateRequestPkcs10V4 {
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn SetClientId(&self, value: RequestClientInfoClientId) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.base__.base__.SetClientId)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(value)).ok()
+        (::windows::core::Interface::vtable(self).base__.base__.base__.base__.SetClientId)(::windows::core::Interface::as_raw(self), value).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -25609,13 +25609,13 @@ impl IX509CertificateRequestPkcs10V4 {
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn SetAlternateSignatureAlgorithm(&self, value: i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.base__.base__.SetAlternateSignatureAlgorithm)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(value)).ok()
+        (::windows::core::Interface::vtable(self).base__.base__.base__.base__.SetAlternateSignatureAlgorithm)(::windows::core::Interface::as_raw(self), value).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn get_RawData(&self, encoding: EncodingType) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.base__.base__.base__.get_RawData)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(encoding), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).base__.base__.base__.base__.get_RawData)(::windows::core::Interface::as_raw(self), encoding, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -25623,7 +25623,7 @@ impl IX509CertificateRequestPkcs10V4 {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::BSTR>>,
     {
-        (::windows::core::Interface::vtable(self).base__.base__.base__.InitializeFromTemplateName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(context), strtemplatename.into().abi()).ok()
+        (::windows::core::Interface::vtable(self).base__.base__.base__.InitializeFromTemplateName)(::windows::core::Interface::as_raw(self), context, strtemplatename.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
@@ -25632,7 +25632,7 @@ impl IX509CertificateRequestPkcs10V4 {
         P0: ::std::convert::Into<::windows::core::InParam<'a, IX509PrivateKey>>,
         P1: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::BSTR>>,
     {
-        (::windows::core::Interface::vtable(self).base__.base__.base__.InitializeFromPrivateKey)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(context), pprivatekey.into().abi(), strtemplatename.into().abi()).ok()
+        (::windows::core::Interface::vtable(self).base__.base__.base__.InitializeFromPrivateKey)(::windows::core::Interface::as_raw(self), context, pprivatekey.into().abi(), strtemplatename.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
@@ -25641,7 +25641,7 @@ impl IX509CertificateRequestPkcs10V4 {
         P0: ::std::convert::Into<::windows::core::InParam<'a, IX509PublicKey>>,
         P1: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::BSTR>>,
     {
-        (::windows::core::Interface::vtable(self).base__.base__.base__.InitializeFromPublicKey)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(context), ppublickey.into().abi(), strtemplatename.into().abi()).ok()
+        (::windows::core::Interface::vtable(self).base__.base__.base__.InitializeFromPublicKey)(::windows::core::Interface::as_raw(self), context, ppublickey.into().abi(), strtemplatename.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -25649,7 +25649,7 @@ impl IX509CertificateRequestPkcs10V4 {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::BSTR>>,
     {
-        (::windows::core::Interface::vtable(self).base__.base__.base__.InitializeFromCertificate)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(context), strcertificate.into().abi(), ::core::mem::transmute(encoding), ::core::mem::transmute(inheritoptions)).ok()
+        (::windows::core::Interface::vtable(self).base__.base__.base__.InitializeFromCertificate)(::windows::core::Interface::as_raw(self), context, strcertificate.into().abi(), encoding, inheritoptions).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -25657,11 +25657,11 @@ impl IX509CertificateRequestPkcs10V4 {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::BSTR>>,
     {
-        (::windows::core::Interface::vtable(self).base__.base__.base__.InitializeDecode)(::windows::core::Interface::as_raw(self), strencodeddata.into().abi(), ::core::mem::transmute(encoding)).ok()
+        (::windows::core::Interface::vtable(self).base__.base__.base__.InitializeDecode)(::windows::core::Interface::as_raw(self), strencodeddata.into().abi(), encoding).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn CheckSignature(&self, allowedsignaturetypes: Pkcs10AllowedSignatureTypes) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.base__.CheckSignature)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(allowedsignaturetypes)).ok()
+        (::windows::core::Interface::vtable(self).base__.base__.base__.CheckSignature)(::windows::core::Interface::as_raw(self), allowedsignaturetypes).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn IsSmartCard(&self) -> ::windows::core::Result<i16> {
@@ -25700,7 +25700,7 @@ impl IX509CertificateRequestPkcs10V4 {
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn get_OldCertificate(&self, encoding: EncodingType) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.base__.base__.get_OldCertificate)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(encoding), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).base__.base__.base__.get_OldCertificate)(::windows::core::Interface::as_raw(self), encoding, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -25729,7 +25729,7 @@ impl IX509CertificateRequestPkcs10V4 {
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn SetSmimeCapabilities(&self, value: i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.base__.SetSmimeCapabilities)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(value)).ok()
+        (::windows::core::Interface::vtable(self).base__.base__.base__.SetSmimeCapabilities)(::windows::core::Interface::as_raw(self), value).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -25779,19 +25779,19 @@ impl IX509CertificateRequestPkcs10V4 {
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn get_RawDataToBeSigned(&self, encoding: EncodingType) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.base__.base__.get_RawDataToBeSigned)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(encoding), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).base__.base__.base__.get_RawDataToBeSigned)(::windows::core::Interface::as_raw(self), encoding, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn get_Signature(&self, encoding: EncodingType) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.base__.base__.get_Signature)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(encoding), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).base__.base__.base__.get_Signature)(::windows::core::Interface::as_raw(self), encoding, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetCspStatuses(&self, keyspec: X509KeySpec) -> ::windows::core::Result<ICspStatuses> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.base__.base__.GetCspStatuses)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(keyspec), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ICspStatuses>(result__)
+        (::windows::core::Interface::vtable(self).base__.base__.base__.GetCspStatuses)(::windows::core::Interface::as_raw(self), keyspec, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ICspStatuses>(result__)
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -25800,7 +25800,7 @@ impl IX509CertificateRequestPkcs10V4 {
         P0: ::std::convert::Into<::windows::core::InParam<'a, IX509EnrollmentPolicyServer>>,
         P1: ::std::convert::Into<::windows::core::InParam<'a, IX509CertificateTemplate>>,
     {
-        (::windows::core::Interface::vtable(self).base__.base__.InitializeFromTemplate)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(context), ppolicyserver.into().abi(), ptemplate.into().abi()).ok()
+        (::windows::core::Interface::vtable(self).base__.base__.InitializeFromTemplate)(::windows::core::Interface::as_raw(self), context, ppolicyserver.into().abi(), ptemplate.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -25810,7 +25810,7 @@ impl IX509CertificateRequestPkcs10V4 {
         P1: ::std::convert::Into<::windows::core::InParam<'a, IX509EnrollmentPolicyServer>>,
         P2: ::std::convert::Into<::windows::core::InParam<'a, IX509CertificateTemplate>>,
     {
-        (::windows::core::Interface::vtable(self).base__.base__.InitializeFromPrivateKeyTemplate)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(context), pprivatekey.into().abi(), ppolicyserver.into().abi(), ptemplate.into().abi()).ok()
+        (::windows::core::Interface::vtable(self).base__.base__.InitializeFromPrivateKeyTemplate)(::windows::core::Interface::as_raw(self), context, pprivatekey.into().abi(), ppolicyserver.into().abi(), ptemplate.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -25820,7 +25820,7 @@ impl IX509CertificateRequestPkcs10V4 {
         P1: ::std::convert::Into<::windows::core::InParam<'a, IX509EnrollmentPolicyServer>>,
         P2: ::std::convert::Into<::windows::core::InParam<'a, IX509CertificateTemplate>>,
     {
-        (::windows::core::Interface::vtable(self).base__.base__.InitializeFromPublicKeyTemplate)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(context), ppublickey.into().abi(), ppolicyserver.into().abi(), ptemplate.into().abi()).ok()
+        (::windows::core::Interface::vtable(self).base__.base__.InitializeFromPublicKeyTemplate)(::windows::core::Interface::as_raw(self), context, ppublickey.into().abi(), ppolicyserver.into().abi(), ptemplate.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -25841,13 +25841,13 @@ impl IX509CertificateRequestPkcs10V4 {
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn SetAttestPrivateKey(&self, value: i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetAttestPrivateKey)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(value)).ok()
+        (::windows::core::Interface::vtable(self).base__.SetAttestPrivateKey)(::windows::core::Interface::as_raw(self), value).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn get_AttestationEncryptionCertificate(&self, encoding: EncodingType) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.get_AttestationEncryptionCertificate)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(encoding), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).base__.get_AttestationEncryptionCertificate)(::windows::core::Interface::as_raw(self), encoding, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -25855,7 +25855,7 @@ impl IX509CertificateRequestPkcs10V4 {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::BSTR>>,
     {
-        (::windows::core::Interface::vtable(self).base__.put_AttestationEncryptionCertificate)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(encoding), value.into().abi()).ok()
+        (::windows::core::Interface::vtable(self).base__.put_AttestationEncryptionCertificate)(::windows::core::Interface::as_raw(self), encoding, value.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -25878,7 +25878,7 @@ impl IX509CertificateRequestPkcs10V4 {
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn SetEncryptionStrength(&self, value: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetEncryptionStrength)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(value)).ok()
+        (::windows::core::Interface::vtable(self).base__.SetEncryptionStrength)(::windows::core::Interface::as_raw(self), value).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -25907,7 +25907,7 @@ impl IX509CertificateRequestPkcs10V4 {
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn SetClaimType(&self, value: KeyAttestationClaimType) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetClaimType)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(value)).ok()
+        (::windows::core::Interface::vtable(self).SetClaimType)(::windows::core::Interface::as_raw(self), value).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn AttestPrivateKeyPreferred(&self) -> ::windows::core::Result<i16> {
@@ -25916,7 +25916,7 @@ impl IX509CertificateRequestPkcs10V4 {
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn SetAttestPrivateKeyPreferred(&self, value: i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetAttestPrivateKeyPreferred)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(value)).ok()
+        (::windows::core::Interface::vtable(self).SetAttestPrivateKeyPreferred)(::windows::core::Interface::as_raw(self), value).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -26070,7 +26070,7 @@ pub struct IX509CertificateRequestPkcs7(::windows::core::IUnknown);
 impl IX509CertificateRequestPkcs7 {
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn Initialize(&self, context: X509CertificateEnrollmentContext) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.Initialize)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(context)).ok()
+        (::windows::core::Interface::vtable(self).base__.Initialize)(::windows::core::Interface::as_raw(self), context).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn Encode(&self) -> ::windows::core::Result<()> {
@@ -26084,7 +26084,7 @@ impl IX509CertificateRequestPkcs7 {
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetInnerRequest(&self, level: InnerRequestLevel) -> ::windows::core::Result<IX509CertificateRequest> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.GetInnerRequest)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(level), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IX509CertificateRequest>(result__)
+        (::windows::core::Interface::vtable(self).base__.GetInnerRequest)(::windows::core::Interface::as_raw(self), level, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IX509CertificateRequest>(result__)
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn Type(&self) -> ::windows::core::Result<X509RequestType> {
@@ -26103,7 +26103,7 @@ impl IX509CertificateRequestPkcs7 {
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn SetSilent(&self, value: i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetSilent)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(value)).ok()
+        (::windows::core::Interface::vtable(self).base__.SetSilent)(::windows::core::Interface::as_raw(self), value).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn ParentWindow(&self) -> ::windows::core::Result<i32> {
@@ -26112,7 +26112,7 @@ impl IX509CertificateRequestPkcs7 {
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn SetParentWindow(&self, value: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetParentWindow)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(value)).ok()
+        (::windows::core::Interface::vtable(self).base__.SetParentWindow)(::windows::core::Interface::as_raw(self), value).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -26135,13 +26135,13 @@ impl IX509CertificateRequestPkcs7 {
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn SetSuppressDefaults(&self, value: i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetSuppressDefaults)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(value)).ok()
+        (::windows::core::Interface::vtable(self).base__.SetSuppressDefaults)(::windows::core::Interface::as_raw(self), value).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn get_RenewalCertificate(&self, encoding: EncodingType) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.get_RenewalCertificate)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(encoding), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).base__.get_RenewalCertificate)(::windows::core::Interface::as_raw(self), encoding, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -26149,7 +26149,7 @@ impl IX509CertificateRequestPkcs7 {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::BSTR>>,
     {
-        (::windows::core::Interface::vtable(self).base__.put_RenewalCertificate)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(encoding), value.into().abi()).ok()
+        (::windows::core::Interface::vtable(self).base__.put_RenewalCertificate)(::windows::core::Interface::as_raw(self), encoding, value.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn ClientId(&self) -> ::windows::core::Result<RequestClientInfoClientId> {
@@ -26158,7 +26158,7 @@ impl IX509CertificateRequestPkcs7 {
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn SetClientId(&self, value: RequestClientInfoClientId) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetClientId)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(value)).ok()
+        (::windows::core::Interface::vtable(self).base__.SetClientId)(::windows::core::Interface::as_raw(self), value).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -26195,13 +26195,13 @@ impl IX509CertificateRequestPkcs7 {
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn SetAlternateSignatureAlgorithm(&self, value: i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetAlternateSignatureAlgorithm)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(value)).ok()
+        (::windows::core::Interface::vtable(self).base__.SetAlternateSignatureAlgorithm)(::windows::core::Interface::as_raw(self), value).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn get_RawData(&self, encoding: EncodingType) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.get_RawData)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(encoding), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).base__.get_RawData)(::windows::core::Interface::as_raw(self), encoding, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -26209,7 +26209,7 @@ impl IX509CertificateRequestPkcs7 {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::BSTR>>,
     {
-        (::windows::core::Interface::vtable(self).InitializeFromTemplateName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(context), strtemplatename.into().abi()).ok()
+        (::windows::core::Interface::vtable(self).InitializeFromTemplateName)(::windows::core::Interface::as_raw(self), context, strtemplatename.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -26217,7 +26217,7 @@ impl IX509CertificateRequestPkcs7 {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::BSTR>>,
     {
-        (::windows::core::Interface::vtable(self).InitializeFromCertificate)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(context), ::core::mem::transmute(renewalrequest), strcertificate.into().abi(), ::core::mem::transmute(encoding), ::core::mem::transmute(inheritoptions)).ok()
+        (::windows::core::Interface::vtable(self).InitializeFromCertificate)(::windows::core::Interface::as_raw(self), context, renewalrequest, strcertificate.into().abi(), encoding, inheritoptions).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -26233,7 +26233,7 @@ impl IX509CertificateRequestPkcs7 {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::BSTR>>,
     {
-        (::windows::core::Interface::vtable(self).InitializeDecode)(::windows::core::Interface::as_raw(self), strencodeddata.into().abi(), ::core::mem::transmute(encoding)).ok()
+        (::windows::core::Interface::vtable(self).InitializeDecode)(::windows::core::Interface::as_raw(self), strencodeddata.into().abi(), encoding).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -26389,7 +26389,7 @@ pub struct IX509CertificateRequestPkcs7V2(::windows::core::IUnknown);
 impl IX509CertificateRequestPkcs7V2 {
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn Initialize(&self, context: X509CertificateEnrollmentContext) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.Initialize)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(context)).ok()
+        (::windows::core::Interface::vtable(self).base__.base__.Initialize)(::windows::core::Interface::as_raw(self), context).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn Encode(&self) -> ::windows::core::Result<()> {
@@ -26403,7 +26403,7 @@ impl IX509CertificateRequestPkcs7V2 {
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetInnerRequest(&self, level: InnerRequestLevel) -> ::windows::core::Result<IX509CertificateRequest> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.base__.GetInnerRequest)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(level), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IX509CertificateRequest>(result__)
+        (::windows::core::Interface::vtable(self).base__.base__.GetInnerRequest)(::windows::core::Interface::as_raw(self), level, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IX509CertificateRequest>(result__)
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn Type(&self) -> ::windows::core::Result<X509RequestType> {
@@ -26422,7 +26422,7 @@ impl IX509CertificateRequestPkcs7V2 {
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn SetSilent(&self, value: i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.SetSilent)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(value)).ok()
+        (::windows::core::Interface::vtable(self).base__.base__.SetSilent)(::windows::core::Interface::as_raw(self), value).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn ParentWindow(&self) -> ::windows::core::Result<i32> {
@@ -26431,7 +26431,7 @@ impl IX509CertificateRequestPkcs7V2 {
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn SetParentWindow(&self, value: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.SetParentWindow)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(value)).ok()
+        (::windows::core::Interface::vtable(self).base__.base__.SetParentWindow)(::windows::core::Interface::as_raw(self), value).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -26454,13 +26454,13 @@ impl IX509CertificateRequestPkcs7V2 {
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn SetSuppressDefaults(&self, value: i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.SetSuppressDefaults)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(value)).ok()
+        (::windows::core::Interface::vtable(self).base__.base__.SetSuppressDefaults)(::windows::core::Interface::as_raw(self), value).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn get_RenewalCertificate(&self, encoding: EncodingType) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.base__.get_RenewalCertificate)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(encoding), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).base__.base__.get_RenewalCertificate)(::windows::core::Interface::as_raw(self), encoding, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -26468,7 +26468,7 @@ impl IX509CertificateRequestPkcs7V2 {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::BSTR>>,
     {
-        (::windows::core::Interface::vtable(self).base__.base__.put_RenewalCertificate)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(encoding), value.into().abi()).ok()
+        (::windows::core::Interface::vtable(self).base__.base__.put_RenewalCertificate)(::windows::core::Interface::as_raw(self), encoding, value.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn ClientId(&self) -> ::windows::core::Result<RequestClientInfoClientId> {
@@ -26477,7 +26477,7 @@ impl IX509CertificateRequestPkcs7V2 {
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn SetClientId(&self, value: RequestClientInfoClientId) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.SetClientId)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(value)).ok()
+        (::windows::core::Interface::vtable(self).base__.base__.SetClientId)(::windows::core::Interface::as_raw(self), value).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -26514,13 +26514,13 @@ impl IX509CertificateRequestPkcs7V2 {
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn SetAlternateSignatureAlgorithm(&self, value: i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.SetAlternateSignatureAlgorithm)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(value)).ok()
+        (::windows::core::Interface::vtable(self).base__.base__.SetAlternateSignatureAlgorithm)(::windows::core::Interface::as_raw(self), value).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn get_RawData(&self, encoding: EncodingType) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.base__.get_RawData)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(encoding), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).base__.base__.get_RawData)(::windows::core::Interface::as_raw(self), encoding, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -26528,7 +26528,7 @@ impl IX509CertificateRequestPkcs7V2 {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::BSTR>>,
     {
-        (::windows::core::Interface::vtable(self).base__.InitializeFromTemplateName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(context), strtemplatename.into().abi()).ok()
+        (::windows::core::Interface::vtable(self).base__.InitializeFromTemplateName)(::windows::core::Interface::as_raw(self), context, strtemplatename.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -26536,7 +26536,7 @@ impl IX509CertificateRequestPkcs7V2 {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::BSTR>>,
     {
-        (::windows::core::Interface::vtable(self).base__.InitializeFromCertificate)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(context), ::core::mem::transmute(renewalrequest), strcertificate.into().abi(), ::core::mem::transmute(encoding), ::core::mem::transmute(inheritoptions)).ok()
+        (::windows::core::Interface::vtable(self).base__.InitializeFromCertificate)(::windows::core::Interface::as_raw(self), context, renewalrequest, strcertificate.into().abi(), encoding, inheritoptions).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -26552,7 +26552,7 @@ impl IX509CertificateRequestPkcs7V2 {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::BSTR>>,
     {
-        (::windows::core::Interface::vtable(self).base__.InitializeDecode)(::windows::core::Interface::as_raw(self), strencodeddata.into().abi(), ::core::mem::transmute(encoding)).ok()
+        (::windows::core::Interface::vtable(self).base__.InitializeDecode)(::windows::core::Interface::as_raw(self), strencodeddata.into().abi(), encoding).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -26589,7 +26589,7 @@ impl IX509CertificateRequestPkcs7V2 {
         P0: ::std::convert::Into<::windows::core::InParam<'a, IX509EnrollmentPolicyServer>>,
         P1: ::std::convert::Into<::windows::core::InParam<'a, IX509CertificateTemplate>>,
     {
-        (::windows::core::Interface::vtable(self).InitializeFromTemplate)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(context), ppolicyserver.into().abi(), ptemplate.into().abi()).ok()
+        (::windows::core::Interface::vtable(self).InitializeFromTemplate)(::windows::core::Interface::as_raw(self), context, ppolicyserver.into().abi(), ptemplate.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -26605,7 +26605,7 @@ impl IX509CertificateRequestPkcs7V2 {
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn CheckCertificateSignature(&self, validatecertificatechain: i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).CheckCertificateSignature)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(validatecertificatechain)).ok()
+        (::windows::core::Interface::vtable(self).CheckCertificateSignature)(::windows::core::Interface::as_raw(self), validatecertificatechain).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -26740,7 +26740,7 @@ impl IX509CertificateRevocationList {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::BSTR>>,
     {
-        (::windows::core::Interface::vtable(self).InitializeDecode)(::windows::core::Interface::as_raw(self), strencodeddata.into().abi(), ::core::mem::transmute(encoding)).ok()
+        (::windows::core::Interface::vtable(self).InitializeDecode)(::windows::core::Interface::as_raw(self), strencodeddata.into().abi(), encoding).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn Encode(&self) -> ::windows::core::Result<()> {
@@ -26783,7 +26783,7 @@ impl IX509CertificateRevocationList {
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn SetThisUpdate(&self, value: f64) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetThisUpdate)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(value)).ok()
+        (::windows::core::Interface::vtable(self).SetThisUpdate)(::windows::core::Interface::as_raw(self), value).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn NextUpdate(&self) -> ::windows::core::Result<f64> {
@@ -26792,7 +26792,7 @@ impl IX509CertificateRevocationList {
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn SetNextUpdate(&self, value: f64) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetNextUpdate)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(value)).ok()
+        (::windows::core::Interface::vtable(self).SetNextUpdate)(::windows::core::Interface::as_raw(self), value).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -26830,7 +26830,7 @@ impl IX509CertificateRevocationList {
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn get_CRLNumber(&self, encoding: EncodingType) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>>::zeroed();
-        (::windows::core::Interface::vtable(self).get_CRLNumber)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(encoding), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).get_CRLNumber)(::windows::core::Interface::as_raw(self), encoding, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -26838,7 +26838,7 @@ impl IX509CertificateRevocationList {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::BSTR>>,
     {
-        (::windows::core::Interface::vtable(self).put_CRLNumber)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(encoding), value.into().abi()).ok()
+        (::windows::core::Interface::vtable(self).put_CRLNumber)(::windows::core::Interface::as_raw(self), encoding, value.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn CAVersion(&self) -> ::windows::core::Result<i32> {
@@ -26847,7 +26847,7 @@ impl IX509CertificateRevocationList {
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn SetCAVersion(&self, pvalue: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetCAVersion)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pvalue)).ok()
+        (::windows::core::Interface::vtable(self).SetCAVersion)(::windows::core::Interface::as_raw(self), pvalue).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn BaseCRL(&self) -> ::windows::core::Result<i16> {
@@ -26880,7 +26880,7 @@ impl IX509CertificateRevocationList {
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn SetAlternateSignatureAlgorithm(&self, value: i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetAlternateSignatureAlgorithm)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(value)).ok()
+        (::windows::core::Interface::vtable(self).SetAlternateSignatureAlgorithm)(::windows::core::Interface::as_raw(self), value).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -26892,19 +26892,19 @@ impl IX509CertificateRevocationList {
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn get_RawData(&self, encoding: EncodingType) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>>::zeroed();
-        (::windows::core::Interface::vtable(self).get_RawData)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(encoding), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).get_RawData)(::windows::core::Interface::as_raw(self), encoding, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn get_RawDataToBeSigned(&self, encoding: EncodingType) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>>::zeroed();
-        (::windows::core::Interface::vtable(self).get_RawDataToBeSigned)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(encoding), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).get_RawDataToBeSigned)(::windows::core::Interface::as_raw(self), encoding, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn get_Signature(&self, encoding: EncodingType) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>>::zeroed();
-        (::windows::core::Interface::vtable(self).get_Signature)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(encoding), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).get_Signature)(::windows::core::Interface::as_raw(self), encoding, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -27066,7 +27066,7 @@ impl IX509CertificateRevocationListEntries {
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn get_ItemByIndex(&self, index: i32) -> ::windows::core::Result<IX509CertificateRevocationListEntry> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).get_ItemByIndex)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(index), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IX509CertificateRevocationListEntry>(result__)
+        (::windows::core::Interface::vtable(self).get_ItemByIndex)(::windows::core::Interface::as_raw(self), index, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IX509CertificateRevocationListEntry>(result__)
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn Count(&self) -> ::windows::core::Result<i32> {
@@ -27088,7 +27088,7 @@ impl IX509CertificateRevocationListEntries {
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn Remove(&self, index: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Remove)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(index)).ok()
+        (::windows::core::Interface::vtable(self).Remove)(::windows::core::Interface::as_raw(self), index).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn Clear(&self) -> ::windows::core::Result<()> {
@@ -27101,7 +27101,7 @@ impl IX509CertificateRevocationListEntries {
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::BSTR>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::<i32>::zeroed();
-        (::windows::core::Interface::vtable(self).get_IndexBySerialNumber)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(encoding), serialnumber.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
+        (::windows::core::Interface::vtable(self).get_IndexBySerialNumber)(::windows::core::Interface::as_raw(self), encoding, serialnumber.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -27211,13 +27211,13 @@ impl IX509CertificateRevocationListEntry {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::BSTR>>,
     {
-        (::windows::core::Interface::vtable(self).Initialize)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(encoding), serialnumber.into().abi(), ::core::mem::transmute(revocationdate)).ok()
+        (::windows::core::Interface::vtable(self).Initialize)(::windows::core::Interface::as_raw(self), encoding, serialnumber.into().abi(), revocationdate).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn get_SerialNumber(&self, encoding: EncodingType) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>>::zeroed();
-        (::windows::core::Interface::vtable(self).get_SerialNumber)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(encoding), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).get_SerialNumber)(::windows::core::Interface::as_raw(self), encoding, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn RevocationDate(&self) -> ::windows::core::Result<f64> {
@@ -27231,7 +27231,7 @@ impl IX509CertificateRevocationListEntry {
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn SetRevocationReason(&self, value: CRLRevocationReason) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetRevocationReason)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(value)).ok()
+        (::windows::core::Interface::vtable(self).SetRevocationReason)(::windows::core::Interface::as_raw(self), value).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -27342,7 +27342,7 @@ impl IX509CertificateTemplate {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn get_Property(&self, property: EnrollmentTemplateProperty) -> ::windows::core::Result<super::super::super::System::Com::VARIANT> {
         let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::System::Com::VARIANT>>::zeroed();
-        (::windows::core::Interface::vtable(self).get_Property)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(property), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::System::Com::VARIANT>(result__)
+        (::windows::core::Interface::vtable(self).get_Property)(::windows::core::Interface::as_raw(self), property, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::System::Com::VARIANT>(result__)
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -27436,13 +27436,13 @@ impl IX509CertificateTemplateWritable {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::BSTR>>,
     {
-        (::windows::core::Interface::vtable(self).Commit)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(commitflags), strservercontext.into().abi()).ok()
+        (::windows::core::Interface::vtable(self).Commit)(::windows::core::Interface::as_raw(self), commitflags, strservercontext.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn get_Property(&self, property: EnrollmentTemplateProperty) -> ::windows::core::Result<super::super::super::System::Com::VARIANT> {
         let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::System::Com::VARIANT>>::zeroed();
-        (::windows::core::Interface::vtable(self).get_Property)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(property), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::System::Com::VARIANT>(result__)
+        (::windows::core::Interface::vtable(self).get_Property)(::windows::core::Interface::as_raw(self), property, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::System::Com::VARIANT>(result__)
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -27450,7 +27450,7 @@ impl IX509CertificateTemplateWritable {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::System::Com::VARIANT>>,
     {
-        (::windows::core::Interface::vtable(self).put_Property)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(property), value.into().abi()).ok()
+        (::windows::core::Interface::vtable(self).put_Property)(::windows::core::Interface::as_raw(self), property, value.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -27556,7 +27556,7 @@ impl IX509CertificateTemplates {
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn get_ItemByIndex(&self, index: i32) -> ::windows::core::Result<IX509CertificateTemplate> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).get_ItemByIndex)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(index), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IX509CertificateTemplate>(result__)
+        (::windows::core::Interface::vtable(self).get_ItemByIndex)(::windows::core::Interface::as_raw(self), index, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IX509CertificateTemplate>(result__)
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn Count(&self) -> ::windows::core::Result<i32> {
@@ -27578,7 +27578,7 @@ impl IX509CertificateTemplates {
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn Remove(&self, index: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Remove)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(index)).ok()
+        (::windows::core::Interface::vtable(self).Remove)(::windows::core::Interface::as_raw(self), index).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn Clear(&self) -> ::windows::core::Result<()> {
@@ -27726,7 +27726,7 @@ impl IX509EndorsementKey {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::BSTR>>,
     {
-        (::windows::core::Interface::vtable(self).AddCertificate)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(encoding), strcertificate.into().abi()).ok()
+        (::windows::core::Interface::vtable(self).AddCertificate)(::windows::core::Interface::as_raw(self), encoding, strcertificate.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -27734,18 +27734,18 @@ impl IX509EndorsementKey {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::BSTR>>,
     {
-        (::windows::core::Interface::vtable(self).RemoveCertificate)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(encoding), strcertificate.into().abi()).ok()
+        (::windows::core::Interface::vtable(self).RemoveCertificate)(::windows::core::Interface::as_raw(self), encoding, strcertificate.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetCertificateByIndex(&self, manufactureronly: i16, dwindex: i32, encoding: EncodingType) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>>::zeroed();
-        (::windows::core::Interface::vtable(self).GetCertificateByIndex)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(manufactureronly), ::core::mem::transmute(dwindex), ::core::mem::transmute(encoding), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).GetCertificateByIndex)(::windows::core::Interface::as_raw(self), manufactureronly, dwindex, encoding, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn GetCertificateCount(&self, manufactureronly: i16) -> ::windows::core::Result<i32> {
         let mut result__ = ::core::mem::MaybeUninit::<i32>::zeroed();
-        (::windows::core::Interface::vtable(self).GetCertificateCount)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(manufactureronly), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
+        (::windows::core::Interface::vtable(self).GetCertificateCount)(::windows::core::Interface::as_raw(self), manufactureronly, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -27866,7 +27866,7 @@ pub struct IX509Enrollment(::windows::core::IUnknown);
 impl IX509Enrollment {
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn Initialize(&self, context: X509CertificateEnrollmentContext) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Initialize)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(context)).ok()
+        (::windows::core::Interface::vtable(self).Initialize)(::windows::core::Interface::as_raw(self), context).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -27874,7 +27874,7 @@ impl IX509Enrollment {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::BSTR>>,
     {
-        (::windows::core::Interface::vtable(self).InitializeFromTemplateName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(context), strtemplatename.into().abi()).ok()
+        (::windows::core::Interface::vtable(self).InitializeFromTemplateName)(::windows::core::Interface::as_raw(self), context, strtemplatename.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -27888,7 +27888,7 @@ impl IX509Enrollment {
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CreateRequest(&self, encoding: EncodingType) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>>::zeroed();
-        (::windows::core::Interface::vtable(self).CreateRequest)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(encoding), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).CreateRequest)(::windows::core::Interface::as_raw(self), encoding, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn Enroll(&self) -> ::windows::core::Result<()> {
@@ -27901,7 +27901,7 @@ impl IX509Enrollment {
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::BSTR>>,
         P1: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::BSTR>>,
     {
-        (::windows::core::Interface::vtable(self).InstallResponse)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(restrictions), strresponse.into().abi(), ::core::mem::transmute(encoding), strpassword.into().abi()).ok()
+        (::windows::core::Interface::vtable(self).InstallResponse)(::windows::core::Interface::as_raw(self), restrictions, strresponse.into().abi(), encoding, strpassword.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -27910,7 +27910,7 @@ impl IX509Enrollment {
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::BSTR>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>>::zeroed();
-        (::windows::core::Interface::vtable(self).CreatePFX)(::windows::core::Interface::as_raw(self), strpassword.into().abi(), ::core::mem::transmute(exportoptions), ::core::mem::transmute(encoding), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).CreatePFX)(::windows::core::Interface::as_raw(self), strpassword.into().abi(), exportoptions, encoding, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -27925,7 +27925,7 @@ impl IX509Enrollment {
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn SetSilent(&self, value: i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetSilent)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(value)).ok()
+        (::windows::core::Interface::vtable(self).SetSilent)(::windows::core::Interface::as_raw(self), value).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn ParentWindow(&self) -> ::windows::core::Result<i32> {
@@ -27934,7 +27934,7 @@ impl IX509Enrollment {
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn SetParentWindow(&self, value: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetParentWindow)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(value)).ok()
+        (::windows::core::Interface::vtable(self).SetParentWindow)(::windows::core::Interface::as_raw(self), value).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -27957,13 +27957,13 @@ impl IX509Enrollment {
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn get_Certificate(&self, encoding: EncodingType) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>>::zeroed();
-        (::windows::core::Interface::vtable(self).get_Certificate)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(encoding), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).get_Certificate)(::windows::core::Interface::as_raw(self), encoding, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn get_Response(&self, encoding: EncodingType) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>>::zeroed();
-        (::windows::core::Interface::vtable(self).get_Response)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(encoding), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).get_Response)(::windows::core::Interface::as_raw(self), encoding, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -28148,7 +28148,7 @@ pub struct IX509Enrollment2(::windows::core::IUnknown);
 impl IX509Enrollment2 {
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn Initialize(&self, context: X509CertificateEnrollmentContext) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.Initialize)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(context)).ok()
+        (::windows::core::Interface::vtable(self).base__.Initialize)(::windows::core::Interface::as_raw(self), context).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -28156,7 +28156,7 @@ impl IX509Enrollment2 {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::BSTR>>,
     {
-        (::windows::core::Interface::vtable(self).base__.InitializeFromTemplateName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(context), strtemplatename.into().abi()).ok()
+        (::windows::core::Interface::vtable(self).base__.InitializeFromTemplateName)(::windows::core::Interface::as_raw(self), context, strtemplatename.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -28170,7 +28170,7 @@ impl IX509Enrollment2 {
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CreateRequest(&self, encoding: EncodingType) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.CreateRequest)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(encoding), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).base__.CreateRequest)(::windows::core::Interface::as_raw(self), encoding, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn Enroll(&self) -> ::windows::core::Result<()> {
@@ -28183,7 +28183,7 @@ impl IX509Enrollment2 {
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::BSTR>>,
         P1: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::BSTR>>,
     {
-        (::windows::core::Interface::vtable(self).base__.InstallResponse)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(restrictions), strresponse.into().abi(), ::core::mem::transmute(encoding), strpassword.into().abi()).ok()
+        (::windows::core::Interface::vtable(self).base__.InstallResponse)(::windows::core::Interface::as_raw(self), restrictions, strresponse.into().abi(), encoding, strpassword.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -28192,7 +28192,7 @@ impl IX509Enrollment2 {
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::BSTR>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.CreatePFX)(::windows::core::Interface::as_raw(self), strpassword.into().abi(), ::core::mem::transmute(exportoptions), ::core::mem::transmute(encoding), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).base__.CreatePFX)(::windows::core::Interface::as_raw(self), strpassword.into().abi(), exportoptions, encoding, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -28207,7 +28207,7 @@ impl IX509Enrollment2 {
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn SetSilent(&self, value: i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetSilent)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(value)).ok()
+        (::windows::core::Interface::vtable(self).base__.SetSilent)(::windows::core::Interface::as_raw(self), value).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn ParentWindow(&self) -> ::windows::core::Result<i32> {
@@ -28216,7 +28216,7 @@ impl IX509Enrollment2 {
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn SetParentWindow(&self, value: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetParentWindow)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(value)).ok()
+        (::windows::core::Interface::vtable(self).base__.SetParentWindow)(::windows::core::Interface::as_raw(self), value).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -28239,13 +28239,13 @@ impl IX509Enrollment2 {
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn get_Certificate(&self, encoding: EncodingType) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.get_Certificate)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(encoding), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).base__.get_Certificate)(::windows::core::Interface::as_raw(self), encoding, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn get_Response(&self, encoding: EncodingType) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.get_Response)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(encoding), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).base__.get_Response)(::windows::core::Interface::as_raw(self), encoding, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -28293,7 +28293,7 @@ impl IX509Enrollment2 {
         P0: ::std::convert::Into<::windows::core::InParam<'a, IX509EnrollmentPolicyServer>>,
         P1: ::std::convert::Into<::windows::core::InParam<'a, IX509CertificateTemplate>>,
     {
-        (::windows::core::Interface::vtable(self).InitializeFromTemplate)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(context), ppolicyserver.into().abi(), ptemplate.into().abi()).ok()
+        (::windows::core::Interface::vtable(self).InitializeFromTemplate)(::windows::core::Interface::as_raw(self), context, ppolicyserver.into().abi(), ptemplate.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -28304,7 +28304,7 @@ impl IX509Enrollment2 {
         P2: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::BSTR>>,
         P3: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::BSTR>>,
     {
-        (::windows::core::Interface::vtable(self).InstallResponse2)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(restrictions), strresponse.into().abi(), ::core::mem::transmute(encoding), strpassword.into().abi(), strenrollmentpolicyserverurl.into().abi(), strenrollmentpolicyserverid.into().abi(), ::core::mem::transmute(enrollmentpolicyserverflags), ::core::mem::transmute(authflags)).ok()
+        (::windows::core::Interface::vtable(self).InstallResponse2)(::windows::core::Interface::as_raw(self), restrictions, strresponse.into().abi(), encoding, strpassword.into().abi(), strenrollmentpolicyserverurl.into().abi(), strenrollmentpolicyserverid.into().abi(), enrollmentpolicyserverflags, authflags).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -28445,7 +28445,7 @@ impl IX509EnrollmentHelper {
         P2: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::BSTR>>,
         P3: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::BSTR>>,
     {
-        (::windows::core::Interface::vtable(self).AddPolicyServer)(::windows::core::Interface::as_raw(self), strenrollmentpolicyserveruri.into().abi(), strenrollmentpolicyid.into().abi(), ::core::mem::transmute(enrollmentpolicyserverflags), ::core::mem::transmute(authflags), strcredential.into().abi(), strpassword.into().abi()).ok()
+        (::windows::core::Interface::vtable(self).AddPolicyServer)(::windows::core::Interface::as_raw(self), strenrollmentpolicyserveruri.into().abi(), strenrollmentpolicyid.into().abi(), enrollmentpolicyserverflags, authflags, strcredential.into().abi(), strpassword.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -28455,7 +28455,7 @@ impl IX509EnrollmentHelper {
         P1: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::BSTR>>,
         P2: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::BSTR>>,
     {
-        (::windows::core::Interface::vtable(self).AddEnrollmentServer)(::windows::core::Interface::as_raw(self), strenrollmentserveruri.into().abi(), ::core::mem::transmute(authflags), strcredential.into().abi(), strpassword.into().abi()).ok()
+        (::windows::core::Interface::vtable(self).AddEnrollmentServer)(::windows::core::Interface::as_raw(self), strenrollmentserveruri.into().abi(), authflags, strcredential.into().abi(), strpassword.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -28465,11 +28465,11 @@ impl IX509EnrollmentHelper {
         P1: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::BSTR>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>>::zeroed();
-        (::windows::core::Interface::vtable(self).Enroll)(::windows::core::Interface::as_raw(self), strenrollmentpolicyserveruri.into().abi(), strtemplatename.into().abi(), ::core::mem::transmute(encoding), ::core::mem::transmute(enrollflags), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).Enroll)(::windows::core::Interface::as_raw(self), strenrollmentpolicyserveruri.into().abi(), strtemplatename.into().abi(), encoding, enrollflags, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn Initialize(&self, context: X509CertificateEnrollmentContext) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Initialize)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(context)).ok()
+        (::windows::core::Interface::vtable(self).Initialize)(::windows::core::Interface::as_raw(self), context).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -28565,11 +28565,11 @@ impl IX509EnrollmentPolicyServer {
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::BSTR>>,
         P1: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::BSTR>>,
     {
-        (::windows::core::Interface::vtable(self).Initialize)(::windows::core::Interface::as_raw(self), bstrpolicyserverurl.into().abi(), bstrpolicyserverid.into().abi(), ::core::mem::transmute(authflags), ::core::mem::transmute(fisuntrusted), ::core::mem::transmute(context)).ok()
+        (::windows::core::Interface::vtable(self).Initialize)(::windows::core::Interface::as_raw(self), bstrpolicyserverurl.into().abi(), bstrpolicyserverid.into().abi(), authflags, fisuntrusted, context).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn LoadPolicy(&self, option: X509EnrollmentPolicyLoadOption) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).LoadPolicy)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(option)).ok()
+        (::windows::core::Interface::vtable(self).LoadPolicy)(::windows::core::Interface::as_raw(self), option).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -28669,7 +28669,7 @@ impl IX509EnrollmentPolicyServer {
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::BSTR>>,
         P1: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::BSTR>>,
     {
-        (::windows::core::Interface::vtable(self).SetCredential)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(hwndparent), ::core::mem::transmute(flag), strcredential.into().abi(), strpassword.into().abi()).ok()
+        (::windows::core::Interface::vtable(self).SetCredential)(::windows::core::Interface::as_raw(self), hwndparent, flag, strcredential.into().abi(), strpassword.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn QueryChanges(&self) -> ::windows::core::Result<i16> {
@@ -28688,7 +28688,7 @@ impl IX509EnrollmentPolicyServer {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn Export(&self, exportflags: X509EnrollmentPolicyExportFlags) -> ::windows::core::Result<super::super::super::System::Com::VARIANT> {
         let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::System::Com::VARIANT>>::zeroed();
-        (::windows::core::Interface::vtable(self).Export)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(exportflags), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::System::Com::VARIANT>(result__)
+        (::windows::core::Interface::vtable(self).Export)(::windows::core::Interface::as_raw(self), exportflags, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::System::Com::VARIANT>(result__)
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn Cost(&self) -> ::windows::core::Result<u32> {
@@ -28697,7 +28697,7 @@ impl IX509EnrollmentPolicyServer {
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn SetCost(&self, value: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetCost)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(value)).ok()
+        (::windows::core::Interface::vtable(self).SetCost)(::windows::core::Interface::as_raw(self), value).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -28865,7 +28865,7 @@ impl IX509EnrollmentStatus {
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn SetSelected(&self, value: EnrollmentSelectionStatus) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetSelected)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(value)).ok()
+        (::windows::core::Interface::vtable(self).SetSelected)(::windows::core::Interface::as_raw(self), value).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn Display(&self) -> ::windows::core::Result<EnrollmentDisplayStatus> {
@@ -28874,7 +28874,7 @@ impl IX509EnrollmentStatus {
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn SetDisplay(&self, value: EnrollmentDisplayStatus) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetDisplay)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(value)).ok()
+        (::windows::core::Interface::vtable(self).SetDisplay)(::windows::core::Interface::as_raw(self), value).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn Status(&self) -> ::windows::core::Result<EnrollmentEnrollStatus> {
@@ -28883,7 +28883,7 @@ impl IX509EnrollmentStatus {
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn SetStatus(&self, value: EnrollmentEnrollStatus) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetStatus)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(value)).ok()
+        (::windows::core::Interface::vtable(self).SetStatus)(::windows::core::Interface::as_raw(self), value).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn Error(&self) -> ::windows::core::Result<::windows::core::HRESULT> {
@@ -28892,7 +28892,7 @@ impl IX509EnrollmentStatus {
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn SetError(&self, value: ::windows::core::HRESULT) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetError)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(value)).ok()
+        (::windows::core::Interface::vtable(self).SetError)(::windows::core::Interface::as_raw(self), value).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -29092,7 +29092,7 @@ impl IX509Extension {
         P0: ::std::convert::Into<::windows::core::InParam<'a, IObjectId>>,
         P1: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::BSTR>>,
     {
-        (::windows::core::Interface::vtable(self).Initialize)(::windows::core::Interface::as_raw(self), pobjectid.into().abi(), ::core::mem::transmute(encoding), strencodeddata.into().abi()).ok()
+        (::windows::core::Interface::vtable(self).Initialize)(::windows::core::Interface::as_raw(self), pobjectid.into().abi(), encoding, strencodeddata.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -29104,7 +29104,7 @@ impl IX509Extension {
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn get_RawData(&self, encoding: EncodingType) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>>::zeroed();
-        (::windows::core::Interface::vtable(self).get_RawData)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(encoding), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).get_RawData)(::windows::core::Interface::as_raw(self), encoding, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn Critical(&self) -> ::windows::core::Result<i16> {
@@ -29113,7 +29113,7 @@ impl IX509Extension {
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn SetCritical(&self, value: i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetCritical)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(value)).ok()
+        (::windows::core::Interface::vtable(self).SetCritical)(::windows::core::Interface::as_raw(self), value).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -29210,7 +29210,7 @@ impl IX509ExtensionAlternativeNames {
         P0: ::std::convert::Into<::windows::core::InParam<'a, IObjectId>>,
         P1: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::BSTR>>,
     {
-        (::windows::core::Interface::vtable(self).base__.Initialize)(::windows::core::Interface::as_raw(self), pobjectid.into().abi(), ::core::mem::transmute(encoding), strencodeddata.into().abi()).ok()
+        (::windows::core::Interface::vtable(self).base__.Initialize)(::windows::core::Interface::as_raw(self), pobjectid.into().abi(), encoding, strencodeddata.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -29222,7 +29222,7 @@ impl IX509ExtensionAlternativeNames {
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn get_RawData(&self, encoding: EncodingType) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.get_RawData)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(encoding), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).base__.get_RawData)(::windows::core::Interface::as_raw(self), encoding, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn Critical(&self) -> ::windows::core::Result<i16> {
@@ -29231,7 +29231,7 @@ impl IX509ExtensionAlternativeNames {
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn SetCritical(&self, value: i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetCritical)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(value)).ok()
+        (::windows::core::Interface::vtable(self).base__.SetCritical)(::windows::core::Interface::as_raw(self), value).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -29247,7 +29247,7 @@ impl IX509ExtensionAlternativeNames {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::BSTR>>,
     {
-        (::windows::core::Interface::vtable(self).InitializeDecode)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(encoding), strencodeddata.into().abi()).ok()
+        (::windows::core::Interface::vtable(self).InitializeDecode)(::windows::core::Interface::as_raw(self), encoding, strencodeddata.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -29366,7 +29366,7 @@ impl IX509ExtensionAuthorityKeyIdentifier {
         P0: ::std::convert::Into<::windows::core::InParam<'a, IObjectId>>,
         P1: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::BSTR>>,
     {
-        (::windows::core::Interface::vtable(self).base__.Initialize)(::windows::core::Interface::as_raw(self), pobjectid.into().abi(), ::core::mem::transmute(encoding), strencodeddata.into().abi()).ok()
+        (::windows::core::Interface::vtable(self).base__.Initialize)(::windows::core::Interface::as_raw(self), pobjectid.into().abi(), encoding, strencodeddata.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -29378,7 +29378,7 @@ impl IX509ExtensionAuthorityKeyIdentifier {
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn get_RawData(&self, encoding: EncodingType) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.get_RawData)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(encoding), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).base__.get_RawData)(::windows::core::Interface::as_raw(self), encoding, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn Critical(&self) -> ::windows::core::Result<i16> {
@@ -29387,7 +29387,7 @@ impl IX509ExtensionAuthorityKeyIdentifier {
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn SetCritical(&self, value: i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetCritical)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(value)).ok()
+        (::windows::core::Interface::vtable(self).base__.SetCritical)(::windows::core::Interface::as_raw(self), value).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -29395,7 +29395,7 @@ impl IX509ExtensionAuthorityKeyIdentifier {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::BSTR>>,
     {
-        (::windows::core::Interface::vtable(self).InitializeEncode)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(encoding), strkeyidentifier.into().abi()).ok()
+        (::windows::core::Interface::vtable(self).InitializeEncode)(::windows::core::Interface::as_raw(self), encoding, strkeyidentifier.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -29403,13 +29403,13 @@ impl IX509ExtensionAuthorityKeyIdentifier {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::BSTR>>,
     {
-        (::windows::core::Interface::vtable(self).InitializeDecode)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(encoding), strencodeddata.into().abi()).ok()
+        (::windows::core::Interface::vtable(self).InitializeDecode)(::windows::core::Interface::as_raw(self), encoding, strencodeddata.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn get_AuthorityKeyIdentifier(&self, encoding: EncodingType) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>>::zeroed();
-        (::windows::core::Interface::vtable(self).get_AuthorityKeyIdentifier)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(encoding), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).get_AuthorityKeyIdentifier)(::windows::core::Interface::as_raw(self), encoding, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -29522,7 +29522,7 @@ impl IX509ExtensionBasicConstraints {
         P0: ::std::convert::Into<::windows::core::InParam<'a, IObjectId>>,
         P1: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::BSTR>>,
     {
-        (::windows::core::Interface::vtable(self).base__.Initialize)(::windows::core::Interface::as_raw(self), pobjectid.into().abi(), ::core::mem::transmute(encoding), strencodeddata.into().abi()).ok()
+        (::windows::core::Interface::vtable(self).base__.Initialize)(::windows::core::Interface::as_raw(self), pobjectid.into().abi(), encoding, strencodeddata.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -29534,7 +29534,7 @@ impl IX509ExtensionBasicConstraints {
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn get_RawData(&self, encoding: EncodingType) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.get_RawData)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(encoding), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).base__.get_RawData)(::windows::core::Interface::as_raw(self), encoding, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn Critical(&self) -> ::windows::core::Result<i16> {
@@ -29543,11 +29543,11 @@ impl IX509ExtensionBasicConstraints {
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn SetCritical(&self, value: i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetCritical)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(value)).ok()
+        (::windows::core::Interface::vtable(self).base__.SetCritical)(::windows::core::Interface::as_raw(self), value).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn InitializeEncode(&self, isca: i16, pathlenconstraint: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).InitializeEncode)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(isca), ::core::mem::transmute(pathlenconstraint)).ok()
+        (::windows::core::Interface::vtable(self).InitializeEncode)(::windows::core::Interface::as_raw(self), isca, pathlenconstraint).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -29555,7 +29555,7 @@ impl IX509ExtensionBasicConstraints {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::BSTR>>,
     {
-        (::windows::core::Interface::vtable(self).InitializeDecode)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(encoding), strencodeddata.into().abi()).ok()
+        (::windows::core::Interface::vtable(self).InitializeDecode)(::windows::core::Interface::as_raw(self), encoding, strencodeddata.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn IsCA(&self) -> ::windows::core::Result<i16> {
@@ -29673,7 +29673,7 @@ impl IX509ExtensionCertificatePolicies {
         P0: ::std::convert::Into<::windows::core::InParam<'a, IObjectId>>,
         P1: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::BSTR>>,
     {
-        (::windows::core::Interface::vtable(self).base__.Initialize)(::windows::core::Interface::as_raw(self), pobjectid.into().abi(), ::core::mem::transmute(encoding), strencodeddata.into().abi()).ok()
+        (::windows::core::Interface::vtable(self).base__.Initialize)(::windows::core::Interface::as_raw(self), pobjectid.into().abi(), encoding, strencodeddata.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -29685,7 +29685,7 @@ impl IX509ExtensionCertificatePolicies {
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn get_RawData(&self, encoding: EncodingType) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.get_RawData)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(encoding), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).base__.get_RawData)(::windows::core::Interface::as_raw(self), encoding, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn Critical(&self) -> ::windows::core::Result<i16> {
@@ -29694,7 +29694,7 @@ impl IX509ExtensionCertificatePolicies {
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn SetCritical(&self, value: i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetCritical)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(value)).ok()
+        (::windows::core::Interface::vtable(self).base__.SetCritical)(::windows::core::Interface::as_raw(self), value).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -29710,7 +29710,7 @@ impl IX509ExtensionCertificatePolicies {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::BSTR>>,
     {
-        (::windows::core::Interface::vtable(self).InitializeDecode)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(encoding), strencodeddata.into().abi()).ok()
+        (::windows::core::Interface::vtable(self).InitializeDecode)(::windows::core::Interface::as_raw(self), encoding, strencodeddata.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -29829,7 +29829,7 @@ impl IX509ExtensionEnhancedKeyUsage {
         P0: ::std::convert::Into<::windows::core::InParam<'a, IObjectId>>,
         P1: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::BSTR>>,
     {
-        (::windows::core::Interface::vtable(self).base__.Initialize)(::windows::core::Interface::as_raw(self), pobjectid.into().abi(), ::core::mem::transmute(encoding), strencodeddata.into().abi()).ok()
+        (::windows::core::Interface::vtable(self).base__.Initialize)(::windows::core::Interface::as_raw(self), pobjectid.into().abi(), encoding, strencodeddata.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -29841,7 +29841,7 @@ impl IX509ExtensionEnhancedKeyUsage {
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn get_RawData(&self, encoding: EncodingType) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.get_RawData)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(encoding), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).base__.get_RawData)(::windows::core::Interface::as_raw(self), encoding, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn Critical(&self) -> ::windows::core::Result<i16> {
@@ -29850,7 +29850,7 @@ impl IX509ExtensionEnhancedKeyUsage {
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn SetCritical(&self, value: i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetCritical)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(value)).ok()
+        (::windows::core::Interface::vtable(self).base__.SetCritical)(::windows::core::Interface::as_raw(self), value).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -29866,7 +29866,7 @@ impl IX509ExtensionEnhancedKeyUsage {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::BSTR>>,
     {
-        (::windows::core::Interface::vtable(self).InitializeDecode)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(encoding), strencodeddata.into().abi()).ok()
+        (::windows::core::Interface::vtable(self).InitializeDecode)(::windows::core::Interface::as_raw(self), encoding, strencodeddata.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -29985,7 +29985,7 @@ impl IX509ExtensionKeyUsage {
         P0: ::std::convert::Into<::windows::core::InParam<'a, IObjectId>>,
         P1: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::BSTR>>,
     {
-        (::windows::core::Interface::vtable(self).base__.Initialize)(::windows::core::Interface::as_raw(self), pobjectid.into().abi(), ::core::mem::transmute(encoding), strencodeddata.into().abi()).ok()
+        (::windows::core::Interface::vtable(self).base__.Initialize)(::windows::core::Interface::as_raw(self), pobjectid.into().abi(), encoding, strencodeddata.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -29997,7 +29997,7 @@ impl IX509ExtensionKeyUsage {
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn get_RawData(&self, encoding: EncodingType) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.get_RawData)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(encoding), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).base__.get_RawData)(::windows::core::Interface::as_raw(self), encoding, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn Critical(&self) -> ::windows::core::Result<i16> {
@@ -30006,11 +30006,11 @@ impl IX509ExtensionKeyUsage {
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn SetCritical(&self, value: i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetCritical)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(value)).ok()
+        (::windows::core::Interface::vtable(self).base__.SetCritical)(::windows::core::Interface::as_raw(self), value).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn InitializeEncode(&self, usageflags: X509KeyUsageFlags) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).InitializeEncode)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(usageflags)).ok()
+        (::windows::core::Interface::vtable(self).InitializeEncode)(::windows::core::Interface::as_raw(self), usageflags).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -30018,7 +30018,7 @@ impl IX509ExtensionKeyUsage {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::BSTR>>,
     {
-        (::windows::core::Interface::vtable(self).InitializeDecode)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(encoding), strencodeddata.into().abi()).ok()
+        (::windows::core::Interface::vtable(self).InitializeDecode)(::windows::core::Interface::as_raw(self), encoding, strencodeddata.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn KeyUsage(&self) -> ::windows::core::Result<X509KeyUsageFlags> {
@@ -30130,7 +30130,7 @@ impl IX509ExtensionMSApplicationPolicies {
         P0: ::std::convert::Into<::windows::core::InParam<'a, IObjectId>>,
         P1: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::BSTR>>,
     {
-        (::windows::core::Interface::vtable(self).base__.Initialize)(::windows::core::Interface::as_raw(self), pobjectid.into().abi(), ::core::mem::transmute(encoding), strencodeddata.into().abi()).ok()
+        (::windows::core::Interface::vtable(self).base__.Initialize)(::windows::core::Interface::as_raw(self), pobjectid.into().abi(), encoding, strencodeddata.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -30142,7 +30142,7 @@ impl IX509ExtensionMSApplicationPolicies {
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn get_RawData(&self, encoding: EncodingType) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.get_RawData)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(encoding), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).base__.get_RawData)(::windows::core::Interface::as_raw(self), encoding, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn Critical(&self) -> ::windows::core::Result<i16> {
@@ -30151,7 +30151,7 @@ impl IX509ExtensionMSApplicationPolicies {
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn SetCritical(&self, value: i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetCritical)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(value)).ok()
+        (::windows::core::Interface::vtable(self).base__.SetCritical)(::windows::core::Interface::as_raw(self), value).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -30167,7 +30167,7 @@ impl IX509ExtensionMSApplicationPolicies {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::BSTR>>,
     {
-        (::windows::core::Interface::vtable(self).InitializeDecode)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(encoding), strencodeddata.into().abi()).ok()
+        (::windows::core::Interface::vtable(self).InitializeDecode)(::windows::core::Interface::as_raw(self), encoding, strencodeddata.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -30286,7 +30286,7 @@ impl IX509ExtensionSmimeCapabilities {
         P0: ::std::convert::Into<::windows::core::InParam<'a, IObjectId>>,
         P1: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::BSTR>>,
     {
-        (::windows::core::Interface::vtable(self).base__.Initialize)(::windows::core::Interface::as_raw(self), pobjectid.into().abi(), ::core::mem::transmute(encoding), strencodeddata.into().abi()).ok()
+        (::windows::core::Interface::vtable(self).base__.Initialize)(::windows::core::Interface::as_raw(self), pobjectid.into().abi(), encoding, strencodeddata.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -30298,7 +30298,7 @@ impl IX509ExtensionSmimeCapabilities {
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn get_RawData(&self, encoding: EncodingType) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.get_RawData)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(encoding), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).base__.get_RawData)(::windows::core::Interface::as_raw(self), encoding, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn Critical(&self) -> ::windows::core::Result<i16> {
@@ -30307,7 +30307,7 @@ impl IX509ExtensionSmimeCapabilities {
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn SetCritical(&self, value: i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetCritical)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(value)).ok()
+        (::windows::core::Interface::vtable(self).base__.SetCritical)(::windows::core::Interface::as_raw(self), value).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -30323,7 +30323,7 @@ impl IX509ExtensionSmimeCapabilities {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::BSTR>>,
     {
-        (::windows::core::Interface::vtable(self).InitializeDecode)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(encoding), strencodeddata.into().abi()).ok()
+        (::windows::core::Interface::vtable(self).InitializeDecode)(::windows::core::Interface::as_raw(self), encoding, strencodeddata.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -30442,7 +30442,7 @@ impl IX509ExtensionSubjectKeyIdentifier {
         P0: ::std::convert::Into<::windows::core::InParam<'a, IObjectId>>,
         P1: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::BSTR>>,
     {
-        (::windows::core::Interface::vtable(self).base__.Initialize)(::windows::core::Interface::as_raw(self), pobjectid.into().abi(), ::core::mem::transmute(encoding), strencodeddata.into().abi()).ok()
+        (::windows::core::Interface::vtable(self).base__.Initialize)(::windows::core::Interface::as_raw(self), pobjectid.into().abi(), encoding, strencodeddata.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -30454,7 +30454,7 @@ impl IX509ExtensionSubjectKeyIdentifier {
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn get_RawData(&self, encoding: EncodingType) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.get_RawData)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(encoding), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).base__.get_RawData)(::windows::core::Interface::as_raw(self), encoding, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn Critical(&self) -> ::windows::core::Result<i16> {
@@ -30463,7 +30463,7 @@ impl IX509ExtensionSubjectKeyIdentifier {
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn SetCritical(&self, value: i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetCritical)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(value)).ok()
+        (::windows::core::Interface::vtable(self).base__.SetCritical)(::windows::core::Interface::as_raw(self), value).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -30471,7 +30471,7 @@ impl IX509ExtensionSubjectKeyIdentifier {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::BSTR>>,
     {
-        (::windows::core::Interface::vtable(self).InitializeEncode)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(encoding), strkeyidentifier.into().abi()).ok()
+        (::windows::core::Interface::vtable(self).InitializeEncode)(::windows::core::Interface::as_raw(self), encoding, strkeyidentifier.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -30479,13 +30479,13 @@ impl IX509ExtensionSubjectKeyIdentifier {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::BSTR>>,
     {
-        (::windows::core::Interface::vtable(self).InitializeDecode)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(encoding), strencodeddata.into().abi()).ok()
+        (::windows::core::Interface::vtable(self).InitializeDecode)(::windows::core::Interface::as_raw(self), encoding, strencodeddata.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn get_SubjectKeyIdentifier(&self, encoding: EncodingType) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>>::zeroed();
-        (::windows::core::Interface::vtable(self).get_SubjectKeyIdentifier)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(encoding), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).get_SubjectKeyIdentifier)(::windows::core::Interface::as_raw(self), encoding, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -30598,7 +30598,7 @@ impl IX509ExtensionTemplate {
         P0: ::std::convert::Into<::windows::core::InParam<'a, IObjectId>>,
         P1: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::BSTR>>,
     {
-        (::windows::core::Interface::vtable(self).base__.Initialize)(::windows::core::Interface::as_raw(self), pobjectid.into().abi(), ::core::mem::transmute(encoding), strencodeddata.into().abi()).ok()
+        (::windows::core::Interface::vtable(self).base__.Initialize)(::windows::core::Interface::as_raw(self), pobjectid.into().abi(), encoding, strencodeddata.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -30610,7 +30610,7 @@ impl IX509ExtensionTemplate {
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn get_RawData(&self, encoding: EncodingType) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.get_RawData)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(encoding), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).base__.get_RawData)(::windows::core::Interface::as_raw(self), encoding, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn Critical(&self) -> ::windows::core::Result<i16> {
@@ -30619,7 +30619,7 @@ impl IX509ExtensionTemplate {
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn SetCritical(&self, value: i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetCritical)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(value)).ok()
+        (::windows::core::Interface::vtable(self).base__.SetCritical)(::windows::core::Interface::as_raw(self), value).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -30627,7 +30627,7 @@ impl IX509ExtensionTemplate {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, IObjectId>>,
     {
-        (::windows::core::Interface::vtable(self).InitializeEncode)(::windows::core::Interface::as_raw(self), ptemplateoid.into().abi(), ::core::mem::transmute(majorversion), ::core::mem::transmute(minorversion)).ok()
+        (::windows::core::Interface::vtable(self).InitializeEncode)(::windows::core::Interface::as_raw(self), ptemplateoid.into().abi(), majorversion, minorversion).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -30635,7 +30635,7 @@ impl IX509ExtensionTemplate {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::BSTR>>,
     {
-        (::windows::core::Interface::vtable(self).InitializeDecode)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(encoding), strencodeddata.into().abi()).ok()
+        (::windows::core::Interface::vtable(self).InitializeDecode)(::windows::core::Interface::as_raw(self), encoding, strencodeddata.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -30766,7 +30766,7 @@ impl IX509ExtensionTemplateName {
         P0: ::std::convert::Into<::windows::core::InParam<'a, IObjectId>>,
         P1: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::BSTR>>,
     {
-        (::windows::core::Interface::vtable(self).base__.Initialize)(::windows::core::Interface::as_raw(self), pobjectid.into().abi(), ::core::mem::transmute(encoding), strencodeddata.into().abi()).ok()
+        (::windows::core::Interface::vtable(self).base__.Initialize)(::windows::core::Interface::as_raw(self), pobjectid.into().abi(), encoding, strencodeddata.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -30778,7 +30778,7 @@ impl IX509ExtensionTemplateName {
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn get_RawData(&self, encoding: EncodingType) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.get_RawData)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(encoding), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).base__.get_RawData)(::windows::core::Interface::as_raw(self), encoding, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn Critical(&self) -> ::windows::core::Result<i16> {
@@ -30787,7 +30787,7 @@ impl IX509ExtensionTemplateName {
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn SetCritical(&self, value: i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetCritical)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(value)).ok()
+        (::windows::core::Interface::vtable(self).base__.SetCritical)(::windows::core::Interface::as_raw(self), value).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -30803,7 +30803,7 @@ impl IX509ExtensionTemplateName {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::BSTR>>,
     {
-        (::windows::core::Interface::vtable(self).InitializeDecode)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(encoding), strencodeddata.into().abi()).ok()
+        (::windows::core::Interface::vtable(self).InitializeDecode)(::windows::core::Interface::as_raw(self), encoding, strencodeddata.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -30919,7 +30919,7 @@ impl IX509Extensions {
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn get_ItemByIndex(&self, index: i32) -> ::windows::core::Result<IX509Extension> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).get_ItemByIndex)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(index), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IX509Extension>(result__)
+        (::windows::core::Interface::vtable(self).get_ItemByIndex)(::windows::core::Interface::as_raw(self), index, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IX509Extension>(result__)
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn Count(&self) -> ::windows::core::Result<i32> {
@@ -30941,7 +30941,7 @@ impl IX509Extensions {
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn Remove(&self, index: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Remove)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(index)).ok()
+        (::windows::core::Interface::vtable(self).Remove)(::windows::core::Interface::as_raw(self), index).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn Clear(&self) -> ::windows::core::Result<()> {
@@ -31256,7 +31256,7 @@ impl IX509NameValuePairs {
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn get_ItemByIndex(&self, index: i32) -> ::windows::core::Result<IX509NameValuePair> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).get_ItemByIndex)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(index), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IX509NameValuePair>(result__)
+        (::windows::core::Interface::vtable(self).get_ItemByIndex)(::windows::core::Interface::as_raw(self), index, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IX509NameValuePair>(result__)
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn Count(&self) -> ::windows::core::Result<i32> {
@@ -31278,7 +31278,7 @@ impl IX509NameValuePairs {
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn Remove(&self, index: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Remove)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(index)).ok()
+        (::windows::core::Interface::vtable(self).Remove)(::windows::core::Interface::as_raw(self), index).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn Clear(&self) -> ::windows::core::Result<()> {
@@ -31374,7 +31374,7 @@ impl IX509PolicyServerListManager {
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn get_ItemByIndex(&self, index: i32) -> ::windows::core::Result<IX509PolicyServerUrl> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).get_ItemByIndex)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(index), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IX509PolicyServerUrl>(result__)
+        (::windows::core::Interface::vtable(self).get_ItemByIndex)(::windows::core::Interface::as_raw(self), index, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IX509PolicyServerUrl>(result__)
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn Count(&self) -> ::windows::core::Result<i32> {
@@ -31396,7 +31396,7 @@ impl IX509PolicyServerListManager {
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn Remove(&self, index: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Remove)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(index)).ok()
+        (::windows::core::Interface::vtable(self).Remove)(::windows::core::Interface::as_raw(self), index).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn Clear(&self) -> ::windows::core::Result<()> {
@@ -31404,7 +31404,7 @@ impl IX509PolicyServerListManager {
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn Initialize(&self, context: X509CertificateEnrollmentContext, flags: PolicyServerUrlFlags) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Initialize)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(context), ::core::mem::transmute(flags)).ok()
+        (::windows::core::Interface::vtable(self).Initialize)(::windows::core::Interface::as_raw(self), context, flags).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -31495,7 +31495,7 @@ pub struct IX509PolicyServerUrl(::windows::core::IUnknown);
 impl IX509PolicyServerUrl {
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn Initialize(&self, context: X509CertificateEnrollmentContext) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Initialize)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(context)).ok()
+        (::windows::core::Interface::vtable(self).Initialize)(::windows::core::Interface::as_raw(self), context).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -31518,7 +31518,7 @@ impl IX509PolicyServerUrl {
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn SetDefault(&self, value: i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetDefault)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(value)).ok()
+        (::windows::core::Interface::vtable(self).SetDefault)(::windows::core::Interface::as_raw(self), value).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn Flags(&self) -> ::windows::core::Result<PolicyServerUrlFlags> {
@@ -31527,7 +31527,7 @@ impl IX509PolicyServerUrl {
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn SetFlags(&self, flags: PolicyServerUrlFlags) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetFlags)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(flags)).ok()
+        (::windows::core::Interface::vtable(self).SetFlags)(::windows::core::Interface::as_raw(self), flags).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn AuthFlags(&self) -> ::windows::core::Result<X509EnrollmentAuthFlags> {
@@ -31536,7 +31536,7 @@ impl IX509PolicyServerUrl {
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn SetAuthFlags(&self, flags: X509EnrollmentAuthFlags) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetAuthFlags)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(flags)).ok()
+        (::windows::core::Interface::vtable(self).SetAuthFlags)(::windows::core::Interface::as_raw(self), flags).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn Cost(&self) -> ::windows::core::Result<u32> {
@@ -31545,13 +31545,13 @@ impl IX509PolicyServerUrl {
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn SetCost(&self, value: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetCost)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(value)).ok()
+        (::windows::core::Interface::vtable(self).SetCost)(::windows::core::Interface::as_raw(self), value).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetStringProperty(&self, propertyid: PolicyServerUrlPropertyID) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>>::zeroed();
-        (::windows::core::Interface::vtable(self).GetStringProperty)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(propertyid), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).GetStringProperty)(::windows::core::Interface::as_raw(self), propertyid, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -31559,15 +31559,15 @@ impl IX509PolicyServerUrl {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::BSTR>>,
     {
-        (::windows::core::Interface::vtable(self).SetStringProperty)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(propertyid), pvalue.into().abi()).ok()
+        (::windows::core::Interface::vtable(self).SetStringProperty)(::windows::core::Interface::as_raw(self), propertyid, pvalue.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn UpdateRegistry(&self, context: X509CertificateEnrollmentContext) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).UpdateRegistry)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(context)).ok()
+        (::windows::core::Interface::vtable(self).UpdateRegistry)(::windows::core::Interface::as_raw(self), context).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn RemoveFromRegistry(&self, context: X509CertificateEnrollmentContext) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).RemoveFromRegistry)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(context)).ok()
+        (::windows::core::Interface::vtable(self).RemoveFromRegistry)(::windows::core::Interface::as_raw(self), context).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -31688,7 +31688,7 @@ impl IX509PrivateKey {
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn Verify(&self, verifytype: X509PrivateKeyVerify) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Verify)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(verifytype)).ok()
+        (::windows::core::Interface::vtable(self).Verify)(::windows::core::Interface::as_raw(self), verifytype).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -31697,7 +31697,7 @@ impl IX509PrivateKey {
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::BSTR>>,
         P1: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::BSTR>>,
     {
-        (::windows::core::Interface::vtable(self).Import)(::windows::core::Interface::as_raw(self), strexporttype.into().abi(), strencodedkey.into().abi(), ::core::mem::transmute(encoding)).ok()
+        (::windows::core::Interface::vtable(self).Import)(::windows::core::Interface::as_raw(self), strexporttype.into().abi(), strencodedkey.into().abi(), encoding).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -31706,7 +31706,7 @@ impl IX509PrivateKey {
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::BSTR>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>>::zeroed();
-        (::windows::core::Interface::vtable(self).Export)(::windows::core::Interface::as_raw(self), strexporttype.into().abi(), ::core::mem::transmute(encoding), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).Export)(::windows::core::Interface::as_raw(self), strexporttype.into().abi(), encoding, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -31805,7 +31805,7 @@ impl IX509PrivateKey {
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn SetProviderType(&self, value: X509ProviderType) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetProviderType)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(value)).ok()
+        (::windows::core::Interface::vtable(self).SetProviderType)(::windows::core::Interface::as_raw(self), value).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn LegacyCsp(&self) -> ::windows::core::Result<i16> {
@@ -31814,7 +31814,7 @@ impl IX509PrivateKey {
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn SetLegacyCsp(&self, value: i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetLegacyCsp)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(value)).ok()
+        (::windows::core::Interface::vtable(self).SetLegacyCsp)(::windows::core::Interface::as_raw(self), value).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -31837,7 +31837,7 @@ impl IX509PrivateKey {
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn SetKeySpec(&self, value: X509KeySpec) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetKeySpec)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(value)).ok()
+        (::windows::core::Interface::vtable(self).SetKeySpec)(::windows::core::Interface::as_raw(self), value).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn Length(&self) -> ::windows::core::Result<i32> {
@@ -31846,7 +31846,7 @@ impl IX509PrivateKey {
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn SetLength(&self, value: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetLength)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(value)).ok()
+        (::windows::core::Interface::vtable(self).SetLength)(::windows::core::Interface::as_raw(self), value).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn ExportPolicy(&self) -> ::windows::core::Result<X509PrivateKeyExportFlags> {
@@ -31855,7 +31855,7 @@ impl IX509PrivateKey {
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn SetExportPolicy(&self, value: X509PrivateKeyExportFlags) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetExportPolicy)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(value)).ok()
+        (::windows::core::Interface::vtable(self).SetExportPolicy)(::windows::core::Interface::as_raw(self), value).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn KeyUsage(&self) -> ::windows::core::Result<X509PrivateKeyUsageFlags> {
@@ -31864,7 +31864,7 @@ impl IX509PrivateKey {
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn SetKeyUsage(&self, value: X509PrivateKeyUsageFlags) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetKeyUsage)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(value)).ok()
+        (::windows::core::Interface::vtable(self).SetKeyUsage)(::windows::core::Interface::as_raw(self), value).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn KeyProtection(&self) -> ::windows::core::Result<X509PrivateKeyProtection> {
@@ -31873,7 +31873,7 @@ impl IX509PrivateKey {
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn SetKeyProtection(&self, value: X509PrivateKeyProtection) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetKeyProtection)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(value)).ok()
+        (::windows::core::Interface::vtable(self).SetKeyProtection)(::windows::core::Interface::as_raw(self), value).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn MachineContext(&self) -> ::windows::core::Result<i16> {
@@ -31882,7 +31882,7 @@ impl IX509PrivateKey {
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn SetMachineContext(&self, value: i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetMachineContext)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(value)).ok()
+        (::windows::core::Interface::vtable(self).SetMachineContext)(::windows::core::Interface::as_raw(self), value).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -31902,7 +31902,7 @@ impl IX509PrivateKey {
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn get_Certificate(&self, encoding: EncodingType) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>>::zeroed();
-        (::windows::core::Interface::vtable(self).get_Certificate)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(encoding), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).get_Certificate)(::windows::core::Interface::as_raw(self), encoding, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -31910,7 +31910,7 @@ impl IX509PrivateKey {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::BSTR>>,
     {
-        (::windows::core::Interface::vtable(self).put_Certificate)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(encoding), value.into().abi()).ok()
+        (::windows::core::Interface::vtable(self).put_Certificate)(::windows::core::Interface::as_raw(self), encoding, value.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -31935,7 +31935,7 @@ impl IX509PrivateKey {
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn SetExisting(&self, value: i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetExisting)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(value)).ok()
+        (::windows::core::Interface::vtable(self).SetExisting)(::windows::core::Interface::as_raw(self), value).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn Silent(&self) -> ::windows::core::Result<i16> {
@@ -31944,7 +31944,7 @@ impl IX509PrivateKey {
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn SetSilent(&self, value: i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetSilent)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(value)).ok()
+        (::windows::core::Interface::vtable(self).SetSilent)(::windows::core::Interface::as_raw(self), value).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn ParentWindow(&self) -> ::windows::core::Result<i32> {
@@ -31953,7 +31953,7 @@ impl IX509PrivateKey {
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn SetParentWindow(&self, value: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetParentWindow)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(value)).ok()
+        (::windows::core::Interface::vtable(self).SetParentWindow)(::windows::core::Interface::as_raw(self), value).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -32242,7 +32242,7 @@ impl IX509PrivateKey2 {
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn Verify(&self, verifytype: X509PrivateKeyVerify) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.Verify)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(verifytype)).ok()
+        (::windows::core::Interface::vtable(self).base__.Verify)(::windows::core::Interface::as_raw(self), verifytype).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -32251,7 +32251,7 @@ impl IX509PrivateKey2 {
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::BSTR>>,
         P1: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::BSTR>>,
     {
-        (::windows::core::Interface::vtable(self).base__.Import)(::windows::core::Interface::as_raw(self), strexporttype.into().abi(), strencodedkey.into().abi(), ::core::mem::transmute(encoding)).ok()
+        (::windows::core::Interface::vtable(self).base__.Import)(::windows::core::Interface::as_raw(self), strexporttype.into().abi(), strencodedkey.into().abi(), encoding).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -32260,7 +32260,7 @@ impl IX509PrivateKey2 {
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::BSTR>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.Export)(::windows::core::Interface::as_raw(self), strexporttype.into().abi(), ::core::mem::transmute(encoding), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).base__.Export)(::windows::core::Interface::as_raw(self), strexporttype.into().abi(), encoding, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -32359,7 +32359,7 @@ impl IX509PrivateKey2 {
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn SetProviderType(&self, value: X509ProviderType) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetProviderType)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(value)).ok()
+        (::windows::core::Interface::vtable(self).base__.SetProviderType)(::windows::core::Interface::as_raw(self), value).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn LegacyCsp(&self) -> ::windows::core::Result<i16> {
@@ -32368,7 +32368,7 @@ impl IX509PrivateKey2 {
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn SetLegacyCsp(&self, value: i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetLegacyCsp)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(value)).ok()
+        (::windows::core::Interface::vtable(self).base__.SetLegacyCsp)(::windows::core::Interface::as_raw(self), value).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -32391,7 +32391,7 @@ impl IX509PrivateKey2 {
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn SetKeySpec(&self, value: X509KeySpec) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetKeySpec)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(value)).ok()
+        (::windows::core::Interface::vtable(self).base__.SetKeySpec)(::windows::core::Interface::as_raw(self), value).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn Length(&self) -> ::windows::core::Result<i32> {
@@ -32400,7 +32400,7 @@ impl IX509PrivateKey2 {
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn SetLength(&self, value: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetLength)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(value)).ok()
+        (::windows::core::Interface::vtable(self).base__.SetLength)(::windows::core::Interface::as_raw(self), value).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn ExportPolicy(&self) -> ::windows::core::Result<X509PrivateKeyExportFlags> {
@@ -32409,7 +32409,7 @@ impl IX509PrivateKey2 {
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn SetExportPolicy(&self, value: X509PrivateKeyExportFlags) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetExportPolicy)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(value)).ok()
+        (::windows::core::Interface::vtable(self).base__.SetExportPolicy)(::windows::core::Interface::as_raw(self), value).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn KeyUsage(&self) -> ::windows::core::Result<X509PrivateKeyUsageFlags> {
@@ -32418,7 +32418,7 @@ impl IX509PrivateKey2 {
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn SetKeyUsage(&self, value: X509PrivateKeyUsageFlags) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetKeyUsage)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(value)).ok()
+        (::windows::core::Interface::vtable(self).base__.SetKeyUsage)(::windows::core::Interface::as_raw(self), value).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn KeyProtection(&self) -> ::windows::core::Result<X509PrivateKeyProtection> {
@@ -32427,7 +32427,7 @@ impl IX509PrivateKey2 {
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn SetKeyProtection(&self, value: X509PrivateKeyProtection) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetKeyProtection)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(value)).ok()
+        (::windows::core::Interface::vtable(self).base__.SetKeyProtection)(::windows::core::Interface::as_raw(self), value).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn MachineContext(&self) -> ::windows::core::Result<i16> {
@@ -32436,7 +32436,7 @@ impl IX509PrivateKey2 {
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn SetMachineContext(&self, value: i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetMachineContext)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(value)).ok()
+        (::windows::core::Interface::vtable(self).base__.SetMachineContext)(::windows::core::Interface::as_raw(self), value).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -32456,7 +32456,7 @@ impl IX509PrivateKey2 {
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn get_Certificate(&self, encoding: EncodingType) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.get_Certificate)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(encoding), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).base__.get_Certificate)(::windows::core::Interface::as_raw(self), encoding, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -32464,7 +32464,7 @@ impl IX509PrivateKey2 {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::BSTR>>,
     {
-        (::windows::core::Interface::vtable(self).base__.put_Certificate)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(encoding), value.into().abi()).ok()
+        (::windows::core::Interface::vtable(self).base__.put_Certificate)(::windows::core::Interface::as_raw(self), encoding, value.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -32489,7 +32489,7 @@ impl IX509PrivateKey2 {
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn SetExisting(&self, value: i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetExisting)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(value)).ok()
+        (::windows::core::Interface::vtable(self).base__.SetExisting)(::windows::core::Interface::as_raw(self), value).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn Silent(&self) -> ::windows::core::Result<i16> {
@@ -32498,7 +32498,7 @@ impl IX509PrivateKey2 {
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn SetSilent(&self, value: i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetSilent)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(value)).ok()
+        (::windows::core::Interface::vtable(self).base__.SetSilent)(::windows::core::Interface::as_raw(self), value).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn ParentWindow(&self) -> ::windows::core::Result<i32> {
@@ -32507,7 +32507,7 @@ impl IX509PrivateKey2 {
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn SetParentWindow(&self, value: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetParentWindow)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(value)).ok()
+        (::windows::core::Interface::vtable(self).base__.SetParentWindow)(::windows::core::Interface::as_raw(self), value).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -32566,7 +32566,7 @@ impl IX509PrivateKey2 {
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn SetHardwareKeyUsage(&self, value: X509HardwareKeyUsageFlags) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetHardwareKeyUsage)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(value)).ok()
+        (::windows::core::Interface::vtable(self).SetHardwareKeyUsage)(::windows::core::Interface::as_raw(self), value).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -32600,7 +32600,7 @@ impl IX509PrivateKey2 {
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn get_AlgorithmParameters(&self, encoding: EncodingType) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>>::zeroed();
-        (::windows::core::Interface::vtable(self).get_AlgorithmParameters)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(encoding), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).get_AlgorithmParameters)(::windows::core::Interface::as_raw(self), encoding, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -32608,7 +32608,7 @@ impl IX509PrivateKey2 {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::BSTR>>,
     {
-        (::windows::core::Interface::vtable(self).put_AlgorithmParameters)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(encoding), value.into().abi()).ok()
+        (::windows::core::Interface::vtable(self).put_AlgorithmParameters)(::windows::core::Interface::as_raw(self), encoding, value.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn ParametersExportType(&self) -> ::windows::core::Result<X509KeyParametersExportType> {
@@ -32617,7 +32617,7 @@ impl IX509PrivateKey2 {
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn SetParametersExportType(&self, value: X509KeyParametersExportType) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetParametersExportType)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(value)).ok()
+        (::windows::core::Interface::vtable(self).SetParametersExportType)(::windows::core::Interface::as_raw(self), value).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -32747,7 +32747,7 @@ impl IX509PublicKey {
         P1: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::BSTR>>,
         P2: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::BSTR>>,
     {
-        (::windows::core::Interface::vtable(self).Initialize)(::windows::core::Interface::as_raw(self), pobjectid.into().abi(), strencodedkey.into().abi(), strencodedparameters.into().abi(), ::core::mem::transmute(encoding)).ok()
+        (::windows::core::Interface::vtable(self).Initialize)(::windows::core::Interface::as_raw(self), pobjectid.into().abi(), strencodedkey.into().abi(), strencodedparameters.into().abi(), encoding).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -32755,7 +32755,7 @@ impl IX509PublicKey {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::BSTR>>,
     {
-        (::windows::core::Interface::vtable(self).InitializeFromEncodedPublicKeyInfo)(::windows::core::Interface::as_raw(self), strencodedpublickeyinfo.into().abi(), ::core::mem::transmute(encoding)).ok()
+        (::windows::core::Interface::vtable(self).InitializeFromEncodedPublicKeyInfo)(::windows::core::Interface::as_raw(self), strencodedpublickeyinfo.into().abi(), encoding).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -32772,19 +32772,19 @@ impl IX509PublicKey {
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn get_EncodedKey(&self, encoding: EncodingType) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>>::zeroed();
-        (::windows::core::Interface::vtable(self).get_EncodedKey)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(encoding), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).get_EncodedKey)(::windows::core::Interface::as_raw(self), encoding, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn get_EncodedParameters(&self, encoding: EncodingType) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>>::zeroed();
-        (::windows::core::Interface::vtable(self).get_EncodedParameters)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(encoding), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).get_EncodedParameters)(::windows::core::Interface::as_raw(self), encoding, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn ComputeKeyIdentifier(&self, algorithm: KeyIdentifierHashAlgorithm, encoding: EncodingType) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>>::zeroed();
-        (::windows::core::Interface::vtable(self).ComputeKeyIdentifier)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(algorithm), ::core::mem::transmute(encoding), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).ComputeKeyIdentifier)(::windows::core::Interface::as_raw(self), algorithm, encoding, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -32893,23 +32893,23 @@ impl IX509SCEPEnrollment {
         P1: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::BSTR>>,
         P2: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::BSTR>>,
     {
-        (::windows::core::Interface::vtable(self).Initialize)(::windows::core::Interface::as_raw(self), prequest.into().abi(), strthumbprint.into().abi(), ::core::mem::transmute(thumprintencoding), strservercertificates.into().abi(), ::core::mem::transmute(encoding)).ok()
+        (::windows::core::Interface::vtable(self).Initialize)(::windows::core::Interface::as_raw(self), prequest.into().abi(), strthumbprint.into().abi(), thumprintencoding, strservercertificates.into().abi(), encoding).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn InitializeForPending(&self, context: X509CertificateEnrollmentContext) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).InitializeForPending)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(context)).ok()
+        (::windows::core::Interface::vtable(self).InitializeForPending)(::windows::core::Interface::as_raw(self), context).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CreateRequestMessage(&self, encoding: EncodingType) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>>::zeroed();
-        (::windows::core::Interface::vtable(self).CreateRequestMessage)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(encoding), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).CreateRequestMessage)(::windows::core::Interface::as_raw(self), encoding, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CreateRetrievePendingMessage(&self, encoding: EncodingType) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>>::zeroed();
-        (::windows::core::Interface::vtable(self).CreateRetrievePendingMessage)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(encoding), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).CreateRetrievePendingMessage)(::windows::core::Interface::as_raw(self), encoding, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -32919,7 +32919,7 @@ impl IX509SCEPEnrollment {
         P1: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::BSTR>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>>::zeroed();
-        (::windows::core::Interface::vtable(self).CreateRetrieveCertificateMessage)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(context), strissuer.into().abi(), ::core::mem::transmute(issuerencoding), strserialnumber.into().abi(), ::core::mem::transmute(serialnumberencoding), ::core::mem::transmute(encoding), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).CreateRetrieveCertificateMessage)(::windows::core::Interface::as_raw(self), context, strissuer.into().abi(), issuerencoding, strserialnumber.into().abi(), serialnumberencoding, encoding, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -32928,7 +32928,7 @@ impl IX509SCEPEnrollment {
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::BSTR>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::<X509SCEPDisposition>::zeroed();
-        (::windows::core::Interface::vtable(self).ProcessResponseMessage)(::windows::core::Interface::as_raw(self), strresponse.into().abi(), ::core::mem::transmute(encoding), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<X509SCEPDisposition>(result__)
+        (::windows::core::Interface::vtable(self).ProcessResponseMessage)(::windows::core::Interface::as_raw(self), strresponse.into().abi(), encoding, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<X509SCEPDisposition>(result__)
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -32975,7 +32975,7 @@ impl IX509SCEPEnrollment {
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn get_TransactionId(&self, encoding: EncodingType) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>>::zeroed();
-        (::windows::core::Interface::vtable(self).get_TransactionId)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(encoding), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).get_TransactionId)(::windows::core::Interface::as_raw(self), encoding, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -32983,7 +32983,7 @@ impl IX509SCEPEnrollment {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::BSTR>>,
     {
-        (::windows::core::Interface::vtable(self).put_TransactionId)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(encoding), value.into().abi()).ok()
+        (::windows::core::Interface::vtable(self).put_TransactionId)(::windows::core::Interface::as_raw(self), encoding, value.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -33015,7 +33015,7 @@ impl IX509SCEPEnrollment {
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn get_Certificate(&self, encoding: EncodingType) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>>::zeroed();
-        (::windows::core::Interface::vtable(self).get_Certificate)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(encoding), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).get_Certificate)(::windows::core::Interface::as_raw(self), encoding, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn Silent(&self) -> ::windows::core::Result<i16> {
@@ -33024,7 +33024,7 @@ impl IX509SCEPEnrollment {
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn SetSilent(&self, value: i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetSilent)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(value)).ok()
+        (::windows::core::Interface::vtable(self).SetSilent)(::windows::core::Interface::as_raw(self), value).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn DeleteRequest(&self) -> ::windows::core::Result<()> {
@@ -33185,23 +33185,23 @@ impl IX509SCEPEnrollment2 {
         P1: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::BSTR>>,
         P2: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::BSTR>>,
     {
-        (::windows::core::Interface::vtable(self).base__.Initialize)(::windows::core::Interface::as_raw(self), prequest.into().abi(), strthumbprint.into().abi(), ::core::mem::transmute(thumprintencoding), strservercertificates.into().abi(), ::core::mem::transmute(encoding)).ok()
+        (::windows::core::Interface::vtable(self).base__.Initialize)(::windows::core::Interface::as_raw(self), prequest.into().abi(), strthumbprint.into().abi(), thumprintencoding, strservercertificates.into().abi(), encoding).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn InitializeForPending(&self, context: X509CertificateEnrollmentContext) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.InitializeForPending)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(context)).ok()
+        (::windows::core::Interface::vtable(self).base__.InitializeForPending)(::windows::core::Interface::as_raw(self), context).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CreateRequestMessage(&self, encoding: EncodingType) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.CreateRequestMessage)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(encoding), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).base__.CreateRequestMessage)(::windows::core::Interface::as_raw(self), encoding, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CreateRetrievePendingMessage(&self, encoding: EncodingType) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.CreateRetrievePendingMessage)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(encoding), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).base__.CreateRetrievePendingMessage)(::windows::core::Interface::as_raw(self), encoding, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -33211,7 +33211,7 @@ impl IX509SCEPEnrollment2 {
         P1: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::BSTR>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.CreateRetrieveCertificateMessage)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(context), strissuer.into().abi(), ::core::mem::transmute(issuerencoding), strserialnumber.into().abi(), ::core::mem::transmute(serialnumberencoding), ::core::mem::transmute(encoding), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).base__.CreateRetrieveCertificateMessage)(::windows::core::Interface::as_raw(self), context, strissuer.into().abi(), issuerencoding, strserialnumber.into().abi(), serialnumberencoding, encoding, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -33220,7 +33220,7 @@ impl IX509SCEPEnrollment2 {
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::BSTR>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::<X509SCEPDisposition>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.ProcessResponseMessage)(::windows::core::Interface::as_raw(self), strresponse.into().abi(), ::core::mem::transmute(encoding), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<X509SCEPDisposition>(result__)
+        (::windows::core::Interface::vtable(self).base__.ProcessResponseMessage)(::windows::core::Interface::as_raw(self), strresponse.into().abi(), encoding, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<X509SCEPDisposition>(result__)
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -33267,7 +33267,7 @@ impl IX509SCEPEnrollment2 {
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn get_TransactionId(&self, encoding: EncodingType) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.get_TransactionId)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(encoding), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).base__.get_TransactionId)(::windows::core::Interface::as_raw(self), encoding, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -33275,7 +33275,7 @@ impl IX509SCEPEnrollment2 {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::BSTR>>,
     {
-        (::windows::core::Interface::vtable(self).base__.put_TransactionId)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(encoding), value.into().abi()).ok()
+        (::windows::core::Interface::vtable(self).base__.put_TransactionId)(::windows::core::Interface::as_raw(self), encoding, value.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -33307,7 +33307,7 @@ impl IX509SCEPEnrollment2 {
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn get_Certificate(&self, encoding: EncodingType) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.get_Certificate)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(encoding), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).base__.get_Certificate)(::windows::core::Interface::as_raw(self), encoding, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn Silent(&self) -> ::windows::core::Result<i16> {
@@ -33316,7 +33316,7 @@ impl IX509SCEPEnrollment2 {
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn SetSilent(&self, value: i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetSilent)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(value)).ok()
+        (::windows::core::Interface::vtable(self).base__.SetSilent)(::windows::core::Interface::as_raw(self), value).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn DeleteRequest(&self) -> ::windows::core::Result<()> {
@@ -33326,7 +33326,7 @@ impl IX509SCEPEnrollment2 {
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CreateChallengeAnswerMessage(&self, encoding: EncodingType) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>>::zeroed();
-        (::windows::core::Interface::vtable(self).CreateChallengeAnswerMessage)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(encoding), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).CreateChallengeAnswerMessage)(::windows::core::Interface::as_raw(self), encoding, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -33335,7 +33335,7 @@ impl IX509SCEPEnrollment2 {
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::BSTR>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::<X509SCEPDisposition>::zeroed();
-        (::windows::core::Interface::vtable(self).ProcessResponseMessage2)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(flags), strresponse.into().abi(), ::core::mem::transmute(encoding), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<X509SCEPDisposition>(result__)
+        (::windows::core::Interface::vtable(self).ProcessResponseMessage2)(::windows::core::Interface::as_raw(self), flags, strresponse.into().abi(), encoding, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<X509SCEPDisposition>(result__)
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -33494,17 +33494,17 @@ impl IX509SCEPEnrollmentHelper {
         P1: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::BSTR>>,
         P2: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::BSTR>>,
     {
-        (::windows::core::Interface::vtable(self).InitializeForPending)(::windows::core::Interface::as_raw(self), strserverurl.into().abi(), strrequestheaders.into().abi(), ::core::mem::transmute(context), strtransactionid.into().abi()).ok()
+        (::windows::core::Interface::vtable(self).InitializeForPending)(::windows::core::Interface::as_raw(self), strserverurl.into().abi(), strrequestheaders.into().abi(), context, strtransactionid.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn Enroll(&self, processflags: X509SCEPProcessMessageFlags) -> ::windows::core::Result<X509SCEPDisposition> {
         let mut result__ = ::core::mem::MaybeUninit::<X509SCEPDisposition>::zeroed();
-        (::windows::core::Interface::vtable(self).Enroll)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(processflags), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<X509SCEPDisposition>(result__)
+        (::windows::core::Interface::vtable(self).Enroll)(::windows::core::Interface::as_raw(self), processflags, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<X509SCEPDisposition>(result__)
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn FetchPending(&self, processflags: X509SCEPProcessMessageFlags) -> ::windows::core::Result<X509SCEPDisposition> {
         let mut result__ = ::core::mem::MaybeUninit::<X509SCEPDisposition>::zeroed();
-        (::windows::core::Interface::vtable(self).FetchPending)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(processflags), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<X509SCEPDisposition>(result__)
+        (::windows::core::Interface::vtable(self).FetchPending)(::windows::core::Interface::as_raw(self), processflags, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<X509SCEPDisposition>(result__)
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -33642,7 +33642,7 @@ impl IX509SignatureInformation {
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn get_Parameters(&self, encoding: EncodingType) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>>::zeroed();
-        (::windows::core::Interface::vtable(self).get_Parameters)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(encoding), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).get_Parameters)(::windows::core::Interface::as_raw(self), encoding, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -33650,7 +33650,7 @@ impl IX509SignatureInformation {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::BSTR>>,
     {
-        (::windows::core::Interface::vtable(self).put_Parameters)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(encoding), value.into().abi()).ok()
+        (::windows::core::Interface::vtable(self).put_Parameters)(::windows::core::Interface::as_raw(self), encoding, value.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn AlternateSignatureAlgorithm(&self) -> ::windows::core::Result<i16> {
@@ -33659,7 +33659,7 @@ impl IX509SignatureInformation {
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn SetAlternateSignatureAlgorithm(&self, value: i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetAlternateSignatureAlgorithm)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(value)).ok()
+        (::windows::core::Interface::vtable(self).SetAlternateSignatureAlgorithm)(::windows::core::Interface::as_raw(self), value).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn AlternateSignatureAlgorithmSet(&self) -> ::windows::core::Result<i16> {
@@ -33673,13 +33673,13 @@ impl IX509SignatureInformation {
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn SetNullSigned(&self, value: i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetNullSigned)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(value)).ok()
+        (::windows::core::Interface::vtable(self).SetNullSigned)(::windows::core::Interface::as_raw(self), value).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetSignatureAlgorithm(&self, pkcs7signature: i16, signaturekey: i16) -> ::windows::core::Result<IObjectId> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).GetSignatureAlgorithm)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pkcs7signature), ::core::mem::transmute(signaturekey), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IObjectId>(result__)
+        (::windows::core::Interface::vtable(self).GetSignatureAlgorithm)(::windows::core::Interface::as_raw(self), pkcs7signature, signaturekey, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IObjectId>(result__)
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn SetDefaultValues(&self) -> ::windows::core::Result<()> {

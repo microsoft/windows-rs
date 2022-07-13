@@ -1305,7 +1305,7 @@ impl IPrintDialogCallback {
         P1: ::std::convert::Into<super::super::super::Foundation::WPARAM>,
         P2: ::std::convert::Into<super::super::super::Foundation::LPARAM>,
     {
-        (::windows::core::Interface::vtable(self).HandleMessage)(::windows::core::Interface::as_raw(self), hdlg.into(), ::core::mem::transmute(umsg), wparam.into(), lparam.into(), ::core::mem::transmute(presult)).ok()
+        (::windows::core::Interface::vtable(self).HandleMessage)(::windows::core::Interface::as_raw(self), hdlg.into(), umsg, wparam.into(), lparam.into(), ::core::mem::transmute(presult)).ok()
     }
 }
 impl ::core::convert::From<IPrintDialogCallback> for ::windows::core::IUnknown {

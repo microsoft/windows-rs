@@ -282,7 +282,7 @@ pub unsafe fn AddFontMemResourceEx(pfileview: *const ::core::ffi::c_void, cjsize
     extern "system" {
         fn AddFontMemResourceEx(pfileview: *const ::core::ffi::c_void, cjsize: u32, pvresrved: *mut ::core::ffi::c_void, pnumfonts: *const u32) -> super::super::Foundation::HANDLE;
     }
-    ::core::mem::transmute(AddFontMemResourceEx(::core::mem::transmute(pfileview), ::core::mem::transmute(cjsize), ::core::mem::transmute(pvresrved), ::core::mem::transmute(pnumfonts)))
+    ::core::mem::transmute(AddFontMemResourceEx(::core::mem::transmute(pfileview), cjsize, ::core::mem::transmute(pvresrved), ::core::mem::transmute(pnumfonts)))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 #[inline]
@@ -306,7 +306,7 @@ where
     extern "system" {
         fn AddFontResourceExA(name: ::windows::core::PCSTR, fl: FONT_RESOURCE_CHARACTERISTICS, res: *mut ::core::ffi::c_void) -> i32;
     }
-    ::core::mem::transmute(AddFontResourceExA(name.into(), ::core::mem::transmute(fl), ::core::mem::transmute(res)))
+    ::core::mem::transmute(AddFontResourceExA(name.into(), fl, ::core::mem::transmute(res)))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 #[inline]
@@ -318,7 +318,7 @@ where
     extern "system" {
         fn AddFontResourceExW(name: ::windows::core::PCWSTR, fl: FONT_RESOURCE_CHARACTERISTICS, res: *mut ::core::ffi::c_void) -> i32;
     }
-    ::core::mem::transmute(AddFontResourceExW(name.into(), ::core::mem::transmute(fl), ::core::mem::transmute(res)))
+    ::core::mem::transmute(AddFontResourceExW(name.into(), fl, ::core::mem::transmute(res)))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 #[inline]
@@ -344,7 +344,7 @@ where
     extern "system" {
         fn AlphaBlend(hdcdest: HDC, xorigindest: i32, yorigindest: i32, wdest: i32, hdest: i32, hdcsrc: HDC, xoriginsrc: i32, yoriginsrc: i32, wsrc: i32, hsrc: i32, ftn: BLENDFUNCTION) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(AlphaBlend(hdcdest.into(), ::core::mem::transmute(xorigindest), ::core::mem::transmute(yorigindest), ::core::mem::transmute(wdest), ::core::mem::transmute(hdest), hdcsrc.into(), ::core::mem::transmute(xoriginsrc), ::core::mem::transmute(yoriginsrc), ::core::mem::transmute(wsrc), ::core::mem::transmute(hsrc), ::core::mem::transmute(ftn)))
+    ::core::mem::transmute(AlphaBlend(hdcdest.into(), xorigindest, yorigindest, wdest, hdest, hdcsrc.into(), xoriginsrc, yoriginsrc, wsrc, hsrc, ::core::mem::transmute(ftn)))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -357,7 +357,7 @@ where
     extern "system" {
         fn AngleArc(hdc: HDC, x: i32, y: i32, r: u32, startangle: f32, sweepangle: f32) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(AngleArc(hdc.into(), ::core::mem::transmute(x), ::core::mem::transmute(y), ::core::mem::transmute(r), ::core::mem::transmute(startangle), ::core::mem::transmute(sweepangle)))
+    ::core::mem::transmute(AngleArc(hdc.into(), x, y, r, startangle, sweepangle))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -370,7 +370,7 @@ where
     extern "system" {
         fn AnimatePalette(hpal: HPALETTE, istartindex: u32, centries: u32, ppe: *const PALETTEENTRY) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(AnimatePalette(hpal.into(), ::core::mem::transmute(istartindex), ppe.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(ppe))))
+    ::core::mem::transmute(AnimatePalette(hpal.into(), istartindex, ppe.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(ppe))))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -383,7 +383,7 @@ where
     extern "system" {
         fn Arc(hdc: HDC, x1: i32, y1: i32, x2: i32, y2: i32, x3: i32, y3: i32, x4: i32, y4: i32) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(Arc(hdc.into(), ::core::mem::transmute(x1), ::core::mem::transmute(y1), ::core::mem::transmute(x2), ::core::mem::transmute(y2), ::core::mem::transmute(x3), ::core::mem::transmute(y3), ::core::mem::transmute(x4), ::core::mem::transmute(y4)))
+    ::core::mem::transmute(Arc(hdc.into(), x1, y1, x2, y2, x3, y3, x4, y4))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -396,7 +396,7 @@ where
     extern "system" {
         fn ArcTo(hdc: HDC, left: i32, top: i32, right: i32, bottom: i32, xr1: i32, yr1: i32, xr2: i32, yr2: i32) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(ArcTo(hdc.into(), ::core::mem::transmute(left), ::core::mem::transmute(top), ::core::mem::transmute(right), ::core::mem::transmute(bottom), ::core::mem::transmute(xr1), ::core::mem::transmute(yr1), ::core::mem::transmute(xr2), ::core::mem::transmute(yr2)))
+    ::core::mem::transmute(ArcTo(hdc.into(), left, top, right, bottom, xr1, yr1, xr2, yr2))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 #[repr(transparent)]
@@ -887,7 +887,7 @@ where
     extern "system" {
         fn BitBlt(hdc: HDC, x: i32, y: i32, cx: i32, cy: i32, hdcsrc: HDC, x1: i32, y1: i32, rop: ROP_CODE) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(BitBlt(hdc.into(), ::core::mem::transmute(x), ::core::mem::transmute(y), ::core::mem::transmute(cx), ::core::mem::transmute(cy), hdcsrc.into(), ::core::mem::transmute(x1), ::core::mem::transmute(y1), ::core::mem::transmute(rop)))
+    ::core::mem::transmute(BitBlt(hdc.into(), x, y, cx, cy, hdcsrc.into(), x1, y1, rop))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const CA_LOG_FILTER: u32 = 2u32;
@@ -1329,7 +1329,7 @@ pub unsafe fn ChangeDisplaySettingsA(lpdevmode: *const DEVMODEA, dwflags: CDS_TY
     extern "system" {
         fn ChangeDisplaySettingsA(lpdevmode: *const DEVMODEA, dwflags: CDS_TYPE) -> DISP_CHANGE;
     }
-    ::core::mem::transmute(ChangeDisplaySettingsA(::core::mem::transmute(lpdevmode), ::core::mem::transmute(dwflags)))
+    ::core::mem::transmute(ChangeDisplaySettingsA(::core::mem::transmute(lpdevmode), dwflags))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -1343,7 +1343,7 @@ where
     extern "system" {
         fn ChangeDisplaySettingsExA(lpszdevicename: ::windows::core::PCSTR, lpdevmode: *const DEVMODEA, hwnd: super::super::Foundation::HWND, dwflags: CDS_TYPE, lparam: *const ::core::ffi::c_void) -> DISP_CHANGE;
     }
-    ::core::mem::transmute(ChangeDisplaySettingsExA(lpszdevicename.into(), ::core::mem::transmute(lpdevmode), hwnd.into(), ::core::mem::transmute(dwflags), ::core::mem::transmute(lparam)))
+    ::core::mem::transmute(ChangeDisplaySettingsExA(lpszdevicename.into(), ::core::mem::transmute(lpdevmode), hwnd.into(), dwflags, ::core::mem::transmute(lparam)))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -1357,7 +1357,7 @@ where
     extern "system" {
         fn ChangeDisplaySettingsExW(lpszdevicename: ::windows::core::PCWSTR, lpdevmode: *const DEVMODEW, hwnd: super::super::Foundation::HWND, dwflags: CDS_TYPE, lparam: *const ::core::ffi::c_void) -> DISP_CHANGE;
     }
-    ::core::mem::transmute(ChangeDisplaySettingsExW(lpszdevicename.into(), ::core::mem::transmute(lpdevmode), hwnd.into(), ::core::mem::transmute(dwflags), ::core::mem::transmute(lparam)))
+    ::core::mem::transmute(ChangeDisplaySettingsExW(lpszdevicename.into(), ::core::mem::transmute(lpdevmode), hwnd.into(), dwflags, ::core::mem::transmute(lparam)))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -1367,7 +1367,7 @@ pub unsafe fn ChangeDisplaySettingsW(lpdevmode: *const DEVMODEW, dwflags: CDS_TY
     extern "system" {
         fn ChangeDisplaySettingsW(lpdevmode: *const DEVMODEW, dwflags: CDS_TYPE) -> DISP_CHANGE;
     }
-    ::core::mem::transmute(ChangeDisplaySettingsW(::core::mem::transmute(lpdevmode), ::core::mem::transmute(dwflags)))
+    ::core::mem::transmute(ChangeDisplaySettingsW(::core::mem::transmute(lpdevmode), dwflags))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -1380,7 +1380,7 @@ where
     extern "system" {
         fn Chord(hdc: HDC, x1: i32, y1: i32, x2: i32, y2: i32, x3: i32, y3: i32, x4: i32, y4: i32) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(Chord(hdc.into(), ::core::mem::transmute(x1), ::core::mem::transmute(y1), ::core::mem::transmute(x2), ::core::mem::transmute(y2), ::core::mem::transmute(x3), ::core::mem::transmute(y3), ::core::mem::transmute(x4), ::core::mem::transmute(y4)))
+    ::core::mem::transmute(Chord(hdc.into(), x1, y1, x2, y2, x3, y3, x4, y4))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -1444,7 +1444,7 @@ where
     extern "system" {
         fn CombineRgn(hrgndst: HRGN, hrgnsrc1: HRGN, hrgnsrc2: HRGN, imode: RGN_COMBINE_MODE) -> i32;
     }
-    ::core::mem::transmute(CombineRgn(hrgndst.into(), hrgnsrc1.into(), hrgnsrc2.into(), ::core::mem::transmute(imode)))
+    ::core::mem::transmute(CombineRgn(hrgndst.into(), hrgnsrc1.into(), hrgnsrc2.into(), imode))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -1525,7 +1525,7 @@ pub unsafe fn CreateBitmap(nwidth: i32, nheight: i32, nplanes: u32, nbitcount: u
     extern "system" {
         fn CreateBitmap(nwidth: i32, nheight: i32, nplanes: u32, nbitcount: u32, lpbits: *const ::core::ffi::c_void) -> HBITMAP;
     }
-    ::core::mem::transmute(CreateBitmap(::core::mem::transmute(nwidth), ::core::mem::transmute(nheight), ::core::mem::transmute(nplanes), ::core::mem::transmute(nbitcount), ::core::mem::transmute(lpbits)))
+    ::core::mem::transmute(CreateBitmap(nwidth, nheight, nplanes, nbitcount, ::core::mem::transmute(lpbits)))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 #[inline]
@@ -1555,7 +1555,7 @@ where
     extern "system" {
         fn CreateCompatibleBitmap(hdc: HDC, cx: i32, cy: i32) -> HBITMAP;
     }
-    ::core::mem::transmute(CreateCompatibleBitmap(hdc.into(), ::core::mem::transmute(cx), ::core::mem::transmute(cy)))
+    ::core::mem::transmute(CreateCompatibleBitmap(hdc.into(), cx, cy))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 #[inline]
@@ -1606,7 +1606,7 @@ pub unsafe fn CreateDIBPatternBrush(h: isize, iusage: DIB_USAGE) -> HBRUSH {
     extern "system" {
         fn CreateDIBPatternBrush(h: isize, iusage: DIB_USAGE) -> HBRUSH;
     }
-    ::core::mem::transmute(CreateDIBPatternBrush(::core::mem::transmute(h), ::core::mem::transmute(iusage)))
+    ::core::mem::transmute(CreateDIBPatternBrush(h, iusage))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 #[inline]
@@ -1615,7 +1615,7 @@ pub unsafe fn CreateDIBPatternBrushPt(lppackeddib: *const ::core::ffi::c_void, i
     extern "system" {
         fn CreateDIBPatternBrushPt(lppackeddib: *const ::core::ffi::c_void, iusage: DIB_USAGE) -> HBRUSH;
     }
-    ::core::mem::transmute(CreateDIBPatternBrushPt(::core::mem::transmute(lppackeddib), ::core::mem::transmute(iusage)))
+    ::core::mem::transmute(CreateDIBPatternBrushPt(::core::mem::transmute(lppackeddib), iusage))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -1629,7 +1629,7 @@ where
     extern "system" {
         fn CreateDIBSection(hdc: HDC, pbmi: *const BITMAPINFO, usage: DIB_USAGE, ppvbits: *mut *mut ::core::ffi::c_void, hsection: super::super::Foundation::HANDLE, offset: u32) -> HBITMAP;
     }
-    let result__ = CreateDIBSection(hdc.into(), ::core::mem::transmute(pbmi), ::core::mem::transmute(usage), ::core::mem::transmute(ppvbits), hsection.into(), ::core::mem::transmute(offset));
+    let result__ = CreateDIBSection(hdc.into(), ::core::mem::transmute(pbmi), usage, ::core::mem::transmute(ppvbits), hsection.into(), offset);
     (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
@@ -1642,7 +1642,7 @@ where
     extern "system" {
         fn CreateDIBitmap(hdc: HDC, pbmih: *const BITMAPINFOHEADER, flinit: u32, pjbits: *const ::core::ffi::c_void, pbmi: *const BITMAPINFO, iusage: DIB_USAGE) -> HBITMAP;
     }
-    ::core::mem::transmute(CreateDIBitmap(hdc.into(), ::core::mem::transmute(pbmih), ::core::mem::transmute(flinit), ::core::mem::transmute(pjbits), ::core::mem::transmute(pbmi), ::core::mem::transmute(iusage)))
+    ::core::mem::transmute(CreateDIBitmap(hdc.into(), ::core::mem::transmute(pbmih), flinit, ::core::mem::transmute(pjbits), ::core::mem::transmute(pbmi), iusage))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 #[inline]
@@ -1654,7 +1654,7 @@ where
     extern "system" {
         fn CreateDiscardableBitmap(hdc: HDC, cx: i32, cy: i32) -> HBITMAP;
     }
-    ::core::mem::transmute(CreateDiscardableBitmap(hdc.into(), ::core::mem::transmute(cx), ::core::mem::transmute(cy)))
+    ::core::mem::transmute(CreateDiscardableBitmap(hdc.into(), cx, cy))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 #[inline]
@@ -1663,7 +1663,7 @@ pub unsafe fn CreateEllipticRgn(x1: i32, y1: i32, x2: i32, y2: i32) -> HRGN {
     extern "system" {
         fn CreateEllipticRgn(x1: i32, y1: i32, x2: i32, y2: i32) -> HRGN;
     }
-    ::core::mem::transmute(CreateEllipticRgn(::core::mem::transmute(x1), ::core::mem::transmute(y1), ::core::mem::transmute(x2), ::core::mem::transmute(y2)))
+    ::core::mem::transmute(CreateEllipticRgn(x1, y1, x2, y2))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -1715,22 +1715,7 @@ where
     extern "system" {
         fn CreateFontA(cheight: i32, cwidth: i32, cescapement: i32, corientation: i32, cweight: i32, bitalic: u32, bunderline: u32, bstrikeout: u32, icharset: u32, ioutprecision: FONT_OUTPUT_PRECISION, iclipprecision: FONT_CLIP_PRECISION, iquality: FONT_QUALITY, ipitchandfamily: FONT_PITCH_AND_FAMILY, pszfacename: ::windows::core::PCSTR) -> HFONT;
     }
-    ::core::mem::transmute(CreateFontA(
-        ::core::mem::transmute(cheight),
-        ::core::mem::transmute(cwidth),
-        ::core::mem::transmute(cescapement),
-        ::core::mem::transmute(corientation),
-        ::core::mem::transmute(cweight),
-        ::core::mem::transmute(bitalic),
-        ::core::mem::transmute(bunderline),
-        ::core::mem::transmute(bstrikeout),
-        ::core::mem::transmute(icharset),
-        ::core::mem::transmute(ioutprecision),
-        ::core::mem::transmute(iclipprecision),
-        ::core::mem::transmute(iquality),
-        ::core::mem::transmute(ipitchandfamily),
-        pszfacename.into(),
-    ))
+    ::core::mem::transmute(CreateFontA(cheight, cwidth, cescapement, corientation, cweight, bitalic, bunderline, bstrikeout, icharset, ioutprecision, iclipprecision, iquality, ipitchandfamily, pszfacename.into()))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -1779,18 +1764,18 @@ pub unsafe fn CreateFontPackage(puchsrcbuffer: *const u8, ulsrcbuffersize: u32, 
     }
     ::core::mem::transmute(CreateFontPackage(
         ::core::mem::transmute(puchsrcbuffer),
-        ::core::mem::transmute(ulsrcbuffersize),
+        ulsrcbuffersize,
         ::core::mem::transmute(ppuchfontpackagebuffer),
         ::core::mem::transmute(pulfontpackagebuffersize),
         ::core::mem::transmute(pulbyteswritten),
-        ::core::mem::transmute(usflag),
-        ::core::mem::transmute(usttcindex),
-        ::core::mem::transmute(ussubsetformat),
-        ::core::mem::transmute(ussubsetlanguage),
-        ::core::mem::transmute(ussubsetplatform),
-        ::core::mem::transmute(ussubsetencoding),
+        usflag,
+        usttcindex,
+        ussubsetformat,
+        ussubsetlanguage,
+        ussubsetplatform,
+        ussubsetencoding,
         ::core::mem::transmute(pussubsetkeeplist),
-        ::core::mem::transmute(ussubsetlistcount),
+        ussubsetlistcount,
         ::core::mem::transmute(lpfnallocate),
         ::core::mem::transmute(lpfnreallocate),
         ::core::mem::transmute(lpfnfree),
@@ -1807,22 +1792,7 @@ where
     extern "system" {
         fn CreateFontW(cheight: i32, cwidth: i32, cescapement: i32, corientation: i32, cweight: i32, bitalic: u32, bunderline: u32, bstrikeout: u32, icharset: u32, ioutprecision: FONT_OUTPUT_PRECISION, iclipprecision: FONT_CLIP_PRECISION, iquality: FONT_QUALITY, ipitchandfamily: FONT_PITCH_AND_FAMILY, pszfacename: ::windows::core::PCWSTR) -> HFONT;
     }
-    ::core::mem::transmute(CreateFontW(
-        ::core::mem::transmute(cheight),
-        ::core::mem::transmute(cwidth),
-        ::core::mem::transmute(cescapement),
-        ::core::mem::transmute(corientation),
-        ::core::mem::transmute(cweight),
-        ::core::mem::transmute(bitalic),
-        ::core::mem::transmute(bunderline),
-        ::core::mem::transmute(bstrikeout),
-        ::core::mem::transmute(icharset),
-        ::core::mem::transmute(ioutprecision),
-        ::core::mem::transmute(iclipprecision),
-        ::core::mem::transmute(iquality),
-        ::core::mem::transmute(ipitchandfamily),
-        pszfacename.into(),
-    ))
+    ::core::mem::transmute(CreateFontW(cheight, cwidth, cescapement, corientation, cweight, bitalic, bunderline, bstrikeout, icharset, ioutprecision, iclipprecision, iquality, ipitchandfamily, pszfacename.into()))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 #[inline]
@@ -1843,7 +1813,7 @@ pub unsafe fn CreateHatchBrush(ihatch: HATCH_BRUSH_STYLE, color: u32) -> HBRUSH 
     extern "system" {
         fn CreateHatchBrush(ihatch: HATCH_BRUSH_STYLE, color: u32) -> HBRUSH;
     }
-    ::core::mem::transmute(CreateHatchBrush(::core::mem::transmute(ihatch), ::core::mem::transmute(color)))
+    ::core::mem::transmute(CreateHatchBrush(ihatch, color))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -1927,7 +1897,7 @@ pub unsafe fn CreatePen(istyle: PEN_STYLE, cwidth: i32, color: u32) -> HPEN {
     extern "system" {
         fn CreatePen(istyle: PEN_STYLE, cwidth: i32, color: u32) -> HPEN;
     }
-    ::core::mem::transmute(CreatePen(::core::mem::transmute(istyle), ::core::mem::transmute(cwidth), ::core::mem::transmute(color)))
+    ::core::mem::transmute(CreatePen(istyle, cwidth, color))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -1947,7 +1917,7 @@ pub unsafe fn CreatePolyPolygonRgn(pptl: *const super::super::Foundation::POINT,
     extern "system" {
         fn CreatePolyPolygonRgn(pptl: *const super::super::Foundation::POINT, pc: *const i32, cpoly: i32, imode: CREATE_POLYGON_RGN_MODE) -> HRGN;
     }
-    ::core::mem::transmute(CreatePolyPolygonRgn(::core::mem::transmute(pptl), ::core::mem::transmute(::windows::core::as_ptr_or_null(pc)), pc.len() as _, ::core::mem::transmute(imode)))
+    ::core::mem::transmute(CreatePolyPolygonRgn(::core::mem::transmute(pptl), ::core::mem::transmute(::windows::core::as_ptr_or_null(pc)), pc.len() as _, imode))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -1957,7 +1927,7 @@ pub unsafe fn CreatePolygonRgn(pptl: &[super::super::Foundation::POINT], imode: 
     extern "system" {
         fn CreatePolygonRgn(pptl: *const super::super::Foundation::POINT, cpoint: i32, imode: CREATE_POLYGON_RGN_MODE) -> HRGN;
     }
-    ::core::mem::transmute(CreatePolygonRgn(::core::mem::transmute(::windows::core::as_ptr_or_null(pptl)), pptl.len() as _, ::core::mem::transmute(imode)))
+    ::core::mem::transmute(CreatePolygonRgn(::core::mem::transmute(::windows::core::as_ptr_or_null(pptl)), pptl.len() as _, imode))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 #[inline]
@@ -1966,7 +1936,7 @@ pub unsafe fn CreateRectRgn(x1: i32, y1: i32, x2: i32, y2: i32) -> HRGN {
     extern "system" {
         fn CreateRectRgn(x1: i32, y1: i32, x2: i32, y2: i32) -> HRGN;
     }
-    ::core::mem::transmute(CreateRectRgn(::core::mem::transmute(x1), ::core::mem::transmute(y1), ::core::mem::transmute(x2), ::core::mem::transmute(y2)))
+    ::core::mem::transmute(CreateRectRgn(x1, y1, x2, y2))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -1985,7 +1955,7 @@ pub unsafe fn CreateRoundRectRgn(x1: i32, y1: i32, x2: i32, y2: i32, w: i32, h: 
     extern "system" {
         fn CreateRoundRectRgn(x1: i32, y1: i32, x2: i32, y2: i32, w: i32, h: i32) -> HRGN;
     }
-    ::core::mem::transmute(CreateRoundRectRgn(::core::mem::transmute(x1), ::core::mem::transmute(y1), ::core::mem::transmute(x2), ::core::mem::transmute(y2), ::core::mem::transmute(w), ::core::mem::transmute(h)))
+    ::core::mem::transmute(CreateRoundRectRgn(x1, y1, x2, y2, w, h))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -2000,7 +1970,7 @@ where
     extern "system" {
         fn CreateScalableFontResourceA(fdwhidden: u32, lpszfont: ::windows::core::PCSTR, lpszfile: ::windows::core::PCSTR, lpszpath: ::windows::core::PCSTR) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(CreateScalableFontResourceA(::core::mem::transmute(fdwhidden), lpszfont.into(), lpszfile.into(), lpszpath.into()))
+    ::core::mem::transmute(CreateScalableFontResourceA(fdwhidden, lpszfont.into(), lpszfile.into(), lpszpath.into()))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -2015,7 +1985,7 @@ where
     extern "system" {
         fn CreateScalableFontResourceW(fdwhidden: u32, lpszfont: ::windows::core::PCWSTR, lpszfile: ::windows::core::PCWSTR, lpszpath: ::windows::core::PCWSTR) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(CreateScalableFontResourceW(::core::mem::transmute(fdwhidden), lpszfont.into(), lpszfile.into(), lpszpath.into()))
+    ::core::mem::transmute(CreateScalableFontResourceW(fdwhidden, lpszfont.into(), lpszfile.into(), lpszpath.into()))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 #[inline]
@@ -2024,7 +1994,7 @@ pub unsafe fn CreateSolidBrush(color: u32) -> HBRUSH {
     extern "system" {
         fn CreateSolidBrush(color: u32) -> HBRUSH;
     }
-    ::core::mem::transmute(CreateSolidBrush(::core::mem::transmute(color)))
+    ::core::mem::transmute(CreateSolidBrush(color))
 }
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
@@ -4021,7 +3991,7 @@ where
     extern "system" {
         fn DrawAnimatedRects(hwnd: super::super::Foundation::HWND, idani: i32, lprcfrom: *const super::super::Foundation::RECT, lprcto: *const super::super::Foundation::RECT) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(DrawAnimatedRects(hwnd.into(), ::core::mem::transmute(idani), ::core::mem::transmute(lprcfrom), ::core::mem::transmute(lprcto)))
+    ::core::mem::transmute(DrawAnimatedRects(hwnd.into(), idani, ::core::mem::transmute(lprcfrom), ::core::mem::transmute(lprcto)))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -4035,7 +4005,7 @@ where
     extern "system" {
         fn DrawCaption(hwnd: super::super::Foundation::HWND, hdc: HDC, lprect: *const super::super::Foundation::RECT, flags: DRAW_CAPTION_FLAGS) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(DrawCaption(hwnd.into(), hdc.into(), ::core::mem::transmute(lprect), ::core::mem::transmute(flags)))
+    ::core::mem::transmute(DrawCaption(hwnd.into(), hdc.into(), ::core::mem::transmute(lprect), flags))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -4048,7 +4018,7 @@ where
     extern "system" {
         fn DrawEdge(hdc: HDC, qrc: *mut super::super::Foundation::RECT, edge: DRAWEDGE_FLAGS, grfflags: DRAW_EDGE_FLAGS) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(DrawEdge(hdc.into(), ::core::mem::transmute(qrc), ::core::mem::transmute(edge), ::core::mem::transmute(grfflags)))
+    ::core::mem::transmute(DrawEdge(hdc.into(), ::core::mem::transmute(qrc), edge, grfflags))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 #[inline]
@@ -4061,7 +4031,7 @@ where
     extern "system" {
         fn DrawEscape(hdc: HDC, iescape: i32, cjin: i32, lpin: ::windows::core::PCSTR) -> i32;
     }
-    ::core::mem::transmute(DrawEscape(hdc.into(), ::core::mem::transmute(iescape), ::core::mem::transmute(cjin), lpin.into()))
+    ::core::mem::transmute(DrawEscape(hdc.into(), iescape, cjin, lpin.into()))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -4087,7 +4057,7 @@ where
     extern "system" {
         fn DrawFrameControl(param0: HDC, param1: *mut super::super::Foundation::RECT, param2: DFC_TYPE, param3: DFCS_STATE) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(DrawFrameControl(param0.into(), ::core::mem::transmute(param1), ::core::mem::transmute(param2), ::core::mem::transmute(param3)))
+    ::core::mem::transmute(DrawFrameControl(param0.into(), ::core::mem::transmute(param1), param2, param3))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -4103,7 +4073,7 @@ where
     extern "system" {
         fn DrawStateA(hdc: HDC, hbrfore: HBRUSH, qfncallback: *mut ::core::ffi::c_void, ldata: super::super::Foundation::LPARAM, wdata: super::super::Foundation::WPARAM, x: i32, y: i32, cx: i32, cy: i32, uflags: DRAWSTATE_FLAGS) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(DrawStateA(hdc.into(), hbrfore.into(), ::core::mem::transmute(qfncallback), ldata.into(), wdata.into(), ::core::mem::transmute(x), ::core::mem::transmute(y), ::core::mem::transmute(cx), ::core::mem::transmute(cy), ::core::mem::transmute(uflags)))
+    ::core::mem::transmute(DrawStateA(hdc.into(), hbrfore.into(), ::core::mem::transmute(qfncallback), ldata.into(), wdata.into(), x, y, cx, cy, uflags))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -4119,7 +4089,7 @@ where
     extern "system" {
         fn DrawStateW(hdc: HDC, hbrfore: HBRUSH, qfncallback: *mut ::core::ffi::c_void, ldata: super::super::Foundation::LPARAM, wdata: super::super::Foundation::WPARAM, x: i32, y: i32, cx: i32, cy: i32, uflags: DRAWSTATE_FLAGS) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(DrawStateW(hdc.into(), hbrfore.into(), ::core::mem::transmute(qfncallback), ldata.into(), wdata.into(), ::core::mem::transmute(x), ::core::mem::transmute(y), ::core::mem::transmute(cx), ::core::mem::transmute(cy), ::core::mem::transmute(uflags)))
+    ::core::mem::transmute(DrawStateW(hdc.into(), hbrfore.into(), ::core::mem::transmute(qfncallback), ldata.into(), wdata.into(), x, y, cx, cy, uflags))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -4132,7 +4102,7 @@ where
     extern "system" {
         fn DrawTextA(hdc: HDC, lpchtext: ::windows::core::PCSTR, cchtext: i32, lprc: *mut super::super::Foundation::RECT, format: DRAW_TEXT_FORMAT) -> i32;
     }
-    ::core::mem::transmute(DrawTextA(hdc.into(), ::core::mem::transmute(::windows::core::as_ptr_or_null(lpchtext)), lpchtext.len() as _, ::core::mem::transmute(lprc), ::core::mem::transmute(format)))
+    ::core::mem::transmute(DrawTextA(hdc.into(), ::core::mem::transmute(::windows::core::as_ptr_or_null(lpchtext)), lpchtext.len() as _, ::core::mem::transmute(lprc), format))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -4145,7 +4115,7 @@ where
     extern "system" {
         fn DrawTextExA(hdc: HDC, lpchtext: ::windows::core::PSTR, cchtext: i32, lprc: *mut super::super::Foundation::RECT, format: DRAW_TEXT_FORMAT, lpdtp: *const DRAWTEXTPARAMS) -> i32;
     }
-    ::core::mem::transmute(DrawTextExA(hdc.into(), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(lpchtext)), lpchtext.len() as _, ::core::mem::transmute(lprc), ::core::mem::transmute(format), ::core::mem::transmute(lpdtp)))
+    ::core::mem::transmute(DrawTextExA(hdc.into(), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(lpchtext)), lpchtext.len() as _, ::core::mem::transmute(lprc), format, ::core::mem::transmute(lpdtp)))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -4158,7 +4128,7 @@ where
     extern "system" {
         fn DrawTextExW(hdc: HDC, lpchtext: ::windows::core::PWSTR, cchtext: i32, lprc: *mut super::super::Foundation::RECT, format: DRAW_TEXT_FORMAT, lpdtp: *const DRAWTEXTPARAMS) -> i32;
     }
-    ::core::mem::transmute(DrawTextExW(hdc.into(), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(lpchtext)), lpchtext.len() as _, ::core::mem::transmute(lprc), ::core::mem::transmute(format), ::core::mem::transmute(lpdtp)))
+    ::core::mem::transmute(DrawTextExW(hdc.into(), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(lpchtext)), lpchtext.len() as _, ::core::mem::transmute(lprc), format, ::core::mem::transmute(lpdtp)))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -4171,7 +4141,7 @@ where
     extern "system" {
         fn DrawTextW(hdc: HDC, lpchtext: ::windows::core::PCWSTR, cchtext: i32, lprc: *mut super::super::Foundation::RECT, format: DRAW_TEXT_FORMAT) -> i32;
     }
-    ::core::mem::transmute(DrawTextW(hdc.into(), ::core::mem::transmute(::windows::core::as_ptr_or_null(lpchtext)), lpchtext.len() as _, ::core::mem::transmute(lprc), ::core::mem::transmute(format)))
+    ::core::mem::transmute(DrawTextW(hdc.into(), ::core::mem::transmute(::windows::core::as_ptr_or_null(lpchtext)), lpchtext.len() as _, ::core::mem::transmute(lprc), format))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const EASTEUROPE_CHARSET: u32 = 238u32;
@@ -8067,7 +8037,7 @@ where
     extern "system" {
         fn Ellipse(hdc: HDC, left: i32, top: i32, right: i32, bottom: i32) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(Ellipse(hdc.into(), ::core::mem::transmute(left), ::core::mem::transmute(top), ::core::mem::transmute(right), ::core::mem::transmute(bottom)))
+    ::core::mem::transmute(Ellipse(hdc.into(), left, top, right, bottom))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -8106,7 +8076,7 @@ where
     extern "system" {
         fn EnumDisplayDevicesA(lpdevice: ::windows::core::PCSTR, idevnum: u32, lpdisplaydevice: *mut DISPLAY_DEVICEA, dwflags: u32) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(EnumDisplayDevicesA(lpdevice.into(), ::core::mem::transmute(idevnum), ::core::mem::transmute(lpdisplaydevice), ::core::mem::transmute(dwflags)))
+    ::core::mem::transmute(EnumDisplayDevicesA(lpdevice.into(), idevnum, ::core::mem::transmute(lpdisplaydevice), dwflags))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -8119,7 +8089,7 @@ where
     extern "system" {
         fn EnumDisplayDevicesW(lpdevice: ::windows::core::PCWSTR, idevnum: u32, lpdisplaydevice: *mut DISPLAY_DEVICEW, dwflags: u32) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(EnumDisplayDevicesW(lpdevice.into(), ::core::mem::transmute(idevnum), ::core::mem::transmute(lpdisplaydevice), ::core::mem::transmute(dwflags)))
+    ::core::mem::transmute(EnumDisplayDevicesW(lpdevice.into(), idevnum, ::core::mem::transmute(lpdisplaydevice), dwflags))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -8146,7 +8116,7 @@ where
     extern "system" {
         fn EnumDisplaySettingsA(lpszdevicename: ::windows::core::PCSTR, imodenum: ENUM_DISPLAY_SETTINGS_MODE, lpdevmode: *mut DEVMODEA) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(EnumDisplaySettingsA(lpszdevicename.into(), ::core::mem::transmute(imodenum), ::core::mem::transmute(lpdevmode)))
+    ::core::mem::transmute(EnumDisplaySettingsA(lpszdevicename.into(), imodenum, ::core::mem::transmute(lpdevmode)))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -8159,7 +8129,7 @@ where
     extern "system" {
         fn EnumDisplaySettingsExA(lpszdevicename: ::windows::core::PCSTR, imodenum: ENUM_DISPLAY_SETTINGS_MODE, lpdevmode: *mut DEVMODEA, dwflags: u32) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(EnumDisplaySettingsExA(lpszdevicename.into(), ::core::mem::transmute(imodenum), ::core::mem::transmute(lpdevmode), ::core::mem::transmute(dwflags)))
+    ::core::mem::transmute(EnumDisplaySettingsExA(lpszdevicename.into(), imodenum, ::core::mem::transmute(lpdevmode), dwflags))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -8172,7 +8142,7 @@ where
     extern "system" {
         fn EnumDisplaySettingsExW(lpszdevicename: ::windows::core::PCWSTR, imodenum: ENUM_DISPLAY_SETTINGS_MODE, lpdevmode: *mut DEVMODEW, dwflags: u32) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(EnumDisplaySettingsExW(lpszdevicename.into(), ::core::mem::transmute(imodenum), ::core::mem::transmute(lpdevmode), ::core::mem::transmute(dwflags)))
+    ::core::mem::transmute(EnumDisplaySettingsExW(lpszdevicename.into(), imodenum, ::core::mem::transmute(lpdevmode), dwflags))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -8185,7 +8155,7 @@ where
     extern "system" {
         fn EnumDisplaySettingsW(lpszdevicename: ::windows::core::PCWSTR, imodenum: ENUM_DISPLAY_SETTINGS_MODE, lpdevmode: *mut DEVMODEW) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(EnumDisplaySettingsW(lpszdevicename.into(), ::core::mem::transmute(imodenum), ::core::mem::transmute(lpdevmode)))
+    ::core::mem::transmute(EnumDisplaySettingsW(lpszdevicename.into(), imodenum, ::core::mem::transmute(lpdevmode)))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -8228,7 +8198,7 @@ where
     extern "system" {
         fn EnumFontFamiliesExA(hdc: HDC, lplogfont: *const LOGFONTA, lpproc: *mut ::core::ffi::c_void, lparam: super::super::Foundation::LPARAM, dwflags: u32) -> i32;
     }
-    ::core::mem::transmute(EnumFontFamiliesExA(hdc.into(), ::core::mem::transmute(lplogfont), ::core::mem::transmute(lpproc), lparam.into(), ::core::mem::transmute(dwflags)))
+    ::core::mem::transmute(EnumFontFamiliesExA(hdc.into(), ::core::mem::transmute(lplogfont), ::core::mem::transmute(lpproc), lparam.into(), dwflags))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -8242,7 +8212,7 @@ where
     extern "system" {
         fn EnumFontFamiliesExW(hdc: HDC, lplogfont: *const LOGFONTW, lpproc: *mut ::core::ffi::c_void, lparam: super::super::Foundation::LPARAM, dwflags: u32) -> i32;
     }
-    ::core::mem::transmute(EnumFontFamiliesExW(hdc.into(), ::core::mem::transmute(lplogfont), ::core::mem::transmute(lpproc), lparam.into(), ::core::mem::transmute(dwflags)))
+    ::core::mem::transmute(EnumFontFamiliesExW(hdc.into(), ::core::mem::transmute(lplogfont), ::core::mem::transmute(lpproc), lparam.into(), dwflags))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -8316,7 +8286,7 @@ where
     extern "system" {
         fn EnumObjects(hdc: HDC, ntype: OBJ_TYPE, lpfunc: *mut ::core::ffi::c_void, lparam: super::super::Foundation::LPARAM) -> i32;
     }
-    ::core::mem::transmute(EnumObjects(hdc.into(), ::core::mem::transmute(ntype), ::core::mem::transmute(lpfunc), lparam.into()))
+    ::core::mem::transmute(EnumObjects(hdc.into(), ntype, ::core::mem::transmute(lpfunc), lparam.into()))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -8352,7 +8322,7 @@ where
     extern "system" {
         fn ExcludeClipRect(hdc: HDC, left: i32, top: i32, right: i32, bottom: i32) -> i32;
     }
-    ::core::mem::transmute(ExcludeClipRect(hdc.into(), ::core::mem::transmute(left), ::core::mem::transmute(top), ::core::mem::transmute(right), ::core::mem::transmute(bottom)))
+    ::core::mem::transmute(ExcludeClipRect(hdc.into(), left, top, right, bottom))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -8375,7 +8345,7 @@ pub unsafe fn ExtCreatePen(ipenstyle: PEN_STYLE, cwidth: u32, plbrush: *const LO
     extern "system" {
         fn ExtCreatePen(ipenstyle: PEN_STYLE, cwidth: u32, plbrush: *const LOGBRUSH, cstyle: u32, pstyle: *const u32) -> HPEN;
     }
-    ::core::mem::transmute(ExtCreatePen(::core::mem::transmute(ipenstyle), ::core::mem::transmute(cwidth), ::core::mem::transmute(plbrush), pstyle.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(pstyle))))
+    ::core::mem::transmute(ExtCreatePen(ipenstyle, cwidth, ::core::mem::transmute(plbrush), pstyle.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(pstyle))))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -8385,7 +8355,7 @@ pub unsafe fn ExtCreateRegion(lpx: *const XFORM, ncount: u32, lpdata: *const RGN
     extern "system" {
         fn ExtCreateRegion(lpx: *const XFORM, ncount: u32, lpdata: *const RGNDATA) -> HRGN;
     }
-    ::core::mem::transmute(ExtCreateRegion(::core::mem::transmute(lpx), ::core::mem::transmute(ncount), ::core::mem::transmute(lpdata)))
+    ::core::mem::transmute(ExtCreateRegion(::core::mem::transmute(lpx), ncount, ::core::mem::transmute(lpdata)))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -8398,7 +8368,7 @@ where
     extern "system" {
         fn ExtFloodFill(hdc: HDC, x: i32, y: i32, color: u32, r#type: EXT_FLOOD_FILL_TYPE) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(ExtFloodFill(hdc.into(), ::core::mem::transmute(x), ::core::mem::transmute(y), ::core::mem::transmute(color), ::core::mem::transmute(r#type)))
+    ::core::mem::transmute(ExtFloodFill(hdc.into(), x, y, color, r#type))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 #[inline]
@@ -8411,7 +8381,7 @@ where
     extern "system" {
         fn ExtSelectClipRgn(hdc: HDC, hrgn: HRGN, mode: RGN_COMBINE_MODE) -> i32;
     }
-    ::core::mem::transmute(ExtSelectClipRgn(hdc.into(), hrgn.into(), ::core::mem::transmute(mode)))
+    ::core::mem::transmute(ExtSelectClipRgn(hdc.into(), hrgn.into(), mode))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -8424,7 +8394,7 @@ where
     extern "system" {
         fn ExtTextOutA(hdc: HDC, x: i32, y: i32, options: ETO_OPTIONS, lprect: *const super::super::Foundation::RECT, lpstring: ::windows::core::PCSTR, c: u32, lpdx: *const i32) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(ExtTextOutA(hdc.into(), ::core::mem::transmute(x), ::core::mem::transmute(y), ::core::mem::transmute(options), ::core::mem::transmute(lprect), ::core::mem::transmute(lpstring), ::core::mem::transmute(c), ::core::mem::transmute(lpdx)))
+    ::core::mem::transmute(ExtTextOutA(hdc.into(), x, y, options, ::core::mem::transmute(lprect), ::core::mem::transmute(lpstring), ::core::mem::transmute(c), ::core::mem::transmute(lpdx)))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -8437,7 +8407,7 @@ where
     extern "system" {
         fn ExtTextOutW(hdc: HDC, x: i32, y: i32, options: ETO_OPTIONS, lprect: *const super::super::Foundation::RECT, lpstring: ::windows::core::PCWSTR, c: u32, lpdx: *const i32) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(ExtTextOutW(hdc.into(), ::core::mem::transmute(x), ::core::mem::transmute(y), ::core::mem::transmute(options), ::core::mem::transmute(lprect), ::core::mem::transmute(lpstring), ::core::mem::transmute(c), ::core::mem::transmute(lpdx)))
+    ::core::mem::transmute(ExtTextOutW(hdc.into(), x, y, options, ::core::mem::transmute(lprect), ::core::mem::transmute(lpstring), ::core::mem::transmute(c), ::core::mem::transmute(lpdx)))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const FEATURESETTING_CUSTPAPER: u32 = 3u32;
@@ -8859,7 +8829,7 @@ where
     extern "system" {
         fn FixBrushOrgEx(hdc: HDC, x: i32, y: i32, ptl: *const super::super::Foundation::POINT) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(FixBrushOrgEx(hdc.into(), ::core::mem::transmute(x), ::core::mem::transmute(y), ::core::mem::transmute(ptl)))
+    ::core::mem::transmute(FixBrushOrgEx(hdc.into(), x, y, ::core::mem::transmute(ptl)))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -8885,7 +8855,7 @@ where
     extern "system" {
         fn FloodFill(hdc: HDC, x: i32, y: i32, color: u32) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(FloodFill(hdc.into(), ::core::mem::transmute(x), ::core::mem::transmute(y), ::core::mem::transmute(color)))
+    ::core::mem::transmute(FloodFill(hdc.into(), x, y, color))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -8914,7 +8884,7 @@ where
     extern "system" {
         fn FrameRgn(hdc: HDC, hrgn: HRGN, hbr: HBRUSH, w: i32, h: i32) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(FrameRgn(hdc.into(), hrgn.into(), hbr.into(), ::core::mem::transmute(w), ::core::mem::transmute(h)))
+    ::core::mem::transmute(FrameRgn(hdc.into(), hrgn.into(), hbr.into(), w, h))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const GB2312_CHARSET: u32 = 134u32;
@@ -9676,7 +9646,7 @@ where
     extern "system" {
         fn GdiAlphaBlend(hdcdest: HDC, xorigindest: i32, yorigindest: i32, wdest: i32, hdest: i32, hdcsrc: HDC, xoriginsrc: i32, yoriginsrc: i32, wsrc: i32, hsrc: i32, ftn: BLENDFUNCTION) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(GdiAlphaBlend(hdcdest.into(), ::core::mem::transmute(xorigindest), ::core::mem::transmute(yorigindest), ::core::mem::transmute(wdest), ::core::mem::transmute(hdest), hdcsrc.into(), ::core::mem::transmute(xoriginsrc), ::core::mem::transmute(yoriginsrc), ::core::mem::transmute(wsrc), ::core::mem::transmute(hsrc), ::core::mem::transmute(ftn)))
+    ::core::mem::transmute(GdiAlphaBlend(hdcdest.into(), xorigindest, yorigindest, wdest, hdest, hdcsrc.into(), xoriginsrc, yoriginsrc, wsrc, hsrc, ::core::mem::transmute(ftn)))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -9689,7 +9659,7 @@ where
     extern "system" {
         fn GdiComment(hdc: HDC, nsize: u32, lpdata: *const u8) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(GdiComment(hdc.into(), ::core::mem::transmute(nsize), ::core::mem::transmute(lpdata)))
+    ::core::mem::transmute(GdiComment(hdc.into(), nsize, ::core::mem::transmute(lpdata)))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -9721,7 +9691,7 @@ where
     extern "system" {
         fn GdiGradientFill(hdc: HDC, pvertex: *const TRIVERTEX, nvertex: u32, pmesh: *const ::core::ffi::c_void, ncount: u32, ulmode: GRADIENT_FILL) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(GdiGradientFill(hdc.into(), ::core::mem::transmute(::windows::core::as_ptr_or_null(pvertex)), pvertex.len() as _, ::core::mem::transmute(pmesh), ::core::mem::transmute(ncount), ::core::mem::transmute(ulmode)))
+    ::core::mem::transmute(GdiGradientFill(hdc.into(), ::core::mem::transmute(::windows::core::as_ptr_or_null(pvertex)), pvertex.len() as _, ::core::mem::transmute(pmesh), ncount, ulmode))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 #[inline]
@@ -9730,7 +9700,7 @@ pub unsafe fn GdiSetBatchLimit(dw: u32) -> u32 {
     extern "system" {
         fn GdiSetBatchLimit(dw: u32) -> u32;
     }
-    ::core::mem::transmute(GdiSetBatchLimit(::core::mem::transmute(dw)))
+    ::core::mem::transmute(GdiSetBatchLimit(dw))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -9744,7 +9714,7 @@ where
     extern "system" {
         fn GdiTransparentBlt(hdcdest: HDC, xorigindest: i32, yorigindest: i32, wdest: i32, hdest: i32, hdcsrc: HDC, xoriginsrc: i32, yoriginsrc: i32, wsrc: i32, hsrc: i32, crtransparent: u32) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(GdiTransparentBlt(hdcdest.into(), ::core::mem::transmute(xorigindest), ::core::mem::transmute(yorigindest), ::core::mem::transmute(wdest), ::core::mem::transmute(hdest), hdcsrc.into(), ::core::mem::transmute(xoriginsrc), ::core::mem::transmute(yoriginsrc), ::core::mem::transmute(wsrc), ::core::mem::transmute(hsrc), ::core::mem::transmute(crtransparent)))
+    ::core::mem::transmute(GdiTransparentBlt(hdcdest.into(), xorigindest, yorigindest, wdest, hdest, hdcsrc.into(), xoriginsrc, yoriginsrc, wsrc, hsrc, crtransparent))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 #[inline]
@@ -9781,7 +9751,7 @@ where
     extern "system" {
         fn GetBitmapBits(hbit: HBITMAP, cb: i32, lpvbits: *mut ::core::ffi::c_void) -> i32;
     }
-    ::core::mem::transmute(GetBitmapBits(hbit.into(), ::core::mem::transmute(cb), ::core::mem::transmute(lpvbits)))
+    ::core::mem::transmute(GetBitmapBits(hbit.into(), cb, ::core::mem::transmute(lpvbits)))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -9831,7 +9801,7 @@ where
     extern "system" {
         fn GetBoundsRect(hdc: HDC, lprect: *mut super::super::Foundation::RECT, flags: u32) -> u32;
     }
-    ::core::mem::transmute(GetBoundsRect(hdc.into(), ::core::mem::transmute(lprect), ::core::mem::transmute(flags)))
+    ::core::mem::transmute(GetBoundsRect(hdc.into(), ::core::mem::transmute(lprect), flags))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -9857,7 +9827,7 @@ where
     extern "system" {
         fn GetCharABCWidthsA(hdc: HDC, wfirst: u32, wlast: u32, lpabc: *mut ABC) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(GetCharABCWidthsA(hdc.into(), ::core::mem::transmute(wfirst), ::core::mem::transmute(wlast), ::core::mem::transmute(lpabc)))
+    ::core::mem::transmute(GetCharABCWidthsA(hdc.into(), wfirst, wlast, ::core::mem::transmute(lpabc)))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -9870,7 +9840,7 @@ where
     extern "system" {
         fn GetCharABCWidthsFloatA(hdc: HDC, ifirst: u32, ilast: u32, lpabc: *mut ABCFLOAT) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(GetCharABCWidthsFloatA(hdc.into(), ::core::mem::transmute(ifirst), ::core::mem::transmute(ilast), ::core::mem::transmute(lpabc)))
+    ::core::mem::transmute(GetCharABCWidthsFloatA(hdc.into(), ifirst, ilast, ::core::mem::transmute(lpabc)))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -9883,7 +9853,7 @@ where
     extern "system" {
         fn GetCharABCWidthsFloatW(hdc: HDC, ifirst: u32, ilast: u32, lpabc: *mut ABCFLOAT) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(GetCharABCWidthsFloatW(hdc.into(), ::core::mem::transmute(ifirst), ::core::mem::transmute(ilast), ::core::mem::transmute(lpabc)))
+    ::core::mem::transmute(GetCharABCWidthsFloatW(hdc.into(), ifirst, ilast, ::core::mem::transmute(lpabc)))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -9896,7 +9866,7 @@ where
     extern "system" {
         fn GetCharABCWidthsI(hdc: HDC, gifirst: u32, cgi: u32, pgi: *const u16, pabc: *mut ABC) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(GetCharABCWidthsI(hdc.into(), ::core::mem::transmute(gifirst), ::core::mem::transmute(cgi), ::core::mem::transmute(pgi), ::core::mem::transmute(pabc)))
+    ::core::mem::transmute(GetCharABCWidthsI(hdc.into(), gifirst, ::core::mem::transmute(cgi), ::core::mem::transmute(pgi), ::core::mem::transmute(pabc)))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -9909,7 +9879,7 @@ where
     extern "system" {
         fn GetCharABCWidthsW(hdc: HDC, wfirst: u32, wlast: u32, lpabc: *mut ABC) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(GetCharABCWidthsW(hdc.into(), ::core::mem::transmute(wfirst), ::core::mem::transmute(wlast), ::core::mem::transmute(lpabc)))
+    ::core::mem::transmute(GetCharABCWidthsW(hdc.into(), wfirst, wlast, ::core::mem::transmute(lpabc)))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -9922,7 +9892,7 @@ where
     extern "system" {
         fn GetCharWidth32A(hdc: HDC, ifirst: u32, ilast: u32, lpbuffer: *mut i32) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(GetCharWidth32A(hdc.into(), ::core::mem::transmute(ifirst), ::core::mem::transmute(ilast), ::core::mem::transmute(lpbuffer)))
+    ::core::mem::transmute(GetCharWidth32A(hdc.into(), ifirst, ilast, ::core::mem::transmute(lpbuffer)))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -9935,7 +9905,7 @@ where
     extern "system" {
         fn GetCharWidth32W(hdc: HDC, ifirst: u32, ilast: u32, lpbuffer: *mut i32) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(GetCharWidth32W(hdc.into(), ::core::mem::transmute(ifirst), ::core::mem::transmute(ilast), ::core::mem::transmute(lpbuffer)))
+    ::core::mem::transmute(GetCharWidth32W(hdc.into(), ifirst, ilast, ::core::mem::transmute(lpbuffer)))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -9948,7 +9918,7 @@ where
     extern "system" {
         fn GetCharWidthA(hdc: HDC, ifirst: u32, ilast: u32, lpbuffer: *mut i32) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(GetCharWidthA(hdc.into(), ::core::mem::transmute(ifirst), ::core::mem::transmute(ilast), ::core::mem::transmute(lpbuffer)))
+    ::core::mem::transmute(GetCharWidthA(hdc.into(), ifirst, ilast, ::core::mem::transmute(lpbuffer)))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -9961,7 +9931,7 @@ where
     extern "system" {
         fn GetCharWidthFloatA(hdc: HDC, ifirst: u32, ilast: u32, lpbuffer: *mut f32) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(GetCharWidthFloatA(hdc.into(), ::core::mem::transmute(ifirst), ::core::mem::transmute(ilast), ::core::mem::transmute(lpbuffer)))
+    ::core::mem::transmute(GetCharWidthFloatA(hdc.into(), ifirst, ilast, ::core::mem::transmute(lpbuffer)))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -9974,7 +9944,7 @@ where
     extern "system" {
         fn GetCharWidthFloatW(hdc: HDC, ifirst: u32, ilast: u32, lpbuffer: *mut f32) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(GetCharWidthFloatW(hdc.into(), ::core::mem::transmute(ifirst), ::core::mem::transmute(ilast), ::core::mem::transmute(lpbuffer)))
+    ::core::mem::transmute(GetCharWidthFloatW(hdc.into(), ifirst, ilast, ::core::mem::transmute(lpbuffer)))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -9987,7 +9957,7 @@ where
     extern "system" {
         fn GetCharWidthI(hdc: HDC, gifirst: u32, cgi: u32, pgi: *const u16, piwidths: *mut i32) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(GetCharWidthI(hdc.into(), ::core::mem::transmute(gifirst), ::core::mem::transmute(cgi), ::core::mem::transmute(pgi), ::core::mem::transmute(piwidths)))
+    ::core::mem::transmute(GetCharWidthI(hdc.into(), gifirst, ::core::mem::transmute(cgi), ::core::mem::transmute(pgi), ::core::mem::transmute(piwidths)))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -10000,7 +9970,7 @@ where
     extern "system" {
         fn GetCharWidthW(hdc: HDC, ifirst: u32, ilast: u32, lpbuffer: *mut i32) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(GetCharWidthW(hdc.into(), ::core::mem::transmute(ifirst), ::core::mem::transmute(ilast), ::core::mem::transmute(lpbuffer)))
+    ::core::mem::transmute(GetCharWidthW(hdc.into(), ifirst, ilast, ::core::mem::transmute(lpbuffer)))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 #[inline]
@@ -10012,7 +9982,7 @@ where
     extern "system" {
         fn GetCharacterPlacementA(hdc: HDC, lpstring: ::windows::core::PCSTR, ncount: i32, nmexextent: i32, lpresults: *mut GCP_RESULTSA, dwflags: GET_CHARACTER_PLACEMENT_FLAGS) -> u32;
     }
-    ::core::mem::transmute(GetCharacterPlacementA(hdc.into(), ::core::mem::transmute(::windows::core::as_ptr_or_null(lpstring)), lpstring.len() as _, ::core::mem::transmute(nmexextent), ::core::mem::transmute(lpresults), ::core::mem::transmute(dwflags)))
+    ::core::mem::transmute(GetCharacterPlacementA(hdc.into(), ::core::mem::transmute(::windows::core::as_ptr_or_null(lpstring)), lpstring.len() as _, nmexextent, ::core::mem::transmute(lpresults), dwflags))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 #[inline]
@@ -10024,7 +9994,7 @@ where
     extern "system" {
         fn GetCharacterPlacementW(hdc: HDC, lpstring: ::windows::core::PCWSTR, ncount: i32, nmexextent: i32, lpresults: *mut GCP_RESULTSW, dwflags: GET_CHARACTER_PLACEMENT_FLAGS) -> u32;
     }
-    ::core::mem::transmute(GetCharacterPlacementW(hdc.into(), ::core::mem::transmute(::windows::core::as_ptr_or_null(lpstring)), lpstring.len() as _, ::core::mem::transmute(nmexextent), ::core::mem::transmute(lpresults), ::core::mem::transmute(dwflags)))
+    ::core::mem::transmute(GetCharacterPlacementW(hdc.into(), ::core::mem::transmute(::windows::core::as_ptr_or_null(lpstring)), lpstring.len() as _, nmexextent, ::core::mem::transmute(lpresults), dwflags))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -10075,7 +10045,7 @@ where
     extern "system" {
         fn GetCurrentObject(hdc: HDC, r#type: OBJ_TYPE) -> HGDIOBJ;
     }
-    ::core::mem::transmute(GetCurrentObject(hdc.into(), ::core::mem::transmute(r#type)))
+    ::core::mem::transmute(GetCurrentObject(hdc.into(), r#type))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -10127,7 +10097,7 @@ where
     extern "system" {
         fn GetDCEx(hwnd: super::super::Foundation::HWND, hrgnclip: HRGN, flags: GET_DCX_FLAGS) -> HDC;
     }
-    ::core::mem::transmute(GetDCEx(hwnd.into(), hrgnclip.into(), ::core::mem::transmute(flags)))
+    ::core::mem::transmute(GetDCEx(hwnd.into(), hrgnclip.into(), flags))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -10164,7 +10134,7 @@ where
     extern "system" {
         fn GetDIBColorTable(hdc: HDC, istart: u32, centries: u32, prgbq: *mut RGBQUAD) -> u32;
     }
-    ::core::mem::transmute(GetDIBColorTable(hdc.into(), ::core::mem::transmute(istart), prgbq.len() as _, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(prgbq))))
+    ::core::mem::transmute(GetDIBColorTable(hdc.into(), istart, prgbq.len() as _, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(prgbq))))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 #[inline]
@@ -10177,7 +10147,7 @@ where
     extern "system" {
         fn GetDIBits(hdc: HDC, hbm: HBITMAP, start: u32, clines: u32, lpvbits: *mut ::core::ffi::c_void, lpbmi: *mut BITMAPINFO, usage: DIB_USAGE) -> i32;
     }
-    ::core::mem::transmute(GetDIBits(hdc.into(), hbm.into(), ::core::mem::transmute(start), ::core::mem::transmute(clines), ::core::mem::transmute(lpvbits), ::core::mem::transmute(lpbmi), ::core::mem::transmute(usage)))
+    ::core::mem::transmute(GetDIBits(hdc.into(), hbm.into(), start, clines, ::core::mem::transmute(lpvbits), ::core::mem::transmute(lpbmi), usage))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 #[inline]
@@ -10189,7 +10159,7 @@ where
     extern "system" {
         fn GetDeviceCaps(hdc: HDC, index: GET_DEVICE_CAPS_INDEX) -> i32;
     }
-    ::core::mem::transmute(GetDeviceCaps(hdc.into(), ::core::mem::transmute(index)))
+    ::core::mem::transmute(GetDeviceCaps(hdc.into(), index))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 #[inline]
@@ -10213,7 +10183,7 @@ where
     extern "system" {
         fn GetEnhMetaFileBits(hemf: HENHMETAFILE, nsize: u32, lpdata: *mut u8) -> u32;
     }
-    ::core::mem::transmute(GetEnhMetaFileBits(hemf.into(), ::core::mem::transmute(nsize), ::core::mem::transmute(lpdata)))
+    ::core::mem::transmute(GetEnhMetaFileBits(hemf.into(), nsize, ::core::mem::transmute(lpdata)))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 #[inline]
@@ -10250,7 +10220,7 @@ where
     extern "system" {
         fn GetEnhMetaFileHeader(hemf: HENHMETAFILE, nsize: u32, lpenhmetaheader: *mut ENHMETAHEADER) -> u32;
     }
-    ::core::mem::transmute(GetEnhMetaFileHeader(hemf.into(), ::core::mem::transmute(nsize), ::core::mem::transmute(lpenhmetaheader)))
+    ::core::mem::transmute(GetEnhMetaFileHeader(hemf.into(), nsize, ::core::mem::transmute(lpenhmetaheader)))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 #[inline]
@@ -10286,7 +10256,7 @@ where
     extern "system" {
         fn GetFontData(hdc: HDC, dwtable: u32, dwoffset: u32, pvbuffer: *mut ::core::ffi::c_void, cjbuffer: u32) -> u32;
     }
-    ::core::mem::transmute(GetFontData(hdc.into(), ::core::mem::transmute(dwtable), ::core::mem::transmute(dwoffset), ::core::mem::transmute(pvbuffer), ::core::mem::transmute(cjbuffer)))
+    ::core::mem::transmute(GetFontData(hdc.into(), dwtable, dwoffset, ::core::mem::transmute(pvbuffer), cjbuffer))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 #[inline]
@@ -10322,7 +10292,7 @@ where
     extern "system" {
         fn GetGlyphIndicesA(hdc: HDC, lpstr: ::windows::core::PCSTR, c: i32, pgi: *mut u16, fl: u32) -> u32;
     }
-    ::core::mem::transmute(GetGlyphIndicesA(hdc.into(), ::core::mem::transmute(lpstr), ::core::mem::transmute(c), ::core::mem::transmute(pgi), ::core::mem::transmute(fl)))
+    ::core::mem::transmute(GetGlyphIndicesA(hdc.into(), ::core::mem::transmute(lpstr), ::core::mem::transmute(c), ::core::mem::transmute(pgi), fl))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 #[inline]
@@ -10334,7 +10304,7 @@ where
     extern "system" {
         fn GetGlyphIndicesW(hdc: HDC, lpstr: ::windows::core::PCWSTR, c: i32, pgi: *mut u16, fl: u32) -> u32;
     }
-    ::core::mem::transmute(GetGlyphIndicesW(hdc.into(), ::core::mem::transmute(lpstr), ::core::mem::transmute(c), ::core::mem::transmute(pgi), ::core::mem::transmute(fl)))
+    ::core::mem::transmute(GetGlyphIndicesW(hdc.into(), ::core::mem::transmute(lpstr), ::core::mem::transmute(c), ::core::mem::transmute(pgi), fl))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -10347,7 +10317,7 @@ where
     extern "system" {
         fn GetGlyphOutlineA(hdc: HDC, uchar: u32, fuformat: GET_GLYPH_OUTLINE_FORMAT, lpgm: *mut GLYPHMETRICS, cjbuffer: u32, pvbuffer: *mut ::core::ffi::c_void, lpmat2: *const MAT2) -> u32;
     }
-    ::core::mem::transmute(GetGlyphOutlineA(hdc.into(), ::core::mem::transmute(uchar), ::core::mem::transmute(fuformat), ::core::mem::transmute(lpgm), ::core::mem::transmute(cjbuffer), ::core::mem::transmute(pvbuffer), ::core::mem::transmute(lpmat2)))
+    ::core::mem::transmute(GetGlyphOutlineA(hdc.into(), uchar, fuformat, ::core::mem::transmute(lpgm), cjbuffer, ::core::mem::transmute(pvbuffer), ::core::mem::transmute(lpmat2)))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -10360,7 +10330,7 @@ where
     extern "system" {
         fn GetGlyphOutlineW(hdc: HDC, uchar: u32, fuformat: GET_GLYPH_OUTLINE_FORMAT, lpgm: *mut GLYPHMETRICS, cjbuffer: u32, pvbuffer: *mut ::core::ffi::c_void, lpmat2: *const MAT2) -> u32;
     }
-    ::core::mem::transmute(GetGlyphOutlineW(hdc.into(), ::core::mem::transmute(uchar), ::core::mem::transmute(fuformat), ::core::mem::transmute(lpgm), ::core::mem::transmute(cjbuffer), ::core::mem::transmute(pvbuffer), ::core::mem::transmute(lpmat2)))
+    ::core::mem::transmute(GetGlyphOutlineW(hdc.into(), uchar, fuformat, ::core::mem::transmute(lpgm), cjbuffer, ::core::mem::transmute(pvbuffer), ::core::mem::transmute(lpmat2)))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 #[inline]
@@ -10444,7 +10414,7 @@ where
     extern "system" {
         fn GetMetaFileBitsEx(hmf: HMETAFILE, cbbuffer: u32, lpdata: *mut ::core::ffi::c_void) -> u32;
     }
-    ::core::mem::transmute(GetMetaFileBitsEx(hmf.into(), ::core::mem::transmute(cbbuffer), ::core::mem::transmute(lpdata)))
+    ::core::mem::transmute(GetMetaFileBitsEx(hmf.into(), cbbuffer, ::core::mem::transmute(lpdata)))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 #[inline]
@@ -10520,7 +10490,7 @@ where
     extern "system" {
         fn GetNearestColor(hdc: HDC, color: u32) -> u32;
     }
-    ::core::mem::transmute(GetNearestColor(hdc.into(), ::core::mem::transmute(color)))
+    ::core::mem::transmute(GetNearestColor(hdc.into(), color))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 #[inline]
@@ -10532,7 +10502,7 @@ where
     extern "system" {
         fn GetNearestPaletteIndex(h: HPALETTE, color: u32) -> u32;
     }
-    ::core::mem::transmute(GetNearestPaletteIndex(h.into(), ::core::mem::transmute(color)))
+    ::core::mem::transmute(GetNearestPaletteIndex(h.into(), color))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 #[inline]
@@ -10544,7 +10514,7 @@ where
     extern "system" {
         fn GetObjectA(h: HGDIOBJ, c: i32, pv: *mut ::core::ffi::c_void) -> i32;
     }
-    ::core::mem::transmute(GetObjectA(h.into(), ::core::mem::transmute(c), ::core::mem::transmute(pv)))
+    ::core::mem::transmute(GetObjectA(h.into(), c, ::core::mem::transmute(pv)))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 #[inline]
@@ -10568,7 +10538,7 @@ where
     extern "system" {
         fn GetObjectW(h: HGDIOBJ, c: i32, pv: *mut ::core::ffi::c_void) -> i32;
     }
-    ::core::mem::transmute(GetObjectW(h.into(), ::core::mem::transmute(c), ::core::mem::transmute(pv)))
+    ::core::mem::transmute(GetObjectW(h.into(), c, ::core::mem::transmute(pv)))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -10581,7 +10551,7 @@ where
     extern "system" {
         fn GetOutlineTextMetricsA(hdc: HDC, cjcopy: u32, potm: *mut OUTLINETEXTMETRICA) -> u32;
     }
-    ::core::mem::transmute(GetOutlineTextMetricsA(hdc.into(), ::core::mem::transmute(cjcopy), ::core::mem::transmute(potm)))
+    ::core::mem::transmute(GetOutlineTextMetricsA(hdc.into(), cjcopy, ::core::mem::transmute(potm)))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -10594,7 +10564,7 @@ where
     extern "system" {
         fn GetOutlineTextMetricsW(hdc: HDC, cjcopy: u32, potm: *mut OUTLINETEXTMETRICW) -> u32;
     }
-    ::core::mem::transmute(GetOutlineTextMetricsW(hdc.into(), ::core::mem::transmute(cjcopy), ::core::mem::transmute(potm)))
+    ::core::mem::transmute(GetOutlineTextMetricsW(hdc.into(), cjcopy, ::core::mem::transmute(potm)))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 #[inline]
@@ -10606,7 +10576,7 @@ where
     extern "system" {
         fn GetPaletteEntries(hpal: HPALETTE, istart: u32, centries: u32, ppalentries: *mut PALETTEENTRY) -> u32;
     }
-    ::core::mem::transmute(GetPaletteEntries(hpal.into(), ::core::mem::transmute(istart), ppalentries.len() as _, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(ppalentries))))
+    ::core::mem::transmute(GetPaletteEntries(hpal.into(), istart, ppalentries.len() as _, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(ppalentries))))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -10631,7 +10601,7 @@ where
     extern "system" {
         fn GetPixel(hdc: HDC, x: i32, y: i32) -> u32;
     }
-    ::core::mem::transmute(GetPixel(hdc.into(), ::core::mem::transmute(x), ::core::mem::transmute(y)))
+    ::core::mem::transmute(GetPixel(hdc.into(), x, y))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 #[inline]
@@ -10668,7 +10638,7 @@ where
     extern "system" {
         fn GetRandomRgn(hdc: HDC, hrgn: HRGN, i: i32) -> i32;
     }
-    ::core::mem::transmute(GetRandomRgn(hdc.into(), hrgn.into(), ::core::mem::transmute(i)))
+    ::core::mem::transmute(GetRandomRgn(hdc.into(), hrgn.into(), i))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -10678,7 +10648,7 @@ pub unsafe fn GetRasterizerCaps(lpraststat: *mut RASTERIZER_STATUS, cjbytes: u32
     extern "system" {
         fn GetRasterizerCaps(lpraststat: *mut RASTERIZER_STATUS, cjbytes: u32) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(GetRasterizerCaps(::core::mem::transmute(lpraststat), ::core::mem::transmute(cjbytes)))
+    ::core::mem::transmute(GetRasterizerCaps(::core::mem::transmute(lpraststat), cjbytes))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -10691,7 +10661,7 @@ where
     extern "system" {
         fn GetRegionData(hrgn: HRGN, ncount: u32, lprgndata: *mut RGNDATA) -> u32;
     }
-    ::core::mem::transmute(GetRegionData(hrgn.into(), ::core::mem::transmute(ncount), ::core::mem::transmute(lprgndata)))
+    ::core::mem::transmute(GetRegionData(hrgn.into(), ncount, ::core::mem::transmute(lprgndata)))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -10713,7 +10683,7 @@ pub unsafe fn GetStockObject(i: GET_STOCK_OBJECT_FLAGS) -> HGDIOBJ {
     extern "system" {
         fn GetStockObject(i: GET_STOCK_OBJECT_FLAGS) -> HGDIOBJ;
     }
-    ::core::mem::transmute(GetStockObject(::core::mem::transmute(i)))
+    ::core::mem::transmute(GetStockObject(i))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 #[inline]
@@ -10734,7 +10704,7 @@ pub unsafe fn GetSysColorBrush(nindex: i32) -> HBRUSH {
     extern "system" {
         fn GetSysColorBrush(nindex: i32) -> HBRUSH;
     }
-    ::core::mem::transmute(GetSysColorBrush(::core::mem::transmute(nindex)))
+    ::core::mem::transmute(GetSysColorBrush(nindex))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 #[inline]
@@ -10746,7 +10716,7 @@ where
     extern "system" {
         fn GetSystemPaletteEntries(hdc: HDC, istart: u32, centries: u32, ppalentries: *mut PALETTEENTRY) -> u32;
     }
-    ::core::mem::transmute(GetSystemPaletteEntries(hdc.into(), ::core::mem::transmute(istart), ppalentries.len() as _, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(ppalentries))))
+    ::core::mem::transmute(GetSystemPaletteEntries(hdc.into(), istart, ppalentries.len() as _, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(ppalentries))))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 #[inline]
@@ -10831,7 +10801,7 @@ where
     extern "system" {
         fn GetTextExtentExPointA(hdc: HDC, lpszstring: ::windows::core::PCSTR, cchstring: i32, nmaxextent: i32, lpnfit: *mut i32, lpndx: *mut i32, lpsize: *mut super::super::Foundation::SIZE) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(GetTextExtentExPointA(hdc.into(), ::core::mem::transmute(lpszstring), ::core::mem::transmute(cchstring), ::core::mem::transmute(nmaxextent), ::core::mem::transmute(lpnfit), ::core::mem::transmute(lpndx), ::core::mem::transmute(lpsize)))
+    ::core::mem::transmute(GetTextExtentExPointA(hdc.into(), ::core::mem::transmute(lpszstring), ::core::mem::transmute(cchstring), nmaxextent, ::core::mem::transmute(lpnfit), ::core::mem::transmute(lpndx), ::core::mem::transmute(lpsize)))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -10844,7 +10814,7 @@ where
     extern "system" {
         fn GetTextExtentExPointI(hdc: HDC, lpwszstring: *const u16, cwchstring: i32, nmaxextent: i32, lpnfit: *mut i32, lpndx: *mut i32, lpsize: *mut super::super::Foundation::SIZE) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(GetTextExtentExPointI(hdc.into(), ::core::mem::transmute(lpwszstring), ::core::mem::transmute(cwchstring), ::core::mem::transmute(nmaxextent), ::core::mem::transmute(lpnfit), ::core::mem::transmute(lpndx), ::core::mem::transmute(lpsize)))
+    ::core::mem::transmute(GetTextExtentExPointI(hdc.into(), ::core::mem::transmute(lpwszstring), ::core::mem::transmute(cwchstring), nmaxextent, ::core::mem::transmute(lpnfit), ::core::mem::transmute(lpndx), ::core::mem::transmute(lpsize)))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -10857,7 +10827,7 @@ where
     extern "system" {
         fn GetTextExtentExPointW(hdc: HDC, lpszstring: ::windows::core::PCWSTR, cchstring: i32, nmaxextent: i32, lpnfit: *mut i32, lpndx: *mut i32, lpsize: *mut super::super::Foundation::SIZE) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(GetTextExtentExPointW(hdc.into(), ::core::mem::transmute(lpszstring), ::core::mem::transmute(cchstring), ::core::mem::transmute(nmaxextent), ::core::mem::transmute(lpnfit), ::core::mem::transmute(lpndx), ::core::mem::transmute(lpsize)))
+    ::core::mem::transmute(GetTextExtentExPointW(hdc.into(), ::core::mem::transmute(lpszstring), ::core::mem::transmute(cchstring), nmaxextent, ::core::mem::transmute(lpnfit), ::core::mem::transmute(lpndx), ::core::mem::transmute(lpsize)))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -11040,7 +11010,7 @@ where
     extern "system" {
         fn GetWinMetaFileBits(hemf: HENHMETAFILE, cbdata16: u32, pdata16: *mut u8, imapmode: i32, hdcref: HDC) -> u32;
     }
-    ::core::mem::transmute(GetWinMetaFileBits(hemf.into(), ::core::mem::transmute(cbdata16), ::core::mem::transmute(pdata16), ::core::mem::transmute(imapmode), hdcref.into()))
+    ::core::mem::transmute(GetWinMetaFileBits(hemf.into(), cbdata16, ::core::mem::transmute(pdata16), imapmode, hdcref.into()))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -11132,7 +11102,7 @@ where
     extern "system" {
         fn GradientFill(hdc: HDC, pvertex: *const TRIVERTEX, nvertex: u32, pmesh: *const ::core::ffi::c_void, nmesh: u32, ulmode: GRADIENT_FILL) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(GradientFill(hdc.into(), ::core::mem::transmute(::windows::core::as_ptr_or_null(pvertex)), pvertex.len() as _, ::core::mem::transmute(pmesh), ::core::mem::transmute(nmesh), ::core::mem::transmute(ulmode)))
+    ::core::mem::transmute(GradientFill(hdc.into(), ::core::mem::transmute(::windows::core::as_ptr_or_null(pvertex)), pvertex.len() as _, ::core::mem::transmute(pmesh), nmesh, ulmode))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -11147,7 +11117,7 @@ where
     extern "system" {
         fn GrayStringA(hdc: HDC, hbrush: HBRUSH, lpoutputfunc: *mut ::core::ffi::c_void, lpdata: super::super::Foundation::LPARAM, ncount: i32, x: i32, y: i32, nwidth: i32, nheight: i32) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(GrayStringA(hdc.into(), hbrush.into(), ::core::mem::transmute(lpoutputfunc), lpdata.into(), ::core::mem::transmute(ncount), ::core::mem::transmute(x), ::core::mem::transmute(y), ::core::mem::transmute(nwidth), ::core::mem::transmute(nheight)))
+    ::core::mem::transmute(GrayStringA(hdc.into(), hbrush.into(), ::core::mem::transmute(lpoutputfunc), lpdata.into(), ncount, x, y, nwidth, nheight))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -11162,7 +11132,7 @@ where
     extern "system" {
         fn GrayStringW(hdc: HDC, hbrush: HBRUSH, lpoutputfunc: *mut ::core::ffi::c_void, lpdata: super::super::Foundation::LPARAM, ncount: i32, x: i32, y: i32, nwidth: i32, nheight: i32) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(GrayStringW(hdc.into(), hbrush.into(), ::core::mem::transmute(lpoutputfunc), lpdata.into(), ::core::mem::transmute(ncount), ::core::mem::transmute(x), ::core::mem::transmute(y), ::core::mem::transmute(nwidth), ::core::mem::transmute(nheight)))
+    ::core::mem::transmute(GrayStringW(hdc.into(), hbrush.into(), ::core::mem::transmute(lpoutputfunc), lpdata.into(), ncount, x, y, nwidth, nheight))
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
@@ -11758,7 +11728,7 @@ pub unsafe fn InflateRect(lprc: *mut super::super::Foundation::RECT, dx: i32, dy
     extern "system" {
         fn InflateRect(lprc: *mut super::super::Foundation::RECT, dx: i32, dy: i32) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(InflateRect(::core::mem::transmute(lprc), ::core::mem::transmute(dx), ::core::mem::transmute(dy)))
+    ::core::mem::transmute(InflateRect(::core::mem::transmute(lprc), dx, dy))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 #[inline]
@@ -11770,7 +11740,7 @@ where
     extern "system" {
         fn IntersectClipRect(hdc: HDC, left: i32, top: i32, right: i32, bottom: i32) -> i32;
     }
-    ::core::mem::transmute(IntersectClipRect(hdc.into(), ::core::mem::transmute(left), ::core::mem::transmute(top), ::core::mem::transmute(right), ::core::mem::transmute(bottom)))
+    ::core::mem::transmute(IntersectClipRect(hdc.into(), left, top, right, bottom))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -12233,7 +12203,7 @@ where
     extern "system" {
         fn LineDDA(xstart: i32, ystart: i32, xend: i32, yend: i32, lpproc: *mut ::core::ffi::c_void, data: super::super::Foundation::LPARAM) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(LineDDA(::core::mem::transmute(xstart), ::core::mem::transmute(ystart), ::core::mem::transmute(xend), ::core::mem::transmute(yend), ::core::mem::transmute(lpproc), data.into()))
+    ::core::mem::transmute(LineDDA(xstart, ystart, xend, yend, ::core::mem::transmute(lpproc), data.into()))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -12246,7 +12216,7 @@ where
     extern "system" {
         fn LineTo(hdc: HDC, x: i32, y: i32) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(LineTo(hdc.into(), ::core::mem::transmute(x), ::core::mem::transmute(y)))
+    ::core::mem::transmute(LineTo(hdc.into(), x, y))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -12753,7 +12723,7 @@ where
     extern "system" {
         fn MaskBlt(hdcdest: HDC, xdest: i32, ydest: i32, width: i32, height: i32, hdcsrc: HDC, xsrc: i32, ysrc: i32, hbmmask: HBITMAP, xmask: i32, ymask: i32, rop: u32) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(MaskBlt(hdcdest.into(), ::core::mem::transmute(xdest), ::core::mem::transmute(ydest), ::core::mem::transmute(width), ::core::mem::transmute(height), hdcsrc.into(), ::core::mem::transmute(xsrc), ::core::mem::transmute(ysrc), hbmmask.into(), ::core::mem::transmute(xmask), ::core::mem::transmute(ymask), ::core::mem::transmute(rop)))
+    ::core::mem::transmute(MaskBlt(hdcdest.into(), xdest, ydest, width, height, hdcsrc.into(), xsrc, ysrc, hbmmask.into(), xmask, ymask, rop))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 #[inline]
@@ -12762,20 +12732,7 @@ pub unsafe fn MergeFontPackage(puchmergefontbuffer: *const u8, ulmergefontbuffer
     extern "system" {
         fn MergeFontPackage(puchmergefontbuffer: *const u8, ulmergefontbuffersize: u32, puchfontpackagebuffer: *const u8, ulfontpackagebuffersize: u32, ppuchdestbuffer: *mut *mut u8, puldestbuffersize: *mut u32, pulbyteswritten: *mut u32, usmode: u16, lpfnallocate: *mut ::core::ffi::c_void, lpfnreallocate: *mut ::core::ffi::c_void, lpfnfree: *mut ::core::ffi::c_void, lpvreserved: *mut ::core::ffi::c_void) -> u32;
     }
-    ::core::mem::transmute(MergeFontPackage(
-        ::core::mem::transmute(puchmergefontbuffer),
-        ::core::mem::transmute(ulmergefontbuffersize),
-        ::core::mem::transmute(puchfontpackagebuffer),
-        ::core::mem::transmute(ulfontpackagebuffersize),
-        ::core::mem::transmute(ppuchdestbuffer),
-        ::core::mem::transmute(puldestbuffersize),
-        ::core::mem::transmute(pulbyteswritten),
-        ::core::mem::transmute(usmode),
-        ::core::mem::transmute(lpfnallocate),
-        ::core::mem::transmute(lpfnreallocate),
-        ::core::mem::transmute(lpfnfree),
-        ::core::mem::transmute(lpvreserved),
-    ))
+    ::core::mem::transmute(MergeFontPackage(::core::mem::transmute(puchmergefontbuffer), ulmergefontbuffersize, ::core::mem::transmute(puchfontpackagebuffer), ulfontpackagebuffersize, ::core::mem::transmute(ppuchdestbuffer), ::core::mem::transmute(puldestbuffersize), ::core::mem::transmute(pulbyteswritten), usmode, ::core::mem::transmute(lpfnallocate), ::core::mem::transmute(lpfnreallocate), ::core::mem::transmute(lpfnfree), ::core::mem::transmute(lpvreserved)))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -12788,7 +12745,7 @@ where
     extern "system" {
         fn ModifyWorldTransform(hdc: HDC, lpxf: *const XFORM, mode: MODIFY_WORLD_TRANSFORM_MODE) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(ModifyWorldTransform(hdc.into(), ::core::mem::transmute(lpxf), ::core::mem::transmute(mode)))
+    ::core::mem::transmute(ModifyWorldTransform(hdc.into(), ::core::mem::transmute(lpxf), mode))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -12798,7 +12755,7 @@ pub unsafe fn MonitorFromPoint(pt: super::super::Foundation::POINT, dwflags: MON
     extern "system" {
         fn MonitorFromPoint(pt: super::super::Foundation::POINT, dwflags: MONITOR_FROM_FLAGS) -> HMONITOR;
     }
-    ::core::mem::transmute(MonitorFromPoint(::core::mem::transmute(pt), ::core::mem::transmute(dwflags)))
+    ::core::mem::transmute(MonitorFromPoint(::core::mem::transmute(pt), dwflags))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -12808,7 +12765,7 @@ pub unsafe fn MonitorFromRect(lprc: *const super::super::Foundation::RECT, dwfla
     extern "system" {
         fn MonitorFromRect(lprc: *const super::super::Foundation::RECT, dwflags: MONITOR_FROM_FLAGS) -> HMONITOR;
     }
-    ::core::mem::transmute(MonitorFromRect(::core::mem::transmute(lprc), ::core::mem::transmute(dwflags)))
+    ::core::mem::transmute(MonitorFromRect(::core::mem::transmute(lprc), dwflags))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -12821,7 +12778,7 @@ where
     extern "system" {
         fn MonitorFromWindow(hwnd: super::super::Foundation::HWND, dwflags: MONITOR_FROM_FLAGS) -> HMONITOR;
     }
-    ::core::mem::transmute(MonitorFromWindow(hwnd.into(), ::core::mem::transmute(dwflags)))
+    ::core::mem::transmute(MonitorFromWindow(hwnd.into(), dwflags))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -12834,7 +12791,7 @@ where
     extern "system" {
         fn MoveToEx(hdc: HDC, x: i32, y: i32, lppt: *mut super::super::Foundation::POINT) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(MoveToEx(hdc.into(), ::core::mem::transmute(x), ::core::mem::transmute(y), ::core::mem::transmute(lppt)))
+    ::core::mem::transmute(MoveToEx(hdc.into(), x, y, ::core::mem::transmute(lppt)))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const NEWFRAME: u32 = 1u32;
@@ -13289,7 +13246,7 @@ where
     extern "system" {
         fn OffsetClipRgn(hdc: HDC, x: i32, y: i32) -> i32;
     }
-    ::core::mem::transmute(OffsetClipRgn(hdc.into(), ::core::mem::transmute(x), ::core::mem::transmute(y)))
+    ::core::mem::transmute(OffsetClipRgn(hdc.into(), x, y))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -13299,7 +13256,7 @@ pub unsafe fn OffsetRect(lprc: *mut super::super::Foundation::RECT, dx: i32, dy:
     extern "system" {
         fn OffsetRect(lprc: *mut super::super::Foundation::RECT, dx: i32, dy: i32) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(OffsetRect(::core::mem::transmute(lprc), ::core::mem::transmute(dx), ::core::mem::transmute(dy)))
+    ::core::mem::transmute(OffsetRect(::core::mem::transmute(lprc), dx, dy))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 #[inline]
@@ -13311,7 +13268,7 @@ where
     extern "system" {
         fn OffsetRgn(hrgn: HRGN, x: i32, y: i32) -> i32;
     }
-    ::core::mem::transmute(OffsetRgn(hrgn.into(), ::core::mem::transmute(x), ::core::mem::transmute(y)))
+    ::core::mem::transmute(OffsetRgn(hrgn.into(), x, y))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -13324,7 +13281,7 @@ where
     extern "system" {
         fn OffsetViewportOrgEx(hdc: HDC, x: i32, y: i32, lppt: *mut super::super::Foundation::POINT) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(OffsetViewportOrgEx(hdc.into(), ::core::mem::transmute(x), ::core::mem::transmute(y), ::core::mem::transmute(lppt)))
+    ::core::mem::transmute(OffsetViewportOrgEx(hdc.into(), x, y, ::core::mem::transmute(lppt)))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -13337,7 +13294,7 @@ where
     extern "system" {
         fn OffsetWindowOrgEx(hdc: HDC, x: i32, y: i32, lppt: *mut super::super::Foundation::POINT) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(OffsetWindowOrgEx(hdc.into(), ::core::mem::transmute(x), ::core::mem::transmute(y), ::core::mem::transmute(lppt)))
+    ::core::mem::transmute(OffsetWindowOrgEx(hdc.into(), x, y, ::core::mem::transmute(lppt)))
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
@@ -14028,7 +13985,7 @@ where
     extern "system" {
         fn PatBlt(hdc: HDC, x: i32, y: i32, w: i32, h: i32, rop: ROP_CODE) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(PatBlt(hdc.into(), ::core::mem::transmute(x), ::core::mem::transmute(y), ::core::mem::transmute(w), ::core::mem::transmute(h), ::core::mem::transmute(rop)))
+    ::core::mem::transmute(PatBlt(hdc.into(), x, y, w, h, rop))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 #[inline]
@@ -14053,7 +14010,7 @@ where
     extern "system" {
         fn Pie(hdc: HDC, left: i32, top: i32, right: i32, bottom: i32, xr1: i32, yr1: i32, xr2: i32, yr2: i32) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(Pie(hdc.into(), ::core::mem::transmute(left), ::core::mem::transmute(top), ::core::mem::transmute(right), ::core::mem::transmute(bottom), ::core::mem::transmute(xr1), ::core::mem::transmute(yr1), ::core::mem::transmute(xr2), ::core::mem::transmute(yr2)))
+    ::core::mem::transmute(Pie(hdc.into(), left, top, right, bottom, xr1, yr1, xr2, yr2))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -14122,7 +14079,7 @@ where
     extern "system" {
         fn PlgBlt(hdcdest: HDC, lppoint: *const super::super::Foundation::POINT, hdcsrc: HDC, xsrc: i32, ysrc: i32, width: i32, height: i32, hbmmask: HBITMAP, xmask: i32, ymask: i32) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(PlgBlt(hdcdest.into(), ::core::mem::transmute(::windows::core::as_ptr_or_null(lppoint)), hdcsrc.into(), ::core::mem::transmute(xsrc), ::core::mem::transmute(ysrc), ::core::mem::transmute(width), ::core::mem::transmute(height), hbmmask.into(), ::core::mem::transmute(xmask), ::core::mem::transmute(ymask)))
+    ::core::mem::transmute(PlgBlt(hdcdest.into(), ::core::mem::transmute(::windows::core::as_ptr_or_null(lppoint)), hdcsrc.into(), xsrc, ysrc, width, height, hbmmask.into(), xmask, ymask))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -14275,7 +14232,7 @@ where
     extern "system" {
         fn PtInRegion(hrgn: HRGN, x: i32, y: i32) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(PtInRegion(hrgn.into(), ::core::mem::transmute(x), ::core::mem::transmute(y)))
+    ::core::mem::transmute(PtInRegion(hrgn.into(), x, y))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -14288,7 +14245,7 @@ where
     extern "system" {
         fn PtVisible(hdc: HDC, x: i32, y: i32) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(PtVisible(hdc.into(), ::core::mem::transmute(x), ::core::mem::transmute(y)))
+    ::core::mem::transmute(PtVisible(hdc.into(), x, y))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const QDC_ALL_PATHS: u32 = 1u32;
@@ -14843,7 +14800,7 @@ where
     extern "system" {
         fn Rectangle(hdc: HDC, left: i32, top: i32, right: i32, bottom: i32) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(Rectangle(hdc.into(), ::core::mem::transmute(left), ::core::mem::transmute(top), ::core::mem::transmute(right), ::core::mem::transmute(bottom)))
+    ::core::mem::transmute(Rectangle(hdc.into(), left, top, right, bottom))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -14857,7 +14814,7 @@ where
     extern "system" {
         fn RedrawWindow(hwnd: super::super::Foundation::HWND, lprcupdate: *const super::super::Foundation::RECT, hrgnupdate: HRGN, flags: REDRAW_WINDOW_FLAGS) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(RedrawWindow(hwnd.into(), ::core::mem::transmute(lprcupdate), hrgnupdate.into(), ::core::mem::transmute(flags)))
+    ::core::mem::transmute(RedrawWindow(hwnd.into(), ::core::mem::transmute(lprcupdate), hrgnupdate.into(), flags))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -14910,7 +14867,7 @@ where
     extern "system" {
         fn RemoveFontResourceExA(name: ::windows::core::PCSTR, fl: u32, pdv: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(RemoveFontResourceExA(name.into(), ::core::mem::transmute(fl), ::core::mem::transmute(pdv)))
+    ::core::mem::transmute(RemoveFontResourceExA(name.into(), fl, ::core::mem::transmute(pdv)))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -14923,7 +14880,7 @@ where
     extern "system" {
         fn RemoveFontResourceExW(name: ::windows::core::PCWSTR, fl: u32, pdv: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(RemoveFontResourceExW(name.into(), ::core::mem::transmute(fl), ::core::mem::transmute(pdv)))
+    ::core::mem::transmute(RemoveFontResourceExW(name.into(), fl, ::core::mem::transmute(pdv)))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -14975,7 +14932,7 @@ where
     extern "system" {
         fn ResizePalette(hpal: HPALETTE, n: u32) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(ResizePalette(hpal.into(), ::core::mem::transmute(n)))
+    ::core::mem::transmute(ResizePalette(hpal.into(), n))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -14988,7 +14945,7 @@ where
     extern "system" {
         fn RestoreDC(hdc: HDC, nsaveddc: i32) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(RestoreDC(hdc.into(), ::core::mem::transmute(nsaveddc)))
+    ::core::mem::transmute(RestoreDC(hdc.into(), nsaveddc))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -15001,7 +14958,7 @@ where
     extern "system" {
         fn RoundRect(hdc: HDC, left: i32, top: i32, right: i32, bottom: i32, width: i32, height: i32) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(RoundRect(hdc.into(), ::core::mem::transmute(left), ::core::mem::transmute(top), ::core::mem::transmute(right), ::core::mem::transmute(bottom), ::core::mem::transmute(width), ::core::mem::transmute(height)))
+    ::core::mem::transmute(RoundRect(hdc.into(), left, top, right, bottom, width, height))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const SAVE_CTM: u32 = 4101u32;
@@ -15245,7 +15202,7 @@ where
     extern "system" {
         fn ScaleViewportExtEx(hdc: HDC, xn: i32, dx: i32, yn: i32, yd: i32, lpsz: *mut super::super::Foundation::SIZE) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(ScaleViewportExtEx(hdc.into(), ::core::mem::transmute(xn), ::core::mem::transmute(dx), ::core::mem::transmute(yn), ::core::mem::transmute(yd), ::core::mem::transmute(lpsz)))
+    ::core::mem::transmute(ScaleViewportExtEx(hdc.into(), xn, dx, yn, yd, ::core::mem::transmute(lpsz)))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -15258,7 +15215,7 @@ where
     extern "system" {
         fn ScaleWindowExtEx(hdc: HDC, xn: i32, xd: i32, yn: i32, yd: i32, lpsz: *mut super::super::Foundation::SIZE) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(ScaleWindowExtEx(hdc.into(), ::core::mem::transmute(xn), ::core::mem::transmute(xd), ::core::mem::transmute(yn), ::core::mem::transmute(yd), ::core::mem::transmute(lpsz)))
+    ::core::mem::transmute(ScaleWindowExtEx(hdc.into(), xn, xd, yn, yd, ::core::mem::transmute(lpsz)))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -15284,7 +15241,7 @@ where
     extern "system" {
         fn SelectClipPath(hdc: HDC, mode: RGN_COMBINE_MODE) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(SelectClipPath(hdc.into(), ::core::mem::transmute(mode)))
+    ::core::mem::transmute(SelectClipPath(hdc.into(), mode))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 #[inline]
@@ -15337,7 +15294,7 @@ where
     extern "system" {
         fn SetArcDirection(hdc: HDC, dir: ARC_DIRECTION) -> i32;
     }
-    ::core::mem::transmute(SetArcDirection(hdc.into(), ::core::mem::transmute(dir)))
+    ::core::mem::transmute(SetArcDirection(hdc.into(), dir))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 #[inline]
@@ -15349,7 +15306,7 @@ where
     extern "system" {
         fn SetBitmapBits(hbm: HBITMAP, cb: u32, pvbits: *const ::core::ffi::c_void) -> i32;
     }
-    ::core::mem::transmute(SetBitmapBits(hbm.into(), ::core::mem::transmute(cb), ::core::mem::transmute(pvbits)))
+    ::core::mem::transmute(SetBitmapBits(hbm.into(), cb, ::core::mem::transmute(pvbits)))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -15362,7 +15319,7 @@ where
     extern "system" {
         fn SetBitmapDimensionEx(hbm: HBITMAP, w: i32, h: i32, lpsz: *mut super::super::Foundation::SIZE) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(SetBitmapDimensionEx(hbm.into(), ::core::mem::transmute(w), ::core::mem::transmute(h), ::core::mem::transmute(lpsz)))
+    ::core::mem::transmute(SetBitmapDimensionEx(hbm.into(), w, h, ::core::mem::transmute(lpsz)))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 #[inline]
@@ -15374,7 +15331,7 @@ where
     extern "system" {
         fn SetBkColor(hdc: HDC, color: u32) -> u32;
     }
-    ::core::mem::transmute(SetBkColor(hdc.into(), ::core::mem::transmute(color)))
+    ::core::mem::transmute(SetBkColor(hdc.into(), color))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 #[inline]
@@ -15386,7 +15343,7 @@ where
     extern "system" {
         fn SetBkMode(hdc: HDC, mode: BACKGROUND_MODE) -> i32;
     }
-    ::core::mem::transmute(SetBkMode(hdc.into(), ::core::mem::transmute(mode)))
+    ::core::mem::transmute(SetBkMode(hdc.into(), mode))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -15399,7 +15356,7 @@ where
     extern "system" {
         fn SetBoundsRect(hdc: HDC, lprect: *const super::super::Foundation::RECT, flags: SET_BOUNDS_RECT_FLAGS) -> u32;
     }
-    ::core::mem::transmute(SetBoundsRect(hdc.into(), ::core::mem::transmute(lprect), ::core::mem::transmute(flags)))
+    ::core::mem::transmute(SetBoundsRect(hdc.into(), ::core::mem::transmute(lprect), flags))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -15412,7 +15369,7 @@ where
     extern "system" {
         fn SetBrushOrgEx(hdc: HDC, x: i32, y: i32, lppt: *mut super::super::Foundation::POINT) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(SetBrushOrgEx(hdc.into(), ::core::mem::transmute(x), ::core::mem::transmute(y), ::core::mem::transmute(lppt)))
+    ::core::mem::transmute(SetBrushOrgEx(hdc.into(), x, y, ::core::mem::transmute(lppt)))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -15437,7 +15394,7 @@ where
     extern "system" {
         fn SetDCBrushColor(hdc: HDC, color: u32) -> u32;
     }
-    ::core::mem::transmute(SetDCBrushColor(hdc.into(), ::core::mem::transmute(color)))
+    ::core::mem::transmute(SetDCBrushColor(hdc.into(), color))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 #[inline]
@@ -15449,7 +15406,7 @@ where
     extern "system" {
         fn SetDCPenColor(hdc: HDC, color: u32) -> u32;
     }
-    ::core::mem::transmute(SetDCPenColor(hdc.into(), ::core::mem::transmute(color)))
+    ::core::mem::transmute(SetDCPenColor(hdc.into(), color))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 #[inline]
@@ -15461,7 +15418,7 @@ where
     extern "system" {
         fn SetDIBColorTable(hdc: HDC, istart: u32, centries: u32, prgbq: *const RGBQUAD) -> u32;
     }
-    ::core::mem::transmute(SetDIBColorTable(hdc.into(), ::core::mem::transmute(istart), prgbq.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(prgbq))))
+    ::core::mem::transmute(SetDIBColorTable(hdc.into(), istart, prgbq.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(prgbq))))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 #[inline]
@@ -15474,7 +15431,7 @@ where
     extern "system" {
         fn SetDIBits(hdc: HDC, hbm: HBITMAP, start: u32, clines: u32, lpbits: *const ::core::ffi::c_void, lpbmi: *const BITMAPINFO, coloruse: DIB_USAGE) -> i32;
     }
-    ::core::mem::transmute(SetDIBits(hdc.into(), hbm.into(), ::core::mem::transmute(start), ::core::mem::transmute(clines), ::core::mem::transmute(lpbits), ::core::mem::transmute(lpbmi), ::core::mem::transmute(coloruse)))
+    ::core::mem::transmute(SetDIBits(hdc.into(), hbm.into(), start, clines, ::core::mem::transmute(lpbits), ::core::mem::transmute(lpbmi), coloruse))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 #[inline]
@@ -15486,7 +15443,7 @@ where
     extern "system" {
         fn SetDIBitsToDevice(hdc: HDC, xdest: i32, ydest: i32, w: u32, h: u32, xsrc: i32, ysrc: i32, startscan: u32, clines: u32, lpvbits: *const ::core::ffi::c_void, lpbmi: *const BITMAPINFO, coloruse: DIB_USAGE) -> i32;
     }
-    ::core::mem::transmute(SetDIBitsToDevice(hdc.into(), ::core::mem::transmute(xdest), ::core::mem::transmute(ydest), ::core::mem::transmute(w), ::core::mem::transmute(h), ::core::mem::transmute(xsrc), ::core::mem::transmute(ysrc), ::core::mem::transmute(startscan), ::core::mem::transmute(clines), ::core::mem::transmute(lpvbits), ::core::mem::transmute(lpbmi), ::core::mem::transmute(coloruse)))
+    ::core::mem::transmute(SetDIBitsToDevice(hdc.into(), xdest, ydest, w, h, xsrc, ysrc, startscan, clines, ::core::mem::transmute(lpvbits), ::core::mem::transmute(lpbmi), coloruse))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 #[inline]
@@ -15495,7 +15452,7 @@ pub unsafe fn SetEnhMetaFileBits(nsize: u32, pb: *const u8) -> HENHMETAFILE {
     extern "system" {
         fn SetEnhMetaFileBits(nsize: u32, pb: *const u8) -> HENHMETAFILE;
     }
-    ::core::mem::transmute(SetEnhMetaFileBits(::core::mem::transmute(nsize), ::core::mem::transmute(pb)))
+    ::core::mem::transmute(SetEnhMetaFileBits(nsize, ::core::mem::transmute(pb)))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 #[inline]
@@ -15507,7 +15464,7 @@ where
     extern "system" {
         fn SetGraphicsMode(hdc: HDC, imode: GRAPHICS_MODE) -> i32;
     }
-    ::core::mem::transmute(SetGraphicsMode(hdc.into(), ::core::mem::transmute(imode)))
+    ::core::mem::transmute(SetGraphicsMode(hdc.into(), imode))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 #[inline]
@@ -15519,7 +15476,7 @@ where
     extern "system" {
         fn SetLayout(hdc: HDC, l: DC_LAYOUT) -> u32;
     }
-    ::core::mem::transmute(SetLayout(hdc.into(), ::core::mem::transmute(l)))
+    ::core::mem::transmute(SetLayout(hdc.into(), l))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 #[inline]
@@ -15531,7 +15488,7 @@ where
     extern "system" {
         fn SetMapMode(hdc: HDC, imode: HDC_MAP_MODE) -> i32;
     }
-    ::core::mem::transmute(SetMapMode(hdc.into(), ::core::mem::transmute(imode)))
+    ::core::mem::transmute(SetMapMode(hdc.into(), imode))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 #[inline]
@@ -15543,7 +15500,7 @@ where
     extern "system" {
         fn SetMapperFlags(hdc: HDC, flags: u32) -> u32;
     }
-    ::core::mem::transmute(SetMapperFlags(hdc.into(), ::core::mem::transmute(flags)))
+    ::core::mem::transmute(SetMapperFlags(hdc.into(), flags))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 #[inline]
@@ -15552,7 +15509,7 @@ pub unsafe fn SetMetaFileBitsEx(cbbuffer: u32, lpdata: *const u8) -> HMETAFILE {
     extern "system" {
         fn SetMetaFileBitsEx(cbbuffer: u32, lpdata: *const u8) -> HMETAFILE;
     }
-    ::core::mem::transmute(SetMetaFileBitsEx(::core::mem::transmute(cbbuffer), ::core::mem::transmute(lpdata)))
+    ::core::mem::transmute(SetMetaFileBitsEx(cbbuffer, ::core::mem::transmute(lpdata)))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 #[inline]
@@ -15577,7 +15534,7 @@ where
     extern "system" {
         fn SetMiterLimit(hdc: HDC, limit: f32, old: *mut f32) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(SetMiterLimit(hdc.into(), ::core::mem::transmute(limit), ::core::mem::transmute(old)))
+    ::core::mem::transmute(SetMiterLimit(hdc.into(), limit, ::core::mem::transmute(old)))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 #[inline]
@@ -15589,7 +15546,7 @@ where
     extern "system" {
         fn SetPaletteEntries(hpal: HPALETTE, istart: u32, centries: u32, ppalentries: *const PALETTEENTRY) -> u32;
     }
-    ::core::mem::transmute(SetPaletteEntries(hpal.into(), ::core::mem::transmute(istart), ppalentries.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(ppalentries))))
+    ::core::mem::transmute(SetPaletteEntries(hpal.into(), istart, ppalentries.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(ppalentries))))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 #[inline]
@@ -15601,7 +15558,7 @@ where
     extern "system" {
         fn SetPixel(hdc: HDC, x: i32, y: i32, color: u32) -> u32;
     }
-    ::core::mem::transmute(SetPixel(hdc.into(), ::core::mem::transmute(x), ::core::mem::transmute(y), ::core::mem::transmute(color)))
+    ::core::mem::transmute(SetPixel(hdc.into(), x, y, color))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -15614,7 +15571,7 @@ where
     extern "system" {
         fn SetPixelV(hdc: HDC, x: i32, y: i32, color: u32) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(SetPixelV(hdc.into(), ::core::mem::transmute(x), ::core::mem::transmute(y), ::core::mem::transmute(color)))
+    ::core::mem::transmute(SetPixelV(hdc.into(), x, y, color))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 #[inline]
@@ -15626,7 +15583,7 @@ where
     extern "system" {
         fn SetPolyFillMode(hdc: HDC, mode: CREATE_POLYGON_RGN_MODE) -> i32;
     }
-    ::core::mem::transmute(SetPolyFillMode(hdc.into(), ::core::mem::transmute(mode)))
+    ::core::mem::transmute(SetPolyFillMode(hdc.into(), mode))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 #[inline]
@@ -15638,7 +15595,7 @@ where
     extern "system" {
         fn SetROP2(hdc: HDC, rop2: R2_MODE) -> i32;
     }
-    ::core::mem::transmute(SetROP2(hdc.into(), ::core::mem::transmute(rop2)))
+    ::core::mem::transmute(SetROP2(hdc.into(), rop2))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -15648,7 +15605,7 @@ pub unsafe fn SetRect(lprc: *mut super::super::Foundation::RECT, xleft: i32, yto
     extern "system" {
         fn SetRect(lprc: *mut super::super::Foundation::RECT, xleft: i32, ytop: i32, xright: i32, ybottom: i32) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(SetRect(::core::mem::transmute(lprc), ::core::mem::transmute(xleft), ::core::mem::transmute(ytop), ::core::mem::transmute(xright), ::core::mem::transmute(ybottom)))
+    ::core::mem::transmute(SetRect(::core::mem::transmute(lprc), xleft, ytop, xright, ybottom))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -15671,7 +15628,7 @@ where
     extern "system" {
         fn SetRectRgn(hrgn: HRGN, left: i32, top: i32, right: i32, bottom: i32) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(SetRectRgn(hrgn.into(), ::core::mem::transmute(left), ::core::mem::transmute(top), ::core::mem::transmute(right), ::core::mem::transmute(bottom)))
+    ::core::mem::transmute(SetRectRgn(hrgn.into(), left, top, right, bottom))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 #[inline]
@@ -15683,7 +15640,7 @@ where
     extern "system" {
         fn SetStretchBltMode(hdc: HDC, mode: STRETCH_BLT_MODE) -> i32;
     }
-    ::core::mem::transmute(SetStretchBltMode(hdc.into(), ::core::mem::transmute(mode)))
+    ::core::mem::transmute(SetStretchBltMode(hdc.into(), mode))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 #[inline]
@@ -15695,7 +15652,7 @@ where
     extern "system" {
         fn SetSystemPaletteUse(hdc: HDC, r#use: SYSTEM_PALETTE_USE) -> u32;
     }
-    ::core::mem::transmute(SetSystemPaletteUse(hdc.into(), ::core::mem::transmute(r#use)))
+    ::core::mem::transmute(SetSystemPaletteUse(hdc.into(), r#use))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 #[inline]
@@ -15707,7 +15664,7 @@ where
     extern "system" {
         fn SetTextAlign(hdc: HDC, align: TEXT_ALIGN_OPTIONS) -> u32;
     }
-    ::core::mem::transmute(SetTextAlign(hdc.into(), ::core::mem::transmute(align)))
+    ::core::mem::transmute(SetTextAlign(hdc.into(), align))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 #[inline]
@@ -15719,7 +15676,7 @@ where
     extern "system" {
         fn SetTextCharacterExtra(hdc: HDC, extra: i32) -> i32;
     }
-    ::core::mem::transmute(SetTextCharacterExtra(hdc.into(), ::core::mem::transmute(extra)))
+    ::core::mem::transmute(SetTextCharacterExtra(hdc.into(), extra))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 #[inline]
@@ -15731,7 +15688,7 @@ where
     extern "system" {
         fn SetTextColor(hdc: HDC, color: u32) -> u32;
     }
-    ::core::mem::transmute(SetTextColor(hdc.into(), ::core::mem::transmute(color)))
+    ::core::mem::transmute(SetTextColor(hdc.into(), color))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -15744,7 +15701,7 @@ where
     extern "system" {
         fn SetTextJustification(hdc: HDC, extra: i32, count: i32) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(SetTextJustification(hdc.into(), ::core::mem::transmute(extra), ::core::mem::transmute(count)))
+    ::core::mem::transmute(SetTextJustification(hdc.into(), extra, count))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -15757,7 +15714,7 @@ where
     extern "system" {
         fn SetViewportExtEx(hdc: HDC, x: i32, y: i32, lpsz: *mut super::super::Foundation::SIZE) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(SetViewportExtEx(hdc.into(), ::core::mem::transmute(x), ::core::mem::transmute(y), ::core::mem::transmute(lpsz)))
+    ::core::mem::transmute(SetViewportExtEx(hdc.into(), x, y, ::core::mem::transmute(lpsz)))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -15770,7 +15727,7 @@ where
     extern "system" {
         fn SetViewportOrgEx(hdc: HDC, x: i32, y: i32, lppt: *mut super::super::Foundation::POINT) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(SetViewportOrgEx(hdc.into(), ::core::mem::transmute(x), ::core::mem::transmute(y), ::core::mem::transmute(lppt)))
+    ::core::mem::transmute(SetViewportOrgEx(hdc.into(), x, y, ::core::mem::transmute(lppt)))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -15783,7 +15740,7 @@ where
     extern "system" {
         fn SetWindowExtEx(hdc: HDC, x: i32, y: i32, lpsz: *mut super::super::Foundation::SIZE) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(SetWindowExtEx(hdc.into(), ::core::mem::transmute(x), ::core::mem::transmute(y), ::core::mem::transmute(lpsz)))
+    ::core::mem::transmute(SetWindowExtEx(hdc.into(), x, y, ::core::mem::transmute(lpsz)))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -15796,7 +15753,7 @@ where
     extern "system" {
         fn SetWindowOrgEx(hdc: HDC, x: i32, y: i32, lppt: *mut super::super::Foundation::POINT) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(SetWindowOrgEx(hdc.into(), ::core::mem::transmute(x), ::core::mem::transmute(y), ::core::mem::transmute(lppt)))
+    ::core::mem::transmute(SetWindowOrgEx(hdc.into(), x, y, ::core::mem::transmute(lppt)))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -15838,7 +15795,7 @@ where
     extern "system" {
         fn StretchBlt(hdcdest: HDC, xdest: i32, ydest: i32, wdest: i32, hdest: i32, hdcsrc: HDC, xsrc: i32, ysrc: i32, wsrc: i32, hsrc: i32, rop: ROP_CODE) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(StretchBlt(hdcdest.into(), ::core::mem::transmute(xdest), ::core::mem::transmute(ydest), ::core::mem::transmute(wdest), ::core::mem::transmute(hdest), hdcsrc.into(), ::core::mem::transmute(xsrc), ::core::mem::transmute(ysrc), ::core::mem::transmute(wsrc), ::core::mem::transmute(hsrc), ::core::mem::transmute(rop)))
+    ::core::mem::transmute(StretchBlt(hdcdest.into(), xdest, ydest, wdest, hdest, hdcsrc.into(), xsrc, ysrc, wsrc, hsrc, rop))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 #[inline]
@@ -15850,7 +15807,7 @@ where
     extern "system" {
         fn StretchDIBits(hdc: HDC, xdest: i32, ydest: i32, destwidth: i32, destheight: i32, xsrc: i32, ysrc: i32, srcwidth: i32, srcheight: i32, lpbits: *const ::core::ffi::c_void, lpbmi: *const BITMAPINFO, iusage: DIB_USAGE, rop: ROP_CODE) -> i32;
     }
-    ::core::mem::transmute(StretchDIBits(hdc.into(), ::core::mem::transmute(xdest), ::core::mem::transmute(ydest), ::core::mem::transmute(destwidth), ::core::mem::transmute(destheight), ::core::mem::transmute(xsrc), ::core::mem::transmute(ysrc), ::core::mem::transmute(srcwidth), ::core::mem::transmute(srcheight), ::core::mem::transmute(lpbits), ::core::mem::transmute(lpbmi), ::core::mem::transmute(iusage), ::core::mem::transmute(rop)))
+    ::core::mem::transmute(StretchDIBits(hdc.into(), xdest, ydest, destwidth, destheight, xsrc, ysrc, srcwidth, srcheight, ::core::mem::transmute(lpbits), ::core::mem::transmute(lpbmi), iusage, rop))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -16176,7 +16133,7 @@ where
     extern "system" {
         fn TTCharToUnicode(hdc: HDC, puccharcodes: *const u8, ulcharcodesize: u32, pusshortcodes: *mut u16, ulshortcodesize: u32, ulflags: u32) -> i32;
     }
-    ::core::mem::transmute(TTCharToUnicode(hdc.into(), ::core::mem::transmute(::windows::core::as_ptr_or_null(puccharcodes)), puccharcodes.len() as _, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(pusshortcodes)), pusshortcodes.len() as _, ::core::mem::transmute(ulflags)))
+    ::core::mem::transmute(TTCharToUnicode(hdc.into(), ::core::mem::transmute(::windows::core::as_ptr_or_null(puccharcodes)), puccharcodes.len() as _, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(pusshortcodes)), pusshortcodes.len() as _, ulflags))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const TTDELETE_DONTREMOVEFONT: u32 = 1u32;
@@ -16191,7 +16148,7 @@ where
     extern "system" {
         fn TTDeleteEmbeddedFont(hfontreference: super::super::Foundation::HANDLE, ulflags: u32, pulstatus: *mut u32) -> i32;
     }
-    ::core::mem::transmute(TTDeleteEmbeddedFont(hfontreference.into(), ::core::mem::transmute(ulflags), ::core::mem::transmute(pulstatus)))
+    ::core::mem::transmute(TTDeleteEmbeddedFont(hfontreference.into(), ulflags, ::core::mem::transmute(pulstatus)))
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
@@ -16306,7 +16263,7 @@ where
     extern "system" {
         fn TTEmbedFont(hdc: HDC, ulflags: TTEMBED_FLAGS, ulcharset: EMBED_FONT_CHARSET, pulprivstatus: *mut EMBEDDED_FONT_PRIV_STATUS, pulstatus: *mut u32, lpfnwritetostream: *mut ::core::ffi::c_void, lpvwritestream: *const ::core::ffi::c_void, puscharcodeset: *const u16, uscharcodecount: u16, uslanguage: u16, pttembedinfo: *const TTEMBEDINFO) -> i32;
     }
-    ::core::mem::transmute(TTEmbedFont(hdc.into(), ::core::mem::transmute(ulflags), ::core::mem::transmute(ulcharset), ::core::mem::transmute(pulprivstatus), ::core::mem::transmute(pulstatus), ::core::mem::transmute(lpfnwritetostream), ::core::mem::transmute(lpvwritestream), ::core::mem::transmute(::windows::core::as_ptr_or_null(puscharcodeset)), puscharcodeset.len() as _, ::core::mem::transmute(uslanguage), ::core::mem::transmute(pttembedinfo)))
+    ::core::mem::transmute(TTEmbedFont(hdc.into(), ulflags, ulcharset, ::core::mem::transmute(pulprivstatus), ::core::mem::transmute(pulstatus), ::core::mem::transmute(lpfnwritetostream), ::core::mem::transmute(lpvwritestream), ::core::mem::transmute(::windows::core::as_ptr_or_null(puscharcodeset)), puscharcodeset.len() as _, uslanguage, ::core::mem::transmute(pttembedinfo)))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 #[inline]
@@ -16318,7 +16275,7 @@ where
     extern "system" {
         fn TTEmbedFontEx(hdc: HDC, ulflags: TTEMBED_FLAGS, ulcharset: EMBED_FONT_CHARSET, pulprivstatus: *mut EMBEDDED_FONT_PRIV_STATUS, pulstatus: *mut u32, lpfnwritetostream: *mut ::core::ffi::c_void, lpvwritestream: *const ::core::ffi::c_void, pulcharcodeset: *const u32, uscharcodecount: u16, uslanguage: u16, pttembedinfo: *const TTEMBEDINFO) -> i32;
     }
-    ::core::mem::transmute(TTEmbedFontEx(hdc.into(), ::core::mem::transmute(ulflags), ::core::mem::transmute(ulcharset), ::core::mem::transmute(pulprivstatus), ::core::mem::transmute(pulstatus), ::core::mem::transmute(lpfnwritetostream), ::core::mem::transmute(lpvwritestream), ::core::mem::transmute(::windows::core::as_ptr_or_null(pulcharcodeset)), pulcharcodeset.len() as _, ::core::mem::transmute(uslanguage), ::core::mem::transmute(pttembedinfo)))
+    ::core::mem::transmute(TTEmbedFontEx(hdc.into(), ulflags, ulcharset, ::core::mem::transmute(pulprivstatus), ::core::mem::transmute(pulstatus), ::core::mem::transmute(lpfnwritetostream), ::core::mem::transmute(lpvwritestream), ::core::mem::transmute(::windows::core::as_ptr_or_null(pulcharcodeset)), pulcharcodeset.len() as _, uslanguage, ::core::mem::transmute(pttembedinfo)))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 #[inline]
@@ -16331,21 +16288,7 @@ where
     extern "system" {
         fn TTEmbedFontFromFileA(hdc: HDC, szfontfilename: ::windows::core::PCSTR, usttcindex: u16, ulflags: TTEMBED_FLAGS, ulcharset: EMBED_FONT_CHARSET, pulprivstatus: *mut EMBEDDED_FONT_PRIV_STATUS, pulstatus: *mut u32, lpfnwritetostream: *mut ::core::ffi::c_void, lpvwritestream: *const ::core::ffi::c_void, puscharcodeset: *const u16, uscharcodecount: u16, uslanguage: u16, pttembedinfo: *const TTEMBEDINFO) -> i32;
     }
-    ::core::mem::transmute(TTEmbedFontFromFileA(
-        hdc.into(),
-        szfontfilename.into(),
-        ::core::mem::transmute(usttcindex),
-        ::core::mem::transmute(ulflags),
-        ::core::mem::transmute(ulcharset),
-        ::core::mem::transmute(pulprivstatus),
-        ::core::mem::transmute(pulstatus),
-        ::core::mem::transmute(lpfnwritetostream),
-        ::core::mem::transmute(lpvwritestream),
-        ::core::mem::transmute(::windows::core::as_ptr_or_null(puscharcodeset)),
-        puscharcodeset.len() as _,
-        ::core::mem::transmute(uslanguage),
-        ::core::mem::transmute(pttembedinfo),
-    ))
+    ::core::mem::transmute(TTEmbedFontFromFileA(hdc.into(), szfontfilename.into(), usttcindex, ulflags, ulcharset, ::core::mem::transmute(pulprivstatus), ::core::mem::transmute(pulstatus), ::core::mem::transmute(lpfnwritetostream), ::core::mem::transmute(lpvwritestream), ::core::mem::transmute(::windows::core::as_ptr_or_null(puscharcodeset)), puscharcodeset.len() as _, uslanguage, ::core::mem::transmute(pttembedinfo)))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -16396,7 +16339,7 @@ pub unsafe fn TTGetEmbeddedFontInfo(ulflags: TTEMBED_FLAGS, pulprivstatus: *mut 
     extern "system" {
         fn TTGetEmbeddedFontInfo(ulflags: TTEMBED_FLAGS, pulprivstatus: *mut u32, ulprivs: FONT_LICENSE_PRIVS, pulstatus: *mut u32, lpfnreadfromstream: *mut ::core::ffi::c_void, lpvreadstream: *const ::core::ffi::c_void, pttloadinfo: *const TTLOADINFO) -> i32;
     }
-    ::core::mem::transmute(TTGetEmbeddedFontInfo(::core::mem::transmute(ulflags), ::core::mem::transmute(pulprivstatus), ::core::mem::transmute(ulprivs), ::core::mem::transmute(pulstatus), ::core::mem::transmute(lpfnreadfromstream), ::core::mem::transmute(lpvreadstream), ::core::mem::transmute(pttloadinfo)))
+    ::core::mem::transmute(TTGetEmbeddedFontInfo(ulflags, ::core::mem::transmute(pulprivstatus), ulprivs, ::core::mem::transmute(pulstatus), ::core::mem::transmute(lpfnreadfromstream), ::core::mem::transmute(lpvreadstream), ::core::mem::transmute(pttloadinfo)))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 #[inline]
@@ -16551,7 +16494,7 @@ where
     extern "system" {
         fn TTLoadEmbeddedFont(phfontreference: *mut super::super::Foundation::HANDLE, ulflags: u32, pulprivstatus: *mut EMBEDDED_FONT_PRIV_STATUS, ulprivs: FONT_LICENSE_PRIVS, pulstatus: *mut TTLOAD_EMBEDDED_FONT_STATUS, lpfnreadfromstream: *mut ::core::ffi::c_void, lpvreadstream: *const ::core::ffi::c_void, szwinfamilyname: ::windows::core::PCWSTR, szmacfamilyname: ::windows::core::PCSTR, pttloadinfo: *const TTLOADINFO) -> i32;
     }
-    ::core::mem::transmute(TTLoadEmbeddedFont(::core::mem::transmute(phfontreference), ::core::mem::transmute(ulflags), ::core::mem::transmute(pulprivstatus), ::core::mem::transmute(ulprivs), ::core::mem::transmute(pulstatus), ::core::mem::transmute(lpfnreadfromstream), ::core::mem::transmute(lpvreadstream), szwinfamilyname.into(), szmacfamilyname.into(), ::core::mem::transmute(pttloadinfo)))
+    ::core::mem::transmute(TTLoadEmbeddedFont(::core::mem::transmute(phfontreference), ulflags, ::core::mem::transmute(pulprivstatus), ulprivs, ::core::mem::transmute(pulstatus), ::core::mem::transmute(lpfnreadfromstream), ::core::mem::transmute(lpvreadstream), szwinfamilyname.into(), szmacfamilyname.into(), ::core::mem::transmute(pttloadinfo)))
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
@@ -16737,7 +16680,7 @@ where
     extern "system" {
         fn TabbedTextOutA(hdc: HDC, x: i32, y: i32, lpstring: ::windows::core::PCSTR, chcount: i32, ntabpositions: i32, lpntabstoppositions: *const i32, ntaborigin: i32) -> i32;
     }
-    ::core::mem::transmute(TabbedTextOutA(hdc.into(), ::core::mem::transmute(x), ::core::mem::transmute(y), ::core::mem::transmute(::windows::core::as_ptr_or_null(lpstring)), lpstring.len() as _, lpntabstoppositions.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(lpntabstoppositions)), ::core::mem::transmute(ntaborigin)))
+    ::core::mem::transmute(TabbedTextOutA(hdc.into(), x, y, ::core::mem::transmute(::windows::core::as_ptr_or_null(lpstring)), lpstring.len() as _, lpntabstoppositions.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(lpntabstoppositions)), ntaborigin))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 #[inline]
@@ -16749,7 +16692,7 @@ where
     extern "system" {
         fn TabbedTextOutW(hdc: HDC, x: i32, y: i32, lpstring: ::windows::core::PCWSTR, chcount: i32, ntabpositions: i32, lpntabstoppositions: *const i32, ntaborigin: i32) -> i32;
     }
-    ::core::mem::transmute(TabbedTextOutW(hdc.into(), ::core::mem::transmute(x), ::core::mem::transmute(y), ::core::mem::transmute(::windows::core::as_ptr_or_null(lpstring)), lpstring.len() as _, lpntabstoppositions.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(lpntabstoppositions)), ::core::mem::transmute(ntaborigin)))
+    ::core::mem::transmute(TabbedTextOutW(hdc.into(), x, y, ::core::mem::transmute(::windows::core::as_ptr_or_null(lpstring)), lpstring.len() as _, lpntabstoppositions.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(lpntabstoppositions)), ntaborigin))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -16762,7 +16705,7 @@ where
     extern "system" {
         fn TextOutA(hdc: HDC, x: i32, y: i32, lpstring: ::windows::core::PCSTR, c: i32) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(TextOutA(hdc.into(), ::core::mem::transmute(x), ::core::mem::transmute(y), ::core::mem::transmute(::windows::core::as_ptr_or_null(lpstring)), lpstring.len() as _))
+    ::core::mem::transmute(TextOutA(hdc.into(), x, y, ::core::mem::transmute(::windows::core::as_ptr_or_null(lpstring)), lpstring.len() as _))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -16775,7 +16718,7 @@ where
     extern "system" {
         fn TextOutW(hdc: HDC, x: i32, y: i32, lpstring: ::windows::core::PCWSTR, c: i32) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(TextOutW(hdc.into(), ::core::mem::transmute(x), ::core::mem::transmute(y), ::core::mem::transmute(::windows::core::as_ptr_or_null(lpstring)), lpstring.len() as _))
+    ::core::mem::transmute(TextOutW(hdc.into(), x, y, ::core::mem::transmute(::windows::core::as_ptr_or_null(lpstring)), lpstring.len() as _))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -16789,7 +16732,7 @@ where
     extern "system" {
         fn TransparentBlt(hdcdest: HDC, xorigindest: i32, yorigindest: i32, wdest: i32, hdest: i32, hdcsrc: HDC, xoriginsrc: i32, yoriginsrc: i32, wsrc: i32, hsrc: i32, crtransparent: u32) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(TransparentBlt(hdcdest.into(), ::core::mem::transmute(xorigindest), ::core::mem::transmute(yorigindest), ::core::mem::transmute(wdest), ::core::mem::transmute(hdest), hdcsrc.into(), ::core::mem::transmute(xoriginsrc), ::core::mem::transmute(yoriginsrc), ::core::mem::transmute(wsrc), ::core::mem::transmute(hsrc), ::core::mem::transmute(crtransparent)))
+    ::core::mem::transmute(TransparentBlt(hdcdest.into(), xorigindest, yorigindest, wdest, hdest, hdcsrc.into(), xoriginsrc, yoriginsrc, wsrc, hsrc, crtransparent))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -17071,7 +17014,7 @@ pub unsafe fn wglSwapMultipleBuffers(param0: u32, param1: *const WGLSWAP) -> u32
     extern "system" {
         fn wglSwapMultipleBuffers(param0: u32, param1: *const WGLSWAP) -> u32;
     }
-    ::core::mem::transmute(wglSwapMultipleBuffers(::core::mem::transmute(param0), ::core::mem::transmute(param1)))
+    ::core::mem::transmute(wglSwapMultipleBuffers(param0, ::core::mem::transmute(param1)))
 }
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

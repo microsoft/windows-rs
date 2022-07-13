@@ -144,7 +144,7 @@ where
     extern "system" {
         fn MatchEnumTag(hmodule: super::super::Foundation::HANDLE, pwcarg: ::windows::core::PCWSTR, dwnumarg: u32, penumtable: *const TOKEN_VALUE, pdwvalue: *mut u32) -> u32;
     }
-    ::core::mem::transmute(MatchEnumTag(hmodule.into(), pwcarg.into(), ::core::mem::transmute(dwnumarg), ::core::mem::transmute(penumtable), ::core::mem::transmute(pdwvalue)))
+    ::core::mem::transmute(MatchEnumTag(hmodule.into(), pwcarg.into(), dwnumarg, ::core::mem::transmute(penumtable), ::core::mem::transmute(pdwvalue)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetShell\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -545,7 +545,7 @@ where
     extern "system" {
         fn PreprocessCommand(hmodule: super::super::Foundation::HANDLE, ppwcarguments: *mut ::windows::core::PWSTR, dwcurrentindex: u32, dwargcount: u32, ptttags: *mut TAG_TYPE, dwtagcount: u32, dwminargs: u32, dwmaxargs: u32, pdwtagtype: *mut u32) -> u32;
     }
-    ::core::mem::transmute(PreprocessCommand(hmodule.into(), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(ppwcarguments)), ::core::mem::transmute(dwcurrentindex), ppwcarguments.len() as _, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(ptttags)), ptttags.len() as _, ::core::mem::transmute(dwminargs), ::core::mem::transmute(dwmaxargs), ::core::mem::transmute(pdwtagtype)))
+    ::core::mem::transmute(PreprocessCommand(hmodule.into(), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(ppwcarguments)), dwcurrentindex, ppwcarguments.len() as _, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(ptttags)), ptttags.len() as _, dwminargs, dwmaxargs, ::core::mem::transmute(pdwtagtype)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetShell\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -558,7 +558,7 @@ where
     extern "system" {
         fn PrintError(hmodule: super::super::Foundation::HANDLE, dwerrid: u32) -> u32;
     }
-    ::core::mem::transmute(PrintError(hmodule.into(), ::core::mem::transmute(dwerrid)))
+    ::core::mem::transmute(PrintError(hmodule.into(), dwerrid))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetShell\"`*"]
 #[inline]
@@ -583,7 +583,7 @@ where
     extern "system" {
         fn PrintMessageFromModule(hmodule: super::super::Foundation::HANDLE, dwmsgid: u32) -> u32;
     }
-    ::core::mem::transmute(PrintMessageFromModule(hmodule.into(), ::core::mem::transmute(dwmsgid)))
+    ::core::mem::transmute(PrintMessageFromModule(hmodule.into(), dwmsgid))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetShell\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]

@@ -2054,7 +2054,7 @@ where
     extern "system" {
         fn CryptUIDlgSelectCertificateFromStore(hcertstore: super::HCERTSTORE, hwnd: super::super::super::Foundation::HWND, pwsztitle: ::windows::core::PCWSTR, pwszdisplaystring: ::windows::core::PCWSTR, dwdontusecolumn: u32, dwflags: u32, pvreserved: *const ::core::ffi::c_void) -> *mut super::CERT_CONTEXT;
     }
-    ::core::mem::transmute(CryptUIDlgSelectCertificateFromStore(hcertstore.into(), hwnd.into(), pwsztitle.into(), pwszdisplaystring.into(), ::core::mem::transmute(dwdontusecolumn), ::core::mem::transmute(dwflags), ::core::mem::transmute(pvreserved)))
+    ::core::mem::transmute(CryptUIDlgSelectCertificateFromStore(hcertstore.into(), hwnd.into(), pwsztitle.into(), pwszdisplaystring.into(), dwdontusecolumn, dwflags, ::core::mem::transmute(pvreserved)))
 }
 #[doc = "*Required features: `\"Win32_Security_Cryptography_UI\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`, `\"Win32_Security_Cryptography_Catalog\"`, `\"Win32_Security_Cryptography_Sip\"`, `\"Win32_Security_WinTrust\"`, `\"Win32_UI_Controls\"`, `\"Win32_UI_WindowsAndMessaging\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_Security_Cryptography_Catalog", feature = "Win32_Security_Cryptography_Sip", feature = "Win32_Security_WinTrust", feature = "Win32_UI_Controls", feature = "Win32_UI_WindowsAndMessaging"))]
@@ -2088,7 +2088,7 @@ where
     extern "system" {
         fn CryptUIDlgViewContext(dwcontexttype: u32, pvcontext: *const ::core::ffi::c_void, hwnd: super::super::super::Foundation::HWND, pwsztitle: ::windows::core::PCWSTR, dwflags: u32, pvreserved: *const ::core::ffi::c_void) -> super::super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(CryptUIDlgViewContext(::core::mem::transmute(dwcontexttype), ::core::mem::transmute(pvcontext), hwnd.into(), pwsztitle.into(), ::core::mem::transmute(dwflags), ::core::mem::transmute(pvreserved)))
+    ::core::mem::transmute(CryptUIDlgViewContext(dwcontexttype, ::core::mem::transmute(pvcontext), hwnd.into(), pwsztitle.into(), dwflags, ::core::mem::transmute(pvreserved)))
 }
 #[doc = "*Required features: `\"Win32_Security_Cryptography_UI\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -2102,7 +2102,7 @@ where
     extern "system" {
         fn CryptUIWizDigitalSign(dwflags: u32, hwndparent: super::super::super::Foundation::HWND, pwszwizardtitle: ::windows::core::PCWSTR, pdigitalsigninfo: *const CRYPTUI_WIZ_DIGITAL_SIGN_INFO, ppsigncontext: *mut *mut CRYPTUI_WIZ_DIGITAL_SIGN_CONTEXT) -> super::super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(CryptUIWizDigitalSign(::core::mem::transmute(dwflags), hwndparent.into(), pwszwizardtitle.into(), ::core::mem::transmute(pdigitalsigninfo), ::core::mem::transmute(ppsigncontext)))
+    ::core::mem::transmute(CryptUIWizDigitalSign(dwflags, hwndparent.into(), pwszwizardtitle.into(), ::core::mem::transmute(pdigitalsigninfo), ::core::mem::transmute(ppsigncontext)))
 }
 #[doc = "*Required features: `\"Win32_Security_Cryptography_UI\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -2116,7 +2116,7 @@ where
     extern "system" {
         fn CryptUIWizExport(dwflags: CRYPTUI_WIZ_FLAGS, hwndparent: super::super::super::Foundation::HWND, pwszwizardtitle: ::windows::core::PCWSTR, pexportinfo: *const CRYPTUI_WIZ_EXPORT_INFO, pvoid: *const ::core::ffi::c_void) -> super::super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(CryptUIWizExport(::core::mem::transmute(dwflags), hwndparent.into(), pwszwizardtitle.into(), ::core::mem::transmute(pexportinfo), ::core::mem::transmute(pvoid)))
+    ::core::mem::transmute(CryptUIWizExport(dwflags, hwndparent.into(), pwszwizardtitle.into(), ::core::mem::transmute(pexportinfo), ::core::mem::transmute(pvoid)))
 }
 #[doc = "*Required features: `\"Win32_Security_Cryptography_UI\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -2141,7 +2141,7 @@ where
     extern "system" {
         fn CryptUIWizImport(dwflags: CRYPTUI_WIZ_FLAGS, hwndparent: super::super::super::Foundation::HWND, pwszwizardtitle: ::windows::core::PCWSTR, pimportsrc: *const CRYPTUI_WIZ_IMPORT_SRC_INFO, hdestcertstore: super::HCERTSTORE) -> super::super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(CryptUIWizImport(::core::mem::transmute(dwflags), hwndparent.into(), pwszwizardtitle.into(), ::core::mem::transmute(pimportsrc), hdestcertstore.into()))
+    ::core::mem::transmute(CryptUIWizImport(dwflags, hwndparent.into(), pwszwizardtitle.into(), ::core::mem::transmute(pimportsrc), hdestcertstore.into()))
 }
 #[doc = "*Required features: `\"Win32_Security_Cryptography_UI\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]

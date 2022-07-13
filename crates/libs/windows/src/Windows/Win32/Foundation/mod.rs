@@ -1947,7 +1947,7 @@ where
     extern "system" {
         fn DuplicateHandle(hsourceprocesshandle: HANDLE, hsourcehandle: HANDLE, htargetprocesshandle: HANDLE, lptargethandle: *mut HANDLE, dwdesiredaccess: u32, binherithandle: BOOL, dwoptions: DUPLICATE_HANDLE_OPTIONS) -> BOOL;
     }
-    ::core::mem::transmute(DuplicateHandle(hsourceprocesshandle.into(), hsourcehandle.into(), htargetprocesshandle.into(), ::core::mem::transmute(lptargethandle), ::core::mem::transmute(dwdesiredaccess), binherithandle.into(), ::core::mem::transmute(dwoptions)))
+    ::core::mem::transmute(DuplicateHandle(hsourceprocesshandle.into(), hsourcehandle.into(), htargetprocesshandle.into(), ::core::mem::transmute(lptargethandle), dwdesiredaccess, binherithandle.into(), dwoptions))
 }
 #[doc = "*Required features: `\"Win32_Foundation\"`*"]
 pub const EAS_E_ADMINS_CANNOT_CHANGE_PASSWORD: ::windows::core::HRESULT = ::windows::core::HRESULT(-2141913080i32);
@@ -12819,7 +12819,7 @@ where
     extern "system" {
         fn SetHandleInformation(hobject: HANDLE, dwmask: u32, dwflags: HANDLE_FLAGS) -> BOOL;
     }
-    ::core::mem::transmute(SetHandleInformation(hobject.into(), ::core::mem::transmute(dwmask), ::core::mem::transmute(dwflags)))
+    ::core::mem::transmute(SetHandleInformation(hobject.into(), dwmask, dwflags))
 }
 #[doc = "*Required features: `\"Win32_Foundation\"`*"]
 #[inline]
@@ -12828,7 +12828,7 @@ pub unsafe fn SetLastError(dwerrcode: WIN32_ERROR) {
     extern "system" {
         fn SetLastError(dwerrcode: WIN32_ERROR);
     }
-    SetLastError(::core::mem::transmute(dwerrcode))
+    SetLastError(dwerrcode)
 }
 #[doc = "*Required features: `\"Win32_Foundation\"`*"]
 #[inline]
@@ -12837,7 +12837,7 @@ pub unsafe fn SetLastErrorEx(dwerrcode: WIN32_ERROR, dwtype: u32) {
     extern "system" {
         fn SetLastErrorEx(dwerrcode: WIN32_ERROR, dwtype: u32);
     }
-    SetLastErrorEx(::core::mem::transmute(dwerrcode), ::core::mem::transmute(dwtype))
+    SetLastErrorEx(dwerrcode, dwtype)
 }
 #[doc = "*Required features: `\"Win32_Foundation\"`*"]
 #[inline]
@@ -12873,7 +12873,7 @@ where
     extern "system" {
         fn SysAllocStringByteLen(psz: ::windows::core::PCSTR, len: u32) -> BSTR;
     }
-    ::core::mem::transmute(SysAllocStringByteLen(psz.into(), ::core::mem::transmute(len)))
+    ::core::mem::transmute(SysAllocStringByteLen(psz.into(), len))
 }
 #[doc = "*Required features: `\"Win32_Foundation\"`*"]
 #[inline]
@@ -12918,7 +12918,7 @@ where
     extern "system" {
         fn SysReAllocStringLen(pbstr: *mut BSTR, psz: ::windows::core::PCWSTR, len: u32) -> i32;
     }
-    ::core::mem::transmute(SysReAllocStringLen(::core::mem::transmute(pbstr), psz.into(), ::core::mem::transmute(len)))
+    ::core::mem::transmute(SysReAllocStringLen(::core::mem::transmute(pbstr), psz.into(), len))
 }
 #[doc = "*Required features: `\"Win32_Foundation\"`*"]
 #[inline]

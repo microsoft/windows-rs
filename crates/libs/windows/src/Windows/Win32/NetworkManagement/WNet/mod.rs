@@ -861,7 +861,7 @@ where
     extern "system" {
         fn NPAddConnection3(hwndowner: super::super::Foundation::HWND, lpnetresource: *const NETRESOURCEW, lppassword: ::windows::core::PCWSTR, lpusername: ::windows::core::PCWSTR, dwflags: NET_USE_CONNECT_FLAGS) -> u32;
     }
-    ::core::mem::transmute(NPAddConnection3(hwndowner.into(), ::core::mem::transmute(lpnetresource), lppassword.into(), lpusername.into(), ::core::mem::transmute(dwflags)))
+    ::core::mem::transmute(NPAddConnection3(hwndowner.into(), ::core::mem::transmute(lpnetresource), lppassword.into(), lpusername.into(), dwflags))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_WNet\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -874,7 +874,7 @@ where
     extern "system" {
         fn NPAddConnection4(hwndowner: super::super::Foundation::HWND, lpnetresource: *const NETRESOURCEW, lpauthbuffer: *const ::core::ffi::c_void, cbauthbuffer: u32, dwflags: u32, lpuseoptions: *const u8, cbuseoptions: u32) -> u32;
     }
-    ::core::mem::transmute(NPAddConnection4(hwndowner.into(), ::core::mem::transmute(lpnetresource), ::core::mem::transmute(lpauthbuffer), ::core::mem::transmute(cbauthbuffer), ::core::mem::transmute(dwflags), ::core::mem::transmute(lpuseoptions), ::core::mem::transmute(cbuseoptions)))
+    ::core::mem::transmute(NPAddConnection4(hwndowner.into(), ::core::mem::transmute(lpnetresource), ::core::mem::transmute(lpauthbuffer), cbauthbuffer, dwflags, ::core::mem::transmute(lpuseoptions), cbuseoptions))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_WNet\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -902,7 +902,7 @@ where
     extern "system" {
         fn NPCancelConnection2(lpname: ::windows::core::PCWSTR, fforce: super::super::Foundation::BOOL, dwflags: u32) -> u32;
     }
-    ::core::mem::transmute(NPCancelConnection2(lpname.into(), fforce.into(), ::core::mem::transmute(dwflags)))
+    ::core::mem::transmute(NPCancelConnection2(lpname.into(), fforce.into(), dwflags))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_WNet\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -969,7 +969,7 @@ where
     extern "system" {
         fn NPFormatNetworkName(lpremotename: ::windows::core::PCWSTR, lpformattedname: ::windows::core::PWSTR, lpnlength: *mut u32, dwflags: NETWORK_NAME_FORMAT_FLAGS, dwavecharperline: u32) -> u32;
     }
-    ::core::mem::transmute(NPFormatNetworkName(lpremotename.into(), ::core::mem::transmute(lpformattedname), ::core::mem::transmute(lpnlength), ::core::mem::transmute(dwflags), ::core::mem::transmute(dwavecharperline)))
+    ::core::mem::transmute(NPFormatNetworkName(lpremotename.into(), ::core::mem::transmute(lpformattedname), ::core::mem::transmute(lpnlength), dwflags, dwavecharperline))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_WNet\"`*"]
 #[inline]
@@ -978,7 +978,7 @@ pub unsafe fn NPGetCaps(ndex: u32) -> u32 {
     extern "system" {
         fn NPGetCaps(ndex: u32) -> u32;
     }
-    ::core::mem::transmute(NPGetCaps(::core::mem::transmute(ndex)))
+    ::core::mem::transmute(NPGetCaps(ndex))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_WNet\"`*"]
 #[inline]
@@ -1002,7 +1002,7 @@ where
     extern "system" {
         fn NPGetConnection3(lplocalname: ::windows::core::PCWSTR, dwlevel: u32, lpbuffer: *mut ::core::ffi::c_void, lpbuffersize: *mut u32) -> u32;
     }
-    ::core::mem::transmute(NPGetConnection3(lplocalname.into(), ::core::mem::transmute(dwlevel), ::core::mem::transmute(lpbuffer), ::core::mem::transmute(lpbuffersize)))
+    ::core::mem::transmute(NPGetConnection3(lplocalname.into(), dwlevel, ::core::mem::transmute(lpbuffer), ::core::mem::transmute(lpbuffersize)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_WNet\"`*"]
 #[inline]
@@ -1026,7 +1026,7 @@ where
     extern "system" {
         fn NPGetPersistentUseOptionsForConnection(lpremotepath: ::windows::core::PCWSTR, lpreaduseoptions: *const u8, cbreaduseoptions: u32, lpwriteuseoptions: *mut u8, lpsizewriteuseoptions: *mut u32) -> u32;
     }
-    ::core::mem::transmute(NPGetPersistentUseOptionsForConnection(lpremotepath.into(), ::core::mem::transmute(lpreaduseoptions), ::core::mem::transmute(cbreaduseoptions), ::core::mem::transmute(lpwriteuseoptions), ::core::mem::transmute(lpsizewriteuseoptions)))
+    ::core::mem::transmute(NPGetPersistentUseOptionsForConnection(lpremotepath.into(), ::core::mem::transmute(lpreaduseoptions), cbreaduseoptions, ::core::mem::transmute(lpwriteuseoptions), ::core::mem::transmute(lpsizewriteuseoptions)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_WNet\"`*"]
 #[inline]
@@ -1056,7 +1056,7 @@ where
     extern "system" {
         fn NPGetUniversalName(lplocalpath: ::windows::core::PCWSTR, dwinfolevel: UNC_INFO_LEVEL, lpbuffer: *mut ::core::ffi::c_void, lpbuffersize: *mut u32) -> u32;
     }
-    ::core::mem::transmute(NPGetUniversalName(lplocalpath.into(), ::core::mem::transmute(dwinfolevel), ::core::mem::transmute(lpbuffer), ::core::mem::transmute(lpbuffersize)))
+    ::core::mem::transmute(NPGetUniversalName(lplocalpath.into(), dwinfolevel, ::core::mem::transmute(lpbuffer), ::core::mem::transmute(lpbuffersize)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_WNet\"`*"]
 #[inline]
@@ -1078,7 +1078,7 @@ pub unsafe fn NPOpenEnum(dwscope: u32, dwtype: u32, dwusage: u32, lpnetresource:
     extern "system" {
         fn NPOpenEnum(dwscope: u32, dwtype: u32, dwusage: u32, lpnetresource: *const NETRESOURCEW, lphenum: *mut super::super::Foundation::HANDLE) -> u32;
     }
-    ::core::mem::transmute(NPOpenEnum(::core::mem::transmute(dwscope), ::core::mem::transmute(dwtype), ::core::mem::transmute(dwusage), ::core::mem::transmute(lpnetresource), ::core::mem::transmute(lphenum)))
+    ::core::mem::transmute(NPOpenEnum(dwscope, dwtype, dwusage, ::core::mem::transmute(lpnetresource), ::core::mem::transmute(lphenum)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_WNet\"`*"]
 #[repr(transparent)]
@@ -1612,7 +1612,7 @@ where
     extern "system" {
         fn WNetAddConnection2A(lpnetresource: *const NETRESOURCEA, lppassword: ::windows::core::PCSTR, lpusername: ::windows::core::PCSTR, dwflags: u32) -> u32;
     }
-    ::core::mem::transmute(WNetAddConnection2A(::core::mem::transmute(lpnetresource), lppassword.into(), lpusername.into(), ::core::mem::transmute(dwflags)))
+    ::core::mem::transmute(WNetAddConnection2A(::core::mem::transmute(lpnetresource), lppassword.into(), lpusername.into(), dwflags))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_WNet\"`*"]
 #[inline]
@@ -1625,7 +1625,7 @@ where
     extern "system" {
         fn WNetAddConnection2W(lpnetresource: *const NETRESOURCEW, lppassword: ::windows::core::PCWSTR, lpusername: ::windows::core::PCWSTR, dwflags: u32) -> u32;
     }
-    ::core::mem::transmute(WNetAddConnection2W(::core::mem::transmute(lpnetresource), lppassword.into(), lpusername.into(), ::core::mem::transmute(dwflags)))
+    ::core::mem::transmute(WNetAddConnection2W(::core::mem::transmute(lpnetresource), lppassword.into(), lpusername.into(), dwflags))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_WNet\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -1640,7 +1640,7 @@ where
     extern "system" {
         fn WNetAddConnection3A(hwndowner: super::super::Foundation::HWND, lpnetresource: *const NETRESOURCEA, lppassword: ::windows::core::PCSTR, lpusername: ::windows::core::PCSTR, dwflags: u32) -> u32;
     }
-    ::core::mem::transmute(WNetAddConnection3A(hwndowner.into(), ::core::mem::transmute(lpnetresource), lppassword.into(), lpusername.into(), ::core::mem::transmute(dwflags)))
+    ::core::mem::transmute(WNetAddConnection3A(hwndowner.into(), ::core::mem::transmute(lpnetresource), lppassword.into(), lpusername.into(), dwflags))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_WNet\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -1655,7 +1655,7 @@ where
     extern "system" {
         fn WNetAddConnection3W(hwndowner: super::super::Foundation::HWND, lpnetresource: *const NETRESOURCEW, lppassword: ::windows::core::PCWSTR, lpusername: ::windows::core::PCWSTR, dwflags: u32) -> u32;
     }
-    ::core::mem::transmute(WNetAddConnection3W(hwndowner.into(), ::core::mem::transmute(lpnetresource), lppassword.into(), lpusername.into(), ::core::mem::transmute(dwflags)))
+    ::core::mem::transmute(WNetAddConnection3W(hwndowner.into(), ::core::mem::transmute(lpnetresource), lppassword.into(), lpusername.into(), dwflags))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_WNet\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -1668,7 +1668,7 @@ where
     extern "system" {
         fn WNetAddConnection4A(hwndowner: super::super::Foundation::HWND, lpnetresource: *const NETRESOURCEA, pauthbuffer: *const ::core::ffi::c_void, cbauthbuffer: u32, dwflags: u32, lpuseoptions: *const u8, cbuseoptions: u32) -> u32;
     }
-    ::core::mem::transmute(WNetAddConnection4A(hwndowner.into(), ::core::mem::transmute(lpnetresource), ::core::mem::transmute(pauthbuffer), ::core::mem::transmute(cbauthbuffer), ::core::mem::transmute(dwflags), ::core::mem::transmute(lpuseoptions), ::core::mem::transmute(cbuseoptions)))
+    ::core::mem::transmute(WNetAddConnection4A(hwndowner.into(), ::core::mem::transmute(lpnetresource), ::core::mem::transmute(pauthbuffer), cbauthbuffer, dwflags, ::core::mem::transmute(lpuseoptions), cbuseoptions))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_WNet\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -1681,7 +1681,7 @@ where
     extern "system" {
         fn WNetAddConnection4W(hwndowner: super::super::Foundation::HWND, lpnetresource: *const NETRESOURCEW, pauthbuffer: *const ::core::ffi::c_void, cbauthbuffer: u32, dwflags: u32, lpuseoptions: *const u8, cbuseoptions: u32) -> u32;
     }
-    ::core::mem::transmute(WNetAddConnection4W(hwndowner.into(), ::core::mem::transmute(lpnetresource), ::core::mem::transmute(pauthbuffer), ::core::mem::transmute(cbauthbuffer), ::core::mem::transmute(dwflags), ::core::mem::transmute(lpuseoptions), ::core::mem::transmute(cbuseoptions)))
+    ::core::mem::transmute(WNetAddConnection4W(hwndowner.into(), ::core::mem::transmute(lpnetresource), ::core::mem::transmute(pauthbuffer), cbauthbuffer, dwflags, ::core::mem::transmute(lpuseoptions), cbuseoptions))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_WNet\"`*"]
 #[inline]
@@ -1723,7 +1723,7 @@ where
     extern "system" {
         fn WNetCancelConnection2A(lpname: ::windows::core::PCSTR, dwflags: u32, fforce: super::super::Foundation::BOOL) -> u32;
     }
-    ::core::mem::transmute(WNetCancelConnection2A(lpname.into(), ::core::mem::transmute(dwflags), fforce.into()))
+    ::core::mem::transmute(WNetCancelConnection2A(lpname.into(), dwflags, fforce.into()))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_WNet\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -1737,7 +1737,7 @@ where
     extern "system" {
         fn WNetCancelConnection2W(lpname: ::windows::core::PCWSTR, dwflags: u32, fforce: super::super::Foundation::BOOL) -> u32;
     }
-    ::core::mem::transmute(WNetCancelConnection2W(lpname.into(), ::core::mem::transmute(dwflags), fforce.into()))
+    ::core::mem::transmute(WNetCancelConnection2W(lpname.into(), dwflags, fforce.into()))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_WNet\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -1791,7 +1791,7 @@ where
     extern "system" {
         fn WNetConnectionDialog(hwnd: super::super::Foundation::HWND, dwtype: u32) -> u32;
     }
-    ::core::mem::transmute(WNetConnectionDialog(hwnd.into(), ::core::mem::transmute(dwtype)))
+    ::core::mem::transmute(WNetConnectionDialog(hwnd.into(), dwtype))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_WNet\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -1824,7 +1824,7 @@ where
     extern "system" {
         fn WNetDisconnectDialog(hwnd: super::super::Foundation::HWND, dwtype: u32) -> u32;
     }
-    ::core::mem::transmute(WNetDisconnectDialog(hwnd.into(), ::core::mem::transmute(dwtype)))
+    ::core::mem::transmute(WNetDisconnectDialog(hwnd.into(), dwtype))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_WNet\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -1947,7 +1947,7 @@ pub unsafe fn WNetGetProviderNameA(dwnettype: u32, lpprovidername: ::windows::co
     extern "system" {
         fn WNetGetProviderNameA(dwnettype: u32, lpprovidername: ::windows::core::PSTR, lpbuffersize: *mut u32) -> u32;
     }
-    ::core::mem::transmute(WNetGetProviderNameA(::core::mem::transmute(dwnettype), ::core::mem::transmute(lpprovidername), ::core::mem::transmute(lpbuffersize)))
+    ::core::mem::transmute(WNetGetProviderNameA(dwnettype, ::core::mem::transmute(lpprovidername), ::core::mem::transmute(lpbuffersize)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_WNet\"`*"]
 #[inline]
@@ -1956,7 +1956,7 @@ pub unsafe fn WNetGetProviderNameW(dwnettype: u32, lpprovidername: ::windows::co
     extern "system" {
         fn WNetGetProviderNameW(dwnettype: u32, lpprovidername: ::windows::core::PWSTR, lpbuffersize: *mut u32) -> u32;
     }
-    ::core::mem::transmute(WNetGetProviderNameW(::core::mem::transmute(dwnettype), ::core::mem::transmute(lpprovidername), ::core::mem::transmute(lpbuffersize)))
+    ::core::mem::transmute(WNetGetProviderNameW(dwnettype, ::core::mem::transmute(lpprovidername), ::core::mem::transmute(lpbuffersize)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_WNet\"`*"]
 #[inline]
@@ -2004,7 +2004,7 @@ where
     extern "system" {
         fn WNetGetUniversalNameA(lplocalpath: ::windows::core::PCSTR, dwinfolevel: UNC_INFO_LEVEL, lpbuffer: *mut ::core::ffi::c_void, lpbuffersize: *mut u32) -> u32;
     }
-    ::core::mem::transmute(WNetGetUniversalNameA(lplocalpath.into(), ::core::mem::transmute(dwinfolevel), ::core::mem::transmute(lpbuffer), ::core::mem::transmute(lpbuffersize)))
+    ::core::mem::transmute(WNetGetUniversalNameA(lplocalpath.into(), dwinfolevel, ::core::mem::transmute(lpbuffer), ::core::mem::transmute(lpbuffersize)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_WNet\"`*"]
 #[inline]
@@ -2016,7 +2016,7 @@ where
     extern "system" {
         fn WNetGetUniversalNameW(lplocalpath: ::windows::core::PCWSTR, dwinfolevel: UNC_INFO_LEVEL, lpbuffer: *mut ::core::ffi::c_void, lpbuffersize: *mut u32) -> u32;
     }
-    ::core::mem::transmute(WNetGetUniversalNameW(lplocalpath.into(), ::core::mem::transmute(dwinfolevel), ::core::mem::transmute(lpbuffer), ::core::mem::transmute(lpbuffersize)))
+    ::core::mem::transmute(WNetGetUniversalNameW(lplocalpath.into(), dwinfolevel, ::core::mem::transmute(lpbuffer), ::core::mem::transmute(lpbuffersize)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_WNet\"`*"]
 #[inline]
@@ -2049,7 +2049,7 @@ pub unsafe fn WNetOpenEnumA(dwscope: NET_RESOURCE_SCOPE, dwtype: NET_RESOURCE_TY
     extern "system" {
         fn WNetOpenEnumA(dwscope: NET_RESOURCE_SCOPE, dwtype: NET_RESOURCE_TYPE, dwusage: WNET_OPEN_ENUM_USAGE, lpnetresource: *const NETRESOURCEA, lphenum: *mut NetEnumHandle) -> u32;
     }
-    ::core::mem::transmute(WNetOpenEnumA(::core::mem::transmute(dwscope), ::core::mem::transmute(dwtype), ::core::mem::transmute(dwusage), ::core::mem::transmute(lpnetresource), ::core::mem::transmute(lphenum)))
+    ::core::mem::transmute(WNetOpenEnumA(dwscope, dwtype, dwusage, ::core::mem::transmute(lpnetresource), ::core::mem::transmute(lphenum)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_WNet\"`*"]
 #[inline]
@@ -2058,7 +2058,7 @@ pub unsafe fn WNetOpenEnumW(dwscope: NET_RESOURCE_SCOPE, dwtype: NET_RESOURCE_TY
     extern "system" {
         fn WNetOpenEnumW(dwscope: NET_RESOURCE_SCOPE, dwtype: NET_RESOURCE_TYPE, dwusage: WNET_OPEN_ENUM_USAGE, lpnetresource: *const NETRESOURCEW, lphenum: *mut NetEnumHandle) -> u32;
     }
-    ::core::mem::transmute(WNetOpenEnumW(::core::mem::transmute(dwscope), ::core::mem::transmute(dwtype), ::core::mem::transmute(dwusage), ::core::mem::transmute(lpnetresource), ::core::mem::transmute(lphenum)))
+    ::core::mem::transmute(WNetOpenEnumW(dwscope, dwtype, dwusage, ::core::mem::transmute(lpnetresource), ::core::mem::transmute(lphenum)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_WNet\"`*"]
 #[inline]
@@ -2071,7 +2071,7 @@ where
     extern "system" {
         fn WNetSetLastErrorA(err: u32, lperror: ::windows::core::PCSTR, lpproviders: ::windows::core::PCSTR);
     }
-    WNetSetLastErrorA(::core::mem::transmute(err), lperror.into(), lpproviders.into())
+    WNetSetLastErrorA(err, lperror.into(), lpproviders.into())
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_WNet\"`*"]
 #[inline]
@@ -2084,7 +2084,7 @@ where
     extern "system" {
         fn WNetSetLastErrorW(err: u32, lperror: ::windows::core::PCWSTR, lpproviders: ::windows::core::PCWSTR);
     }
-    WNetSetLastErrorW(::core::mem::transmute(err), lperror.into(), lpproviders.into())
+    WNetSetLastErrorW(err, lperror.into(), lpproviders.into())
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_WNet\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -2097,7 +2097,7 @@ where
     extern "system" {
         fn WNetUseConnection4A(hwndowner: super::super::Foundation::HWND, lpnetresource: *const NETRESOURCEA, pauthbuffer: *const ::core::ffi::c_void, cbauthbuffer: u32, dwflags: u32, lpuseoptions: *const u8, cbuseoptions: u32, lpaccessname: ::windows::core::PSTR, lpbuffersize: *mut u32, lpresult: *mut u32) -> u32;
     }
-    ::core::mem::transmute(WNetUseConnection4A(hwndowner.into(), ::core::mem::transmute(lpnetresource), ::core::mem::transmute(pauthbuffer), ::core::mem::transmute(cbauthbuffer), ::core::mem::transmute(dwflags), ::core::mem::transmute(lpuseoptions), ::core::mem::transmute(cbuseoptions), ::core::mem::transmute(lpaccessname), ::core::mem::transmute(lpbuffersize), ::core::mem::transmute(lpresult)))
+    ::core::mem::transmute(WNetUseConnection4A(hwndowner.into(), ::core::mem::transmute(lpnetresource), ::core::mem::transmute(pauthbuffer), cbauthbuffer, dwflags, ::core::mem::transmute(lpuseoptions), cbuseoptions, ::core::mem::transmute(lpaccessname), ::core::mem::transmute(lpbuffersize), ::core::mem::transmute(lpresult)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_WNet\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -2110,7 +2110,7 @@ where
     extern "system" {
         fn WNetUseConnection4W(hwndowner: super::super::Foundation::HWND, lpnetresource: *const NETRESOURCEW, pauthbuffer: *const ::core::ffi::c_void, cbauthbuffer: u32, dwflags: u32, lpuseoptions: *const u8, cbuseoptions: u32, lpaccessname: ::windows::core::PWSTR, lpbuffersize: *mut u32, lpresult: *mut u32) -> u32;
     }
-    ::core::mem::transmute(WNetUseConnection4W(hwndowner.into(), ::core::mem::transmute(lpnetresource), ::core::mem::transmute(pauthbuffer), ::core::mem::transmute(cbauthbuffer), ::core::mem::transmute(dwflags), ::core::mem::transmute(lpuseoptions), ::core::mem::transmute(cbuseoptions), ::core::mem::transmute(lpaccessname), ::core::mem::transmute(lpbuffersize), ::core::mem::transmute(lpresult)))
+    ::core::mem::transmute(WNetUseConnection4W(hwndowner.into(), ::core::mem::transmute(lpnetresource), ::core::mem::transmute(pauthbuffer), cbauthbuffer, dwflags, ::core::mem::transmute(lpuseoptions), cbuseoptions, ::core::mem::transmute(lpaccessname), ::core::mem::transmute(lpbuffersize), ::core::mem::transmute(lpresult)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_WNet\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -2125,7 +2125,7 @@ where
     extern "system" {
         fn WNetUseConnectionA(hwndowner: super::super::Foundation::HWND, lpnetresource: *const NETRESOURCEA, lppassword: ::windows::core::PCSTR, lpuserid: ::windows::core::PCSTR, dwflags: NET_USE_CONNECT_FLAGS, lpaccessname: ::windows::core::PSTR, lpbuffersize: *mut u32, lpresult: *mut u32) -> u32;
     }
-    ::core::mem::transmute(WNetUseConnectionA(hwndowner.into(), ::core::mem::transmute(lpnetresource), lppassword.into(), lpuserid.into(), ::core::mem::transmute(dwflags), ::core::mem::transmute(lpaccessname), ::core::mem::transmute(lpbuffersize), ::core::mem::transmute(lpresult)))
+    ::core::mem::transmute(WNetUseConnectionA(hwndowner.into(), ::core::mem::transmute(lpnetresource), lppassword.into(), lpuserid.into(), dwflags, ::core::mem::transmute(lpaccessname), ::core::mem::transmute(lpbuffersize), ::core::mem::transmute(lpresult)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_WNet\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -2140,7 +2140,7 @@ where
     extern "system" {
         fn WNetUseConnectionW(hwndowner: super::super::Foundation::HWND, lpnetresource: *const NETRESOURCEW, lppassword: ::windows::core::PCWSTR, lpuserid: ::windows::core::PCWSTR, dwflags: NET_USE_CONNECT_FLAGS, lpaccessname: ::windows::core::PWSTR, lpbuffersize: *mut u32, lpresult: *mut u32) -> u32;
     }
-    ::core::mem::transmute(WNetUseConnectionW(hwndowner.into(), ::core::mem::transmute(lpnetresource), lppassword.into(), lpuserid.into(), ::core::mem::transmute(dwflags), ::core::mem::transmute(lpaccessname), ::core::mem::transmute(lpbuffersize), ::core::mem::transmute(lpresult)))
+    ::core::mem::transmute(WNetUseConnectionW(hwndowner.into(), ::core::mem::transmute(lpnetresource), lppassword.into(), lpuserid.into(), dwflags, ::core::mem::transmute(lpaccessname), ::core::mem::transmute(lpbuffersize), ::core::mem::transmute(lpresult)))
 }
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

@@ -10,7 +10,7 @@ where
     extern "system" {
         fn ChangeServiceConfig2A(hservice: super::super::Security::SC_HANDLE, dwinfolevel: SERVICE_CONFIG, lpinfo: *const ::core::ffi::c_void) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(ChangeServiceConfig2A(hservice.into(), ::core::mem::transmute(dwinfolevel), ::core::mem::transmute(lpinfo)))
+    ::core::mem::transmute(ChangeServiceConfig2A(hservice.into(), dwinfolevel, ::core::mem::transmute(lpinfo)))
 }
 #[doc = "*Required features: `\"Win32_System_Services\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
@@ -23,7 +23,7 @@ where
     extern "system" {
         fn ChangeServiceConfig2W(hservice: super::super::Security::SC_HANDLE, dwinfolevel: SERVICE_CONFIG, lpinfo: *const ::core::ffi::c_void) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(ChangeServiceConfig2W(hservice.into(), ::core::mem::transmute(dwinfolevel), ::core::mem::transmute(lpinfo)))
+    ::core::mem::transmute(ChangeServiceConfig2W(hservice.into(), dwinfolevel, ::core::mem::transmute(lpinfo)))
 }
 #[doc = "*Required features: `\"Win32_System_Services\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
@@ -42,7 +42,7 @@ where
     extern "system" {
         fn ChangeServiceConfigA(hservice: super::super::Security::SC_HANDLE, dwservicetype: u32, dwstarttype: SERVICE_START_TYPE, dwerrorcontrol: SERVICE_ERROR, lpbinarypathname: ::windows::core::PCSTR, lploadordergroup: ::windows::core::PCSTR, lpdwtagid: *mut u32, lpdependencies: ::windows::core::PCSTR, lpservicestartname: ::windows::core::PCSTR, lppassword: ::windows::core::PCSTR, lpdisplayname: ::windows::core::PCSTR) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(ChangeServiceConfigA(hservice.into(), ::core::mem::transmute(dwservicetype), ::core::mem::transmute(dwstarttype), ::core::mem::transmute(dwerrorcontrol), lpbinarypathname.into(), lploadordergroup.into(), ::core::mem::transmute(lpdwtagid), lpdependencies.into(), lpservicestartname.into(), lppassword.into(), lpdisplayname.into()))
+    ::core::mem::transmute(ChangeServiceConfigA(hservice.into(), dwservicetype, dwstarttype, dwerrorcontrol, lpbinarypathname.into(), lploadordergroup.into(), ::core::mem::transmute(lpdwtagid), lpdependencies.into(), lpservicestartname.into(), lppassword.into(), lpdisplayname.into()))
 }
 #[doc = "*Required features: `\"Win32_System_Services\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
@@ -61,7 +61,7 @@ where
     extern "system" {
         fn ChangeServiceConfigW(hservice: super::super::Security::SC_HANDLE, dwservicetype: u32, dwstarttype: SERVICE_START_TYPE, dwerrorcontrol: SERVICE_ERROR, lpbinarypathname: ::windows::core::PCWSTR, lploadordergroup: ::windows::core::PCWSTR, lpdwtagid: *mut u32, lpdependencies: ::windows::core::PCWSTR, lpservicestartname: ::windows::core::PCWSTR, lppassword: ::windows::core::PCWSTR, lpdisplayname: ::windows::core::PCWSTR) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(ChangeServiceConfigW(hservice.into(), ::core::mem::transmute(dwservicetype), ::core::mem::transmute(dwstarttype), ::core::mem::transmute(dwerrorcontrol), lpbinarypathname.into(), lploadordergroup.into(), ::core::mem::transmute(lpdwtagid), lpdependencies.into(), lpservicestartname.into(), lppassword.into(), lpdisplayname.into()))
+    ::core::mem::transmute(ChangeServiceConfigW(hservice.into(), dwservicetype, dwstarttype, dwerrorcontrol, lpbinarypathname.into(), lploadordergroup.into(), ::core::mem::transmute(lpdwtagid), lpdependencies.into(), lpservicestartname.into(), lppassword.into(), lpdisplayname.into()))
 }
 #[doc = "*Required features: `\"Win32_System_Services\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
@@ -87,7 +87,7 @@ where
     extern "system" {
         fn ControlService(hservice: super::super::Security::SC_HANDLE, dwcontrol: u32, lpservicestatus: *mut SERVICE_STATUS) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(ControlService(hservice.into(), ::core::mem::transmute(dwcontrol), ::core::mem::transmute(lpservicestatus)))
+    ::core::mem::transmute(ControlService(hservice.into(), dwcontrol, ::core::mem::transmute(lpservicestatus)))
 }
 #[doc = "*Required features: `\"Win32_System_Services\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
@@ -100,7 +100,7 @@ where
     extern "system" {
         fn ControlServiceExA(hservice: super::super::Security::SC_HANDLE, dwcontrol: u32, dwinfolevel: u32, pcontrolparams: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(ControlServiceExA(hservice.into(), ::core::mem::transmute(dwcontrol), ::core::mem::transmute(dwinfolevel), ::core::mem::transmute(pcontrolparams)))
+    ::core::mem::transmute(ControlServiceExA(hservice.into(), dwcontrol, dwinfolevel, ::core::mem::transmute(pcontrolparams)))
 }
 #[doc = "*Required features: `\"Win32_System_Services\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
@@ -113,7 +113,7 @@ where
     extern "system" {
         fn ControlServiceExW(hservice: super::super::Security::SC_HANDLE, dwcontrol: u32, dwinfolevel: u32, pcontrolparams: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(ControlServiceExW(hservice.into(), ::core::mem::transmute(dwcontrol), ::core::mem::transmute(dwinfolevel), ::core::mem::transmute(pcontrolparams)))
+    ::core::mem::transmute(ControlServiceExW(hservice.into(), dwcontrol, dwinfolevel, ::core::mem::transmute(pcontrolparams)))
 }
 #[doc = "*Required features: `\"Win32_System_Services\"`, `\"Win32_Security\"`*"]
 #[cfg(feature = "Win32_Security")]
@@ -133,7 +133,7 @@ where
     extern "system" {
         fn CreateServiceA(hscmanager: super::super::Security::SC_HANDLE, lpservicename: ::windows::core::PCSTR, lpdisplayname: ::windows::core::PCSTR, dwdesiredaccess: u32, dwservicetype: ENUM_SERVICE_TYPE, dwstarttype: SERVICE_START_TYPE, dwerrorcontrol: SERVICE_ERROR, lpbinarypathname: ::windows::core::PCSTR, lploadordergroup: ::windows::core::PCSTR, lpdwtagid: *mut u32, lpdependencies: ::windows::core::PCSTR, lpservicestartname: ::windows::core::PCSTR, lppassword: ::windows::core::PCSTR) -> super::super::Security::SC_HANDLE;
     }
-    let result__ = CreateServiceA(hscmanager.into(), lpservicename.into(), lpdisplayname.into(), ::core::mem::transmute(dwdesiredaccess), ::core::mem::transmute(dwservicetype), ::core::mem::transmute(dwstarttype), ::core::mem::transmute(dwerrorcontrol), lpbinarypathname.into(), lploadordergroup.into(), ::core::mem::transmute(lpdwtagid), lpdependencies.into(), lpservicestartname.into(), lppassword.into());
+    let result__ = CreateServiceA(hscmanager.into(), lpservicename.into(), lpdisplayname.into(), dwdesiredaccess, dwservicetype, dwstarttype, dwerrorcontrol, lpbinarypathname.into(), lploadordergroup.into(), ::core::mem::transmute(lpdwtagid), lpdependencies.into(), lpservicestartname.into(), lppassword.into());
     (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
 }
 #[doc = "*Required features: `\"Win32_System_Services\"`, `\"Win32_Security\"`*"]
@@ -154,7 +154,7 @@ where
     extern "system" {
         fn CreateServiceW(hscmanager: super::super::Security::SC_HANDLE, lpservicename: ::windows::core::PCWSTR, lpdisplayname: ::windows::core::PCWSTR, dwdesiredaccess: u32, dwservicetype: ENUM_SERVICE_TYPE, dwstarttype: SERVICE_START_TYPE, dwerrorcontrol: SERVICE_ERROR, lpbinarypathname: ::windows::core::PCWSTR, lploadordergroup: ::windows::core::PCWSTR, lpdwtagid: *mut u32, lpdependencies: ::windows::core::PCWSTR, lpservicestartname: ::windows::core::PCWSTR, lppassword: ::windows::core::PCWSTR) -> super::super::Security::SC_HANDLE;
     }
-    let result__ = CreateServiceW(hscmanager.into(), lpservicename.into(), lpdisplayname.into(), ::core::mem::transmute(dwdesiredaccess), ::core::mem::transmute(dwservicetype), ::core::mem::transmute(dwstarttype), ::core::mem::transmute(dwerrorcontrol), lpbinarypathname.into(), lploadordergroup.into(), ::core::mem::transmute(lpdwtagid), lpdependencies.into(), lpservicestartname.into(), lppassword.into());
+    let result__ = CreateServiceW(hscmanager.into(), lpservicename.into(), lpdisplayname.into(), dwdesiredaccess, dwservicetype, dwstarttype, dwerrorcontrol, lpbinarypathname.into(), lploadordergroup.into(), ::core::mem::transmute(lpdwtagid), lpdependencies.into(), lpservicestartname.into(), lppassword.into());
     (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
 }
 pub const DOMAIN_JOIN_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1ce20aba_9851_4421_9430_1ddeb766e809);
@@ -411,7 +411,7 @@ where
     extern "system" {
         fn EnumDependentServicesA(hservice: super::super::Security::SC_HANDLE, dwservicestate: ENUM_SERVICE_STATE, lpservices: *mut ENUM_SERVICE_STATUSA, cbbufsize: u32, pcbbytesneeded: *mut u32, lpservicesreturned: *mut u32) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(EnumDependentServicesA(hservice.into(), ::core::mem::transmute(dwservicestate), ::core::mem::transmute(lpservices), ::core::mem::transmute(cbbufsize), ::core::mem::transmute(pcbbytesneeded), ::core::mem::transmute(lpservicesreturned)))
+    ::core::mem::transmute(EnumDependentServicesA(hservice.into(), dwservicestate, ::core::mem::transmute(lpservices), cbbufsize, ::core::mem::transmute(pcbbytesneeded), ::core::mem::transmute(lpservicesreturned)))
 }
 #[doc = "*Required features: `\"Win32_System_Services\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
@@ -424,7 +424,7 @@ where
     extern "system" {
         fn EnumDependentServicesW(hservice: super::super::Security::SC_HANDLE, dwservicestate: ENUM_SERVICE_STATE, lpservices: *mut ENUM_SERVICE_STATUSW, cbbufsize: u32, pcbbytesneeded: *mut u32, lpservicesreturned: *mut u32) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(EnumDependentServicesW(hservice.into(), ::core::mem::transmute(dwservicestate), ::core::mem::transmute(lpservices), ::core::mem::transmute(cbbufsize), ::core::mem::transmute(pcbbytesneeded), ::core::mem::transmute(lpservicesreturned)))
+    ::core::mem::transmute(EnumDependentServicesW(hservice.into(), dwservicestate, ::core::mem::transmute(lpservices), cbbufsize, ::core::mem::transmute(pcbbytesneeded), ::core::mem::transmute(lpservicesreturned)))
 }
 #[doc = "*Required features: `\"Win32_System_Services\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
@@ -437,7 +437,7 @@ where
     extern "system" {
         fn EnumServicesStatusA(hscmanager: super::super::Security::SC_HANDLE, dwservicetype: ENUM_SERVICE_TYPE, dwservicestate: ENUM_SERVICE_STATE, lpservices: *mut ENUM_SERVICE_STATUSA, cbbufsize: u32, pcbbytesneeded: *mut u32, lpservicesreturned: *mut u32, lpresumehandle: *mut u32) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(EnumServicesStatusA(hscmanager.into(), ::core::mem::transmute(dwservicetype), ::core::mem::transmute(dwservicestate), ::core::mem::transmute(lpservices), ::core::mem::transmute(cbbufsize), ::core::mem::transmute(pcbbytesneeded), ::core::mem::transmute(lpservicesreturned), ::core::mem::transmute(lpresumehandle)))
+    ::core::mem::transmute(EnumServicesStatusA(hscmanager.into(), dwservicetype, dwservicestate, ::core::mem::transmute(lpservices), cbbufsize, ::core::mem::transmute(pcbbytesneeded), ::core::mem::transmute(lpservicesreturned), ::core::mem::transmute(lpresumehandle)))
 }
 #[doc = "*Required features: `\"Win32_System_Services\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
@@ -451,7 +451,7 @@ where
     extern "system" {
         fn EnumServicesStatusExA(hscmanager: super::super::Security::SC_HANDLE, infolevel: SC_ENUM_TYPE, dwservicetype: ENUM_SERVICE_TYPE, dwservicestate: ENUM_SERVICE_STATE, lpservices: *mut u8, cbbufsize: u32, pcbbytesneeded: *mut u32, lpservicesreturned: *mut u32, lpresumehandle: *mut u32, pszgroupname: ::windows::core::PCSTR) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(EnumServicesStatusExA(hscmanager.into(), ::core::mem::transmute(infolevel), ::core::mem::transmute(dwservicetype), ::core::mem::transmute(dwservicestate), ::core::mem::transmute(lpservices), ::core::mem::transmute(cbbufsize), ::core::mem::transmute(pcbbytesneeded), ::core::mem::transmute(lpservicesreturned), ::core::mem::transmute(lpresumehandle), pszgroupname.into()))
+    ::core::mem::transmute(EnumServicesStatusExA(hscmanager.into(), infolevel, dwservicetype, dwservicestate, ::core::mem::transmute(lpservices), cbbufsize, ::core::mem::transmute(pcbbytesneeded), ::core::mem::transmute(lpservicesreturned), ::core::mem::transmute(lpresumehandle), pszgroupname.into()))
 }
 #[doc = "*Required features: `\"Win32_System_Services\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
@@ -465,7 +465,7 @@ where
     extern "system" {
         fn EnumServicesStatusExW(hscmanager: super::super::Security::SC_HANDLE, infolevel: SC_ENUM_TYPE, dwservicetype: ENUM_SERVICE_TYPE, dwservicestate: ENUM_SERVICE_STATE, lpservices: *mut u8, cbbufsize: u32, pcbbytesneeded: *mut u32, lpservicesreturned: *mut u32, lpresumehandle: *mut u32, pszgroupname: ::windows::core::PCWSTR) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(EnumServicesStatusExW(hscmanager.into(), ::core::mem::transmute(infolevel), ::core::mem::transmute(dwservicetype), ::core::mem::transmute(dwservicestate), ::core::mem::transmute(lpservices), ::core::mem::transmute(cbbufsize), ::core::mem::transmute(pcbbytesneeded), ::core::mem::transmute(lpservicesreturned), ::core::mem::transmute(lpresumehandle), pszgroupname.into()))
+    ::core::mem::transmute(EnumServicesStatusExW(hscmanager.into(), infolevel, dwservicetype, dwservicestate, ::core::mem::transmute(lpservices), cbbufsize, ::core::mem::transmute(pcbbytesneeded), ::core::mem::transmute(lpservicesreturned), ::core::mem::transmute(lpresumehandle), pszgroupname.into()))
 }
 #[doc = "*Required features: `\"Win32_System_Services\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
@@ -478,7 +478,7 @@ where
     extern "system" {
         fn EnumServicesStatusW(hscmanager: super::super::Security::SC_HANDLE, dwservicetype: ENUM_SERVICE_TYPE, dwservicestate: ENUM_SERVICE_STATE, lpservices: *mut ENUM_SERVICE_STATUSW, cbbufsize: u32, pcbbytesneeded: *mut u32, lpservicesreturned: *mut u32, lpresumehandle: *mut u32) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(EnumServicesStatusW(hscmanager.into(), ::core::mem::transmute(dwservicetype), ::core::mem::transmute(dwservicestate), ::core::mem::transmute(lpservices), ::core::mem::transmute(cbbufsize), ::core::mem::transmute(pcbbytesneeded), ::core::mem::transmute(lpservicesreturned), ::core::mem::transmute(lpresumehandle)))
+    ::core::mem::transmute(EnumServicesStatusW(hscmanager.into(), dwservicetype, dwservicestate, ::core::mem::transmute(lpservices), cbbufsize, ::core::mem::transmute(pcbbytesneeded), ::core::mem::transmute(lpservicesreturned), ::core::mem::transmute(lpresumehandle)))
 }
 pub const FIREWALL_PORT_CLOSE_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa144ed38_8e12_4de4_9d96_e64740b1a524);
 pub const FIREWALL_PORT_OPEN_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb7569e07_8421_4ee0_ad10_86915afdad09);
@@ -492,7 +492,7 @@ where
     extern "system" {
         fn GetServiceDirectory(hservicestatus: SERVICE_STATUS_HANDLE, edirectorytype: SERVICE_DIRECTORY_TYPE, lppathbuffer: ::windows::core::PWSTR, cchpathbufferlength: u32, lpcchrequiredbufferlength: *mut u32) -> u32;
     }
-    ::core::mem::transmute(GetServiceDirectory(hservicestatus.into(), ::core::mem::transmute(edirectorytype), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(lppathbuffer)), lppathbuffer.len() as _, ::core::mem::transmute(lpcchrequiredbufferlength)))
+    ::core::mem::transmute(GetServiceDirectory(hservicestatus.into(), edirectorytype, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(lppathbuffer)), lppathbuffer.len() as _, ::core::mem::transmute(lpcchrequiredbufferlength)))
 }
 #[doc = "*Required features: `\"Win32_System_Services\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
@@ -561,7 +561,7 @@ where
     extern "system" {
         fn GetServiceRegistryStateKey(servicestatushandle: SERVICE_STATUS_HANDLE, statetype: SERVICE_REGISTRY_STATE_TYPE, accessmask: u32, servicestatekey: *mut super::Registry::HKEY) -> u32;
     }
-    ::core::mem::transmute(GetServiceRegistryStateKey(servicestatushandle.into(), ::core::mem::transmute(statetype), ::core::mem::transmute(accessmask), ::core::mem::transmute(servicestatekey)))
+    ::core::mem::transmute(GetServiceRegistryStateKey(servicestatushandle.into(), statetype, accessmask, ::core::mem::transmute(servicestatekey)))
 }
 #[doc = "*Required features: `\"Win32_System_Services\"`, `\"Win32_Security\"`*"]
 #[cfg(feature = "Win32_Security")]
@@ -574,7 +574,7 @@ where
     extern "system" {
         fn GetSharedServiceDirectory(servicehandle: super::super::Security::SC_HANDLE, directorytype: SERVICE_SHARED_DIRECTORY_TYPE, pathbuffer: ::windows::core::PWSTR, pathbufferlength: u32, requiredbufferlength: *mut u32) -> u32;
     }
-    ::core::mem::transmute(GetSharedServiceDirectory(servicehandle.into(), ::core::mem::transmute(directorytype), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(pathbuffer)), pathbuffer.len() as _, ::core::mem::transmute(requiredbufferlength)))
+    ::core::mem::transmute(GetSharedServiceDirectory(servicehandle.into(), directorytype, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(pathbuffer)), pathbuffer.len() as _, ::core::mem::transmute(requiredbufferlength)))
 }
 #[doc = "*Required features: `\"Win32_System_Services\"`, `\"Win32_Security\"`, `\"Win32_System_Registry\"`*"]
 #[cfg(all(feature = "Win32_Security", feature = "Win32_System_Registry"))]
@@ -587,7 +587,7 @@ where
     extern "system" {
         fn GetSharedServiceRegistryStateKey(servicehandle: super::super::Security::SC_HANDLE, statetype: SERVICE_SHARED_REGISTRY_STATE_TYPE, accessmask: u32, servicestatekey: *mut super::Registry::HKEY) -> u32;
     }
-    ::core::mem::transmute(GetSharedServiceRegistryStateKey(servicehandle.into(), ::core::mem::transmute(statetype), ::core::mem::transmute(accessmask), ::core::mem::transmute(servicestatekey)))
+    ::core::mem::transmute(GetSharedServiceRegistryStateKey(servicehandle.into(), statetype, accessmask, ::core::mem::transmute(servicestatekey)))
 }
 #[doc = "*Required features: `\"Win32_System_Services\"`*"]
 pub type HANDLER_FUNCTION = ::core::option::Option<unsafe extern "system" fn(dwcontrol: u32)>;
@@ -642,7 +642,7 @@ where
     extern "system" {
         fn NotifyServiceStatusChangeA(hservice: super::super::Security::SC_HANDLE, dwnotifymask: SERVICE_NOTIFY, pnotifybuffer: *const SERVICE_NOTIFY_2A) -> u32;
     }
-    ::core::mem::transmute(NotifyServiceStatusChangeA(hservice.into(), ::core::mem::transmute(dwnotifymask), ::core::mem::transmute(pnotifybuffer)))
+    ::core::mem::transmute(NotifyServiceStatusChangeA(hservice.into(), dwnotifymask, ::core::mem::transmute(pnotifybuffer)))
 }
 #[doc = "*Required features: `\"Win32_System_Services\"`, `\"Win32_Security\"`*"]
 #[cfg(feature = "Win32_Security")]
@@ -655,7 +655,7 @@ where
     extern "system" {
         fn NotifyServiceStatusChangeW(hservice: super::super::Security::SC_HANDLE, dwnotifymask: SERVICE_NOTIFY, pnotifybuffer: *const SERVICE_NOTIFY_2W) -> u32;
     }
-    ::core::mem::transmute(NotifyServiceStatusChangeW(hservice.into(), ::core::mem::transmute(dwnotifymask), ::core::mem::transmute(pnotifybuffer)))
+    ::core::mem::transmute(NotifyServiceStatusChangeW(hservice.into(), dwnotifymask, ::core::mem::transmute(pnotifybuffer)))
 }
 #[doc = "*Required features: `\"Win32_System_Services\"`, `\"Win32_Security\"`*"]
 #[cfg(feature = "Win32_Security")]
@@ -669,7 +669,7 @@ where
     extern "system" {
         fn OpenSCManagerA(lpmachinename: ::windows::core::PCSTR, lpdatabasename: ::windows::core::PCSTR, dwdesiredaccess: u32) -> super::super::Security::SC_HANDLE;
     }
-    let result__ = OpenSCManagerA(lpmachinename.into(), lpdatabasename.into(), ::core::mem::transmute(dwdesiredaccess));
+    let result__ = OpenSCManagerA(lpmachinename.into(), lpdatabasename.into(), dwdesiredaccess);
     (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
 }
 #[doc = "*Required features: `\"Win32_System_Services\"`, `\"Win32_Security\"`*"]
@@ -684,7 +684,7 @@ where
     extern "system" {
         fn OpenSCManagerW(lpmachinename: ::windows::core::PCWSTR, lpdatabasename: ::windows::core::PCWSTR, dwdesiredaccess: u32) -> super::super::Security::SC_HANDLE;
     }
-    let result__ = OpenSCManagerW(lpmachinename.into(), lpdatabasename.into(), ::core::mem::transmute(dwdesiredaccess));
+    let result__ = OpenSCManagerW(lpmachinename.into(), lpdatabasename.into(), dwdesiredaccess);
     (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
 }
 #[doc = "*Required features: `\"Win32_System_Services\"`, `\"Win32_Security\"`*"]
@@ -699,7 +699,7 @@ where
     extern "system" {
         fn OpenServiceA(hscmanager: super::super::Security::SC_HANDLE, lpservicename: ::windows::core::PCSTR, dwdesiredaccess: u32) -> super::super::Security::SC_HANDLE;
     }
-    let result__ = OpenServiceA(hscmanager.into(), lpservicename.into(), ::core::mem::transmute(dwdesiredaccess));
+    let result__ = OpenServiceA(hscmanager.into(), lpservicename.into(), dwdesiredaccess);
     (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
 }
 #[doc = "*Required features: `\"Win32_System_Services\"`, `\"Win32_Security\"`*"]
@@ -714,7 +714,7 @@ where
     extern "system" {
         fn OpenServiceW(hscmanager: super::super::Security::SC_HANDLE, lpservicename: ::windows::core::PCWSTR, dwdesiredaccess: u32) -> super::super::Security::SC_HANDLE;
     }
-    let result__ = OpenServiceW(hscmanager.into(), lpservicename.into(), ::core::mem::transmute(dwdesiredaccess));
+    let result__ = OpenServiceW(hscmanager.into(), lpservicename.into(), dwdesiredaccess);
     (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
 }
 #[doc = "*Required features: `\"Win32_System_Services\"`*"]
@@ -872,7 +872,7 @@ where
     extern "system" {
         fn QueryServiceConfig2A(hservice: super::super::Security::SC_HANDLE, dwinfolevel: SERVICE_CONFIG, lpbuffer: *mut u8, cbbufsize: u32, pcbbytesneeded: *mut u32) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(QueryServiceConfig2A(hservice.into(), ::core::mem::transmute(dwinfolevel), ::core::mem::transmute(lpbuffer), ::core::mem::transmute(cbbufsize), ::core::mem::transmute(pcbbytesneeded)))
+    ::core::mem::transmute(QueryServiceConfig2A(hservice.into(), dwinfolevel, ::core::mem::transmute(lpbuffer), cbbufsize, ::core::mem::transmute(pcbbytesneeded)))
 }
 #[doc = "*Required features: `\"Win32_System_Services\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
@@ -885,7 +885,7 @@ where
     extern "system" {
         fn QueryServiceConfig2W(hservice: super::super::Security::SC_HANDLE, dwinfolevel: SERVICE_CONFIG, lpbuffer: *mut u8, cbbufsize: u32, pcbbytesneeded: *mut u32) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(QueryServiceConfig2W(hservice.into(), ::core::mem::transmute(dwinfolevel), ::core::mem::transmute(lpbuffer), ::core::mem::transmute(cbbufsize), ::core::mem::transmute(pcbbytesneeded)))
+    ::core::mem::transmute(QueryServiceConfig2W(hservice.into(), dwinfolevel, ::core::mem::transmute(lpbuffer), cbbufsize, ::core::mem::transmute(pcbbytesneeded)))
 }
 #[doc = "*Required features: `\"Win32_System_Services\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
@@ -898,7 +898,7 @@ where
     extern "system" {
         fn QueryServiceConfigA(hservice: super::super::Security::SC_HANDLE, lpserviceconfig: *mut QUERY_SERVICE_CONFIGA, cbbufsize: u32, pcbbytesneeded: *mut u32) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(QueryServiceConfigA(hservice.into(), ::core::mem::transmute(lpserviceconfig), ::core::mem::transmute(cbbufsize), ::core::mem::transmute(pcbbytesneeded)))
+    ::core::mem::transmute(QueryServiceConfigA(hservice.into(), ::core::mem::transmute(lpserviceconfig), cbbufsize, ::core::mem::transmute(pcbbytesneeded)))
 }
 #[doc = "*Required features: `\"Win32_System_Services\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
@@ -911,7 +911,7 @@ where
     extern "system" {
         fn QueryServiceConfigW(hservice: super::super::Security::SC_HANDLE, lpserviceconfig: *mut QUERY_SERVICE_CONFIGW, cbbufsize: u32, pcbbytesneeded: *mut u32) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(QueryServiceConfigW(hservice.into(), ::core::mem::transmute(lpserviceconfig), ::core::mem::transmute(cbbufsize), ::core::mem::transmute(pcbbytesneeded)))
+    ::core::mem::transmute(QueryServiceConfigW(hservice.into(), ::core::mem::transmute(lpserviceconfig), cbbufsize, ::core::mem::transmute(pcbbytesneeded)))
 }
 #[doc = "*Required features: `\"Win32_System_Services\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -924,7 +924,7 @@ where
     extern "system" {
         fn QueryServiceDynamicInformation(hservicestatus: SERVICE_STATUS_HANDLE, dwinfolevel: u32, ppdynamicinfo: *mut *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(QueryServiceDynamicInformation(hservicestatus.into(), ::core::mem::transmute(dwinfolevel), ::core::mem::transmute(ppdynamicinfo)))
+    ::core::mem::transmute(QueryServiceDynamicInformation(hservicestatus.into(), dwinfolevel, ::core::mem::transmute(ppdynamicinfo)))
 }
 #[doc = "*Required features: `\"Win32_System_Services\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
@@ -937,7 +937,7 @@ where
     extern "system" {
         fn QueryServiceLockStatusA(hscmanager: super::super::Security::SC_HANDLE, lplockstatus: *mut QUERY_SERVICE_LOCK_STATUSA, cbbufsize: u32, pcbbytesneeded: *mut u32) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(QueryServiceLockStatusA(hscmanager.into(), ::core::mem::transmute(lplockstatus), ::core::mem::transmute(cbbufsize), ::core::mem::transmute(pcbbytesneeded)))
+    ::core::mem::transmute(QueryServiceLockStatusA(hscmanager.into(), ::core::mem::transmute(lplockstatus), cbbufsize, ::core::mem::transmute(pcbbytesneeded)))
 }
 #[doc = "*Required features: `\"Win32_System_Services\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
@@ -950,7 +950,7 @@ where
     extern "system" {
         fn QueryServiceLockStatusW(hscmanager: super::super::Security::SC_HANDLE, lplockstatus: *mut QUERY_SERVICE_LOCK_STATUSW, cbbufsize: u32, pcbbytesneeded: *mut u32) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(QueryServiceLockStatusW(hscmanager.into(), ::core::mem::transmute(lplockstatus), ::core::mem::transmute(cbbufsize), ::core::mem::transmute(pcbbytesneeded)))
+    ::core::mem::transmute(QueryServiceLockStatusW(hscmanager.into(), ::core::mem::transmute(lplockstatus), cbbufsize, ::core::mem::transmute(pcbbytesneeded)))
 }
 #[doc = "*Required features: `\"Win32_System_Services\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
@@ -963,7 +963,7 @@ where
     extern "system" {
         fn QueryServiceObjectSecurity(hservice: super::super::Security::SC_HANDLE, dwsecurityinformation: u32, lpsecuritydescriptor: super::super::Security::PSECURITY_DESCRIPTOR, cbbufsize: u32, pcbbytesneeded: *mut u32) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(QueryServiceObjectSecurity(hservice.into(), ::core::mem::transmute(dwsecurityinformation), ::core::mem::transmute(lpsecuritydescriptor), ::core::mem::transmute(cbbufsize), ::core::mem::transmute(pcbbytesneeded)))
+    ::core::mem::transmute(QueryServiceObjectSecurity(hservice.into(), dwsecurityinformation, ::core::mem::transmute(lpsecuritydescriptor), cbbufsize, ::core::mem::transmute(pcbbytesneeded)))
 }
 #[doc = "*Required features: `\"Win32_System_Services\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
@@ -989,7 +989,7 @@ where
     extern "system" {
         fn QueryServiceStatusEx(hservice: super::super::Security::SC_HANDLE, infolevel: SC_STATUS_TYPE, lpbuffer: *mut u8, cbbufsize: u32, pcbbytesneeded: *mut u32) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(QueryServiceStatusEx(hservice.into(), ::core::mem::transmute(infolevel), ::core::mem::transmute(lpbuffer), ::core::mem::transmute(cbbufsize), ::core::mem::transmute(pcbbytesneeded)))
+    ::core::mem::transmute(QueryServiceStatusEx(hservice.into(), infolevel, ::core::mem::transmute(lpbuffer), cbbufsize, ::core::mem::transmute(pcbbytesneeded)))
 }
 pub const RPC_INTERFACE_EVENT_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbc90d167_9470_4139_a9ba_be0bbbf5b74d);
 #[doc = "*Required features: `\"Win32_System_Services\"`*"]
@@ -2891,7 +2891,7 @@ where
     extern "system" {
         fn SetServiceBits(hservicestatus: SERVICE_STATUS_HANDLE, dwservicebits: u32, bsetbitson: super::super::Foundation::BOOL, bupdateimmediately: super::super::Foundation::BOOL) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(SetServiceBits(hservicestatus.into(), ::core::mem::transmute(dwservicebits), bsetbitson.into(), bupdateimmediately.into()))
+    ::core::mem::transmute(SetServiceBits(hservicestatus.into(), dwservicebits, bsetbitson.into(), bupdateimmediately.into()))
 }
 #[doc = "*Required features: `\"Win32_System_Services\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
@@ -2905,7 +2905,7 @@ where
     extern "system" {
         fn SetServiceObjectSecurity(hservice: super::super::Security::SC_HANDLE, dwsecurityinformation: super::super::Security::OBJECT_SECURITY_INFORMATION, lpsecuritydescriptor: super::super::Security::PSECURITY_DESCRIPTOR) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(SetServiceObjectSecurity(hservice.into(), ::core::mem::transmute(dwsecurityinformation), lpsecuritydescriptor.into()))
+    ::core::mem::transmute(SetServiceObjectSecurity(hservice.into(), dwsecurityinformation, lpsecuritydescriptor.into()))
 }
 #[doc = "*Required features: `\"Win32_System_Services\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -2989,7 +2989,7 @@ where
     extern "system" {
         fn WaitServiceState(hservice: super::super::Security::SC_HANDLE, dwnotify: u32, dwtimeout: u32, hcancelevent: super::super::Foundation::HANDLE) -> u32;
     }
-    ::core::mem::transmute(WaitServiceState(hservice.into(), ::core::mem::transmute(dwnotify), ::core::mem::transmute(dwtimeout), hcancelevent.into()))
+    ::core::mem::transmute(WaitServiceState(hservice.into(), dwnotify, dwtimeout, hcancelevent.into()))
 }
 #[repr(C)]
 pub struct _SC_NOTIFICATION_REGISTRATION(pub u8);

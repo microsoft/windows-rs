@@ -1391,7 +1391,7 @@ where
     extern "system" {
         fn PssCaptureSnapshot(processhandle: super::super::super::Foundation::HANDLE, captureflags: PSS_CAPTURE_FLAGS, threadcontextflags: u32, snapshothandle: *mut HPSS) -> u32;
     }
-    ::core::mem::transmute(PssCaptureSnapshot(processhandle.into(), ::core::mem::transmute(captureflags), ::core::mem::transmute(threadcontextflags), ::core::mem::transmute(snapshothandle)))
+    ::core::mem::transmute(PssCaptureSnapshot(processhandle.into(), captureflags, threadcontextflags, ::core::mem::transmute(snapshothandle)))
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_ProcessSnapshotting\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -1406,7 +1406,7 @@ where
     extern "system" {
         fn PssDuplicateSnapshot(sourceprocesshandle: super::super::super::Foundation::HANDLE, snapshothandle: HPSS, targetprocesshandle: super::super::super::Foundation::HANDLE, targetsnapshothandle: *mut HPSS, flags: PSS_DUPLICATE_FLAGS) -> u32;
     }
-    ::core::mem::transmute(PssDuplicateSnapshot(sourceprocesshandle.into(), snapshothandle.into(), targetprocesshandle.into(), ::core::mem::transmute(targetsnapshothandle), ::core::mem::transmute(flags)))
+    ::core::mem::transmute(PssDuplicateSnapshot(sourceprocesshandle.into(), snapshothandle.into(), targetprocesshandle.into(), ::core::mem::transmute(targetsnapshothandle), flags))
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_ProcessSnapshotting\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -1432,7 +1432,7 @@ where
     extern "system" {
         fn PssQuerySnapshot(snapshothandle: HPSS, informationclass: PSS_QUERY_INFORMATION_CLASS, buffer: *mut ::core::ffi::c_void, bufferlength: u32) -> u32;
     }
-    ::core::mem::transmute(PssQuerySnapshot(snapshothandle.into(), ::core::mem::transmute(informationclass), ::core::mem::transmute(buffer), ::core::mem::transmute(bufferlength)))
+    ::core::mem::transmute(PssQuerySnapshot(snapshothandle.into(), informationclass, ::core::mem::transmute(buffer), bufferlength))
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_ProcessSnapshotting\"`*"]
 #[inline]
@@ -1489,7 +1489,7 @@ where
     extern "system" {
         fn PssWalkMarkerSetPosition(walkmarkerhandle: HPSSWALK, position: usize) -> u32;
     }
-    ::core::mem::transmute(PssWalkMarkerSetPosition(walkmarkerhandle.into(), ::core::mem::transmute(position)))
+    ::core::mem::transmute(PssWalkMarkerSetPosition(walkmarkerhandle.into(), position))
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_ProcessSnapshotting\"`*"]
 #[inline]
@@ -1502,7 +1502,7 @@ where
     extern "system" {
         fn PssWalkSnapshot(snapshothandle: HPSS, informationclass: PSS_WALK_INFORMATION_CLASS, walkmarkerhandle: HPSSWALK, buffer: *mut ::core::ffi::c_void, bufferlength: u32) -> u32;
     }
-    ::core::mem::transmute(PssWalkSnapshot(snapshothandle.into(), ::core::mem::transmute(informationclass), walkmarkerhandle.into(), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(buffer)), buffer.len() as _))
+    ::core::mem::transmute(PssWalkSnapshot(snapshothandle.into(), informationclass, walkmarkerhandle.into(), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(buffer)), buffer.len() as _))
 }
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

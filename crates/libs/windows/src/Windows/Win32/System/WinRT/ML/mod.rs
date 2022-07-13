@@ -117,7 +117,7 @@ pub struct ILearningModelSessionOptionsNative(::windows::core::IUnknown);
 impl ILearningModelSessionOptionsNative {
     #[doc = "*Required features: `\"Win32_System_WinRT_ML\"`*"]
     pub unsafe fn SetIntraOpNumThreadsOverride(&self, intraopnumthreads: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetIntraOpNumThreadsOverride)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(intraopnumthreads)).ok()
+        (::windows::core::Interface::vtable(self).SetIntraOpNumThreadsOverride)(::windows::core::Interface::as_raw(self), intraopnumthreads).ok()
     }
 }
 impl ::core::convert::From<ILearningModelSessionOptionsNative> for ::windows::core::IUnknown {
@@ -231,7 +231,7 @@ impl ITensorStaticsNative {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Graphics::Direct3D12::ID3D12Resource>>,
     {
-        (::windows::core::Interface::vtable(self).CreateFromD3D12Resource)(::windows::core::Interface::as_raw(self), value.into().abi(), ::core::mem::transmute(shape), ::core::mem::transmute(shapecount), ::core::mem::transmute(result)).ok()
+        (::windows::core::Interface::vtable(self).CreateFromD3D12Resource)(::windows::core::Interface::as_raw(self), value.into().abi(), ::core::mem::transmute(shape), shapecount, ::core::mem::transmute(result)).ok()
     }
 }
 impl ::core::convert::From<ITensorStaticsNative> for ::windows::core::IUnknown {

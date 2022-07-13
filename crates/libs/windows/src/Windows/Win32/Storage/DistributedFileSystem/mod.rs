@@ -1299,7 +1299,7 @@ where
     extern "system" {
         fn NetDfsAdd(dfsentrypath: ::windows::core::PCWSTR, servername: ::windows::core::PCWSTR, sharename: ::windows::core::PCWSTR, comment: ::windows::core::PCWSTR, flags: u32) -> u32;
     }
-    ::core::mem::transmute(NetDfsAdd(dfsentrypath.into(), servername.into(), sharename.into(), comment.into(), ::core::mem::transmute(flags)))
+    ::core::mem::transmute(NetDfsAdd(dfsentrypath.into(), servername.into(), sharename.into(), comment.into(), flags))
 }
 #[doc = "*Required features: `\"Win32_Storage_DistributedFileSystem\"`*"]
 #[inline]
@@ -1314,7 +1314,7 @@ where
     extern "system" {
         fn NetDfsAddFtRoot(servername: ::windows::core::PCWSTR, rootshare: ::windows::core::PCWSTR, ftdfsname: ::windows::core::PCWSTR, comment: ::windows::core::PCWSTR, flags: u32) -> u32;
     }
-    ::core::mem::transmute(NetDfsAddFtRoot(servername.into(), rootshare.into(), ftdfsname.into(), comment.into(), ::core::mem::transmute(flags)))
+    ::core::mem::transmute(NetDfsAddFtRoot(servername.into(), rootshare.into(), ftdfsname.into(), comment.into(), flags))
 }
 #[doc = "*Required features: `\"Win32_Storage_DistributedFileSystem\"`*"]
 #[inline]
@@ -1328,7 +1328,7 @@ where
     extern "system" {
         fn NetDfsAddRootTarget(pdfspath: ::windows::core::PCWSTR, ptargetpath: ::windows::core::PCWSTR, majorversion: u32, pcomment: ::windows::core::PCWSTR, flags: u32) -> u32;
     }
-    ::core::mem::transmute(NetDfsAddRootTarget(pdfspath.into(), ptargetpath.into(), ::core::mem::transmute(majorversion), pcomment.into(), ::core::mem::transmute(flags)))
+    ::core::mem::transmute(NetDfsAddRootTarget(pdfspath.into(), ptargetpath.into(), majorversion, pcomment.into(), flags))
 }
 #[doc = "*Required features: `\"Win32_Storage_DistributedFileSystem\"`*"]
 #[inline]
@@ -1342,7 +1342,7 @@ where
     extern "system" {
         fn NetDfsAddStdRoot(servername: ::windows::core::PCWSTR, rootshare: ::windows::core::PCWSTR, comment: ::windows::core::PCWSTR, flags: u32) -> u32;
     }
-    ::core::mem::transmute(NetDfsAddStdRoot(servername.into(), rootshare.into(), comment.into(), ::core::mem::transmute(flags)))
+    ::core::mem::transmute(NetDfsAddStdRoot(servername.into(), rootshare.into(), comment.into(), flags))
 }
 #[doc = "*Required features: `\"Win32_Storage_DistributedFileSystem\"`*"]
 #[inline]
@@ -1354,7 +1354,7 @@ where
     extern "system" {
         fn NetDfsEnum(dfsname: ::windows::core::PCWSTR, level: u32, prefmaxlen: u32, buffer: *mut *mut u8, entriesread: *mut u32, resumehandle: *mut u32) -> u32;
     }
-    ::core::mem::transmute(NetDfsEnum(dfsname.into(), ::core::mem::transmute(level), ::core::mem::transmute(prefmaxlen), ::core::mem::transmute(buffer), ::core::mem::transmute(entriesread), ::core::mem::transmute(resumehandle)))
+    ::core::mem::transmute(NetDfsEnum(dfsname.into(), level, prefmaxlen, ::core::mem::transmute(buffer), ::core::mem::transmute(entriesread), ::core::mem::transmute(resumehandle)))
 }
 #[doc = "*Required features: `\"Win32_Storage_DistributedFileSystem\"`*"]
 #[inline]
@@ -1368,7 +1368,7 @@ where
     extern "system" {
         fn NetDfsGetClientInfo(dfsentrypath: ::windows::core::PCWSTR, servername: ::windows::core::PCWSTR, sharename: ::windows::core::PCWSTR, level: u32, buffer: *mut *mut u8) -> u32;
     }
-    ::core::mem::transmute(NetDfsGetClientInfo(dfsentrypath.into(), servername.into(), sharename.into(), ::core::mem::transmute(level), ::core::mem::transmute(buffer)))
+    ::core::mem::transmute(NetDfsGetClientInfo(dfsentrypath.into(), servername.into(), sharename.into(), level, ::core::mem::transmute(buffer)))
 }
 #[doc = "*Required features: `\"Win32_Storage_DistributedFileSystem\"`, `\"Win32_Security\"`*"]
 #[cfg(feature = "Win32_Security")]
@@ -1381,7 +1381,7 @@ where
     extern "system" {
         fn NetDfsGetFtContainerSecurity(domainname: ::windows::core::PCWSTR, securityinformation: u32, ppsecuritydescriptor: *mut super::super::Security::PSECURITY_DESCRIPTOR, lpcbsecuritydescriptor: *mut u32) -> u32;
     }
-    ::core::mem::transmute(NetDfsGetFtContainerSecurity(domainname.into(), ::core::mem::transmute(securityinformation), ::core::mem::transmute(ppsecuritydescriptor), ::core::mem::transmute(lpcbsecuritydescriptor)))
+    ::core::mem::transmute(NetDfsGetFtContainerSecurity(domainname.into(), securityinformation, ::core::mem::transmute(ppsecuritydescriptor), ::core::mem::transmute(lpcbsecuritydescriptor)))
 }
 #[doc = "*Required features: `\"Win32_Storage_DistributedFileSystem\"`*"]
 #[inline]
@@ -1395,7 +1395,7 @@ where
     extern "system" {
         fn NetDfsGetInfo(dfsentrypath: ::windows::core::PCWSTR, servername: ::windows::core::PCWSTR, sharename: ::windows::core::PCWSTR, level: u32, buffer: *mut *mut u8) -> u32;
     }
-    ::core::mem::transmute(NetDfsGetInfo(dfsentrypath.into(), servername.into(), sharename.into(), ::core::mem::transmute(level), ::core::mem::transmute(buffer)))
+    ::core::mem::transmute(NetDfsGetInfo(dfsentrypath.into(), servername.into(), sharename.into(), level, ::core::mem::transmute(buffer)))
 }
 #[doc = "*Required features: `\"Win32_Storage_DistributedFileSystem\"`, `\"Win32_Security\"`*"]
 #[cfg(feature = "Win32_Security")]
@@ -1408,7 +1408,7 @@ where
     extern "system" {
         fn NetDfsGetSecurity(dfsentrypath: ::windows::core::PCWSTR, securityinformation: u32, ppsecuritydescriptor: *mut super::super::Security::PSECURITY_DESCRIPTOR, lpcbsecuritydescriptor: *mut u32) -> u32;
     }
-    ::core::mem::transmute(NetDfsGetSecurity(dfsentrypath.into(), ::core::mem::transmute(securityinformation), ::core::mem::transmute(ppsecuritydescriptor), ::core::mem::transmute(lpcbsecuritydescriptor)))
+    ::core::mem::transmute(NetDfsGetSecurity(dfsentrypath.into(), securityinformation, ::core::mem::transmute(ppsecuritydescriptor), ::core::mem::transmute(lpcbsecuritydescriptor)))
 }
 #[doc = "*Required features: `\"Win32_Storage_DistributedFileSystem\"`, `\"Win32_Security\"`*"]
 #[cfg(feature = "Win32_Security")]
@@ -1421,7 +1421,7 @@ where
     extern "system" {
         fn NetDfsGetStdContainerSecurity(machinename: ::windows::core::PCWSTR, securityinformation: u32, ppsecuritydescriptor: *mut super::super::Security::PSECURITY_DESCRIPTOR, lpcbsecuritydescriptor: *mut u32) -> u32;
     }
-    ::core::mem::transmute(NetDfsGetStdContainerSecurity(machinename.into(), ::core::mem::transmute(securityinformation), ::core::mem::transmute(ppsecuritydescriptor), ::core::mem::transmute(lpcbsecuritydescriptor)))
+    ::core::mem::transmute(NetDfsGetStdContainerSecurity(machinename.into(), securityinformation, ::core::mem::transmute(ppsecuritydescriptor), ::core::mem::transmute(lpcbsecuritydescriptor)))
 }
 #[doc = "*Required features: `\"Win32_Storage_DistributedFileSystem\"`*"]
 #[inline]
@@ -1433,7 +1433,7 @@ where
     extern "system" {
         fn NetDfsGetSupportedNamespaceVersion(origin: DFS_NAMESPACE_VERSION_ORIGIN, pname: ::windows::core::PCWSTR, ppversioninfo: *mut *mut DFS_SUPPORTED_NAMESPACE_VERSION_INFO) -> u32;
     }
-    ::core::mem::transmute(NetDfsGetSupportedNamespaceVersion(::core::mem::transmute(origin), pname.into(), ::core::mem::transmute(ppversioninfo)))
+    ::core::mem::transmute(NetDfsGetSupportedNamespaceVersion(origin, pname.into(), ::core::mem::transmute(ppversioninfo)))
 }
 #[doc = "*Required features: `\"Win32_Storage_DistributedFileSystem\"`*"]
 #[inline]
@@ -1446,7 +1446,7 @@ where
     extern "system" {
         fn NetDfsMove(olddfsentrypath: ::windows::core::PCWSTR, newdfsentrypath: ::windows::core::PCWSTR, flags: u32) -> u32;
     }
-    ::core::mem::transmute(NetDfsMove(olddfsentrypath.into(), newdfsentrypath.into(), ::core::mem::transmute(flags)))
+    ::core::mem::transmute(NetDfsMove(olddfsentrypath.into(), newdfsentrypath.into(), flags))
 }
 #[doc = "*Required features: `\"Win32_Storage_DistributedFileSystem\"`*"]
 #[inline]
@@ -1474,7 +1474,7 @@ where
     extern "system" {
         fn NetDfsRemoveFtRoot(servername: ::windows::core::PCWSTR, rootshare: ::windows::core::PCWSTR, ftdfsname: ::windows::core::PCWSTR, flags: u32) -> u32;
     }
-    ::core::mem::transmute(NetDfsRemoveFtRoot(servername.into(), rootshare.into(), ftdfsname.into(), ::core::mem::transmute(flags)))
+    ::core::mem::transmute(NetDfsRemoveFtRoot(servername.into(), rootshare.into(), ftdfsname.into(), flags))
 }
 #[doc = "*Required features: `\"Win32_Storage_DistributedFileSystem\"`*"]
 #[inline]
@@ -1489,7 +1489,7 @@ where
     extern "system" {
         fn NetDfsRemoveFtRootForced(domainname: ::windows::core::PCWSTR, servername: ::windows::core::PCWSTR, rootshare: ::windows::core::PCWSTR, ftdfsname: ::windows::core::PCWSTR, flags: u32) -> u32;
     }
-    ::core::mem::transmute(NetDfsRemoveFtRootForced(domainname.into(), servername.into(), rootshare.into(), ftdfsname.into(), ::core::mem::transmute(flags)))
+    ::core::mem::transmute(NetDfsRemoveFtRootForced(domainname.into(), servername.into(), rootshare.into(), ftdfsname.into(), flags))
 }
 #[doc = "*Required features: `\"Win32_Storage_DistributedFileSystem\"`*"]
 #[inline]
@@ -1502,7 +1502,7 @@ where
     extern "system" {
         fn NetDfsRemoveRootTarget(pdfspath: ::windows::core::PCWSTR, ptargetpath: ::windows::core::PCWSTR, flags: u32) -> u32;
     }
-    ::core::mem::transmute(NetDfsRemoveRootTarget(pdfspath.into(), ptargetpath.into(), ::core::mem::transmute(flags)))
+    ::core::mem::transmute(NetDfsRemoveRootTarget(pdfspath.into(), ptargetpath.into(), flags))
 }
 #[doc = "*Required features: `\"Win32_Storage_DistributedFileSystem\"`*"]
 #[inline]
@@ -1515,7 +1515,7 @@ where
     extern "system" {
         fn NetDfsRemoveStdRoot(servername: ::windows::core::PCWSTR, rootshare: ::windows::core::PCWSTR, flags: u32) -> u32;
     }
-    ::core::mem::transmute(NetDfsRemoveStdRoot(servername.into(), rootshare.into(), ::core::mem::transmute(flags)))
+    ::core::mem::transmute(NetDfsRemoveStdRoot(servername.into(), rootshare.into(), flags))
 }
 #[doc = "*Required features: `\"Win32_Storage_DistributedFileSystem\"`*"]
 #[inline]
@@ -1529,7 +1529,7 @@ where
     extern "system" {
         fn NetDfsSetClientInfo(dfsentrypath: ::windows::core::PCWSTR, servername: ::windows::core::PCWSTR, sharename: ::windows::core::PCWSTR, level: u32, buffer: *const u8) -> u32;
     }
-    ::core::mem::transmute(NetDfsSetClientInfo(dfsentrypath.into(), servername.into(), sharename.into(), ::core::mem::transmute(level), ::core::mem::transmute(buffer)))
+    ::core::mem::transmute(NetDfsSetClientInfo(dfsentrypath.into(), servername.into(), sharename.into(), level, ::core::mem::transmute(buffer)))
 }
 #[doc = "*Required features: `\"Win32_Storage_DistributedFileSystem\"`, `\"Win32_Security\"`*"]
 #[cfg(feature = "Win32_Security")]
@@ -1543,7 +1543,7 @@ where
     extern "system" {
         fn NetDfsSetFtContainerSecurity(domainname: ::windows::core::PCWSTR, securityinformation: u32, psecuritydescriptor: super::super::Security::PSECURITY_DESCRIPTOR) -> u32;
     }
-    ::core::mem::transmute(NetDfsSetFtContainerSecurity(domainname.into(), ::core::mem::transmute(securityinformation), psecuritydescriptor.into()))
+    ::core::mem::transmute(NetDfsSetFtContainerSecurity(domainname.into(), securityinformation, psecuritydescriptor.into()))
 }
 #[doc = "*Required features: `\"Win32_Storage_DistributedFileSystem\"`*"]
 #[inline]
@@ -1557,7 +1557,7 @@ where
     extern "system" {
         fn NetDfsSetInfo(dfsentrypath: ::windows::core::PCWSTR, servername: ::windows::core::PCWSTR, sharename: ::windows::core::PCWSTR, level: u32, buffer: *const u8) -> u32;
     }
-    ::core::mem::transmute(NetDfsSetInfo(dfsentrypath.into(), servername.into(), sharename.into(), ::core::mem::transmute(level), ::core::mem::transmute(buffer)))
+    ::core::mem::transmute(NetDfsSetInfo(dfsentrypath.into(), servername.into(), sharename.into(), level, ::core::mem::transmute(buffer)))
 }
 #[doc = "*Required features: `\"Win32_Storage_DistributedFileSystem\"`, `\"Win32_Security\"`*"]
 #[cfg(feature = "Win32_Security")]
@@ -1571,7 +1571,7 @@ where
     extern "system" {
         fn NetDfsSetSecurity(dfsentrypath: ::windows::core::PCWSTR, securityinformation: u32, psecuritydescriptor: super::super::Security::PSECURITY_DESCRIPTOR) -> u32;
     }
-    ::core::mem::transmute(NetDfsSetSecurity(dfsentrypath.into(), ::core::mem::transmute(securityinformation), psecuritydescriptor.into()))
+    ::core::mem::transmute(NetDfsSetSecurity(dfsentrypath.into(), securityinformation, psecuritydescriptor.into()))
 }
 #[doc = "*Required features: `\"Win32_Storage_DistributedFileSystem\"`, `\"Win32_Security\"`*"]
 #[cfg(feature = "Win32_Security")]
@@ -1585,7 +1585,7 @@ where
     extern "system" {
         fn NetDfsSetStdContainerSecurity(machinename: ::windows::core::PCWSTR, securityinformation: u32, psecuritydescriptor: super::super::Security::PSECURITY_DESCRIPTOR) -> u32;
     }
-    ::core::mem::transmute(NetDfsSetStdContainerSecurity(machinename.into(), ::core::mem::transmute(securityinformation), psecuritydescriptor.into()))
+    ::core::mem::transmute(NetDfsSetStdContainerSecurity(machinename.into(), securityinformation, psecuritydescriptor.into()))
 }
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

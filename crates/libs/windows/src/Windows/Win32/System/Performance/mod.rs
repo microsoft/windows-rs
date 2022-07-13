@@ -780,7 +780,7 @@ impl IAlertDataCollector {
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn SetFileNameFormat(&self, format: AutoPathFormat) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetFileNameFormat)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(format)).ok()
+        (::windows::core::Interface::vtable(self).base__.SetFileNameFormat)(::windows::core::Interface::as_raw(self), format).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -817,7 +817,7 @@ impl IAlertDataCollector {
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn SetLogAppend(&self, append: i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetLogAppend)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(append)).ok()
+        (::windows::core::Interface::vtable(self).base__.SetLogAppend)(::windows::core::Interface::as_raw(self), append).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn LogCircular(&self) -> ::windows::core::Result<i16> {
@@ -826,7 +826,7 @@ impl IAlertDataCollector {
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn SetLogCircular(&self, circular: i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetLogCircular)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(circular)).ok()
+        (::windows::core::Interface::vtable(self).base__.SetLogCircular)(::windows::core::Interface::as_raw(self), circular).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn LogOverwrite(&self) -> ::windows::core::Result<i16> {
@@ -835,7 +835,7 @@ impl IAlertDataCollector {
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn SetLogOverwrite(&self, overwrite: i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetLogOverwrite)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(overwrite)).ok()
+        (::windows::core::Interface::vtable(self).base__.SetLogOverwrite)(::windows::core::Interface::as_raw(self), overwrite).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -864,7 +864,7 @@ impl IAlertDataCollector {
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn SetIndex(&self, index: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetIndex)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(index)).ok()
+        (::windows::core::Interface::vtable(self).base__.SetIndex)(::windows::core::Interface::as_raw(self), index).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -885,7 +885,7 @@ impl IAlertDataCollector {
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CreateOutputLocation(&self, latest: i16) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::Foundation::BSTR>>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.CreateOutputLocation)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(latest), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).base__.CreateOutputLocation)(::windows::core::Interface::as_raw(self), latest, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -905,7 +905,7 @@ impl IAlertDataCollector {
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn SetEventLog(&self, log: i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetEventLog)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(log)).ok()
+        (::windows::core::Interface::vtable(self).SetEventLog)(::windows::core::Interface::as_raw(self), log).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn SampleInterval(&self) -> ::windows::core::Result<u32> {
@@ -914,7 +914,7 @@ impl IAlertDataCollector {
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn SetSampleInterval(&self, interval: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetSampleInterval)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(interval)).ok()
+        (::windows::core::Interface::vtable(self).SetSampleInterval)(::windows::core::Interface::as_raw(self), interval).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -937,7 +937,7 @@ impl IAlertDataCollector {
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn SetTaskRunAsSelf(&self, runasself: i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetTaskRunAsSelf)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(runasself)).ok()
+        (::windows::core::Interface::vtable(self).SetTaskRunAsSelf)(::windows::core::Interface::as_raw(self), runasself).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -1159,7 +1159,7 @@ impl IApiTracingDataCollector {
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn SetFileNameFormat(&self, format: AutoPathFormat) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetFileNameFormat)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(format)).ok()
+        (::windows::core::Interface::vtable(self).base__.SetFileNameFormat)(::windows::core::Interface::as_raw(self), format).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -1196,7 +1196,7 @@ impl IApiTracingDataCollector {
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn SetLogAppend(&self, append: i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetLogAppend)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(append)).ok()
+        (::windows::core::Interface::vtable(self).base__.SetLogAppend)(::windows::core::Interface::as_raw(self), append).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn LogCircular(&self) -> ::windows::core::Result<i16> {
@@ -1205,7 +1205,7 @@ impl IApiTracingDataCollector {
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn SetLogCircular(&self, circular: i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetLogCircular)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(circular)).ok()
+        (::windows::core::Interface::vtable(self).base__.SetLogCircular)(::windows::core::Interface::as_raw(self), circular).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn LogOverwrite(&self) -> ::windows::core::Result<i16> {
@@ -1214,7 +1214,7 @@ impl IApiTracingDataCollector {
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn SetLogOverwrite(&self, overwrite: i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetLogOverwrite)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(overwrite)).ok()
+        (::windows::core::Interface::vtable(self).base__.SetLogOverwrite)(::windows::core::Interface::as_raw(self), overwrite).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -1243,7 +1243,7 @@ impl IApiTracingDataCollector {
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn SetIndex(&self, index: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetIndex)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(index)).ok()
+        (::windows::core::Interface::vtable(self).base__.SetIndex)(::windows::core::Interface::as_raw(self), index).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -1264,7 +1264,7 @@ impl IApiTracingDataCollector {
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CreateOutputLocation(&self, latest: i16) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::Foundation::BSTR>>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.CreateOutputLocation)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(latest), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).base__.CreateOutputLocation)(::windows::core::Interface::as_raw(self), latest, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn LogApiNamesOnly(&self) -> ::windows::core::Result<i16> {
@@ -1273,7 +1273,7 @@ impl IApiTracingDataCollector {
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn SetLogApiNamesOnly(&self, logapinames: i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetLogApiNamesOnly)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(logapinames)).ok()
+        (::windows::core::Interface::vtable(self).SetLogApiNamesOnly)(::windows::core::Interface::as_raw(self), logapinames).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn LogApisRecursively(&self) -> ::windows::core::Result<i16> {
@@ -1282,7 +1282,7 @@ impl IApiTracingDataCollector {
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn SetLogApisRecursively(&self, logrecursively: i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetLogApisRecursively)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(logrecursively)).ok()
+        (::windows::core::Interface::vtable(self).SetLogApisRecursively)(::windows::core::Interface::as_raw(self), logrecursively).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -1521,7 +1521,7 @@ impl IConfigurationDataCollector {
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn SetFileNameFormat(&self, format: AutoPathFormat) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetFileNameFormat)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(format)).ok()
+        (::windows::core::Interface::vtable(self).base__.SetFileNameFormat)(::windows::core::Interface::as_raw(self), format).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -1558,7 +1558,7 @@ impl IConfigurationDataCollector {
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn SetLogAppend(&self, append: i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetLogAppend)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(append)).ok()
+        (::windows::core::Interface::vtable(self).base__.SetLogAppend)(::windows::core::Interface::as_raw(self), append).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn LogCircular(&self) -> ::windows::core::Result<i16> {
@@ -1567,7 +1567,7 @@ impl IConfigurationDataCollector {
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn SetLogCircular(&self, circular: i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetLogCircular)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(circular)).ok()
+        (::windows::core::Interface::vtable(self).base__.SetLogCircular)(::windows::core::Interface::as_raw(self), circular).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn LogOverwrite(&self) -> ::windows::core::Result<i16> {
@@ -1576,7 +1576,7 @@ impl IConfigurationDataCollector {
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn SetLogOverwrite(&self, overwrite: i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetLogOverwrite)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(overwrite)).ok()
+        (::windows::core::Interface::vtable(self).base__.SetLogOverwrite)(::windows::core::Interface::as_raw(self), overwrite).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -1605,7 +1605,7 @@ impl IConfigurationDataCollector {
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn SetIndex(&self, index: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetIndex)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(index)).ok()
+        (::windows::core::Interface::vtable(self).base__.SetIndex)(::windows::core::Interface::as_raw(self), index).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -1626,7 +1626,7 @@ impl IConfigurationDataCollector {
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CreateOutputLocation(&self, latest: i16) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::Foundation::BSTR>>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.CreateOutputLocation)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(latest), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).base__.CreateOutputLocation)(::windows::core::Interface::as_raw(self), latest, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn FileMaxCount(&self) -> ::windows::core::Result<u32> {
@@ -1635,7 +1635,7 @@ impl IConfigurationDataCollector {
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn SetFileMaxCount(&self, count: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetFileMaxCount)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(count)).ok()
+        (::windows::core::Interface::vtable(self).SetFileMaxCount)(::windows::core::Interface::as_raw(self), count).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn FileMaxRecursiveDepth(&self) -> ::windows::core::Result<u32> {
@@ -1644,7 +1644,7 @@ impl IConfigurationDataCollector {
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn SetFileMaxRecursiveDepth(&self, depth: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetFileMaxRecursiveDepth)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(depth)).ok()
+        (::windows::core::Interface::vtable(self).SetFileMaxRecursiveDepth)(::windows::core::Interface::as_raw(self), depth).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn FileMaxTotalSize(&self) -> ::windows::core::Result<u32> {
@@ -1653,7 +1653,7 @@ impl IConfigurationDataCollector {
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn SetFileMaxTotalSize(&self, size: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetFileMaxTotalSize)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(size)).ok()
+        (::windows::core::Interface::vtable(self).SetFileMaxTotalSize)(::windows::core::Interface::as_raw(self), size).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -1684,7 +1684,7 @@ impl IConfigurationDataCollector {
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn SetQueryNetworkAdapters(&self, network: i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetQueryNetworkAdapters)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(network)).ok()
+        (::windows::core::Interface::vtable(self).SetQueryNetworkAdapters)(::windows::core::Interface::as_raw(self), network).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -1704,7 +1704,7 @@ impl IConfigurationDataCollector {
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn SetRegistryMaxRecursiveDepth(&self, depth: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetRegistryMaxRecursiveDepth)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(depth)).ok()
+        (::windows::core::Interface::vtable(self).SetRegistryMaxRecursiveDepth)(::windows::core::Interface::as_raw(self), depth).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -1859,7 +1859,7 @@ impl ICounterItem {
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn SetColor(&self, color: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetColor)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(color)).ok()
+        (::windows::core::Interface::vtable(self).SetColor)(::windows::core::Interface::as_raw(self), color).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn Color(&self) -> ::windows::core::Result<u32> {
@@ -1868,7 +1868,7 @@ impl ICounterItem {
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn SetWidth(&self, iwidth: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetWidth)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(iwidth)).ok()
+        (::windows::core::Interface::vtable(self).SetWidth)(::windows::core::Interface::as_raw(self), iwidth).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn Width(&self) -> ::windows::core::Result<i32> {
@@ -1877,7 +1877,7 @@ impl ICounterItem {
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn SetLineStyle(&self, ilinestyle: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetLineStyle)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(ilinestyle)).ok()
+        (::windows::core::Interface::vtable(self).SetLineStyle)(::windows::core::Interface::as_raw(self), ilinestyle).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn LineStyle(&self) -> ::windows::core::Result<i32> {
@@ -1886,7 +1886,7 @@ impl ICounterItem {
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn SetScaleFactor(&self, iscale: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetScaleFactor)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(iscale)).ok()
+        (::windows::core::Interface::vtable(self).SetScaleFactor)(::windows::core::Interface::as_raw(self), iscale).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn ScaleFactor(&self) -> ::windows::core::Result<i32> {
@@ -1974,7 +1974,7 @@ impl ICounterItem2 {
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn SetColor(&self, color: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetColor)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(color)).ok()
+        (::windows::core::Interface::vtable(self).base__.SetColor)(::windows::core::Interface::as_raw(self), color).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn Color(&self) -> ::windows::core::Result<u32> {
@@ -1983,7 +1983,7 @@ impl ICounterItem2 {
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn SetWidth(&self, iwidth: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetWidth)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(iwidth)).ok()
+        (::windows::core::Interface::vtable(self).base__.SetWidth)(::windows::core::Interface::as_raw(self), iwidth).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn Width(&self) -> ::windows::core::Result<i32> {
@@ -1992,7 +1992,7 @@ impl ICounterItem2 {
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn SetLineStyle(&self, ilinestyle: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetLineStyle)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(ilinestyle)).ok()
+        (::windows::core::Interface::vtable(self).base__.SetLineStyle)(::windows::core::Interface::as_raw(self), ilinestyle).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn LineStyle(&self) -> ::windows::core::Result<i32> {
@@ -2001,7 +2001,7 @@ impl ICounterItem2 {
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn SetScaleFactor(&self, iscale: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetScaleFactor)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(iscale)).ok()
+        (::windows::core::Interface::vtable(self).base__.SetScaleFactor)(::windows::core::Interface::as_raw(self), iscale).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn ScaleFactor(&self) -> ::windows::core::Result<i32> {
@@ -2024,7 +2024,7 @@ impl ICounterItem2 {
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn SetSelected(&self, bstate: i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetSelected)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(bstate)).ok()
+        (::windows::core::Interface::vtable(self).SetSelected)(::windows::core::Interface::as_raw(self), bstate).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn Selected(&self) -> ::windows::core::Result<i16> {
@@ -2033,7 +2033,7 @@ impl ICounterItem2 {
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn SetVisible(&self, bstate: i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetVisible)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(bstate)).ok()
+        (::windows::core::Interface::vtable(self).SetVisible)(::windows::core::Interface::as_raw(self), bstate).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn Visible(&self) -> ::windows::core::Result<i16> {
@@ -2044,7 +2044,7 @@ impl ICounterItem2 {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn GetDataAt(&self, iindex: i32, iwhich: SysmonDataType) -> ::windows::core::Result<super::Com::VARIANT> {
         let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::Com::VARIANT>>::zeroed();
-        (::windows::core::Interface::vtable(self).GetDataAt)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(iindex), ::core::mem::transmute(iwhich), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::Com::VARIANT>(result__)
+        (::windows::core::Interface::vtable(self).GetDataAt)(::windows::core::Interface::as_raw(self), iindex, iwhich, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::Com::VARIANT>(result__)
     }
 }
 impl ::core::convert::From<ICounterItem2> for ::windows::core::IUnknown {
@@ -2280,7 +2280,7 @@ impl IDataCollector {
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn SetFileNameFormat(&self, format: AutoPathFormat) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetFileNameFormat)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(format)).ok()
+        (::windows::core::Interface::vtable(self).SetFileNameFormat)(::windows::core::Interface::as_raw(self), format).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -2317,7 +2317,7 @@ impl IDataCollector {
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn SetLogAppend(&self, append: i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetLogAppend)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(append)).ok()
+        (::windows::core::Interface::vtable(self).SetLogAppend)(::windows::core::Interface::as_raw(self), append).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn LogCircular(&self) -> ::windows::core::Result<i16> {
@@ -2326,7 +2326,7 @@ impl IDataCollector {
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn SetLogCircular(&self, circular: i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetLogCircular)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(circular)).ok()
+        (::windows::core::Interface::vtable(self).SetLogCircular)(::windows::core::Interface::as_raw(self), circular).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn LogOverwrite(&self) -> ::windows::core::Result<i16> {
@@ -2335,7 +2335,7 @@ impl IDataCollector {
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn SetLogOverwrite(&self, overwrite: i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetLogOverwrite)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(overwrite)).ok()
+        (::windows::core::Interface::vtable(self).SetLogOverwrite)(::windows::core::Interface::as_raw(self), overwrite).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -2364,7 +2364,7 @@ impl IDataCollector {
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn SetIndex(&self, index: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetIndex)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(index)).ok()
+        (::windows::core::Interface::vtable(self).SetIndex)(::windows::core::Interface::as_raw(self), index).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -2385,7 +2385,7 @@ impl IDataCollector {
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CreateOutputLocation(&self, latest: i16) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::Foundation::BSTR>>::zeroed();
-        (::windows::core::Interface::vtable(self).CreateOutputLocation)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(latest), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).CreateOutputLocation)(::windows::core::Interface::as_raw(self), latest, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BSTR>(result__)
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -2587,7 +2587,7 @@ impl IDataCollectorCollection {
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CreateDataCollector(&self, r#type: DataCollectorType) -> ::windows::core::Result<IDataCollector> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).CreateDataCollector)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(r#type), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IDataCollector>(result__)
+        (::windows::core::Interface::vtable(self).CreateDataCollector)(::windows::core::Interface::as_raw(self), r#type, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IDataCollector>(result__)
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -2703,7 +2703,7 @@ impl IDataCollectorSet {
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn SetDuration(&self, seconds: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetDuration)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(seconds)).ok()
+        (::windows::core::Interface::vtable(self).SetDuration)(::windows::core::Interface::as_raw(self), seconds).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -2803,7 +2803,7 @@ impl IDataCollectorSet {
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn SetSegment(&self, segment: i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetSegment)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(segment)).ok()
+        (::windows::core::Interface::vtable(self).SetSegment)(::windows::core::Interface::as_raw(self), segment).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn SegmentMaxDuration(&self) -> ::windows::core::Result<u32> {
@@ -2812,7 +2812,7 @@ impl IDataCollectorSet {
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn SetSegmentMaxDuration(&self, seconds: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetSegmentMaxDuration)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(seconds)).ok()
+        (::windows::core::Interface::vtable(self).SetSegmentMaxDuration)(::windows::core::Interface::as_raw(self), seconds).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn SegmentMaxSize(&self) -> ::windows::core::Result<u32> {
@@ -2821,7 +2821,7 @@ impl IDataCollectorSet {
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn SetSegmentMaxSize(&self, size: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetSegmentMaxSize)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(size)).ok()
+        (::windows::core::Interface::vtable(self).SetSegmentMaxSize)(::windows::core::Interface::as_raw(self), size).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn SerialNumber(&self) -> ::windows::core::Result<u32> {
@@ -2830,7 +2830,7 @@ impl IDataCollectorSet {
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn SetSerialNumber(&self, index: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetSerialNumber)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(index)).ok()
+        (::windows::core::Interface::vtable(self).SetSerialNumber)(::windows::core::Interface::as_raw(self), index).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -2864,7 +2864,7 @@ impl IDataCollectorSet {
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn SetSubdirectoryFormat(&self, format: AutoPathFormat) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetSubdirectoryFormat)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(format)).ok()
+        (::windows::core::Interface::vtable(self).SetSubdirectoryFormat)(::windows::core::Interface::as_raw(self), format).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -2901,7 +2901,7 @@ impl IDataCollectorSet {
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn SetTaskRunAsSelf(&self, runasself: i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetTaskRunAsSelf)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(runasself)).ok()
+        (::windows::core::Interface::vtable(self).SetTaskRunAsSelf)(::windows::core::Interface::as_raw(self), runasself).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -2944,7 +2944,7 @@ impl IDataCollectorSet {
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn SetSchedulesEnabled(&self, enabled: i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetSchedulesEnabled)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(enabled)).ok()
+        (::windows::core::Interface::vtable(self).SetSchedulesEnabled)(::windows::core::Interface::as_raw(self), enabled).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -2979,7 +2979,7 @@ impl IDataCollectorSet {
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn SetStopOnCompletion(&self, stop: i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetStopOnCompletion)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(stop)).ok()
+        (::windows::core::Interface::vtable(self).SetStopOnCompletion)(::windows::core::Interface::as_raw(self), stop).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -3013,7 +3013,7 @@ impl IDataCollectorSet {
         P1: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).Commit)(::windows::core::Interface::as_raw(self), name.into().abi(), server.into().abi(), ::core::mem::transmute(mode), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IValueMap>(result__)
+        (::windows::core::Interface::vtable(self).Commit)(::windows::core::Interface::as_raw(self), name.into().abi(), server.into().abi(), mode, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IValueMap>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn Delete(&self) -> ::windows::core::Result<()> {
@@ -3021,11 +3021,11 @@ impl IDataCollectorSet {
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn Start(&self, synchronous: i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Start)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(synchronous)).ok()
+        (::windows::core::Interface::vtable(self).Start)(::windows::core::Interface::as_raw(self), synchronous).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn Stop(&self, synchronous: i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Stop)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(synchronous)).ok()
+        (::windows::core::Interface::vtable(self).Stop)(::windows::core::Interface::as_raw(self), synchronous).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
@@ -3462,7 +3462,7 @@ impl IDataManager {
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn SetEnabled(&self, fenabled: i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetEnabled)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(fenabled)).ok()
+        (::windows::core::Interface::vtable(self).SetEnabled)(::windows::core::Interface::as_raw(self), fenabled).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn CheckBeforeRunning(&self) -> ::windows::core::Result<i16> {
@@ -3471,7 +3471,7 @@ impl IDataManager {
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn SetCheckBeforeRunning(&self, fcheck: i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetCheckBeforeRunning)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(fcheck)).ok()
+        (::windows::core::Interface::vtable(self).SetCheckBeforeRunning)(::windows::core::Interface::as_raw(self), fcheck).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn MinFreeDisk(&self) -> ::windows::core::Result<u32> {
@@ -3480,7 +3480,7 @@ impl IDataManager {
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn SetMinFreeDisk(&self, minfreedisk: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetMinFreeDisk)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(minfreedisk)).ok()
+        (::windows::core::Interface::vtable(self).SetMinFreeDisk)(::windows::core::Interface::as_raw(self), minfreedisk).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn MaxSize(&self) -> ::windows::core::Result<u32> {
@@ -3489,7 +3489,7 @@ impl IDataManager {
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn SetMaxSize(&self, ulmaxsize: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetMaxSize)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(ulmaxsize)).ok()
+        (::windows::core::Interface::vtable(self).SetMaxSize)(::windows::core::Interface::as_raw(self), ulmaxsize).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn MaxFolderCount(&self) -> ::windows::core::Result<u32> {
@@ -3498,7 +3498,7 @@ impl IDataManager {
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn SetMaxFolderCount(&self, ulmaxfoldercount: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetMaxFolderCount)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(ulmaxfoldercount)).ok()
+        (::windows::core::Interface::vtable(self).SetMaxFolderCount)(::windows::core::Interface::as_raw(self), ulmaxfoldercount).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn ResourcePolicy(&self) -> ::windows::core::Result<ResourcePolicy> {
@@ -3507,7 +3507,7 @@ impl IDataManager {
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn SetResourcePolicy(&self, policy: ResourcePolicy) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetResourcePolicy)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(policy)).ok()
+        (::windows::core::Interface::vtable(self).SetResourcePolicy)(::windows::core::Interface::as_raw(self), policy).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -3592,7 +3592,7 @@ impl IDataManager {
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).Run)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(steps), bstrfolder.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IValueMap>(result__)
+        (::windows::core::Interface::vtable(self).Run)(::windows::core::Interface::as_raw(self), steps, bstrfolder.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IValueMap>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -3748,7 +3748,7 @@ impl IFolderAction {
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn SetAge(&self, ulage: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetAge)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(ulage)).ok()
+        (::windows::core::Interface::vtable(self).SetAge)(::windows::core::Interface::as_raw(self), ulage).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn Size(&self) -> ::windows::core::Result<u32> {
@@ -3757,7 +3757,7 @@ impl IFolderAction {
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn SetSize(&self, ulage: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetSize)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(ulage)).ok()
+        (::windows::core::Interface::vtable(self).SetSize)(::windows::core::Interface::as_raw(self), ulage).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn Actions(&self) -> ::windows::core::Result<FolderActionSteps> {
@@ -3766,7 +3766,7 @@ impl IFolderAction {
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn SetActions(&self, steps: FolderActionSteps) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetActions)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(steps)).ok()
+        (::windows::core::Interface::vtable(self).SetActions)(::windows::core::Interface::as_raw(self), steps).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -4239,7 +4239,7 @@ impl IPerformanceCounterDataCollector {
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn SetFileNameFormat(&self, format: AutoPathFormat) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetFileNameFormat)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(format)).ok()
+        (::windows::core::Interface::vtable(self).base__.SetFileNameFormat)(::windows::core::Interface::as_raw(self), format).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -4276,7 +4276,7 @@ impl IPerformanceCounterDataCollector {
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn SetLogAppend(&self, append: i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetLogAppend)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(append)).ok()
+        (::windows::core::Interface::vtable(self).base__.SetLogAppend)(::windows::core::Interface::as_raw(self), append).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn LogCircular(&self) -> ::windows::core::Result<i16> {
@@ -4285,7 +4285,7 @@ impl IPerformanceCounterDataCollector {
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn SetLogCircular(&self, circular: i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetLogCircular)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(circular)).ok()
+        (::windows::core::Interface::vtable(self).base__.SetLogCircular)(::windows::core::Interface::as_raw(self), circular).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn LogOverwrite(&self) -> ::windows::core::Result<i16> {
@@ -4294,7 +4294,7 @@ impl IPerformanceCounterDataCollector {
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn SetLogOverwrite(&self, overwrite: i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetLogOverwrite)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(overwrite)).ok()
+        (::windows::core::Interface::vtable(self).base__.SetLogOverwrite)(::windows::core::Interface::as_raw(self), overwrite).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -4323,7 +4323,7 @@ impl IPerformanceCounterDataCollector {
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn SetIndex(&self, index: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetIndex)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(index)).ok()
+        (::windows::core::Interface::vtable(self).base__.SetIndex)(::windows::core::Interface::as_raw(self), index).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -4344,7 +4344,7 @@ impl IPerformanceCounterDataCollector {
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CreateOutputLocation(&self, latest: i16) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::Foundation::BSTR>>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.CreateOutputLocation)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(latest), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).base__.CreateOutputLocation)(::windows::core::Interface::as_raw(self), latest, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -4378,7 +4378,7 @@ impl IPerformanceCounterDataCollector {
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn SetLogFileFormat(&self, format: FileFormat) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetLogFileFormat)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(format)).ok()
+        (::windows::core::Interface::vtable(self).SetLogFileFormat)(::windows::core::Interface::as_raw(self), format).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn SampleInterval(&self) -> ::windows::core::Result<u32> {
@@ -4387,7 +4387,7 @@ impl IPerformanceCounterDataCollector {
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn SetSampleInterval(&self, interval: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetSampleInterval)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(interval)).ok()
+        (::windows::core::Interface::vtable(self).SetSampleInterval)(::windows::core::Interface::as_raw(self), interval).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn SegmentMaxRecords(&self) -> ::windows::core::Result<u32> {
@@ -4396,7 +4396,7 @@ impl IPerformanceCounterDataCollector {
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn SetSegmentMaxRecords(&self, records: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetSegmentMaxRecords)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(records)).ok()
+        (::windows::core::Interface::vtable(self).SetSegmentMaxRecords)(::windows::core::Interface::as_raw(self), records).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -4561,7 +4561,7 @@ impl ISchedule {
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn SetDays(&self, days: WeekDays) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetDays)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(days)).ok()
+        (::windows::core::Interface::vtable(self).SetDays)(::windows::core::Interface::as_raw(self), days).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -4818,7 +4818,7 @@ impl ISystemMonitor {
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn SetAppearance(&self, iappearance: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetAppearance)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(iappearance)).ok()
+        (::windows::core::Interface::vtable(self).SetAppearance)(::windows::core::Interface::as_raw(self), iappearance).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn BackColor(&self) -> ::windows::core::Result<u32> {
@@ -4827,7 +4827,7 @@ impl ISystemMonitor {
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn SetBackColor(&self, color: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetBackColor)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(color)).ok()
+        (::windows::core::Interface::vtable(self).SetBackColor)(::windows::core::Interface::as_raw(self), color).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn BorderStyle(&self) -> ::windows::core::Result<i32> {
@@ -4836,7 +4836,7 @@ impl ISystemMonitor {
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn SetBorderStyle(&self, iborderstyle: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetBorderStyle)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(iborderstyle)).ok()
+        (::windows::core::Interface::vtable(self).SetBorderStyle)(::windows::core::Interface::as_raw(self), iborderstyle).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn ForeColor(&self) -> ::windows::core::Result<u32> {
@@ -4845,7 +4845,7 @@ impl ISystemMonitor {
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn SetForeColor(&self, color: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetForeColor)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(color)).ok()
+        (::windows::core::Interface::vtable(self).SetForeColor)(::windows::core::Interface::as_raw(self), color).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -4869,7 +4869,7 @@ impl ISystemMonitor {
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn SetShowVerticalGrid(&self, bstate: i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetShowVerticalGrid)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(bstate)).ok()
+        (::windows::core::Interface::vtable(self).SetShowVerticalGrid)(::windows::core::Interface::as_raw(self), bstate).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn ShowVerticalGrid(&self) -> ::windows::core::Result<i16> {
@@ -4878,7 +4878,7 @@ impl ISystemMonitor {
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn SetShowHorizontalGrid(&self, bstate: i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetShowHorizontalGrid)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(bstate)).ok()
+        (::windows::core::Interface::vtable(self).SetShowHorizontalGrid)(::windows::core::Interface::as_raw(self), bstate).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn ShowHorizontalGrid(&self) -> ::windows::core::Result<i16> {
@@ -4887,7 +4887,7 @@ impl ISystemMonitor {
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn SetShowLegend(&self, bstate: i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetShowLegend)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(bstate)).ok()
+        (::windows::core::Interface::vtable(self).SetShowLegend)(::windows::core::Interface::as_raw(self), bstate).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn ShowLegend(&self) -> ::windows::core::Result<i16> {
@@ -4896,7 +4896,7 @@ impl ISystemMonitor {
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn SetShowScaleLabels(&self, bstate: i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetShowScaleLabels)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(bstate)).ok()
+        (::windows::core::Interface::vtable(self).SetShowScaleLabels)(::windows::core::Interface::as_raw(self), bstate).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn ShowScaleLabels(&self) -> ::windows::core::Result<i16> {
@@ -4905,7 +4905,7 @@ impl ISystemMonitor {
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn SetShowValueBar(&self, bstate: i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetShowValueBar)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(bstate)).ok()
+        (::windows::core::Interface::vtable(self).SetShowValueBar)(::windows::core::Interface::as_raw(self), bstate).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn ShowValueBar(&self) -> ::windows::core::Result<i16> {
@@ -4914,7 +4914,7 @@ impl ISystemMonitor {
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn SetMaximumScale(&self, ivalue: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetMaximumScale)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(ivalue)).ok()
+        (::windows::core::Interface::vtable(self).SetMaximumScale)(::windows::core::Interface::as_raw(self), ivalue).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn MaximumScale(&self) -> ::windows::core::Result<i32> {
@@ -4923,7 +4923,7 @@ impl ISystemMonitor {
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn SetMinimumScale(&self, ivalue: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetMinimumScale)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(ivalue)).ok()
+        (::windows::core::Interface::vtable(self).SetMinimumScale)(::windows::core::Interface::as_raw(self), ivalue).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn MinimumScale(&self) -> ::windows::core::Result<i32> {
@@ -4932,7 +4932,7 @@ impl ISystemMonitor {
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn SetUpdateInterval(&self, fvalue: f32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetUpdateInterval)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(fvalue)).ok()
+        (::windows::core::Interface::vtable(self).SetUpdateInterval)(::windows::core::Interface::as_raw(self), fvalue).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn UpdateInterval(&self) -> ::windows::core::Result<f32> {
@@ -4941,7 +4941,7 @@ impl ISystemMonitor {
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn SetDisplayType(&self, edisplaytype: DisplayTypeConstants) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetDisplayType)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(edisplaytype)).ok()
+        (::windows::core::Interface::vtable(self).SetDisplayType)(::windows::core::Interface::as_raw(self), edisplaytype).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn DisplayType(&self) -> ::windows::core::Result<DisplayTypeConstants> {
@@ -4950,7 +4950,7 @@ impl ISystemMonitor {
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn SetManualUpdate(&self, bstate: i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetManualUpdate)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(bstate)).ok()
+        (::windows::core::Interface::vtable(self).SetManualUpdate)(::windows::core::Interface::as_raw(self), bstate).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn ManualUpdate(&self) -> ::windows::core::Result<i16> {
@@ -5004,7 +5004,7 @@ impl ISystemMonitor {
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn Counter(&self, iindex: i32) -> ::windows::core::Result<ICounterItem> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).Counter)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(iindex), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ICounterItem>(result__)
+        (::windows::core::Interface::vtable(self).Counter)(::windows::core::Interface::as_raw(self), iindex, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ICounterItem>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -5029,7 +5029,7 @@ impl ISystemMonitor {
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn SetBackColorCtl(&self, color: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetBackColorCtl)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(color)).ok()
+        (::windows::core::Interface::vtable(self).SetBackColorCtl)(::windows::core::Interface::as_raw(self), color).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -5047,7 +5047,7 @@ impl ISystemMonitor {
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn SetLogViewStart(&self, starttime: f64) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetLogViewStart)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(starttime)).ok()
+        (::windows::core::Interface::vtable(self).SetLogViewStart)(::windows::core::Interface::as_raw(self), starttime).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn LogViewStart(&self) -> ::windows::core::Result<f64> {
@@ -5056,7 +5056,7 @@ impl ISystemMonitor {
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn SetLogViewStop(&self, stoptime: f64) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetLogViewStop)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(stoptime)).ok()
+        (::windows::core::Interface::vtable(self).SetLogViewStop)(::windows::core::Interface::as_raw(self), stoptime).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn LogViewStop(&self) -> ::windows::core::Result<f64> {
@@ -5070,7 +5070,7 @@ impl ISystemMonitor {
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn SetGridColor(&self, color: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetGridColor)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(color)).ok()
+        (::windows::core::Interface::vtable(self).SetGridColor)(::windows::core::Interface::as_raw(self), color).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn TimeBarColor(&self) -> ::windows::core::Result<u32> {
@@ -5079,7 +5079,7 @@ impl ISystemMonitor {
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn SetTimeBarColor(&self, color: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetTimeBarColor)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(color)).ok()
+        (::windows::core::Interface::vtable(self).SetTimeBarColor)(::windows::core::Interface::as_raw(self), color).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn Highlight(&self) -> ::windows::core::Result<i16> {
@@ -5088,7 +5088,7 @@ impl ISystemMonitor {
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn SetHighlight(&self, bstate: i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetHighlight)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(bstate)).ok()
+        (::windows::core::Interface::vtable(self).SetHighlight)(::windows::core::Interface::as_raw(self), bstate).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn ShowToolbar(&self) -> ::windows::core::Result<i16> {
@@ -5097,7 +5097,7 @@ impl ISystemMonitor {
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn SetShowToolbar(&self, bstate: i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetShowToolbar)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(bstate)).ok()
+        (::windows::core::Interface::vtable(self).SetShowToolbar)(::windows::core::Interface::as_raw(self), bstate).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn Paste(&self) -> ::windows::core::Result<()> {
@@ -5113,7 +5113,7 @@ impl ISystemMonitor {
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn SetReadOnly(&self, bstate: i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetReadOnly)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(bstate)).ok()
+        (::windows::core::Interface::vtable(self).SetReadOnly)(::windows::core::Interface::as_raw(self), bstate).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn ReadOnly(&self) -> ::windows::core::Result<i16> {
@@ -5122,7 +5122,7 @@ impl ISystemMonitor {
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn SetReportValueType(&self, ereportvaluetype: ReportValueTypeConstants) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetReportValueType)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(ereportvaluetype)).ok()
+        (::windows::core::Interface::vtable(self).SetReportValueType)(::windows::core::Interface::as_raw(self), ereportvaluetype).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn ReportValueType(&self) -> ::windows::core::Result<ReportValueTypeConstants> {
@@ -5131,7 +5131,7 @@ impl ISystemMonitor {
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn SetMonitorDuplicateInstances(&self, bstate: i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetMonitorDuplicateInstances)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(bstate)).ok()
+        (::windows::core::Interface::vtable(self).SetMonitorDuplicateInstances)(::windows::core::Interface::as_raw(self), bstate).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn MonitorDuplicateInstances(&self) -> ::windows::core::Result<i16> {
@@ -5140,7 +5140,7 @@ impl ISystemMonitor {
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn SetDisplayFilter(&self, ivalue: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetDisplayFilter)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(ivalue)).ok()
+        (::windows::core::Interface::vtable(self).SetDisplayFilter)(::windows::core::Interface::as_raw(self), ivalue).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn DisplayFilter(&self) -> ::windows::core::Result<i32> {
@@ -5155,7 +5155,7 @@ impl ISystemMonitor {
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn SetDataSourceType(&self, edatasourcetype: DataSourceTypeConstants) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetDataSourceType)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(edatasourcetype)).ok()
+        (::windows::core::Interface::vtable(self).SetDataSourceType)(::windows::core::Interface::as_raw(self), edatasourcetype).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn DataSourceType(&self) -> ::windows::core::Result<DataSourceTypeConstants> {
@@ -5363,7 +5363,7 @@ impl ISystemMonitor2 {
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn SetAppearance(&self, iappearance: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetAppearance)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(iappearance)).ok()
+        (::windows::core::Interface::vtable(self).base__.SetAppearance)(::windows::core::Interface::as_raw(self), iappearance).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn BackColor(&self) -> ::windows::core::Result<u32> {
@@ -5372,7 +5372,7 @@ impl ISystemMonitor2 {
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn SetBackColor(&self, color: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetBackColor)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(color)).ok()
+        (::windows::core::Interface::vtable(self).base__.SetBackColor)(::windows::core::Interface::as_raw(self), color).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn BorderStyle(&self) -> ::windows::core::Result<i32> {
@@ -5381,7 +5381,7 @@ impl ISystemMonitor2 {
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn SetBorderStyle(&self, iborderstyle: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetBorderStyle)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(iborderstyle)).ok()
+        (::windows::core::Interface::vtable(self).base__.SetBorderStyle)(::windows::core::Interface::as_raw(self), iborderstyle).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn ForeColor(&self) -> ::windows::core::Result<u32> {
@@ -5390,7 +5390,7 @@ impl ISystemMonitor2 {
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn SetForeColor(&self, color: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetForeColor)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(color)).ok()
+        (::windows::core::Interface::vtable(self).base__.SetForeColor)(::windows::core::Interface::as_raw(self), color).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -5414,7 +5414,7 @@ impl ISystemMonitor2 {
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn SetShowVerticalGrid(&self, bstate: i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetShowVerticalGrid)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(bstate)).ok()
+        (::windows::core::Interface::vtable(self).base__.SetShowVerticalGrid)(::windows::core::Interface::as_raw(self), bstate).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn ShowVerticalGrid(&self) -> ::windows::core::Result<i16> {
@@ -5423,7 +5423,7 @@ impl ISystemMonitor2 {
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn SetShowHorizontalGrid(&self, bstate: i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetShowHorizontalGrid)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(bstate)).ok()
+        (::windows::core::Interface::vtable(self).base__.SetShowHorizontalGrid)(::windows::core::Interface::as_raw(self), bstate).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn ShowHorizontalGrid(&self) -> ::windows::core::Result<i16> {
@@ -5432,7 +5432,7 @@ impl ISystemMonitor2 {
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn SetShowLegend(&self, bstate: i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetShowLegend)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(bstate)).ok()
+        (::windows::core::Interface::vtable(self).base__.SetShowLegend)(::windows::core::Interface::as_raw(self), bstate).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn ShowLegend(&self) -> ::windows::core::Result<i16> {
@@ -5441,7 +5441,7 @@ impl ISystemMonitor2 {
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn SetShowScaleLabels(&self, bstate: i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetShowScaleLabels)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(bstate)).ok()
+        (::windows::core::Interface::vtable(self).base__.SetShowScaleLabels)(::windows::core::Interface::as_raw(self), bstate).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn ShowScaleLabels(&self) -> ::windows::core::Result<i16> {
@@ -5450,7 +5450,7 @@ impl ISystemMonitor2 {
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn SetShowValueBar(&self, bstate: i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetShowValueBar)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(bstate)).ok()
+        (::windows::core::Interface::vtable(self).base__.SetShowValueBar)(::windows::core::Interface::as_raw(self), bstate).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn ShowValueBar(&self) -> ::windows::core::Result<i16> {
@@ -5459,7 +5459,7 @@ impl ISystemMonitor2 {
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn SetMaximumScale(&self, ivalue: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetMaximumScale)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(ivalue)).ok()
+        (::windows::core::Interface::vtable(self).base__.SetMaximumScale)(::windows::core::Interface::as_raw(self), ivalue).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn MaximumScale(&self) -> ::windows::core::Result<i32> {
@@ -5468,7 +5468,7 @@ impl ISystemMonitor2 {
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn SetMinimumScale(&self, ivalue: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetMinimumScale)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(ivalue)).ok()
+        (::windows::core::Interface::vtable(self).base__.SetMinimumScale)(::windows::core::Interface::as_raw(self), ivalue).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn MinimumScale(&self) -> ::windows::core::Result<i32> {
@@ -5477,7 +5477,7 @@ impl ISystemMonitor2 {
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn SetUpdateInterval(&self, fvalue: f32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetUpdateInterval)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(fvalue)).ok()
+        (::windows::core::Interface::vtable(self).base__.SetUpdateInterval)(::windows::core::Interface::as_raw(self), fvalue).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn UpdateInterval(&self) -> ::windows::core::Result<f32> {
@@ -5486,7 +5486,7 @@ impl ISystemMonitor2 {
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn SetDisplayType(&self, edisplaytype: DisplayTypeConstants) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetDisplayType)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(edisplaytype)).ok()
+        (::windows::core::Interface::vtable(self).base__.SetDisplayType)(::windows::core::Interface::as_raw(self), edisplaytype).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn DisplayType(&self) -> ::windows::core::Result<DisplayTypeConstants> {
@@ -5495,7 +5495,7 @@ impl ISystemMonitor2 {
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn SetManualUpdate(&self, bstate: i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetManualUpdate)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(bstate)).ok()
+        (::windows::core::Interface::vtable(self).base__.SetManualUpdate)(::windows::core::Interface::as_raw(self), bstate).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn ManualUpdate(&self) -> ::windows::core::Result<i16> {
@@ -5549,7 +5549,7 @@ impl ISystemMonitor2 {
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn Counter(&self, iindex: i32) -> ::windows::core::Result<ICounterItem> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.Counter)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(iindex), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ICounterItem>(result__)
+        (::windows::core::Interface::vtable(self).base__.Counter)(::windows::core::Interface::as_raw(self), iindex, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ICounterItem>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -5574,7 +5574,7 @@ impl ISystemMonitor2 {
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn SetBackColorCtl(&self, color: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetBackColorCtl)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(color)).ok()
+        (::windows::core::Interface::vtable(self).base__.SetBackColorCtl)(::windows::core::Interface::as_raw(self), color).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -5592,7 +5592,7 @@ impl ISystemMonitor2 {
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn SetLogViewStart(&self, starttime: f64) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetLogViewStart)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(starttime)).ok()
+        (::windows::core::Interface::vtable(self).base__.SetLogViewStart)(::windows::core::Interface::as_raw(self), starttime).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn LogViewStart(&self) -> ::windows::core::Result<f64> {
@@ -5601,7 +5601,7 @@ impl ISystemMonitor2 {
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn SetLogViewStop(&self, stoptime: f64) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetLogViewStop)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(stoptime)).ok()
+        (::windows::core::Interface::vtable(self).base__.SetLogViewStop)(::windows::core::Interface::as_raw(self), stoptime).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn LogViewStop(&self) -> ::windows::core::Result<f64> {
@@ -5615,7 +5615,7 @@ impl ISystemMonitor2 {
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn SetGridColor(&self, color: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetGridColor)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(color)).ok()
+        (::windows::core::Interface::vtable(self).base__.SetGridColor)(::windows::core::Interface::as_raw(self), color).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn TimeBarColor(&self) -> ::windows::core::Result<u32> {
@@ -5624,7 +5624,7 @@ impl ISystemMonitor2 {
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn SetTimeBarColor(&self, color: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetTimeBarColor)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(color)).ok()
+        (::windows::core::Interface::vtable(self).base__.SetTimeBarColor)(::windows::core::Interface::as_raw(self), color).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn Highlight(&self) -> ::windows::core::Result<i16> {
@@ -5633,7 +5633,7 @@ impl ISystemMonitor2 {
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn SetHighlight(&self, bstate: i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetHighlight)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(bstate)).ok()
+        (::windows::core::Interface::vtable(self).base__.SetHighlight)(::windows::core::Interface::as_raw(self), bstate).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn ShowToolbar(&self) -> ::windows::core::Result<i16> {
@@ -5642,7 +5642,7 @@ impl ISystemMonitor2 {
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn SetShowToolbar(&self, bstate: i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetShowToolbar)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(bstate)).ok()
+        (::windows::core::Interface::vtable(self).base__.SetShowToolbar)(::windows::core::Interface::as_raw(self), bstate).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn Paste(&self) -> ::windows::core::Result<()> {
@@ -5658,7 +5658,7 @@ impl ISystemMonitor2 {
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn SetReadOnly(&self, bstate: i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetReadOnly)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(bstate)).ok()
+        (::windows::core::Interface::vtable(self).base__.SetReadOnly)(::windows::core::Interface::as_raw(self), bstate).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn ReadOnly(&self) -> ::windows::core::Result<i16> {
@@ -5667,7 +5667,7 @@ impl ISystemMonitor2 {
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn SetReportValueType(&self, ereportvaluetype: ReportValueTypeConstants) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetReportValueType)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(ereportvaluetype)).ok()
+        (::windows::core::Interface::vtable(self).base__.SetReportValueType)(::windows::core::Interface::as_raw(self), ereportvaluetype).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn ReportValueType(&self) -> ::windows::core::Result<ReportValueTypeConstants> {
@@ -5676,7 +5676,7 @@ impl ISystemMonitor2 {
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn SetMonitorDuplicateInstances(&self, bstate: i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetMonitorDuplicateInstances)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(bstate)).ok()
+        (::windows::core::Interface::vtable(self).base__.SetMonitorDuplicateInstances)(::windows::core::Interface::as_raw(self), bstate).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn MonitorDuplicateInstances(&self) -> ::windows::core::Result<i16> {
@@ -5685,7 +5685,7 @@ impl ISystemMonitor2 {
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn SetDisplayFilter(&self, ivalue: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetDisplayFilter)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(ivalue)).ok()
+        (::windows::core::Interface::vtable(self).base__.SetDisplayFilter)(::windows::core::Interface::as_raw(self), ivalue).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn DisplayFilter(&self) -> ::windows::core::Result<i32> {
@@ -5700,7 +5700,7 @@ impl ISystemMonitor2 {
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn SetDataSourceType(&self, edatasourcetype: DataSourceTypeConstants) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetDataSourceType)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(edatasourcetype)).ok()
+        (::windows::core::Interface::vtable(self).base__.SetDataSourceType)(::windows::core::Interface::as_raw(self), edatasourcetype).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn DataSourceType(&self) -> ::windows::core::Result<DataSourceTypeConstants> {
@@ -5737,7 +5737,7 @@ impl ISystemMonitor2 {
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn SetEnableDigitGrouping(&self, bstate: i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetEnableDigitGrouping)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(bstate)).ok()
+        (::windows::core::Interface::vtable(self).SetEnableDigitGrouping)(::windows::core::Interface::as_raw(self), bstate).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn EnableDigitGrouping(&self) -> ::windows::core::Result<i16> {
@@ -5746,7 +5746,7 @@ impl ISystemMonitor2 {
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn SetEnableToolTips(&self, bstate: i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetEnableToolTips)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(bstate)).ok()
+        (::windows::core::Interface::vtable(self).SetEnableToolTips)(::windows::core::Interface::as_raw(self), bstate).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn EnableToolTips(&self) -> ::windows::core::Result<i16> {
@@ -5755,7 +5755,7 @@ impl ISystemMonitor2 {
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn SetShowTimeAxisLabels(&self, bstate: i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetShowTimeAxisLabels)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(bstate)).ok()
+        (::windows::core::Interface::vtable(self).SetShowTimeAxisLabels)(::windows::core::Interface::as_raw(self), bstate).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn ShowTimeAxisLabels(&self) -> ::windows::core::Result<i16> {
@@ -5764,7 +5764,7 @@ impl ISystemMonitor2 {
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn SetChartScroll(&self, bscroll: i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetChartScroll)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(bscroll)).ok()
+        (::windows::core::Interface::vtable(self).SetChartScroll)(::windows::core::Interface::as_raw(self), bscroll).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn ChartScroll(&self) -> ::windows::core::Result<i16> {
@@ -5773,7 +5773,7 @@ impl ISystemMonitor2 {
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn SetDataPointCount(&self, inewcount: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetDataPointCount)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(inewcount)).ok()
+        (::windows::core::Interface::vtable(self).SetDataPointCount)(::windows::core::Interface::as_raw(self), inewcount).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn DataPointCount(&self) -> ::windows::core::Result<i32> {
@@ -5782,7 +5782,7 @@ impl ISystemMonitor2 {
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn ScaleToFit(&self, bselectedcountersonly: i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).ScaleToFit)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(bselectedcountersonly)).ok()
+        (::windows::core::Interface::vtable(self).ScaleToFit)(::windows::core::Interface::as_raw(self), bselectedcountersonly).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -5790,7 +5790,7 @@ impl ISystemMonitor2 {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
     {
-        (::windows::core::Interface::vtable(self).SaveAs)(::windows::core::Interface::as_raw(self), bstrfilename.into().abi(), ::core::mem::transmute(esysmonfiletype)).ok()
+        (::windows::core::Interface::vtable(self).SaveAs)(::windows::core::Interface::as_raw(self), bstrfilename.into().abi(), esysmonfiletype).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -5798,7 +5798,7 @@ impl ISystemMonitor2 {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
     {
-        (::windows::core::Interface::vtable(self).Relog)(::windows::core::Interface::as_raw(self), bstrfilename.into().abi(), ::core::mem::transmute(esysmonfiletype), ::core::mem::transmute(ifilter)).ok()
+        (::windows::core::Interface::vtable(self).Relog)(::windows::core::Interface::as_raw(self), bstrfilename.into().abi(), esysmonfiletype, ifilter).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn ClearData(&self) -> ::windows::core::Result<()> {
@@ -5816,7 +5816,7 @@ impl ISystemMonitor2 {
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn SetLogViewRange(&self, starttime: f64, stoptime: f64) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetLogViewRange)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(starttime), ::core::mem::transmute(stoptime)).ok()
+        (::windows::core::Interface::vtable(self).SetLogViewRange)(::windows::core::Interface::as_raw(self), starttime, stoptime).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn GetLogViewRange(&self, starttime: *mut f64, stoptime: *mut f64) -> ::windows::core::Result<()> {
@@ -5824,7 +5824,7 @@ impl ISystemMonitor2 {
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn BatchingLock(&self, flock: i16, ebatchreason: SysmonBatchReason) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).BatchingLock)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(flock), ::core::mem::transmute(ebatchreason)).ok()
+        (::windows::core::Interface::vtable(self).BatchingLock)(::windows::core::Interface::as_raw(self), flock, ebatchreason).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -5925,15 +5925,15 @@ pub struct ISystemMonitorEvents(::windows::core::IUnknown);
 impl ISystemMonitorEvents {
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn OnCounterSelected(&self, index: i32) {
-        (::windows::core::Interface::vtable(self).OnCounterSelected)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(index))
+        (::windows::core::Interface::vtable(self).OnCounterSelected)(::windows::core::Interface::as_raw(self), index)
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn OnCounterAdded(&self, index: i32) {
-        (::windows::core::Interface::vtable(self).OnCounterAdded)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(index))
+        (::windows::core::Interface::vtable(self).OnCounterAdded)(::windows::core::Interface::as_raw(self), index)
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn OnCounterDeleted(&self, index: i32) {
-        (::windows::core::Interface::vtable(self).OnCounterDeleted)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(index))
+        (::windows::core::Interface::vtable(self).OnCounterDeleted)(::windows::core::Interface::as_raw(self), index)
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn OnSampleCollected(&self) {
@@ -5941,7 +5941,7 @@ impl ISystemMonitorEvents {
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn OnDblClick(&self, index: i32) {
-        (::windows::core::Interface::vtable(self).OnDblClick)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(index))
+        (::windows::core::Interface::vtable(self).OnDblClick)(::windows::core::Interface::as_raw(self), index)
     }
 }
 impl ::core::convert::From<ISystemMonitorEvents> for ::windows::core::IUnknown {
@@ -6035,7 +6035,7 @@ impl ITraceDataCollector {
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn SetFileNameFormat(&self, format: AutoPathFormat) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetFileNameFormat)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(format)).ok()
+        (::windows::core::Interface::vtable(self).base__.SetFileNameFormat)(::windows::core::Interface::as_raw(self), format).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -6072,7 +6072,7 @@ impl ITraceDataCollector {
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn SetLogAppend(&self, append: i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetLogAppend)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(append)).ok()
+        (::windows::core::Interface::vtable(self).base__.SetLogAppend)(::windows::core::Interface::as_raw(self), append).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn LogCircular(&self) -> ::windows::core::Result<i16> {
@@ -6081,7 +6081,7 @@ impl ITraceDataCollector {
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn SetLogCircular(&self, circular: i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetLogCircular)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(circular)).ok()
+        (::windows::core::Interface::vtable(self).base__.SetLogCircular)(::windows::core::Interface::as_raw(self), circular).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn LogOverwrite(&self) -> ::windows::core::Result<i16> {
@@ -6090,7 +6090,7 @@ impl ITraceDataCollector {
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn SetLogOverwrite(&self, overwrite: i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetLogOverwrite)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(overwrite)).ok()
+        (::windows::core::Interface::vtable(self).base__.SetLogOverwrite)(::windows::core::Interface::as_raw(self), overwrite).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -6119,7 +6119,7 @@ impl ITraceDataCollector {
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn SetIndex(&self, index: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetIndex)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(index)).ok()
+        (::windows::core::Interface::vtable(self).base__.SetIndex)(::windows::core::Interface::as_raw(self), index).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -6140,7 +6140,7 @@ impl ITraceDataCollector {
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CreateOutputLocation(&self, latest: i16) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::Foundation::BSTR>>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.CreateOutputLocation)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(latest), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).base__.CreateOutputLocation)(::windows::core::Interface::as_raw(self), latest, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn BufferSize(&self) -> ::windows::core::Result<u32> {
@@ -6149,7 +6149,7 @@ impl ITraceDataCollector {
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn SetBufferSize(&self, size: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetBufferSize)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(size)).ok()
+        (::windows::core::Interface::vtable(self).SetBufferSize)(::windows::core::Interface::as_raw(self), size).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn BuffersLost(&self) -> ::windows::core::Result<u32> {
@@ -6158,7 +6158,7 @@ impl ITraceDataCollector {
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn SetBuffersLost(&self, buffers: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetBuffersLost)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(buffers)).ok()
+        (::windows::core::Interface::vtable(self).SetBuffersLost)(::windows::core::Interface::as_raw(self), buffers).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn BuffersWritten(&self) -> ::windows::core::Result<u32> {
@@ -6167,7 +6167,7 @@ impl ITraceDataCollector {
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn SetBuffersWritten(&self, buffers: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetBuffersWritten)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(buffers)).ok()
+        (::windows::core::Interface::vtable(self).SetBuffersWritten)(::windows::core::Interface::as_raw(self), buffers).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn ClockType(&self) -> ::windows::core::Result<ClockType> {
@@ -6176,7 +6176,7 @@ impl ITraceDataCollector {
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn SetClockType(&self, clock: ClockType) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetClockType)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(clock)).ok()
+        (::windows::core::Interface::vtable(self).SetClockType)(::windows::core::Interface::as_raw(self), clock).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn EventsLost(&self) -> ::windows::core::Result<u32> {
@@ -6185,7 +6185,7 @@ impl ITraceDataCollector {
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn SetEventsLost(&self, events: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetEventsLost)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(events)).ok()
+        (::windows::core::Interface::vtable(self).SetEventsLost)(::windows::core::Interface::as_raw(self), events).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn ExtendedModes(&self) -> ::windows::core::Result<u32> {
@@ -6194,7 +6194,7 @@ impl ITraceDataCollector {
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn SetExtendedModes(&self, mode: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetExtendedModes)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(mode)).ok()
+        (::windows::core::Interface::vtable(self).SetExtendedModes)(::windows::core::Interface::as_raw(self), mode).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn FlushTimer(&self) -> ::windows::core::Result<u32> {
@@ -6203,7 +6203,7 @@ impl ITraceDataCollector {
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn SetFlushTimer(&self, seconds: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetFlushTimer)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(seconds)).ok()
+        (::windows::core::Interface::vtable(self).SetFlushTimer)(::windows::core::Interface::as_raw(self), seconds).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn FreeBuffers(&self) -> ::windows::core::Result<u32> {
@@ -6212,7 +6212,7 @@ impl ITraceDataCollector {
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn SetFreeBuffers(&self, buffers: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetFreeBuffers)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(buffers)).ok()
+        (::windows::core::Interface::vtable(self).SetFreeBuffers)(::windows::core::Interface::as_raw(self), buffers).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn Guid(&self) -> ::windows::core::Result<::windows::core::GUID> {
@@ -6235,7 +6235,7 @@ impl ITraceDataCollector {
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn SetMaximumBuffers(&self, buffers: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetMaximumBuffers)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(buffers)).ok()
+        (::windows::core::Interface::vtable(self).SetMaximumBuffers)(::windows::core::Interface::as_raw(self), buffers).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn MinimumBuffers(&self) -> ::windows::core::Result<u32> {
@@ -6244,7 +6244,7 @@ impl ITraceDataCollector {
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn SetMinimumBuffers(&self, buffers: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetMinimumBuffers)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(buffers)).ok()
+        (::windows::core::Interface::vtable(self).SetMinimumBuffers)(::windows::core::Interface::as_raw(self), buffers).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn NumberOfBuffers(&self) -> ::windows::core::Result<u32> {
@@ -6253,7 +6253,7 @@ impl ITraceDataCollector {
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn SetNumberOfBuffers(&self, buffers: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetNumberOfBuffers)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(buffers)).ok()
+        (::windows::core::Interface::vtable(self).SetNumberOfBuffers)(::windows::core::Interface::as_raw(self), buffers).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn PreallocateFile(&self) -> ::windows::core::Result<i16> {
@@ -6262,7 +6262,7 @@ impl ITraceDataCollector {
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn SetPreallocateFile(&self, allocate: i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetPreallocateFile)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(allocate)).ok()
+        (::windows::core::Interface::vtable(self).SetPreallocateFile)(::windows::core::Interface::as_raw(self), allocate).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn ProcessMode(&self) -> ::windows::core::Result<i16> {
@@ -6271,7 +6271,7 @@ impl ITraceDataCollector {
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn SetProcessMode(&self, process: i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetProcessMode)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(process)).ok()
+        (::windows::core::Interface::vtable(self).SetProcessMode)(::windows::core::Interface::as_raw(self), process).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn RealTimeBuffersLost(&self) -> ::windows::core::Result<u32> {
@@ -6280,7 +6280,7 @@ impl ITraceDataCollector {
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn SetRealTimeBuffersLost(&self, buffers: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetRealTimeBuffersLost)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(buffers)).ok()
+        (::windows::core::Interface::vtable(self).SetRealTimeBuffersLost)(::windows::core::Interface::as_raw(self), buffers).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn SessionId(&self) -> ::windows::core::Result<u64> {
@@ -6289,7 +6289,7 @@ impl ITraceDataCollector {
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn SetSessionId(&self, id: u64) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetSessionId)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(id)).ok()
+        (::windows::core::Interface::vtable(self).SetSessionId)(::windows::core::Interface::as_raw(self), id).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -6312,7 +6312,7 @@ impl ITraceDataCollector {
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn SetSessionThreadId(&self, tid: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetSessionThreadId)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(tid)).ok()
+        (::windows::core::Interface::vtable(self).SetSessionThreadId)(::windows::core::Interface::as_raw(self), tid).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn StreamMode(&self) -> ::windows::core::Result<StreamMode> {
@@ -6321,7 +6321,7 @@ impl ITraceDataCollector {
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn SetStreamMode(&self, mode: StreamMode) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetStreamMode)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(mode)).ok()
+        (::windows::core::Interface::vtable(self).SetStreamMode)(::windows::core::Interface::as_raw(self), mode).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -6524,7 +6524,7 @@ impl ITraceDataProvider {
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn SetFilterEnabled(&self, filterenabled: i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetFilterEnabled)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(filterenabled)).ok()
+        (::windows::core::Interface::vtable(self).SetFilterEnabled)(::windows::core::Interface::as_raw(self), filterenabled).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn FilterType(&self) -> ::windows::core::Result<u32> {
@@ -6533,7 +6533,7 @@ impl ITraceDataProvider {
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn SetFilterType(&self, ultype: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetFilterType)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(ultype)).ok()
+        (::windows::core::Interface::vtable(self).SetFilterType)(::windows::core::Interface::as_raw(self), ultype).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -6575,7 +6575,7 @@ impl ITraceDataProvider {
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetSecurity(&self, securityinfo: u32) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::Foundation::BSTR>>::zeroed();
-        (::windows::core::Interface::vtable(self).GetSecurity)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(securityinfo), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).GetSecurity)(::windows::core::Interface::as_raw(self), securityinfo, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -6782,7 +6782,7 @@ impl ITraceDataProviderCollection {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
     {
-        (::windows::core::Interface::vtable(self).GetTraceDataProvidersByProcess)(::windows::core::Interface::as_raw(self), server.into().abi(), ::core::mem::transmute(pid)).ok()
+        (::windows::core::Interface::vtable(self).GetTraceDataProvidersByProcess)(::windows::core::Interface::as_raw(self), server.into().abi(), pid).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -6943,7 +6943,7 @@ impl IValueMap {
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn SetValueMapType(&self, r#type: ValueMapType) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetValueMapType)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(r#type)).ok()
+        (::windows::core::Interface::vtable(self).SetValueMapType)(::windows::core::Interface::as_raw(self), r#type).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -7115,7 +7115,7 @@ impl IValueMapItem {
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn SetEnabled(&self, enabled: i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetEnabled)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(enabled)).ok()
+        (::windows::core::Interface::vtable(self).SetEnabled)(::windows::core::Interface::as_raw(self), enabled).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -7152,7 +7152,7 @@ impl IValueMapItem {
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn SetValueMapType(&self, r#type: ValueMapType) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetValueMapType)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(r#type)).ok()
+        (::windows::core::Interface::vtable(self).SetValueMapType)(::windows::core::Interface::as_raw(self), r#type).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -7261,7 +7261,7 @@ where
     extern "system" {
         fn InstallPerfDllA(szcomputername: ::windows::core::PCSTR, lpinifile: ::windows::core::PCSTR, dwflags: usize) -> u32;
     }
-    ::core::mem::transmute(InstallPerfDllA(szcomputername.into(), lpinifile.into(), ::core::mem::transmute(dwflags)))
+    ::core::mem::transmute(InstallPerfDllA(szcomputername.into(), lpinifile.into(), dwflags))
 }
 #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
 #[inline]
@@ -7274,7 +7274,7 @@ where
     extern "system" {
         fn InstallPerfDllW(szcomputername: ::windows::core::PCWSTR, lpinifile: ::windows::core::PCWSTR, dwflags: usize) -> u32;
     }
-    ::core::mem::transmute(InstallPerfDllW(szcomputername.into(), lpinifile.into(), ::core::mem::transmute(dwflags)))
+    ::core::mem::transmute(InstallPerfDllW(szcomputername.into(), lpinifile.into(), dwflags))
 }
 pub const LIBID_SystemMonitor: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1b773e42_2509_11cf_942f_008029004347);
 pub const LegacyDataCollectorSet: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x03837526_098b_11d8_9414_505054503030);
@@ -10081,7 +10081,7 @@ where
     extern "system" {
         fn PdhAddCounterA(hquery: isize, szfullcounterpath: ::windows::core::PCSTR, dwuserdata: usize, phcounter: *mut isize) -> i32;
     }
-    ::core::mem::transmute(PdhAddCounterA(::core::mem::transmute(hquery), szfullcounterpath.into(), ::core::mem::transmute(dwuserdata), ::core::mem::transmute(phcounter)))
+    ::core::mem::transmute(PdhAddCounterA(hquery, szfullcounterpath.into(), dwuserdata, ::core::mem::transmute(phcounter)))
 }
 #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
 #[inline]
@@ -10093,7 +10093,7 @@ where
     extern "system" {
         fn PdhAddCounterW(hquery: isize, szfullcounterpath: ::windows::core::PCWSTR, dwuserdata: usize, phcounter: *mut isize) -> i32;
     }
-    ::core::mem::transmute(PdhAddCounterW(::core::mem::transmute(hquery), szfullcounterpath.into(), ::core::mem::transmute(dwuserdata), ::core::mem::transmute(phcounter)))
+    ::core::mem::transmute(PdhAddCounterW(hquery, szfullcounterpath.into(), dwuserdata, ::core::mem::transmute(phcounter)))
 }
 #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
 #[inline]
@@ -10105,7 +10105,7 @@ where
     extern "system" {
         fn PdhAddEnglishCounterA(hquery: isize, szfullcounterpath: ::windows::core::PCSTR, dwuserdata: usize, phcounter: *mut isize) -> i32;
     }
-    ::core::mem::transmute(PdhAddEnglishCounterA(::core::mem::transmute(hquery), szfullcounterpath.into(), ::core::mem::transmute(dwuserdata), ::core::mem::transmute(phcounter)))
+    ::core::mem::transmute(PdhAddEnglishCounterA(hquery, szfullcounterpath.into(), dwuserdata, ::core::mem::transmute(phcounter)))
 }
 #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
 #[inline]
@@ -10117,7 +10117,7 @@ where
     extern "system" {
         fn PdhAddEnglishCounterW(hquery: isize, szfullcounterpath: ::windows::core::PCWSTR, dwuserdata: usize, phcounter: *mut isize) -> i32;
     }
-    ::core::mem::transmute(PdhAddEnglishCounterW(::core::mem::transmute(hquery), szfullcounterpath.into(), ::core::mem::transmute(dwuserdata), ::core::mem::transmute(phcounter)))
+    ::core::mem::transmute(PdhAddEnglishCounterW(hquery, szfullcounterpath.into(), dwuserdata, ::core::mem::transmute(phcounter)))
 }
 #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
 #[inline]
@@ -10191,7 +10191,7 @@ pub unsafe fn PdhCalculateCounterFromRawValue(hcounter: isize, dwformat: PDH_FMT
     extern "system" {
         fn PdhCalculateCounterFromRawValue(hcounter: isize, dwformat: PDH_FMT, rawvalue1: *const PDH_RAW_COUNTER, rawvalue2: *const PDH_RAW_COUNTER, fmtvalue: *mut PDH_FMT_COUNTERVALUE) -> i32;
     }
-    ::core::mem::transmute(PdhCalculateCounterFromRawValue(::core::mem::transmute(hcounter), ::core::mem::transmute(dwformat), ::core::mem::transmute(rawvalue1), ::core::mem::transmute(rawvalue2), ::core::mem::transmute(fmtvalue)))
+    ::core::mem::transmute(PdhCalculateCounterFromRawValue(hcounter, dwformat, ::core::mem::transmute(rawvalue1), ::core::mem::transmute(rawvalue2), ::core::mem::transmute(fmtvalue)))
 }
 #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
 #[inline]
@@ -10200,7 +10200,7 @@ pub unsafe fn PdhCloseLog(hlog: isize, dwflags: u32) -> i32 {
     extern "system" {
         fn PdhCloseLog(hlog: isize, dwflags: u32) -> i32;
     }
-    ::core::mem::transmute(PdhCloseLog(::core::mem::transmute(hlog), ::core::mem::transmute(dwflags)))
+    ::core::mem::transmute(PdhCloseLog(hlog, dwflags))
 }
 #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
 #[inline]
@@ -10209,7 +10209,7 @@ pub unsafe fn PdhCloseQuery(hquery: isize) -> i32 {
     extern "system" {
         fn PdhCloseQuery(hquery: isize) -> i32;
     }
-    ::core::mem::transmute(PdhCloseQuery(::core::mem::transmute(hquery)))
+    ::core::mem::transmute(PdhCloseQuery(hquery))
 }
 #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
 #[inline]
@@ -10218,7 +10218,7 @@ pub unsafe fn PdhCollectQueryData(hquery: isize) -> i32 {
     extern "system" {
         fn PdhCollectQueryData(hquery: isize) -> i32;
     }
-    ::core::mem::transmute(PdhCollectQueryData(::core::mem::transmute(hquery)))
+    ::core::mem::transmute(PdhCollectQueryData(hquery))
 }
 #[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -10231,7 +10231,7 @@ where
     extern "system" {
         fn PdhCollectQueryDataEx(hquery: isize, dwintervaltime: u32, hnewdataevent: super::super::Foundation::HANDLE) -> i32;
     }
-    ::core::mem::transmute(PdhCollectQueryDataEx(::core::mem::transmute(hquery), ::core::mem::transmute(dwintervaltime), hnewdataevent.into()))
+    ::core::mem::transmute(PdhCollectQueryDataEx(hquery, dwintervaltime, hnewdataevent.into()))
 }
 #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
 #[inline]
@@ -10240,7 +10240,7 @@ pub unsafe fn PdhCollectQueryDataWithTime(hquery: isize, plltimestamp: *mut i64)
     extern "system" {
         fn PdhCollectQueryDataWithTime(hquery: isize, plltimestamp: *mut i64) -> i32;
     }
-    ::core::mem::transmute(PdhCollectQueryDataWithTime(::core::mem::transmute(hquery), ::core::mem::transmute(plltimestamp)))
+    ::core::mem::transmute(PdhCollectQueryDataWithTime(hquery, ::core::mem::transmute(plltimestamp)))
 }
 #[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -10250,7 +10250,7 @@ pub unsafe fn PdhComputeCounterStatistics(hcounter: isize, dwformat: PDH_FMT, dw
     extern "system" {
         fn PdhComputeCounterStatistics(hcounter: isize, dwformat: PDH_FMT, dwfirstentry: u32, dwnumentries: u32, lprawvaluearray: *const PDH_RAW_COUNTER, data: *mut PDH_STATISTICS) -> i32;
     }
-    ::core::mem::transmute(PdhComputeCounterStatistics(::core::mem::transmute(hcounter), ::core::mem::transmute(dwformat), ::core::mem::transmute(dwfirstentry), ::core::mem::transmute(dwnumentries), ::core::mem::transmute(lprawvaluearray), ::core::mem::transmute(data)))
+    ::core::mem::transmute(PdhComputeCounterStatistics(hcounter, dwformat, dwfirstentry, dwnumentries, ::core::mem::transmute(lprawvaluearray), ::core::mem::transmute(data)))
 }
 #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
 #[inline]
@@ -10343,7 +10343,7 @@ pub unsafe fn PdhEnumMachinesHA(hdatasource: isize, mszmachinelist: ::windows::c
     extern "system" {
         fn PdhEnumMachinesHA(hdatasource: isize, mszmachinelist: ::windows::core::PSTR, pcchbuffersize: *mut u32) -> i32;
     }
-    ::core::mem::transmute(PdhEnumMachinesHA(::core::mem::transmute(hdatasource), ::core::mem::transmute(mszmachinelist), ::core::mem::transmute(pcchbuffersize)))
+    ::core::mem::transmute(PdhEnumMachinesHA(hdatasource, ::core::mem::transmute(mszmachinelist), ::core::mem::transmute(pcchbuffersize)))
 }
 #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
 #[inline]
@@ -10352,7 +10352,7 @@ pub unsafe fn PdhEnumMachinesHW(hdatasource: isize, mszmachinelist: ::windows::c
     extern "system" {
         fn PdhEnumMachinesHW(hdatasource: isize, mszmachinelist: ::windows::core::PWSTR, pcchbuffersize: *mut u32) -> i32;
     }
-    ::core::mem::transmute(PdhEnumMachinesHW(::core::mem::transmute(hdatasource), ::core::mem::transmute(mszmachinelist), ::core::mem::transmute(pcchbuffersize)))
+    ::core::mem::transmute(PdhEnumMachinesHW(hdatasource, ::core::mem::transmute(mszmachinelist), ::core::mem::transmute(pcchbuffersize)))
 }
 #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
 #[inline]
@@ -10378,7 +10378,7 @@ where
     extern "system" {
         fn PdhEnumObjectItemsA(szdatasource: ::windows::core::PCSTR, szmachinename: ::windows::core::PCSTR, szobjectname: ::windows::core::PCSTR, mszcounterlist: ::windows::core::PSTR, pcchcounterlistlength: *mut u32, mszinstancelist: ::windows::core::PSTR, pcchinstancelistlength: *mut u32, dwdetaillevel: PERF_DETAIL, dwflags: u32) -> i32;
     }
-    ::core::mem::transmute(PdhEnumObjectItemsA(szdatasource.into(), szmachinename.into(), szobjectname.into(), ::core::mem::transmute(mszcounterlist), ::core::mem::transmute(pcchcounterlistlength), ::core::mem::transmute(mszinstancelist), ::core::mem::transmute(pcchinstancelistlength), ::core::mem::transmute(dwdetaillevel), ::core::mem::transmute(dwflags)))
+    ::core::mem::transmute(PdhEnumObjectItemsA(szdatasource.into(), szmachinename.into(), szobjectname.into(), ::core::mem::transmute(mszcounterlist), ::core::mem::transmute(pcchcounterlistlength), ::core::mem::transmute(mszinstancelist), ::core::mem::transmute(pcchinstancelistlength), dwdetaillevel, dwflags))
 }
 #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
 #[inline]
@@ -10391,7 +10391,7 @@ where
     extern "system" {
         fn PdhEnumObjectItemsHA(hdatasource: isize, szmachinename: ::windows::core::PCSTR, szobjectname: ::windows::core::PCSTR, mszcounterlist: ::windows::core::PSTR, pcchcounterlistlength: *mut u32, mszinstancelist: ::windows::core::PSTR, pcchinstancelistlength: *mut u32, dwdetaillevel: PERF_DETAIL, dwflags: u32) -> i32;
     }
-    ::core::mem::transmute(PdhEnumObjectItemsHA(::core::mem::transmute(hdatasource), szmachinename.into(), szobjectname.into(), ::core::mem::transmute(mszcounterlist), ::core::mem::transmute(pcchcounterlistlength), ::core::mem::transmute(mszinstancelist), ::core::mem::transmute(pcchinstancelistlength), ::core::mem::transmute(dwdetaillevel), ::core::mem::transmute(dwflags)))
+    ::core::mem::transmute(PdhEnumObjectItemsHA(hdatasource, szmachinename.into(), szobjectname.into(), ::core::mem::transmute(mszcounterlist), ::core::mem::transmute(pcchcounterlistlength), ::core::mem::transmute(mszinstancelist), ::core::mem::transmute(pcchinstancelistlength), dwdetaillevel, dwflags))
 }
 #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
 #[inline]
@@ -10404,7 +10404,7 @@ where
     extern "system" {
         fn PdhEnumObjectItemsHW(hdatasource: isize, szmachinename: ::windows::core::PCWSTR, szobjectname: ::windows::core::PCWSTR, mszcounterlist: ::windows::core::PWSTR, pcchcounterlistlength: *mut u32, mszinstancelist: ::windows::core::PWSTR, pcchinstancelistlength: *mut u32, dwdetaillevel: PERF_DETAIL, dwflags: u32) -> i32;
     }
-    ::core::mem::transmute(PdhEnumObjectItemsHW(::core::mem::transmute(hdatasource), szmachinename.into(), szobjectname.into(), ::core::mem::transmute(mszcounterlist), ::core::mem::transmute(pcchcounterlistlength), ::core::mem::transmute(mszinstancelist), ::core::mem::transmute(pcchinstancelistlength), ::core::mem::transmute(dwdetaillevel), ::core::mem::transmute(dwflags)))
+    ::core::mem::transmute(PdhEnumObjectItemsHW(hdatasource, szmachinename.into(), szobjectname.into(), ::core::mem::transmute(mszcounterlist), ::core::mem::transmute(pcchcounterlistlength), ::core::mem::transmute(mszinstancelist), ::core::mem::transmute(pcchinstancelistlength), dwdetaillevel, dwflags))
 }
 #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
 #[inline]
@@ -10418,7 +10418,7 @@ where
     extern "system" {
         fn PdhEnumObjectItemsW(szdatasource: ::windows::core::PCWSTR, szmachinename: ::windows::core::PCWSTR, szobjectname: ::windows::core::PCWSTR, mszcounterlist: ::windows::core::PWSTR, pcchcounterlistlength: *mut u32, mszinstancelist: ::windows::core::PWSTR, pcchinstancelistlength: *mut u32, dwdetaillevel: PERF_DETAIL, dwflags: u32) -> i32;
     }
-    ::core::mem::transmute(PdhEnumObjectItemsW(szdatasource.into(), szmachinename.into(), szobjectname.into(), ::core::mem::transmute(mszcounterlist), ::core::mem::transmute(pcchcounterlistlength), ::core::mem::transmute(mszinstancelist), ::core::mem::transmute(pcchinstancelistlength), ::core::mem::transmute(dwdetaillevel), ::core::mem::transmute(dwflags)))
+    ::core::mem::transmute(PdhEnumObjectItemsW(szdatasource.into(), szmachinename.into(), szobjectname.into(), ::core::mem::transmute(mszcounterlist), ::core::mem::transmute(pcchcounterlistlength), ::core::mem::transmute(mszinstancelist), ::core::mem::transmute(pcchinstancelistlength), dwdetaillevel, dwflags))
 }
 #[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -10433,7 +10433,7 @@ where
     extern "system" {
         fn PdhEnumObjectsA(szdatasource: ::windows::core::PCSTR, szmachinename: ::windows::core::PCSTR, mszobjectlist: ::windows::core::PSTR, pcchbuffersize: *mut u32, dwdetaillevel: PERF_DETAIL, brefresh: super::super::Foundation::BOOL) -> i32;
     }
-    ::core::mem::transmute(PdhEnumObjectsA(szdatasource.into(), szmachinename.into(), ::core::mem::transmute(mszobjectlist), ::core::mem::transmute(pcchbuffersize), ::core::mem::transmute(dwdetaillevel), brefresh.into()))
+    ::core::mem::transmute(PdhEnumObjectsA(szdatasource.into(), szmachinename.into(), ::core::mem::transmute(mszobjectlist), ::core::mem::transmute(pcchbuffersize), dwdetaillevel, brefresh.into()))
 }
 #[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -10447,7 +10447,7 @@ where
     extern "system" {
         fn PdhEnumObjectsHA(hdatasource: isize, szmachinename: ::windows::core::PCSTR, mszobjectlist: ::windows::core::PSTR, pcchbuffersize: *mut u32, dwdetaillevel: PERF_DETAIL, brefresh: super::super::Foundation::BOOL) -> i32;
     }
-    ::core::mem::transmute(PdhEnumObjectsHA(::core::mem::transmute(hdatasource), szmachinename.into(), ::core::mem::transmute(mszobjectlist), ::core::mem::transmute(pcchbuffersize), ::core::mem::transmute(dwdetaillevel), brefresh.into()))
+    ::core::mem::transmute(PdhEnumObjectsHA(hdatasource, szmachinename.into(), ::core::mem::transmute(mszobjectlist), ::core::mem::transmute(pcchbuffersize), dwdetaillevel, brefresh.into()))
 }
 #[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -10461,7 +10461,7 @@ where
     extern "system" {
         fn PdhEnumObjectsHW(hdatasource: isize, szmachinename: ::windows::core::PCWSTR, mszobjectlist: ::windows::core::PWSTR, pcchbuffersize: *mut u32, dwdetaillevel: PERF_DETAIL, brefresh: super::super::Foundation::BOOL) -> i32;
     }
-    ::core::mem::transmute(PdhEnumObjectsHW(::core::mem::transmute(hdatasource), szmachinename.into(), ::core::mem::transmute(mszobjectlist), ::core::mem::transmute(pcchbuffersize), ::core::mem::transmute(dwdetaillevel), brefresh.into()))
+    ::core::mem::transmute(PdhEnumObjectsHW(hdatasource, szmachinename.into(), ::core::mem::transmute(mszobjectlist), ::core::mem::transmute(pcchbuffersize), dwdetaillevel, brefresh.into()))
 }
 #[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -10476,7 +10476,7 @@ where
     extern "system" {
         fn PdhEnumObjectsW(szdatasource: ::windows::core::PCWSTR, szmachinename: ::windows::core::PCWSTR, mszobjectlist: ::windows::core::PWSTR, pcchbuffersize: *mut u32, dwdetaillevel: PERF_DETAIL, brefresh: super::super::Foundation::BOOL) -> i32;
     }
-    ::core::mem::transmute(PdhEnumObjectsW(szdatasource.into(), szmachinename.into(), ::core::mem::transmute(mszobjectlist), ::core::mem::transmute(pcchbuffersize), ::core::mem::transmute(dwdetaillevel), brefresh.into()))
+    ::core::mem::transmute(PdhEnumObjectsW(szdatasource.into(), szmachinename.into(), ::core::mem::transmute(mszobjectlist), ::core::mem::transmute(pcchbuffersize), dwdetaillevel, brefresh.into()))
 }
 #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
 #[inline]
@@ -10513,7 +10513,7 @@ where
     extern "system" {
         fn PdhExpandWildCardPathA(szdatasource: ::windows::core::PCSTR, szwildcardpath: ::windows::core::PCSTR, mszexpandedpathlist: ::windows::core::PSTR, pcchpathlistlength: *mut u32, dwflags: u32) -> i32;
     }
-    ::core::mem::transmute(PdhExpandWildCardPathA(szdatasource.into(), szwildcardpath.into(), ::core::mem::transmute(mszexpandedpathlist), ::core::mem::transmute(pcchpathlistlength), ::core::mem::transmute(dwflags)))
+    ::core::mem::transmute(PdhExpandWildCardPathA(szdatasource.into(), szwildcardpath.into(), ::core::mem::transmute(mszexpandedpathlist), ::core::mem::transmute(pcchpathlistlength), dwflags))
 }
 #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
 #[inline]
@@ -10525,7 +10525,7 @@ where
     extern "system" {
         fn PdhExpandWildCardPathHA(hdatasource: isize, szwildcardpath: ::windows::core::PCSTR, mszexpandedpathlist: ::windows::core::PSTR, pcchpathlistlength: *mut u32, dwflags: u32) -> i32;
     }
-    ::core::mem::transmute(PdhExpandWildCardPathHA(::core::mem::transmute(hdatasource), szwildcardpath.into(), ::core::mem::transmute(mszexpandedpathlist), ::core::mem::transmute(pcchpathlistlength), ::core::mem::transmute(dwflags)))
+    ::core::mem::transmute(PdhExpandWildCardPathHA(hdatasource, szwildcardpath.into(), ::core::mem::transmute(mszexpandedpathlist), ::core::mem::transmute(pcchpathlistlength), dwflags))
 }
 #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
 #[inline]
@@ -10537,7 +10537,7 @@ where
     extern "system" {
         fn PdhExpandWildCardPathHW(hdatasource: isize, szwildcardpath: ::windows::core::PCWSTR, mszexpandedpathlist: ::windows::core::PWSTR, pcchpathlistlength: *mut u32, dwflags: u32) -> i32;
     }
-    ::core::mem::transmute(PdhExpandWildCardPathHW(::core::mem::transmute(hdatasource), szwildcardpath.into(), ::core::mem::transmute(mszexpandedpathlist), ::core::mem::transmute(pcchpathlistlength), ::core::mem::transmute(dwflags)))
+    ::core::mem::transmute(PdhExpandWildCardPathHW(hdatasource, szwildcardpath.into(), ::core::mem::transmute(mszexpandedpathlist), ::core::mem::transmute(pcchpathlistlength), dwflags))
 }
 #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
 #[inline]
@@ -10550,7 +10550,7 @@ where
     extern "system" {
         fn PdhExpandWildCardPathW(szdatasource: ::windows::core::PCWSTR, szwildcardpath: ::windows::core::PCWSTR, mszexpandedpathlist: ::windows::core::PWSTR, pcchpathlistlength: *mut u32, dwflags: u32) -> i32;
     }
-    ::core::mem::transmute(PdhExpandWildCardPathW(szdatasource.into(), szwildcardpath.into(), ::core::mem::transmute(mszexpandedpathlist), ::core::mem::transmute(pcchpathlistlength), ::core::mem::transmute(dwflags)))
+    ::core::mem::transmute(PdhExpandWildCardPathW(szdatasource.into(), szwildcardpath.into(), ::core::mem::transmute(mszexpandedpathlist), ::core::mem::transmute(pcchpathlistlength), dwflags))
 }
 #[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -10560,7 +10560,7 @@ pub unsafe fn PdhFormatFromRawValue(dwcountertype: u32, dwformat: PDH_FMT, ptime
     extern "system" {
         fn PdhFormatFromRawValue(dwcountertype: u32, dwformat: PDH_FMT, ptimebase: *const i64, prawvalue1: *const PDH_RAW_COUNTER, prawvalue2: *const PDH_RAW_COUNTER, pfmtvalue: *mut PDH_FMT_COUNTERVALUE) -> i32;
     }
-    ::core::mem::transmute(PdhFormatFromRawValue(::core::mem::transmute(dwcountertype), ::core::mem::transmute(dwformat), ::core::mem::transmute(ptimebase), ::core::mem::transmute(prawvalue1), ::core::mem::transmute(prawvalue2), ::core::mem::transmute(pfmtvalue)))
+    ::core::mem::transmute(PdhFormatFromRawValue(dwcountertype, dwformat, ::core::mem::transmute(ptimebase), ::core::mem::transmute(prawvalue1), ::core::mem::transmute(prawvalue2), ::core::mem::transmute(pfmtvalue)))
 }
 #[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -10573,7 +10573,7 @@ where
     extern "system" {
         fn PdhGetCounterInfoA(hcounter: isize, bretrieveexplaintext: super::super::Foundation::BOOLEAN, pdwbuffersize: *mut u32, lpbuffer: *mut PDH_COUNTER_INFO_A) -> i32;
     }
-    ::core::mem::transmute(PdhGetCounterInfoA(::core::mem::transmute(hcounter), bretrieveexplaintext.into(), ::core::mem::transmute(pdwbuffersize), ::core::mem::transmute(lpbuffer)))
+    ::core::mem::transmute(PdhGetCounterInfoA(hcounter, bretrieveexplaintext.into(), ::core::mem::transmute(pdwbuffersize), ::core::mem::transmute(lpbuffer)))
 }
 #[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -10586,7 +10586,7 @@ where
     extern "system" {
         fn PdhGetCounterInfoW(hcounter: isize, bretrieveexplaintext: super::super::Foundation::BOOLEAN, pdwbuffersize: *mut u32, lpbuffer: *mut PDH_COUNTER_INFO_W) -> i32;
     }
-    ::core::mem::transmute(PdhGetCounterInfoW(::core::mem::transmute(hcounter), bretrieveexplaintext.into(), ::core::mem::transmute(pdwbuffersize), ::core::mem::transmute(lpbuffer)))
+    ::core::mem::transmute(PdhGetCounterInfoW(hcounter, bretrieveexplaintext.into(), ::core::mem::transmute(pdwbuffersize), ::core::mem::transmute(lpbuffer)))
 }
 #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
 #[inline]
@@ -10595,7 +10595,7 @@ pub unsafe fn PdhGetCounterTimeBase(hcounter: isize, ptimebase: *mut i64) -> i32
     extern "system" {
         fn PdhGetCounterTimeBase(hcounter: isize, ptimebase: *mut i64) -> i32;
     }
-    ::core::mem::transmute(PdhGetCounterTimeBase(::core::mem::transmute(hcounter), ::core::mem::transmute(ptimebase)))
+    ::core::mem::transmute(PdhGetCounterTimeBase(hcounter, ::core::mem::transmute(ptimebase)))
 }
 #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
 #[inline]
@@ -10616,7 +10616,7 @@ pub unsafe fn PdhGetDataSourceTimeRangeH(hdatasource: isize, pdwnumentries: *mut
     extern "system" {
         fn PdhGetDataSourceTimeRangeH(hdatasource: isize, pdwnumentries: *mut u32, pinfo: *mut PDH_TIME_INFO, pdwbuffersize: *mut u32) -> i32;
     }
-    ::core::mem::transmute(PdhGetDataSourceTimeRangeH(::core::mem::transmute(hdatasource), ::core::mem::transmute(pdwnumentries), ::core::mem::transmute(pinfo), ::core::mem::transmute(pdwbuffersize)))
+    ::core::mem::transmute(PdhGetDataSourceTimeRangeH(hdatasource, ::core::mem::transmute(pdwnumentries), ::core::mem::transmute(pinfo), ::core::mem::transmute(pdwbuffersize)))
 }
 #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
 #[inline]
@@ -10655,7 +10655,7 @@ where
     extern "system" {
         fn PdhGetDefaultPerfCounterHA(hdatasource: isize, szmachinename: ::windows::core::PCSTR, szobjectname: ::windows::core::PCSTR, szdefaultcountername: ::windows::core::PSTR, pcchbuffersize: *mut u32) -> i32;
     }
-    ::core::mem::transmute(PdhGetDefaultPerfCounterHA(::core::mem::transmute(hdatasource), szmachinename.into(), szobjectname.into(), ::core::mem::transmute(szdefaultcountername), ::core::mem::transmute(pcchbuffersize)))
+    ::core::mem::transmute(PdhGetDefaultPerfCounterHA(hdatasource, szmachinename.into(), szobjectname.into(), ::core::mem::transmute(szdefaultcountername), ::core::mem::transmute(pcchbuffersize)))
 }
 #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
 #[inline]
@@ -10668,7 +10668,7 @@ where
     extern "system" {
         fn PdhGetDefaultPerfCounterHW(hdatasource: isize, szmachinename: ::windows::core::PCWSTR, szobjectname: ::windows::core::PCWSTR, szdefaultcountername: ::windows::core::PWSTR, pcchbuffersize: *mut u32) -> i32;
     }
-    ::core::mem::transmute(PdhGetDefaultPerfCounterHW(::core::mem::transmute(hdatasource), szmachinename.into(), szobjectname.into(), ::core::mem::transmute(szdefaultcountername), ::core::mem::transmute(pcchbuffersize)))
+    ::core::mem::transmute(PdhGetDefaultPerfCounterHW(hdatasource, szmachinename.into(), szobjectname.into(), ::core::mem::transmute(szdefaultcountername), ::core::mem::transmute(pcchbuffersize)))
 }
 #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
 #[inline]
@@ -10707,7 +10707,7 @@ where
     extern "system" {
         fn PdhGetDefaultPerfObjectHA(hdatasource: isize, szmachinename: ::windows::core::PCSTR, szdefaultobjectname: ::windows::core::PSTR, pcchbuffersize: *mut u32) -> i32;
     }
-    ::core::mem::transmute(PdhGetDefaultPerfObjectHA(::core::mem::transmute(hdatasource), szmachinename.into(), ::core::mem::transmute(szdefaultobjectname), ::core::mem::transmute(pcchbuffersize)))
+    ::core::mem::transmute(PdhGetDefaultPerfObjectHA(hdatasource, szmachinename.into(), ::core::mem::transmute(szdefaultobjectname), ::core::mem::transmute(pcchbuffersize)))
 }
 #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
 #[inline]
@@ -10719,7 +10719,7 @@ where
     extern "system" {
         fn PdhGetDefaultPerfObjectHW(hdatasource: isize, szmachinename: ::windows::core::PCWSTR, szdefaultobjectname: ::windows::core::PWSTR, pcchbuffersize: *mut u32) -> i32;
     }
-    ::core::mem::transmute(PdhGetDefaultPerfObjectHW(::core::mem::transmute(hdatasource), szmachinename.into(), ::core::mem::transmute(szdefaultobjectname), ::core::mem::transmute(pcchbuffersize)))
+    ::core::mem::transmute(PdhGetDefaultPerfObjectHW(hdatasource, szmachinename.into(), ::core::mem::transmute(szdefaultobjectname), ::core::mem::transmute(pcchbuffersize)))
 }
 #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
 #[inline]
@@ -10750,7 +10750,7 @@ pub unsafe fn PdhGetFormattedCounterArrayA(hcounter: isize, dwformat: PDH_FMT, l
     extern "system" {
         fn PdhGetFormattedCounterArrayA(hcounter: isize, dwformat: PDH_FMT, lpdwbuffersize: *mut u32, lpdwitemcount: *mut u32, itembuffer: *mut PDH_FMT_COUNTERVALUE_ITEM_A) -> i32;
     }
-    ::core::mem::transmute(PdhGetFormattedCounterArrayA(::core::mem::transmute(hcounter), ::core::mem::transmute(dwformat), ::core::mem::transmute(lpdwbuffersize), ::core::mem::transmute(lpdwitemcount), ::core::mem::transmute(itembuffer)))
+    ::core::mem::transmute(PdhGetFormattedCounterArrayA(hcounter, dwformat, ::core::mem::transmute(lpdwbuffersize), ::core::mem::transmute(lpdwitemcount), ::core::mem::transmute(itembuffer)))
 }
 #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
 #[inline]
@@ -10759,7 +10759,7 @@ pub unsafe fn PdhGetFormattedCounterArrayW(hcounter: isize, dwformat: PDH_FMT, l
     extern "system" {
         fn PdhGetFormattedCounterArrayW(hcounter: isize, dwformat: PDH_FMT, lpdwbuffersize: *mut u32, lpdwitemcount: *mut u32, itembuffer: *mut PDH_FMT_COUNTERVALUE_ITEM_W) -> i32;
     }
-    ::core::mem::transmute(PdhGetFormattedCounterArrayW(::core::mem::transmute(hcounter), ::core::mem::transmute(dwformat), ::core::mem::transmute(lpdwbuffersize), ::core::mem::transmute(lpdwitemcount), ::core::mem::transmute(itembuffer)))
+    ::core::mem::transmute(PdhGetFormattedCounterArrayW(hcounter, dwformat, ::core::mem::transmute(lpdwbuffersize), ::core::mem::transmute(lpdwitemcount), ::core::mem::transmute(itembuffer)))
 }
 #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
 #[inline]
@@ -10768,7 +10768,7 @@ pub unsafe fn PdhGetFormattedCounterValue(hcounter: isize, dwformat: PDH_FMT, lp
     extern "system" {
         fn PdhGetFormattedCounterValue(hcounter: isize, dwformat: PDH_FMT, lpdwtype: *mut u32, pvalue: *mut PDH_FMT_COUNTERVALUE) -> i32;
     }
-    ::core::mem::transmute(PdhGetFormattedCounterValue(::core::mem::transmute(hcounter), ::core::mem::transmute(dwformat), ::core::mem::transmute(lpdwtype), ::core::mem::transmute(pvalue)))
+    ::core::mem::transmute(PdhGetFormattedCounterValue(hcounter, dwformat, ::core::mem::transmute(lpdwtype), ::core::mem::transmute(pvalue)))
 }
 #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
 #[inline]
@@ -10777,7 +10777,7 @@ pub unsafe fn PdhGetLogFileSize(hlog: isize, llsize: *mut i64) -> i32 {
     extern "system" {
         fn PdhGetLogFileSize(hlog: isize, llsize: *mut i64) -> i32;
     }
-    ::core::mem::transmute(PdhGetLogFileSize(::core::mem::transmute(hlog), ::core::mem::transmute(llsize)))
+    ::core::mem::transmute(PdhGetLogFileSize(hlog, ::core::mem::transmute(llsize)))
 }
 #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
 #[inline]
@@ -10786,7 +10786,7 @@ pub unsafe fn PdhGetLogSetGUID(hlog: isize, pguid: *mut ::windows::core::GUID, p
     extern "system" {
         fn PdhGetLogSetGUID(hlog: isize, pguid: *mut ::windows::core::GUID, prunid: *mut i32) -> i32;
     }
-    ::core::mem::transmute(PdhGetLogSetGUID(::core::mem::transmute(hlog), ::core::mem::transmute(pguid), ::core::mem::transmute(prunid)))
+    ::core::mem::transmute(PdhGetLogSetGUID(hlog, ::core::mem::transmute(pguid), ::core::mem::transmute(prunid)))
 }
 #[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -10796,7 +10796,7 @@ pub unsafe fn PdhGetRawCounterArrayA(hcounter: isize, lpdwbuffersize: *mut u32, 
     extern "system" {
         fn PdhGetRawCounterArrayA(hcounter: isize, lpdwbuffersize: *mut u32, lpdwitemcount: *mut u32, itembuffer: *mut PDH_RAW_COUNTER_ITEM_A) -> i32;
     }
-    ::core::mem::transmute(PdhGetRawCounterArrayA(::core::mem::transmute(hcounter), ::core::mem::transmute(lpdwbuffersize), ::core::mem::transmute(lpdwitemcount), ::core::mem::transmute(itembuffer)))
+    ::core::mem::transmute(PdhGetRawCounterArrayA(hcounter, ::core::mem::transmute(lpdwbuffersize), ::core::mem::transmute(lpdwitemcount), ::core::mem::transmute(itembuffer)))
 }
 #[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -10806,7 +10806,7 @@ pub unsafe fn PdhGetRawCounterArrayW(hcounter: isize, lpdwbuffersize: *mut u32, 
     extern "system" {
         fn PdhGetRawCounterArrayW(hcounter: isize, lpdwbuffersize: *mut u32, lpdwitemcount: *mut u32, itembuffer: *mut PDH_RAW_COUNTER_ITEM_W) -> i32;
     }
-    ::core::mem::transmute(PdhGetRawCounterArrayW(::core::mem::transmute(hcounter), ::core::mem::transmute(lpdwbuffersize), ::core::mem::transmute(lpdwitemcount), ::core::mem::transmute(itembuffer)))
+    ::core::mem::transmute(PdhGetRawCounterArrayW(hcounter, ::core::mem::transmute(lpdwbuffersize), ::core::mem::transmute(lpdwitemcount), ::core::mem::transmute(itembuffer)))
 }
 #[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -10816,7 +10816,7 @@ pub unsafe fn PdhGetRawCounterValue(hcounter: isize, lpdwtype: *mut u32, pvalue:
     extern "system" {
         fn PdhGetRawCounterValue(hcounter: isize, lpdwtype: *mut u32, pvalue: *mut PDH_RAW_COUNTER) -> i32;
     }
-    ::core::mem::transmute(PdhGetRawCounterValue(::core::mem::transmute(hcounter), ::core::mem::transmute(lpdwtype), ::core::mem::transmute(pvalue)))
+    ::core::mem::transmute(PdhGetRawCounterValue(hcounter, ::core::mem::transmute(lpdwtype), ::core::mem::transmute(pvalue)))
 }
 #[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -10826,7 +10826,7 @@ pub unsafe fn PdhIsRealTimeQuery(hquery: isize) -> super::super::Foundation::BOO
     extern "system" {
         fn PdhIsRealTimeQuery(hquery: isize) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(PdhIsRealTimeQuery(::core::mem::transmute(hquery)))
+    ::core::mem::transmute(PdhIsRealTimeQuery(hquery))
 }
 #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
 #[inline]
@@ -10864,7 +10864,7 @@ where
     extern "system" {
         fn PdhLookupPerfNameByIndexA(szmachinename: ::windows::core::PCSTR, dwnameindex: u32, sznamebuffer: ::windows::core::PSTR, pcchnamebuffersize: *mut u32) -> i32;
     }
-    ::core::mem::transmute(PdhLookupPerfNameByIndexA(szmachinename.into(), ::core::mem::transmute(dwnameindex), ::core::mem::transmute(sznamebuffer), ::core::mem::transmute(pcchnamebuffersize)))
+    ::core::mem::transmute(PdhLookupPerfNameByIndexA(szmachinename.into(), dwnameindex, ::core::mem::transmute(sznamebuffer), ::core::mem::transmute(pcchnamebuffersize)))
 }
 #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
 #[inline]
@@ -10876,7 +10876,7 @@ where
     extern "system" {
         fn PdhLookupPerfNameByIndexW(szmachinename: ::windows::core::PCWSTR, dwnameindex: u32, sznamebuffer: ::windows::core::PWSTR, pcchnamebuffersize: *mut u32) -> i32;
     }
-    ::core::mem::transmute(PdhLookupPerfNameByIndexW(szmachinename.into(), ::core::mem::transmute(dwnameindex), ::core::mem::transmute(sznamebuffer), ::core::mem::transmute(pcchnamebuffersize)))
+    ::core::mem::transmute(PdhLookupPerfNameByIndexW(szmachinename.into(), dwnameindex, ::core::mem::transmute(sznamebuffer), ::core::mem::transmute(pcchnamebuffersize)))
 }
 #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
 #[inline]
@@ -10885,7 +10885,7 @@ pub unsafe fn PdhMakeCounterPathA(pcounterpathelements: *const PDH_COUNTER_PATH_
     extern "system" {
         fn PdhMakeCounterPathA(pcounterpathelements: *const PDH_COUNTER_PATH_ELEMENTS_A, szfullpathbuffer: ::windows::core::PSTR, pcchbuffersize: *mut u32, dwflags: PDH_PATH_FLAGS) -> i32;
     }
-    ::core::mem::transmute(PdhMakeCounterPathA(::core::mem::transmute(pcounterpathelements), ::core::mem::transmute(szfullpathbuffer), ::core::mem::transmute(pcchbuffersize), ::core::mem::transmute(dwflags)))
+    ::core::mem::transmute(PdhMakeCounterPathA(::core::mem::transmute(pcounterpathelements), ::core::mem::transmute(szfullpathbuffer), ::core::mem::transmute(pcchbuffersize), dwflags))
 }
 #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
 #[inline]
@@ -10894,7 +10894,7 @@ pub unsafe fn PdhMakeCounterPathW(pcounterpathelements: *const PDH_COUNTER_PATH_
     extern "system" {
         fn PdhMakeCounterPathW(pcounterpathelements: *const PDH_COUNTER_PATH_ELEMENTS_W, szfullpathbuffer: ::windows::core::PWSTR, pcchbuffersize: *mut u32, dwflags: PDH_PATH_FLAGS) -> i32;
     }
-    ::core::mem::transmute(PdhMakeCounterPathW(::core::mem::transmute(pcounterpathelements), ::core::mem::transmute(szfullpathbuffer), ::core::mem::transmute(pcchbuffersize), ::core::mem::transmute(dwflags)))
+    ::core::mem::transmute(PdhMakeCounterPathW(::core::mem::transmute(pcounterpathelements), ::core::mem::transmute(szfullpathbuffer), ::core::mem::transmute(pcchbuffersize), dwflags))
 }
 #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
 #[inline]
@@ -10907,7 +10907,7 @@ where
     extern "system" {
         fn PdhOpenLogA(szlogfilename: ::windows::core::PCSTR, dwaccessflags: PDH_LOG, lpdwlogtype: *mut PDH_LOG_TYPE, hquery: isize, dwmaxsize: u32, szusercaption: ::windows::core::PCSTR, phlog: *mut isize) -> i32;
     }
-    ::core::mem::transmute(PdhOpenLogA(szlogfilename.into(), ::core::mem::transmute(dwaccessflags), ::core::mem::transmute(lpdwlogtype), ::core::mem::transmute(hquery), ::core::mem::transmute(dwmaxsize), szusercaption.into(), ::core::mem::transmute(phlog)))
+    ::core::mem::transmute(PdhOpenLogA(szlogfilename.into(), dwaccessflags, ::core::mem::transmute(lpdwlogtype), hquery, dwmaxsize, szusercaption.into(), ::core::mem::transmute(phlog)))
 }
 #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
 #[inline]
@@ -10920,7 +10920,7 @@ where
     extern "system" {
         fn PdhOpenLogW(szlogfilename: ::windows::core::PCWSTR, dwaccessflags: PDH_LOG, lpdwlogtype: *mut PDH_LOG_TYPE, hquery: isize, dwmaxsize: u32, szusercaption: ::windows::core::PCWSTR, phlog: *mut isize) -> i32;
     }
-    ::core::mem::transmute(PdhOpenLogW(szlogfilename.into(), ::core::mem::transmute(dwaccessflags), ::core::mem::transmute(lpdwlogtype), ::core::mem::transmute(hquery), ::core::mem::transmute(dwmaxsize), szusercaption.into(), ::core::mem::transmute(phlog)))
+    ::core::mem::transmute(PdhOpenLogW(szlogfilename.into(), dwaccessflags, ::core::mem::transmute(lpdwlogtype), hquery, dwmaxsize, szusercaption.into(), ::core::mem::transmute(phlog)))
 }
 #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
 #[inline]
@@ -10932,7 +10932,7 @@ where
     extern "system" {
         fn PdhOpenQueryA(szdatasource: ::windows::core::PCSTR, dwuserdata: usize, phquery: *mut isize) -> i32;
     }
-    ::core::mem::transmute(PdhOpenQueryA(szdatasource.into(), ::core::mem::transmute(dwuserdata), ::core::mem::transmute(phquery)))
+    ::core::mem::transmute(PdhOpenQueryA(szdatasource.into(), dwuserdata, ::core::mem::transmute(phquery)))
 }
 #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
 #[inline]
@@ -10941,7 +10941,7 @@ pub unsafe fn PdhOpenQueryH(hdatasource: isize, dwuserdata: usize, phquery: *mut
     extern "system" {
         fn PdhOpenQueryH(hdatasource: isize, dwuserdata: usize, phquery: *mut isize) -> i32;
     }
-    ::core::mem::transmute(PdhOpenQueryH(::core::mem::transmute(hdatasource), ::core::mem::transmute(dwuserdata), ::core::mem::transmute(phquery)))
+    ::core::mem::transmute(PdhOpenQueryH(hdatasource, dwuserdata, ::core::mem::transmute(phquery)))
 }
 #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
 #[inline]
@@ -10953,7 +10953,7 @@ where
     extern "system" {
         fn PdhOpenQueryW(szdatasource: ::windows::core::PCWSTR, dwuserdata: usize, phquery: *mut isize) -> i32;
     }
-    ::core::mem::transmute(PdhOpenQueryW(szdatasource.into(), ::core::mem::transmute(dwuserdata), ::core::mem::transmute(phquery)))
+    ::core::mem::transmute(PdhOpenQueryW(szdatasource.into(), dwuserdata, ::core::mem::transmute(phquery)))
 }
 #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
 #[inline]
@@ -10965,7 +10965,7 @@ where
     extern "system" {
         fn PdhParseCounterPathA(szfullpathbuffer: ::windows::core::PCSTR, pcounterpathelements: *mut PDH_COUNTER_PATH_ELEMENTS_A, pdwbuffersize: *mut u32, dwflags: u32) -> i32;
     }
-    ::core::mem::transmute(PdhParseCounterPathA(szfullpathbuffer.into(), ::core::mem::transmute(pcounterpathelements), ::core::mem::transmute(pdwbuffersize), ::core::mem::transmute(dwflags)))
+    ::core::mem::transmute(PdhParseCounterPathA(szfullpathbuffer.into(), ::core::mem::transmute(pcounterpathelements), ::core::mem::transmute(pdwbuffersize), dwflags))
 }
 #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
 #[inline]
@@ -10977,7 +10977,7 @@ where
     extern "system" {
         fn PdhParseCounterPathW(szfullpathbuffer: ::windows::core::PCWSTR, pcounterpathelements: *mut PDH_COUNTER_PATH_ELEMENTS_W, pdwbuffersize: *mut u32, dwflags: u32) -> i32;
     }
-    ::core::mem::transmute(PdhParseCounterPathW(szfullpathbuffer.into(), ::core::mem::transmute(pcounterpathelements), ::core::mem::transmute(pdwbuffersize), ::core::mem::transmute(dwflags)))
+    ::core::mem::transmute(PdhParseCounterPathW(szfullpathbuffer.into(), ::core::mem::transmute(pcounterpathelements), ::core::mem::transmute(pdwbuffersize), dwflags))
 }
 #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
 #[inline]
@@ -11011,7 +11011,7 @@ pub unsafe fn PdhReadRawLogRecord(hlog: isize, ftrecord: super::super::Foundatio
     extern "system" {
         fn PdhReadRawLogRecord(hlog: isize, ftrecord: super::super::Foundation::FILETIME, prawlogrecord: *mut PDH_RAW_LOG_RECORD, pdwbufferlength: *mut u32) -> i32;
     }
-    ::core::mem::transmute(PdhReadRawLogRecord(::core::mem::transmute(hlog), ::core::mem::transmute(ftrecord), ::core::mem::transmute(prawlogrecord), ::core::mem::transmute(pdwbufferlength)))
+    ::core::mem::transmute(PdhReadRawLogRecord(hlog, ::core::mem::transmute(ftrecord), ::core::mem::transmute(prawlogrecord), ::core::mem::transmute(pdwbufferlength)))
 }
 #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
 #[inline]
@@ -11020,7 +11020,7 @@ pub unsafe fn PdhRemoveCounter(hcounter: isize) -> i32 {
     extern "system" {
         fn PdhRemoveCounter(hcounter: isize) -> i32;
     }
-    ::core::mem::transmute(PdhRemoveCounter(::core::mem::transmute(hcounter)))
+    ::core::mem::transmute(PdhRemoveCounter(hcounter))
 }
 #[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -11033,7 +11033,7 @@ where
     extern "system" {
         fn PdhSelectDataSourceA(hwndowner: super::super::Foundation::HWND, dwflags: PDH_SELECT_DATA_SOURCE_FLAGS, szdatasource: ::windows::core::PSTR, pcchbufferlength: *mut u32) -> i32;
     }
-    ::core::mem::transmute(PdhSelectDataSourceA(hwndowner.into(), ::core::mem::transmute(dwflags), ::core::mem::transmute(szdatasource), ::core::mem::transmute(pcchbufferlength)))
+    ::core::mem::transmute(PdhSelectDataSourceA(hwndowner.into(), dwflags, ::core::mem::transmute(szdatasource), ::core::mem::transmute(pcchbufferlength)))
 }
 #[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -11046,7 +11046,7 @@ where
     extern "system" {
         fn PdhSelectDataSourceW(hwndowner: super::super::Foundation::HWND, dwflags: PDH_SELECT_DATA_SOURCE_FLAGS, szdatasource: ::windows::core::PWSTR, pcchbufferlength: *mut u32) -> i32;
     }
-    ::core::mem::transmute(PdhSelectDataSourceW(hwndowner.into(), ::core::mem::transmute(dwflags), ::core::mem::transmute(szdatasource), ::core::mem::transmute(pcchbufferlength)))
+    ::core::mem::transmute(PdhSelectDataSourceW(hwndowner.into(), dwflags, ::core::mem::transmute(szdatasource), ::core::mem::transmute(pcchbufferlength)))
 }
 #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
 #[inline]
@@ -11055,7 +11055,7 @@ pub unsafe fn PdhSetCounterScaleFactor(hcounter: isize, lfactor: i32) -> i32 {
     extern "system" {
         fn PdhSetCounterScaleFactor(hcounter: isize, lfactor: i32) -> i32;
     }
-    ::core::mem::transmute(PdhSetCounterScaleFactor(::core::mem::transmute(hcounter), ::core::mem::transmute(lfactor)))
+    ::core::mem::transmute(PdhSetCounterScaleFactor(hcounter, lfactor))
 }
 #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
 #[inline]
@@ -11064,7 +11064,7 @@ pub unsafe fn PdhSetDefaultRealTimeDataSource(dwdatasourceid: REAL_TIME_DATA_SOU
     extern "system" {
         fn PdhSetDefaultRealTimeDataSource(dwdatasourceid: REAL_TIME_DATA_SOURCE_ID_FLAGS) -> i32;
     }
-    ::core::mem::transmute(PdhSetDefaultRealTimeDataSource(::core::mem::transmute(dwdatasourceid)))
+    ::core::mem::transmute(PdhSetDefaultRealTimeDataSource(dwdatasourceid))
 }
 #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
 #[inline]
@@ -11073,7 +11073,7 @@ pub unsafe fn PdhSetLogSetRunID(hlog: isize, runid: i32) -> i32 {
     extern "system" {
         fn PdhSetLogSetRunID(hlog: isize, runid: i32) -> i32;
     }
-    ::core::mem::transmute(PdhSetLogSetRunID(::core::mem::transmute(hlog), ::core::mem::transmute(runid)))
+    ::core::mem::transmute(PdhSetLogSetRunID(hlog, runid))
 }
 #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
 #[inline]
@@ -11082,7 +11082,7 @@ pub unsafe fn PdhSetQueryTimeRange(hquery: isize, pinfo: *const PDH_TIME_INFO) -
     extern "system" {
         fn PdhSetQueryTimeRange(hquery: isize, pinfo: *const PDH_TIME_INFO) -> i32;
     }
-    ::core::mem::transmute(PdhSetQueryTimeRange(::core::mem::transmute(hquery), ::core::mem::transmute(pinfo)))
+    ::core::mem::transmute(PdhSetQueryTimeRange(hquery, ::core::mem::transmute(pinfo)))
 }
 #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
 #[inline]
@@ -11094,7 +11094,7 @@ where
     extern "system" {
         fn PdhUpdateLogA(hlog: isize, szuserstring: ::windows::core::PCSTR) -> i32;
     }
-    ::core::mem::transmute(PdhUpdateLogA(::core::mem::transmute(hlog), szuserstring.into()))
+    ::core::mem::transmute(PdhUpdateLogA(hlog, szuserstring.into()))
 }
 #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
 #[inline]
@@ -11103,7 +11103,7 @@ pub unsafe fn PdhUpdateLogFileCatalog(hlog: isize) -> i32 {
     extern "system" {
         fn PdhUpdateLogFileCatalog(hlog: isize) -> i32;
     }
-    ::core::mem::transmute(PdhUpdateLogFileCatalog(::core::mem::transmute(hlog)))
+    ::core::mem::transmute(PdhUpdateLogFileCatalog(hlog))
 }
 #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
 #[inline]
@@ -11115,7 +11115,7 @@ where
     extern "system" {
         fn PdhUpdateLogW(hlog: isize, szuserstring: ::windows::core::PCWSTR) -> i32;
     }
-    ::core::mem::transmute(PdhUpdateLogW(::core::mem::transmute(hlog), szuserstring.into()))
+    ::core::mem::transmute(PdhUpdateLogW(hlog, szuserstring.into()))
 }
 #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
 #[inline]
@@ -11139,7 +11139,7 @@ where
     extern "system" {
         fn PdhValidatePathExA(hdatasource: isize, szfullpathbuffer: ::windows::core::PCSTR) -> i32;
     }
-    ::core::mem::transmute(PdhValidatePathExA(::core::mem::transmute(hdatasource), szfullpathbuffer.into()))
+    ::core::mem::transmute(PdhValidatePathExA(hdatasource, szfullpathbuffer.into()))
 }
 #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
 #[inline]
@@ -11151,7 +11151,7 @@ where
     extern "system" {
         fn PdhValidatePathExW(hdatasource: isize, szfullpathbuffer: ::windows::core::PCWSTR) -> i32;
     }
-    ::core::mem::transmute(PdhValidatePathExW(::core::mem::transmute(hdatasource), szfullpathbuffer.into()))
+    ::core::mem::transmute(PdhValidatePathExW(hdatasource, szfullpathbuffer.into()))
 }
 #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
 #[inline]
@@ -11199,7 +11199,7 @@ where
     extern "system" {
         fn PerfAddCounters(hquery: PerfQueryHandle, pcounters: *const PERF_COUNTER_IDENTIFIER, cbcounters: u32) -> u32;
     }
-    ::core::mem::transmute(PerfAddCounters(hquery.into(), ::core::mem::transmute(pcounters), ::core::mem::transmute(cbcounters)))
+    ::core::mem::transmute(PerfAddCounters(hquery.into(), ::core::mem::transmute(pcounters), cbcounters))
 }
 #[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -11258,7 +11258,7 @@ where
     extern "system" {
         fn PerfCreateInstance(providerhandle: PerfProviderHandle, countersetguid: *const ::windows::core::GUID, name: ::windows::core::PCWSTR, id: u32) -> *mut PERF_COUNTERSET_INSTANCE;
     }
-    ::core::mem::transmute(PerfCreateInstance(providerhandle.into(), ::core::mem::transmute(countersetguid), name.into(), ::core::mem::transmute(id)))
+    ::core::mem::transmute(PerfCreateInstance(providerhandle.into(), ::core::mem::transmute(countersetguid), name.into(), id))
 }
 #[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -11271,7 +11271,7 @@ where
     extern "system" {
         fn PerfDecrementULongCounterValue(provider: super::super::Foundation::HANDLE, instance: *mut PERF_COUNTERSET_INSTANCE, counterid: u32, value: u32) -> u32;
     }
-    ::core::mem::transmute(PerfDecrementULongCounterValue(provider.into(), ::core::mem::transmute(instance), ::core::mem::transmute(counterid), ::core::mem::transmute(value)))
+    ::core::mem::transmute(PerfDecrementULongCounterValue(provider.into(), ::core::mem::transmute(instance), counterid, value))
 }
 #[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -11284,7 +11284,7 @@ where
     extern "system" {
         fn PerfDecrementULongLongCounterValue(provider: super::super::Foundation::HANDLE, instance: *mut PERF_COUNTERSET_INSTANCE, counterid: u32, value: u64) -> u32;
     }
-    ::core::mem::transmute(PerfDecrementULongLongCounterValue(provider.into(), ::core::mem::transmute(instance), ::core::mem::transmute(counterid), ::core::mem::transmute(value)))
+    ::core::mem::transmute(PerfDecrementULongLongCounterValue(provider.into(), ::core::mem::transmute(instance), counterid, value))
 }
 #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
 #[inline]
@@ -11296,7 +11296,7 @@ where
     extern "system" {
         fn PerfDeleteCounters(hquery: PerfQueryHandle, pcounters: *const PERF_COUNTER_IDENTIFIER, cbcounters: u32) -> u32;
     }
-    ::core::mem::transmute(PerfDeleteCounters(hquery.into(), ::core::mem::transmute(pcounters), ::core::mem::transmute(cbcounters)))
+    ::core::mem::transmute(PerfDeleteCounters(hquery.into(), ::core::mem::transmute(pcounters), cbcounters))
 }
 #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
 #[inline]
@@ -11332,7 +11332,7 @@ where
     extern "system" {
         fn PerfEnumerateCounterSetInstances(szmachine: ::windows::core::PCWSTR, pcountersetid: *const ::windows::core::GUID, pinstances: *mut PERF_INSTANCE_HEADER, cbinstances: u32, pcbinstancesactual: *mut u32) -> u32;
     }
-    ::core::mem::transmute(PerfEnumerateCounterSetInstances(szmachine.into(), ::core::mem::transmute(pcountersetid), ::core::mem::transmute(pinstances), ::core::mem::transmute(cbinstances), ::core::mem::transmute(pcbinstancesactual)))
+    ::core::mem::transmute(PerfEnumerateCounterSetInstances(szmachine.into(), ::core::mem::transmute(pcountersetid), ::core::mem::transmute(pinstances), cbinstances, ::core::mem::transmute(pcbinstancesactual)))
 }
 #[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -11345,7 +11345,7 @@ where
     extern "system" {
         fn PerfIncrementULongCounterValue(provider: super::super::Foundation::HANDLE, instance: *mut PERF_COUNTERSET_INSTANCE, counterid: u32, value: u32) -> u32;
     }
-    ::core::mem::transmute(PerfIncrementULongCounterValue(provider.into(), ::core::mem::transmute(instance), ::core::mem::transmute(counterid), ::core::mem::transmute(value)))
+    ::core::mem::transmute(PerfIncrementULongCounterValue(provider.into(), ::core::mem::transmute(instance), counterid, value))
 }
 #[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -11358,7 +11358,7 @@ where
     extern "system" {
         fn PerfIncrementULongLongCounterValue(provider: super::super::Foundation::HANDLE, instance: *mut PERF_COUNTERSET_INSTANCE, counterid: u32, value: u64) -> u32;
     }
-    ::core::mem::transmute(PerfIncrementULongLongCounterValue(provider.into(), ::core::mem::transmute(instance), ::core::mem::transmute(counterid), ::core::mem::transmute(value)))
+    ::core::mem::transmute(PerfIncrementULongLongCounterValue(provider.into(), ::core::mem::transmute(instance), counterid, value))
 }
 #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
 #[inline]
@@ -11415,7 +11415,7 @@ where
     extern "system" {
         fn PerfQueryCounterData(hquery: PerfQueryHandle, pcounterblock: *mut PERF_DATA_HEADER, cbcounterblock: u32, pcbcounterblockactual: *mut u32) -> u32;
     }
-    ::core::mem::transmute(PerfQueryCounterData(hquery.into(), ::core::mem::transmute(pcounterblock), ::core::mem::transmute(cbcounterblock), ::core::mem::transmute(pcbcounterblockactual)))
+    ::core::mem::transmute(PerfQueryCounterData(hquery.into(), ::core::mem::transmute(pcounterblock), cbcounterblock, ::core::mem::transmute(pcbcounterblockactual)))
 }
 #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
 #[inline]
@@ -11427,7 +11427,7 @@ where
     extern "system" {
         fn PerfQueryCounterInfo(hquery: PerfQueryHandle, pcounters: *mut PERF_COUNTER_IDENTIFIER, cbcounters: u32, pcbcountersactual: *mut u32) -> u32;
     }
-    ::core::mem::transmute(PerfQueryCounterInfo(hquery.into(), ::core::mem::transmute(pcounters), ::core::mem::transmute(cbcounters), ::core::mem::transmute(pcbcountersactual)))
+    ::core::mem::transmute(PerfQueryCounterInfo(hquery.into(), ::core::mem::transmute(pcounters), cbcounters, ::core::mem::transmute(pcbcountersactual)))
 }
 #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
 #[inline]
@@ -11439,7 +11439,7 @@ where
     extern "system" {
         fn PerfQueryCounterSetRegistrationInfo(szmachine: ::windows::core::PCWSTR, pcountersetid: *const ::windows::core::GUID, requestcode: PerfRegInfoType, requestlangid: u32, pbreginfo: *mut u8, cbreginfo: u32, pcbreginfoactual: *mut u32) -> u32;
     }
-    ::core::mem::transmute(PerfQueryCounterSetRegistrationInfo(szmachine.into(), ::core::mem::transmute(pcountersetid), ::core::mem::transmute(requestcode), ::core::mem::transmute(requestlangid), ::core::mem::transmute(pbreginfo), ::core::mem::transmute(cbreginfo), ::core::mem::transmute(pcbreginfoactual)))
+    ::core::mem::transmute(PerfQueryCounterSetRegistrationInfo(szmachine.into(), ::core::mem::transmute(pcountersetid), requestcode, requestlangid, ::core::mem::transmute(pbreginfo), cbreginfo, ::core::mem::transmute(pcbreginfoactual)))
 }
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
@@ -11485,7 +11485,7 @@ where
     extern "system" {
         fn PerfQueryInstance(providerhandle: super::super::Foundation::HANDLE, countersetguid: *const ::windows::core::GUID, name: ::windows::core::PCWSTR, id: u32) -> *mut PERF_COUNTERSET_INSTANCE;
     }
-    ::core::mem::transmute(PerfQueryInstance(providerhandle.into(), ::core::mem::transmute(countersetguid), name.into(), ::core::mem::transmute(id)))
+    ::core::mem::transmute(PerfQueryInstance(providerhandle.into(), ::core::mem::transmute(countersetguid), name.into(), id))
 }
 #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
 #[repr(transparent)]
@@ -11541,7 +11541,7 @@ where
     extern "system" {
         fn PerfSetCounterRefValue(provider: super::super::Foundation::HANDLE, instance: *mut PERF_COUNTERSET_INSTANCE, counterid: u32, address: *const ::core::ffi::c_void) -> u32;
     }
-    ::core::mem::transmute(PerfSetCounterRefValue(provider.into(), ::core::mem::transmute(instance), ::core::mem::transmute(counterid), ::core::mem::transmute(address)))
+    ::core::mem::transmute(PerfSetCounterRefValue(provider.into(), ::core::mem::transmute(instance), counterid, ::core::mem::transmute(address)))
 }
 #[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -11554,7 +11554,7 @@ where
     extern "system" {
         fn PerfSetCounterSetInfo(providerhandle: super::super::Foundation::HANDLE, template: *mut PERF_COUNTERSET_INFO, templatesize: u32) -> u32;
     }
-    ::core::mem::transmute(PerfSetCounterSetInfo(providerhandle.into(), ::core::mem::transmute(template), ::core::mem::transmute(templatesize)))
+    ::core::mem::transmute(PerfSetCounterSetInfo(providerhandle.into(), ::core::mem::transmute(template), templatesize))
 }
 #[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -11567,7 +11567,7 @@ where
     extern "system" {
         fn PerfSetULongCounterValue(provider: super::super::Foundation::HANDLE, instance: *mut PERF_COUNTERSET_INSTANCE, counterid: u32, value: u32) -> u32;
     }
-    ::core::mem::transmute(PerfSetULongCounterValue(provider.into(), ::core::mem::transmute(instance), ::core::mem::transmute(counterid), ::core::mem::transmute(value)))
+    ::core::mem::transmute(PerfSetULongCounterValue(provider.into(), ::core::mem::transmute(instance), counterid, value))
 }
 #[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -11580,7 +11580,7 @@ where
     extern "system" {
         fn PerfSetULongLongCounterValue(provider: super::super::Foundation::HANDLE, instance: *mut PERF_COUNTERSET_INSTANCE, counterid: u32, value: u64) -> u32;
     }
-    ::core::mem::transmute(PerfSetULongLongCounterValue(provider.into(), ::core::mem::transmute(instance), ::core::mem::transmute(counterid), ::core::mem::transmute(value)))
+    ::core::mem::transmute(PerfSetULongLongCounterValue(provider.into(), ::core::mem::transmute(instance), counterid, value))
 }
 #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
 #[inline]
@@ -11942,7 +11942,7 @@ where
     extern "system" {
         fn UpdatePerfNameFilesA(sznewctrfilepath: ::windows::core::PCSTR, sznewhlpfilepath: ::windows::core::PCSTR, szlanguageid: ::windows::core::PCSTR, dwflags: usize) -> u32;
     }
-    ::core::mem::transmute(UpdatePerfNameFilesA(sznewctrfilepath.into(), sznewhlpfilepath.into(), szlanguageid.into(), ::core::mem::transmute(dwflags)))
+    ::core::mem::transmute(UpdatePerfNameFilesA(sznewctrfilepath.into(), sznewhlpfilepath.into(), szlanguageid.into(), dwflags))
 }
 #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
 #[inline]
@@ -11956,7 +11956,7 @@ where
     extern "system" {
         fn UpdatePerfNameFilesW(sznewctrfilepath: ::windows::core::PCWSTR, sznewhlpfilepath: ::windows::core::PCWSTR, szlanguageid: ::windows::core::PCWSTR, dwflags: usize) -> u32;
     }
-    ::core::mem::transmute(UpdatePerfNameFilesW(sznewctrfilepath.into(), sznewhlpfilepath.into(), szlanguageid.into(), ::core::mem::transmute(dwflags)))
+    ::core::mem::transmute(UpdatePerfNameFilesW(sznewctrfilepath.into(), sznewhlpfilepath.into(), szlanguageid.into(), dwflags))
 }
 #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
 #[repr(transparent)]
@@ -12049,7 +12049,7 @@ impl _ICounterItemUnion {
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn SetColor(&self, color: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetColor)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(color)).ok()
+        (::windows::core::Interface::vtable(self).SetColor)(::windows::core::Interface::as_raw(self), color).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn Color(&self) -> ::windows::core::Result<u32> {
@@ -12058,7 +12058,7 @@ impl _ICounterItemUnion {
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn SetWidth(&self, iwidth: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetWidth)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(iwidth)).ok()
+        (::windows::core::Interface::vtable(self).SetWidth)(::windows::core::Interface::as_raw(self), iwidth).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn Width(&self) -> ::windows::core::Result<i32> {
@@ -12067,7 +12067,7 @@ impl _ICounterItemUnion {
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn SetLineStyle(&self, ilinestyle: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetLineStyle)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(ilinestyle)).ok()
+        (::windows::core::Interface::vtable(self).SetLineStyle)(::windows::core::Interface::as_raw(self), ilinestyle).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn LineStyle(&self) -> ::windows::core::Result<i32> {
@@ -12076,7 +12076,7 @@ impl _ICounterItemUnion {
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn SetScaleFactor(&self, iscale: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetScaleFactor)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(iscale)).ok()
+        (::windows::core::Interface::vtable(self).SetScaleFactor)(::windows::core::Interface::as_raw(self), iscale).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn ScaleFactor(&self) -> ::windows::core::Result<i32> {
@@ -12099,7 +12099,7 @@ impl _ICounterItemUnion {
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn SetSelected(&self, bstate: i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetSelected)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(bstate)).ok()
+        (::windows::core::Interface::vtable(self).SetSelected)(::windows::core::Interface::as_raw(self), bstate).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn Selected(&self) -> ::windows::core::Result<i16> {
@@ -12108,7 +12108,7 @@ impl _ICounterItemUnion {
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn SetVisible(&self, bstate: i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetVisible)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(bstate)).ok()
+        (::windows::core::Interface::vtable(self).SetVisible)(::windows::core::Interface::as_raw(self), bstate).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn Visible(&self) -> ::windows::core::Result<i16> {
@@ -12119,7 +12119,7 @@ impl _ICounterItemUnion {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn GetDataAt(&self, iindex: i32, iwhich: SysmonDataType) -> ::windows::core::Result<super::Com::VARIANT> {
         let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::Com::VARIANT>>::zeroed();
-        (::windows::core::Interface::vtable(self).GetDataAt)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(iindex), ::core::mem::transmute(iwhich), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::Com::VARIANT>(result__)
+        (::windows::core::Interface::vtable(self).GetDataAt)(::windows::core::Interface::as_raw(self), iindex, iwhich, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::Com::VARIANT>(result__)
     }
 }
 impl ::core::convert::From<_ICounterItemUnion> for ::windows::core::IUnknown {
@@ -12196,7 +12196,7 @@ impl _ISystemMonitorUnion {
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn SetAppearance(&self, iappearance: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetAppearance)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(iappearance)).ok()
+        (::windows::core::Interface::vtable(self).SetAppearance)(::windows::core::Interface::as_raw(self), iappearance).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn BackColor(&self) -> ::windows::core::Result<u32> {
@@ -12205,7 +12205,7 @@ impl _ISystemMonitorUnion {
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn SetBackColor(&self, color: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetBackColor)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(color)).ok()
+        (::windows::core::Interface::vtable(self).SetBackColor)(::windows::core::Interface::as_raw(self), color).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn BorderStyle(&self) -> ::windows::core::Result<i32> {
@@ -12214,7 +12214,7 @@ impl _ISystemMonitorUnion {
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn SetBorderStyle(&self, iborderstyle: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetBorderStyle)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(iborderstyle)).ok()
+        (::windows::core::Interface::vtable(self).SetBorderStyle)(::windows::core::Interface::as_raw(self), iborderstyle).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn ForeColor(&self) -> ::windows::core::Result<u32> {
@@ -12223,7 +12223,7 @@ impl _ISystemMonitorUnion {
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn SetForeColor(&self, color: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetForeColor)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(color)).ok()
+        (::windows::core::Interface::vtable(self).SetForeColor)(::windows::core::Interface::as_raw(self), color).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -12247,7 +12247,7 @@ impl _ISystemMonitorUnion {
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn SetShowVerticalGrid(&self, bstate: i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetShowVerticalGrid)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(bstate)).ok()
+        (::windows::core::Interface::vtable(self).SetShowVerticalGrid)(::windows::core::Interface::as_raw(self), bstate).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn ShowVerticalGrid(&self) -> ::windows::core::Result<i16> {
@@ -12256,7 +12256,7 @@ impl _ISystemMonitorUnion {
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn SetShowHorizontalGrid(&self, bstate: i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetShowHorizontalGrid)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(bstate)).ok()
+        (::windows::core::Interface::vtable(self).SetShowHorizontalGrid)(::windows::core::Interface::as_raw(self), bstate).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn ShowHorizontalGrid(&self) -> ::windows::core::Result<i16> {
@@ -12265,7 +12265,7 @@ impl _ISystemMonitorUnion {
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn SetShowLegend(&self, bstate: i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetShowLegend)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(bstate)).ok()
+        (::windows::core::Interface::vtable(self).SetShowLegend)(::windows::core::Interface::as_raw(self), bstate).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn ShowLegend(&self) -> ::windows::core::Result<i16> {
@@ -12274,7 +12274,7 @@ impl _ISystemMonitorUnion {
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn SetShowScaleLabels(&self, bstate: i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetShowScaleLabels)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(bstate)).ok()
+        (::windows::core::Interface::vtable(self).SetShowScaleLabels)(::windows::core::Interface::as_raw(self), bstate).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn ShowScaleLabels(&self) -> ::windows::core::Result<i16> {
@@ -12283,7 +12283,7 @@ impl _ISystemMonitorUnion {
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn SetShowValueBar(&self, bstate: i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetShowValueBar)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(bstate)).ok()
+        (::windows::core::Interface::vtable(self).SetShowValueBar)(::windows::core::Interface::as_raw(self), bstate).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn ShowValueBar(&self) -> ::windows::core::Result<i16> {
@@ -12292,7 +12292,7 @@ impl _ISystemMonitorUnion {
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn SetMaximumScale(&self, ivalue: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetMaximumScale)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(ivalue)).ok()
+        (::windows::core::Interface::vtable(self).SetMaximumScale)(::windows::core::Interface::as_raw(self), ivalue).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn MaximumScale(&self) -> ::windows::core::Result<i32> {
@@ -12301,7 +12301,7 @@ impl _ISystemMonitorUnion {
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn SetMinimumScale(&self, ivalue: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetMinimumScale)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(ivalue)).ok()
+        (::windows::core::Interface::vtable(self).SetMinimumScale)(::windows::core::Interface::as_raw(self), ivalue).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn MinimumScale(&self) -> ::windows::core::Result<i32> {
@@ -12310,7 +12310,7 @@ impl _ISystemMonitorUnion {
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn SetUpdateInterval(&self, fvalue: f32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetUpdateInterval)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(fvalue)).ok()
+        (::windows::core::Interface::vtable(self).SetUpdateInterval)(::windows::core::Interface::as_raw(self), fvalue).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn UpdateInterval(&self) -> ::windows::core::Result<f32> {
@@ -12319,7 +12319,7 @@ impl _ISystemMonitorUnion {
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn SetDisplayType(&self, edisplaytype: DisplayTypeConstants) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetDisplayType)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(edisplaytype)).ok()
+        (::windows::core::Interface::vtable(self).SetDisplayType)(::windows::core::Interface::as_raw(self), edisplaytype).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn DisplayType(&self) -> ::windows::core::Result<DisplayTypeConstants> {
@@ -12328,7 +12328,7 @@ impl _ISystemMonitorUnion {
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn SetManualUpdate(&self, bstate: i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetManualUpdate)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(bstate)).ok()
+        (::windows::core::Interface::vtable(self).SetManualUpdate)(::windows::core::Interface::as_raw(self), bstate).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn ManualUpdate(&self) -> ::windows::core::Result<i16> {
@@ -12382,7 +12382,7 @@ impl _ISystemMonitorUnion {
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn Counter(&self, iindex: i32) -> ::windows::core::Result<ICounterItem> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).Counter)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(iindex), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ICounterItem>(result__)
+        (::windows::core::Interface::vtable(self).Counter)(::windows::core::Interface::as_raw(self), iindex, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ICounterItem>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -12407,7 +12407,7 @@ impl _ISystemMonitorUnion {
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn SetBackColorCtl(&self, color: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetBackColorCtl)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(color)).ok()
+        (::windows::core::Interface::vtable(self).SetBackColorCtl)(::windows::core::Interface::as_raw(self), color).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -12425,7 +12425,7 @@ impl _ISystemMonitorUnion {
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn SetLogViewStart(&self, starttime: f64) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetLogViewStart)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(starttime)).ok()
+        (::windows::core::Interface::vtable(self).SetLogViewStart)(::windows::core::Interface::as_raw(self), starttime).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn LogViewStart(&self) -> ::windows::core::Result<f64> {
@@ -12434,7 +12434,7 @@ impl _ISystemMonitorUnion {
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn SetLogViewStop(&self, stoptime: f64) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetLogViewStop)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(stoptime)).ok()
+        (::windows::core::Interface::vtable(self).SetLogViewStop)(::windows::core::Interface::as_raw(self), stoptime).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn LogViewStop(&self) -> ::windows::core::Result<f64> {
@@ -12448,7 +12448,7 @@ impl _ISystemMonitorUnion {
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn SetGridColor(&self, color: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetGridColor)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(color)).ok()
+        (::windows::core::Interface::vtable(self).SetGridColor)(::windows::core::Interface::as_raw(self), color).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn TimeBarColor(&self) -> ::windows::core::Result<u32> {
@@ -12457,7 +12457,7 @@ impl _ISystemMonitorUnion {
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn SetTimeBarColor(&self, color: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetTimeBarColor)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(color)).ok()
+        (::windows::core::Interface::vtable(self).SetTimeBarColor)(::windows::core::Interface::as_raw(self), color).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn Highlight(&self) -> ::windows::core::Result<i16> {
@@ -12466,7 +12466,7 @@ impl _ISystemMonitorUnion {
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn SetHighlight(&self, bstate: i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetHighlight)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(bstate)).ok()
+        (::windows::core::Interface::vtable(self).SetHighlight)(::windows::core::Interface::as_raw(self), bstate).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn ShowToolbar(&self) -> ::windows::core::Result<i16> {
@@ -12475,7 +12475,7 @@ impl _ISystemMonitorUnion {
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn SetShowToolbar(&self, bstate: i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetShowToolbar)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(bstate)).ok()
+        (::windows::core::Interface::vtable(self).SetShowToolbar)(::windows::core::Interface::as_raw(self), bstate).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn Paste(&self) -> ::windows::core::Result<()> {
@@ -12491,7 +12491,7 @@ impl _ISystemMonitorUnion {
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn SetReadOnly(&self, bstate: i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetReadOnly)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(bstate)).ok()
+        (::windows::core::Interface::vtable(self).SetReadOnly)(::windows::core::Interface::as_raw(self), bstate).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn ReadOnly(&self) -> ::windows::core::Result<i16> {
@@ -12500,7 +12500,7 @@ impl _ISystemMonitorUnion {
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn SetReportValueType(&self, ereportvaluetype: ReportValueTypeConstants) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetReportValueType)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(ereportvaluetype)).ok()
+        (::windows::core::Interface::vtable(self).SetReportValueType)(::windows::core::Interface::as_raw(self), ereportvaluetype).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn ReportValueType(&self) -> ::windows::core::Result<ReportValueTypeConstants> {
@@ -12509,7 +12509,7 @@ impl _ISystemMonitorUnion {
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn SetMonitorDuplicateInstances(&self, bstate: i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetMonitorDuplicateInstances)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(bstate)).ok()
+        (::windows::core::Interface::vtable(self).SetMonitorDuplicateInstances)(::windows::core::Interface::as_raw(self), bstate).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn MonitorDuplicateInstances(&self) -> ::windows::core::Result<i16> {
@@ -12518,7 +12518,7 @@ impl _ISystemMonitorUnion {
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn SetDisplayFilter(&self, ivalue: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetDisplayFilter)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(ivalue)).ok()
+        (::windows::core::Interface::vtable(self).SetDisplayFilter)(::windows::core::Interface::as_raw(self), ivalue).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn DisplayFilter(&self) -> ::windows::core::Result<i32> {
@@ -12533,7 +12533,7 @@ impl _ISystemMonitorUnion {
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn SetDataSourceType(&self, edatasourcetype: DataSourceTypeConstants) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetDataSourceType)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(edatasourcetype)).ok()
+        (::windows::core::Interface::vtable(self).SetDataSourceType)(::windows::core::Interface::as_raw(self), edatasourcetype).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn DataSourceType(&self) -> ::windows::core::Result<DataSourceTypeConstants> {
@@ -12570,7 +12570,7 @@ impl _ISystemMonitorUnion {
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn SetEnableDigitGrouping(&self, bstate: i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetEnableDigitGrouping)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(bstate)).ok()
+        (::windows::core::Interface::vtable(self).SetEnableDigitGrouping)(::windows::core::Interface::as_raw(self), bstate).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn EnableDigitGrouping(&self) -> ::windows::core::Result<i16> {
@@ -12579,7 +12579,7 @@ impl _ISystemMonitorUnion {
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn SetEnableToolTips(&self, bstate: i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetEnableToolTips)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(bstate)).ok()
+        (::windows::core::Interface::vtable(self).SetEnableToolTips)(::windows::core::Interface::as_raw(self), bstate).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn EnableToolTips(&self) -> ::windows::core::Result<i16> {
@@ -12588,7 +12588,7 @@ impl _ISystemMonitorUnion {
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn SetShowTimeAxisLabels(&self, bstate: i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetShowTimeAxisLabels)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(bstate)).ok()
+        (::windows::core::Interface::vtable(self).SetShowTimeAxisLabels)(::windows::core::Interface::as_raw(self), bstate).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn ShowTimeAxisLabels(&self) -> ::windows::core::Result<i16> {
@@ -12597,7 +12597,7 @@ impl _ISystemMonitorUnion {
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn SetChartScroll(&self, bscroll: i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetChartScroll)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(bscroll)).ok()
+        (::windows::core::Interface::vtable(self).SetChartScroll)(::windows::core::Interface::as_raw(self), bscroll).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn ChartScroll(&self) -> ::windows::core::Result<i16> {
@@ -12606,7 +12606,7 @@ impl _ISystemMonitorUnion {
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn SetDataPointCount(&self, inewcount: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetDataPointCount)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(inewcount)).ok()
+        (::windows::core::Interface::vtable(self).SetDataPointCount)(::windows::core::Interface::as_raw(self), inewcount).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn DataPointCount(&self) -> ::windows::core::Result<i32> {
@@ -12615,7 +12615,7 @@ impl _ISystemMonitorUnion {
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn ScaleToFit(&self, bselectedcountersonly: i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).ScaleToFit)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(bselectedcountersonly)).ok()
+        (::windows::core::Interface::vtable(self).ScaleToFit)(::windows::core::Interface::as_raw(self), bselectedcountersonly).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -12623,7 +12623,7 @@ impl _ISystemMonitorUnion {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
     {
-        (::windows::core::Interface::vtable(self).SaveAs)(::windows::core::Interface::as_raw(self), bstrfilename.into().abi(), ::core::mem::transmute(esysmonfiletype)).ok()
+        (::windows::core::Interface::vtable(self).SaveAs)(::windows::core::Interface::as_raw(self), bstrfilename.into().abi(), esysmonfiletype).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -12631,7 +12631,7 @@ impl _ISystemMonitorUnion {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
     {
-        (::windows::core::Interface::vtable(self).Relog)(::windows::core::Interface::as_raw(self), bstrfilename.into().abi(), ::core::mem::transmute(esysmonfiletype), ::core::mem::transmute(ifilter)).ok()
+        (::windows::core::Interface::vtable(self).Relog)(::windows::core::Interface::as_raw(self), bstrfilename.into().abi(), esysmonfiletype, ifilter).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn ClearData(&self) -> ::windows::core::Result<()> {
@@ -12649,7 +12649,7 @@ impl _ISystemMonitorUnion {
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn SetLogViewRange(&self, starttime: f64, stoptime: f64) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetLogViewRange)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(starttime), ::core::mem::transmute(stoptime)).ok()
+        (::windows::core::Interface::vtable(self).SetLogViewRange)(::windows::core::Interface::as_raw(self), starttime, stoptime).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn GetLogViewRange(&self, starttime: *mut f64, stoptime: *mut f64) -> ::windows::core::Result<()> {
@@ -12657,7 +12657,7 @@ impl _ISystemMonitorUnion {
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn BatchingLock(&self, flock: i16, ebatchreason: SysmonBatchReason) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).BatchingLock)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(flock), ::core::mem::transmute(ebatchreason)).ok()
+        (::windows::core::Interface::vtable(self).BatchingLock)(::windows::core::Interface::as_raw(self), flock, ebatchreason).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]

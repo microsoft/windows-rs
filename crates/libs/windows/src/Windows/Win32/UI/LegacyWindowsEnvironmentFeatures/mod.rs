@@ -28,7 +28,7 @@ impl IADesktopP2 {
     }
     #[doc = "*Required features: `\"Win32_UI_LegacyWindowsEnvironmentFeatures\"`*"]
     pub unsafe fn GetADObjectFlags(&self, pdwflags: *mut u32, dwmask: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetADObjectFlags)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pdwflags), ::core::mem::transmute(dwmask)).ok()
+        (::windows::core::Interface::vtable(self).GetADObjectFlags)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pdwflags), dwmask).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_LegacyWindowsEnvironmentFeatures\"`*"]
     pub unsafe fn UpdateAllDesktopSubscriptions(&self) -> ::windows::core::Result<()> {
@@ -96,7 +96,7 @@ pub struct IActiveDesktopP(::windows::core::IUnknown);
 impl IActiveDesktopP {
     #[doc = "*Required features: `\"Win32_UI_LegacyWindowsEnvironmentFeatures\"`*"]
     pub unsafe fn SetSafeMode(&self, dwflags: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetSafeMode)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(dwflags)).ok()
+        (::windows::core::Interface::vtable(self).SetSafeMode)(::windows::core::Interface::as_raw(self), dwflags).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_LegacyWindowsEnvironmentFeatures\"`*"]
     pub unsafe fn EnsureUpdateHTML(&self) -> ::windows::core::Result<()> {
@@ -107,11 +107,11 @@ impl IActiveDesktopP {
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
-        (::windows::core::Interface::vtable(self).SetScheme)(::windows::core::Interface::as_raw(self), pwszschemename.into(), ::core::mem::transmute(dwflags)).ok()
+        (::windows::core::Interface::vtable(self).SetScheme)(::windows::core::Interface::as_raw(self), pwszschemename.into(), dwflags).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_LegacyWindowsEnvironmentFeatures\"`*"]
     pub unsafe fn GetScheme(&self, pwszschemename: ::windows::core::PWSTR, pdwcchbuffer: *mut u32, dwflags: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetScheme)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pwszschemename), ::core::mem::transmute(pdwcchbuffer), ::core::mem::transmute(dwflags)).ok()
+        (::windows::core::Interface::vtable(self).GetScheme)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pwszschemename), ::core::mem::transmute(pdwcchbuffer), dwflags).ok()
     }
 }
 impl ::core::convert::From<IActiveDesktopP> for ::windows::core::IUnknown {
@@ -240,7 +240,7 @@ impl IEmptyVolumeCache {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, IEmptyVolumeCacheCallBack>>,
     {
-        (::windows::core::Interface::vtable(self).Purge)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(dwlspacetofree), picb.into().abi()).ok()
+        (::windows::core::Interface::vtable(self).Purge)(::windows::core::Interface::as_raw(self), dwlspacetofree, picb.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_LegacyWindowsEnvironmentFeatures\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -332,7 +332,7 @@ impl IEmptyVolumeCache2 {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, IEmptyVolumeCacheCallBack>>,
     {
-        (::windows::core::Interface::vtable(self).base__.Purge)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(dwlspacetofree), picb.into().abi()).ok()
+        (::windows::core::Interface::vtable(self).base__.Purge)(::windows::core::Interface::as_raw(self), dwlspacetofree, picb.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_LegacyWindowsEnvironmentFeatures\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -426,14 +426,14 @@ impl IEmptyVolumeCacheCallBack {
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
-        (::windows::core::Interface::vtable(self).ScanProgress)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(dwlspaceused), ::core::mem::transmute(dwflags), pcwszstatus.into()).ok()
+        (::windows::core::Interface::vtable(self).ScanProgress)(::windows::core::Interface::as_raw(self), dwlspaceused, dwflags, pcwszstatus.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_LegacyWindowsEnvironmentFeatures\"`*"]
     pub unsafe fn PurgeProgress<'a, P0>(&self, dwlspacefreed: u64, dwlspacetofree: u64, dwflags: u32, pcwszstatus: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
-        (::windows::core::Interface::vtable(self).PurgeProgress)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(dwlspacefreed), ::core::mem::transmute(dwlspacetofree), ::core::mem::transmute(dwflags), pcwszstatus.into()).ok()
+        (::windows::core::Interface::vtable(self).PurgeProgress)(::windows::core::Interface::as_raw(self), dwlspacefreed, dwlspacetofree, dwflags, pcwszstatus.into()).ok()
     }
 }
 impl ::core::convert::From<IEmptyVolumeCacheCallBack> for ::windows::core::IUnknown {
@@ -491,7 +491,7 @@ impl IReconcilableObject {
         P2: ::std::convert::Into<super::super::Foundation::HWND>,
         P3: ::std::convert::Into<::windows::core::InParam<'a, super::super::System::Com::StructuredStorage::IStorage>>,
     {
-        (::windows::core::Interface::vtable(self).Reconcile)(::windows::core::Interface::as_raw(self), pinitiator.into().abi(), ::core::mem::transmute(dwflags), hwndowner.into(), hwndprogressfeedback.into(), rgpmkotherinput.len() as _, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(rgpmkotherinput)), ::core::mem::transmute(ploutindex), pstgnewresidues.into().abi(), ::core::mem::transmute(pvreserved)).ok()
+        (::windows::core::Interface::vtable(self).Reconcile)(::windows::core::Interface::as_raw(self), pinitiator.into().abi(), dwflags, hwndowner.into(), hwndprogressfeedback.into(), rgpmkotherinput.len() as _, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(rgpmkotherinput)), ::core::mem::transmute(ploutindex), pstgnewresidues.into().abi(), ::core::mem::transmute(pvreserved)).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_LegacyWindowsEnvironmentFeatures\"`*"]
     pub unsafe fn GetProgressFeedbackMaxEstimate(&self) -> ::windows::core::Result<u32> {
@@ -557,7 +557,7 @@ impl IReconcileInitiator {
     }
     #[doc = "*Required features: `\"Win32_UI_LegacyWindowsEnvironmentFeatures\"`*"]
     pub unsafe fn SetProgressFeedback(&self, ulprogress: u32, ulprogressmax: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetProgressFeedback)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(ulprogress), ::core::mem::transmute(ulprogressmax)).ok()
+        (::windows::core::Interface::vtable(self).SetProgressFeedback)(::windows::core::Interface::as_raw(self), ulprogress, ulprogressmax).ok()
     }
 }
 impl ::core::convert::From<IReconcileInitiator> for ::windows::core::IUnknown {

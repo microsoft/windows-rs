@@ -144,7 +144,7 @@ impl IEnumEventObject {
     }
     #[doc = "*Required features: `\"Win32_System_Com_Events\"`*"]
     pub unsafe fn Skip(&self, cskipelem: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Skip)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(cskipelem)).ok()
+        (::windows::core::Interface::vtable(self).Skip)(::windows::core::Interface::as_raw(self), cskipelem).ok()
     }
 }
 impl ::core::convert::From<IEnumEventObject> for ::windows::core::IUnknown {
@@ -799,7 +799,7 @@ impl IEventObjectChange {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::BSTR>>,
     {
-        (::windows::core::Interface::vtable(self).ChangedSubscription)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(changetype), bstrsubscriptionid.into().abi()).ok()
+        (::windows::core::Interface::vtable(self).ChangedSubscription)(::windows::core::Interface::as_raw(self), changetype, bstrsubscriptionid.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Com_Events\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -807,7 +807,7 @@ impl IEventObjectChange {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::BSTR>>,
     {
-        (::windows::core::Interface::vtable(self).ChangedEventClass)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(changetype), bstreventclassid.into().abi()).ok()
+        (::windows::core::Interface::vtable(self).ChangedEventClass)(::windows::core::Interface::as_raw(self), changetype, bstreventclassid.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Com_Events\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -815,7 +815,7 @@ impl IEventObjectChange {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::BSTR>>,
     {
-        (::windows::core::Interface::vtable(self).ChangedPublisher)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(changetype), bstrpublisherid.into().abi()).ok()
+        (::windows::core::Interface::vtable(self).ChangedPublisher)(::windows::core::Interface::as_raw(self), changetype, bstrpublisherid.into().abi()).ok()
     }
 }
 impl ::core::convert::From<IEventObjectChange> for ::windows::core::IUnknown {

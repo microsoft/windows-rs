@@ -416,7 +416,7 @@ where
     extern "system" {
         fn WebSocketCompleteAction(hwebsocket: WEB_SOCKET_HANDLE, pvactioncontext: *const ::core::ffi::c_void, ulbytestransferred: u32);
     }
-    WebSocketCompleteAction(hwebsocket.into(), ::core::mem::transmute(pvactioncontext), ::core::mem::transmute(ulbytestransferred))
+    WebSocketCompleteAction(hwebsocket.into(), ::core::mem::transmute(pvactioncontext), ulbytestransferred)
 }
 #[doc = "*Required features: `\"Win32_Networking_WebSocket\"`*"]
 #[inline]
@@ -484,7 +484,7 @@ where
     extern "system" {
         fn WebSocketGetAction(hwebsocket: WEB_SOCKET_HANDLE, eactionqueue: WEB_SOCKET_ACTION_QUEUE, pdatabuffers: *mut WEB_SOCKET_BUFFER, puldatabuffercount: *mut u32, paction: *mut WEB_SOCKET_ACTION, pbuffertype: *mut WEB_SOCKET_BUFFER_TYPE, pvapplicationcontext: *mut *mut ::core::ffi::c_void, pvactioncontext: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
     }
-    WebSocketGetAction(hwebsocket.into(), ::core::mem::transmute(eactionqueue), ::core::mem::transmute(pdatabuffers), ::core::mem::transmute(puldatabuffercount), ::core::mem::transmute(paction), ::core::mem::transmute(pbuffertype), ::core::mem::transmute(pvapplicationcontext), ::core::mem::transmute(pvactioncontext)).ok()
+    WebSocketGetAction(hwebsocket.into(), eactionqueue, ::core::mem::transmute(pdatabuffers), ::core::mem::transmute(puldatabuffercount), ::core::mem::transmute(paction), ::core::mem::transmute(pbuffertype), ::core::mem::transmute(pvapplicationcontext), ::core::mem::transmute(pvactioncontext)).ok()
 }
 #[doc = "*Required features: `\"Win32_Networking_WebSocket\"`*"]
 #[inline]
@@ -493,7 +493,7 @@ pub unsafe fn WebSocketGetGlobalProperty(etype: WEB_SOCKET_PROPERTY_TYPE, pvvalu
     extern "system" {
         fn WebSocketGetGlobalProperty(etype: WEB_SOCKET_PROPERTY_TYPE, pvvalue: *mut ::core::ffi::c_void, ulsize: *mut u32) -> ::windows::core::HRESULT;
     }
-    WebSocketGetGlobalProperty(::core::mem::transmute(etype), ::core::mem::transmute(pvvalue), ::core::mem::transmute(ulsize)).ok()
+    WebSocketGetGlobalProperty(etype, ::core::mem::transmute(pvvalue), ::core::mem::transmute(ulsize)).ok()
 }
 #[doc = "*Required features: `\"Win32_Networking_WebSocket\"`*"]
 #[inline]
@@ -517,7 +517,7 @@ where
     extern "system" {
         fn WebSocketSend(hwebsocket: WEB_SOCKET_HANDLE, buffertype: WEB_SOCKET_BUFFER_TYPE, pbuffer: *const WEB_SOCKET_BUFFER, context: *const ::core::ffi::c_void) -> ::windows::core::HRESULT;
     }
-    WebSocketSend(hwebsocket.into(), ::core::mem::transmute(buffertype), ::core::mem::transmute(pbuffer), ::core::mem::transmute(context)).ok()
+    WebSocketSend(hwebsocket.into(), buffertype, ::core::mem::transmute(pbuffer), ::core::mem::transmute(context)).ok()
 }
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

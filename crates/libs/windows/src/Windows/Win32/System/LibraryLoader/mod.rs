@@ -146,7 +146,7 @@ where
     extern "system" {
         fn EnumResourceLanguagesA(hmodule: super::super::Foundation::HINSTANCE, lptype: ::windows::core::PCSTR, lpname: ::windows::core::PCSTR, lpenumfunc: *mut ::core::ffi::c_void, lparam: isize) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(EnumResourceLanguagesA(hmodule.into(), lptype.into(), lpname.into(), ::core::mem::transmute(lpenumfunc), ::core::mem::transmute(lparam)))
+    ::core::mem::transmute(EnumResourceLanguagesA(hmodule.into(), lptype.into(), lpname.into(), ::core::mem::transmute(lpenumfunc), lparam))
 }
 #[doc = "*Required features: `\"Win32_System_LibraryLoader\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -161,7 +161,7 @@ where
     extern "system" {
         fn EnumResourceLanguagesExA(hmodule: super::super::Foundation::HINSTANCE, lptype: ::windows::core::PCSTR, lpname: ::windows::core::PCSTR, lpenumfunc: *mut ::core::ffi::c_void, lparam: isize, dwflags: u32, langid: u16) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(EnumResourceLanguagesExA(hmodule.into(), lptype.into(), lpname.into(), ::core::mem::transmute(lpenumfunc), ::core::mem::transmute(lparam), ::core::mem::transmute(dwflags), ::core::mem::transmute(langid)))
+    ::core::mem::transmute(EnumResourceLanguagesExA(hmodule.into(), lptype.into(), lpname.into(), ::core::mem::transmute(lpenumfunc), lparam, dwflags, langid))
 }
 #[doc = "*Required features: `\"Win32_System_LibraryLoader\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -176,7 +176,7 @@ where
     extern "system" {
         fn EnumResourceLanguagesExW(hmodule: super::super::Foundation::HINSTANCE, lptype: ::windows::core::PCWSTR, lpname: ::windows::core::PCWSTR, lpenumfunc: *mut ::core::ffi::c_void, lparam: isize, dwflags: u32, langid: u16) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(EnumResourceLanguagesExW(hmodule.into(), lptype.into(), lpname.into(), ::core::mem::transmute(lpenumfunc), ::core::mem::transmute(lparam), ::core::mem::transmute(dwflags), ::core::mem::transmute(langid)))
+    ::core::mem::transmute(EnumResourceLanguagesExW(hmodule.into(), lptype.into(), lpname.into(), ::core::mem::transmute(lpenumfunc), lparam, dwflags, langid))
 }
 #[doc = "*Required features: `\"Win32_System_LibraryLoader\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -191,7 +191,7 @@ where
     extern "system" {
         fn EnumResourceLanguagesW(hmodule: super::super::Foundation::HINSTANCE, lptype: ::windows::core::PCWSTR, lpname: ::windows::core::PCWSTR, lpenumfunc: *mut ::core::ffi::c_void, lparam: isize) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(EnumResourceLanguagesW(hmodule.into(), lptype.into(), lpname.into(), ::core::mem::transmute(lpenumfunc), ::core::mem::transmute(lparam)))
+    ::core::mem::transmute(EnumResourceLanguagesW(hmodule.into(), lptype.into(), lpname.into(), ::core::mem::transmute(lpenumfunc), lparam))
 }
 #[doc = "*Required features: `\"Win32_System_LibraryLoader\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -205,7 +205,7 @@ where
     extern "system" {
         fn EnumResourceNamesA(hmodule: super::super::Foundation::HINSTANCE, lptype: ::windows::core::PCSTR, lpenumfunc: *mut ::core::ffi::c_void, lparam: isize) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(EnumResourceNamesA(hmodule.into(), lptype.into(), ::core::mem::transmute(lpenumfunc), ::core::mem::transmute(lparam)))
+    ::core::mem::transmute(EnumResourceNamesA(hmodule.into(), lptype.into(), ::core::mem::transmute(lpenumfunc), lparam))
 }
 #[doc = "*Required features: `\"Win32_System_LibraryLoader\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -219,7 +219,7 @@ where
     extern "system" {
         fn EnumResourceNamesExA(hmodule: super::super::Foundation::HINSTANCE, lptype: ::windows::core::PCSTR, lpenumfunc: *mut ::core::ffi::c_void, lparam: isize, dwflags: u32, langid: u16) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(EnumResourceNamesExA(hmodule.into(), lptype.into(), ::core::mem::transmute(lpenumfunc), ::core::mem::transmute(lparam), ::core::mem::transmute(dwflags), ::core::mem::transmute(langid)))
+    ::core::mem::transmute(EnumResourceNamesExA(hmodule.into(), lptype.into(), ::core::mem::transmute(lpenumfunc), lparam, dwflags, langid))
 }
 #[doc = "*Required features: `\"Win32_System_LibraryLoader\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -233,7 +233,7 @@ where
     extern "system" {
         fn EnumResourceNamesExW(hmodule: super::super::Foundation::HINSTANCE, lptype: ::windows::core::PCWSTR, lpenumfunc: *mut ::core::ffi::c_void, lparam: isize, dwflags: u32, langid: u16) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(EnumResourceNamesExW(hmodule.into(), lptype.into(), ::core::mem::transmute(lpenumfunc), ::core::mem::transmute(lparam), ::core::mem::transmute(dwflags), ::core::mem::transmute(langid)))
+    ::core::mem::transmute(EnumResourceNamesExW(hmodule.into(), lptype.into(), ::core::mem::transmute(lpenumfunc), lparam, dwflags, langid))
 }
 #[doc = "*Required features: `\"Win32_System_LibraryLoader\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -247,7 +247,7 @@ where
     extern "system" {
         fn EnumResourceNamesW(hmodule: super::super::Foundation::HINSTANCE, lptype: ::windows::core::PCWSTR, lpenumfunc: *mut ::core::ffi::c_void, lparam: isize) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(EnumResourceNamesW(hmodule.into(), lptype.into(), ::core::mem::transmute(lpenumfunc), ::core::mem::transmute(lparam)))
+    ::core::mem::transmute(EnumResourceNamesW(hmodule.into(), lptype.into(), ::core::mem::transmute(lpenumfunc), lparam))
 }
 #[doc = "*Required features: `\"Win32_System_LibraryLoader\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -260,7 +260,7 @@ where
     extern "system" {
         fn EnumResourceTypesA(hmodule: super::super::Foundation::HINSTANCE, lpenumfunc: *mut ::core::ffi::c_void, lparam: isize) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(EnumResourceTypesA(hmodule.into(), ::core::mem::transmute(lpenumfunc), ::core::mem::transmute(lparam)))
+    ::core::mem::transmute(EnumResourceTypesA(hmodule.into(), ::core::mem::transmute(lpenumfunc), lparam))
 }
 #[doc = "*Required features: `\"Win32_System_LibraryLoader\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -273,7 +273,7 @@ where
     extern "system" {
         fn EnumResourceTypesExA(hmodule: super::super::Foundation::HINSTANCE, lpenumfunc: *mut ::core::ffi::c_void, lparam: isize, dwflags: u32, langid: u16) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(EnumResourceTypesExA(hmodule.into(), ::core::mem::transmute(lpenumfunc), ::core::mem::transmute(lparam), ::core::mem::transmute(dwflags), ::core::mem::transmute(langid)))
+    ::core::mem::transmute(EnumResourceTypesExA(hmodule.into(), ::core::mem::transmute(lpenumfunc), lparam, dwflags, langid))
 }
 #[doc = "*Required features: `\"Win32_System_LibraryLoader\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -286,7 +286,7 @@ where
     extern "system" {
         fn EnumResourceTypesExW(hmodule: super::super::Foundation::HINSTANCE, lpenumfunc: *mut ::core::ffi::c_void, lparam: isize, dwflags: u32, langid: u16) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(EnumResourceTypesExW(hmodule.into(), ::core::mem::transmute(lpenumfunc), ::core::mem::transmute(lparam), ::core::mem::transmute(dwflags), ::core::mem::transmute(langid)))
+    ::core::mem::transmute(EnumResourceTypesExW(hmodule.into(), ::core::mem::transmute(lpenumfunc), lparam, dwflags, langid))
 }
 #[doc = "*Required features: `\"Win32_System_LibraryLoader\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -299,7 +299,7 @@ where
     extern "system" {
         fn EnumResourceTypesW(hmodule: super::super::Foundation::HINSTANCE, lpenumfunc: *mut ::core::ffi::c_void, lparam: isize) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(EnumResourceTypesW(hmodule.into(), ::core::mem::transmute(lpenumfunc), ::core::mem::transmute(lparam)))
+    ::core::mem::transmute(EnumResourceTypesW(hmodule.into(), ::core::mem::transmute(lpenumfunc), lparam))
 }
 #[doc = "*Required features: `\"Win32_System_LibraryLoader\"`*"]
 pub const FIND_RESOURCE_DIRECTORY_LANGUAGES: u32 = 1024u32;
@@ -336,7 +336,7 @@ where
     extern "system" {
         fn FindResourceExA(hmodule: super::super::Foundation::HINSTANCE, lptype: ::windows::core::PCSTR, lpname: ::windows::core::PCSTR, wlanguage: u16) -> super::super::Foundation::HRSRC;
     }
-    let result__ = FindResourceExA(hmodule.into(), lptype.into(), lpname.into(), ::core::mem::transmute(wlanguage));
+    let result__ = FindResourceExA(hmodule.into(), lptype.into(), lpname.into(), wlanguage);
     (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
 }
 #[doc = "*Required features: `\"Win32_System_LibraryLoader\"`, `\"Win32_Foundation\"`*"]
@@ -352,7 +352,7 @@ where
     extern "system" {
         fn FindResourceExW(hmodule: super::super::Foundation::HINSTANCE, lptype: ::windows::core::PCWSTR, lpname: ::windows::core::PCWSTR, wlanguage: u16) -> super::super::Foundation::HRSRC;
     }
-    ::core::mem::transmute(FindResourceExW(hmodule.into(), lptype.into(), lpname.into(), ::core::mem::transmute(wlanguage)))
+    ::core::mem::transmute(FindResourceExW(hmodule.into(), lptype.into(), lpname.into(), wlanguage))
 }
 #[doc = "*Required features: `\"Win32_System_LibraryLoader\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -393,7 +393,7 @@ where
     extern "system" {
         fn FreeLibraryAndExitThread(hlibmodule: super::super::Foundation::HINSTANCE, dwexitcode: u32) -> !;
     }
-    FreeLibraryAndExitThread(hlibmodule.into(), ::core::mem::transmute(dwexitcode))
+    FreeLibraryAndExitThread(hlibmodule.into(), dwexitcode)
 }
 #[doc = "*Required features: `\"Win32_System_LibraryLoader\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -403,7 +403,7 @@ pub unsafe fn FreeResource(hresdata: isize) -> super::super::Foundation::BOOL {
     extern "system" {
         fn FreeResource(hresdata: isize) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(FreeResource(::core::mem::transmute(hresdata)))
+    ::core::mem::transmute(FreeResource(hresdata))
 }
 #[doc = "*Required features: `\"Win32_System_LibraryLoader\"`*"]
 pub const GET_MODULE_HANDLE_EX_FLAG_FROM_ADDRESS: u32 = 4u32;
@@ -480,7 +480,7 @@ where
     extern "system" {
         fn GetModuleHandleExA(dwflags: u32, lpmodulename: ::windows::core::PCSTR, phmodule: *mut super::super::Foundation::HINSTANCE) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(GetModuleHandleExA(::core::mem::transmute(dwflags), lpmodulename.into(), ::core::mem::transmute(phmodule)))
+    ::core::mem::transmute(GetModuleHandleExA(dwflags, lpmodulename.into(), ::core::mem::transmute(phmodule)))
 }
 #[doc = "*Required features: `\"Win32_System_LibraryLoader\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -493,7 +493,7 @@ where
     extern "system" {
         fn GetModuleHandleExW(dwflags: u32, lpmodulename: ::windows::core::PCWSTR, phmodule: *mut super::super::Foundation::HINSTANCE) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(GetModuleHandleExW(::core::mem::transmute(dwflags), lpmodulename.into(), ::core::mem::transmute(phmodule)))
+    ::core::mem::transmute(GetModuleHandleExW(dwflags, lpmodulename.into(), ::core::mem::transmute(phmodule)))
 }
 #[doc = "*Required features: `\"Win32_System_LibraryLoader\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -630,7 +630,7 @@ where
     extern "system" {
         fn LoadLibraryExA(lplibfilename: ::windows::core::PCSTR, hfile: super::super::Foundation::HANDLE, dwflags: LOAD_LIBRARY_FLAGS) -> super::super::Foundation::HINSTANCE;
     }
-    let result__ = LoadLibraryExA(lplibfilename.into(), hfile.into(), ::core::mem::transmute(dwflags));
+    let result__ = LoadLibraryExA(lplibfilename.into(), hfile.into(), dwflags);
     (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
 }
 #[doc = "*Required features: `\"Win32_System_LibraryLoader\"`, `\"Win32_Foundation\"`*"]
@@ -645,7 +645,7 @@ where
     extern "system" {
         fn LoadLibraryExW(lplibfilename: ::windows::core::PCWSTR, hfile: super::super::Foundation::HANDLE, dwflags: LOAD_LIBRARY_FLAGS) -> super::super::Foundation::HINSTANCE;
     }
-    let result__ = LoadLibraryExW(lplibfilename.into(), hfile.into(), ::core::mem::transmute(dwflags));
+    let result__ = LoadLibraryExW(lplibfilename.into(), hfile.into(), dwflags);
     (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
 }
 #[doc = "*Required features: `\"Win32_System_LibraryLoader\"`, `\"Win32_Foundation\"`*"]
@@ -685,7 +685,7 @@ where
     extern "system" {
         fn LoadPackagedLibrary(lpwlibfilename: ::windows::core::PCWSTR, reserved: u32) -> super::super::Foundation::HINSTANCE;
     }
-    let result__ = LoadPackagedLibrary(lpwlibfilename.into(), ::core::mem::transmute(reserved));
+    let result__ = LoadPackagedLibrary(lpwlibfilename.into(), reserved);
     (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
 }
 #[doc = "*Required features: `\"Win32_System_LibraryLoader\"`, `\"Win32_Foundation\"`*"]
@@ -709,7 +709,7 @@ pub unsafe fn LockResource(hresdata: isize) -> *mut ::core::ffi::c_void {
     extern "system" {
         fn LockResource(hresdata: isize) -> *mut ::core::ffi::c_void;
     }
-    ::core::mem::transmute(LockResource(::core::mem::transmute(hresdata)))
+    ::core::mem::transmute(LockResource(hresdata))
 }
 #[doc = "*Required features: `\"Win32_System_LibraryLoader\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -811,7 +811,7 @@ pub unsafe fn SetDefaultDllDirectories(directoryflags: LOAD_LIBRARY_FLAGS) -> su
     extern "system" {
         fn SetDefaultDllDirectories(directoryflags: LOAD_LIBRARY_FLAGS) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(SetDefaultDllDirectories(::core::mem::transmute(directoryflags)))
+    ::core::mem::transmute(SetDefaultDllDirectories(directoryflags))
 }
 #[doc = "*Required features: `\"Win32_System_LibraryLoader\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -866,7 +866,7 @@ where
     extern "system" {
         fn UpdateResourceA(hupdate: super::super::Foundation::HANDLE, lptype: ::windows::core::PCSTR, lpname: ::windows::core::PCSTR, wlanguage: u16, lpdata: *const ::core::ffi::c_void, cb: u32) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(UpdateResourceA(hupdate.into(), lptype.into(), lpname.into(), ::core::mem::transmute(wlanguage), ::core::mem::transmute(lpdata), ::core::mem::transmute(cb)))
+    ::core::mem::transmute(UpdateResourceA(hupdate.into(), lptype.into(), lpname.into(), wlanguage, ::core::mem::transmute(lpdata), cb))
 }
 #[doc = "*Required features: `\"Win32_System_LibraryLoader\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -881,7 +881,7 @@ where
     extern "system" {
         fn UpdateResourceW(hupdate: super::super::Foundation::HANDLE, lptype: ::windows::core::PCWSTR, lpname: ::windows::core::PCWSTR, wlanguage: u16, lpdata: *const ::core::ffi::c_void, cb: u32) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(UpdateResourceW(hupdate.into(), lptype.into(), lpname.into(), ::core::mem::transmute(wlanguage), ::core::mem::transmute(lpdata), ::core::mem::transmute(cb)))
+    ::core::mem::transmute(UpdateResourceW(hupdate.into(), lptype.into(), lpname.into(), wlanguage, ::core::mem::transmute(lpdata), cb))
 }
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

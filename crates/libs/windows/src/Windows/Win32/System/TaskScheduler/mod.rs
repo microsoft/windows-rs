@@ -144,7 +144,7 @@ impl IActionCollection {
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn get_Item(&self, index: i32) -> ::windows::core::Result<IAction> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).get_Item)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(index), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IAction>(result__)
+        (::windows::core::Interface::vtable(self).get_Item)(::windows::core::Interface::as_raw(self), index, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IAction>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`*"]
     pub unsafe fn _NewEnum(&self) -> ::windows::core::Result<::windows::core::IUnknown> {
@@ -168,7 +168,7 @@ impl IActionCollection {
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Create(&self, r#type: TASK_ACTION_TYPE) -> ::windows::core::Result<IAction> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).Create)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(r#type), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IAction>(result__)
+        (::windows::core::Interface::vtable(self).Create)(::windows::core::Interface::as_raw(self), r#type, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IAction>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -376,7 +376,7 @@ impl IBootTrigger {
     }
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`*"]
     pub unsafe fn SetEnabled(&self, enabled: i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetEnabled)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(enabled)).ok()
+        (::windows::core::Interface::vtable(self).base__.SetEnabled)(::windows::core::Interface::as_raw(self), enabled).ok()
     }
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -718,7 +718,7 @@ impl IDailyTrigger {
     }
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`*"]
     pub unsafe fn SetEnabled(&self, enabled: i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetEnabled)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(enabled)).ok()
+        (::windows::core::Interface::vtable(self).base__.SetEnabled)(::windows::core::Interface::as_raw(self), enabled).ok()
     }
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`*"]
     pub unsafe fn DaysInterval(&self, pdays: *mut i16) -> ::windows::core::Result<()> {
@@ -726,7 +726,7 @@ impl IDailyTrigger {
     }
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`*"]
     pub unsafe fn SetDaysInterval(&self, days: i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetDaysInterval)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(days)).ok()
+        (::windows::core::Interface::vtable(self).SetDaysInterval)(::windows::core::Interface::as_raw(self), days).ok()
     }
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -1160,11 +1160,11 @@ pub struct IEnumWorkItems(::windows::core::IUnknown);
 impl IEnumWorkItems {
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`*"]
     pub unsafe fn Next(&self, celt: u32, rgpwsznames: *mut *mut ::windows::core::PWSTR, pceltfetched: *mut u32) -> ::windows::core::HRESULT {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).Next)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(celt), ::core::mem::transmute(rgpwsznames), ::core::mem::transmute(pceltfetched)))
+        ::core::mem::transmute((::windows::core::Interface::vtable(self).Next)(::windows::core::Interface::as_raw(self), celt, ::core::mem::transmute(rgpwsznames), ::core::mem::transmute(pceltfetched)))
     }
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`*"]
     pub unsafe fn Skip(&self, celt: u32) -> ::windows::core::HRESULT {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).Skip)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(celt)))
+        ::core::mem::transmute((::windows::core::Interface::vtable(self).Skip)(::windows::core::Interface::as_raw(self), celt))
     }
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`*"]
     pub unsafe fn Reset(&self) -> ::windows::core::Result<()> {
@@ -1302,7 +1302,7 @@ impl IEventTrigger {
     }
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`*"]
     pub unsafe fn SetEnabled(&self, enabled: i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetEnabled)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(enabled)).ok()
+        (::windows::core::Interface::vtable(self).base__.SetEnabled)(::windows::core::Interface::as_raw(self), enabled).ok()
     }
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -1694,7 +1694,7 @@ impl IExecAction2 {
     }
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`*"]
     pub unsafe fn SetHideAppWindow(&self, hideappwindow: i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetHideAppWindow)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(hideappwindow)).ok()
+        (::windows::core::Interface::vtable(self).SetHideAppWindow)(::windows::core::Interface::as_raw(self), hideappwindow).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -1840,7 +1840,7 @@ impl IIdleSettings {
     }
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`*"]
     pub unsafe fn SetStopOnIdleEnd(&self, stop: i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetStopOnIdleEnd)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(stop)).ok()
+        (::windows::core::Interface::vtable(self).SetStopOnIdleEnd)(::windows::core::Interface::as_raw(self), stop).ok()
     }
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`*"]
     pub unsafe fn RestartOnIdle(&self, prestart: *mut i16) -> ::windows::core::Result<()> {
@@ -1848,7 +1848,7 @@ impl IIdleSettings {
     }
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`*"]
     pub unsafe fn SetRestartOnIdle(&self, restart: i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetRestartOnIdle)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(restart)).ok()
+        (::windows::core::Interface::vtable(self).SetRestartOnIdle)(::windows::core::Interface::as_raw(self), restart).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -2020,7 +2020,7 @@ impl IIdleTrigger {
     }
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`*"]
     pub unsafe fn SetEnabled(&self, enabled: i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetEnabled)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(enabled)).ok()
+        (::windows::core::Interface::vtable(self).base__.SetEnabled)(::windows::core::Interface::as_raw(self), enabled).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -2190,7 +2190,7 @@ impl ILogonTrigger {
     }
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`*"]
     pub unsafe fn SetEnabled(&self, enabled: i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetEnabled)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(enabled)).ok()
+        (::windows::core::Interface::vtable(self).base__.SetEnabled)(::windows::core::Interface::as_raw(self), enabled).ok()
     }
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -2354,7 +2354,7 @@ impl IMaintenanceSettings {
     }
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`*"]
     pub unsafe fn SetExclusive(&self, value: i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetExclusive)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(value)).ok()
+        (::windows::core::Interface::vtable(self).SetExclusive)(::windows::core::Interface::as_raw(self), value).ok()
     }
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`*"]
     pub unsafe fn Exclusive(&self, target: *mut i16) -> ::windows::core::Result<()> {
@@ -2528,7 +2528,7 @@ impl IMonthlyDOWTrigger {
     }
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`*"]
     pub unsafe fn SetEnabled(&self, enabled: i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetEnabled)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(enabled)).ok()
+        (::windows::core::Interface::vtable(self).base__.SetEnabled)(::windows::core::Interface::as_raw(self), enabled).ok()
     }
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`*"]
     pub unsafe fn DaysOfWeek(&self, pdays: *mut i16) -> ::windows::core::Result<()> {
@@ -2536,7 +2536,7 @@ impl IMonthlyDOWTrigger {
     }
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`*"]
     pub unsafe fn SetDaysOfWeek(&self, days: i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetDaysOfWeek)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(days)).ok()
+        (::windows::core::Interface::vtable(self).SetDaysOfWeek)(::windows::core::Interface::as_raw(self), days).ok()
     }
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`*"]
     pub unsafe fn WeeksOfMonth(&self, pweeks: *mut i16) -> ::windows::core::Result<()> {
@@ -2544,7 +2544,7 @@ impl IMonthlyDOWTrigger {
     }
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`*"]
     pub unsafe fn SetWeeksOfMonth(&self, weeks: i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetWeeksOfMonth)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(weeks)).ok()
+        (::windows::core::Interface::vtable(self).SetWeeksOfMonth)(::windows::core::Interface::as_raw(self), weeks).ok()
     }
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`*"]
     pub unsafe fn MonthsOfYear(&self, pmonths: *mut i16) -> ::windows::core::Result<()> {
@@ -2552,7 +2552,7 @@ impl IMonthlyDOWTrigger {
     }
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`*"]
     pub unsafe fn SetMonthsOfYear(&self, months: i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetMonthsOfYear)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(months)).ok()
+        (::windows::core::Interface::vtable(self).SetMonthsOfYear)(::windows::core::Interface::as_raw(self), months).ok()
     }
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`*"]
     pub unsafe fn RunOnLastWeekOfMonth(&self, plastweek: *mut i16) -> ::windows::core::Result<()> {
@@ -2560,7 +2560,7 @@ impl IMonthlyDOWTrigger {
     }
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`*"]
     pub unsafe fn SetRunOnLastWeekOfMonth(&self, lastweek: i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetRunOnLastWeekOfMonth)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lastweek)).ok()
+        (::windows::core::Interface::vtable(self).SetRunOnLastWeekOfMonth)(::windows::core::Interface::as_raw(self), lastweek).ok()
     }
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -2759,7 +2759,7 @@ impl IMonthlyTrigger {
     }
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`*"]
     pub unsafe fn SetEnabled(&self, enabled: i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetEnabled)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(enabled)).ok()
+        (::windows::core::Interface::vtable(self).base__.SetEnabled)(::windows::core::Interface::as_raw(self), enabled).ok()
     }
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`*"]
     pub unsafe fn DaysOfMonth(&self, pdays: *mut i32) -> ::windows::core::Result<()> {
@@ -2767,7 +2767,7 @@ impl IMonthlyTrigger {
     }
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`*"]
     pub unsafe fn SetDaysOfMonth(&self, days: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetDaysOfMonth)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(days)).ok()
+        (::windows::core::Interface::vtable(self).SetDaysOfMonth)(::windows::core::Interface::as_raw(self), days).ok()
     }
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`*"]
     pub unsafe fn MonthsOfYear(&self, pmonths: *mut i16) -> ::windows::core::Result<()> {
@@ -2775,7 +2775,7 @@ impl IMonthlyTrigger {
     }
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`*"]
     pub unsafe fn SetMonthsOfYear(&self, months: i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetMonthsOfYear)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(months)).ok()
+        (::windows::core::Interface::vtable(self).SetMonthsOfYear)(::windows::core::Interface::as_raw(self), months).ok()
     }
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`*"]
     pub unsafe fn RunOnLastDayOfMonth(&self, plastday: *mut i16) -> ::windows::core::Result<()> {
@@ -2783,7 +2783,7 @@ impl IMonthlyTrigger {
     }
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`*"]
     pub unsafe fn SetRunOnLastDayOfMonth(&self, lastday: i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetRunOnLastDayOfMonth)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lastday)).ok()
+        (::windows::core::Interface::vtable(self).SetRunOnLastDayOfMonth)(::windows::core::Interface::as_raw(self), lastday).ok()
     }
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -3065,7 +3065,7 @@ impl IPrincipal {
     }
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`*"]
     pub unsafe fn SetLogonType(&self, logon: TASK_LOGON_TYPE) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetLogonType)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(logon)).ok()
+        (::windows::core::Interface::vtable(self).SetLogonType)(::windows::core::Interface::as_raw(self), logon).ok()
     }
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -3086,7 +3086,7 @@ impl IPrincipal {
     }
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`*"]
     pub unsafe fn SetRunLevel(&self, runlevel: TASK_RUNLEVEL_TYPE) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetRunLevel)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(runlevel)).ok()
+        (::windows::core::Interface::vtable(self).SetRunLevel)(::windows::core::Interface::as_raw(self), runlevel).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -3204,7 +3204,7 @@ impl IPrincipal2 {
     }
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`*"]
     pub unsafe fn SetProcessTokenSidType(&self, processtokensidtype: TASK_PROCESSTOKENSID_TYPE) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetProcessTokenSidType)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(processtokensidtype)).ok()
+        (::windows::core::Interface::vtable(self).SetProcessTokenSidType)(::windows::core::Interface::as_raw(self), processtokensidtype).ok()
     }
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`*"]
     pub unsafe fn RequiredPrivilegeCount(&self, pcount: *mut i32) -> ::windows::core::Result<()> {
@@ -3213,7 +3213,7 @@ impl IPrincipal2 {
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn get_RequiredPrivilege(&self, index: i32, pprivilege: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).get_RequiredPrivilege)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(index), ::core::mem::transmute(pprivilege)).ok()
+        (::windows::core::Interface::vtable(self).get_RequiredPrivilege)(::windows::core::Interface::as_raw(self), index, ::core::mem::transmute(pprivilege)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -3313,7 +3313,7 @@ impl IProvideTaskPage {
         P0: ::std::convert::Into<super::super::Foundation::BOOL>,
     {
         let mut result__ = ::core::mem::MaybeUninit::<super::super::UI::Controls::HPROPSHEETPAGE>::zeroed();
-        (::windows::core::Interface::vtable(self).GetPage)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(tptype), fpersistchanges.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::UI::Controls::HPROPSHEETPAGE>(result__)
+        (::windows::core::Interface::vtable(self).GetPage)(::windows::core::Interface::as_raw(self), tptype, fpersistchanges.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::UI::Controls::HPROPSHEETPAGE>(result__)
     }
 }
 impl ::core::convert::From<IProvideTaskPage> for ::windows::core::IUnknown {
@@ -3390,7 +3390,7 @@ impl IRegisteredTask {
     }
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`*"]
     pub unsafe fn SetEnabled(&self, enabled: i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetEnabled)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(enabled)).ok()
+        (::windows::core::Interface::vtable(self).SetEnabled)(::windows::core::Interface::as_raw(self), enabled).ok()
     }
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -3409,13 +3409,13 @@ impl IRegisteredTask {
         P1: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).RunEx)(::windows::core::Interface::as_raw(self), params.into().abi(), ::core::mem::transmute(flags), ::core::mem::transmute(sessionid), user.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IRunningTask>(result__)
+        (::windows::core::Interface::vtable(self).RunEx)(::windows::core::Interface::as_raw(self), params.into().abi(), flags, sessionid, user.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IRunningTask>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetInstances(&self, flags: i32) -> ::windows::core::Result<IRunningTaskCollection> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).GetInstances)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(flags), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IRunningTaskCollection>(result__)
+        (::windows::core::Interface::vtable(self).GetInstances)(::windows::core::Interface::as_raw(self), flags, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IRunningTaskCollection>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`*"]
     pub unsafe fn LastRunTime(&self) -> ::windows::core::Result<f64> {
@@ -3453,7 +3453,7 @@ impl IRegisteredTask {
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetSecurityDescriptor(&self, securityinformation: i32) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::Foundation::BSTR>>::zeroed();
-        (::windows::core::Interface::vtable(self).GetSecurityDescriptor)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(securityinformation), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).GetSecurityDescriptor)(::windows::core::Interface::as_raw(self), securityinformation, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -3461,11 +3461,11 @@ impl IRegisteredTask {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
     {
-        (::windows::core::Interface::vtable(self).SetSecurityDescriptor)(::windows::core::Interface::as_raw(self), sddl.into().abi(), ::core::mem::transmute(flags)).ok()
+        (::windows::core::Interface::vtable(self).SetSecurityDescriptor)(::windows::core::Interface::as_raw(self), sddl.into().abi(), flags).ok()
     }
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`*"]
     pub unsafe fn Stop(&self, flags: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Stop)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(flags)).ok()
+        (::windows::core::Interface::vtable(self).Stop)(::windows::core::Interface::as_raw(self), flags).ok()
     }
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -4032,7 +4032,7 @@ impl IRegistrationTrigger {
     }
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`*"]
     pub unsafe fn SetEnabled(&self, enabled: i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetEnabled)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(enabled)).ok()
+        (::windows::core::Interface::vtable(self).base__.SetEnabled)(::windows::core::Interface::as_raw(self), enabled).ok()
     }
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -4179,7 +4179,7 @@ impl IRepetitionPattern {
     }
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`*"]
     pub unsafe fn SetStopAtDurationEnd(&self, stop: i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetStopAtDurationEnd)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(stop)).ok()
+        (::windows::core::Interface::vtable(self).SetStopAtDurationEnd)(::windows::core::Interface::as_raw(self), stop).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -4512,7 +4512,7 @@ impl IScheduledWorkItem {
     }
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`*"]
     pub unsafe fn DeleteTrigger(&self, itrigger: u16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).DeleteTrigger)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(itrigger)).ok()
+        (::windows::core::Interface::vtable(self).DeleteTrigger)(::windows::core::Interface::as_raw(self), itrigger).ok()
     }
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`*"]
     pub unsafe fn GetTriggerCount(&self) -> ::windows::core::Result<u16> {
@@ -4522,12 +4522,12 @@ impl IScheduledWorkItem {
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`*"]
     pub unsafe fn GetTrigger(&self, itrigger: u16) -> ::windows::core::Result<ITaskTrigger> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).GetTrigger)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(itrigger), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ITaskTrigger>(result__)
+        (::windows::core::Interface::vtable(self).GetTrigger)(::windows::core::Interface::as_raw(self), itrigger, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ITaskTrigger>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`*"]
     pub unsafe fn GetTriggerString(&self, itrigger: u16) -> ::windows::core::Result<::windows::core::PWSTR> {
         let mut result__ = ::core::mem::MaybeUninit::<::windows::core::PWSTR>::zeroed();
-        (::windows::core::Interface::vtable(self).GetTriggerString)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(itrigger), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::PWSTR>(result__)
+        (::windows::core::Interface::vtable(self).GetTriggerString)(::windows::core::Interface::as_raw(self), itrigger, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::PWSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -4541,7 +4541,7 @@ impl IScheduledWorkItem {
     }
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`*"]
     pub unsafe fn SetIdleWait(&self, widleminutes: u16, wdeadlineminutes: u16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetIdleWait)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(widleminutes), ::core::mem::transmute(wdeadlineminutes)).ok()
+        (::windows::core::Interface::vtable(self).SetIdleWait)(::windows::core::Interface::as_raw(self), widleminutes, wdeadlineminutes).ok()
     }
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`*"]
     pub unsafe fn GetIdleWait(&self, pwidleminutes: *mut u16, pwdeadlineminutes: *mut u16) -> ::windows::core::Result<()> {
@@ -4561,7 +4561,7 @@ impl IScheduledWorkItem {
     where
         P0: ::std::convert::Into<super::super::Foundation::HWND>,
     {
-        (::windows::core::Interface::vtable(self).EditWorkItem)(::windows::core::Interface::as_raw(self), hparent.into(), ::core::mem::transmute(dwreserved)).ok()
+        (::windows::core::Interface::vtable(self).EditWorkItem)(::windows::core::Interface::as_raw(self), hparent.into(), dwreserved).ok()
     }
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -4605,7 +4605,7 @@ impl IScheduledWorkItem {
     }
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`*"]
     pub unsafe fn SetWorkItemData(&self, cbdata: u16, rgbdata: *const u8) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetWorkItemData)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(cbdata), ::core::mem::transmute(rgbdata)).ok()
+        (::windows::core::Interface::vtable(self).SetWorkItemData)(::windows::core::Interface::as_raw(self), cbdata, ::core::mem::transmute(rgbdata)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`*"]
     pub unsafe fn GetWorkItemData(&self, pcbdata: *mut u16, prgbdata: *mut *mut u8) -> ::windows::core::Result<()> {
@@ -4613,7 +4613,7 @@ impl IScheduledWorkItem {
     }
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`*"]
     pub unsafe fn SetErrorRetryCount(&self, wretrycount: u16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetErrorRetryCount)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(wretrycount)).ok()
+        (::windows::core::Interface::vtable(self).SetErrorRetryCount)(::windows::core::Interface::as_raw(self), wretrycount).ok()
     }
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`*"]
     pub unsafe fn GetErrorRetryCount(&self) -> ::windows::core::Result<u16> {
@@ -4622,7 +4622,7 @@ impl IScheduledWorkItem {
     }
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`*"]
     pub unsafe fn SetErrorRetryInterval(&self, wretryinterval: u16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetErrorRetryInterval)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(wretryinterval)).ok()
+        (::windows::core::Interface::vtable(self).SetErrorRetryInterval)(::windows::core::Interface::as_raw(self), wretryinterval).ok()
     }
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`*"]
     pub unsafe fn GetErrorRetryInterval(&self) -> ::windows::core::Result<u16> {
@@ -4631,7 +4631,7 @@ impl IScheduledWorkItem {
     }
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`*"]
     pub unsafe fn SetFlags(&self, dwflags: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetFlags)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(dwflags)).ok()
+        (::windows::core::Interface::vtable(self).SetFlags)(::windows::core::Interface::as_raw(self), dwflags).ok()
     }
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`*"]
     pub unsafe fn GetFlags(&self) -> ::windows::core::Result<u32> {
@@ -4815,7 +4815,7 @@ impl ISessionStateChangeTrigger {
     }
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`*"]
     pub unsafe fn SetEnabled(&self, enabled: i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetEnabled)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(enabled)).ok()
+        (::windows::core::Interface::vtable(self).base__.SetEnabled)(::windows::core::Interface::as_raw(self), enabled).ok()
     }
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -4849,7 +4849,7 @@ impl ISessionStateChangeTrigger {
     }
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`*"]
     pub unsafe fn SetStateChange(&self, r#type: TASK_SESSION_STATE_CHANGE_TYPE) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetStateChange)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(r#type)).ok()
+        (::windows::core::Interface::vtable(self).SetStateChange)(::windows::core::Interface::as_raw(self), r#type).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -5116,7 +5116,7 @@ impl ITask {
     }
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`*"]
     pub unsafe fn DeleteTrigger(&self, itrigger: u16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.DeleteTrigger)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(itrigger)).ok()
+        (::windows::core::Interface::vtable(self).base__.DeleteTrigger)(::windows::core::Interface::as_raw(self), itrigger).ok()
     }
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`*"]
     pub unsafe fn GetTriggerCount(&self) -> ::windows::core::Result<u16> {
@@ -5126,12 +5126,12 @@ impl ITask {
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`*"]
     pub unsafe fn GetTrigger(&self, itrigger: u16) -> ::windows::core::Result<ITaskTrigger> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.GetTrigger)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(itrigger), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ITaskTrigger>(result__)
+        (::windows::core::Interface::vtable(self).base__.GetTrigger)(::windows::core::Interface::as_raw(self), itrigger, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ITaskTrigger>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`*"]
     pub unsafe fn GetTriggerString(&self, itrigger: u16) -> ::windows::core::Result<::windows::core::PWSTR> {
         let mut result__ = ::core::mem::MaybeUninit::<::windows::core::PWSTR>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.GetTriggerString)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(itrigger), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::PWSTR>(result__)
+        (::windows::core::Interface::vtable(self).base__.GetTriggerString)(::windows::core::Interface::as_raw(self), itrigger, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::PWSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -5145,7 +5145,7 @@ impl ITask {
     }
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`*"]
     pub unsafe fn SetIdleWait(&self, widleminutes: u16, wdeadlineminutes: u16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetIdleWait)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(widleminutes), ::core::mem::transmute(wdeadlineminutes)).ok()
+        (::windows::core::Interface::vtable(self).base__.SetIdleWait)(::windows::core::Interface::as_raw(self), widleminutes, wdeadlineminutes).ok()
     }
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`*"]
     pub unsafe fn GetIdleWait(&self, pwidleminutes: *mut u16, pwdeadlineminutes: *mut u16) -> ::windows::core::Result<()> {
@@ -5165,7 +5165,7 @@ impl ITask {
     where
         P0: ::std::convert::Into<super::super::Foundation::HWND>,
     {
-        (::windows::core::Interface::vtable(self).base__.EditWorkItem)(::windows::core::Interface::as_raw(self), hparent.into(), ::core::mem::transmute(dwreserved)).ok()
+        (::windows::core::Interface::vtable(self).base__.EditWorkItem)(::windows::core::Interface::as_raw(self), hparent.into(), dwreserved).ok()
     }
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -5209,7 +5209,7 @@ impl ITask {
     }
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`*"]
     pub unsafe fn SetWorkItemData(&self, cbdata: u16, rgbdata: *const u8) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetWorkItemData)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(cbdata), ::core::mem::transmute(rgbdata)).ok()
+        (::windows::core::Interface::vtable(self).base__.SetWorkItemData)(::windows::core::Interface::as_raw(self), cbdata, ::core::mem::transmute(rgbdata)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`*"]
     pub unsafe fn GetWorkItemData(&self, pcbdata: *mut u16, prgbdata: *mut *mut u8) -> ::windows::core::Result<()> {
@@ -5217,7 +5217,7 @@ impl ITask {
     }
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`*"]
     pub unsafe fn SetErrorRetryCount(&self, wretrycount: u16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetErrorRetryCount)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(wretrycount)).ok()
+        (::windows::core::Interface::vtable(self).base__.SetErrorRetryCount)(::windows::core::Interface::as_raw(self), wretrycount).ok()
     }
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`*"]
     pub unsafe fn GetErrorRetryCount(&self) -> ::windows::core::Result<u16> {
@@ -5226,7 +5226,7 @@ impl ITask {
     }
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`*"]
     pub unsafe fn SetErrorRetryInterval(&self, wretryinterval: u16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetErrorRetryInterval)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(wretryinterval)).ok()
+        (::windows::core::Interface::vtable(self).base__.SetErrorRetryInterval)(::windows::core::Interface::as_raw(self), wretryinterval).ok()
     }
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`*"]
     pub unsafe fn GetErrorRetryInterval(&self) -> ::windows::core::Result<u16> {
@@ -5235,7 +5235,7 @@ impl ITask {
     }
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`*"]
     pub unsafe fn SetFlags(&self, dwflags: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetFlags)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(dwflags)).ok()
+        (::windows::core::Interface::vtable(self).base__.SetFlags)(::windows::core::Interface::as_raw(self), dwflags).ok()
     }
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`*"]
     pub unsafe fn GetFlags(&self) -> ::windows::core::Result<u32> {
@@ -5293,7 +5293,7 @@ impl ITask {
     }
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`*"]
     pub unsafe fn SetPriority(&self, dwpriority: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetPriority)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(dwpriority)).ok()
+        (::windows::core::Interface::vtable(self).SetPriority)(::windows::core::Interface::as_raw(self), dwpriority).ok()
     }
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`*"]
     pub unsafe fn GetPriority(&self) -> ::windows::core::Result<u32> {
@@ -5302,7 +5302,7 @@ impl ITask {
     }
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`*"]
     pub unsafe fn SetTaskFlags(&self, dwflags: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetTaskFlags)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(dwflags)).ok()
+        (::windows::core::Interface::vtable(self).SetTaskFlags)(::windows::core::Interface::as_raw(self), dwflags).ok()
     }
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`*"]
     pub unsafe fn GetTaskFlags(&self) -> ::windows::core::Result<u32> {
@@ -5311,7 +5311,7 @@ impl ITask {
     }
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`*"]
     pub unsafe fn SetMaxRunTime(&self, dwmaxruntimems: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetMaxRunTime)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(dwmaxruntimems)).ok()
+        (::windows::core::Interface::vtable(self).SetMaxRunTime)(::windows::core::Interface::as_raw(self), dwmaxruntimems).ok()
     }
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`*"]
     pub unsafe fn GetMaxRunTime(&self) -> ::windows::core::Result<u32> {
@@ -5643,7 +5643,7 @@ impl ITaskFolder {
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetFolders(&self, flags: i32) -> ::windows::core::Result<ITaskFolderCollection> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).GetFolders)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(flags), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ITaskFolderCollection>(result__)
+        (::windows::core::Interface::vtable(self).GetFolders)(::windows::core::Interface::as_raw(self), flags, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ITaskFolderCollection>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -5661,7 +5661,7 @@ impl ITaskFolder {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
     {
-        (::windows::core::Interface::vtable(self).DeleteFolder)(::windows::core::Interface::as_raw(self), subfoldername.into().abi(), ::core::mem::transmute(flags)).ok()
+        (::windows::core::Interface::vtable(self).DeleteFolder)(::windows::core::Interface::as_raw(self), subfoldername.into().abi(), flags).ok()
     }
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
@@ -5676,7 +5676,7 @@ impl ITaskFolder {
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetTasks(&self, flags: i32) -> ::windows::core::Result<IRegisteredTaskCollection> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).GetTasks)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(flags), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IRegisteredTaskCollection>(result__)
+        (::windows::core::Interface::vtable(self).GetTasks)(::windows::core::Interface::as_raw(self), flags, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IRegisteredTaskCollection>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -5684,7 +5684,7 @@ impl ITaskFolder {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
     {
-        (::windows::core::Interface::vtable(self).DeleteTask)(::windows::core::Interface::as_raw(self), name.into().abi(), ::core::mem::transmute(flags)).ok()
+        (::windows::core::Interface::vtable(self).DeleteTask)(::windows::core::Interface::as_raw(self), name.into().abi(), flags).ok()
     }
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -5697,7 +5697,7 @@ impl ITaskFolder {
         P4: ::std::convert::Into<::windows::core::InParam<'a, super::Com::VARIANT>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).RegisterTask)(::windows::core::Interface::as_raw(self), path.into().abi(), xmltext.into().abi(), ::core::mem::transmute(flags), userid.into().abi(), password.into().abi(), ::core::mem::transmute(logontype), sddl.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IRegisteredTask>(result__)
+        (::windows::core::Interface::vtable(self).RegisterTask)(::windows::core::Interface::as_raw(self), path.into().abi(), xmltext.into().abi(), flags, userid.into().abi(), password.into().abi(), logontype, sddl.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IRegisteredTask>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -5710,13 +5710,13 @@ impl ITaskFolder {
         P4: ::std::convert::Into<::windows::core::InParam<'a, super::Com::VARIANT>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).RegisterTaskDefinition)(::windows::core::Interface::as_raw(self), path.into().abi(), pdefinition.into().abi(), ::core::mem::transmute(flags), userid.into().abi(), password.into().abi(), ::core::mem::transmute(logontype), sddl.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IRegisteredTask>(result__)
+        (::windows::core::Interface::vtable(self).RegisterTaskDefinition)(::windows::core::Interface::as_raw(self), path.into().abi(), pdefinition.into().abi(), flags, userid.into().abi(), password.into().abi(), logontype, sddl.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IRegisteredTask>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetSecurityDescriptor(&self, securityinformation: i32) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::Foundation::BSTR>>::zeroed();
-        (::windows::core::Interface::vtable(self).GetSecurityDescriptor)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(securityinformation), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).GetSecurityDescriptor)(::windows::core::Interface::as_raw(self), securityinformation, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -5724,7 +5724,7 @@ impl ITaskFolder {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
     {
-        (::windows::core::Interface::vtable(self).SetSecurityDescriptor)(::windows::core::Interface::as_raw(self), sddl.into().abi(), ::core::mem::transmute(flags)).ok()
+        (::windows::core::Interface::vtable(self).SetSecurityDescriptor)(::windows::core::Interface::as_raw(self), sddl.into().abi(), flags).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -6029,11 +6029,11 @@ impl ITaskHandlerStatus {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
     {
-        (::windows::core::Interface::vtable(self).UpdateStatus)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(percentcomplete), statusmessage.into().abi()).ok()
+        (::windows::core::Interface::vtable(self).UpdateStatus)(::windows::core::Interface::as_raw(self), percentcomplete, statusmessage.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`*"]
     pub unsafe fn TaskCompleted(&self, taskerrcode: ::windows::core::HRESULT) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).TaskCompleted)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(taskerrcode)).ok()
+        (::windows::core::Interface::vtable(self).TaskCompleted)(::windows::core::Interface::as_raw(self), taskerrcode).ok()
     }
 }
 impl ::core::convert::From<ITaskHandlerStatus> for ::windows::core::IUnknown {
@@ -6095,7 +6095,7 @@ impl ITaskNamedValueCollection {
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn get_Item(&self, index: i32) -> ::windows::core::Result<ITaskNamedValuePair> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).get_Item)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(index), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ITaskNamedValuePair>(result__)
+        (::windows::core::Interface::vtable(self).get_Item)(::windows::core::Interface::as_raw(self), index, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ITaskNamedValuePair>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`*"]
     pub unsafe fn _NewEnum(&self) -> ::windows::core::Result<::windows::core::IUnknown> {
@@ -6114,7 +6114,7 @@ impl ITaskNamedValueCollection {
     }
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`*"]
     pub unsafe fn Remove(&self, index: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Remove)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(index)).ok()
+        (::windows::core::Interface::vtable(self).Remove)(::windows::core::Interface::as_raw(self), index).ok()
     }
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`*"]
     pub unsafe fn Clear(&self) -> ::windows::core::Result<()> {
@@ -6443,13 +6443,13 @@ impl ITaskService {
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetRunningTasks(&self, flags: i32) -> ::windows::core::Result<IRunningTaskCollection> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).GetRunningTasks)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(flags), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IRunningTaskCollection>(result__)
+        (::windows::core::Interface::vtable(self).GetRunningTasks)(::windows::core::Interface::as_raw(self), flags, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IRunningTaskCollection>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn NewTask(&self, flags: u32) -> ::windows::core::Result<ITaskDefinition> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).NewTask)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(flags), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ITaskDefinition>(result__)
+        (::windows::core::Interface::vtable(self).NewTask)(::windows::core::Interface::as_raw(self), flags, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ITaskDefinition>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -6600,7 +6600,7 @@ impl ITaskSettings {
     }
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`*"]
     pub unsafe fn SetAllowDemandStart(&self, allowdemandstart: i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetAllowDemandStart)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(allowdemandstart)).ok()
+        (::windows::core::Interface::vtable(self).SetAllowDemandStart)(::windows::core::Interface::as_raw(self), allowdemandstart).ok()
     }
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -6621,7 +6621,7 @@ impl ITaskSettings {
     }
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`*"]
     pub unsafe fn SetRestartCount(&self, restartcount: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetRestartCount)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(restartcount)).ok()
+        (::windows::core::Interface::vtable(self).SetRestartCount)(::windows::core::Interface::as_raw(self), restartcount).ok()
     }
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`*"]
     pub unsafe fn MultipleInstances(&self, ppolicy: *mut TASK_INSTANCES_POLICY) -> ::windows::core::Result<()> {
@@ -6629,7 +6629,7 @@ impl ITaskSettings {
     }
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`*"]
     pub unsafe fn SetMultipleInstances(&self, policy: TASK_INSTANCES_POLICY) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetMultipleInstances)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(policy)).ok()
+        (::windows::core::Interface::vtable(self).SetMultipleInstances)(::windows::core::Interface::as_raw(self), policy).ok()
     }
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`*"]
     pub unsafe fn StopIfGoingOnBatteries(&self, pstopifonbatteries: *mut i16) -> ::windows::core::Result<()> {
@@ -6637,7 +6637,7 @@ impl ITaskSettings {
     }
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`*"]
     pub unsafe fn SetStopIfGoingOnBatteries(&self, stopifonbatteries: i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetStopIfGoingOnBatteries)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(stopifonbatteries)).ok()
+        (::windows::core::Interface::vtable(self).SetStopIfGoingOnBatteries)(::windows::core::Interface::as_raw(self), stopifonbatteries).ok()
     }
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`*"]
     pub unsafe fn DisallowStartIfOnBatteries(&self, pdisallowstart: *mut i16) -> ::windows::core::Result<()> {
@@ -6645,7 +6645,7 @@ impl ITaskSettings {
     }
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`*"]
     pub unsafe fn SetDisallowStartIfOnBatteries(&self, disallowstart: i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetDisallowStartIfOnBatteries)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(disallowstart)).ok()
+        (::windows::core::Interface::vtable(self).SetDisallowStartIfOnBatteries)(::windows::core::Interface::as_raw(self), disallowstart).ok()
     }
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`*"]
     pub unsafe fn AllowHardTerminate(&self, pallowhardterminate: *mut i16) -> ::windows::core::Result<()> {
@@ -6653,7 +6653,7 @@ impl ITaskSettings {
     }
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`*"]
     pub unsafe fn SetAllowHardTerminate(&self, allowhardterminate: i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetAllowHardTerminate)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(allowhardterminate)).ok()
+        (::windows::core::Interface::vtable(self).SetAllowHardTerminate)(::windows::core::Interface::as_raw(self), allowhardterminate).ok()
     }
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`*"]
     pub unsafe fn StartWhenAvailable(&self, pstartwhenavailable: *mut i16) -> ::windows::core::Result<()> {
@@ -6661,7 +6661,7 @@ impl ITaskSettings {
     }
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`*"]
     pub unsafe fn SetStartWhenAvailable(&self, startwhenavailable: i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetStartWhenAvailable)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(startwhenavailable)).ok()
+        (::windows::core::Interface::vtable(self).SetStartWhenAvailable)(::windows::core::Interface::as_raw(self), startwhenavailable).ok()
     }
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -6682,7 +6682,7 @@ impl ITaskSettings {
     }
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`*"]
     pub unsafe fn SetRunOnlyIfNetworkAvailable(&self, runonlyifnetworkavailable: i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetRunOnlyIfNetworkAvailable)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(runonlyifnetworkavailable)).ok()
+        (::windows::core::Interface::vtable(self).SetRunOnlyIfNetworkAvailable)(::windows::core::Interface::as_raw(self), runonlyifnetworkavailable).ok()
     }
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -6703,7 +6703,7 @@ impl ITaskSettings {
     }
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`*"]
     pub unsafe fn SetEnabled(&self, enabled: i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetEnabled)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(enabled)).ok()
+        (::windows::core::Interface::vtable(self).SetEnabled)(::windows::core::Interface::as_raw(self), enabled).ok()
     }
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -6724,7 +6724,7 @@ impl ITaskSettings {
     }
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`*"]
     pub unsafe fn SetPriority(&self, priority: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetPriority)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(priority)).ok()
+        (::windows::core::Interface::vtable(self).SetPriority)(::windows::core::Interface::as_raw(self), priority).ok()
     }
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`*"]
     pub unsafe fn Compatibility(&self, pcompatlevel: *mut TASK_COMPATIBILITY) -> ::windows::core::Result<()> {
@@ -6732,7 +6732,7 @@ impl ITaskSettings {
     }
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`*"]
     pub unsafe fn SetCompatibility(&self, compatlevel: TASK_COMPATIBILITY) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetCompatibility)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(compatlevel)).ok()
+        (::windows::core::Interface::vtable(self).SetCompatibility)(::windows::core::Interface::as_raw(self), compatlevel).ok()
     }
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`*"]
     pub unsafe fn Hidden(&self, phidden: *mut i16) -> ::windows::core::Result<()> {
@@ -6740,7 +6740,7 @@ impl ITaskSettings {
     }
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`*"]
     pub unsafe fn SetHidden(&self, hidden: i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetHidden)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(hidden)).ok()
+        (::windows::core::Interface::vtable(self).SetHidden)(::windows::core::Interface::as_raw(self), hidden).ok()
     }
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -6762,7 +6762,7 @@ impl ITaskSettings {
     }
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`*"]
     pub unsafe fn SetRunOnlyIfIdle(&self, runonlyifidle: i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetRunOnlyIfIdle)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(runonlyifidle)).ok()
+        (::windows::core::Interface::vtable(self).SetRunOnlyIfIdle)(::windows::core::Interface::as_raw(self), runonlyifidle).ok()
     }
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`*"]
     pub unsafe fn WakeToRun(&self, pwake: *mut i16) -> ::windows::core::Result<()> {
@@ -6770,7 +6770,7 @@ impl ITaskSettings {
     }
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`*"]
     pub unsafe fn SetWakeToRun(&self, wake: i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetWakeToRun)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(wake)).ok()
+        (::windows::core::Interface::vtable(self).SetWakeToRun)(::windows::core::Interface::as_raw(self), wake).ok()
     }
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -6942,7 +6942,7 @@ impl ITaskSettings2 {
     }
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`*"]
     pub unsafe fn SetDisallowStartOnRemoteAppSession(&self, disallowstart: i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetDisallowStartOnRemoteAppSession)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(disallowstart)).ok()
+        (::windows::core::Interface::vtable(self).SetDisallowStartOnRemoteAppSession)(::windows::core::Interface::as_raw(self), disallowstart).ok()
     }
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`*"]
     pub unsafe fn UseUnifiedSchedulingEngine(&self, puseunifiedengine: *mut i16) -> ::windows::core::Result<()> {
@@ -6950,7 +6950,7 @@ impl ITaskSettings2 {
     }
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`*"]
     pub unsafe fn SetUseUnifiedSchedulingEngine(&self, useunifiedengine: i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetUseUnifiedSchedulingEngine)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(useunifiedengine)).ok()
+        (::windows::core::Interface::vtable(self).SetUseUnifiedSchedulingEngine)(::windows::core::Interface::as_raw(self), useunifiedengine).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -7036,7 +7036,7 @@ impl ITaskSettings3 {
     }
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`*"]
     pub unsafe fn SetAllowDemandStart(&self, allowdemandstart: i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetAllowDemandStart)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(allowdemandstart)).ok()
+        (::windows::core::Interface::vtable(self).base__.SetAllowDemandStart)(::windows::core::Interface::as_raw(self), allowdemandstart).ok()
     }
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -7057,7 +7057,7 @@ impl ITaskSettings3 {
     }
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`*"]
     pub unsafe fn SetRestartCount(&self, restartcount: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetRestartCount)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(restartcount)).ok()
+        (::windows::core::Interface::vtable(self).base__.SetRestartCount)(::windows::core::Interface::as_raw(self), restartcount).ok()
     }
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`*"]
     pub unsafe fn MultipleInstances(&self, ppolicy: *mut TASK_INSTANCES_POLICY) -> ::windows::core::Result<()> {
@@ -7065,7 +7065,7 @@ impl ITaskSettings3 {
     }
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`*"]
     pub unsafe fn SetMultipleInstances(&self, policy: TASK_INSTANCES_POLICY) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetMultipleInstances)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(policy)).ok()
+        (::windows::core::Interface::vtable(self).base__.SetMultipleInstances)(::windows::core::Interface::as_raw(self), policy).ok()
     }
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`*"]
     pub unsafe fn StopIfGoingOnBatteries(&self, pstopifonbatteries: *mut i16) -> ::windows::core::Result<()> {
@@ -7073,7 +7073,7 @@ impl ITaskSettings3 {
     }
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`*"]
     pub unsafe fn SetStopIfGoingOnBatteries(&self, stopifonbatteries: i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetStopIfGoingOnBatteries)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(stopifonbatteries)).ok()
+        (::windows::core::Interface::vtable(self).base__.SetStopIfGoingOnBatteries)(::windows::core::Interface::as_raw(self), stopifonbatteries).ok()
     }
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`*"]
     pub unsafe fn DisallowStartIfOnBatteries(&self, pdisallowstart: *mut i16) -> ::windows::core::Result<()> {
@@ -7081,7 +7081,7 @@ impl ITaskSettings3 {
     }
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`*"]
     pub unsafe fn SetDisallowStartIfOnBatteries(&self, disallowstart: i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetDisallowStartIfOnBatteries)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(disallowstart)).ok()
+        (::windows::core::Interface::vtable(self).base__.SetDisallowStartIfOnBatteries)(::windows::core::Interface::as_raw(self), disallowstart).ok()
     }
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`*"]
     pub unsafe fn AllowHardTerminate(&self, pallowhardterminate: *mut i16) -> ::windows::core::Result<()> {
@@ -7089,7 +7089,7 @@ impl ITaskSettings3 {
     }
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`*"]
     pub unsafe fn SetAllowHardTerminate(&self, allowhardterminate: i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetAllowHardTerminate)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(allowhardterminate)).ok()
+        (::windows::core::Interface::vtable(self).base__.SetAllowHardTerminate)(::windows::core::Interface::as_raw(self), allowhardterminate).ok()
     }
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`*"]
     pub unsafe fn StartWhenAvailable(&self, pstartwhenavailable: *mut i16) -> ::windows::core::Result<()> {
@@ -7097,7 +7097,7 @@ impl ITaskSettings3 {
     }
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`*"]
     pub unsafe fn SetStartWhenAvailable(&self, startwhenavailable: i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetStartWhenAvailable)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(startwhenavailable)).ok()
+        (::windows::core::Interface::vtable(self).base__.SetStartWhenAvailable)(::windows::core::Interface::as_raw(self), startwhenavailable).ok()
     }
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -7118,7 +7118,7 @@ impl ITaskSettings3 {
     }
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`*"]
     pub unsafe fn SetRunOnlyIfNetworkAvailable(&self, runonlyifnetworkavailable: i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetRunOnlyIfNetworkAvailable)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(runonlyifnetworkavailable)).ok()
+        (::windows::core::Interface::vtable(self).base__.SetRunOnlyIfNetworkAvailable)(::windows::core::Interface::as_raw(self), runonlyifnetworkavailable).ok()
     }
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -7139,7 +7139,7 @@ impl ITaskSettings3 {
     }
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`*"]
     pub unsafe fn SetEnabled(&self, enabled: i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetEnabled)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(enabled)).ok()
+        (::windows::core::Interface::vtable(self).base__.SetEnabled)(::windows::core::Interface::as_raw(self), enabled).ok()
     }
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -7160,7 +7160,7 @@ impl ITaskSettings3 {
     }
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`*"]
     pub unsafe fn SetPriority(&self, priority: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetPriority)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(priority)).ok()
+        (::windows::core::Interface::vtable(self).base__.SetPriority)(::windows::core::Interface::as_raw(self), priority).ok()
     }
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`*"]
     pub unsafe fn Compatibility(&self, pcompatlevel: *mut TASK_COMPATIBILITY) -> ::windows::core::Result<()> {
@@ -7168,7 +7168,7 @@ impl ITaskSettings3 {
     }
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`*"]
     pub unsafe fn SetCompatibility(&self, compatlevel: TASK_COMPATIBILITY) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetCompatibility)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(compatlevel)).ok()
+        (::windows::core::Interface::vtable(self).base__.SetCompatibility)(::windows::core::Interface::as_raw(self), compatlevel).ok()
     }
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`*"]
     pub unsafe fn Hidden(&self, phidden: *mut i16) -> ::windows::core::Result<()> {
@@ -7176,7 +7176,7 @@ impl ITaskSettings3 {
     }
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`*"]
     pub unsafe fn SetHidden(&self, hidden: i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetHidden)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(hidden)).ok()
+        (::windows::core::Interface::vtable(self).base__.SetHidden)(::windows::core::Interface::as_raw(self), hidden).ok()
     }
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -7198,7 +7198,7 @@ impl ITaskSettings3 {
     }
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`*"]
     pub unsafe fn SetRunOnlyIfIdle(&self, runonlyifidle: i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetRunOnlyIfIdle)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(runonlyifidle)).ok()
+        (::windows::core::Interface::vtable(self).base__.SetRunOnlyIfIdle)(::windows::core::Interface::as_raw(self), runonlyifidle).ok()
     }
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`*"]
     pub unsafe fn WakeToRun(&self, pwake: *mut i16) -> ::windows::core::Result<()> {
@@ -7206,7 +7206,7 @@ impl ITaskSettings3 {
     }
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`*"]
     pub unsafe fn SetWakeToRun(&self, wake: i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetWakeToRun)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(wake)).ok()
+        (::windows::core::Interface::vtable(self).base__.SetWakeToRun)(::windows::core::Interface::as_raw(self), wake).ok()
     }
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -7228,7 +7228,7 @@ impl ITaskSettings3 {
     }
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`*"]
     pub unsafe fn SetDisallowStartOnRemoteAppSession(&self, disallowstart: i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetDisallowStartOnRemoteAppSession)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(disallowstart)).ok()
+        (::windows::core::Interface::vtable(self).SetDisallowStartOnRemoteAppSession)(::windows::core::Interface::as_raw(self), disallowstart).ok()
     }
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`*"]
     pub unsafe fn UseUnifiedSchedulingEngine(&self, puseunifiedengine: *mut i16) -> ::windows::core::Result<()> {
@@ -7236,7 +7236,7 @@ impl ITaskSettings3 {
     }
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`*"]
     pub unsafe fn SetUseUnifiedSchedulingEngine(&self, useunifiedengine: i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetUseUnifiedSchedulingEngine)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(useunifiedengine)).ok()
+        (::windows::core::Interface::vtable(self).SetUseUnifiedSchedulingEngine)(::windows::core::Interface::as_raw(self), useunifiedengine).ok()
     }
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -7264,7 +7264,7 @@ impl ITaskSettings3 {
     }
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`*"]
     pub unsafe fn SetVolatile(&self, volatile: i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetVolatile)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(volatile)).ok()
+        (::windows::core::Interface::vtable(self).SetVolatile)(::windows::core::Interface::as_raw(self), volatile).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -7591,7 +7591,7 @@ impl ITimeTrigger {
     }
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`*"]
     pub unsafe fn SetEnabled(&self, enabled: i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetEnabled)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(enabled)).ok()
+        (::windows::core::Interface::vtable(self).base__.SetEnabled)(::windows::core::Interface::as_raw(self), enabled).ok()
     }
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -7782,7 +7782,7 @@ impl ITrigger {
     }
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`*"]
     pub unsafe fn SetEnabled(&self, enabled: i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetEnabled)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(enabled)).ok()
+        (::windows::core::Interface::vtable(self).SetEnabled)(::windows::core::Interface::as_raw(self), enabled).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -7909,7 +7909,7 @@ impl ITriggerCollection {
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn get_Item(&self, index: i32) -> ::windows::core::Result<ITrigger> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).get_Item)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(index), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ITrigger>(result__)
+        (::windows::core::Interface::vtable(self).get_Item)(::windows::core::Interface::as_raw(self), index, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ITrigger>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`*"]
     pub unsafe fn _NewEnum(&self) -> ::windows::core::Result<::windows::core::IUnknown> {
@@ -7920,7 +7920,7 @@ impl ITriggerCollection {
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Create(&self, r#type: TASK_TRIGGER_TYPE2) -> ::windows::core::Result<ITrigger> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).Create)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(r#type), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ITrigger>(result__)
+        (::windows::core::Interface::vtable(self).Create)(::windows::core::Interface::as_raw(self), r#type, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ITrigger>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -8099,7 +8099,7 @@ impl IWeeklyTrigger {
     }
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`*"]
     pub unsafe fn SetEnabled(&self, enabled: i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetEnabled)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(enabled)).ok()
+        (::windows::core::Interface::vtable(self).base__.SetEnabled)(::windows::core::Interface::as_raw(self), enabled).ok()
     }
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`*"]
     pub unsafe fn DaysOfWeek(&self, pdays: *mut i16) -> ::windows::core::Result<()> {
@@ -8107,7 +8107,7 @@ impl IWeeklyTrigger {
     }
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`*"]
     pub unsafe fn SetDaysOfWeek(&self, days: i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetDaysOfWeek)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(days)).ok()
+        (::windows::core::Interface::vtable(self).SetDaysOfWeek)(::windows::core::Interface::as_raw(self), days).ok()
     }
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`*"]
     pub unsafe fn WeeksInterval(&self, pweeks: *mut i16) -> ::windows::core::Result<()> {
@@ -8115,7 +8115,7 @@ impl IWeeklyTrigger {
     }
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`*"]
     pub unsafe fn SetWeeksInterval(&self, weeks: i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetWeeksInterval)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(weeks)).ok()
+        (::windows::core::Interface::vtable(self).SetWeeksInterval)(::windows::core::Interface::as_raw(self), weeks).ok()
     }
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]

@@ -11,7 +11,7 @@ where
         fn CheckGamingPrivilegeSilently(privilegeid: u32, scope: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, policy: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, hasprivilege: *mut super::Foundation::BOOL) -> ::windows::core::HRESULT;
     }
     let mut result__ = ::core::mem::MaybeUninit::<super::Foundation::BOOL>::zeroed();
-    CheckGamingPrivilegeSilently(::core::mem::transmute(privilegeid), scope.into().abi(), policy.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::Foundation::BOOL>(result__)
+    CheckGamingPrivilegeSilently(privilegeid, scope.into().abi(), policy.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::Foundation::BOOL>(result__)
 }
 #[doc = "*Required features: `\"Win32_Gaming\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -27,7 +27,7 @@ where
         fn CheckGamingPrivilegeSilentlyForUser(user: *mut ::core::ffi::c_void, privilegeid: u32, scope: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, policy: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, hasprivilege: *mut super::Foundation::BOOL) -> ::windows::core::HRESULT;
     }
     let mut result__ = ::core::mem::MaybeUninit::<super::Foundation::BOOL>::zeroed();
-    CheckGamingPrivilegeSilentlyForUser(user.into().abi(), ::core::mem::transmute(privilegeid), scope.into().abi(), policy.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::Foundation::BOOL>(result__)
+    CheckGamingPrivilegeSilentlyForUser(user.into().abi(), privilegeid, scope.into().abi(), policy.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::Foundation::BOOL>(result__)
 }
 #[doc = "*Required features: `\"Win32_Gaming\"`*"]
 #[inline]
@@ -41,7 +41,7 @@ where
     extern "system" {
         fn CheckGamingPrivilegeWithUI(privilegeid: u32, scope: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, policy: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, friendlymessage: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, completionroutine: *mut ::core::ffi::c_void, context: *const ::core::ffi::c_void) -> ::windows::core::HRESULT;
     }
-    CheckGamingPrivilegeWithUI(::core::mem::transmute(privilegeid), scope.into().abi(), policy.into().abi(), friendlymessage.into().abi(), ::core::mem::transmute(completionroutine), ::core::mem::transmute(context)).ok()
+    CheckGamingPrivilegeWithUI(privilegeid, scope.into().abi(), policy.into().abi(), friendlymessage.into().abi(), ::core::mem::transmute(completionroutine), ::core::mem::transmute(context)).ok()
 }
 #[doc = "*Required features: `\"Win32_Gaming\"`*"]
 #[inline]
@@ -56,7 +56,7 @@ where
     extern "system" {
         fn CheckGamingPrivilegeWithUIForUser(user: *mut ::core::ffi::c_void, privilegeid: u32, scope: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, policy: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, friendlymessage: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, completionroutine: *mut ::core::ffi::c_void, context: *const ::core::ffi::c_void) -> ::windows::core::HRESULT;
     }
-    CheckGamingPrivilegeWithUIForUser(user.into().abi(), ::core::mem::transmute(privilegeid), scope.into().abi(), policy.into().abi(), friendlymessage.into().abi(), ::core::mem::transmute(completionroutine), ::core::mem::transmute(context)).ok()
+    CheckGamingPrivilegeWithUIForUser(user.into().abi(), privilegeid, scope.into().abi(), policy.into().abi(), friendlymessage.into().abi(), ::core::mem::transmute(completionroutine), ::core::mem::transmute(context)).ok()
 }
 #[doc = "*Required features: `\"Win32_Gaming\"`*"]
 #[repr(transparent)]
@@ -282,7 +282,7 @@ impl IGameExplorer {
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::Foundation::BSTR>>,
         P1: ::std::convert::Into<::windows::core::InParam<'a, super::Foundation::BSTR>>,
     {
-        (::windows::core::Interface::vtable(self).AddGame)(::windows::core::Interface::as_raw(self), bstrgdfbinarypath.into().abi(), bstrgameinstalldirectory.into().abi(), ::core::mem::transmute(installscope), ::core::mem::transmute(pguidinstanceid)).ok()
+        (::windows::core::Interface::vtable(self).AddGame)(::windows::core::Interface::as_raw(self), bstrgdfbinarypath.into().abi(), bstrgameinstalldirectory.into().abi(), installscope, ::core::mem::transmute(pguidinstanceid)).ok()
     }
     #[doc = "*Required features: `\"Win32_Gaming\"`*"]
     pub unsafe fn RemoveGame(&self, guidinstanceid: ::windows::core::GUID) -> ::windows::core::Result<()> {
@@ -362,7 +362,7 @@ impl IGameExplorer2 {
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
         P1: ::std::convert::Into<::windows::core::PCWSTR>,
     {
-        (::windows::core::Interface::vtable(self).InstallGame)(::windows::core::Interface::as_raw(self), binarygdfpath.into(), installdirectory.into(), ::core::mem::transmute(installscope)).ok()
+        (::windows::core::Interface::vtable(self).InstallGame)(::windows::core::Interface::as_raw(self), binarygdfpath.into(), installdirectory.into(), installscope).ok()
     }
     #[doc = "*Required features: `\"Win32_Gaming\"`*"]
     pub unsafe fn UninstallGame<'a, P0>(&self, binarygdfpath: P0) -> ::windows::core::Result<()>
@@ -461,16 +461,16 @@ impl IGameStatistics {
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
-        (::windows::core::Interface::vtable(self).SetCategoryTitle)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(categoryindex), title.into()).ok()
+        (::windows::core::Interface::vtable(self).SetCategoryTitle)(::windows::core::Interface::as_raw(self), categoryindex, title.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Gaming\"`*"]
     pub unsafe fn GetCategoryTitle(&self, categoryindex: u16) -> ::windows::core::Result<::windows::core::PWSTR> {
         let mut result__ = ::core::mem::MaybeUninit::<::windows::core::PWSTR>::zeroed();
-        (::windows::core::Interface::vtable(self).GetCategoryTitle)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(categoryindex), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::PWSTR>(result__)
+        (::windows::core::Interface::vtable(self).GetCategoryTitle)(::windows::core::Interface::as_raw(self), categoryindex, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::PWSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Gaming\"`*"]
     pub unsafe fn GetStatistic(&self, categoryindex: u16, statindex: u16, pname: *mut ::windows::core::PWSTR, pvalue: *mut ::windows::core::PWSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetStatistic)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(categoryindex), ::core::mem::transmute(statindex), ::core::mem::transmute(pname), ::core::mem::transmute(pvalue)).ok()
+        (::windows::core::Interface::vtable(self).GetStatistic)(::windows::core::Interface::as_raw(self), categoryindex, statindex, ::core::mem::transmute(pname), ::core::mem::transmute(pvalue)).ok()
     }
     #[doc = "*Required features: `\"Win32_Gaming\"`*"]
     pub unsafe fn SetStatistic<'a, P0, P1>(&self, categoryindex: u16, statindex: u16, name: P0, value: P1) -> ::windows::core::Result<()>
@@ -478,7 +478,7 @@ impl IGameStatistics {
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
         P1: ::std::convert::Into<::windows::core::PCWSTR>,
     {
-        (::windows::core::Interface::vtable(self).SetStatistic)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(categoryindex), ::core::mem::transmute(statindex), name.into(), value.into()).ok()
+        (::windows::core::Interface::vtable(self).SetStatistic)(::windows::core::Interface::as_raw(self), categoryindex, statindex, name.into(), value.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Gaming\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -490,7 +490,7 @@ impl IGameStatistics {
     }
     #[doc = "*Required features: `\"Win32_Gaming\"`*"]
     pub unsafe fn SetLastPlayedCategory(&self, categoryindex: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetLastPlayedCategory)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(categoryindex)).ok()
+        (::windows::core::Interface::vtable(self).SetLastPlayedCategory)(::windows::core::Interface::as_raw(self), categoryindex).ok()
     }
     #[doc = "*Required features: `\"Win32_Gaming\"`*"]
     pub unsafe fn GetLastPlayedCategory(&self) -> ::windows::core::Result<u32> {
@@ -562,7 +562,7 @@ impl IGameStatisticsMgr {
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
-        (::windows::core::Interface::vtable(self).GetGameStatistics)(::windows::core::Interface::as_raw(self), gdfbinarypath.into(), ::core::mem::transmute(opentype), ::core::mem::transmute(popenresult), ::core::mem::transmute(ppistats)).ok()
+        (::windows::core::Interface::vtable(self).GetGameStatistics)(::windows::core::Interface::as_raw(self), gdfbinarypath.into(), opentype, ::core::mem::transmute(popenresult), ::core::mem::transmute(ppistats)).ok()
     }
     #[doc = "*Required features: `\"Win32_Gaming\"`*"]
     pub unsafe fn RemoveGameStatistics<'a, P0>(&self, gdfbinarypath: P0) -> ::windows::core::Result<()>
@@ -1107,7 +1107,7 @@ pub unsafe fn ShowGameInfoUI(titleid: u32, completionroutine: GameUICompletionRo
     extern "system" {
         fn ShowGameInfoUI(titleid: u32, completionroutine: *mut ::core::ffi::c_void, context: *const ::core::ffi::c_void) -> ::windows::core::HRESULT;
     }
-    ShowGameInfoUI(::core::mem::transmute(titleid), ::core::mem::transmute(completionroutine), ::core::mem::transmute(context)).ok()
+    ShowGameInfoUI(titleid, ::core::mem::transmute(completionroutine), ::core::mem::transmute(context)).ok()
 }
 #[doc = "*Required features: `\"Win32_Gaming\"`*"]
 #[inline]
@@ -1119,7 +1119,7 @@ where
     extern "system" {
         fn ShowGameInfoUIForUser(user: *mut ::core::ffi::c_void, titleid: u32, completionroutine: *mut ::core::ffi::c_void, context: *const ::core::ffi::c_void) -> ::windows::core::HRESULT;
     }
-    ShowGameInfoUIForUser(user.into().abi(), ::core::mem::transmute(titleid), ::core::mem::transmute(completionroutine), ::core::mem::transmute(context)).ok()
+    ShowGameInfoUIForUser(user.into().abi(), titleid, ::core::mem::transmute(completionroutine), ::core::mem::transmute(context)).ok()
 }
 #[doc = "*Required features: `\"Win32_Gaming\"`*"]
 #[inline]
@@ -1195,7 +1195,7 @@ where
     extern "system" {
         fn ShowPlayerPickerUI(promptdisplaytext: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, xuids: *const ::core::mem::ManuallyDrop<::windows::core::HSTRING>, xuidscount: usize, preselectedxuids: *const ::core::mem::ManuallyDrop<::windows::core::HSTRING>, preselectedxuidscount: usize, minselectioncount: usize, maxselectioncount: usize, completionroutine: *mut ::core::ffi::c_void, context: *const ::core::ffi::c_void) -> ::windows::core::HRESULT;
     }
-    ShowPlayerPickerUI(promptdisplaytext.into().abi(), ::core::mem::transmute(::windows::core::as_ptr_or_null(xuids)), xuids.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(preselectedxuids)), preselectedxuids.len() as _, ::core::mem::transmute(minselectioncount), ::core::mem::transmute(maxselectioncount), ::core::mem::transmute(completionroutine), ::core::mem::transmute(context)).ok()
+    ShowPlayerPickerUI(promptdisplaytext.into().abi(), ::core::mem::transmute(::windows::core::as_ptr_or_null(xuids)), xuids.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(preselectedxuids)), preselectedxuids.len() as _, minselectioncount, maxselectioncount, ::core::mem::transmute(completionroutine), ::core::mem::transmute(context)).ok()
 }
 #[doc = "*Required features: `\"Win32_Gaming\"`*"]
 #[inline]
@@ -1208,7 +1208,7 @@ where
     extern "system" {
         fn ShowPlayerPickerUIForUser(user: *mut ::core::ffi::c_void, promptdisplaytext: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, xuids: *const ::core::mem::ManuallyDrop<::windows::core::HSTRING>, xuidscount: usize, preselectedxuids: *const ::core::mem::ManuallyDrop<::windows::core::HSTRING>, preselectedxuidscount: usize, minselectioncount: usize, maxselectioncount: usize, completionroutine: *mut ::core::ffi::c_void, context: *const ::core::ffi::c_void) -> ::windows::core::HRESULT;
     }
-    ShowPlayerPickerUIForUser(user.into().abi(), promptdisplaytext.into().abi(), ::core::mem::transmute(::windows::core::as_ptr_or_null(xuids)), xuids.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(preselectedxuids)), preselectedxuids.len() as _, ::core::mem::transmute(minselectioncount), ::core::mem::transmute(maxselectioncount), ::core::mem::transmute(completionroutine), ::core::mem::transmute(context)).ok()
+    ShowPlayerPickerUIForUser(user.into().abi(), promptdisplaytext.into().abi(), ::core::mem::transmute(::windows::core::as_ptr_or_null(xuids)), xuids.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(preselectedxuids)), preselectedxuids.len() as _, minselectioncount, maxselectioncount, ::core::mem::transmute(completionroutine), ::core::mem::transmute(context)).ok()
 }
 #[doc = "*Required features: `\"Win32_Gaming\"`*"]
 #[inline]
@@ -1242,7 +1242,7 @@ pub unsafe fn ShowTitleAchievementsUI(titleid: u32, completionroutine: GameUICom
     extern "system" {
         fn ShowTitleAchievementsUI(titleid: u32, completionroutine: *mut ::core::ffi::c_void, context: *const ::core::ffi::c_void) -> ::windows::core::HRESULT;
     }
-    ShowTitleAchievementsUI(::core::mem::transmute(titleid), ::core::mem::transmute(completionroutine), ::core::mem::transmute(context)).ok()
+    ShowTitleAchievementsUI(titleid, ::core::mem::transmute(completionroutine), ::core::mem::transmute(context)).ok()
 }
 #[doc = "*Required features: `\"Win32_Gaming\"`*"]
 #[inline]
@@ -1254,7 +1254,7 @@ where
     extern "system" {
         fn ShowTitleAchievementsUIForUser(user: *mut ::core::ffi::c_void, titleid: u32, completionroutine: *mut ::core::ffi::c_void, context: *const ::core::ffi::c_void) -> ::windows::core::HRESULT;
     }
-    ShowTitleAchievementsUIForUser(user.into().abi(), ::core::mem::transmute(titleid), ::core::mem::transmute(completionroutine), ::core::mem::transmute(context)).ok()
+    ShowTitleAchievementsUIForUser(user.into().abi(), titleid, ::core::mem::transmute(completionroutine), ::core::mem::transmute(context)).ok()
 }
 #[doc = "*Required features: `\"Win32_Gaming\"`*"]
 #[inline]

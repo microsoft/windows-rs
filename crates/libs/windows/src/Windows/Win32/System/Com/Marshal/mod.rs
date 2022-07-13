@@ -46,7 +46,7 @@ pub unsafe fn BSTR_UserSize(param0: *const u32, param1: u32, param2: *const supe
     extern "system" {
         fn BSTR_UserSize(param0: *const u32, param1: u32, param2: *const super::super::super::Foundation::BSTR) -> u32;
     }
-    ::core::mem::transmute(BSTR_UserSize(::core::mem::transmute(param0), ::core::mem::transmute(param1), ::core::mem::transmute(param2)))
+    ::core::mem::transmute(BSTR_UserSize(::core::mem::transmute(param0), param1, ::core::mem::transmute(param2)))
 }
 #[doc = "*Required features: `\"Win32_System_Com_Marshal\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -56,7 +56,7 @@ pub unsafe fn BSTR_UserSize64(param0: *const u32, param1: u32, param2: *const su
     extern "system" {
         fn BSTR_UserSize64(param0: *const u32, param1: u32, param2: *const super::super::super::Foundation::BSTR) -> u32;
     }
-    ::core::mem::transmute(BSTR_UserSize64(::core::mem::transmute(param0), ::core::mem::transmute(param1), ::core::mem::transmute(param2)))
+    ::core::mem::transmute(BSTR_UserSize64(::core::mem::transmute(param0), param1, ::core::mem::transmute(param2)))
 }
 #[doc = "*Required features: `\"Win32_System_Com_Marshal\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -121,7 +121,7 @@ pub unsafe fn CLIPFORMAT_UserSize(param0: *const u32, param1: u32, param2: *cons
     extern "system" {
         fn CLIPFORMAT_UserSize(param0: *const u32, param1: u32, param2: *const u16) -> u32;
     }
-    ::core::mem::transmute(CLIPFORMAT_UserSize(::core::mem::transmute(param0), ::core::mem::transmute(param1), ::core::mem::transmute(param2)))
+    ::core::mem::transmute(CLIPFORMAT_UserSize(::core::mem::transmute(param0), param1, ::core::mem::transmute(param2)))
 }
 #[doc = "*Required features: `\"Win32_System_Com_Marshal\"`*"]
 #[inline]
@@ -130,7 +130,7 @@ pub unsafe fn CLIPFORMAT_UserSize64(param0: *const u32, param1: u32, param2: *co
     extern "system" {
         fn CLIPFORMAT_UserSize64(param0: *const u32, param1: u32, param2: *const u16) -> u32;
     }
-    ::core::mem::transmute(CLIPFORMAT_UserSize64(::core::mem::transmute(param0), ::core::mem::transmute(param1), ::core::mem::transmute(param2)))
+    ::core::mem::transmute(CLIPFORMAT_UserSize64(::core::mem::transmute(param0), param1, ::core::mem::transmute(param2)))
 }
 #[doc = "*Required features: `\"Win32_System_Com_Marshal\"`*"]
 #[inline]
@@ -160,7 +160,7 @@ where
     extern "system" {
         fn CoGetMarshalSizeMax(pulsize: *mut u32, riid: *const ::windows::core::GUID, punk: *mut ::core::ffi::c_void, dwdestcontext: u32, pvdestcontext: *const ::core::ffi::c_void, mshlflags: u32) -> ::windows::core::HRESULT;
     }
-    CoGetMarshalSizeMax(::core::mem::transmute(pulsize), ::core::mem::transmute(riid), punk.into().abi(), ::core::mem::transmute(dwdestcontext), ::core::mem::transmute(pvdestcontext), ::core::mem::transmute(mshlflags)).ok()
+    CoGetMarshalSizeMax(::core::mem::transmute(pulsize), ::core::mem::transmute(riid), punk.into().abi(), dwdestcontext, ::core::mem::transmute(pvdestcontext), mshlflags).ok()
 }
 #[doc = "*Required features: `\"Win32_System_Com_Marshal\"`*"]
 #[inline]
@@ -173,7 +173,7 @@ where
         fn CoGetStandardMarshal(riid: *const ::windows::core::GUID, punk: *mut ::core::ffi::c_void, dwdestcontext: u32, pvdestcontext: *const ::core::ffi::c_void, mshlflags: u32, ppmarshal: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
     }
     let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-    CoGetStandardMarshal(::core::mem::transmute(riid), punk.into().abi(), ::core::mem::transmute(dwdestcontext), ::core::mem::transmute(pvdestcontext), ::core::mem::transmute(mshlflags), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IMarshal>(result__)
+    CoGetStandardMarshal(::core::mem::transmute(riid), punk.into().abi(), dwdestcontext, ::core::mem::transmute(pvdestcontext), mshlflags, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IMarshal>(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Com_Marshal\"`*"]
 #[inline]
@@ -186,7 +186,7 @@ where
         fn CoGetStdMarshalEx(punkouter: *mut ::core::ffi::c_void, smexflags: u32, ppunkinner: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
     }
     let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-    CoGetStdMarshalEx(punkouter.into().abi(), ::core::mem::transmute(smexflags), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::IUnknown>(result__)
+    CoGetStdMarshalEx(punkouter.into().abi(), smexflags, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::IUnknown>(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Com_Marshal\"`*"]
 #[inline]
@@ -198,7 +198,7 @@ where
     extern "system" {
         fn CoMarshalHresult(pstm: *mut ::core::ffi::c_void, hresult: ::windows::core::HRESULT) -> ::windows::core::HRESULT;
     }
-    CoMarshalHresult(pstm.into().abi(), ::core::mem::transmute(hresult)).ok()
+    CoMarshalHresult(pstm.into().abi(), hresult).ok()
 }
 #[doc = "*Required features: `\"Win32_System_Com_Marshal\"`*"]
 #[inline]
@@ -224,7 +224,7 @@ where
     extern "system" {
         fn CoMarshalInterface(pstm: *mut ::core::ffi::c_void, riid: *const ::windows::core::GUID, punk: *mut ::core::ffi::c_void, dwdestcontext: u32, pvdestcontext: *const ::core::ffi::c_void, mshlflags: u32) -> ::windows::core::HRESULT;
     }
-    CoMarshalInterface(pstm.into().abi(), ::core::mem::transmute(riid), punk.into().abi(), ::core::mem::transmute(dwdestcontext), ::core::mem::transmute(pvdestcontext), ::core::mem::transmute(mshlflags)).ok()
+    CoMarshalInterface(pstm.into().abi(), ::core::mem::transmute(riid), punk.into().abi(), dwdestcontext, ::core::mem::transmute(pvdestcontext), mshlflags).ok()
 }
 #[doc = "*Required features: `\"Win32_System_Com_Marshal\"`*"]
 #[inline]
@@ -313,7 +313,7 @@ pub unsafe fn HACCEL_UserSize(param0: *const u32, param1: u32, param2: *const su
     extern "system" {
         fn HACCEL_UserSize(param0: *const u32, param1: u32, param2: *const super::super::super::UI::WindowsAndMessaging::HACCEL) -> u32;
     }
-    ::core::mem::transmute(HACCEL_UserSize(::core::mem::transmute(param0), ::core::mem::transmute(param1), ::core::mem::transmute(param2)))
+    ::core::mem::transmute(HACCEL_UserSize(::core::mem::transmute(param0), param1, ::core::mem::transmute(param2)))
 }
 #[doc = "*Required features: `\"Win32_System_Com_Marshal\"`, `\"Win32_UI_WindowsAndMessaging\"`*"]
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
@@ -323,7 +323,7 @@ pub unsafe fn HACCEL_UserSize64(param0: *const u32, param1: u32, param2: *const 
     extern "system" {
         fn HACCEL_UserSize64(param0: *const u32, param1: u32, param2: *const super::super::super::UI::WindowsAndMessaging::HACCEL) -> u32;
     }
-    ::core::mem::transmute(HACCEL_UserSize64(::core::mem::transmute(param0), ::core::mem::transmute(param1), ::core::mem::transmute(param2)))
+    ::core::mem::transmute(HACCEL_UserSize64(::core::mem::transmute(param0), param1, ::core::mem::transmute(param2)))
 }
 #[doc = "*Required features: `\"Win32_System_Com_Marshal\"`, `\"Win32_UI_WindowsAndMessaging\"`*"]
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
@@ -393,7 +393,7 @@ pub unsafe fn HBITMAP_UserSize(param0: *const u32, param1: u32, param2: *const s
     extern "system" {
         fn HBITMAP_UserSize(param0: *const u32, param1: u32, param2: *const super::super::super::Graphics::Gdi::HBITMAP) -> u32;
     }
-    ::core::mem::transmute(HBITMAP_UserSize(::core::mem::transmute(param0), ::core::mem::transmute(param1), ::core::mem::transmute(param2)))
+    ::core::mem::transmute(HBITMAP_UserSize(::core::mem::transmute(param0), param1, ::core::mem::transmute(param2)))
 }
 #[doc = "*Required features: `\"Win32_System_Com_Marshal\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(feature = "Win32_Graphics_Gdi")]
@@ -403,7 +403,7 @@ pub unsafe fn HBITMAP_UserSize64(param0: *const u32, param1: u32, param2: *const
     extern "system" {
         fn HBITMAP_UserSize64(param0: *const u32, param1: u32, param2: *const super::super::super::Graphics::Gdi::HBITMAP) -> u32;
     }
-    ::core::mem::transmute(HBITMAP_UserSize64(::core::mem::transmute(param0), ::core::mem::transmute(param1), ::core::mem::transmute(param2)))
+    ::core::mem::transmute(HBITMAP_UserSize64(::core::mem::transmute(param0), param1, ::core::mem::transmute(param2)))
 }
 #[doc = "*Required features: `\"Win32_System_Com_Marshal\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(feature = "Win32_Graphics_Gdi")]
@@ -473,7 +473,7 @@ pub unsafe fn HDC_UserSize(param0: *const u32, param1: u32, param2: *const super
     extern "system" {
         fn HDC_UserSize(param0: *const u32, param1: u32, param2: *const super::super::super::Graphics::Gdi::HDC) -> u32;
     }
-    ::core::mem::transmute(HDC_UserSize(::core::mem::transmute(param0), ::core::mem::transmute(param1), ::core::mem::transmute(param2)))
+    ::core::mem::transmute(HDC_UserSize(::core::mem::transmute(param0), param1, ::core::mem::transmute(param2)))
 }
 #[doc = "*Required features: `\"Win32_System_Com_Marshal\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(feature = "Win32_Graphics_Gdi")]
@@ -483,7 +483,7 @@ pub unsafe fn HDC_UserSize64(param0: *const u32, param1: u32, param2: *const sup
     extern "system" {
         fn HDC_UserSize64(param0: *const u32, param1: u32, param2: *const super::super::super::Graphics::Gdi::HDC) -> u32;
     }
-    ::core::mem::transmute(HDC_UserSize64(::core::mem::transmute(param0), ::core::mem::transmute(param1), ::core::mem::transmute(param2)))
+    ::core::mem::transmute(HDC_UserSize64(::core::mem::transmute(param0), param1, ::core::mem::transmute(param2)))
 }
 #[doc = "*Required features: `\"Win32_System_Com_Marshal\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(feature = "Win32_Graphics_Gdi")]
@@ -548,7 +548,7 @@ pub unsafe fn HGLOBAL_UserSize(param0: *const u32, param1: u32, param2: *const i
     extern "system" {
         fn HGLOBAL_UserSize(param0: *const u32, param1: u32, param2: *const isize) -> u32;
     }
-    ::core::mem::transmute(HGLOBAL_UserSize(::core::mem::transmute(param0), ::core::mem::transmute(param1), ::core::mem::transmute(param2)))
+    ::core::mem::transmute(HGLOBAL_UserSize(::core::mem::transmute(param0), param1, ::core::mem::transmute(param2)))
 }
 #[doc = "*Required features: `\"Win32_System_Com_Marshal\"`*"]
 #[inline]
@@ -557,7 +557,7 @@ pub unsafe fn HGLOBAL_UserSize64(param0: *const u32, param1: u32, param2: *const
     extern "system" {
         fn HGLOBAL_UserSize64(param0: *const u32, param1: u32, param2: *const isize) -> u32;
     }
-    ::core::mem::transmute(HGLOBAL_UserSize64(::core::mem::transmute(param0), ::core::mem::transmute(param1), ::core::mem::transmute(param2)))
+    ::core::mem::transmute(HGLOBAL_UserSize64(::core::mem::transmute(param0), param1, ::core::mem::transmute(param2)))
 }
 #[doc = "*Required features: `\"Win32_System_Com_Marshal\"`*"]
 #[inline]
@@ -625,7 +625,7 @@ pub unsafe fn HICON_UserSize(param0: *const u32, param1: u32, param2: *const sup
     extern "system" {
         fn HICON_UserSize(param0: *const u32, param1: u32, param2: *const super::super::super::UI::WindowsAndMessaging::HICON) -> u32;
     }
-    ::core::mem::transmute(HICON_UserSize(::core::mem::transmute(param0), ::core::mem::transmute(param1), ::core::mem::transmute(param2)))
+    ::core::mem::transmute(HICON_UserSize(::core::mem::transmute(param0), param1, ::core::mem::transmute(param2)))
 }
 #[doc = "*Required features: `\"Win32_System_Com_Marshal\"`, `\"Win32_UI_WindowsAndMessaging\"`*"]
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
@@ -635,7 +635,7 @@ pub unsafe fn HICON_UserSize64(param0: *const u32, param1: u32, param2: *const s
     extern "system" {
         fn HICON_UserSize64(param0: *const u32, param1: u32, param2: *const super::super::super::UI::WindowsAndMessaging::HICON) -> u32;
     }
-    ::core::mem::transmute(HICON_UserSize64(::core::mem::transmute(param0), ::core::mem::transmute(param1), ::core::mem::transmute(param2)))
+    ::core::mem::transmute(HICON_UserSize64(::core::mem::transmute(param0), param1, ::core::mem::transmute(param2)))
 }
 #[doc = "*Required features: `\"Win32_System_Com_Marshal\"`, `\"Win32_UI_WindowsAndMessaging\"`*"]
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
@@ -705,7 +705,7 @@ pub unsafe fn HMENU_UserSize(param0: *const u32, param1: u32, param2: *const sup
     extern "system" {
         fn HMENU_UserSize(param0: *const u32, param1: u32, param2: *const super::super::super::UI::WindowsAndMessaging::HMENU) -> u32;
     }
-    ::core::mem::transmute(HMENU_UserSize(::core::mem::transmute(param0), ::core::mem::transmute(param1), ::core::mem::transmute(param2)))
+    ::core::mem::transmute(HMENU_UserSize(::core::mem::transmute(param0), param1, ::core::mem::transmute(param2)))
 }
 #[doc = "*Required features: `\"Win32_System_Com_Marshal\"`, `\"Win32_UI_WindowsAndMessaging\"`*"]
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
@@ -715,7 +715,7 @@ pub unsafe fn HMENU_UserSize64(param0: *const u32, param1: u32, param2: *const s
     extern "system" {
         fn HMENU_UserSize64(param0: *const u32, param1: u32, param2: *const super::super::super::UI::WindowsAndMessaging::HMENU) -> u32;
     }
-    ::core::mem::transmute(HMENU_UserSize64(::core::mem::transmute(param0), ::core::mem::transmute(param1), ::core::mem::transmute(param2)))
+    ::core::mem::transmute(HMENU_UserSize64(::core::mem::transmute(param0), param1, ::core::mem::transmute(param2)))
 }
 #[doc = "*Required features: `\"Win32_System_Com_Marshal\"`, `\"Win32_UI_WindowsAndMessaging\"`*"]
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
@@ -785,7 +785,7 @@ pub unsafe fn HPALETTE_UserSize(param0: *const u32, param1: u32, param2: *const 
     extern "system" {
         fn HPALETTE_UserSize(param0: *const u32, param1: u32, param2: *const super::super::super::Graphics::Gdi::HPALETTE) -> u32;
     }
-    ::core::mem::transmute(HPALETTE_UserSize(::core::mem::transmute(param0), ::core::mem::transmute(param1), ::core::mem::transmute(param2)))
+    ::core::mem::transmute(HPALETTE_UserSize(::core::mem::transmute(param0), param1, ::core::mem::transmute(param2)))
 }
 #[doc = "*Required features: `\"Win32_System_Com_Marshal\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(feature = "Win32_Graphics_Gdi")]
@@ -795,7 +795,7 @@ pub unsafe fn HPALETTE_UserSize64(param0: *const u32, param1: u32, param2: *cons
     extern "system" {
         fn HPALETTE_UserSize64(param0: *const u32, param1: u32, param2: *const super::super::super::Graphics::Gdi::HPALETTE) -> u32;
     }
-    ::core::mem::transmute(HPALETTE_UserSize64(::core::mem::transmute(param0), ::core::mem::transmute(param1), ::core::mem::transmute(param2)))
+    ::core::mem::transmute(HPALETTE_UserSize64(::core::mem::transmute(param0), param1, ::core::mem::transmute(param2)))
 }
 #[doc = "*Required features: `\"Win32_System_Com_Marshal\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(feature = "Win32_Graphics_Gdi")]
@@ -865,7 +865,7 @@ pub unsafe fn HWND_UserSize(param0: *const u32, param1: u32, param2: *const supe
     extern "system" {
         fn HWND_UserSize(param0: *const u32, param1: u32, param2: *const super::super::super::Foundation::HWND) -> u32;
     }
-    ::core::mem::transmute(HWND_UserSize(::core::mem::transmute(param0), ::core::mem::transmute(param1), ::core::mem::transmute(param2)))
+    ::core::mem::transmute(HWND_UserSize(::core::mem::transmute(param0), param1, ::core::mem::transmute(param2)))
 }
 #[doc = "*Required features: `\"Win32_System_Com_Marshal\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -875,7 +875,7 @@ pub unsafe fn HWND_UserSize64(param0: *const u32, param1: u32, param2: *const su
     extern "system" {
         fn HWND_UserSize64(param0: *const u32, param1: u32, param2: *const super::super::super::Foundation::HWND) -> u32;
     }
-    ::core::mem::transmute(HWND_UserSize64(::core::mem::transmute(param0), ::core::mem::transmute(param1), ::core::mem::transmute(param2)))
+    ::core::mem::transmute(HWND_UserSize64(::core::mem::transmute(param0), param1, ::core::mem::transmute(param2)))
 }
 #[doc = "*Required features: `\"Win32_System_Com_Marshal\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -903,18 +903,18 @@ pub struct IMarshal(::windows::core::IUnknown);
 impl IMarshal {
     #[doc = "*Required features: `\"Win32_System_Com_Marshal\"`*"]
     pub unsafe fn GetUnmarshalClass(&self, riid: *const ::windows::core::GUID, pv: *const ::core::ffi::c_void, dwdestcontext: u32, pvdestcontext: *mut ::core::ffi::c_void, mshlflags: u32, pcid: *mut ::windows::core::GUID) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetUnmarshalClass)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(riid), ::core::mem::transmute(pv), ::core::mem::transmute(dwdestcontext), ::core::mem::transmute(pvdestcontext), ::core::mem::transmute(mshlflags), ::core::mem::transmute(pcid)).ok()
+        (::windows::core::Interface::vtable(self).GetUnmarshalClass)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(riid), ::core::mem::transmute(pv), dwdestcontext, ::core::mem::transmute(pvdestcontext), mshlflags, ::core::mem::transmute(pcid)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Com_Marshal\"`*"]
     pub unsafe fn GetMarshalSizeMax(&self, riid: *const ::windows::core::GUID, pv: *const ::core::ffi::c_void, dwdestcontext: u32, pvdestcontext: *mut ::core::ffi::c_void, mshlflags: u32, psize: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetMarshalSizeMax)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(riid), ::core::mem::transmute(pv), ::core::mem::transmute(dwdestcontext), ::core::mem::transmute(pvdestcontext), ::core::mem::transmute(mshlflags), ::core::mem::transmute(psize)).ok()
+        (::windows::core::Interface::vtable(self).GetMarshalSizeMax)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(riid), ::core::mem::transmute(pv), dwdestcontext, ::core::mem::transmute(pvdestcontext), mshlflags, ::core::mem::transmute(psize)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Com_Marshal\"`*"]
     pub unsafe fn MarshalInterface<'a, P0>(&self, pstm: P0, riid: *const ::windows::core::GUID, pv: *const ::core::ffi::c_void, dwdestcontext: u32, pvdestcontext: *mut ::core::ffi::c_void, mshlflags: u32) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::IStream>>,
     {
-        (::windows::core::Interface::vtable(self).MarshalInterface)(::windows::core::Interface::as_raw(self), pstm.into().abi(), ::core::mem::transmute(riid), ::core::mem::transmute(pv), ::core::mem::transmute(dwdestcontext), ::core::mem::transmute(pvdestcontext), ::core::mem::transmute(mshlflags)).ok()
+        (::windows::core::Interface::vtable(self).MarshalInterface)(::windows::core::Interface::as_raw(self), pstm.into().abi(), ::core::mem::transmute(riid), ::core::mem::transmute(pv), dwdestcontext, ::core::mem::transmute(pvdestcontext), mshlflags).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Com_Marshal\"`*"]
     pub unsafe fn UnmarshalInterface<'a, P0>(&self, pstm: P0, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>
@@ -932,7 +932,7 @@ impl IMarshal {
     }
     #[doc = "*Required features: `\"Win32_System_Com_Marshal\"`*"]
     pub unsafe fn DisconnectObject(&self, dwreserved: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).DisconnectObject)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(dwreserved)).ok()
+        (::windows::core::Interface::vtable(self).DisconnectObject)(::windows::core::Interface::as_raw(self), dwreserved).ok()
     }
 }
 impl ::core::convert::From<IMarshal> for ::windows::core::IUnknown {
@@ -987,18 +987,18 @@ pub struct IMarshal2(::windows::core::IUnknown);
 impl IMarshal2 {
     #[doc = "*Required features: `\"Win32_System_Com_Marshal\"`*"]
     pub unsafe fn GetUnmarshalClass(&self, riid: *const ::windows::core::GUID, pv: *const ::core::ffi::c_void, dwdestcontext: u32, pvdestcontext: *mut ::core::ffi::c_void, mshlflags: u32, pcid: *mut ::windows::core::GUID) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.GetUnmarshalClass)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(riid), ::core::mem::transmute(pv), ::core::mem::transmute(dwdestcontext), ::core::mem::transmute(pvdestcontext), ::core::mem::transmute(mshlflags), ::core::mem::transmute(pcid)).ok()
+        (::windows::core::Interface::vtable(self).base__.GetUnmarshalClass)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(riid), ::core::mem::transmute(pv), dwdestcontext, ::core::mem::transmute(pvdestcontext), mshlflags, ::core::mem::transmute(pcid)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Com_Marshal\"`*"]
     pub unsafe fn GetMarshalSizeMax(&self, riid: *const ::windows::core::GUID, pv: *const ::core::ffi::c_void, dwdestcontext: u32, pvdestcontext: *mut ::core::ffi::c_void, mshlflags: u32, psize: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.GetMarshalSizeMax)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(riid), ::core::mem::transmute(pv), ::core::mem::transmute(dwdestcontext), ::core::mem::transmute(pvdestcontext), ::core::mem::transmute(mshlflags), ::core::mem::transmute(psize)).ok()
+        (::windows::core::Interface::vtable(self).base__.GetMarshalSizeMax)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(riid), ::core::mem::transmute(pv), dwdestcontext, ::core::mem::transmute(pvdestcontext), mshlflags, ::core::mem::transmute(psize)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Com_Marshal\"`*"]
     pub unsafe fn MarshalInterface<'a, P0>(&self, pstm: P0, riid: *const ::windows::core::GUID, pv: *const ::core::ffi::c_void, dwdestcontext: u32, pvdestcontext: *mut ::core::ffi::c_void, mshlflags: u32) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::IStream>>,
     {
-        (::windows::core::Interface::vtable(self).base__.MarshalInterface)(::windows::core::Interface::as_raw(self), pstm.into().abi(), ::core::mem::transmute(riid), ::core::mem::transmute(pv), ::core::mem::transmute(dwdestcontext), ::core::mem::transmute(pvdestcontext), ::core::mem::transmute(mshlflags)).ok()
+        (::windows::core::Interface::vtable(self).base__.MarshalInterface)(::windows::core::Interface::as_raw(self), pstm.into().abi(), ::core::mem::transmute(riid), ::core::mem::transmute(pv), dwdestcontext, ::core::mem::transmute(pvdestcontext), mshlflags).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Com_Marshal\"`*"]
     pub unsafe fn UnmarshalInterface<'a, P0>(&self, pstm: P0, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>
@@ -1016,7 +1016,7 @@ impl IMarshal2 {
     }
     #[doc = "*Required features: `\"Win32_System_Com_Marshal\"`*"]
     pub unsafe fn DisconnectObject(&self, dwreserved: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.DisconnectObject)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(dwreserved)).ok()
+        (::windows::core::Interface::vtable(self).base__.DisconnectObject)(::windows::core::Interface::as_raw(self), dwreserved).ok()
     }
 }
 impl ::core::convert::From<IMarshal2> for ::windows::core::IUnknown {
@@ -1080,31 +1080,31 @@ pub struct IMarshalingStream(::windows::core::IUnknown);
 impl IMarshalingStream {
     #[doc = "*Required features: `\"Win32_System_Com_Marshal\"`*"]
     pub unsafe fn Read(&self, pv: *mut ::core::ffi::c_void, cb: u32, pcbread: *mut u32) -> ::windows::core::HRESULT {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).base__.base__.Read)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pv), ::core::mem::transmute(cb), ::core::mem::transmute(pcbread)))
+        ::core::mem::transmute((::windows::core::Interface::vtable(self).base__.base__.Read)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pv), cb, ::core::mem::transmute(pcbread)))
     }
     #[doc = "*Required features: `\"Win32_System_Com_Marshal\"`*"]
     pub unsafe fn Write(&self, pv: *const ::core::ffi::c_void, cb: u32, pcbwritten: *mut u32) -> ::windows::core::HRESULT {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).base__.base__.Write)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pv), ::core::mem::transmute(cb), ::core::mem::transmute(pcbwritten)))
+        ::core::mem::transmute((::windows::core::Interface::vtable(self).base__.base__.Write)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pv), cb, ::core::mem::transmute(pcbwritten)))
     }
     #[doc = "*Required features: `\"Win32_System_Com_Marshal\"`*"]
     pub unsafe fn Seek(&self, dlibmove: i64, dworigin: super::STREAM_SEEK) -> ::windows::core::Result<u64> {
         let mut result__ = ::core::mem::MaybeUninit::<u64>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.Seek)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(dlibmove), ::core::mem::transmute(dworigin), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u64>(result__)
+        (::windows::core::Interface::vtable(self).base__.Seek)(::windows::core::Interface::as_raw(self), dlibmove, dworigin, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u64>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com_Marshal\"`*"]
     pub unsafe fn SetSize(&self, libnewsize: u64) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetSize)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(libnewsize)).ok()
+        (::windows::core::Interface::vtable(self).base__.SetSize)(::windows::core::Interface::as_raw(self), libnewsize).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Com_Marshal\"`*"]
     pub unsafe fn CopyTo<'a, P0>(&self, pstm: P0, cb: u64, pcbread: *mut u64, pcbwritten: *mut u64) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::IStream>>,
     {
-        (::windows::core::Interface::vtable(self).base__.CopyTo)(::windows::core::Interface::as_raw(self), pstm.into().abi(), ::core::mem::transmute(cb), ::core::mem::transmute(pcbread), ::core::mem::transmute(pcbwritten)).ok()
+        (::windows::core::Interface::vtable(self).base__.CopyTo)(::windows::core::Interface::as_raw(self), pstm.into().abi(), cb, ::core::mem::transmute(pcbread), ::core::mem::transmute(pcbwritten)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Com_Marshal\"`*"]
     pub unsafe fn Commit(&self, grfcommitflags: super::STGC) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.Commit)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(grfcommitflags)).ok()
+        (::windows::core::Interface::vtable(self).base__.Commit)(::windows::core::Interface::as_raw(self), grfcommitflags).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Com_Marshal\"`*"]
     pub unsafe fn Revert(&self) -> ::windows::core::Result<()> {
@@ -1112,16 +1112,16 @@ impl IMarshalingStream {
     }
     #[doc = "*Required features: `\"Win32_System_Com_Marshal\"`*"]
     pub unsafe fn LockRegion(&self, liboffset: u64, cb: u64, dwlocktype: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.LockRegion)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(liboffset), ::core::mem::transmute(cb), ::core::mem::transmute(dwlocktype)).ok()
+        (::windows::core::Interface::vtable(self).base__.LockRegion)(::windows::core::Interface::as_raw(self), liboffset, cb, dwlocktype).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Com_Marshal\"`*"]
     pub unsafe fn UnlockRegion(&self, liboffset: u64, cb: u64, dwlocktype: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.UnlockRegion)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(liboffset), ::core::mem::transmute(cb), ::core::mem::transmute(dwlocktype)).ok()
+        (::windows::core::Interface::vtable(self).base__.UnlockRegion)(::windows::core::Interface::as_raw(self), liboffset, cb, dwlocktype).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Com_Marshal\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Stat(&self, pstatstg: *mut super::STATSTG, grfstatflag: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.Stat)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pstatstg), ::core::mem::transmute(grfstatflag)).ok()
+        (::windows::core::Interface::vtable(self).base__.Stat)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pstatstg), grfstatflag).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Com_Marshal\"`*"]
     pub unsafe fn Clone(&self) -> ::windows::core::Result<super::IStream> {
@@ -1131,7 +1131,7 @@ impl IMarshalingStream {
     #[doc = "*Required features: `\"Win32_System_Com_Marshal\"`*"]
     pub unsafe fn GetMarshalingContextAttribute(&self, attribute: super::CO_MARSHALING_CONTEXT_ATTRIBUTES) -> ::windows::core::Result<usize> {
         let mut result__ = ::core::mem::MaybeUninit::<usize>::zeroed();
-        (::windows::core::Interface::vtable(self).GetMarshalingContextAttribute)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(attribute), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<usize>(result__)
+        (::windows::core::Interface::vtable(self).GetMarshalingContextAttribute)(::windows::core::Interface::as_raw(self), attribute, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<usize>(result__)
     }
 }
 impl ::core::convert::From<IMarshalingStream> for ::windows::core::IUnknown {
@@ -1248,7 +1248,7 @@ pub unsafe fn LPSAFEARRAY_UserSize(param0: *const u32, param1: u32, param2: *con
     extern "system" {
         fn LPSAFEARRAY_UserSize(param0: *const u32, param1: u32, param2: *const *const super::SAFEARRAY) -> u32;
     }
-    ::core::mem::transmute(LPSAFEARRAY_UserSize(::core::mem::transmute(param0), ::core::mem::transmute(param1), ::core::mem::transmute(param2)))
+    ::core::mem::transmute(LPSAFEARRAY_UserSize(::core::mem::transmute(param0), param1, ::core::mem::transmute(param2)))
 }
 #[doc = "*Required features: `\"Win32_System_Com_Marshal\"`*"]
 #[inline]
@@ -1257,7 +1257,7 @@ pub unsafe fn LPSAFEARRAY_UserSize64(param0: *const u32, param1: u32, param2: *c
     extern "system" {
         fn LPSAFEARRAY_UserSize64(param0: *const u32, param1: u32, param2: *const *const super::SAFEARRAY) -> u32;
     }
-    ::core::mem::transmute(LPSAFEARRAY_UserSize64(::core::mem::transmute(param0), ::core::mem::transmute(param1), ::core::mem::transmute(param2)))
+    ::core::mem::transmute(LPSAFEARRAY_UserSize64(::core::mem::transmute(param0), param1, ::core::mem::transmute(param2)))
 }
 #[doc = "*Required features: `\"Win32_System_Com_Marshal\"`*"]
 #[inline]
@@ -1320,7 +1320,7 @@ pub unsafe fn SNB_UserSize(param0: *const u32, param1: u32, param2: *const *cons
     extern "system" {
         fn SNB_UserSize(param0: *const u32, param1: u32, param2: *const *const *const u16) -> u32;
     }
-    ::core::mem::transmute(SNB_UserSize(::core::mem::transmute(param0), ::core::mem::transmute(param1), ::core::mem::transmute(param2)))
+    ::core::mem::transmute(SNB_UserSize(::core::mem::transmute(param0), param1, ::core::mem::transmute(param2)))
 }
 #[doc = "*Required features: `\"Win32_System_Com_Marshal\"`*"]
 #[inline]
@@ -1329,7 +1329,7 @@ pub unsafe fn SNB_UserSize64(param0: *const u32, param1: u32, param2: *const *co
     extern "system" {
         fn SNB_UserSize64(param0: *const u32, param1: u32, param2: *const *const *const u16) -> u32;
     }
-    ::core::mem::transmute(SNB_UserSize64(::core::mem::transmute(param0), ::core::mem::transmute(param1), ::core::mem::transmute(param2)))
+    ::core::mem::transmute(SNB_UserSize64(::core::mem::transmute(param0), param1, ::core::mem::transmute(param2)))
 }
 #[doc = "*Required features: `\"Win32_System_Com_Marshal\"`*"]
 #[inline]
@@ -1424,7 +1424,7 @@ pub unsafe fn STGMEDIUM_UserSize(param0: *const u32, param1: u32, param2: *const
     extern "system" {
         fn STGMEDIUM_UserSize(param0: *const u32, param1: u32, param2: *const super::STGMEDIUM) -> u32;
     }
-    ::core::mem::transmute(STGMEDIUM_UserSize(::core::mem::transmute(param0), ::core::mem::transmute(param1), ::core::mem::transmute(param2)))
+    ::core::mem::transmute(STGMEDIUM_UserSize(::core::mem::transmute(param0), param1, ::core::mem::transmute(param2)))
 }
 #[doc = "*Required features: `\"Win32_System_Com_Marshal\"`, `\"Win32_Graphics_Gdi\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com_StructuredStorage"))]
@@ -1434,7 +1434,7 @@ pub unsafe fn STGMEDIUM_UserSize64(param0: *const u32, param1: u32, param2: *con
     extern "system" {
         fn STGMEDIUM_UserSize64(param0: *const u32, param1: u32, param2: *const super::STGMEDIUM) -> u32;
     }
-    ::core::mem::transmute(STGMEDIUM_UserSize64(::core::mem::transmute(param0), ::core::mem::transmute(param1), ::core::mem::transmute(param2)))
+    ::core::mem::transmute(STGMEDIUM_UserSize64(::core::mem::transmute(param0), param1, ::core::mem::transmute(param2)))
 }
 #[doc = "*Required features: `\"Win32_System_Com_Marshal\"`, `\"Win32_Graphics_Gdi\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com_StructuredStorage"))]
@@ -1504,7 +1504,7 @@ pub unsafe fn VARIANT_UserSize(param0: *const u32, param1: u32, param2: *const s
     extern "system" {
         fn VARIANT_UserSize(param0: *const u32, param1: u32, param2: *const super::VARIANT) -> u32;
     }
-    ::core::mem::transmute(VARIANT_UserSize(::core::mem::transmute(param0), ::core::mem::transmute(param1), ::core::mem::transmute(param2)))
+    ::core::mem::transmute(VARIANT_UserSize(::core::mem::transmute(param0), param1, ::core::mem::transmute(param2)))
 }
 #[doc = "*Required features: `\"Win32_System_Com_Marshal\"`, `\"Win32_Foundation\"`, `\"Win32_System_Ole\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole"))]
@@ -1514,7 +1514,7 @@ pub unsafe fn VARIANT_UserSize64(param0: *const u32, param1: u32, param2: *const
     extern "system" {
         fn VARIANT_UserSize64(param0: *const u32, param1: u32, param2: *const super::VARIANT) -> u32;
     }
-    ::core::mem::transmute(VARIANT_UserSize64(::core::mem::transmute(param0), ::core::mem::transmute(param1), ::core::mem::transmute(param2)))
+    ::core::mem::transmute(VARIANT_UserSize64(::core::mem::transmute(param0), param1, ::core::mem::transmute(param2)))
 }
 #[doc = "*Required features: `\"Win32_System_Com_Marshal\"`, `\"Win32_Foundation\"`, `\"Win32_System_Ole\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole"))]

@@ -4,11 +4,11 @@ pub struct IUIAnimationInterpolator(::windows::core::IUnknown);
 impl IUIAnimationInterpolator {
     #[doc = "*Required features: `\"Win32_UI_Animation\"`*"]
     pub unsafe fn SetInitialValueAndVelocity(&self, initialvalue: f64, initialvelocity: f64) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetInitialValueAndVelocity)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(initialvalue), ::core::mem::transmute(initialvelocity)).ok()
+        (::windows::core::Interface::vtable(self).SetInitialValueAndVelocity)(::windows::core::Interface::as_raw(self), initialvalue, initialvelocity).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_Animation\"`*"]
     pub unsafe fn SetDuration(&self, duration: f64) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetDuration)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(duration)).ok()
+        (::windows::core::Interface::vtable(self).SetDuration)(::windows::core::Interface::as_raw(self), duration).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_Animation\"`*"]
     pub unsafe fn GetDuration(&self) -> ::windows::core::Result<f64> {
@@ -23,12 +23,12 @@ impl IUIAnimationInterpolator {
     #[doc = "*Required features: `\"Win32_UI_Animation\"`*"]
     pub unsafe fn InterpolateValue(&self, offset: f64) -> ::windows::core::Result<f64> {
         let mut result__ = ::core::mem::MaybeUninit::<f64>::zeroed();
-        (::windows::core::Interface::vtable(self).InterpolateValue)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(offset), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<f64>(result__)
+        (::windows::core::Interface::vtable(self).InterpolateValue)(::windows::core::Interface::as_raw(self), offset, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<f64>(result__)
     }
     #[doc = "*Required features: `\"Win32_UI_Animation\"`*"]
     pub unsafe fn InterpolateVelocity(&self, offset: f64) -> ::windows::core::Result<f64> {
         let mut result__ = ::core::mem::MaybeUninit::<f64>::zeroed();
-        (::windows::core::Interface::vtable(self).InterpolateVelocity)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(offset), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<f64>(result__)
+        (::windows::core::Interface::vtable(self).InterpolateVelocity)(::windows::core::Interface::as_raw(self), offset, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<f64>(result__)
     }
     #[doc = "*Required features: `\"Win32_UI_Animation\"`*"]
     pub unsafe fn GetDependencies(&self, initialvaluedependencies: *mut UI_ANIMATION_DEPENDENCIES, initialvelocitydependencies: *mut UI_ANIMATION_DEPENDENCIES, durationdependencies: *mut UI_ANIMATION_DEPENDENCIES) -> ::windows::core::Result<()> {
@@ -97,7 +97,7 @@ impl IUIAnimationInterpolator2 {
     }
     #[doc = "*Required features: `\"Win32_UI_Animation\"`*"]
     pub unsafe fn SetDuration(&self, duration: f64) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetDuration)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(duration)).ok()
+        (::windows::core::Interface::vtable(self).SetDuration)(::windows::core::Interface::as_raw(self), duration).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_Animation\"`*"]
     pub unsafe fn GetDuration(&self) -> ::windows::core::Result<f64> {
@@ -110,18 +110,18 @@ impl IUIAnimationInterpolator2 {
     }
     #[doc = "*Required features: `\"Win32_UI_Animation\"`*"]
     pub unsafe fn InterpolateValue(&self, offset: f64, value: &mut [f64]) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).InterpolateValue)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(offset), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(value)), value.len() as _).ok()
+        (::windows::core::Interface::vtable(self).InterpolateValue)(::windows::core::Interface::as_raw(self), offset, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(value)), value.len() as _).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_Animation\"`*"]
     pub unsafe fn InterpolateVelocity(&self, offset: f64, velocity: &mut [f64]) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).InterpolateVelocity)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(offset), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(velocity)), velocity.len() as _).ok()
+        (::windows::core::Interface::vtable(self).InterpolateVelocity)(::windows::core::Interface::as_raw(self), offset, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(velocity)), velocity.len() as _).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_Animation\"`*"]
     pub unsafe fn GetPrimitiveInterpolation<'a, P0>(&self, interpolation: P0, cdimension: u32) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, IUIAnimationPrimitiveInterpolation>>,
     {
-        (::windows::core::Interface::vtable(self).GetPrimitiveInterpolation)(::windows::core::Interface::as_raw(self), interpolation.into().abi(), ::core::mem::transmute(cdimension)).ok()
+        (::windows::core::Interface::vtable(self).GetPrimitiveInterpolation)(::windows::core::Interface::as_raw(self), interpolation.into().abi(), cdimension).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_Animation\"`*"]
     pub unsafe fn GetDependencies(&self, initialvaluedependencies: *mut UI_ANIMATION_DEPENDENCIES, initialvelocitydependencies: *mut UI_ANIMATION_DEPENDENCIES, durationdependencies: *mut UI_ANIMATION_DEPENDENCIES) -> ::windows::core::Result<()> {
@@ -186,7 +186,7 @@ impl IUIAnimationLoopIterationChangeHandler2 {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, IUIAnimationStoryboard2>>,
     {
-        (::windows::core::Interface::vtable(self).OnLoopIterationChanged)(::windows::core::Interface::as_raw(self), storyboard.into().abi(), ::core::mem::transmute(id), ::core::mem::transmute(newiterationcount), ::core::mem::transmute(olditerationcount)).ok()
+        (::windows::core::Interface::vtable(self).OnLoopIterationChanged)(::windows::core::Interface::as_raw(self), storyboard.into().abi(), id, newiterationcount, olditerationcount).ok()
     }
 }
 impl ::core::convert::From<IUIAnimationLoopIterationChangeHandler2> for ::windows::core::IUnknown {
@@ -237,7 +237,7 @@ impl IUIAnimationManager {
     #[doc = "*Required features: `\"Win32_UI_Animation\"`*"]
     pub unsafe fn CreateAnimationVariable(&self, initialvalue: f64) -> ::windows::core::Result<IUIAnimationVariable> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).CreateAnimationVariable)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(initialvalue), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IUIAnimationVariable>(result__)
+        (::windows::core::Interface::vtable(self).CreateAnimationVariable)(::windows::core::Interface::as_raw(self), initialvalue, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IUIAnimationVariable>(result__)
     }
     #[doc = "*Required features: `\"Win32_UI_Animation\"`*"]
     pub unsafe fn ScheduleTransition<'a, P0, P1>(&self, variable: P0, transition: P1, timenow: f64) -> ::windows::core::Result<()>
@@ -245,7 +245,7 @@ impl IUIAnimationManager {
         P0: ::std::convert::Into<::windows::core::InParam<'a, IUIAnimationVariable>>,
         P1: ::std::convert::Into<::windows::core::InParam<'a, IUIAnimationTransition>>,
     {
-        (::windows::core::Interface::vtable(self).ScheduleTransition)(::windows::core::Interface::as_raw(self), variable.into().abi(), transition.into().abi(), ::core::mem::transmute(timenow)).ok()
+        (::windows::core::Interface::vtable(self).ScheduleTransition)(::windows::core::Interface::as_raw(self), variable.into().abi(), transition.into().abi(), timenow).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_Animation\"`*"]
     pub unsafe fn CreateStoryboard(&self) -> ::windows::core::Result<IUIAnimationStoryboard> {
@@ -254,7 +254,7 @@ impl IUIAnimationManager {
     }
     #[doc = "*Required features: `\"Win32_UI_Animation\"`*"]
     pub unsafe fn FinishAllStoryboards(&self, completiondeadline: f64) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).FinishAllStoryboards)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(completiondeadline)).ok()
+        (::windows::core::Interface::vtable(self).FinishAllStoryboards)(::windows::core::Interface::as_raw(self), completiondeadline).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_Animation\"`*"]
     pub unsafe fn AbandonAllStoryboards(&self) -> ::windows::core::Result<()> {
@@ -263,7 +263,7 @@ impl IUIAnimationManager {
     #[doc = "*Required features: `\"Win32_UI_Animation\"`*"]
     pub unsafe fn Update(&self, timenow: f64) -> ::windows::core::Result<UI_ANIMATION_UPDATE_RESULT> {
         let mut result__ = ::core::mem::MaybeUninit::<UI_ANIMATION_UPDATE_RESULT>::zeroed();
-        (::windows::core::Interface::vtable(self).Update)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(timenow), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<UI_ANIMATION_UPDATE_RESULT>(result__)
+        (::windows::core::Interface::vtable(self).Update)(::windows::core::Interface::as_raw(self), timenow, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<UI_ANIMATION_UPDATE_RESULT>(result__)
     }
     #[doc = "*Required features: `\"Win32_UI_Animation\"`*"]
     pub unsafe fn GetVariableFromTag<'a, P0>(&self, object: P0, id: u32) -> ::windows::core::Result<IUIAnimationVariable>
@@ -271,7 +271,7 @@ impl IUIAnimationManager {
         P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).GetVariableFromTag)(::windows::core::Interface::as_raw(self), object.into().abi(), ::core::mem::transmute(id), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IUIAnimationVariable>(result__)
+        (::windows::core::Interface::vtable(self).GetVariableFromTag)(::windows::core::Interface::as_raw(self), object.into().abi(), id, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IUIAnimationVariable>(result__)
     }
     #[doc = "*Required features: `\"Win32_UI_Animation\"`*"]
     pub unsafe fn GetStoryboardFromTag<'a, P0>(&self, object: P0, id: u32) -> ::windows::core::Result<IUIAnimationStoryboard>
@@ -279,7 +279,7 @@ impl IUIAnimationManager {
         P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).GetStoryboardFromTag)(::windows::core::Interface::as_raw(self), object.into().abi(), ::core::mem::transmute(id), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IUIAnimationStoryboard>(result__)
+        (::windows::core::Interface::vtable(self).GetStoryboardFromTag)(::windows::core::Interface::as_raw(self), object.into().abi(), id, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IUIAnimationStoryboard>(result__)
     }
     #[doc = "*Required features: `\"Win32_UI_Animation\"`*"]
     pub unsafe fn GetStatus(&self) -> ::windows::core::Result<UI_ANIMATION_MANAGER_STATUS> {
@@ -288,7 +288,7 @@ impl IUIAnimationManager {
     }
     #[doc = "*Required features: `\"Win32_UI_Animation\"`*"]
     pub unsafe fn SetAnimationMode(&self, mode: UI_ANIMATION_MODE) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetAnimationMode)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(mode)).ok()
+        (::windows::core::Interface::vtable(self).SetAnimationMode)(::windows::core::Interface::as_raw(self), mode).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_Animation\"`*"]
     pub unsafe fn Pause(&self) -> ::windows::core::Result<()> {
@@ -335,7 +335,7 @@ impl IUIAnimationManager {
     }
     #[doc = "*Required features: `\"Win32_UI_Animation\"`*"]
     pub unsafe fn SetDefaultLongestAcceptableDelay(&self, delay: f64) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetDefaultLongestAcceptableDelay)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(delay)).ok()
+        (::windows::core::Interface::vtable(self).SetDefaultLongestAcceptableDelay)(::windows::core::Interface::as_raw(self), delay).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_Animation\"`*"]
     pub unsafe fn Shutdown(&self) -> ::windows::core::Result<()> {
@@ -413,7 +413,7 @@ impl IUIAnimationManager2 {
     #[doc = "*Required features: `\"Win32_UI_Animation\"`*"]
     pub unsafe fn CreateAnimationVariable(&self, initialvalue: f64) -> ::windows::core::Result<IUIAnimationVariable2> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).CreateAnimationVariable)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(initialvalue), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IUIAnimationVariable2>(result__)
+        (::windows::core::Interface::vtable(self).CreateAnimationVariable)(::windows::core::Interface::as_raw(self), initialvalue, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IUIAnimationVariable2>(result__)
     }
     #[doc = "*Required features: `\"Win32_UI_Animation\"`*"]
     pub unsafe fn ScheduleTransition<'a, P0, P1>(&self, variable: P0, transition: P1, timenow: f64) -> ::windows::core::Result<()>
@@ -421,7 +421,7 @@ impl IUIAnimationManager2 {
         P0: ::std::convert::Into<::windows::core::InParam<'a, IUIAnimationVariable2>>,
         P1: ::std::convert::Into<::windows::core::InParam<'a, IUIAnimationTransition2>>,
     {
-        (::windows::core::Interface::vtable(self).ScheduleTransition)(::windows::core::Interface::as_raw(self), variable.into().abi(), transition.into().abi(), ::core::mem::transmute(timenow)).ok()
+        (::windows::core::Interface::vtable(self).ScheduleTransition)(::windows::core::Interface::as_raw(self), variable.into().abi(), transition.into().abi(), timenow).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_Animation\"`*"]
     pub unsafe fn CreateStoryboard(&self) -> ::windows::core::Result<IUIAnimationStoryboard2> {
@@ -430,7 +430,7 @@ impl IUIAnimationManager2 {
     }
     #[doc = "*Required features: `\"Win32_UI_Animation\"`*"]
     pub unsafe fn FinishAllStoryboards(&self, completiondeadline: f64) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).FinishAllStoryboards)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(completiondeadline)).ok()
+        (::windows::core::Interface::vtable(self).FinishAllStoryboards)(::windows::core::Interface::as_raw(self), completiondeadline).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_Animation\"`*"]
     pub unsafe fn AbandonAllStoryboards(&self) -> ::windows::core::Result<()> {
@@ -439,7 +439,7 @@ impl IUIAnimationManager2 {
     #[doc = "*Required features: `\"Win32_UI_Animation\"`*"]
     pub unsafe fn Update(&self, timenow: f64) -> ::windows::core::Result<UI_ANIMATION_UPDATE_RESULT> {
         let mut result__ = ::core::mem::MaybeUninit::<UI_ANIMATION_UPDATE_RESULT>::zeroed();
-        (::windows::core::Interface::vtable(self).Update)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(timenow), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<UI_ANIMATION_UPDATE_RESULT>(result__)
+        (::windows::core::Interface::vtable(self).Update)(::windows::core::Interface::as_raw(self), timenow, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<UI_ANIMATION_UPDATE_RESULT>(result__)
     }
     #[doc = "*Required features: `\"Win32_UI_Animation\"`*"]
     pub unsafe fn GetVariableFromTag<'a, P0>(&self, object: P0, id: u32) -> ::windows::core::Result<IUIAnimationVariable2>
@@ -447,7 +447,7 @@ impl IUIAnimationManager2 {
         P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).GetVariableFromTag)(::windows::core::Interface::as_raw(self), object.into().abi(), ::core::mem::transmute(id), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IUIAnimationVariable2>(result__)
+        (::windows::core::Interface::vtable(self).GetVariableFromTag)(::windows::core::Interface::as_raw(self), object.into().abi(), id, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IUIAnimationVariable2>(result__)
     }
     #[doc = "*Required features: `\"Win32_UI_Animation\"`*"]
     pub unsafe fn GetStoryboardFromTag<'a, P0>(&self, object: P0, id: u32) -> ::windows::core::Result<IUIAnimationStoryboard2>
@@ -455,7 +455,7 @@ impl IUIAnimationManager2 {
         P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).GetStoryboardFromTag)(::windows::core::Interface::as_raw(self), object.into().abi(), ::core::mem::transmute(id), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IUIAnimationStoryboard2>(result__)
+        (::windows::core::Interface::vtable(self).GetStoryboardFromTag)(::windows::core::Interface::as_raw(self), object.into().abi(), id, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IUIAnimationStoryboard2>(result__)
     }
     #[doc = "*Required features: `\"Win32_UI_Animation\"`*"]
     pub unsafe fn EstimateNextEventTime(&self) -> ::windows::core::Result<f64> {
@@ -469,7 +469,7 @@ impl IUIAnimationManager2 {
     }
     #[doc = "*Required features: `\"Win32_UI_Animation\"`*"]
     pub unsafe fn SetAnimationMode(&self, mode: UI_ANIMATION_MODE) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetAnimationMode)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(mode)).ok()
+        (::windows::core::Interface::vtable(self).SetAnimationMode)(::windows::core::Interface::as_raw(self), mode).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_Animation\"`*"]
     pub unsafe fn Pause(&self) -> ::windows::core::Result<()> {
@@ -518,7 +518,7 @@ impl IUIAnimationManager2 {
     }
     #[doc = "*Required features: `\"Win32_UI_Animation\"`*"]
     pub unsafe fn SetDefaultLongestAcceptableDelay(&self, delay: f64) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetDefaultLongestAcceptableDelay)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(delay)).ok()
+        (::windows::core::Interface::vtable(self).SetDefaultLongestAcceptableDelay)(::windows::core::Interface::as_raw(self), delay).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_Animation\"`*"]
     pub unsafe fn Shutdown(&self) -> ::windows::core::Result<()> {
@@ -595,7 +595,7 @@ pub struct IUIAnimationManagerEventHandler(::windows::core::IUnknown);
 impl IUIAnimationManagerEventHandler {
     #[doc = "*Required features: `\"Win32_UI_Animation\"`*"]
     pub unsafe fn OnManagerStatusChanged(&self, newstatus: UI_ANIMATION_MANAGER_STATUS, previousstatus: UI_ANIMATION_MANAGER_STATUS) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).OnManagerStatusChanged)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(newstatus), ::core::mem::transmute(previousstatus)).ok()
+        (::windows::core::Interface::vtable(self).OnManagerStatusChanged)(::windows::core::Interface::as_raw(self), newstatus, previousstatus).ok()
     }
 }
 impl ::core::convert::From<IUIAnimationManagerEventHandler> for ::windows::core::IUnknown {
@@ -645,7 +645,7 @@ pub struct IUIAnimationManagerEventHandler2(::windows::core::IUnknown);
 impl IUIAnimationManagerEventHandler2 {
     #[doc = "*Required features: `\"Win32_UI_Animation\"`*"]
     pub unsafe fn OnManagerStatusChanged(&self, newstatus: UI_ANIMATION_MANAGER_STATUS, previousstatus: UI_ANIMATION_MANAGER_STATUS) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).OnManagerStatusChanged)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(newstatus), ::core::mem::transmute(previousstatus)).ok()
+        (::windows::core::Interface::vtable(self).OnManagerStatusChanged)(::windows::core::Interface::as_raw(self), newstatus, previousstatus).ok()
     }
 }
 impl ::core::convert::From<IUIAnimationManagerEventHandler2> for ::windows::core::IUnknown {
@@ -695,11 +695,11 @@ pub struct IUIAnimationPrimitiveInterpolation(::windows::core::IUnknown);
 impl IUIAnimationPrimitiveInterpolation {
     #[doc = "*Required features: `\"Win32_UI_Animation\"`*"]
     pub unsafe fn AddCubic(&self, dimension: u32, beginoffset: f64, constantcoefficient: f32, linearcoefficient: f32, quadraticcoefficient: f32, cubiccoefficient: f32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).AddCubic)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(dimension), ::core::mem::transmute(beginoffset), ::core::mem::transmute(constantcoefficient), ::core::mem::transmute(linearcoefficient), ::core::mem::transmute(quadraticcoefficient), ::core::mem::transmute(cubiccoefficient)).ok()
+        (::windows::core::Interface::vtable(self).AddCubic)(::windows::core::Interface::as_raw(self), dimension, beginoffset, constantcoefficient, linearcoefficient, quadraticcoefficient, cubiccoefficient).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_Animation\"`*"]
     pub unsafe fn AddSinusoidal(&self, dimension: u32, beginoffset: f64, bias: f32, amplitude: f32, frequency: f32, phase: f32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).AddSinusoidal)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(dimension), ::core::mem::transmute(beginoffset), ::core::mem::transmute(bias), ::core::mem::transmute(amplitude), ::core::mem::transmute(frequency), ::core::mem::transmute(phase)).ok()
+        (::windows::core::Interface::vtable(self).AddSinusoidal)(::windows::core::Interface::as_raw(self), dimension, beginoffset, bias, amplitude, frequency, phase).ok()
     }
 }
 impl ::core::convert::From<IUIAnimationPrimitiveInterpolation> for ::windows::core::IUnknown {
@@ -754,7 +754,7 @@ impl IUIAnimationPriorityComparison {
         P0: ::std::convert::Into<::windows::core::InParam<'a, IUIAnimationStoryboard>>,
         P1: ::std::convert::Into<::windows::core::InParam<'a, IUIAnimationStoryboard>>,
     {
-        (::windows::core::Interface::vtable(self).HasPriority)(::windows::core::Interface::as_raw(self), scheduledstoryboard.into().abi(), newstoryboard.into().abi(), ::core::mem::transmute(priorityeffect)).ok()
+        (::windows::core::Interface::vtable(self).HasPriority)(::windows::core::Interface::as_raw(self), scheduledstoryboard.into().abi(), newstoryboard.into().abi(), priorityeffect).ok()
     }
 }
 impl ::core::convert::From<IUIAnimationPriorityComparison> for ::windows::core::IUnknown {
@@ -808,7 +808,7 @@ impl IUIAnimationPriorityComparison2 {
         P0: ::std::convert::Into<::windows::core::InParam<'a, IUIAnimationStoryboard2>>,
         P1: ::std::convert::Into<::windows::core::InParam<'a, IUIAnimationStoryboard2>>,
     {
-        (::windows::core::Interface::vtable(self).HasPriority)(::windows::core::Interface::as_raw(self), scheduledstoryboard.into().abi(), newstoryboard.into().abi(), ::core::mem::transmute(priorityeffect)).ok()
+        (::windows::core::Interface::vtable(self).HasPriority)(::windows::core::Interface::as_raw(self), scheduledstoryboard.into().abi(), newstoryboard.into().abi(), priorityeffect).ok()
     }
 }
 impl ::core::convert::From<IUIAnimationPriorityComparison2> for ::windows::core::IUnknown {
@@ -870,7 +870,7 @@ impl IUIAnimationStoryboard {
         P0: ::std::convert::Into<UI_ANIMATION_KEYFRAME>,
     {
         let mut result__ = ::core::mem::MaybeUninit::<UI_ANIMATION_KEYFRAME>::zeroed();
-        (::windows::core::Interface::vtable(self).AddKeyframeAtOffset)(::windows::core::Interface::as_raw(self), existingkeyframe.into(), ::core::mem::transmute(offset), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<UI_ANIMATION_KEYFRAME>(result__)
+        (::windows::core::Interface::vtable(self).AddKeyframeAtOffset)(::windows::core::Interface::as_raw(self), existingkeyframe.into(), offset, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<UI_ANIMATION_KEYFRAME>(result__)
     }
     #[doc = "*Required features: `\"Win32_UI_Animation\"`*"]
     pub unsafe fn AddKeyframeAfterTransition<'a, P0>(&self, transition: P0) -> ::windows::core::Result<UI_ANIMATION_KEYFRAME>
@@ -905,7 +905,7 @@ impl IUIAnimationStoryboard {
         P0: ::std::convert::Into<UI_ANIMATION_KEYFRAME>,
         P1: ::std::convert::Into<UI_ANIMATION_KEYFRAME>,
     {
-        (::windows::core::Interface::vtable(self).RepeatBetweenKeyframes)(::windows::core::Interface::as_raw(self), startkeyframe.into(), endkeyframe.into(), ::core::mem::transmute(repetitioncount)).ok()
+        (::windows::core::Interface::vtable(self).RepeatBetweenKeyframes)(::windows::core::Interface::as_raw(self), startkeyframe.into(), endkeyframe.into(), repetitioncount).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_Animation\"`*"]
     pub unsafe fn HoldVariable<'a, P0>(&self, variable: P0) -> ::windows::core::Result<()>
@@ -916,12 +916,12 @@ impl IUIAnimationStoryboard {
     }
     #[doc = "*Required features: `\"Win32_UI_Animation\"`*"]
     pub unsafe fn SetLongestAcceptableDelay(&self, delay: f64) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetLongestAcceptableDelay)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(delay)).ok()
+        (::windows::core::Interface::vtable(self).SetLongestAcceptableDelay)(::windows::core::Interface::as_raw(self), delay).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_Animation\"`*"]
     pub unsafe fn Schedule(&self, timenow: f64) -> ::windows::core::Result<UI_ANIMATION_SCHEDULING_RESULT> {
         let mut result__ = ::core::mem::MaybeUninit::<UI_ANIMATION_SCHEDULING_RESULT>::zeroed();
-        (::windows::core::Interface::vtable(self).Schedule)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(timenow), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<UI_ANIMATION_SCHEDULING_RESULT>(result__)
+        (::windows::core::Interface::vtable(self).Schedule)(::windows::core::Interface::as_raw(self), timenow, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<UI_ANIMATION_SCHEDULING_RESULT>(result__)
     }
     #[doc = "*Required features: `\"Win32_UI_Animation\"`*"]
     pub unsafe fn Conclude(&self) -> ::windows::core::Result<()> {
@@ -929,7 +929,7 @@ impl IUIAnimationStoryboard {
     }
     #[doc = "*Required features: `\"Win32_UI_Animation\"`*"]
     pub unsafe fn Finish(&self, completiondeadline: f64) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Finish)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(completiondeadline)).ok()
+        (::windows::core::Interface::vtable(self).Finish)(::windows::core::Interface::as_raw(self), completiondeadline).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_Animation\"`*"]
     pub unsafe fn Abandon(&self) -> ::windows::core::Result<()> {
@@ -940,7 +940,7 @@ impl IUIAnimationStoryboard {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>,
     {
-        (::windows::core::Interface::vtable(self).SetTag)(::windows::core::Interface::as_raw(self), object.into().abi(), ::core::mem::transmute(id)).ok()
+        (::windows::core::Interface::vtable(self).SetTag)(::windows::core::Interface::as_raw(self), object.into().abi(), id).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_Animation\"`*"]
     pub unsafe fn GetTag(&self, object: *mut ::core::option::Option<::windows::core::IUnknown>, id: *mut u32) -> ::windows::core::Result<()> {
@@ -1039,7 +1039,7 @@ impl IUIAnimationStoryboard2 {
         P0: ::std::convert::Into<UI_ANIMATION_KEYFRAME>,
     {
         let mut result__ = ::core::mem::MaybeUninit::<UI_ANIMATION_KEYFRAME>::zeroed();
-        (::windows::core::Interface::vtable(self).AddKeyframeAtOffset)(::windows::core::Interface::as_raw(self), existingkeyframe.into(), ::core::mem::transmute(offset), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<UI_ANIMATION_KEYFRAME>(result__)
+        (::windows::core::Interface::vtable(self).AddKeyframeAtOffset)(::windows::core::Interface::as_raw(self), existingkeyframe.into(), offset, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<UI_ANIMATION_KEYFRAME>(result__)
     }
     #[doc = "*Required features: `\"Win32_UI_Animation\"`*"]
     pub unsafe fn AddKeyframeAfterTransition<'a, P0>(&self, transition: P0) -> ::windows::core::Result<UI_ANIMATION_KEYFRAME>
@@ -1077,7 +1077,7 @@ impl IUIAnimationStoryboard2 {
         P2: ::std::convert::Into<::windows::core::InParam<'a, IUIAnimationLoopIterationChangeHandler2>>,
         P3: ::std::convert::Into<super::super::Foundation::BOOL>,
     {
-        (::windows::core::Interface::vtable(self).RepeatBetweenKeyframes)(::windows::core::Interface::as_raw(self), startkeyframe.into(), endkeyframe.into(), ::core::mem::transmute(crepetition), ::core::mem::transmute(repeatmode), piterationchangehandler.into().abi(), ::core::mem::transmute(id), fregisterfornextanimationevent.into()).ok()
+        (::windows::core::Interface::vtable(self).RepeatBetweenKeyframes)(::windows::core::Interface::as_raw(self), startkeyframe.into(), endkeyframe.into(), crepetition, repeatmode, piterationchangehandler.into().abi(), id, fregisterfornextanimationevent.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_Animation\"`*"]
     pub unsafe fn HoldVariable<'a, P0>(&self, variable: P0) -> ::windows::core::Result<()>
@@ -1088,16 +1088,16 @@ impl IUIAnimationStoryboard2 {
     }
     #[doc = "*Required features: `\"Win32_UI_Animation\"`*"]
     pub unsafe fn SetLongestAcceptableDelay(&self, delay: f64) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetLongestAcceptableDelay)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(delay)).ok()
+        (::windows::core::Interface::vtable(self).SetLongestAcceptableDelay)(::windows::core::Interface::as_raw(self), delay).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_Animation\"`*"]
     pub unsafe fn SetSkipDuration(&self, secondsduration: f64) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetSkipDuration)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(secondsduration)).ok()
+        (::windows::core::Interface::vtable(self).SetSkipDuration)(::windows::core::Interface::as_raw(self), secondsduration).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_Animation\"`*"]
     pub unsafe fn Schedule(&self, timenow: f64) -> ::windows::core::Result<UI_ANIMATION_SCHEDULING_RESULT> {
         let mut result__ = ::core::mem::MaybeUninit::<UI_ANIMATION_SCHEDULING_RESULT>::zeroed();
-        (::windows::core::Interface::vtable(self).Schedule)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(timenow), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<UI_ANIMATION_SCHEDULING_RESULT>(result__)
+        (::windows::core::Interface::vtable(self).Schedule)(::windows::core::Interface::as_raw(self), timenow, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<UI_ANIMATION_SCHEDULING_RESULT>(result__)
     }
     #[doc = "*Required features: `\"Win32_UI_Animation\"`*"]
     pub unsafe fn Conclude(&self) -> ::windows::core::Result<()> {
@@ -1105,7 +1105,7 @@ impl IUIAnimationStoryboard2 {
     }
     #[doc = "*Required features: `\"Win32_UI_Animation\"`*"]
     pub unsafe fn Finish(&self, completiondeadline: f64) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Finish)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(completiondeadline)).ok()
+        (::windows::core::Interface::vtable(self).Finish)(::windows::core::Interface::as_raw(self), completiondeadline).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_Animation\"`*"]
     pub unsafe fn Abandon(&self) -> ::windows::core::Result<()> {
@@ -1116,7 +1116,7 @@ impl IUIAnimationStoryboard2 {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>,
     {
-        (::windows::core::Interface::vtable(self).SetTag)(::windows::core::Interface::as_raw(self), object.into().abi(), ::core::mem::transmute(id)).ok()
+        (::windows::core::Interface::vtable(self).SetTag)(::windows::core::Interface::as_raw(self), object.into().abi(), id).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_Animation\"`*"]
     pub unsafe fn GetTag(&self, object: *mut ::core::option::Option<::windows::core::IUnknown>, id: *mut u32) -> ::windows::core::Result<()> {
@@ -1216,7 +1216,7 @@ impl IUIAnimationStoryboardEventHandler {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, IUIAnimationStoryboard>>,
     {
-        (::windows::core::Interface::vtable(self).OnStoryboardStatusChanged)(::windows::core::Interface::as_raw(self), storyboard.into().abi(), ::core::mem::transmute(newstatus), ::core::mem::transmute(previousstatus)).ok()
+        (::windows::core::Interface::vtable(self).OnStoryboardStatusChanged)(::windows::core::Interface::as_raw(self), storyboard.into().abi(), newstatus, previousstatus).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_Animation\"`*"]
     pub unsafe fn OnStoryboardUpdated<'a, P0>(&self, storyboard: P0) -> ::windows::core::Result<()>
@@ -1277,7 +1277,7 @@ impl IUIAnimationStoryboardEventHandler2 {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, IUIAnimationStoryboard2>>,
     {
-        (::windows::core::Interface::vtable(self).OnStoryboardStatusChanged)(::windows::core::Interface::as_raw(self), storyboard.into().abi(), ::core::mem::transmute(newstatus), ::core::mem::transmute(previousstatus)).ok()
+        (::windows::core::Interface::vtable(self).OnStoryboardStatusChanged)(::windows::core::Interface::as_raw(self), storyboard.into().abi(), newstatus, previousstatus).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_Animation\"`*"]
     pub unsafe fn OnStoryboardUpdated<'a, P0>(&self, storyboard: P0) -> ::windows::core::Result<()>
@@ -1338,7 +1338,7 @@ impl IUIAnimationTimer {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, IUIAnimationTimerUpdateHandler>>,
     {
-        (::windows::core::Interface::vtable(self).SetTimerUpdateHandler)(::windows::core::Interface::as_raw(self), updatehandler.into().abi(), ::core::mem::transmute(idlebehavior)).ok()
+        (::windows::core::Interface::vtable(self).SetTimerUpdateHandler)(::windows::core::Interface::as_raw(self), updatehandler.into().abi(), idlebehavior).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_Animation\"`*"]
     pub unsafe fn SetTimerEventHandler<'a, P0>(&self, handler: P0) -> ::windows::core::Result<()>
@@ -1366,7 +1366,7 @@ impl IUIAnimationTimer {
     }
     #[doc = "*Required features: `\"Win32_UI_Animation\"`*"]
     pub unsafe fn SetFrameRateThreshold(&self, framespersecond: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetFrameRateThreshold)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(framespersecond)).ok()
+        (::windows::core::Interface::vtable(self).SetFrameRateThreshold)(::windows::core::Interface::as_raw(self), framespersecond).ok()
     }
 }
 impl ::core::convert::From<IUIAnimationTimer> for ::windows::core::IUnknown {
@@ -1422,7 +1422,7 @@ pub struct IUIAnimationTimerClientEventHandler(::windows::core::IUnknown);
 impl IUIAnimationTimerClientEventHandler {
     #[doc = "*Required features: `\"Win32_UI_Animation\"`*"]
     pub unsafe fn OnTimerClientStatusChanged(&self, newstatus: UI_ANIMATION_TIMER_CLIENT_STATUS, previousstatus: UI_ANIMATION_TIMER_CLIENT_STATUS) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).OnTimerClientStatusChanged)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(newstatus), ::core::mem::transmute(previousstatus)).ok()
+        (::windows::core::Interface::vtable(self).OnTimerClientStatusChanged)(::windows::core::Interface::as_raw(self), newstatus, previousstatus).ok()
     }
 }
 impl ::core::convert::From<IUIAnimationTimerClientEventHandler> for ::windows::core::IUnknown {
@@ -1480,7 +1480,7 @@ impl IUIAnimationTimerEventHandler {
     }
     #[doc = "*Required features: `\"Win32_UI_Animation\"`*"]
     pub unsafe fn OnRenderingTooSlow(&self, framespersecond: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).OnRenderingTooSlow)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(framespersecond)).ok()
+        (::windows::core::Interface::vtable(self).OnRenderingTooSlow)(::windows::core::Interface::as_raw(self), framespersecond).ok()
     }
 }
 impl ::core::convert::From<IUIAnimationTimerEventHandler> for ::windows::core::IUnknown {
@@ -1533,7 +1533,7 @@ impl IUIAnimationTimerUpdateHandler {
     #[doc = "*Required features: `\"Win32_UI_Animation\"`*"]
     pub unsafe fn OnUpdate(&self, timenow: f64) -> ::windows::core::Result<UI_ANIMATION_UPDATE_RESULT> {
         let mut result__ = ::core::mem::MaybeUninit::<UI_ANIMATION_UPDATE_RESULT>::zeroed();
-        (::windows::core::Interface::vtable(self).OnUpdate)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(timenow), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<UI_ANIMATION_UPDATE_RESULT>(result__)
+        (::windows::core::Interface::vtable(self).OnUpdate)(::windows::core::Interface::as_raw(self), timenow, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<UI_ANIMATION_UPDATE_RESULT>(result__)
     }
     #[doc = "*Required features: `\"Win32_UI_Animation\"`*"]
     pub unsafe fn SetTimerClientEventHandler<'a, P0>(&self, handler: P0) -> ::windows::core::Result<()>
@@ -1596,11 +1596,11 @@ pub struct IUIAnimationTransition(::windows::core::IUnknown);
 impl IUIAnimationTransition {
     #[doc = "*Required features: `\"Win32_UI_Animation\"`*"]
     pub unsafe fn SetInitialValue(&self, value: f64) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetInitialValue)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(value)).ok()
+        (::windows::core::Interface::vtable(self).SetInitialValue)(::windows::core::Interface::as_raw(self), value).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_Animation\"`*"]
     pub unsafe fn SetInitialVelocity(&self, velocity: f64) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetInitialVelocity)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(velocity)).ok()
+        (::windows::core::Interface::vtable(self).SetInitialVelocity)(::windows::core::Interface::as_raw(self), velocity).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_Animation\"`*"]
     pub unsafe fn IsDurationKnown(&self) -> ::windows::core::Result<()> {
@@ -1667,7 +1667,7 @@ impl IUIAnimationTransition2 {
     }
     #[doc = "*Required features: `\"Win32_UI_Animation\"`*"]
     pub unsafe fn SetInitialValue(&self, value: f64) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetInitialValue)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(value)).ok()
+        (::windows::core::Interface::vtable(self).SetInitialValue)(::windows::core::Interface::as_raw(self), value).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_Animation\"`*"]
     pub unsafe fn SetInitialVectorValue(&self, value: &[f64]) -> ::windows::core::Result<()> {
@@ -1675,7 +1675,7 @@ impl IUIAnimationTransition2 {
     }
     #[doc = "*Required features: `\"Win32_UI_Animation\"`*"]
     pub unsafe fn SetInitialVelocity(&self, velocity: f64) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetInitialVelocity)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(velocity)).ok()
+        (::windows::core::Interface::vtable(self).SetInitialVelocity)(::windows::core::Interface::as_raw(self), velocity).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_Animation\"`*"]
     pub unsafe fn SetInitialVectorVelocity(&self, velocity: &[f64]) -> ::windows::core::Result<()> {
@@ -1853,62 +1853,62 @@ impl IUIAnimationTransitionLibrary {
     #[doc = "*Required features: `\"Win32_UI_Animation\"`*"]
     pub unsafe fn CreateInstantaneousTransition(&self, finalvalue: f64) -> ::windows::core::Result<IUIAnimationTransition> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).CreateInstantaneousTransition)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(finalvalue), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IUIAnimationTransition>(result__)
+        (::windows::core::Interface::vtable(self).CreateInstantaneousTransition)(::windows::core::Interface::as_raw(self), finalvalue, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IUIAnimationTransition>(result__)
     }
     #[doc = "*Required features: `\"Win32_UI_Animation\"`*"]
     pub unsafe fn CreateConstantTransition(&self, duration: f64) -> ::windows::core::Result<IUIAnimationTransition> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).CreateConstantTransition)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(duration), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IUIAnimationTransition>(result__)
+        (::windows::core::Interface::vtable(self).CreateConstantTransition)(::windows::core::Interface::as_raw(self), duration, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IUIAnimationTransition>(result__)
     }
     #[doc = "*Required features: `\"Win32_UI_Animation\"`*"]
     pub unsafe fn CreateDiscreteTransition(&self, delay: f64, finalvalue: f64, hold: f64) -> ::windows::core::Result<IUIAnimationTransition> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).CreateDiscreteTransition)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(delay), ::core::mem::transmute(finalvalue), ::core::mem::transmute(hold), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IUIAnimationTransition>(result__)
+        (::windows::core::Interface::vtable(self).CreateDiscreteTransition)(::windows::core::Interface::as_raw(self), delay, finalvalue, hold, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IUIAnimationTransition>(result__)
     }
     #[doc = "*Required features: `\"Win32_UI_Animation\"`*"]
     pub unsafe fn CreateLinearTransition(&self, duration: f64, finalvalue: f64) -> ::windows::core::Result<IUIAnimationTransition> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).CreateLinearTransition)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(duration), ::core::mem::transmute(finalvalue), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IUIAnimationTransition>(result__)
+        (::windows::core::Interface::vtable(self).CreateLinearTransition)(::windows::core::Interface::as_raw(self), duration, finalvalue, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IUIAnimationTransition>(result__)
     }
     #[doc = "*Required features: `\"Win32_UI_Animation\"`*"]
     pub unsafe fn CreateLinearTransitionFromSpeed(&self, speed: f64, finalvalue: f64) -> ::windows::core::Result<IUIAnimationTransition> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).CreateLinearTransitionFromSpeed)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(speed), ::core::mem::transmute(finalvalue), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IUIAnimationTransition>(result__)
+        (::windows::core::Interface::vtable(self).CreateLinearTransitionFromSpeed)(::windows::core::Interface::as_raw(self), speed, finalvalue, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IUIAnimationTransition>(result__)
     }
     #[doc = "*Required features: `\"Win32_UI_Animation\"`*"]
     pub unsafe fn CreateSinusoidalTransitionFromVelocity(&self, duration: f64, period: f64) -> ::windows::core::Result<IUIAnimationTransition> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).CreateSinusoidalTransitionFromVelocity)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(duration), ::core::mem::transmute(period), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IUIAnimationTransition>(result__)
+        (::windows::core::Interface::vtable(self).CreateSinusoidalTransitionFromVelocity)(::windows::core::Interface::as_raw(self), duration, period, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IUIAnimationTransition>(result__)
     }
     #[doc = "*Required features: `\"Win32_UI_Animation\"`*"]
     pub unsafe fn CreateSinusoidalTransitionFromRange(&self, duration: f64, minimumvalue: f64, maximumvalue: f64, period: f64, slope: UI_ANIMATION_SLOPE) -> ::windows::core::Result<IUIAnimationTransition> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).CreateSinusoidalTransitionFromRange)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(duration), ::core::mem::transmute(minimumvalue), ::core::mem::transmute(maximumvalue), ::core::mem::transmute(period), ::core::mem::transmute(slope), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IUIAnimationTransition>(result__)
+        (::windows::core::Interface::vtable(self).CreateSinusoidalTransitionFromRange)(::windows::core::Interface::as_raw(self), duration, minimumvalue, maximumvalue, period, slope, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IUIAnimationTransition>(result__)
     }
     #[doc = "*Required features: `\"Win32_UI_Animation\"`*"]
     pub unsafe fn CreateAccelerateDecelerateTransition(&self, duration: f64, finalvalue: f64, accelerationratio: f64, decelerationratio: f64) -> ::windows::core::Result<IUIAnimationTransition> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).CreateAccelerateDecelerateTransition)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(duration), ::core::mem::transmute(finalvalue), ::core::mem::transmute(accelerationratio), ::core::mem::transmute(decelerationratio), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IUIAnimationTransition>(result__)
+        (::windows::core::Interface::vtable(self).CreateAccelerateDecelerateTransition)(::windows::core::Interface::as_raw(self), duration, finalvalue, accelerationratio, decelerationratio, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IUIAnimationTransition>(result__)
     }
     #[doc = "*Required features: `\"Win32_UI_Animation\"`*"]
     pub unsafe fn CreateReversalTransition(&self, duration: f64) -> ::windows::core::Result<IUIAnimationTransition> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).CreateReversalTransition)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(duration), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IUIAnimationTransition>(result__)
+        (::windows::core::Interface::vtable(self).CreateReversalTransition)(::windows::core::Interface::as_raw(self), duration, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IUIAnimationTransition>(result__)
     }
     #[doc = "*Required features: `\"Win32_UI_Animation\"`*"]
     pub unsafe fn CreateCubicTransition(&self, duration: f64, finalvalue: f64, finalvelocity: f64) -> ::windows::core::Result<IUIAnimationTransition> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).CreateCubicTransition)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(duration), ::core::mem::transmute(finalvalue), ::core::mem::transmute(finalvelocity), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IUIAnimationTransition>(result__)
+        (::windows::core::Interface::vtable(self).CreateCubicTransition)(::windows::core::Interface::as_raw(self), duration, finalvalue, finalvelocity, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IUIAnimationTransition>(result__)
     }
     #[doc = "*Required features: `\"Win32_UI_Animation\"`*"]
     pub unsafe fn CreateSmoothStopTransition(&self, maximumduration: f64, finalvalue: f64) -> ::windows::core::Result<IUIAnimationTransition> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).CreateSmoothStopTransition)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(maximumduration), ::core::mem::transmute(finalvalue), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IUIAnimationTransition>(result__)
+        (::windows::core::Interface::vtable(self).CreateSmoothStopTransition)(::windows::core::Interface::as_raw(self), maximumduration, finalvalue, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IUIAnimationTransition>(result__)
     }
     #[doc = "*Required features: `\"Win32_UI_Animation\"`*"]
     pub unsafe fn CreateParabolicTransitionFromAcceleration(&self, finalvalue: f64, finalvelocity: f64, acceleration: f64) -> ::windows::core::Result<IUIAnimationTransition> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).CreateParabolicTransitionFromAcceleration)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(finalvalue), ::core::mem::transmute(finalvelocity), ::core::mem::transmute(acceleration), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IUIAnimationTransition>(result__)
+        (::windows::core::Interface::vtable(self).CreateParabolicTransitionFromAcceleration)(::windows::core::Interface::as_raw(self), finalvalue, finalvelocity, acceleration, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IUIAnimationTransition>(result__)
     }
 }
 impl ::core::convert::From<IUIAnimationTransitionLibrary> for ::windows::core::IUnknown {
@@ -1970,7 +1970,7 @@ impl IUIAnimationTransitionLibrary2 {
     #[doc = "*Required features: `\"Win32_UI_Animation\"`*"]
     pub unsafe fn CreateInstantaneousTransition(&self, finalvalue: f64) -> ::windows::core::Result<IUIAnimationTransition2> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).CreateInstantaneousTransition)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(finalvalue), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IUIAnimationTransition2>(result__)
+        (::windows::core::Interface::vtable(self).CreateInstantaneousTransition)(::windows::core::Interface::as_raw(self), finalvalue, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IUIAnimationTransition2>(result__)
     }
     #[doc = "*Required features: `\"Win32_UI_Animation\"`*"]
     pub unsafe fn CreateInstantaneousVectorTransition(&self, finalvalue: &[f64]) -> ::windows::core::Result<IUIAnimationTransition2> {
@@ -1980,87 +1980,87 @@ impl IUIAnimationTransitionLibrary2 {
     #[doc = "*Required features: `\"Win32_UI_Animation\"`*"]
     pub unsafe fn CreateConstantTransition(&self, duration: f64) -> ::windows::core::Result<IUIAnimationTransition2> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).CreateConstantTransition)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(duration), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IUIAnimationTransition2>(result__)
+        (::windows::core::Interface::vtable(self).CreateConstantTransition)(::windows::core::Interface::as_raw(self), duration, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IUIAnimationTransition2>(result__)
     }
     #[doc = "*Required features: `\"Win32_UI_Animation\"`*"]
     pub unsafe fn CreateDiscreteTransition(&self, delay: f64, finalvalue: f64, hold: f64) -> ::windows::core::Result<IUIAnimationTransition2> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).CreateDiscreteTransition)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(delay), ::core::mem::transmute(finalvalue), ::core::mem::transmute(hold), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IUIAnimationTransition2>(result__)
+        (::windows::core::Interface::vtable(self).CreateDiscreteTransition)(::windows::core::Interface::as_raw(self), delay, finalvalue, hold, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IUIAnimationTransition2>(result__)
     }
     #[doc = "*Required features: `\"Win32_UI_Animation\"`*"]
     pub unsafe fn CreateDiscreteVectorTransition(&self, delay: f64, finalvalue: &[f64], hold: f64) -> ::windows::core::Result<IUIAnimationTransition2> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).CreateDiscreteVectorTransition)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(delay), ::core::mem::transmute(::windows::core::as_ptr_or_null(finalvalue)), finalvalue.len() as _, ::core::mem::transmute(hold), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IUIAnimationTransition2>(result__)
+        (::windows::core::Interface::vtable(self).CreateDiscreteVectorTransition)(::windows::core::Interface::as_raw(self), delay, ::core::mem::transmute(::windows::core::as_ptr_or_null(finalvalue)), finalvalue.len() as _, hold, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IUIAnimationTransition2>(result__)
     }
     #[doc = "*Required features: `\"Win32_UI_Animation\"`*"]
     pub unsafe fn CreateLinearTransition(&self, duration: f64, finalvalue: f64) -> ::windows::core::Result<IUIAnimationTransition2> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).CreateLinearTransition)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(duration), ::core::mem::transmute(finalvalue), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IUIAnimationTransition2>(result__)
+        (::windows::core::Interface::vtable(self).CreateLinearTransition)(::windows::core::Interface::as_raw(self), duration, finalvalue, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IUIAnimationTransition2>(result__)
     }
     #[doc = "*Required features: `\"Win32_UI_Animation\"`*"]
     pub unsafe fn CreateLinearVectorTransition(&self, duration: f64, finalvalue: &[f64]) -> ::windows::core::Result<IUIAnimationTransition2> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).CreateLinearVectorTransition)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(duration), ::core::mem::transmute(::windows::core::as_ptr_or_null(finalvalue)), finalvalue.len() as _, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IUIAnimationTransition2>(result__)
+        (::windows::core::Interface::vtable(self).CreateLinearVectorTransition)(::windows::core::Interface::as_raw(self), duration, ::core::mem::transmute(::windows::core::as_ptr_or_null(finalvalue)), finalvalue.len() as _, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IUIAnimationTransition2>(result__)
     }
     #[doc = "*Required features: `\"Win32_UI_Animation\"`*"]
     pub unsafe fn CreateLinearTransitionFromSpeed(&self, speed: f64, finalvalue: f64) -> ::windows::core::Result<IUIAnimationTransition2> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).CreateLinearTransitionFromSpeed)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(speed), ::core::mem::transmute(finalvalue), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IUIAnimationTransition2>(result__)
+        (::windows::core::Interface::vtable(self).CreateLinearTransitionFromSpeed)(::windows::core::Interface::as_raw(self), speed, finalvalue, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IUIAnimationTransition2>(result__)
     }
     #[doc = "*Required features: `\"Win32_UI_Animation\"`*"]
     pub unsafe fn CreateLinearVectorTransitionFromSpeed(&self, speed: f64, finalvalue: &[f64]) -> ::windows::core::Result<IUIAnimationTransition2> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).CreateLinearVectorTransitionFromSpeed)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(speed), ::core::mem::transmute(::windows::core::as_ptr_or_null(finalvalue)), finalvalue.len() as _, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IUIAnimationTransition2>(result__)
+        (::windows::core::Interface::vtable(self).CreateLinearVectorTransitionFromSpeed)(::windows::core::Interface::as_raw(self), speed, ::core::mem::transmute(::windows::core::as_ptr_or_null(finalvalue)), finalvalue.len() as _, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IUIAnimationTransition2>(result__)
     }
     #[doc = "*Required features: `\"Win32_UI_Animation\"`*"]
     pub unsafe fn CreateSinusoidalTransitionFromVelocity(&self, duration: f64, period: f64) -> ::windows::core::Result<IUIAnimationTransition2> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).CreateSinusoidalTransitionFromVelocity)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(duration), ::core::mem::transmute(period), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IUIAnimationTransition2>(result__)
+        (::windows::core::Interface::vtable(self).CreateSinusoidalTransitionFromVelocity)(::windows::core::Interface::as_raw(self), duration, period, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IUIAnimationTransition2>(result__)
     }
     #[doc = "*Required features: `\"Win32_UI_Animation\"`*"]
     pub unsafe fn CreateSinusoidalTransitionFromRange(&self, duration: f64, minimumvalue: f64, maximumvalue: f64, period: f64, slope: UI_ANIMATION_SLOPE) -> ::windows::core::Result<IUIAnimationTransition2> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).CreateSinusoidalTransitionFromRange)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(duration), ::core::mem::transmute(minimumvalue), ::core::mem::transmute(maximumvalue), ::core::mem::transmute(period), ::core::mem::transmute(slope), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IUIAnimationTransition2>(result__)
+        (::windows::core::Interface::vtable(self).CreateSinusoidalTransitionFromRange)(::windows::core::Interface::as_raw(self), duration, minimumvalue, maximumvalue, period, slope, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IUIAnimationTransition2>(result__)
     }
     #[doc = "*Required features: `\"Win32_UI_Animation\"`*"]
     pub unsafe fn CreateAccelerateDecelerateTransition(&self, duration: f64, finalvalue: f64, accelerationratio: f64, decelerationratio: f64) -> ::windows::core::Result<IUIAnimationTransition2> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).CreateAccelerateDecelerateTransition)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(duration), ::core::mem::transmute(finalvalue), ::core::mem::transmute(accelerationratio), ::core::mem::transmute(decelerationratio), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IUIAnimationTransition2>(result__)
+        (::windows::core::Interface::vtable(self).CreateAccelerateDecelerateTransition)(::windows::core::Interface::as_raw(self), duration, finalvalue, accelerationratio, decelerationratio, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IUIAnimationTransition2>(result__)
     }
     #[doc = "*Required features: `\"Win32_UI_Animation\"`*"]
     pub unsafe fn CreateReversalTransition(&self, duration: f64) -> ::windows::core::Result<IUIAnimationTransition2> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).CreateReversalTransition)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(duration), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IUIAnimationTransition2>(result__)
+        (::windows::core::Interface::vtable(self).CreateReversalTransition)(::windows::core::Interface::as_raw(self), duration, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IUIAnimationTransition2>(result__)
     }
     #[doc = "*Required features: `\"Win32_UI_Animation\"`*"]
     pub unsafe fn CreateCubicTransition(&self, duration: f64, finalvalue: f64, finalvelocity: f64) -> ::windows::core::Result<IUIAnimationTransition2> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).CreateCubicTransition)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(duration), ::core::mem::transmute(finalvalue), ::core::mem::transmute(finalvelocity), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IUIAnimationTransition2>(result__)
+        (::windows::core::Interface::vtable(self).CreateCubicTransition)(::windows::core::Interface::as_raw(self), duration, finalvalue, finalvelocity, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IUIAnimationTransition2>(result__)
     }
     #[doc = "*Required features: `\"Win32_UI_Animation\"`*"]
     pub unsafe fn CreateCubicVectorTransition(&self, duration: f64, finalvalue: *const f64, finalvelocity: *const f64, cdimension: u32) -> ::windows::core::Result<IUIAnimationTransition2> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).CreateCubicVectorTransition)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(duration), ::core::mem::transmute(finalvalue), ::core::mem::transmute(finalvelocity), ::core::mem::transmute(cdimension), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IUIAnimationTransition2>(result__)
+        (::windows::core::Interface::vtable(self).CreateCubicVectorTransition)(::windows::core::Interface::as_raw(self), duration, ::core::mem::transmute(finalvalue), ::core::mem::transmute(finalvelocity), ::core::mem::transmute(cdimension), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IUIAnimationTransition2>(result__)
     }
     #[doc = "*Required features: `\"Win32_UI_Animation\"`*"]
     pub unsafe fn CreateSmoothStopTransition(&self, maximumduration: f64, finalvalue: f64) -> ::windows::core::Result<IUIAnimationTransition2> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).CreateSmoothStopTransition)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(maximumduration), ::core::mem::transmute(finalvalue), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IUIAnimationTransition2>(result__)
+        (::windows::core::Interface::vtable(self).CreateSmoothStopTransition)(::windows::core::Interface::as_raw(self), maximumduration, finalvalue, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IUIAnimationTransition2>(result__)
     }
     #[doc = "*Required features: `\"Win32_UI_Animation\"`*"]
     pub unsafe fn CreateParabolicTransitionFromAcceleration(&self, finalvalue: f64, finalvelocity: f64, acceleration: f64) -> ::windows::core::Result<IUIAnimationTransition2> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).CreateParabolicTransitionFromAcceleration)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(finalvalue), ::core::mem::transmute(finalvelocity), ::core::mem::transmute(acceleration), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IUIAnimationTransition2>(result__)
+        (::windows::core::Interface::vtable(self).CreateParabolicTransitionFromAcceleration)(::windows::core::Interface::as_raw(self), finalvalue, finalvelocity, acceleration, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IUIAnimationTransition2>(result__)
     }
     #[doc = "*Required features: `\"Win32_UI_Animation\"`*"]
     pub unsafe fn CreateCubicBezierLinearTransition(&self, duration: f64, finalvalue: f64, x1: f64, y1: f64, x2: f64, y2: f64) -> ::windows::core::Result<IUIAnimationTransition2> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).CreateCubicBezierLinearTransition)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(duration), ::core::mem::transmute(finalvalue), ::core::mem::transmute(x1), ::core::mem::transmute(y1), ::core::mem::transmute(x2), ::core::mem::transmute(y2), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IUIAnimationTransition2>(result__)
+        (::windows::core::Interface::vtable(self).CreateCubicBezierLinearTransition)(::windows::core::Interface::as_raw(self), duration, finalvalue, x1, y1, x2, y2, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IUIAnimationTransition2>(result__)
     }
     #[doc = "*Required features: `\"Win32_UI_Animation\"`*"]
     pub unsafe fn CreateCubicBezierLinearVectorTransition(&self, duration: f64, finalvalue: &[f64], x1: f64, y1: f64, x2: f64, y2: f64) -> ::windows::core::Result<IUIAnimationTransition2> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).CreateCubicBezierLinearVectorTransition)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(duration), ::core::mem::transmute(::windows::core::as_ptr_or_null(finalvalue)), finalvalue.len() as _, ::core::mem::transmute(x1), ::core::mem::transmute(y1), ::core::mem::transmute(x2), ::core::mem::transmute(y2), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IUIAnimationTransition2>(result__)
+        (::windows::core::Interface::vtable(self).CreateCubicBezierLinearVectorTransition)(::windows::core::Interface::as_raw(self), duration, ::core::mem::transmute(::windows::core::as_ptr_or_null(finalvalue)), finalvalue.len() as _, x1, y1, x2, y2, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IUIAnimationTransition2>(result__)
     }
 }
 impl ::core::convert::From<IUIAnimationTransitionLibrary2> for ::windows::core::IUnknown {
@@ -2163,22 +2163,22 @@ impl IUIAnimationVariable {
     }
     #[doc = "*Required features: `\"Win32_UI_Animation\"`*"]
     pub unsafe fn SetLowerBound(&self, bound: f64) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetLowerBound)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(bound)).ok()
+        (::windows::core::Interface::vtable(self).SetLowerBound)(::windows::core::Interface::as_raw(self), bound).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_Animation\"`*"]
     pub unsafe fn SetUpperBound(&self, bound: f64) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetUpperBound)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(bound)).ok()
+        (::windows::core::Interface::vtable(self).SetUpperBound)(::windows::core::Interface::as_raw(self), bound).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_Animation\"`*"]
     pub unsafe fn SetRoundingMode(&self, mode: UI_ANIMATION_ROUNDING_MODE) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetRoundingMode)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(mode)).ok()
+        (::windows::core::Interface::vtable(self).SetRoundingMode)(::windows::core::Interface::as_raw(self), mode).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_Animation\"`*"]
     pub unsafe fn SetTag<'a, P0>(&self, object: P0, id: u32) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>,
     {
-        (::windows::core::Interface::vtable(self).SetTag)(::windows::core::Interface::as_raw(self), object.into().abi(), ::core::mem::transmute(id)).ok()
+        (::windows::core::Interface::vtable(self).SetTag)(::windows::core::Interface::as_raw(self), object.into().abi(), id).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_Animation\"`*"]
     pub unsafe fn GetTag(&self, object: *mut ::core::option::Option<::windows::core::IUnknown>, id: *mut u32) -> ::windows::core::Result<()> {
@@ -2336,7 +2336,7 @@ impl IUIAnimationVariable2 {
     }
     #[doc = "*Required features: `\"Win32_UI_Animation\"`*"]
     pub unsafe fn SetLowerBound(&self, bound: f64) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetLowerBound)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(bound)).ok()
+        (::windows::core::Interface::vtable(self).SetLowerBound)(::windows::core::Interface::as_raw(self), bound).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_Animation\"`*"]
     pub unsafe fn SetLowerBoundVector(&self, bound: &[f64]) -> ::windows::core::Result<()> {
@@ -2344,7 +2344,7 @@ impl IUIAnimationVariable2 {
     }
     #[doc = "*Required features: `\"Win32_UI_Animation\"`*"]
     pub unsafe fn SetUpperBound(&self, bound: f64) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetUpperBound)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(bound)).ok()
+        (::windows::core::Interface::vtable(self).SetUpperBound)(::windows::core::Interface::as_raw(self), bound).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_Animation\"`*"]
     pub unsafe fn SetUpperBoundVector(&self, bound: &[f64]) -> ::windows::core::Result<()> {
@@ -2352,14 +2352,14 @@ impl IUIAnimationVariable2 {
     }
     #[doc = "*Required features: `\"Win32_UI_Animation\"`*"]
     pub unsafe fn SetRoundingMode(&self, mode: UI_ANIMATION_ROUNDING_MODE) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetRoundingMode)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(mode)).ok()
+        (::windows::core::Interface::vtable(self).SetRoundingMode)(::windows::core::Interface::as_raw(self), mode).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_Animation\"`*"]
     pub unsafe fn SetTag<'a, P0>(&self, object: P0, id: u32) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>,
     {
-        (::windows::core::Interface::vtable(self).SetTag)(::windows::core::Interface::as_raw(self), object.into().abi(), ::core::mem::transmute(id)).ok()
+        (::windows::core::Interface::vtable(self).SetTag)(::windows::core::Interface::as_raw(self), object.into().abi(), id).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_Animation\"`*"]
     pub unsafe fn GetTag(&self, object: *mut ::core::option::Option<::windows::core::IUnknown>, id: *mut u32) -> ::windows::core::Result<()> {
@@ -2479,7 +2479,7 @@ impl IUIAnimationVariableChangeHandler {
         P0: ::std::convert::Into<::windows::core::InParam<'a, IUIAnimationStoryboard>>,
         P1: ::std::convert::Into<::windows::core::InParam<'a, IUIAnimationVariable>>,
     {
-        (::windows::core::Interface::vtable(self).OnValueChanged)(::windows::core::Interface::as_raw(self), storyboard.into().abi(), variable.into().abi(), ::core::mem::transmute(newvalue), ::core::mem::transmute(previousvalue)).ok()
+        (::windows::core::Interface::vtable(self).OnValueChanged)(::windows::core::Interface::as_raw(self), storyboard.into().abi(), variable.into().abi(), newvalue, previousvalue).ok()
     }
 }
 impl ::core::convert::From<IUIAnimationVariableChangeHandler> for ::windows::core::IUnknown {
@@ -2640,7 +2640,7 @@ impl IUIAnimationVariableIntegerChangeHandler {
         P0: ::std::convert::Into<::windows::core::InParam<'a, IUIAnimationStoryboard>>,
         P1: ::std::convert::Into<::windows::core::InParam<'a, IUIAnimationVariable>>,
     {
-        (::windows::core::Interface::vtable(self).OnIntegerValueChanged)(::windows::core::Interface::as_raw(self), storyboard.into().abi(), variable.into().abi(), ::core::mem::transmute(newvalue), ::core::mem::transmute(previousvalue)).ok()
+        (::windows::core::Interface::vtable(self).OnIntegerValueChanged)(::windows::core::Interface::as_raw(self), storyboard.into().abi(), variable.into().abi(), newvalue, previousvalue).ok()
     }
 }
 impl ::core::convert::From<IUIAnimationVariableIntegerChangeHandler> for ::windows::core::IUnknown {

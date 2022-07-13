@@ -71,7 +71,7 @@ pub unsafe fn CreateToolhelp32Snapshot(dwflags: CREATE_TOOLHELP_SNAPSHOT_FLAGS, 
     extern "system" {
         fn CreateToolhelp32Snapshot(dwflags: CREATE_TOOLHELP_SNAPSHOT_FLAGS, th32processid: u32) -> super::super::super::Foundation::HANDLE;
     }
-    let result__ = CreateToolhelp32Snapshot(::core::mem::transmute(dwflags), ::core::mem::transmute(th32processid));
+    let result__ = CreateToolhelp32Snapshot(dwflags, th32processid);
     (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
 }
 #[repr(C)]
@@ -194,7 +194,7 @@ pub unsafe fn Heap32First(lphe: *mut HEAPENTRY32, th32processid: u32, th32heapid
     extern "system" {
         fn Heap32First(lphe: *mut HEAPENTRY32, th32processid: u32, th32heapid: usize) -> super::super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(Heap32First(::core::mem::transmute(lphe), ::core::mem::transmute(th32processid), ::core::mem::transmute(th32heapid)))
+    ::core::mem::transmute(Heap32First(::core::mem::transmute(lphe), th32processid, th32heapid))
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_ToolHelp\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -588,7 +588,7 @@ pub unsafe fn Toolhelp32ReadProcessMemory(th32processid: u32, lpbaseaddress: *co
     extern "system" {
         fn Toolhelp32ReadProcessMemory(th32processid: u32, lpbaseaddress: *const ::core::ffi::c_void, lpbuffer: *mut ::core::ffi::c_void, cbread: usize, lpnumberofbytesread: *mut usize) -> super::super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(Toolhelp32ReadProcessMemory(::core::mem::transmute(th32processid), ::core::mem::transmute(lpbaseaddress), ::core::mem::transmute(lpbuffer), ::core::mem::transmute(cbread), ::core::mem::transmute(lpnumberofbytesread)))
+    ::core::mem::transmute(Toolhelp32ReadProcessMemory(th32processid, ::core::mem::transmute(lpbaseaddress), ::core::mem::transmute(lpbuffer), cbread, ::core::mem::transmute(lpnumberofbytesread)))
 }
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");
