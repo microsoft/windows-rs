@@ -1548,12 +1548,6 @@ impl<'a> Reader<'a> {
             _ => false,
         }
     }
-    pub fn type_is_primitive_type_def(&self, ty: &Type) -> bool {
-        match ty {
-            Type::TypeDef((row, _)) => self.type_def_is_primitive(*row),
-            _ => false,
-        }
-    }
     pub fn type_is_callback(&self, ty: &Type) -> bool {
         match ty {
             // TODO: do we need to know there's a callback behind the pointer?
@@ -1579,12 +1573,6 @@ impl<'a> Reader<'a> {
         match ty {
             Type::TypeDef((row, _)) => self.type_def_is_udt(*row),
             Type::GUID => true,
-            _ => false,
-        }
-    }
-    pub fn type_is_handle(&self, ty: &Type) -> bool {
-        match ty {
-            Type::TypeDef((row, _)) => self.type_def_is_handle(*row),
             _ => false,
         }
     }
