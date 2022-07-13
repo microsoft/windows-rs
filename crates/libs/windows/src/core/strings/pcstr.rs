@@ -51,7 +51,7 @@ impl PCSTR {
     ///
     /// See the safety information for `PCSTR::as_bytes`.
     pub unsafe fn display<'a>(&'a self) -> impl core::fmt::Display + 'a {
-        Decode(move || std::str::from_utf8(self.as_bytes()).into_iter().flat_map(|s| s.chars().map(|s| Result::Ok(s))))
+        Decode(move || decode_utf8(self.as_bytes()))
     }
 }
 
@@ -64,5 +64,18 @@ unsafe impl Abi for PCSTR {
 impl From<Option<PCSTR>> for PCSTR {
     fn from(from: Option<PCSTR>) -> Self {
         from.unwrap_or_else(Self::null)
+    }
+}
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+
+    #[test]
+    fn can_display() {
+        // 💖 followed by an invalid byte sequence and then an incomplete one
+        let s = vec![240, 159, 146, 150, 255, 240, 159, 0];
+        let s = PCSTR::from_raw(s.as_ptr());
+        assert_eq!("💖�", format!("{}", unsafe { s.display() }));
     }
 }
