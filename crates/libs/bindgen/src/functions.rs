@@ -76,7 +76,6 @@ fn gen_win_function(gen: &Gen, def: MethodDef) -> TokenStream {
             quote! {
                 #doc
                 #features
-                #[inline]
                 pub unsafe fn #name<#generics>(#params) -> ::windows::core::Result<T> #where_clause {
                     #link_attr
                     extern "system" {
@@ -96,7 +95,6 @@ fn gen_win_function(gen: &Gen, def: MethodDef) -> TokenStream {
             quote! {
                 #doc
                 #features
-                #[inline]
                 pub unsafe fn #name<#generics>(#params result__: *mut ::core::option::Option<T>) -> ::windows::core::Result<()> #where_clause {
                     #link_attr
                     extern "system" {
@@ -116,7 +114,6 @@ fn gen_win_function(gen: &Gen, def: MethodDef) -> TokenStream {
             quote! {
                 #doc
                 #features
-                #[inline]
                 pub unsafe fn #name<#generics>(#params) -> ::windows::core::Result<#return_type_tokens> #where_clause {
                     #link_attr
                     extern "system" {
@@ -134,7 +131,6 @@ fn gen_win_function(gen: &Gen, def: MethodDef) -> TokenStream {
             quote! {
                 #doc
                 #features
-                #[inline]
                 pub unsafe fn #name<#generics>(#params) -> ::windows::core::Result<()> #where_clause {
                     #link_attr
                     extern "system" {
@@ -153,7 +149,6 @@ fn gen_win_function(gen: &Gen, def: MethodDef) -> TokenStream {
                 quote! {
                     #doc
                     #features
-                    #[inline]
                     pub unsafe fn #name<#generics>(#params) -> ::windows::core::Result<#return_type> #where_clause {
                         #link_attr
                         extern "system" {
@@ -170,7 +165,6 @@ fn gen_win_function(gen: &Gen, def: MethodDef) -> TokenStream {
                 quote! {
                     #doc
                     #features
-                    #[inline]
                     pub unsafe fn #name<#generics>(#params) #abi_return_type #where_clause {
                         #link_attr
                         extern "system" {
@@ -189,7 +183,6 @@ fn gen_win_function(gen: &Gen, def: MethodDef) -> TokenStream {
             quote! {
                 #doc
                 #features
-                #[inline]
                 pub unsafe fn #name<#generics>(#params) #does_not_return #where_clause {
                     #link_attr
                     extern "system" {
