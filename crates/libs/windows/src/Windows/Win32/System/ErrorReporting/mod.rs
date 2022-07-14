@@ -11,7 +11,7 @@ where
     extern "system" {
         fn AddERExcludedApplicationA(szapplication: ::windows::core::PCSTR) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(AddERExcludedApplicationA(szapplication.into()))
+    AddERExcludedApplicationA(szapplication.into())
 }
 #[doc = "*Required features: `\"Win32_System_ErrorReporting\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -24,7 +24,7 @@ where
     extern "system" {
         fn AddERExcludedApplicationW(wszapplication: ::windows::core::PCWSTR) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(AddERExcludedApplicationW(wszapplication.into()))
+    AddERExcludedApplicationW(wszapplication.into())
 }
 #[doc = "*Required features: `\"Win32_System_ErrorReporting\"`*"]
 #[repr(transparent)]
@@ -187,7 +187,7 @@ pub unsafe fn ReportFault(pep: *const super::Diagnostics::Debug::EXCEPTION_POINT
     extern "system" {
         fn ReportFault(pep: *const super::Diagnostics::Debug::EXCEPTION_POINTERS, dwopt: u32) -> EFaultRepRetVal;
     }
-    ::core::mem::transmute(ReportFault(::core::mem::transmute(pep), dwopt))
+    ReportFault(::core::mem::transmute(pep), dwopt)
 }
 #[doc = "*Required features: `\"Win32_System_ErrorReporting\"`*"]
 #[repr(transparent)]

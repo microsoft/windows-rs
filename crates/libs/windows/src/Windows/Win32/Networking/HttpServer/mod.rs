@@ -5062,7 +5062,7 @@ where
     extern "system" {
         fn HttpAddFragmentToCache(requestqueuehandle: super::super::Foundation::HANDLE, urlprefix: ::windows::core::PCWSTR, datachunk: *mut HTTP_DATA_CHUNK, cachepolicy: *mut HTTP_CACHE_POLICY, overlapped: *mut super::super::System::IO::OVERLAPPED) -> u32;
     }
-    ::core::mem::transmute(HttpAddFragmentToCache(requestqueuehandle.into(), urlprefix.into(), ::core::mem::transmute(datachunk), ::core::mem::transmute(cachepolicy), ::core::mem::transmute(overlapped)))
+    HttpAddFragmentToCache(requestqueuehandle.into(), urlprefix.into(), ::core::mem::transmute(datachunk), ::core::mem::transmute(cachepolicy), ::core::mem::transmute(overlapped))
 }
 #[doc = "*Required features: `\"Win32_Networking_HttpServer\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -5076,7 +5076,7 @@ where
     extern "system" {
         fn HttpAddUrl(requestqueuehandle: super::super::Foundation::HANDLE, fullyqualifiedurl: ::windows::core::PCWSTR, reserved: *mut ::core::ffi::c_void) -> u32;
     }
-    ::core::mem::transmute(HttpAddUrl(requestqueuehandle.into(), fullyqualifiedurl.into(), ::core::mem::transmute(reserved)))
+    HttpAddUrl(requestqueuehandle.into(), fullyqualifiedurl.into(), ::core::mem::transmute(reserved))
 }
 #[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
 #[inline]
@@ -5088,7 +5088,7 @@ where
     extern "system" {
         fn HttpAddUrlToUrlGroup(urlgroupid: u64, pfullyqualifiedurl: ::windows::core::PCWSTR, urlcontext: u64, reserved: u32) -> u32;
     }
-    ::core::mem::transmute(HttpAddUrlToUrlGroup(urlgroupid, pfullyqualifiedurl.into(), urlcontext, reserved))
+    HttpAddUrlToUrlGroup(urlgroupid, pfullyqualifiedurl.into(), urlcontext, reserved)
 }
 #[doc = "*Required features: `\"Win32_Networking_HttpServer\"`, `\"Win32_Foundation\"`, `\"Win32_System_IO\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
@@ -5101,7 +5101,7 @@ where
     extern "system" {
         fn HttpCancelHttpRequest(requestqueuehandle: super::super::Foundation::HANDLE, requestid: u64, overlapped: *mut super::super::System::IO::OVERLAPPED) -> u32;
     }
-    ::core::mem::transmute(HttpCancelHttpRequest(requestqueuehandle.into(), requestid, ::core::mem::transmute(overlapped)))
+    HttpCancelHttpRequest(requestqueuehandle.into(), requestid, ::core::mem::transmute(overlapped))
 }
 #[doc = "*Required features: `\"Win32_Networking_HttpServer\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -5114,7 +5114,7 @@ where
     extern "system" {
         fn HttpCloseRequestQueue(requestqueuehandle: super::super::Foundation::HANDLE) -> u32;
     }
-    ::core::mem::transmute(HttpCloseRequestQueue(requestqueuehandle.into()))
+    HttpCloseRequestQueue(requestqueuehandle.into())
 }
 #[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
 #[inline]
@@ -5123,7 +5123,7 @@ pub unsafe fn HttpCloseServerSession(serversessionid: u64) -> u32 {
     extern "system" {
         fn HttpCloseServerSession(serversessionid: u64) -> u32;
     }
-    ::core::mem::transmute(HttpCloseServerSession(serversessionid))
+    HttpCloseServerSession(serversessionid)
 }
 #[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
 #[inline]
@@ -5132,7 +5132,7 @@ pub unsafe fn HttpCloseUrlGroup(urlgroupid: u64) -> u32 {
     extern "system" {
         fn HttpCloseUrlGroup(urlgroupid: u64) -> u32;
     }
-    ::core::mem::transmute(HttpCloseUrlGroup(urlgroupid))
+    HttpCloseUrlGroup(urlgroupid)
 }
 #[doc = "*Required features: `\"Win32_Networking_HttpServer\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -5142,7 +5142,7 @@ pub unsafe fn HttpCreateHttpHandle(requestqueuehandle: *mut super::super::Founda
     extern "system" {
         fn HttpCreateHttpHandle(requestqueuehandle: *mut super::super::Foundation::HANDLE, reserved: u32) -> u32;
     }
-    ::core::mem::transmute(HttpCreateHttpHandle(::core::mem::transmute(requestqueuehandle), reserved))
+    HttpCreateHttpHandle(::core::mem::transmute(requestqueuehandle), reserved)
 }
 #[doc = "*Required features: `\"Win32_Networking_HttpServer\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
@@ -5155,7 +5155,7 @@ where
     extern "system" {
         fn HttpCreateRequestQueue(version: HTTPAPI_VERSION, name: ::windows::core::PCWSTR, securityattributes: *mut super::super::Security::SECURITY_ATTRIBUTES, flags: u32, requestqueuehandle: *mut super::super::Foundation::HANDLE) -> u32;
     }
-    ::core::mem::transmute(HttpCreateRequestQueue(::core::mem::transmute(version), name.into(), ::core::mem::transmute(securityattributes), flags, ::core::mem::transmute(requestqueuehandle)))
+    HttpCreateRequestQueue(::core::mem::transmute(version), name.into(), ::core::mem::transmute(securityattributes), flags, ::core::mem::transmute(requestqueuehandle))
 }
 #[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
 #[inline]
@@ -5164,7 +5164,7 @@ pub unsafe fn HttpCreateServerSession(version: HTTPAPI_VERSION, serversessionid:
     extern "system" {
         fn HttpCreateServerSession(version: HTTPAPI_VERSION, serversessionid: *mut u64, reserved: u32) -> u32;
     }
-    ::core::mem::transmute(HttpCreateServerSession(::core::mem::transmute(version), ::core::mem::transmute(serversessionid), reserved))
+    HttpCreateServerSession(::core::mem::transmute(version), ::core::mem::transmute(serversessionid), reserved)
 }
 #[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
 #[inline]
@@ -5173,7 +5173,7 @@ pub unsafe fn HttpCreateUrlGroup(serversessionid: u64, purlgroupid: *mut u64, re
     extern "system" {
         fn HttpCreateUrlGroup(serversessionid: u64, purlgroupid: *mut u64, reserved: u32) -> u32;
     }
-    ::core::mem::transmute(HttpCreateUrlGroup(serversessionid, ::core::mem::transmute(purlgroupid), reserved))
+    HttpCreateUrlGroup(serversessionid, ::core::mem::transmute(purlgroupid), reserved)
 }
 #[doc = "*Required features: `\"Win32_Networking_HttpServer\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -5188,7 +5188,7 @@ where
     extern "system" {
         fn HttpDeclarePush(requestqueuehandle: super::super::Foundation::HANDLE, requestid: u64, verb: HTTP_VERB, path: ::windows::core::PCWSTR, query: ::windows::core::PCSTR, headers: *const HTTP_REQUEST_HEADERS) -> u32;
     }
-    ::core::mem::transmute(HttpDeclarePush(requestqueuehandle.into(), requestid, verb, path.into(), query.into(), ::core::mem::transmute(headers)))
+    HttpDeclarePush(requestqueuehandle.into(), requestid, verb, path.into(), query.into(), ::core::mem::transmute(headers))
 }
 #[doc = "*Required features: `\"Win32_Networking_HttpServer\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -5202,7 +5202,7 @@ where
     extern "system" {
         fn HttpDelegateRequestEx(requestqueuehandle: super::super::Foundation::HANDLE, delegatequeuehandle: super::super::Foundation::HANDLE, requestid: u64, delegateurlgroupid: u64, propertyinfosetsize: u32, propertyinfoset: *const HTTP_DELEGATE_REQUEST_PROPERTY_INFO) -> u32;
     }
-    ::core::mem::transmute(HttpDelegateRequestEx(requestqueuehandle.into(), delegatequeuehandle.into(), requestid, delegateurlgroupid, propertyinfosetsize, ::core::mem::transmute(propertyinfoset)))
+    HttpDelegateRequestEx(requestqueuehandle.into(), delegatequeuehandle.into(), requestid, delegateurlgroupid, propertyinfosetsize, ::core::mem::transmute(propertyinfoset))
 }
 #[doc = "*Required features: `\"Win32_Networking_HttpServer\"`, `\"Win32_Foundation\"`, `\"Win32_System_IO\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
@@ -5215,7 +5215,7 @@ where
     extern "system" {
         fn HttpDeleteServiceConfiguration(servicehandle: super::super::Foundation::HANDLE, configid: HTTP_SERVICE_CONFIG_ID, pconfiginformation: *const ::core::ffi::c_void, configinformationlength: u32, poverlapped: *mut super::super::System::IO::OVERLAPPED) -> u32;
     }
-    ::core::mem::transmute(HttpDeleteServiceConfiguration(servicehandle.into(), configid, ::core::mem::transmute(pconfiginformation), configinformationlength, ::core::mem::transmute(poverlapped)))
+    HttpDeleteServiceConfiguration(servicehandle.into(), configid, ::core::mem::transmute(pconfiginformation), configinformationlength, ::core::mem::transmute(poverlapped))
 }
 #[doc = "*Required features: `\"Win32_Networking_HttpServer\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -5229,7 +5229,7 @@ where
     extern "system" {
         fn HttpFindUrlGroupId(fullyqualifiedurl: ::windows::core::PCWSTR, requestqueuehandle: super::super::Foundation::HANDLE, urlgroupid: *mut u64) -> u32;
     }
-    ::core::mem::transmute(HttpFindUrlGroupId(fullyqualifiedurl.into(), requestqueuehandle.into(), ::core::mem::transmute(urlgroupid)))
+    HttpFindUrlGroupId(fullyqualifiedurl.into(), requestqueuehandle.into(), ::core::mem::transmute(urlgroupid))
 }
 #[doc = "*Required features: `\"Win32_Networking_HttpServer\"`, `\"Win32_Foundation\"`, `\"Win32_System_IO\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
@@ -5243,7 +5243,7 @@ where
     extern "system" {
         fn HttpFlushResponseCache(requestqueuehandle: super::super::Foundation::HANDLE, urlprefix: ::windows::core::PCWSTR, flags: u32, overlapped: *mut super::super::System::IO::OVERLAPPED) -> u32;
     }
-    ::core::mem::transmute(HttpFlushResponseCache(requestqueuehandle.into(), urlprefix.into(), flags, ::core::mem::transmute(overlapped)))
+    HttpFlushResponseCache(requestqueuehandle.into(), urlprefix.into(), flags, ::core::mem::transmute(overlapped))
 }
 #[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
 #[inline]
@@ -5252,7 +5252,7 @@ pub unsafe fn HttpGetExtension(version: HTTPAPI_VERSION, extension: u32, buffer:
     extern "system" {
         fn HttpGetExtension(version: HTTPAPI_VERSION, extension: u32, buffer: *mut ::core::ffi::c_void, buffersize: u32) -> u32;
     }
-    ::core::mem::transmute(HttpGetExtension(::core::mem::transmute(version), extension, ::core::mem::transmute(buffer), buffersize))
+    HttpGetExtension(::core::mem::transmute(version), extension, ::core::mem::transmute(buffer), buffersize)
 }
 #[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
 #[inline]
@@ -5261,7 +5261,7 @@ pub unsafe fn HttpInitialize(version: HTTPAPI_VERSION, flags: HTTP_INITIALIZE, p
     extern "system" {
         fn HttpInitialize(version: HTTPAPI_VERSION, flags: HTTP_INITIALIZE, preserved: *mut ::core::ffi::c_void) -> u32;
     }
-    ::core::mem::transmute(HttpInitialize(::core::mem::transmute(version), flags, ::core::mem::transmute(preserved)))
+    HttpInitialize(::core::mem::transmute(version), flags, ::core::mem::transmute(preserved))
 }
 #[doc = "*Required features: `\"Win32_Networking_HttpServer\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -5271,7 +5271,7 @@ pub unsafe fn HttpIsFeatureSupported(featureid: HTTP_FEATURE_ID) -> super::super
     extern "system" {
         fn HttpIsFeatureSupported(featureid: HTTP_FEATURE_ID) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(HttpIsFeatureSupported(featureid))
+    HttpIsFeatureSupported(featureid)
 }
 #[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
 #[inline]
@@ -5283,7 +5283,7 @@ where
     extern "system" {
         fn HttpPrepareUrl(reserved: *mut ::core::ffi::c_void, flags: u32, url: ::windows::core::PCWSTR, preparedurl: *mut ::windows::core::PWSTR) -> u32;
     }
-    ::core::mem::transmute(HttpPrepareUrl(::core::mem::transmute(reserved), flags, url.into(), ::core::mem::transmute(preparedurl)))
+    HttpPrepareUrl(::core::mem::transmute(reserved), flags, url.into(), ::core::mem::transmute(preparedurl))
 }
 #[doc = "*Required features: `\"Win32_Networking_HttpServer\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -5296,7 +5296,7 @@ where
     extern "system" {
         fn HttpQueryRequestQueueProperty(requestqueuehandle: super::super::Foundation::HANDLE, property: HTTP_SERVER_PROPERTY, propertyinformation: *mut ::core::ffi::c_void, propertyinformationlength: u32, reserved1: u32, returnlength: *mut u32, reserved2: *mut ::core::ffi::c_void) -> u32;
     }
-    ::core::mem::transmute(HttpQueryRequestQueueProperty(requestqueuehandle.into(), property, ::core::mem::transmute(propertyinformation), propertyinformationlength, reserved1, ::core::mem::transmute(returnlength), ::core::mem::transmute(reserved2)))
+    HttpQueryRequestQueueProperty(requestqueuehandle.into(), property, ::core::mem::transmute(propertyinformation), propertyinformationlength, reserved1, ::core::mem::transmute(returnlength), ::core::mem::transmute(reserved2))
 }
 #[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
 #[inline]
@@ -5305,7 +5305,7 @@ pub unsafe fn HttpQueryServerSessionProperty(serversessionid: u64, property: HTT
     extern "system" {
         fn HttpQueryServerSessionProperty(serversessionid: u64, property: HTTP_SERVER_PROPERTY, propertyinformation: *mut ::core::ffi::c_void, propertyinformationlength: u32, returnlength: *mut u32) -> u32;
     }
-    ::core::mem::transmute(HttpQueryServerSessionProperty(serversessionid, property, ::core::mem::transmute(propertyinformation), propertyinformationlength, ::core::mem::transmute(returnlength)))
+    HttpQueryServerSessionProperty(serversessionid, property, ::core::mem::transmute(propertyinformation), propertyinformationlength, ::core::mem::transmute(returnlength))
 }
 #[doc = "*Required features: `\"Win32_Networking_HttpServer\"`, `\"Win32_Foundation\"`, `\"Win32_System_IO\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
@@ -5318,7 +5318,7 @@ where
     extern "system" {
         fn HttpQueryServiceConfiguration(servicehandle: super::super::Foundation::HANDLE, configid: HTTP_SERVICE_CONFIG_ID, pinput: *const ::core::ffi::c_void, inputlength: u32, poutput: *mut ::core::ffi::c_void, outputlength: u32, preturnlength: *mut u32, poverlapped: *mut super::super::System::IO::OVERLAPPED) -> u32;
     }
-    ::core::mem::transmute(HttpQueryServiceConfiguration(servicehandle.into(), configid, ::core::mem::transmute(pinput), inputlength, ::core::mem::transmute(poutput), outputlength, ::core::mem::transmute(preturnlength), ::core::mem::transmute(poverlapped)))
+    HttpQueryServiceConfiguration(servicehandle.into(), configid, ::core::mem::transmute(pinput), inputlength, ::core::mem::transmute(poutput), outputlength, ::core::mem::transmute(preturnlength), ::core::mem::transmute(poverlapped))
 }
 #[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
 #[inline]
@@ -5327,7 +5327,7 @@ pub unsafe fn HttpQueryUrlGroupProperty(urlgroupid: u64, property: HTTP_SERVER_P
     extern "system" {
         fn HttpQueryUrlGroupProperty(urlgroupid: u64, property: HTTP_SERVER_PROPERTY, propertyinformation: *mut ::core::ffi::c_void, propertyinformationlength: u32, returnlength: *mut u32) -> u32;
     }
-    ::core::mem::transmute(HttpQueryUrlGroupProperty(urlgroupid, property, ::core::mem::transmute(propertyinformation), propertyinformationlength, ::core::mem::transmute(returnlength)))
+    HttpQueryUrlGroupProperty(urlgroupid, property, ::core::mem::transmute(propertyinformation), propertyinformationlength, ::core::mem::transmute(returnlength))
 }
 #[doc = "*Required features: `\"Win32_Networking_HttpServer\"`, `\"Win32_Foundation\"`, `\"Win32_System_IO\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
@@ -5341,7 +5341,7 @@ where
     extern "system" {
         fn HttpReadFragmentFromCache(requestqueuehandle: super::super::Foundation::HANDLE, urlprefix: ::windows::core::PCWSTR, byterange: *mut HTTP_BYTE_RANGE, buffer: *mut ::core::ffi::c_void, bufferlength: u32, bytesread: *mut u32, overlapped: *mut super::super::System::IO::OVERLAPPED) -> u32;
     }
-    ::core::mem::transmute(HttpReadFragmentFromCache(requestqueuehandle.into(), urlprefix.into(), ::core::mem::transmute(byterange), ::core::mem::transmute(buffer), bufferlength, ::core::mem::transmute(bytesread), ::core::mem::transmute(overlapped)))
+    HttpReadFragmentFromCache(requestqueuehandle.into(), urlprefix.into(), ::core::mem::transmute(byterange), ::core::mem::transmute(buffer), bufferlength, ::core::mem::transmute(bytesread), ::core::mem::transmute(overlapped))
 }
 #[doc = "*Required features: `\"Win32_Networking_HttpServer\"`, `\"Win32_Foundation\"`, `\"Win32_System_IO\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
@@ -5354,7 +5354,7 @@ where
     extern "system" {
         fn HttpReceiveClientCertificate(requestqueuehandle: super::super::Foundation::HANDLE, connectionid: u64, flags: u32, sslclientcertinfo: *mut HTTP_SSL_CLIENT_CERT_INFO, sslclientcertinfosize: u32, bytesreceived: *mut u32, overlapped: *mut super::super::System::IO::OVERLAPPED) -> u32;
     }
-    ::core::mem::transmute(HttpReceiveClientCertificate(requestqueuehandle.into(), connectionid, flags, ::core::mem::transmute(sslclientcertinfo), sslclientcertinfosize, ::core::mem::transmute(bytesreceived), ::core::mem::transmute(overlapped)))
+    HttpReceiveClientCertificate(requestqueuehandle.into(), connectionid, flags, ::core::mem::transmute(sslclientcertinfo), sslclientcertinfosize, ::core::mem::transmute(bytesreceived), ::core::mem::transmute(overlapped))
 }
 #[doc = "*Required features: `\"Win32_Networking_HttpServer\"`, `\"Win32_Foundation\"`, `\"Win32_Networking_WinSock\"`, `\"Win32_System_IO\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock", feature = "Win32_System_IO"))]
@@ -5367,7 +5367,7 @@ where
     extern "system" {
         fn HttpReceiveHttpRequest(requestqueuehandle: super::super::Foundation::HANDLE, requestid: u64, flags: HTTP_RECEIVE_HTTP_REQUEST_FLAGS, requestbuffer: *mut HTTP_REQUEST_V2, requestbufferlength: u32, bytesreturned: *mut u32, overlapped: *mut super::super::System::IO::OVERLAPPED) -> u32;
     }
-    ::core::mem::transmute(HttpReceiveHttpRequest(requestqueuehandle.into(), requestid, flags, ::core::mem::transmute(requestbuffer), requestbufferlength, ::core::mem::transmute(bytesreturned), ::core::mem::transmute(overlapped)))
+    HttpReceiveHttpRequest(requestqueuehandle.into(), requestid, flags, ::core::mem::transmute(requestbuffer), requestbufferlength, ::core::mem::transmute(bytesreturned), ::core::mem::transmute(overlapped))
 }
 #[doc = "*Required features: `\"Win32_Networking_HttpServer\"`, `\"Win32_Foundation\"`, `\"Win32_System_IO\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
@@ -5380,7 +5380,7 @@ where
     extern "system" {
         fn HttpReceiveRequestEntityBody(requestqueuehandle: super::super::Foundation::HANDLE, requestid: u64, flags: u32, entitybuffer: *mut ::core::ffi::c_void, entitybufferlength: u32, bytesreturned: *mut u32, overlapped: *mut super::super::System::IO::OVERLAPPED) -> u32;
     }
-    ::core::mem::transmute(HttpReceiveRequestEntityBody(requestqueuehandle.into(), requestid, flags, ::core::mem::transmute(entitybuffer), entitybufferlength, ::core::mem::transmute(bytesreturned), ::core::mem::transmute(overlapped)))
+    HttpReceiveRequestEntityBody(requestqueuehandle.into(), requestid, flags, ::core::mem::transmute(entitybuffer), entitybufferlength, ::core::mem::transmute(bytesreturned), ::core::mem::transmute(overlapped))
 }
 #[doc = "*Required features: `\"Win32_Networking_HttpServer\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -5394,7 +5394,7 @@ where
     extern "system" {
         fn HttpRemoveUrl(requestqueuehandle: super::super::Foundation::HANDLE, fullyqualifiedurl: ::windows::core::PCWSTR) -> u32;
     }
-    ::core::mem::transmute(HttpRemoveUrl(requestqueuehandle.into(), fullyqualifiedurl.into()))
+    HttpRemoveUrl(requestqueuehandle.into(), fullyqualifiedurl.into())
 }
 #[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
 #[inline]
@@ -5406,7 +5406,7 @@ where
     extern "system" {
         fn HttpRemoveUrlFromUrlGroup(urlgroupid: u64, pfullyqualifiedurl: ::windows::core::PCWSTR, flags: u32) -> u32;
     }
-    ::core::mem::transmute(HttpRemoveUrlFromUrlGroup(urlgroupid, pfullyqualifiedurl.into(), flags))
+    HttpRemoveUrlFromUrlGroup(urlgroupid, pfullyqualifiedurl.into(), flags)
 }
 #[doc = "*Required features: `\"Win32_Networking_HttpServer\"`, `\"Win32_Foundation\"`, `\"Win32_System_IO\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
@@ -5419,7 +5419,7 @@ where
     extern "system" {
         fn HttpSendHttpResponse(requestqueuehandle: super::super::Foundation::HANDLE, requestid: u64, flags: u32, httpresponse: *mut HTTP_RESPONSE_V2, cachepolicy: *mut HTTP_CACHE_POLICY, bytessent: *mut u32, reserved1: *mut ::core::ffi::c_void, reserved2: u32, overlapped: *mut super::super::System::IO::OVERLAPPED, logdata: *mut HTTP_LOG_DATA) -> u32;
     }
-    ::core::mem::transmute(HttpSendHttpResponse(requestqueuehandle.into(), requestid, flags, ::core::mem::transmute(httpresponse), ::core::mem::transmute(cachepolicy), ::core::mem::transmute(bytessent), ::core::mem::transmute(reserved1), reserved2, ::core::mem::transmute(overlapped), ::core::mem::transmute(logdata)))
+    HttpSendHttpResponse(requestqueuehandle.into(), requestid, flags, ::core::mem::transmute(httpresponse), ::core::mem::transmute(cachepolicy), ::core::mem::transmute(bytessent), ::core::mem::transmute(reserved1), reserved2, ::core::mem::transmute(overlapped), ::core::mem::transmute(logdata))
 }
 #[doc = "*Required features: `\"Win32_Networking_HttpServer\"`, `\"Win32_Foundation\"`, `\"Win32_System_IO\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
@@ -5432,7 +5432,7 @@ where
     extern "system" {
         fn HttpSendResponseEntityBody(requestqueuehandle: super::super::Foundation::HANDLE, requestid: u64, flags: u32, entitychunkcount: u16, entitychunks: *const HTTP_DATA_CHUNK, bytessent: *mut u32, reserved1: *mut ::core::ffi::c_void, reserved2: u32, overlapped: *mut super::super::System::IO::OVERLAPPED, logdata: *mut HTTP_LOG_DATA) -> u32;
     }
-    ::core::mem::transmute(HttpSendResponseEntityBody(requestqueuehandle.into(), requestid, flags, entitychunks.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(entitychunks)), ::core::mem::transmute(bytessent), ::core::mem::transmute(reserved1), reserved2, ::core::mem::transmute(overlapped), ::core::mem::transmute(logdata)))
+    HttpSendResponseEntityBody(requestqueuehandle.into(), requestid, flags, entitychunks.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(entitychunks)), ::core::mem::transmute(bytessent), ::core::mem::transmute(reserved1), reserved2, ::core::mem::transmute(overlapped), ::core::mem::transmute(logdata))
 }
 #[doc = "*Required features: `\"Win32_Networking_HttpServer\"`, `\"Win32_Foundation\"`, `\"Win32_System_IO\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
@@ -5445,7 +5445,7 @@ where
     extern "system" {
         fn HttpSetRequestProperty(requestqueuehandle: super::super::Foundation::HANDLE, id: u64, propertyid: HTTP_REQUEST_PROPERTY, input: *const ::core::ffi::c_void, inputpropertysize: u32, overlapped: *const super::super::System::IO::OVERLAPPED) -> u32;
     }
-    ::core::mem::transmute(HttpSetRequestProperty(requestqueuehandle.into(), id, propertyid, ::core::mem::transmute(input), inputpropertysize, ::core::mem::transmute(overlapped)))
+    HttpSetRequestProperty(requestqueuehandle.into(), id, propertyid, ::core::mem::transmute(input), inputpropertysize, ::core::mem::transmute(overlapped))
 }
 #[doc = "*Required features: `\"Win32_Networking_HttpServer\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -5458,7 +5458,7 @@ where
     extern "system" {
         fn HttpSetRequestQueueProperty(requestqueuehandle: super::super::Foundation::HANDLE, property: HTTP_SERVER_PROPERTY, propertyinformation: *const ::core::ffi::c_void, propertyinformationlength: u32, reserved1: u32, reserved2: *mut ::core::ffi::c_void) -> u32;
     }
-    ::core::mem::transmute(HttpSetRequestQueueProperty(requestqueuehandle.into(), property, ::core::mem::transmute(propertyinformation), propertyinformationlength, reserved1, ::core::mem::transmute(reserved2)))
+    HttpSetRequestQueueProperty(requestqueuehandle.into(), property, ::core::mem::transmute(propertyinformation), propertyinformationlength, reserved1, ::core::mem::transmute(reserved2))
 }
 #[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
 #[inline]
@@ -5467,7 +5467,7 @@ pub unsafe fn HttpSetServerSessionProperty(serversessionid: u64, property: HTTP_
     extern "system" {
         fn HttpSetServerSessionProperty(serversessionid: u64, property: HTTP_SERVER_PROPERTY, propertyinformation: *const ::core::ffi::c_void, propertyinformationlength: u32) -> u32;
     }
-    ::core::mem::transmute(HttpSetServerSessionProperty(serversessionid, property, ::core::mem::transmute(propertyinformation), propertyinformationlength))
+    HttpSetServerSessionProperty(serversessionid, property, ::core::mem::transmute(propertyinformation), propertyinformationlength)
 }
 #[doc = "*Required features: `\"Win32_Networking_HttpServer\"`, `\"Win32_Foundation\"`, `\"Win32_System_IO\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
@@ -5480,7 +5480,7 @@ where
     extern "system" {
         fn HttpSetServiceConfiguration(servicehandle: super::super::Foundation::HANDLE, configid: HTTP_SERVICE_CONFIG_ID, pconfiginformation: *const ::core::ffi::c_void, configinformationlength: u32, poverlapped: *mut super::super::System::IO::OVERLAPPED) -> u32;
     }
-    ::core::mem::transmute(HttpSetServiceConfiguration(servicehandle.into(), configid, ::core::mem::transmute(pconfiginformation), configinformationlength, ::core::mem::transmute(poverlapped)))
+    HttpSetServiceConfiguration(servicehandle.into(), configid, ::core::mem::transmute(pconfiginformation), configinformationlength, ::core::mem::transmute(poverlapped))
 }
 #[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
 #[inline]
@@ -5489,7 +5489,7 @@ pub unsafe fn HttpSetUrlGroupProperty(urlgroupid: u64, property: HTTP_SERVER_PRO
     extern "system" {
         fn HttpSetUrlGroupProperty(urlgroupid: u64, property: HTTP_SERVER_PROPERTY, propertyinformation: *const ::core::ffi::c_void, propertyinformationlength: u32) -> u32;
     }
-    ::core::mem::transmute(HttpSetUrlGroupProperty(urlgroupid, property, ::core::mem::transmute(propertyinformation), propertyinformationlength))
+    HttpSetUrlGroupProperty(urlgroupid, property, ::core::mem::transmute(propertyinformation), propertyinformationlength)
 }
 #[doc = "*Required features: `\"Win32_Networking_HttpServer\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -5502,7 +5502,7 @@ where
     extern "system" {
         fn HttpShutdownRequestQueue(requestqueuehandle: super::super::Foundation::HANDLE) -> u32;
     }
-    ::core::mem::transmute(HttpShutdownRequestQueue(requestqueuehandle.into()))
+    HttpShutdownRequestQueue(requestqueuehandle.into())
 }
 #[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
 #[inline]
@@ -5511,7 +5511,7 @@ pub unsafe fn HttpTerminate(flags: HTTP_INITIALIZE, preserved: *mut ::core::ffi:
     extern "system" {
         fn HttpTerminate(flags: HTTP_INITIALIZE, preserved: *mut ::core::ffi::c_void) -> u32;
     }
-    ::core::mem::transmute(HttpTerminate(flags, ::core::mem::transmute(preserved)))
+    HttpTerminate(flags, ::core::mem::transmute(preserved))
 }
 #[doc = "*Required features: `\"Win32_Networking_HttpServer\"`, `\"Win32_Foundation\"`, `\"Win32_System_IO\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
@@ -5524,7 +5524,7 @@ where
     extern "system" {
         fn HttpUpdateServiceConfiguration(handle: super::super::Foundation::HANDLE, configid: HTTP_SERVICE_CONFIG_ID, configinfo: *const ::core::ffi::c_void, configinfolength: u32, overlapped: *mut super::super::System::IO::OVERLAPPED) -> u32;
     }
-    ::core::mem::transmute(HttpUpdateServiceConfiguration(handle.into(), configid, ::core::mem::transmute(configinfo), configinfolength, ::core::mem::transmute(overlapped)))
+    HttpUpdateServiceConfiguration(handle.into(), configid, ::core::mem::transmute(configinfo), configinfolength, ::core::mem::transmute(overlapped))
 }
 #[doc = "*Required features: `\"Win32_Networking_HttpServer\"`, `\"Win32_Foundation\"`, `\"Win32_System_IO\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
@@ -5537,7 +5537,7 @@ where
     extern "system" {
         fn HttpWaitForDemandStart(requestqueuehandle: super::super::Foundation::HANDLE, overlapped: *mut super::super::System::IO::OVERLAPPED) -> u32;
     }
-    ::core::mem::transmute(HttpWaitForDemandStart(requestqueuehandle.into(), ::core::mem::transmute(overlapped)))
+    HttpWaitForDemandStart(requestqueuehandle.into(), ::core::mem::transmute(overlapped))
 }
 #[doc = "*Required features: `\"Win32_Networking_HttpServer\"`, `\"Win32_Foundation\"`, `\"Win32_System_IO\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
@@ -5550,7 +5550,7 @@ where
     extern "system" {
         fn HttpWaitForDisconnect(requestqueuehandle: super::super::Foundation::HANDLE, connectionid: u64, overlapped: *mut super::super::System::IO::OVERLAPPED) -> u32;
     }
-    ::core::mem::transmute(HttpWaitForDisconnect(requestqueuehandle.into(), connectionid, ::core::mem::transmute(overlapped)))
+    HttpWaitForDisconnect(requestqueuehandle.into(), connectionid, ::core::mem::transmute(overlapped))
 }
 #[doc = "*Required features: `\"Win32_Networking_HttpServer\"`, `\"Win32_Foundation\"`, `\"Win32_System_IO\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
@@ -5563,7 +5563,7 @@ where
     extern "system" {
         fn HttpWaitForDisconnectEx(requestqueuehandle: super::super::Foundation::HANDLE, connectionid: u64, reserved: u32, overlapped: *mut super::super::System::IO::OVERLAPPED) -> u32;
     }
-    ::core::mem::transmute(HttpWaitForDisconnectEx(requestqueuehandle.into(), connectionid, reserved, ::core::mem::transmute(overlapped)))
+    HttpWaitForDisconnectEx(requestqueuehandle.into(), connectionid, reserved, ::core::mem::transmute(overlapped))
 }
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

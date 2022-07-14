@@ -776,7 +776,7 @@ pub unsafe fn RtlFirstEntrySList(listhead: *const SLIST_HEADER) -> *mut SLIST_EN
     extern "system" {
         fn RtlFirstEntrySList(listhead: *const SLIST_HEADER) -> *mut SLIST_ENTRY;
     }
-    ::core::mem::transmute(RtlFirstEntrySList(::core::mem::transmute(listhead)))
+    RtlFirstEntrySList(::core::mem::transmute(listhead))
 }
 #[doc = "*Required features: `\"Win32_System_Kernel\"`*"]
 #[inline]
@@ -794,7 +794,7 @@ pub unsafe fn RtlInterlockedFlushSList(listhead: *mut SLIST_HEADER) -> *mut SLIS
     extern "system" {
         fn RtlInterlockedFlushSList(listhead: *mut SLIST_HEADER) -> *mut SLIST_ENTRY;
     }
-    ::core::mem::transmute(RtlInterlockedFlushSList(::core::mem::transmute(listhead)))
+    RtlInterlockedFlushSList(::core::mem::transmute(listhead))
 }
 #[doc = "*Required features: `\"Win32_System_Kernel\"`*"]
 #[inline]
@@ -803,7 +803,7 @@ pub unsafe fn RtlInterlockedPopEntrySList(listhead: *mut SLIST_HEADER) -> *mut S
     extern "system" {
         fn RtlInterlockedPopEntrySList(listhead: *mut SLIST_HEADER) -> *mut SLIST_ENTRY;
     }
-    ::core::mem::transmute(RtlInterlockedPopEntrySList(::core::mem::transmute(listhead)))
+    RtlInterlockedPopEntrySList(::core::mem::transmute(listhead))
 }
 #[doc = "*Required features: `\"Win32_System_Kernel\"`*"]
 #[inline]
@@ -812,7 +812,7 @@ pub unsafe fn RtlInterlockedPushEntrySList(listhead: *mut SLIST_HEADER, listentr
     extern "system" {
         fn RtlInterlockedPushEntrySList(listhead: *mut SLIST_HEADER, listentry: *mut SLIST_ENTRY) -> *mut SLIST_ENTRY;
     }
-    ::core::mem::transmute(RtlInterlockedPushEntrySList(::core::mem::transmute(listhead), ::core::mem::transmute(listentry)))
+    RtlInterlockedPushEntrySList(::core::mem::transmute(listhead), ::core::mem::transmute(listentry))
 }
 #[doc = "*Required features: `\"Win32_System_Kernel\"`*"]
 #[inline]
@@ -821,7 +821,7 @@ pub unsafe fn RtlInterlockedPushListSListEx(listhead: *mut SLIST_HEADER, list: *
     extern "system" {
         fn RtlInterlockedPushListSListEx(listhead: *mut SLIST_HEADER, list: *mut SLIST_ENTRY, listend: *mut SLIST_ENTRY, count: u32) -> *mut SLIST_ENTRY;
     }
-    ::core::mem::transmute(RtlInterlockedPushListSListEx(::core::mem::transmute(listhead), ::core::mem::transmute(list), ::core::mem::transmute(listend), count))
+    RtlInterlockedPushListSListEx(::core::mem::transmute(listhead), ::core::mem::transmute(list), ::core::mem::transmute(listend), count)
 }
 #[doc = "*Required features: `\"Win32_System_Kernel\"`*"]
 #[inline]
@@ -830,7 +830,7 @@ pub unsafe fn RtlQueryDepthSList(listhead: *const SLIST_HEADER) -> u16 {
     extern "system" {
         fn RtlQueryDepthSList(listhead: *const SLIST_HEADER) -> u16;
     }
-    ::core::mem::transmute(RtlQueryDepthSList(::core::mem::transmute(listhead)))
+    RtlQueryDepthSList(::core::mem::transmute(listhead))
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_System_Kernel\"`*"]

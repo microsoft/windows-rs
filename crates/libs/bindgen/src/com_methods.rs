@@ -105,7 +105,7 @@ pub fn gen(gen: &Gen, def: TypeDef, kind: InterfaceKind, method: MethodDef, meth
                 #doc
                 #features
                 pub unsafe fn #name<#generics>(&self, #params) #return_type #where_clause {
-                    ::core::mem::transmute((::windows::core::Interface::vtable(self)#bases.#vname)(::windows::core::Interface::as_raw(self), #args))
+                    (::windows::core::Interface::vtable(self)#bases.#vname)(::windows::core::Interface::as_raw(self), #args)
                 }
             }
         }

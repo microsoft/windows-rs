@@ -7,7 +7,7 @@ pub unsafe fn AddIPAddress(address: u32, ipmask: u32, ifindex: u32, ntecontext: 
     extern "system" {
         fn AddIPAddress(address: u32, ipmask: u32, ifindex: u32, ntecontext: *mut u32, nteinstance: *mut u32) -> u32;
     }
-    ::core::mem::transmute(AddIPAddress(address, ipmask, ifindex, ::core::mem::transmute(ntecontext), ::core::mem::transmute(nteinstance)))
+    AddIPAddress(address, ipmask, ifindex, ::core::mem::transmute(ntecontext), ::core::mem::transmute(nteinstance))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
 pub const BEST_IF: u32 = 20u32;
@@ -23,7 +23,7 @@ pub unsafe fn CancelIPChangeNotify(notifyoverlapped: *const super::super::System
     extern "system" {
         fn CancelIPChangeNotify(notifyoverlapped: *const super::super::System::IO::OVERLAPPED) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(CancelIPChangeNotify(::core::mem::transmute(notifyoverlapped)))
+    CancelIPChangeNotify(::core::mem::transmute(notifyoverlapped))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -46,7 +46,7 @@ pub unsafe fn CaptureInterfaceHardwareCrossTimestamp(interfaceluid: *const super
     extern "system" {
         fn CaptureInterfaceHardwareCrossTimestamp(interfaceluid: *const super::Ndis::NET_LUID_LH, crosstimestamp: *mut INTERFACE_HARDWARE_CROSSTIMESTAMP) -> u32;
     }
-    ::core::mem::transmute(CaptureInterfaceHardwareCrossTimestamp(::core::mem::transmute(interfaceluid), ::core::mem::transmute(crosstimestamp)))
+    CaptureInterfaceHardwareCrossTimestamp(::core::mem::transmute(interfaceluid), ::core::mem::transmute(crosstimestamp))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -215,7 +215,7 @@ pub unsafe fn CreateIpForwardEntry(proute: *const MIB_IPFORWARDROW) -> u32 {
     extern "system" {
         fn CreateIpForwardEntry(proute: *const MIB_IPFORWARDROW) -> u32;
     }
-    ::core::mem::transmute(CreateIpForwardEntry(::core::mem::transmute(proute)))
+    CreateIpForwardEntry(::core::mem::transmute(proute))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`, `\"Win32_Foundation\"`, `\"Win32_NetworkManagement_Ndis\"`, `\"Win32_Networking_WinSock\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_Ndis", feature = "Win32_Networking_WinSock"))]
@@ -234,7 +234,7 @@ pub unsafe fn CreateIpNetEntry(parpentry: *const MIB_IPNETROW_LH) -> u32 {
     extern "system" {
         fn CreateIpNetEntry(parpentry: *const MIB_IPNETROW_LH) -> u32;
     }
-    ::core::mem::transmute(CreateIpNetEntry(::core::mem::transmute(parpentry)))
+    CreateIpNetEntry(::core::mem::transmute(parpentry))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`, `\"Win32_Foundation\"`, `\"Win32_NetworkManagement_Ndis\"`, `\"Win32_Networking_WinSock\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_Ndis", feature = "Win32_Networking_WinSock"))]
@@ -253,7 +253,7 @@ pub unsafe fn CreatePersistentTcpPortReservation(startport: u16, numberofports: 
     extern "system" {
         fn CreatePersistentTcpPortReservation(startport: u16, numberofports: u16, token: *mut u64) -> u32;
     }
-    ::core::mem::transmute(CreatePersistentTcpPortReservation(startport, numberofports, ::core::mem::transmute(token)))
+    CreatePersistentTcpPortReservation(startport, numberofports, ::core::mem::transmute(token))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
 #[inline]
@@ -262,7 +262,7 @@ pub unsafe fn CreatePersistentUdpPortReservation(startport: u16, numberofports: 
     extern "system" {
         fn CreatePersistentUdpPortReservation(startport: u16, numberofports: u16, token: *mut u64) -> u32;
     }
-    ::core::mem::transmute(CreatePersistentUdpPortReservation(startport, numberofports, ::core::mem::transmute(token)))
+    CreatePersistentUdpPortReservation(startport, numberofports, ::core::mem::transmute(token))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
 #[inline]
@@ -271,7 +271,7 @@ pub unsafe fn CreateProxyArpEntry(dwaddress: u32, dwmask: u32, dwifindex: u32) -
     extern "system" {
         fn CreateProxyArpEntry(dwaddress: u32, dwmask: u32, dwifindex: u32) -> u32;
     }
-    ::core::mem::transmute(CreateProxyArpEntry(dwaddress, dwmask, dwifindex))
+    CreateProxyArpEntry(dwaddress, dwmask, dwifindex)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`, `\"Win32_Foundation\"`, `\"Win32_Networking_WinSock\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
@@ -689,7 +689,7 @@ pub unsafe fn DeleteIPAddress(ntecontext: u32) -> u32 {
     extern "system" {
         fn DeleteIPAddress(ntecontext: u32) -> u32;
     }
-    ::core::mem::transmute(DeleteIPAddress(ntecontext))
+    DeleteIPAddress(ntecontext)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`, `\"Win32_Networking_WinSock\"`*"]
 #[cfg(feature = "Win32_Networking_WinSock")]
@@ -699,7 +699,7 @@ pub unsafe fn DeleteIpForwardEntry(proute: *const MIB_IPFORWARDROW) -> u32 {
     extern "system" {
         fn DeleteIpForwardEntry(proute: *const MIB_IPFORWARDROW) -> u32;
     }
-    ::core::mem::transmute(DeleteIpForwardEntry(::core::mem::transmute(proute)))
+    DeleteIpForwardEntry(::core::mem::transmute(proute))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`, `\"Win32_Foundation\"`, `\"Win32_NetworkManagement_Ndis\"`, `\"Win32_Networking_WinSock\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_Ndis", feature = "Win32_Networking_WinSock"))]
@@ -718,7 +718,7 @@ pub unsafe fn DeleteIpNetEntry(parpentry: *const MIB_IPNETROW_LH) -> u32 {
     extern "system" {
         fn DeleteIpNetEntry(parpentry: *const MIB_IPNETROW_LH) -> u32;
     }
-    ::core::mem::transmute(DeleteIpNetEntry(::core::mem::transmute(parpentry)))
+    DeleteIpNetEntry(::core::mem::transmute(parpentry))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`, `\"Win32_Foundation\"`, `\"Win32_NetworkManagement_Ndis\"`, `\"Win32_Networking_WinSock\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_Ndis", feature = "Win32_Networking_WinSock"))]
@@ -737,7 +737,7 @@ pub unsafe fn DeletePersistentTcpPortReservation(startport: u16, numberofports: 
     extern "system" {
         fn DeletePersistentTcpPortReservation(startport: u16, numberofports: u16) -> u32;
     }
-    ::core::mem::transmute(DeletePersistentTcpPortReservation(startport, numberofports))
+    DeletePersistentTcpPortReservation(startport, numberofports)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
 #[inline]
@@ -746,7 +746,7 @@ pub unsafe fn DeletePersistentUdpPortReservation(startport: u16, numberofports: 
     extern "system" {
         fn DeletePersistentUdpPortReservation(startport: u16, numberofports: u16) -> u32;
     }
-    ::core::mem::transmute(DeletePersistentUdpPortReservation(startport, numberofports))
+    DeletePersistentUdpPortReservation(startport, numberofports)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
 #[inline]
@@ -755,7 +755,7 @@ pub unsafe fn DeleteProxyArpEntry(dwaddress: u32, dwmask: u32, dwifindex: u32) -
     extern "system" {
         fn DeleteProxyArpEntry(dwaddress: u32, dwmask: u32, dwifindex: u32) -> u32;
     }
-    ::core::mem::transmute(DeleteProxyArpEntry(dwaddress, dwmask, dwifindex))
+    DeleteProxyArpEntry(dwaddress, dwmask, dwifindex)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`, `\"Win32_Foundation\"`, `\"Win32_NetworkManagement_Ndis\"`, `\"Win32_Networking_WinSock\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_Ndis", feature = "Win32_Networking_WinSock"))]
@@ -775,7 +775,7 @@ pub unsafe fn DisableMediaSense(phandle: *mut super::super::Foundation::HANDLE, 
     extern "system" {
         fn DisableMediaSense(phandle: *mut super::super::Foundation::HANDLE, poverlapped: *const super::super::System::IO::OVERLAPPED) -> u32;
     }
-    ::core::mem::transmute(DisableMediaSense(::core::mem::transmute(phandle), ::core::mem::transmute(poverlapped)))
+    DisableMediaSense(::core::mem::transmute(phandle), ::core::mem::transmute(poverlapped))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
 pub const ERROR_BASE: u32 = 23000u32;
@@ -789,7 +789,7 @@ pub unsafe fn EnableRouter(phandle: *mut super::super::Foundation::HANDLE, pover
     extern "system" {
         fn EnableRouter(phandle: *mut super::super::Foundation::HANDLE, poverlapped: *mut super::super::System::IO::OVERLAPPED) -> u32;
     }
-    ::core::mem::transmute(EnableRouter(::core::mem::transmute(phandle), ::core::mem::transmute(poverlapped)))
+    EnableRouter(::core::mem::transmute(phandle), ::core::mem::transmute(poverlapped))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
 pub const FD_FLAGS_ALLFLAGS: u32 = 1u32;
@@ -848,7 +848,7 @@ pub unsafe fn FlushIpNetTable(dwifindex: u32) -> u32 {
     extern "system" {
         fn FlushIpNetTable(dwifindex: u32) -> u32;
     }
-    ::core::mem::transmute(FlushIpNetTable(dwifindex))
+    FlushIpNetTable(dwifindex)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -1011,7 +1011,7 @@ where
     extern "system" {
         fn GetAdapterIndex(adaptername: ::windows::core::PCWSTR, ifindex: *mut u32) -> u32;
     }
-    ::core::mem::transmute(GetAdapterIndex(adaptername.into(), ::core::mem::transmute(ifindex)))
+    GetAdapterIndex(adaptername.into(), ::core::mem::transmute(ifindex))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
 #[inline]
@@ -1020,7 +1020,7 @@ pub unsafe fn GetAdapterOrderMap() -> *mut IP_ADAPTER_ORDER_MAP {
     extern "system" {
         fn GetAdapterOrderMap() -> *mut IP_ADAPTER_ORDER_MAP;
     }
-    ::core::mem::transmute(GetAdapterOrderMap())
+    GetAdapterOrderMap()
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`, `\"Win32_Foundation\"`, `\"Win32_NetworkManagement_Ndis\"`, `\"Win32_Networking_WinSock\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_Ndis", feature = "Win32_Networking_WinSock"))]
@@ -1030,7 +1030,7 @@ pub unsafe fn GetAdaptersAddresses(family: super::super::Networking::WinSock::AD
     extern "system" {
         fn GetAdaptersAddresses(family: super::super::Networking::WinSock::ADDRESS_FAMILY, flags: GET_ADAPTERS_ADDRESSES_FLAGS, reserved: *mut ::core::ffi::c_void, adapteraddresses: *mut IP_ADAPTER_ADDRESSES_LH, sizepointer: *mut u32) -> u32;
     }
-    ::core::mem::transmute(GetAdaptersAddresses(family, flags, ::core::mem::transmute(reserved), ::core::mem::transmute(adapteraddresses), ::core::mem::transmute(sizepointer)))
+    GetAdaptersAddresses(family, flags, ::core::mem::transmute(reserved), ::core::mem::transmute(adapteraddresses), ::core::mem::transmute(sizepointer))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -1040,7 +1040,7 @@ pub unsafe fn GetAdaptersInfo(adapterinfo: *mut IP_ADAPTER_INFO, sizepointer: *m
     extern "system" {
         fn GetAdaptersInfo(adapterinfo: *mut IP_ADAPTER_INFO, sizepointer: *mut u32) -> u32;
     }
-    ::core::mem::transmute(GetAdaptersInfo(::core::mem::transmute(adapterinfo), ::core::mem::transmute(sizepointer)))
+    GetAdaptersInfo(::core::mem::transmute(adapterinfo), ::core::mem::transmute(sizepointer))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`, `\"Win32_Foundation\"`, `\"Win32_NetworkManagement_Ndis\"`, `\"Win32_Networking_WinSock\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_Ndis", feature = "Win32_Networking_WinSock"))]
@@ -1069,7 +1069,7 @@ pub unsafe fn GetBestInterface(dwdestaddr: u32, pdwbestifindex: *mut u32) -> u32
     extern "system" {
         fn GetBestInterface(dwdestaddr: u32, pdwbestifindex: *mut u32) -> u32;
     }
-    ::core::mem::transmute(GetBestInterface(dwdestaddr, ::core::mem::transmute(pdwbestifindex)))
+    GetBestInterface(dwdestaddr, ::core::mem::transmute(pdwbestifindex))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`, `\"Win32_Foundation\"`, `\"Win32_Networking_WinSock\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
@@ -1079,7 +1079,7 @@ pub unsafe fn GetBestInterfaceEx(pdestaddr: *const super::super::Networking::Win
     extern "system" {
         fn GetBestInterfaceEx(pdestaddr: *const super::super::Networking::WinSock::SOCKADDR, pdwbestifindex: *mut u32) -> u32;
     }
-    ::core::mem::transmute(GetBestInterfaceEx(::core::mem::transmute(pdestaddr), ::core::mem::transmute(pdwbestifindex)))
+    GetBestInterfaceEx(::core::mem::transmute(pdestaddr), ::core::mem::transmute(pdwbestifindex))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`, `\"Win32_Networking_WinSock\"`*"]
 #[cfg(feature = "Win32_Networking_WinSock")]
@@ -1089,7 +1089,7 @@ pub unsafe fn GetBestRoute(dwdestaddr: u32, dwsourceaddr: u32, pbestroute: *mut 
     extern "system" {
         fn GetBestRoute(dwdestaddr: u32, dwsourceaddr: u32, pbestroute: *mut MIB_IPFORWARDROW) -> u32;
     }
-    ::core::mem::transmute(GetBestRoute(dwdestaddr, dwsourceaddr, ::core::mem::transmute(pbestroute)))
+    GetBestRoute(dwdestaddr, dwsourceaddr, ::core::mem::transmute(pbestroute))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`, `\"Win32_Foundation\"`, `\"Win32_NetworkManagement_Ndis\"`, `\"Win32_Networking_WinSock\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_Ndis", feature = "Win32_Networking_WinSock"))]
@@ -1108,7 +1108,7 @@ pub unsafe fn GetCurrentThreadCompartmentId() -> u32 {
     extern "system" {
         fn GetCurrentThreadCompartmentId() -> u32;
     }
-    ::core::mem::transmute(GetCurrentThreadCompartmentId())
+    GetCurrentThreadCompartmentId()
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
 #[inline]
@@ -1126,7 +1126,7 @@ pub unsafe fn GetDefaultCompartmentId() -> u32 {
     extern "system" {
         fn GetDefaultCompartmentId() -> u32;
     }
-    ::core::mem::transmute(GetDefaultCompartmentId())
+    GetDefaultCompartmentId()
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -1149,7 +1149,7 @@ where
     extern "system" {
         fn GetExtendedTcpTable(ptcptable: *mut ::core::ffi::c_void, pdwsize: *mut u32, border: super::super::Foundation::BOOL, ulaf: u32, tableclass: TCP_TABLE_CLASS, reserved: u32) -> u32;
     }
-    ::core::mem::transmute(GetExtendedTcpTable(::core::mem::transmute(ptcptable), ::core::mem::transmute(pdwsize), border.into(), ulaf, tableclass, reserved))
+    GetExtendedTcpTable(::core::mem::transmute(ptcptable), ::core::mem::transmute(pdwsize), border.into(), ulaf, tableclass, reserved)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -1162,7 +1162,7 @@ where
     extern "system" {
         fn GetExtendedUdpTable(pudptable: *mut ::core::ffi::c_void, pdwsize: *mut u32, border: super::super::Foundation::BOOL, ulaf: u32, tableclass: UDP_TABLE_CLASS, reserved: u32) -> u32;
     }
-    ::core::mem::transmute(GetExtendedUdpTable(::core::mem::transmute(pudptable), ::core::mem::transmute(pdwsize), border.into(), ulaf, tableclass, reserved))
+    GetExtendedUdpTable(::core::mem::transmute(pudptable), ::core::mem::transmute(pdwsize), border.into(), ulaf, tableclass, reserved)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
 #[inline]
@@ -1171,7 +1171,7 @@ pub unsafe fn GetFriendlyIfIndex(ifindex: u32) -> u32 {
     extern "system" {
         fn GetFriendlyIfIndex(ifindex: u32) -> u32;
     }
-    ::core::mem::transmute(GetFriendlyIfIndex(ifindex))
+    GetFriendlyIfIndex(ifindex)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
 #[inline]
@@ -1180,7 +1180,7 @@ pub unsafe fn GetIcmpStatistics(statistics: *mut MIB_ICMP) -> u32 {
     extern "system" {
         fn GetIcmpStatistics(statistics: *mut MIB_ICMP) -> u32;
     }
-    ::core::mem::transmute(GetIcmpStatistics(::core::mem::transmute(statistics)))
+    GetIcmpStatistics(::core::mem::transmute(statistics))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
 #[inline]
@@ -1189,7 +1189,7 @@ pub unsafe fn GetIcmpStatisticsEx(statistics: *mut MIB_ICMP_EX_XPSP1, family: u3
     extern "system" {
         fn GetIcmpStatisticsEx(statistics: *mut MIB_ICMP_EX_XPSP1, family: u32) -> u32;
     }
-    ::core::mem::transmute(GetIcmpStatisticsEx(::core::mem::transmute(statistics), family))
+    GetIcmpStatisticsEx(::core::mem::transmute(statistics), family)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
 #[inline]
@@ -1198,7 +1198,7 @@ pub unsafe fn GetIfEntry(pifrow: *mut MIB_IFROW) -> u32 {
     extern "system" {
         fn GetIfEntry(pifrow: *mut MIB_IFROW) -> u32;
     }
-    ::core::mem::transmute(GetIfEntry(::core::mem::transmute(pifrow)))
+    GetIfEntry(::core::mem::transmute(pifrow))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`, `\"Win32_Foundation\"`, `\"Win32_NetworkManagement_Ndis\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_Ndis"))]
@@ -1241,7 +1241,7 @@ where
     extern "system" {
         fn GetIfTable(piftable: *mut MIB_IFTABLE, pdwsize: *mut u32, border: super::super::Foundation::BOOL) -> u32;
     }
-    ::core::mem::transmute(GetIfTable(::core::mem::transmute(piftable), ::core::mem::transmute(pdwsize), border.into()))
+    GetIfTable(::core::mem::transmute(piftable), ::core::mem::transmute(pdwsize), border.into())
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`, `\"Win32_Foundation\"`, `\"Win32_NetworkManagement_Ndis\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_Ndis"))]
@@ -1271,7 +1271,7 @@ pub unsafe fn GetInterfaceActiveTimestampCapabilities(interfaceluid: *const supe
     extern "system" {
         fn GetInterfaceActiveTimestampCapabilities(interfaceluid: *const super::Ndis::NET_LUID_LH, timestampcapabilites: *mut INTERFACE_TIMESTAMP_CAPABILITIES) -> u32;
     }
-    ::core::mem::transmute(GetInterfaceActiveTimestampCapabilities(::core::mem::transmute(interfaceluid), ::core::mem::transmute(timestampcapabilites)))
+    GetInterfaceActiveTimestampCapabilities(::core::mem::transmute(interfaceluid), ::core::mem::transmute(timestampcapabilites))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -1290,7 +1290,7 @@ pub unsafe fn GetInterfaceInfo(piftable: *mut IP_INTERFACE_INFO, dwoutbuflen: *m
     extern "system" {
         fn GetInterfaceInfo(piftable: *mut IP_INTERFACE_INFO, dwoutbuflen: *mut u32) -> u32;
     }
-    ::core::mem::transmute(GetInterfaceInfo(::core::mem::transmute(piftable), ::core::mem::transmute(dwoutbuflen)))
+    GetInterfaceInfo(::core::mem::transmute(piftable), ::core::mem::transmute(dwoutbuflen))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`, `\"Win32_Foundation\"`, `\"Win32_NetworkManagement_Ndis\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_Ndis"))]
@@ -1300,7 +1300,7 @@ pub unsafe fn GetInterfaceSupportedTimestampCapabilities(interfaceluid: *const s
     extern "system" {
         fn GetInterfaceSupportedTimestampCapabilities(interfaceluid: *const super::Ndis::NET_LUID_LH, timestampcapabilites: *mut INTERFACE_TIMESTAMP_CAPABILITIES) -> u32;
     }
-    ::core::mem::transmute(GetInterfaceSupportedTimestampCapabilities(::core::mem::transmute(interfaceluid), ::core::mem::transmute(timestampcapabilites)))
+    GetInterfaceSupportedTimestampCapabilities(::core::mem::transmute(interfaceluid), ::core::mem::transmute(timestampcapabilites))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -1323,7 +1323,7 @@ where
     extern "system" {
         fn GetIpAddrTable(pipaddrtable: *mut MIB_IPADDRTABLE, pdwsize: *mut u32, border: super::super::Foundation::BOOL) -> u32;
     }
-    ::core::mem::transmute(GetIpAddrTable(::core::mem::transmute(pipaddrtable), ::core::mem::transmute(pdwsize), border.into()))
+    GetIpAddrTable(::core::mem::transmute(pipaddrtable), ::core::mem::transmute(pdwsize), border.into())
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
 #[inline]
@@ -1332,7 +1332,7 @@ pub unsafe fn GetIpErrorString(errorcode: u32, buffer: ::windows::core::PWSTR, s
     extern "system" {
         fn GetIpErrorString(errorcode: u32, buffer: ::windows::core::PWSTR, size: *mut u32) -> u32;
     }
-    ::core::mem::transmute(GetIpErrorString(errorcode, ::core::mem::transmute(buffer), ::core::mem::transmute(size)))
+    GetIpErrorString(errorcode, ::core::mem::transmute(buffer), ::core::mem::transmute(size))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`, `\"Win32_Foundation\"`, `\"Win32_NetworkManagement_Ndis\"`, `\"Win32_Networking_WinSock\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_Ndis", feature = "Win32_Networking_WinSock"))]
@@ -1355,7 +1355,7 @@ where
     extern "system" {
         fn GetIpForwardTable(pipforwardtable: *mut MIB_IPFORWARDTABLE, pdwsize: *mut u32, border: super::super::Foundation::BOOL) -> u32;
     }
-    ::core::mem::transmute(GetIpForwardTable(::core::mem::transmute(pipforwardtable), ::core::mem::transmute(pdwsize), border.into()))
+    GetIpForwardTable(::core::mem::transmute(pipforwardtable), ::core::mem::transmute(pdwsize), border.into())
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`, `\"Win32_Foundation\"`, `\"Win32_NetworkManagement_Ndis\"`, `\"Win32_Networking_WinSock\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_Ndis", feature = "Win32_Networking_WinSock"))]
@@ -1408,7 +1408,7 @@ where
     extern "system" {
         fn GetIpNetTable(ipnettable: *mut MIB_IPNETTABLE, sizepointer: *mut u32, order: super::super::Foundation::BOOL) -> u32;
     }
-    ::core::mem::transmute(GetIpNetTable(::core::mem::transmute(ipnettable), ::core::mem::transmute(sizepointer), order.into()))
+    GetIpNetTable(::core::mem::transmute(ipnettable), ::core::mem::transmute(sizepointer), order.into())
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`, `\"Win32_Foundation\"`, `\"Win32_NetworkManagement_Ndis\"`, `\"Win32_Networking_WinSock\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_Ndis", feature = "Win32_Networking_WinSock"))]
@@ -1457,7 +1457,7 @@ pub unsafe fn GetIpStatistics(statistics: *mut MIB_IPSTATS_LH) -> u32 {
     extern "system" {
         fn GetIpStatistics(statistics: *mut MIB_IPSTATS_LH) -> u32;
     }
-    ::core::mem::transmute(GetIpStatistics(::core::mem::transmute(statistics)))
+    GetIpStatistics(::core::mem::transmute(statistics))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`, `\"Win32_Networking_WinSock\"`*"]
 #[cfg(feature = "Win32_Networking_WinSock")]
@@ -1467,7 +1467,7 @@ pub unsafe fn GetIpStatisticsEx(statistics: *mut MIB_IPSTATS_LH, family: super::
     extern "system" {
         fn GetIpStatisticsEx(statistics: *mut MIB_IPSTATS_LH, family: super::super::Networking::WinSock::ADDRESS_FAMILY) -> u32;
     }
-    ::core::mem::transmute(GetIpStatisticsEx(::core::mem::transmute(statistics), family))
+    GetIpStatisticsEx(::core::mem::transmute(statistics), family)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -1480,7 +1480,7 @@ where
     extern "system" {
         fn GetJobCompartmentId(jobhandle: super::super::Foundation::HANDLE) -> u32;
     }
-    ::core::mem::transmute(GetJobCompartmentId(jobhandle.into()))
+    GetJobCompartmentId(jobhandle.into())
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`, `\"Win32_Foundation\"`, `\"Win32_NetworkManagement_Ndis\"`, `\"Win32_Networking_WinSock\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_Ndis", feature = "Win32_Networking_WinSock"))]
@@ -1540,7 +1540,7 @@ pub unsafe fn GetNetworkParams(pfixedinfo: *mut FIXED_INFO_W2KSP1, poutbuflen: *
     extern "system" {
         fn GetNetworkParams(pfixedinfo: *mut FIXED_INFO_W2KSP1, poutbuflen: *mut u32) -> super::super::Foundation::WIN32_ERROR;
     }
-    ::core::mem::transmute(GetNetworkParams(::core::mem::transmute(pfixedinfo), ::core::mem::transmute(poutbuflen)))
+    GetNetworkParams(::core::mem::transmute(pfixedinfo), ::core::mem::transmute(poutbuflen))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
 #[inline]
@@ -1549,7 +1549,7 @@ pub unsafe fn GetNumberOfInterfaces(pdwnumif: *mut u32) -> u32 {
     extern "system" {
         fn GetNumberOfInterfaces(pdwnumif: *mut u32) -> u32;
     }
-    ::core::mem::transmute(GetNumberOfInterfaces(::core::mem::transmute(pdwnumif)))
+    GetNumberOfInterfaces(::core::mem::transmute(pdwnumif))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
 #[inline]
@@ -1558,7 +1558,7 @@ pub unsafe fn GetOwnerModuleFromPidAndInfo(ulpid: u32, pinfo: *const u64, class:
     extern "system" {
         fn GetOwnerModuleFromPidAndInfo(ulpid: u32, pinfo: *const u64, class: TCPIP_OWNER_MODULE_INFO_CLASS, pbuffer: *mut ::core::ffi::c_void, pdwsize: *mut u32) -> u32;
     }
-    ::core::mem::transmute(GetOwnerModuleFromPidAndInfo(ulpid, ::core::mem::transmute(pinfo), class, ::core::mem::transmute(pbuffer), ::core::mem::transmute(pdwsize)))
+    GetOwnerModuleFromPidAndInfo(ulpid, ::core::mem::transmute(pinfo), class, ::core::mem::transmute(pbuffer), ::core::mem::transmute(pdwsize))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
 #[inline]
@@ -1567,7 +1567,7 @@ pub unsafe fn GetOwnerModuleFromTcp6Entry(ptcpentry: *const MIB_TCP6ROW_OWNER_MO
     extern "system" {
         fn GetOwnerModuleFromTcp6Entry(ptcpentry: *const MIB_TCP6ROW_OWNER_MODULE, class: TCPIP_OWNER_MODULE_INFO_CLASS, pbuffer: *mut ::core::ffi::c_void, pdwsize: *mut u32) -> u32;
     }
-    ::core::mem::transmute(GetOwnerModuleFromTcp6Entry(::core::mem::transmute(ptcpentry), class, ::core::mem::transmute(pbuffer), ::core::mem::transmute(pdwsize)))
+    GetOwnerModuleFromTcp6Entry(::core::mem::transmute(ptcpentry), class, ::core::mem::transmute(pbuffer), ::core::mem::transmute(pdwsize))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
 #[inline]
@@ -1576,7 +1576,7 @@ pub unsafe fn GetOwnerModuleFromTcpEntry(ptcpentry: *const MIB_TCPROW_OWNER_MODU
     extern "system" {
         fn GetOwnerModuleFromTcpEntry(ptcpentry: *const MIB_TCPROW_OWNER_MODULE, class: TCPIP_OWNER_MODULE_INFO_CLASS, pbuffer: *mut ::core::ffi::c_void, pdwsize: *mut u32) -> u32;
     }
-    ::core::mem::transmute(GetOwnerModuleFromTcpEntry(::core::mem::transmute(ptcpentry), class, ::core::mem::transmute(pbuffer), ::core::mem::transmute(pdwsize)))
+    GetOwnerModuleFromTcpEntry(::core::mem::transmute(ptcpentry), class, ::core::mem::transmute(pbuffer), ::core::mem::transmute(pdwsize))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
 #[inline]
@@ -1585,7 +1585,7 @@ pub unsafe fn GetOwnerModuleFromUdp6Entry(pudpentry: *const MIB_UDP6ROW_OWNER_MO
     extern "system" {
         fn GetOwnerModuleFromUdp6Entry(pudpentry: *const MIB_UDP6ROW_OWNER_MODULE, class: TCPIP_OWNER_MODULE_INFO_CLASS, pbuffer: *mut ::core::ffi::c_void, pdwsize: *mut u32) -> u32;
     }
-    ::core::mem::transmute(GetOwnerModuleFromUdp6Entry(::core::mem::transmute(pudpentry), class, ::core::mem::transmute(pbuffer), ::core::mem::transmute(pdwsize)))
+    GetOwnerModuleFromUdp6Entry(::core::mem::transmute(pudpentry), class, ::core::mem::transmute(pbuffer), ::core::mem::transmute(pdwsize))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
 #[inline]
@@ -1594,7 +1594,7 @@ pub unsafe fn GetOwnerModuleFromUdpEntry(pudpentry: *const MIB_UDPROW_OWNER_MODU
     extern "system" {
         fn GetOwnerModuleFromUdpEntry(pudpentry: *const MIB_UDPROW_OWNER_MODULE, class: TCPIP_OWNER_MODULE_INFO_CLASS, pbuffer: *mut ::core::ffi::c_void, pdwsize: *mut u32) -> u32;
     }
-    ::core::mem::transmute(GetOwnerModuleFromUdpEntry(::core::mem::transmute(pudpentry), class, ::core::mem::transmute(pbuffer), ::core::mem::transmute(pdwsize)))
+    GetOwnerModuleFromUdpEntry(::core::mem::transmute(pudpentry), class, ::core::mem::transmute(pbuffer), ::core::mem::transmute(pdwsize))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -1604,7 +1604,7 @@ pub unsafe fn GetPerAdapterInfo(ifindex: u32, pperadapterinfo: *mut IP_PER_ADAPT
     extern "system" {
         fn GetPerAdapterInfo(ifindex: u32, pperadapterinfo: *mut IP_PER_ADAPTER_INFO_W2KSP1, poutbuflen: *mut u32) -> u32;
     }
-    ::core::mem::transmute(GetPerAdapterInfo(ifindex, ::core::mem::transmute(pperadapterinfo), ::core::mem::transmute(poutbuflen)))
+    GetPerAdapterInfo(ifindex, ::core::mem::transmute(pperadapterinfo), ::core::mem::transmute(poutbuflen))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`, `\"Win32_Networking_WinSock\"`*"]
 #[cfg(feature = "Win32_Networking_WinSock")]
@@ -1614,7 +1614,7 @@ pub unsafe fn GetPerTcp6ConnectionEStats(row: *const MIB_TCP6ROW, estatstype: TC
     extern "system" {
         fn GetPerTcp6ConnectionEStats(row: *const MIB_TCP6ROW, estatstype: TCP_ESTATS_TYPE, rw: *mut u8, rwversion: u32, rwsize: u32, ros: *mut u8, rosversion: u32, rossize: u32, rod: *mut u8, rodversion: u32, rodsize: u32) -> u32;
     }
-    ::core::mem::transmute(GetPerTcp6ConnectionEStats(::core::mem::transmute(row), estatstype, ::core::mem::transmute(rw), rwversion, rwsize, ::core::mem::transmute(ros), rosversion, rossize, ::core::mem::transmute(rod), rodversion, rodsize))
+    GetPerTcp6ConnectionEStats(::core::mem::transmute(row), estatstype, ::core::mem::transmute(rw), rwversion, rwsize, ::core::mem::transmute(ros), rosversion, rossize, ::core::mem::transmute(rod), rodversion, rodsize)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
 #[inline]
@@ -1623,7 +1623,7 @@ pub unsafe fn GetPerTcpConnectionEStats(row: *const MIB_TCPROW_LH, estatstype: T
     extern "system" {
         fn GetPerTcpConnectionEStats(row: *const MIB_TCPROW_LH, estatstype: TCP_ESTATS_TYPE, rw: *mut u8, rwversion: u32, rwsize: u32, ros: *mut u8, rosversion: u32, rossize: u32, rod: *mut u8, rodversion: u32, rodsize: u32) -> u32;
     }
-    ::core::mem::transmute(GetPerTcpConnectionEStats(::core::mem::transmute(row), estatstype, ::core::mem::transmute(rw), rwversion, rwsize, ::core::mem::transmute(ros), rosversion, rossize, ::core::mem::transmute(rod), rodversion, rodsize))
+    GetPerTcpConnectionEStats(::core::mem::transmute(row), estatstype, ::core::mem::transmute(rw), rwversion, rwsize, ::core::mem::transmute(ros), rosversion, rossize, ::core::mem::transmute(rod), rodversion, rodsize)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -1633,7 +1633,7 @@ pub unsafe fn GetRTTAndHopCount(destipaddress: u32, hopcount: *mut u32, maxhops:
     extern "system" {
         fn GetRTTAndHopCount(destipaddress: u32, hopcount: *mut u32, maxhops: u32, rtt: *mut u32) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(GetRTTAndHopCount(destipaddress, ::core::mem::transmute(hopcount), maxhops, ::core::mem::transmute(rtt)))
+    GetRTTAndHopCount(destipaddress, ::core::mem::transmute(hopcount), maxhops, ::core::mem::transmute(rtt))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
 #[inline]
@@ -1642,7 +1642,7 @@ pub unsafe fn GetSessionCompartmentId(sessionid: u32) -> u32 {
     extern "system" {
         fn GetSessionCompartmentId(sessionid: u32) -> u32;
     }
-    ::core::mem::transmute(GetSessionCompartmentId(sessionid))
+    GetSessionCompartmentId(sessionid)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`, `\"Win32_Foundation\"`, `\"Win32_Networking_WinSock\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
@@ -1655,7 +1655,7 @@ where
     extern "system" {
         fn GetTcp6Table(tcptable: *mut MIB_TCP6TABLE, sizepointer: *mut u32, order: super::super::Foundation::BOOL) -> u32;
     }
-    ::core::mem::transmute(GetTcp6Table(::core::mem::transmute(tcptable), ::core::mem::transmute(sizepointer), order.into()))
+    GetTcp6Table(::core::mem::transmute(tcptable), ::core::mem::transmute(sizepointer), order.into())
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`, `\"Win32_Foundation\"`, `\"Win32_Networking_WinSock\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
@@ -1668,7 +1668,7 @@ where
     extern "system" {
         fn GetTcp6Table2(tcptable: *mut MIB_TCP6TABLE2, sizepointer: *mut u32, order: super::super::Foundation::BOOL) -> u32;
     }
-    ::core::mem::transmute(GetTcp6Table2(::core::mem::transmute(tcptable), ::core::mem::transmute(sizepointer), order.into()))
+    GetTcp6Table2(::core::mem::transmute(tcptable), ::core::mem::transmute(sizepointer), order.into())
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
 #[inline]
@@ -1677,7 +1677,7 @@ pub unsafe fn GetTcpStatistics(statistics: *mut MIB_TCPSTATS_LH) -> u32 {
     extern "system" {
         fn GetTcpStatistics(statistics: *mut MIB_TCPSTATS_LH) -> u32;
     }
-    ::core::mem::transmute(GetTcpStatistics(::core::mem::transmute(statistics)))
+    GetTcpStatistics(::core::mem::transmute(statistics))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`, `\"Win32_Networking_WinSock\"`*"]
 #[cfg(feature = "Win32_Networking_WinSock")]
@@ -1687,7 +1687,7 @@ pub unsafe fn GetTcpStatisticsEx(statistics: *mut MIB_TCPSTATS_LH, family: super
     extern "system" {
         fn GetTcpStatisticsEx(statistics: *mut MIB_TCPSTATS_LH, family: super::super::Networking::WinSock::ADDRESS_FAMILY) -> u32;
     }
-    ::core::mem::transmute(GetTcpStatisticsEx(::core::mem::transmute(statistics), family))
+    GetTcpStatisticsEx(::core::mem::transmute(statistics), family)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`, `\"Win32_Networking_WinSock\"`*"]
 #[cfg(feature = "Win32_Networking_WinSock")]
@@ -1697,7 +1697,7 @@ pub unsafe fn GetTcpStatisticsEx2(statistics: *mut MIB_TCPSTATS2, family: super:
     extern "system" {
         fn GetTcpStatisticsEx2(statistics: *mut MIB_TCPSTATS2, family: super::super::Networking::WinSock::ADDRESS_FAMILY) -> u32;
     }
-    ::core::mem::transmute(GetTcpStatisticsEx2(::core::mem::transmute(statistics), family))
+    GetTcpStatisticsEx2(::core::mem::transmute(statistics), family)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -1710,7 +1710,7 @@ where
     extern "system" {
         fn GetTcpTable(tcptable: *mut MIB_TCPTABLE, sizepointer: *mut u32, order: super::super::Foundation::BOOL) -> u32;
     }
-    ::core::mem::transmute(GetTcpTable(::core::mem::transmute(tcptable), ::core::mem::transmute(sizepointer), order.into()))
+    GetTcpTable(::core::mem::transmute(tcptable), ::core::mem::transmute(sizepointer), order.into())
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -1723,7 +1723,7 @@ where
     extern "system" {
         fn GetTcpTable2(tcptable: *mut MIB_TCPTABLE2, sizepointer: *mut u32, order: super::super::Foundation::BOOL) -> u32;
     }
-    ::core::mem::transmute(GetTcpTable2(::core::mem::transmute(tcptable), ::core::mem::transmute(sizepointer), order.into()))
+    GetTcpTable2(::core::mem::transmute(tcptable), ::core::mem::transmute(sizepointer), order.into())
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -1746,7 +1746,7 @@ where
     extern "system" {
         fn GetUdp6Table(udp6table: *mut MIB_UDP6TABLE, sizepointer: *mut u32, order: super::super::Foundation::BOOL) -> u32;
     }
-    ::core::mem::transmute(GetUdp6Table(::core::mem::transmute(udp6table), ::core::mem::transmute(sizepointer), order.into()))
+    GetUdp6Table(::core::mem::transmute(udp6table), ::core::mem::transmute(sizepointer), order.into())
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
 #[inline]
@@ -1755,7 +1755,7 @@ pub unsafe fn GetUdpStatistics(stats: *mut MIB_UDPSTATS) -> u32 {
     extern "system" {
         fn GetUdpStatistics(stats: *mut MIB_UDPSTATS) -> u32;
     }
-    ::core::mem::transmute(GetUdpStatistics(::core::mem::transmute(stats)))
+    GetUdpStatistics(::core::mem::transmute(stats))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`, `\"Win32_Networking_WinSock\"`*"]
 #[cfg(feature = "Win32_Networking_WinSock")]
@@ -1765,7 +1765,7 @@ pub unsafe fn GetUdpStatisticsEx(statistics: *mut MIB_UDPSTATS, family: super::s
     extern "system" {
         fn GetUdpStatisticsEx(statistics: *mut MIB_UDPSTATS, family: super::super::Networking::WinSock::ADDRESS_FAMILY) -> u32;
     }
-    ::core::mem::transmute(GetUdpStatisticsEx(::core::mem::transmute(statistics), family))
+    GetUdpStatisticsEx(::core::mem::transmute(statistics), family)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`, `\"Win32_Networking_WinSock\"`*"]
 #[cfg(feature = "Win32_Networking_WinSock")]
@@ -1775,7 +1775,7 @@ pub unsafe fn GetUdpStatisticsEx2(statistics: *mut MIB_UDPSTATS2, family: super:
     extern "system" {
         fn GetUdpStatisticsEx2(statistics: *mut MIB_UDPSTATS2, family: super::super::Networking::WinSock::ADDRESS_FAMILY) -> u32;
     }
-    ::core::mem::transmute(GetUdpStatisticsEx2(::core::mem::transmute(statistics), family))
+    GetUdpStatisticsEx2(::core::mem::transmute(statistics), family)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -1788,7 +1788,7 @@ where
     extern "system" {
         fn GetUdpTable(udptable: *mut MIB_UDPTABLE, sizepointer: *mut u32, order: super::super::Foundation::BOOL) -> u32;
     }
-    ::core::mem::transmute(GetUdpTable(::core::mem::transmute(udptable), ::core::mem::transmute(sizepointer), order.into()))
+    GetUdpTable(::core::mem::transmute(udptable), ::core::mem::transmute(sizepointer), order.into())
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
 #[inline]
@@ -1797,7 +1797,7 @@ pub unsafe fn GetUniDirectionalAdapterInfo(pipifinfo: *mut IP_UNIDIRECTIONAL_ADA
     extern "system" {
         fn GetUniDirectionalAdapterInfo(pipifinfo: *mut IP_UNIDIRECTIONAL_ADAPTER_ADDRESS, dwoutbuflen: *mut u32) -> u32;
     }
-    ::core::mem::transmute(GetUniDirectionalAdapterInfo(::core::mem::transmute(pipifinfo), ::core::mem::transmute(dwoutbuflen)))
+    GetUniDirectionalAdapterInfo(::core::mem::transmute(pipifinfo), ::core::mem::transmute(dwoutbuflen))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`, `\"Win32_Foundation\"`, `\"Win32_NetworkManagement_Ndis\"`, `\"Win32_Networking_WinSock\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_Ndis", feature = "Win32_Networking_WinSock"))]
@@ -4494,7 +4494,7 @@ pub unsafe fn Icmp6ParseReplies(replybuffer: *mut ::core::ffi::c_void, replysize
     extern "system" {
         fn Icmp6ParseReplies(replybuffer: *mut ::core::ffi::c_void, replysize: u32) -> u32;
     }
-    ::core::mem::transmute(Icmp6ParseReplies(::core::mem::transmute(replybuffer), replysize))
+    Icmp6ParseReplies(::core::mem::transmute(replybuffer), replysize)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`, `\"Win32_Foundation\"`, `\"Win32_Networking_WinSock\"`, `\"Win32_System_WindowsProgramming\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock", feature = "Win32_System_WindowsProgramming"))]
@@ -4508,7 +4508,7 @@ where
     extern "system" {
         fn Icmp6SendEcho2(icmphandle: IcmpHandle, event: super::super::Foundation::HANDLE, apcroutine: *mut ::core::ffi::c_void, apccontext: *const ::core::ffi::c_void, sourceaddress: *const super::super::Networking::WinSock::SOCKADDR_IN6, destinationaddress: *const super::super::Networking::WinSock::SOCKADDR_IN6, requestdata: *const ::core::ffi::c_void, requestsize: u16, requestoptions: *const ip_option_information, replybuffer: *mut ::core::ffi::c_void, replysize: u32, timeout: u32) -> u32;
     }
-    ::core::mem::transmute(Icmp6SendEcho2(icmphandle.into(), event.into(), ::core::mem::transmute(apcroutine), ::core::mem::transmute(apccontext), ::core::mem::transmute(sourceaddress), ::core::mem::transmute(destinationaddress), ::core::mem::transmute(requestdata), requestsize, ::core::mem::transmute(requestoptions), ::core::mem::transmute(replybuffer), replysize, timeout))
+    Icmp6SendEcho2(icmphandle.into(), event.into(), ::core::mem::transmute(apcroutine), ::core::mem::transmute(apccontext), ::core::mem::transmute(sourceaddress), ::core::mem::transmute(destinationaddress), ::core::mem::transmute(requestdata), requestsize, ::core::mem::transmute(requestoptions), ::core::mem::transmute(replybuffer), replysize, timeout)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -4521,7 +4521,7 @@ where
     extern "system" {
         fn IcmpCloseHandle(icmphandle: IcmpHandle) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(IcmpCloseHandle(icmphandle.into()))
+    IcmpCloseHandle(icmphandle.into())
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
 #[inline]
@@ -4572,7 +4572,7 @@ pub unsafe fn IcmpParseReplies(replybuffer: *mut ::core::ffi::c_void, replysize:
     extern "system" {
         fn IcmpParseReplies(replybuffer: *mut ::core::ffi::c_void, replysize: u32) -> u32;
     }
-    ::core::mem::transmute(IcmpParseReplies(::core::mem::transmute(replybuffer), replysize))
+    IcmpParseReplies(::core::mem::transmute(replybuffer), replysize)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
 #[inline]
@@ -4584,7 +4584,7 @@ where
     extern "system" {
         fn IcmpSendEcho(icmphandle: IcmpHandle, destinationaddress: u32, requestdata: *const ::core::ffi::c_void, requestsize: u16, requestoptions: *const ip_option_information, replybuffer: *mut ::core::ffi::c_void, replysize: u32, timeout: u32) -> u32;
     }
-    ::core::mem::transmute(IcmpSendEcho(icmphandle.into(), destinationaddress, ::core::mem::transmute(requestdata), requestsize, ::core::mem::transmute(requestoptions), ::core::mem::transmute(replybuffer), replysize, timeout))
+    IcmpSendEcho(icmphandle.into(), destinationaddress, ::core::mem::transmute(requestdata), requestsize, ::core::mem::transmute(requestoptions), ::core::mem::transmute(replybuffer), replysize, timeout)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`, `\"Win32_Foundation\"`, `\"Win32_System_WindowsProgramming\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_WindowsProgramming"))]
@@ -4598,7 +4598,7 @@ where
     extern "system" {
         fn IcmpSendEcho2(icmphandle: IcmpHandle, event: super::super::Foundation::HANDLE, apcroutine: *mut ::core::ffi::c_void, apccontext: *const ::core::ffi::c_void, destinationaddress: u32, requestdata: *const ::core::ffi::c_void, requestsize: u16, requestoptions: *const ip_option_information, replybuffer: *mut ::core::ffi::c_void, replysize: u32, timeout: u32) -> u32;
     }
-    ::core::mem::transmute(IcmpSendEcho2(icmphandle.into(), event.into(), ::core::mem::transmute(apcroutine), ::core::mem::transmute(apccontext), destinationaddress, ::core::mem::transmute(requestdata), requestsize, ::core::mem::transmute(requestoptions), ::core::mem::transmute(replybuffer), replysize, timeout))
+    IcmpSendEcho2(icmphandle.into(), event.into(), ::core::mem::transmute(apcroutine), ::core::mem::transmute(apccontext), destinationaddress, ::core::mem::transmute(requestdata), requestsize, ::core::mem::transmute(requestoptions), ::core::mem::transmute(replybuffer), replysize, timeout)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`, `\"Win32_Foundation\"`, `\"Win32_System_WindowsProgramming\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_WindowsProgramming"))]
@@ -4612,7 +4612,7 @@ where
     extern "system" {
         fn IcmpSendEcho2Ex(icmphandle: IcmpHandle, event: super::super::Foundation::HANDLE, apcroutine: *mut ::core::ffi::c_void, apccontext: *const ::core::ffi::c_void, sourceaddress: u32, destinationaddress: u32, requestdata: *const ::core::ffi::c_void, requestsize: u16, requestoptions: *const ip_option_information, replybuffer: *mut ::core::ffi::c_void, replysize: u32, timeout: u32) -> u32;
     }
-    ::core::mem::transmute(IcmpSendEcho2Ex(icmphandle.into(), event.into(), ::core::mem::transmute(apcroutine), ::core::mem::transmute(apccontext), sourceaddress, destinationaddress, ::core::mem::transmute(requestdata), requestsize, ::core::mem::transmute(requestoptions), ::core::mem::transmute(replybuffer), replysize, timeout))
+    IcmpSendEcho2Ex(icmphandle.into(), event.into(), ::core::mem::transmute(apcroutine), ::core::mem::transmute(apccontext), sourceaddress, destinationaddress, ::core::mem::transmute(requestdata), requestsize, ::core::mem::transmute(requestoptions), ::core::mem::transmute(replybuffer), replysize, timeout)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`, `\"Win32_Foundation\"`, `\"Win32_NetworkManagement_Ndis\"`, `\"Win32_Networking_WinSock\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_Ndis", feature = "Win32_Networking_WinSock"))]
@@ -4651,7 +4651,7 @@ pub unsafe fn IpReleaseAddress(adapterinfo: *const IP_ADAPTER_INDEX_MAP) -> u32 
     extern "system" {
         fn IpReleaseAddress(adapterinfo: *const IP_ADAPTER_INDEX_MAP) -> u32;
     }
-    ::core::mem::transmute(IpReleaseAddress(::core::mem::transmute(adapterinfo)))
+    IpReleaseAddress(::core::mem::transmute(adapterinfo))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
 #[inline]
@@ -4660,7 +4660,7 @@ pub unsafe fn IpRenewAddress(adapterinfo: *const IP_ADAPTER_INDEX_MAP) -> u32 {
     extern "system" {
         fn IpRenewAddress(adapterinfo: *const IP_ADAPTER_INDEX_MAP) -> u32;
     }
-    ::core::mem::transmute(IpRenewAddress(::core::mem::transmute(adapterinfo)))
+    IpRenewAddress(::core::mem::transmute(adapterinfo))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
 pub const LB_DST_ADDR_USE_DSTADDR_FLAG: u32 = 8u32;
@@ -4681,7 +4681,7 @@ pub unsafe fn LookupPersistentTcpPortReservation(startport: u16, numberofports: 
     extern "system" {
         fn LookupPersistentTcpPortReservation(startport: u16, numberofports: u16, token: *mut u64) -> u32;
     }
-    ::core::mem::transmute(LookupPersistentTcpPortReservation(startport, numberofports, ::core::mem::transmute(token)))
+    LookupPersistentTcpPortReservation(startport, numberofports, ::core::mem::transmute(token))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
 #[inline]
@@ -4690,7 +4690,7 @@ pub unsafe fn LookupPersistentUdpPortReservation(startport: u16, numberofports: 
     extern "system" {
         fn LookupPersistentUdpPortReservation(startport: u16, numberofports: u16, token: *mut u64) -> u32;
     }
-    ::core::mem::transmute(LookupPersistentUdpPortReservation(startport, numberofports, ::core::mem::transmute(token)))
+    LookupPersistentUdpPortReservation(startport, numberofports, ::core::mem::transmute(token))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
 pub const MAXLEN_IFDESCR: u32 = 256u32;
@@ -9467,7 +9467,7 @@ where
     extern "system" {
         fn NhpAllocateAndGetInterfaceInfoFromStack(pptable: *mut *mut ip_interface_name_info_w2ksp1, pdwcount: *mut u32, border: super::super::Foundation::BOOL, hheap: super::super::Foundation::HANDLE, dwflags: u32) -> u32;
     }
-    ::core::mem::transmute(NhpAllocateAndGetInterfaceInfoFromStack(::core::mem::transmute(pptable), ::core::mem::transmute(pdwcount), border.into(), hheap.into(), dwflags))
+    NhpAllocateAndGetInterfaceInfoFromStack(::core::mem::transmute(pptable), ::core::mem::transmute(pdwcount), border.into(), hheap.into(), dwflags)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`, `\"Win32_Foundation\"`, `\"Win32_System_IO\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
@@ -9477,7 +9477,7 @@ pub unsafe fn NotifyAddrChange(handle: *mut super::super::Foundation::HANDLE, ov
     extern "system" {
         fn NotifyAddrChange(handle: *mut super::super::Foundation::HANDLE, overlapped: *const super::super::System::IO::OVERLAPPED) -> u32;
     }
-    ::core::mem::transmute(NotifyAddrChange(::core::mem::transmute(handle), ::core::mem::transmute(overlapped)))
+    NotifyAddrChange(::core::mem::transmute(handle), ::core::mem::transmute(overlapped))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`, `\"Win32_Foundation\"`, `\"Win32_NetworkManagement_Ndis\"`, `\"Win32_Networking_WinSock\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_Ndis", feature = "Win32_Networking_WinSock"))]
@@ -9513,7 +9513,7 @@ pub unsafe fn NotifyRouteChange(handle: *mut super::super::Foundation::HANDLE, o
     extern "system" {
         fn NotifyRouteChange(handle: *mut super::super::Foundation::HANDLE, overlapped: *const super::super::System::IO::OVERLAPPED) -> u32;
     }
-    ::core::mem::transmute(NotifyRouteChange(::core::mem::transmute(handle), ::core::mem::transmute(overlapped)))
+    NotifyRouteChange(::core::mem::transmute(handle), ::core::mem::transmute(overlapped))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`, `\"Win32_Foundation\"`, `\"Win32_NetworkManagement_Ndis\"`, `\"Win32_Networking_WinSock\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_Ndis", feature = "Win32_Networking_WinSock"))]
@@ -9902,7 +9902,7 @@ pub unsafe fn PfAddFiltersToInterface(ih: *mut ::core::ffi::c_void, cinfilters: 
     extern "system" {
         fn PfAddFiltersToInterface(ih: *mut ::core::ffi::c_void, cinfilters: u32, pfiltin: *mut PF_FILTER_DESCRIPTOR, coutfilters: u32, pfiltout: *mut PF_FILTER_DESCRIPTOR, pfhandle: *mut *mut ::core::ffi::c_void) -> u32;
     }
-    ::core::mem::transmute(PfAddFiltersToInterface(::core::mem::transmute(ih), cinfilters, ::core::mem::transmute(pfiltin), coutfilters, ::core::mem::transmute(pfiltout), ::core::mem::transmute(pfhandle)))
+    PfAddFiltersToInterface(::core::mem::transmute(ih), cinfilters, ::core::mem::transmute(pfiltin), coutfilters, ::core::mem::transmute(pfiltout), ::core::mem::transmute(pfhandle))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
 #[inline]
@@ -9911,7 +9911,7 @@ pub unsafe fn PfAddGlobalFilterToInterface(pinterface: *mut ::core::ffi::c_void,
     extern "system" {
         fn PfAddGlobalFilterToInterface(pinterface: *mut ::core::ffi::c_void, gffilter: GLOBAL_FILTER) -> u32;
     }
-    ::core::mem::transmute(PfAddGlobalFilterToInterface(::core::mem::transmute(pinterface), gffilter))
+    PfAddGlobalFilterToInterface(::core::mem::transmute(pinterface), gffilter)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
 #[inline]
@@ -9920,7 +9920,7 @@ pub unsafe fn PfBindInterfaceToIPAddress(pinterface: *mut ::core::ffi::c_void, p
     extern "system" {
         fn PfBindInterfaceToIPAddress(pinterface: *mut ::core::ffi::c_void, pfattype: PFADDRESSTYPE, ipaddress: *mut u8) -> u32;
     }
-    ::core::mem::transmute(PfBindInterfaceToIPAddress(::core::mem::transmute(pinterface), pfattype, ::core::mem::transmute(ipaddress)))
+    PfBindInterfaceToIPAddress(::core::mem::transmute(pinterface), pfattype, ::core::mem::transmute(ipaddress))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
 #[inline]
@@ -9929,7 +9929,7 @@ pub unsafe fn PfBindInterfaceToIndex(pinterface: *mut ::core::ffi::c_void, dwind
     extern "system" {
         fn PfBindInterfaceToIndex(pinterface: *mut ::core::ffi::c_void, dwindex: u32, pfatlinktype: PFADDRESSTYPE, linkipaddress: *mut u8) -> u32;
     }
-    ::core::mem::transmute(PfBindInterfaceToIndex(::core::mem::transmute(pinterface), dwindex, pfatlinktype, ::core::mem::transmute(linkipaddress)))
+    PfBindInterfaceToIndex(::core::mem::transmute(pinterface), dwindex, pfatlinktype, ::core::mem::transmute(linkipaddress))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -9943,7 +9943,7 @@ where
     extern "system" {
         fn PfCreateInterface(dwname: u32, inaction: PFFORWARD_ACTION, outaction: PFFORWARD_ACTION, buselog: super::super::Foundation::BOOL, bmustbeunique: super::super::Foundation::BOOL, ppinterface: *mut *mut ::core::ffi::c_void) -> u32;
     }
-    ::core::mem::transmute(PfCreateInterface(dwname, inaction, outaction, buselog.into(), bmustbeunique.into(), ::core::mem::transmute(ppinterface)))
+    PfCreateInterface(dwname, inaction, outaction, buselog.into(), bmustbeunique.into(), ::core::mem::transmute(ppinterface))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
 #[inline]
@@ -9952,7 +9952,7 @@ pub unsafe fn PfDeleteInterface(pinterface: *mut ::core::ffi::c_void) -> u32 {
     extern "system" {
         fn PfDeleteInterface(pinterface: *mut ::core::ffi::c_void) -> u32;
     }
-    ::core::mem::transmute(PfDeleteInterface(::core::mem::transmute(pinterface)))
+    PfDeleteInterface(::core::mem::transmute(pinterface))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
 #[inline]
@@ -9961,7 +9961,7 @@ pub unsafe fn PfDeleteLog() -> u32 {
     extern "system" {
         fn PfDeleteLog() -> u32;
     }
-    ::core::mem::transmute(PfDeleteLog())
+    PfDeleteLog()
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -9974,7 +9974,7 @@ where
     extern "system" {
         fn PfGetInterfaceStatistics(pinterface: *mut ::core::ffi::c_void, ppfstats: *mut PF_INTERFACE_STATS, pdwbuffersize: *mut u32, fresetcounters: super::super::Foundation::BOOL) -> u32;
     }
-    ::core::mem::transmute(PfGetInterfaceStatistics(::core::mem::transmute(pinterface), ::core::mem::transmute(ppfstats), ::core::mem::transmute(pdwbuffersize), fresetcounters.into()))
+    PfGetInterfaceStatistics(::core::mem::transmute(pinterface), ::core::mem::transmute(ppfstats), ::core::mem::transmute(pdwbuffersize), fresetcounters.into())
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -9987,7 +9987,7 @@ where
     extern "system" {
         fn PfMakeLog(hevent: super::super::Foundation::HANDLE) -> u32;
     }
-    ::core::mem::transmute(PfMakeLog(hevent.into()))
+    PfMakeLog(hevent.into())
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
 #[inline]
@@ -9996,7 +9996,7 @@ pub unsafe fn PfRebindFilters(pinterface: *mut ::core::ffi::c_void, platebindinf
     extern "system" {
         fn PfRebindFilters(pinterface: *mut ::core::ffi::c_void, platebindinfo: *mut PF_LATEBIND_INFO) -> u32;
     }
-    ::core::mem::transmute(PfRebindFilters(::core::mem::transmute(pinterface), ::core::mem::transmute(platebindinfo)))
+    PfRebindFilters(::core::mem::transmute(pinterface), ::core::mem::transmute(platebindinfo))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
 #[inline]
@@ -10005,7 +10005,7 @@ pub unsafe fn PfRemoveFilterHandles(pinterface: *mut ::core::ffi::c_void, cfilte
     extern "system" {
         fn PfRemoveFilterHandles(pinterface: *mut ::core::ffi::c_void, cfilters: u32, pvhandles: *mut *mut ::core::ffi::c_void) -> u32;
     }
-    ::core::mem::transmute(PfRemoveFilterHandles(::core::mem::transmute(pinterface), cfilters, ::core::mem::transmute(pvhandles)))
+    PfRemoveFilterHandles(::core::mem::transmute(pinterface), cfilters, ::core::mem::transmute(pvhandles))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
 #[inline]
@@ -10014,7 +10014,7 @@ pub unsafe fn PfRemoveFiltersFromInterface(ih: *mut ::core::ffi::c_void, cinfilt
     extern "system" {
         fn PfRemoveFiltersFromInterface(ih: *mut ::core::ffi::c_void, cinfilters: u32, pfiltin: *mut PF_FILTER_DESCRIPTOR, coutfilters: u32, pfiltout: *mut PF_FILTER_DESCRIPTOR) -> u32;
     }
-    ::core::mem::transmute(PfRemoveFiltersFromInterface(::core::mem::transmute(ih), cinfilters, ::core::mem::transmute(pfiltin), coutfilters, ::core::mem::transmute(pfiltout)))
+    PfRemoveFiltersFromInterface(::core::mem::transmute(ih), cinfilters, ::core::mem::transmute(pfiltin), coutfilters, ::core::mem::transmute(pfiltout))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
 #[inline]
@@ -10023,7 +10023,7 @@ pub unsafe fn PfRemoveGlobalFilterFromInterface(pinterface: *mut ::core::ffi::c_
     extern "system" {
         fn PfRemoveGlobalFilterFromInterface(pinterface: *mut ::core::ffi::c_void, gffilter: GLOBAL_FILTER) -> u32;
     }
-    ::core::mem::transmute(PfRemoveGlobalFilterFromInterface(::core::mem::transmute(pinterface), gffilter))
+    PfRemoveGlobalFilterFromInterface(::core::mem::transmute(pinterface), gffilter)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
 #[inline]
@@ -10032,7 +10032,7 @@ pub unsafe fn PfSetLogBuffer(pbbuffer: *mut u8, dwsize: u32, dwthreshold: u32, d
     extern "system" {
         fn PfSetLogBuffer(pbbuffer: *mut u8, dwsize: u32, dwthreshold: u32, dwentries: u32, pdwloggedentries: *mut u32, pdwlostentries: *mut u32, pdwsizeused: *mut u32) -> u32;
     }
-    ::core::mem::transmute(PfSetLogBuffer(::core::mem::transmute(pbbuffer), dwsize, dwthreshold, dwentries, ::core::mem::transmute(pdwloggedentries), ::core::mem::transmute(pdwlostentries), ::core::mem::transmute(pdwsizeused)))
+    PfSetLogBuffer(::core::mem::transmute(pbbuffer), dwsize, dwthreshold, dwentries, ::core::mem::transmute(pdwloggedentries), ::core::mem::transmute(pdwlostentries), ::core::mem::transmute(pdwsizeused))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
 #[inline]
@@ -10041,7 +10041,7 @@ pub unsafe fn PfTestPacket(pininterface: *mut ::core::ffi::c_void, poutinterface
     extern "system" {
         fn PfTestPacket(pininterface: *mut ::core::ffi::c_void, poutinterface: *mut ::core::ffi::c_void, cbytes: u32, pbpacket: *mut u8, ppaction: *mut PFFORWARD_ACTION) -> u32;
     }
-    ::core::mem::transmute(PfTestPacket(::core::mem::transmute(pininterface), ::core::mem::transmute(poutinterface), cbytes, ::core::mem::transmute(pbpacket), ::core::mem::transmute(ppaction)))
+    PfTestPacket(::core::mem::transmute(pininterface), ::core::mem::transmute(poutinterface), cbytes, ::core::mem::transmute(pbpacket), ::core::mem::transmute(ppaction))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
 #[inline]
@@ -10050,7 +10050,7 @@ pub unsafe fn PfUnBindInterface(pinterface: *mut ::core::ffi::c_void) -> u32 {
     extern "system" {
         fn PfUnBindInterface(pinterface: *mut ::core::ffi::c_void) -> u32;
     }
-    ::core::mem::transmute(PfUnBindInterface(::core::mem::transmute(pinterface)))
+    PfUnBindInterface(::core::mem::transmute(pinterface))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
 pub const ROUTE_LONGER: u32 = 32u32;
@@ -10067,7 +10067,7 @@ pub unsafe fn RegisterInterfaceTimestampConfigChange(callback: PINTERFACE_TIMEST
     extern "system" {
         fn RegisterInterfaceTimestampConfigChange(callback: *mut ::core::ffi::c_void, callercontext: *const ::core::ffi::c_void, notificationhandle: *mut HIFTIMESTAMPCHANGE) -> u32;
     }
-    ::core::mem::transmute(RegisterInterfaceTimestampConfigChange(::core::mem::transmute(callback), ::core::mem::transmute(callercontext), ::core::mem::transmute(notificationhandle)))
+    RegisterInterfaceTimestampConfigChange(::core::mem::transmute(callback), ::core::mem::transmute(callercontext), ::core::mem::transmute(notificationhandle))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`, `\"Win32_Foundation\"`, `\"Win32_NetworkManagement_Ndis\"`, `\"Win32_Networking_WinSock\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_Ndis", feature = "Win32_Networking_WinSock"))]
@@ -10087,7 +10087,7 @@ pub unsafe fn ResolveNeighbor(networkaddress: *const super::super::Networking::W
     extern "system" {
         fn ResolveNeighbor(networkaddress: *const super::super::Networking::WinSock::SOCKADDR, physicaladdress: *mut ::core::ffi::c_void, physicaladdresslength: *mut u32) -> u32;
     }
-    ::core::mem::transmute(ResolveNeighbor(::core::mem::transmute(networkaddress), ::core::mem::transmute(physicaladdress), ::core::mem::transmute(physicaladdresslength)))
+    ResolveNeighbor(::core::mem::transmute(networkaddress), ::core::mem::transmute(physicaladdress), ::core::mem::transmute(physicaladdresslength))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`, `\"Win32_Foundation\"`, `\"Win32_System_IO\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
@@ -10097,7 +10097,7 @@ pub unsafe fn RestoreMediaSense(poverlapped: *const super::super::System::IO::OV
     extern "system" {
         fn RestoreMediaSense(poverlapped: *const super::super::System::IO::OVERLAPPED, lpdwenablecount: *mut u32) -> u32;
     }
-    ::core::mem::transmute(RestoreMediaSense(::core::mem::transmute(poverlapped), ::core::mem::transmute(lpdwenablecount)))
+    RestoreMediaSense(::core::mem::transmute(poverlapped), ::core::mem::transmute(lpdwenablecount))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
 #[inline]
@@ -10106,7 +10106,7 @@ pub unsafe fn SendARP(destip: u32, srcip: u32, pmacaddr: *mut ::core::ffi::c_voi
     extern "system" {
         fn SendARP(destip: u32, srcip: u32, pmacaddr: *mut ::core::ffi::c_void, phyaddrlen: *mut u32) -> u32;
     }
-    ::core::mem::transmute(SendARP(destip, srcip, ::core::mem::transmute(pmacaddr), ::core::mem::transmute(phyaddrlen)))
+    SendARP(destip, srcip, ::core::mem::transmute(pmacaddr), ::core::mem::transmute(phyaddrlen))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -10145,7 +10145,7 @@ pub unsafe fn SetIfEntry(pifrow: *const MIB_IFROW) -> u32 {
     extern "system" {
         fn SetIfEntry(pifrow: *const MIB_IFROW) -> u32;
     }
-    ::core::mem::transmute(SetIfEntry(::core::mem::transmute(pifrow)))
+    SetIfEntry(::core::mem::transmute(pifrow))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -10165,7 +10165,7 @@ pub unsafe fn SetIpForwardEntry(proute: *const MIB_IPFORWARDROW) -> u32 {
     extern "system" {
         fn SetIpForwardEntry(proute: *const MIB_IPFORWARDROW) -> u32;
     }
-    ::core::mem::transmute(SetIpForwardEntry(::core::mem::transmute(proute)))
+    SetIpForwardEntry(::core::mem::transmute(proute))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`, `\"Win32_Foundation\"`, `\"Win32_NetworkManagement_Ndis\"`, `\"Win32_Networking_WinSock\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_Ndis", feature = "Win32_Networking_WinSock"))]
@@ -10194,7 +10194,7 @@ pub unsafe fn SetIpNetEntry(parpentry: *const MIB_IPNETROW_LH) -> u32 {
     extern "system" {
         fn SetIpNetEntry(parpentry: *const MIB_IPNETROW_LH) -> u32;
     }
-    ::core::mem::transmute(SetIpNetEntry(::core::mem::transmute(parpentry)))
+    SetIpNetEntry(::core::mem::transmute(parpentry))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`, `\"Win32_Foundation\"`, `\"Win32_NetworkManagement_Ndis\"`, `\"Win32_Networking_WinSock\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_Ndis", feature = "Win32_Networking_WinSock"))]
@@ -10213,7 +10213,7 @@ pub unsafe fn SetIpStatistics(pipstats: *const MIB_IPSTATS_LH) -> u32 {
     extern "system" {
         fn SetIpStatistics(pipstats: *const MIB_IPSTATS_LH) -> u32;
     }
-    ::core::mem::transmute(SetIpStatistics(::core::mem::transmute(pipstats)))
+    SetIpStatistics(::core::mem::transmute(pipstats))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
 #[inline]
@@ -10222,7 +10222,7 @@ pub unsafe fn SetIpStatisticsEx(statistics: *const MIB_IPSTATS_LH, family: u32) 
     extern "system" {
         fn SetIpStatisticsEx(statistics: *const MIB_IPSTATS_LH, family: u32) -> u32;
     }
-    ::core::mem::transmute(SetIpStatisticsEx(::core::mem::transmute(statistics), family))
+    SetIpStatisticsEx(::core::mem::transmute(statistics), family)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
 #[inline]
@@ -10231,7 +10231,7 @@ pub unsafe fn SetIpTTL(nttl: u32) -> u32 {
     extern "system" {
         fn SetIpTTL(nttl: u32) -> u32;
     }
-    ::core::mem::transmute(SetIpTTL(nttl))
+    SetIpTTL(nttl)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -10267,7 +10267,7 @@ pub unsafe fn SetPerTcp6ConnectionEStats(row: *const MIB_TCP6ROW, estatstype: TC
     extern "system" {
         fn SetPerTcp6ConnectionEStats(row: *const MIB_TCP6ROW, estatstype: TCP_ESTATS_TYPE, rw: *const u8, rwversion: u32, rwsize: u32, offset: u32) -> u32;
     }
-    ::core::mem::transmute(SetPerTcp6ConnectionEStats(::core::mem::transmute(row), estatstype, ::core::mem::transmute(rw), rwversion, rwsize, offset))
+    SetPerTcp6ConnectionEStats(::core::mem::transmute(row), estatstype, ::core::mem::transmute(rw), rwversion, rwsize, offset)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
 #[inline]
@@ -10276,7 +10276,7 @@ pub unsafe fn SetPerTcpConnectionEStats(row: *const MIB_TCPROW_LH, estatstype: T
     extern "system" {
         fn SetPerTcpConnectionEStats(row: *const MIB_TCPROW_LH, estatstype: TCP_ESTATS_TYPE, rw: *const u8, rwversion: u32, rwsize: u32, offset: u32) -> u32;
     }
-    ::core::mem::transmute(SetPerTcpConnectionEStats(::core::mem::transmute(row), estatstype, ::core::mem::transmute(rw), rwversion, rwsize, offset))
+    SetPerTcpConnectionEStats(::core::mem::transmute(row), estatstype, ::core::mem::transmute(rw), rwversion, rwsize, offset)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -10295,7 +10295,7 @@ pub unsafe fn SetTcpEntry(ptcprow: *const MIB_TCPROW_LH) -> u32 {
     extern "system" {
         fn SetTcpEntry(ptcprow: *const MIB_TCPROW_LH) -> u32;
     }
-    ::core::mem::transmute(SetTcpEntry(::core::mem::transmute(ptcprow)))
+    SetTcpEntry(::core::mem::transmute(ptcprow))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`, `\"Win32_Foundation\"`, `\"Win32_NetworkManagement_Ndis\"`, `\"Win32_Networking_WinSock\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_Ndis", feature = "Win32_Networking_WinSock"))]
@@ -11447,7 +11447,7 @@ pub unsafe fn UnenableRouter(poverlapped: *const super::super::System::IO::OVERL
     extern "system" {
         fn UnenableRouter(poverlapped: *const super::super::System::IO::OVERLAPPED, lpdwenablecount: *mut u32) -> u32;
     }
-    ::core::mem::transmute(UnenableRouter(::core::mem::transmute(poverlapped), ::core::mem::transmute(lpdwenablecount)))
+    UnenableRouter(::core::mem::transmute(poverlapped), ::core::mem::transmute(lpdwenablecount))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
 #[inline]
@@ -11606,7 +11606,7 @@ pub unsafe fn if_indextoname(interfaceindex: u32, interfacename: &mut [u8; 256])
     extern "system" {
         fn if_indextoname(interfaceindex: u32, interfacename: ::windows::core::PSTR) -> ::windows::core::PSTR;
     }
-    ::core::mem::transmute(if_indextoname(interfaceindex, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(interfacename))))
+    if_indextoname(interfaceindex, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(interfacename)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
 #[inline]
@@ -11618,7 +11618,7 @@ where
     extern "system" {
         fn if_nametoindex(interfacename: ::windows::core::PCSTR) -> u32;
     }
-    ::core::mem::transmute(if_nametoindex(interfacename.into()))
+    if_nametoindex(interfacename.into())
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]

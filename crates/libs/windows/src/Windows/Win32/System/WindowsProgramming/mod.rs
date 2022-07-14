@@ -306,7 +306,7 @@ where
     extern "system" {
         fn ApphelpCheckShellObject(objectclsid: *const ::windows::core::GUID, bshimifnecessary: super::super::Foundation::BOOL, pullflags: *mut u64) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(ApphelpCheckShellObject(::core::mem::transmute(objectclsid), bshimifnecessary.into(), ::core::mem::transmute(pullflags)))
+    ApphelpCheckShellObject(::core::mem::transmute(objectclsid), bshimifnecessary.into(), ::core::mem::transmute(pullflags))
 }
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
 pub const BACKUP_GHOSTED_FILE_EXTENTS: u32 = 11u32;
@@ -803,7 +803,7 @@ where
     extern "system" {
         fn CancelDeviceWakeupRequest(hdevice: super::super::Foundation::HANDLE) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(CancelDeviceWakeupRequest(hdevice.into()))
+    CancelDeviceWakeupRequest(hdevice.into())
 }
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -817,7 +817,7 @@ where
     extern "system" {
         fn CancelTimerQueueTimer(timerqueue: super::super::Foundation::HANDLE, timer: super::super::Foundation::HANDLE) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(CancelTimerQueueTimer(timerqueue.into(), timer.into()))
+    CancelTimerQueueTimer(timerqueue.into(), timer.into())
 }
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
 #[inline]
@@ -858,7 +858,7 @@ where
     extern "system" {
         fn CreateWaitableTimerA(lptimerattributes: *const super::super::Security::SECURITY_ATTRIBUTES, bmanualreset: super::super::Foundation::BOOL, lptimername: ::windows::core::PCSTR) -> super::super::Foundation::HANDLE;
     }
-    ::core::mem::transmute(CreateWaitableTimerA(::core::mem::transmute(lptimerattributes), bmanualreset.into(), lptimername.into()))
+    CreateWaitableTimerA(::core::mem::transmute(lptimerattributes), bmanualreset.into(), lptimername.into())
 }
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
@@ -871,7 +871,7 @@ where
     extern "system" {
         fn CreateWaitableTimerExA(lptimerattributes: *const super::super::Security::SECURITY_ATTRIBUTES, lptimername: ::windows::core::PCSTR, dwflags: u32, dwdesiredaccess: u32) -> super::super::Foundation::HANDLE;
     }
-    ::core::mem::transmute(CreateWaitableTimerExA(::core::mem::transmute(lptimerattributes), lptimername.into(), dwflags, dwdesiredaccess))
+    CreateWaitableTimerExA(::core::mem::transmute(lptimerattributes), lptimername.into(), dwflags, dwdesiredaccess)
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
@@ -915,7 +915,7 @@ pub unsafe fn DCIBeginAccess(pdci: *mut DCISURFACEINFO, x: i32, y: i32, dx: i32,
     extern "system" {
         fn DCIBeginAccess(pdci: *mut DCISURFACEINFO, x: i32, y: i32, dx: i32, dy: i32) -> i32;
     }
-    ::core::mem::transmute(DCIBeginAccess(::core::mem::transmute(pdci), x, y, dx, dy))
+    DCIBeginAccess(::core::mem::transmute(pdci), x, y, dx, dy)
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
@@ -1018,7 +1018,7 @@ where
     extern "system" {
         fn DCICreateOffscreen(hdc: super::super::Graphics::Gdi::HDC, dwcompression: u32, dwredmask: u32, dwgreenmask: u32, dwbluemask: u32, dwwidth: u32, dwheight: u32, dwdcicaps: u32, dwbitcount: u32, lplpsurface: *mut *mut DCIOFFSCREEN) -> i32;
     }
-    ::core::mem::transmute(DCICreateOffscreen(hdc.into(), dwcompression, dwredmask, dwgreenmask, dwbluemask, dwwidth, dwheight, dwdcicaps, dwbitcount, ::core::mem::transmute(lplpsurface)))
+    DCICreateOffscreen(hdc.into(), dwcompression, dwredmask, dwgreenmask, dwbluemask, dwwidth, dwheight, dwdcicaps, dwbitcount, ::core::mem::transmute(lplpsurface))
 }
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(feature = "Win32_Graphics_Gdi")]
@@ -1031,7 +1031,7 @@ where
     extern "system" {
         fn DCICreateOverlay(hdc: super::super::Graphics::Gdi::HDC, lpoffscreensurf: *mut ::core::ffi::c_void, lplpsurface: *mut *mut DCIOVERLAY) -> i32;
     }
-    ::core::mem::transmute(DCICreateOverlay(hdc.into(), ::core::mem::transmute(lpoffscreensurf), ::core::mem::transmute(lplpsurface)))
+    DCICreateOverlay(hdc.into(), ::core::mem::transmute(lpoffscreensurf), ::core::mem::transmute(lplpsurface))
 }
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(feature = "Win32_Graphics_Gdi")]
@@ -1044,7 +1044,7 @@ where
     extern "system" {
         fn DCICreatePrimary(hdc: super::super::Graphics::Gdi::HDC, lplpsurface: *mut *mut DCISURFACEINFO) -> i32;
     }
-    ::core::mem::transmute(DCICreatePrimary(hdc.into(), ::core::mem::transmute(lplpsurface)))
+    DCICreatePrimary(hdc.into(), ::core::mem::transmute(lplpsurface))
 }
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
 #[inline]
@@ -1062,7 +1062,7 @@ pub unsafe fn DCIDraw(pdci: *mut DCIOFFSCREEN) -> i32 {
     extern "system" {
         fn DCIDraw(pdci: *mut DCIOFFSCREEN) -> i32;
     }
-    ::core::mem::transmute(DCIDraw(::core::mem::transmute(pdci)))
+    DCIDraw(::core::mem::transmute(pdci))
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`, `\"Win32_Foundation\"`*"]
@@ -1130,7 +1130,7 @@ where
     extern "system" {
         fn DCIEnum(hdc: super::super::Graphics::Gdi::HDC, lprdst: *mut super::super::Foundation::RECT, lprsrc: *mut super::super::Foundation::RECT, lpfncallback: *mut ::core::ffi::c_void, lpcontext: *mut ::core::ffi::c_void) -> i32;
     }
-    ::core::mem::transmute(DCIEnum(hdc.into(), ::core::mem::transmute(lprdst), ::core::mem::transmute(lprsrc), ::core::mem::transmute(lpfncallback), ::core::mem::transmute(lpcontext)))
+    DCIEnum(hdc.into(), ::core::mem::transmute(lprdst), ::core::mem::transmute(lprsrc), ::core::mem::transmute(lpfncallback), ::core::mem::transmute(lpcontext))
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
@@ -1205,7 +1205,7 @@ pub unsafe fn DCIOpenProvider() -> super::super::Graphics::Gdi::HDC {
     extern "system" {
         fn DCIOpenProvider() -> super::super::Graphics::Gdi::HDC;
     }
-    ::core::mem::transmute(DCIOpenProvider())
+    DCIOpenProvider()
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
@@ -1279,7 +1279,7 @@ pub unsafe fn DCISetClipList(pdci: *mut DCIOFFSCREEN, prd: *mut super::super::Gr
     extern "system" {
         fn DCISetClipList(pdci: *mut DCIOFFSCREEN, prd: *mut super::super::Graphics::Gdi::RGNDATA) -> i32;
     }
-    ::core::mem::transmute(DCISetClipList(::core::mem::transmute(pdci), ::core::mem::transmute(prd)))
+    DCISetClipList(::core::mem::transmute(pdci), ::core::mem::transmute(prd))
 }
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -1289,7 +1289,7 @@ pub unsafe fn DCISetDestination(pdci: *mut DCIOFFSCREEN, dst: *mut super::super:
     extern "system" {
         fn DCISetDestination(pdci: *mut DCIOFFSCREEN, dst: *mut super::super::Foundation::RECT, src: *mut super::super::Foundation::RECT) -> i32;
     }
-    ::core::mem::transmute(DCISetDestination(::core::mem::transmute(pdci), ::core::mem::transmute(dst), ::core::mem::transmute(src)))
+    DCISetDestination(::core::mem::transmute(pdci), ::core::mem::transmute(dst), ::core::mem::transmute(src))
 }
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
@@ -1299,7 +1299,7 @@ pub unsafe fn DCISetSrcDestClip(pdci: *mut DCIOFFSCREEN, srcrc: *mut super::supe
     extern "system" {
         fn DCISetSrcDestClip(pdci: *mut DCIOFFSCREEN, srcrc: *mut super::super::Foundation::RECT, destrc: *mut super::super::Foundation::RECT, prd: *mut super::super::Graphics::Gdi::RGNDATA) -> i32;
     }
-    ::core::mem::transmute(DCISetSrcDestClip(::core::mem::transmute(pdci), ::core::mem::transmute(srcrc), ::core::mem::transmute(destrc), ::core::mem::transmute(prd)))
+    DCISetSrcDestClip(::core::mem::transmute(pdci), ::core::mem::transmute(srcrc), ::core::mem::transmute(destrc), ::core::mem::transmute(prd))
 }
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
 pub const DCI_1632_ACCESS: u32 = 64u32;
@@ -1658,7 +1658,7 @@ where
     extern "system" {
         fn DnsHostnameToComputerNameA(hostname: ::windows::core::PCSTR, computername: ::windows::core::PSTR, nsize: *mut u32) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(DnsHostnameToComputerNameA(hostname.into(), ::core::mem::transmute(computername), ::core::mem::transmute(nsize)))
+    DnsHostnameToComputerNameA(hostname.into(), ::core::mem::transmute(computername), ::core::mem::transmute(nsize))
 }
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -1671,7 +1671,7 @@ where
     extern "system" {
         fn DnsHostnameToComputerNameW(hostname: ::windows::core::PCWSTR, computername: ::windows::core::PWSTR, nsize: *mut u32) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(DnsHostnameToComputerNameW(hostname.into(), ::core::mem::transmute(computername), ::core::mem::transmute(nsize)))
+    DnsHostnameToComputerNameW(hostname.into(), ::core::mem::transmute(computername), ::core::mem::transmute(nsize))
 }
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -1681,7 +1681,7 @@ pub unsafe fn DosDateTimeToFileTime(wfatdate: u16, wfattime: u16, lpfiletime: *m
     extern "system" {
         fn DosDateTimeToFileTime(wfatdate: u16, wfattime: u16, lpfiletime: *mut super::super::Foundation::FILETIME) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(DosDateTimeToFileTime(wfatdate, wfattime, ::core::mem::transmute(lpfiletime)))
+    DosDateTimeToFileTime(wfatdate, wfattime, ::core::mem::transmute(lpfiletime))
 }
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
 pub const EFSRPC_SECURE_ONLY: u32 = 8u32;
@@ -1710,7 +1710,7 @@ pub unsafe fn EnableProcessOptionalXStateFeatures(features: u64) -> super::super
     extern "system" {
         fn EnableProcessOptionalXStateFeatures(features: u64) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(EnableProcessOptionalXStateFeatures(features))
+    EnableProcessOptionalXStateFeatures(features)
 }
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -2267,7 +2267,7 @@ pub unsafe fn FileTimeToDosDateTime(lpfiletime: *const super::super::Foundation:
     extern "system" {
         fn FileTimeToDosDateTime(lpfiletime: *const super::super::Foundation::FILETIME, lpfatdate: *mut u16, lpfattime: *mut u16) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(FileTimeToDosDateTime(::core::mem::transmute(lpfiletime), ::core::mem::transmute(lpfatdate), ::core::mem::transmute(lpfattime)))
+    FileTimeToDosDateTime(::core::mem::transmute(lpfiletime), ::core::mem::transmute(lpfatdate), ::core::mem::transmute(lpfattime))
 }
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
 pub const GET_SYSTEM_WOW64_DIRECTORY_NAME_A_A: &str = "GetSystemWow64DirectoryA";
@@ -2320,7 +2320,7 @@ pub unsafe fn GdiEntry13() -> u32 {
     extern "system" {
         fn GdiEntry13() -> u32;
     }
-    ::core::mem::transmute(GdiEntry13())
+    GdiEntry13()
 }
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -2330,7 +2330,7 @@ pub unsafe fn GetComputerNameA(lpbuffer: ::windows::core::PSTR, nsize: *mut u32)
     extern "system" {
         fn GetComputerNameA(lpbuffer: ::windows::core::PSTR, nsize: *mut u32) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(GetComputerNameA(::core::mem::transmute(lpbuffer), ::core::mem::transmute(nsize)))
+    GetComputerNameA(::core::mem::transmute(lpbuffer), ::core::mem::transmute(nsize))
 }
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -2340,7 +2340,7 @@ pub unsafe fn GetComputerNameW(lpbuffer: ::windows::core::PWSTR, nsize: *mut u32
     extern "system" {
         fn GetComputerNameW(lpbuffer: ::windows::core::PWSTR, nsize: *mut u32) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(GetComputerNameW(::core::mem::transmute(lpbuffer), ::core::mem::transmute(nsize)))
+    GetComputerNameW(::core::mem::transmute(lpbuffer), ::core::mem::transmute(nsize))
 }
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -2350,7 +2350,7 @@ pub unsafe fn GetCurrentHwProfileA(lphwprofileinfo: *mut HW_PROFILE_INFOA) -> su
     extern "system" {
         fn GetCurrentHwProfileA(lphwprofileinfo: *mut HW_PROFILE_INFOA) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(GetCurrentHwProfileA(::core::mem::transmute(lphwprofileinfo)))
+    GetCurrentHwProfileA(::core::mem::transmute(lphwprofileinfo))
 }
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -2360,7 +2360,7 @@ pub unsafe fn GetCurrentHwProfileW(lphwprofileinfo: *mut HW_PROFILE_INFOW) -> su
     extern "system" {
         fn GetCurrentHwProfileW(lphwprofileinfo: *mut HW_PROFILE_INFOW) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(GetCurrentHwProfileW(::core::mem::transmute(lphwprofileinfo)))
+    GetCurrentHwProfileW(::core::mem::transmute(lphwprofileinfo))
 }
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
@@ -2373,7 +2373,7 @@ where
     extern "system" {
         fn GetDCRegionData(hdc: super::super::Graphics::Gdi::HDC, size: u32, prd: *mut super::super::Graphics::Gdi::RGNDATA) -> u32;
     }
-    ::core::mem::transmute(GetDCRegionData(hdc.into(), size, ::core::mem::transmute(prd)))
+    GetDCRegionData(hdc.into(), size, ::core::mem::transmute(prd))
 }
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
 #[inline]
@@ -2382,7 +2382,7 @@ pub unsafe fn GetFeatureEnabledState(featureid: u32, changetime: FEATURE_CHANGE_
     extern "system" {
         fn GetFeatureEnabledState(featureid: u32, changetime: FEATURE_CHANGE_TIME) -> FEATURE_ENABLED_STATE;
     }
-    ::core::mem::transmute(GetFeatureEnabledState(featureid, changetime))
+    GetFeatureEnabledState(featureid, changetime)
 }
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -2392,7 +2392,7 @@ pub unsafe fn GetFeatureVariant(featureid: u32, changetime: FEATURE_CHANGE_TIME,
     extern "system" {
         fn GetFeatureVariant(featureid: u32, changetime: FEATURE_CHANGE_TIME, payloadid: *mut u32, hasnotification: *mut super::super::Foundation::BOOL) -> u32;
     }
-    ::core::mem::transmute(GetFeatureVariant(featureid, changetime, ::core::mem::transmute(payloadid), ::core::mem::transmute(hasnotification)))
+    GetFeatureVariant(featureid, changetime, ::core::mem::transmute(payloadid), ::core::mem::transmute(hasnotification))
 }
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
 #[inline]
@@ -2405,7 +2405,7 @@ where
     extern "system" {
         fn GetFirmwareEnvironmentVariableA(lpname: ::windows::core::PCSTR, lpguid: ::windows::core::PCSTR, pbuffer: *mut ::core::ffi::c_void, nsize: u32) -> u32;
     }
-    ::core::mem::transmute(GetFirmwareEnvironmentVariableA(lpname.into(), lpguid.into(), ::core::mem::transmute(pbuffer), nsize))
+    GetFirmwareEnvironmentVariableA(lpname.into(), lpguid.into(), ::core::mem::transmute(pbuffer), nsize)
 }
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
 #[inline]
@@ -2418,7 +2418,7 @@ where
     extern "system" {
         fn GetFirmwareEnvironmentVariableExA(lpname: ::windows::core::PCSTR, lpguid: ::windows::core::PCSTR, pbuffer: *mut ::core::ffi::c_void, nsize: u32, pdwattribubutes: *mut u32) -> u32;
     }
-    ::core::mem::transmute(GetFirmwareEnvironmentVariableExA(lpname.into(), lpguid.into(), ::core::mem::transmute(pbuffer), nsize, ::core::mem::transmute(pdwattribubutes)))
+    GetFirmwareEnvironmentVariableExA(lpname.into(), lpguid.into(), ::core::mem::transmute(pbuffer), nsize, ::core::mem::transmute(pdwattribubutes))
 }
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
 #[inline]
@@ -2431,7 +2431,7 @@ where
     extern "system" {
         fn GetFirmwareEnvironmentVariableExW(lpname: ::windows::core::PCWSTR, lpguid: ::windows::core::PCWSTR, pbuffer: *mut ::core::ffi::c_void, nsize: u32, pdwattribubutes: *mut u32) -> u32;
     }
-    ::core::mem::transmute(GetFirmwareEnvironmentVariableExW(lpname.into(), lpguid.into(), ::core::mem::transmute(pbuffer), nsize, ::core::mem::transmute(pdwattribubutes)))
+    GetFirmwareEnvironmentVariableExW(lpname.into(), lpguid.into(), ::core::mem::transmute(pbuffer), nsize, ::core::mem::transmute(pdwattribubutes))
 }
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
 #[inline]
@@ -2444,7 +2444,7 @@ where
     extern "system" {
         fn GetFirmwareEnvironmentVariableW(lpname: ::windows::core::PCWSTR, lpguid: ::windows::core::PCWSTR, pbuffer: *mut ::core::ffi::c_void, nsize: u32) -> u32;
     }
-    ::core::mem::transmute(GetFirmwareEnvironmentVariableW(lpname.into(), lpguid.into(), ::core::mem::transmute(pbuffer), nsize))
+    GetFirmwareEnvironmentVariableW(lpname.into(), lpguid.into(), ::core::mem::transmute(pbuffer), nsize)
 }
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
 #[inline]
@@ -2458,7 +2458,7 @@ where
     extern "system" {
         fn GetPrivateProfileIntA(lpappname: ::windows::core::PCSTR, lpkeyname: ::windows::core::PCSTR, ndefault: i32, lpfilename: ::windows::core::PCSTR) -> u32;
     }
-    ::core::mem::transmute(GetPrivateProfileIntA(lpappname.into(), lpkeyname.into(), ndefault, lpfilename.into()))
+    GetPrivateProfileIntA(lpappname.into(), lpkeyname.into(), ndefault, lpfilename.into())
 }
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
 #[inline]
@@ -2472,7 +2472,7 @@ where
     extern "system" {
         fn GetPrivateProfileIntW(lpappname: ::windows::core::PCWSTR, lpkeyname: ::windows::core::PCWSTR, ndefault: i32, lpfilename: ::windows::core::PCWSTR) -> u32;
     }
-    ::core::mem::transmute(GetPrivateProfileIntW(lpappname.into(), lpkeyname.into(), ndefault, lpfilename.into()))
+    GetPrivateProfileIntW(lpappname.into(), lpkeyname.into(), ndefault, lpfilename.into())
 }
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
 #[inline]
@@ -2485,7 +2485,7 @@ where
     extern "system" {
         fn GetPrivateProfileSectionA(lpappname: ::windows::core::PCSTR, lpreturnedstring: ::windows::core::PSTR, nsize: u32, lpfilename: ::windows::core::PCSTR) -> u32;
     }
-    ::core::mem::transmute(GetPrivateProfileSectionA(lpappname.into(), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(lpreturnedstring)), lpreturnedstring.len() as _, lpfilename.into()))
+    GetPrivateProfileSectionA(lpappname.into(), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(lpreturnedstring)), lpreturnedstring.len() as _, lpfilename.into())
 }
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
 #[inline]
@@ -2497,7 +2497,7 @@ where
     extern "system" {
         fn GetPrivateProfileSectionNamesA(lpszreturnbuffer: ::windows::core::PSTR, nsize: u32, lpfilename: ::windows::core::PCSTR) -> u32;
     }
-    ::core::mem::transmute(GetPrivateProfileSectionNamesA(::core::mem::transmute(::windows::core::as_mut_ptr_or_null(lpszreturnbuffer)), lpszreturnbuffer.len() as _, lpfilename.into()))
+    GetPrivateProfileSectionNamesA(::core::mem::transmute(::windows::core::as_mut_ptr_or_null(lpszreturnbuffer)), lpszreturnbuffer.len() as _, lpfilename.into())
 }
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
 #[inline]
@@ -2509,7 +2509,7 @@ where
     extern "system" {
         fn GetPrivateProfileSectionNamesW(lpszreturnbuffer: ::windows::core::PWSTR, nsize: u32, lpfilename: ::windows::core::PCWSTR) -> u32;
     }
-    ::core::mem::transmute(GetPrivateProfileSectionNamesW(::core::mem::transmute(::windows::core::as_mut_ptr_or_null(lpszreturnbuffer)), lpszreturnbuffer.len() as _, lpfilename.into()))
+    GetPrivateProfileSectionNamesW(::core::mem::transmute(::windows::core::as_mut_ptr_or_null(lpszreturnbuffer)), lpszreturnbuffer.len() as _, lpfilename.into())
 }
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
 #[inline]
@@ -2522,7 +2522,7 @@ where
     extern "system" {
         fn GetPrivateProfileSectionW(lpappname: ::windows::core::PCWSTR, lpreturnedstring: ::windows::core::PWSTR, nsize: u32, lpfilename: ::windows::core::PCWSTR) -> u32;
     }
-    ::core::mem::transmute(GetPrivateProfileSectionW(lpappname.into(), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(lpreturnedstring)), lpreturnedstring.len() as _, lpfilename.into()))
+    GetPrivateProfileSectionW(lpappname.into(), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(lpreturnedstring)), lpreturnedstring.len() as _, lpfilename.into())
 }
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
 #[inline]
@@ -2537,7 +2537,7 @@ where
     extern "system" {
         fn GetPrivateProfileStringA(lpappname: ::windows::core::PCSTR, lpkeyname: ::windows::core::PCSTR, lpdefault: ::windows::core::PCSTR, lpreturnedstring: ::windows::core::PSTR, nsize: u32, lpfilename: ::windows::core::PCSTR) -> u32;
     }
-    ::core::mem::transmute(GetPrivateProfileStringA(lpappname.into(), lpkeyname.into(), lpdefault.into(), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(lpreturnedstring)), lpreturnedstring.len() as _, lpfilename.into()))
+    GetPrivateProfileStringA(lpappname.into(), lpkeyname.into(), lpdefault.into(), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(lpreturnedstring)), lpreturnedstring.len() as _, lpfilename.into())
 }
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
 #[inline]
@@ -2552,7 +2552,7 @@ where
     extern "system" {
         fn GetPrivateProfileStringW(lpappname: ::windows::core::PCWSTR, lpkeyname: ::windows::core::PCWSTR, lpdefault: ::windows::core::PCWSTR, lpreturnedstring: ::windows::core::PWSTR, nsize: u32, lpfilename: ::windows::core::PCWSTR) -> u32;
     }
-    ::core::mem::transmute(GetPrivateProfileStringW(lpappname.into(), lpkeyname.into(), lpdefault.into(), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(lpreturnedstring)), lpreturnedstring.len() as _, lpfilename.into()))
+    GetPrivateProfileStringW(lpappname.into(), lpkeyname.into(), lpdefault.into(), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(lpreturnedstring)), lpreturnedstring.len() as _, lpfilename.into())
 }
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -2567,7 +2567,7 @@ where
     extern "system" {
         fn GetPrivateProfileStructA(lpszsection: ::windows::core::PCSTR, lpszkey: ::windows::core::PCSTR, lpstruct: *mut ::core::ffi::c_void, usizestruct: u32, szfile: ::windows::core::PCSTR) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(GetPrivateProfileStructA(lpszsection.into(), lpszkey.into(), ::core::mem::transmute(lpstruct), usizestruct, szfile.into()))
+    GetPrivateProfileStructA(lpszsection.into(), lpszkey.into(), ::core::mem::transmute(lpstruct), usizestruct, szfile.into())
 }
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -2582,7 +2582,7 @@ where
     extern "system" {
         fn GetPrivateProfileStructW(lpszsection: ::windows::core::PCWSTR, lpszkey: ::windows::core::PCWSTR, lpstruct: *mut ::core::ffi::c_void, usizestruct: u32, szfile: ::windows::core::PCWSTR) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(GetPrivateProfileStructW(lpszsection.into(), lpszkey.into(), ::core::mem::transmute(lpstruct), usizestruct, szfile.into()))
+    GetPrivateProfileStructW(lpszsection.into(), lpszkey.into(), ::core::mem::transmute(lpstruct), usizestruct, szfile.into())
 }
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
 #[inline]
@@ -2595,7 +2595,7 @@ where
     extern "system" {
         fn GetProfileIntA(lpappname: ::windows::core::PCSTR, lpkeyname: ::windows::core::PCSTR, ndefault: i32) -> u32;
     }
-    ::core::mem::transmute(GetProfileIntA(lpappname.into(), lpkeyname.into(), ndefault))
+    GetProfileIntA(lpappname.into(), lpkeyname.into(), ndefault)
 }
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
 #[inline]
@@ -2608,7 +2608,7 @@ where
     extern "system" {
         fn GetProfileIntW(lpappname: ::windows::core::PCWSTR, lpkeyname: ::windows::core::PCWSTR, ndefault: i32) -> u32;
     }
-    ::core::mem::transmute(GetProfileIntW(lpappname.into(), lpkeyname.into(), ndefault))
+    GetProfileIntW(lpappname.into(), lpkeyname.into(), ndefault)
 }
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
 #[inline]
@@ -2620,7 +2620,7 @@ where
     extern "system" {
         fn GetProfileSectionA(lpappname: ::windows::core::PCSTR, lpreturnedstring: ::windows::core::PSTR, nsize: u32) -> u32;
     }
-    ::core::mem::transmute(GetProfileSectionA(lpappname.into(), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(lpreturnedstring)), lpreturnedstring.len() as _))
+    GetProfileSectionA(lpappname.into(), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(lpreturnedstring)), lpreturnedstring.len() as _)
 }
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
 #[inline]
@@ -2632,7 +2632,7 @@ where
     extern "system" {
         fn GetProfileSectionW(lpappname: ::windows::core::PCWSTR, lpreturnedstring: ::windows::core::PWSTR, nsize: u32) -> u32;
     }
-    ::core::mem::transmute(GetProfileSectionW(lpappname.into(), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(lpreturnedstring)), lpreturnedstring.len() as _))
+    GetProfileSectionW(lpappname.into(), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(lpreturnedstring)), lpreturnedstring.len() as _)
 }
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
 #[inline]
@@ -2646,7 +2646,7 @@ where
     extern "system" {
         fn GetProfileStringA(lpappname: ::windows::core::PCSTR, lpkeyname: ::windows::core::PCSTR, lpdefault: ::windows::core::PCSTR, lpreturnedstring: ::windows::core::PSTR, nsize: u32) -> u32;
     }
-    ::core::mem::transmute(GetProfileStringA(lpappname.into(), lpkeyname.into(), lpdefault.into(), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(lpreturnedstring)), lpreturnedstring.len() as _))
+    GetProfileStringA(lpappname.into(), lpkeyname.into(), lpdefault.into(), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(lpreturnedstring)), lpreturnedstring.len() as _)
 }
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
 #[inline]
@@ -2660,7 +2660,7 @@ where
     extern "system" {
         fn GetProfileStringW(lpappname: ::windows::core::PCWSTR, lpkeyname: ::windows::core::PCWSTR, lpdefault: ::windows::core::PCWSTR, lpreturnedstring: ::windows::core::PWSTR, nsize: u32) -> u32;
     }
-    ::core::mem::transmute(GetProfileStringW(lpappname.into(), lpkeyname.into(), lpdefault.into(), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(lpreturnedstring)), lpreturnedstring.len() as _))
+    GetProfileStringW(lpappname.into(), lpkeyname.into(), lpdefault.into(), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(lpreturnedstring)), lpreturnedstring.len() as _)
 }
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -2670,7 +2670,7 @@ pub unsafe fn GetSystemRegistryQuota(pdwquotaallowed: *mut u32, pdwquotaused: *m
     extern "system" {
         fn GetSystemRegistryQuota(pdwquotaallowed: *mut u32, pdwquotaused: *mut u32) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(GetSystemRegistryQuota(::core::mem::transmute(pdwquotaallowed), ::core::mem::transmute(pdwquotaused)))
+    GetSystemRegistryQuota(::core::mem::transmute(pdwquotaallowed), ::core::mem::transmute(pdwquotaused))
 }
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
 #[cfg(any(target_arch = "x86", target_arch = "x86_64"))]
@@ -2680,7 +2680,7 @@ pub unsafe fn GetThreadEnabledXStateFeatures() -> u64 {
     extern "system" {
         fn GetThreadEnabledXStateFeatures() -> u64;
     }
-    ::core::mem::transmute(GetThreadEnabledXStateFeatures())
+    GetThreadEnabledXStateFeatures()
 }
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -2690,7 +2690,7 @@ pub unsafe fn GetUserNameA(lpbuffer: ::windows::core::PSTR, pcbbuffer: *mut u32)
     extern "system" {
         fn GetUserNameA(lpbuffer: ::windows::core::PSTR, pcbbuffer: *mut u32) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(GetUserNameA(::core::mem::transmute(lpbuffer), ::core::mem::transmute(pcbbuffer)))
+    GetUserNameA(::core::mem::transmute(lpbuffer), ::core::mem::transmute(pcbbuffer))
 }
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -2700,7 +2700,7 @@ pub unsafe fn GetUserNameW(lpbuffer: ::windows::core::PWSTR, pcbbuffer: *mut u32
     extern "system" {
         fn GetUserNameW(lpbuffer: ::windows::core::PWSTR, pcbbuffer: *mut u32) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(GetUserNameW(::core::mem::transmute(lpbuffer), ::core::mem::transmute(pcbbuffer)))
+    GetUserNameW(::core::mem::transmute(lpbuffer), ::core::mem::transmute(pcbbuffer))
 }
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -2769,7 +2769,7 @@ where
     extern "system" {
         fn GetWindowRegionData(hwnd: super::super::Foundation::HWND, size: u32, prd: *mut super::super::Graphics::Gdi::RGNDATA) -> u32;
     }
-    ::core::mem::transmute(GetWindowRegionData(hwnd.into(), size, ::core::mem::transmute(prd)))
+    GetWindowRegionData(hwnd.into(), size, ::core::mem::transmute(prd))
 }
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
 #[inline]
@@ -2778,7 +2778,7 @@ pub unsafe fn GlobalCompact(dwminfree: u32) -> usize {
     extern "system" {
         fn GlobalCompact(dwminfree: u32) -> usize;
     }
-    ::core::mem::transmute(GlobalCompact(dwminfree))
+    GlobalCompact(dwminfree)
 }
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
 #[inline]
@@ -2797,7 +2797,7 @@ pub unsafe fn GlobalUnWire(hmem: isize) -> super::super::Foundation::BOOL {
     extern "system" {
         fn GlobalUnWire(hmem: isize) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(GlobalUnWire(hmem))
+    GlobalUnWire(hmem)
 }
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
 #[inline]
@@ -2815,7 +2815,7 @@ pub unsafe fn GlobalWire(hmem: isize) -> *mut ::core::ffi::c_void {
     extern "system" {
         fn GlobalWire(hmem: isize) -> *mut ::core::ffi::c_void;
     }
-    ::core::mem::transmute(GlobalWire(hmem))
+    GlobalWire(hmem)
 }
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
 pub const HANJA_WINDOW: u32 = 2u32;
@@ -3225,7 +3225,7 @@ impl IDefaultBrowserSyncSettings {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn IsEnabled(&self) -> super::super::Foundation::BOOL {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).IsEnabled)(::windows::core::Interface::as_raw(self)))
+        (::windows::core::Interface::vtable(self).IsEnabled)(::windows::core::Interface::as_raw(self))
     }
 }
 impl ::core::convert::From<IDefaultBrowserSyncSettings> for ::windows::core::IUnknown {
@@ -3939,7 +3939,7 @@ where
     extern "system" {
         fn IMPGetIMEA(param0: super::super::Foundation::HWND, param1: *mut IMEPROA) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(IMPGetIMEA(param0.into(), ::core::mem::transmute(param1)))
+    IMPGetIMEA(param0.into(), ::core::mem::transmute(param1))
 }
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -3952,7 +3952,7 @@ where
     extern "system" {
         fn IMPGetIMEW(param0: super::super::Foundation::HWND, param1: *mut IMEPROW) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(IMPGetIMEW(param0.into(), ::core::mem::transmute(param1)))
+    IMPGetIMEW(param0.into(), ::core::mem::transmute(param1))
 }
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -3962,7 +3962,7 @@ pub unsafe fn IMPQueryIMEA(param0: *mut IMEPROA) -> super::super::Foundation::BO
     extern "system" {
         fn IMPQueryIMEA(param0: *mut IMEPROA) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(IMPQueryIMEA(::core::mem::transmute(param0)))
+    IMPQueryIMEA(::core::mem::transmute(param0))
 }
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -3972,7 +3972,7 @@ pub unsafe fn IMPQueryIMEW(param0: *mut IMEPROW) -> super::super::Foundation::BO
     extern "system" {
         fn IMPQueryIMEW(param0: *mut IMEPROW) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(IMPQueryIMEW(::core::mem::transmute(param0)))
+    IMPQueryIMEW(::core::mem::transmute(param0))
 }
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -3985,7 +3985,7 @@ where
     extern "system" {
         fn IMPSetIMEA(param0: super::super::Foundation::HWND, param1: *mut IMEPROA) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(IMPSetIMEA(param0.into(), ::core::mem::transmute(param1)))
+    IMPSetIMEA(param0.into(), ::core::mem::transmute(param1))
 }
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -3998,7 +3998,7 @@ where
     extern "system" {
         fn IMPSetIMEW(param0: super::super::Foundation::HWND, param1: *mut IMEPROW) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(IMPSetIMEW(param0.into(), ::core::mem::transmute(param1)))
+    IMPSetIMEW(param0.into(), ::core::mem::transmute(param1))
 }
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
 pub const INFINITE: u32 = 4294967295u32;
@@ -4176,7 +4176,7 @@ where
     extern "system" {
         fn IsApiSetImplemented(contract: ::windows::core::PCSTR) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(IsApiSetImplemented(contract.into()))
+    IsApiSetImplemented(contract.into())
 }
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -4186,7 +4186,7 @@ pub unsafe fn IsBadHugeReadPtr(lp: *const ::core::ffi::c_void, ucb: usize) -> su
     extern "system" {
         fn IsBadHugeReadPtr(lp: *const ::core::ffi::c_void, ucb: usize) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(IsBadHugeReadPtr(::core::mem::transmute(lp), ucb))
+    IsBadHugeReadPtr(::core::mem::transmute(lp), ucb)
 }
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -4196,7 +4196,7 @@ pub unsafe fn IsBadHugeWritePtr(lp: *const ::core::ffi::c_void, ucb: usize) -> s
     extern "system" {
         fn IsBadHugeWritePtr(lp: *const ::core::ffi::c_void, ucb: usize) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(IsBadHugeWritePtr(::core::mem::transmute(lp), ucb))
+    IsBadHugeWritePtr(::core::mem::transmute(lp), ucb)
 }
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -4206,7 +4206,7 @@ pub unsafe fn IsNTAdmin(dwreserved: u32, lpdwreserved: *mut u32) -> super::super
     extern "system" {
         fn IsNTAdmin(dwreserved: u32, lpdwreserved: *mut u32) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(IsNTAdmin(dwreserved, ::core::mem::transmute(lpdwreserved)))
+    IsNTAdmin(dwreserved, ::core::mem::transmute(lpdwreserved))
 }
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -4216,7 +4216,7 @@ pub unsafe fn IsNativeVhdBoot(nativevhdboot: *mut super::super::Foundation::BOOL
     extern "system" {
         fn IsNativeVhdBoot(nativevhdboot: *mut super::super::Foundation::BOOL) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(IsNativeVhdBoot(::core::mem::transmute(nativevhdboot)))
+    IsNativeVhdBoot(::core::mem::transmute(nativevhdboot))
 }
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -4229,7 +4229,7 @@ where
     extern "system" {
         fn IsTokenUntrusted(tokenhandle: super::super::Foundation::HANDLE) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(IsTokenUntrusted(tokenhandle.into()))
+    IsTokenUntrusted(tokenhandle.into())
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`, `\"Win32_Foundation\"`*"]
@@ -4520,7 +4520,7 @@ where
     extern "system" {
         fn LaunchINFSectionW(hwndowner: super::super::Foundation::HWND, hinstance: super::super::Foundation::HINSTANCE, pszparams: ::windows::core::PWSTR, nshow: i32) -> i32;
     }
-    ::core::mem::transmute(LaunchINFSectionW(hwndowner.into(), hinstance.into(), ::core::mem::transmute(pszparams), nshow))
+    LaunchINFSectionW(hwndowner.into(), hinstance.into(), ::core::mem::transmute(pszparams), nshow)
 }
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
 #[inline]
@@ -4529,7 +4529,7 @@ pub unsafe fn LocalCompact(uminfree: u32) -> usize {
     extern "system" {
         fn LocalCompact(uminfree: u32) -> usize;
     }
-    ::core::mem::transmute(LocalCompact(uminfree))
+    LocalCompact(uminfree)
 }
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
 #[inline]
@@ -4538,7 +4538,7 @@ pub unsafe fn LocalShrink(hmem: isize, cbnewsize: u32) -> usize {
     extern "system" {
         fn LocalShrink(hmem: isize, cbnewsize: u32) -> usize;
     }
-    ::core::mem::transmute(LocalShrink(hmem, cbnewsize))
+    LocalShrink(hmem, cbnewsize)
 }
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
 pub const MAXINTATOM: u32 = 49152u32;
@@ -4571,7 +4571,7 @@ pub unsafe fn MulDiv(nnumber: i32, nnumerator: i32, ndenominator: i32) -> i32 {
     extern "system" {
         fn MulDiv(nnumber: i32, nnumerator: i32, ndenominator: i32) -> i32;
     }
-    ::core::mem::transmute(MulDiv(nnumber, nnumerator, ndenominator))
+    MulDiv(nnumber, nnumerator, ndenominator)
 }
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -4581,7 +4581,7 @@ pub unsafe fn NeedReboot(dwrebootcheck: u32) -> super::super::Foundation::BOOL {
     extern "system" {
         fn NeedReboot(dwrebootcheck: u32) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(NeedReboot(dwrebootcheck))
+    NeedReboot(dwrebootcheck)
 }
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
 #[inline]
@@ -4590,7 +4590,7 @@ pub unsafe fn NeedRebootInit() -> u32 {
     extern "system" {
         fn NeedRebootInit() -> u32;
     }
-    ::core::mem::transmute(NeedRebootInit())
+    NeedRebootInit()
 }
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -4855,7 +4855,7 @@ where
     extern "system" {
         fn OpenMutexA(dwdesiredaccess: u32, binherithandle: super::super::Foundation::BOOL, lpname: ::windows::core::PCSTR) -> super::super::Foundation::HANDLE;
     }
-    ::core::mem::transmute(OpenMutexA(dwdesiredaccess, binherithandle.into(), lpname.into()))
+    OpenMutexA(dwdesiredaccess, binherithandle.into(), lpname.into())
 }
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -4869,7 +4869,7 @@ where
     extern "system" {
         fn OpenSemaphoreA(dwdesiredaccess: u32, binherithandle: super::super::Foundation::BOOL, lpname: ::windows::core::PCSTR) -> super::super::Foundation::HANDLE;
     }
-    ::core::mem::transmute(OpenSemaphoreA(dwdesiredaccess, binherithandle.into(), lpname.into()))
+    OpenSemaphoreA(dwdesiredaccess, binherithandle.into(), lpname.into())
 }
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -4883,7 +4883,7 @@ where
     extern "system" {
         fn OpenWaitableTimerA(dwdesiredaccess: u32, binherithandle: super::super::Foundation::BOOL, lptimername: ::windows::core::PCSTR) -> super::super::Foundation::HANDLE;
     }
-    ::core::mem::transmute(OpenWaitableTimerA(dwdesiredaccess, binherithandle.into(), lptimername.into()))
+    OpenWaitableTimerA(dwdesiredaccess, binherithandle.into(), lptimername.into())
 }
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
 pub type PDELAYLOAD_FAILURE_DLL_CALLBACK = ::core::option::Option<unsafe extern "system" fn(notificationreason: u32, delayloadinfo: *const DELAYLOAD_INFO) -> *mut ::core::ffi::c_void>;
@@ -5162,7 +5162,7 @@ pub unsafe fn QueryIdleProcessorCycleTime(bufferlength: *mut u32, processoridlec
     extern "system" {
         fn QueryIdleProcessorCycleTime(bufferlength: *mut u32, processoridlecycletime: *mut u64) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(QueryIdleProcessorCycleTime(::core::mem::transmute(bufferlength), ::core::mem::transmute(processoridlecycletime)))
+    QueryIdleProcessorCycleTime(::core::mem::transmute(bufferlength), ::core::mem::transmute(processoridlecycletime))
 }
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -5172,7 +5172,7 @@ pub unsafe fn QueryIdleProcessorCycleTimeEx(group: u16, bufferlength: *mut u32, 
     extern "system" {
         fn QueryIdleProcessorCycleTimeEx(group: u16, bufferlength: *mut u32, processoridlecycletime: *mut u64) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(QueryIdleProcessorCycleTimeEx(group, ::core::mem::transmute(bufferlength), ::core::mem::transmute(processoridlecycletime)))
+    QueryIdleProcessorCycleTimeEx(group, ::core::mem::transmute(bufferlength), ::core::mem::transmute(processoridlecycletime))
 }
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
 #[inline]
@@ -5203,7 +5203,7 @@ where
     extern "system" {
         fn QueryProcessCycleTime(processhandle: super::super::Foundation::HANDLE, cycletime: *mut u64) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(QueryProcessCycleTime(processhandle.into(), ::core::mem::transmute(cycletime)))
+    QueryProcessCycleTime(processhandle.into(), ::core::mem::transmute(cycletime))
 }
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -5216,7 +5216,7 @@ where
     extern "system" {
         fn QueryThreadCycleTime(threadhandle: super::super::Foundation::HANDLE, cycletime: *mut u64) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(QueryThreadCycleTime(threadhandle.into(), ::core::mem::transmute(cycletime)))
+    QueryThreadCycleTime(threadhandle.into(), ::core::mem::transmute(cycletime))
 }
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -5226,7 +5226,7 @@ pub unsafe fn QueryUnbiasedInterruptTime(unbiasedtime: *mut u64) -> super::super
     extern "system" {
         fn QueryUnbiasedInterruptTime(unbiasedtime: *mut u64) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(QueryUnbiasedInterruptTime(::core::mem::transmute(unbiasedtime)))
+    QueryUnbiasedInterruptTime(::core::mem::transmute(unbiasedtime))
 }
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
 #[inline]
@@ -5313,7 +5313,7 @@ pub unsafe fn RaiseCustomSystemEventTrigger(customsystemeventtriggerconfig: *con
     extern "system" {
         fn RaiseCustomSystemEventTrigger(customsystemeventtriggerconfig: *const CUSTOM_SYSTEM_EVENT_TRIGGER_CONFIG) -> u32;
     }
-    ::core::mem::transmute(RaiseCustomSystemEventTrigger(::core::mem::transmute(customsystemeventtriggerconfig)))
+    RaiseCustomSystemEventTrigger(::core::mem::transmute(customsystemeventtriggerconfig))
 }
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -5508,7 +5508,7 @@ where
     extern "system" {
         fn ReplacePartitionUnit(targetpartition: ::windows::core::PCWSTR, sparepartition: ::windows::core::PCWSTR, flags: u32) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(ReplacePartitionUnit(targetpartition.into(), sparepartition.into(), flags))
+    ReplacePartitionUnit(targetpartition.into(), sparepartition.into(), flags)
 }
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -5521,7 +5521,7 @@ where
     extern "system" {
         fn RequestDeviceWakeup(hdevice: super::super::Foundation::HANDLE) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(RequestDeviceWakeup(hdevice.into()))
+    RequestDeviceWakeup(hdevice.into())
 }
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`, `\"Win32_Foundation\"`, `\"Win32_System_Kernel\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
@@ -5583,7 +5583,7 @@ pub unsafe fn RtlGetReturnAddressHijackTarget() -> usize {
     extern "system" {
         fn RtlGetReturnAddressHijackTarget() -> usize;
     }
-    ::core::mem::transmute(RtlGetReturnAddressHijackTarget())
+    RtlGetReturnAddressHijackTarget()
 }
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`, `\"Win32_System_Kernel\"`*"]
 #[cfg(feature = "Win32_System_Kernel")]
@@ -5646,7 +5646,7 @@ pub unsafe fn RtlIsNameLegalDOS8Dot3(name: *mut super::super::Foundation::UNICOD
     extern "system" {
         fn RtlIsNameLegalDOS8Dot3(name: *mut super::super::Foundation::UNICODE_STRING, oemname: *mut super::Kernel::STRING, namecontainsspaces: *mut super::super::Foundation::BOOLEAN) -> super::super::Foundation::BOOLEAN;
     }
-    ::core::mem::transmute(RtlIsNameLegalDOS8Dot3(::core::mem::transmute(name), ::core::mem::transmute(oemname), ::core::mem::transmute(namecontainsspaces)))
+    RtlIsNameLegalDOS8Dot3(::core::mem::transmute(name), ::core::mem::transmute(oemname), ::core::mem::transmute(namecontainsspaces))
 }
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -5665,7 +5665,7 @@ pub unsafe fn RtlRaiseCustomSystemEventTrigger(triggerconfig: *const CUSTOM_SYST
     extern "system" {
         fn RtlRaiseCustomSystemEventTrigger(triggerconfig: *const CUSTOM_SYSTEM_EVENT_TRIGGER_CONFIG) -> u32;
     }
-    ::core::mem::transmute(RtlRaiseCustomSystemEventTrigger(::core::mem::transmute(triggerconfig)))
+    RtlRaiseCustomSystemEventTrigger(::core::mem::transmute(triggerconfig))
 }
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -5675,7 +5675,7 @@ pub unsafe fn RtlTimeToSecondsSince1970(time: *mut i64, elapsedseconds: *mut u32
     extern "system" {
         fn RtlTimeToSecondsSince1970(time: *mut i64, elapsedseconds: *mut u32) -> super::super::Foundation::BOOLEAN;
     }
-    ::core::mem::transmute(RtlTimeToSecondsSince1970(::core::mem::transmute(time), ::core::mem::transmute(elapsedseconds)))
+    RtlTimeToSecondsSince1970(::core::mem::transmute(time), ::core::mem::transmute(elapsedseconds))
 }
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`, `\"Win32_Foundation\"`, `\"Win32_System_Kernel\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
@@ -5723,7 +5723,7 @@ pub unsafe fn RtlUniform(seed: *mut u32) -> u32 {
     extern "system" {
         fn RtlUniform(seed: *mut u32) -> u32;
     }
-    ::core::mem::transmute(RtlUniform(::core::mem::transmute(seed)))
+    RtlUniform(::core::mem::transmute(seed))
 }
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -6514,7 +6514,7 @@ where
     extern "system" {
         fn SendIMEMessageExA(param0: super::super::Foundation::HWND, param1: super::super::Foundation::LPARAM) -> super::super::Foundation::LRESULT;
     }
-    ::core::mem::transmute(SendIMEMessageExA(param0.into(), param1.into()))
+    SendIMEMessageExA(param0.into(), param1.into())
 }
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -6528,7 +6528,7 @@ where
     extern "system" {
         fn SendIMEMessageExW(param0: super::super::Foundation::HWND, param1: super::super::Foundation::LPARAM) -> super::super::Foundation::LRESULT;
     }
-    ::core::mem::transmute(SendIMEMessageExW(param0.into(), param1.into()))
+    SendIMEMessageExW(param0.into(), param1.into())
 }
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -6541,7 +6541,7 @@ where
     extern "system" {
         fn SetEnvironmentStringsA(newenvironment: ::windows::core::PCSTR) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(SetEnvironmentStringsA(newenvironment.into()))
+    SetEnvironmentStringsA(newenvironment.into())
 }
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -6555,7 +6555,7 @@ where
     extern "system" {
         fn SetFirmwareEnvironmentVariableA(lpname: ::windows::core::PCSTR, lpguid: ::windows::core::PCSTR, pvalue: *const ::core::ffi::c_void, nsize: u32) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(SetFirmwareEnvironmentVariableA(lpname.into(), lpguid.into(), ::core::mem::transmute(pvalue), nsize))
+    SetFirmwareEnvironmentVariableA(lpname.into(), lpguid.into(), ::core::mem::transmute(pvalue), nsize)
 }
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -6569,7 +6569,7 @@ where
     extern "system" {
         fn SetFirmwareEnvironmentVariableExA(lpname: ::windows::core::PCSTR, lpguid: ::windows::core::PCSTR, pvalue: *const ::core::ffi::c_void, nsize: u32, dwattributes: u32) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(SetFirmwareEnvironmentVariableExA(lpname.into(), lpguid.into(), ::core::mem::transmute(pvalue), nsize, dwattributes))
+    SetFirmwareEnvironmentVariableExA(lpname.into(), lpguid.into(), ::core::mem::transmute(pvalue), nsize, dwattributes)
 }
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -6583,7 +6583,7 @@ where
     extern "system" {
         fn SetFirmwareEnvironmentVariableExW(lpname: ::windows::core::PCWSTR, lpguid: ::windows::core::PCWSTR, pvalue: *const ::core::ffi::c_void, nsize: u32, dwattributes: u32) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(SetFirmwareEnvironmentVariableExW(lpname.into(), lpguid.into(), ::core::mem::transmute(pvalue), nsize, dwattributes))
+    SetFirmwareEnvironmentVariableExW(lpname.into(), lpguid.into(), ::core::mem::transmute(pvalue), nsize, dwattributes)
 }
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -6597,7 +6597,7 @@ where
     extern "system" {
         fn SetFirmwareEnvironmentVariableW(lpname: ::windows::core::PCWSTR, lpguid: ::windows::core::PCWSTR, pvalue: *const ::core::ffi::c_void, nsize: u32) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(SetFirmwareEnvironmentVariableW(lpname.into(), lpguid.into(), ::core::mem::transmute(pvalue), nsize))
+    SetFirmwareEnvironmentVariableW(lpname.into(), lpguid.into(), ::core::mem::transmute(pvalue), nsize)
 }
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
 #[inline]
@@ -6606,7 +6606,7 @@ pub unsafe fn SetHandleCount(unumber: u32) -> u32 {
     extern "system" {
         fn SetHandleCount(unumber: u32) -> u32;
     }
-    ::core::mem::transmute(SetHandleCount(unumber))
+    SetHandleCount(unumber)
 }
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -6619,7 +6619,7 @@ where
     extern "system" {
         fn SetMessageWaitingIndicator(hmsgindicator: super::super::Foundation::HANDLE, ulmsgcount: u32) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(SetMessageWaitingIndicator(hmsgindicator.into(), ulmsgcount))
+    SetMessageWaitingIndicator(hmsgindicator.into(), ulmsgcount)
 }
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -6654,7 +6654,7 @@ where
     extern "system" {
         fn SignalObjectAndWait(hobjecttosignal: super::super::Foundation::HANDLE, hobjecttowaiton: super::super::Foundation::HANDLE, dwmilliseconds: u32, balertable: super::super::Foundation::BOOL) -> u32;
     }
-    ::core::mem::transmute(SignalObjectAndWait(hobjecttosignal.into(), hobjecttowaiton.into(), dwmilliseconds, balertable.into()))
+    SignalObjectAndWait(hobjecttosignal.into(), hobjecttowaiton.into(), dwmilliseconds, balertable.into())
 }
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
 #[inline]
@@ -7143,7 +7143,7 @@ where
     extern "system" {
         fn WINNLSEnableIME(param0: super::super::Foundation::HWND, param1: super::super::Foundation::BOOL) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(WINNLSEnableIME(param0.into(), param1.into()))
+    WINNLSEnableIME(param0.into(), param1.into())
 }
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -7156,7 +7156,7 @@ where
     extern "system" {
         fn WINNLSGetEnableStatus(param0: super::super::Foundation::HWND) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(WINNLSGetEnableStatus(param0.into()))
+    WINNLSGetEnableStatus(param0.into())
 }
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -7169,7 +7169,7 @@ where
     extern "system" {
         fn WINNLSGetIMEHotkey(param0: super::super::Foundation::HWND) -> u32;
     }
-    ::core::mem::transmute(WINNLSGetIMEHotkey(param0.into()))
+    WINNLSGetIMEHotkey(param0.into())
 }
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
 #[repr(transparent)]
@@ -7594,7 +7594,7 @@ where
     extern "system" {
         fn WinWatchDidStatusChange(hww: HWINWATCH) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(WinWatchDidStatusChange(hww.into()))
+    WinWatchDidStatusChange(hww.into())
 }
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
@@ -7607,7 +7607,7 @@ where
     extern "system" {
         fn WinWatchGetClipList(hww: HWINWATCH, prc: *mut super::super::Foundation::RECT, size: u32, prd: *mut super::super::Graphics::Gdi::RGNDATA) -> u32;
     }
-    ::core::mem::transmute(WinWatchGetClipList(hww.into(), ::core::mem::transmute(prc), size, ::core::mem::transmute(prd)))
+    WinWatchGetClipList(hww.into(), ::core::mem::transmute(prc), size, ::core::mem::transmute(prd))
 }
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -7621,7 +7621,7 @@ where
     extern "system" {
         fn WinWatchNotify(hww: HWINWATCH, notifycallback: *mut ::core::ffi::c_void, notifyparam: super::super::Foundation::LPARAM) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(WinWatchNotify(hww.into(), ::core::mem::transmute(notifycallback), notifyparam.into()))
+    WinWatchNotify(hww.into(), ::core::mem::transmute(notifycallback), notifyparam.into())
 }
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -7634,7 +7634,7 @@ where
     extern "system" {
         fn WinWatchOpen(hwnd: super::super::Foundation::HWND) -> HWINWATCH;
     }
-    ::core::mem::transmute(WinWatchOpen(hwnd.into()))
+    WinWatchOpen(hwnd.into())
 }
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -7715,7 +7715,7 @@ where
     extern "system" {
         fn WritePrivateProfileSectionA(lpappname: ::windows::core::PCSTR, lpstring: ::windows::core::PCSTR, lpfilename: ::windows::core::PCSTR) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(WritePrivateProfileSectionA(lpappname.into(), lpstring.into(), lpfilename.into()))
+    WritePrivateProfileSectionA(lpappname.into(), lpstring.into(), lpfilename.into())
 }
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -7730,7 +7730,7 @@ where
     extern "system" {
         fn WritePrivateProfileSectionW(lpappname: ::windows::core::PCWSTR, lpstring: ::windows::core::PCWSTR, lpfilename: ::windows::core::PCWSTR) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(WritePrivateProfileSectionW(lpappname.into(), lpstring.into(), lpfilename.into()))
+    WritePrivateProfileSectionW(lpappname.into(), lpstring.into(), lpfilename.into())
 }
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -7746,7 +7746,7 @@ where
     extern "system" {
         fn WritePrivateProfileStringA(lpappname: ::windows::core::PCSTR, lpkeyname: ::windows::core::PCSTR, lpstring: ::windows::core::PCSTR, lpfilename: ::windows::core::PCSTR) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(WritePrivateProfileStringA(lpappname.into(), lpkeyname.into(), lpstring.into(), lpfilename.into()))
+    WritePrivateProfileStringA(lpappname.into(), lpkeyname.into(), lpstring.into(), lpfilename.into())
 }
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -7762,7 +7762,7 @@ where
     extern "system" {
         fn WritePrivateProfileStringW(lpappname: ::windows::core::PCWSTR, lpkeyname: ::windows::core::PCWSTR, lpstring: ::windows::core::PCWSTR, lpfilename: ::windows::core::PCWSTR) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(WritePrivateProfileStringW(lpappname.into(), lpkeyname.into(), lpstring.into(), lpfilename.into()))
+    WritePrivateProfileStringW(lpappname.into(), lpkeyname.into(), lpstring.into(), lpfilename.into())
 }
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -7777,7 +7777,7 @@ where
     extern "system" {
         fn WritePrivateProfileStructA(lpszsection: ::windows::core::PCSTR, lpszkey: ::windows::core::PCSTR, lpstruct: *const ::core::ffi::c_void, usizestruct: u32, szfile: ::windows::core::PCSTR) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(WritePrivateProfileStructA(lpszsection.into(), lpszkey.into(), ::core::mem::transmute(lpstruct), usizestruct, szfile.into()))
+    WritePrivateProfileStructA(lpszsection.into(), lpszkey.into(), ::core::mem::transmute(lpstruct), usizestruct, szfile.into())
 }
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -7792,7 +7792,7 @@ where
     extern "system" {
         fn WritePrivateProfileStructW(lpszsection: ::windows::core::PCWSTR, lpszkey: ::windows::core::PCWSTR, lpstruct: *const ::core::ffi::c_void, usizestruct: u32, szfile: ::windows::core::PCWSTR) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(WritePrivateProfileStructW(lpszsection.into(), lpszkey.into(), ::core::mem::transmute(lpstruct), usizestruct, szfile.into()))
+    WritePrivateProfileStructW(lpszsection.into(), lpszkey.into(), ::core::mem::transmute(lpstruct), usizestruct, szfile.into())
 }
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -7806,7 +7806,7 @@ where
     extern "system" {
         fn WriteProfileSectionA(lpappname: ::windows::core::PCSTR, lpstring: ::windows::core::PCSTR) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(WriteProfileSectionA(lpappname.into(), lpstring.into()))
+    WriteProfileSectionA(lpappname.into(), lpstring.into())
 }
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -7820,7 +7820,7 @@ where
     extern "system" {
         fn WriteProfileSectionW(lpappname: ::windows::core::PCWSTR, lpstring: ::windows::core::PCWSTR) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(WriteProfileSectionW(lpappname.into(), lpstring.into()))
+    WriteProfileSectionW(lpappname.into(), lpstring.into())
 }
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -7835,7 +7835,7 @@ where
     extern "system" {
         fn WriteProfileStringA(lpappname: ::windows::core::PCSTR, lpkeyname: ::windows::core::PCSTR, lpstring: ::windows::core::PCSTR) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(WriteProfileStringA(lpappname.into(), lpkeyname.into(), lpstring.into()))
+    WriteProfileStringA(lpappname.into(), lpkeyname.into(), lpstring.into())
 }
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -7850,7 +7850,7 @@ where
     extern "system" {
         fn WriteProfileStringW(lpappname: ::windows::core::PCWSTR, lpkeyname: ::windows::core::PCWSTR, lpstring: ::windows::core::PCWSTR) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(WriteProfileStringW(lpappname.into(), lpkeyname.into(), lpstring.into()))
+    WriteProfileStringW(lpappname.into(), lpkeyname.into(), lpstring.into())
 }
 #[repr(C)]
 pub struct _D3DHAL_CALLBACKS(pub u8);
@@ -7863,7 +7863,7 @@ pub unsafe fn _hread(hfile: i32, lpbuffer: *mut ::core::ffi::c_void, lbytes: i32
     extern "system" {
         fn _hread(hfile: i32, lpbuffer: *mut ::core::ffi::c_void, lbytes: i32) -> i32;
     }
-    ::core::mem::transmute(_hread(hfile, ::core::mem::transmute(lpbuffer), lbytes))
+    _hread(hfile, ::core::mem::transmute(lpbuffer), lbytes)
 }
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
 #[inline]
@@ -7875,7 +7875,7 @@ where
     extern "system" {
         fn _hwrite(hfile: i32, lpbuffer: ::windows::core::PCSTR, lbytes: i32) -> i32;
     }
-    ::core::mem::transmute(_hwrite(hfile, lpbuffer.into(), lbytes))
+    _hwrite(hfile, lpbuffer.into(), lbytes)
 }
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
 #[inline]
@@ -7884,7 +7884,7 @@ pub unsafe fn _lclose(hfile: i32) -> i32 {
     extern "system" {
         fn _lclose(hfile: i32) -> i32;
     }
-    ::core::mem::transmute(_lclose(hfile))
+    _lclose(hfile)
 }
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
 #[inline]
@@ -7896,7 +7896,7 @@ where
     extern "system" {
         fn _lcreat(lppathname: ::windows::core::PCSTR, iattribute: i32) -> i32;
     }
-    ::core::mem::transmute(_lcreat(lppathname.into(), iattribute))
+    _lcreat(lppathname.into(), iattribute)
 }
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
 #[inline]
@@ -7905,7 +7905,7 @@ pub unsafe fn _llseek(hfile: i32, loffset: i32, iorigin: i32) -> i32 {
     extern "system" {
         fn _llseek(hfile: i32, loffset: i32, iorigin: i32) -> i32;
     }
-    ::core::mem::transmute(_llseek(hfile, loffset, iorigin))
+    _llseek(hfile, loffset, iorigin)
 }
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
 #[inline]
@@ -7917,7 +7917,7 @@ where
     extern "system" {
         fn _lopen(lppathname: ::windows::core::PCSTR, ireadwrite: i32) -> i32;
     }
-    ::core::mem::transmute(_lopen(lppathname.into(), ireadwrite))
+    _lopen(lppathname.into(), ireadwrite)
 }
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
 #[inline]
@@ -7926,7 +7926,7 @@ pub unsafe fn _lread(hfile: i32, lpbuffer: *mut ::core::ffi::c_void, ubytes: u32
     extern "system" {
         fn _lread(hfile: i32, lpbuffer: *mut ::core::ffi::c_void, ubytes: u32) -> u32;
     }
-    ::core::mem::transmute(_lread(hfile, ::core::mem::transmute(lpbuffer), ubytes))
+    _lread(hfile, ::core::mem::transmute(lpbuffer), ubytes)
 }
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
 #[inline]
@@ -7938,7 +7938,7 @@ where
     extern "system" {
         fn _lwrite(hfile: i32, lpbuffer: ::windows::core::PCSTR, ubytes: u32) -> u32;
     }
-    ::core::mem::transmute(_lwrite(hfile, lpbuffer.into(), ubytes))
+    _lwrite(hfile, lpbuffer.into(), ubytes)
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
@@ -8081,7 +8081,7 @@ pub unsafe fn uaw_lstrcmpW(string1: *const u16, string2: *const u16) -> i32 {
     extern "system" {
         fn uaw_lstrcmpW(string1: *const u16, string2: *const u16) -> i32;
     }
-    ::core::mem::transmute(uaw_lstrcmpW(::core::mem::transmute(string1), ::core::mem::transmute(string2)))
+    uaw_lstrcmpW(::core::mem::transmute(string1), ::core::mem::transmute(string2))
 }
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
@@ -8091,7 +8091,7 @@ pub unsafe fn uaw_lstrcmpiW(string1: *const u16, string2: *const u16) -> i32 {
     extern "system" {
         fn uaw_lstrcmpiW(string1: *const u16, string2: *const u16) -> i32;
     }
-    ::core::mem::transmute(uaw_lstrcmpiW(::core::mem::transmute(string1), ::core::mem::transmute(string2)))
+    uaw_lstrcmpiW(::core::mem::transmute(string1), ::core::mem::transmute(string2))
 }
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
@@ -8101,7 +8101,7 @@ pub unsafe fn uaw_lstrlenW(string: *const u16) -> i32 {
     extern "system" {
         fn uaw_lstrlenW(string: *const u16) -> i32;
     }
-    ::core::mem::transmute(uaw_lstrlenW(::core::mem::transmute(string)))
+    uaw_lstrlenW(::core::mem::transmute(string))
 }
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
@@ -8111,7 +8111,7 @@ pub unsafe fn uaw_wcschr(string: *const u16, character: u16) -> *mut u16 {
     extern "system" {
         fn uaw_wcschr(string: *const u16, character: u16) -> *mut u16;
     }
-    ::core::mem::transmute(uaw_wcschr(::core::mem::transmute(string), character))
+    uaw_wcschr(::core::mem::transmute(string), character)
 }
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
@@ -8121,7 +8121,7 @@ pub unsafe fn uaw_wcscpy(destination: *mut u16, source: *const u16) -> *mut u16 
     extern "system" {
         fn uaw_wcscpy(destination: *mut u16, source: *const u16) -> *mut u16;
     }
-    ::core::mem::transmute(uaw_wcscpy(::core::mem::transmute(destination), ::core::mem::transmute(source)))
+    uaw_wcscpy(::core::mem::transmute(destination), ::core::mem::transmute(source))
 }
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
@@ -8131,7 +8131,7 @@ pub unsafe fn uaw_wcsicmp(string1: *const u16, string2: *const u16) -> i32 {
     extern "system" {
         fn uaw_wcsicmp(string1: *const u16, string2: *const u16) -> i32;
     }
-    ::core::mem::transmute(uaw_wcsicmp(::core::mem::transmute(string1), ::core::mem::transmute(string2)))
+    uaw_wcsicmp(::core::mem::transmute(string1), ::core::mem::transmute(string2))
 }
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
@@ -8141,7 +8141,7 @@ pub unsafe fn uaw_wcslen(string: *const u16) -> usize {
     extern "system" {
         fn uaw_wcslen(string: *const u16) -> usize;
     }
-    ::core::mem::transmute(uaw_wcslen(::core::mem::transmute(string)))
+    uaw_wcslen(::core::mem::transmute(string))
 }
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
@@ -8151,7 +8151,7 @@ pub unsafe fn uaw_wcsrchr(string: *const u16, character: u16) -> *mut u16 {
     extern "system" {
         fn uaw_wcsrchr(string: *const u16, character: u16) -> *mut u16;
     }
-    ::core::mem::transmute(uaw_wcsrchr(::core::mem::transmute(string), character))
+    uaw_wcsrchr(::core::mem::transmute(string), character)
 }
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

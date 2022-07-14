@@ -21833,7 +21833,7 @@ where
     extern "system" {
         fn lineAccept(hcall: u32, lpsuseruserinfo: ::windows::core::PCSTR, dwsize: u32) -> i32;
     }
-    ::core::mem::transmute(lineAccept(hcall, lpsuseruserinfo.into(), dwsize))
+    lineAccept(hcall, lpsuseruserinfo.into(), dwsize)
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -21847,7 +21847,7 @@ where
     extern "system" {
         fn lineAddProvider(lpszproviderfilename: ::windows::core::PCSTR, hwndowner: super::super::Foundation::HWND, lpdwpermanentproviderid: *mut u32) -> i32;
     }
-    ::core::mem::transmute(lineAddProvider(lpszproviderfilename.into(), hwndowner.into(), ::core::mem::transmute(lpdwpermanentproviderid)))
+    lineAddProvider(lpszproviderfilename.into(), hwndowner.into(), ::core::mem::transmute(lpdwpermanentproviderid))
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -21861,7 +21861,7 @@ where
     extern "system" {
         fn lineAddProviderA(lpszproviderfilename: ::windows::core::PCSTR, hwndowner: super::super::Foundation::HWND, lpdwpermanentproviderid: *mut u32) -> i32;
     }
-    ::core::mem::transmute(lineAddProviderA(lpszproviderfilename.into(), hwndowner.into(), ::core::mem::transmute(lpdwpermanentproviderid)))
+    lineAddProviderA(lpszproviderfilename.into(), hwndowner.into(), ::core::mem::transmute(lpdwpermanentproviderid))
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -21875,7 +21875,7 @@ where
     extern "system" {
         fn lineAddProviderW(lpszproviderfilename: ::windows::core::PCWSTR, hwndowner: super::super::Foundation::HWND, lpdwpermanentproviderid: *mut u32) -> i32;
     }
-    ::core::mem::transmute(lineAddProviderW(lpszproviderfilename.into(), hwndowner.into(), ::core::mem::transmute(lpdwpermanentproviderid)))
+    lineAddProviderW(lpszproviderfilename.into(), hwndowner.into(), ::core::mem::transmute(lpdwpermanentproviderid))
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[inline]
@@ -21884,7 +21884,7 @@ pub unsafe fn lineAddToConference(hconfcall: u32, hconsultcall: u32) -> i32 {
     extern "system" {
         fn lineAddToConference(hconfcall: u32, hconsultcall: u32) -> i32;
     }
-    ::core::mem::transmute(lineAddToConference(hconfcall, hconsultcall))
+    lineAddToConference(hconfcall, hconsultcall)
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[inline]
@@ -21893,7 +21893,7 @@ pub unsafe fn lineAgentSpecific(hline: u32, dwaddressid: u32, dwagentextensionid
     extern "system" {
         fn lineAgentSpecific(hline: u32, dwaddressid: u32, dwagentextensionidindex: u32, lpparams: *mut ::core::ffi::c_void, dwsize: u32) -> i32;
     }
-    ::core::mem::transmute(lineAgentSpecific(hline, dwaddressid, dwagentextensionidindex, ::core::mem::transmute(lpparams), dwsize))
+    lineAgentSpecific(hline, dwaddressid, dwagentextensionidindex, ::core::mem::transmute(lpparams), dwsize)
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[inline]
@@ -21905,7 +21905,7 @@ where
     extern "system" {
         fn lineAnswer(hcall: u32, lpsuseruserinfo: ::windows::core::PCSTR, dwsize: u32) -> i32;
     }
-    ::core::mem::transmute(lineAnswer(hcall, lpsuseruserinfo.into(), dwsize))
+    lineAnswer(hcall, lpsuseruserinfo.into(), dwsize)
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[inline]
@@ -21917,7 +21917,7 @@ where
     extern "system" {
         fn lineBlindTransfer(hcall: u32, lpszdestaddress: ::windows::core::PCSTR, dwcountrycode: u32) -> i32;
     }
-    ::core::mem::transmute(lineBlindTransfer(hcall, lpszdestaddress.into(), dwcountrycode))
+    lineBlindTransfer(hcall, lpszdestaddress.into(), dwcountrycode)
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[inline]
@@ -21929,7 +21929,7 @@ where
     extern "system" {
         fn lineBlindTransferA(hcall: u32, lpszdestaddress: ::windows::core::PCSTR, dwcountrycode: u32) -> i32;
     }
-    ::core::mem::transmute(lineBlindTransferA(hcall, lpszdestaddress.into(), dwcountrycode))
+    lineBlindTransferA(hcall, lpszdestaddress.into(), dwcountrycode)
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[inline]
@@ -21941,7 +21941,7 @@ where
     extern "system" {
         fn lineBlindTransferW(hcall: u32, lpszdestaddressw: ::windows::core::PCWSTR, dwcountrycode: u32) -> i32;
     }
-    ::core::mem::transmute(lineBlindTransferW(hcall, lpszdestaddressw.into(), dwcountrycode))
+    lineBlindTransferW(hcall, lpszdestaddressw.into(), dwcountrycode)
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[inline]
@@ -21950,7 +21950,7 @@ pub unsafe fn lineClose(hline: u32) -> i32 {
     extern "system" {
         fn lineClose(hline: u32) -> i32;
     }
-    ::core::mem::transmute(lineClose(hline))
+    lineClose(hline)
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[inline]
@@ -21959,7 +21959,7 @@ pub unsafe fn lineCompleteCall(hcall: u32, lpdwcompletionid: *mut u32, dwcomplet
     extern "system" {
         fn lineCompleteCall(hcall: u32, lpdwcompletionid: *mut u32, dwcompletionmode: u32, dwmessageid: u32) -> i32;
     }
-    ::core::mem::transmute(lineCompleteCall(hcall, ::core::mem::transmute(lpdwcompletionid), dwcompletionmode, dwmessageid))
+    lineCompleteCall(hcall, ::core::mem::transmute(lpdwcompletionid), dwcompletionmode, dwmessageid)
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[inline]
@@ -21968,7 +21968,7 @@ pub unsafe fn lineCompleteTransfer(hcall: u32, hconsultcall: u32, lphconfcall: *
     extern "system" {
         fn lineCompleteTransfer(hcall: u32, hconsultcall: u32, lphconfcall: *mut u32, dwtransfermode: u32) -> i32;
     }
-    ::core::mem::transmute(lineCompleteTransfer(hcall, hconsultcall, ::core::mem::transmute(lphconfcall), dwtransfermode))
+    lineCompleteTransfer(hcall, hconsultcall, ::core::mem::transmute(lphconfcall), dwtransfermode)
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -21982,7 +21982,7 @@ where
     extern "system" {
         fn lineConfigDialog(dwdeviceid: u32, hwndowner: super::super::Foundation::HWND, lpszdeviceclass: ::windows::core::PCSTR) -> i32;
     }
-    ::core::mem::transmute(lineConfigDialog(dwdeviceid, hwndowner.into(), lpszdeviceclass.into()))
+    lineConfigDialog(dwdeviceid, hwndowner.into(), lpszdeviceclass.into())
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -21996,7 +21996,7 @@ where
     extern "system" {
         fn lineConfigDialogA(dwdeviceid: u32, hwndowner: super::super::Foundation::HWND, lpszdeviceclass: ::windows::core::PCSTR) -> i32;
     }
-    ::core::mem::transmute(lineConfigDialogA(dwdeviceid, hwndowner.into(), lpszdeviceclass.into()))
+    lineConfigDialogA(dwdeviceid, hwndowner.into(), lpszdeviceclass.into())
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -22010,7 +22010,7 @@ where
     extern "system" {
         fn lineConfigDialogEdit(dwdeviceid: u32, hwndowner: super::super::Foundation::HWND, lpszdeviceclass: ::windows::core::PCSTR, lpdeviceconfigin: *const ::core::ffi::c_void, dwsize: u32, lpdeviceconfigout: *mut VARSTRING) -> i32;
     }
-    ::core::mem::transmute(lineConfigDialogEdit(dwdeviceid, hwndowner.into(), lpszdeviceclass.into(), ::core::mem::transmute(lpdeviceconfigin), dwsize, ::core::mem::transmute(lpdeviceconfigout)))
+    lineConfigDialogEdit(dwdeviceid, hwndowner.into(), lpszdeviceclass.into(), ::core::mem::transmute(lpdeviceconfigin), dwsize, ::core::mem::transmute(lpdeviceconfigout))
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -22024,7 +22024,7 @@ where
     extern "system" {
         fn lineConfigDialogEditA(dwdeviceid: u32, hwndowner: super::super::Foundation::HWND, lpszdeviceclass: ::windows::core::PCSTR, lpdeviceconfigin: *const ::core::ffi::c_void, dwsize: u32, lpdeviceconfigout: *mut VARSTRING) -> i32;
     }
-    ::core::mem::transmute(lineConfigDialogEditA(dwdeviceid, hwndowner.into(), lpszdeviceclass.into(), ::core::mem::transmute(lpdeviceconfigin), dwsize, ::core::mem::transmute(lpdeviceconfigout)))
+    lineConfigDialogEditA(dwdeviceid, hwndowner.into(), lpszdeviceclass.into(), ::core::mem::transmute(lpdeviceconfigin), dwsize, ::core::mem::transmute(lpdeviceconfigout))
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -22038,7 +22038,7 @@ where
     extern "system" {
         fn lineConfigDialogEditW(dwdeviceid: u32, hwndowner: super::super::Foundation::HWND, lpszdeviceclass: ::windows::core::PCWSTR, lpdeviceconfigin: *const ::core::ffi::c_void, dwsize: u32, lpdeviceconfigout: *mut VARSTRING) -> i32;
     }
-    ::core::mem::transmute(lineConfigDialogEditW(dwdeviceid, hwndowner.into(), lpszdeviceclass.into(), ::core::mem::transmute(lpdeviceconfigin), dwsize, ::core::mem::transmute(lpdeviceconfigout)))
+    lineConfigDialogEditW(dwdeviceid, hwndowner.into(), lpszdeviceclass.into(), ::core::mem::transmute(lpdeviceconfigin), dwsize, ::core::mem::transmute(lpdeviceconfigout))
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -22052,7 +22052,7 @@ where
     extern "system" {
         fn lineConfigDialogW(dwdeviceid: u32, hwndowner: super::super::Foundation::HWND, lpszdeviceclass: ::windows::core::PCWSTR) -> i32;
     }
-    ::core::mem::transmute(lineConfigDialogW(dwdeviceid, hwndowner.into(), lpszdeviceclass.into()))
+    lineConfigDialogW(dwdeviceid, hwndowner.into(), lpszdeviceclass.into())
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -22065,7 +22065,7 @@ where
     extern "system" {
         fn lineConfigProvider(hwndowner: super::super::Foundation::HWND, dwpermanentproviderid: u32) -> i32;
     }
-    ::core::mem::transmute(lineConfigProvider(hwndowner.into(), dwpermanentproviderid))
+    lineConfigProvider(hwndowner.into(), dwpermanentproviderid)
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[inline]
@@ -22078,7 +22078,7 @@ where
     extern "system" {
         fn lineCreateAgentA(hline: u32, lpszagentid: ::windows::core::PCSTR, lpszagentpin: ::windows::core::PCSTR, lphagent: *mut u32) -> i32;
     }
-    ::core::mem::transmute(lineCreateAgentA(hline, lpszagentid.into(), lpszagentpin.into(), ::core::mem::transmute(lphagent)))
+    lineCreateAgentA(hline, lpszagentid.into(), lpszagentpin.into(), ::core::mem::transmute(lphagent))
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[inline]
@@ -22090,7 +22090,7 @@ where
     extern "system" {
         fn lineCreateAgentSessionA(hline: u32, hagent: u32, lpszagentpin: ::windows::core::PCSTR, dwworkingaddressid: u32, lpgroupid: *mut ::windows::core::GUID, lphagentsession: *mut u32) -> i32;
     }
-    ::core::mem::transmute(lineCreateAgentSessionA(hline, hagent, lpszagentpin.into(), dwworkingaddressid, ::core::mem::transmute(lpgroupid), ::core::mem::transmute(lphagentsession)))
+    lineCreateAgentSessionA(hline, hagent, lpszagentpin.into(), dwworkingaddressid, ::core::mem::transmute(lpgroupid), ::core::mem::transmute(lphagentsession))
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[inline]
@@ -22102,7 +22102,7 @@ where
     extern "system" {
         fn lineCreateAgentSessionW(hline: u32, hagent: u32, lpszagentpin: ::windows::core::PCWSTR, dwworkingaddressid: u32, lpgroupid: *mut ::windows::core::GUID, lphagentsession: *mut u32) -> i32;
     }
-    ::core::mem::transmute(lineCreateAgentSessionW(hline, hagent, lpszagentpin.into(), dwworkingaddressid, ::core::mem::transmute(lpgroupid), ::core::mem::transmute(lphagentsession)))
+    lineCreateAgentSessionW(hline, hagent, lpszagentpin.into(), dwworkingaddressid, ::core::mem::transmute(lpgroupid), ::core::mem::transmute(lphagentsession))
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[inline]
@@ -22115,7 +22115,7 @@ where
     extern "system" {
         fn lineCreateAgentW(hline: u32, lpszagentid: ::windows::core::PCWSTR, lpszagentpin: ::windows::core::PCWSTR, lphagent: *mut u32) -> i32;
     }
-    ::core::mem::transmute(lineCreateAgentW(hline, lpszagentid.into(), lpszagentpin.into(), ::core::mem::transmute(lphagent)))
+    lineCreateAgentW(hline, lpszagentid.into(), lpszagentpin.into(), ::core::mem::transmute(lphagent))
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[inline]
@@ -22124,7 +22124,7 @@ pub unsafe fn lineDeallocateCall(hcall: u32) -> i32 {
     extern "system" {
         fn lineDeallocateCall(hcall: u32) -> i32;
     }
-    ::core::mem::transmute(lineDeallocateCall(hcall))
+    lineDeallocateCall(hcall)
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[inline]
@@ -22133,7 +22133,7 @@ pub unsafe fn lineDevSpecific(hline: u32, dwaddressid: u32, hcall: u32, lpparams
     extern "system" {
         fn lineDevSpecific(hline: u32, dwaddressid: u32, hcall: u32, lpparams: *mut ::core::ffi::c_void, dwsize: u32) -> i32;
     }
-    ::core::mem::transmute(lineDevSpecific(hline, dwaddressid, hcall, ::core::mem::transmute(lpparams), dwsize))
+    lineDevSpecific(hline, dwaddressid, hcall, ::core::mem::transmute(lpparams), dwsize)
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[inline]
@@ -22142,7 +22142,7 @@ pub unsafe fn lineDevSpecificFeature(hline: u32, dwfeature: u32, lpparams: *mut 
     extern "system" {
         fn lineDevSpecificFeature(hline: u32, dwfeature: u32, lpparams: *mut ::core::ffi::c_void, dwsize: u32) -> i32;
     }
-    ::core::mem::transmute(lineDevSpecificFeature(hline, dwfeature, ::core::mem::transmute(lpparams), dwsize))
+    lineDevSpecificFeature(hline, dwfeature, ::core::mem::transmute(lpparams), dwsize)
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[inline]
@@ -22154,7 +22154,7 @@ where
     extern "system" {
         fn lineDial(hcall: u32, lpszdestaddress: ::windows::core::PCSTR, dwcountrycode: u32) -> i32;
     }
-    ::core::mem::transmute(lineDial(hcall, lpszdestaddress.into(), dwcountrycode))
+    lineDial(hcall, lpszdestaddress.into(), dwcountrycode)
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[inline]
@@ -22166,7 +22166,7 @@ where
     extern "system" {
         fn lineDialA(hcall: u32, lpszdestaddress: ::windows::core::PCSTR, dwcountrycode: u32) -> i32;
     }
-    ::core::mem::transmute(lineDialA(hcall, lpszdestaddress.into(), dwcountrycode))
+    lineDialA(hcall, lpszdestaddress.into(), dwcountrycode)
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[inline]
@@ -22178,7 +22178,7 @@ where
     extern "system" {
         fn lineDialW(hcall: u32, lpszdestaddress: ::windows::core::PCWSTR, dwcountrycode: u32) -> i32;
     }
-    ::core::mem::transmute(lineDialW(hcall, lpszdestaddress.into(), dwcountrycode))
+    lineDialW(hcall, lpszdestaddress.into(), dwcountrycode)
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[inline]
@@ -22190,7 +22190,7 @@ where
     extern "system" {
         fn lineDrop(hcall: u32, lpsuseruserinfo: ::windows::core::PCSTR, dwsize: u32) -> i32;
     }
-    ::core::mem::transmute(lineDrop(hcall, lpsuseruserinfo.into(), dwsize))
+    lineDrop(hcall, lpsuseruserinfo.into(), dwsize)
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[inline]
@@ -22199,7 +22199,7 @@ pub unsafe fn lineForward(hline: u32, balladdresses: u32, dwaddressid: u32, lpfo
     extern "system" {
         fn lineForward(hline: u32, balladdresses: u32, dwaddressid: u32, lpforwardlist: *const LINEFORWARDLIST, dwnumringsnoanswer: u32, lphconsultcall: *mut u32, lpcallparams: *const LINECALLPARAMS) -> i32;
     }
-    ::core::mem::transmute(lineForward(hline, balladdresses, dwaddressid, ::core::mem::transmute(lpforwardlist), dwnumringsnoanswer, ::core::mem::transmute(lphconsultcall), ::core::mem::transmute(lpcallparams)))
+    lineForward(hline, balladdresses, dwaddressid, ::core::mem::transmute(lpforwardlist), dwnumringsnoanswer, ::core::mem::transmute(lphconsultcall), ::core::mem::transmute(lpcallparams))
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[inline]
@@ -22208,7 +22208,7 @@ pub unsafe fn lineForwardA(hline: u32, balladdresses: u32, dwaddressid: u32, lpf
     extern "system" {
         fn lineForwardA(hline: u32, balladdresses: u32, dwaddressid: u32, lpforwardlist: *const LINEFORWARDLIST, dwnumringsnoanswer: u32, lphconsultcall: *mut u32, lpcallparams: *const LINECALLPARAMS) -> i32;
     }
-    ::core::mem::transmute(lineForwardA(hline, balladdresses, dwaddressid, ::core::mem::transmute(lpforwardlist), dwnumringsnoanswer, ::core::mem::transmute(lphconsultcall), ::core::mem::transmute(lpcallparams)))
+    lineForwardA(hline, balladdresses, dwaddressid, ::core::mem::transmute(lpforwardlist), dwnumringsnoanswer, ::core::mem::transmute(lphconsultcall), ::core::mem::transmute(lpcallparams))
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[inline]
@@ -22217,7 +22217,7 @@ pub unsafe fn lineForwardW(hline: u32, balladdresses: u32, dwaddressid: u32, lpf
     extern "system" {
         fn lineForwardW(hline: u32, balladdresses: u32, dwaddressid: u32, lpforwardlist: *const LINEFORWARDLIST, dwnumringsnoanswer: u32, lphconsultcall: *mut u32, lpcallparams: *const LINECALLPARAMS) -> i32;
     }
-    ::core::mem::transmute(lineForwardW(hline, balladdresses, dwaddressid, ::core::mem::transmute(lpforwardlist), dwnumringsnoanswer, ::core::mem::transmute(lphconsultcall), ::core::mem::transmute(lpcallparams)))
+    lineForwardW(hline, balladdresses, dwaddressid, ::core::mem::transmute(lpforwardlist), dwnumringsnoanswer, ::core::mem::transmute(lphconsultcall), ::core::mem::transmute(lpcallparams))
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[inline]
@@ -22229,7 +22229,7 @@ where
     extern "system" {
         fn lineGatherDigits(hcall: u32, dwdigitmodes: u32, lpsdigits: ::windows::core::PSTR, dwnumdigits: u32, lpszterminationdigits: ::windows::core::PCSTR, dwfirstdigittimeout: u32, dwinterdigittimeout: u32) -> i32;
     }
-    ::core::mem::transmute(lineGatherDigits(hcall, dwdigitmodes, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(lpsdigits)), lpsdigits.len() as _, lpszterminationdigits.into(), dwfirstdigittimeout, dwinterdigittimeout))
+    lineGatherDigits(hcall, dwdigitmodes, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(lpsdigits)), lpsdigits.len() as _, lpszterminationdigits.into(), dwfirstdigittimeout, dwinterdigittimeout)
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[inline]
@@ -22241,7 +22241,7 @@ where
     extern "system" {
         fn lineGatherDigitsA(hcall: u32, dwdigitmodes: u32, lpsdigits: ::windows::core::PSTR, dwnumdigits: u32, lpszterminationdigits: ::windows::core::PCSTR, dwfirstdigittimeout: u32, dwinterdigittimeout: u32) -> i32;
     }
-    ::core::mem::transmute(lineGatherDigitsA(hcall, dwdigitmodes, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(lpsdigits)), lpsdigits.len() as _, lpszterminationdigits.into(), dwfirstdigittimeout, dwinterdigittimeout))
+    lineGatherDigitsA(hcall, dwdigitmodes, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(lpsdigits)), lpsdigits.len() as _, lpszterminationdigits.into(), dwfirstdigittimeout, dwinterdigittimeout)
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[inline]
@@ -22253,7 +22253,7 @@ where
     extern "system" {
         fn lineGatherDigitsW(hcall: u32, dwdigitmodes: u32, lpsdigits: ::windows::core::PWSTR, dwnumdigits: u32, lpszterminationdigits: ::windows::core::PCWSTR, dwfirstdigittimeout: u32, dwinterdigittimeout: u32) -> i32;
     }
-    ::core::mem::transmute(lineGatherDigitsW(hcall, dwdigitmodes, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(lpsdigits)), lpsdigits.len() as _, lpszterminationdigits.into(), dwfirstdigittimeout, dwinterdigittimeout))
+    lineGatherDigitsW(hcall, dwdigitmodes, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(lpsdigits)), lpsdigits.len() as _, lpszterminationdigits.into(), dwfirstdigittimeout, dwinterdigittimeout)
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[inline]
@@ -22265,7 +22265,7 @@ where
     extern "system" {
         fn lineGenerateDigits(hcall: u32, dwdigitmode: u32, lpszdigits: ::windows::core::PCSTR, dwduration: u32) -> i32;
     }
-    ::core::mem::transmute(lineGenerateDigits(hcall, dwdigitmode, lpszdigits.into(), dwduration))
+    lineGenerateDigits(hcall, dwdigitmode, lpszdigits.into(), dwduration)
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[inline]
@@ -22277,7 +22277,7 @@ where
     extern "system" {
         fn lineGenerateDigitsA(hcall: u32, dwdigitmode: u32, lpszdigits: ::windows::core::PCSTR, dwduration: u32) -> i32;
     }
-    ::core::mem::transmute(lineGenerateDigitsA(hcall, dwdigitmode, lpszdigits.into(), dwduration))
+    lineGenerateDigitsA(hcall, dwdigitmode, lpszdigits.into(), dwduration)
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[inline]
@@ -22289,7 +22289,7 @@ where
     extern "system" {
         fn lineGenerateDigitsW(hcall: u32, dwdigitmode: u32, lpszdigits: ::windows::core::PCWSTR, dwduration: u32) -> i32;
     }
-    ::core::mem::transmute(lineGenerateDigitsW(hcall, dwdigitmode, lpszdigits.into(), dwduration))
+    lineGenerateDigitsW(hcall, dwdigitmode, lpszdigits.into(), dwduration)
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[inline]
@@ -22298,7 +22298,7 @@ pub unsafe fn lineGenerateTone(hcall: u32, dwtonemode: u32, dwduration: u32, dwn
     extern "system" {
         fn lineGenerateTone(hcall: u32, dwtonemode: u32, dwduration: u32, dwnumtones: u32, lptones: *const LINEGENERATETONE) -> i32;
     }
-    ::core::mem::transmute(lineGenerateTone(hcall, dwtonemode, dwduration, dwnumtones, ::core::mem::transmute(lptones)))
+    lineGenerateTone(hcall, dwtonemode, dwduration, dwnumtones, ::core::mem::transmute(lptones))
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[inline]
@@ -22307,7 +22307,7 @@ pub unsafe fn lineGetAddressCaps(hlineapp: u32, dwdeviceid: u32, dwaddressid: u3
     extern "system" {
         fn lineGetAddressCaps(hlineapp: u32, dwdeviceid: u32, dwaddressid: u32, dwapiversion: u32, dwextversion: u32, lpaddresscaps: *mut LINEADDRESSCAPS) -> i32;
     }
-    ::core::mem::transmute(lineGetAddressCaps(hlineapp, dwdeviceid, dwaddressid, dwapiversion, dwextversion, ::core::mem::transmute(lpaddresscaps)))
+    lineGetAddressCaps(hlineapp, dwdeviceid, dwaddressid, dwapiversion, dwextversion, ::core::mem::transmute(lpaddresscaps))
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[inline]
@@ -22316,7 +22316,7 @@ pub unsafe fn lineGetAddressCapsA(hlineapp: u32, dwdeviceid: u32, dwaddressid: u
     extern "system" {
         fn lineGetAddressCapsA(hlineapp: u32, dwdeviceid: u32, dwaddressid: u32, dwapiversion: u32, dwextversion: u32, lpaddresscaps: *mut LINEADDRESSCAPS) -> i32;
     }
-    ::core::mem::transmute(lineGetAddressCapsA(hlineapp, dwdeviceid, dwaddressid, dwapiversion, dwextversion, ::core::mem::transmute(lpaddresscaps)))
+    lineGetAddressCapsA(hlineapp, dwdeviceid, dwaddressid, dwapiversion, dwextversion, ::core::mem::transmute(lpaddresscaps))
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[inline]
@@ -22325,7 +22325,7 @@ pub unsafe fn lineGetAddressCapsW(hlineapp: u32, dwdeviceid: u32, dwaddressid: u
     extern "system" {
         fn lineGetAddressCapsW(hlineapp: u32, dwdeviceid: u32, dwaddressid: u32, dwapiversion: u32, dwextversion: u32, lpaddresscaps: *mut LINEADDRESSCAPS) -> i32;
     }
-    ::core::mem::transmute(lineGetAddressCapsW(hlineapp, dwdeviceid, dwaddressid, dwapiversion, dwextversion, ::core::mem::transmute(lpaddresscaps)))
+    lineGetAddressCapsW(hlineapp, dwdeviceid, dwaddressid, dwapiversion, dwextversion, ::core::mem::transmute(lpaddresscaps))
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[inline]
@@ -22337,7 +22337,7 @@ where
     extern "system" {
         fn lineGetAddressID(hline: u32, lpdwaddressid: *mut u32, dwaddressmode: u32, lpsaddress: ::windows::core::PCSTR, dwsize: u32) -> i32;
     }
-    ::core::mem::transmute(lineGetAddressID(hline, ::core::mem::transmute(lpdwaddressid), dwaddressmode, lpsaddress.into(), dwsize))
+    lineGetAddressID(hline, ::core::mem::transmute(lpdwaddressid), dwaddressmode, lpsaddress.into(), dwsize)
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[inline]
@@ -22349,7 +22349,7 @@ where
     extern "system" {
         fn lineGetAddressIDA(hline: u32, lpdwaddressid: *mut u32, dwaddressmode: u32, lpsaddress: ::windows::core::PCSTR, dwsize: u32) -> i32;
     }
-    ::core::mem::transmute(lineGetAddressIDA(hline, ::core::mem::transmute(lpdwaddressid), dwaddressmode, lpsaddress.into(), dwsize))
+    lineGetAddressIDA(hline, ::core::mem::transmute(lpdwaddressid), dwaddressmode, lpsaddress.into(), dwsize)
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[inline]
@@ -22361,7 +22361,7 @@ where
     extern "system" {
         fn lineGetAddressIDW(hline: u32, lpdwaddressid: *mut u32, dwaddressmode: u32, lpsaddress: ::windows::core::PCWSTR, dwsize: u32) -> i32;
     }
-    ::core::mem::transmute(lineGetAddressIDW(hline, ::core::mem::transmute(lpdwaddressid), dwaddressmode, lpsaddress.into(), dwsize))
+    lineGetAddressIDW(hline, ::core::mem::transmute(lpdwaddressid), dwaddressmode, lpsaddress.into(), dwsize)
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[inline]
@@ -22370,7 +22370,7 @@ pub unsafe fn lineGetAddressStatus(hline: u32, dwaddressid: u32, lpaddressstatus
     extern "system" {
         fn lineGetAddressStatus(hline: u32, dwaddressid: u32, lpaddressstatus: *mut LINEADDRESSSTATUS) -> i32;
     }
-    ::core::mem::transmute(lineGetAddressStatus(hline, dwaddressid, ::core::mem::transmute(lpaddressstatus)))
+    lineGetAddressStatus(hline, dwaddressid, ::core::mem::transmute(lpaddressstatus))
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[inline]
@@ -22379,7 +22379,7 @@ pub unsafe fn lineGetAddressStatusA(hline: u32, dwaddressid: u32, lpaddressstatu
     extern "system" {
         fn lineGetAddressStatusA(hline: u32, dwaddressid: u32, lpaddressstatus: *mut LINEADDRESSSTATUS) -> i32;
     }
-    ::core::mem::transmute(lineGetAddressStatusA(hline, dwaddressid, ::core::mem::transmute(lpaddressstatus)))
+    lineGetAddressStatusA(hline, dwaddressid, ::core::mem::transmute(lpaddressstatus))
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[inline]
@@ -22388,7 +22388,7 @@ pub unsafe fn lineGetAddressStatusW(hline: u32, dwaddressid: u32, lpaddressstatu
     extern "system" {
         fn lineGetAddressStatusW(hline: u32, dwaddressid: u32, lpaddressstatus: *mut LINEADDRESSSTATUS) -> i32;
     }
-    ::core::mem::transmute(lineGetAddressStatusW(hline, dwaddressid, ::core::mem::transmute(lpaddressstatus)))
+    lineGetAddressStatusW(hline, dwaddressid, ::core::mem::transmute(lpaddressstatus))
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[inline]
@@ -22397,7 +22397,7 @@ pub unsafe fn lineGetAgentActivityListA(hline: u32, dwaddressid: u32, lpagentact
     extern "system" {
         fn lineGetAgentActivityListA(hline: u32, dwaddressid: u32, lpagentactivitylist: *mut LINEAGENTACTIVITYLIST) -> i32;
     }
-    ::core::mem::transmute(lineGetAgentActivityListA(hline, dwaddressid, ::core::mem::transmute(lpagentactivitylist)))
+    lineGetAgentActivityListA(hline, dwaddressid, ::core::mem::transmute(lpagentactivitylist))
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[inline]
@@ -22406,7 +22406,7 @@ pub unsafe fn lineGetAgentActivityListW(hline: u32, dwaddressid: u32, lpagentact
     extern "system" {
         fn lineGetAgentActivityListW(hline: u32, dwaddressid: u32, lpagentactivitylist: *mut LINEAGENTACTIVITYLIST) -> i32;
     }
-    ::core::mem::transmute(lineGetAgentActivityListW(hline, dwaddressid, ::core::mem::transmute(lpagentactivitylist)))
+    lineGetAgentActivityListW(hline, dwaddressid, ::core::mem::transmute(lpagentactivitylist))
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[inline]
@@ -22415,7 +22415,7 @@ pub unsafe fn lineGetAgentCapsA(hlineapp: u32, dwdeviceid: u32, dwaddressid: u32
     extern "system" {
         fn lineGetAgentCapsA(hlineapp: u32, dwdeviceid: u32, dwaddressid: u32, dwappapiversion: u32, lpagentcaps: *mut LINEAGENTCAPS) -> i32;
     }
-    ::core::mem::transmute(lineGetAgentCapsA(hlineapp, dwdeviceid, dwaddressid, dwappapiversion, ::core::mem::transmute(lpagentcaps)))
+    lineGetAgentCapsA(hlineapp, dwdeviceid, dwaddressid, dwappapiversion, ::core::mem::transmute(lpagentcaps))
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[inline]
@@ -22424,7 +22424,7 @@ pub unsafe fn lineGetAgentCapsW(hlineapp: u32, dwdeviceid: u32, dwaddressid: u32
     extern "system" {
         fn lineGetAgentCapsW(hlineapp: u32, dwdeviceid: u32, dwaddressid: u32, dwappapiversion: u32, lpagentcaps: *mut LINEAGENTCAPS) -> i32;
     }
-    ::core::mem::transmute(lineGetAgentCapsW(hlineapp, dwdeviceid, dwaddressid, dwappapiversion, ::core::mem::transmute(lpagentcaps)))
+    lineGetAgentCapsW(hlineapp, dwdeviceid, dwaddressid, dwappapiversion, ::core::mem::transmute(lpagentcaps))
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[inline]
@@ -22433,7 +22433,7 @@ pub unsafe fn lineGetAgentGroupListA(hline: u32, dwaddressid: u32, lpagentgroupl
     extern "system" {
         fn lineGetAgentGroupListA(hline: u32, dwaddressid: u32, lpagentgrouplist: *mut LINEAGENTGROUPLIST) -> i32;
     }
-    ::core::mem::transmute(lineGetAgentGroupListA(hline, dwaddressid, ::core::mem::transmute(lpagentgrouplist)))
+    lineGetAgentGroupListA(hline, dwaddressid, ::core::mem::transmute(lpagentgrouplist))
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[inline]
@@ -22442,7 +22442,7 @@ pub unsafe fn lineGetAgentGroupListW(hline: u32, dwaddressid: u32, lpagentgroupl
     extern "system" {
         fn lineGetAgentGroupListW(hline: u32, dwaddressid: u32, lpagentgrouplist: *mut LINEAGENTGROUPLIST) -> i32;
     }
-    ::core::mem::transmute(lineGetAgentGroupListW(hline, dwaddressid, ::core::mem::transmute(lpagentgrouplist)))
+    lineGetAgentGroupListW(hline, dwaddressid, ::core::mem::transmute(lpagentgrouplist))
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
@@ -22452,7 +22452,7 @@ pub unsafe fn lineGetAgentInfo(hline: u32, hagent: u32, lpagentinfo: *mut LINEAG
     extern "system" {
         fn lineGetAgentInfo(hline: u32, hagent: u32, lpagentinfo: *mut LINEAGENTINFO) -> i32;
     }
-    ::core::mem::transmute(lineGetAgentInfo(hline, hagent, ::core::mem::transmute(lpagentinfo)))
+    lineGetAgentInfo(hline, hagent, ::core::mem::transmute(lpagentinfo))
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
@@ -22462,7 +22462,7 @@ pub unsafe fn lineGetAgentSessionInfo(hline: u32, hagentsession: u32, lpagentses
     extern "system" {
         fn lineGetAgentSessionInfo(hline: u32, hagentsession: u32, lpagentsessioninfo: *mut LINEAGENTSESSIONINFO) -> i32;
     }
-    ::core::mem::transmute(lineGetAgentSessionInfo(hline, hagentsession, ::core::mem::transmute(lpagentsessioninfo)))
+    lineGetAgentSessionInfo(hline, hagentsession, ::core::mem::transmute(lpagentsessioninfo))
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[inline]
@@ -22471,7 +22471,7 @@ pub unsafe fn lineGetAgentSessionList(hline: u32, hagent: u32, lpagentsessionlis
     extern "system" {
         fn lineGetAgentSessionList(hline: u32, hagent: u32, lpagentsessionlist: *mut LINEAGENTSESSIONLIST) -> i32;
     }
-    ::core::mem::transmute(lineGetAgentSessionList(hline, hagent, ::core::mem::transmute(lpagentsessionlist)))
+    lineGetAgentSessionList(hline, hagent, ::core::mem::transmute(lpagentsessionlist))
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[inline]
@@ -22480,7 +22480,7 @@ pub unsafe fn lineGetAgentStatusA(hline: u32, dwaddressid: u32, lpagentstatus: *
     extern "system" {
         fn lineGetAgentStatusA(hline: u32, dwaddressid: u32, lpagentstatus: *mut LINEAGENTSTATUS) -> i32;
     }
-    ::core::mem::transmute(lineGetAgentStatusA(hline, dwaddressid, ::core::mem::transmute(lpagentstatus)))
+    lineGetAgentStatusA(hline, dwaddressid, ::core::mem::transmute(lpagentstatus))
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[inline]
@@ -22489,7 +22489,7 @@ pub unsafe fn lineGetAgentStatusW(hline: u32, dwaddressid: u32, lpagentstatus: *
     extern "system" {
         fn lineGetAgentStatusW(hline: u32, dwaddressid: u32, lpagentstatus: *mut LINEAGENTSTATUS) -> i32;
     }
-    ::core::mem::transmute(lineGetAgentStatusW(hline, dwaddressid, ::core::mem::transmute(lpagentstatus)))
+    lineGetAgentStatusW(hline, dwaddressid, ::core::mem::transmute(lpagentstatus))
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[inline]
@@ -22501,7 +22501,7 @@ where
     extern "system" {
         fn lineGetAppPriority(lpszappfilename: ::windows::core::PCSTR, dwmediamode: u32, lpextensionid: *mut LINEEXTENSIONID, dwrequestmode: u32, lpextensionname: *mut VARSTRING, lpdwpriority: *mut u32) -> i32;
     }
-    ::core::mem::transmute(lineGetAppPriority(lpszappfilename.into(), dwmediamode, ::core::mem::transmute(lpextensionid), dwrequestmode, ::core::mem::transmute(lpextensionname), ::core::mem::transmute(lpdwpriority)))
+    lineGetAppPriority(lpszappfilename.into(), dwmediamode, ::core::mem::transmute(lpextensionid), dwrequestmode, ::core::mem::transmute(lpextensionname), ::core::mem::transmute(lpdwpriority))
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[inline]
@@ -22513,7 +22513,7 @@ where
     extern "system" {
         fn lineGetAppPriorityA(lpszappfilename: ::windows::core::PCSTR, dwmediamode: u32, lpextensionid: *mut LINEEXTENSIONID, dwrequestmode: u32, lpextensionname: *mut VARSTRING, lpdwpriority: *mut u32) -> i32;
     }
-    ::core::mem::transmute(lineGetAppPriorityA(lpszappfilename.into(), dwmediamode, ::core::mem::transmute(lpextensionid), dwrequestmode, ::core::mem::transmute(lpextensionname), ::core::mem::transmute(lpdwpriority)))
+    lineGetAppPriorityA(lpszappfilename.into(), dwmediamode, ::core::mem::transmute(lpextensionid), dwrequestmode, ::core::mem::transmute(lpextensionname), ::core::mem::transmute(lpdwpriority))
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[inline]
@@ -22525,7 +22525,7 @@ where
     extern "system" {
         fn lineGetAppPriorityW(lpszappfilename: ::windows::core::PCWSTR, dwmediamode: u32, lpextensionid: *mut LINEEXTENSIONID, dwrequestmode: u32, lpextensionname: *mut VARSTRING, lpdwpriority: *mut u32) -> i32;
     }
-    ::core::mem::transmute(lineGetAppPriorityW(lpszappfilename.into(), dwmediamode, ::core::mem::transmute(lpextensionid), dwrequestmode, ::core::mem::transmute(lpextensionname), ::core::mem::transmute(lpdwpriority)))
+    lineGetAppPriorityW(lpszappfilename.into(), dwmediamode, ::core::mem::transmute(lpextensionid), dwrequestmode, ::core::mem::transmute(lpextensionname), ::core::mem::transmute(lpdwpriority))
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[inline]
@@ -22534,7 +22534,7 @@ pub unsafe fn lineGetCallInfo(hcall: u32, lpcallinfo: *mut LINECALLINFO) -> i32 
     extern "system" {
         fn lineGetCallInfo(hcall: u32, lpcallinfo: *mut LINECALLINFO) -> i32;
     }
-    ::core::mem::transmute(lineGetCallInfo(hcall, ::core::mem::transmute(lpcallinfo)))
+    lineGetCallInfo(hcall, ::core::mem::transmute(lpcallinfo))
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[inline]
@@ -22543,7 +22543,7 @@ pub unsafe fn lineGetCallInfoA(hcall: u32, lpcallinfo: *mut LINECALLINFO) -> i32
     extern "system" {
         fn lineGetCallInfoA(hcall: u32, lpcallinfo: *mut LINECALLINFO) -> i32;
     }
-    ::core::mem::transmute(lineGetCallInfoA(hcall, ::core::mem::transmute(lpcallinfo)))
+    lineGetCallInfoA(hcall, ::core::mem::transmute(lpcallinfo))
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[inline]
@@ -22552,7 +22552,7 @@ pub unsafe fn lineGetCallInfoW(hcall: u32, lpcallinfo: *mut LINECALLINFO) -> i32
     extern "system" {
         fn lineGetCallInfoW(hcall: u32, lpcallinfo: *mut LINECALLINFO) -> i32;
     }
-    ::core::mem::transmute(lineGetCallInfoW(hcall, ::core::mem::transmute(lpcallinfo)))
+    lineGetCallInfoW(hcall, ::core::mem::transmute(lpcallinfo))
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -22562,7 +22562,7 @@ pub unsafe fn lineGetCallStatus(hcall: u32, lpcallstatus: *mut LINECALLSTATUS) -
     extern "system" {
         fn lineGetCallStatus(hcall: u32, lpcallstatus: *mut LINECALLSTATUS) -> i32;
     }
-    ::core::mem::transmute(lineGetCallStatus(hcall, ::core::mem::transmute(lpcallstatus)))
+    lineGetCallStatus(hcall, ::core::mem::transmute(lpcallstatus))
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[inline]
@@ -22571,7 +22571,7 @@ pub unsafe fn lineGetConfRelatedCalls(hcall: u32, lpcalllist: *mut LINECALLLIST)
     extern "system" {
         fn lineGetConfRelatedCalls(hcall: u32, lpcalllist: *mut LINECALLLIST) -> i32;
     }
-    ::core::mem::transmute(lineGetConfRelatedCalls(hcall, ::core::mem::transmute(lpcalllist)))
+    lineGetConfRelatedCalls(hcall, ::core::mem::transmute(lpcalllist))
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[inline]
@@ -22580,7 +22580,7 @@ pub unsafe fn lineGetCountry(dwcountryid: u32, dwapiversion: u32, lplinecountryl
     extern "system" {
         fn lineGetCountry(dwcountryid: u32, dwapiversion: u32, lplinecountrylist: *mut LINECOUNTRYLIST) -> i32;
     }
-    ::core::mem::transmute(lineGetCountry(dwcountryid, dwapiversion, ::core::mem::transmute(lplinecountrylist)))
+    lineGetCountry(dwcountryid, dwapiversion, ::core::mem::transmute(lplinecountrylist))
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[inline]
@@ -22589,7 +22589,7 @@ pub unsafe fn lineGetCountryA(dwcountryid: u32, dwapiversion: u32, lplinecountry
     extern "system" {
         fn lineGetCountryA(dwcountryid: u32, dwapiversion: u32, lplinecountrylist: *mut LINECOUNTRYLIST) -> i32;
     }
-    ::core::mem::transmute(lineGetCountryA(dwcountryid, dwapiversion, ::core::mem::transmute(lplinecountrylist)))
+    lineGetCountryA(dwcountryid, dwapiversion, ::core::mem::transmute(lplinecountrylist))
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[inline]
@@ -22598,7 +22598,7 @@ pub unsafe fn lineGetCountryW(dwcountryid: u32, dwapiversion: u32, lplinecountry
     extern "system" {
         fn lineGetCountryW(dwcountryid: u32, dwapiversion: u32, lplinecountrylist: *mut LINECOUNTRYLIST) -> i32;
     }
-    ::core::mem::transmute(lineGetCountryW(dwcountryid, dwapiversion, ::core::mem::transmute(lplinecountrylist)))
+    lineGetCountryW(dwcountryid, dwapiversion, ::core::mem::transmute(lplinecountrylist))
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[inline]
@@ -22607,7 +22607,7 @@ pub unsafe fn lineGetDevCaps(hlineapp: u32, dwdeviceid: u32, dwapiversion: u32, 
     extern "system" {
         fn lineGetDevCaps(hlineapp: u32, dwdeviceid: u32, dwapiversion: u32, dwextversion: u32, lplinedevcaps: *mut LINEDEVCAPS) -> i32;
     }
-    ::core::mem::transmute(lineGetDevCaps(hlineapp, dwdeviceid, dwapiversion, dwextversion, ::core::mem::transmute(lplinedevcaps)))
+    lineGetDevCaps(hlineapp, dwdeviceid, dwapiversion, dwextversion, ::core::mem::transmute(lplinedevcaps))
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[inline]
@@ -22616,7 +22616,7 @@ pub unsafe fn lineGetDevCapsA(hlineapp: u32, dwdeviceid: u32, dwapiversion: u32,
     extern "system" {
         fn lineGetDevCapsA(hlineapp: u32, dwdeviceid: u32, dwapiversion: u32, dwextversion: u32, lplinedevcaps: *mut LINEDEVCAPS) -> i32;
     }
-    ::core::mem::transmute(lineGetDevCapsA(hlineapp, dwdeviceid, dwapiversion, dwextversion, ::core::mem::transmute(lplinedevcaps)))
+    lineGetDevCapsA(hlineapp, dwdeviceid, dwapiversion, dwextversion, ::core::mem::transmute(lplinedevcaps))
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[inline]
@@ -22625,7 +22625,7 @@ pub unsafe fn lineGetDevCapsW(hlineapp: u32, dwdeviceid: u32, dwapiversion: u32,
     extern "system" {
         fn lineGetDevCapsW(hlineapp: u32, dwdeviceid: u32, dwapiversion: u32, dwextversion: u32, lplinedevcaps: *mut LINEDEVCAPS) -> i32;
     }
-    ::core::mem::transmute(lineGetDevCapsW(hlineapp, dwdeviceid, dwapiversion, dwextversion, ::core::mem::transmute(lplinedevcaps)))
+    lineGetDevCapsW(hlineapp, dwdeviceid, dwapiversion, dwextversion, ::core::mem::transmute(lplinedevcaps))
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[inline]
@@ -22637,7 +22637,7 @@ where
     extern "system" {
         fn lineGetDevConfig(dwdeviceid: u32, lpdeviceconfig: *mut VARSTRING, lpszdeviceclass: ::windows::core::PCSTR) -> i32;
     }
-    ::core::mem::transmute(lineGetDevConfig(dwdeviceid, ::core::mem::transmute(lpdeviceconfig), lpszdeviceclass.into()))
+    lineGetDevConfig(dwdeviceid, ::core::mem::transmute(lpdeviceconfig), lpszdeviceclass.into())
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[inline]
@@ -22649,7 +22649,7 @@ where
     extern "system" {
         fn lineGetDevConfigA(dwdeviceid: u32, lpdeviceconfig: *mut VARSTRING, lpszdeviceclass: ::windows::core::PCSTR) -> i32;
     }
-    ::core::mem::transmute(lineGetDevConfigA(dwdeviceid, ::core::mem::transmute(lpdeviceconfig), lpszdeviceclass.into()))
+    lineGetDevConfigA(dwdeviceid, ::core::mem::transmute(lpdeviceconfig), lpszdeviceclass.into())
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[inline]
@@ -22661,7 +22661,7 @@ where
     extern "system" {
         fn lineGetDevConfigW(dwdeviceid: u32, lpdeviceconfig: *mut VARSTRING, lpszdeviceclass: ::windows::core::PCWSTR) -> i32;
     }
-    ::core::mem::transmute(lineGetDevConfigW(dwdeviceid, ::core::mem::transmute(lpdeviceconfig), lpszdeviceclass.into()))
+    lineGetDevConfigW(dwdeviceid, ::core::mem::transmute(lpdeviceconfig), lpszdeviceclass.into())
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[inline]
@@ -22670,7 +22670,7 @@ pub unsafe fn lineGetGroupListA(hline: u32, lpgrouplist: *mut LINEAGENTGROUPLIST
     extern "system" {
         fn lineGetGroupListA(hline: u32, lpgrouplist: *mut LINEAGENTGROUPLIST) -> i32;
     }
-    ::core::mem::transmute(lineGetGroupListA(hline, ::core::mem::transmute(lpgrouplist)))
+    lineGetGroupListA(hline, ::core::mem::transmute(lpgrouplist))
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[inline]
@@ -22679,7 +22679,7 @@ pub unsafe fn lineGetGroupListW(hline: u32, lpgrouplist: *mut LINEAGENTGROUPLIST
     extern "system" {
         fn lineGetGroupListW(hline: u32, lpgrouplist: *mut LINEAGENTGROUPLIST) -> i32;
     }
-    ::core::mem::transmute(lineGetGroupListW(hline, ::core::mem::transmute(lpgrouplist)))
+    lineGetGroupListW(hline, ::core::mem::transmute(lpgrouplist))
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[inline]
@@ -22691,7 +22691,7 @@ where
     extern "system" {
         fn lineGetID(hline: u32, dwaddressid: u32, hcall: u32, dwselect: u32, lpdeviceid: *mut VARSTRING, lpszdeviceclass: ::windows::core::PCSTR) -> i32;
     }
-    ::core::mem::transmute(lineGetID(hline, dwaddressid, hcall, dwselect, ::core::mem::transmute(lpdeviceid), lpszdeviceclass.into()))
+    lineGetID(hline, dwaddressid, hcall, dwselect, ::core::mem::transmute(lpdeviceid), lpszdeviceclass.into())
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[inline]
@@ -22703,7 +22703,7 @@ where
     extern "system" {
         fn lineGetIDA(hline: u32, dwaddressid: u32, hcall: u32, dwselect: u32, lpdeviceid: *mut VARSTRING, lpszdeviceclass: ::windows::core::PCSTR) -> i32;
     }
-    ::core::mem::transmute(lineGetIDA(hline, dwaddressid, hcall, dwselect, ::core::mem::transmute(lpdeviceid), lpszdeviceclass.into()))
+    lineGetIDA(hline, dwaddressid, hcall, dwselect, ::core::mem::transmute(lpdeviceid), lpszdeviceclass.into())
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[inline]
@@ -22715,7 +22715,7 @@ where
     extern "system" {
         fn lineGetIDW(hline: u32, dwaddressid: u32, hcall: u32, dwselect: u32, lpdeviceid: *mut VARSTRING, lpszdeviceclass: ::windows::core::PCWSTR) -> i32;
     }
-    ::core::mem::transmute(lineGetIDW(hline, dwaddressid, hcall, dwselect, ::core::mem::transmute(lpdeviceid), lpszdeviceclass.into()))
+    lineGetIDW(hline, dwaddressid, hcall, dwselect, ::core::mem::transmute(lpdeviceid), lpszdeviceclass.into())
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[inline]
@@ -22727,7 +22727,7 @@ where
     extern "system" {
         fn lineGetIcon(dwdeviceid: u32, lpszdeviceclass: ::windows::core::PCSTR, lphicon: *mut isize) -> i32;
     }
-    ::core::mem::transmute(lineGetIcon(dwdeviceid, lpszdeviceclass.into(), ::core::mem::transmute(lphicon)))
+    lineGetIcon(dwdeviceid, lpszdeviceclass.into(), ::core::mem::transmute(lphicon))
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[inline]
@@ -22739,7 +22739,7 @@ where
     extern "system" {
         fn lineGetIconA(dwdeviceid: u32, lpszdeviceclass: ::windows::core::PCSTR, lphicon: *mut isize) -> i32;
     }
-    ::core::mem::transmute(lineGetIconA(dwdeviceid, lpszdeviceclass.into(), ::core::mem::transmute(lphicon)))
+    lineGetIconA(dwdeviceid, lpszdeviceclass.into(), ::core::mem::transmute(lphicon))
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[inline]
@@ -22751,7 +22751,7 @@ where
     extern "system" {
         fn lineGetIconW(dwdeviceid: u32, lpszdeviceclass: ::windows::core::PCWSTR, lphicon: *mut isize) -> i32;
     }
-    ::core::mem::transmute(lineGetIconW(dwdeviceid, lpszdeviceclass.into(), ::core::mem::transmute(lphicon)))
+    lineGetIconW(dwdeviceid, lpszdeviceclass.into(), ::core::mem::transmute(lphicon))
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[inline]
@@ -22760,7 +22760,7 @@ pub unsafe fn lineGetLineDevStatus(hline: u32, lplinedevstatus: *mut LINEDEVSTAT
     extern "system" {
         fn lineGetLineDevStatus(hline: u32, lplinedevstatus: *mut LINEDEVSTATUS) -> i32;
     }
-    ::core::mem::transmute(lineGetLineDevStatus(hline, ::core::mem::transmute(lplinedevstatus)))
+    lineGetLineDevStatus(hline, ::core::mem::transmute(lplinedevstatus))
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[inline]
@@ -22769,7 +22769,7 @@ pub unsafe fn lineGetLineDevStatusA(hline: u32, lplinedevstatus: *mut LINEDEVSTA
     extern "system" {
         fn lineGetLineDevStatusA(hline: u32, lplinedevstatus: *mut LINEDEVSTATUS) -> i32;
     }
-    ::core::mem::transmute(lineGetLineDevStatusA(hline, ::core::mem::transmute(lplinedevstatus)))
+    lineGetLineDevStatusA(hline, ::core::mem::transmute(lplinedevstatus))
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[inline]
@@ -22778,7 +22778,7 @@ pub unsafe fn lineGetLineDevStatusW(hline: u32, lplinedevstatus: *mut LINEDEVSTA
     extern "system" {
         fn lineGetLineDevStatusW(hline: u32, lplinedevstatus: *mut LINEDEVSTATUS) -> i32;
     }
-    ::core::mem::transmute(lineGetLineDevStatusW(hline, ::core::mem::transmute(lplinedevstatus)))
+    lineGetLineDevStatusW(hline, ::core::mem::transmute(lplinedevstatus))
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[inline]
@@ -22787,7 +22787,7 @@ pub unsafe fn lineGetMessage(hlineapp: u32, lpmessage: *mut LINEMESSAGE, dwtimeo
     extern "system" {
         fn lineGetMessage(hlineapp: u32, lpmessage: *mut LINEMESSAGE, dwtimeout: u32) -> i32;
     }
-    ::core::mem::transmute(lineGetMessage(hlineapp, ::core::mem::transmute(lpmessage), dwtimeout))
+    lineGetMessage(hlineapp, ::core::mem::transmute(lpmessage), dwtimeout)
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[inline]
@@ -22796,7 +22796,7 @@ pub unsafe fn lineGetNewCalls(hline: u32, dwaddressid: u32, dwselect: u32, lpcal
     extern "system" {
         fn lineGetNewCalls(hline: u32, dwaddressid: u32, dwselect: u32, lpcalllist: *mut LINECALLLIST) -> i32;
     }
-    ::core::mem::transmute(lineGetNewCalls(hline, dwaddressid, dwselect, ::core::mem::transmute(lpcalllist)))
+    lineGetNewCalls(hline, dwaddressid, dwselect, ::core::mem::transmute(lpcalllist))
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[inline]
@@ -22805,7 +22805,7 @@ pub unsafe fn lineGetNumRings(hline: u32, dwaddressid: u32, lpdwnumrings: *mut u
     extern "system" {
         fn lineGetNumRings(hline: u32, dwaddressid: u32, lpdwnumrings: *mut u32) -> i32;
     }
-    ::core::mem::transmute(lineGetNumRings(hline, dwaddressid, ::core::mem::transmute(lpdwnumrings)))
+    lineGetNumRings(hline, dwaddressid, ::core::mem::transmute(lpdwnumrings))
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[inline]
@@ -22814,7 +22814,7 @@ pub unsafe fn lineGetProviderList(dwapiversion: u32, lpproviderlist: *mut LINEPR
     extern "system" {
         fn lineGetProviderList(dwapiversion: u32, lpproviderlist: *mut LINEPROVIDERLIST) -> i32;
     }
-    ::core::mem::transmute(lineGetProviderList(dwapiversion, ::core::mem::transmute(lpproviderlist)))
+    lineGetProviderList(dwapiversion, ::core::mem::transmute(lpproviderlist))
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[inline]
@@ -22823,7 +22823,7 @@ pub unsafe fn lineGetProviderListA(dwapiversion: u32, lpproviderlist: *mut LINEP
     extern "system" {
         fn lineGetProviderListA(dwapiversion: u32, lpproviderlist: *mut LINEPROVIDERLIST) -> i32;
     }
-    ::core::mem::transmute(lineGetProviderListA(dwapiversion, ::core::mem::transmute(lpproviderlist)))
+    lineGetProviderListA(dwapiversion, ::core::mem::transmute(lpproviderlist))
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[inline]
@@ -22832,7 +22832,7 @@ pub unsafe fn lineGetProviderListW(dwapiversion: u32, lpproviderlist: *mut LINEP
     extern "system" {
         fn lineGetProviderListW(dwapiversion: u32, lpproviderlist: *mut LINEPROVIDERLIST) -> i32;
     }
-    ::core::mem::transmute(lineGetProviderListW(dwapiversion, ::core::mem::transmute(lpproviderlist)))
+    lineGetProviderListW(dwapiversion, ::core::mem::transmute(lpproviderlist))
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[inline]
@@ -22841,7 +22841,7 @@ pub unsafe fn lineGetProxyStatus(hlineapp: u32, dwdeviceid: u32, dwappapiversion
     extern "system" {
         fn lineGetProxyStatus(hlineapp: u32, dwdeviceid: u32, dwappapiversion: u32, lplineproxyreqestlist: *mut LINEPROXYREQUESTLIST) -> i32;
     }
-    ::core::mem::transmute(lineGetProxyStatus(hlineapp, dwdeviceid, dwappapiversion, ::core::mem::transmute(lplineproxyreqestlist)))
+    lineGetProxyStatus(hlineapp, dwdeviceid, dwappapiversion, ::core::mem::transmute(lplineproxyreqestlist))
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[inline]
@@ -22850,7 +22850,7 @@ pub unsafe fn lineGetQueueInfo(hline: u32, dwqueueid: u32, lplinequeueinfo: *mut
     extern "system" {
         fn lineGetQueueInfo(hline: u32, dwqueueid: u32, lplinequeueinfo: *mut LINEQUEUEINFO) -> i32;
     }
-    ::core::mem::transmute(lineGetQueueInfo(hline, dwqueueid, ::core::mem::transmute(lplinequeueinfo)))
+    lineGetQueueInfo(hline, dwqueueid, ::core::mem::transmute(lplinequeueinfo))
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[inline]
@@ -22859,7 +22859,7 @@ pub unsafe fn lineGetQueueListA(hline: u32, lpgroupid: *mut ::windows::core::GUI
     extern "system" {
         fn lineGetQueueListA(hline: u32, lpgroupid: *mut ::windows::core::GUID, lpqueuelist: *mut LINEQUEUELIST) -> i32;
     }
-    ::core::mem::transmute(lineGetQueueListA(hline, ::core::mem::transmute(lpgroupid), ::core::mem::transmute(lpqueuelist)))
+    lineGetQueueListA(hline, ::core::mem::transmute(lpgroupid), ::core::mem::transmute(lpqueuelist))
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[inline]
@@ -22868,7 +22868,7 @@ pub unsafe fn lineGetQueueListW(hline: u32, lpgroupid: *mut ::windows::core::GUI
     extern "system" {
         fn lineGetQueueListW(hline: u32, lpgroupid: *mut ::windows::core::GUID, lpqueuelist: *mut LINEQUEUELIST) -> i32;
     }
-    ::core::mem::transmute(lineGetQueueListW(hline, ::core::mem::transmute(lpgroupid), ::core::mem::transmute(lpqueuelist)))
+    lineGetQueueListW(hline, ::core::mem::transmute(lpgroupid), ::core::mem::transmute(lpqueuelist))
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[inline]
@@ -22877,7 +22877,7 @@ pub unsafe fn lineGetRequest(hlineapp: u32, dwrequestmode: u32, lprequestbuffer:
     extern "system" {
         fn lineGetRequest(hlineapp: u32, dwrequestmode: u32, lprequestbuffer: *mut ::core::ffi::c_void) -> i32;
     }
-    ::core::mem::transmute(lineGetRequest(hlineapp, dwrequestmode, ::core::mem::transmute(lprequestbuffer)))
+    lineGetRequest(hlineapp, dwrequestmode, ::core::mem::transmute(lprequestbuffer))
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[inline]
@@ -22886,7 +22886,7 @@ pub unsafe fn lineGetRequestA(hlineapp: u32, dwrequestmode: u32, lprequestbuffer
     extern "system" {
         fn lineGetRequestA(hlineapp: u32, dwrequestmode: u32, lprequestbuffer: *mut ::core::ffi::c_void) -> i32;
     }
-    ::core::mem::transmute(lineGetRequestA(hlineapp, dwrequestmode, ::core::mem::transmute(lprequestbuffer)))
+    lineGetRequestA(hlineapp, dwrequestmode, ::core::mem::transmute(lprequestbuffer))
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[inline]
@@ -22895,7 +22895,7 @@ pub unsafe fn lineGetRequestW(hlineapp: u32, dwrequestmode: u32, lprequestbuffer
     extern "system" {
         fn lineGetRequestW(hlineapp: u32, dwrequestmode: u32, lprequestbuffer: *mut ::core::ffi::c_void) -> i32;
     }
-    ::core::mem::transmute(lineGetRequestW(hlineapp, dwrequestmode, ::core::mem::transmute(lprequestbuffer)))
+    lineGetRequestW(hlineapp, dwrequestmode, ::core::mem::transmute(lprequestbuffer))
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[inline]
@@ -22904,7 +22904,7 @@ pub unsafe fn lineGetStatusMessages(hline: u32, lpdwlinestates: *mut u32, lpdwad
     extern "system" {
         fn lineGetStatusMessages(hline: u32, lpdwlinestates: *mut u32, lpdwaddressstates: *mut u32) -> i32;
     }
-    ::core::mem::transmute(lineGetStatusMessages(hline, ::core::mem::transmute(lpdwlinestates), ::core::mem::transmute(lpdwaddressstates)))
+    lineGetStatusMessages(hline, ::core::mem::transmute(lpdwlinestates), ::core::mem::transmute(lpdwaddressstates))
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[inline]
@@ -22913,7 +22913,7 @@ pub unsafe fn lineGetTranslateCaps(hlineapp: u32, dwapiversion: u32, lptranslate
     extern "system" {
         fn lineGetTranslateCaps(hlineapp: u32, dwapiversion: u32, lptranslatecaps: *mut LINETRANSLATECAPS) -> i32;
     }
-    ::core::mem::transmute(lineGetTranslateCaps(hlineapp, dwapiversion, ::core::mem::transmute(lptranslatecaps)))
+    lineGetTranslateCaps(hlineapp, dwapiversion, ::core::mem::transmute(lptranslatecaps))
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[inline]
@@ -22922,7 +22922,7 @@ pub unsafe fn lineGetTranslateCapsA(hlineapp: u32, dwapiversion: u32, lptranslat
     extern "system" {
         fn lineGetTranslateCapsA(hlineapp: u32, dwapiversion: u32, lptranslatecaps: *mut LINETRANSLATECAPS) -> i32;
     }
-    ::core::mem::transmute(lineGetTranslateCapsA(hlineapp, dwapiversion, ::core::mem::transmute(lptranslatecaps)))
+    lineGetTranslateCapsA(hlineapp, dwapiversion, ::core::mem::transmute(lptranslatecaps))
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[inline]
@@ -22931,7 +22931,7 @@ pub unsafe fn lineGetTranslateCapsW(hlineapp: u32, dwapiversion: u32, lptranslat
     extern "system" {
         fn lineGetTranslateCapsW(hlineapp: u32, dwapiversion: u32, lptranslatecaps: *mut LINETRANSLATECAPS) -> i32;
     }
-    ::core::mem::transmute(lineGetTranslateCapsW(hlineapp, dwapiversion, ::core::mem::transmute(lptranslatecaps)))
+    lineGetTranslateCapsW(hlineapp, dwapiversion, ::core::mem::transmute(lptranslatecaps))
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[inline]
@@ -22943,7 +22943,7 @@ where
     extern "system" {
         fn lineHandoff(hcall: u32, lpszfilename: ::windows::core::PCSTR, dwmediamode: u32) -> i32;
     }
-    ::core::mem::transmute(lineHandoff(hcall, lpszfilename.into(), dwmediamode))
+    lineHandoff(hcall, lpszfilename.into(), dwmediamode)
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[inline]
@@ -22955,7 +22955,7 @@ where
     extern "system" {
         fn lineHandoffA(hcall: u32, lpszfilename: ::windows::core::PCSTR, dwmediamode: u32) -> i32;
     }
-    ::core::mem::transmute(lineHandoffA(hcall, lpszfilename.into(), dwmediamode))
+    lineHandoffA(hcall, lpszfilename.into(), dwmediamode)
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[inline]
@@ -22967,7 +22967,7 @@ where
     extern "system" {
         fn lineHandoffW(hcall: u32, lpszfilename: ::windows::core::PCWSTR, dwmediamode: u32) -> i32;
     }
-    ::core::mem::transmute(lineHandoffW(hcall, lpszfilename.into(), dwmediamode))
+    lineHandoffW(hcall, lpszfilename.into(), dwmediamode)
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[inline]
@@ -22976,7 +22976,7 @@ pub unsafe fn lineHold(hcall: u32) -> i32 {
     extern "system" {
         fn lineHold(hcall: u32) -> i32;
     }
-    ::core::mem::transmute(lineHold(hcall))
+    lineHold(hcall)
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -22990,7 +22990,7 @@ where
     extern "system" {
         fn lineInitialize(lphlineapp: *mut u32, hinstance: super::super::Foundation::HINSTANCE, lpfncallback: *mut ::core::ffi::c_void, lpszappname: ::windows::core::PCSTR, lpdwnumdevs: *mut u32) -> i32;
     }
-    ::core::mem::transmute(lineInitialize(::core::mem::transmute(lphlineapp), hinstance.into(), ::core::mem::transmute(lpfncallback), lpszappname.into(), ::core::mem::transmute(lpdwnumdevs)))
+    lineInitialize(::core::mem::transmute(lphlineapp), hinstance.into(), ::core::mem::transmute(lpfncallback), lpszappname.into(), ::core::mem::transmute(lpdwnumdevs))
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -23004,7 +23004,7 @@ where
     extern "system" {
         fn lineInitializeExA(lphlineapp: *mut u32, hinstance: super::super::Foundation::HINSTANCE, lpfncallback: *mut ::core::ffi::c_void, lpszfriendlyappname: ::windows::core::PCSTR, lpdwnumdevs: *mut u32, lpdwapiversion: *mut u32, lplineinitializeexparams: *mut LINEINITIALIZEEXPARAMS) -> i32;
     }
-    ::core::mem::transmute(lineInitializeExA(::core::mem::transmute(lphlineapp), hinstance.into(), ::core::mem::transmute(lpfncallback), lpszfriendlyappname.into(), ::core::mem::transmute(lpdwnumdevs), ::core::mem::transmute(lpdwapiversion), ::core::mem::transmute(lplineinitializeexparams)))
+    lineInitializeExA(::core::mem::transmute(lphlineapp), hinstance.into(), ::core::mem::transmute(lpfncallback), lpszfriendlyappname.into(), ::core::mem::transmute(lpdwnumdevs), ::core::mem::transmute(lpdwapiversion), ::core::mem::transmute(lplineinitializeexparams))
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -23018,7 +23018,7 @@ where
     extern "system" {
         fn lineInitializeExW(lphlineapp: *mut u32, hinstance: super::super::Foundation::HINSTANCE, lpfncallback: *mut ::core::ffi::c_void, lpszfriendlyappname: ::windows::core::PCWSTR, lpdwnumdevs: *mut u32, lpdwapiversion: *mut u32, lplineinitializeexparams: *mut LINEINITIALIZEEXPARAMS) -> i32;
     }
-    ::core::mem::transmute(lineInitializeExW(::core::mem::transmute(lphlineapp), hinstance.into(), ::core::mem::transmute(lpfncallback), lpszfriendlyappname.into(), ::core::mem::transmute(lpdwnumdevs), ::core::mem::transmute(lpdwapiversion), ::core::mem::transmute(lplineinitializeexparams)))
+    lineInitializeExW(::core::mem::transmute(lphlineapp), hinstance.into(), ::core::mem::transmute(lpfncallback), lpszfriendlyappname.into(), ::core::mem::transmute(lpdwnumdevs), ::core::mem::transmute(lpdwapiversion), ::core::mem::transmute(lplineinitializeexparams))
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[inline]
@@ -23030,7 +23030,7 @@ where
     extern "system" {
         fn lineMakeCall(hline: u32, lphcall: *mut u32, lpszdestaddress: ::windows::core::PCSTR, dwcountrycode: u32, lpcallparams: *const LINECALLPARAMS) -> i32;
     }
-    ::core::mem::transmute(lineMakeCall(hline, ::core::mem::transmute(lphcall), lpszdestaddress.into(), dwcountrycode, ::core::mem::transmute(lpcallparams)))
+    lineMakeCall(hline, ::core::mem::transmute(lphcall), lpszdestaddress.into(), dwcountrycode, ::core::mem::transmute(lpcallparams))
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[inline]
@@ -23042,7 +23042,7 @@ where
     extern "system" {
         fn lineMakeCallA(hline: u32, lphcall: *mut u32, lpszdestaddress: ::windows::core::PCSTR, dwcountrycode: u32, lpcallparams: *const LINECALLPARAMS) -> i32;
     }
-    ::core::mem::transmute(lineMakeCallA(hline, ::core::mem::transmute(lphcall), lpszdestaddress.into(), dwcountrycode, ::core::mem::transmute(lpcallparams)))
+    lineMakeCallA(hline, ::core::mem::transmute(lphcall), lpszdestaddress.into(), dwcountrycode, ::core::mem::transmute(lpcallparams))
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[inline]
@@ -23054,7 +23054,7 @@ where
     extern "system" {
         fn lineMakeCallW(hline: u32, lphcall: *mut u32, lpszdestaddress: ::windows::core::PCWSTR, dwcountrycode: u32, lpcallparams: *const LINECALLPARAMS) -> i32;
     }
-    ::core::mem::transmute(lineMakeCallW(hline, ::core::mem::transmute(lphcall), lpszdestaddress.into(), dwcountrycode, ::core::mem::transmute(lpcallparams)))
+    lineMakeCallW(hline, ::core::mem::transmute(lphcall), lpszdestaddress.into(), dwcountrycode, ::core::mem::transmute(lpcallparams))
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[inline]
@@ -23063,7 +23063,7 @@ pub unsafe fn lineMonitorDigits(hcall: u32, dwdigitmodes: u32) -> i32 {
     extern "system" {
         fn lineMonitorDigits(hcall: u32, dwdigitmodes: u32) -> i32;
     }
-    ::core::mem::transmute(lineMonitorDigits(hcall, dwdigitmodes))
+    lineMonitorDigits(hcall, dwdigitmodes)
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[inline]
@@ -23072,7 +23072,7 @@ pub unsafe fn lineMonitorMedia(hcall: u32, dwmediamodes: u32) -> i32 {
     extern "system" {
         fn lineMonitorMedia(hcall: u32, dwmediamodes: u32) -> i32;
     }
-    ::core::mem::transmute(lineMonitorMedia(hcall, dwmediamodes))
+    lineMonitorMedia(hcall, dwmediamodes)
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[inline]
@@ -23081,7 +23081,7 @@ pub unsafe fn lineMonitorTones(hcall: u32, lptonelist: *const LINEMONITORTONE, d
     extern "system" {
         fn lineMonitorTones(hcall: u32, lptonelist: *const LINEMONITORTONE, dwnumentries: u32) -> i32;
     }
-    ::core::mem::transmute(lineMonitorTones(hcall, ::core::mem::transmute(lptonelist), dwnumentries))
+    lineMonitorTones(hcall, ::core::mem::transmute(lptonelist), dwnumentries)
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[inline]
@@ -23090,7 +23090,7 @@ pub unsafe fn lineNegotiateAPIVersion(hlineapp: u32, dwdeviceid: u32, dwapilowve
     extern "system" {
         fn lineNegotiateAPIVersion(hlineapp: u32, dwdeviceid: u32, dwapilowversion: u32, dwapihighversion: u32, lpdwapiversion: *mut u32, lpextensionid: *mut LINEEXTENSIONID) -> i32;
     }
-    ::core::mem::transmute(lineNegotiateAPIVersion(hlineapp, dwdeviceid, dwapilowversion, dwapihighversion, ::core::mem::transmute(lpdwapiversion), ::core::mem::transmute(lpextensionid)))
+    lineNegotiateAPIVersion(hlineapp, dwdeviceid, dwapilowversion, dwapihighversion, ::core::mem::transmute(lpdwapiversion), ::core::mem::transmute(lpextensionid))
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[inline]
@@ -23099,7 +23099,7 @@ pub unsafe fn lineNegotiateExtVersion(hlineapp: u32, dwdeviceid: u32, dwapiversi
     extern "system" {
         fn lineNegotiateExtVersion(hlineapp: u32, dwdeviceid: u32, dwapiversion: u32, dwextlowversion: u32, dwexthighversion: u32, lpdwextversion: *mut u32) -> i32;
     }
-    ::core::mem::transmute(lineNegotiateExtVersion(hlineapp, dwdeviceid, dwapiversion, dwextlowversion, dwexthighversion, ::core::mem::transmute(lpdwextversion)))
+    lineNegotiateExtVersion(hlineapp, dwdeviceid, dwapiversion, dwextlowversion, dwexthighversion, ::core::mem::transmute(lpdwextversion))
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[inline]
@@ -23108,7 +23108,7 @@ pub unsafe fn lineOpen(hlineapp: u32, dwdeviceid: u32, lphline: *mut u32, dwapiv
     extern "system" {
         fn lineOpen(hlineapp: u32, dwdeviceid: u32, lphline: *mut u32, dwapiversion: u32, dwextversion: u32, dwcallbackinstance: usize, dwprivileges: u32, dwmediamodes: u32, lpcallparams: *const LINECALLPARAMS) -> i32;
     }
-    ::core::mem::transmute(lineOpen(hlineapp, dwdeviceid, ::core::mem::transmute(lphline), dwapiversion, dwextversion, dwcallbackinstance, dwprivileges, dwmediamodes, ::core::mem::transmute(lpcallparams)))
+    lineOpen(hlineapp, dwdeviceid, ::core::mem::transmute(lphline), dwapiversion, dwextversion, dwcallbackinstance, dwprivileges, dwmediamodes, ::core::mem::transmute(lpcallparams))
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[inline]
@@ -23117,7 +23117,7 @@ pub unsafe fn lineOpenA(hlineapp: u32, dwdeviceid: u32, lphline: *mut u32, dwapi
     extern "system" {
         fn lineOpenA(hlineapp: u32, dwdeviceid: u32, lphline: *mut u32, dwapiversion: u32, dwextversion: u32, dwcallbackinstance: usize, dwprivileges: u32, dwmediamodes: u32, lpcallparams: *const LINECALLPARAMS) -> i32;
     }
-    ::core::mem::transmute(lineOpenA(hlineapp, dwdeviceid, ::core::mem::transmute(lphline), dwapiversion, dwextversion, dwcallbackinstance, dwprivileges, dwmediamodes, ::core::mem::transmute(lpcallparams)))
+    lineOpenA(hlineapp, dwdeviceid, ::core::mem::transmute(lphline), dwapiversion, dwextversion, dwcallbackinstance, dwprivileges, dwmediamodes, ::core::mem::transmute(lpcallparams))
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[inline]
@@ -23126,7 +23126,7 @@ pub unsafe fn lineOpenW(hlineapp: u32, dwdeviceid: u32, lphline: *mut u32, dwapi
     extern "system" {
         fn lineOpenW(hlineapp: u32, dwdeviceid: u32, lphline: *mut u32, dwapiversion: u32, dwextversion: u32, dwcallbackinstance: usize, dwprivileges: u32, dwmediamodes: u32, lpcallparams: *const LINECALLPARAMS) -> i32;
     }
-    ::core::mem::transmute(lineOpenW(hlineapp, dwdeviceid, ::core::mem::transmute(lphline), dwapiversion, dwextversion, dwcallbackinstance, dwprivileges, dwmediamodes, ::core::mem::transmute(lpcallparams)))
+    lineOpenW(hlineapp, dwdeviceid, ::core::mem::transmute(lphline), dwapiversion, dwextversion, dwcallbackinstance, dwprivileges, dwmediamodes, ::core::mem::transmute(lpcallparams))
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[inline]
@@ -23138,7 +23138,7 @@ where
     extern "system" {
         fn linePark(hcall: u32, dwparkmode: u32, lpszdiraddress: ::windows::core::PCSTR, lpnondiraddress: *mut VARSTRING) -> i32;
     }
-    ::core::mem::transmute(linePark(hcall, dwparkmode, lpszdiraddress.into(), ::core::mem::transmute(lpnondiraddress)))
+    linePark(hcall, dwparkmode, lpszdiraddress.into(), ::core::mem::transmute(lpnondiraddress))
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[inline]
@@ -23150,7 +23150,7 @@ where
     extern "system" {
         fn lineParkA(hcall: u32, dwparkmode: u32, lpszdiraddress: ::windows::core::PCSTR, lpnondiraddress: *mut VARSTRING) -> i32;
     }
-    ::core::mem::transmute(lineParkA(hcall, dwparkmode, lpszdiraddress.into(), ::core::mem::transmute(lpnondiraddress)))
+    lineParkA(hcall, dwparkmode, lpszdiraddress.into(), ::core::mem::transmute(lpnondiraddress))
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[inline]
@@ -23162,7 +23162,7 @@ where
     extern "system" {
         fn lineParkW(hcall: u32, dwparkmode: u32, lpszdiraddress: ::windows::core::PCWSTR, lpnondiraddress: *mut VARSTRING) -> i32;
     }
-    ::core::mem::transmute(lineParkW(hcall, dwparkmode, lpszdiraddress.into(), ::core::mem::transmute(lpnondiraddress)))
+    lineParkW(hcall, dwparkmode, lpszdiraddress.into(), ::core::mem::transmute(lpnondiraddress))
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[inline]
@@ -23175,7 +23175,7 @@ where
     extern "system" {
         fn linePickup(hline: u32, dwaddressid: u32, lphcall: *mut u32, lpszdestaddress: ::windows::core::PCSTR, lpszgroupid: ::windows::core::PCSTR) -> i32;
     }
-    ::core::mem::transmute(linePickup(hline, dwaddressid, ::core::mem::transmute(lphcall), lpszdestaddress.into(), lpszgroupid.into()))
+    linePickup(hline, dwaddressid, ::core::mem::transmute(lphcall), lpszdestaddress.into(), lpszgroupid.into())
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[inline]
@@ -23188,7 +23188,7 @@ where
     extern "system" {
         fn linePickupA(hline: u32, dwaddressid: u32, lphcall: *mut u32, lpszdestaddress: ::windows::core::PCSTR, lpszgroupid: ::windows::core::PCSTR) -> i32;
     }
-    ::core::mem::transmute(linePickupA(hline, dwaddressid, ::core::mem::transmute(lphcall), lpszdestaddress.into(), lpszgroupid.into()))
+    linePickupA(hline, dwaddressid, ::core::mem::transmute(lphcall), lpszdestaddress.into(), lpszgroupid.into())
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[inline]
@@ -23201,7 +23201,7 @@ where
     extern "system" {
         fn linePickupW(hline: u32, dwaddressid: u32, lphcall: *mut u32, lpszdestaddress: ::windows::core::PCWSTR, lpszgroupid: ::windows::core::PCWSTR) -> i32;
     }
-    ::core::mem::transmute(linePickupW(hline, dwaddressid, ::core::mem::transmute(lphcall), lpszdestaddress.into(), lpszgroupid.into()))
+    linePickupW(hline, dwaddressid, ::core::mem::transmute(lphcall), lpszdestaddress.into(), lpszgroupid.into())
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[inline]
@@ -23210,7 +23210,7 @@ pub unsafe fn linePrepareAddToConference(hconfcall: u32, lphconsultcall: *mut u3
     extern "system" {
         fn linePrepareAddToConference(hconfcall: u32, lphconsultcall: *mut u32, lpcallparams: *const LINECALLPARAMS) -> i32;
     }
-    ::core::mem::transmute(linePrepareAddToConference(hconfcall, ::core::mem::transmute(lphconsultcall), ::core::mem::transmute(lpcallparams)))
+    linePrepareAddToConference(hconfcall, ::core::mem::transmute(lphconsultcall), ::core::mem::transmute(lpcallparams))
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[inline]
@@ -23219,7 +23219,7 @@ pub unsafe fn linePrepareAddToConferenceA(hconfcall: u32, lphconsultcall: *mut u
     extern "system" {
         fn linePrepareAddToConferenceA(hconfcall: u32, lphconsultcall: *mut u32, lpcallparams: *const LINECALLPARAMS) -> i32;
     }
-    ::core::mem::transmute(linePrepareAddToConferenceA(hconfcall, ::core::mem::transmute(lphconsultcall), ::core::mem::transmute(lpcallparams)))
+    linePrepareAddToConferenceA(hconfcall, ::core::mem::transmute(lphconsultcall), ::core::mem::transmute(lpcallparams))
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[inline]
@@ -23228,7 +23228,7 @@ pub unsafe fn linePrepareAddToConferenceW(hconfcall: u32, lphconsultcall: *mut u
     extern "system" {
         fn linePrepareAddToConferenceW(hconfcall: u32, lphconsultcall: *mut u32, lpcallparams: *const LINECALLPARAMS) -> i32;
     }
-    ::core::mem::transmute(linePrepareAddToConferenceW(hconfcall, ::core::mem::transmute(lphconsultcall), ::core::mem::transmute(lpcallparams)))
+    linePrepareAddToConferenceW(hconfcall, ::core::mem::transmute(lphconsultcall), ::core::mem::transmute(lpcallparams))
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[inline]
@@ -23237,7 +23237,7 @@ pub unsafe fn lineProxyMessage(hline: u32, hcall: u32, dwmsg: u32, dwparam1: u32
     extern "system" {
         fn lineProxyMessage(hline: u32, hcall: u32, dwmsg: u32, dwparam1: u32, dwparam2: u32, dwparam3: u32) -> i32;
     }
-    ::core::mem::transmute(lineProxyMessage(hline, hcall, dwmsg, dwparam1, dwparam2, dwparam3))
+    lineProxyMessage(hline, hcall, dwmsg, dwparam1, dwparam2, dwparam3)
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
@@ -23247,7 +23247,7 @@ pub unsafe fn lineProxyResponse(hline: u32, lpproxyrequest: *mut LINEPROXYREQUES
     extern "system" {
         fn lineProxyResponse(hline: u32, lpproxyrequest: *mut LINEPROXYREQUEST, dwresult: u32) -> i32;
     }
-    ::core::mem::transmute(lineProxyResponse(hline, ::core::mem::transmute(lpproxyrequest), dwresult))
+    lineProxyResponse(hline, ::core::mem::transmute(lpproxyrequest), dwresult)
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[inline]
@@ -23259,7 +23259,7 @@ where
     extern "system" {
         fn lineRedirect(hcall: u32, lpszdestaddress: ::windows::core::PCSTR, dwcountrycode: u32) -> i32;
     }
-    ::core::mem::transmute(lineRedirect(hcall, lpszdestaddress.into(), dwcountrycode))
+    lineRedirect(hcall, lpszdestaddress.into(), dwcountrycode)
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[inline]
@@ -23271,7 +23271,7 @@ where
     extern "system" {
         fn lineRedirectA(hcall: u32, lpszdestaddress: ::windows::core::PCSTR, dwcountrycode: u32) -> i32;
     }
-    ::core::mem::transmute(lineRedirectA(hcall, lpszdestaddress.into(), dwcountrycode))
+    lineRedirectA(hcall, lpszdestaddress.into(), dwcountrycode)
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[inline]
@@ -23283,7 +23283,7 @@ where
     extern "system" {
         fn lineRedirectW(hcall: u32, lpszdestaddress: ::windows::core::PCWSTR, dwcountrycode: u32) -> i32;
     }
-    ::core::mem::transmute(lineRedirectW(hcall, lpszdestaddress.into(), dwcountrycode))
+    lineRedirectW(hcall, lpszdestaddress.into(), dwcountrycode)
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[inline]
@@ -23292,7 +23292,7 @@ pub unsafe fn lineRegisterRequestRecipient(hlineapp: u32, dwregistrationinstance
     extern "system" {
         fn lineRegisterRequestRecipient(hlineapp: u32, dwregistrationinstance: u32, dwrequestmode: u32, benable: u32) -> i32;
     }
-    ::core::mem::transmute(lineRegisterRequestRecipient(hlineapp, dwregistrationinstance, dwrequestmode, benable))
+    lineRegisterRequestRecipient(hlineapp, dwregistrationinstance, dwrequestmode, benable)
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[inline]
@@ -23301,7 +23301,7 @@ pub unsafe fn lineReleaseUserUserInfo(hcall: u32) -> i32 {
     extern "system" {
         fn lineReleaseUserUserInfo(hcall: u32) -> i32;
     }
-    ::core::mem::transmute(lineReleaseUserUserInfo(hcall))
+    lineReleaseUserUserInfo(hcall)
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[inline]
@@ -23310,7 +23310,7 @@ pub unsafe fn lineRemoveFromConference(hcall: u32) -> i32 {
     extern "system" {
         fn lineRemoveFromConference(hcall: u32) -> i32;
     }
-    ::core::mem::transmute(lineRemoveFromConference(hcall))
+    lineRemoveFromConference(hcall)
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -23323,7 +23323,7 @@ where
     extern "system" {
         fn lineRemoveProvider(dwpermanentproviderid: u32, hwndowner: super::super::Foundation::HWND) -> i32;
     }
-    ::core::mem::transmute(lineRemoveProvider(dwpermanentproviderid, hwndowner.into()))
+    lineRemoveProvider(dwpermanentproviderid, hwndowner.into())
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[inline]
@@ -23332,7 +23332,7 @@ pub unsafe fn lineSecureCall(hcall: u32) -> i32 {
     extern "system" {
         fn lineSecureCall(hcall: u32) -> i32;
     }
-    ::core::mem::transmute(lineSecureCall(hcall))
+    lineSecureCall(hcall)
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[inline]
@@ -23344,7 +23344,7 @@ where
     extern "system" {
         fn lineSendUserUserInfo(hcall: u32, lpsuseruserinfo: ::windows::core::PCSTR, dwsize: u32) -> i32;
     }
-    ::core::mem::transmute(lineSendUserUserInfo(hcall, lpsuseruserinfo.into(), dwsize))
+    lineSendUserUserInfo(hcall, lpsuseruserinfo.into(), dwsize)
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[inline]
@@ -23353,7 +23353,7 @@ pub unsafe fn lineSetAgentActivity(hline: u32, dwaddressid: u32, dwactivityid: u
     extern "system" {
         fn lineSetAgentActivity(hline: u32, dwaddressid: u32, dwactivityid: u32) -> i32;
     }
-    ::core::mem::transmute(lineSetAgentActivity(hline, dwaddressid, dwactivityid))
+    lineSetAgentActivity(hline, dwaddressid, dwactivityid)
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[inline]
@@ -23362,7 +23362,7 @@ pub unsafe fn lineSetAgentGroup(hline: u32, dwaddressid: u32, lpagentgrouplist: 
     extern "system" {
         fn lineSetAgentGroup(hline: u32, dwaddressid: u32, lpagentgrouplist: *mut LINEAGENTGROUPLIST) -> i32;
     }
-    ::core::mem::transmute(lineSetAgentGroup(hline, dwaddressid, ::core::mem::transmute(lpagentgrouplist)))
+    lineSetAgentGroup(hline, dwaddressid, ::core::mem::transmute(lpagentgrouplist))
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[inline]
@@ -23371,7 +23371,7 @@ pub unsafe fn lineSetAgentMeasurementPeriod(hline: u32, hagent: u32, dwmeasureme
     extern "system" {
         fn lineSetAgentMeasurementPeriod(hline: u32, hagent: u32, dwmeasurementperiod: u32) -> i32;
     }
-    ::core::mem::transmute(lineSetAgentMeasurementPeriod(hline, hagent, dwmeasurementperiod))
+    lineSetAgentMeasurementPeriod(hline, hagent, dwmeasurementperiod)
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[inline]
@@ -23380,7 +23380,7 @@ pub unsafe fn lineSetAgentSessionState(hline: u32, hagentsession: u32, dwagentse
     extern "system" {
         fn lineSetAgentSessionState(hline: u32, hagentsession: u32, dwagentsessionstate: u32, dwnextagentsessionstate: u32) -> i32;
     }
-    ::core::mem::transmute(lineSetAgentSessionState(hline, hagentsession, dwagentsessionstate, dwnextagentsessionstate))
+    lineSetAgentSessionState(hline, hagentsession, dwagentsessionstate, dwnextagentsessionstate)
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[inline]
@@ -23389,7 +23389,7 @@ pub unsafe fn lineSetAgentState(hline: u32, dwaddressid: u32, dwagentstate: u32,
     extern "system" {
         fn lineSetAgentState(hline: u32, dwaddressid: u32, dwagentstate: u32, dwnextagentstate: u32) -> i32;
     }
-    ::core::mem::transmute(lineSetAgentState(hline, dwaddressid, dwagentstate, dwnextagentstate))
+    lineSetAgentState(hline, dwaddressid, dwagentstate, dwnextagentstate)
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[inline]
@@ -23398,7 +23398,7 @@ pub unsafe fn lineSetAgentStateEx(hline: u32, hagent: u32, dwagentstate: u32, dw
     extern "system" {
         fn lineSetAgentStateEx(hline: u32, hagent: u32, dwagentstate: u32, dwnextagentstate: u32) -> i32;
     }
-    ::core::mem::transmute(lineSetAgentStateEx(hline, hagent, dwagentstate, dwnextagentstate))
+    lineSetAgentStateEx(hline, hagent, dwagentstate, dwnextagentstate)
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[inline]
@@ -23411,7 +23411,7 @@ where
     extern "system" {
         fn lineSetAppPriority(lpszappfilename: ::windows::core::PCSTR, dwmediamode: u32, lpextensionid: *mut LINEEXTENSIONID, dwrequestmode: u32, lpszextensionname: ::windows::core::PCSTR, dwpriority: u32) -> i32;
     }
-    ::core::mem::transmute(lineSetAppPriority(lpszappfilename.into(), dwmediamode, ::core::mem::transmute(lpextensionid), dwrequestmode, lpszextensionname.into(), dwpriority))
+    lineSetAppPriority(lpszappfilename.into(), dwmediamode, ::core::mem::transmute(lpextensionid), dwrequestmode, lpszextensionname.into(), dwpriority)
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[inline]
@@ -23424,7 +23424,7 @@ where
     extern "system" {
         fn lineSetAppPriorityA(lpszappfilename: ::windows::core::PCSTR, dwmediamode: u32, lpextensionid: *mut LINEEXTENSIONID, dwrequestmode: u32, lpszextensionname: ::windows::core::PCSTR, dwpriority: u32) -> i32;
     }
-    ::core::mem::transmute(lineSetAppPriorityA(lpszappfilename.into(), dwmediamode, ::core::mem::transmute(lpextensionid), dwrequestmode, lpszextensionname.into(), dwpriority))
+    lineSetAppPriorityA(lpszappfilename.into(), dwmediamode, ::core::mem::transmute(lpextensionid), dwrequestmode, lpszextensionname.into(), dwpriority)
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[inline]
@@ -23437,7 +23437,7 @@ where
     extern "system" {
         fn lineSetAppPriorityW(lpszappfilename: ::windows::core::PCWSTR, dwmediamode: u32, lpextensionid: *mut LINEEXTENSIONID, dwrequestmode: u32, lpszextensionname: ::windows::core::PCWSTR, dwpriority: u32) -> i32;
     }
-    ::core::mem::transmute(lineSetAppPriorityW(lpszappfilename.into(), dwmediamode, ::core::mem::transmute(lpextensionid), dwrequestmode, lpszextensionname.into(), dwpriority))
+    lineSetAppPriorityW(lpszappfilename.into(), dwmediamode, ::core::mem::transmute(lpextensionid), dwrequestmode, lpszextensionname.into(), dwpriority)
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[inline]
@@ -23446,7 +23446,7 @@ pub unsafe fn lineSetAppSpecific(hcall: u32, dwappspecific: u32) -> i32 {
     extern "system" {
         fn lineSetAppSpecific(hcall: u32, dwappspecific: u32) -> i32;
     }
-    ::core::mem::transmute(lineSetAppSpecific(hcall, dwappspecific))
+    lineSetAppSpecific(hcall, dwappspecific)
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[inline]
@@ -23455,7 +23455,7 @@ pub unsafe fn lineSetCallData(hcall: u32, lpcalldata: *mut ::core::ffi::c_void, 
     extern "system" {
         fn lineSetCallData(hcall: u32, lpcalldata: *mut ::core::ffi::c_void, dwsize: u32) -> i32;
     }
-    ::core::mem::transmute(lineSetCallData(hcall, ::core::mem::transmute(lpcalldata), dwsize))
+    lineSetCallData(hcall, ::core::mem::transmute(lpcalldata), dwsize)
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[inline]
@@ -23464,7 +23464,7 @@ pub unsafe fn lineSetCallParams(hcall: u32, dwbearermode: u32, dwminrate: u32, d
     extern "system" {
         fn lineSetCallParams(hcall: u32, dwbearermode: u32, dwminrate: u32, dwmaxrate: u32, lpdialparams: *const LINEDIALPARAMS) -> i32;
     }
-    ::core::mem::transmute(lineSetCallParams(hcall, dwbearermode, dwminrate, dwmaxrate, ::core::mem::transmute(lpdialparams)))
+    lineSetCallParams(hcall, dwbearermode, dwminrate, dwmaxrate, ::core::mem::transmute(lpdialparams))
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[inline]
@@ -23473,7 +23473,7 @@ pub unsafe fn lineSetCallPrivilege(hcall: u32, dwcallprivilege: u32) -> i32 {
     extern "system" {
         fn lineSetCallPrivilege(hcall: u32, dwcallprivilege: u32) -> i32;
     }
-    ::core::mem::transmute(lineSetCallPrivilege(hcall, dwcallprivilege))
+    lineSetCallPrivilege(hcall, dwcallprivilege)
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[inline]
@@ -23482,7 +23482,7 @@ pub unsafe fn lineSetCallQualityOfService(hcall: u32, lpsendingflowspec: *mut ::
     extern "system" {
         fn lineSetCallQualityOfService(hcall: u32, lpsendingflowspec: *mut ::core::ffi::c_void, dwsendingflowspecsize: u32, lpreceivingflowspec: *mut ::core::ffi::c_void, dwreceivingflowspecsize: u32) -> i32;
     }
-    ::core::mem::transmute(lineSetCallQualityOfService(hcall, ::core::mem::transmute(lpsendingflowspec), dwsendingflowspecsize, ::core::mem::transmute(lpreceivingflowspec), dwreceivingflowspecsize))
+    lineSetCallQualityOfService(hcall, ::core::mem::transmute(lpsendingflowspec), dwsendingflowspecsize, ::core::mem::transmute(lpreceivingflowspec), dwreceivingflowspecsize)
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[inline]
@@ -23491,7 +23491,7 @@ pub unsafe fn lineSetCallTreatment(hcall: u32, dwtreatment: u32) -> i32 {
     extern "system" {
         fn lineSetCallTreatment(hcall: u32, dwtreatment: u32) -> i32;
     }
-    ::core::mem::transmute(lineSetCallTreatment(hcall, dwtreatment))
+    lineSetCallTreatment(hcall, dwtreatment)
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[inline]
@@ -23500,7 +23500,7 @@ pub unsafe fn lineSetCurrentLocation(hlineapp: u32, dwlocation: u32) -> i32 {
     extern "system" {
         fn lineSetCurrentLocation(hlineapp: u32, dwlocation: u32) -> i32;
     }
-    ::core::mem::transmute(lineSetCurrentLocation(hlineapp, dwlocation))
+    lineSetCurrentLocation(hlineapp, dwlocation)
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[inline]
@@ -23512,7 +23512,7 @@ where
     extern "system" {
         fn lineSetDevConfig(dwdeviceid: u32, lpdeviceconfig: *const ::core::ffi::c_void, dwsize: u32, lpszdeviceclass: ::windows::core::PCSTR) -> i32;
     }
-    ::core::mem::transmute(lineSetDevConfig(dwdeviceid, ::core::mem::transmute(lpdeviceconfig), dwsize, lpszdeviceclass.into()))
+    lineSetDevConfig(dwdeviceid, ::core::mem::transmute(lpdeviceconfig), dwsize, lpszdeviceclass.into())
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[inline]
@@ -23524,7 +23524,7 @@ where
     extern "system" {
         fn lineSetDevConfigA(dwdeviceid: u32, lpdeviceconfig: *const ::core::ffi::c_void, dwsize: u32, lpszdeviceclass: ::windows::core::PCSTR) -> i32;
     }
-    ::core::mem::transmute(lineSetDevConfigA(dwdeviceid, ::core::mem::transmute(lpdeviceconfig), dwsize, lpszdeviceclass.into()))
+    lineSetDevConfigA(dwdeviceid, ::core::mem::transmute(lpdeviceconfig), dwsize, lpszdeviceclass.into())
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[inline]
@@ -23536,7 +23536,7 @@ where
     extern "system" {
         fn lineSetDevConfigW(dwdeviceid: u32, lpdeviceconfig: *const ::core::ffi::c_void, dwsize: u32, lpszdeviceclass: ::windows::core::PCWSTR) -> i32;
     }
-    ::core::mem::transmute(lineSetDevConfigW(dwdeviceid, ::core::mem::transmute(lpdeviceconfig), dwsize, lpszdeviceclass.into()))
+    lineSetDevConfigW(dwdeviceid, ::core::mem::transmute(lpdeviceconfig), dwsize, lpszdeviceclass.into())
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[inline]
@@ -23545,7 +23545,7 @@ pub unsafe fn lineSetLineDevStatus(hline: u32, dwstatustochange: u32, fstatus: u
     extern "system" {
         fn lineSetLineDevStatus(hline: u32, dwstatustochange: u32, fstatus: u32) -> i32;
     }
-    ::core::mem::transmute(lineSetLineDevStatus(hline, dwstatustochange, fstatus))
+    lineSetLineDevStatus(hline, dwstatustochange, fstatus)
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[inline]
@@ -23554,7 +23554,7 @@ pub unsafe fn lineSetMediaControl(hline: u32, dwaddressid: u32, hcall: u32, dwse
     extern "system" {
         fn lineSetMediaControl(hline: u32, dwaddressid: u32, hcall: u32, dwselect: u32, lpdigitlist: *const LINEMEDIACONTROLDIGIT, dwdigitnumentries: u32, lpmedialist: *const LINEMEDIACONTROLMEDIA, dwmedianumentries: u32, lptonelist: *const LINEMEDIACONTROLTONE, dwtonenumentries: u32, lpcallstatelist: *const LINEMEDIACONTROLCALLSTATE, dwcallstatenumentries: u32) -> i32;
     }
-    ::core::mem::transmute(lineSetMediaControl(hline, dwaddressid, hcall, dwselect, ::core::mem::transmute(lpdigitlist), dwdigitnumentries, ::core::mem::transmute(lpmedialist), dwmedianumentries, ::core::mem::transmute(lptonelist), dwtonenumentries, ::core::mem::transmute(lpcallstatelist), dwcallstatenumentries))
+    lineSetMediaControl(hline, dwaddressid, hcall, dwselect, ::core::mem::transmute(lpdigitlist), dwdigitnumentries, ::core::mem::transmute(lpmedialist), dwmedianumentries, ::core::mem::transmute(lptonelist), dwtonenumentries, ::core::mem::transmute(lpcallstatelist), dwcallstatenumentries)
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[inline]
@@ -23563,7 +23563,7 @@ pub unsafe fn lineSetMediaMode(hcall: u32, dwmediamodes: u32) -> i32 {
     extern "system" {
         fn lineSetMediaMode(hcall: u32, dwmediamodes: u32) -> i32;
     }
-    ::core::mem::transmute(lineSetMediaMode(hcall, dwmediamodes))
+    lineSetMediaMode(hcall, dwmediamodes)
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[inline]
@@ -23572,7 +23572,7 @@ pub unsafe fn lineSetNumRings(hline: u32, dwaddressid: u32, dwnumrings: u32) -> 
     extern "system" {
         fn lineSetNumRings(hline: u32, dwaddressid: u32, dwnumrings: u32) -> i32;
     }
-    ::core::mem::transmute(lineSetNumRings(hline, dwaddressid, dwnumrings))
+    lineSetNumRings(hline, dwaddressid, dwnumrings)
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[inline]
@@ -23581,7 +23581,7 @@ pub unsafe fn lineSetQueueMeasurementPeriod(hline: u32, dwqueueid: u32, dwmeasur
     extern "system" {
         fn lineSetQueueMeasurementPeriod(hline: u32, dwqueueid: u32, dwmeasurementperiod: u32) -> i32;
     }
-    ::core::mem::transmute(lineSetQueueMeasurementPeriod(hline, dwqueueid, dwmeasurementperiod))
+    lineSetQueueMeasurementPeriod(hline, dwqueueid, dwmeasurementperiod)
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[inline]
@@ -23590,7 +23590,7 @@ pub unsafe fn lineSetStatusMessages(hline: u32, dwlinestates: u32, dwaddressstat
     extern "system" {
         fn lineSetStatusMessages(hline: u32, dwlinestates: u32, dwaddressstates: u32) -> i32;
     }
-    ::core::mem::transmute(lineSetStatusMessages(hline, dwlinestates, dwaddressstates))
+    lineSetStatusMessages(hline, dwlinestates, dwaddressstates)
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[inline]
@@ -23599,7 +23599,7 @@ pub unsafe fn lineSetTerminal(hline: u32, dwaddressid: u32, hcall: u32, dwselect
     extern "system" {
         fn lineSetTerminal(hline: u32, dwaddressid: u32, hcall: u32, dwselect: u32, dwterminalmodes: u32, dwterminalid: u32, benable: u32) -> i32;
     }
-    ::core::mem::transmute(lineSetTerminal(hline, dwaddressid, hcall, dwselect, dwterminalmodes, dwterminalid, benable))
+    lineSetTerminal(hline, dwaddressid, hcall, dwselect, dwterminalmodes, dwterminalid, benable)
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[inline]
@@ -23611,7 +23611,7 @@ where
     extern "system" {
         fn lineSetTollList(hlineapp: u32, dwdeviceid: u32, lpszaddressin: ::windows::core::PCSTR, dwtolllistoption: u32) -> i32;
     }
-    ::core::mem::transmute(lineSetTollList(hlineapp, dwdeviceid, lpszaddressin.into(), dwtolllistoption))
+    lineSetTollList(hlineapp, dwdeviceid, lpszaddressin.into(), dwtolllistoption)
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[inline]
@@ -23623,7 +23623,7 @@ where
     extern "system" {
         fn lineSetTollListA(hlineapp: u32, dwdeviceid: u32, lpszaddressin: ::windows::core::PCSTR, dwtolllistoption: u32) -> i32;
     }
-    ::core::mem::transmute(lineSetTollListA(hlineapp, dwdeviceid, lpszaddressin.into(), dwtolllistoption))
+    lineSetTollListA(hlineapp, dwdeviceid, lpszaddressin.into(), dwtolllistoption)
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[inline]
@@ -23635,7 +23635,7 @@ where
     extern "system" {
         fn lineSetTollListW(hlineapp: u32, dwdeviceid: u32, lpszaddressinw: ::windows::core::PCWSTR, dwtolllistoption: u32) -> i32;
     }
-    ::core::mem::transmute(lineSetTollListW(hlineapp, dwdeviceid, lpszaddressinw.into(), dwtolllistoption))
+    lineSetTollListW(hlineapp, dwdeviceid, lpszaddressinw.into(), dwtolllistoption)
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[inline]
@@ -23644,7 +23644,7 @@ pub unsafe fn lineSetupConference(hcall: u32, hline: u32, lphconfcall: *mut u32,
     extern "system" {
         fn lineSetupConference(hcall: u32, hline: u32, lphconfcall: *mut u32, lphconsultcall: *mut u32, dwnumparties: u32, lpcallparams: *const LINECALLPARAMS) -> i32;
     }
-    ::core::mem::transmute(lineSetupConference(hcall, hline, ::core::mem::transmute(lphconfcall), ::core::mem::transmute(lphconsultcall), dwnumparties, ::core::mem::transmute(lpcallparams)))
+    lineSetupConference(hcall, hline, ::core::mem::transmute(lphconfcall), ::core::mem::transmute(lphconsultcall), dwnumparties, ::core::mem::transmute(lpcallparams))
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[inline]
@@ -23653,7 +23653,7 @@ pub unsafe fn lineSetupConferenceA(hcall: u32, hline: u32, lphconfcall: *mut u32
     extern "system" {
         fn lineSetupConferenceA(hcall: u32, hline: u32, lphconfcall: *mut u32, lphconsultcall: *mut u32, dwnumparties: u32, lpcallparams: *const LINECALLPARAMS) -> i32;
     }
-    ::core::mem::transmute(lineSetupConferenceA(hcall, hline, ::core::mem::transmute(lphconfcall), ::core::mem::transmute(lphconsultcall), dwnumparties, ::core::mem::transmute(lpcallparams)))
+    lineSetupConferenceA(hcall, hline, ::core::mem::transmute(lphconfcall), ::core::mem::transmute(lphconsultcall), dwnumparties, ::core::mem::transmute(lpcallparams))
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[inline]
@@ -23662,7 +23662,7 @@ pub unsafe fn lineSetupConferenceW(hcall: u32, hline: u32, lphconfcall: *mut u32
     extern "system" {
         fn lineSetupConferenceW(hcall: u32, hline: u32, lphconfcall: *mut u32, lphconsultcall: *mut u32, dwnumparties: u32, lpcallparams: *const LINECALLPARAMS) -> i32;
     }
-    ::core::mem::transmute(lineSetupConferenceW(hcall, hline, ::core::mem::transmute(lphconfcall), ::core::mem::transmute(lphconsultcall), dwnumparties, ::core::mem::transmute(lpcallparams)))
+    lineSetupConferenceW(hcall, hline, ::core::mem::transmute(lphconfcall), ::core::mem::transmute(lphconsultcall), dwnumparties, ::core::mem::transmute(lpcallparams))
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[inline]
@@ -23671,7 +23671,7 @@ pub unsafe fn lineSetupTransfer(hcall: u32, lphconsultcall: *mut u32, lpcallpara
     extern "system" {
         fn lineSetupTransfer(hcall: u32, lphconsultcall: *mut u32, lpcallparams: *const LINECALLPARAMS) -> i32;
     }
-    ::core::mem::transmute(lineSetupTransfer(hcall, ::core::mem::transmute(lphconsultcall), ::core::mem::transmute(lpcallparams)))
+    lineSetupTransfer(hcall, ::core::mem::transmute(lphconsultcall), ::core::mem::transmute(lpcallparams))
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[inline]
@@ -23680,7 +23680,7 @@ pub unsafe fn lineSetupTransferA(hcall: u32, lphconsultcall: *mut u32, lpcallpar
     extern "system" {
         fn lineSetupTransferA(hcall: u32, lphconsultcall: *mut u32, lpcallparams: *const LINECALLPARAMS) -> i32;
     }
-    ::core::mem::transmute(lineSetupTransferA(hcall, ::core::mem::transmute(lphconsultcall), ::core::mem::transmute(lpcallparams)))
+    lineSetupTransferA(hcall, ::core::mem::transmute(lphconsultcall), ::core::mem::transmute(lpcallparams))
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[inline]
@@ -23689,7 +23689,7 @@ pub unsafe fn lineSetupTransferW(hcall: u32, lphconsultcall: *mut u32, lpcallpar
     extern "system" {
         fn lineSetupTransferW(hcall: u32, lphconsultcall: *mut u32, lpcallparams: *const LINECALLPARAMS) -> i32;
     }
-    ::core::mem::transmute(lineSetupTransferW(hcall, ::core::mem::transmute(lphconsultcall), ::core::mem::transmute(lpcallparams)))
+    lineSetupTransferW(hcall, ::core::mem::transmute(lphconsultcall), ::core::mem::transmute(lpcallparams))
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[inline]
@@ -23698,7 +23698,7 @@ pub unsafe fn lineShutdown(hlineapp: u32) -> i32 {
     extern "system" {
         fn lineShutdown(hlineapp: u32) -> i32;
     }
-    ::core::mem::transmute(lineShutdown(hlineapp))
+    lineShutdown(hlineapp)
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[inline]
@@ -23707,7 +23707,7 @@ pub unsafe fn lineSwapHold(hactivecall: u32, hheldcall: u32) -> i32 {
     extern "system" {
         fn lineSwapHold(hactivecall: u32, hheldcall: u32) -> i32;
     }
-    ::core::mem::transmute(lineSwapHold(hactivecall, hheldcall))
+    lineSwapHold(hactivecall, hheldcall)
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[inline]
@@ -23719,7 +23719,7 @@ where
     extern "system" {
         fn lineTranslateAddress(hlineapp: u32, dwdeviceid: u32, dwapiversion: u32, lpszaddressin: ::windows::core::PCSTR, dwcard: u32, dwtranslateoptions: u32, lptranslateoutput: *mut LINETRANSLATEOUTPUT) -> i32;
     }
-    ::core::mem::transmute(lineTranslateAddress(hlineapp, dwdeviceid, dwapiversion, lpszaddressin.into(), dwcard, dwtranslateoptions, ::core::mem::transmute(lptranslateoutput)))
+    lineTranslateAddress(hlineapp, dwdeviceid, dwapiversion, lpszaddressin.into(), dwcard, dwtranslateoptions, ::core::mem::transmute(lptranslateoutput))
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[inline]
@@ -23731,7 +23731,7 @@ where
     extern "system" {
         fn lineTranslateAddressA(hlineapp: u32, dwdeviceid: u32, dwapiversion: u32, lpszaddressin: ::windows::core::PCSTR, dwcard: u32, dwtranslateoptions: u32, lptranslateoutput: *mut LINETRANSLATEOUTPUT) -> i32;
     }
-    ::core::mem::transmute(lineTranslateAddressA(hlineapp, dwdeviceid, dwapiversion, lpszaddressin.into(), dwcard, dwtranslateoptions, ::core::mem::transmute(lptranslateoutput)))
+    lineTranslateAddressA(hlineapp, dwdeviceid, dwapiversion, lpszaddressin.into(), dwcard, dwtranslateoptions, ::core::mem::transmute(lptranslateoutput))
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[inline]
@@ -23743,7 +23743,7 @@ where
     extern "system" {
         fn lineTranslateAddressW(hlineapp: u32, dwdeviceid: u32, dwapiversion: u32, lpszaddressin: ::windows::core::PCWSTR, dwcard: u32, dwtranslateoptions: u32, lptranslateoutput: *mut LINETRANSLATEOUTPUT) -> i32;
     }
-    ::core::mem::transmute(lineTranslateAddressW(hlineapp, dwdeviceid, dwapiversion, lpszaddressin.into(), dwcard, dwtranslateoptions, ::core::mem::transmute(lptranslateoutput)))
+    lineTranslateAddressW(hlineapp, dwdeviceid, dwapiversion, lpszaddressin.into(), dwcard, dwtranslateoptions, ::core::mem::transmute(lptranslateoutput))
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -23757,7 +23757,7 @@ where
     extern "system" {
         fn lineTranslateDialog(hlineapp: u32, dwdeviceid: u32, dwapiversion: u32, hwndowner: super::super::Foundation::HWND, lpszaddressin: ::windows::core::PCSTR) -> i32;
     }
-    ::core::mem::transmute(lineTranslateDialog(hlineapp, dwdeviceid, dwapiversion, hwndowner.into(), lpszaddressin.into()))
+    lineTranslateDialog(hlineapp, dwdeviceid, dwapiversion, hwndowner.into(), lpszaddressin.into())
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -23771,7 +23771,7 @@ where
     extern "system" {
         fn lineTranslateDialogA(hlineapp: u32, dwdeviceid: u32, dwapiversion: u32, hwndowner: super::super::Foundation::HWND, lpszaddressin: ::windows::core::PCSTR) -> i32;
     }
-    ::core::mem::transmute(lineTranslateDialogA(hlineapp, dwdeviceid, dwapiversion, hwndowner.into(), lpszaddressin.into()))
+    lineTranslateDialogA(hlineapp, dwdeviceid, dwapiversion, hwndowner.into(), lpszaddressin.into())
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -23785,7 +23785,7 @@ where
     extern "system" {
         fn lineTranslateDialogW(hlineapp: u32, dwdeviceid: u32, dwapiversion: u32, hwndowner: super::super::Foundation::HWND, lpszaddressin: ::windows::core::PCWSTR) -> i32;
     }
-    ::core::mem::transmute(lineTranslateDialogW(hlineapp, dwdeviceid, dwapiversion, hwndowner.into(), lpszaddressin.into()))
+    lineTranslateDialogW(hlineapp, dwdeviceid, dwapiversion, hwndowner.into(), lpszaddressin.into())
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[inline]
@@ -23794,7 +23794,7 @@ pub unsafe fn lineUncompleteCall(hline: u32, dwcompletionid: u32) -> i32 {
     extern "system" {
         fn lineUncompleteCall(hline: u32, dwcompletionid: u32) -> i32;
     }
-    ::core::mem::transmute(lineUncompleteCall(hline, dwcompletionid))
+    lineUncompleteCall(hline, dwcompletionid)
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[inline]
@@ -23803,7 +23803,7 @@ pub unsafe fn lineUnhold(hcall: u32) -> i32 {
     extern "system" {
         fn lineUnhold(hcall: u32) -> i32;
     }
-    ::core::mem::transmute(lineUnhold(hcall))
+    lineUnhold(hcall)
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[inline]
@@ -23815,7 +23815,7 @@ where
     extern "system" {
         fn lineUnpark(hline: u32, dwaddressid: u32, lphcall: *mut u32, lpszdestaddress: ::windows::core::PCSTR) -> i32;
     }
-    ::core::mem::transmute(lineUnpark(hline, dwaddressid, ::core::mem::transmute(lphcall), lpszdestaddress.into()))
+    lineUnpark(hline, dwaddressid, ::core::mem::transmute(lphcall), lpszdestaddress.into())
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[inline]
@@ -23827,7 +23827,7 @@ where
     extern "system" {
         fn lineUnparkA(hline: u32, dwaddressid: u32, lphcall: *mut u32, lpszdestaddress: ::windows::core::PCSTR) -> i32;
     }
-    ::core::mem::transmute(lineUnparkA(hline, dwaddressid, ::core::mem::transmute(lphcall), lpszdestaddress.into()))
+    lineUnparkA(hline, dwaddressid, ::core::mem::transmute(lphcall), lpszdestaddress.into())
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[inline]
@@ -23839,7 +23839,7 @@ where
     extern "system" {
         fn lineUnparkW(hline: u32, dwaddressid: u32, lphcall: *mut u32, lpszdestaddress: ::windows::core::PCWSTR) -> i32;
     }
-    ::core::mem::transmute(lineUnparkW(hline, dwaddressid, ::core::mem::transmute(lphcall), lpszdestaddress.into()))
+    lineUnparkW(hline, dwaddressid, ::core::mem::transmute(lphcall), lpszdestaddress.into())
 }
 #[repr(C, packed(1))]
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
@@ -23917,7 +23917,7 @@ pub unsafe fn phoneClose(hphone: u32) -> i32 {
     extern "system" {
         fn phoneClose(hphone: u32) -> i32;
     }
-    ::core::mem::transmute(phoneClose(hphone))
+    phoneClose(hphone)
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -23931,7 +23931,7 @@ where
     extern "system" {
         fn phoneConfigDialog(dwdeviceid: u32, hwndowner: super::super::Foundation::HWND, lpszdeviceclass: ::windows::core::PCSTR) -> i32;
     }
-    ::core::mem::transmute(phoneConfigDialog(dwdeviceid, hwndowner.into(), lpszdeviceclass.into()))
+    phoneConfigDialog(dwdeviceid, hwndowner.into(), lpszdeviceclass.into())
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -23945,7 +23945,7 @@ where
     extern "system" {
         fn phoneConfigDialogA(dwdeviceid: u32, hwndowner: super::super::Foundation::HWND, lpszdeviceclass: ::windows::core::PCSTR) -> i32;
     }
-    ::core::mem::transmute(phoneConfigDialogA(dwdeviceid, hwndowner.into(), lpszdeviceclass.into()))
+    phoneConfigDialogA(dwdeviceid, hwndowner.into(), lpszdeviceclass.into())
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -23959,7 +23959,7 @@ where
     extern "system" {
         fn phoneConfigDialogW(dwdeviceid: u32, hwndowner: super::super::Foundation::HWND, lpszdeviceclass: ::windows::core::PCWSTR) -> i32;
     }
-    ::core::mem::transmute(phoneConfigDialogW(dwdeviceid, hwndowner.into(), lpszdeviceclass.into()))
+    phoneConfigDialogW(dwdeviceid, hwndowner.into(), lpszdeviceclass.into())
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[inline]
@@ -23968,7 +23968,7 @@ pub unsafe fn phoneDevSpecific(hphone: u32, lpparams: *mut ::core::ffi::c_void, 
     extern "system" {
         fn phoneDevSpecific(hphone: u32, lpparams: *mut ::core::ffi::c_void, dwsize: u32) -> i32;
     }
-    ::core::mem::transmute(phoneDevSpecific(hphone, ::core::mem::transmute(lpparams), dwsize))
+    phoneDevSpecific(hphone, ::core::mem::transmute(lpparams), dwsize)
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[inline]
@@ -23977,7 +23977,7 @@ pub unsafe fn phoneGetButtonInfo(hphone: u32, dwbuttonlampid: u32, lpbuttoninfo:
     extern "system" {
         fn phoneGetButtonInfo(hphone: u32, dwbuttonlampid: u32, lpbuttoninfo: *mut PHONEBUTTONINFO) -> i32;
     }
-    ::core::mem::transmute(phoneGetButtonInfo(hphone, dwbuttonlampid, ::core::mem::transmute(lpbuttoninfo)))
+    phoneGetButtonInfo(hphone, dwbuttonlampid, ::core::mem::transmute(lpbuttoninfo))
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[inline]
@@ -23986,7 +23986,7 @@ pub unsafe fn phoneGetButtonInfoA(hphone: u32, dwbuttonlampid: u32, lpbuttoninfo
     extern "system" {
         fn phoneGetButtonInfoA(hphone: u32, dwbuttonlampid: u32, lpbuttoninfo: *mut PHONEBUTTONINFO) -> i32;
     }
-    ::core::mem::transmute(phoneGetButtonInfoA(hphone, dwbuttonlampid, ::core::mem::transmute(lpbuttoninfo)))
+    phoneGetButtonInfoA(hphone, dwbuttonlampid, ::core::mem::transmute(lpbuttoninfo))
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[inline]
@@ -23995,7 +23995,7 @@ pub unsafe fn phoneGetButtonInfoW(hphone: u32, dwbuttonlampid: u32, lpbuttoninfo
     extern "system" {
         fn phoneGetButtonInfoW(hphone: u32, dwbuttonlampid: u32, lpbuttoninfo: *mut PHONEBUTTONINFO) -> i32;
     }
-    ::core::mem::transmute(phoneGetButtonInfoW(hphone, dwbuttonlampid, ::core::mem::transmute(lpbuttoninfo)))
+    phoneGetButtonInfoW(hphone, dwbuttonlampid, ::core::mem::transmute(lpbuttoninfo))
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[inline]
@@ -24004,7 +24004,7 @@ pub unsafe fn phoneGetData(hphone: u32, dwdataid: u32, lpdata: *mut ::core::ffi:
     extern "system" {
         fn phoneGetData(hphone: u32, dwdataid: u32, lpdata: *mut ::core::ffi::c_void, dwsize: u32) -> i32;
     }
-    ::core::mem::transmute(phoneGetData(hphone, dwdataid, ::core::mem::transmute(lpdata), dwsize))
+    phoneGetData(hphone, dwdataid, ::core::mem::transmute(lpdata), dwsize)
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[inline]
@@ -24013,7 +24013,7 @@ pub unsafe fn phoneGetDevCaps(hphoneapp: u32, dwdeviceid: u32, dwapiversion: u32
     extern "system" {
         fn phoneGetDevCaps(hphoneapp: u32, dwdeviceid: u32, dwapiversion: u32, dwextversion: u32, lpphonecaps: *mut PHONECAPS) -> i32;
     }
-    ::core::mem::transmute(phoneGetDevCaps(hphoneapp, dwdeviceid, dwapiversion, dwextversion, ::core::mem::transmute(lpphonecaps)))
+    phoneGetDevCaps(hphoneapp, dwdeviceid, dwapiversion, dwextversion, ::core::mem::transmute(lpphonecaps))
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[inline]
@@ -24022,7 +24022,7 @@ pub unsafe fn phoneGetDevCapsA(hphoneapp: u32, dwdeviceid: u32, dwapiversion: u3
     extern "system" {
         fn phoneGetDevCapsA(hphoneapp: u32, dwdeviceid: u32, dwapiversion: u32, dwextversion: u32, lpphonecaps: *mut PHONECAPS) -> i32;
     }
-    ::core::mem::transmute(phoneGetDevCapsA(hphoneapp, dwdeviceid, dwapiversion, dwextversion, ::core::mem::transmute(lpphonecaps)))
+    phoneGetDevCapsA(hphoneapp, dwdeviceid, dwapiversion, dwextversion, ::core::mem::transmute(lpphonecaps))
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[inline]
@@ -24031,7 +24031,7 @@ pub unsafe fn phoneGetDevCapsW(hphoneapp: u32, dwdeviceid: u32, dwapiversion: u3
     extern "system" {
         fn phoneGetDevCapsW(hphoneapp: u32, dwdeviceid: u32, dwapiversion: u32, dwextversion: u32, lpphonecaps: *mut PHONECAPS) -> i32;
     }
-    ::core::mem::transmute(phoneGetDevCapsW(hphoneapp, dwdeviceid, dwapiversion, dwextversion, ::core::mem::transmute(lpphonecaps)))
+    phoneGetDevCapsW(hphoneapp, dwdeviceid, dwapiversion, dwextversion, ::core::mem::transmute(lpphonecaps))
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[inline]
@@ -24040,7 +24040,7 @@ pub unsafe fn phoneGetDisplay(hphone: u32, lpdisplay: *mut VARSTRING) -> i32 {
     extern "system" {
         fn phoneGetDisplay(hphone: u32, lpdisplay: *mut VARSTRING) -> i32;
     }
-    ::core::mem::transmute(phoneGetDisplay(hphone, ::core::mem::transmute(lpdisplay)))
+    phoneGetDisplay(hphone, ::core::mem::transmute(lpdisplay))
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[inline]
@@ -24049,7 +24049,7 @@ pub unsafe fn phoneGetGain(hphone: u32, dwhookswitchdev: u32, lpdwgain: *mut u32
     extern "system" {
         fn phoneGetGain(hphone: u32, dwhookswitchdev: u32, lpdwgain: *mut u32) -> i32;
     }
-    ::core::mem::transmute(phoneGetGain(hphone, dwhookswitchdev, ::core::mem::transmute(lpdwgain)))
+    phoneGetGain(hphone, dwhookswitchdev, ::core::mem::transmute(lpdwgain))
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[inline]
@@ -24058,7 +24058,7 @@ pub unsafe fn phoneGetHookSwitch(hphone: u32, lpdwhookswitchdevs: *mut u32) -> i
     extern "system" {
         fn phoneGetHookSwitch(hphone: u32, lpdwhookswitchdevs: *mut u32) -> i32;
     }
-    ::core::mem::transmute(phoneGetHookSwitch(hphone, ::core::mem::transmute(lpdwhookswitchdevs)))
+    phoneGetHookSwitch(hphone, ::core::mem::transmute(lpdwhookswitchdevs))
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[inline]
@@ -24070,7 +24070,7 @@ where
     extern "system" {
         fn phoneGetID(hphone: u32, lpdeviceid: *mut VARSTRING, lpszdeviceclass: ::windows::core::PCSTR) -> i32;
     }
-    ::core::mem::transmute(phoneGetID(hphone, ::core::mem::transmute(lpdeviceid), lpszdeviceclass.into()))
+    phoneGetID(hphone, ::core::mem::transmute(lpdeviceid), lpszdeviceclass.into())
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[inline]
@@ -24082,7 +24082,7 @@ where
     extern "system" {
         fn phoneGetIDA(hphone: u32, lpdeviceid: *mut VARSTRING, lpszdeviceclass: ::windows::core::PCSTR) -> i32;
     }
-    ::core::mem::transmute(phoneGetIDA(hphone, ::core::mem::transmute(lpdeviceid), lpszdeviceclass.into()))
+    phoneGetIDA(hphone, ::core::mem::transmute(lpdeviceid), lpszdeviceclass.into())
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[inline]
@@ -24094,7 +24094,7 @@ where
     extern "system" {
         fn phoneGetIDW(hphone: u32, lpdeviceid: *mut VARSTRING, lpszdeviceclass: ::windows::core::PCWSTR) -> i32;
     }
-    ::core::mem::transmute(phoneGetIDW(hphone, ::core::mem::transmute(lpdeviceid), lpszdeviceclass.into()))
+    phoneGetIDW(hphone, ::core::mem::transmute(lpdeviceid), lpszdeviceclass.into())
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[inline]
@@ -24106,7 +24106,7 @@ where
     extern "system" {
         fn phoneGetIcon(dwdeviceid: u32, lpszdeviceclass: ::windows::core::PCSTR, lphicon: *mut isize) -> i32;
     }
-    ::core::mem::transmute(phoneGetIcon(dwdeviceid, lpszdeviceclass.into(), ::core::mem::transmute(lphicon)))
+    phoneGetIcon(dwdeviceid, lpszdeviceclass.into(), ::core::mem::transmute(lphicon))
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[inline]
@@ -24118,7 +24118,7 @@ where
     extern "system" {
         fn phoneGetIconA(dwdeviceid: u32, lpszdeviceclass: ::windows::core::PCSTR, lphicon: *mut isize) -> i32;
     }
-    ::core::mem::transmute(phoneGetIconA(dwdeviceid, lpszdeviceclass.into(), ::core::mem::transmute(lphicon)))
+    phoneGetIconA(dwdeviceid, lpszdeviceclass.into(), ::core::mem::transmute(lphicon))
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[inline]
@@ -24130,7 +24130,7 @@ where
     extern "system" {
         fn phoneGetIconW(dwdeviceid: u32, lpszdeviceclass: ::windows::core::PCWSTR, lphicon: *mut isize) -> i32;
     }
-    ::core::mem::transmute(phoneGetIconW(dwdeviceid, lpszdeviceclass.into(), ::core::mem::transmute(lphicon)))
+    phoneGetIconW(dwdeviceid, lpszdeviceclass.into(), ::core::mem::transmute(lphicon))
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[inline]
@@ -24139,7 +24139,7 @@ pub unsafe fn phoneGetLamp(hphone: u32, dwbuttonlampid: u32, lpdwlampmode: *mut 
     extern "system" {
         fn phoneGetLamp(hphone: u32, dwbuttonlampid: u32, lpdwlampmode: *mut u32) -> i32;
     }
-    ::core::mem::transmute(phoneGetLamp(hphone, dwbuttonlampid, ::core::mem::transmute(lpdwlampmode)))
+    phoneGetLamp(hphone, dwbuttonlampid, ::core::mem::transmute(lpdwlampmode))
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[inline]
@@ -24148,7 +24148,7 @@ pub unsafe fn phoneGetMessage(hphoneapp: u32, lpmessage: *mut PHONEMESSAGE, dwti
     extern "system" {
         fn phoneGetMessage(hphoneapp: u32, lpmessage: *mut PHONEMESSAGE, dwtimeout: u32) -> i32;
     }
-    ::core::mem::transmute(phoneGetMessage(hphoneapp, ::core::mem::transmute(lpmessage), dwtimeout))
+    phoneGetMessage(hphoneapp, ::core::mem::transmute(lpmessage), dwtimeout)
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[inline]
@@ -24157,7 +24157,7 @@ pub unsafe fn phoneGetRing(hphone: u32, lpdwringmode: *mut u32, lpdwvolume: *mut
     extern "system" {
         fn phoneGetRing(hphone: u32, lpdwringmode: *mut u32, lpdwvolume: *mut u32) -> i32;
     }
-    ::core::mem::transmute(phoneGetRing(hphone, ::core::mem::transmute(lpdwringmode), ::core::mem::transmute(lpdwvolume)))
+    phoneGetRing(hphone, ::core::mem::transmute(lpdwringmode), ::core::mem::transmute(lpdwvolume))
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[inline]
@@ -24166,7 +24166,7 @@ pub unsafe fn phoneGetStatus(hphone: u32, lpphonestatus: *mut PHONESTATUS) -> i3
     extern "system" {
         fn phoneGetStatus(hphone: u32, lpphonestatus: *mut PHONESTATUS) -> i32;
     }
-    ::core::mem::transmute(phoneGetStatus(hphone, ::core::mem::transmute(lpphonestatus)))
+    phoneGetStatus(hphone, ::core::mem::transmute(lpphonestatus))
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[inline]
@@ -24175,7 +24175,7 @@ pub unsafe fn phoneGetStatusA(hphone: u32, lpphonestatus: *mut PHONESTATUS) -> i
     extern "system" {
         fn phoneGetStatusA(hphone: u32, lpphonestatus: *mut PHONESTATUS) -> i32;
     }
-    ::core::mem::transmute(phoneGetStatusA(hphone, ::core::mem::transmute(lpphonestatus)))
+    phoneGetStatusA(hphone, ::core::mem::transmute(lpphonestatus))
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[inline]
@@ -24184,7 +24184,7 @@ pub unsafe fn phoneGetStatusMessages(hphone: u32, lpdwphonestates: *mut u32, lpd
     extern "system" {
         fn phoneGetStatusMessages(hphone: u32, lpdwphonestates: *mut u32, lpdwbuttonmodes: *mut u32, lpdwbuttonstates: *mut u32) -> i32;
     }
-    ::core::mem::transmute(phoneGetStatusMessages(hphone, ::core::mem::transmute(lpdwphonestates), ::core::mem::transmute(lpdwbuttonmodes), ::core::mem::transmute(lpdwbuttonstates)))
+    phoneGetStatusMessages(hphone, ::core::mem::transmute(lpdwphonestates), ::core::mem::transmute(lpdwbuttonmodes), ::core::mem::transmute(lpdwbuttonstates))
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[inline]
@@ -24193,7 +24193,7 @@ pub unsafe fn phoneGetStatusW(hphone: u32, lpphonestatus: *mut PHONESTATUS) -> i
     extern "system" {
         fn phoneGetStatusW(hphone: u32, lpphonestatus: *mut PHONESTATUS) -> i32;
     }
-    ::core::mem::transmute(phoneGetStatusW(hphone, ::core::mem::transmute(lpphonestatus)))
+    phoneGetStatusW(hphone, ::core::mem::transmute(lpphonestatus))
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[inline]
@@ -24202,7 +24202,7 @@ pub unsafe fn phoneGetVolume(hphone: u32, dwhookswitchdev: u32, lpdwvolume: *mut
     extern "system" {
         fn phoneGetVolume(hphone: u32, dwhookswitchdev: u32, lpdwvolume: *mut u32) -> i32;
     }
-    ::core::mem::transmute(phoneGetVolume(hphone, dwhookswitchdev, ::core::mem::transmute(lpdwvolume)))
+    phoneGetVolume(hphone, dwhookswitchdev, ::core::mem::transmute(lpdwvolume))
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -24216,7 +24216,7 @@ where
     extern "system" {
         fn phoneInitialize(lphphoneapp: *mut u32, hinstance: super::super::Foundation::HINSTANCE, lpfncallback: *mut ::core::ffi::c_void, lpszappname: ::windows::core::PCSTR, lpdwnumdevs: *mut u32) -> i32;
     }
-    ::core::mem::transmute(phoneInitialize(::core::mem::transmute(lphphoneapp), hinstance.into(), ::core::mem::transmute(lpfncallback), lpszappname.into(), ::core::mem::transmute(lpdwnumdevs)))
+    phoneInitialize(::core::mem::transmute(lphphoneapp), hinstance.into(), ::core::mem::transmute(lpfncallback), lpszappname.into(), ::core::mem::transmute(lpdwnumdevs))
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -24230,7 +24230,7 @@ where
     extern "system" {
         fn phoneInitializeExA(lphphoneapp: *mut u32, hinstance: super::super::Foundation::HINSTANCE, lpfncallback: *mut ::core::ffi::c_void, lpszfriendlyappname: ::windows::core::PCSTR, lpdwnumdevs: *mut u32, lpdwapiversion: *mut u32, lpphoneinitializeexparams: *mut PHONEINITIALIZEEXPARAMS) -> i32;
     }
-    ::core::mem::transmute(phoneInitializeExA(::core::mem::transmute(lphphoneapp), hinstance.into(), ::core::mem::transmute(lpfncallback), lpszfriendlyappname.into(), ::core::mem::transmute(lpdwnumdevs), ::core::mem::transmute(lpdwapiversion), ::core::mem::transmute(lpphoneinitializeexparams)))
+    phoneInitializeExA(::core::mem::transmute(lphphoneapp), hinstance.into(), ::core::mem::transmute(lpfncallback), lpszfriendlyappname.into(), ::core::mem::transmute(lpdwnumdevs), ::core::mem::transmute(lpdwapiversion), ::core::mem::transmute(lpphoneinitializeexparams))
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -24244,7 +24244,7 @@ where
     extern "system" {
         fn phoneInitializeExW(lphphoneapp: *mut u32, hinstance: super::super::Foundation::HINSTANCE, lpfncallback: *mut ::core::ffi::c_void, lpszfriendlyappname: ::windows::core::PCWSTR, lpdwnumdevs: *mut u32, lpdwapiversion: *mut u32, lpphoneinitializeexparams: *mut PHONEINITIALIZEEXPARAMS) -> i32;
     }
-    ::core::mem::transmute(phoneInitializeExW(::core::mem::transmute(lphphoneapp), hinstance.into(), ::core::mem::transmute(lpfncallback), lpszfriendlyappname.into(), ::core::mem::transmute(lpdwnumdevs), ::core::mem::transmute(lpdwapiversion), ::core::mem::transmute(lpphoneinitializeexparams)))
+    phoneInitializeExW(::core::mem::transmute(lphphoneapp), hinstance.into(), ::core::mem::transmute(lpfncallback), lpszfriendlyappname.into(), ::core::mem::transmute(lpdwnumdevs), ::core::mem::transmute(lpdwapiversion), ::core::mem::transmute(lpphoneinitializeexparams))
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[inline]
@@ -24253,7 +24253,7 @@ pub unsafe fn phoneNegotiateAPIVersion(hphoneapp: u32, dwdeviceid: u32, dwapilow
     extern "system" {
         fn phoneNegotiateAPIVersion(hphoneapp: u32, dwdeviceid: u32, dwapilowversion: u32, dwapihighversion: u32, lpdwapiversion: *mut u32, lpextensionid: *mut PHONEEXTENSIONID) -> i32;
     }
-    ::core::mem::transmute(phoneNegotiateAPIVersion(hphoneapp, dwdeviceid, dwapilowversion, dwapihighversion, ::core::mem::transmute(lpdwapiversion), ::core::mem::transmute(lpextensionid)))
+    phoneNegotiateAPIVersion(hphoneapp, dwdeviceid, dwapilowversion, dwapihighversion, ::core::mem::transmute(lpdwapiversion), ::core::mem::transmute(lpextensionid))
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[inline]
@@ -24262,7 +24262,7 @@ pub unsafe fn phoneNegotiateExtVersion(hphoneapp: u32, dwdeviceid: u32, dwapiver
     extern "system" {
         fn phoneNegotiateExtVersion(hphoneapp: u32, dwdeviceid: u32, dwapiversion: u32, dwextlowversion: u32, dwexthighversion: u32, lpdwextversion: *mut u32) -> i32;
     }
-    ::core::mem::transmute(phoneNegotiateExtVersion(hphoneapp, dwdeviceid, dwapiversion, dwextlowversion, dwexthighversion, ::core::mem::transmute(lpdwextversion)))
+    phoneNegotiateExtVersion(hphoneapp, dwdeviceid, dwapiversion, dwextlowversion, dwexthighversion, ::core::mem::transmute(lpdwextversion))
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[inline]
@@ -24271,7 +24271,7 @@ pub unsafe fn phoneOpen(hphoneapp: u32, dwdeviceid: u32, lphphone: *mut u32, dwa
     extern "system" {
         fn phoneOpen(hphoneapp: u32, dwdeviceid: u32, lphphone: *mut u32, dwapiversion: u32, dwextversion: u32, dwcallbackinstance: usize, dwprivilege: u32) -> i32;
     }
-    ::core::mem::transmute(phoneOpen(hphoneapp, dwdeviceid, ::core::mem::transmute(lphphone), dwapiversion, dwextversion, dwcallbackinstance, dwprivilege))
+    phoneOpen(hphoneapp, dwdeviceid, ::core::mem::transmute(lphphone), dwapiversion, dwextversion, dwcallbackinstance, dwprivilege)
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[inline]
@@ -24280,7 +24280,7 @@ pub unsafe fn phoneSetButtonInfo(hphone: u32, dwbuttonlampid: u32, lpbuttoninfo:
     extern "system" {
         fn phoneSetButtonInfo(hphone: u32, dwbuttonlampid: u32, lpbuttoninfo: *const PHONEBUTTONINFO) -> i32;
     }
-    ::core::mem::transmute(phoneSetButtonInfo(hphone, dwbuttonlampid, ::core::mem::transmute(lpbuttoninfo)))
+    phoneSetButtonInfo(hphone, dwbuttonlampid, ::core::mem::transmute(lpbuttoninfo))
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[inline]
@@ -24289,7 +24289,7 @@ pub unsafe fn phoneSetButtonInfoA(hphone: u32, dwbuttonlampid: u32, lpbuttoninfo
     extern "system" {
         fn phoneSetButtonInfoA(hphone: u32, dwbuttonlampid: u32, lpbuttoninfo: *const PHONEBUTTONINFO) -> i32;
     }
-    ::core::mem::transmute(phoneSetButtonInfoA(hphone, dwbuttonlampid, ::core::mem::transmute(lpbuttoninfo)))
+    phoneSetButtonInfoA(hphone, dwbuttonlampid, ::core::mem::transmute(lpbuttoninfo))
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[inline]
@@ -24298,7 +24298,7 @@ pub unsafe fn phoneSetButtonInfoW(hphone: u32, dwbuttonlampid: u32, lpbuttoninfo
     extern "system" {
         fn phoneSetButtonInfoW(hphone: u32, dwbuttonlampid: u32, lpbuttoninfo: *const PHONEBUTTONINFO) -> i32;
     }
-    ::core::mem::transmute(phoneSetButtonInfoW(hphone, dwbuttonlampid, ::core::mem::transmute(lpbuttoninfo)))
+    phoneSetButtonInfoW(hphone, dwbuttonlampid, ::core::mem::transmute(lpbuttoninfo))
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[inline]
@@ -24307,7 +24307,7 @@ pub unsafe fn phoneSetData(hphone: u32, dwdataid: u32, lpdata: *const ::core::ff
     extern "system" {
         fn phoneSetData(hphone: u32, dwdataid: u32, lpdata: *const ::core::ffi::c_void, dwsize: u32) -> i32;
     }
-    ::core::mem::transmute(phoneSetData(hphone, dwdataid, ::core::mem::transmute(lpdata), dwsize))
+    phoneSetData(hphone, dwdataid, ::core::mem::transmute(lpdata), dwsize)
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[inline]
@@ -24319,7 +24319,7 @@ where
     extern "system" {
         fn phoneSetDisplay(hphone: u32, dwrow: u32, dwcolumn: u32, lpsdisplay: ::windows::core::PCSTR, dwsize: u32) -> i32;
     }
-    ::core::mem::transmute(phoneSetDisplay(hphone, dwrow, dwcolumn, lpsdisplay.into(), dwsize))
+    phoneSetDisplay(hphone, dwrow, dwcolumn, lpsdisplay.into(), dwsize)
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[inline]
@@ -24328,7 +24328,7 @@ pub unsafe fn phoneSetGain(hphone: u32, dwhookswitchdev: u32, dwgain: u32) -> i3
     extern "system" {
         fn phoneSetGain(hphone: u32, dwhookswitchdev: u32, dwgain: u32) -> i32;
     }
-    ::core::mem::transmute(phoneSetGain(hphone, dwhookswitchdev, dwgain))
+    phoneSetGain(hphone, dwhookswitchdev, dwgain)
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[inline]
@@ -24337,7 +24337,7 @@ pub unsafe fn phoneSetHookSwitch(hphone: u32, dwhookswitchdevs: u32, dwhookswitc
     extern "system" {
         fn phoneSetHookSwitch(hphone: u32, dwhookswitchdevs: u32, dwhookswitchmode: u32) -> i32;
     }
-    ::core::mem::transmute(phoneSetHookSwitch(hphone, dwhookswitchdevs, dwhookswitchmode))
+    phoneSetHookSwitch(hphone, dwhookswitchdevs, dwhookswitchmode)
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[inline]
@@ -24346,7 +24346,7 @@ pub unsafe fn phoneSetLamp(hphone: u32, dwbuttonlampid: u32, dwlampmode: u32) ->
     extern "system" {
         fn phoneSetLamp(hphone: u32, dwbuttonlampid: u32, dwlampmode: u32) -> i32;
     }
-    ::core::mem::transmute(phoneSetLamp(hphone, dwbuttonlampid, dwlampmode))
+    phoneSetLamp(hphone, dwbuttonlampid, dwlampmode)
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[inline]
@@ -24355,7 +24355,7 @@ pub unsafe fn phoneSetRing(hphone: u32, dwringmode: u32, dwvolume: u32) -> i32 {
     extern "system" {
         fn phoneSetRing(hphone: u32, dwringmode: u32, dwvolume: u32) -> i32;
     }
-    ::core::mem::transmute(phoneSetRing(hphone, dwringmode, dwvolume))
+    phoneSetRing(hphone, dwringmode, dwvolume)
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[inline]
@@ -24364,7 +24364,7 @@ pub unsafe fn phoneSetStatusMessages(hphone: u32, dwphonestates: u32, dwbuttonmo
     extern "system" {
         fn phoneSetStatusMessages(hphone: u32, dwphonestates: u32, dwbuttonmodes: u32, dwbuttonstates: u32) -> i32;
     }
-    ::core::mem::transmute(phoneSetStatusMessages(hphone, dwphonestates, dwbuttonmodes, dwbuttonstates))
+    phoneSetStatusMessages(hphone, dwphonestates, dwbuttonmodes, dwbuttonstates)
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[inline]
@@ -24373,7 +24373,7 @@ pub unsafe fn phoneSetVolume(hphone: u32, dwhookswitchdev: u32, dwvolume: u32) -
     extern "system" {
         fn phoneSetVolume(hphone: u32, dwhookswitchdev: u32, dwvolume: u32) -> i32;
     }
-    ::core::mem::transmute(phoneSetVolume(hphone, dwhookswitchdev, dwvolume))
+    phoneSetVolume(hphone, dwhookswitchdev, dwvolume)
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[inline]
@@ -24382,7 +24382,7 @@ pub unsafe fn phoneShutdown(hphoneapp: u32) -> i32 {
     extern "system" {
         fn phoneShutdown(hphoneapp: u32) -> i32;
     }
-    ::core::mem::transmute(phoneShutdown(hphoneapp))
+    phoneShutdown(hphoneapp)
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 pub const prioHigh: u32 = 1u32;
@@ -24397,7 +24397,7 @@ pub unsafe fn tapiGetLocationInfo(lpszcountrycode: &mut [u8; 8], lpszcitycode: &
     extern "system" {
         fn tapiGetLocationInfo(lpszcountrycode: ::windows::core::PSTR, lpszcitycode: ::windows::core::PSTR) -> i32;
     }
-    ::core::mem::transmute(tapiGetLocationInfo(::core::mem::transmute(::windows::core::as_mut_ptr_or_null(lpszcountrycode)), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(lpszcitycode))))
+    tapiGetLocationInfo(::core::mem::transmute(::windows::core::as_mut_ptr_or_null(lpszcountrycode)), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(lpszcitycode)))
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[inline]
@@ -24406,7 +24406,7 @@ pub unsafe fn tapiGetLocationInfoA(lpszcountrycode: &mut [u8; 8], lpszcitycode: 
     extern "system" {
         fn tapiGetLocationInfoA(lpszcountrycode: ::windows::core::PSTR, lpszcitycode: ::windows::core::PSTR) -> i32;
     }
-    ::core::mem::transmute(tapiGetLocationInfoA(::core::mem::transmute(::windows::core::as_mut_ptr_or_null(lpszcountrycode)), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(lpszcitycode))))
+    tapiGetLocationInfoA(::core::mem::transmute(::windows::core::as_mut_ptr_or_null(lpszcountrycode)), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(lpszcitycode)))
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[inline]
@@ -24415,7 +24415,7 @@ pub unsafe fn tapiGetLocationInfoW(lpszcountrycodew: &mut [u16; 8], lpszcitycode
     extern "system" {
         fn tapiGetLocationInfoW(lpszcountrycodew: ::windows::core::PWSTR, lpszcitycodew: ::windows::core::PWSTR) -> i32;
     }
-    ::core::mem::transmute(tapiGetLocationInfoW(::core::mem::transmute(::windows::core::as_mut_ptr_or_null(lpszcountrycodew)), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(lpszcitycodew))))
+    tapiGetLocationInfoW(::core::mem::transmute(::windows::core::as_mut_ptr_or_null(lpszcountrycodew)), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(lpszcitycodew)))
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -24429,7 +24429,7 @@ where
     extern "system" {
         fn tapiRequestDrop(hwnd: super::super::Foundation::HWND, wrequestid: super::super::Foundation::WPARAM) -> i32;
     }
-    ::core::mem::transmute(tapiRequestDrop(hwnd.into(), wrequestid.into()))
+    tapiRequestDrop(hwnd.into(), wrequestid.into())
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[inline]
@@ -24444,7 +24444,7 @@ where
     extern "system" {
         fn tapiRequestMakeCall(lpszdestaddress: ::windows::core::PCSTR, lpszappname: ::windows::core::PCSTR, lpszcalledparty: ::windows::core::PCSTR, lpszcomment: ::windows::core::PCSTR) -> i32;
     }
-    ::core::mem::transmute(tapiRequestMakeCall(lpszdestaddress.into(), lpszappname.into(), lpszcalledparty.into(), lpszcomment.into()))
+    tapiRequestMakeCall(lpszdestaddress.into(), lpszappname.into(), lpszcalledparty.into(), lpszcomment.into())
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[inline]
@@ -24459,7 +24459,7 @@ where
     extern "system" {
         fn tapiRequestMakeCallA(lpszdestaddress: ::windows::core::PCSTR, lpszappname: ::windows::core::PCSTR, lpszcalledparty: ::windows::core::PCSTR, lpszcomment: ::windows::core::PCSTR) -> i32;
     }
-    ::core::mem::transmute(tapiRequestMakeCallA(lpszdestaddress.into(), lpszappname.into(), lpszcalledparty.into(), lpszcomment.into()))
+    tapiRequestMakeCallA(lpszdestaddress.into(), lpszappname.into(), lpszcalledparty.into(), lpszcomment.into())
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[inline]
@@ -24474,7 +24474,7 @@ where
     extern "system" {
         fn tapiRequestMakeCallW(lpszdestaddress: ::windows::core::PCWSTR, lpszappname: ::windows::core::PCWSTR, lpszcalledparty: ::windows::core::PCWSTR, lpszcomment: ::windows::core::PCWSTR) -> i32;
     }
-    ::core::mem::transmute(tapiRequestMakeCallW(lpszdestaddress.into(), lpszappname.into(), lpszcalledparty.into(), lpszcomment.into()))
+    tapiRequestMakeCallW(lpszdestaddress.into(), lpszappname.into(), lpszcalledparty.into(), lpszcomment.into())
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -24494,7 +24494,7 @@ where
     extern "system" {
         fn tapiRequestMediaCall(hwnd: super::super::Foundation::HWND, wrequestid: super::super::Foundation::WPARAM, lpszdeviceclass: ::windows::core::PCSTR, lpdeviceid: ::windows::core::PCSTR, dwsize: u32, dwsecure: u32, lpszdestaddress: ::windows::core::PCSTR, lpszappname: ::windows::core::PCSTR, lpszcalledparty: ::windows::core::PCSTR, lpszcomment: ::windows::core::PCSTR) -> i32;
     }
-    ::core::mem::transmute(tapiRequestMediaCall(hwnd.into(), wrequestid.into(), lpszdeviceclass.into(), lpdeviceid.into(), dwsize, dwsecure, lpszdestaddress.into(), lpszappname.into(), lpszcalledparty.into(), lpszcomment.into()))
+    tapiRequestMediaCall(hwnd.into(), wrequestid.into(), lpszdeviceclass.into(), lpdeviceid.into(), dwsize, dwsecure, lpszdestaddress.into(), lpszappname.into(), lpszcalledparty.into(), lpszcomment.into())
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -24514,7 +24514,7 @@ where
     extern "system" {
         fn tapiRequestMediaCallA(hwnd: super::super::Foundation::HWND, wrequestid: super::super::Foundation::WPARAM, lpszdeviceclass: ::windows::core::PCSTR, lpdeviceid: ::windows::core::PCSTR, dwsize: u32, dwsecure: u32, lpszdestaddress: ::windows::core::PCSTR, lpszappname: ::windows::core::PCSTR, lpszcalledparty: ::windows::core::PCSTR, lpszcomment: ::windows::core::PCSTR) -> i32;
     }
-    ::core::mem::transmute(tapiRequestMediaCallA(hwnd.into(), wrequestid.into(), lpszdeviceclass.into(), lpdeviceid.into(), dwsize, dwsecure, lpszdestaddress.into(), lpszappname.into(), lpszcalledparty.into(), lpszcomment.into()))
+    tapiRequestMediaCallA(hwnd.into(), wrequestid.into(), lpszdeviceclass.into(), lpdeviceid.into(), dwsize, dwsecure, lpszdestaddress.into(), lpszappname.into(), lpszcalledparty.into(), lpszcomment.into())
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -24534,7 +24534,7 @@ where
     extern "system" {
         fn tapiRequestMediaCallW(hwnd: super::super::Foundation::HWND, wrequestid: super::super::Foundation::WPARAM, lpszdeviceclass: ::windows::core::PCWSTR, lpdeviceid: ::windows::core::PCWSTR, dwsize: u32, dwsecure: u32, lpszdestaddress: ::windows::core::PCWSTR, lpszappname: ::windows::core::PCWSTR, lpszcalledparty: ::windows::core::PCWSTR, lpszcomment: ::windows::core::PCWSTR) -> i32;
     }
-    ::core::mem::transmute(tapiRequestMediaCallW(hwnd.into(), wrequestid.into(), lpszdeviceclass.into(), lpdeviceid.into(), dwsize, dwsecure, lpszdestaddress.into(), lpszappname.into(), lpszcalledparty.into(), lpszcomment.into()))
+    tapiRequestMediaCallW(hwnd.into(), wrequestid.into(), lpszdeviceclass.into(), lpdeviceid.into(), dwsize, dwsecure, lpszdestaddress.into(), lpszappname.into(), lpszcalledparty.into(), lpszcomment.into())
 }
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

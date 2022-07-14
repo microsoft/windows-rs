@@ -465,10 +465,10 @@ pub struct IReferenceTrackerManager_Vtbl {
 pub struct IReferenceTrackerTarget(::windows::core::IUnknown);
 impl IReferenceTrackerTarget {
     pub unsafe fn AddRefFromReferenceTracker(&self) -> u32 {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).AddRefFromReferenceTracker)(::windows::core::Interface::as_raw(self)))
+        (::windows::core::Interface::vtable(self).AddRefFromReferenceTracker)(::windows::core::Interface::as_raw(self))
     }
     pub unsafe fn ReleaseFromReferenceTracker(&self) -> u32 {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).ReleaseFromReferenceTracker)(::windows::core::Interface::as_raw(self)))
+        (::windows::core::Interface::vtable(self).ReleaseFromReferenceTracker)(::windows::core::Interface::as_raw(self))
     }
     pub unsafe fn Peg(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).Peg)(::windows::core::Interface::as_raw(self)).ok()
@@ -932,7 +932,7 @@ impl ITrackerOwner {
         (::windows::core::Interface::vtable(self).SetTrackerValue)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(handle), value.into().abi()).ok()
     }
     pub unsafe fn TryGetSafeTrackerValue(&self, handle: *const TrackerHandle__, returnvalue: *mut ::core::option::Option<::windows::core::IUnknown>) -> u8 {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).TryGetSafeTrackerValue)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(handle), ::core::mem::transmute(returnvalue)))
+        (::windows::core::Interface::vtable(self).TryGetSafeTrackerValue)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(handle), ::core::mem::transmute(returnvalue))
     }
 }
 impl ::core::convert::From<ITrackerOwner> for ::windows::core::IUnknown {

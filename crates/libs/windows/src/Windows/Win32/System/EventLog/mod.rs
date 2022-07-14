@@ -10,7 +10,7 @@ where
     extern "system" {
         fn BackupEventLogA(heventlog: EventLogHandle, lpbackupfilename: ::windows::core::PCSTR) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(BackupEventLogA(heventlog.into(), lpbackupfilename.into()))
+    BackupEventLogA(heventlog.into(), lpbackupfilename.into())
 }
 #[doc = "*Required features: `\"Win32_System_EventLog\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -24,7 +24,7 @@ where
     extern "system" {
         fn BackupEventLogW(heventlog: EventLogHandle, lpbackupfilename: ::windows::core::PCWSTR) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(BackupEventLogW(heventlog.into(), lpbackupfilename.into()))
+    BackupEventLogW(heventlog.into(), lpbackupfilename.into())
 }
 #[doc = "*Required features: `\"Win32_System_EventLog\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -38,7 +38,7 @@ where
     extern "system" {
         fn ClearEventLogA(heventlog: EventLogHandle, lpbackupfilename: ::windows::core::PCSTR) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(ClearEventLogA(heventlog.into(), lpbackupfilename.into()))
+    ClearEventLogA(heventlog.into(), lpbackupfilename.into())
 }
 #[doc = "*Required features: `\"Win32_System_EventLog\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -52,7 +52,7 @@ where
     extern "system" {
         fn ClearEventLogW(heventlog: EventLogHandle, lpbackupfilename: ::windows::core::PCWSTR) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(ClearEventLogW(heventlog.into(), lpbackupfilename.into()))
+    ClearEventLogW(heventlog.into(), lpbackupfilename.into())
 }
 #[doc = "*Required features: `\"Win32_System_EventLog\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -65,7 +65,7 @@ where
     extern "system" {
         fn CloseEventLog(heventlog: EventLogHandle) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(CloseEventLog(heventlog.into()))
+    CloseEventLog(heventlog.into())
 }
 #[doc = "*Required features: `\"Win32_System_EventLog\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -78,7 +78,7 @@ where
     extern "system" {
         fn DeregisterEventSource(heventlog: EventSourceHandle) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(DeregisterEventSource(heventlog.into()))
+    DeregisterEventSource(heventlog.into())
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_System_EventLog\"`*"]
@@ -1337,7 +1337,7 @@ where
     extern "system" {
         fn EvtArchiveExportedLog(session: isize, logfilepath: ::windows::core::PCWSTR, locale: u32, flags: u32) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(EvtArchiveExportedLog(session, logfilepath.into(), locale, flags))
+    EvtArchiveExportedLog(session, logfilepath.into(), locale, flags)
 }
 #[doc = "*Required features: `\"Win32_System_EventLog\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -1347,7 +1347,7 @@ pub unsafe fn EvtCancel(object: isize) -> super::super::Foundation::BOOL {
     extern "system" {
         fn EvtCancel(object: isize) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(EvtCancel(object))
+    EvtCancel(object)
 }
 #[doc = "*Required features: `\"Win32_System_EventLog\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -1361,7 +1361,7 @@ where
     extern "system" {
         fn EvtClearLog(session: isize, channelpath: ::windows::core::PCWSTR, targetfilepath: ::windows::core::PCWSTR, flags: u32) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(EvtClearLog(session, channelpath.into(), targetfilepath.into(), flags))
+    EvtClearLog(session, channelpath.into(), targetfilepath.into(), flags)
 }
 #[doc = "*Required features: `\"Win32_System_EventLog\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -1371,7 +1371,7 @@ pub unsafe fn EvtClose(object: isize) -> super::super::Foundation::BOOL {
     extern "system" {
         fn EvtClose(object: isize) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(EvtClose(object))
+    EvtClose(object)
 }
 #[doc = "*Required features: `\"Win32_System_EventLog\"`*"]
 #[inline]
@@ -1383,7 +1383,7 @@ where
     extern "system" {
         fn EvtCreateBookmark(bookmarkxml: ::windows::core::PCWSTR) -> isize;
     }
-    ::core::mem::transmute(EvtCreateBookmark(bookmarkxml.into()))
+    EvtCreateBookmark(bookmarkxml.into())
 }
 #[doc = "*Required features: `\"Win32_System_EventLog\"`*"]
 #[inline]
@@ -1392,7 +1392,7 @@ pub unsafe fn EvtCreateRenderContext(valuepaths: &[::windows::core::PWSTR], flag
     extern "system" {
         fn EvtCreateRenderContext(valuepathscount: u32, valuepaths: *const ::windows::core::PWSTR, flags: u32) -> isize;
     }
-    ::core::mem::transmute(EvtCreateRenderContext(valuepaths.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(valuepaths)), flags))
+    EvtCreateRenderContext(valuepaths.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(valuepaths)), flags)
 }
 #[doc = "*Required features: `\"Win32_System_EventLog\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -1407,7 +1407,7 @@ where
     extern "system" {
         fn EvtExportLog(session: isize, path: ::windows::core::PCWSTR, query: ::windows::core::PCWSTR, targetfilepath: ::windows::core::PCWSTR, flags: u32) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(EvtExportLog(session, path.into(), query.into(), targetfilepath.into(), flags))
+    EvtExportLog(session, path.into(), query.into(), targetfilepath.into(), flags)
 }
 #[doc = "*Required features: `\"Win32_System_EventLog\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -1417,7 +1417,7 @@ pub unsafe fn EvtFormatMessage(publishermetadata: isize, event: isize, messageid
     extern "system" {
         fn EvtFormatMessage(publishermetadata: isize, event: isize, messageid: u32, valuecount: u32, values: *const EVT_VARIANT, flags: u32, buffersize: u32, buffer: ::windows::core::PWSTR, bufferused: *mut u32) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(EvtFormatMessage(publishermetadata, event, messageid, values.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(values)), flags, buffer.len() as _, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(buffer)), ::core::mem::transmute(bufferused)))
+    EvtFormatMessage(publishermetadata, event, messageid, values.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(values)), flags, buffer.len() as _, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(buffer)), ::core::mem::transmute(bufferused))
 }
 #[doc = "*Required features: `\"Win32_System_EventLog\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -1427,7 +1427,7 @@ pub unsafe fn EvtGetChannelConfigProperty(channelconfig: isize, propertyid: EVT_
     extern "system" {
         fn EvtGetChannelConfigProperty(channelconfig: isize, propertyid: EVT_CHANNEL_CONFIG_PROPERTY_ID, flags: u32, propertyvaluebuffersize: u32, propertyvaluebuffer: *mut EVT_VARIANT, propertyvaluebufferused: *mut u32) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(EvtGetChannelConfigProperty(channelconfig, propertyid, flags, propertyvaluebuffersize, ::core::mem::transmute(propertyvaluebuffer), ::core::mem::transmute(propertyvaluebufferused)))
+    EvtGetChannelConfigProperty(channelconfig, propertyid, flags, propertyvaluebuffersize, ::core::mem::transmute(propertyvaluebuffer), ::core::mem::transmute(propertyvaluebufferused))
 }
 #[doc = "*Required features: `\"Win32_System_EventLog\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -1437,7 +1437,7 @@ pub unsafe fn EvtGetEventInfo(event: isize, propertyid: EVT_EVENT_PROPERTY_ID, p
     extern "system" {
         fn EvtGetEventInfo(event: isize, propertyid: EVT_EVENT_PROPERTY_ID, propertyvaluebuffersize: u32, propertyvaluebuffer: *mut EVT_VARIANT, propertyvaluebufferused: *mut u32) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(EvtGetEventInfo(event, propertyid, propertyvaluebuffersize, ::core::mem::transmute(propertyvaluebuffer), ::core::mem::transmute(propertyvaluebufferused)))
+    EvtGetEventInfo(event, propertyid, propertyvaluebuffersize, ::core::mem::transmute(propertyvaluebuffer), ::core::mem::transmute(propertyvaluebufferused))
 }
 #[doc = "*Required features: `\"Win32_System_EventLog\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -1447,7 +1447,7 @@ pub unsafe fn EvtGetEventMetadataProperty(eventmetadata: isize, propertyid: EVT_
     extern "system" {
         fn EvtGetEventMetadataProperty(eventmetadata: isize, propertyid: EVT_EVENT_METADATA_PROPERTY_ID, flags: u32, eventmetadatapropertybuffersize: u32, eventmetadatapropertybuffer: *mut EVT_VARIANT, eventmetadatapropertybufferused: *mut u32) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(EvtGetEventMetadataProperty(eventmetadata, propertyid, flags, eventmetadatapropertybuffersize, ::core::mem::transmute(eventmetadatapropertybuffer), ::core::mem::transmute(eventmetadatapropertybufferused)))
+    EvtGetEventMetadataProperty(eventmetadata, propertyid, flags, eventmetadatapropertybuffersize, ::core::mem::transmute(eventmetadatapropertybuffer), ::core::mem::transmute(eventmetadatapropertybufferused))
 }
 #[doc = "*Required features: `\"Win32_System_EventLog\"`*"]
 #[inline]
@@ -1456,7 +1456,7 @@ pub unsafe fn EvtGetExtendedStatus(buffer: &mut [u16], bufferused: *mut u32) -> 
     extern "system" {
         fn EvtGetExtendedStatus(buffersize: u32, buffer: ::windows::core::PWSTR, bufferused: *mut u32) -> u32;
     }
-    ::core::mem::transmute(EvtGetExtendedStatus(buffer.len() as _, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(buffer)), ::core::mem::transmute(bufferused)))
+    EvtGetExtendedStatus(buffer.len() as _, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(buffer)), ::core::mem::transmute(bufferused))
 }
 #[doc = "*Required features: `\"Win32_System_EventLog\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -1466,7 +1466,7 @@ pub unsafe fn EvtGetLogInfo(log: isize, propertyid: EVT_LOG_PROPERTY_ID, propert
     extern "system" {
         fn EvtGetLogInfo(log: isize, propertyid: EVT_LOG_PROPERTY_ID, propertyvaluebuffersize: u32, propertyvaluebuffer: *mut EVT_VARIANT, propertyvaluebufferused: *mut u32) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(EvtGetLogInfo(log, propertyid, propertyvaluebuffersize, ::core::mem::transmute(propertyvaluebuffer), ::core::mem::transmute(propertyvaluebufferused)))
+    EvtGetLogInfo(log, propertyid, propertyvaluebuffersize, ::core::mem::transmute(propertyvaluebuffer), ::core::mem::transmute(propertyvaluebufferused))
 }
 #[doc = "*Required features: `\"Win32_System_EventLog\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -1476,7 +1476,7 @@ pub unsafe fn EvtGetObjectArrayProperty(objectarray: isize, propertyid: u32, arr
     extern "system" {
         fn EvtGetObjectArrayProperty(objectarray: isize, propertyid: u32, arrayindex: u32, flags: u32, propertyvaluebuffersize: u32, propertyvaluebuffer: *mut EVT_VARIANT, propertyvaluebufferused: *mut u32) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(EvtGetObjectArrayProperty(objectarray, propertyid, arrayindex, flags, propertyvaluebuffersize, ::core::mem::transmute(propertyvaluebuffer), ::core::mem::transmute(propertyvaluebufferused)))
+    EvtGetObjectArrayProperty(objectarray, propertyid, arrayindex, flags, propertyvaluebuffersize, ::core::mem::transmute(propertyvaluebuffer), ::core::mem::transmute(propertyvaluebufferused))
 }
 #[doc = "*Required features: `\"Win32_System_EventLog\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -1486,7 +1486,7 @@ pub unsafe fn EvtGetObjectArraySize(objectarray: isize, objectarraysize: *mut u3
     extern "system" {
         fn EvtGetObjectArraySize(objectarray: isize, objectarraysize: *mut u32) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(EvtGetObjectArraySize(objectarray, ::core::mem::transmute(objectarraysize)))
+    EvtGetObjectArraySize(objectarray, ::core::mem::transmute(objectarraysize))
 }
 #[doc = "*Required features: `\"Win32_System_EventLog\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -1496,7 +1496,7 @@ pub unsafe fn EvtGetPublisherMetadataProperty(publishermetadata: isize, property
     extern "system" {
         fn EvtGetPublisherMetadataProperty(publishermetadata: isize, propertyid: EVT_PUBLISHER_METADATA_PROPERTY_ID, flags: u32, publishermetadatapropertybuffersize: u32, publishermetadatapropertybuffer: *mut EVT_VARIANT, publishermetadatapropertybufferused: *mut u32) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(EvtGetPublisherMetadataProperty(publishermetadata, propertyid, flags, publishermetadatapropertybuffersize, ::core::mem::transmute(publishermetadatapropertybuffer), ::core::mem::transmute(publishermetadatapropertybufferused)))
+    EvtGetPublisherMetadataProperty(publishermetadata, propertyid, flags, publishermetadatapropertybuffersize, ::core::mem::transmute(publishermetadatapropertybuffer), ::core::mem::transmute(publishermetadatapropertybufferused))
 }
 #[doc = "*Required features: `\"Win32_System_EventLog\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -1506,7 +1506,7 @@ pub unsafe fn EvtGetQueryInfo(queryorsubscription: isize, propertyid: EVT_QUERY_
     extern "system" {
         fn EvtGetQueryInfo(queryorsubscription: isize, propertyid: EVT_QUERY_PROPERTY_ID, propertyvaluebuffersize: u32, propertyvaluebuffer: *mut EVT_VARIANT, propertyvaluebufferused: *mut u32) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(EvtGetQueryInfo(queryorsubscription, propertyid, propertyvaluebuffersize, ::core::mem::transmute(propertyvaluebuffer), ::core::mem::transmute(propertyvaluebufferused)))
+    EvtGetQueryInfo(queryorsubscription, propertyid, propertyvaluebuffersize, ::core::mem::transmute(propertyvaluebuffer), ::core::mem::transmute(propertyvaluebufferused))
 }
 #[doc = "*Required features: `\"Win32_System_EventLog\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -1516,7 +1516,7 @@ pub unsafe fn EvtNext(resultset: isize, events: &mut [isize], timeout: u32, flag
     extern "system" {
         fn EvtNext(resultset: isize, eventssize: u32, events: *mut isize, timeout: u32, flags: u32, returned: *mut u32) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(EvtNext(resultset, events.len() as _, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(events)), timeout, flags, ::core::mem::transmute(returned)))
+    EvtNext(resultset, events.len() as _, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(events)), timeout, flags, ::core::mem::transmute(returned))
 }
 #[doc = "*Required features: `\"Win32_System_EventLog\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -1526,7 +1526,7 @@ pub unsafe fn EvtNextChannelPath(channelenum: isize, channelpathbuffer: &mut [u1
     extern "system" {
         fn EvtNextChannelPath(channelenum: isize, channelpathbuffersize: u32, channelpathbuffer: ::windows::core::PWSTR, channelpathbufferused: *mut u32) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(EvtNextChannelPath(channelenum, channelpathbuffer.len() as _, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(channelpathbuffer)), ::core::mem::transmute(channelpathbufferused)))
+    EvtNextChannelPath(channelenum, channelpathbuffer.len() as _, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(channelpathbuffer)), ::core::mem::transmute(channelpathbufferused))
 }
 #[doc = "*Required features: `\"Win32_System_EventLog\"`*"]
 #[inline]
@@ -1535,7 +1535,7 @@ pub unsafe fn EvtNextEventMetadata(eventmetadataenum: isize, flags: u32) -> isiz
     extern "system" {
         fn EvtNextEventMetadata(eventmetadataenum: isize, flags: u32) -> isize;
     }
-    ::core::mem::transmute(EvtNextEventMetadata(eventmetadataenum, flags))
+    EvtNextEventMetadata(eventmetadataenum, flags)
 }
 #[doc = "*Required features: `\"Win32_System_EventLog\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -1545,7 +1545,7 @@ pub unsafe fn EvtNextPublisherId(publisherenum: isize, publisheridbuffer: &mut [
     extern "system" {
         fn EvtNextPublisherId(publisherenum: isize, publisheridbuffersize: u32, publisheridbuffer: ::windows::core::PWSTR, publisheridbufferused: *mut u32) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(EvtNextPublisherId(publisherenum, publisheridbuffer.len() as _, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(publisheridbuffer)), ::core::mem::transmute(publisheridbufferused)))
+    EvtNextPublisherId(publisherenum, publisheridbuffer.len() as _, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(publisheridbuffer)), ::core::mem::transmute(publisheridbufferused))
 }
 #[doc = "*Required features: `\"Win32_System_EventLog\"`*"]
 #[inline]
@@ -1557,7 +1557,7 @@ where
     extern "system" {
         fn EvtOpenChannelConfig(session: isize, channelpath: ::windows::core::PCWSTR, flags: u32) -> isize;
     }
-    ::core::mem::transmute(EvtOpenChannelConfig(session, channelpath.into(), flags))
+    EvtOpenChannelConfig(session, channelpath.into(), flags)
 }
 #[doc = "*Required features: `\"Win32_System_EventLog\"`*"]
 #[inline]
@@ -1566,7 +1566,7 @@ pub unsafe fn EvtOpenChannelEnum(session: isize, flags: u32) -> isize {
     extern "system" {
         fn EvtOpenChannelEnum(session: isize, flags: u32) -> isize;
     }
-    ::core::mem::transmute(EvtOpenChannelEnum(session, flags))
+    EvtOpenChannelEnum(session, flags)
 }
 #[doc = "*Required features: `\"Win32_System_EventLog\"`*"]
 #[inline]
@@ -1575,7 +1575,7 @@ pub unsafe fn EvtOpenEventMetadataEnum(publishermetadata: isize, flags: u32) -> 
     extern "system" {
         fn EvtOpenEventMetadataEnum(publishermetadata: isize, flags: u32) -> isize;
     }
-    ::core::mem::transmute(EvtOpenEventMetadataEnum(publishermetadata, flags))
+    EvtOpenEventMetadataEnum(publishermetadata, flags)
 }
 #[doc = "*Required features: `\"Win32_System_EventLog\"`*"]
 #[inline]
@@ -1587,7 +1587,7 @@ where
     extern "system" {
         fn EvtOpenLog(session: isize, path: ::windows::core::PCWSTR, flags: u32) -> isize;
     }
-    ::core::mem::transmute(EvtOpenLog(session, path.into(), flags))
+    EvtOpenLog(session, path.into(), flags)
 }
 #[doc = "*Required features: `\"Win32_System_EventLog\"`*"]
 #[inline]
@@ -1596,7 +1596,7 @@ pub unsafe fn EvtOpenPublisherEnum(session: isize, flags: u32) -> isize {
     extern "system" {
         fn EvtOpenPublisherEnum(session: isize, flags: u32) -> isize;
     }
-    ::core::mem::transmute(EvtOpenPublisherEnum(session, flags))
+    EvtOpenPublisherEnum(session, flags)
 }
 #[doc = "*Required features: `\"Win32_System_EventLog\"`*"]
 #[inline]
@@ -1609,7 +1609,7 @@ where
     extern "system" {
         fn EvtOpenPublisherMetadata(session: isize, publisherid: ::windows::core::PCWSTR, logfilepath: ::windows::core::PCWSTR, locale: u32, flags: u32) -> isize;
     }
-    ::core::mem::transmute(EvtOpenPublisherMetadata(session, publisherid.into(), logfilepath.into(), locale, flags))
+    EvtOpenPublisherMetadata(session, publisherid.into(), logfilepath.into(), locale, flags)
 }
 #[doc = "*Required features: `\"Win32_System_EventLog\"`*"]
 #[inline]
@@ -1618,7 +1618,7 @@ pub unsafe fn EvtOpenSession(loginclass: EVT_LOGIN_CLASS, login: *const ::core::
     extern "system" {
         fn EvtOpenSession(loginclass: EVT_LOGIN_CLASS, login: *const ::core::ffi::c_void, timeout: u32, flags: u32) -> isize;
     }
-    ::core::mem::transmute(EvtOpenSession(loginclass, ::core::mem::transmute(login), timeout, flags))
+    EvtOpenSession(loginclass, ::core::mem::transmute(login), timeout, flags)
 }
 #[doc = "*Required features: `\"Win32_System_EventLog\"`*"]
 #[inline]
@@ -1631,7 +1631,7 @@ where
     extern "system" {
         fn EvtQuery(session: isize, path: ::windows::core::PCWSTR, query: ::windows::core::PCWSTR, flags: u32) -> isize;
     }
-    ::core::mem::transmute(EvtQuery(session, path.into(), query.into(), flags))
+    EvtQuery(session, path.into(), query.into(), flags)
 }
 #[doc = "*Required features: `\"Win32_System_EventLog\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -1641,7 +1641,7 @@ pub unsafe fn EvtRender(context: isize, fragment: isize, flags: u32, buffersize:
     extern "system" {
         fn EvtRender(context: isize, fragment: isize, flags: u32, buffersize: u32, buffer: *mut ::core::ffi::c_void, bufferused: *mut u32, propertycount: *mut u32) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(EvtRender(context, fragment, flags, buffersize, ::core::mem::transmute(buffer), ::core::mem::transmute(bufferused), ::core::mem::transmute(propertycount)))
+    EvtRender(context, fragment, flags, buffersize, ::core::mem::transmute(buffer), ::core::mem::transmute(bufferused), ::core::mem::transmute(propertycount))
 }
 #[doc = "*Required features: `\"Win32_System_EventLog\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -1651,7 +1651,7 @@ pub unsafe fn EvtSaveChannelConfig(channelconfig: isize, flags: u32) -> super::s
     extern "system" {
         fn EvtSaveChannelConfig(channelconfig: isize, flags: u32) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(EvtSaveChannelConfig(channelconfig, flags))
+    EvtSaveChannelConfig(channelconfig, flags)
 }
 #[doc = "*Required features: `\"Win32_System_EventLog\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -1661,7 +1661,7 @@ pub unsafe fn EvtSeek(resultset: isize, position: i64, bookmark: isize, timeout:
     extern "system" {
         fn EvtSeek(resultset: isize, position: i64, bookmark: isize, timeout: u32, flags: u32) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(EvtSeek(resultset, position, bookmark, timeout, flags))
+    EvtSeek(resultset, position, bookmark, timeout, flags)
 }
 #[doc = "*Required features: `\"Win32_System_EventLog\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -1671,7 +1671,7 @@ pub unsafe fn EvtSetChannelConfigProperty(channelconfig: isize, propertyid: EVT_
     extern "system" {
         fn EvtSetChannelConfigProperty(channelconfig: isize, propertyid: EVT_CHANNEL_CONFIG_PROPERTY_ID, flags: u32, propertyvalue: *const EVT_VARIANT) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(EvtSetChannelConfigProperty(channelconfig, propertyid, flags, ::core::mem::transmute(propertyvalue)))
+    EvtSetChannelConfigProperty(channelconfig, propertyid, flags, ::core::mem::transmute(propertyvalue))
 }
 #[doc = "*Required features: `\"Win32_System_EventLog\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -1686,7 +1686,7 @@ where
     extern "system" {
         fn EvtSubscribe(session: isize, signalevent: super::super::Foundation::HANDLE, channelpath: ::windows::core::PCWSTR, query: ::windows::core::PCWSTR, bookmark: isize, context: *const ::core::ffi::c_void, callback: *mut ::core::ffi::c_void, flags: u32) -> isize;
     }
-    ::core::mem::transmute(EvtSubscribe(session, signalevent.into(), channelpath.into(), query.into(), bookmark, ::core::mem::transmute(context), ::core::mem::transmute(callback), flags))
+    EvtSubscribe(session, signalevent.into(), channelpath.into(), query.into(), bookmark, ::core::mem::transmute(context), ::core::mem::transmute(callback), flags)
 }
 #[doc = "*Required features: `\"Win32_System_EventLog\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -1696,7 +1696,7 @@ pub unsafe fn EvtUpdateBookmark(bookmark: isize, event: isize) -> super::super::
     extern "system" {
         fn EvtUpdateBookmark(bookmark: isize, event: isize) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(EvtUpdateBookmark(bookmark, event))
+    EvtUpdateBookmark(bookmark, event)
 }
 #[doc = "*Required features: `\"Win32_System_EventLog\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -1709,7 +1709,7 @@ where
     extern "system" {
         fn GetEventLogInformation(heventlog: EventLogHandle, dwinfolevel: u32, lpbuffer: *mut ::core::ffi::c_void, cbbufsize: u32, pcbbytesneeded: *mut u32) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(GetEventLogInformation(heventlog.into(), dwinfolevel, ::core::mem::transmute(lpbuffer), cbbufsize, ::core::mem::transmute(pcbbytesneeded)))
+    GetEventLogInformation(heventlog.into(), dwinfolevel, ::core::mem::transmute(lpbuffer), cbbufsize, ::core::mem::transmute(pcbbytesneeded))
 }
 #[doc = "*Required features: `\"Win32_System_EventLog\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -1722,7 +1722,7 @@ where
     extern "system" {
         fn GetNumberOfEventLogRecords(heventlog: EventLogHandle, numberofrecords: *mut u32) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(GetNumberOfEventLogRecords(heventlog.into(), ::core::mem::transmute(numberofrecords)))
+    GetNumberOfEventLogRecords(heventlog.into(), ::core::mem::transmute(numberofrecords))
 }
 #[doc = "*Required features: `\"Win32_System_EventLog\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -1735,7 +1735,7 @@ where
     extern "system" {
         fn GetOldestEventLogRecord(heventlog: EventLogHandle, oldestrecord: *mut u32) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(GetOldestEventLogRecord(heventlog.into(), ::core::mem::transmute(oldestrecord)))
+    GetOldestEventLogRecord(heventlog.into(), ::core::mem::transmute(oldestrecord))
 }
 #[doc = "*Required features: `\"Win32_System_EventLog\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -1749,7 +1749,7 @@ where
     extern "system" {
         fn NotifyChangeEventLog(heventlog: EventLogHandle, hevent: super::super::Foundation::HANDLE) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(NotifyChangeEventLog(heventlog.into(), hevent.into()))
+    NotifyChangeEventLog(heventlog.into(), hevent.into())
 }
 #[doc = "*Required features: `\"Win32_System_EventLog\"`*"]
 #[inline]
@@ -1880,7 +1880,7 @@ where
     extern "system" {
         fn ReadEventLogA(heventlog: EventLogHandle, dwreadflags: READ_EVENT_LOG_READ_FLAGS, dwrecordoffset: u32, lpbuffer: *mut ::core::ffi::c_void, nnumberofbytestoread: u32, pnbytesread: *mut u32, pnminnumberofbytesneeded: *mut u32) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(ReadEventLogA(heventlog.into(), dwreadflags, dwrecordoffset, ::core::mem::transmute(lpbuffer), nnumberofbytestoread, ::core::mem::transmute(pnbytesread), ::core::mem::transmute(pnminnumberofbytesneeded)))
+    ReadEventLogA(heventlog.into(), dwreadflags, dwrecordoffset, ::core::mem::transmute(lpbuffer), nnumberofbytestoread, ::core::mem::transmute(pnbytesread), ::core::mem::transmute(pnminnumberofbytesneeded))
 }
 #[doc = "*Required features: `\"Win32_System_EventLog\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -1893,7 +1893,7 @@ where
     extern "system" {
         fn ReadEventLogW(heventlog: EventLogHandle, dwreadflags: READ_EVENT_LOG_READ_FLAGS, dwrecordoffset: u32, lpbuffer: *mut ::core::ffi::c_void, nnumberofbytestoread: u32, pnbytesread: *mut u32, pnminnumberofbytesneeded: *mut u32) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(ReadEventLogW(heventlog.into(), dwreadflags, dwrecordoffset, ::core::mem::transmute(lpbuffer), nnumberofbytestoread, ::core::mem::transmute(pnbytesread), ::core::mem::transmute(pnminnumberofbytesneeded)))
+    ReadEventLogW(heventlog.into(), dwreadflags, dwrecordoffset, ::core::mem::transmute(lpbuffer), nnumberofbytestoread, ::core::mem::transmute(pnbytesread), ::core::mem::transmute(pnminnumberofbytesneeded))
 }
 #[doc = "*Required features: `\"Win32_System_EventLog\"`*"]
 #[inline]
@@ -1935,7 +1935,7 @@ where
     extern "system" {
         fn ReportEventA(heventlog: EventSourceHandle, wtype: REPORT_EVENT_TYPE, wcategory: u16, dweventid: u32, lpusersid: super::super::Foundation::PSID, wnumstrings: u16, dwdatasize: u32, lpstrings: *const ::windows::core::PSTR, lprawdata: *const ::core::ffi::c_void) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(ReportEventA(heventlog.into(), wtype, wcategory, dweventid, lpusersid.into(), lpstrings.len() as _, dwdatasize, ::core::mem::transmute(::windows::core::as_ptr_or_null(lpstrings)), ::core::mem::transmute(lprawdata)))
+    ReportEventA(heventlog.into(), wtype, wcategory, dweventid, lpusersid.into(), lpstrings.len() as _, dwdatasize, ::core::mem::transmute(::windows::core::as_ptr_or_null(lpstrings)), ::core::mem::transmute(lprawdata))
 }
 #[doc = "*Required features: `\"Win32_System_EventLog\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -1949,7 +1949,7 @@ where
     extern "system" {
         fn ReportEventW(heventlog: EventSourceHandle, wtype: REPORT_EVENT_TYPE, wcategory: u16, dweventid: u32, lpusersid: super::super::Foundation::PSID, wnumstrings: u16, dwdatasize: u32, lpstrings: *const ::windows::core::PWSTR, lprawdata: *const ::core::ffi::c_void) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(ReportEventW(heventlog.into(), wtype, wcategory, dweventid, lpusersid.into(), lpstrings.len() as _, dwdatasize, ::core::mem::transmute(::windows::core::as_ptr_or_null(lpstrings)), ::core::mem::transmute(lprawdata)))
+    ReportEventW(heventlog.into(), wtype, wcategory, dweventid, lpusersid.into(), lpstrings.len() as _, dwdatasize, ::core::mem::transmute(::windows::core::as_ptr_or_null(lpstrings)), ::core::mem::transmute(lprawdata))
 }
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

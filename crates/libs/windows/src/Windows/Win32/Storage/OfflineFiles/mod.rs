@@ -556,7 +556,7 @@ impl IOfflineFilesChangeInfo {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn IsDirty(&self, pbdirty: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).IsDirty)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pbdirty)))
+        (::windows::core::Interface::vtable(self).IsDirty)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pbdirty))
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -4465,7 +4465,7 @@ where
     extern "system" {
         fn OfflineFilesEnable(benable: super::super::Foundation::BOOL, pbrebootrequired: *mut super::super::Foundation::BOOL) -> u32;
     }
-    ::core::mem::transmute(OfflineFilesEnable(benable.into(), ::core::mem::transmute(pbrebootrequired)))
+    OfflineFilesEnable(benable.into(), ::core::mem::transmute(pbrebootrequired))
 }
 #[doc = "*Required features: `\"Win32_Storage_OfflineFiles\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -4475,7 +4475,7 @@ pub unsafe fn OfflineFilesQueryStatus(pbactive: *mut super::super::Foundation::B
     extern "system" {
         fn OfflineFilesQueryStatus(pbactive: *mut super::super::Foundation::BOOL, pbenabled: *mut super::super::Foundation::BOOL) -> u32;
     }
-    ::core::mem::transmute(OfflineFilesQueryStatus(::core::mem::transmute(pbactive), ::core::mem::transmute(pbenabled)))
+    OfflineFilesQueryStatus(::core::mem::transmute(pbactive), ::core::mem::transmute(pbenabled))
 }
 #[doc = "*Required features: `\"Win32_Storage_OfflineFiles\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -4485,7 +4485,7 @@ pub unsafe fn OfflineFilesQueryStatusEx(pbactive: *mut super::super::Foundation:
     extern "system" {
         fn OfflineFilesQueryStatusEx(pbactive: *mut super::super::Foundation::BOOL, pbenabled: *mut super::super::Foundation::BOOL, pbavailable: *mut super::super::Foundation::BOOL) -> u32;
     }
-    ::core::mem::transmute(OfflineFilesQueryStatusEx(::core::mem::transmute(pbactive), ::core::mem::transmute(pbenabled), ::core::mem::transmute(pbavailable)))
+    OfflineFilesQueryStatusEx(::core::mem::transmute(pbactive), ::core::mem::transmute(pbenabled), ::core::mem::transmute(pbavailable))
 }
 pub const OfflineFilesSetting: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfd3659e9_a920_4123_ad64_7fc76c7aacdf);
 #[doc = "*Required features: `\"Win32_Storage_OfflineFiles\"`*"]
@@ -4495,7 +4495,7 @@ pub unsafe fn OfflineFilesStart() -> u32 {
     extern "system" {
         fn OfflineFilesStart() -> u32;
     }
-    ::core::mem::transmute(OfflineFilesStart())
+    OfflineFilesStart()
 }
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

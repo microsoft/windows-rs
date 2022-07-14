@@ -55,7 +55,7 @@ pub unsafe fn RtlExtendCorrelationVector(correlationvector: *mut CORRELATION_VEC
     extern "system" {
         fn RtlExtendCorrelationVector(correlationvector: *mut CORRELATION_VECTOR) -> u32;
     }
-    ::core::mem::transmute(RtlExtendCorrelationVector(::core::mem::transmute(correlationvector)))
+    RtlExtendCorrelationVector(::core::mem::transmute(correlationvector))
 }
 #[doc = "*Required features: `\"Win32_System_CorrelationVector\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -65,7 +65,7 @@ pub unsafe fn RtlIncrementCorrelationVector(correlationvector: *mut CORRELATION_
     extern "system" {
         fn RtlIncrementCorrelationVector(correlationvector: *mut CORRELATION_VECTOR) -> u32;
     }
-    ::core::mem::transmute(RtlIncrementCorrelationVector(::core::mem::transmute(correlationvector)))
+    RtlIncrementCorrelationVector(::core::mem::transmute(correlationvector))
 }
 #[doc = "*Required features: `\"Win32_System_CorrelationVector\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -75,7 +75,7 @@ pub unsafe fn RtlInitializeCorrelationVector(correlationvector: *mut CORRELATION
     extern "system" {
         fn RtlInitializeCorrelationVector(correlationvector: *mut CORRELATION_VECTOR, version: i32, guid: *const ::windows::core::GUID) -> u32;
     }
-    ::core::mem::transmute(RtlInitializeCorrelationVector(::core::mem::transmute(correlationvector), version, ::core::mem::transmute(guid)))
+    RtlInitializeCorrelationVector(::core::mem::transmute(correlationvector), version, ::core::mem::transmute(guid))
 }
 #[doc = "*Required features: `\"Win32_System_CorrelationVector\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -85,7 +85,7 @@ pub unsafe fn RtlValidateCorrelationVector(vector: *const CORRELATION_VECTOR) ->
     extern "system" {
         fn RtlValidateCorrelationVector(vector: *const CORRELATION_VECTOR) -> u32;
     }
-    ::core::mem::transmute(RtlValidateCorrelationVector(::core::mem::transmute(vector)))
+    RtlValidateCorrelationVector(::core::mem::transmute(vector))
 }
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

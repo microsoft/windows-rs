@@ -1368,7 +1368,7 @@ where
     extern "system" {
         fn CloseHandle(hobject: HANDLE) -> BOOL;
     }
-    ::core::mem::transmute(CloseHandle(hobject.into()))
+    CloseHandle(hobject.into())
 }
 #[doc = "*Required features: `\"Win32_Foundation\"`*"]
 #[inline]
@@ -1381,7 +1381,7 @@ where
     extern "system" {
         fn CompareObjectHandles(hfirstobjecthandle: HANDLE, hsecondobjecthandle: HANDLE) -> BOOL;
     }
-    ::core::mem::transmute(CompareObjectHandles(hfirstobjecthandle.into(), hsecondobjecthandle.into()))
+    CompareObjectHandles(hfirstobjecthandle.into(), hsecondobjecthandle.into())
 }
 #[doc = "*Required features: `\"Win32_Foundation\"`*"]
 pub const D2DERR_BAD_NUMBER: ::windows::core::HRESULT = ::windows::core::HRESULT(-2003238895i32);
@@ -1947,7 +1947,7 @@ where
     extern "system" {
         fn DuplicateHandle(hsourceprocesshandle: HANDLE, hsourcehandle: HANDLE, htargetprocesshandle: HANDLE, lptargethandle: *mut HANDLE, dwdesiredaccess: u32, binherithandle: BOOL, dwoptions: DUPLICATE_HANDLE_OPTIONS) -> BOOL;
     }
-    ::core::mem::transmute(DuplicateHandle(hsourceprocesshandle.into(), hsourcehandle.into(), htargetprocesshandle.into(), ::core::mem::transmute(lptargethandle), dwdesiredaccess, binherithandle.into(), dwoptions))
+    DuplicateHandle(hsourceprocesshandle.into(), hsourcehandle.into(), htargetprocesshandle.into(), ::core::mem::transmute(lptargethandle), dwdesiredaccess, binherithandle.into(), dwoptions)
 }
 #[doc = "*Required features: `\"Win32_Foundation\"`*"]
 pub const EAS_E_ADMINS_CANNOT_CHANGE_PASSWORD: ::windows::core::HRESULT = ::windows::core::HRESULT(-2141913080i32);
@@ -3859,7 +3859,7 @@ where
     extern "system" {
         fn GetHandleInformation(hobject: HANDLE, lpdwflags: *mut u32) -> BOOL;
     }
-    ::core::mem::transmute(GetHandleInformation(hobject.into(), ::core::mem::transmute(lpdwflags)))
+    GetHandleInformation(hobject.into(), ::core::mem::transmute(lpdwflags))
 }
 #[doc = "*Required features: `\"Win32_Foundation\"`*"]
 #[inline]
@@ -3868,7 +3868,7 @@ pub unsafe fn GetLastError() -> WIN32_ERROR {
     extern "system" {
         fn GetLastError() -> WIN32_ERROR;
     }
-    ::core::mem::transmute(GetLastError())
+    GetLastError()
 }
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
@@ -6414,7 +6414,7 @@ where
     extern "system" {
         fn RtlNtStatusToDosError(status: NTSTATUS) -> u32;
     }
-    ::core::mem::transmute(RtlNtStatusToDosError(status.into()))
+    RtlNtStatusToDosError(status.into())
 }
 #[doc = "*Required features: `\"Win32_Foundation\"`*"]
 pub const SCARD_E_BAD_SEEK: ::windows::core::HRESULT = ::windows::core::HRESULT(-2146435031i32);
@@ -12819,7 +12819,7 @@ where
     extern "system" {
         fn SetHandleInformation(hobject: HANDLE, dwmask: u32, dwflags: HANDLE_FLAGS) -> BOOL;
     }
-    ::core::mem::transmute(SetHandleInformation(hobject.into(), dwmask, dwflags))
+    SetHandleInformation(hobject.into(), dwmask, dwflags)
 }
 #[doc = "*Required features: `\"Win32_Foundation\"`*"]
 #[inline]
@@ -12861,7 +12861,7 @@ where
     extern "system" {
         fn SysAllocString(psz: ::windows::core::PCWSTR) -> BSTR;
     }
-    ::core::mem::transmute(SysAllocString(psz.into()))
+    SysAllocString(psz.into())
 }
 #[doc = "*Required features: `\"Win32_Foundation\"`*"]
 #[inline]
@@ -12873,7 +12873,7 @@ where
     extern "system" {
         fn SysAllocStringByteLen(psz: ::windows::core::PCSTR, len: u32) -> BSTR;
     }
-    ::core::mem::transmute(SysAllocStringByteLen(psz.into(), len))
+    SysAllocStringByteLen(psz.into(), len)
 }
 #[doc = "*Required features: `\"Win32_Foundation\"`*"]
 #[inline]
@@ -12882,7 +12882,7 @@ pub unsafe fn SysAllocStringLen(strin: &[u16]) -> BSTR {
     extern "system" {
         fn SysAllocStringLen(strin: ::windows::core::PCWSTR, ui: u32) -> BSTR;
     }
-    ::core::mem::transmute(SysAllocStringLen(::core::mem::transmute(::windows::core::as_ptr_or_null(strin)), strin.len() as _))
+    SysAllocStringLen(::core::mem::transmute(::windows::core::as_ptr_or_null(strin)), strin.len() as _)
 }
 #[doc = "*Required features: `\"Win32_Foundation\"`*"]
 #[inline]
@@ -12906,7 +12906,7 @@ where
     extern "system" {
         fn SysReAllocString(pbstr: *mut BSTR, psz: ::windows::core::PCWSTR) -> i32;
     }
-    ::core::mem::transmute(SysReAllocString(::core::mem::transmute(pbstr), psz.into()))
+    SysReAllocString(::core::mem::transmute(pbstr), psz.into())
 }
 #[doc = "*Required features: `\"Win32_Foundation\"`*"]
 #[inline]
@@ -12918,7 +12918,7 @@ where
     extern "system" {
         fn SysReAllocStringLen(pbstr: *mut BSTR, psz: ::windows::core::PCWSTR, len: u32) -> i32;
     }
-    ::core::mem::transmute(SysReAllocStringLen(::core::mem::transmute(pbstr), psz.into(), len))
+    SysReAllocStringLen(::core::mem::transmute(pbstr), psz.into(), len)
 }
 #[doc = "*Required features: `\"Win32_Foundation\"`*"]
 #[inline]
@@ -12942,7 +12942,7 @@ where
     extern "system" {
         fn SysStringByteLen(bstr: ::core::mem::ManuallyDrop<BSTR>) -> u32;
     }
-    ::core::mem::transmute(SysStringByteLen(bstr.into().abi()))
+    SysStringByteLen(bstr.into().abi())
 }
 #[doc = "*Required features: `\"Win32_Foundation\"`*"]
 #[inline]
@@ -12954,7 +12954,7 @@ where
     extern "system" {
         fn SysStringLen(pbstr: ::core::mem::ManuallyDrop<BSTR>) -> u32;
     }
-    ::core::mem::transmute(SysStringLen(pbstr.into().abi()))
+    SysStringLen(pbstr.into().abi())
 }
 #[doc = "*Required features: `\"Win32_Foundation\"`*"]
 pub const TBSIMP_E_BUFFER_TOO_SMALL: ::windows::core::HRESULT = ::windows::core::HRESULT(-2144796160i32);

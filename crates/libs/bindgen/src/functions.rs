@@ -176,7 +176,7 @@ fn gen_win_function(gen: &Gen, def: MethodDef) -> TokenStream {
                         extern "system" {
                             fn #name(#(#abi_params),*) #abi_return_type;
                         }
-                        ::core::mem::transmute(#name(#args))
+                        #name(#args)
                     }
                 }
             }

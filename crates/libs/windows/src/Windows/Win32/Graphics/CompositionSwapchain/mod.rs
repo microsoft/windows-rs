@@ -89,16 +89,16 @@ where
 pub struct ICompositionFramePresentStatistics(::windows::core::IUnknown);
 impl ICompositionFramePresentStatistics {
     pub unsafe fn GetPresentId(&self) -> u64 {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).base__.GetPresentId)(::windows::core::Interface::as_raw(self)))
+        (::windows::core::Interface::vtable(self).base__.GetPresentId)(::windows::core::Interface::as_raw(self))
     }
     pub unsafe fn GetKind(&self) -> PresentStatisticsKind {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).base__.GetKind)(::windows::core::Interface::as_raw(self)))
+        (::windows::core::Interface::vtable(self).base__.GetKind)(::windows::core::Interface::as_raw(self))
     }
     pub unsafe fn GetContentTag(&self) -> usize {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).GetContentTag)(::windows::core::Interface::as_raw(self)))
+        (::windows::core::Interface::vtable(self).GetContentTag)(::windows::core::Interface::as_raw(self))
     }
     pub unsafe fn GetCompositionFrameId(&self) -> u64 {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).GetCompositionFrameId)(::windows::core::Interface::as_raw(self)))
+        (::windows::core::Interface::vtable(self).GetCompositionFrameId)(::windows::core::Interface::as_raw(self))
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Dxgi_Common\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
@@ -172,10 +172,10 @@ pub struct ICompositionFramePresentStatistics_Vtbl {
 pub struct IIndependentFlipFramePresentStatistics(::windows::core::IUnknown);
 impl IIndependentFlipFramePresentStatistics {
     pub unsafe fn GetPresentId(&self) -> u64 {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).base__.GetPresentId)(::windows::core::Interface::as_raw(self)))
+        (::windows::core::Interface::vtable(self).base__.GetPresentId)(::windows::core::Interface::as_raw(self))
     }
     pub unsafe fn GetKind(&self) -> PresentStatisticsKind {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).base__.GetKind)(::windows::core::Interface::as_raw(self)))
+        (::windows::core::Interface::vtable(self).base__.GetKind)(::windows::core::Interface::as_raw(self))
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -185,10 +185,10 @@ impl IIndependentFlipFramePresentStatistics {
         result__
     }
     pub unsafe fn GetOutputVidPnSourceId(&self) -> u32 {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).GetOutputVidPnSourceId)(::windows::core::Interface::as_raw(self)))
+        (::windows::core::Interface::vtable(self).GetOutputVidPnSourceId)(::windows::core::Interface::as_raw(self))
     }
     pub unsafe fn GetContentTag(&self) -> usize {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).GetContentTag)(::windows::core::Interface::as_raw(self)))
+        (::windows::core::Interface::vtable(self).GetContentTag)(::windows::core::Interface::as_raw(self))
     }
     pub unsafe fn GetDisplayedTime(&self) -> SystemInterruptTime {
         let mut result__: SystemInterruptTime = ::core::mem::zeroed();
@@ -269,10 +269,10 @@ pub struct IIndependentFlipFramePresentStatistics_Vtbl {
 pub struct IPresentStatistics(::windows::core::IUnknown);
 impl IPresentStatistics {
     pub unsafe fn GetPresentId(&self) -> u64 {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).GetPresentId)(::windows::core::Interface::as_raw(self)))
+        (::windows::core::Interface::vtable(self).GetPresentId)(::windows::core::Interface::as_raw(self))
     }
     pub unsafe fn GetKind(&self) -> PresentStatisticsKind {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).GetKind)(::windows::core::Interface::as_raw(self)))
+        (::windows::core::Interface::vtable(self).GetKind)(::windows::core::Interface::as_raw(self))
     }
 }
 impl ::core::convert::From<IPresentStatistics> for ::windows::core::IUnknown {
@@ -322,16 +322,16 @@ pub struct IPresentStatistics_Vtbl {
 pub struct IPresentStatusPresentStatistics(::windows::core::IUnknown);
 impl IPresentStatusPresentStatistics {
     pub unsafe fn GetPresentId(&self) -> u64 {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).base__.GetPresentId)(::windows::core::Interface::as_raw(self)))
+        (::windows::core::Interface::vtable(self).base__.GetPresentId)(::windows::core::Interface::as_raw(self))
     }
     pub unsafe fn GetKind(&self) -> PresentStatisticsKind {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).base__.GetKind)(::windows::core::Interface::as_raw(self)))
+        (::windows::core::Interface::vtable(self).base__.GetKind)(::windows::core::Interface::as_raw(self))
     }
     pub unsafe fn GetCompositionFrameId(&self) -> u64 {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).GetCompositionFrameId)(::windows::core::Interface::as_raw(self)))
+        (::windows::core::Interface::vtable(self).GetCompositionFrameId)(::windows::core::Interface::as_raw(self))
     }
     pub unsafe fn GetPresentStatus(&self) -> PresentStatus {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).GetPresentStatus)(::windows::core::Interface::as_raw(self)))
+        (::windows::core::Interface::vtable(self).GetPresentStatus)(::windows::core::Interface::as_raw(self))
     }
 }
 impl ::core::convert::From<IPresentStatusPresentStatistics> for ::windows::core::IUnknown {
@@ -505,10 +505,10 @@ pub struct IPresentationContent_Vtbl {
 pub struct IPresentationFactory(::windows::core::IUnknown);
 impl IPresentationFactory {
     pub unsafe fn IsPresentationSupported(&self) -> u8 {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).IsPresentationSupported)(::windows::core::Interface::as_raw(self)))
+        (::windows::core::Interface::vtable(self).IsPresentationSupported)(::windows::core::Interface::as_raw(self))
     }
     pub unsafe fn IsPresentationSupportedWithIndependentFlip(&self) -> u8 {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).IsPresentationSupportedWithIndependentFlip)(::windows::core::Interface::as_raw(self)))
+        (::windows::core::Interface::vtable(self).IsPresentationSupportedWithIndependentFlip)(::windows::core::Interface::as_raw(self))
     }
     pub unsafe fn CreatePresentationManager(&self) -> ::windows::core::Result<IPresentationManager> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -579,7 +579,7 @@ impl IPresentationManager {
         (::windows::core::Interface::vtable(self).CreatePresentationSurface)(::windows::core::Interface::as_raw(self), compositionsurfacehandle.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IPresentationSurface>(result__)
     }
     pub unsafe fn GetNextPresentId(&self) -> u64 {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).GetNextPresentId)(::windows::core::Interface::as_raw(self)))
+        (::windows::core::Interface::vtable(self).GetNextPresentId)(::windows::core::Interface::as_raw(self))
     }
     pub unsafe fn SetTargetTime(&self, targettime: SystemInterruptTime) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetTargetTime)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(targettime)).ok()

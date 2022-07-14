@@ -1098,7 +1098,7 @@ pub unsafe fn GetRoleTextA(lrole: u32, lpszrole: &mut [u8]) -> u32 {
     extern "system" {
         fn GetRoleTextA(lrole: u32, lpszrole: ::windows::core::PSTR, cchrolemax: u32) -> u32;
     }
-    ::core::mem::transmute(GetRoleTextA(lrole, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(lpszrole)), lpszrole.len() as _))
+    GetRoleTextA(lrole, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(lpszrole)), lpszrole.len() as _)
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[inline]
@@ -1107,7 +1107,7 @@ pub unsafe fn GetRoleTextW(lrole: u32, lpszrole: &mut [u16]) -> u32 {
     extern "system" {
         fn GetRoleTextW(lrole: u32, lpszrole: ::windows::core::PWSTR, cchrolemax: u32) -> u32;
     }
-    ::core::mem::transmute(GetRoleTextW(lrole, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(lpszrole)), lpszrole.len() as _))
+    GetRoleTextW(lrole, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(lpszrole)), lpszrole.len() as _)
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[inline]
@@ -1116,7 +1116,7 @@ pub unsafe fn GetStateTextA(lstatebit: u32, lpszstate: &mut [u8]) -> u32 {
     extern "system" {
         fn GetStateTextA(lstatebit: u32, lpszstate: ::windows::core::PSTR, cchstate: u32) -> u32;
     }
-    ::core::mem::transmute(GetStateTextA(lstatebit, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(lpszstate)), lpszstate.len() as _))
+    GetStateTextA(lstatebit, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(lpszstate)), lpszstate.len() as _)
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[inline]
@@ -1125,7 +1125,7 @@ pub unsafe fn GetStateTextW(lstatebit: u32, lpszstate: &mut [u16]) -> u32 {
     extern "system" {
         fn GetStateTextW(lstatebit: u32, lpszstate: ::windows::core::PWSTR, cchstate: u32) -> u32;
     }
-    ::core::mem::transmute(GetStateTextW(lstatebit, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(lpszstate)), lpszstate.len() as _))
+    GetStateTextW(lstatebit, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(lpszstate)), lpszstate.len() as _)
 }
 pub const GridItem_ColumnSpan_Property_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x583ea3f5_86d0_4b08_a6ec_2c5463ffc109);
 pub const GridItem_Column_Property_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc774c15c_62c0_4519_8bdc_47be573c8ad5);
@@ -21426,7 +21426,7 @@ pub unsafe fn IsWinEventHookInstalled(event: u32) -> super::super::Foundation::B
     extern "system" {
         fn IsWinEventHookInstalled(event: u32) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(IsWinEventHookInstalled(event))
+    IsWinEventHookInstalled(event)
 }
 pub const IsWindowPatternAvailable_Property_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe7a57bb1_5888_4155_98dc_b422fd57f2bc);
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
@@ -21579,7 +21579,7 @@ where
     extern "system" {
         fn LresultFromObject(riid: *const ::windows::core::GUID, wparam: super::super::Foundation::WPARAM, punk: *mut ::core::ffi::c_void) -> super::super::Foundation::LRESULT;
     }
-    ::core::mem::transmute(LresultFromObject(::core::mem::transmute(riid), wparam.into(), punk.into().abi()))
+    LresultFromObject(::core::mem::transmute(riid), wparam.into(), punk.into().abi())
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
@@ -22219,7 +22219,7 @@ where
     extern "system" {
         fn RegisterPointerInputTarget(hwnd: super::super::Foundation::HWND, pointertype: super::WindowsAndMessaging::POINTER_INPUT_TYPE) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(RegisterPointerInputTarget(hwnd.into(), pointertype))
+    RegisterPointerInputTarget(hwnd.into(), pointertype)
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_Foundation\"`, `\"Win32_UI_WindowsAndMessaging\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
@@ -22233,7 +22233,7 @@ where
     extern "system" {
         fn RegisterPointerInputTargetEx(hwnd: super::super::Foundation::HWND, pointertype: super::WindowsAndMessaging::POINTER_INPUT_TYPE, fobserve: super::super::Foundation::BOOL) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(RegisterPointerInputTargetEx(hwnd.into(), pointertype, fobserve.into()))
+    RegisterPointerInputTargetEx(hwnd.into(), pointertype, fobserve.into())
 }
 pub const Rotation_Property_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x767cdc7d_aec0_4110_ad32_30edd403492e);
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
@@ -23023,7 +23023,7 @@ where
     extern "system" {
         fn SetWinEventHook(eventmin: u32, eventmax: u32, hmodwineventproc: super::super::Foundation::HINSTANCE, pfnwineventproc: *mut ::core::ffi::c_void, idprocess: u32, idthread: u32, dwflags: u32) -> HWINEVENTHOOK;
     }
-    ::core::mem::transmute(SetWinEventHook(eventmin, eventmax, hmodwineventproc.into(), ::core::mem::transmute(pfnwineventproc), idprocess, idthread, dwflags))
+    SetWinEventHook(eventmin, eventmax, hmodwineventproc.into(), ::core::mem::transmute(pfnwineventproc), idprocess, idthread, dwflags)
 }
 pub const SizeOfSet_Property_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1600d33c_3b9f_4369_9431_aa293f344cf1);
 pub const Size_Property_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2b5f761d_f885_4404_973f_9b1d98e36d8f);
@@ -25138,7 +25138,7 @@ pub unsafe fn UiaClientsAreListening() -> super::super::Foundation::BOOL {
     extern "system" {
         fn UiaClientsAreListening() -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(UiaClientsAreListening())
+    UiaClientsAreListening()
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
@@ -25315,7 +25315,7 @@ pub unsafe fn UiaGetErrorDescription(pdescription: *mut super::super::Foundation
     extern "system" {
         fn UiaGetErrorDescription(pdescription: *mut super::super::Foundation::BSTR) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(UiaGetErrorDescription(::core::mem::transmute(pdescription)))
+    UiaGetErrorDescription(::core::mem::transmute(pdescription))
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[inline]
@@ -25438,7 +25438,7 @@ where
     extern "system" {
         fn UiaHasServerSideProvider(hwnd: super::super::Foundation::HWND) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(UiaHasServerSideProvider(hwnd.into()))
+    UiaHasServerSideProvider(hwnd.into())
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -25474,7 +25474,7 @@ pub unsafe fn UiaLookupId(r#type: AutomationIdentifierType, pguid: *const ::wind
     extern "system" {
         fn UiaLookupId(r#type: AutomationIdentifierType, pguid: *const ::windows::core::GUID) -> i32;
     }
-    ::core::mem::transmute(UiaLookupId(r#type, ::core::mem::transmute(pguid)))
+    UiaLookupId(r#type, ::core::mem::transmute(pguid))
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
@@ -25545,7 +25545,7 @@ where
     extern "system" {
         fn UiaNodeRelease(hnode: HUIANODE) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(UiaNodeRelease(hnode.into()))
+    UiaNodeRelease(hnode.into())
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
@@ -25589,7 +25589,7 @@ where
     extern "system" {
         fn UiaPatternRelease(hobj: HUIAPATTERNOBJECT) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(UiaPatternRelease(hobj.into()))
+    UiaPatternRelease(hobj.into())
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
@@ -25894,7 +25894,7 @@ where
     extern "system" {
         fn UiaReturnRawElementProvider(hwnd: super::super::Foundation::HWND, wparam: super::super::Foundation::WPARAM, lparam: super::super::Foundation::LPARAM, el: *mut ::core::ffi::c_void) -> super::super::Foundation::LRESULT;
     }
-    ::core::mem::transmute(UiaReturnRawElementProvider(hwnd.into(), wparam.into(), lparam.into(), el.into().abi()))
+    UiaReturnRawElementProvider(hwnd.into(), wparam.into(), lparam.into(), el.into().abi())
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const UiaRootObjectId: i32 = -25i32;
@@ -25996,7 +25996,7 @@ where
     extern "system" {
         fn UiaTextRangeRelease(hobj: HUIATEXTRANGE) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(UiaTextRangeRelease(hobj.into()))
+    UiaTextRangeRelease(hobj.into())
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
@@ -26042,7 +26042,7 @@ where
     extern "system" {
         fn UnhookWinEvent(hwineventhook: HWINEVENTHOOK) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(UnhookWinEvent(hwineventhook.into()))
+    UnhookWinEvent(hwineventhook.into())
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_Foundation\"`, `\"Win32_UI_WindowsAndMessaging\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
@@ -26055,7 +26055,7 @@ where
     extern "system" {
         fn UnregisterPointerInputTarget(hwnd: super::super::Foundation::HWND, pointertype: super::WindowsAndMessaging::POINTER_INPUT_TYPE) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(UnregisterPointerInputTarget(hwnd.into(), pointertype))
+    UnregisterPointerInputTarget(hwnd.into(), pointertype)
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_Foundation\"`, `\"Win32_UI_WindowsAndMessaging\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
@@ -26068,7 +26068,7 @@ where
     extern "system" {
         fn UnregisterPointerInputTargetEx(hwnd: super::super::Foundation::HWND, pointertype: super::WindowsAndMessaging::POINTER_INPUT_TYPE) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(UnregisterPointerInputTargetEx(hwnd.into(), pointertype))
+    UnregisterPointerInputTargetEx(hwnd.into(), pointertype)
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[inline]

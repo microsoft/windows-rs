@@ -1344,7 +1344,7 @@ where
     extern "system" {
         fn PrjAllocateAlignedBuffer(namespacevirtualizationcontext: PRJ_NAMESPACE_VIRTUALIZATION_CONTEXT, size: usize) -> *mut ::core::ffi::c_void;
     }
-    ::core::mem::transmute(PrjAllocateAlignedBuffer(namespacevirtualizationcontext.into(), size))
+    PrjAllocateAlignedBuffer(namespacevirtualizationcontext.into(), size)
 }
 #[doc = "*Required features: `\"Win32_Storage_ProjectedFileSystem\"`*"]
 #[inline]
@@ -1396,7 +1396,7 @@ where
     extern "system" {
         fn PrjDoesNameContainWildCards(filename: ::windows::core::PCWSTR) -> super::super::Foundation::BOOLEAN;
     }
-    ::core::mem::transmute(PrjDoesNameContainWildCards(filename.into()))
+    PrjDoesNameContainWildCards(filename.into())
 }
 #[doc = "*Required features: `\"Win32_Storage_ProjectedFileSystem\"`*"]
 #[inline]
@@ -1409,7 +1409,7 @@ where
     extern "system" {
         fn PrjFileNameCompare(filename1: ::windows::core::PCWSTR, filename2: ::windows::core::PCWSTR) -> i32;
     }
-    ::core::mem::transmute(PrjFileNameCompare(filename1.into(), filename2.into()))
+    PrjFileNameCompare(filename1.into(), filename2.into())
 }
 #[doc = "*Required features: `\"Win32_Storage_ProjectedFileSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -1423,7 +1423,7 @@ where
     extern "system" {
         fn PrjFileNameMatch(filenametocheck: ::windows::core::PCWSTR, pattern: ::windows::core::PCWSTR) -> super::super::Foundation::BOOLEAN;
     }
-    ::core::mem::transmute(PrjFileNameMatch(filenametocheck.into(), pattern.into()))
+    PrjFileNameMatch(filenametocheck.into(), pattern.into())
 }
 #[doc = "*Required features: `\"Win32_Storage_ProjectedFileSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]

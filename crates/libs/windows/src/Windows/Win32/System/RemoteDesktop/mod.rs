@@ -1309,7 +1309,7 @@ pub struct IAudioInputEndpointRT_Vtbl {
 pub struct IAudioOutputEndpointRT(::windows::core::IUnknown);
 impl IAudioOutputEndpointRT {
     pub unsafe fn GetOutputDataPointer(&self, u32framecount: u32, paetimestamp: *const AE_CURRENT_POSITION) -> usize {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).GetOutputDataPointer)(::windows::core::Interface::as_raw(self), u32framecount, ::core::mem::transmute(paetimestamp)))
+        (::windows::core::Interface::vtable(self).GetOutputDataPointer)(::windows::core::Interface::as_raw(self), u32framecount, ::core::mem::transmute(paetimestamp))
     }
     #[doc = "*Required features: `\"Win32_Media_Audio_Apo\"`*"]
     #[cfg(feature = "Win32_Media_Audio_Apo")]
@@ -10045,7 +10045,7 @@ pub unsafe fn ProcessIdToSessionId(dwprocessid: u32, psessionid: *mut u32) -> su
     extern "system" {
         fn ProcessIdToSessionId(dwprocessid: u32, psessionid: *mut u32) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(ProcessIdToSessionId(dwprocessid, ::core::mem::transmute(psessionid)))
+    ProcessIdToSessionId(dwprocessid, ::core::mem::transmute(psessionid))
 }
 pub const RDCLIENT_BITMAP_RENDER_SERVICE: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe4cc08cb_942e_4b19_8504_bd5a89a747f5);
 #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
@@ -12133,7 +12133,7 @@ where
     extern "system" {
         fn WTSConnectSessionA(logonid: u32, targetlogonid: u32, ppassword: ::windows::core::PCSTR, bwait: super::super::Foundation::BOOL) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(WTSConnectSessionA(logonid, targetlogonid, ppassword.into(), bwait.into()))
+    WTSConnectSessionA(logonid, targetlogonid, ppassword.into(), bwait.into())
 }
 #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -12147,7 +12147,7 @@ where
     extern "system" {
         fn WTSConnectSessionW(logonid: u32, targetlogonid: u32, ppassword: ::windows::core::PCWSTR, bwait: super::super::Foundation::BOOL) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(WTSConnectSessionW(logonid, targetlogonid, ppassword.into(), bwait.into()))
+    WTSConnectSessionW(logonid, targetlogonid, ppassword.into(), bwait.into())
 }
 #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -12161,7 +12161,7 @@ where
     extern "system" {
         fn WTSCreateListenerA(hserver: super::super::Foundation::HANDLE, preserved: *const ::core::ffi::c_void, reserved: u32, plistenername: ::windows::core::PCSTR, pbuffer: *const WTSLISTENERCONFIGA, flag: u32) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(WTSCreateListenerA(hserver.into(), ::core::mem::transmute(preserved), reserved, plistenername.into(), ::core::mem::transmute(pbuffer), flag))
+    WTSCreateListenerA(hserver.into(), ::core::mem::transmute(preserved), reserved, plistenername.into(), ::core::mem::transmute(pbuffer), flag)
 }
 #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -12175,7 +12175,7 @@ where
     extern "system" {
         fn WTSCreateListenerW(hserver: super::super::Foundation::HANDLE, preserved: *const ::core::ffi::c_void, reserved: u32, plistenername: ::windows::core::PCWSTR, pbuffer: *const WTSLISTENERCONFIGW, flag: u32) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(WTSCreateListenerW(hserver.into(), ::core::mem::transmute(preserved), reserved, plistenername.into(), ::core::mem::transmute(pbuffer), flag))
+    WTSCreateListenerW(hserver.into(), ::core::mem::transmute(preserved), reserved, plistenername.into(), ::core::mem::transmute(pbuffer), flag)
 }
 #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -12189,7 +12189,7 @@ where
     extern "system" {
         fn WTSDisconnectSession(hserver: super::super::Foundation::HANDLE, sessionid: u32, bwait: super::super::Foundation::BOOL) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(WTSDisconnectSession(hserver.into(), sessionid, bwait.into()))
+    WTSDisconnectSession(hserver.into(), sessionid, bwait.into())
 }
 #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -12202,7 +12202,7 @@ where
     extern "system" {
         fn WTSEnableChildSessions(benable: super::super::Foundation::BOOL) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(WTSEnableChildSessions(benable.into()))
+    WTSEnableChildSessions(benable.into())
 }
 #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -12215,7 +12215,7 @@ where
     extern "system" {
         fn WTSEnumerateListenersA(hserver: super::super::Foundation::HANDLE, preserved: *const ::core::ffi::c_void, reserved: u32, plisteners: *mut *mut i8, pcount: *mut u32) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(WTSEnumerateListenersA(hserver.into(), ::core::mem::transmute(preserved), reserved, ::core::mem::transmute(plisteners), ::core::mem::transmute(pcount)))
+    WTSEnumerateListenersA(hserver.into(), ::core::mem::transmute(preserved), reserved, ::core::mem::transmute(plisteners), ::core::mem::transmute(pcount))
 }
 #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -12228,7 +12228,7 @@ where
     extern "system" {
         fn WTSEnumerateListenersW(hserver: super::super::Foundation::HANDLE, preserved: *const ::core::ffi::c_void, reserved: u32, plisteners: *mut *mut u16, pcount: *mut u32) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(WTSEnumerateListenersW(hserver.into(), ::core::mem::transmute(preserved), reserved, ::core::mem::transmute(plisteners), ::core::mem::transmute(pcount)))
+    WTSEnumerateListenersW(hserver.into(), ::core::mem::transmute(preserved), reserved, ::core::mem::transmute(plisteners), ::core::mem::transmute(pcount))
 }
 #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -12241,7 +12241,7 @@ where
     extern "system" {
         fn WTSEnumerateProcessesA(hserver: super::super::Foundation::HANDLE, reserved: u32, version: u32, ppprocessinfo: *mut *mut WTS_PROCESS_INFOA, pcount: *mut u32) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(WTSEnumerateProcessesA(hserver.into(), reserved, version, ::core::mem::transmute(ppprocessinfo), ::core::mem::transmute(pcount)))
+    WTSEnumerateProcessesA(hserver.into(), reserved, version, ::core::mem::transmute(ppprocessinfo), ::core::mem::transmute(pcount))
 }
 #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -12254,7 +12254,7 @@ where
     extern "system" {
         fn WTSEnumerateProcessesExA(hserver: super::super::Foundation::HANDLE, plevel: *mut u32, sessionid: u32, ppprocessinfo: *mut ::windows::core::PSTR, pcount: *mut u32) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(WTSEnumerateProcessesExA(hserver.into(), ::core::mem::transmute(plevel), sessionid, ::core::mem::transmute(ppprocessinfo), ::core::mem::transmute(pcount)))
+    WTSEnumerateProcessesExA(hserver.into(), ::core::mem::transmute(plevel), sessionid, ::core::mem::transmute(ppprocessinfo), ::core::mem::transmute(pcount))
 }
 #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -12267,7 +12267,7 @@ where
     extern "system" {
         fn WTSEnumerateProcessesExW(hserver: super::super::Foundation::HANDLE, plevel: *mut u32, sessionid: u32, ppprocessinfo: *mut ::windows::core::PWSTR, pcount: *mut u32) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(WTSEnumerateProcessesExW(hserver.into(), ::core::mem::transmute(plevel), sessionid, ::core::mem::transmute(ppprocessinfo), ::core::mem::transmute(pcount)))
+    WTSEnumerateProcessesExW(hserver.into(), ::core::mem::transmute(plevel), sessionid, ::core::mem::transmute(ppprocessinfo), ::core::mem::transmute(pcount))
 }
 #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -12280,7 +12280,7 @@ where
     extern "system" {
         fn WTSEnumerateProcessesW(hserver: super::super::Foundation::HANDLE, reserved: u32, version: u32, ppprocessinfo: *mut *mut WTS_PROCESS_INFOW, pcount: *mut u32) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(WTSEnumerateProcessesW(hserver.into(), reserved, version, ::core::mem::transmute(ppprocessinfo), ::core::mem::transmute(pcount)))
+    WTSEnumerateProcessesW(hserver.into(), reserved, version, ::core::mem::transmute(ppprocessinfo), ::core::mem::transmute(pcount))
 }
 #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -12293,7 +12293,7 @@ where
     extern "system" {
         fn WTSEnumerateServersA(pdomainname: ::windows::core::PCSTR, reserved: u32, version: u32, ppserverinfo: *mut *mut WTS_SERVER_INFOA, pcount: *mut u32) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(WTSEnumerateServersA(pdomainname.into(), reserved, version, ::core::mem::transmute(ppserverinfo), ::core::mem::transmute(pcount)))
+    WTSEnumerateServersA(pdomainname.into(), reserved, version, ::core::mem::transmute(ppserverinfo), ::core::mem::transmute(pcount))
 }
 #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -12306,7 +12306,7 @@ where
     extern "system" {
         fn WTSEnumerateServersW(pdomainname: ::windows::core::PCWSTR, reserved: u32, version: u32, ppserverinfo: *mut *mut WTS_SERVER_INFOW, pcount: *mut u32) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(WTSEnumerateServersW(pdomainname.into(), reserved, version, ::core::mem::transmute(ppserverinfo), ::core::mem::transmute(pcount)))
+    WTSEnumerateServersW(pdomainname.into(), reserved, version, ::core::mem::transmute(ppserverinfo), ::core::mem::transmute(pcount))
 }
 #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -12319,7 +12319,7 @@ where
     extern "system" {
         fn WTSEnumerateSessionsA(hserver: super::super::Foundation::HANDLE, reserved: u32, version: u32, ppsessioninfo: *mut *mut WTS_SESSION_INFOA, pcount: *mut u32) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(WTSEnumerateSessionsA(hserver.into(), reserved, version, ::core::mem::transmute(ppsessioninfo), ::core::mem::transmute(pcount)))
+    WTSEnumerateSessionsA(hserver.into(), reserved, version, ::core::mem::transmute(ppsessioninfo), ::core::mem::transmute(pcount))
 }
 #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -12332,7 +12332,7 @@ where
     extern "system" {
         fn WTSEnumerateSessionsExA(hserver: super::super::Foundation::HANDLE, plevel: *mut u32, filter: u32, ppsessioninfo: *mut *mut WTS_SESSION_INFO_1A, pcount: *mut u32) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(WTSEnumerateSessionsExA(hserver.into(), ::core::mem::transmute(plevel), filter, ::core::mem::transmute(ppsessioninfo), ::core::mem::transmute(pcount)))
+    WTSEnumerateSessionsExA(hserver.into(), ::core::mem::transmute(plevel), filter, ::core::mem::transmute(ppsessioninfo), ::core::mem::transmute(pcount))
 }
 #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -12345,7 +12345,7 @@ where
     extern "system" {
         fn WTSEnumerateSessionsExW(hserver: super::super::Foundation::HANDLE, plevel: *mut u32, filter: u32, ppsessioninfo: *mut *mut WTS_SESSION_INFO_1W, pcount: *mut u32) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(WTSEnumerateSessionsExW(hserver.into(), ::core::mem::transmute(plevel), filter, ::core::mem::transmute(ppsessioninfo), ::core::mem::transmute(pcount)))
+    WTSEnumerateSessionsExW(hserver.into(), ::core::mem::transmute(plevel), filter, ::core::mem::transmute(ppsessioninfo), ::core::mem::transmute(pcount))
 }
 #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -12358,7 +12358,7 @@ where
     extern "system" {
         fn WTSEnumerateSessionsW(hserver: super::super::Foundation::HANDLE, reserved: u32, version: u32, ppsessioninfo: *mut *mut WTS_SESSION_INFOW, pcount: *mut u32) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(WTSEnumerateSessionsW(hserver.into(), reserved, version, ::core::mem::transmute(ppsessioninfo), ::core::mem::transmute(pcount)))
+    WTSEnumerateSessionsW(hserver.into(), reserved, version, ::core::mem::transmute(ppsessioninfo), ::core::mem::transmute(pcount))
 }
 #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
 #[inline]
@@ -12377,7 +12377,7 @@ pub unsafe fn WTSFreeMemoryExA(wtstypeclass: WTS_TYPE_CLASS, pmemory: *const ::c
     extern "system" {
         fn WTSFreeMemoryExA(wtstypeclass: WTS_TYPE_CLASS, pmemory: *const ::core::ffi::c_void, numberofentries: u32) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(WTSFreeMemoryExA(wtstypeclass, ::core::mem::transmute(pmemory), numberofentries))
+    WTSFreeMemoryExA(wtstypeclass, ::core::mem::transmute(pmemory), numberofentries)
 }
 #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -12387,7 +12387,7 @@ pub unsafe fn WTSFreeMemoryExW(wtstypeclass: WTS_TYPE_CLASS, pmemory: *const ::c
     extern "system" {
         fn WTSFreeMemoryExW(wtstypeclass: WTS_TYPE_CLASS, pmemory: *const ::core::ffi::c_void, numberofentries: u32) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(WTSFreeMemoryExW(wtstypeclass, ::core::mem::transmute(pmemory), numberofentries))
+    WTSFreeMemoryExW(wtstypeclass, ::core::mem::transmute(pmemory), numberofentries)
 }
 #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
 #[inline]
@@ -12396,7 +12396,7 @@ pub unsafe fn WTSGetActiveConsoleSessionId() -> u32 {
     extern "system" {
         fn WTSGetActiveConsoleSessionId() -> u32;
     }
-    ::core::mem::transmute(WTSGetActiveConsoleSessionId())
+    WTSGetActiveConsoleSessionId()
 }
 #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -12406,7 +12406,7 @@ pub unsafe fn WTSGetChildSessionId(psessionid: *mut u32) -> super::super::Founda
     extern "system" {
         fn WTSGetChildSessionId(psessionid: *mut u32) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(WTSGetChildSessionId(::core::mem::transmute(psessionid)))
+    WTSGetChildSessionId(::core::mem::transmute(psessionid))
 }
 #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
@@ -12420,7 +12420,7 @@ where
     extern "system" {
         fn WTSGetListenerSecurityA(hserver: super::super::Foundation::HANDLE, preserved: *const ::core::ffi::c_void, reserved: u32, plistenername: ::windows::core::PCSTR, securityinformation: u32, psecuritydescriptor: super::super::Security::PSECURITY_DESCRIPTOR, nlength: u32, lpnlengthneeded: *mut u32) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(WTSGetListenerSecurityA(hserver.into(), ::core::mem::transmute(preserved), reserved, plistenername.into(), securityinformation, ::core::mem::transmute(psecuritydescriptor), nlength, ::core::mem::transmute(lpnlengthneeded)))
+    WTSGetListenerSecurityA(hserver.into(), ::core::mem::transmute(preserved), reserved, plistenername.into(), securityinformation, ::core::mem::transmute(psecuritydescriptor), nlength, ::core::mem::transmute(lpnlengthneeded))
 }
 #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
@@ -12434,7 +12434,7 @@ where
     extern "system" {
         fn WTSGetListenerSecurityW(hserver: super::super::Foundation::HANDLE, preserved: *const ::core::ffi::c_void, reserved: u32, plistenername: ::windows::core::PCWSTR, securityinformation: u32, psecuritydescriptor: super::super::Security::PSECURITY_DESCRIPTOR, nlength: u32, lpnlengthneeded: *mut u32) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(WTSGetListenerSecurityW(hserver.into(), ::core::mem::transmute(preserved), reserved, plistenername.into(), securityinformation, ::core::mem::transmute(psecuritydescriptor), nlength, ::core::mem::transmute(lpnlengthneeded)))
+    WTSGetListenerSecurityW(hserver.into(), ::core::mem::transmute(preserved), reserved, plistenername.into(), securityinformation, ::core::mem::transmute(psecuritydescriptor), nlength, ::core::mem::transmute(lpnlengthneeded))
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`, `\"Win32_Foundation\"`*"]
@@ -12828,7 +12828,7 @@ pub unsafe fn WTSIsChildSessionsEnabled(pbenabled: *mut super::super::Foundation
     extern "system" {
         fn WTSIsChildSessionsEnabled(pbenabled: *mut super::super::Foundation::BOOL) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(WTSIsChildSessionsEnabled(::core::mem::transmute(pbenabled)))
+    WTSIsChildSessionsEnabled(::core::mem::transmute(pbenabled))
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`, `\"Win32_Foundation\"`*"]
@@ -13034,7 +13034,7 @@ where
     extern "system" {
         fn WTSLogoffSession(hserver: super::super::Foundation::HANDLE, sessionid: u32, bwait: super::super::Foundation::BOOL) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(WTSLogoffSession(hserver.into(), sessionid, bwait.into()))
+    WTSLogoffSession(hserver.into(), sessionid, bwait.into())
 }
 #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -13047,7 +13047,7 @@ where
     extern "system" {
         fn WTSOpenServerA(pservername: ::windows::core::PCSTR) -> super::super::Foundation::HANDLE;
     }
-    ::core::mem::transmute(WTSOpenServerA(pservername.into()))
+    WTSOpenServerA(pservername.into())
 }
 #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -13060,7 +13060,7 @@ where
     extern "system" {
         fn WTSOpenServerExA(pservername: ::windows::core::PCSTR) -> super::super::Foundation::HANDLE;
     }
-    ::core::mem::transmute(WTSOpenServerExA(pservername.into()))
+    WTSOpenServerExA(pservername.into())
 }
 #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -13073,7 +13073,7 @@ where
     extern "system" {
         fn WTSOpenServerExW(pservername: ::windows::core::PCWSTR) -> super::super::Foundation::HANDLE;
     }
-    ::core::mem::transmute(WTSOpenServerExW(pservername.into()))
+    WTSOpenServerExW(pservername.into())
 }
 #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -13086,7 +13086,7 @@ where
     extern "system" {
         fn WTSOpenServerW(pservername: ::windows::core::PCWSTR) -> super::super::Foundation::HANDLE;
     }
-    ::core::mem::transmute(WTSOpenServerW(pservername.into()))
+    WTSOpenServerW(pservername.into())
 }
 #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -13100,7 +13100,7 @@ where
     extern "system" {
         fn WTSQueryListenerConfigA(hserver: super::super::Foundation::HANDLE, preserved: *const ::core::ffi::c_void, reserved: u32, plistenername: ::windows::core::PCSTR, pbuffer: *mut WTSLISTENERCONFIGA) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(WTSQueryListenerConfigA(hserver.into(), ::core::mem::transmute(preserved), reserved, plistenername.into(), ::core::mem::transmute(pbuffer)))
+    WTSQueryListenerConfigA(hserver.into(), ::core::mem::transmute(preserved), reserved, plistenername.into(), ::core::mem::transmute(pbuffer))
 }
 #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -13114,7 +13114,7 @@ where
     extern "system" {
         fn WTSQueryListenerConfigW(hserver: super::super::Foundation::HANDLE, preserved: *const ::core::ffi::c_void, reserved: u32, plistenername: ::windows::core::PCWSTR, pbuffer: *mut WTSLISTENERCONFIGW) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(WTSQueryListenerConfigW(hserver.into(), ::core::mem::transmute(preserved), reserved, plistenername.into(), ::core::mem::transmute(pbuffer)))
+    WTSQueryListenerConfigW(hserver.into(), ::core::mem::transmute(preserved), reserved, plistenername.into(), ::core::mem::transmute(pbuffer))
 }
 #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -13127,7 +13127,7 @@ where
     extern "system" {
         fn WTSQuerySessionInformationA(hserver: super::super::Foundation::HANDLE, sessionid: u32, wtsinfoclass: WTS_INFO_CLASS, ppbuffer: *mut ::windows::core::PSTR, pbytesreturned: *mut u32) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(WTSQuerySessionInformationA(hserver.into(), sessionid, wtsinfoclass, ::core::mem::transmute(ppbuffer), ::core::mem::transmute(pbytesreturned)))
+    WTSQuerySessionInformationA(hserver.into(), sessionid, wtsinfoclass, ::core::mem::transmute(ppbuffer), ::core::mem::transmute(pbytesreturned))
 }
 #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -13140,7 +13140,7 @@ where
     extern "system" {
         fn WTSQuerySessionInformationW(hserver: super::super::Foundation::HANDLE, sessionid: u32, wtsinfoclass: WTS_INFO_CLASS, ppbuffer: *mut ::windows::core::PWSTR, pbytesreturned: *mut u32) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(WTSQuerySessionInformationW(hserver.into(), sessionid, wtsinfoclass, ::core::mem::transmute(ppbuffer), ::core::mem::transmute(pbytesreturned)))
+    WTSQuerySessionInformationW(hserver.into(), sessionid, wtsinfoclass, ::core::mem::transmute(ppbuffer), ::core::mem::transmute(pbytesreturned))
 }
 #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -13154,7 +13154,7 @@ where
     extern "system" {
         fn WTSQueryUserConfigA(pservername: ::windows::core::PCSTR, pusername: ::windows::core::PCSTR, wtsconfigclass: WTS_CONFIG_CLASS, ppbuffer: *mut ::windows::core::PSTR, pbytesreturned: *mut u32) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(WTSQueryUserConfigA(pservername.into(), pusername.into(), wtsconfigclass, ::core::mem::transmute(ppbuffer), ::core::mem::transmute(pbytesreturned)))
+    WTSQueryUserConfigA(pservername.into(), pusername.into(), wtsconfigclass, ::core::mem::transmute(ppbuffer), ::core::mem::transmute(pbytesreturned))
 }
 #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -13168,7 +13168,7 @@ where
     extern "system" {
         fn WTSQueryUserConfigW(pservername: ::windows::core::PCWSTR, pusername: ::windows::core::PCWSTR, wtsconfigclass: WTS_CONFIG_CLASS, ppbuffer: *mut ::windows::core::PWSTR, pbytesreturned: *mut u32) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(WTSQueryUserConfigW(pservername.into(), pusername.into(), wtsconfigclass, ::core::mem::transmute(ppbuffer), ::core::mem::transmute(pbytesreturned)))
+    WTSQueryUserConfigW(pservername.into(), pusername.into(), wtsconfigclass, ::core::mem::transmute(ppbuffer), ::core::mem::transmute(pbytesreturned))
 }
 #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -13178,7 +13178,7 @@ pub unsafe fn WTSQueryUserToken(sessionid: u32, phtoken: *mut super::super::Foun
     extern "system" {
         fn WTSQueryUserToken(sessionid: u32, phtoken: *mut super::super::Foundation::HANDLE) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(WTSQueryUserToken(sessionid, ::core::mem::transmute(phtoken)))
+    WTSQueryUserToken(sessionid, ::core::mem::transmute(phtoken))
 }
 #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -13191,7 +13191,7 @@ where
     extern "system" {
         fn WTSRegisterSessionNotification(hwnd: super::super::Foundation::HWND, dwflags: u32) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(WTSRegisterSessionNotification(hwnd.into(), dwflags))
+    WTSRegisterSessionNotification(hwnd.into(), dwflags)
 }
 #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -13205,7 +13205,7 @@ where
     extern "system" {
         fn WTSRegisterSessionNotificationEx(hserver: super::super::Foundation::HANDLE, hwnd: super::super::Foundation::HWND, dwflags: u32) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(WTSRegisterSessionNotificationEx(hserver.into(), hwnd.into(), dwflags))
+    WTSRegisterSessionNotificationEx(hserver.into(), hwnd.into(), dwflags)
 }
 #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
 #[repr(transparent)]
@@ -13579,7 +13579,7 @@ where
     extern "system" {
         fn WTSSendMessageA(hserver: super::super::Foundation::HANDLE, sessionid: u32, ptitle: ::windows::core::PCSTR, titlelength: u32, pmessage: ::windows::core::PCSTR, messagelength: u32, style: super::super::UI::WindowsAndMessaging::MESSAGEBOX_STYLE, timeout: u32, presponse: *mut super::super::UI::WindowsAndMessaging::MESSAGEBOX_RESULT, bwait: super::super::Foundation::BOOL) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(WTSSendMessageA(hserver.into(), sessionid, ptitle.into(), titlelength, pmessage.into(), messagelength, style, timeout, ::core::mem::transmute(presponse), bwait.into()))
+    WTSSendMessageA(hserver.into(), sessionid, ptitle.into(), titlelength, pmessage.into(), messagelength, style, timeout, ::core::mem::transmute(presponse), bwait.into())
 }
 #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`, `\"Win32_Foundation\"`, `\"Win32_UI_WindowsAndMessaging\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
@@ -13595,7 +13595,7 @@ where
     extern "system" {
         fn WTSSendMessageW(hserver: super::super::Foundation::HANDLE, sessionid: u32, ptitle: ::windows::core::PCWSTR, titlelength: u32, pmessage: ::windows::core::PCWSTR, messagelength: u32, style: super::super::UI::WindowsAndMessaging::MESSAGEBOX_STYLE, timeout: u32, presponse: *mut super::super::UI::WindowsAndMessaging::MESSAGEBOX_RESULT, bwait: super::super::Foundation::BOOL) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(WTSSendMessageW(hserver.into(), sessionid, ptitle.into(), titlelength, pmessage.into(), messagelength, style, timeout, ::core::mem::transmute(presponse), bwait.into()))
+    WTSSendMessageW(hserver.into(), sessionid, ptitle.into(), titlelength, pmessage.into(), messagelength, style, timeout, ::core::mem::transmute(presponse), bwait.into())
 }
 #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
@@ -13610,7 +13610,7 @@ where
     extern "system" {
         fn WTSSetListenerSecurityA(hserver: super::super::Foundation::HANDLE, preserved: *const ::core::ffi::c_void, reserved: u32, plistenername: ::windows::core::PCSTR, securityinformation: u32, psecuritydescriptor: super::super::Security::PSECURITY_DESCRIPTOR) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(WTSSetListenerSecurityA(hserver.into(), ::core::mem::transmute(preserved), reserved, plistenername.into(), securityinformation, psecuritydescriptor.into()))
+    WTSSetListenerSecurityA(hserver.into(), ::core::mem::transmute(preserved), reserved, plistenername.into(), securityinformation, psecuritydescriptor.into())
 }
 #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
@@ -13625,7 +13625,7 @@ where
     extern "system" {
         fn WTSSetListenerSecurityW(hserver: super::super::Foundation::HANDLE, preserved: *const ::core::ffi::c_void, reserved: u32, plistenername: ::windows::core::PCWSTR, securityinformation: u32, psecuritydescriptor: super::super::Security::PSECURITY_DESCRIPTOR) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(WTSSetListenerSecurityW(hserver.into(), ::core::mem::transmute(preserved), reserved, plistenername.into(), securityinformation, psecuritydescriptor.into()))
+    WTSSetListenerSecurityW(hserver.into(), ::core::mem::transmute(preserved), reserved, plistenername.into(), securityinformation, psecuritydescriptor.into())
 }
 #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -13653,7 +13653,7 @@ where
     extern "system" {
         fn WTSSetUserConfigA(pservername: ::windows::core::PCSTR, pusername: ::windows::core::PCSTR, wtsconfigclass: WTS_CONFIG_CLASS, pbuffer: ::windows::core::PCSTR, datalength: u32) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(WTSSetUserConfigA(pservername.into(), pusername.into(), wtsconfigclass, pbuffer.into(), datalength))
+    WTSSetUserConfigA(pservername.into(), pusername.into(), wtsconfigclass, pbuffer.into(), datalength)
 }
 #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -13668,7 +13668,7 @@ where
     extern "system" {
         fn WTSSetUserConfigW(pservername: ::windows::core::PCWSTR, pusername: ::windows::core::PCWSTR, wtsconfigclass: WTS_CONFIG_CLASS, pbuffer: ::windows::core::PCWSTR, datalength: u32) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(WTSSetUserConfigW(pservername.into(), pusername.into(), wtsconfigclass, pbuffer.into(), datalength))
+    WTSSetUserConfigW(pservername.into(), pusername.into(), wtsconfigclass, pbuffer.into(), datalength)
 }
 #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -13681,7 +13681,7 @@ where
     extern "system" {
         fn WTSShutdownSystem(hserver: super::super::Foundation::HANDLE, shutdownflag: u32) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(WTSShutdownSystem(hserver.into(), shutdownflag))
+    WTSShutdownSystem(hserver.into(), shutdownflag)
 }
 #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -13694,7 +13694,7 @@ where
     extern "system" {
         fn WTSStartRemoteControlSessionA(ptargetservername: ::windows::core::PCSTR, targetlogonid: u32, hotkeyvk: u8, hotkeymodifiers: u16) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(WTSStartRemoteControlSessionA(ptargetservername.into(), targetlogonid, hotkeyvk, hotkeymodifiers))
+    WTSStartRemoteControlSessionA(ptargetservername.into(), targetlogonid, hotkeyvk, hotkeymodifiers)
 }
 #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -13707,7 +13707,7 @@ where
     extern "system" {
         fn WTSStartRemoteControlSessionW(ptargetservername: ::windows::core::PCWSTR, targetlogonid: u32, hotkeyvk: u8, hotkeymodifiers: u16) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(WTSStartRemoteControlSessionW(ptargetservername.into(), targetlogonid, hotkeyvk, hotkeymodifiers))
+    WTSStartRemoteControlSessionW(ptargetservername.into(), targetlogonid, hotkeyvk, hotkeymodifiers)
 }
 #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -13717,7 +13717,7 @@ pub unsafe fn WTSStopRemoteControlSession(logonid: u32) -> super::super::Foundat
     extern "system" {
         fn WTSStopRemoteControlSession(logonid: u32) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(WTSStopRemoteControlSession(logonid))
+    WTSStopRemoteControlSession(logonid)
 }
 #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -13730,7 +13730,7 @@ where
     extern "system" {
         fn WTSTerminateProcess(hserver: super::super::Foundation::HANDLE, processid: u32, exitcode: u32) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(WTSTerminateProcess(hserver.into(), processid, exitcode))
+    WTSTerminateProcess(hserver.into(), processid, exitcode)
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`, `\"Win32_Foundation\"`*"]
@@ -13883,7 +13883,7 @@ where
     extern "system" {
         fn WTSUnRegisterSessionNotification(hwnd: super::super::Foundation::HWND) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(WTSUnRegisterSessionNotification(hwnd.into()))
+    WTSUnRegisterSessionNotification(hwnd.into())
 }
 #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -13897,7 +13897,7 @@ where
     extern "system" {
         fn WTSUnRegisterSessionNotificationEx(hserver: super::super::Foundation::HANDLE, hwnd: super::super::Foundation::HWND) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(WTSUnRegisterSessionNotificationEx(hserver.into(), hwnd.into()))
+    WTSUnRegisterSessionNotificationEx(hserver.into(), hwnd.into())
 }
 #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -13910,7 +13910,7 @@ where
     extern "system" {
         fn WTSVirtualChannelClose(hchannelhandle: super::super::Foundation::HANDLE) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(WTSVirtualChannelClose(hchannelhandle.into()))
+    WTSVirtualChannelClose(hchannelhandle.into())
 }
 #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -13951,7 +13951,7 @@ where
     extern "system" {
         fn WTSVirtualChannelPurgeInput(hchannelhandle: super::super::Foundation::HANDLE) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(WTSVirtualChannelPurgeInput(hchannelhandle.into()))
+    WTSVirtualChannelPurgeInput(hchannelhandle.into())
 }
 #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -13964,7 +13964,7 @@ where
     extern "system" {
         fn WTSVirtualChannelPurgeOutput(hchannelhandle: super::super::Foundation::HANDLE) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(WTSVirtualChannelPurgeOutput(hchannelhandle.into()))
+    WTSVirtualChannelPurgeOutput(hchannelhandle.into())
 }
 #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -13977,7 +13977,7 @@ where
     extern "system" {
         fn WTSVirtualChannelQuery(hchannelhandle: super::super::Foundation::HANDLE, param1: WTS_VIRTUAL_CLASS, ppbuffer: *mut *mut ::core::ffi::c_void, pbytesreturned: *mut u32) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(WTSVirtualChannelQuery(hchannelhandle.into(), param1, ::core::mem::transmute(ppbuffer), ::core::mem::transmute(pbytesreturned)))
+    WTSVirtualChannelQuery(hchannelhandle.into(), param1, ::core::mem::transmute(ppbuffer), ::core::mem::transmute(pbytesreturned))
 }
 #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -13990,7 +13990,7 @@ where
     extern "system" {
         fn WTSVirtualChannelRead(hchannelhandle: super::super::Foundation::HANDLE, timeout: u32, buffer: ::windows::core::PSTR, buffersize: u32, pbytesread: *mut u32) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(WTSVirtualChannelRead(hchannelhandle.into(), timeout, ::core::mem::transmute(buffer), buffersize, ::core::mem::transmute(pbytesread)))
+    WTSVirtualChannelRead(hchannelhandle.into(), timeout, ::core::mem::transmute(buffer), buffersize, ::core::mem::transmute(pbytesread))
 }
 #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -14004,7 +14004,7 @@ where
     extern "system" {
         fn WTSVirtualChannelWrite(hchannelhandle: super::super::Foundation::HANDLE, buffer: ::windows::core::PCSTR, length: u32, pbyteswritten: *mut u32) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(WTSVirtualChannelWrite(hchannelhandle.into(), buffer.into(), length, ::core::mem::transmute(pbyteswritten)))
+    WTSVirtualChannelWrite(hchannelhandle.into(), buffer.into(), length, ::core::mem::transmute(pbyteswritten))
 }
 #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -14017,7 +14017,7 @@ where
     extern "system" {
         fn WTSWaitSystemEvent(hserver: super::super::Foundation::HANDLE, eventmask: u32, peventflags: *mut u32) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(WTSWaitSystemEvent(hserver.into(), eventmask, ::core::mem::transmute(peventflags)))
+    WTSWaitSystemEvent(hserver.into(), eventmask, ::core::mem::transmute(peventflags))
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]

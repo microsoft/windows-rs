@@ -786,7 +786,7 @@ pub unsafe fn GetExtensionVersion(pver: *mut HSE_VERSION_INFO) -> super::super::
     extern "system" {
         fn GetExtensionVersion(pver: *mut HSE_VERSION_INFO) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(GetExtensionVersion(::core::mem::transmute(pver)))
+    GetExtensionVersion(::core::mem::transmute(pver))
 }
 #[doc = "*Required features: `\"Win32_System_Iis\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -796,7 +796,7 @@ pub unsafe fn GetFilterVersion(pver: *mut HTTP_FILTER_VERSION) -> super::super::
     extern "system" {
         fn GetFilterVersion(pver: *mut HTTP_FILTER_VERSION) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(GetFilterVersion(::core::mem::transmute(pver)))
+    GetFilterVersion(::core::mem::transmute(pver))
 }
 #[doc = "*Required features: `\"Win32_System_Iis\"`*"]
 pub const HSE_APPEND_LOG_PARAMETER: u32 = 1003u32;
@@ -2135,7 +2135,7 @@ pub unsafe fn HttpExtensionProc(pecb: *const EXTENSION_CONTROL_BLOCK) -> u32 {
     extern "system" {
         fn HttpExtensionProc(pecb: *const EXTENSION_CONTROL_BLOCK) -> u32;
     }
-    ::core::mem::transmute(HttpExtensionProc(::core::mem::transmute(pecb)))
+    HttpExtensionProc(::core::mem::transmute(pecb))
 }
 #[doc = "*Required features: `\"Win32_System_Iis\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -2145,7 +2145,7 @@ pub unsafe fn HttpFilterProc(pfc: *mut HTTP_FILTER_CONTEXT, notificationtype: u3
     extern "system" {
         fn HttpFilterProc(pfc: *mut HTTP_FILTER_CONTEXT, notificationtype: u32, pvnotification: *mut ::core::ffi::c_void) -> u32;
     }
-    ::core::mem::transmute(HttpFilterProc(::core::mem::transmute(pfc), notificationtype, ::core::mem::transmute(pvnotification)))
+    HttpFilterProc(::core::mem::transmute(pfc), notificationtype, ::core::mem::transmute(pvnotification))
 }
 #[doc = "*Required features: `\"Win32_System_Iis\"`*"]
 #[repr(transparent)]

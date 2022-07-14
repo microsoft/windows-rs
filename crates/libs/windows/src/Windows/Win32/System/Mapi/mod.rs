@@ -31,7 +31,7 @@ pub unsafe fn MAPIFreeBuffer(pv: *mut ::core::ffi::c_void) -> u32 {
     extern "system" {
         fn MAPIFreeBuffer(pv: *mut ::core::ffi::c_void) -> u32;
     }
-    ::core::mem::transmute(MAPIFreeBuffer(::core::mem::transmute(pv)))
+    MAPIFreeBuffer(::core::mem::transmute(pv))
 }
 #[doc = "*Required features: `\"Win32_System_Mapi\"`*"]
 pub const MAPI_AB_NOMODIFY: u32 = 1024u32;

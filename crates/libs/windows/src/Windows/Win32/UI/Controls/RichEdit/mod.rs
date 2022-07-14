@@ -2035,10 +2035,10 @@ impl IRichEditOle {
         (::windows::core::Interface::vtable(self).GetClientSite)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::System::Ole::IOleClientSite>(result__)
     }
     pub unsafe fn GetObjectCount(&self) -> i32 {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).GetObjectCount)(::windows::core::Interface::as_raw(self)))
+        (::windows::core::Interface::vtable(self).GetObjectCount)(::windows::core::Interface::as_raw(self))
     }
     pub unsafe fn GetLinkCount(&self) -> i32 {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).GetLinkCount)(::windows::core::Interface::as_raw(self)))
+        (::windows::core::Interface::vtable(self).GetLinkCount)(::windows::core::Interface::as_raw(self))
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole"))]
@@ -4326,7 +4326,7 @@ impl ITextHost {
     #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
     #[cfg(feature = "Win32_Graphics_Gdi")]
     pub unsafe fn TxGetDC(&self) -> super::super::super::Graphics::Gdi::HDC {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).TxGetDC)(::windows::core::Interface::as_raw(self)))
+        (::windows::core::Interface::vtable(self).TxGetDC)(::windows::core::Interface::as_raw(self))
     }
     #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
     #[cfg(feature = "Win32_Graphics_Gdi")]
@@ -4334,7 +4334,7 @@ impl ITextHost {
     where
         P0: ::std::convert::Into<super::super::super::Graphics::Gdi::HDC>,
     {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).TxReleaseDC)(::windows::core::Interface::as_raw(self), hdc.into()))
+        (::windows::core::Interface::vtable(self).TxReleaseDC)(::windows::core::Interface::as_raw(self), hdc.into())
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -4342,12 +4342,12 @@ impl ITextHost {
     where
         P0: ::std::convert::Into<super::super::super::Foundation::BOOL>,
     {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).TxShowScrollBar)(::windows::core::Interface::as_raw(self), fnbar, fshow.into()))
+        (::windows::core::Interface::vtable(self).TxShowScrollBar)(::windows::core::Interface::as_raw(self), fnbar, fshow.into())
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_UI_WindowsAndMessaging\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
     pub unsafe fn TxEnableScrollBar(&self, fusbflags: super::super::WindowsAndMessaging::SCROLLBAR_CONSTANTS, fuarrowflags: super::ENABLE_SCROLL_BAR_ARROWS) -> super::super::super::Foundation::BOOL {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).TxEnableScrollBar)(::windows::core::Interface::as_raw(self), fusbflags, fuarrowflags))
+        (::windows::core::Interface::vtable(self).TxEnableScrollBar)(::windows::core::Interface::as_raw(self), fusbflags, fuarrowflags)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -4355,7 +4355,7 @@ impl ITextHost {
     where
         P0: ::std::convert::Into<super::super::super::Foundation::BOOL>,
     {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).TxSetScrollRange)(::windows::core::Interface::as_raw(self), fnbar, nminpos, nmaxpos, fredraw.into()))
+        (::windows::core::Interface::vtable(self).TxSetScrollRange)(::windows::core::Interface::as_raw(self), fnbar, nminpos, nmaxpos, fredraw.into())
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -4363,7 +4363,7 @@ impl ITextHost {
     where
         P0: ::std::convert::Into<super::super::super::Foundation::BOOL>,
     {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).TxSetScrollPos)(::windows::core::Interface::as_raw(self), fnbar, npos, fredraw.into()))
+        (::windows::core::Interface::vtable(self).TxSetScrollPos)(::windows::core::Interface::as_raw(self), fnbar, npos, fredraw.into())
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -4387,7 +4387,7 @@ impl ITextHost {
     where
         P0: ::std::convert::Into<super::super::super::Graphics::Gdi::HBITMAP>,
     {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).TxCreateCaret)(::windows::core::Interface::as_raw(self), hbmp.into(), xwidth, yheight))
+        (::windows::core::Interface::vtable(self).TxCreateCaret)(::windows::core::Interface::as_raw(self), hbmp.into(), xwidth, yheight)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -4395,17 +4395,17 @@ impl ITextHost {
     where
         P0: ::std::convert::Into<super::super::super::Foundation::BOOL>,
     {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).TxShowCaret)(::windows::core::Interface::as_raw(self), fshow.into()))
+        (::windows::core::Interface::vtable(self).TxShowCaret)(::windows::core::Interface::as_raw(self), fshow.into())
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn TxSetCaretPos(&self, x: i32, y: i32) -> super::super::super::Foundation::BOOL {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).TxSetCaretPos)(::windows::core::Interface::as_raw(self), x, y))
+        (::windows::core::Interface::vtable(self).TxSetCaretPos)(::windows::core::Interface::as_raw(self), x, y)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn TxSetTimer(&self, idtimer: u32, utimeout: u32) -> super::super::super::Foundation::BOOL {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).TxSetTimer)(::windows::core::Interface::as_raw(self), idtimer, utimeout))
+        (::windows::core::Interface::vtable(self).TxSetTimer)(::windows::core::Interface::as_raw(self), idtimer, utimeout)
     }
     pub unsafe fn TxKillTimer(&self, idtimer: u32) {
         (::windows::core::Interface::vtable(self).TxKillTimer)(::windows::core::Interface::as_raw(self), idtimer)
@@ -4441,12 +4441,12 @@ impl ITextHost {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn TxScreenToClient(&self, lppt: *mut super::super::super::Foundation::POINT) -> super::super::super::Foundation::BOOL {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).TxScreenToClient)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lppt)))
+        (::windows::core::Interface::vtable(self).TxScreenToClient)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lppt))
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn TxClientToScreen(&self, lppt: *mut super::super::super::Foundation::POINT) -> super::super::super::Foundation::BOOL {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).TxClientToScreen)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lppt)))
+        (::windows::core::Interface::vtable(self).TxClientToScreen)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lppt))
     }
     pub unsafe fn TxActivate(&self, ploldstate: *mut i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).TxActivate)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(ploldstate)).ok()
@@ -4471,7 +4471,7 @@ impl ITextHost {
         (::windows::core::Interface::vtable(self).TxGetParaFormat)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pppf)).ok()
     }
     pub unsafe fn TxGetSysColor(&self, nindex: i32) -> u32 {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).TxGetSysColor)(::windows::core::Interface::as_raw(self), nindex))
+        (::windows::core::Interface::vtable(self).TxGetSysColor)(::windows::core::Interface::as_raw(self), nindex)
     }
     pub unsafe fn TxGetBackStyle(&self, pstyle: *mut TXTBACKSTYLE) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).TxGetBackStyle)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pstyle)).ok()
@@ -4509,7 +4509,7 @@ impl ITextHost {
     #[doc = "*Required features: `\"Win32_Globalization\"`*"]
     #[cfg(feature = "Win32_Globalization")]
     pub unsafe fn TxImmGetContext(&self) -> super::super::super::Globalization::HIMC {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).TxImmGetContext)(::windows::core::Interface::as_raw(self)))
+        (::windows::core::Interface::vtable(self).TxImmGetContext)(::windows::core::Interface::as_raw(self))
     }
     #[doc = "*Required features: `\"Win32_Globalization\"`*"]
     #[cfg(feature = "Win32_Globalization")]
@@ -4675,7 +4675,7 @@ impl ITextHost2 {
     #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
     #[cfg(feature = "Win32_Graphics_Gdi")]
     pub unsafe fn TxGetDC(&self) -> super::super::super::Graphics::Gdi::HDC {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).base__.TxGetDC)(::windows::core::Interface::as_raw(self)))
+        (::windows::core::Interface::vtable(self).base__.TxGetDC)(::windows::core::Interface::as_raw(self))
     }
     #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
     #[cfg(feature = "Win32_Graphics_Gdi")]
@@ -4683,7 +4683,7 @@ impl ITextHost2 {
     where
         P0: ::std::convert::Into<super::super::super::Graphics::Gdi::HDC>,
     {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).base__.TxReleaseDC)(::windows::core::Interface::as_raw(self), hdc.into()))
+        (::windows::core::Interface::vtable(self).base__.TxReleaseDC)(::windows::core::Interface::as_raw(self), hdc.into())
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -4691,12 +4691,12 @@ impl ITextHost2 {
     where
         P0: ::std::convert::Into<super::super::super::Foundation::BOOL>,
     {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).base__.TxShowScrollBar)(::windows::core::Interface::as_raw(self), fnbar, fshow.into()))
+        (::windows::core::Interface::vtable(self).base__.TxShowScrollBar)(::windows::core::Interface::as_raw(self), fnbar, fshow.into())
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_UI_WindowsAndMessaging\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
     pub unsafe fn TxEnableScrollBar(&self, fusbflags: super::super::WindowsAndMessaging::SCROLLBAR_CONSTANTS, fuarrowflags: super::ENABLE_SCROLL_BAR_ARROWS) -> super::super::super::Foundation::BOOL {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).base__.TxEnableScrollBar)(::windows::core::Interface::as_raw(self), fusbflags, fuarrowflags))
+        (::windows::core::Interface::vtable(self).base__.TxEnableScrollBar)(::windows::core::Interface::as_raw(self), fusbflags, fuarrowflags)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -4704,7 +4704,7 @@ impl ITextHost2 {
     where
         P0: ::std::convert::Into<super::super::super::Foundation::BOOL>,
     {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).base__.TxSetScrollRange)(::windows::core::Interface::as_raw(self), fnbar, nminpos, nmaxpos, fredraw.into()))
+        (::windows::core::Interface::vtable(self).base__.TxSetScrollRange)(::windows::core::Interface::as_raw(self), fnbar, nminpos, nmaxpos, fredraw.into())
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -4712,7 +4712,7 @@ impl ITextHost2 {
     where
         P0: ::std::convert::Into<super::super::super::Foundation::BOOL>,
     {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).base__.TxSetScrollPos)(::windows::core::Interface::as_raw(self), fnbar, npos, fredraw.into()))
+        (::windows::core::Interface::vtable(self).base__.TxSetScrollPos)(::windows::core::Interface::as_raw(self), fnbar, npos, fredraw.into())
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -4736,7 +4736,7 @@ impl ITextHost2 {
     where
         P0: ::std::convert::Into<super::super::super::Graphics::Gdi::HBITMAP>,
     {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).base__.TxCreateCaret)(::windows::core::Interface::as_raw(self), hbmp.into(), xwidth, yheight))
+        (::windows::core::Interface::vtable(self).base__.TxCreateCaret)(::windows::core::Interface::as_raw(self), hbmp.into(), xwidth, yheight)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -4744,17 +4744,17 @@ impl ITextHost2 {
     where
         P0: ::std::convert::Into<super::super::super::Foundation::BOOL>,
     {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).base__.TxShowCaret)(::windows::core::Interface::as_raw(self), fshow.into()))
+        (::windows::core::Interface::vtable(self).base__.TxShowCaret)(::windows::core::Interface::as_raw(self), fshow.into())
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn TxSetCaretPos(&self, x: i32, y: i32) -> super::super::super::Foundation::BOOL {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).base__.TxSetCaretPos)(::windows::core::Interface::as_raw(self), x, y))
+        (::windows::core::Interface::vtable(self).base__.TxSetCaretPos)(::windows::core::Interface::as_raw(self), x, y)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn TxSetTimer(&self, idtimer: u32, utimeout: u32) -> super::super::super::Foundation::BOOL {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).base__.TxSetTimer)(::windows::core::Interface::as_raw(self), idtimer, utimeout))
+        (::windows::core::Interface::vtable(self).base__.TxSetTimer)(::windows::core::Interface::as_raw(self), idtimer, utimeout)
     }
     pub unsafe fn TxKillTimer(&self, idtimer: u32) {
         (::windows::core::Interface::vtable(self).base__.TxKillTimer)(::windows::core::Interface::as_raw(self), idtimer)
@@ -4790,12 +4790,12 @@ impl ITextHost2 {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn TxScreenToClient(&self, lppt: *mut super::super::super::Foundation::POINT) -> super::super::super::Foundation::BOOL {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).base__.TxScreenToClient)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lppt)))
+        (::windows::core::Interface::vtable(self).base__.TxScreenToClient)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lppt))
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn TxClientToScreen(&self, lppt: *mut super::super::super::Foundation::POINT) -> super::super::super::Foundation::BOOL {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).base__.TxClientToScreen)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lppt)))
+        (::windows::core::Interface::vtable(self).base__.TxClientToScreen)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lppt))
     }
     pub unsafe fn TxActivate(&self, ploldstate: *mut i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.TxActivate)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(ploldstate)).ok()
@@ -4820,7 +4820,7 @@ impl ITextHost2 {
         (::windows::core::Interface::vtable(self).base__.TxGetParaFormat)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pppf)).ok()
     }
     pub unsafe fn TxGetSysColor(&self, nindex: i32) -> u32 {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).base__.TxGetSysColor)(::windows::core::Interface::as_raw(self), nindex))
+        (::windows::core::Interface::vtable(self).base__.TxGetSysColor)(::windows::core::Interface::as_raw(self), nindex)
     }
     pub unsafe fn TxGetBackStyle(&self, pstyle: *mut TXTBACKSTYLE) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.TxGetBackStyle)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pstyle)).ok()
@@ -4858,7 +4858,7 @@ impl ITextHost2 {
     #[doc = "*Required features: `\"Win32_Globalization\"`*"]
     #[cfg(feature = "Win32_Globalization")]
     pub unsafe fn TxImmGetContext(&self) -> super::super::super::Globalization::HIMC {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).base__.TxImmGetContext)(::windows::core::Interface::as_raw(self)))
+        (::windows::core::Interface::vtable(self).base__.TxImmGetContext)(::windows::core::Interface::as_raw(self))
     }
     #[doc = "*Required features: `\"Win32_Globalization\"`*"]
     #[cfg(feature = "Win32_Globalization")]
@@ -4874,7 +4874,7 @@ impl ITextHost2 {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn TxIsDoubleClickPending(&self) -> super::super::super::Foundation::BOOL {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).TxIsDoubleClickPending)(::windows::core::Interface::as_raw(self)))
+        (::windows::core::Interface::vtable(self).TxIsDoubleClickPending)(::windows::core::Interface::as_raw(self))
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -4887,7 +4887,7 @@ impl ITextHost2 {
     #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
     #[cfg(feature = "Win32_Graphics_Gdi")]
     pub unsafe fn TxGetPalette(&self) -> super::super::super::Graphics::Gdi::HPALETTE {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).TxGetPalette)(::windows::core::Interface::as_raw(self)))
+        (::windows::core::Interface::vtable(self).TxGetPalette)(::windows::core::Interface::as_raw(self))
     }
     pub unsafe fn TxGetEastAsianFlags(&self, pflags: *mut i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).TxGetEastAsianFlags)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pflags)).ok()
@@ -4899,7 +4899,7 @@ impl ITextHost2 {
         P0: ::std::convert::Into<super::super::WindowsAndMessaging::HCURSOR>,
         P1: ::std::convert::Into<super::super::super::Foundation::BOOL>,
     {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).TxSetCursor2)(::windows::core::Interface::as_raw(self), hcur.into(), btext.into()))
+        (::windows::core::Interface::vtable(self).TxSetCursor2)(::windows::core::Interface::as_raw(self), hcur.into(), btext.into())
     }
     pub unsafe fn TxFreeTextServicesNotification(&self) {
         (::windows::core::Interface::vtable(self).TxFreeTextServicesNotification)(::windows::core::Interface::as_raw(self))

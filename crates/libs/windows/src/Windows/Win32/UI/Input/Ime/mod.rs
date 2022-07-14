@@ -5918,7 +5918,7 @@ where
     extern "system" {
         fn ImmAssociateContext(param0: super::super::super::Foundation::HWND, param1: super::super::super::Globalization::HIMC) -> super::super::super::Globalization::HIMC;
     }
-    ::core::mem::transmute(ImmAssociateContext(param0.into(), param1.into()))
+    ImmAssociateContext(param0.into(), param1.into())
 }
 #[doc = "*Required features: `\"Win32_UI_Input_Ime\"`, `\"Win32_Foundation\"`, `\"Win32_Globalization\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Globalization"))]
@@ -5932,7 +5932,7 @@ where
     extern "system" {
         fn ImmAssociateContextEx(param0: super::super::super::Foundation::HWND, param1: super::super::super::Globalization::HIMC, param2: u32) -> super::super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(ImmAssociateContextEx(param0.into(), param1.into(), param2))
+    ImmAssociateContextEx(param0.into(), param1.into(), param2)
 }
 #[doc = "*Required features: `\"Win32_UI_Input_Ime\"`, `\"Win32_Foundation\"`, `\"Win32_UI_TextServices\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_TextServices"))]
@@ -5946,7 +5946,7 @@ where
     extern "system" {
         fn ImmConfigureIMEA(param0: super::super::TextServices::HKL, param1: super::super::super::Foundation::HWND, param2: u32, param3: *mut ::core::ffi::c_void) -> super::super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(ImmConfigureIMEA(param0.into(), param1.into(), param2, ::core::mem::transmute(param3)))
+    ImmConfigureIMEA(param0.into(), param1.into(), param2, ::core::mem::transmute(param3))
 }
 #[doc = "*Required features: `\"Win32_UI_Input_Ime\"`, `\"Win32_Foundation\"`, `\"Win32_UI_TextServices\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_TextServices"))]
@@ -5960,7 +5960,7 @@ where
     extern "system" {
         fn ImmConfigureIMEW(param0: super::super::TextServices::HKL, param1: super::super::super::Foundation::HWND, param2: u32, param3: *mut ::core::ffi::c_void) -> super::super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(ImmConfigureIMEW(param0.into(), param1.into(), param2, ::core::mem::transmute(param3)))
+    ImmConfigureIMEW(param0.into(), param1.into(), param2, ::core::mem::transmute(param3))
 }
 #[doc = "*Required features: `\"Win32_UI_Input_Ime\"`, `\"Win32_Globalization\"`*"]
 #[cfg(feature = "Win32_Globalization")]
@@ -5970,7 +5970,7 @@ pub unsafe fn ImmCreateContext() -> super::super::super::Globalization::HIMC {
     extern "system" {
         fn ImmCreateContext() -> super::super::super::Globalization::HIMC;
     }
-    ::core::mem::transmute(ImmCreateContext())
+    ImmCreateContext()
 }
 #[doc = "*Required features: `\"Win32_UI_Input_Ime\"`, `\"Win32_Globalization\"`*"]
 #[cfg(feature = "Win32_Globalization")]
@@ -5980,7 +5980,7 @@ pub unsafe fn ImmCreateIMCC(param0: u32) -> super::super::super::Globalization::
     extern "system" {
         fn ImmCreateIMCC(param0: u32) -> super::super::super::Globalization::HIMCC;
     }
-    ::core::mem::transmute(ImmCreateIMCC(param0))
+    ImmCreateIMCC(param0)
 }
 #[doc = "*Required features: `\"Win32_UI_Input_Ime\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -5993,7 +5993,7 @@ where
     extern "system" {
         fn ImmCreateSoftKeyboard(param0: u32, param1: super::super::super::Foundation::HWND, param2: i32, param3: i32) -> super::super::super::Foundation::HWND;
     }
-    ::core::mem::transmute(ImmCreateSoftKeyboard(param0, param1.into(), param2, param3))
+    ImmCreateSoftKeyboard(param0, param1.into(), param2, param3)
 }
 #[doc = "*Required features: `\"Win32_UI_Input_Ime\"`, `\"Win32_Foundation\"`, `\"Win32_Globalization\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Globalization"))]
@@ -6006,7 +6006,7 @@ where
     extern "system" {
         fn ImmDestroyContext(param0: super::super::super::Globalization::HIMC) -> super::super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(ImmDestroyContext(param0.into()))
+    ImmDestroyContext(param0.into())
 }
 #[doc = "*Required features: `\"Win32_UI_Input_Ime\"`, `\"Win32_Globalization\"`*"]
 #[cfg(feature = "Win32_Globalization")]
@@ -6019,7 +6019,7 @@ where
     extern "system" {
         fn ImmDestroyIMCC(param0: super::super::super::Globalization::HIMCC) -> super::super::super::Globalization::HIMCC;
     }
-    ::core::mem::transmute(ImmDestroyIMCC(param0.into()))
+    ImmDestroyIMCC(param0.into())
 }
 #[doc = "*Required features: `\"Win32_UI_Input_Ime\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -6032,7 +6032,7 @@ where
     extern "system" {
         fn ImmDestroySoftKeyboard(param0: super::super::super::Foundation::HWND) -> super::super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(ImmDestroySoftKeyboard(param0.into()))
+    ImmDestroySoftKeyboard(param0.into())
 }
 #[doc = "*Required features: `\"Win32_UI_Input_Ime\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -6042,7 +6042,7 @@ pub unsafe fn ImmDisableIME(param0: u32) -> super::super::super::Foundation::BOO
     extern "system" {
         fn ImmDisableIME(param0: u32) -> super::super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(ImmDisableIME(param0))
+    ImmDisableIME(param0)
 }
 #[doc = "*Required features: `\"Win32_UI_Input_Ime\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -6052,7 +6052,7 @@ pub unsafe fn ImmDisableLegacyIME() -> super::super::super::Foundation::BOOL {
     extern "system" {
         fn ImmDisableLegacyIME() -> super::super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(ImmDisableLegacyIME())
+    ImmDisableLegacyIME()
 }
 #[doc = "*Required features: `\"Win32_UI_Input_Ime\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -6062,7 +6062,7 @@ pub unsafe fn ImmDisableTextFrameService(idthread: u32) -> super::super::super::
     extern "system" {
         fn ImmDisableTextFrameService(idthread: u32) -> super::super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(ImmDisableTextFrameService(idthread))
+    ImmDisableTextFrameService(idthread)
 }
 #[doc = "*Required features: `\"Win32_UI_Input_Ime\"`, `\"Win32_Foundation\"`, `\"Win32_Globalization\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Globalization"))]
@@ -6075,7 +6075,7 @@ where
     extern "system" {
         fn ImmEnumInputContext(idthread: u32, lpfn: *mut ::core::ffi::c_void, lparam: super::super::super::Foundation::LPARAM) -> super::super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(ImmEnumInputContext(idthread, ::core::mem::transmute(lpfn), lparam.into()))
+    ImmEnumInputContext(idthread, ::core::mem::transmute(lpfn), lparam.into())
 }
 #[doc = "*Required features: `\"Win32_UI_Input_Ime\"`, `\"Win32_UI_TextServices\"`*"]
 #[cfg(feature = "Win32_UI_TextServices")]
@@ -6090,7 +6090,7 @@ where
     extern "system" {
         fn ImmEnumRegisterWordA(param0: super::super::TextServices::HKL, param1: *mut ::core::ffi::c_void, lpszreading: ::windows::core::PCSTR, param3: u32, lpszregister: ::windows::core::PCSTR, param5: *mut ::core::ffi::c_void) -> u32;
     }
-    ::core::mem::transmute(ImmEnumRegisterWordA(param0.into(), ::core::mem::transmute(param1), lpszreading.into(), param3, lpszregister.into(), ::core::mem::transmute(param5)))
+    ImmEnumRegisterWordA(param0.into(), ::core::mem::transmute(param1), lpszreading.into(), param3, lpszregister.into(), ::core::mem::transmute(param5))
 }
 #[doc = "*Required features: `\"Win32_UI_Input_Ime\"`, `\"Win32_UI_TextServices\"`*"]
 #[cfg(feature = "Win32_UI_TextServices")]
@@ -6105,7 +6105,7 @@ where
     extern "system" {
         fn ImmEnumRegisterWordW(param0: super::super::TextServices::HKL, param1: *mut ::core::ffi::c_void, lpszreading: ::windows::core::PCWSTR, param3: u32, lpszregister: ::windows::core::PCWSTR, param5: *mut ::core::ffi::c_void) -> u32;
     }
-    ::core::mem::transmute(ImmEnumRegisterWordW(param0.into(), ::core::mem::transmute(param1), lpszreading.into(), param3, lpszregister.into(), ::core::mem::transmute(param5)))
+    ImmEnumRegisterWordW(param0.into(), ::core::mem::transmute(param1), lpszreading.into(), param3, lpszregister.into(), ::core::mem::transmute(param5))
 }
 #[doc = "*Required features: `\"Win32_UI_Input_Ime\"`, `\"Win32_Foundation\"`, `\"Win32_Globalization\"`, `\"Win32_UI_TextServices\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Globalization", feature = "Win32_UI_TextServices"))]
@@ -6119,7 +6119,7 @@ where
     extern "system" {
         fn ImmEscapeA(param0: super::super::TextServices::HKL, param1: super::super::super::Globalization::HIMC, param2: u32, param3: *mut ::core::ffi::c_void) -> super::super::super::Foundation::LRESULT;
     }
-    ::core::mem::transmute(ImmEscapeA(param0.into(), param1.into(), param2, ::core::mem::transmute(param3)))
+    ImmEscapeA(param0.into(), param1.into(), param2, ::core::mem::transmute(param3))
 }
 #[doc = "*Required features: `\"Win32_UI_Input_Ime\"`, `\"Win32_Foundation\"`, `\"Win32_Globalization\"`, `\"Win32_UI_TextServices\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Globalization", feature = "Win32_UI_TextServices"))]
@@ -6133,7 +6133,7 @@ where
     extern "system" {
         fn ImmEscapeW(param0: super::super::TextServices::HKL, param1: super::super::super::Globalization::HIMC, param2: u32, param3: *mut ::core::ffi::c_void) -> super::super::super::Foundation::LRESULT;
     }
-    ::core::mem::transmute(ImmEscapeW(param0.into(), param1.into(), param2, ::core::mem::transmute(param3)))
+    ImmEscapeW(param0.into(), param1.into(), param2, ::core::mem::transmute(param3))
 }
 #[doc = "*Required features: `\"Win32_UI_Input_Ime\"`, `\"Win32_Foundation\"`, `\"Win32_Globalization\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Globalization"))]
@@ -6146,7 +6146,7 @@ where
     extern "system" {
         fn ImmGenerateMessage(param0: super::super::super::Globalization::HIMC) -> super::super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(ImmGenerateMessage(param0.into()))
+    ImmGenerateMessage(param0.into())
 }
 #[doc = "*Required features: `\"Win32_UI_Input_Ime\"`, `\"Win32_Globalization\"`*"]
 #[cfg(feature = "Win32_Globalization")]
@@ -6159,7 +6159,7 @@ where
     extern "system" {
         fn ImmGetCandidateListA(param0: super::super::super::Globalization::HIMC, deindex: u32, lpcandlist: *mut CANDIDATELIST, dwbuflen: u32) -> u32;
     }
-    ::core::mem::transmute(ImmGetCandidateListA(param0.into(), deindex, ::core::mem::transmute(lpcandlist), dwbuflen))
+    ImmGetCandidateListA(param0.into(), deindex, ::core::mem::transmute(lpcandlist), dwbuflen)
 }
 #[doc = "*Required features: `\"Win32_UI_Input_Ime\"`, `\"Win32_Globalization\"`*"]
 #[cfg(feature = "Win32_Globalization")]
@@ -6172,7 +6172,7 @@ where
     extern "system" {
         fn ImmGetCandidateListCountA(param0: super::super::super::Globalization::HIMC, lpdwlistcount: *mut u32) -> u32;
     }
-    ::core::mem::transmute(ImmGetCandidateListCountA(param0.into(), ::core::mem::transmute(lpdwlistcount)))
+    ImmGetCandidateListCountA(param0.into(), ::core::mem::transmute(lpdwlistcount))
 }
 #[doc = "*Required features: `\"Win32_UI_Input_Ime\"`, `\"Win32_Globalization\"`*"]
 #[cfg(feature = "Win32_Globalization")]
@@ -6185,7 +6185,7 @@ where
     extern "system" {
         fn ImmGetCandidateListCountW(param0: super::super::super::Globalization::HIMC, lpdwlistcount: *mut u32) -> u32;
     }
-    ::core::mem::transmute(ImmGetCandidateListCountW(param0.into(), ::core::mem::transmute(lpdwlistcount)))
+    ImmGetCandidateListCountW(param0.into(), ::core::mem::transmute(lpdwlistcount))
 }
 #[doc = "*Required features: `\"Win32_UI_Input_Ime\"`, `\"Win32_Globalization\"`*"]
 #[cfg(feature = "Win32_Globalization")]
@@ -6198,7 +6198,7 @@ where
     extern "system" {
         fn ImmGetCandidateListW(param0: super::super::super::Globalization::HIMC, deindex: u32, lpcandlist: *mut CANDIDATELIST, dwbuflen: u32) -> u32;
     }
-    ::core::mem::transmute(ImmGetCandidateListW(param0.into(), deindex, ::core::mem::transmute(lpcandlist), dwbuflen))
+    ImmGetCandidateListW(param0.into(), deindex, ::core::mem::transmute(lpcandlist), dwbuflen)
 }
 #[doc = "*Required features: `\"Win32_UI_Input_Ime\"`, `\"Win32_Foundation\"`, `\"Win32_Globalization\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Globalization"))]
@@ -6211,7 +6211,7 @@ where
     extern "system" {
         fn ImmGetCandidateWindow(param0: super::super::super::Globalization::HIMC, param1: u32, lpcandidate: *mut CANDIDATEFORM) -> super::super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(ImmGetCandidateWindow(param0.into(), param1, ::core::mem::transmute(lpcandidate)))
+    ImmGetCandidateWindow(param0.into(), param1, ::core::mem::transmute(lpcandidate))
 }
 #[doc = "*Required features: `\"Win32_UI_Input_Ime\"`, `\"Win32_Foundation\"`, `\"Win32_Globalization\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Globalization", feature = "Win32_Graphics_Gdi"))]
@@ -6224,7 +6224,7 @@ where
     extern "system" {
         fn ImmGetCompositionFontA(param0: super::super::super::Globalization::HIMC, lplf: *mut super::super::super::Graphics::Gdi::LOGFONTA) -> super::super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(ImmGetCompositionFontA(param0.into(), ::core::mem::transmute(lplf)))
+    ImmGetCompositionFontA(param0.into(), ::core::mem::transmute(lplf))
 }
 #[doc = "*Required features: `\"Win32_UI_Input_Ime\"`, `\"Win32_Foundation\"`, `\"Win32_Globalization\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Globalization", feature = "Win32_Graphics_Gdi"))]
@@ -6237,7 +6237,7 @@ where
     extern "system" {
         fn ImmGetCompositionFontW(param0: super::super::super::Globalization::HIMC, lplf: *mut super::super::super::Graphics::Gdi::LOGFONTW) -> super::super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(ImmGetCompositionFontW(param0.into(), ::core::mem::transmute(lplf)))
+    ImmGetCompositionFontW(param0.into(), ::core::mem::transmute(lplf))
 }
 #[doc = "*Required features: `\"Win32_UI_Input_Ime\"`, `\"Win32_Globalization\"`*"]
 #[cfg(feature = "Win32_Globalization")]
@@ -6250,7 +6250,7 @@ where
     extern "system" {
         fn ImmGetCompositionStringA(param0: super::super::super::Globalization::HIMC, param1: u32, lpbuf: *mut ::core::ffi::c_void, dwbuflen: u32) -> i32;
     }
-    ::core::mem::transmute(ImmGetCompositionStringA(param0.into(), param1, ::core::mem::transmute(lpbuf), dwbuflen))
+    ImmGetCompositionStringA(param0.into(), param1, ::core::mem::transmute(lpbuf), dwbuflen)
 }
 #[doc = "*Required features: `\"Win32_UI_Input_Ime\"`, `\"Win32_Globalization\"`*"]
 #[cfg(feature = "Win32_Globalization")]
@@ -6263,7 +6263,7 @@ where
     extern "system" {
         fn ImmGetCompositionStringW(param0: super::super::super::Globalization::HIMC, param1: u32, lpbuf: *mut ::core::ffi::c_void, dwbuflen: u32) -> i32;
     }
-    ::core::mem::transmute(ImmGetCompositionStringW(param0.into(), param1, ::core::mem::transmute(lpbuf), dwbuflen))
+    ImmGetCompositionStringW(param0.into(), param1, ::core::mem::transmute(lpbuf), dwbuflen)
 }
 #[doc = "*Required features: `\"Win32_UI_Input_Ime\"`, `\"Win32_Foundation\"`, `\"Win32_Globalization\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Globalization"))]
@@ -6276,7 +6276,7 @@ where
     extern "system" {
         fn ImmGetCompositionWindow(param0: super::super::super::Globalization::HIMC, lpcompform: *mut COMPOSITIONFORM) -> super::super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(ImmGetCompositionWindow(param0.into(), ::core::mem::transmute(lpcompform)))
+    ImmGetCompositionWindow(param0.into(), ::core::mem::transmute(lpcompform))
 }
 #[doc = "*Required features: `\"Win32_UI_Input_Ime\"`, `\"Win32_Foundation\"`, `\"Win32_Globalization\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Globalization"))]
@@ -6289,7 +6289,7 @@ where
     extern "system" {
         fn ImmGetContext(param0: super::super::super::Foundation::HWND) -> super::super::super::Globalization::HIMC;
     }
-    ::core::mem::transmute(ImmGetContext(param0.into()))
+    ImmGetContext(param0.into())
 }
 #[doc = "*Required features: `\"Win32_UI_Input_Ime\"`, `\"Win32_Globalization\"`, `\"Win32_UI_TextServices\"`*"]
 #[cfg(all(feature = "Win32_Globalization", feature = "Win32_UI_TextServices"))]
@@ -6304,7 +6304,7 @@ where
     extern "system" {
         fn ImmGetConversionListA(param0: super::super::TextServices::HKL, param1: super::super::super::Globalization::HIMC, lpsrc: ::windows::core::PCSTR, lpdst: *mut CANDIDATELIST, dwbuflen: u32, uflag: GET_CONVERSION_LIST_FLAG) -> u32;
     }
-    ::core::mem::transmute(ImmGetConversionListA(param0.into(), param1.into(), lpsrc.into(), ::core::mem::transmute(lpdst), dwbuflen, uflag))
+    ImmGetConversionListA(param0.into(), param1.into(), lpsrc.into(), ::core::mem::transmute(lpdst), dwbuflen, uflag)
 }
 #[doc = "*Required features: `\"Win32_UI_Input_Ime\"`, `\"Win32_Globalization\"`, `\"Win32_UI_TextServices\"`*"]
 #[cfg(all(feature = "Win32_Globalization", feature = "Win32_UI_TextServices"))]
@@ -6319,7 +6319,7 @@ where
     extern "system" {
         fn ImmGetConversionListW(param0: super::super::TextServices::HKL, param1: super::super::super::Globalization::HIMC, lpsrc: ::windows::core::PCWSTR, lpdst: *mut CANDIDATELIST, dwbuflen: u32, uflag: GET_CONVERSION_LIST_FLAG) -> u32;
     }
-    ::core::mem::transmute(ImmGetConversionListW(param0.into(), param1.into(), lpsrc.into(), ::core::mem::transmute(lpdst), dwbuflen, uflag))
+    ImmGetConversionListW(param0.into(), param1.into(), lpsrc.into(), ::core::mem::transmute(lpdst), dwbuflen, uflag)
 }
 #[doc = "*Required features: `\"Win32_UI_Input_Ime\"`, `\"Win32_Foundation\"`, `\"Win32_Globalization\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Globalization"))]
@@ -6332,7 +6332,7 @@ where
     extern "system" {
         fn ImmGetConversionStatus(param0: super::super::super::Globalization::HIMC, lpfdwconversion: *mut u32, lpfdwsentence: *mut u32) -> super::super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(ImmGetConversionStatus(param0.into(), ::core::mem::transmute(lpfdwconversion), ::core::mem::transmute(lpfdwsentence)))
+    ImmGetConversionStatus(param0.into(), ::core::mem::transmute(lpfdwconversion), ::core::mem::transmute(lpfdwsentence))
 }
 #[doc = "*Required features: `\"Win32_UI_Input_Ime\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -6345,7 +6345,7 @@ where
     extern "system" {
         fn ImmGetDefaultIMEWnd(param0: super::super::super::Foundation::HWND) -> super::super::super::Foundation::HWND;
     }
-    ::core::mem::transmute(ImmGetDefaultIMEWnd(param0.into()))
+    ImmGetDefaultIMEWnd(param0.into())
 }
 #[doc = "*Required features: `\"Win32_UI_Input_Ime\"`, `\"Win32_UI_TextServices\"`*"]
 #[cfg(feature = "Win32_UI_TextServices")]
@@ -6358,7 +6358,7 @@ where
     extern "system" {
         fn ImmGetDescriptionA(param0: super::super::TextServices::HKL, lpszdescription: ::windows::core::PSTR, ubuflen: u32) -> u32;
     }
-    ::core::mem::transmute(ImmGetDescriptionA(param0.into(), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(lpszdescription)), lpszdescription.len() as _))
+    ImmGetDescriptionA(param0.into(), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(lpszdescription)), lpszdescription.len() as _)
 }
 #[doc = "*Required features: `\"Win32_UI_Input_Ime\"`, `\"Win32_UI_TextServices\"`*"]
 #[cfg(feature = "Win32_UI_TextServices")]
@@ -6371,7 +6371,7 @@ where
     extern "system" {
         fn ImmGetDescriptionW(param0: super::super::TextServices::HKL, lpszdescription: ::windows::core::PWSTR, ubuflen: u32) -> u32;
     }
-    ::core::mem::transmute(ImmGetDescriptionW(param0.into(), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(lpszdescription)), lpszdescription.len() as _))
+    ImmGetDescriptionW(param0.into(), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(lpszdescription)), lpszdescription.len() as _)
 }
 #[doc = "*Required features: `\"Win32_UI_Input_Ime\"`, `\"Win32_Globalization\"`*"]
 #[cfg(feature = "Win32_Globalization")]
@@ -6384,7 +6384,7 @@ where
     extern "system" {
         fn ImmGetGuideLineA(param0: super::super::super::Globalization::HIMC, dwindex: GET_GUIDE_LINE_TYPE, lpbuf: ::windows::core::PSTR, dwbuflen: u32) -> u32;
     }
-    ::core::mem::transmute(ImmGetGuideLineA(param0.into(), dwindex, ::core::mem::transmute(lpbuf), dwbuflen))
+    ImmGetGuideLineA(param0.into(), dwindex, ::core::mem::transmute(lpbuf), dwbuflen)
 }
 #[doc = "*Required features: `\"Win32_UI_Input_Ime\"`, `\"Win32_Globalization\"`*"]
 #[cfg(feature = "Win32_Globalization")]
@@ -6397,7 +6397,7 @@ where
     extern "system" {
         fn ImmGetGuideLineW(param0: super::super::super::Globalization::HIMC, dwindex: GET_GUIDE_LINE_TYPE, lpbuf: ::windows::core::PWSTR, dwbuflen: u32) -> u32;
     }
-    ::core::mem::transmute(ImmGetGuideLineW(param0.into(), dwindex, ::core::mem::transmute(lpbuf), dwbuflen))
+    ImmGetGuideLineW(param0.into(), dwindex, ::core::mem::transmute(lpbuf), dwbuflen)
 }
 #[doc = "*Required features: `\"Win32_UI_Input_Ime\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -6407,7 +6407,7 @@ pub unsafe fn ImmGetHotKey(param0: u32, lpumodifiers: *mut u32, lpuvkey: *mut u3
     extern "system" {
         fn ImmGetHotKey(param0: u32, lpumodifiers: *mut u32, lpuvkey: *mut u32, phkl: *mut isize) -> super::super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(ImmGetHotKey(param0, ::core::mem::transmute(lpumodifiers), ::core::mem::transmute(lpuvkey), ::core::mem::transmute(phkl)))
+    ImmGetHotKey(param0, ::core::mem::transmute(lpumodifiers), ::core::mem::transmute(lpuvkey), ::core::mem::transmute(phkl))
 }
 #[doc = "*Required features: `\"Win32_UI_Input_Ime\"`, `\"Win32_Globalization\"`*"]
 #[cfg(feature = "Win32_Globalization")]
@@ -6420,7 +6420,7 @@ where
     extern "system" {
         fn ImmGetIMCCLockCount(param0: super::super::super::Globalization::HIMCC) -> u32;
     }
-    ::core::mem::transmute(ImmGetIMCCLockCount(param0.into()))
+    ImmGetIMCCLockCount(param0.into())
 }
 #[doc = "*Required features: `\"Win32_UI_Input_Ime\"`, `\"Win32_Globalization\"`*"]
 #[cfg(feature = "Win32_Globalization")]
@@ -6433,7 +6433,7 @@ where
     extern "system" {
         fn ImmGetIMCCSize(param0: super::super::super::Globalization::HIMCC) -> u32;
     }
-    ::core::mem::transmute(ImmGetIMCCSize(param0.into()))
+    ImmGetIMCCSize(param0.into())
 }
 #[doc = "*Required features: `\"Win32_UI_Input_Ime\"`, `\"Win32_Globalization\"`*"]
 #[cfg(feature = "Win32_Globalization")]
@@ -6446,7 +6446,7 @@ where
     extern "system" {
         fn ImmGetIMCLockCount(param0: super::super::super::Globalization::HIMC) -> u32;
     }
-    ::core::mem::transmute(ImmGetIMCLockCount(param0.into()))
+    ImmGetIMCLockCount(param0.into())
 }
 #[doc = "*Required features: `\"Win32_UI_Input_Ime\"`, `\"Win32_UI_TextServices\"`*"]
 #[cfg(feature = "Win32_UI_TextServices")]
@@ -6459,7 +6459,7 @@ where
     extern "system" {
         fn ImmGetIMEFileNameA(param0: super::super::TextServices::HKL, lpszfilename: ::windows::core::PSTR, ubuflen: u32) -> u32;
     }
-    ::core::mem::transmute(ImmGetIMEFileNameA(param0.into(), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(lpszfilename)), lpszfilename.len() as _))
+    ImmGetIMEFileNameA(param0.into(), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(lpszfilename)), lpszfilename.len() as _)
 }
 #[doc = "*Required features: `\"Win32_UI_Input_Ime\"`, `\"Win32_UI_TextServices\"`*"]
 #[cfg(feature = "Win32_UI_TextServices")]
@@ -6472,7 +6472,7 @@ where
     extern "system" {
         fn ImmGetIMEFileNameW(param0: super::super::TextServices::HKL, lpszfilename: ::windows::core::PWSTR, ubuflen: u32) -> u32;
     }
-    ::core::mem::transmute(ImmGetIMEFileNameW(param0.into(), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(lpszfilename)), lpszfilename.len() as _))
+    ImmGetIMEFileNameW(param0.into(), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(lpszfilename)), lpszfilename.len() as _)
 }
 #[doc = "*Required features: `\"Win32_UI_Input_Ime\"`, `\"Win32_Foundation\"`, `\"Win32_Globalization\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Globalization", feature = "Win32_Graphics_Gdi"))]
@@ -6485,7 +6485,7 @@ where
     extern "system" {
         fn ImmGetImeMenuItemsA(param0: super::super::super::Globalization::HIMC, param1: u32, param2: u32, lpimeparentmenu: *mut IMEMENUITEMINFOA, lpimemenu: *mut IMEMENUITEMINFOA, dwsize: u32) -> u32;
     }
-    ::core::mem::transmute(ImmGetImeMenuItemsA(param0.into(), param1, param2, ::core::mem::transmute(lpimeparentmenu), ::core::mem::transmute(lpimemenu), dwsize))
+    ImmGetImeMenuItemsA(param0.into(), param1, param2, ::core::mem::transmute(lpimeparentmenu), ::core::mem::transmute(lpimemenu), dwsize)
 }
 #[doc = "*Required features: `\"Win32_UI_Input_Ime\"`, `\"Win32_Globalization\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(all(feature = "Win32_Globalization", feature = "Win32_Graphics_Gdi"))]
@@ -6498,7 +6498,7 @@ where
     extern "system" {
         fn ImmGetImeMenuItemsW(param0: super::super::super::Globalization::HIMC, param1: u32, param2: u32, lpimeparentmenu: *mut IMEMENUITEMINFOW, lpimemenu: *mut IMEMENUITEMINFOW, dwsize: u32) -> u32;
     }
-    ::core::mem::transmute(ImmGetImeMenuItemsW(param0.into(), param1, param2, ::core::mem::transmute(lpimeparentmenu), ::core::mem::transmute(lpimemenu), dwsize))
+    ImmGetImeMenuItemsW(param0.into(), param1, param2, ::core::mem::transmute(lpimeparentmenu), ::core::mem::transmute(lpimemenu), dwsize)
 }
 #[doc = "*Required features: `\"Win32_UI_Input_Ime\"`, `\"Win32_Foundation\"`, `\"Win32_Globalization\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Globalization"))]
@@ -6511,7 +6511,7 @@ where
     extern "system" {
         fn ImmGetOpenStatus(param0: super::super::super::Globalization::HIMC) -> super::super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(ImmGetOpenStatus(param0.into()))
+    ImmGetOpenStatus(param0.into())
 }
 #[doc = "*Required features: `\"Win32_UI_Input_Ime\"`, `\"Win32_UI_TextServices\"`*"]
 #[cfg(feature = "Win32_UI_TextServices")]
@@ -6524,7 +6524,7 @@ where
     extern "system" {
         fn ImmGetProperty(param0: super::super::TextServices::HKL, param1: u32) -> u32;
     }
-    ::core::mem::transmute(ImmGetProperty(param0.into(), param1))
+    ImmGetProperty(param0.into(), param1)
 }
 #[doc = "*Required features: `\"Win32_UI_Input_Ime\"`, `\"Win32_Foundation\"`, `\"Win32_UI_TextServices\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_TextServices"))]
@@ -6537,7 +6537,7 @@ where
     extern "system" {
         fn ImmGetRegisterWordStyleA(param0: super::super::TextServices::HKL, nitem: u32, lpstylebuf: *mut STYLEBUFA) -> u32;
     }
-    ::core::mem::transmute(ImmGetRegisterWordStyleA(param0.into(), lpstylebuf.len() as _, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(lpstylebuf))))
+    ImmGetRegisterWordStyleA(param0.into(), lpstylebuf.len() as _, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(lpstylebuf)))
 }
 #[doc = "*Required features: `\"Win32_UI_Input_Ime\"`, `\"Win32_UI_TextServices\"`*"]
 #[cfg(feature = "Win32_UI_TextServices")]
@@ -6550,7 +6550,7 @@ where
     extern "system" {
         fn ImmGetRegisterWordStyleW(param0: super::super::TextServices::HKL, nitem: u32, lpstylebuf: *mut STYLEBUFW) -> u32;
     }
-    ::core::mem::transmute(ImmGetRegisterWordStyleW(param0.into(), lpstylebuf.len() as _, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(lpstylebuf))))
+    ImmGetRegisterWordStyleW(param0.into(), lpstylebuf.len() as _, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(lpstylebuf)))
 }
 #[doc = "*Required features: `\"Win32_UI_Input_Ime\"`, `\"Win32_Foundation\"`, `\"Win32_Globalization\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Globalization"))]
@@ -6563,7 +6563,7 @@ where
     extern "system" {
         fn ImmGetStatusWindowPos(param0: super::super::super::Globalization::HIMC, lpptpos: *mut super::super::super::Foundation::POINT) -> super::super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(ImmGetStatusWindowPos(param0.into(), ::core::mem::transmute(lpptpos)))
+    ImmGetStatusWindowPos(param0.into(), ::core::mem::transmute(lpptpos))
 }
 #[doc = "*Required features: `\"Win32_UI_Input_Ime\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -6576,7 +6576,7 @@ where
     extern "system" {
         fn ImmGetVirtualKey(param0: super::super::super::Foundation::HWND) -> u32;
     }
-    ::core::mem::transmute(ImmGetVirtualKey(param0.into()))
+    ImmGetVirtualKey(param0.into())
 }
 #[doc = "*Required features: `\"Win32_UI_Input_Ime\"`, `\"Win32_UI_TextServices\"`*"]
 #[cfg(feature = "Win32_UI_TextServices")]
@@ -6590,7 +6590,7 @@ where
     extern "system" {
         fn ImmInstallIMEA(lpszimefilename: ::windows::core::PCSTR, lpszlayouttext: ::windows::core::PCSTR) -> super::super::TextServices::HKL;
     }
-    ::core::mem::transmute(ImmInstallIMEA(lpszimefilename.into(), lpszlayouttext.into()))
+    ImmInstallIMEA(lpszimefilename.into(), lpszlayouttext.into())
 }
 #[doc = "*Required features: `\"Win32_UI_Input_Ime\"`, `\"Win32_UI_TextServices\"`*"]
 #[cfg(feature = "Win32_UI_TextServices")]
@@ -6604,7 +6604,7 @@ where
     extern "system" {
         fn ImmInstallIMEW(lpszimefilename: ::windows::core::PCWSTR, lpszlayouttext: ::windows::core::PCWSTR) -> super::super::TextServices::HKL;
     }
-    ::core::mem::transmute(ImmInstallIMEW(lpszimefilename.into(), lpszlayouttext.into()))
+    ImmInstallIMEW(lpszimefilename.into(), lpszlayouttext.into())
 }
 #[doc = "*Required features: `\"Win32_UI_Input_Ime\"`, `\"Win32_Foundation\"`, `\"Win32_UI_TextServices\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_TextServices"))]
@@ -6617,7 +6617,7 @@ where
     extern "system" {
         fn ImmIsIME(param0: super::super::TextServices::HKL) -> super::super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(ImmIsIME(param0.into()))
+    ImmIsIME(param0.into())
 }
 #[doc = "*Required features: `\"Win32_UI_Input_Ime\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -6632,7 +6632,7 @@ where
     extern "system" {
         fn ImmIsUIMessageA(param0: super::super::super::Foundation::HWND, param1: u32, param2: super::super::super::Foundation::WPARAM, param3: super::super::super::Foundation::LPARAM) -> super::super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(ImmIsUIMessageA(param0.into(), param1, param2.into(), param3.into()))
+    ImmIsUIMessageA(param0.into(), param1, param2.into(), param3.into())
 }
 #[doc = "*Required features: `\"Win32_UI_Input_Ime\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -6647,7 +6647,7 @@ where
     extern "system" {
         fn ImmIsUIMessageW(param0: super::super::super::Foundation::HWND, param1: u32, param2: super::super::super::Foundation::WPARAM, param3: super::super::super::Foundation::LPARAM) -> super::super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(ImmIsUIMessageW(param0.into(), param1, param2.into(), param3.into()))
+    ImmIsUIMessageW(param0.into(), param1, param2.into(), param3.into())
 }
 #[doc = "*Required features: `\"Win32_UI_Input_Ime\"`, `\"Win32_Foundation\"`, `\"Win32_Globalization\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Globalization", feature = "Win32_Graphics_Gdi"))]
@@ -6660,7 +6660,7 @@ where
     extern "system" {
         fn ImmLockIMC(param0: super::super::super::Globalization::HIMC) -> *mut INPUTCONTEXT;
     }
-    ::core::mem::transmute(ImmLockIMC(param0.into()))
+    ImmLockIMC(param0.into())
 }
 #[doc = "*Required features: `\"Win32_UI_Input_Ime\"`, `\"Win32_Globalization\"`*"]
 #[cfg(feature = "Win32_Globalization")]
@@ -6673,7 +6673,7 @@ where
     extern "system" {
         fn ImmLockIMCC(param0: super::super::super::Globalization::HIMCC) -> *mut ::core::ffi::c_void;
     }
-    ::core::mem::transmute(ImmLockIMCC(param0.into()))
+    ImmLockIMCC(param0.into())
 }
 #[doc = "*Required features: `\"Win32_UI_Input_Ime\"`, `\"Win32_Foundation\"`, `\"Win32_Globalization\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Globalization"))]
@@ -6686,7 +6686,7 @@ where
     extern "system" {
         fn ImmNotifyIME(param0: super::super::super::Globalization::HIMC, dwaction: NOTIFY_IME_ACTION, dwindex: NOTIFY_IME_INDEX, dwvalue: u32) -> super::super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(ImmNotifyIME(param0.into(), dwaction, dwindex, dwvalue))
+    ImmNotifyIME(param0.into(), dwaction, dwindex, dwvalue)
 }
 #[doc = "*Required features: `\"Win32_UI_Input_Ime\"`, `\"Win32_Globalization\"`*"]
 #[cfg(feature = "Win32_Globalization")]
@@ -6699,7 +6699,7 @@ where
     extern "system" {
         fn ImmReSizeIMCC(param0: super::super::super::Globalization::HIMCC, param1: u32) -> super::super::super::Globalization::HIMCC;
     }
-    ::core::mem::transmute(ImmReSizeIMCC(param0.into(), param1))
+    ImmReSizeIMCC(param0.into(), param1)
 }
 #[doc = "*Required features: `\"Win32_UI_Input_Ime\"`, `\"Win32_Foundation\"`, `\"Win32_UI_TextServices\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_TextServices"))]
@@ -6714,7 +6714,7 @@ where
     extern "system" {
         fn ImmRegisterWordA(param0: super::super::TextServices::HKL, lpszreading: ::windows::core::PCSTR, param2: u32, lpszregister: ::windows::core::PCSTR) -> super::super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(ImmRegisterWordA(param0.into(), lpszreading.into(), param2, lpszregister.into()))
+    ImmRegisterWordA(param0.into(), lpszreading.into(), param2, lpszregister.into())
 }
 #[doc = "*Required features: `\"Win32_UI_Input_Ime\"`, `\"Win32_Foundation\"`, `\"Win32_UI_TextServices\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_TextServices"))]
@@ -6729,7 +6729,7 @@ where
     extern "system" {
         fn ImmRegisterWordW(param0: super::super::TextServices::HKL, lpszreading: ::windows::core::PCWSTR, param2: u32, lpszregister: ::windows::core::PCWSTR) -> super::super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(ImmRegisterWordW(param0.into(), lpszreading.into(), param2, lpszregister.into()))
+    ImmRegisterWordW(param0.into(), lpszreading.into(), param2, lpszregister.into())
 }
 #[doc = "*Required features: `\"Win32_UI_Input_Ime\"`, `\"Win32_Foundation\"`, `\"Win32_Globalization\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Globalization"))]
@@ -6743,7 +6743,7 @@ where
     extern "system" {
         fn ImmReleaseContext(param0: super::super::super::Foundation::HWND, param1: super::super::super::Globalization::HIMC) -> super::super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(ImmReleaseContext(param0.into(), param1.into()))
+    ImmReleaseContext(param0.into(), param1.into())
 }
 #[doc = "*Required features: `\"Win32_UI_Input_Ime\"`, `\"Win32_Foundation\"`, `\"Win32_Globalization\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Globalization"))]
@@ -6758,7 +6758,7 @@ where
     extern "system" {
         fn ImmRequestMessageA(param0: super::super::super::Globalization::HIMC, param1: super::super::super::Foundation::WPARAM, param2: super::super::super::Foundation::LPARAM) -> super::super::super::Foundation::LRESULT;
     }
-    ::core::mem::transmute(ImmRequestMessageA(param0.into(), param1.into(), param2.into()))
+    ImmRequestMessageA(param0.into(), param1.into(), param2.into())
 }
 #[doc = "*Required features: `\"Win32_UI_Input_Ime\"`, `\"Win32_Foundation\"`, `\"Win32_Globalization\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Globalization"))]
@@ -6773,7 +6773,7 @@ where
     extern "system" {
         fn ImmRequestMessageW(param0: super::super::super::Globalization::HIMC, param1: super::super::super::Foundation::WPARAM, param2: super::super::super::Foundation::LPARAM) -> super::super::super::Foundation::LRESULT;
     }
-    ::core::mem::transmute(ImmRequestMessageW(param0.into(), param1.into(), param2.into()))
+    ImmRequestMessageW(param0.into(), param1.into(), param2.into())
 }
 #[doc = "*Required features: `\"Win32_UI_Input_Ime\"`, `\"Win32_Foundation\"`, `\"Win32_Globalization\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Globalization"))]
@@ -6786,7 +6786,7 @@ where
     extern "system" {
         fn ImmSetCandidateWindow(param0: super::super::super::Globalization::HIMC, lpcandidate: *const CANDIDATEFORM) -> super::super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(ImmSetCandidateWindow(param0.into(), ::core::mem::transmute(lpcandidate)))
+    ImmSetCandidateWindow(param0.into(), ::core::mem::transmute(lpcandidate))
 }
 #[doc = "*Required features: `\"Win32_UI_Input_Ime\"`, `\"Win32_Foundation\"`, `\"Win32_Globalization\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Globalization", feature = "Win32_Graphics_Gdi"))]
@@ -6799,7 +6799,7 @@ where
     extern "system" {
         fn ImmSetCompositionFontA(param0: super::super::super::Globalization::HIMC, lplf: *const super::super::super::Graphics::Gdi::LOGFONTA) -> super::super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(ImmSetCompositionFontA(param0.into(), ::core::mem::transmute(lplf)))
+    ImmSetCompositionFontA(param0.into(), ::core::mem::transmute(lplf))
 }
 #[doc = "*Required features: `\"Win32_UI_Input_Ime\"`, `\"Win32_Foundation\"`, `\"Win32_Globalization\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Globalization", feature = "Win32_Graphics_Gdi"))]
@@ -6812,7 +6812,7 @@ where
     extern "system" {
         fn ImmSetCompositionFontW(param0: super::super::super::Globalization::HIMC, lplf: *const super::super::super::Graphics::Gdi::LOGFONTW) -> super::super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(ImmSetCompositionFontW(param0.into(), ::core::mem::transmute(lplf)))
+    ImmSetCompositionFontW(param0.into(), ::core::mem::transmute(lplf))
 }
 #[doc = "*Required features: `\"Win32_UI_Input_Ime\"`, `\"Win32_Foundation\"`, `\"Win32_Globalization\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Globalization"))]
@@ -6825,7 +6825,7 @@ where
     extern "system" {
         fn ImmSetCompositionStringA(param0: super::super::super::Globalization::HIMC, dwindex: SET_COMPOSITION_STRING_TYPE, lpcomp: *const ::core::ffi::c_void, dwcomplen: u32, lpread: *const ::core::ffi::c_void, dwreadlen: u32) -> super::super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(ImmSetCompositionStringA(param0.into(), dwindex, ::core::mem::transmute(lpcomp), dwcomplen, ::core::mem::transmute(lpread), dwreadlen))
+    ImmSetCompositionStringA(param0.into(), dwindex, ::core::mem::transmute(lpcomp), dwcomplen, ::core::mem::transmute(lpread), dwreadlen)
 }
 #[doc = "*Required features: `\"Win32_UI_Input_Ime\"`, `\"Win32_Foundation\"`, `\"Win32_Globalization\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Globalization"))]
@@ -6838,7 +6838,7 @@ where
     extern "system" {
         fn ImmSetCompositionStringW(param0: super::super::super::Globalization::HIMC, dwindex: SET_COMPOSITION_STRING_TYPE, lpcomp: *const ::core::ffi::c_void, dwcomplen: u32, lpread: *const ::core::ffi::c_void, dwreadlen: u32) -> super::super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(ImmSetCompositionStringW(param0.into(), dwindex, ::core::mem::transmute(lpcomp), dwcomplen, ::core::mem::transmute(lpread), dwreadlen))
+    ImmSetCompositionStringW(param0.into(), dwindex, ::core::mem::transmute(lpcomp), dwcomplen, ::core::mem::transmute(lpread), dwreadlen)
 }
 #[doc = "*Required features: `\"Win32_UI_Input_Ime\"`, `\"Win32_Foundation\"`, `\"Win32_Globalization\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Globalization"))]
@@ -6851,7 +6851,7 @@ where
     extern "system" {
         fn ImmSetCompositionWindow(param0: super::super::super::Globalization::HIMC, lpcompform: *const COMPOSITIONFORM) -> super::super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(ImmSetCompositionWindow(param0.into(), ::core::mem::transmute(lpcompform)))
+    ImmSetCompositionWindow(param0.into(), ::core::mem::transmute(lpcompform))
 }
 #[doc = "*Required features: `\"Win32_UI_Input_Ime\"`, `\"Win32_Foundation\"`, `\"Win32_Globalization\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Globalization"))]
@@ -6864,7 +6864,7 @@ where
     extern "system" {
         fn ImmSetConversionStatus(param0: super::super::super::Globalization::HIMC, param1: u32, param2: u32) -> super::super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(ImmSetConversionStatus(param0.into(), param1, param2))
+    ImmSetConversionStatus(param0.into(), param1, param2)
 }
 #[doc = "*Required features: `\"Win32_UI_Input_Ime\"`, `\"Win32_Foundation\"`, `\"Win32_UI_TextServices\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_TextServices"))]
@@ -6877,7 +6877,7 @@ where
     extern "system" {
         fn ImmSetHotKey(param0: u32, param1: u32, param2: u32, param3: super::super::TextServices::HKL) -> super::super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(ImmSetHotKey(param0, param1, param2, param3.into()))
+    ImmSetHotKey(param0, param1, param2, param3.into())
 }
 #[doc = "*Required features: `\"Win32_UI_Input_Ime\"`, `\"Win32_Foundation\"`, `\"Win32_Globalization\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Globalization"))]
@@ -6891,7 +6891,7 @@ where
     extern "system" {
         fn ImmSetOpenStatus(param0: super::super::super::Globalization::HIMC, param1: super::super::super::Foundation::BOOL) -> super::super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(ImmSetOpenStatus(param0.into(), param1.into()))
+    ImmSetOpenStatus(param0.into(), param1.into())
 }
 #[doc = "*Required features: `\"Win32_UI_Input_Ime\"`, `\"Win32_Foundation\"`, `\"Win32_Globalization\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Globalization"))]
@@ -6904,7 +6904,7 @@ where
     extern "system" {
         fn ImmSetStatusWindowPos(param0: super::super::super::Globalization::HIMC, lpptpos: *const super::super::super::Foundation::POINT) -> super::super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(ImmSetStatusWindowPos(param0.into(), ::core::mem::transmute(lpptpos)))
+    ImmSetStatusWindowPos(param0.into(), ::core::mem::transmute(lpptpos))
 }
 #[doc = "*Required features: `\"Win32_UI_Input_Ime\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -6917,7 +6917,7 @@ where
     extern "system" {
         fn ImmShowSoftKeyboard(param0: super::super::super::Foundation::HWND, param1: i32) -> super::super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(ImmShowSoftKeyboard(param0.into(), param1))
+    ImmShowSoftKeyboard(param0.into(), param1)
 }
 #[doc = "*Required features: `\"Win32_UI_Input_Ime\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -6930,7 +6930,7 @@ where
     extern "system" {
         fn ImmSimulateHotKey(param0: super::super::super::Foundation::HWND, param1: u32) -> super::super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(ImmSimulateHotKey(param0.into(), param1))
+    ImmSimulateHotKey(param0.into(), param1)
 }
 #[doc = "*Required features: `\"Win32_UI_Input_Ime\"`, `\"Win32_Foundation\"`, `\"Win32_Globalization\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Globalization"))]
@@ -6943,7 +6943,7 @@ where
     extern "system" {
         fn ImmUnlockIMC(param0: super::super::super::Globalization::HIMC) -> super::super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(ImmUnlockIMC(param0.into()))
+    ImmUnlockIMC(param0.into())
 }
 #[doc = "*Required features: `\"Win32_UI_Input_Ime\"`, `\"Win32_Foundation\"`, `\"Win32_Globalization\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Globalization"))]
@@ -6956,7 +6956,7 @@ where
     extern "system" {
         fn ImmUnlockIMCC(param0: super::super::super::Globalization::HIMCC) -> super::super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(ImmUnlockIMCC(param0.into()))
+    ImmUnlockIMCC(param0.into())
 }
 #[doc = "*Required features: `\"Win32_UI_Input_Ime\"`, `\"Win32_Foundation\"`, `\"Win32_UI_TextServices\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_TextServices"))]
@@ -6971,7 +6971,7 @@ where
     extern "system" {
         fn ImmUnregisterWordA(param0: super::super::TextServices::HKL, lpszreading: ::windows::core::PCSTR, param2: u32, lpszunregister: ::windows::core::PCSTR) -> super::super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(ImmUnregisterWordA(param0.into(), lpszreading.into(), param2, lpszunregister.into()))
+    ImmUnregisterWordA(param0.into(), lpszreading.into(), param2, lpszunregister.into())
 }
 #[doc = "*Required features: `\"Win32_UI_Input_Ime\"`, `\"Win32_Foundation\"`, `\"Win32_UI_TextServices\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_TextServices"))]
@@ -6986,7 +6986,7 @@ where
     extern "system" {
         fn ImmUnregisterWordW(param0: super::super::TextServices::HKL, lpszreading: ::windows::core::PCWSTR, param2: u32, lpszunregister: ::windows::core::PCWSTR) -> super::super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(ImmUnregisterWordW(param0.into(), lpszreading.into(), param2, lpszunregister.into()))
+    ImmUnregisterWordW(param0.into(), lpszreading.into(), param2, lpszunregister.into())
 }
 #[doc = "*Required features: `\"Win32_UI_Input_Ime\"`*"]
 pub const JPOS_1DAN: u32 = 213u32;

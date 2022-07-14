@@ -2816,10 +2816,10 @@ impl IVssWriterImpl {
         (::windows::core::Interface::vtable(self).Uninitialize)(::windows::core::Interface::as_raw(self))
     }
     pub unsafe fn GetCurrentVolumeArray(&self) -> *mut ::windows::core::PWSTR {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).GetCurrentVolumeArray)(::windows::core::Interface::as_raw(self)))
+        (::windows::core::Interface::vtable(self).GetCurrentVolumeArray)(::windows::core::Interface::as_raw(self))
     }
     pub unsafe fn GetCurrentVolumeCount(&self) -> u32 {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).GetCurrentVolumeCount)(::windows::core::Interface::as_raw(self)))
+        (::windows::core::Interface::vtable(self).GetCurrentVolumeCount)(::windows::core::Interface::as_raw(self))
     }
     pub unsafe fn GetSnapshotDeviceName<'a, P0>(&self, wszoriginalvolume: P0) -> ::windows::core::Result<::windows::core::PWSTR>
     where
@@ -2834,40 +2834,40 @@ impl IVssWriterImpl {
         result__
     }
     pub unsafe fn GetContext(&self) -> i32 {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).GetContext)(::windows::core::Interface::as_raw(self)))
+        (::windows::core::Interface::vtable(self).GetContext)(::windows::core::Interface::as_raw(self))
     }
     pub unsafe fn GetCurrentLevel(&self) -> VSS_APPLICATION_LEVEL {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).GetCurrentLevel)(::windows::core::Interface::as_raw(self)))
+        (::windows::core::Interface::vtable(self).GetCurrentLevel)(::windows::core::Interface::as_raw(self))
     }
     pub unsafe fn IsPathAffected<'a, P0>(&self, wszpath: P0) -> bool
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).IsPathAffected)(::windows::core::Interface::as_raw(self), wszpath.into()))
+        (::windows::core::Interface::vtable(self).IsPathAffected)(::windows::core::Interface::as_raw(self), wszpath.into())
     }
     pub unsafe fn IsBootableSystemStateBackedUp(&self) -> bool {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).IsBootableSystemStateBackedUp)(::windows::core::Interface::as_raw(self)))
+        (::windows::core::Interface::vtable(self).IsBootableSystemStateBackedUp)(::windows::core::Interface::as_raw(self))
     }
     pub unsafe fn AreComponentsSelected(&self) -> bool {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).AreComponentsSelected)(::windows::core::Interface::as_raw(self)))
+        (::windows::core::Interface::vtable(self).AreComponentsSelected)(::windows::core::Interface::as_raw(self))
     }
     pub unsafe fn GetBackupType(&self) -> VSS_BACKUP_TYPE {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).GetBackupType)(::windows::core::Interface::as_raw(self)))
+        (::windows::core::Interface::vtable(self).GetBackupType)(::windows::core::Interface::as_raw(self))
     }
     pub unsafe fn GetRestoreType(&self) -> VSS_RESTORE_TYPE {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).GetRestoreType)(::windows::core::Interface::as_raw(self)))
+        (::windows::core::Interface::vtable(self).GetRestoreType)(::windows::core::Interface::as_raw(self))
     }
     pub unsafe fn SetWriterFailure(&self, hr: ::windows::core::HRESULT) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetWriterFailure)(::windows::core::Interface::as_raw(self), hr).ok()
     }
     pub unsafe fn IsPartialFileSupportEnabled(&self) -> bool {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).IsPartialFileSupportEnabled)(::windows::core::Interface::as_raw(self)))
+        (::windows::core::Interface::vtable(self).IsPartialFileSupportEnabled)(::windows::core::Interface::as_raw(self))
     }
     pub unsafe fn InstallAlternateWriter(&self, idwriter: ::windows::core::GUID, clsid: ::windows::core::GUID) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).InstallAlternateWriter)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(idwriter), ::core::mem::transmute(clsid)).ok()
     }
     pub unsafe fn GetIdentityInformation(&self) -> *mut IVssExamineWriterMetadata {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).GetIdentityInformation)(::windows::core::Interface::as_raw(self)))
+        (::windows::core::Interface::vtable(self).GetIdentityInformation)(::windows::core::Interface::as_raw(self))
     }
     pub unsafe fn SetWriterFailureEx<'a, P0>(&self, hr: ::windows::core::HRESULT, hrapplication: ::windows::core::HRESULT, wszapplicationmessage: P0) -> ::windows::core::Result<()>
     where
@@ -2880,7 +2880,7 @@ impl IVssWriterImpl {
         (::windows::core::Interface::vtable(self).GetSessionId)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::GUID>(result__)
     }
     pub unsafe fn IsWriterShuttingDown(&self) -> bool {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).IsWriterShuttingDown)(::windows::core::Interface::as_raw(self)))
+        (::windows::core::Interface::vtable(self).IsWriterShuttingDown)(::windows::core::Interface::as_raw(self))
     }
 }
 impl ::core::convert::From<IVssWriterImpl> for ::windows::core::IUnknown {

@@ -4269,7 +4269,7 @@ pub unsafe fn WSManCloseOperation(operationhandle: *mut WSMAN_OPERATION, flags: 
     extern "system" {
         fn WSManCloseOperation(operationhandle: *mut WSMAN_OPERATION, flags: u32) -> u32;
     }
-    ::core::mem::transmute(WSManCloseOperation(::core::mem::transmute(operationhandle), flags))
+    WSManCloseOperation(::core::mem::transmute(operationhandle), flags)
 }
 #[doc = "*Required features: `\"Win32_System_RemoteManagement\"`*"]
 #[inline]
@@ -4278,7 +4278,7 @@ pub unsafe fn WSManCloseSession(session: *mut WSMAN_SESSION, flags: u32) -> u32 
     extern "system" {
         fn WSManCloseSession(session: *mut WSMAN_SESSION, flags: u32) -> u32;
     }
-    ::core::mem::transmute(WSManCloseSession(::core::mem::transmute(session), flags))
+    WSManCloseSession(::core::mem::transmute(session), flags)
 }
 #[doc = "*Required features: `\"Win32_System_RemoteManagement\"`*"]
 #[inline]
@@ -4326,7 +4326,7 @@ where
     extern "system" {
         fn WSManCreateSession(apihandle: *const WSMAN_API, connection: ::windows::core::PCWSTR, flags: u32, serverauthenticationcredentials: *const WSMAN_AUTHENTICATION_CREDENTIALS, proxyinfo: *const WSMAN_PROXY_INFO, session: *mut *mut WSMAN_SESSION) -> u32;
     }
-    ::core::mem::transmute(WSManCreateSession(::core::mem::transmute(apihandle), connection.into(), flags, ::core::mem::transmute(serverauthenticationcredentials), ::core::mem::transmute(proxyinfo), ::core::mem::transmute(session)))
+    WSManCreateSession(::core::mem::transmute(apihandle), connection.into(), flags, ::core::mem::transmute(serverauthenticationcredentials), ::core::mem::transmute(proxyinfo), ::core::mem::transmute(session))
 }
 #[doc = "*Required features: `\"Win32_System_RemoteManagement\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -4393,7 +4393,7 @@ pub unsafe fn WSManDeinitialize(apihandle: *mut WSMAN_API, flags: u32) -> u32 {
     extern "system" {
         fn WSManDeinitialize(apihandle: *mut WSMAN_API, flags: u32) -> u32;
     }
-    ::core::mem::transmute(WSManDeinitialize(::core::mem::transmute(apihandle), flags))
+    WSManDeinitialize(::core::mem::transmute(apihandle), flags)
 }
 #[doc = "*Required features: `\"Win32_System_RemoteManagement\"`*"]
 #[inline]
@@ -4455,7 +4455,7 @@ where
     extern "system" {
         fn WSManGetErrorMessage(apihandle: *const WSMAN_API, flags: u32, languagecode: ::windows::core::PCWSTR, errorcode: u32, messagelength: u32, message: ::windows::core::PWSTR, messagelengthused: *mut u32) -> u32;
     }
-    ::core::mem::transmute(WSManGetErrorMessage(::core::mem::transmute(apihandle), flags, languagecode.into(), errorcode, message.len() as _, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(message)), ::core::mem::transmute(messagelengthused)))
+    WSManGetErrorMessage(::core::mem::transmute(apihandle), flags, languagecode.into(), errorcode, message.len() as _, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(message)), ::core::mem::transmute(messagelengthused))
 }
 #[doc = "*Required features: `\"Win32_System_RemoteManagement\"`*"]
 #[inline]
@@ -4464,7 +4464,7 @@ pub unsafe fn WSManGetSessionOptionAsDword(session: *const WSMAN_SESSION, option
     extern "system" {
         fn WSManGetSessionOptionAsDword(session: *const WSMAN_SESSION, option: WSManSessionOption, value: *mut u32) -> u32;
     }
-    ::core::mem::transmute(WSManGetSessionOptionAsDword(::core::mem::transmute(session), option, ::core::mem::transmute(value)))
+    WSManGetSessionOptionAsDword(::core::mem::transmute(session), option, ::core::mem::transmute(value))
 }
 #[doc = "*Required features: `\"Win32_System_RemoteManagement\"`*"]
 #[inline]
@@ -4473,7 +4473,7 @@ pub unsafe fn WSManGetSessionOptionAsString(session: *const WSMAN_SESSION, optio
     extern "system" {
         fn WSManGetSessionOptionAsString(session: *const WSMAN_SESSION, option: WSManSessionOption, stringlength: u32, string: ::windows::core::PWSTR, stringlengthused: *mut u32) -> u32;
     }
-    ::core::mem::transmute(WSManGetSessionOptionAsString(::core::mem::transmute(session), option, string.len() as _, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(string)), ::core::mem::transmute(stringlengthused)))
+    WSManGetSessionOptionAsString(::core::mem::transmute(session), option, string.len() as _, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(string)), ::core::mem::transmute(stringlengthused))
 }
 #[doc = "*Required features: `\"Win32_System_RemoteManagement\"`*"]
 #[inline]
@@ -4482,7 +4482,7 @@ pub unsafe fn WSManInitialize(flags: u32, apihandle: *mut *mut WSMAN_API) -> u32
     extern "system" {
         fn WSManInitialize(flags: u32, apihandle: *mut *mut WSMAN_API) -> u32;
     }
-    ::core::mem::transmute(WSManInitialize(flags, ::core::mem::transmute(apihandle)))
+    WSManInitialize(flags, ::core::mem::transmute(apihandle))
 }
 pub const WSManInternal: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7de087a5_5dcb_4df7_bb12_0924ad8fbd9a);
 #[doc = "*Required features: `\"Win32_System_RemoteManagement\"`, `\"Win32_Foundation\"`*"]
@@ -4496,7 +4496,7 @@ where
     extern "system" {
         fn WSManPluginAuthzOperationComplete(senderdetails: *const WSMAN_SENDER_DETAILS, flags: u32, userauthorizationcontext: *const ::core::ffi::c_void, errorcode: u32, extendederrorinformation: ::windows::core::PCWSTR) -> u32;
     }
-    ::core::mem::transmute(WSManPluginAuthzOperationComplete(::core::mem::transmute(senderdetails), flags, ::core::mem::transmute(userauthorizationcontext), errorcode, extendederrorinformation.into()))
+    WSManPluginAuthzOperationComplete(::core::mem::transmute(senderdetails), flags, ::core::mem::transmute(userauthorizationcontext), errorcode, extendederrorinformation.into())
 }
 #[doc = "*Required features: `\"Win32_System_RemoteManagement\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -4509,7 +4509,7 @@ where
     extern "system" {
         fn WSManPluginAuthzQueryQuotaComplete(senderdetails: *const WSMAN_SENDER_DETAILS, flags: u32, quota: *const WSMAN_AUTHZ_QUOTA, errorcode: u32, extendederrorinformation: ::windows::core::PCWSTR) -> u32;
     }
-    ::core::mem::transmute(WSManPluginAuthzQueryQuotaComplete(::core::mem::transmute(senderdetails), flags, ::core::mem::transmute(quota), errorcode, extendederrorinformation.into()))
+    WSManPluginAuthzQueryQuotaComplete(::core::mem::transmute(senderdetails), flags, ::core::mem::transmute(quota), errorcode, extendederrorinformation.into())
 }
 #[doc = "*Required features: `\"Win32_System_RemoteManagement\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -4524,7 +4524,7 @@ where
     extern "system" {
         fn WSManPluginAuthzUserComplete(senderdetails: *const WSMAN_SENDER_DETAILS, flags: u32, userauthorizationcontext: *const ::core::ffi::c_void, impersonationtoken: super::super::Foundation::HANDLE, userisadministrator: super::super::Foundation::BOOL, errorcode: u32, extendederrorinformation: ::windows::core::PCWSTR) -> u32;
     }
-    ::core::mem::transmute(WSManPluginAuthzUserComplete(::core::mem::transmute(senderdetails), flags, ::core::mem::transmute(userauthorizationcontext), impersonationtoken.into(), userisadministrator.into(), errorcode, extendederrorinformation.into()))
+    WSManPluginAuthzUserComplete(::core::mem::transmute(senderdetails), flags, ::core::mem::transmute(userauthorizationcontext), impersonationtoken.into(), userisadministrator.into(), errorcode, extendederrorinformation.into())
 }
 #[doc = "*Required features: `\"Win32_System_RemoteManagement\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -4534,7 +4534,7 @@ pub unsafe fn WSManPluginFreeRequestDetails(requestdetails: *const WSMAN_PLUGIN_
     extern "system" {
         fn WSManPluginFreeRequestDetails(requestdetails: *const WSMAN_PLUGIN_REQUEST) -> u32;
     }
-    ::core::mem::transmute(WSManPluginFreeRequestDetails(::core::mem::transmute(requestdetails)))
+    WSManPluginFreeRequestDetails(::core::mem::transmute(requestdetails))
 }
 #[doc = "*Required features: `\"Win32_System_RemoteManagement\"`*"]
 #[inline]
@@ -4543,7 +4543,7 @@ pub unsafe fn WSManPluginGetConfiguration(plugincontext: *const ::core::ffi::c_v
     extern "system" {
         fn WSManPluginGetConfiguration(plugincontext: *const ::core::ffi::c_void, flags: u32, data: *mut WSMAN_DATA) -> u32;
     }
-    ::core::mem::transmute(WSManPluginGetConfiguration(::core::mem::transmute(plugincontext), flags, ::core::mem::transmute(data)))
+    WSManPluginGetConfiguration(::core::mem::transmute(plugincontext), flags, ::core::mem::transmute(data))
 }
 #[doc = "*Required features: `\"Win32_System_RemoteManagement\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -4553,7 +4553,7 @@ pub unsafe fn WSManPluginGetOperationParameters(requestdetails: *const WSMAN_PLU
     extern "system" {
         fn WSManPluginGetOperationParameters(requestdetails: *const WSMAN_PLUGIN_REQUEST, flags: u32, data: *mut WSMAN_DATA) -> u32;
     }
-    ::core::mem::transmute(WSManPluginGetOperationParameters(::core::mem::transmute(requestdetails), flags, ::core::mem::transmute(data)))
+    WSManPluginGetOperationParameters(::core::mem::transmute(requestdetails), flags, ::core::mem::transmute(data))
 }
 #[doc = "*Required features: `\"Win32_System_RemoteManagement\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -4566,7 +4566,7 @@ where
     extern "system" {
         fn WSManPluginOperationComplete(requestdetails: *const WSMAN_PLUGIN_REQUEST, flags: u32, errorcode: u32, extendedinformation: ::windows::core::PCWSTR) -> u32;
     }
-    ::core::mem::transmute(WSManPluginOperationComplete(::core::mem::transmute(requestdetails), flags, errorcode, extendedinformation.into()))
+    WSManPluginOperationComplete(::core::mem::transmute(requestdetails), flags, errorcode, extendedinformation.into())
 }
 #[doc = "*Required features: `\"Win32_System_RemoteManagement\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -4580,7 +4580,7 @@ where
     extern "system" {
         fn WSManPluginReceiveResult(requestdetails: *const WSMAN_PLUGIN_REQUEST, flags: u32, stream: ::windows::core::PCWSTR, streamresult: *const WSMAN_DATA, commandstate: ::windows::core::PCWSTR, exitcode: u32) -> u32;
     }
-    ::core::mem::transmute(WSManPluginReceiveResult(::core::mem::transmute(requestdetails), flags, stream.into(), ::core::mem::transmute(streamresult), commandstate.into(), exitcode))
+    WSManPluginReceiveResult(::core::mem::transmute(requestdetails), flags, stream.into(), ::core::mem::transmute(streamresult), commandstate.into(), exitcode)
 }
 #[doc = "*Required features: `\"Win32_System_RemoteManagement\"`*"]
 #[inline]
@@ -4589,7 +4589,7 @@ pub unsafe fn WSManPluginReportCompletion(plugincontext: *const ::core::ffi::c_v
     extern "system" {
         fn WSManPluginReportCompletion(plugincontext: *const ::core::ffi::c_void, flags: u32) -> u32;
     }
-    ::core::mem::transmute(WSManPluginReportCompletion(::core::mem::transmute(plugincontext), flags))
+    WSManPluginReportCompletion(::core::mem::transmute(plugincontext), flags)
 }
 #[doc = "*Required features: `\"Win32_System_RemoteManagement\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -4599,7 +4599,7 @@ pub unsafe fn WSManPluginReportContext(requestdetails: *const WSMAN_PLUGIN_REQUE
     extern "system" {
         fn WSManPluginReportContext(requestdetails: *const WSMAN_PLUGIN_REQUEST, flags: u32, context: *const ::core::ffi::c_void) -> u32;
     }
-    ::core::mem::transmute(WSManPluginReportContext(::core::mem::transmute(requestdetails), flags, ::core::mem::transmute(context)))
+    WSManPluginReportContext(::core::mem::transmute(requestdetails), flags, ::core::mem::transmute(context))
 }
 #[doc = "*Required features: `\"Win32_System_RemoteManagement\"`*"]
 #[repr(transparent)]
@@ -4893,7 +4893,7 @@ pub unsafe fn WSManSetSessionOption(session: *const WSMAN_SESSION, option: WSMan
     extern "system" {
         fn WSManSetSessionOption(session: *const WSMAN_SESSION, option: WSManSessionOption, data: *const WSMAN_DATA) -> u32;
     }
-    ::core::mem::transmute(WSManSetSessionOption(::core::mem::transmute(session), option, ::core::mem::transmute(data)))
+    WSManSetSessionOption(::core::mem::transmute(session), option, ::core::mem::transmute(data))
 }
 #[doc = "*Required features: `\"Win32_System_RemoteManagement\"`*"]
 #[repr(transparent)]

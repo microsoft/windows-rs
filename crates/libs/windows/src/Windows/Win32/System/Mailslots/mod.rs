@@ -37,7 +37,7 @@ where
     extern "system" {
         fn GetMailslotInfo(hmailslot: super::super::Foundation::HANDLE, lpmaxmessagesize: *mut u32, lpnextsize: *mut u32, lpmessagecount: *mut u32, lpreadtimeout: *mut u32) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(GetMailslotInfo(hmailslot.into(), ::core::mem::transmute(lpmaxmessagesize), ::core::mem::transmute(lpnextsize), ::core::mem::transmute(lpmessagecount), ::core::mem::transmute(lpreadtimeout)))
+    GetMailslotInfo(hmailslot.into(), ::core::mem::transmute(lpmaxmessagesize), ::core::mem::transmute(lpnextsize), ::core::mem::transmute(lpmessagecount), ::core::mem::transmute(lpreadtimeout))
 }
 #[doc = "*Required features: `\"Win32_System_Mailslots\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -50,7 +50,7 @@ where
     extern "system" {
         fn SetMailslotInfo(hmailslot: super::super::Foundation::HANDLE, lreadtimeout: u32) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(SetMailslotInfo(hmailslot.into(), lreadtimeout))
+    SetMailslotInfo(hmailslot.into(), lreadtimeout)
 }
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

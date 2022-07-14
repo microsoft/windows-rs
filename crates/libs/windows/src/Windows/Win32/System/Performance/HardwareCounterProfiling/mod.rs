@@ -9,7 +9,7 @@ where
     extern "system" {
         fn DisableThreadProfiling(performancedatahandle: super::super::super::Foundation::HANDLE) -> u32;
     }
-    ::core::mem::transmute(DisableThreadProfiling(performancedatahandle.into()))
+    DisableThreadProfiling(performancedatahandle.into())
 }
 #[doc = "*Required features: `\"Win32_System_Performance_HardwareCounterProfiling\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -22,7 +22,7 @@ where
     extern "system" {
         fn EnableThreadProfiling(threadhandle: super::super::super::Foundation::HANDLE, flags: u32, hardwarecounters: u64, performancedatahandle: *mut super::super::super::Foundation::HANDLE) -> u32;
     }
-    ::core::mem::transmute(EnableThreadProfiling(threadhandle.into(), flags, hardwarecounters, ::core::mem::transmute(performancedatahandle)))
+    EnableThreadProfiling(threadhandle.into(), flags, hardwarecounters, ::core::mem::transmute(performancedatahandle))
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_System_Performance_HardwareCounterProfiling\"`*"]
@@ -132,7 +132,7 @@ where
     extern "system" {
         fn QueryThreadProfiling(threadhandle: super::super::super::Foundation::HANDLE, enabled: *mut super::super::super::Foundation::BOOLEAN) -> u32;
     }
-    ::core::mem::transmute(QueryThreadProfiling(threadhandle.into(), ::core::mem::transmute(enabled)))
+    QueryThreadProfiling(threadhandle.into(), ::core::mem::transmute(enabled))
 }
 #[doc = "*Required features: `\"Win32_System_Performance_HardwareCounterProfiling\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -145,7 +145,7 @@ where
     extern "system" {
         fn ReadThreadProfilingData(performancedatahandle: super::super::super::Foundation::HANDLE, flags: u32, performancedata: *mut PERFORMANCE_DATA) -> u32;
     }
-    ::core::mem::transmute(ReadThreadProfilingData(performancedatahandle.into(), flags, ::core::mem::transmute(performancedata)))
+    ReadThreadProfilingData(performancedatahandle.into(), flags, ::core::mem::transmute(performancedata))
 }
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

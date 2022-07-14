@@ -313,7 +313,7 @@ impl ICallFrame {
         (::windows::core::Interface::vtable(self).GetNames)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pwszinterface), ::core::mem::transmute(pwszmethod)).ok()
     }
     pub unsafe fn GetStackLocation(&self) -> *mut ::core::ffi::c_void {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).GetStackLocation)(::windows::core::Interface::as_raw(self)))
+        (::windows::core::Interface::vtable(self).GetStackLocation)(::windows::core::Interface::as_raw(self))
     }
     pub unsafe fn SetStackLocation(&self, pvstack: *const ::core::ffi::c_void) {
         (::windows::core::Interface::vtable(self).SetStackLocation)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pvstack))

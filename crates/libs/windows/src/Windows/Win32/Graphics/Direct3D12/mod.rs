@@ -18111,7 +18111,7 @@ impl ID3D12CommandList {
         (::windows::core::Interface::vtable(self).base__.GetDevice)(::windows::core::Interface::as_raw(self), &<T as ::windows::core::Interface>::IID, result__ as *mut _ as *mut _).ok()
     }
     pub unsafe fn GetType(&self) -> D3D12_COMMAND_LIST_TYPE {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).GetType)(::windows::core::Interface::as_raw(self)))
+        (::windows::core::Interface::vtable(self).GetType)(::windows::core::Interface::as_raw(self))
     }
 }
 impl ::core::convert::From<ID3D12CommandList> for ::windows::core::IUnknown {
@@ -19002,13 +19002,13 @@ impl ID3D12DebugCommandList {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ID3D12Resource>>,
     {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).AssertResourceState)(::windows::core::Interface::as_raw(self), presource.into().abi(), subresource, state))
+        (::windows::core::Interface::vtable(self).AssertResourceState)(::windows::core::Interface::as_raw(self), presource.into().abi(), subresource, state)
     }
     pub unsafe fn SetFeatureMask(&self, mask: D3D12_DEBUG_FEATURE) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetFeatureMask)(::windows::core::Interface::as_raw(self), mask).ok()
     }
     pub unsafe fn GetFeatureMask(&self) -> D3D12_DEBUG_FEATURE {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).GetFeatureMask)(::windows::core::Interface::as_raw(self)))
+        (::windows::core::Interface::vtable(self).GetFeatureMask)(::windows::core::Interface::as_raw(self))
     }
 }
 impl ::core::convert::From<ID3D12DebugCommandList> for ::windows::core::IUnknown {
@@ -19069,7 +19069,7 @@ impl ID3D12DebugCommandList1 {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ID3D12Resource>>,
     {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).AssertResourceState)(::windows::core::Interface::as_raw(self), presource.into().abi(), subresource, state))
+        (::windows::core::Interface::vtable(self).AssertResourceState)(::windows::core::Interface::as_raw(self), presource.into().abi(), subresource, state)
     }
     pub unsafe fn SetDebugParameter(&self, r#type: D3D12_DEBUG_COMMAND_LIST_PARAMETER_TYPE, pdata: *const ::core::ffi::c_void, datasize: u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetDebugParameter)(::windows::core::Interface::as_raw(self), r#type, ::core::mem::transmute(pdata), datasize).ok()
@@ -19136,13 +19136,13 @@ impl ID3D12DebugCommandList2 {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ID3D12Resource>>,
     {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).base__.AssertResourceState)(::windows::core::Interface::as_raw(self), presource.into().abi(), subresource, state))
+        (::windows::core::Interface::vtable(self).base__.AssertResourceState)(::windows::core::Interface::as_raw(self), presource.into().abi(), subresource, state)
     }
     pub unsafe fn SetFeatureMask(&self, mask: D3D12_DEBUG_FEATURE) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.SetFeatureMask)(::windows::core::Interface::as_raw(self), mask).ok()
     }
     pub unsafe fn GetFeatureMask(&self) -> D3D12_DEBUG_FEATURE {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).base__.GetFeatureMask)(::windows::core::Interface::as_raw(self)))
+        (::windows::core::Interface::vtable(self).base__.GetFeatureMask)(::windows::core::Interface::as_raw(self))
     }
     pub unsafe fn SetDebugParameter(&self, r#type: D3D12_DEBUG_COMMAND_LIST_PARAMETER_TYPE, pdata: *const ::core::ffi::c_void, datasize: u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetDebugParameter)(::windows::core::Interface::as_raw(self), r#type, ::core::mem::transmute(pdata), datasize).ok()
@@ -19220,7 +19220,7 @@ impl ID3D12DebugCommandQueue {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ID3D12Resource>>,
     {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).AssertResourceState)(::windows::core::Interface::as_raw(self), presource.into().abi(), subresource, state))
+        (::windows::core::Interface::vtable(self).AssertResourceState)(::windows::core::Interface::as_raw(self), presource.into().abi(), subresource, state)
     }
 }
 impl ::core::convert::From<ID3D12DebugCommandQueue> for ::windows::core::IUnknown {
@@ -19277,7 +19277,7 @@ impl ID3D12DebugDevice {
         (::windows::core::Interface::vtable(self).SetFeatureMask)(::windows::core::Interface::as_raw(self), mask).ok()
     }
     pub unsafe fn GetFeatureMask(&self) -> D3D12_DEBUG_FEATURE {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).GetFeatureMask)(::windows::core::Interface::as_raw(self)))
+        (::windows::core::Interface::vtable(self).GetFeatureMask)(::windows::core::Interface::as_raw(self))
     }
     pub unsafe fn ReportLiveDeviceObjects(&self, flags: D3D12_RLDO_FLAGS) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).ReportLiveDeviceObjects)(::windows::core::Interface::as_raw(self), flags).ok()
@@ -19395,7 +19395,7 @@ impl ID3D12DebugDevice2 {
         (::windows::core::Interface::vtable(self).base__.SetFeatureMask)(::windows::core::Interface::as_raw(self), mask).ok()
     }
     pub unsafe fn GetFeatureMask(&self) -> D3D12_DEBUG_FEATURE {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).base__.GetFeatureMask)(::windows::core::Interface::as_raw(self)))
+        (::windows::core::Interface::vtable(self).base__.GetFeatureMask)(::windows::core::Interface::as_raw(self))
     }
     pub unsafe fn ReportLiveDeviceObjects(&self, flags: D3D12_RLDO_FLAGS) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.ReportLiveDeviceObjects)(::windows::core::Interface::as_raw(self), flags).ok()
@@ -19623,7 +19623,7 @@ impl ID3D12Device {
         (::windows::core::Interface::vtable(self).base__.SetName)(::windows::core::Interface::as_raw(self), name.into()).ok()
     }
     pub unsafe fn GetNodeCount(&self) -> u32 {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).GetNodeCount)(::windows::core::Interface::as_raw(self)))
+        (::windows::core::Interface::vtable(self).GetNodeCount)(::windows::core::Interface::as_raw(self))
     }
     pub unsafe fn CreateCommandQueue<T>(&self, pdesc: *const D3D12_COMMAND_QUEUE_DESC) -> ::windows::core::Result<T>
     where
@@ -19675,7 +19675,7 @@ impl ID3D12Device {
         (::windows::core::Interface::vtable(self).CreateDescriptorHeap)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pdescriptorheapdesc), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
     }
     pub unsafe fn GetDescriptorHandleIncrementSize(&self, descriptorheaptype: D3D12_DESCRIPTOR_HEAP_TYPE) -> u32 {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).GetDescriptorHandleIncrementSize)(::windows::core::Interface::as_raw(self), descriptorheaptype))
+        (::windows::core::Interface::vtable(self).GetDescriptorHandleIncrementSize)(::windows::core::Interface::as_raw(self), descriptorheaptype)
     }
     pub unsafe fn CreateRootSignature<T>(&self, nodemask: u32, pblobwithrootsignature: &[u8]) -> ::windows::core::Result<T>
     where
@@ -20018,7 +20018,7 @@ impl ID3D12Device1 {
         (::windows::core::Interface::vtable(self).base__.base__.SetName)(::windows::core::Interface::as_raw(self), name.into()).ok()
     }
     pub unsafe fn GetNodeCount(&self) -> u32 {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).base__.GetNodeCount)(::windows::core::Interface::as_raw(self)))
+        (::windows::core::Interface::vtable(self).base__.GetNodeCount)(::windows::core::Interface::as_raw(self))
     }
     pub unsafe fn CreateCommandQueue<T>(&self, pdesc: *const D3D12_COMMAND_QUEUE_DESC) -> ::windows::core::Result<T>
     where
@@ -20070,7 +20070,7 @@ impl ID3D12Device1 {
         (::windows::core::Interface::vtable(self).base__.CreateDescriptorHeap)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pdescriptorheapdesc), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
     }
     pub unsafe fn GetDescriptorHandleIncrementSize(&self, descriptorheaptype: D3D12_DESCRIPTOR_HEAP_TYPE) -> u32 {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).base__.GetDescriptorHandleIncrementSize)(::windows::core::Interface::as_raw(self), descriptorheaptype))
+        (::windows::core::Interface::vtable(self).base__.GetDescriptorHandleIncrementSize)(::windows::core::Interface::as_raw(self), descriptorheaptype)
     }
     pub unsafe fn CreateRootSignature<T>(&self, nodemask: u32, pblobwithrootsignature: &[u8]) -> ::windows::core::Result<T>
     where
@@ -20370,7 +20370,7 @@ impl ID3D12Device2 {
         (::windows::core::Interface::vtable(self).base__.base__.base__.SetName)(::windows::core::Interface::as_raw(self), name.into()).ok()
     }
     pub unsafe fn GetNodeCount(&self) -> u32 {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).base__.base__.GetNodeCount)(::windows::core::Interface::as_raw(self)))
+        (::windows::core::Interface::vtable(self).base__.base__.GetNodeCount)(::windows::core::Interface::as_raw(self))
     }
     pub unsafe fn CreateCommandQueue<T>(&self, pdesc: *const D3D12_COMMAND_QUEUE_DESC) -> ::windows::core::Result<T>
     where
@@ -20422,7 +20422,7 @@ impl ID3D12Device2 {
         (::windows::core::Interface::vtable(self).base__.base__.CreateDescriptorHeap)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pdescriptorheapdesc), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
     }
     pub unsafe fn GetDescriptorHandleIncrementSize(&self, descriptorheaptype: D3D12_DESCRIPTOR_HEAP_TYPE) -> u32 {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).base__.base__.GetDescriptorHandleIncrementSize)(::windows::core::Interface::as_raw(self), descriptorheaptype))
+        (::windows::core::Interface::vtable(self).base__.base__.GetDescriptorHandleIncrementSize)(::windows::core::Interface::as_raw(self), descriptorheaptype)
     }
     pub unsafe fn CreateRootSignature<T>(&self, nodemask: u32, pblobwithrootsignature: &[u8]) -> ::windows::core::Result<T>
     where
@@ -20739,7 +20739,7 @@ impl ID3D12Device3 {
         (::windows::core::Interface::vtable(self).base__.base__.base__.base__.SetName)(::windows::core::Interface::as_raw(self), name.into()).ok()
     }
     pub unsafe fn GetNodeCount(&self) -> u32 {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).base__.base__.base__.GetNodeCount)(::windows::core::Interface::as_raw(self)))
+        (::windows::core::Interface::vtable(self).base__.base__.base__.GetNodeCount)(::windows::core::Interface::as_raw(self))
     }
     pub unsafe fn CreateCommandQueue<T>(&self, pdesc: *const D3D12_COMMAND_QUEUE_DESC) -> ::windows::core::Result<T>
     where
@@ -20791,7 +20791,7 @@ impl ID3D12Device3 {
         (::windows::core::Interface::vtable(self).base__.base__.base__.CreateDescriptorHeap)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pdescriptorheapdesc), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
     }
     pub unsafe fn GetDescriptorHandleIncrementSize(&self, descriptorheaptype: D3D12_DESCRIPTOR_HEAP_TYPE) -> u32 {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).base__.base__.base__.GetDescriptorHandleIncrementSize)(::windows::core::Interface::as_raw(self), descriptorheaptype))
+        (::windows::core::Interface::vtable(self).base__.base__.base__.GetDescriptorHandleIncrementSize)(::windows::core::Interface::as_raw(self), descriptorheaptype)
     }
     pub unsafe fn CreateRootSignature<T>(&self, nodemask: u32, pblobwithrootsignature: &[u8]) -> ::windows::core::Result<T>
     where
@@ -21151,7 +21151,7 @@ impl ID3D12Device4 {
         (::windows::core::Interface::vtable(self).base__.base__.base__.base__.base__.SetName)(::windows::core::Interface::as_raw(self), name.into()).ok()
     }
     pub unsafe fn GetNodeCount(&self) -> u32 {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).base__.base__.base__.base__.GetNodeCount)(::windows::core::Interface::as_raw(self)))
+        (::windows::core::Interface::vtable(self).base__.base__.base__.base__.GetNodeCount)(::windows::core::Interface::as_raw(self))
     }
     pub unsafe fn CreateCommandQueue<T>(&self, pdesc: *const D3D12_COMMAND_QUEUE_DESC) -> ::windows::core::Result<T>
     where
@@ -21203,7 +21203,7 @@ impl ID3D12Device4 {
         (::windows::core::Interface::vtable(self).base__.base__.base__.base__.CreateDescriptorHeap)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pdescriptorheapdesc), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
     }
     pub unsafe fn GetDescriptorHandleIncrementSize(&self, descriptorheaptype: D3D12_DESCRIPTOR_HEAP_TYPE) -> u32 {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).base__.base__.base__.base__.GetDescriptorHandleIncrementSize)(::windows::core::Interface::as_raw(self), descriptorheaptype))
+        (::windows::core::Interface::vtable(self).base__.base__.base__.base__.GetDescriptorHandleIncrementSize)(::windows::core::Interface::as_raw(self), descriptorheaptype)
     }
     pub unsafe fn CreateRootSignature<T>(&self, nodemask: u32, pblobwithrootsignature: &[u8]) -> ::windows::core::Result<T>
     where
@@ -21633,7 +21633,7 @@ impl ID3D12Device5 {
         (::windows::core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.SetName)(::windows::core::Interface::as_raw(self), name.into()).ok()
     }
     pub unsafe fn GetNodeCount(&self) -> u32 {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).base__.base__.base__.base__.base__.GetNodeCount)(::windows::core::Interface::as_raw(self)))
+        (::windows::core::Interface::vtable(self).base__.base__.base__.base__.base__.GetNodeCount)(::windows::core::Interface::as_raw(self))
     }
     pub unsafe fn CreateCommandQueue<T>(&self, pdesc: *const D3D12_COMMAND_QUEUE_DESC) -> ::windows::core::Result<T>
     where
@@ -21685,7 +21685,7 @@ impl ID3D12Device5 {
         (::windows::core::Interface::vtable(self).base__.base__.base__.base__.base__.CreateDescriptorHeap)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pdescriptorheapdesc), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
     }
     pub unsafe fn GetDescriptorHandleIncrementSize(&self, descriptorheaptype: D3D12_DESCRIPTOR_HEAP_TYPE) -> u32 {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).base__.base__.base__.base__.base__.GetDescriptorHandleIncrementSize)(::windows::core::Interface::as_raw(self), descriptorheaptype))
+        (::windows::core::Interface::vtable(self).base__.base__.base__.base__.base__.GetDescriptorHandleIncrementSize)(::windows::core::Interface::as_raw(self), descriptorheaptype)
     }
     pub unsafe fn CreateRootSignature<T>(&self, nodemask: u32, pblobwithrootsignature: &[u8]) -> ::windows::core::Result<T>
     where
@@ -21996,7 +21996,7 @@ impl ID3D12Device5 {
         (::windows::core::Interface::vtable(self).GetRaytracingAccelerationStructurePrebuildInfo)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pdesc), ::core::mem::transmute(pinfo))
     }
     pub unsafe fn CheckDriverMatchingIdentifier(&self, serializeddatatype: D3D12_SERIALIZED_DATA_TYPE, pidentifiertocheck: *const D3D12_SERIALIZED_DATA_DRIVER_MATCHING_IDENTIFIER) -> D3D12_DRIVER_MATCHING_IDENTIFIER_STATUS {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).CheckDriverMatchingIdentifier)(::windows::core::Interface::as_raw(self), serializeddatatype, ::core::mem::transmute(pidentifiertocheck)))
+        (::windows::core::Interface::vtable(self).CheckDriverMatchingIdentifier)(::windows::core::Interface::as_raw(self), serializeddatatype, ::core::mem::transmute(pidentifiertocheck))
     }
 }
 impl ::core::convert::From<ID3D12Device5> for ::windows::core::IUnknown {
@@ -22165,7 +22165,7 @@ impl ID3D12Device6 {
         (::windows::core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.SetName)(::windows::core::Interface::as_raw(self), name.into()).ok()
     }
     pub unsafe fn GetNodeCount(&self) -> u32 {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.GetNodeCount)(::windows::core::Interface::as_raw(self)))
+        (::windows::core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.GetNodeCount)(::windows::core::Interface::as_raw(self))
     }
     pub unsafe fn CreateCommandQueue<T>(&self, pdesc: *const D3D12_COMMAND_QUEUE_DESC) -> ::windows::core::Result<T>
     where
@@ -22217,7 +22217,7 @@ impl ID3D12Device6 {
         (::windows::core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.CreateDescriptorHeap)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pdescriptorheapdesc), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
     }
     pub unsafe fn GetDescriptorHandleIncrementSize(&self, descriptorheaptype: D3D12_DESCRIPTOR_HEAP_TYPE) -> u32 {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.GetDescriptorHandleIncrementSize)(::windows::core::Interface::as_raw(self), descriptorheaptype))
+        (::windows::core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.GetDescriptorHandleIncrementSize)(::windows::core::Interface::as_raw(self), descriptorheaptype)
     }
     pub unsafe fn CreateRootSignature<T>(&self, nodemask: u32, pblobwithrootsignature: &[u8]) -> ::windows::core::Result<T>
     where
@@ -22528,7 +22528,7 @@ impl ID3D12Device6 {
         (::windows::core::Interface::vtable(self).base__.GetRaytracingAccelerationStructurePrebuildInfo)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pdesc), ::core::mem::transmute(pinfo))
     }
     pub unsafe fn CheckDriverMatchingIdentifier(&self, serializeddatatype: D3D12_SERIALIZED_DATA_TYPE, pidentifiertocheck: *const D3D12_SERIALIZED_DATA_DRIVER_MATCHING_IDENTIFIER) -> D3D12_DRIVER_MATCHING_IDENTIFIER_STATUS {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).base__.CheckDriverMatchingIdentifier)(::windows::core::Interface::as_raw(self), serializeddatatype, ::core::mem::transmute(pidentifiertocheck)))
+        (::windows::core::Interface::vtable(self).base__.CheckDriverMatchingIdentifier)(::windows::core::Interface::as_raw(self), serializeddatatype, ::core::mem::transmute(pidentifiertocheck))
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -22714,7 +22714,7 @@ impl ID3D12Device7 {
         (::windows::core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.SetName)(::windows::core::Interface::as_raw(self), name.into()).ok()
     }
     pub unsafe fn GetNodeCount(&self) -> u32 {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.GetNodeCount)(::windows::core::Interface::as_raw(self)))
+        (::windows::core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.GetNodeCount)(::windows::core::Interface::as_raw(self))
     }
     pub unsafe fn CreateCommandQueue<T>(&self, pdesc: *const D3D12_COMMAND_QUEUE_DESC) -> ::windows::core::Result<T>
     where
@@ -22766,7 +22766,7 @@ impl ID3D12Device7 {
         (::windows::core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.CreateDescriptorHeap)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pdescriptorheapdesc), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
     }
     pub unsafe fn GetDescriptorHandleIncrementSize(&self, descriptorheaptype: D3D12_DESCRIPTOR_HEAP_TYPE) -> u32 {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.GetDescriptorHandleIncrementSize)(::windows::core::Interface::as_raw(self), descriptorheaptype))
+        (::windows::core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.GetDescriptorHandleIncrementSize)(::windows::core::Interface::as_raw(self), descriptorheaptype)
     }
     pub unsafe fn CreateRootSignature<T>(&self, nodemask: u32, pblobwithrootsignature: &[u8]) -> ::windows::core::Result<T>
     where
@@ -23077,7 +23077,7 @@ impl ID3D12Device7 {
         (::windows::core::Interface::vtable(self).base__.base__.GetRaytracingAccelerationStructurePrebuildInfo)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pdesc), ::core::mem::transmute(pinfo))
     }
     pub unsafe fn CheckDriverMatchingIdentifier(&self, serializeddatatype: D3D12_SERIALIZED_DATA_TYPE, pidentifiertocheck: *const D3D12_SERIALIZED_DATA_DRIVER_MATCHING_IDENTIFIER) -> D3D12_DRIVER_MATCHING_IDENTIFIER_STATUS {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).base__.base__.CheckDriverMatchingIdentifier)(::windows::core::Interface::as_raw(self), serializeddatatype, ::core::mem::transmute(pidentifiertocheck)))
+        (::windows::core::Interface::vtable(self).base__.base__.CheckDriverMatchingIdentifier)(::windows::core::Interface::as_raw(self), serializeddatatype, ::core::mem::transmute(pidentifiertocheck))
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -23291,7 +23291,7 @@ impl ID3D12Device8 {
         (::windows::core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.base__.SetName)(::windows::core::Interface::as_raw(self), name.into()).ok()
     }
     pub unsafe fn GetNodeCount(&self) -> u32 {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.GetNodeCount)(::windows::core::Interface::as_raw(self)))
+        (::windows::core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.GetNodeCount)(::windows::core::Interface::as_raw(self))
     }
     pub unsafe fn CreateCommandQueue<T>(&self, pdesc: *const D3D12_COMMAND_QUEUE_DESC) -> ::windows::core::Result<T>
     where
@@ -23343,7 +23343,7 @@ impl ID3D12Device8 {
         (::windows::core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.CreateDescriptorHeap)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pdescriptorheapdesc), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
     }
     pub unsafe fn GetDescriptorHandleIncrementSize(&self, descriptorheaptype: D3D12_DESCRIPTOR_HEAP_TYPE) -> u32 {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.GetDescriptorHandleIncrementSize)(::windows::core::Interface::as_raw(self), descriptorheaptype))
+        (::windows::core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.GetDescriptorHandleIncrementSize)(::windows::core::Interface::as_raw(self), descriptorheaptype)
     }
     pub unsafe fn CreateRootSignature<T>(&self, nodemask: u32, pblobwithrootsignature: &[u8]) -> ::windows::core::Result<T>
     where
@@ -23654,7 +23654,7 @@ impl ID3D12Device8 {
         (::windows::core::Interface::vtable(self).base__.base__.base__.GetRaytracingAccelerationStructurePrebuildInfo)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pdesc), ::core::mem::transmute(pinfo))
     }
     pub unsafe fn CheckDriverMatchingIdentifier(&self, serializeddatatype: D3D12_SERIALIZED_DATA_TYPE, pidentifiertocheck: *const D3D12_SERIALIZED_DATA_DRIVER_MATCHING_IDENTIFIER) -> D3D12_DRIVER_MATCHING_IDENTIFIER_STATUS {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).base__.base__.base__.CheckDriverMatchingIdentifier)(::windows::core::Interface::as_raw(self), serializeddatatype, ::core::mem::transmute(pidentifiertocheck)))
+        (::windows::core::Interface::vtable(self).base__.base__.base__.CheckDriverMatchingIdentifier)(::windows::core::Interface::as_raw(self), serializeddatatype, ::core::mem::transmute(pidentifiertocheck))
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -23935,7 +23935,7 @@ impl ID3D12Device9 {
         (::windows::core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.SetName)(::windows::core::Interface::as_raw(self), name.into()).ok()
     }
     pub unsafe fn GetNodeCount(&self) -> u32 {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.base__.GetNodeCount)(::windows::core::Interface::as_raw(self)))
+        (::windows::core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.base__.GetNodeCount)(::windows::core::Interface::as_raw(self))
     }
     pub unsafe fn CreateCommandQueue<T>(&self, pdesc: *const D3D12_COMMAND_QUEUE_DESC) -> ::windows::core::Result<T>
     where
@@ -23987,7 +23987,7 @@ impl ID3D12Device9 {
         (::windows::core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.base__.CreateDescriptorHeap)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pdescriptorheapdesc), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
     }
     pub unsafe fn GetDescriptorHandleIncrementSize(&self, descriptorheaptype: D3D12_DESCRIPTOR_HEAP_TYPE) -> u32 {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.base__.GetDescriptorHandleIncrementSize)(::windows::core::Interface::as_raw(self), descriptorheaptype))
+        (::windows::core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.base__.GetDescriptorHandleIncrementSize)(::windows::core::Interface::as_raw(self), descriptorheaptype)
     }
     pub unsafe fn CreateRootSignature<T>(&self, nodemask: u32, pblobwithrootsignature: &[u8]) -> ::windows::core::Result<T>
     where
@@ -24298,7 +24298,7 @@ impl ID3D12Device9 {
         (::windows::core::Interface::vtable(self).base__.base__.base__.base__.GetRaytracingAccelerationStructurePrebuildInfo)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pdesc), ::core::mem::transmute(pinfo))
     }
     pub unsafe fn CheckDriverMatchingIdentifier(&self, serializeddatatype: D3D12_SERIALIZED_DATA_TYPE, pidentifiertocheck: *const D3D12_SERIALIZED_DATA_DRIVER_MATCHING_IDENTIFIER) -> D3D12_DRIVER_MATCHING_IDENTIFIER_STATUS {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).base__.base__.base__.base__.CheckDriverMatchingIdentifier)(::windows::core::Interface::as_raw(self), serializeddatatype, ::core::mem::transmute(pidentifiertocheck)))
+        (::windows::core::Interface::vtable(self).base__.base__.base__.base__.CheckDriverMatchingIdentifier)(::windows::core::Interface::as_raw(self), serializeddatatype, ::core::mem::transmute(pidentifiertocheck))
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -24822,7 +24822,7 @@ impl ID3D12DeviceRemovedExtendedData2 {
         (::windows::core::Interface::vtable(self).GetPageFaultAllocationOutput2)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<D3D12_DRED_PAGE_FAULT_OUTPUT2>(result__)
     }
     pub unsafe fn GetDeviceState(&self) -> D3D12_DRED_DEVICE_STATE {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).GetDeviceState)(::windows::core::Interface::as_raw(self)))
+        (::windows::core::Interface::vtable(self).GetDeviceState)(::windows::core::Interface::as_raw(self))
     }
 }
 impl ::core::convert::From<ID3D12DeviceRemovedExtendedData2> for ::windows::core::IUnknown {
@@ -25062,7 +25062,7 @@ impl ID3D12Fence {
         (::windows::core::Interface::vtable(self).base__.base__.GetDevice)(::windows::core::Interface::as_raw(self), &<T as ::windows::core::Interface>::IID, result__ as *mut _ as *mut _).ok()
     }
     pub unsafe fn GetCompletedValue(&self) -> u64 {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).GetCompletedValue)(::windows::core::Interface::as_raw(self)))
+        (::windows::core::Interface::vtable(self).GetCompletedValue)(::windows::core::Interface::as_raw(self))
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -25198,7 +25198,7 @@ impl ID3D12Fence1 {
         (::windows::core::Interface::vtable(self).base__.base__.base__.GetDevice)(::windows::core::Interface::as_raw(self), &<T as ::windows::core::Interface>::IID, result__ as *mut _ as *mut _).ok()
     }
     pub unsafe fn GetCompletedValue(&self) -> u64 {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).base__.GetCompletedValue)(::windows::core::Interface::as_raw(self)))
+        (::windows::core::Interface::vtable(self).base__.GetCompletedValue)(::windows::core::Interface::as_raw(self))
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -25212,7 +25212,7 @@ impl ID3D12Fence1 {
         (::windows::core::Interface::vtable(self).base__.Signal)(::windows::core::Interface::as_raw(self), value).ok()
     }
     pub unsafe fn GetCreationFlags(&self) -> D3D12_FENCE_FLAGS {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).GetCreationFlags)(::windows::core::Interface::as_raw(self)))
+        (::windows::core::Interface::vtable(self).GetCreationFlags)(::windows::core::Interface::as_raw(self))
     }
 }
 impl ::core::convert::From<ID3D12Fence1> for ::windows::core::IUnknown {
@@ -25370,13 +25370,13 @@ impl ID3D12FunctionReflection {
         (::windows::core::Interface::vtable(self).GetDesc)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<D3D12_FUNCTION_DESC>(result__)
     }
     pub unsafe fn GetConstantBufferByIndex(&self, bufferindex: u32) -> ::core::option::Option<ID3D12ShaderReflectionConstantBuffer> {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).GetConstantBufferByIndex)(::windows::core::Interface::as_raw(self), bufferindex))
+        (::windows::core::Interface::vtable(self).GetConstantBufferByIndex)(::windows::core::Interface::as_raw(self), bufferindex)
     }
     pub unsafe fn GetConstantBufferByName<'a, P0>(&self, name: P0) -> ::core::option::Option<ID3D12ShaderReflectionConstantBuffer>
     where
         P0: ::std::convert::Into<::windows::core::PCSTR>,
     {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).GetConstantBufferByName)(::windows::core::Interface::as_raw(self), name.into()))
+        (::windows::core::Interface::vtable(self).GetConstantBufferByName)(::windows::core::Interface::as_raw(self), name.into())
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D\"`*"]
     #[cfg(feature = "Win32_Graphics_Direct3D")]
@@ -25388,7 +25388,7 @@ impl ID3D12FunctionReflection {
     where
         P0: ::std::convert::Into<::windows::core::PCSTR>,
     {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).GetVariableByName)(::windows::core::Interface::as_raw(self), name.into()))
+        (::windows::core::Interface::vtable(self).GetVariableByName)(::windows::core::Interface::as_raw(self), name.into())
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D\"`*"]
     #[cfg(feature = "Win32_Graphics_Direct3D")]
@@ -25400,7 +25400,7 @@ impl ID3D12FunctionReflection {
         (::windows::core::Interface::vtable(self).GetResourceBindingDescByName)(::windows::core::Interface::as_raw(self), name.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<D3D12_SHADER_INPUT_BIND_DESC>(result__)
     }
     pub unsafe fn GetFunctionParameter(&self, parameterindex: i32) -> ::core::option::Option<ID3D12FunctionParameterReflection> {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).GetFunctionParameter)(::windows::core::Interface::as_raw(self), parameterindex))
+        (::windows::core::Interface::vtable(self).GetFunctionParameter)(::windows::core::Interface::as_raw(self), parameterindex)
     }
 }
 impl ::core::clone::Clone for ID3D12FunctionReflection {
@@ -25474,7 +25474,7 @@ impl ID3D12GraphicsCommandList {
         (::windows::core::Interface::vtable(self).base__.base__.GetDevice)(::windows::core::Interface::as_raw(self), &<T as ::windows::core::Interface>::IID, result__ as *mut _ as *mut _).ok()
     }
     pub unsafe fn GetType(&self) -> D3D12_COMMAND_LIST_TYPE {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).base__.GetType)(::windows::core::Interface::as_raw(self)))
+        (::windows::core::Interface::vtable(self).base__.GetType)(::windows::core::Interface::as_raw(self))
     }
     pub unsafe fn Close(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).Close)(::windows::core::Interface::as_raw(self)).ok()
@@ -25922,7 +25922,7 @@ impl ID3D12GraphicsCommandList1 {
         (::windows::core::Interface::vtable(self).base__.base__.base__.GetDevice)(::windows::core::Interface::as_raw(self), &<T as ::windows::core::Interface>::IID, result__ as *mut _ as *mut _).ok()
     }
     pub unsafe fn GetType(&self) -> D3D12_COMMAND_LIST_TYPE {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).base__.base__.GetType)(::windows::core::Interface::as_raw(self)))
+        (::windows::core::Interface::vtable(self).base__.base__.GetType)(::windows::core::Interface::as_raw(self))
     }
     pub unsafe fn Close(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.Close)(::windows::core::Interface::as_raw(self)).ok()
@@ -26339,7 +26339,7 @@ impl ID3D12GraphicsCommandList2 {
         (::windows::core::Interface::vtable(self).base__.base__.base__.base__.GetDevice)(::windows::core::Interface::as_raw(self), &<T as ::windows::core::Interface>::IID, result__ as *mut _ as *mut _).ok()
     }
     pub unsafe fn GetType(&self) -> D3D12_COMMAND_LIST_TYPE {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).base__.base__.base__.GetType)(::windows::core::Interface::as_raw(self)))
+        (::windows::core::Interface::vtable(self).base__.base__.base__.GetType)(::windows::core::Interface::as_raw(self))
     }
     pub unsafe fn Close(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.base__.Close)(::windows::core::Interface::as_raw(self)).ok()
@@ -26766,7 +26766,7 @@ impl ID3D12GraphicsCommandList3 {
         (::windows::core::Interface::vtable(self).base__.base__.base__.base__.base__.GetDevice)(::windows::core::Interface::as_raw(self), &<T as ::windows::core::Interface>::IID, result__ as *mut _ as *mut _).ok()
     }
     pub unsafe fn GetType(&self) -> D3D12_COMMAND_LIST_TYPE {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).base__.base__.base__.base__.GetType)(::windows::core::Interface::as_raw(self)))
+        (::windows::core::Interface::vtable(self).base__.base__.base__.base__.GetType)(::windows::core::Interface::as_raw(self))
     }
     pub unsafe fn Close(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.base__.base__.Close)(::windows::core::Interface::as_raw(self)).ok()
@@ -27214,7 +27214,7 @@ impl ID3D12GraphicsCommandList4 {
         (::windows::core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.GetDevice)(::windows::core::Interface::as_raw(self), &<T as ::windows::core::Interface>::IID, result__ as *mut _ as *mut _).ok()
     }
     pub unsafe fn GetType(&self) -> D3D12_COMMAND_LIST_TYPE {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).base__.base__.base__.base__.base__.GetType)(::windows::core::Interface::as_raw(self)))
+        (::windows::core::Interface::vtable(self).base__.base__.base__.base__.base__.GetType)(::windows::core::Interface::as_raw(self))
     }
     pub unsafe fn Close(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.base__.base__.base__.Close)(::windows::core::Interface::as_raw(self)).ok()
@@ -27731,7 +27731,7 @@ impl ID3D12GraphicsCommandList5 {
         (::windows::core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.GetDevice)(::windows::core::Interface::as_raw(self), &<T as ::windows::core::Interface>::IID, result__ as *mut _ as *mut _).ok()
     }
     pub unsafe fn GetType(&self) -> D3D12_COMMAND_LIST_TYPE {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.GetType)(::windows::core::Interface::as_raw(self)))
+        (::windows::core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.GetType)(::windows::core::Interface::as_raw(self))
     }
     pub unsafe fn Close(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.base__.base__.base__.base__.Close)(::windows::core::Interface::as_raw(self)).ok()
@@ -28259,7 +28259,7 @@ impl ID3D12GraphicsCommandList6 {
         (::windows::core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.GetDevice)(::windows::core::Interface::as_raw(self), &<T as ::windows::core::Interface>::IID, result__ as *mut _ as *mut _).ok()
     }
     pub unsafe fn GetType(&self) -> D3D12_COMMAND_LIST_TYPE {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.GetType)(::windows::core::Interface::as_raw(self)))
+        (::windows::core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.GetType)(::windows::core::Interface::as_raw(self))
     }
     pub unsafe fn Close(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.Close)(::windows::core::Interface::as_raw(self)).ok()
@@ -29054,22 +29054,22 @@ impl ID3D12InfoQueue {
         (::windows::core::Interface::vtable(self).GetMessage)(::windows::core::Interface::as_raw(self), messageindex, ::core::mem::transmute(pmessage), ::core::mem::transmute(pmessagebytelength)).ok()
     }
     pub unsafe fn GetNumMessagesAllowedByStorageFilter(&self) -> u64 {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).GetNumMessagesAllowedByStorageFilter)(::windows::core::Interface::as_raw(self)))
+        (::windows::core::Interface::vtable(self).GetNumMessagesAllowedByStorageFilter)(::windows::core::Interface::as_raw(self))
     }
     pub unsafe fn GetNumMessagesDeniedByStorageFilter(&self) -> u64 {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).GetNumMessagesDeniedByStorageFilter)(::windows::core::Interface::as_raw(self)))
+        (::windows::core::Interface::vtable(self).GetNumMessagesDeniedByStorageFilter)(::windows::core::Interface::as_raw(self))
     }
     pub unsafe fn GetNumStoredMessages(&self) -> u64 {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).GetNumStoredMessages)(::windows::core::Interface::as_raw(self)))
+        (::windows::core::Interface::vtable(self).GetNumStoredMessages)(::windows::core::Interface::as_raw(self))
     }
     pub unsafe fn GetNumStoredMessagesAllowedByRetrievalFilter(&self) -> u64 {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).GetNumStoredMessagesAllowedByRetrievalFilter)(::windows::core::Interface::as_raw(self)))
+        (::windows::core::Interface::vtable(self).GetNumStoredMessagesAllowedByRetrievalFilter)(::windows::core::Interface::as_raw(self))
     }
     pub unsafe fn GetNumMessagesDiscardedByMessageCountLimit(&self) -> u64 {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).GetNumMessagesDiscardedByMessageCountLimit)(::windows::core::Interface::as_raw(self)))
+        (::windows::core::Interface::vtable(self).GetNumMessagesDiscardedByMessageCountLimit)(::windows::core::Interface::as_raw(self))
     }
     pub unsafe fn GetMessageCountLimit(&self) -> u64 {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).GetMessageCountLimit)(::windows::core::Interface::as_raw(self)))
+        (::windows::core::Interface::vtable(self).GetMessageCountLimit)(::windows::core::Interface::as_raw(self))
     }
     pub unsafe fn AddStorageFilterEntries(&self, pfilter: *const D3D12_INFO_QUEUE_FILTER) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).AddStorageFilterEntries)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pfilter)).ok()
@@ -29093,7 +29093,7 @@ impl ID3D12InfoQueue {
         (::windows::core::Interface::vtable(self).PopStorageFilter)(::windows::core::Interface::as_raw(self))
     }
     pub unsafe fn GetStorageFilterStackSize(&self) -> u32 {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).GetStorageFilterStackSize)(::windows::core::Interface::as_raw(self)))
+        (::windows::core::Interface::vtable(self).GetStorageFilterStackSize)(::windows::core::Interface::as_raw(self))
     }
     pub unsafe fn AddRetrievalFilterEntries(&self, pfilter: *const D3D12_INFO_QUEUE_FILTER) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).AddRetrievalFilterEntries)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pfilter)).ok()
@@ -29117,7 +29117,7 @@ impl ID3D12InfoQueue {
         (::windows::core::Interface::vtable(self).PopRetrievalFilter)(::windows::core::Interface::as_raw(self))
     }
     pub unsafe fn GetRetrievalFilterStackSize(&self) -> u32 {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).GetRetrievalFilterStackSize)(::windows::core::Interface::as_raw(self)))
+        (::windows::core::Interface::vtable(self).GetRetrievalFilterStackSize)(::windows::core::Interface::as_raw(self))
     }
     pub unsafe fn AddMessage<'a, P0>(&self, category: D3D12_MESSAGE_CATEGORY, severity: D3D12_MESSAGE_SEVERITY, id: D3D12_MESSAGE_ID, pdescription: P0) -> ::windows::core::Result<()>
     where
@@ -29158,17 +29158,17 @@ impl ID3D12InfoQueue {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetBreakOnCategory(&self, category: D3D12_MESSAGE_CATEGORY) -> super::super::Foundation::BOOL {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).GetBreakOnCategory)(::windows::core::Interface::as_raw(self), category))
+        (::windows::core::Interface::vtable(self).GetBreakOnCategory)(::windows::core::Interface::as_raw(self), category)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetBreakOnSeverity(&self, severity: D3D12_MESSAGE_SEVERITY) -> super::super::Foundation::BOOL {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).GetBreakOnSeverity)(::windows::core::Interface::as_raw(self), severity))
+        (::windows::core::Interface::vtable(self).GetBreakOnSeverity)(::windows::core::Interface::as_raw(self), severity)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetBreakOnID(&self, id: D3D12_MESSAGE_ID) -> super::super::Foundation::BOOL {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).GetBreakOnID)(::windows::core::Interface::as_raw(self), id))
+        (::windows::core::Interface::vtable(self).GetBreakOnID)(::windows::core::Interface::as_raw(self), id)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -29181,7 +29181,7 @@ impl ID3D12InfoQueue {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetMuteDebugOutput(&self) -> super::super::Foundation::BOOL {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).GetMuteDebugOutput)(::windows::core::Interface::as_raw(self)))
+        (::windows::core::Interface::vtable(self).GetMuteDebugOutput)(::windows::core::Interface::as_raw(self))
     }
 }
 impl ::core::convert::From<ID3D12InfoQueue> for ::windows::core::IUnknown {
@@ -29299,22 +29299,22 @@ impl ID3D12InfoQueue1 {
         (::windows::core::Interface::vtable(self).base__.GetMessage)(::windows::core::Interface::as_raw(self), messageindex, ::core::mem::transmute(pmessage), ::core::mem::transmute(pmessagebytelength)).ok()
     }
     pub unsafe fn GetNumMessagesAllowedByStorageFilter(&self) -> u64 {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).base__.GetNumMessagesAllowedByStorageFilter)(::windows::core::Interface::as_raw(self)))
+        (::windows::core::Interface::vtable(self).base__.GetNumMessagesAllowedByStorageFilter)(::windows::core::Interface::as_raw(self))
     }
     pub unsafe fn GetNumMessagesDeniedByStorageFilter(&self) -> u64 {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).base__.GetNumMessagesDeniedByStorageFilter)(::windows::core::Interface::as_raw(self)))
+        (::windows::core::Interface::vtable(self).base__.GetNumMessagesDeniedByStorageFilter)(::windows::core::Interface::as_raw(self))
     }
     pub unsafe fn GetNumStoredMessages(&self) -> u64 {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).base__.GetNumStoredMessages)(::windows::core::Interface::as_raw(self)))
+        (::windows::core::Interface::vtable(self).base__.GetNumStoredMessages)(::windows::core::Interface::as_raw(self))
     }
     pub unsafe fn GetNumStoredMessagesAllowedByRetrievalFilter(&self) -> u64 {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).base__.GetNumStoredMessagesAllowedByRetrievalFilter)(::windows::core::Interface::as_raw(self)))
+        (::windows::core::Interface::vtable(self).base__.GetNumStoredMessagesAllowedByRetrievalFilter)(::windows::core::Interface::as_raw(self))
     }
     pub unsafe fn GetNumMessagesDiscardedByMessageCountLimit(&self) -> u64 {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).base__.GetNumMessagesDiscardedByMessageCountLimit)(::windows::core::Interface::as_raw(self)))
+        (::windows::core::Interface::vtable(self).base__.GetNumMessagesDiscardedByMessageCountLimit)(::windows::core::Interface::as_raw(self))
     }
     pub unsafe fn GetMessageCountLimit(&self) -> u64 {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).base__.GetMessageCountLimit)(::windows::core::Interface::as_raw(self)))
+        (::windows::core::Interface::vtable(self).base__.GetMessageCountLimit)(::windows::core::Interface::as_raw(self))
     }
     pub unsafe fn AddStorageFilterEntries(&self, pfilter: *const D3D12_INFO_QUEUE_FILTER) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.AddStorageFilterEntries)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pfilter)).ok()
@@ -29338,7 +29338,7 @@ impl ID3D12InfoQueue1 {
         (::windows::core::Interface::vtable(self).base__.PopStorageFilter)(::windows::core::Interface::as_raw(self))
     }
     pub unsafe fn GetStorageFilterStackSize(&self) -> u32 {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).base__.GetStorageFilterStackSize)(::windows::core::Interface::as_raw(self)))
+        (::windows::core::Interface::vtable(self).base__.GetStorageFilterStackSize)(::windows::core::Interface::as_raw(self))
     }
     pub unsafe fn AddRetrievalFilterEntries(&self, pfilter: *const D3D12_INFO_QUEUE_FILTER) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.AddRetrievalFilterEntries)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pfilter)).ok()
@@ -29362,7 +29362,7 @@ impl ID3D12InfoQueue1 {
         (::windows::core::Interface::vtable(self).base__.PopRetrievalFilter)(::windows::core::Interface::as_raw(self))
     }
     pub unsafe fn GetRetrievalFilterStackSize(&self) -> u32 {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).base__.GetRetrievalFilterStackSize)(::windows::core::Interface::as_raw(self)))
+        (::windows::core::Interface::vtable(self).base__.GetRetrievalFilterStackSize)(::windows::core::Interface::as_raw(self))
     }
     pub unsafe fn AddMessage<'a, P0>(&self, category: D3D12_MESSAGE_CATEGORY, severity: D3D12_MESSAGE_SEVERITY, id: D3D12_MESSAGE_ID, pdescription: P0) -> ::windows::core::Result<()>
     where
@@ -29403,17 +29403,17 @@ impl ID3D12InfoQueue1 {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetBreakOnCategory(&self, category: D3D12_MESSAGE_CATEGORY) -> super::super::Foundation::BOOL {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).base__.GetBreakOnCategory)(::windows::core::Interface::as_raw(self), category))
+        (::windows::core::Interface::vtable(self).base__.GetBreakOnCategory)(::windows::core::Interface::as_raw(self), category)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetBreakOnSeverity(&self, severity: D3D12_MESSAGE_SEVERITY) -> super::super::Foundation::BOOL {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).base__.GetBreakOnSeverity)(::windows::core::Interface::as_raw(self), severity))
+        (::windows::core::Interface::vtable(self).base__.GetBreakOnSeverity)(::windows::core::Interface::as_raw(self), severity)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetBreakOnID(&self, id: D3D12_MESSAGE_ID) -> super::super::Foundation::BOOL {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).base__.GetBreakOnID)(::windows::core::Interface::as_raw(self), id))
+        (::windows::core::Interface::vtable(self).base__.GetBreakOnID)(::windows::core::Interface::as_raw(self), id)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -29426,7 +29426,7 @@ impl ID3D12InfoQueue1 {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetMuteDebugOutput(&self) -> super::super::Foundation::BOOL {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).base__.GetMuteDebugOutput)(::windows::core::Interface::as_raw(self)))
+        (::windows::core::Interface::vtable(self).base__.GetMuteDebugOutput)(::windows::core::Interface::as_raw(self))
     }
     pub unsafe fn RegisterMessageCallback(&self, callbackfunc: D3D12MessageFunc, callbackfilterflags: D3D12_MESSAGE_CALLBACK_FLAGS, pcontext: *const ::core::ffi::c_void, pcallbackcookie: *mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).RegisterMessageCallback)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(callbackfunc), callbackfilterflags, ::core::mem::transmute(pcontext), ::core::mem::transmute(pcallbackcookie)).ok()
@@ -29503,7 +29503,7 @@ impl ID3D12LibraryReflection {
         (::windows::core::Interface::vtable(self).GetDesc)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<D3D12_LIBRARY_DESC>(result__)
     }
     pub unsafe fn GetFunctionByIndex(&self, functionindex: i32) -> ::core::option::Option<ID3D12FunctionReflection> {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).GetFunctionByIndex)(::windows::core::Interface::as_raw(self), functionindex))
+        (::windows::core::Interface::vtable(self).GetFunctionByIndex)(::windows::core::Interface::as_raw(self), functionindex)
     }
 }
 impl ::core::convert::From<ID3D12LibraryReflection> for ::windows::core::IUnknown {
@@ -29738,7 +29738,7 @@ impl ID3D12MetaCommand {
         (::windows::core::Interface::vtable(self).base__.base__.GetDevice)(::windows::core::Interface::as_raw(self), &<T as ::windows::core::Interface>::IID, result__ as *mut _ as *mut _).ok()
     }
     pub unsafe fn GetRequiredParameterResourceSize(&self, stage: D3D12_META_COMMAND_PARAMETER_STAGE, parameterindex: u32) -> u64 {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).GetRequiredParameterResourceSize)(::windows::core::Interface::as_raw(self), stage, parameterindex))
+        (::windows::core::Interface::vtable(self).GetRequiredParameterResourceSize)(::windows::core::Interface::as_raw(self), stage, parameterindex)
     }
 }
 impl ::core::convert::From<ID3D12MetaCommand> for ::windows::core::IUnknown {
@@ -30053,7 +30053,7 @@ impl ID3D12PipelineLibrary {
         (::windows::core::Interface::vtable(self).LoadComputePipeline)(::windows::core::Interface::as_raw(self), pname.into(), ::core::mem::transmute(pdesc), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
     }
     pub unsafe fn GetSerializedSize(&self) -> usize {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).GetSerializedSize)(::windows::core::Interface::as_raw(self)))
+        (::windows::core::Interface::vtable(self).GetSerializedSize)(::windows::core::Interface::as_raw(self))
     }
     pub unsafe fn Serialize(&self, pdata: &mut [u8]) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).Serialize)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(pdata)), pdata.len() as _).ok()
@@ -30193,7 +30193,7 @@ impl ID3D12PipelineLibrary1 {
         (::windows::core::Interface::vtable(self).base__.LoadComputePipeline)(::windows::core::Interface::as_raw(self), pname.into(), ::core::mem::transmute(pdesc), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
     }
     pub unsafe fn GetSerializedSize(&self) -> usize {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).base__.GetSerializedSize)(::windows::core::Interface::as_raw(self)))
+        (::windows::core::Interface::vtable(self).base__.GetSerializedSize)(::windows::core::Interface::as_raw(self))
     }
     pub unsafe fn Serialize(&self, pdata: &mut [u8]) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.Serialize)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(pdata)), pdata.len() as _).ok()
@@ -30456,7 +30456,7 @@ impl ID3D12ProtectedResourceSession {
         (::windows::core::Interface::vtable(self).base__.GetStatusFence)(::windows::core::Interface::as_raw(self), &<T as ::windows::core::Interface>::IID, result__ as *mut _ as *mut _).ok()
     }
     pub unsafe fn GetSessionStatus(&self) -> D3D12_PROTECTED_SESSION_STATUS {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).base__.GetSessionStatus)(::windows::core::Interface::as_raw(self)))
+        (::windows::core::Interface::vtable(self).base__.GetSessionStatus)(::windows::core::Interface::as_raw(self))
     }
     pub unsafe fn GetDesc(&self) -> D3D12_PROTECTED_RESOURCE_SESSION_DESC {
         let mut result__: D3D12_PROTECTED_RESOURCE_SESSION_DESC = ::core::mem::zeroed();
@@ -30587,7 +30587,7 @@ impl ID3D12ProtectedResourceSession1 {
         (::windows::core::Interface::vtable(self).base__.base__.GetStatusFence)(::windows::core::Interface::as_raw(self), &<T as ::windows::core::Interface>::IID, result__ as *mut _ as *mut _).ok()
     }
     pub unsafe fn GetSessionStatus(&self) -> D3D12_PROTECTED_SESSION_STATUS {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).base__.base__.GetSessionStatus)(::windows::core::Interface::as_raw(self)))
+        (::windows::core::Interface::vtable(self).base__.base__.GetSessionStatus)(::windows::core::Interface::as_raw(self))
     }
     pub unsafe fn GetDesc(&self) -> D3D12_PROTECTED_RESOURCE_SESSION_DESC {
         let mut result__: D3D12_PROTECTED_RESOURCE_SESSION_DESC = ::core::mem::zeroed();
@@ -30738,7 +30738,7 @@ impl ID3D12ProtectedSession {
         (::windows::core::Interface::vtable(self).GetStatusFence)(::windows::core::Interface::as_raw(self), &<T as ::windows::core::Interface>::IID, result__ as *mut _ as *mut _).ok()
     }
     pub unsafe fn GetSessionStatus(&self) -> D3D12_PROTECTED_SESSION_STATUS {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).GetSessionStatus)(::windows::core::Interface::as_raw(self)))
+        (::windows::core::Interface::vtable(self).GetSessionStatus)(::windows::core::Interface::as_raw(self))
     }
 }
 impl ::core::convert::From<ID3D12ProtectedSession> for ::windows::core::IUnknown {
@@ -30973,7 +30973,7 @@ impl ID3D12Resource {
         result__
     }
     pub unsafe fn GetGPUVirtualAddress(&self) -> u64 {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).GetGPUVirtualAddress)(::windows::core::Interface::as_raw(self)))
+        (::windows::core::Interface::vtable(self).GetGPUVirtualAddress)(::windows::core::Interface::as_raw(self))
     }
     pub unsafe fn WriteToSubresource(&self, dstsubresource: u32, pdstbox: *const D3D12_BOX, psrcdata: *const ::core::ffi::c_void, srcrowpitch: u32, srcdepthpitch: u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).WriteToSubresource)(::windows::core::Interface::as_raw(self), dstsubresource, ::core::mem::transmute(pdstbox), ::core::mem::transmute(psrcdata), srcrowpitch, srcdepthpitch).ok()
@@ -31124,7 +31124,7 @@ impl ID3D12Resource1 {
         result__
     }
     pub unsafe fn GetGPUVirtualAddress(&self) -> u64 {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).base__.GetGPUVirtualAddress)(::windows::core::Interface::as_raw(self)))
+        (::windows::core::Interface::vtable(self).base__.GetGPUVirtualAddress)(::windows::core::Interface::as_raw(self))
     }
     pub unsafe fn WriteToSubresource(&self, dstsubresource: u32, pdstbox: *const D3D12_BOX, psrcdata: *const ::core::ffi::c_void, srcrowpitch: u32, srcdepthpitch: u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.WriteToSubresource)(::windows::core::Interface::as_raw(self), dstsubresource, ::core::mem::transmute(pdstbox), ::core::mem::transmute(psrcdata), srcrowpitch, srcdepthpitch).ok()
@@ -31287,7 +31287,7 @@ impl ID3D12Resource2 {
         result__
     }
     pub unsafe fn GetGPUVirtualAddress(&self) -> u64 {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).base__.base__.GetGPUVirtualAddress)(::windows::core::Interface::as_raw(self)))
+        (::windows::core::Interface::vtable(self).base__.base__.GetGPUVirtualAddress)(::windows::core::Interface::as_raw(self))
     }
     pub unsafe fn WriteToSubresource(&self, dstsubresource: u32, pdstbox: *const D3D12_BOX, psrcdata: *const ::core::ffi::c_void, srcrowpitch: u32, srcdepthpitch: u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.base__.WriteToSubresource)(::windows::core::Interface::as_raw(self), dstsubresource, ::core::mem::transmute(pdstbox), ::core::mem::transmute(psrcdata), srcrowpitch, srcdepthpitch).ok()
@@ -31539,7 +31539,7 @@ pub struct ID3D12RootSignature_Vtbl {
 pub struct ID3D12RootSignatureDeserializer(::windows::core::IUnknown);
 impl ID3D12RootSignatureDeserializer {
     pub unsafe fn GetRootSignatureDesc(&self) -> *mut D3D12_ROOT_SIGNATURE_DESC {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).GetRootSignatureDesc)(::windows::core::Interface::as_raw(self)))
+        (::windows::core::Interface::vtable(self).GetRootSignatureDesc)(::windows::core::Interface::as_raw(self))
     }
 }
 impl ::core::convert::From<ID3D12RootSignatureDeserializer> for ::windows::core::IUnknown {
@@ -31769,13 +31769,13 @@ impl ID3D12ShaderReflection {
         (::windows::core::Interface::vtable(self).GetDesc)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<D3D12_SHADER_DESC>(result__)
     }
     pub unsafe fn GetConstantBufferByIndex(&self, index: u32) -> ::core::option::Option<ID3D12ShaderReflectionConstantBuffer> {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).GetConstantBufferByIndex)(::windows::core::Interface::as_raw(self), index))
+        (::windows::core::Interface::vtable(self).GetConstantBufferByIndex)(::windows::core::Interface::as_raw(self), index)
     }
     pub unsafe fn GetConstantBufferByName<'a, P0>(&self, name: P0) -> ::core::option::Option<ID3D12ShaderReflectionConstantBuffer>
     where
         P0: ::std::convert::Into<::windows::core::PCSTR>,
     {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).GetConstantBufferByName)(::windows::core::Interface::as_raw(self), name.into()))
+        (::windows::core::Interface::vtable(self).GetConstantBufferByName)(::windows::core::Interface::as_raw(self), name.into())
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D\"`*"]
     #[cfg(feature = "Win32_Graphics_Direct3D")]
@@ -31805,7 +31805,7 @@ impl ID3D12ShaderReflection {
     where
         P0: ::std::convert::Into<::windows::core::PCSTR>,
     {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).GetVariableByName)(::windows::core::Interface::as_raw(self), name.into()))
+        (::windows::core::Interface::vtable(self).GetVariableByName)(::windows::core::Interface::as_raw(self), name.into())
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D\"`*"]
     #[cfg(feature = "Win32_Graphics_Direct3D")]
@@ -31817,29 +31817,29 @@ impl ID3D12ShaderReflection {
         (::windows::core::Interface::vtable(self).GetResourceBindingDescByName)(::windows::core::Interface::as_raw(self), name.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<D3D12_SHADER_INPUT_BIND_DESC>(result__)
     }
     pub unsafe fn GetMovInstructionCount(&self) -> u32 {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).GetMovInstructionCount)(::windows::core::Interface::as_raw(self)))
+        (::windows::core::Interface::vtable(self).GetMovInstructionCount)(::windows::core::Interface::as_raw(self))
     }
     pub unsafe fn GetMovcInstructionCount(&self) -> u32 {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).GetMovcInstructionCount)(::windows::core::Interface::as_raw(self)))
+        (::windows::core::Interface::vtable(self).GetMovcInstructionCount)(::windows::core::Interface::as_raw(self))
     }
     pub unsafe fn GetConversionInstructionCount(&self) -> u32 {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).GetConversionInstructionCount)(::windows::core::Interface::as_raw(self)))
+        (::windows::core::Interface::vtable(self).GetConversionInstructionCount)(::windows::core::Interface::as_raw(self))
     }
     pub unsafe fn GetBitwiseInstructionCount(&self) -> u32 {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).GetBitwiseInstructionCount)(::windows::core::Interface::as_raw(self)))
+        (::windows::core::Interface::vtable(self).GetBitwiseInstructionCount)(::windows::core::Interface::as_raw(self))
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D\"`*"]
     #[cfg(feature = "Win32_Graphics_Direct3D")]
     pub unsafe fn GetGSInputPrimitive(&self) -> super::Direct3D::D3D_PRIMITIVE {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).GetGSInputPrimitive)(::windows::core::Interface::as_raw(self)))
+        (::windows::core::Interface::vtable(self).GetGSInputPrimitive)(::windows::core::Interface::as_raw(self))
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn IsSampleFrequencyShader(&self) -> super::super::Foundation::BOOL {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).IsSampleFrequencyShader)(::windows::core::Interface::as_raw(self)))
+        (::windows::core::Interface::vtable(self).IsSampleFrequencyShader)(::windows::core::Interface::as_raw(self))
     }
     pub unsafe fn GetNumInterfaceSlots(&self) -> u32 {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).GetNumInterfaceSlots)(::windows::core::Interface::as_raw(self)))
+        (::windows::core::Interface::vtable(self).GetNumInterfaceSlots)(::windows::core::Interface::as_raw(self))
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D\"`*"]
     #[cfg(feature = "Win32_Graphics_Direct3D")]
@@ -31848,10 +31848,10 @@ impl ID3D12ShaderReflection {
         (::windows::core::Interface::vtable(self).GetMinFeatureLevel)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::Direct3D::D3D_FEATURE_LEVEL>(result__)
     }
     pub unsafe fn GetThreadGroupSize(&self, psizex: *mut u32, psizey: *mut u32, psizez: *mut u32) -> u32 {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).GetThreadGroupSize)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(psizex), ::core::mem::transmute(psizey), ::core::mem::transmute(psizez)))
+        (::windows::core::Interface::vtable(self).GetThreadGroupSize)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(psizex), ::core::mem::transmute(psizey), ::core::mem::transmute(psizez))
     }
     pub unsafe fn GetRequiresFlags(&self) -> u64 {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).GetRequiresFlags)(::windows::core::Interface::as_raw(self)))
+        (::windows::core::Interface::vtable(self).GetRequiresFlags)(::windows::core::Interface::as_raw(self))
     }
 }
 impl ::core::convert::From<ID3D12ShaderReflection> for ::windows::core::IUnknown {
@@ -31952,13 +31952,13 @@ impl ID3D12ShaderReflectionConstantBuffer {
         (::windows::core::Interface::vtable(self).GetDesc)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pdesc)).ok()
     }
     pub unsafe fn GetVariableByIndex(&self, index: u32) -> ::core::option::Option<ID3D12ShaderReflectionVariable> {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).GetVariableByIndex)(::windows::core::Interface::as_raw(self), index))
+        (::windows::core::Interface::vtable(self).GetVariableByIndex)(::windows::core::Interface::as_raw(self), index)
     }
     pub unsafe fn GetVariableByName<'a, P0>(&self, name: P0) -> ::core::option::Option<ID3D12ShaderReflectionVariable>
     where
         P0: ::std::convert::Into<::windows::core::PCSTR>,
     {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).GetVariableByName)(::windows::core::Interface::as_raw(self), name.into()))
+        (::windows::core::Interface::vtable(self).GetVariableByName)(::windows::core::Interface::as_raw(self), name.into())
     }
 }
 impl ::core::clone::Clone for ID3D12ShaderReflectionConstantBuffer {
@@ -32004,16 +32004,16 @@ impl ID3D12ShaderReflectionType {
         (::windows::core::Interface::vtable(self).GetDesc)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<D3D12_SHADER_TYPE_DESC>(result__)
     }
     pub unsafe fn GetMemberTypeByIndex(&self, index: u32) -> ::core::option::Option<ID3D12ShaderReflectionType> {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).GetMemberTypeByIndex)(::windows::core::Interface::as_raw(self), index))
+        (::windows::core::Interface::vtable(self).GetMemberTypeByIndex)(::windows::core::Interface::as_raw(self), index)
     }
     pub unsafe fn GetMemberTypeByName<'a, P0>(&self, name: P0) -> ::core::option::Option<ID3D12ShaderReflectionType>
     where
         P0: ::std::convert::Into<::windows::core::PCSTR>,
     {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).GetMemberTypeByName)(::windows::core::Interface::as_raw(self), name.into()))
+        (::windows::core::Interface::vtable(self).GetMemberTypeByName)(::windows::core::Interface::as_raw(self), name.into())
     }
     pub unsafe fn GetMemberTypeName(&self, index: u32) -> ::windows::core::PSTR {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).GetMemberTypeName)(::windows::core::Interface::as_raw(self), index))
+        (::windows::core::Interface::vtable(self).GetMemberTypeName)(::windows::core::Interface::as_raw(self), index)
     }
     pub unsafe fn IsEqual<'a, P0>(&self, ptype: P0) -> ::windows::core::Result<()>
     where
@@ -32022,16 +32022,16 @@ impl ID3D12ShaderReflectionType {
         (::windows::core::Interface::vtable(self).IsEqual)(::windows::core::Interface::as_raw(self), ptype.into().abi()).ok()
     }
     pub unsafe fn GetSubType(&self) -> ::core::option::Option<ID3D12ShaderReflectionType> {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).GetSubType)(::windows::core::Interface::as_raw(self)))
+        (::windows::core::Interface::vtable(self).GetSubType)(::windows::core::Interface::as_raw(self))
     }
     pub unsafe fn GetBaseClass(&self) -> ::core::option::Option<ID3D12ShaderReflectionType> {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).GetBaseClass)(::windows::core::Interface::as_raw(self)))
+        (::windows::core::Interface::vtable(self).GetBaseClass)(::windows::core::Interface::as_raw(self))
     }
     pub unsafe fn GetNumInterfaces(&self) -> u32 {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).GetNumInterfaces)(::windows::core::Interface::as_raw(self)))
+        (::windows::core::Interface::vtable(self).GetNumInterfaces)(::windows::core::Interface::as_raw(self))
     }
     pub unsafe fn GetInterfaceByIndex(&self, uindex: u32) -> ::core::option::Option<ID3D12ShaderReflectionType> {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).GetInterfaceByIndex)(::windows::core::Interface::as_raw(self), uindex))
+        (::windows::core::Interface::vtable(self).GetInterfaceByIndex)(::windows::core::Interface::as_raw(self), uindex)
     }
     pub unsafe fn IsOfType<'a, P0>(&self, ptype: P0) -> ::windows::core::Result<()>
     where
@@ -32095,13 +32095,13 @@ impl ID3D12ShaderReflectionVariable {
         (::windows::core::Interface::vtable(self).GetDesc)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<D3D12_SHADER_VARIABLE_DESC>(result__)
     }
     pub unsafe fn GetType(&self) -> ::core::option::Option<ID3D12ShaderReflectionType> {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).GetType)(::windows::core::Interface::as_raw(self)))
+        (::windows::core::Interface::vtable(self).GetType)(::windows::core::Interface::as_raw(self))
     }
     pub unsafe fn GetBuffer(&self) -> ::core::option::Option<ID3D12ShaderReflectionConstantBuffer> {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).GetBuffer)(::windows::core::Interface::as_raw(self)))
+        (::windows::core::Interface::vtable(self).GetBuffer)(::windows::core::Interface::as_raw(self))
     }
     pub unsafe fn GetInterfaceSlot(&self, uarrayindex: u32) -> u32 {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).GetInterfaceSlot)(::windows::core::Interface::as_raw(self), uarrayindex))
+        (::windows::core::Interface::vtable(self).GetInterfaceSlot)(::windows::core::Interface::as_raw(self), uarrayindex)
     }
 }
 impl ::core::clone::Clone for ID3D12ShaderReflectionVariable {
@@ -32333,16 +32333,16 @@ impl ID3D12StateObjectProperties {
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).GetShaderIdentifier)(::windows::core::Interface::as_raw(self), pexportname.into()))
+        (::windows::core::Interface::vtable(self).GetShaderIdentifier)(::windows::core::Interface::as_raw(self), pexportname.into())
     }
     pub unsafe fn GetShaderStackSize<'a, P0>(&self, pexportname: P0) -> u64
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).GetShaderStackSize)(::windows::core::Interface::as_raw(self), pexportname.into()))
+        (::windows::core::Interface::vtable(self).GetShaderStackSize)(::windows::core::Interface::as_raw(self), pexportname.into())
     }
     pub unsafe fn GetPipelineStackSize(&self) -> u64 {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).GetPipelineStackSize)(::windows::core::Interface::as_raw(self)))
+        (::windows::core::Interface::vtable(self).GetPipelineStackSize)(::windows::core::Interface::as_raw(self))
     }
     pub unsafe fn SetPipelineStackSize(&self, pipelinestacksizeinbytes: u64) {
         (::windows::core::Interface::vtable(self).SetPipelineStackSize)(::windows::core::Interface::as_raw(self), pipelinestacksizeinbytes)
@@ -32487,7 +32487,7 @@ impl ID3D12Tools {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn ShaderInstrumentationEnabled(&self) -> super::super::Foundation::BOOL {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).ShaderInstrumentationEnabled)(::windows::core::Interface::as_raw(self)))
+        (::windows::core::Interface::vtable(self).ShaderInstrumentationEnabled)(::windows::core::Interface::as_raw(self))
     }
 }
 impl ::core::convert::From<ID3D12Tools> for ::windows::core::IUnknown {
@@ -32549,7 +32549,7 @@ impl ID3D12VersionedRootSignatureDeserializer {
         (::windows::core::Interface::vtable(self).GetRootSignatureDescAtVersion)(::windows::core::Interface::as_raw(self), converttoversion, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<*mut D3D12_VERSIONED_ROOT_SIGNATURE_DESC>(result__)
     }
     pub unsafe fn GetUnconvertedRootSignatureDesc(&self) -> *mut D3D12_VERSIONED_ROOT_SIGNATURE_DESC {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).GetUnconvertedRootSignatureDesc)(::windows::core::Interface::as_raw(self)))
+        (::windows::core::Interface::vtable(self).GetUnconvertedRootSignatureDesc)(::windows::core::Interface::as_raw(self))
     }
 }
 impl ::core::convert::From<ID3D12VersionedRootSignatureDeserializer> for ::windows::core::IUnknown {

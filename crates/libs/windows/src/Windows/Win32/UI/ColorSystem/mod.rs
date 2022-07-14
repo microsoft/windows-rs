@@ -15,7 +15,7 @@ where
     extern "system" {
         fn AssociateColorProfileWithDeviceA(pmachinename: ::windows::core::PCSTR, pprofilename: ::windows::core::PCSTR, pdevicename: ::windows::core::PCSTR) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(AssociateColorProfileWithDeviceA(pmachinename.into(), pprofilename.into(), pdevicename.into()))
+    AssociateColorProfileWithDeviceA(pmachinename.into(), pprofilename.into(), pdevicename.into())
 }
 #[doc = "*Required features: `\"Win32_UI_ColorSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -30,7 +30,7 @@ where
     extern "system" {
         fn AssociateColorProfileWithDeviceW(pmachinename: ::windows::core::PCWSTR, pprofilename: ::windows::core::PCWSTR, pdevicename: ::windows::core::PCWSTR) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(AssociateColorProfileWithDeviceW(pmachinename.into(), pprofilename.into(), pdevicename.into()))
+    AssociateColorProfileWithDeviceW(pmachinename.into(), pprofilename.into(), pdevicename.into())
 }
 #[doc = "*Required features: `\"Win32_UI_ColorSystem\"`*"]
 pub const BEST_MODE: u32 = 3u32;
@@ -187,7 +187,7 @@ pub unsafe fn CMCheckColors(hcmtransform: isize, lpainputcolors: *const COLOR, n
     extern "system" {
         fn CMCheckColors(hcmtransform: isize, lpainputcolors: *const COLOR, ncolors: u32, ctinput: COLORTYPE, lparesult: *mut u8) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(CMCheckColors(hcmtransform, ::core::mem::transmute(lpainputcolors), ::core::mem::transmute(ncolors), ctinput, ::core::mem::transmute(lparesult)))
+    CMCheckColors(hcmtransform, ::core::mem::transmute(lpainputcolors), ::core::mem::transmute(ncolors), ctinput, ::core::mem::transmute(lparesult))
 }
 #[doc = "*Required features: `\"Win32_UI_ColorSystem\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
@@ -197,7 +197,7 @@ pub unsafe fn CMCheckColorsInGamut(hcmtransform: isize, lpargbtriple: &[super::s
     extern "system" {
         fn CMCheckColorsInGamut(hcmtransform: isize, lpargbtriple: *const super::super::Graphics::Gdi::RGBTRIPLE, lparesult: *mut u8, ncount: u32) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(CMCheckColorsInGamut(hcmtransform, ::core::mem::transmute(::windows::core::as_ptr_or_null(lpargbtriple)), ::core::mem::transmute(lparesult), lpargbtriple.len() as _))
+    CMCheckColorsInGamut(hcmtransform, ::core::mem::transmute(::windows::core::as_ptr_or_null(lpargbtriple)), ::core::mem::transmute(lparesult), lpargbtriple.len() as _)
 }
 #[doc = "*Required features: `\"Win32_UI_ColorSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -210,7 +210,7 @@ where
     extern "system" {
         fn CMCheckRGBs(hcmtransform: isize, lpsrcbits: *const ::core::ffi::c_void, bminput: BMFORMAT, dwwidth: u32, dwheight: u32, dwstride: u32, lparesult: *mut u8, pfncallback: *mut ::core::ffi::c_void, ulcallbackdata: super::super::Foundation::LPARAM) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(CMCheckRGBs(hcmtransform, ::core::mem::transmute(lpsrcbits), bminput, dwwidth, dwheight, dwstride, ::core::mem::transmute(lparesult), ::core::mem::transmute(pfncallback), ulcallbackdata.into()))
+    CMCheckRGBs(hcmtransform, ::core::mem::transmute(lpsrcbits), bminput, dwwidth, dwheight, dwstride, ::core::mem::transmute(lparesult), ::core::mem::transmute(pfncallback), ulcallbackdata.into())
 }
 #[doc = "*Required features: `\"Win32_UI_ColorSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -220,7 +220,7 @@ pub unsafe fn CMConvertColorNameToIndex(hprofile: isize, pacolorname: *const *co
     extern "system" {
         fn CMConvertColorNameToIndex(hprofile: isize, pacolorname: *const *const i8, paindex: *mut u32, dwcount: u32) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(CMConvertColorNameToIndex(hprofile, ::core::mem::transmute(pacolorname), ::core::mem::transmute(paindex), ::core::mem::transmute(dwcount)))
+    CMConvertColorNameToIndex(hprofile, ::core::mem::transmute(pacolorname), ::core::mem::transmute(paindex), ::core::mem::transmute(dwcount))
 }
 #[doc = "*Required features: `\"Win32_UI_ColorSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -230,7 +230,7 @@ pub unsafe fn CMConvertIndexToColorName(hprofile: isize, paindex: *const u32, pa
     extern "system" {
         fn CMConvertIndexToColorName(hprofile: isize, paindex: *const u32, pacolorname: *mut *mut i8, dwcount: u32) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(CMConvertIndexToColorName(hprofile, ::core::mem::transmute(paindex), ::core::mem::transmute(pacolorname), ::core::mem::transmute(dwcount)))
+    CMConvertIndexToColorName(hprofile, ::core::mem::transmute(paindex), ::core::mem::transmute(pacolorname), ::core::mem::transmute(dwcount))
 }
 #[doc = "*Required features: `\"Win32_UI_ColorSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -240,7 +240,7 @@ pub unsafe fn CMCreateDeviceLinkProfile(pahprofiles: &[isize], padwintents: &[u3
     extern "system" {
         fn CMCreateDeviceLinkProfile(pahprofiles: *const isize, nprofiles: u32, padwintents: *const u32, nintents: u32, dwflags: u32, lpprofiledata: *mut *mut u8) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(CMCreateDeviceLinkProfile(::core::mem::transmute(::windows::core::as_ptr_or_null(pahprofiles)), pahprofiles.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(padwintents)), padwintents.len() as _, dwflags, ::core::mem::transmute(lpprofiledata)))
+    CMCreateDeviceLinkProfile(::core::mem::transmute(::windows::core::as_ptr_or_null(pahprofiles)), pahprofiles.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(padwintents)), padwintents.len() as _, dwflags, ::core::mem::transmute(lpprofiledata))
 }
 #[doc = "*Required features: `\"Win32_UI_ColorSystem\"`*"]
 #[inline]
@@ -249,7 +249,7 @@ pub unsafe fn CMCreateMultiProfileTransform(pahprofiles: &[isize], padwintents: 
     extern "system" {
         fn CMCreateMultiProfileTransform(pahprofiles: *const isize, nprofiles: u32, padwintents: *const u32, nintents: u32, dwflags: u32) -> isize;
     }
-    ::core::mem::transmute(CMCreateMultiProfileTransform(::core::mem::transmute(::windows::core::as_ptr_or_null(pahprofiles)), pahprofiles.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(padwintents)), padwintents.len() as _, dwflags))
+    CMCreateMultiProfileTransform(::core::mem::transmute(::windows::core::as_ptr_or_null(pahprofiles)), pahprofiles.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(padwintents)), padwintents.len() as _, dwflags)
 }
 #[doc = "*Required features: `\"Win32_UI_ColorSystem\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
@@ -259,7 +259,7 @@ pub unsafe fn CMCreateProfile(lpcolorspace: *mut LOGCOLORSPACEA, lpprofiledata: 
     extern "system" {
         fn CMCreateProfile(lpcolorspace: *mut LOGCOLORSPACEA, lpprofiledata: *mut *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(CMCreateProfile(::core::mem::transmute(lpcolorspace), ::core::mem::transmute(lpprofiledata)))
+    CMCreateProfile(::core::mem::transmute(lpcolorspace), ::core::mem::transmute(lpprofiledata))
 }
 #[doc = "*Required features: `\"Win32_UI_ColorSystem\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
@@ -269,7 +269,7 @@ pub unsafe fn CMCreateProfileW(lpcolorspace: *mut LOGCOLORSPACEW, lpprofiledata:
     extern "system" {
         fn CMCreateProfileW(lpcolorspace: *mut LOGCOLORSPACEW, lpprofiledata: *mut *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(CMCreateProfileW(::core::mem::transmute(lpcolorspace), ::core::mem::transmute(lpprofiledata)))
+    CMCreateProfileW(::core::mem::transmute(lpcolorspace), ::core::mem::transmute(lpprofiledata))
 }
 #[doc = "*Required features: `\"Win32_UI_ColorSystem\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
@@ -279,7 +279,7 @@ pub unsafe fn CMCreateTransform(lpcolorspace: *const LOGCOLORSPACEA, lpdevcharac
     extern "system" {
         fn CMCreateTransform(lpcolorspace: *const LOGCOLORSPACEA, lpdevcharacter: *const ::core::ffi::c_void, lptargetdevcharacter: *const ::core::ffi::c_void) -> isize;
     }
-    ::core::mem::transmute(CMCreateTransform(::core::mem::transmute(lpcolorspace), ::core::mem::transmute(lpdevcharacter), ::core::mem::transmute(lptargetdevcharacter)))
+    CMCreateTransform(::core::mem::transmute(lpcolorspace), ::core::mem::transmute(lpdevcharacter), ::core::mem::transmute(lptargetdevcharacter))
 }
 #[doc = "*Required features: `\"Win32_UI_ColorSystem\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
@@ -289,7 +289,7 @@ pub unsafe fn CMCreateTransformExt(lpcolorspace: *const LOGCOLORSPACEA, lpdevcha
     extern "system" {
         fn CMCreateTransformExt(lpcolorspace: *const LOGCOLORSPACEA, lpdevcharacter: *const ::core::ffi::c_void, lptargetdevcharacter: *const ::core::ffi::c_void, dwflags: u32) -> isize;
     }
-    ::core::mem::transmute(CMCreateTransformExt(::core::mem::transmute(lpcolorspace), ::core::mem::transmute(lpdevcharacter), ::core::mem::transmute(lptargetdevcharacter), dwflags))
+    CMCreateTransformExt(::core::mem::transmute(lpcolorspace), ::core::mem::transmute(lpdevcharacter), ::core::mem::transmute(lptargetdevcharacter), dwflags)
 }
 #[doc = "*Required features: `\"Win32_UI_ColorSystem\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(feature = "Win32_Graphics_Gdi")]
@@ -299,7 +299,7 @@ pub unsafe fn CMCreateTransformExtW(lpcolorspace: *const LOGCOLORSPACEW, lpdevch
     extern "system" {
         fn CMCreateTransformExtW(lpcolorspace: *const LOGCOLORSPACEW, lpdevcharacter: *const ::core::ffi::c_void, lptargetdevcharacter: *const ::core::ffi::c_void, dwflags: u32) -> isize;
     }
-    ::core::mem::transmute(CMCreateTransformExtW(::core::mem::transmute(lpcolorspace), ::core::mem::transmute(lpdevcharacter), ::core::mem::transmute(lptargetdevcharacter), dwflags))
+    CMCreateTransformExtW(::core::mem::transmute(lpcolorspace), ::core::mem::transmute(lpdevcharacter), ::core::mem::transmute(lptargetdevcharacter), dwflags)
 }
 #[doc = "*Required features: `\"Win32_UI_ColorSystem\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(feature = "Win32_Graphics_Gdi")]
@@ -309,7 +309,7 @@ pub unsafe fn CMCreateTransformW(lpcolorspace: *const LOGCOLORSPACEW, lpdevchara
     extern "system" {
         fn CMCreateTransformW(lpcolorspace: *const LOGCOLORSPACEW, lpdevcharacter: *const ::core::ffi::c_void, lptargetdevcharacter: *const ::core::ffi::c_void) -> isize;
     }
-    ::core::mem::transmute(CMCreateTransformW(::core::mem::transmute(lpcolorspace), ::core::mem::transmute(lpdevcharacter), ::core::mem::transmute(lptargetdevcharacter)))
+    CMCreateTransformW(::core::mem::transmute(lpcolorspace), ::core::mem::transmute(lpdevcharacter), ::core::mem::transmute(lptargetdevcharacter))
 }
 #[doc = "*Required features: `\"Win32_UI_ColorSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -319,7 +319,7 @@ pub unsafe fn CMDeleteTransform(hcmtransform: isize) -> super::super::Foundation
     extern "system" {
         fn CMDeleteTransform(hcmtransform: isize) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(CMDeleteTransform(hcmtransform))
+    CMDeleteTransform(hcmtransform)
 }
 #[doc = "*Required features: `\"Win32_UI_ColorSystem\"`*"]
 #[inline]
@@ -328,7 +328,7 @@ pub unsafe fn CMGetInfo(dwinfo: u32) -> u32 {
     extern "system" {
         fn CMGetInfo(dwinfo: u32) -> u32;
     }
-    ::core::mem::transmute(CMGetInfo(dwinfo))
+    CMGetInfo(dwinfo)
 }
 #[doc = "*Required features: `\"Win32_UI_ColorSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -338,7 +338,7 @@ pub unsafe fn CMGetNamedProfileInfo(hprofile: isize, pnamedprofileinfo: *mut NAM
     extern "system" {
         fn CMGetNamedProfileInfo(hprofile: isize, pnamedprofileinfo: *mut NAMED_PROFILE_INFO) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(CMGetNamedProfileInfo(hprofile, ::core::mem::transmute(pnamedprofileinfo)))
+    CMGetNamedProfileInfo(hprofile, ::core::mem::transmute(pnamedprofileinfo))
 }
 #[doc = "*Required features: `\"Win32_UI_ColorSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -348,7 +348,7 @@ pub unsafe fn CMIsProfileValid(hprofile: isize, lpbvalid: *mut i32) -> super::su
     extern "system" {
         fn CMIsProfileValid(hprofile: isize, lpbvalid: *mut i32) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(CMIsProfileValid(hprofile, ::core::mem::transmute(lpbvalid)))
+    CMIsProfileValid(hprofile, ::core::mem::transmute(lpbvalid))
 }
 #[doc = "*Required features: `\"Win32_UI_ColorSystem\"`*"]
 pub const CMM_DESCRIPTION: u32 = 5u32;
@@ -408,7 +408,7 @@ pub unsafe fn CMTranslateColors(hcmtransform: isize, lpainputcolors: *const COLO
     extern "system" {
         fn CMTranslateColors(hcmtransform: isize, lpainputcolors: *const COLOR, ncolors: u32, ctinput: COLORTYPE, lpaoutputcolors: *mut COLOR, ctoutput: COLORTYPE) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(CMTranslateColors(hcmtransform, ::core::mem::transmute(lpainputcolors), ::core::mem::transmute(ncolors), ctinput, ::core::mem::transmute(lpaoutputcolors), ctoutput))
+    CMTranslateColors(hcmtransform, ::core::mem::transmute(lpainputcolors), ::core::mem::transmute(ncolors), ctinput, ::core::mem::transmute(lpaoutputcolors), ctoutput)
 }
 #[doc = "*Required features: `\"Win32_UI_ColorSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -418,7 +418,7 @@ pub unsafe fn CMTranslateRGB(hcmtransform: isize, colorref: u32, lpcolorref: *mu
     extern "system" {
         fn CMTranslateRGB(hcmtransform: isize, colorref: u32, lpcolorref: *mut u32, dwflags: u32) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(CMTranslateRGB(hcmtransform, colorref, ::core::mem::transmute(lpcolorref), dwflags))
+    CMTranslateRGB(hcmtransform, colorref, ::core::mem::transmute(lpcolorref), dwflags)
 }
 #[doc = "*Required features: `\"Win32_UI_ColorSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -428,7 +428,7 @@ pub unsafe fn CMTranslateRGBs(hcmtransform: isize, lpsrcbits: *const ::core::ffi
     extern "system" {
         fn CMTranslateRGBs(hcmtransform: isize, lpsrcbits: *const ::core::ffi::c_void, bminput: BMFORMAT, dwwidth: u32, dwheight: u32, dwstride: u32, lpdestbits: *mut ::core::ffi::c_void, bmoutput: BMFORMAT, dwtranslatedirection: u32) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(CMTranslateRGBs(hcmtransform, ::core::mem::transmute(lpsrcbits), bminput, dwwidth, dwheight, dwstride, ::core::mem::transmute(lpdestbits), bmoutput, dwtranslatedirection))
+    CMTranslateRGBs(hcmtransform, ::core::mem::transmute(lpsrcbits), bminput, dwwidth, dwheight, dwstride, ::core::mem::transmute(lpdestbits), bmoutput, dwtranslatedirection)
 }
 #[doc = "*Required features: `\"Win32_UI_ColorSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -441,7 +441,7 @@ where
     extern "system" {
         fn CMTranslateRGBsExt(hcmtransform: isize, lpsrcbits: *const ::core::ffi::c_void, bminput: BMFORMAT, dwwidth: u32, dwheight: u32, dwinputstride: u32, lpdestbits: *mut ::core::ffi::c_void, bmoutput: BMFORMAT, dwoutputstride: u32, lpfncallback: *mut ::core::ffi::c_void, ulcallbackdata: super::super::Foundation::LPARAM) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(CMTranslateRGBsExt(hcmtransform, ::core::mem::transmute(lpsrcbits), bminput, dwwidth, dwheight, dwinputstride, ::core::mem::transmute(lpdestbits), bmoutput, dwoutputstride, ::core::mem::transmute(lpfncallback), ulcallbackdata.into()))
+    CMTranslateRGBsExt(hcmtransform, ::core::mem::transmute(lpsrcbits), bminput, dwwidth, dwheight, dwinputstride, ::core::mem::transmute(lpdestbits), bmoutput, dwoutputstride, ::core::mem::transmute(lpfncallback), ulcallbackdata.into())
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_UI_ColorSystem\"`*"]
@@ -907,7 +907,7 @@ where
     extern "system" {
         fn CheckBitmapBits(hcolortransform: isize, psrcbits: *const ::core::ffi::c_void, bminput: BMFORMAT, dwwidth: u32, dwheight: u32, dwstride: u32, paresult: *mut u8, pfncallback: *mut ::core::ffi::c_void, lpcallbackdata: super::super::Foundation::LPARAM) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(CheckBitmapBits(hcolortransform, ::core::mem::transmute(psrcbits), bminput, dwwidth, dwheight, dwstride, ::core::mem::transmute(paresult), ::core::mem::transmute(pfncallback), lpcallbackdata.into()))
+    CheckBitmapBits(hcolortransform, ::core::mem::transmute(psrcbits), bminput, dwwidth, dwheight, dwstride, ::core::mem::transmute(paresult), ::core::mem::transmute(pfncallback), lpcallbackdata.into())
 }
 #[doc = "*Required features: `\"Win32_UI_ColorSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -917,7 +917,7 @@ pub unsafe fn CheckColors(hcolortransform: isize, painputcolors: *const COLOR, n
     extern "system" {
         fn CheckColors(hcolortransform: isize, painputcolors: *const COLOR, ncolors: u32, ctinput: COLORTYPE, paresult: *mut u8) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(CheckColors(hcolortransform, ::core::mem::transmute(painputcolors), ::core::mem::transmute(ncolors), ctinput, ::core::mem::transmute(paresult)))
+    CheckColors(hcolortransform, ::core::mem::transmute(painputcolors), ::core::mem::transmute(ncolors), ctinput, ::core::mem::transmute(paresult))
 }
 #[doc = "*Required features: `\"Win32_UI_ColorSystem\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
@@ -930,7 +930,7 @@ where
     extern "system" {
         fn CheckColorsInGamut(hdc: super::super::Graphics::Gdi::HDC, lprgbtriple: *const super::super::Graphics::Gdi::RGBTRIPLE, dlpbuffer: *mut ::core::ffi::c_void, ncount: u32) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(CheckColorsInGamut(hdc.into(), ::core::mem::transmute(::windows::core::as_ptr_or_null(lprgbtriple)), ::core::mem::transmute(dlpbuffer), lprgbtriple.len() as _))
+    CheckColorsInGamut(hdc.into(), ::core::mem::transmute(::windows::core::as_ptr_or_null(lprgbtriple)), ::core::mem::transmute(dlpbuffer), lprgbtriple.len() as _)
 }
 #[doc = "*Required features: `\"Win32_UI_ColorSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -940,7 +940,7 @@ pub unsafe fn CloseColorProfile(hprofile: isize) -> super::super::Foundation::BO
     extern "system" {
         fn CloseColorProfile(hprofile: isize) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(CloseColorProfile(hprofile))
+    CloseColorProfile(hprofile)
 }
 #[doc = "*Required features: `\"Win32_UI_ColorSystem\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
@@ -954,7 +954,7 @@ where
     extern "system" {
         fn ColorCorrectPalette(hdc: super::super::Graphics::Gdi::HDC, hpal: super::super::Graphics::Gdi::HPALETTE, defirst: u32, num: u32) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(ColorCorrectPalette(hdc.into(), hpal.into(), defirst, num))
+    ColorCorrectPalette(hdc.into(), hpal.into(), defirst, num)
 }
 #[doc = "*Required features: `\"Win32_UI_ColorSystem\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
@@ -968,7 +968,7 @@ where
     extern "system" {
         fn ColorMatchToTarget(hdc: super::super::Graphics::Gdi::HDC, hdctarget: super::super::Graphics::Gdi::HDC, action: COLOR_MATCH_TO_TARGET_ACTION) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(ColorMatchToTarget(hdc.into(), hdctarget.into(), action))
+    ColorMatchToTarget(hdc.into(), hdctarget.into(), action)
 }
 #[doc = "*Required features: `\"Win32_UI_ColorSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -1052,7 +1052,7 @@ pub unsafe fn ConvertColorNameToIndex(hprofile: isize, pacolorname: *const *cons
     extern "system" {
         fn ConvertColorNameToIndex(hprofile: isize, pacolorname: *const *const i8, paindex: *mut u32, dwcount: u32) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(ConvertColorNameToIndex(hprofile, ::core::mem::transmute(pacolorname), ::core::mem::transmute(paindex), ::core::mem::transmute(dwcount)))
+    ConvertColorNameToIndex(hprofile, ::core::mem::transmute(pacolorname), ::core::mem::transmute(paindex), ::core::mem::transmute(dwcount))
 }
 #[doc = "*Required features: `\"Win32_UI_ColorSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -1062,7 +1062,7 @@ pub unsafe fn ConvertIndexToColorName(hprofile: isize, paindex: *const u32, paco
     extern "system" {
         fn ConvertIndexToColorName(hprofile: isize, paindex: *const u32, pacolorname: *mut *mut i8, dwcount: u32) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(ConvertIndexToColorName(hprofile, ::core::mem::transmute(paindex), ::core::mem::transmute(pacolorname), ::core::mem::transmute(dwcount)))
+    ConvertIndexToColorName(hprofile, ::core::mem::transmute(paindex), ::core::mem::transmute(pacolorname), ::core::mem::transmute(dwcount))
 }
 #[doc = "*Required features: `\"Win32_UI_ColorSystem\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
@@ -1072,7 +1072,7 @@ pub unsafe fn CreateColorSpaceA(lplcs: *const LOGCOLORSPACEA) -> HCOLORSPACE {
     extern "system" {
         fn CreateColorSpaceA(lplcs: *const LOGCOLORSPACEA) -> HCOLORSPACE;
     }
-    ::core::mem::transmute(CreateColorSpaceA(::core::mem::transmute(lplcs)))
+    CreateColorSpaceA(::core::mem::transmute(lplcs))
 }
 #[doc = "*Required features: `\"Win32_UI_ColorSystem\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(feature = "Win32_Graphics_Gdi")]
@@ -1082,7 +1082,7 @@ pub unsafe fn CreateColorSpaceW(lplcs: *const LOGCOLORSPACEW) -> HCOLORSPACE {
     extern "system" {
         fn CreateColorSpaceW(lplcs: *const LOGCOLORSPACEW) -> HCOLORSPACE;
     }
-    ::core::mem::transmute(CreateColorSpaceW(::core::mem::transmute(lplcs)))
+    CreateColorSpaceW(::core::mem::transmute(lplcs))
 }
 #[doc = "*Required features: `\"Win32_UI_ColorSystem\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
@@ -1092,7 +1092,7 @@ pub unsafe fn CreateColorTransformA(plogcolorspace: *const LOGCOLORSPACEA, hdest
     extern "system" {
         fn CreateColorTransformA(plogcolorspace: *const LOGCOLORSPACEA, hdestprofile: isize, htargetprofile: isize, dwflags: u32) -> isize;
     }
-    ::core::mem::transmute(CreateColorTransformA(::core::mem::transmute(plogcolorspace), hdestprofile, htargetprofile, dwflags))
+    CreateColorTransformA(::core::mem::transmute(plogcolorspace), hdestprofile, htargetprofile, dwflags)
 }
 #[doc = "*Required features: `\"Win32_UI_ColorSystem\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(feature = "Win32_Graphics_Gdi")]
@@ -1102,7 +1102,7 @@ pub unsafe fn CreateColorTransformW(plogcolorspace: *const LOGCOLORSPACEW, hdest
     extern "system" {
         fn CreateColorTransformW(plogcolorspace: *const LOGCOLORSPACEW, hdestprofile: isize, htargetprofile: isize, dwflags: u32) -> isize;
     }
-    ::core::mem::transmute(CreateColorTransformW(::core::mem::transmute(plogcolorspace), hdestprofile, htargetprofile, dwflags))
+    CreateColorTransformW(::core::mem::transmute(plogcolorspace), hdestprofile, htargetprofile, dwflags)
 }
 #[doc = "*Required features: `\"Win32_UI_ColorSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -1112,7 +1112,7 @@ pub unsafe fn CreateDeviceLinkProfile(hprofile: &[isize], padwintent: &[u32], dw
     extern "system" {
         fn CreateDeviceLinkProfile(hprofile: *const isize, nprofiles: u32, padwintent: *const u32, nintents: u32, dwflags: u32, pprofiledata: *mut *mut u8, indexpreferredcmm: u32) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(CreateDeviceLinkProfile(::core::mem::transmute(::windows::core::as_ptr_or_null(hprofile)), hprofile.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(padwintent)), padwintent.len() as _, dwflags, ::core::mem::transmute(pprofiledata), indexpreferredcmm))
+    CreateDeviceLinkProfile(::core::mem::transmute(::windows::core::as_ptr_or_null(hprofile)), hprofile.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(padwintent)), padwintent.len() as _, dwflags, ::core::mem::transmute(pprofiledata), indexpreferredcmm)
 }
 #[doc = "*Required features: `\"Win32_UI_ColorSystem\"`*"]
 #[inline]
@@ -1121,7 +1121,7 @@ pub unsafe fn CreateMultiProfileTransform(pahprofiles: &[isize], padwintent: &[u
     extern "system" {
         fn CreateMultiProfileTransform(pahprofiles: *const isize, nprofiles: u32, padwintent: *const u32, nintents: u32, dwflags: u32, indexpreferredcmm: u32) -> isize;
     }
-    ::core::mem::transmute(CreateMultiProfileTransform(::core::mem::transmute(::windows::core::as_ptr_or_null(pahprofiles)), pahprofiles.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(padwintent)), padwintent.len() as _, dwflags, indexpreferredcmm))
+    CreateMultiProfileTransform(::core::mem::transmute(::windows::core::as_ptr_or_null(pahprofiles)), pahprofiles.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(padwintent)), padwintent.len() as _, dwflags, indexpreferredcmm)
 }
 #[doc = "*Required features: `\"Win32_UI_ColorSystem\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
@@ -1131,7 +1131,7 @@ pub unsafe fn CreateProfileFromLogColorSpaceA(plogcolorspace: *const LOGCOLORSPA
     extern "system" {
         fn CreateProfileFromLogColorSpaceA(plogcolorspace: *const LOGCOLORSPACEA, pprofile: *mut *mut u8) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(CreateProfileFromLogColorSpaceA(::core::mem::transmute(plogcolorspace), ::core::mem::transmute(pprofile)))
+    CreateProfileFromLogColorSpaceA(::core::mem::transmute(plogcolorspace), ::core::mem::transmute(pprofile))
 }
 #[doc = "*Required features: `\"Win32_UI_ColorSystem\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
@@ -1141,7 +1141,7 @@ pub unsafe fn CreateProfileFromLogColorSpaceW(plogcolorspace: *const LOGCOLORSPA
     extern "system" {
         fn CreateProfileFromLogColorSpaceW(plogcolorspace: *const LOGCOLORSPACEW, pprofile: *mut *mut u8) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(CreateProfileFromLogColorSpaceW(::core::mem::transmute(plogcolorspace), ::core::mem::transmute(pprofile)))
+    CreateProfileFromLogColorSpaceW(::core::mem::transmute(plogcolorspace), ::core::mem::transmute(pprofile))
 }
 #[doc = "*Required features: `\"Win32_UI_ColorSystem\"`*"]
 pub const DONT_USE_EMBEDDED_WCS_PROFILES: i32 = 1i32;
@@ -1156,7 +1156,7 @@ where
     extern "system" {
         fn DeleteColorSpace(hcs: HCOLORSPACE) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(DeleteColorSpace(hcs.into()))
+    DeleteColorSpace(hcs.into())
 }
 #[doc = "*Required features: `\"Win32_UI_ColorSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -1166,7 +1166,7 @@ pub unsafe fn DeleteColorTransform(hxform: isize) -> super::super::Foundation::B
     extern "system" {
         fn DeleteColorTransform(hxform: isize) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(DeleteColorTransform(hxform))
+    DeleteColorTransform(hxform)
 }
 #[doc = "*Required features: `\"Win32_UI_ColorSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -1181,7 +1181,7 @@ where
     extern "system" {
         fn DisassociateColorProfileFromDeviceA(pmachinename: ::windows::core::PCSTR, pprofilename: ::windows::core::PCSTR, pdevicename: ::windows::core::PCSTR) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(DisassociateColorProfileFromDeviceA(pmachinename.into(), pprofilename.into(), pdevicename.into()))
+    DisassociateColorProfileFromDeviceA(pmachinename.into(), pprofilename.into(), pdevicename.into())
 }
 #[doc = "*Required features: `\"Win32_UI_ColorSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -1196,7 +1196,7 @@ where
     extern "system" {
         fn DisassociateColorProfileFromDeviceW(pmachinename: ::windows::core::PCWSTR, pprofilename: ::windows::core::PCWSTR, pdevicename: ::windows::core::PCWSTR) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(DisassociateColorProfileFromDeviceW(pmachinename.into(), pprofilename.into(), pdevicename.into()))
+    DisassociateColorProfileFromDeviceW(pmachinename.into(), pprofilename.into(), pdevicename.into())
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_UI_ColorSystem\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
@@ -1474,7 +1474,7 @@ where
     extern "system" {
         fn EnumColorProfilesA(pmachinename: ::windows::core::PCSTR, penumrecord: *const ENUMTYPEA, penumerationbuffer: *mut u8, pdwsizeofenumerationbuffer: *mut u32, pnprofiles: *mut u32) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(EnumColorProfilesA(pmachinename.into(), ::core::mem::transmute(penumrecord), ::core::mem::transmute(penumerationbuffer), ::core::mem::transmute(pdwsizeofenumerationbuffer), ::core::mem::transmute(pnprofiles)))
+    EnumColorProfilesA(pmachinename.into(), ::core::mem::transmute(penumrecord), ::core::mem::transmute(penumerationbuffer), ::core::mem::transmute(pdwsizeofenumerationbuffer), ::core::mem::transmute(pnprofiles))
 }
 #[doc = "*Required features: `\"Win32_UI_ColorSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -1487,7 +1487,7 @@ where
     extern "system" {
         fn EnumColorProfilesW(pmachinename: ::windows::core::PCWSTR, penumrecord: *const ENUMTYPEW, penumerationbuffer: *mut u8, pdwsizeofenumerationbuffer: *mut u32, pnprofiles: *mut u32) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(EnumColorProfilesW(pmachinename.into(), ::core::mem::transmute(penumrecord), ::core::mem::transmute(penumerationbuffer), ::core::mem::transmute(pdwsizeofenumerationbuffer), ::core::mem::transmute(pnprofiles)))
+    EnumColorProfilesW(pmachinename.into(), ::core::mem::transmute(penumrecord), ::core::mem::transmute(penumerationbuffer), ::core::mem::transmute(pdwsizeofenumerationbuffer), ::core::mem::transmute(pnprofiles))
 }
 #[doc = "*Required features: `\"Win32_UI_ColorSystem\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
@@ -1501,7 +1501,7 @@ where
     extern "system" {
         fn EnumICMProfilesA(hdc: super::super::Graphics::Gdi::HDC, proc: *mut ::core::ffi::c_void, param2: super::super::Foundation::LPARAM) -> i32;
     }
-    ::core::mem::transmute(EnumICMProfilesA(hdc.into(), ::core::mem::transmute(proc), param2.into()))
+    EnumICMProfilesA(hdc.into(), ::core::mem::transmute(proc), param2.into())
 }
 #[doc = "*Required features: `\"Win32_UI_ColorSystem\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
@@ -1515,7 +1515,7 @@ where
     extern "system" {
         fn EnumICMProfilesW(hdc: super::super::Graphics::Gdi::HDC, proc: *mut ::core::ffi::c_void, param2: super::super::Foundation::LPARAM) -> i32;
     }
-    ::core::mem::transmute(EnumICMProfilesW(hdc.into(), ::core::mem::transmute(proc), param2.into()))
+    EnumICMProfilesW(hdc.into(), ::core::mem::transmute(proc), param2.into())
 }
 #[doc = "*Required features: `\"Win32_UI_ColorSystem\"`*"]
 pub const FAST_TRANSLATE: u32 = 262144u32;
@@ -1694,7 +1694,7 @@ pub unsafe fn GetCMMInfo(hcolortransform: isize, param1: u32) -> u32 {
     extern "system" {
         fn GetCMMInfo(hcolortransform: isize, param1: u32) -> u32;
     }
-    ::core::mem::transmute(GetCMMInfo(hcolortransform, param1))
+    GetCMMInfo(hcolortransform, param1)
 }
 #[doc = "*Required features: `\"Win32_UI_ColorSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -1707,7 +1707,7 @@ where
     extern "system" {
         fn GetColorDirectoryA(pmachinename: ::windows::core::PCSTR, pbuffer: ::windows::core::PSTR, pdwsize: *mut u32) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(GetColorDirectoryA(pmachinename.into(), ::core::mem::transmute(pbuffer), ::core::mem::transmute(pdwsize)))
+    GetColorDirectoryA(pmachinename.into(), ::core::mem::transmute(pbuffer), ::core::mem::transmute(pdwsize))
 }
 #[doc = "*Required features: `\"Win32_UI_ColorSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -1720,7 +1720,7 @@ where
     extern "system" {
         fn GetColorDirectoryW(pmachinename: ::windows::core::PCWSTR, pbuffer: ::windows::core::PWSTR, pdwsize: *mut u32) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(GetColorDirectoryW(pmachinename.into(), ::core::mem::transmute(pbuffer), ::core::mem::transmute(pdwsize)))
+    GetColorDirectoryW(pmachinename.into(), ::core::mem::transmute(pbuffer), ::core::mem::transmute(pdwsize))
 }
 #[doc = "*Required features: `\"Win32_UI_ColorSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -1730,7 +1730,7 @@ pub unsafe fn GetColorProfileElement(hprofile: isize, tag: u32, dwoffset: u32, p
     extern "system" {
         fn GetColorProfileElement(hprofile: isize, tag: u32, dwoffset: u32, pcbelement: *mut u32, pelement: *mut ::core::ffi::c_void, pbreference: *mut super::super::Foundation::BOOL) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(GetColorProfileElement(hprofile, tag, dwoffset, ::core::mem::transmute(pcbelement), ::core::mem::transmute(pelement), ::core::mem::transmute(pbreference)))
+    GetColorProfileElement(hprofile, tag, dwoffset, ::core::mem::transmute(pcbelement), ::core::mem::transmute(pelement), ::core::mem::transmute(pbreference))
 }
 #[doc = "*Required features: `\"Win32_UI_ColorSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -1740,7 +1740,7 @@ pub unsafe fn GetColorProfileElementTag(hprofile: isize, dwindex: u32, ptag: *mu
     extern "system" {
         fn GetColorProfileElementTag(hprofile: isize, dwindex: u32, ptag: *mut u32) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(GetColorProfileElementTag(hprofile, dwindex, ::core::mem::transmute(ptag)))
+    GetColorProfileElementTag(hprofile, dwindex, ::core::mem::transmute(ptag))
 }
 #[doc = "*Required features: `\"Win32_UI_ColorSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -1750,7 +1750,7 @@ pub unsafe fn GetColorProfileFromHandle(hprofile: isize, pprofile: *mut u8, pcbp
     extern "system" {
         fn GetColorProfileFromHandle(hprofile: isize, pprofile: *mut u8, pcbprofile: *mut u32) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(GetColorProfileFromHandle(hprofile, ::core::mem::transmute(pprofile), ::core::mem::transmute(pcbprofile)))
+    GetColorProfileFromHandle(hprofile, ::core::mem::transmute(pprofile), ::core::mem::transmute(pcbprofile))
 }
 #[doc = "*Required features: `\"Win32_UI_ColorSystem\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
@@ -1760,7 +1760,7 @@ pub unsafe fn GetColorProfileHeader(hprofile: isize, pheader: *mut PROFILEHEADER
     extern "system" {
         fn GetColorProfileHeader(hprofile: isize, pheader: *mut PROFILEHEADER) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(GetColorProfileHeader(hprofile, ::core::mem::transmute(pheader)))
+    GetColorProfileHeader(hprofile, ::core::mem::transmute(pheader))
 }
 #[doc = "*Required features: `\"Win32_UI_ColorSystem\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(feature = "Win32_Graphics_Gdi")]
@@ -1773,7 +1773,7 @@ where
     extern "system" {
         fn GetColorSpace(hdc: super::super::Graphics::Gdi::HDC) -> HCOLORSPACE;
     }
-    ::core::mem::transmute(GetColorSpace(hdc.into()))
+    GetColorSpace(hdc.into())
 }
 #[doc = "*Required features: `\"Win32_UI_ColorSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -1783,7 +1783,7 @@ pub unsafe fn GetCountColorProfileElements(hprofile: isize, pnelementcount: *mut
     extern "system" {
         fn GetCountColorProfileElements(hprofile: isize, pnelementcount: *mut u32) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(GetCountColorProfileElements(hprofile, ::core::mem::transmute(pnelementcount)))
+    GetCountColorProfileElements(hprofile, ::core::mem::transmute(pnelementcount))
 }
 #[doc = "*Required features: `\"Win32_UI_ColorSystem\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
@@ -1796,7 +1796,7 @@ where
     extern "system" {
         fn GetDeviceGammaRamp(hdc: super::super::Graphics::Gdi::HDC, lpramp: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(GetDeviceGammaRamp(hdc.into(), ::core::mem::transmute(lpramp)))
+    GetDeviceGammaRamp(hdc.into(), ::core::mem::transmute(lpramp))
 }
 #[doc = "*Required features: `\"Win32_UI_ColorSystem\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
@@ -1809,7 +1809,7 @@ where
     extern "system" {
         fn GetICMProfileA(hdc: super::super::Graphics::Gdi::HDC, pbufsize: *mut u32, pszfilename: ::windows::core::PSTR) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(GetICMProfileA(hdc.into(), ::core::mem::transmute(pbufsize), ::core::mem::transmute(pszfilename)))
+    GetICMProfileA(hdc.into(), ::core::mem::transmute(pbufsize), ::core::mem::transmute(pszfilename))
 }
 #[doc = "*Required features: `\"Win32_UI_ColorSystem\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
@@ -1822,7 +1822,7 @@ where
     extern "system" {
         fn GetICMProfileW(hdc: super::super::Graphics::Gdi::HDC, pbufsize: *mut u32, pszfilename: ::windows::core::PWSTR) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(GetICMProfileW(hdc.into(), ::core::mem::transmute(pbufsize), ::core::mem::transmute(pszfilename)))
+    GetICMProfileW(hdc.into(), ::core::mem::transmute(pbufsize), ::core::mem::transmute(pszfilename))
 }
 #[doc = "*Required features: `\"Win32_UI_ColorSystem\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
@@ -1835,7 +1835,7 @@ where
     extern "system" {
         fn GetLogColorSpaceA(hcolorspace: HCOLORSPACE, lpbuffer: *mut LOGCOLORSPACEA, nsize: u32) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(GetLogColorSpaceA(hcolorspace.into(), ::core::mem::transmute(lpbuffer), nsize))
+    GetLogColorSpaceA(hcolorspace.into(), ::core::mem::transmute(lpbuffer), nsize)
 }
 #[doc = "*Required features: `\"Win32_UI_ColorSystem\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
@@ -1848,7 +1848,7 @@ where
     extern "system" {
         fn GetLogColorSpaceW(hcolorspace: HCOLORSPACE, lpbuffer: *mut LOGCOLORSPACEW, nsize: u32) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(GetLogColorSpaceW(hcolorspace.into(), ::core::mem::transmute(lpbuffer), nsize))
+    GetLogColorSpaceW(hcolorspace.into(), ::core::mem::transmute(lpbuffer), nsize)
 }
 #[doc = "*Required features: `\"Win32_UI_ColorSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -1858,7 +1858,7 @@ pub unsafe fn GetNamedProfileInfo(hprofile: isize, pnamedprofileinfo: *mut NAMED
     extern "system" {
         fn GetNamedProfileInfo(hprofile: isize, pnamedprofileinfo: *mut NAMED_PROFILE_INFO) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(GetNamedProfileInfo(hprofile, ::core::mem::transmute(pnamedprofileinfo)))
+    GetNamedProfileInfo(hprofile, ::core::mem::transmute(pnamedprofileinfo))
 }
 #[doc = "*Required features: `\"Win32_UI_ColorSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -1868,7 +1868,7 @@ pub unsafe fn GetPS2ColorRenderingDictionary(hprofile: isize, dwintent: u32, pps
     extern "system" {
         fn GetPS2ColorRenderingDictionary(hprofile: isize, dwintent: u32, pps2colorrenderingdictionary: *mut u8, pcbps2colorrenderingdictionary: *mut u32, pbbinary: *mut super::super::Foundation::BOOL) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(GetPS2ColorRenderingDictionary(hprofile, dwintent, ::core::mem::transmute(pps2colorrenderingdictionary), ::core::mem::transmute(pcbps2colorrenderingdictionary), ::core::mem::transmute(pbbinary)))
+    GetPS2ColorRenderingDictionary(hprofile, dwintent, ::core::mem::transmute(pps2colorrenderingdictionary), ::core::mem::transmute(pcbps2colorrenderingdictionary), ::core::mem::transmute(pbbinary))
 }
 #[doc = "*Required features: `\"Win32_UI_ColorSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -1878,7 +1878,7 @@ pub unsafe fn GetPS2ColorRenderingIntent(hprofile: isize, dwintent: u32, pbuffer
     extern "system" {
         fn GetPS2ColorRenderingIntent(hprofile: isize, dwintent: u32, pbuffer: *mut u8, pcbps2colorrenderingintent: *mut u32) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(GetPS2ColorRenderingIntent(hprofile, dwintent, ::core::mem::transmute(pbuffer), ::core::mem::transmute(pcbps2colorrenderingintent)))
+    GetPS2ColorRenderingIntent(hprofile, dwintent, ::core::mem::transmute(pbuffer), ::core::mem::transmute(pcbps2colorrenderingintent))
 }
 #[doc = "*Required features: `\"Win32_UI_ColorSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -1888,7 +1888,7 @@ pub unsafe fn GetPS2ColorSpaceArray(hprofile: isize, dwintent: u32, dwcsatype: u
     extern "system" {
         fn GetPS2ColorSpaceArray(hprofile: isize, dwintent: u32, dwcsatype: u32, pps2colorspacearray: *mut u8, pcbps2colorspacearray: *mut u32, pbbinary: *mut super::super::Foundation::BOOL) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(GetPS2ColorSpaceArray(hprofile, dwintent, dwcsatype, ::core::mem::transmute(pps2colorspacearray), ::core::mem::transmute(pcbps2colorspacearray), ::core::mem::transmute(pbbinary)))
+    GetPS2ColorSpaceArray(hprofile, dwintent, dwcsatype, ::core::mem::transmute(pps2colorspacearray), ::core::mem::transmute(pcbps2colorspacearray), ::core::mem::transmute(pbbinary))
 }
 #[doc = "*Required features: `\"Win32_UI_ColorSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -1901,7 +1901,7 @@ where
     extern "system" {
         fn GetStandardColorSpaceProfileA(pmachinename: ::windows::core::PCSTR, dwscs: u32, pbuffer: ::windows::core::PSTR, pcbsize: *mut u32) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(GetStandardColorSpaceProfileA(pmachinename.into(), dwscs, ::core::mem::transmute(pbuffer), ::core::mem::transmute(pcbsize)))
+    GetStandardColorSpaceProfileA(pmachinename.into(), dwscs, ::core::mem::transmute(pbuffer), ::core::mem::transmute(pcbsize))
 }
 #[doc = "*Required features: `\"Win32_UI_ColorSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -1914,7 +1914,7 @@ where
     extern "system" {
         fn GetStandardColorSpaceProfileW(pmachinename: ::windows::core::PCWSTR, dwscs: u32, pbuffer: ::windows::core::PWSTR, pcbsize: *mut u32) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(GetStandardColorSpaceProfileW(pmachinename.into(), dwscs, ::core::mem::transmute(pbuffer), ::core::mem::transmute(pcbsize)))
+    GetStandardColorSpaceProfileW(pmachinename.into(), dwscs, ::core::mem::transmute(pbuffer), ::core::mem::transmute(pcbsize))
 }
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
@@ -2247,7 +2247,7 @@ where
     extern "system" {
         fn InstallColorProfileA(pmachinename: ::windows::core::PCSTR, pprofilename: ::windows::core::PCSTR) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(InstallColorProfileA(pmachinename.into(), pprofilename.into()))
+    InstallColorProfileA(pmachinename.into(), pprofilename.into())
 }
 #[doc = "*Required features: `\"Win32_UI_ColorSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -2261,7 +2261,7 @@ where
     extern "system" {
         fn InstallColorProfileW(pmachinename: ::windows::core::PCWSTR, pprofilename: ::windows::core::PCWSTR) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(InstallColorProfileW(pmachinename.into(), pprofilename.into()))
+    InstallColorProfileW(pmachinename.into(), pprofilename.into())
 }
 #[doc = "*Required features: `\"Win32_UI_ColorSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -2271,7 +2271,7 @@ pub unsafe fn IsColorProfileTagPresent(hprofile: isize, tag: u32, pbpresent: *mu
     extern "system" {
         fn IsColorProfileTagPresent(hprofile: isize, tag: u32, pbpresent: *mut super::super::Foundation::BOOL) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(IsColorProfileTagPresent(hprofile, tag, ::core::mem::transmute(pbpresent)))
+    IsColorProfileTagPresent(hprofile, tag, ::core::mem::transmute(pbpresent))
 }
 #[doc = "*Required features: `\"Win32_UI_ColorSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -2281,7 +2281,7 @@ pub unsafe fn IsColorProfileValid(hprofile: isize, pbvalid: *mut super::super::F
     extern "system" {
         fn IsColorProfileValid(hprofile: isize, pbvalid: *mut super::super::Foundation::BOOL) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(IsColorProfileValid(hprofile, ::core::mem::transmute(pbvalid)))
+    IsColorProfileValid(hprofile, ::core::mem::transmute(pbvalid))
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_UI_ColorSystem\"`*"]
@@ -2551,7 +2551,7 @@ pub unsafe fn OpenColorProfileA(pprofile: *const PROFILE, dwdesiredaccess: u32, 
     extern "system" {
         fn OpenColorProfileA(pprofile: *const PROFILE, dwdesiredaccess: u32, dwsharemode: u32, dwcreationmode: u32) -> isize;
     }
-    ::core::mem::transmute(OpenColorProfileA(::core::mem::transmute(pprofile), dwdesiredaccess, dwsharemode, dwcreationmode))
+    OpenColorProfileA(::core::mem::transmute(pprofile), dwdesiredaccess, dwsharemode, dwcreationmode)
 }
 #[doc = "*Required features: `\"Win32_UI_ColorSystem\"`*"]
 #[inline]
@@ -2560,7 +2560,7 @@ pub unsafe fn OpenColorProfileW(pprofile: *const PROFILE, dwdesiredaccess: u32, 
     extern "system" {
         fn OpenColorProfileW(pprofile: *const PROFILE, dwdesiredaccess: u32, dwsharemode: u32, dwcreationmode: u32) -> isize;
     }
-    ::core::mem::transmute(OpenColorProfileW(::core::mem::transmute(pprofile), dwdesiredaccess, dwsharemode, dwcreationmode))
+    OpenColorProfileW(::core::mem::transmute(pprofile), dwdesiredaccess, dwsharemode, dwcreationmode)
 }
 #[doc = "*Required features: `\"Win32_UI_ColorSystem\"`, `\"Win32_Foundation\"`, `\"Win32_UI_WindowsAndMessaging\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
@@ -2804,7 +2804,7 @@ where
     extern "system" {
         fn RegisterCMMA(pmachinename: ::windows::core::PCSTR, cmmid: u32, pcmmdll: ::windows::core::PCSTR) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(RegisterCMMA(pmachinename.into(), cmmid, pcmmdll.into()))
+    RegisterCMMA(pmachinename.into(), cmmid, pcmmdll.into())
 }
 #[doc = "*Required features: `\"Win32_UI_ColorSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -2818,7 +2818,7 @@ where
     extern "system" {
         fn RegisterCMMW(pmachinename: ::windows::core::PCWSTR, cmmid: u32, pcmmdll: ::windows::core::PCWSTR) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(RegisterCMMW(pmachinename.into(), cmmid, pcmmdll.into()))
+    RegisterCMMW(pmachinename.into(), cmmid, pcmmdll.into())
 }
 #[doc = "*Required features: `\"Win32_UI_ColorSystem\"`*"]
 pub const SEQUENTIAL_TRANSFORM: u32 = 2155872256u32;
@@ -2830,7 +2830,7 @@ pub unsafe fn SelectCMM(dwcmmtype: u32) -> super::super::Foundation::BOOL {
     extern "system" {
         fn SelectCMM(dwcmmtype: u32) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(SelectCMM(dwcmmtype))
+    SelectCMM(dwcmmtype)
 }
 #[doc = "*Required features: `\"Win32_UI_ColorSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -2840,7 +2840,7 @@ pub unsafe fn SetColorProfileElement(hprofile: isize, tag: u32, dwoffset: u32, p
     extern "system" {
         fn SetColorProfileElement(hprofile: isize, tag: u32, dwoffset: u32, pcbelement: *const u32, pelement: *const ::core::ffi::c_void) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(SetColorProfileElement(hprofile, tag, dwoffset, pelement.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(pelement))))
+    SetColorProfileElement(hprofile, tag, dwoffset, pelement.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(pelement)))
 }
 #[doc = "*Required features: `\"Win32_UI_ColorSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -2850,7 +2850,7 @@ pub unsafe fn SetColorProfileElementReference(hprofile: isize, newtag: u32, reft
     extern "system" {
         fn SetColorProfileElementReference(hprofile: isize, newtag: u32, reftag: u32) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(SetColorProfileElementReference(hprofile, newtag, reftag))
+    SetColorProfileElementReference(hprofile, newtag, reftag)
 }
 #[doc = "*Required features: `\"Win32_UI_ColorSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -2860,7 +2860,7 @@ pub unsafe fn SetColorProfileElementSize(hprofile: isize, tagtype: u32, pcbeleme
     extern "system" {
         fn SetColorProfileElementSize(hprofile: isize, tagtype: u32, pcbelement: u32) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(SetColorProfileElementSize(hprofile, tagtype, pcbelement))
+    SetColorProfileElementSize(hprofile, tagtype, pcbelement)
 }
 #[doc = "*Required features: `\"Win32_UI_ColorSystem\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
@@ -2870,7 +2870,7 @@ pub unsafe fn SetColorProfileHeader(hprofile: isize, pheader: *const PROFILEHEAD
     extern "system" {
         fn SetColorProfileHeader(hprofile: isize, pheader: *const PROFILEHEADER) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(SetColorProfileHeader(hprofile, ::core::mem::transmute(pheader)))
+    SetColorProfileHeader(hprofile, ::core::mem::transmute(pheader))
 }
 #[doc = "*Required features: `\"Win32_UI_ColorSystem\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(feature = "Win32_Graphics_Gdi")]
@@ -2884,7 +2884,7 @@ where
     extern "system" {
         fn SetColorSpace(hdc: super::super::Graphics::Gdi::HDC, hcs: HCOLORSPACE) -> HCOLORSPACE;
     }
-    ::core::mem::transmute(SetColorSpace(hdc.into(), hcs.into()))
+    SetColorSpace(hdc.into(), hcs.into())
 }
 #[doc = "*Required features: `\"Win32_UI_ColorSystem\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
@@ -2897,7 +2897,7 @@ where
     extern "system" {
         fn SetDeviceGammaRamp(hdc: super::super::Graphics::Gdi::HDC, lpramp: *const ::core::ffi::c_void) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(SetDeviceGammaRamp(hdc.into(), ::core::mem::transmute(lpramp)))
+    SetDeviceGammaRamp(hdc.into(), ::core::mem::transmute(lpramp))
 }
 #[doc = "*Required features: `\"Win32_UI_ColorSystem\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(feature = "Win32_Graphics_Gdi")]
@@ -2910,7 +2910,7 @@ where
     extern "system" {
         fn SetICMMode(hdc: super::super::Graphics::Gdi::HDC, mode: ICM_MODE) -> i32;
     }
-    ::core::mem::transmute(SetICMMode(hdc.into(), mode))
+    SetICMMode(hdc.into(), mode)
 }
 #[doc = "*Required features: `\"Win32_UI_ColorSystem\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
@@ -2924,7 +2924,7 @@ where
     extern "system" {
         fn SetICMProfileA(hdc: super::super::Graphics::Gdi::HDC, lpfilename: ::windows::core::PCSTR) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(SetICMProfileA(hdc.into(), lpfilename.into()))
+    SetICMProfileA(hdc.into(), lpfilename.into())
 }
 #[doc = "*Required features: `\"Win32_UI_ColorSystem\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
@@ -2938,7 +2938,7 @@ where
     extern "system" {
         fn SetICMProfileW(hdc: super::super::Graphics::Gdi::HDC, lpfilename: ::windows::core::PCWSTR) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(SetICMProfileW(hdc.into(), lpfilename.into()))
+    SetICMProfileW(hdc.into(), lpfilename.into())
 }
 #[doc = "*Required features: `\"Win32_UI_ColorSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -2952,7 +2952,7 @@ where
     extern "system" {
         fn SetStandardColorSpaceProfileA(pmachinename: ::windows::core::PCSTR, dwprofileid: u32, pprofilename: ::windows::core::PCSTR) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(SetStandardColorSpaceProfileA(pmachinename.into(), dwprofileid, pprofilename.into()))
+    SetStandardColorSpaceProfileA(pmachinename.into(), dwprofileid, pprofilename.into())
 }
 #[doc = "*Required features: `\"Win32_UI_ColorSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -2966,7 +2966,7 @@ where
     extern "system" {
         fn SetStandardColorSpaceProfileW(pmachinename: ::windows::core::PCWSTR, dwprofileid: u32, pprofilename: ::windows::core::PCWSTR) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(SetStandardColorSpaceProfileW(pmachinename.into(), dwprofileid, pprofilename.into()))
+    SetStandardColorSpaceProfileW(pmachinename.into(), dwprofileid, pprofilename.into())
 }
 #[doc = "*Required features: `\"Win32_UI_ColorSystem\"`, `\"Win32_Foundation\"`, `\"Win32_UI_WindowsAndMessaging\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
@@ -2976,7 +2976,7 @@ pub unsafe fn SetupColorMatchingA(pcms: *mut COLORMATCHSETUPA) -> super::super::
     extern "system" {
         fn SetupColorMatchingA(pcms: *mut COLORMATCHSETUPA) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(SetupColorMatchingA(::core::mem::transmute(pcms)))
+    SetupColorMatchingA(::core::mem::transmute(pcms))
 }
 #[doc = "*Required features: `\"Win32_UI_ColorSystem\"`, `\"Win32_Foundation\"`, `\"Win32_UI_WindowsAndMessaging\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
@@ -2986,7 +2986,7 @@ pub unsafe fn SetupColorMatchingW(pcms: *mut COLORMATCHSETUPW) -> super::super::
     extern "system" {
         fn SetupColorMatchingW(pcms: *mut COLORMATCHSETUPW) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(SetupColorMatchingW(::core::mem::transmute(pcms)))
+    SetupColorMatchingW(::core::mem::transmute(pcms))
 }
 #[doc = "*Required features: `\"Win32_UI_ColorSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -2999,7 +2999,7 @@ where
     extern "system" {
         fn TranslateBitmapBits(hcolortransform: isize, psrcbits: *const ::core::ffi::c_void, bminput: BMFORMAT, dwwidth: u32, dwheight: u32, dwinputstride: u32, pdestbits: *mut ::core::ffi::c_void, bmoutput: BMFORMAT, dwoutputstride: u32, pfncallback: *mut ::core::ffi::c_void, ulcallbackdata: super::super::Foundation::LPARAM) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(TranslateBitmapBits(hcolortransform, ::core::mem::transmute(psrcbits), bminput, dwwidth, dwheight, dwinputstride, ::core::mem::transmute(pdestbits), bmoutput, dwoutputstride, ::core::mem::transmute(pfncallback), ulcallbackdata.into()))
+    TranslateBitmapBits(hcolortransform, ::core::mem::transmute(psrcbits), bminput, dwwidth, dwheight, dwinputstride, ::core::mem::transmute(pdestbits), bmoutput, dwoutputstride, ::core::mem::transmute(pfncallback), ulcallbackdata.into())
 }
 #[doc = "*Required features: `\"Win32_UI_ColorSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -3009,7 +3009,7 @@ pub unsafe fn TranslateColors(hcolortransform: isize, painputcolors: *const COLO
     extern "system" {
         fn TranslateColors(hcolortransform: isize, painputcolors: *const COLOR, ncolors: u32, ctinput: COLORTYPE, paoutputcolors: *mut COLOR, ctoutput: COLORTYPE) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(TranslateColors(hcolortransform, ::core::mem::transmute(painputcolors), ::core::mem::transmute(ncolors), ctinput, ::core::mem::transmute(paoutputcolors), ctoutput))
+    TranslateColors(hcolortransform, ::core::mem::transmute(painputcolors), ::core::mem::transmute(ncolors), ctinput, ::core::mem::transmute(paoutputcolors), ctoutput)
 }
 #[doc = "*Required features: `\"Win32_UI_ColorSystem\"`*"]
 pub const USE_RELATIVE_COLORIMETRIC: u32 = 131072u32;
@@ -3026,7 +3026,7 @@ where
     extern "system" {
         fn UninstallColorProfileA(pmachinename: ::windows::core::PCSTR, pprofilename: ::windows::core::PCSTR, bdelete: super::super::Foundation::BOOL) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(UninstallColorProfileA(pmachinename.into(), pprofilename.into(), bdelete.into()))
+    UninstallColorProfileA(pmachinename.into(), pprofilename.into(), bdelete.into())
 }
 #[doc = "*Required features: `\"Win32_UI_ColorSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -3041,7 +3041,7 @@ where
     extern "system" {
         fn UninstallColorProfileW(pmachinename: ::windows::core::PCWSTR, pprofilename: ::windows::core::PCWSTR, bdelete: super::super::Foundation::BOOL) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(UninstallColorProfileW(pmachinename.into(), pprofilename.into(), bdelete.into()))
+    UninstallColorProfileW(pmachinename.into(), pprofilename.into(), bdelete.into())
 }
 #[doc = "*Required features: `\"Win32_UI_ColorSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -3054,7 +3054,7 @@ where
     extern "system" {
         fn UnregisterCMMA(pmachinename: ::windows::core::PCSTR, cmmid: u32) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(UnregisterCMMA(pmachinename.into(), cmmid))
+    UnregisterCMMA(pmachinename.into(), cmmid)
 }
 #[doc = "*Required features: `\"Win32_UI_ColorSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -3067,7 +3067,7 @@ where
     extern "system" {
         fn UnregisterCMMW(pmachinename: ::windows::core::PCWSTR, cmmid: u32) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(UnregisterCMMW(pmachinename.into(), cmmid))
+    UnregisterCMMW(pmachinename.into(), cmmid)
 }
 #[doc = "*Required features: `\"Win32_UI_ColorSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -3081,7 +3081,7 @@ where
     extern "system" {
         fn UpdateICMRegKeyA(reserved: u32, lpszcmid: ::windows::core::PCSTR, lpszfilename: ::windows::core::PCSTR, command: ICM_COMMAND) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(UpdateICMRegKeyA(reserved, lpszcmid.into(), lpszfilename.into(), command))
+    UpdateICMRegKeyA(reserved, lpszcmid.into(), lpszfilename.into(), command)
 }
 #[doc = "*Required features: `\"Win32_UI_ColorSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -3095,7 +3095,7 @@ where
     extern "system" {
         fn UpdateICMRegKeyW(reserved: u32, lpszcmid: ::windows::core::PCWSTR, lpszfilename: ::windows::core::PCWSTR, command: ICM_COMMAND) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(UpdateICMRegKeyW(reserved, lpszcmid.into(), lpszfilename.into(), command))
+    UpdateICMRegKeyW(reserved, lpszcmid.into(), lpszfilename.into(), command)
 }
 #[doc = "*Required features: `\"Win32_UI_ColorSystem\"`*"]
 pub const WCS_ALWAYS: u32 = 2097152u32;
@@ -3250,7 +3250,7 @@ where
     extern "system" {
         fn WcsAssociateColorProfileWithDevice(scope: WCS_PROFILE_MANAGEMENT_SCOPE, pprofilename: ::windows::core::PCWSTR, pdevicename: ::windows::core::PCWSTR) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(WcsAssociateColorProfileWithDevice(scope, pprofilename.into(), pdevicename.into()))
+    WcsAssociateColorProfileWithDevice(scope, pprofilename.into(), pdevicename.into())
 }
 #[doc = "*Required features: `\"Win32_UI_ColorSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -3260,7 +3260,7 @@ pub unsafe fn WcsCheckColors(hcolortransform: isize, ninputchannels: u32, cdtinp
     extern "system" {
         fn WcsCheckColors(hcolortransform: isize, ncolors: u32, ninputchannels: u32, cdtinput: COLORDATATYPE, cbinput: u32, pinputdata: *const ::core::ffi::c_void, paresult: *mut u8) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(WcsCheckColors(hcolortransform, paresult.len() as _, ninputchannels, cdtinput, cbinput, ::core::mem::transmute(pinputdata), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(paresult))))
+    WcsCheckColors(hcolortransform, paresult.len() as _, ninputchannels, cdtinput, cbinput, ::core::mem::transmute(pinputdata), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(paresult)))
 }
 #[doc = "*Required features: `\"Win32_UI_ColorSystem\"`*"]
 #[inline]
@@ -3269,7 +3269,7 @@ pub unsafe fn WcsCreateIccProfile(hwcsprofile: isize, dwoptions: u32) -> isize {
     extern "system" {
         fn WcsCreateIccProfile(hwcsprofile: isize, dwoptions: u32) -> isize;
     }
-    ::core::mem::transmute(WcsCreateIccProfile(hwcsprofile, dwoptions))
+    WcsCreateIccProfile(hwcsprofile, dwoptions)
 }
 #[doc = "*Required features: `\"Win32_UI_ColorSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -3283,7 +3283,7 @@ where
     extern "system" {
         fn WcsDisassociateColorProfileFromDevice(scope: WCS_PROFILE_MANAGEMENT_SCOPE, pprofilename: ::windows::core::PCWSTR, pdevicename: ::windows::core::PCWSTR) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(WcsDisassociateColorProfileFromDevice(scope, pprofilename.into(), pdevicename.into()))
+    WcsDisassociateColorProfileFromDevice(scope, pprofilename.into(), pdevicename.into())
 }
 #[doc = "*Required features: `\"Win32_UI_ColorSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -3293,7 +3293,7 @@ pub unsafe fn WcsEnumColorProfiles(scope: WCS_PROFILE_MANAGEMENT_SCOPE, penumrec
     extern "system" {
         fn WcsEnumColorProfiles(scope: WCS_PROFILE_MANAGEMENT_SCOPE, penumrecord: *const ENUMTYPEW, pbuffer: *mut u8, dwsize: u32, pnprofiles: *mut u32) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(WcsEnumColorProfiles(scope, ::core::mem::transmute(penumrecord), ::core::mem::transmute(pbuffer), dwsize, ::core::mem::transmute(pnprofiles)))
+    WcsEnumColorProfiles(scope, ::core::mem::transmute(penumrecord), ::core::mem::transmute(pbuffer), dwsize, ::core::mem::transmute(pnprofiles))
 }
 #[doc = "*Required features: `\"Win32_UI_ColorSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -3303,7 +3303,7 @@ pub unsafe fn WcsEnumColorProfilesSize(scope: WCS_PROFILE_MANAGEMENT_SCOPE, penu
     extern "system" {
         fn WcsEnumColorProfilesSize(scope: WCS_PROFILE_MANAGEMENT_SCOPE, penumrecord: *const ENUMTYPEW, pdwsize: *mut u32) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(WcsEnumColorProfilesSize(scope, ::core::mem::transmute(penumrecord), ::core::mem::transmute(pdwsize)))
+    WcsEnumColorProfilesSize(scope, ::core::mem::transmute(penumrecord), ::core::mem::transmute(pdwsize))
 }
 #[doc = "*Required features: `\"Win32_UI_ColorSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -3313,7 +3313,7 @@ pub unsafe fn WcsGetCalibrationManagementState(pbisenabled: *mut super::super::F
     extern "system" {
         fn WcsGetCalibrationManagementState(pbisenabled: *mut super::super::Foundation::BOOL) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(WcsGetCalibrationManagementState(::core::mem::transmute(pbisenabled)))
+    WcsGetCalibrationManagementState(::core::mem::transmute(pbisenabled))
 }
 #[doc = "*Required features: `\"Win32_UI_ColorSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -3326,7 +3326,7 @@ where
     extern "system" {
         fn WcsGetDefaultColorProfile(scope: WCS_PROFILE_MANAGEMENT_SCOPE, pdevicename: ::windows::core::PCWSTR, cptcolorprofiletype: COLORPROFILETYPE, cpstcolorprofilesubtype: COLORPROFILESUBTYPE, dwprofileid: u32, cbprofilename: u32, pprofilename: ::windows::core::PWSTR) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(WcsGetDefaultColorProfile(scope, pdevicename.into(), cptcolorprofiletype, cpstcolorprofilesubtype, dwprofileid, cbprofilename, ::core::mem::transmute(pprofilename)))
+    WcsGetDefaultColorProfile(scope, pdevicename.into(), cptcolorprofiletype, cpstcolorprofilesubtype, dwprofileid, cbprofilename, ::core::mem::transmute(pprofilename))
 }
 #[doc = "*Required features: `\"Win32_UI_ColorSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -3339,7 +3339,7 @@ where
     extern "system" {
         fn WcsGetDefaultColorProfileSize(scope: WCS_PROFILE_MANAGEMENT_SCOPE, pdevicename: ::windows::core::PCWSTR, cptcolorprofiletype: COLORPROFILETYPE, cpstcolorprofilesubtype: COLORPROFILESUBTYPE, dwprofileid: u32, pcbprofilename: *mut u32) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(WcsGetDefaultColorProfileSize(scope, pdevicename.into(), cptcolorprofiletype, cpstcolorprofilesubtype, dwprofileid, ::core::mem::transmute(pcbprofilename)))
+    WcsGetDefaultColorProfileSize(scope, pdevicename.into(), cptcolorprofiletype, cpstcolorprofilesubtype, dwprofileid, ::core::mem::transmute(pcbprofilename))
 }
 #[doc = "*Required features: `\"Win32_UI_ColorSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -3349,7 +3349,7 @@ pub unsafe fn WcsGetDefaultRenderingIntent(scope: WCS_PROFILE_MANAGEMENT_SCOPE, 
     extern "system" {
         fn WcsGetDefaultRenderingIntent(scope: WCS_PROFILE_MANAGEMENT_SCOPE, pdwrenderingintent: *mut u32) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(WcsGetDefaultRenderingIntent(scope, ::core::mem::transmute(pdwrenderingintent)))
+    WcsGetDefaultRenderingIntent(scope, ::core::mem::transmute(pdwrenderingintent))
 }
 #[doc = "*Required features: `\"Win32_UI_ColorSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -3362,7 +3362,7 @@ where
     extern "system" {
         fn WcsGetUsePerUserProfiles(pdevicename: ::windows::core::PCWSTR, dwdeviceclass: u32, puseperuserprofiles: *mut super::super::Foundation::BOOL) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(WcsGetUsePerUserProfiles(pdevicename.into(), dwdeviceclass, ::core::mem::transmute(puseperuserprofiles)))
+    WcsGetUsePerUserProfiles(pdevicename.into(), dwdeviceclass, ::core::mem::transmute(puseperuserprofiles))
 }
 #[doc = "*Required features: `\"Win32_UI_ColorSystem\"`*"]
 #[inline]
@@ -3371,7 +3371,7 @@ pub unsafe fn WcsOpenColorProfileA(pcdmpprofile: *const PROFILE, pcampprofile: *
     extern "system" {
         fn WcsOpenColorProfileA(pcdmpprofile: *const PROFILE, pcampprofile: *const PROFILE, pgmmpprofile: *const PROFILE, dwdesireaccess: u32, dwsharemode: u32, dwcreationmode: u32, dwflags: u32) -> isize;
     }
-    ::core::mem::transmute(WcsOpenColorProfileA(::core::mem::transmute(pcdmpprofile), ::core::mem::transmute(pcampprofile), ::core::mem::transmute(pgmmpprofile), dwdesireaccess, dwsharemode, dwcreationmode, dwflags))
+    WcsOpenColorProfileA(::core::mem::transmute(pcdmpprofile), ::core::mem::transmute(pcampprofile), ::core::mem::transmute(pgmmpprofile), dwdesireaccess, dwsharemode, dwcreationmode, dwflags)
 }
 #[doc = "*Required features: `\"Win32_UI_ColorSystem\"`*"]
 #[inline]
@@ -3380,7 +3380,7 @@ pub unsafe fn WcsOpenColorProfileW(pcdmpprofile: *const PROFILE, pcampprofile: *
     extern "system" {
         fn WcsOpenColorProfileW(pcdmpprofile: *const PROFILE, pcampprofile: *const PROFILE, pgmmpprofile: *const PROFILE, dwdesireaccess: u32, dwsharemode: u32, dwcreationmode: u32, dwflags: u32) -> isize;
     }
-    ::core::mem::transmute(WcsOpenColorProfileW(::core::mem::transmute(pcdmpprofile), ::core::mem::transmute(pcampprofile), ::core::mem::transmute(pgmmpprofile), dwdesireaccess, dwsharemode, dwcreationmode, dwflags))
+    WcsOpenColorProfileW(::core::mem::transmute(pcdmpprofile), ::core::mem::transmute(pcampprofile), ::core::mem::transmute(pgmmpprofile), dwdesireaccess, dwsharemode, dwcreationmode, dwflags)
 }
 #[doc = "*Required features: `\"Win32_UI_ColorSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -3393,7 +3393,7 @@ where
     extern "system" {
         fn WcsSetCalibrationManagementState(bisenabled: super::super::Foundation::BOOL) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(WcsSetCalibrationManagementState(bisenabled.into()))
+    WcsSetCalibrationManagementState(bisenabled.into())
 }
 #[doc = "*Required features: `\"Win32_UI_ColorSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -3407,7 +3407,7 @@ where
     extern "system" {
         fn WcsSetDefaultColorProfile(scope: WCS_PROFILE_MANAGEMENT_SCOPE, pdevicename: ::windows::core::PCWSTR, cptcolorprofiletype: COLORPROFILETYPE, cpstcolorprofilesubtype: COLORPROFILESUBTYPE, dwprofileid: u32, pprofilename: ::windows::core::PCWSTR) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(WcsSetDefaultColorProfile(scope, pdevicename.into(), cptcolorprofiletype, cpstcolorprofilesubtype, dwprofileid, pprofilename.into()))
+    WcsSetDefaultColorProfile(scope, pdevicename.into(), cptcolorprofiletype, cpstcolorprofilesubtype, dwprofileid, pprofilename.into())
 }
 #[doc = "*Required features: `\"Win32_UI_ColorSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -3417,7 +3417,7 @@ pub unsafe fn WcsSetDefaultRenderingIntent(scope: WCS_PROFILE_MANAGEMENT_SCOPE, 
     extern "system" {
         fn WcsSetDefaultRenderingIntent(scope: WCS_PROFILE_MANAGEMENT_SCOPE, dwrenderingintent: u32) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(WcsSetDefaultRenderingIntent(scope, dwrenderingintent))
+    WcsSetDefaultRenderingIntent(scope, dwrenderingintent)
 }
 #[doc = "*Required features: `\"Win32_UI_ColorSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -3431,7 +3431,7 @@ where
     extern "system" {
         fn WcsSetUsePerUserProfiles(pdevicename: ::windows::core::PCWSTR, dwdeviceclass: u32, useperuserprofiles: super::super::Foundation::BOOL) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(WcsSetUsePerUserProfiles(pdevicename.into(), dwdeviceclass, useperuserprofiles.into()))
+    WcsSetUsePerUserProfiles(pdevicename.into(), dwdeviceclass, useperuserprofiles.into())
 }
 #[doc = "*Required features: `\"Win32_UI_ColorSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -3441,7 +3441,7 @@ pub unsafe fn WcsTranslateColors(hcolortransform: isize, ncolors: u32, ninputcha
     extern "system" {
         fn WcsTranslateColors(hcolortransform: isize, ncolors: u32, ninputchannels: u32, cdtinput: COLORDATATYPE, cbinput: u32, pinputdata: *const ::core::ffi::c_void, noutputchannels: u32, cdtoutput: COLORDATATYPE, cboutput: u32, poutputdata: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(WcsTranslateColors(hcolortransform, ncolors, ninputchannels, cdtinput, cbinput, ::core::mem::transmute(pinputdata), noutputchannels, cdtoutput, cboutput, ::core::mem::transmute(poutputdata)))
+    WcsTranslateColors(hcolortransform, ncolors, ninputchannels, cdtinput, cbinput, ::core::mem::transmute(pinputdata), noutputchannels, cdtoutput, cboutput, ::core::mem::transmute(poutputdata))
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_UI_ColorSystem\"`*"]
