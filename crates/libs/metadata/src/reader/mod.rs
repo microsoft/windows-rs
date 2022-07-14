@@ -1165,6 +1165,9 @@ impl<'a> Reader<'a> {
     pub fn signature_param_is_generic(&self, param: &SignatureParam) -> bool {
         self.signature_param_maybe_generic(param) && (self.type_is_borrowed(&param.ty) || self.type_is_in_class_hierarchy(&param.ty) || self.type_is_non_exclusive_winrt_interface(&param.ty) || self.type_is_convertible(&param.ty))
     }
+    pub fn signature_param_is_const_ref(&self, param: &SignatureParam) -> bool {
+        self.signature_param_maybe_generic(param) && !self.type_is_primitive(&param.ty)
+    }
     fn signature_param_maybe_generic(&self, param: &SignatureParam) -> bool {
         self.param_flags(param.def).input() && !param.ty.is_winrt_array() && !param.ty.is_pointer() && param.array_info == ArrayInfo::None
     }
@@ -1525,7 +1528,9 @@ impl<'a> Reader<'a> {
             _ => false,
         }
     }
-    pub fn type_is_borrowed(&self, ty: &Type) -> bool {
+    // TODO: this really means types that may be used with Borrowed<T> meaning types that are treated as both optional for input and also polymorphic.
+    // This should exclude WinRT strings. Delegates are also not polymorphic but it may be simpler to include them as they're optional.
+    fn type_is_borrowed(&self, ty: &Type) -> bool {
         match ty {
             Type::TypeDef((row, _)) => self.type_def_is_borrowed(*row),
             Type::String | Type::IInspectable | Type::IUnknown | Type::GenericParam(_) => true,
