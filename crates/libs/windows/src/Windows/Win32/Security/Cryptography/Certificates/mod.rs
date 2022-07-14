@@ -2556,7 +2556,6 @@ pub const CX509PublicKey: ::windows::core::GUID = ::windows::core::GUID::from_u1
 pub const CX509SCEPEnrollment: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x884e2061_217d_11da_b2a4_000e7bbb2b09);
 pub const CX509SCEPEnrollmentHelper: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x884e2062_217d_11da_b2a4_000e7bbb2b09);
 #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
-#[inline]
 pub unsafe fn CertSrvBackupClose(hbc: *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -2565,7 +2564,6 @@ pub unsafe fn CertSrvBackupClose(hbc: *mut ::core::ffi::c_void) -> ::windows::co
     CertSrvBackupClose(::core::mem::transmute(hbc)).ok()
 }
 #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
-#[inline]
 pub unsafe fn CertSrvBackupEnd(hbc: *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -2574,7 +2572,6 @@ pub unsafe fn CertSrvBackupEnd(hbc: *mut ::core::ffi::c_void) -> ::windows::core
     CertSrvBackupEnd(::core::mem::transmute(hbc)).ok()
 }
 #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
-#[inline]
 pub unsafe fn CertSrvBackupFree(pv: *mut ::core::ffi::c_void) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -2583,7 +2580,6 @@ pub unsafe fn CertSrvBackupFree(pv: *mut ::core::ffi::c_void) {
     CertSrvBackupFree(::core::mem::transmute(pv))
 }
 #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
-#[inline]
 pub unsafe fn CertSrvBackupGetBackupLogsW(hbc: *const ::core::ffi::c_void, ppwszzbackuplogfiles: *mut ::windows::core::PWSTR, pcbsize: *mut u32) -> ::windows::core::Result<()> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -2592,7 +2588,6 @@ pub unsafe fn CertSrvBackupGetBackupLogsW(hbc: *const ::core::ffi::c_void, ppwsz
     CertSrvBackupGetBackupLogsW(::core::mem::transmute(hbc), ::core::mem::transmute(ppwszzbackuplogfiles), ::core::mem::transmute(pcbsize)).ok()
 }
 #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
-#[inline]
 pub unsafe fn CertSrvBackupGetDatabaseNamesW(hbc: *const ::core::ffi::c_void, ppwszzattachmentinformation: *mut ::windows::core::PWSTR, pcbsize: *mut u32) -> ::windows::core::Result<()> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -2601,7 +2596,6 @@ pub unsafe fn CertSrvBackupGetDatabaseNamesW(hbc: *const ::core::ffi::c_void, pp
     CertSrvBackupGetDatabaseNamesW(::core::mem::transmute(hbc), ::core::mem::transmute(ppwszzattachmentinformation), ::core::mem::transmute(pcbsize)).ok()
 }
 #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
-#[inline]
 pub unsafe fn CertSrvBackupGetDynamicFileListW(hbc: *const ::core::ffi::c_void, ppwszzfilelist: *mut ::windows::core::PWSTR, pcbsize: *mut u32) -> ::windows::core::Result<()> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -2610,7 +2604,6 @@ pub unsafe fn CertSrvBackupGetDynamicFileListW(hbc: *const ::core::ffi::c_void, 
     CertSrvBackupGetDynamicFileListW(::core::mem::transmute(hbc), ::core::mem::transmute(ppwszzfilelist), ::core::mem::transmute(pcbsize)).ok()
 }
 #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
-#[inline]
 pub unsafe fn CertSrvBackupOpenFileW<'a, P0>(hbc: *mut ::core::ffi::c_void, pwszattachmentname: P0, cbreadhintsize: u32, plifilesize: *mut i64) -> ::windows::core::Result<()>
 where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
@@ -2622,7 +2615,6 @@ where
     CertSrvBackupOpenFileW(::core::mem::transmute(hbc), pwszattachmentname.into(), cbreadhintsize, ::core::mem::transmute(plifilesize)).ok()
 }
 #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
-#[inline]
 pub unsafe fn CertSrvBackupPrepareW<'a, P0>(pwszservername: P0, grbitjet: u32, dwbackupflags: CSBACKUP_TYPE, phbc: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>
 where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
@@ -2634,7 +2626,6 @@ where
     CertSrvBackupPrepareW(pwszservername.into(), grbitjet, dwbackupflags, ::core::mem::transmute(phbc)).ok()
 }
 #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
-#[inline]
 pub unsafe fn CertSrvBackupRead(hbc: *mut ::core::ffi::c_void, pvbuffer: *mut ::core::ffi::c_void, cbbuffer: u32, pcbread: *mut u32) -> ::windows::core::Result<()> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -2643,7 +2634,6 @@ pub unsafe fn CertSrvBackupRead(hbc: *mut ::core::ffi::c_void, pvbuffer: *mut ::
     CertSrvBackupRead(::core::mem::transmute(hbc), ::core::mem::transmute(pvbuffer), cbbuffer, ::core::mem::transmute(pcbread)).ok()
 }
 #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
-#[inline]
 pub unsafe fn CertSrvBackupTruncateLogs(hbc: *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -2653,7 +2643,6 @@ pub unsafe fn CertSrvBackupTruncateLogs(hbc: *mut ::core::ffi::c_void) -> ::wind
 }
 #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn CertSrvIsServerOnlineW<'a, P0>(pwszservername: P0, pfserveronline: *mut super::super::super::Foundation::BOOL) -> ::windows::core::Result<()>
 where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
@@ -2665,7 +2654,6 @@ where
     CertSrvIsServerOnlineW(pwszservername.into(), ::core::mem::transmute(pfserveronline)).ok()
 }
 #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
-#[inline]
 pub unsafe fn CertSrvRestoreEnd(hbc: *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -2674,7 +2662,6 @@ pub unsafe fn CertSrvRestoreEnd(hbc: *mut ::core::ffi::c_void) -> ::windows::cor
     CertSrvRestoreEnd(::core::mem::transmute(hbc)).ok()
 }
 #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
-#[inline]
 pub unsafe fn CertSrvRestoreGetDatabaseLocationsW(hbc: *const ::core::ffi::c_void, ppwszzdatabaselocationlist: *mut ::windows::core::PWSTR, pcbsize: *mut u32) -> ::windows::core::Result<()> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -2683,7 +2670,6 @@ pub unsafe fn CertSrvRestoreGetDatabaseLocationsW(hbc: *const ::core::ffi::c_voi
     CertSrvRestoreGetDatabaseLocationsW(::core::mem::transmute(hbc), ::core::mem::transmute(ppwszzdatabaselocationlist), ::core::mem::transmute(pcbsize)).ok()
 }
 #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
-#[inline]
 pub unsafe fn CertSrvRestorePrepareW<'a, P0>(pwszservername: P0, dwrestoreflags: u32, phbc: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>
 where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
@@ -2695,7 +2681,6 @@ where
     CertSrvRestorePrepareW(pwszservername.into(), dwrestoreflags, ::core::mem::transmute(phbc)).ok()
 }
 #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
-#[inline]
 pub unsafe fn CertSrvRestoreRegisterComplete(hbc: *mut ::core::ffi::c_void, hrrestorestate: ::windows::core::HRESULT) -> ::windows::core::Result<()> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -2704,7 +2689,6 @@ pub unsafe fn CertSrvRestoreRegisterComplete(hbc: *mut ::core::ffi::c_void, hrre
     CertSrvRestoreRegisterComplete(::core::mem::transmute(hbc), hrrestorestate).ok()
 }
 #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
-#[inline]
 pub unsafe fn CertSrvRestoreRegisterThroughFile<'a, P0, P1, P2>(hbc: *mut ::core::ffi::c_void, pwszcheckpointfilepath: P0, pwszlogpath: P1, rgrstmap: *mut CSEDB_RSTMAPW, crstmap: i32, pwszbackuplogpath: P2, genlow: u32, genhigh: u32) -> ::windows::core::Result<()>
 where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
@@ -2718,7 +2702,6 @@ where
     CertSrvRestoreRegisterThroughFile(::core::mem::transmute(hbc), pwszcheckpointfilepath.into(), pwszlogpath.into(), ::core::mem::transmute(rgrstmap), crstmap, pwszbackuplogpath.into(), genlow, genhigh).ok()
 }
 #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
-#[inline]
 pub unsafe fn CertSrvRestoreRegisterW<'a, P0, P1, P2>(hbc: *mut ::core::ffi::c_void, pwszcheckpointfilepath: P0, pwszlogpath: P1, rgrstmap: *mut CSEDB_RSTMAPW, crstmap: i32, pwszbackuplogpath: P2, genlow: u32, genhigh: u32) -> ::windows::core::Result<()>
 where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
@@ -2732,7 +2715,6 @@ where
     CertSrvRestoreRegisterW(::core::mem::transmute(hbc), pwszcheckpointfilepath.into(), pwszlogpath.into(), ::core::mem::transmute(rgrstmap), crstmap, pwszbackuplogpath.into(), genlow, genhigh).ok()
 }
 #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
-#[inline]
 pub unsafe fn CertSrvServerControlW<'a, P0>(pwszservername: P0, dwcontrolflags: u32, pcbout: *mut u32, ppbout: *mut *mut u8) -> ::windows::core::Result<()>
 where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
@@ -33381,7 +33363,6 @@ impl ::core::fmt::Debug for PolicyServerUrlPropertyID {
 }
 #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn PstAcquirePrivateKey(pcert: *const super::CERT_CONTEXT) -> ::windows::core::Result<()> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -33391,7 +33372,6 @@ pub unsafe fn PstAcquirePrivateKey(pcert: *const super::CERT_CONTEXT) -> ::windo
 }
 #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`, `\"Win32_Security_Authentication_Identity\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Authentication_Identity"))]
-#[inline]
 pub unsafe fn PstGetCertificateChain(pcert: *const super::CERT_CONTEXT, ptrustedissuers: *const super::super::Authentication::Identity::SecPkgContext_IssuerListInfoEx, ppcertchaincontext: *mut *mut super::CERT_CHAIN_CONTEXT) -> ::windows::core::Result<()> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -33401,7 +33381,6 @@ pub unsafe fn PstGetCertificateChain(pcert: *const super::CERT_CONTEXT, ptrusted
 }
 #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn PstGetCertificates<'a, P0>(ptargetname: *const super::super::super::Foundation::UNICODE_STRING, rgpcriteria: &[super::CERT_SELECT_CRITERIA], bisclient: P0, pdwcertchaincontextcount: *mut u32, ppcertchaincontexts: *mut *mut *mut super::CERT_CHAIN_CONTEXT) -> ::windows::core::Result<()>
 where
     P0: ::std::convert::Into<super::super::super::Foundation::BOOL>,
@@ -33414,7 +33393,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`, `\"Win32_Security_Authentication_Identity\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Authentication_Identity"))]
-#[inline]
 pub unsafe fn PstGetTrustAnchors(ptargetname: *const super::super::super::Foundation::UNICODE_STRING, rgpcriteria: &[super::CERT_SELECT_CRITERIA], pptrustedissuers: *mut *mut super::super::Authentication::Identity::SecPkgContext_IssuerListInfoEx) -> ::windows::core::Result<()> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -33424,7 +33402,6 @@ pub unsafe fn PstGetTrustAnchors(ptargetname: *const super::super::super::Founda
 }
 #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`, `\"Win32_Security_Authentication_Identity\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Authentication_Identity"))]
-#[inline]
 pub unsafe fn PstGetTrustAnchorsEx(ptargetname: *const super::super::super::Foundation::UNICODE_STRING, rgpcriteria: &[super::CERT_SELECT_CRITERIA], pcertcontext: *const super::CERT_CONTEXT, pptrustedissuers: *mut *mut super::super::Authentication::Identity::SecPkgContext_IssuerListInfoEx) -> ::windows::core::Result<()> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -33434,7 +33411,6 @@ pub unsafe fn PstGetTrustAnchorsEx(ptargetname: *const super::super::super::Foun
 }
 #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn PstGetUserNameForCertificate(pcertcontext: *const super::CERT_CONTEXT, username: *mut super::super::super::Foundation::UNICODE_STRING) -> ::windows::core::Result<()> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -33444,7 +33420,6 @@ pub unsafe fn PstGetUserNameForCertificate(pcertcontext: *const super::CERT_CONT
 }
 #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`, `\"Win32_Security_Authentication_Identity\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Authentication_Identity"))]
-#[inline]
 pub unsafe fn PstMapCertificate(pcert: *const super::CERT_CONTEXT, ptokeninformationtype: *mut super::super::Authentication::Identity::LSA_TOKEN_INFORMATION_TYPE, pptokeninformation: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -33454,7 +33429,6 @@ pub unsafe fn PstMapCertificate(pcert: *const super::CERT_CONTEXT, ptokeninforma
 }
 #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn PstValidate<'a, P0>(ptargetname: *const super::super::super::Foundation::UNICODE_STRING, bisclient: P0, prequestedissuancepolicy: *const super::CERT_USAGE_MATCH, phadditionalcertstore: *const super::HCERTSTORE, pcert: *const super::CERT_CONTEXT, pprovguid: *mut ::windows::core::GUID) -> ::windows::core::Result<()>
 where
     P0: ::std::convert::Into<super::super::super::Foundation::BOOL>,

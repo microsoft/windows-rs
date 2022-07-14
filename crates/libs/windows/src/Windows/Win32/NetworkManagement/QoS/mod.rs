@@ -1956,7 +1956,6 @@ pub const POSITIVE_INFINITY_RATE: u32 = 4294967294u32;
 pub const PREDICTIVE_SERV: u32 = 3u32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_QoS\"`, `\"Win32_Foundation\"`, `\"Win32_Networking_WinSock\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
-#[inline]
 pub unsafe fn QOSAddSocketToFlow<'a, P0, P1>(qoshandle: P0, socket: P1, destaddr: *const super::super::Networking::WinSock::SOCKADDR, traffictype: QOS_TRAFFIC_TYPE, flags: u32, flowid: *mut u32) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
@@ -1970,7 +1969,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_QoS\"`, `\"Win32_Foundation\"`, `\"Win32_System_IO\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
-#[inline]
 pub unsafe fn QOSCancel<'a, P0>(qoshandle: P0, overlapped: *const super::super::System::IO::OVERLAPPED) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
@@ -1983,7 +1981,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_QoS\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn QOSCloseHandle<'a, P0>(qoshandle: P0) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
@@ -1996,7 +1993,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_QoS\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn QOSCreateHandle(version: *const QOS_VERSION, qoshandle: *mut super::super::Foundation::HANDLE) -> super::super::Foundation::BOOL {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -2006,7 +2002,6 @@ pub unsafe fn QOSCreateHandle(version: *const QOS_VERSION, qoshandle: *mut super
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_QoS\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn QOSEnumerateFlows<'a, P0>(qoshandle: P0, size: *mut u32, buffer: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
@@ -2019,7 +2014,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_QoS\"`, `\"Win32_Foundation\"`, `\"Win32_System_IO\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
-#[inline]
 pub unsafe fn QOSNotifyFlow<'a, P0>(qoshandle: P0, flowid: u32, operation: QOS_NOTIFY_FLOW, size: *mut u32, buffer: *mut ::core::ffi::c_void, flags: u32, overlapped: *mut super::super::System::IO::OVERLAPPED) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
@@ -2032,7 +2026,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_QoS\"`, `\"Win32_Foundation\"`, `\"Win32_System_IO\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
-#[inline]
 pub unsafe fn QOSQueryFlow<'a, P0>(qoshandle: P0, flowid: u32, operation: QOS_QUERY_FLOW, size: *mut u32, buffer: *mut ::core::ffi::c_void, flags: u32, overlapped: *mut super::super::System::IO::OVERLAPPED) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
@@ -2045,7 +2038,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_QoS\"`, `\"Win32_Foundation\"`, `\"Win32_Networking_WinSock\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
-#[inline]
 pub unsafe fn QOSRemoveSocketFromFlow<'a, P0, P1>(qoshandle: P0, socket: P1, flowid: u32, flags: u32) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
@@ -2063,7 +2055,6 @@ pub const QOSSPBASE: u32 = 50000u32;
 pub const QOSSP_ERR_BASE: u32 = 56000u32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_QoS\"`, `\"Win32_Foundation\"`, `\"Win32_System_IO\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
-#[inline]
 pub unsafe fn QOSSetFlow<'a, P0>(qoshandle: P0, flowid: u32, operation: QOS_SET_FLOW, size: u32, buffer: *const ::core::ffi::c_void, flags: u32, overlapped: *mut super::super::System::IO::OVERLAPPED) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
@@ -2076,7 +2067,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_QoS\"`, `\"Win32_Foundation\"`, `\"Win32_Networking_WinSock\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
-#[inline]
 pub unsafe fn QOSStartTrackingClient<'a, P0>(qoshandle: P0, destaddr: *const super::super::Networking::WinSock::SOCKADDR, flags: u32) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
@@ -2089,7 +2079,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_QoS\"`, `\"Win32_Foundation\"`, `\"Win32_Networking_WinSock\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
-#[inline]
 pub unsafe fn QOSStopTrackingClient<'a, P0>(qoshandle: P0, destaddr: *const super::super::Networking::WinSock::SOCKADDR, flags: u32) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
@@ -4445,7 +4434,6 @@ impl ::core::default::Default for TC_SUPPORTED_INFO_BUFFER {
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_QoS\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn TcAddFilter<'a, P0>(flowhandle: P0, pgenericfilter: *const TC_GEN_FILTER, pfilterhandle: *mut super::super::Foundation::HANDLE) -> u32
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
@@ -4458,7 +4446,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_QoS\"`, `\"Win32_Foundation\"`, `\"Win32_Networking_WinSock\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
-#[inline]
 pub unsafe fn TcAddFlow<'a, P0, P1>(ifchandle: P0, clflowctx: P1, flags: u32, pgenericflow: *const TC_GEN_FLOW, pflowhandle: *mut super::super::Foundation::HANDLE) -> u32
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
@@ -4472,7 +4459,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_QoS\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn TcCloseInterface<'a, P0>(ifchandle: P0) -> u32
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
@@ -4485,7 +4471,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_QoS\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn TcDeleteFilter<'a, P0>(filterhandle: P0) -> u32
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
@@ -4498,7 +4483,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_QoS\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn TcDeleteFlow<'a, P0>(flowhandle: P0) -> u32
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
@@ -4511,7 +4495,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_QoS\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn TcDeregisterClient<'a, P0>(clienthandle: P0) -> u32
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
@@ -4524,7 +4507,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_QoS\"`, `\"Win32_Foundation\"`, `\"Win32_Networking_WinSock\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
-#[inline]
 pub unsafe fn TcEnumerateFlows<'a, P0>(ifchandle: P0, penumhandle: *mut super::super::Foundation::HANDLE, pflowcount: *mut u32, pbufsize: *mut u32, buffer: *mut ENUMERATION_BUFFER) -> u32
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
@@ -4537,7 +4519,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_QoS\"`, `\"Win32_Foundation\"`, `\"Win32_NetworkManagement_Ndis\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_Ndis"))]
-#[inline]
 pub unsafe fn TcEnumerateInterfaces<'a, P0>(clienthandle: P0, pbuffersize: *mut u32, interfacebuffer: *mut TC_IFC_DESCRIPTOR) -> u32
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
@@ -4550,7 +4531,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_QoS\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn TcGetFlowNameA<'a, P0>(flowhandle: P0, pflowname: &mut [u8]) -> u32
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
@@ -4563,7 +4543,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_QoS\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn TcGetFlowNameW<'a, P0>(flowhandle: P0, pflowname: &mut [u16]) -> u32
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
@@ -4576,7 +4555,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_QoS\"`, `\"Win32_Foundation\"`, `\"Win32_Networking_WinSock\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
-#[inline]
 pub unsafe fn TcModifyFlow<'a, P0>(flowhandle: P0, pgenericflow: *const TC_GEN_FLOW) -> u32
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
@@ -4589,7 +4567,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_QoS\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn TcOpenInterfaceA<'a, P0, P1, P2>(pinterfacename: P0, clienthandle: P1, clifcctx: P2, pifchandle: *mut super::super::Foundation::HANDLE) -> u32
 where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
@@ -4604,7 +4581,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_QoS\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn TcOpenInterfaceW<'a, P0, P1, P2>(pinterfacename: P0, clienthandle: P1, clifcctx: P2, pifchandle: *mut super::super::Foundation::HANDLE) -> u32
 where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
@@ -4618,7 +4594,6 @@ where
     TcOpenInterfaceW(pinterfacename.into(), clienthandle.into(), clifcctx.into(), ::core::mem::transmute(pifchandle))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_QoS\"`*"]
-#[inline]
 pub unsafe fn TcQueryFlowA<'a, P0>(pflowname: P0, pguidparam: *const ::windows::core::GUID, pbuffersize: *mut u32, buffer: *mut ::core::ffi::c_void) -> u32
 where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
@@ -4630,7 +4605,6 @@ where
     TcQueryFlowA(pflowname.into(), ::core::mem::transmute(pguidparam), ::core::mem::transmute(pbuffersize), ::core::mem::transmute(buffer))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_QoS\"`*"]
-#[inline]
 pub unsafe fn TcQueryFlowW<'a, P0>(pflowname: P0, pguidparam: *const ::windows::core::GUID, pbuffersize: *mut u32, buffer: *mut ::core::ffi::c_void) -> u32
 where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
@@ -4643,7 +4617,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_QoS\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn TcQueryInterface<'a, P0, P1>(ifchandle: P0, pguidparam: *const ::windows::core::GUID, notifychange: P1, pbuffersize: *mut u32, buffer: *mut ::core::ffi::c_void) -> u32
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
@@ -4657,7 +4630,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_QoS\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn TcRegisterClient<'a, P0>(tciversion: u32, clregctx: P0, clienthandlerlist: *const TCI_CLIENT_FUNC_LIST, pclienthandle: *mut super::super::Foundation::HANDLE) -> u32
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
@@ -4669,7 +4641,6 @@ where
     TcRegisterClient(tciversion, clregctx.into(), ::core::mem::transmute(clienthandlerlist), ::core::mem::transmute(pclienthandle))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_QoS\"`*"]
-#[inline]
 pub unsafe fn TcSetFlowA<'a, P0>(pflowname: P0, pguidparam: *const ::windows::core::GUID, buffersize: u32, buffer: *const ::core::ffi::c_void) -> u32
 where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
@@ -4681,7 +4652,6 @@ where
     TcSetFlowA(pflowname.into(), ::core::mem::transmute(pguidparam), buffersize, ::core::mem::transmute(buffer))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_QoS\"`*"]
-#[inline]
 pub unsafe fn TcSetFlowW<'a, P0>(pflowname: P0, pguidparam: *const ::windows::core::GUID, buffersize: u32, buffer: *const ::core::ffi::c_void) -> u32
 where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
@@ -4694,7 +4664,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_QoS\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn TcSetInterface<'a, P0>(ifchandle: P0, pguidparam: *const ::windows::core::GUID, buffersize: u32, buffer: *const ::core::ffi::c_void) -> u32
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,

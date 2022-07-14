@@ -1382,7 +1382,6 @@ impl ::core::fmt::Debug for PSS_WALK_INFORMATION_CLASS {
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_ProcessSnapshotting\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn PssCaptureSnapshot<'a, P0>(processhandle: P0, captureflags: PSS_CAPTURE_FLAGS, threadcontextflags: u32, snapshothandle: *mut HPSS) -> u32
 where
     P0: ::std::convert::Into<super::super::super::Foundation::HANDLE>,
@@ -1395,7 +1394,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_ProcessSnapshotting\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn PssDuplicateSnapshot<'a, P0, P1, P2>(sourceprocesshandle: P0, snapshothandle: P1, targetprocesshandle: P2, targetsnapshothandle: *mut HPSS, flags: PSS_DUPLICATE_FLAGS) -> u32
 where
     P0: ::std::convert::Into<super::super::super::Foundation::HANDLE>,
@@ -1410,7 +1408,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_ProcessSnapshotting\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn PssFreeSnapshot<'a, P0, P1>(processhandle: P0, snapshothandle: P1) -> u32
 where
     P0: ::std::convert::Into<super::super::super::Foundation::HANDLE>,
@@ -1423,7 +1420,6 @@ where
     PssFreeSnapshot(processhandle.into(), snapshothandle.into())
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_ProcessSnapshotting\"`*"]
-#[inline]
 pub unsafe fn PssQuerySnapshot<'a, P0>(snapshothandle: P0, informationclass: PSS_QUERY_INFORMATION_CLASS, buffer: *mut ::core::ffi::c_void, bufferlength: u32) -> u32
 where
     P0: ::std::convert::Into<HPSS>,
@@ -1435,7 +1431,6 @@ where
     PssQuerySnapshot(snapshothandle.into(), informationclass, ::core::mem::transmute(buffer), bufferlength)
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_ProcessSnapshotting\"`*"]
-#[inline]
 pub unsafe fn PssWalkMarkerCreate(allocator: *const PSS_ALLOCATOR, walkmarkerhandle: *mut HPSSWALK) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -1444,7 +1439,6 @@ pub unsafe fn PssWalkMarkerCreate(allocator: *const PSS_ALLOCATOR, walkmarkerhan
     PssWalkMarkerCreate(::core::mem::transmute(allocator), ::core::mem::transmute(walkmarkerhandle))
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_ProcessSnapshotting\"`*"]
-#[inline]
 pub unsafe fn PssWalkMarkerFree<'a, P0>(walkmarkerhandle: P0) -> u32
 where
     P0: ::std::convert::Into<HPSSWALK>,
@@ -1456,7 +1450,6 @@ where
     PssWalkMarkerFree(walkmarkerhandle.into())
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_ProcessSnapshotting\"`*"]
-#[inline]
 pub unsafe fn PssWalkMarkerGetPosition<'a, P0>(walkmarkerhandle: P0, position: *mut usize) -> u32
 where
     P0: ::std::convert::Into<HPSSWALK>,
@@ -1468,7 +1461,6 @@ where
     PssWalkMarkerGetPosition(walkmarkerhandle.into(), ::core::mem::transmute(position))
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_ProcessSnapshotting\"`*"]
-#[inline]
 pub unsafe fn PssWalkMarkerSeekToBeginning<'a, P0>(walkmarkerhandle: P0) -> u32
 where
     P0: ::std::convert::Into<HPSSWALK>,
@@ -1480,7 +1472,6 @@ where
     PssWalkMarkerSeekToBeginning(walkmarkerhandle.into())
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_ProcessSnapshotting\"`*"]
-#[inline]
 pub unsafe fn PssWalkMarkerSetPosition<'a, P0>(walkmarkerhandle: P0, position: usize) -> u32
 where
     P0: ::std::convert::Into<HPSSWALK>,
@@ -1492,7 +1483,6 @@ where
     PssWalkMarkerSetPosition(walkmarkerhandle.into(), position)
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_ProcessSnapshotting\"`*"]
-#[inline]
 pub unsafe fn PssWalkSnapshot<'a, P0, P1>(snapshothandle: P0, informationclass: PSS_WALK_INFORMATION_CLASS, walkmarkerhandle: P1, buffer: &mut [u8]) -> u32
 where
     P0: ::std::convert::Into<HPSS>,

@@ -6742,7 +6742,6 @@ pub const NetFwProducts: ::windows::core::GUID = ::windows::core::GUID::from_u12
 pub const NetFwRule: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2c5bc43e_3369_4c33_ab0c_be9469677af4);
 pub const NetSharingManager: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5c63c1ad_3956_4ff8_8486_40034758315b);
 #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFirewall\"`*"]
-#[inline]
 pub unsafe fn NetworkIsolationDiagnoseConnectFailureAndGetInfo<'a, P0>(wszservername: P0, netisoerror: *mut NETISO_ERROR_TYPE) -> u32
 where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
@@ -6755,7 +6754,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFirewall\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-#[inline]
 pub unsafe fn NetworkIsolationEnumAppContainers(flags: u32, pdwnumpublicappcs: *mut u32, pppublicappcs: *mut *mut INET_FIREWALL_APP_CONTAINER) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -6765,7 +6763,6 @@ pub unsafe fn NetworkIsolationEnumAppContainers(flags: u32, pdwnumpublicappcs: *
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFirewall\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-#[inline]
 pub unsafe fn NetworkIsolationFreeAppContainers(ppublicappcs: *const INET_FIREWALL_APP_CONTAINER) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -6775,7 +6772,6 @@ pub unsafe fn NetworkIsolationFreeAppContainers(ppublicappcs: *const INET_FIREWA
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFirewall\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-#[inline]
 pub unsafe fn NetworkIsolationGetAppContainerConfig(pdwnumpublicappcs: *mut u32, appcontainersids: *mut *mut super::super::Security::SID_AND_ATTRIBUTES) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -6785,7 +6781,6 @@ pub unsafe fn NetworkIsolationGetAppContainerConfig(pdwnumpublicappcs: *mut u32,
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFirewall\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-#[inline]
 pub unsafe fn NetworkIsolationRegisterForAppContainerChanges(flags: u32, callback: PAC_CHANGES_CALLBACK_FN, context: *const ::core::ffi::c_void, registrationobject: *mut super::super::Foundation::HANDLE) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -6795,7 +6790,6 @@ pub unsafe fn NetworkIsolationRegisterForAppContainerChanges(flags: u32, callbac
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFirewall\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-#[inline]
 pub unsafe fn NetworkIsolationSetAppContainerConfig(appcontainersids: &[super::super::Security::SID_AND_ATTRIBUTES]) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -6805,7 +6799,6 @@ pub unsafe fn NetworkIsolationSetAppContainerConfig(appcontainersids: &[super::s
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFirewall\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn NetworkIsolationSetupAppContainerBinaries<'a, P0, P1, P2, P3, P4>(applicationcontainersid: P0, packagefullname: P1, packagefolder: P2, displayname: P3, bbinariesfullycomputed: P4, binaries: &[::windows::core::PWSTR]) -> ::windows::core::Result<()>
 where
     P0: ::std::convert::Into<super::super::Foundation::PSID>,
@@ -6822,7 +6815,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFirewall\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn NetworkIsolationUnregisterForAppContainerChanges<'a, P0>(registrationobject: P0) -> u32
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,

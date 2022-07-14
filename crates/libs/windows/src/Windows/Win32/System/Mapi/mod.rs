@@ -25,7 +25,6 @@ pub type LPMAPISENDMAIL = ::core::option::Option<unsafe extern "system" fn(lhses
 #[doc = "*Required features: `\"Win32_System_Mapi\"`*"]
 pub type LPMAPISENDMAILW = ::core::option::Option<unsafe extern "system" fn(lhsession: usize, uluiparam: usize, lpmessage: *const MapiMessageW, flflags: u32, ulreserved: u32) -> u32>;
 #[doc = "*Required features: `\"Win32_System_Mapi\"`*"]
-#[inline]
 pub unsafe fn MAPIFreeBuffer(pv: *mut ::core::ffi::c_void) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {

@@ -2,7 +2,6 @@
 pub mod NonVolatile;
 #[doc = "*Required features: `\"Win32_System_Memory\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn AddSecureMemoryCacheCallback(pfncallback: PSECURE_MEMORY_CACHE_CALLBACK) -> super::super::Foundation::BOOL {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -12,7 +11,6 @@ pub unsafe fn AddSecureMemoryCacheCallback(pfncallback: PSECURE_MEMORY_CACHE_CAL
 }
 #[doc = "*Required features: `\"Win32_System_Memory\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn AllocateUserPhysicalPages<'a, P0>(hprocess: P0, numberofpages: *mut usize, pagearray: *mut usize) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
@@ -25,7 +23,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Memory\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn AllocateUserPhysicalPages2<'a, P0>(objecthandle: P0, numberofpages: *mut usize, pagearray: *mut usize, extendedparameters: &mut [MEM_EXTENDED_PARAMETER]) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
@@ -38,7 +35,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Memory\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn AllocateUserPhysicalPagesNuma<'a, P0>(hprocess: P0, numberofpages: *mut usize, pagearray: *mut usize, nndpreferred: u32) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
@@ -82,7 +78,6 @@ impl ::core::default::Default for CFG_CALL_TARGET_INFO {
 }
 #[doc = "*Required features: `\"Win32_System_Memory\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-#[inline]
 pub unsafe fn CreateFileMapping2<'a, P0, P1>(file: P0, securityattributes: *const super::super::Security::SECURITY_ATTRIBUTES, desiredaccess: u32, pageprotection: PAGE_PROTECTION_FLAGS, allocationattributes: u32, maximumsize: u64, name: P1, extendedparameters: &mut [MEM_EXTENDED_PARAMETER]) -> ::windows::core::Result<super::super::Foundation::HANDLE>
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
@@ -97,7 +92,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Memory\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-#[inline]
 pub unsafe fn CreateFileMappingA<'a, P0, P1>(hfile: P0, lpfilemappingattributes: *const super::super::Security::SECURITY_ATTRIBUTES, flprotect: PAGE_PROTECTION_FLAGS, dwmaximumsizehigh: u32, dwmaximumsizelow: u32, lpname: P1) -> ::windows::core::Result<super::super::Foundation::HANDLE>
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
@@ -112,7 +106,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Memory\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-#[inline]
 pub unsafe fn CreateFileMappingFromApp<'a, P0, P1>(hfile: P0, securityattributes: *const super::super::Security::SECURITY_ATTRIBUTES, pageprotection: PAGE_PROTECTION_FLAGS, maximumsize: u64, name: P1) -> ::windows::core::Result<super::super::Foundation::HANDLE>
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
@@ -127,7 +120,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Memory\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-#[inline]
 pub unsafe fn CreateFileMappingNumaA<'a, P0, P1>(hfile: P0, lpfilemappingattributes: *const super::super::Security::SECURITY_ATTRIBUTES, flprotect: PAGE_PROTECTION_FLAGS, dwmaximumsizehigh: u32, dwmaximumsizelow: u32, lpname: P1, nndpreferred: u32) -> ::windows::core::Result<super::super::Foundation::HANDLE>
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
@@ -142,7 +134,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Memory\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-#[inline]
 pub unsafe fn CreateFileMappingNumaW<'a, P0, P1>(hfile: P0, lpfilemappingattributes: *const super::super::Security::SECURITY_ATTRIBUTES, flprotect: PAGE_PROTECTION_FLAGS, dwmaximumsizehigh: u32, dwmaximumsizelow: u32, lpname: P1, nndpreferred: u32) -> ::windows::core::Result<super::super::Foundation::HANDLE>
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
@@ -157,7 +148,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Memory\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-#[inline]
 pub unsafe fn CreateFileMappingW<'a, P0, P1>(hfile: P0, lpfilemappingattributes: *const super::super::Security::SECURITY_ATTRIBUTES, flprotect: PAGE_PROTECTION_FLAGS, dwmaximumsizehigh: u32, dwmaximumsizelow: u32, lpname: P1) -> ::windows::core::Result<super::super::Foundation::HANDLE>
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
@@ -172,7 +162,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Memory\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn CreateMemoryResourceNotification(notificationtype: MEMORY_RESOURCE_NOTIFICATION_TYPE) -> ::windows::core::Result<super::super::Foundation::HANDLE> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -182,7 +171,6 @@ pub unsafe fn CreateMemoryResourceNotification(notificationtype: MEMORY_RESOURCE
     (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
 }
 #[doc = "*Required features: `\"Win32_System_Memory\"`*"]
-#[inline]
 pub unsafe fn DiscardVirtualMemory(virtualaddress: &mut [u8]) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -267,7 +255,6 @@ impl ::core::ops::Not for FILE_MAP {
 }
 #[doc = "*Required features: `\"Win32_System_Memory\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn FlushViewOfFile(lpbaseaddress: *const ::core::ffi::c_void, dwnumberofbytestoflush: usize) -> super::super::Foundation::BOOL {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -277,7 +264,6 @@ pub unsafe fn FlushViewOfFile(lpbaseaddress: *const ::core::ffi::c_void, dwnumbe
 }
 #[doc = "*Required features: `\"Win32_System_Memory\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn FreeUserPhysicalPages<'a, P0>(hprocess: P0, numberofpages: *mut usize, pagearray: *const usize) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
@@ -350,7 +336,6 @@ impl ::core::ops::Not for GLOBAL_ALLOC_FLAGS {
     }
 }
 #[doc = "*Required features: `\"Win32_System_Memory\"`*"]
-#[inline]
 pub unsafe fn GetLargePageMinimum() -> usize {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -360,7 +345,6 @@ pub unsafe fn GetLargePageMinimum() -> usize {
 }
 #[doc = "*Required features: `\"Win32_System_Memory\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn GetMemoryErrorHandlingCapabilities(capabilities: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -369,7 +353,6 @@ pub unsafe fn GetMemoryErrorHandlingCapabilities(capabilities: *mut u32) -> supe
     GetMemoryErrorHandlingCapabilities(::core::mem::transmute(capabilities))
 }
 #[doc = "*Required features: `\"Win32_System_Memory\"`*"]
-#[inline]
 pub unsafe fn GetProcessHeap() -> ::windows::core::Result<HeapHandle> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -379,7 +362,6 @@ pub unsafe fn GetProcessHeap() -> ::windows::core::Result<HeapHandle> {
     (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
 }
 #[doc = "*Required features: `\"Win32_System_Memory\"`*"]
-#[inline]
 pub unsafe fn GetProcessHeaps(processheaps: &mut [HeapHandle]) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -389,7 +371,6 @@ pub unsafe fn GetProcessHeaps(processheaps: &mut [HeapHandle]) -> u32 {
 }
 #[doc = "*Required features: `\"Win32_System_Memory\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn GetProcessWorkingSetSizeEx<'a, P0>(hprocess: P0, lpminimumworkingsetsize: *mut usize, lpmaximumworkingsetsize: *mut usize, flags: *mut u32) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
@@ -402,7 +383,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Memory\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn GetSystemFileCacheSize(lpminimumfilecachesize: *mut usize, lpmaximumfilecachesize: *mut usize, lpflags: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -411,7 +391,6 @@ pub unsafe fn GetSystemFileCacheSize(lpminimumfilecachesize: *mut usize, lpmaxim
     GetSystemFileCacheSize(::core::mem::transmute(lpminimumfilecachesize), ::core::mem::transmute(lpmaximumfilecachesize), ::core::mem::transmute(lpflags))
 }
 #[doc = "*Required features: `\"Win32_System_Memory\"`*"]
-#[inline]
 pub unsafe fn GetWriteWatch(dwflags: u32, lpbaseaddress: *const ::core::ffi::c_void, dwregionsize: usize, lpaddresses: *mut *mut ::core::ffi::c_void, lpdwcount: *mut usize, lpdwgranularity: *mut u32) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -420,7 +399,6 @@ pub unsafe fn GetWriteWatch(dwflags: u32, lpbaseaddress: *const ::core::ffi::c_v
     GetWriteWatch(dwflags, ::core::mem::transmute(lpbaseaddress), dwregionsize, ::core::mem::transmute(lpaddresses), ::core::mem::transmute(lpdwcount), ::core::mem::transmute(lpdwgranularity))
 }
 #[doc = "*Required features: `\"Win32_System_Memory\"`*"]
-#[inline]
 pub unsafe fn GlobalAlloc(uflags: GLOBAL_ALLOC_FLAGS, dwbytes: usize) -> isize {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -429,7 +407,6 @@ pub unsafe fn GlobalAlloc(uflags: GLOBAL_ALLOC_FLAGS, dwbytes: usize) -> isize {
     GlobalAlloc(uflags, dwbytes)
 }
 #[doc = "*Required features: `\"Win32_System_Memory\"`*"]
-#[inline]
 pub unsafe fn GlobalFlags(hmem: isize) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -438,7 +415,6 @@ pub unsafe fn GlobalFlags(hmem: isize) -> u32 {
     GlobalFlags(hmem)
 }
 #[doc = "*Required features: `\"Win32_System_Memory\"`*"]
-#[inline]
 pub unsafe fn GlobalFree(hmem: isize) -> isize {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -447,7 +423,6 @@ pub unsafe fn GlobalFree(hmem: isize) -> isize {
     GlobalFree(::core::mem::transmute(hmem))
 }
 #[doc = "*Required features: `\"Win32_System_Memory\"`*"]
-#[inline]
 pub unsafe fn GlobalHandle(pmem: *const ::core::ffi::c_void) -> isize {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -456,7 +431,6 @@ pub unsafe fn GlobalHandle(pmem: *const ::core::ffi::c_void) -> isize {
     GlobalHandle(::core::mem::transmute(pmem))
 }
 #[doc = "*Required features: `\"Win32_System_Memory\"`*"]
-#[inline]
 pub unsafe fn GlobalLock(hmem: isize) -> *mut ::core::ffi::c_void {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -465,7 +439,6 @@ pub unsafe fn GlobalLock(hmem: isize) -> *mut ::core::ffi::c_void {
     GlobalLock(hmem)
 }
 #[doc = "*Required features: `\"Win32_System_Memory\"`*"]
-#[inline]
 pub unsafe fn GlobalReAlloc(hmem: isize, dwbytes: usize, uflags: u32) -> isize {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -474,7 +447,6 @@ pub unsafe fn GlobalReAlloc(hmem: isize, dwbytes: usize, uflags: u32) -> isize {
     GlobalReAlloc(hmem, dwbytes, uflags)
 }
 #[doc = "*Required features: `\"Win32_System_Memory\"`*"]
-#[inline]
 pub unsafe fn GlobalSize(hmem: isize) -> usize {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -484,7 +456,6 @@ pub unsafe fn GlobalSize(hmem: isize) -> usize {
 }
 #[doc = "*Required features: `\"Win32_System_Memory\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn GlobalUnlock(hmem: isize) -> super::super::Foundation::BOOL {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -643,7 +614,6 @@ impl ::core::default::Default for HEAP_SUMMARY {
     }
 }
 #[doc = "*Required features: `\"Win32_System_Memory\"`*"]
-#[inline]
 pub unsafe fn HeapAlloc<'a, P0>(hheap: P0, dwflags: HEAP_FLAGS, dwbytes: usize) -> *mut ::core::ffi::c_void
 where
     P0: ::std::convert::Into<HeapHandle>,
@@ -655,7 +625,6 @@ where
     HeapAlloc(hheap.into(), dwflags, dwbytes)
 }
 #[doc = "*Required features: `\"Win32_System_Memory\"`*"]
-#[inline]
 pub unsafe fn HeapCompact<'a, P0>(hheap: P0, dwflags: HEAP_FLAGS) -> usize
 where
     P0: ::std::convert::Into<HeapHandle>,
@@ -667,7 +636,6 @@ where
     HeapCompact(hheap.into(), dwflags)
 }
 #[doc = "*Required features: `\"Win32_System_Memory\"`*"]
-#[inline]
 pub unsafe fn HeapCreate(floptions: HEAP_FLAGS, dwinitialsize: usize, dwmaximumsize: usize) -> ::windows::core::Result<HeapHandle> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -678,7 +646,6 @@ pub unsafe fn HeapCreate(floptions: HEAP_FLAGS, dwinitialsize: usize, dwmaximums
 }
 #[doc = "*Required features: `\"Win32_System_Memory\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn HeapDestroy<'a, P0>(hheap: P0) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<HeapHandle>,
@@ -691,7 +658,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Memory\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn HeapFree<'a, P0>(hheap: P0, dwflags: HEAP_FLAGS, lpmem: *const ::core::ffi::c_void) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<HeapHandle>,
@@ -736,7 +702,6 @@ unsafe impl ::windows::core::Abi for HeapHandle {
 }
 #[doc = "*Required features: `\"Win32_System_Memory\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn HeapLock<'a, P0>(hheap: P0) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<HeapHandle>,
@@ -749,7 +714,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Memory\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn HeapQueryInformation<'a, P0>(heaphandle: P0, heapinformationclass: HEAP_INFORMATION_CLASS, heapinformation: *mut ::core::ffi::c_void, heapinformationlength: usize, returnlength: *mut usize) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<HeapHandle>,
@@ -761,7 +725,6 @@ where
     HeapQueryInformation(heaphandle.into(), heapinformationclass, ::core::mem::transmute(heapinformation), heapinformationlength, ::core::mem::transmute(returnlength))
 }
 #[doc = "*Required features: `\"Win32_System_Memory\"`*"]
-#[inline]
 pub unsafe fn HeapReAlloc<'a, P0>(hheap: P0, dwflags: HEAP_FLAGS, lpmem: *const ::core::ffi::c_void, dwbytes: usize) -> *mut ::core::ffi::c_void
 where
     P0: ::std::convert::Into<HeapHandle>,
@@ -774,7 +737,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Memory\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn HeapSetInformation<'a, P0>(heaphandle: P0, heapinformationclass: HEAP_INFORMATION_CLASS, heapinformation: *const ::core::ffi::c_void, heapinformationlength: usize) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<HeapHandle>,
@@ -786,7 +748,6 @@ where
     HeapSetInformation(heaphandle.into(), heapinformationclass, ::core::mem::transmute(heapinformation), heapinformationlength)
 }
 #[doc = "*Required features: `\"Win32_System_Memory\"`*"]
-#[inline]
 pub unsafe fn HeapSize<'a, P0>(hheap: P0, dwflags: HEAP_FLAGS, lpmem: *const ::core::ffi::c_void) -> usize
 where
     P0: ::std::convert::Into<HeapHandle>,
@@ -799,7 +760,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Memory\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn HeapSummary<'a, P0>(hheap: P0, dwflags: u32, lpsummary: *mut HEAP_SUMMARY) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
@@ -812,7 +772,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Memory\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn HeapUnlock<'a, P0>(hheap: P0) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<HeapHandle>,
@@ -825,7 +784,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Memory\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn HeapValidate<'a, P0>(hheap: P0, dwflags: HEAP_FLAGS, lpmem: *const ::core::ffi::c_void) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<HeapHandle>,
@@ -838,7 +796,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Memory\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn HeapWalk<'a, P0>(hheap: P0, lpentry: *mut PROCESS_HEAP_ENTRY) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<HeapHandle>,
@@ -851,7 +808,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Memory\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn IsBadCodePtr(lpfn: super::super::Foundation::FARPROC) -> super::super::Foundation::BOOL {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -861,7 +817,6 @@ pub unsafe fn IsBadCodePtr(lpfn: super::super::Foundation::FARPROC) -> super::su
 }
 #[doc = "*Required features: `\"Win32_System_Memory\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn IsBadReadPtr(lp: *const ::core::ffi::c_void, ucb: usize) -> super::super::Foundation::BOOL {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -871,7 +826,6 @@ pub unsafe fn IsBadReadPtr(lp: *const ::core::ffi::c_void, ucb: usize) -> super:
 }
 #[doc = "*Required features: `\"Win32_System_Memory\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn IsBadStringPtrA<'a, P0>(lpsz: P0, ucchmax: usize) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
@@ -884,7 +838,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Memory\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn IsBadStringPtrW<'a, P0>(lpsz: P0, ucchmax: usize) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
@@ -897,7 +850,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Memory\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn IsBadWritePtr(lp: *const ::core::ffi::c_void, ucb: usize) -> super::super::Foundation::BOOL {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -971,7 +923,6 @@ impl ::core::ops::Not for LOCAL_ALLOC_FLAGS {
     }
 }
 #[doc = "*Required features: `\"Win32_System_Memory\"`*"]
-#[inline]
 pub unsafe fn LocalAlloc(uflags: LOCAL_ALLOC_FLAGS, ubytes: usize) -> isize {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -980,7 +931,6 @@ pub unsafe fn LocalAlloc(uflags: LOCAL_ALLOC_FLAGS, ubytes: usize) -> isize {
     LocalAlloc(uflags, ubytes)
 }
 #[doc = "*Required features: `\"Win32_System_Memory\"`*"]
-#[inline]
 pub unsafe fn LocalFlags(hmem: isize) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -989,7 +939,6 @@ pub unsafe fn LocalFlags(hmem: isize) -> u32 {
     LocalFlags(hmem)
 }
 #[doc = "*Required features: `\"Win32_System_Memory\"`*"]
-#[inline]
 pub unsafe fn LocalFree(hmem: isize) -> isize {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -998,7 +947,6 @@ pub unsafe fn LocalFree(hmem: isize) -> isize {
     LocalFree(::core::mem::transmute(hmem))
 }
 #[doc = "*Required features: `\"Win32_System_Memory\"`*"]
-#[inline]
 pub unsafe fn LocalHandle(pmem: *const ::core::ffi::c_void) -> isize {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -1007,7 +955,6 @@ pub unsafe fn LocalHandle(pmem: *const ::core::ffi::c_void) -> isize {
     LocalHandle(::core::mem::transmute(pmem))
 }
 #[doc = "*Required features: `\"Win32_System_Memory\"`*"]
-#[inline]
 pub unsafe fn LocalLock(hmem: isize) -> *mut ::core::ffi::c_void {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -1016,7 +963,6 @@ pub unsafe fn LocalLock(hmem: isize) -> *mut ::core::ffi::c_void {
     LocalLock(hmem)
 }
 #[doc = "*Required features: `\"Win32_System_Memory\"`*"]
-#[inline]
 pub unsafe fn LocalReAlloc(hmem: isize, ubytes: usize, uflags: u32) -> isize {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -1025,7 +971,6 @@ pub unsafe fn LocalReAlloc(hmem: isize, ubytes: usize, uflags: u32) -> isize {
     LocalReAlloc(::core::mem::transmute(hmem), ubytes, uflags)
 }
 #[doc = "*Required features: `\"Win32_System_Memory\"`*"]
-#[inline]
 pub unsafe fn LocalSize(hmem: isize) -> usize {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -1035,7 +980,6 @@ pub unsafe fn LocalSize(hmem: isize) -> usize {
 }
 #[doc = "*Required features: `\"Win32_System_Memory\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn LocalUnlock(hmem: isize) -> super::super::Foundation::BOOL {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -1415,7 +1359,6 @@ impl ::core::fmt::Debug for MEM_EXTENDED_PARAMETER_TYPE {
 }
 #[doc = "*Required features: `\"Win32_System_Memory\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn MapUserPhysicalPages(virtualaddress: *const ::core::ffi::c_void, pagearray: &[usize]) -> super::super::Foundation::BOOL {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -1425,7 +1368,6 @@ pub unsafe fn MapUserPhysicalPages(virtualaddress: *const ::core::ffi::c_void, p
 }
 #[doc = "*Required features: `\"Win32_System_Memory\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn MapUserPhysicalPagesScatter(virtualaddresses: *const *const ::core::ffi::c_void, numberofpages: usize, pagearray: *const usize) -> super::super::Foundation::BOOL {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -1435,7 +1377,6 @@ pub unsafe fn MapUserPhysicalPagesScatter(virtualaddresses: *const *const ::core
 }
 #[doc = "*Required features: `\"Win32_System_Memory\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn MapViewOfFile<'a, P0>(hfilemappingobject: P0, dwdesiredaccess: FILE_MAP, dwfileoffsethigh: u32, dwfileoffsetlow: u32, dwnumberofbytestomap: usize) -> *mut ::core::ffi::c_void
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
@@ -1448,7 +1389,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Memory\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn MapViewOfFile3<'a, P0, P1>(filemapping: P0, process: P1, baseaddress: *const ::core::ffi::c_void, offset: u64, viewsize: usize, allocationtype: VIRTUAL_ALLOCATION_TYPE, pageprotection: u32, extendedparameters: &mut [MEM_EXTENDED_PARAMETER]) -> *mut ::core::ffi::c_void
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
@@ -1462,7 +1402,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Memory\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn MapViewOfFile3FromApp<'a, P0, P1>(filemapping: P0, process: P1, baseaddress: *const ::core::ffi::c_void, offset: u64, viewsize: usize, allocationtype: VIRTUAL_ALLOCATION_TYPE, pageprotection: u32, extendedparameters: &mut [MEM_EXTENDED_PARAMETER]) -> *mut ::core::ffi::c_void
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
@@ -1476,7 +1415,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Memory\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn MapViewOfFileEx<'a, P0>(hfilemappingobject: P0, dwdesiredaccess: FILE_MAP, dwfileoffsethigh: u32, dwfileoffsetlow: u32, dwnumberofbytestomap: usize, lpbaseaddress: *const ::core::ffi::c_void) -> *mut ::core::ffi::c_void
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
@@ -1489,7 +1427,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Memory\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn MapViewOfFileExNuma<'a, P0>(hfilemappingobject: P0, dwdesiredaccess: FILE_MAP, dwfileoffsethigh: u32, dwfileoffsetlow: u32, dwnumberofbytestomap: usize, lpbaseaddress: *const ::core::ffi::c_void, nndpreferred: u32) -> *mut ::core::ffi::c_void
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
@@ -1502,7 +1439,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Memory\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn MapViewOfFileFromApp<'a, P0>(hfilemappingobject: P0, desiredaccess: FILE_MAP, fileoffset: u64, numberofbytestomap: usize) -> *mut ::core::ffi::c_void
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
@@ -1515,7 +1451,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Memory\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn MapViewOfFileNuma2<'a, P0, P1>(filemappinghandle: P0, processhandle: P1, offset: u64, baseaddress: *const ::core::ffi::c_void, viewsize: usize, allocationtype: u32, pageprotection: u32, preferrednode: u32) -> *mut ::core::ffi::c_void
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
@@ -1559,7 +1494,6 @@ impl ::core::fmt::Debug for OFFER_PRIORITY {
     }
 }
 #[doc = "*Required features: `\"Win32_System_Memory\"`*"]
-#[inline]
 pub unsafe fn OfferVirtualMemory(virtualaddress: &mut [u8], priority: OFFER_PRIORITY) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -1569,7 +1503,6 @@ pub unsafe fn OfferVirtualMemory(virtualaddress: &mut [u8], priority: OFFER_PRIO
 }
 #[doc = "*Required features: `\"Win32_System_Memory\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn OpenDedicatedMemoryPartition<'a, P0, P1>(partition: P0, dedicatedmemorytypeid: u64, desiredaccess: u32, inherithandle: P1) -> super::super::Foundation::HANDLE
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
@@ -1583,7 +1516,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Memory\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn OpenFileMappingA<'a, P0, P1>(dwdesiredaccess: u32, binherithandle: P0, lpname: P1) -> ::windows::core::Result<super::super::Foundation::HANDLE>
 where
     P0: ::std::convert::Into<super::super::Foundation::BOOL>,
@@ -1598,7 +1530,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Memory\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn OpenFileMappingFromApp<'a, P0, P1>(desiredaccess: u32, inherithandle: P0, name: P1) -> ::windows::core::Result<super::super::Foundation::HANDLE>
 where
     P0: ::std::convert::Into<super::super::Foundation::BOOL>,
@@ -1613,7 +1544,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Memory\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn OpenFileMappingW<'a, P0, P1>(dwdesiredaccess: u32, binherithandle: P0, lpname: P1) -> ::windows::core::Result<super::super::Foundation::HANDLE>
 where
     P0: ::std::convert::Into<super::super::Foundation::BOOL>,
@@ -1969,7 +1899,6 @@ impl ::core::default::Default for PROCESS_HEAP_ENTRY_0_1 {
 pub type PSECURE_MEMORY_CACHE_CALLBACK = ::core::option::Option<unsafe extern "system" fn(addr: *const ::core::ffi::c_void, range: usize) -> super::super::Foundation::BOOLEAN>;
 #[doc = "*Required features: `\"Win32_System_Memory\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn PrefetchVirtualMemory<'a, P0>(hprocess: P0, virtualaddresses: &[WIN32_MEMORY_RANGE_ENTRY], flags: u32) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
@@ -1982,7 +1911,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Memory\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn QueryMemoryResourceNotification<'a, P0>(resourcenotificationhandle: P0, resourcestate: *mut super::super::Foundation::BOOL) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
@@ -1995,7 +1923,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Memory\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn QueryPartitionInformation<'a, P0>(partition: P0, partitioninformationclass: WIN32_MEMORY_PARTITION_INFORMATION_CLASS, partitioninformation: *mut ::core::ffi::c_void, partitioninformationlength: u32) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
@@ -2008,7 +1935,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Memory\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn QueryVirtualMemoryInformation<'a, P0>(process: P0, virtualaddress: *const ::core::ffi::c_void, memoryinformationclass: WIN32_MEMORY_INFORMATION_CLASS, memoryinformation: *mut ::core::ffi::c_void, memoryinformationsize: usize, returnsize: *mut usize) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
@@ -2020,7 +1946,6 @@ where
     QueryVirtualMemoryInformation(process.into(), ::core::mem::transmute(virtualaddress), memoryinformationclass, ::core::mem::transmute(memoryinformation), memoryinformationsize, ::core::mem::transmute(returnsize))
 }
 #[doc = "*Required features: `\"Win32_System_Memory\"`*"]
-#[inline]
 pub unsafe fn ReclaimVirtualMemory(virtualaddress: &[u8]) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -2029,7 +1954,6 @@ pub unsafe fn ReclaimVirtualMemory(virtualaddress: &[u8]) -> u32 {
     ReclaimVirtualMemory(::core::mem::transmute(::windows::core::as_ptr_or_null(virtualaddress)), virtualaddress.len() as _)
 }
 #[doc = "*Required features: `\"Win32_System_Memory\"`*"]
-#[inline]
 pub unsafe fn RegisterBadMemoryNotification(callback: PBAD_MEMORY_CALLBACK_ROUTINE) -> *mut ::core::ffi::c_void {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -2039,7 +1963,6 @@ pub unsafe fn RegisterBadMemoryNotification(callback: PBAD_MEMORY_CALLBACK_ROUTI
 }
 #[doc = "*Required features: `\"Win32_System_Memory\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn RemoveSecureMemoryCacheCallback(pfncallback: PSECURE_MEMORY_CACHE_CALLBACK) -> super::super::Foundation::BOOL {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -2048,7 +1971,6 @@ pub unsafe fn RemoveSecureMemoryCacheCallback(pfncallback: PSECURE_MEMORY_CACHE_
     RemoveSecureMemoryCacheCallback(::core::mem::transmute(pfncallback))
 }
 #[doc = "*Required features: `\"Win32_System_Memory\"`*"]
-#[inline]
 pub unsafe fn ResetWriteWatch(lpbaseaddress: *const ::core::ffi::c_void, dwregionsize: usize) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -2057,7 +1979,6 @@ pub unsafe fn ResetWriteWatch(lpbaseaddress: *const ::core::ffi::c_void, dwregio
     ResetWriteWatch(::core::mem::transmute(lpbaseaddress), dwregionsize)
 }
 #[doc = "*Required features: `\"Win32_System_Memory\"`*"]
-#[inline]
 pub unsafe fn RtlCompareMemory(source1: *const ::core::ffi::c_void, source2: *const ::core::ffi::c_void, length: usize) -> usize {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -2066,7 +1987,6 @@ pub unsafe fn RtlCompareMemory(source1: *const ::core::ffi::c_void, source2: *co
     RtlCompareMemory(::core::mem::transmute(source1), ::core::mem::transmute(source2), length)
 }
 #[doc = "*Required features: `\"Win32_System_Memory\"`*"]
-#[inline]
 pub unsafe fn RtlCrc32(buffer: *const ::core::ffi::c_void, size: usize, initialcrc: u32) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -2075,7 +1995,6 @@ pub unsafe fn RtlCrc32(buffer: *const ::core::ffi::c_void, size: usize, initialc
     RtlCrc32(::core::mem::transmute(buffer), size, initialcrc)
 }
 #[doc = "*Required features: `\"Win32_System_Memory\"`*"]
-#[inline]
 pub unsafe fn RtlCrc64(buffer: *const ::core::ffi::c_void, size: usize, initialcrc: u64) -> u64 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -2085,7 +2004,6 @@ pub unsafe fn RtlCrc64(buffer: *const ::core::ffi::c_void, size: usize, initialc
 }
 #[doc = "*Required features: `\"Win32_System_Memory\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn RtlIsZeroMemory(buffer: *const ::core::ffi::c_void, length: usize) -> super::super::Foundation::BOOLEAN {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -2095,7 +2013,6 @@ pub unsafe fn RtlIsZeroMemory(buffer: *const ::core::ffi::c_void, length: usize)
 }
 #[doc = "*Required features: `\"Win32_System_Memory\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn SetProcessValidCallTargets<'a, P0>(hprocess: P0, virtualaddress: *const ::core::ffi::c_void, regionsize: usize, offsetinformation: &mut [CFG_CALL_TARGET_INFO]) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
@@ -2108,7 +2025,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Memory\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn SetProcessValidCallTargetsForMappedView<'a, P0, P1>(process: P0, virtualaddress: *const ::core::ffi::c_void, regionsize: usize, offsetinformation: &mut [CFG_CALL_TARGET_INFO], section: P1, expectedfileoffset: u64) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
@@ -2122,7 +2038,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Memory\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn SetProcessWorkingSetSizeEx<'a, P0>(hprocess: P0, dwminimumworkingsetsize: usize, dwmaximumworkingsetsize: usize, flags: u32) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
@@ -2135,7 +2050,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Memory\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn SetSystemFileCacheSize(minimumfilecachesize: usize, maximumfilecachesize: usize, flags: u32) -> super::super::Foundation::BOOL {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -2174,7 +2088,6 @@ impl ::core::fmt::Debug for UNMAP_VIEW_OF_FILE_FLAGS {
 }
 #[doc = "*Required features: `\"Win32_System_Memory\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn UnmapViewOfFile(lpbaseaddress: *const ::core::ffi::c_void) -> super::super::Foundation::BOOL {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -2184,7 +2097,6 @@ pub unsafe fn UnmapViewOfFile(lpbaseaddress: *const ::core::ffi::c_void) -> supe
 }
 #[doc = "*Required features: `\"Win32_System_Memory\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn UnmapViewOfFile2<'a, P0>(process: P0, baseaddress: *const ::core::ffi::c_void, unmapflags: UNMAP_VIEW_OF_FILE_FLAGS) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
@@ -2197,7 +2109,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Memory\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn UnmapViewOfFileEx(baseaddress: *const ::core::ffi::c_void, unmapflags: UNMAP_VIEW_OF_FILE_FLAGS) -> super::super::Foundation::BOOL {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -2207,7 +2118,6 @@ pub unsafe fn UnmapViewOfFileEx(baseaddress: *const ::core::ffi::c_void, unmapfl
 }
 #[doc = "*Required features: `\"Win32_System_Memory\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn UnregisterBadMemoryNotification(registrationhandle: *const ::core::ffi::c_void) -> super::super::Foundation::BOOL {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -2310,7 +2220,6 @@ impl ::core::fmt::Debug for VIRTUAL_FREE_TYPE {
     }
 }
 #[doc = "*Required features: `\"Win32_System_Memory\"`*"]
-#[inline]
 pub unsafe fn VirtualAlloc(lpaddress: *const ::core::ffi::c_void, dwsize: usize, flallocationtype: VIRTUAL_ALLOCATION_TYPE, flprotect: PAGE_PROTECTION_FLAGS) -> *mut ::core::ffi::c_void {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -2320,7 +2229,6 @@ pub unsafe fn VirtualAlloc(lpaddress: *const ::core::ffi::c_void, dwsize: usize,
 }
 #[doc = "*Required features: `\"Win32_System_Memory\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn VirtualAlloc2<'a, P0>(process: P0, baseaddress: *const ::core::ffi::c_void, size: usize, allocationtype: VIRTUAL_ALLOCATION_TYPE, pageprotection: u32, extendedparameters: &mut [MEM_EXTENDED_PARAMETER]) -> *mut ::core::ffi::c_void
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
@@ -2333,7 +2241,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Memory\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn VirtualAlloc2FromApp<'a, P0>(process: P0, baseaddress: *const ::core::ffi::c_void, size: usize, allocationtype: VIRTUAL_ALLOCATION_TYPE, pageprotection: u32, extendedparameters: &mut [MEM_EXTENDED_PARAMETER]) -> *mut ::core::ffi::c_void
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
@@ -2346,7 +2253,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Memory\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn VirtualAllocEx<'a, P0>(hprocess: P0, lpaddress: *const ::core::ffi::c_void, dwsize: usize, flallocationtype: VIRTUAL_ALLOCATION_TYPE, flprotect: PAGE_PROTECTION_FLAGS) -> *mut ::core::ffi::c_void
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
@@ -2359,7 +2265,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Memory\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn VirtualAllocExNuma<'a, P0>(hprocess: P0, lpaddress: *const ::core::ffi::c_void, dwsize: usize, flallocationtype: VIRTUAL_ALLOCATION_TYPE, flprotect: u32, nndpreferred: u32) -> *mut ::core::ffi::c_void
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
@@ -2371,7 +2276,6 @@ where
     VirtualAllocExNuma(hprocess.into(), ::core::mem::transmute(lpaddress), dwsize, flallocationtype, flprotect, nndpreferred)
 }
 #[doc = "*Required features: `\"Win32_System_Memory\"`*"]
-#[inline]
 pub unsafe fn VirtualAllocFromApp(baseaddress: *const ::core::ffi::c_void, size: usize, allocationtype: VIRTUAL_ALLOCATION_TYPE, protection: u32) -> *mut ::core::ffi::c_void {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -2381,7 +2285,6 @@ pub unsafe fn VirtualAllocFromApp(baseaddress: *const ::core::ffi::c_void, size:
 }
 #[doc = "*Required features: `\"Win32_System_Memory\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn VirtualFree(lpaddress: *mut ::core::ffi::c_void, dwsize: usize, dwfreetype: VIRTUAL_FREE_TYPE) -> super::super::Foundation::BOOL {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -2391,7 +2294,6 @@ pub unsafe fn VirtualFree(lpaddress: *mut ::core::ffi::c_void, dwsize: usize, dw
 }
 #[doc = "*Required features: `\"Win32_System_Memory\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn VirtualFreeEx<'a, P0>(hprocess: P0, lpaddress: *mut ::core::ffi::c_void, dwsize: usize, dwfreetype: VIRTUAL_FREE_TYPE) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
@@ -2404,7 +2306,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Memory\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn VirtualLock(lpaddress: *const ::core::ffi::c_void, dwsize: usize) -> super::super::Foundation::BOOL {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -2414,7 +2315,6 @@ pub unsafe fn VirtualLock(lpaddress: *const ::core::ffi::c_void, dwsize: usize) 
 }
 #[doc = "*Required features: `\"Win32_System_Memory\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn VirtualProtect(lpaddress: *const ::core::ffi::c_void, dwsize: usize, flnewprotect: PAGE_PROTECTION_FLAGS, lpfloldprotect: *mut PAGE_PROTECTION_FLAGS) -> super::super::Foundation::BOOL {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -2424,7 +2324,6 @@ pub unsafe fn VirtualProtect(lpaddress: *const ::core::ffi::c_void, dwsize: usiz
 }
 #[doc = "*Required features: `\"Win32_System_Memory\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn VirtualProtectEx<'a, P0>(hprocess: P0, lpaddress: *const ::core::ffi::c_void, dwsize: usize, flnewprotect: PAGE_PROTECTION_FLAGS, lpfloldprotect: *mut PAGE_PROTECTION_FLAGS) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
@@ -2437,7 +2336,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Memory\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn VirtualProtectFromApp(address: *const ::core::ffi::c_void, size: usize, newprotection: u32, oldprotection: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -2446,7 +2344,6 @@ pub unsafe fn VirtualProtectFromApp(address: *const ::core::ffi::c_void, size: u
     VirtualProtectFromApp(::core::mem::transmute(address), size, newprotection, ::core::mem::transmute(oldprotection))
 }
 #[doc = "*Required features: `\"Win32_System_Memory\"`*"]
-#[inline]
 pub unsafe fn VirtualQuery(lpaddress: *const ::core::ffi::c_void, lpbuffer: *mut MEMORY_BASIC_INFORMATION, dwlength: usize) -> usize {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -2456,7 +2353,6 @@ pub unsafe fn VirtualQuery(lpaddress: *const ::core::ffi::c_void, lpbuffer: *mut
 }
 #[doc = "*Required features: `\"Win32_System_Memory\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn VirtualQueryEx<'a, P0>(hprocess: P0, lpaddress: *const ::core::ffi::c_void, lpbuffer: *mut MEMORY_BASIC_INFORMATION, dwlength: usize) -> usize
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
@@ -2469,7 +2365,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Memory\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn VirtualUnlock(lpaddress: *const ::core::ffi::c_void, dwsize: usize) -> super::super::Foundation::BOOL {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -2479,7 +2374,6 @@ pub unsafe fn VirtualUnlock(lpaddress: *const ::core::ffi::c_void, dwsize: usize
 }
 #[doc = "*Required features: `\"Win32_System_Memory\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn VirtualUnlockEx<'a, P0>(process: P0, address: *const ::core::ffi::c_void, size: usize) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,

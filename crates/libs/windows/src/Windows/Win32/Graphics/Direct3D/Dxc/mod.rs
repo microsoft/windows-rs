@@ -193,7 +193,6 @@ impl ::core::default::Default for DxcBuffer {
     }
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D_Dxc\"`*"]
-#[inline]
 pub unsafe fn DxcCreateInstance<T>(rclsid: *const ::windows::core::GUID) -> ::windows::core::Result<T>
 where
     T: ::windows::core::Interface,
@@ -207,7 +206,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D_Dxc\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
-#[inline]
 pub unsafe fn DxcCreateInstance2<'a, P0, T>(pmalloc: P0, rclsid: *const ::windows::core::GUID) -> ::windows::core::Result<T>
 where
     P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::System::Com::IMalloc>>,

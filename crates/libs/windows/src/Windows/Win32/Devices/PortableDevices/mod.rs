@@ -76,7 +76,6 @@ pub const DEVSVCTYPE_DEFAULT: u32 = 0u32;
 pub const DEVSVC_SERVICEINFO_VERSION: u32 = 100u32;
 #[doc = "*Required features: `\"Win32_Devices_PortableDevices\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn DMProcessConfigXMLFiltered<'a, P0>(pszxmlin: P0, rgszallowedcspnodes: &[::windows::core::PWSTR]) -> ::windows::core::Result<super::super::Foundation::BSTR>
 where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,

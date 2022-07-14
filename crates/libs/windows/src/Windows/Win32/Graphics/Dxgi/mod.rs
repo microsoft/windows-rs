@@ -1,7 +1,6 @@
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 pub mod Common;
 #[doc = "*Required features: `\"Win32_Graphics_Dxgi\"`*"]
-#[inline]
 pub unsafe fn CreateDXGIFactory<T>() -> ::windows::core::Result<T>
 where
     T: ::windows::core::Interface,
@@ -14,7 +13,6 @@ where
     CreateDXGIFactory(&<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
 }
 #[doc = "*Required features: `\"Win32_Graphics_Dxgi\"`*"]
-#[inline]
 pub unsafe fn CreateDXGIFactory1<T>() -> ::windows::core::Result<T>
 where
     T: ::windows::core::Interface,
@@ -27,7 +25,6 @@ where
     CreateDXGIFactory1(&<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
 }
 #[doc = "*Required features: `\"Win32_Graphics_Dxgi\"`*"]
-#[inline]
 pub unsafe fn CreateDXGIFactory2<T>(flags: u32) -> ::windows::core::Result<T>
 where
     T: ::windows::core::Interface,
@@ -40,7 +37,6 @@ where
     CreateDXGIFactory2(flags, &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
 }
 #[doc = "*Required features: `\"Win32_Graphics_Dxgi\"`*"]
-#[inline]
 pub unsafe fn DXGIDeclareAdapterRemovalSupport() -> ::windows::core::Result<()> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -49,7 +45,6 @@ pub unsafe fn DXGIDeclareAdapterRemovalSupport() -> ::windows::core::Result<()> 
     DXGIDeclareAdapterRemovalSupport().ok()
 }
 #[doc = "*Required features: `\"Win32_Graphics_Dxgi\"`*"]
-#[inline]
 pub unsafe fn DXGIGetDebugInterface1<T>(flags: u32) -> ::windows::core::Result<T>
 where
     T: ::windows::core::Interface,

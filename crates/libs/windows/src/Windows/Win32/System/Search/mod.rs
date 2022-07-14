@@ -22920,7 +22920,6 @@ pub const NegationCondition: ::windows::core::GUID = ::windows::core::GUID::from
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 pub const OCC_INVALID: u32 = 4294967295u32;
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
-#[inline]
 pub unsafe fn ODBCGetTryWaitValue() -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -22930,7 +22929,6 @@ pub unsafe fn ODBCGetTryWaitValue() -> u32 {
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn ODBCSetTryWaitValue(dwvalue: u32) -> super::super::Foundation::BOOL {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -24853,7 +24851,6 @@ pub const SQLAOPVAR: u32 = 50u32;
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 pub const SQLAOPVARP: u32 = 51u32;
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
-#[inline]
 pub unsafe fn SQLAllocConnect(environmenthandle: *mut ::core::ffi::c_void, connectionhandle: *mut *mut ::core::ffi::c_void) -> i16 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -24862,7 +24859,6 @@ pub unsafe fn SQLAllocConnect(environmenthandle: *mut ::core::ffi::c_void, conne
     SQLAllocConnect(::core::mem::transmute(environmenthandle), ::core::mem::transmute(connectionhandle))
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
-#[inline]
 pub unsafe fn SQLAllocEnv(environmenthandle: *mut *mut ::core::ffi::c_void) -> i16 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -24871,7 +24867,6 @@ pub unsafe fn SQLAllocEnv(environmenthandle: *mut *mut ::core::ffi::c_void) -> i
     SQLAllocEnv(::core::mem::transmute(environmenthandle))
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
-#[inline]
 pub unsafe fn SQLAllocHandle(handletype: i16, inputhandle: *mut ::core::ffi::c_void, outputhandle: *mut *mut ::core::ffi::c_void) -> i16 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -24880,7 +24875,6 @@ pub unsafe fn SQLAllocHandle(handletype: i16, inputhandle: *mut ::core::ffi::c_v
     SQLAllocHandle(handletype, ::core::mem::transmute(inputhandle), ::core::mem::transmute(outputhandle))
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
-#[inline]
 pub unsafe fn SQLAllocHandleStd(fhandletype: i16, hinput: *mut ::core::ffi::c_void, phoutput: *mut *mut ::core::ffi::c_void) -> i16 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -24889,7 +24883,6 @@ pub unsafe fn SQLAllocHandleStd(fhandletype: i16, hinput: *mut ::core::ffi::c_vo
     SQLAllocHandleStd(fhandletype, ::core::mem::transmute(hinput), ::core::mem::transmute(phoutput))
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
-#[inline]
 pub unsafe fn SQLAllocStmt(connectionhandle: *mut ::core::ffi::c_void, statementhandle: *mut *mut ::core::ffi::c_void) -> i16 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -24913,7 +24906,6 @@ pub const SQLBIT: u32 = 50u32;
 pub const SQLBITN: u32 = 104u32;
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-#[inline]
 pub unsafe fn SQLBindCol(statementhandle: *mut ::core::ffi::c_void, columnnumber: u16, targettype: i16, targetvalue: *mut ::core::ffi::c_void, bufferlength: i64, strlen_or_ind: *mut i64) -> i16 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -24923,7 +24915,6 @@ pub unsafe fn SQLBindCol(statementhandle: *mut ::core::ffi::c_void, columnnumber
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[cfg(target_arch = "x86")]
-#[inline]
 pub unsafe fn SQLBindCol(statementhandle: *mut ::core::ffi::c_void, columnnumber: u16, targettype: i16, targetvalue: *mut ::core::ffi::c_void, bufferlength: i32, strlen_or_ind: *mut i32) -> i16 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -24933,7 +24924,6 @@ pub unsafe fn SQLBindCol(statementhandle: *mut ::core::ffi::c_void, columnnumber
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-#[inline]
 pub unsafe fn SQLBindParam(statementhandle: *mut ::core::ffi::c_void, parameternumber: u16, valuetype: i16, parametertype: i16, lengthprecision: u64, parameterscale: i16, parametervalue: *mut ::core::ffi::c_void, strlen_or_ind: *mut i64) -> i16 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -24943,7 +24933,6 @@ pub unsafe fn SQLBindParam(statementhandle: *mut ::core::ffi::c_void, parametern
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[cfg(target_arch = "x86")]
-#[inline]
 pub unsafe fn SQLBindParam(statementhandle: *mut ::core::ffi::c_void, parameternumber: u16, valuetype: i16, parametertype: i16, lengthprecision: u32, parameterscale: i16, parametervalue: *mut ::core::ffi::c_void, strlen_or_ind: *mut i32) -> i16 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -24953,7 +24942,6 @@ pub unsafe fn SQLBindParam(statementhandle: *mut ::core::ffi::c_void, parametern
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-#[inline]
 pub unsafe fn SQLBindParameter(hstmt: *mut ::core::ffi::c_void, ipar: u16, fparamtype: i16, fctype: i16, fsqltype: i16, cbcoldef: u64, ibscale: i16, rgbvalue: *mut ::core::ffi::c_void, cbvaluemax: i64, pcbvalue: *mut i64) -> i16 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -24963,7 +24951,6 @@ pub unsafe fn SQLBindParameter(hstmt: *mut ::core::ffi::c_void, ipar: u16, fpara
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[cfg(target_arch = "x86")]
-#[inline]
 pub unsafe fn SQLBindParameter(hstmt: *mut ::core::ffi::c_void, ipar: u16, fparamtype: i16, fctype: i16, fsqltype: i16, cbcoldef: u32, ibscale: i16, rgbvalue: *mut ::core::ffi::c_void, cbvaluemax: i32, pcbvalue: *mut i32) -> i16 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -24972,7 +24959,6 @@ pub unsafe fn SQLBindParameter(hstmt: *mut ::core::ffi::c_void, ipar: u16, fpara
     SQLBindParameter(::core::mem::transmute(hstmt), ipar, fparamtype, fctype, fsqltype, cbcoldef, ibscale, ::core::mem::transmute(rgbvalue), cbvaluemax, ::core::mem::transmute(pcbvalue))
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
-#[inline]
 pub unsafe fn SQLBrowseConnect(hdbc: *mut ::core::ffi::c_void, szconnstrin: &[u8], szconnstrout: &mut [u8], pcchconnstrout: *mut i16) -> i16 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -24981,7 +24967,6 @@ pub unsafe fn SQLBrowseConnect(hdbc: *mut ::core::ffi::c_void, szconnstrin: &[u8
     SQLBrowseConnect(::core::mem::transmute(hdbc), ::core::mem::transmute(::windows::core::as_ptr_or_null(szconnstrin)), szconnstrin.len() as _, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(szconnstrout)), szconnstrout.len() as _, ::core::mem::transmute(pcchconnstrout))
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
-#[inline]
 pub unsafe fn SQLBrowseConnectA(hdbc: *mut ::core::ffi::c_void, szconnstrin: &[u8], szconnstrout: &mut [u8], pcbconnstrout: *mut i16) -> i16 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -24990,7 +24975,6 @@ pub unsafe fn SQLBrowseConnectA(hdbc: *mut ::core::ffi::c_void, szconnstrin: &[u
     SQLBrowseConnectA(::core::mem::transmute(hdbc), ::core::mem::transmute(::windows::core::as_ptr_or_null(szconnstrin)), szconnstrin.len() as _, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(szconnstrout)), szconnstrout.len() as _, ::core::mem::transmute(pcbconnstrout))
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
-#[inline]
 pub unsafe fn SQLBrowseConnectW(hdbc: *mut ::core::ffi::c_void, szconnstrin: &[u16], szconnstrout: &mut [u16], pcchconnstrout: *mut i16) -> i16 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -24999,7 +24983,6 @@ pub unsafe fn SQLBrowseConnectW(hdbc: *mut ::core::ffi::c_void, szconnstrin: &[u
     SQLBrowseConnectW(::core::mem::transmute(hdbc), ::core::mem::transmute(::windows::core::as_ptr_or_null(szconnstrin)), szconnstrin.len() as _, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(szconnstrout)), szconnstrout.len() as _, ::core::mem::transmute(pcchconnstrout))
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
-#[inline]
 pub unsafe fn SQLBulkOperations(statementhandle: *mut ::core::ffi::c_void, operation: i16) -> i16 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -25010,7 +24993,6 @@ pub unsafe fn SQLBulkOperations(statementhandle: *mut ::core::ffi::c_void, opera
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 pub const SQLCHARACTER: u32 = 47u32;
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
-#[inline]
 pub unsafe fn SQLCancel(statementhandle: *mut ::core::ffi::c_void) -> i16 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -25019,7 +25001,6 @@ pub unsafe fn SQLCancel(statementhandle: *mut ::core::ffi::c_void) -> i16 {
     SQLCancel(::core::mem::transmute(statementhandle))
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
-#[inline]
 pub unsafe fn SQLCancelHandle(handletype: i16, inputhandle: *mut ::core::ffi::c_void) -> i16 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -25028,7 +25009,6 @@ pub unsafe fn SQLCancelHandle(handletype: i16, inputhandle: *mut ::core::ffi::c_
     SQLCancelHandle(handletype, ::core::mem::transmute(inputhandle))
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
-#[inline]
 pub unsafe fn SQLCloseCursor(statementhandle: *mut ::core::ffi::c_void) -> i16 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -25038,7 +25018,6 @@ pub unsafe fn SQLCloseCursor(statementhandle: *mut ::core::ffi::c_void) -> i16 {
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn SQLCloseEnumServers<'a, P0>(henumhandle: P0) -> i16
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
@@ -25051,7 +25030,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-#[inline]
 pub unsafe fn SQLColAttribute(statementhandle: *mut ::core::ffi::c_void, columnnumber: u16, fieldidentifier: u16, characterattribute: *mut ::core::ffi::c_void, bufferlength: i16, stringlength: *mut i16, numericattribute: *mut i64) -> i16 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -25061,7 +25039,6 @@ pub unsafe fn SQLColAttribute(statementhandle: *mut ::core::ffi::c_void, columnn
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[cfg(target_arch = "x86")]
-#[inline]
 pub unsafe fn SQLColAttribute(statementhandle: *mut ::core::ffi::c_void, columnnumber: u16, fieldidentifier: u16, characterattribute: *mut ::core::ffi::c_void, bufferlength: i16, stringlength: *mut i16, numericattribute: *mut ::core::ffi::c_void) -> i16 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -25071,7 +25048,6 @@ pub unsafe fn SQLColAttribute(statementhandle: *mut ::core::ffi::c_void, columnn
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-#[inline]
 pub unsafe fn SQLColAttributeA(hstmt: *mut ::core::ffi::c_void, icol: i16, ifield: i16, pcharattr: *mut ::core::ffi::c_void, cbcharattrmax: i16, pcbcharattr: *mut i16, pnumattr: *mut i64) -> i16 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -25081,7 +25057,6 @@ pub unsafe fn SQLColAttributeA(hstmt: *mut ::core::ffi::c_void, icol: i16, ifiel
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[cfg(target_arch = "x86")]
-#[inline]
 pub unsafe fn SQLColAttributeA(hstmt: *mut ::core::ffi::c_void, icol: i16, ifield: i16, pcharattr: *mut ::core::ffi::c_void, cbcharattrmax: i16, pcbcharattr: *mut i16, pnumattr: *mut ::core::ffi::c_void) -> i16 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -25091,7 +25066,6 @@ pub unsafe fn SQLColAttributeA(hstmt: *mut ::core::ffi::c_void, icol: i16, ifiel
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-#[inline]
 pub unsafe fn SQLColAttributeW(hstmt: *mut ::core::ffi::c_void, icol: u16, ifield: u16, pcharattr: *mut ::core::ffi::c_void, cbdescmax: i16, pcbcharattr: *mut i16, pnumattr: *mut i64) -> i16 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -25101,7 +25075,6 @@ pub unsafe fn SQLColAttributeW(hstmt: *mut ::core::ffi::c_void, icol: u16, ifiel
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[cfg(target_arch = "x86")]
-#[inline]
 pub unsafe fn SQLColAttributeW(hstmt: *mut ::core::ffi::c_void, icol: u16, ifield: u16, pcharattr: *mut ::core::ffi::c_void, cbdescmax: i16, pcbcharattr: *mut i16, pnumattr: *mut ::core::ffi::c_void) -> i16 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -25111,7 +25084,6 @@ pub unsafe fn SQLColAttributeW(hstmt: *mut ::core::ffi::c_void, icol: u16, ifiel
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-#[inline]
 pub unsafe fn SQLColAttributes(hstmt: *mut ::core::ffi::c_void, icol: u16, fdesctype: u16, rgbdesc: *mut ::core::ffi::c_void, cbdescmax: i16, pcbdesc: *mut i16, pfdesc: *mut i64) -> i16 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -25121,7 +25093,6 @@ pub unsafe fn SQLColAttributes(hstmt: *mut ::core::ffi::c_void, icol: u16, fdesc
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[cfg(target_arch = "x86")]
-#[inline]
 pub unsafe fn SQLColAttributes(hstmt: *mut ::core::ffi::c_void, icol: u16, fdesctype: u16, rgbdesc: *mut ::core::ffi::c_void, cbdescmax: i16, pcbdesc: *mut i16, pfdesc: *mut i32) -> i16 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -25131,7 +25102,6 @@ pub unsafe fn SQLColAttributes(hstmt: *mut ::core::ffi::c_void, icol: u16, fdesc
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-#[inline]
 pub unsafe fn SQLColAttributesA(hstmt: *mut ::core::ffi::c_void, icol: u16, fdesctype: u16, rgbdesc: *mut ::core::ffi::c_void, cbdescmax: i16, pcbdesc: *mut i16, pfdesc: *mut i64) -> i16 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -25141,7 +25111,6 @@ pub unsafe fn SQLColAttributesA(hstmt: *mut ::core::ffi::c_void, icol: u16, fdes
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[cfg(target_arch = "x86")]
-#[inline]
 pub unsafe fn SQLColAttributesA(hstmt: *mut ::core::ffi::c_void, icol: u16, fdesctype: u16, rgbdesc: *mut ::core::ffi::c_void, cbdescmax: i16, pcbdesc: *mut i16, pfdesc: *mut i32) -> i16 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -25151,7 +25120,6 @@ pub unsafe fn SQLColAttributesA(hstmt: *mut ::core::ffi::c_void, icol: u16, fdes
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-#[inline]
 pub unsafe fn SQLColAttributesW(hstmt: *mut ::core::ffi::c_void, icol: u16, fdesctype: u16, rgbdesc: *mut ::core::ffi::c_void, cbdescmax: i16, pcbdesc: *mut i16, pfdesc: *mut i64) -> i16 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -25161,7 +25129,6 @@ pub unsafe fn SQLColAttributesW(hstmt: *mut ::core::ffi::c_void, icol: u16, fdes
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[cfg(target_arch = "x86")]
-#[inline]
 pub unsafe fn SQLColAttributesW(hstmt: *mut ::core::ffi::c_void, icol: u16, fdesctype: u16, rgbdesc: *mut ::core::ffi::c_void, cbdescmax: i16, pcbdesc: *mut i16, pfdesc: *mut i32) -> i16 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -25170,7 +25137,6 @@ pub unsafe fn SQLColAttributesW(hstmt: *mut ::core::ffi::c_void, icol: u16, fdes
     SQLColAttributesW(::core::mem::transmute(hstmt), icol, fdesctype, ::core::mem::transmute(rgbdesc), cbdescmax, ::core::mem::transmute(pcbdesc), ::core::mem::transmute(pfdesc))
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
-#[inline]
 pub unsafe fn SQLColumnPrivileges(hstmt: *mut ::core::ffi::c_void, szcatalogname: &[u8], szschemaname: &[u8], sztablename: &[u8], szcolumnname: &[u8]) -> i16 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -25179,7 +25145,6 @@ pub unsafe fn SQLColumnPrivileges(hstmt: *mut ::core::ffi::c_void, szcatalogname
     SQLColumnPrivileges(::core::mem::transmute(hstmt), ::core::mem::transmute(::windows::core::as_ptr_or_null(szcatalogname)), szcatalogname.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(szschemaname)), szschemaname.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(sztablename)), sztablename.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(szcolumnname)), szcolumnname.len() as _)
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
-#[inline]
 pub unsafe fn SQLColumnPrivilegesA(hstmt: *mut ::core::ffi::c_void, szcatalogname: &[u8], szschemaname: &[u8], sztablename: &[u8], szcolumnname: &[u8]) -> i16 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -25188,7 +25153,6 @@ pub unsafe fn SQLColumnPrivilegesA(hstmt: *mut ::core::ffi::c_void, szcatalognam
     SQLColumnPrivilegesA(::core::mem::transmute(hstmt), ::core::mem::transmute(::windows::core::as_ptr_or_null(szcatalogname)), szcatalogname.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(szschemaname)), szschemaname.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(sztablename)), sztablename.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(szcolumnname)), szcolumnname.len() as _)
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
-#[inline]
 pub unsafe fn SQLColumnPrivilegesW(hstmt: *mut ::core::ffi::c_void, szcatalogname: &[u16], szschemaname: &[u16], sztablename: &[u16], szcolumnname: &[u16]) -> i16 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -25197,7 +25161,6 @@ pub unsafe fn SQLColumnPrivilegesW(hstmt: *mut ::core::ffi::c_void, szcatalognam
     SQLColumnPrivilegesW(::core::mem::transmute(hstmt), ::core::mem::transmute(::windows::core::as_ptr_or_null(szcatalogname)), szcatalogname.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(szschemaname)), szschemaname.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(sztablename)), sztablename.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(szcolumnname)), szcolumnname.len() as _)
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
-#[inline]
 pub unsafe fn SQLColumns(statementhandle: *mut ::core::ffi::c_void, catalogname: &[u8], schemaname: &[u8], tablename: &[u8], columnname: &[u8]) -> i16 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -25206,7 +25169,6 @@ pub unsafe fn SQLColumns(statementhandle: *mut ::core::ffi::c_void, catalogname:
     SQLColumns(::core::mem::transmute(statementhandle), ::core::mem::transmute(::windows::core::as_ptr_or_null(catalogname)), catalogname.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(schemaname)), schemaname.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(tablename)), tablename.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(columnname)), columnname.len() as _)
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
-#[inline]
 pub unsafe fn SQLColumnsA(hstmt: *mut ::core::ffi::c_void, szcatalogname: &[u8], szschemaname: &[u8], sztablename: &[u8], szcolumnname: &[u8]) -> i16 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -25215,7 +25177,6 @@ pub unsafe fn SQLColumnsA(hstmt: *mut ::core::ffi::c_void, szcatalogname: &[u8],
     SQLColumnsA(::core::mem::transmute(hstmt), ::core::mem::transmute(::windows::core::as_ptr_or_null(szcatalogname)), szcatalogname.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(szschemaname)), szschemaname.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(sztablename)), sztablename.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(szcolumnname)), szcolumnname.len() as _)
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
-#[inline]
 pub unsafe fn SQLColumnsW(hstmt: *mut ::core::ffi::c_void, szcatalogname: &[u16], szschemaname: &[u16], sztablename: &[u16], szcolumnname: &[u16]) -> i16 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -25224,7 +25185,6 @@ pub unsafe fn SQLColumnsW(hstmt: *mut ::core::ffi::c_void, szcatalogname: &[u16]
     SQLColumnsW(::core::mem::transmute(hstmt), ::core::mem::transmute(::windows::core::as_ptr_or_null(szcatalogname)), szcatalogname.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(szschemaname)), szschemaname.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(sztablename)), sztablename.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(szcolumnname)), szcolumnname.len() as _)
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
-#[inline]
 pub unsafe fn SQLCompleteAsync(handletype: i16, handle: *mut ::core::ffi::c_void, asyncretcodeptr: *mut i16) -> i16 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -25233,7 +25193,6 @@ pub unsafe fn SQLCompleteAsync(handletype: i16, handle: *mut ::core::ffi::c_void
     SQLCompleteAsync(handletype, ::core::mem::transmute(handle), ::core::mem::transmute(asyncretcodeptr))
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
-#[inline]
 pub unsafe fn SQLConnect(connectionhandle: *mut ::core::ffi::c_void, servername: &[u8], username: &[u8], authentication: &[u8]) -> i16 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -25242,7 +25201,6 @@ pub unsafe fn SQLConnect(connectionhandle: *mut ::core::ffi::c_void, servername:
     SQLConnect(::core::mem::transmute(connectionhandle), ::core::mem::transmute(::windows::core::as_ptr_or_null(servername)), servername.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(username)), username.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(authentication)), authentication.len() as _)
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
-#[inline]
 pub unsafe fn SQLConnectA(hdbc: *mut ::core::ffi::c_void, szdsn: &[u8], szuid: &[u8], szauthstr: &[u8]) -> i16 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -25251,7 +25209,6 @@ pub unsafe fn SQLConnectA(hdbc: *mut ::core::ffi::c_void, szdsn: &[u8], szuid: &
     SQLConnectA(::core::mem::transmute(hdbc), ::core::mem::transmute(::windows::core::as_ptr_or_null(szdsn)), szdsn.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(szuid)), szuid.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(szauthstr)), szauthstr.len() as _)
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
-#[inline]
 pub unsafe fn SQLConnectW(hdbc: *mut ::core::ffi::c_void, szdsn: &[u16], szuid: &[u16], szauthstr: &[u16]) -> i16 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -25260,7 +25217,6 @@ pub unsafe fn SQLConnectW(hdbc: *mut ::core::ffi::c_void, szdsn: &[u16], szuid: 
     SQLConnectW(::core::mem::transmute(hdbc), ::core::mem::transmute(::windows::core::as_ptr_or_null(szdsn)), szdsn.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(szuid)), szuid.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(szauthstr)), szauthstr.len() as _)
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
-#[inline]
 pub unsafe fn SQLCopyDesc(sourcedeschandle: *mut ::core::ffi::c_void, targetdeschandle: *mut ::core::ffi::c_void) -> i16 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -25279,7 +25235,6 @@ pub const SQLDECIMAL: u32 = 106u32;
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 pub const SQLDECIMALN: u32 = 106u32;
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
-#[inline]
 pub unsafe fn SQLDataSources(environmenthandle: *mut ::core::ffi::c_void, direction: u16, servername: &mut [u8], namelength1ptr: *mut i16, description: &mut [u8], namelength2ptr: *mut i16) -> i16 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -25288,7 +25243,6 @@ pub unsafe fn SQLDataSources(environmenthandle: *mut ::core::ffi::c_void, direct
     SQLDataSources(::core::mem::transmute(environmenthandle), direction, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(servername)), servername.len() as _, ::core::mem::transmute(namelength1ptr), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(description)), description.len() as _, ::core::mem::transmute(namelength2ptr))
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
-#[inline]
 pub unsafe fn SQLDataSourcesA(henv: *mut ::core::ffi::c_void, fdirection: u16, szdsn: &mut [u8], pcbdsn: *mut i16, szdescription: &mut [u8], pcbdescription: *mut i16) -> i16 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -25297,7 +25251,6 @@ pub unsafe fn SQLDataSourcesA(henv: *mut ::core::ffi::c_void, fdirection: u16, s
     SQLDataSourcesA(::core::mem::transmute(henv), fdirection, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(szdsn)), szdsn.len() as _, ::core::mem::transmute(pcbdsn), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(szdescription)), szdescription.len() as _, ::core::mem::transmute(pcbdescription))
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
-#[inline]
 pub unsafe fn SQLDataSourcesW(henv: *mut ::core::ffi::c_void, fdirection: u16, szdsn: &mut [u16], pcchdsn: *mut i16, wszdescription: &mut [u16], pcchdescription: *mut i16) -> i16 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -25307,7 +25260,6 @@ pub unsafe fn SQLDataSourcesW(henv: *mut ::core::ffi::c_void, fdirection: u16, s
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-#[inline]
 pub unsafe fn SQLDescribeCol(statementhandle: *mut ::core::ffi::c_void, columnnumber: u16, columnname: &mut [u8], namelength: *mut i16, datatype: *mut i16, columnsize: *mut u64, decimaldigits: *mut i16, nullable: *mut i16) -> i16 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -25317,7 +25269,6 @@ pub unsafe fn SQLDescribeCol(statementhandle: *mut ::core::ffi::c_void, columnnu
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[cfg(target_arch = "x86")]
-#[inline]
 pub unsafe fn SQLDescribeCol(statementhandle: *mut ::core::ffi::c_void, columnnumber: u16, columnname: &mut [u8], namelength: *mut i16, datatype: *mut i16, columnsize: *mut u32, decimaldigits: *mut i16, nullable: *mut i16) -> i16 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -25327,7 +25278,6 @@ pub unsafe fn SQLDescribeCol(statementhandle: *mut ::core::ffi::c_void, columnnu
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-#[inline]
 pub unsafe fn SQLDescribeColA(hstmt: *mut ::core::ffi::c_void, icol: u16, szcolname: &mut [u8], pcbcolname: *mut i16, pfsqltype: *mut i16, pcbcoldef: *mut u64, pibscale: *mut i16, pfnullable: *mut i16) -> i16 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -25337,7 +25287,6 @@ pub unsafe fn SQLDescribeColA(hstmt: *mut ::core::ffi::c_void, icol: u16, szcoln
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[cfg(target_arch = "x86")]
-#[inline]
 pub unsafe fn SQLDescribeColA(hstmt: *mut ::core::ffi::c_void, icol: u16, szcolname: &mut [u8], pcbcolname: *mut i16, pfsqltype: *mut i16, pcbcoldef: *mut u32, pibscale: *mut i16, pfnullable: *mut i16) -> i16 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -25347,7 +25296,6 @@ pub unsafe fn SQLDescribeColA(hstmt: *mut ::core::ffi::c_void, icol: u16, szcoln
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-#[inline]
 pub unsafe fn SQLDescribeColW(hstmt: *mut ::core::ffi::c_void, icol: u16, szcolname: &mut [u16], pcchcolname: *mut i16, pfsqltype: *mut i16, pcbcoldef: *mut u64, pibscale: *mut i16, pfnullable: *mut i16) -> i16 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -25357,7 +25305,6 @@ pub unsafe fn SQLDescribeColW(hstmt: *mut ::core::ffi::c_void, icol: u16, szcoln
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[cfg(target_arch = "x86")]
-#[inline]
 pub unsafe fn SQLDescribeColW(hstmt: *mut ::core::ffi::c_void, icol: u16, szcolname: &mut [u16], pcchcolname: *mut i16, pfsqltype: *mut i16, pcbcoldef: *mut u32, pibscale: *mut i16, pfnullable: *mut i16) -> i16 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -25367,7 +25314,6 @@ pub unsafe fn SQLDescribeColW(hstmt: *mut ::core::ffi::c_void, icol: u16, szcoln
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-#[inline]
 pub unsafe fn SQLDescribeParam(hstmt: *mut ::core::ffi::c_void, ipar: u16, pfsqltype: *mut i16, pcbparamdef: *mut u64, pibscale: *mut i16, pfnullable: *mut i16) -> i16 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -25377,7 +25323,6 @@ pub unsafe fn SQLDescribeParam(hstmt: *mut ::core::ffi::c_void, ipar: u16, pfsql
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[cfg(target_arch = "x86")]
-#[inline]
 pub unsafe fn SQLDescribeParam(hstmt: *mut ::core::ffi::c_void, ipar: u16, pfsqltype: *mut i16, pcbparamdef: *mut u32, pibscale: *mut i16, pfnullable: *mut i16) -> i16 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -25386,7 +25331,6 @@ pub unsafe fn SQLDescribeParam(hstmt: *mut ::core::ffi::c_void, ipar: u16, pfsql
     SQLDescribeParam(::core::mem::transmute(hstmt), ipar, ::core::mem::transmute(pfsqltype), ::core::mem::transmute(pcbparamdef), ::core::mem::transmute(pibscale), ::core::mem::transmute(pfnullable))
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
-#[inline]
 pub unsafe fn SQLDisconnect(connectionhandle: *mut ::core::ffi::c_void) -> i16 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -25395,7 +25339,6 @@ pub unsafe fn SQLDisconnect(connectionhandle: *mut ::core::ffi::c_void) -> i16 {
     SQLDisconnect(::core::mem::transmute(connectionhandle))
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
-#[inline]
 pub unsafe fn SQLDriverConnect(hdbc: *mut ::core::ffi::c_void, hwnd: isize, szconnstrin: &[u8], szconnstrout: &mut [u8], pcchconnstrout: *mut i16, fdrivercompletion: u16) -> i16 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -25404,7 +25347,6 @@ pub unsafe fn SQLDriverConnect(hdbc: *mut ::core::ffi::c_void, hwnd: isize, szco
     SQLDriverConnect(::core::mem::transmute(hdbc), hwnd, ::core::mem::transmute(::windows::core::as_ptr_or_null(szconnstrin)), szconnstrin.len() as _, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(szconnstrout)), szconnstrout.len() as _, ::core::mem::transmute(pcchconnstrout), fdrivercompletion)
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
-#[inline]
 pub unsafe fn SQLDriverConnectA(hdbc: *mut ::core::ffi::c_void, hwnd: isize, szconnstrin: &[u8], szconnstrout: &mut [u8], pcbconnstrout: *mut i16, fdrivercompletion: u16) -> i16 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -25413,7 +25355,6 @@ pub unsafe fn SQLDriverConnectA(hdbc: *mut ::core::ffi::c_void, hwnd: isize, szc
     SQLDriverConnectA(::core::mem::transmute(hdbc), hwnd, ::core::mem::transmute(::windows::core::as_ptr_or_null(szconnstrin)), szconnstrin.len() as _, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(szconnstrout)), szconnstrout.len() as _, ::core::mem::transmute(pcbconnstrout), fdrivercompletion)
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
-#[inline]
 pub unsafe fn SQLDriverConnectW(hdbc: *mut ::core::ffi::c_void, hwnd: isize, szconnstrin: &[u16], szconnstrout: &mut [u16], pcchconnstrout: *mut i16, fdrivercompletion: u16) -> i16 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -25422,7 +25363,6 @@ pub unsafe fn SQLDriverConnectW(hdbc: *mut ::core::ffi::c_void, hwnd: isize, szc
     SQLDriverConnectW(::core::mem::transmute(hdbc), hwnd, ::core::mem::transmute(::windows::core::as_ptr_or_null(szconnstrin)), szconnstrin.len() as _, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(szconnstrout)), szconnstrout.len() as _, ::core::mem::transmute(pcchconnstrout), fdrivercompletion)
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
-#[inline]
 pub unsafe fn SQLDrivers(henv: *mut ::core::ffi::c_void, fdirection: u16, szdriverdesc: &mut [u8], pcchdriverdesc: *mut i16, szdriverattributes: &mut [u8], pcchdrvrattr: *mut i16) -> i16 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -25431,7 +25371,6 @@ pub unsafe fn SQLDrivers(henv: *mut ::core::ffi::c_void, fdirection: u16, szdriv
     SQLDrivers(::core::mem::transmute(henv), fdirection, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(szdriverdesc)), szdriverdesc.len() as _, ::core::mem::transmute(pcchdriverdesc), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(szdriverattributes)), szdriverattributes.len() as _, ::core::mem::transmute(pcchdrvrattr))
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
-#[inline]
 pub unsafe fn SQLDriversA(henv: *mut ::core::ffi::c_void, fdirection: u16, szdriverdesc: &mut [u8], pcbdriverdesc: *mut i16, szdriverattributes: &mut [u8], pcbdrvrattr: *mut i16) -> i16 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -25440,7 +25379,6 @@ pub unsafe fn SQLDriversA(henv: *mut ::core::ffi::c_void, fdirection: u16, szdri
     SQLDriversA(::core::mem::transmute(henv), fdirection, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(szdriverdesc)), szdriverdesc.len() as _, ::core::mem::transmute(pcbdriverdesc), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(szdriverattributes)), szdriverattributes.len() as _, ::core::mem::transmute(pcbdrvrattr))
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
-#[inline]
 pub unsafe fn SQLDriversW(henv: *mut ::core::ffi::c_void, fdirection: u16, szdriverdesc: &mut [u16], pcchdriverdesc: *mut i16, szdriverattributes: &mut [u16], pcchdrvrattr: *mut i16) -> i16 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -25449,7 +25387,6 @@ pub unsafe fn SQLDriversW(henv: *mut ::core::ffi::c_void, fdirection: u16, szdri
     SQLDriversW(::core::mem::transmute(henv), fdirection, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(szdriverdesc)), szdriverdesc.len() as _, ::core::mem::transmute(pcchdriverdesc), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(szdriverattributes)), szdriverattributes.len() as _, ::core::mem::transmute(pcchdrvrattr))
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
-#[inline]
 pub unsafe fn SQLEndTran(handletype: i16, handle: *mut ::core::ffi::c_void, completiontype: i16) -> i16 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -25458,7 +25395,6 @@ pub unsafe fn SQLEndTran(handletype: i16, handle: *mut ::core::ffi::c_void, comp
     SQLEndTran(handletype, ::core::mem::transmute(handle), completiontype)
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
-#[inline]
 pub unsafe fn SQLError(environmenthandle: *mut ::core::ffi::c_void, connectionhandle: *mut ::core::ffi::c_void, statementhandle: *mut ::core::ffi::c_void, sqlstate: &mut [u8; 6], nativeerror: *mut i32, messagetext: &mut [u8], textlength: *mut i16) -> i16 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -25467,7 +25403,6 @@ pub unsafe fn SQLError(environmenthandle: *mut ::core::ffi::c_void, connectionha
     SQLError(::core::mem::transmute(environmenthandle), ::core::mem::transmute(connectionhandle), ::core::mem::transmute(statementhandle), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(sqlstate)), ::core::mem::transmute(nativeerror), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(messagetext)), messagetext.len() as _, ::core::mem::transmute(textlength))
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
-#[inline]
 pub unsafe fn SQLErrorA(henv: *mut ::core::ffi::c_void, hdbc: *mut ::core::ffi::c_void, hstmt: *mut ::core::ffi::c_void, szsqlstate: *mut u8, pfnativeerror: *mut i32, szerrormsg: &mut [u8], pcberrormsg: *mut i16) -> i16 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -25476,7 +25411,6 @@ pub unsafe fn SQLErrorA(henv: *mut ::core::ffi::c_void, hdbc: *mut ::core::ffi::
     SQLErrorA(::core::mem::transmute(henv), ::core::mem::transmute(hdbc), ::core::mem::transmute(hstmt), ::core::mem::transmute(szsqlstate), ::core::mem::transmute(pfnativeerror), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(szerrormsg)), szerrormsg.len() as _, ::core::mem::transmute(pcberrormsg))
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
-#[inline]
 pub unsafe fn SQLErrorW(henv: *mut ::core::ffi::c_void, hdbc: *mut ::core::ffi::c_void, hstmt: *mut ::core::ffi::c_void, wszsqlstate: &mut [u16; 6], pfnativeerror: *mut i32, wszerrormsg: &mut [u16], pccherrormsg: *mut i16) -> i16 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -25485,7 +25419,6 @@ pub unsafe fn SQLErrorW(henv: *mut ::core::ffi::c_void, hdbc: *mut ::core::ffi::
     SQLErrorW(::core::mem::transmute(henv), ::core::mem::transmute(hdbc), ::core::mem::transmute(hstmt), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(wszsqlstate)), ::core::mem::transmute(pfnativeerror), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(wszerrormsg)), wszerrormsg.len() as _, ::core::mem::transmute(pccherrormsg))
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
-#[inline]
 pub unsafe fn SQLExecDirect(statementhandle: *mut ::core::ffi::c_void, statementtext: &[u8]) -> i16 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -25494,7 +25427,6 @@ pub unsafe fn SQLExecDirect(statementhandle: *mut ::core::ffi::c_void, statement
     SQLExecDirect(::core::mem::transmute(statementhandle), ::core::mem::transmute(::windows::core::as_ptr_or_null(statementtext)), statementtext.len() as _)
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
-#[inline]
 pub unsafe fn SQLExecDirectA(hstmt: *mut ::core::ffi::c_void, szsqlstr: &[u8]) -> i16 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -25503,7 +25435,6 @@ pub unsafe fn SQLExecDirectA(hstmt: *mut ::core::ffi::c_void, szsqlstr: &[u8]) -
     SQLExecDirectA(::core::mem::transmute(hstmt), ::core::mem::transmute(::windows::core::as_ptr_or_null(szsqlstr)), szsqlstr.len() as _)
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
-#[inline]
 pub unsafe fn SQLExecDirectW(hstmt: *mut ::core::ffi::c_void, szsqlstr: &[u16]) -> i16 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -25512,7 +25443,6 @@ pub unsafe fn SQLExecDirectW(hstmt: *mut ::core::ffi::c_void, szsqlstr: &[u16]) 
     SQLExecDirectW(::core::mem::transmute(hstmt), ::core::mem::transmute(::windows::core::as_ptr_or_null(szsqlstr)), szsqlstr.len() as _)
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
-#[inline]
 pub unsafe fn SQLExecute(statementhandle: *mut ::core::ffi::c_void) -> i16 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -25522,7 +25452,6 @@ pub unsafe fn SQLExecute(statementhandle: *mut ::core::ffi::c_void) -> i16 {
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-#[inline]
 pub unsafe fn SQLExtendedFetch(hstmt: *mut ::core::ffi::c_void, ffetchtype: u16, irow: i64, pcrow: *mut u64, rgfrowstatus: *mut u16) -> i16 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -25532,7 +25461,6 @@ pub unsafe fn SQLExtendedFetch(hstmt: *mut ::core::ffi::c_void, ffetchtype: u16,
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[cfg(target_arch = "x86")]
-#[inline]
 pub unsafe fn SQLExtendedFetch(hstmt: *mut ::core::ffi::c_void, ffetchtype: u16, irow: i32, pcrow: *mut u32, rgfrowstatus: *mut u16) -> i16 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -25547,7 +25475,6 @@ pub const SQLFLT8: u32 = 62u32;
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 pub const SQLFLTN: u32 = 109u32;
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
-#[inline]
 pub unsafe fn SQLFetch(statementhandle: *mut ::core::ffi::c_void) -> i16 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -25557,7 +25484,6 @@ pub unsafe fn SQLFetch(statementhandle: *mut ::core::ffi::c_void) -> i16 {
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-#[inline]
 pub unsafe fn SQLFetchScroll(statementhandle: *mut ::core::ffi::c_void, fetchorientation: i16, fetchoffset: i64) -> i16 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -25567,7 +25493,6 @@ pub unsafe fn SQLFetchScroll(statementhandle: *mut ::core::ffi::c_void, fetchori
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[cfg(target_arch = "x86")]
-#[inline]
 pub unsafe fn SQLFetchScroll(statementhandle: *mut ::core::ffi::c_void, fetchorientation: i16, fetchoffset: i32) -> i16 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -25576,7 +25501,6 @@ pub unsafe fn SQLFetchScroll(statementhandle: *mut ::core::ffi::c_void, fetchori
     SQLFetchScroll(::core::mem::transmute(statementhandle), fetchorientation, fetchoffset)
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
-#[inline]
 pub unsafe fn SQLForeignKeys(hstmt: *mut ::core::ffi::c_void, szpkcatalogname: &[u8], szpkschemaname: &[u8], szpktablename: &[u8], szfkcatalogname: &[u8], szfkschemaname: &[u8], szfktablename: &[u8]) -> i16 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -25599,7 +25523,6 @@ pub unsafe fn SQLForeignKeys(hstmt: *mut ::core::ffi::c_void, szpkcatalogname: &
     )
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
-#[inline]
 pub unsafe fn SQLForeignKeysA(hstmt: *mut ::core::ffi::c_void, szpkcatalogname: &[u8], szpkschemaname: &[u8], szpktablename: &[u8], szfkcatalogname: &[u8], szfkschemaname: &[u8], szfktablename: &[u8]) -> i16 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -25622,7 +25545,6 @@ pub unsafe fn SQLForeignKeysA(hstmt: *mut ::core::ffi::c_void, szpkcatalogname: 
     )
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
-#[inline]
 pub unsafe fn SQLForeignKeysW(hstmt: *mut ::core::ffi::c_void, szpkcatalogname: &[u16], szpkschemaname: &[u16], szpktablename: &[u16], szfkcatalogname: &[u16], szfkschemaname: &[u16], szfktablename: &[u16]) -> i16 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -25645,7 +25567,6 @@ pub unsafe fn SQLForeignKeysW(hstmt: *mut ::core::ffi::c_void, szpkcatalogname: 
     )
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
-#[inline]
 pub unsafe fn SQLFreeConnect(connectionhandle: *mut ::core::ffi::c_void) -> i16 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -25654,7 +25575,6 @@ pub unsafe fn SQLFreeConnect(connectionhandle: *mut ::core::ffi::c_void) -> i16 
     SQLFreeConnect(::core::mem::transmute(connectionhandle))
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
-#[inline]
 pub unsafe fn SQLFreeEnv(environmenthandle: *mut ::core::ffi::c_void) -> i16 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -25663,7 +25583,6 @@ pub unsafe fn SQLFreeEnv(environmenthandle: *mut ::core::ffi::c_void) -> i16 {
     SQLFreeEnv(::core::mem::transmute(environmenthandle))
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
-#[inline]
 pub unsafe fn SQLFreeHandle(handletype: i16, handle: *mut ::core::ffi::c_void) -> i16 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -25672,7 +25591,6 @@ pub unsafe fn SQLFreeHandle(handletype: i16, handle: *mut ::core::ffi::c_void) -
     SQLFreeHandle(handletype, ::core::mem::transmute(handle))
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
-#[inline]
 pub unsafe fn SQLFreeStmt(statementhandle: *mut ::core::ffi::c_void, option: u16) -> i16 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -25681,7 +25599,6 @@ pub unsafe fn SQLFreeStmt(statementhandle: *mut ::core::ffi::c_void, option: u16
     SQLFreeStmt(::core::mem::transmute(statementhandle), option)
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
-#[inline]
 pub unsafe fn SQLGetConnectAttr(connectionhandle: *mut ::core::ffi::c_void, attribute: i32, value: *mut ::core::ffi::c_void, bufferlength: i32, stringlengthptr: *mut i32) -> i16 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -25690,7 +25607,6 @@ pub unsafe fn SQLGetConnectAttr(connectionhandle: *mut ::core::ffi::c_void, attr
     SQLGetConnectAttr(::core::mem::transmute(connectionhandle), attribute, ::core::mem::transmute(value), bufferlength, ::core::mem::transmute(stringlengthptr))
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
-#[inline]
 pub unsafe fn SQLGetConnectAttrA(hdbc: *mut ::core::ffi::c_void, fattribute: i32, rgbvalue: *mut ::core::ffi::c_void, cbvaluemax: i32, pcbvalue: *mut i32) -> i16 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -25699,7 +25615,6 @@ pub unsafe fn SQLGetConnectAttrA(hdbc: *mut ::core::ffi::c_void, fattribute: i32
     SQLGetConnectAttrA(::core::mem::transmute(hdbc), fattribute, ::core::mem::transmute(rgbvalue), cbvaluemax, ::core::mem::transmute(pcbvalue))
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
-#[inline]
 pub unsafe fn SQLGetConnectAttrW(hdbc: *mut ::core::ffi::c_void, fattribute: i32, rgbvalue: *mut ::core::ffi::c_void, cbvaluemax: i32, pcbvalue: *mut i32) -> i16 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -25708,7 +25623,6 @@ pub unsafe fn SQLGetConnectAttrW(hdbc: *mut ::core::ffi::c_void, fattribute: i32
     SQLGetConnectAttrW(::core::mem::transmute(hdbc), fattribute, ::core::mem::transmute(rgbvalue), cbvaluemax, ::core::mem::transmute(pcbvalue))
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
-#[inline]
 pub unsafe fn SQLGetConnectOption(connectionhandle: *mut ::core::ffi::c_void, option: u16, value: *mut ::core::ffi::c_void) -> i16 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -25717,7 +25631,6 @@ pub unsafe fn SQLGetConnectOption(connectionhandle: *mut ::core::ffi::c_void, op
     SQLGetConnectOption(::core::mem::transmute(connectionhandle), option, ::core::mem::transmute(value))
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
-#[inline]
 pub unsafe fn SQLGetConnectOptionA(hdbc: *mut ::core::ffi::c_void, foption: u16, pvparam: *mut ::core::ffi::c_void) -> i16 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -25726,7 +25639,6 @@ pub unsafe fn SQLGetConnectOptionA(hdbc: *mut ::core::ffi::c_void, foption: u16,
     SQLGetConnectOptionA(::core::mem::transmute(hdbc), foption, ::core::mem::transmute(pvparam))
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
-#[inline]
 pub unsafe fn SQLGetConnectOptionW(hdbc: *mut ::core::ffi::c_void, foption: u16, pvparam: *mut ::core::ffi::c_void) -> i16 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -25735,7 +25647,6 @@ pub unsafe fn SQLGetConnectOptionW(hdbc: *mut ::core::ffi::c_void, foption: u16,
     SQLGetConnectOptionW(::core::mem::transmute(hdbc), foption, ::core::mem::transmute(pvparam))
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
-#[inline]
 pub unsafe fn SQLGetCursorName(statementhandle: *mut ::core::ffi::c_void, cursorname: &mut [u8], namelengthptr: *mut i16) -> i16 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -25744,7 +25655,6 @@ pub unsafe fn SQLGetCursorName(statementhandle: *mut ::core::ffi::c_void, cursor
     SQLGetCursorName(::core::mem::transmute(statementhandle), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(cursorname)), cursorname.len() as _, ::core::mem::transmute(namelengthptr))
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
-#[inline]
 pub unsafe fn SQLGetCursorNameA(hstmt: *mut ::core::ffi::c_void, szcursor: &mut [u8], pcbcursor: *mut i16) -> i16 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -25753,7 +25663,6 @@ pub unsafe fn SQLGetCursorNameA(hstmt: *mut ::core::ffi::c_void, szcursor: &mut 
     SQLGetCursorNameA(::core::mem::transmute(hstmt), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(szcursor)), szcursor.len() as _, ::core::mem::transmute(pcbcursor))
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
-#[inline]
 pub unsafe fn SQLGetCursorNameW(hstmt: *mut ::core::ffi::c_void, szcursor: &mut [u16], pcchcursor: *mut i16) -> i16 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -25763,7 +25672,6 @@ pub unsafe fn SQLGetCursorNameW(hstmt: *mut ::core::ffi::c_void, szcursor: &mut 
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-#[inline]
 pub unsafe fn SQLGetData(statementhandle: *mut ::core::ffi::c_void, columnnumber: u16, targettype: i16, targetvalue: *mut ::core::ffi::c_void, bufferlength: i64, strlen_or_indptr: *mut i64) -> i16 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -25773,7 +25681,6 @@ pub unsafe fn SQLGetData(statementhandle: *mut ::core::ffi::c_void, columnnumber
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[cfg(target_arch = "x86")]
-#[inline]
 pub unsafe fn SQLGetData(statementhandle: *mut ::core::ffi::c_void, columnnumber: u16, targettype: i16, targetvalue: *mut ::core::ffi::c_void, bufferlength: i32, strlen_or_indptr: *mut i32) -> i16 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -25782,7 +25689,6 @@ pub unsafe fn SQLGetData(statementhandle: *mut ::core::ffi::c_void, columnnumber
     SQLGetData(::core::mem::transmute(statementhandle), columnnumber, targettype, ::core::mem::transmute(targetvalue), bufferlength, ::core::mem::transmute(strlen_or_indptr))
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
-#[inline]
 pub unsafe fn SQLGetDescField(descriptorhandle: *mut ::core::ffi::c_void, recnumber: i16, fieldidentifier: i16, value: *mut ::core::ffi::c_void, bufferlength: i32, stringlength: *mut i32) -> i16 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -25791,7 +25697,6 @@ pub unsafe fn SQLGetDescField(descriptorhandle: *mut ::core::ffi::c_void, recnum
     SQLGetDescField(::core::mem::transmute(descriptorhandle), recnumber, fieldidentifier, ::core::mem::transmute(value), bufferlength, ::core::mem::transmute(stringlength))
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
-#[inline]
 pub unsafe fn SQLGetDescFieldA(hdesc: *mut ::core::ffi::c_void, irecord: i16, ifield: i16, rgbvalue: *mut ::core::ffi::c_void, cbbufferlength: i32, stringlength: *mut i32) -> i16 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -25800,7 +25705,6 @@ pub unsafe fn SQLGetDescFieldA(hdesc: *mut ::core::ffi::c_void, irecord: i16, if
     SQLGetDescFieldA(::core::mem::transmute(hdesc), irecord, ifield, ::core::mem::transmute(rgbvalue), cbbufferlength, ::core::mem::transmute(stringlength))
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
-#[inline]
 pub unsafe fn SQLGetDescFieldW(hdesc: *mut ::core::ffi::c_void, irecord: i16, ifield: i16, rgbvalue: *mut ::core::ffi::c_void, cbbufferlength: i32, stringlength: *mut i32) -> i16 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -25810,7 +25714,6 @@ pub unsafe fn SQLGetDescFieldW(hdesc: *mut ::core::ffi::c_void, irecord: i16, if
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-#[inline]
 pub unsafe fn SQLGetDescRec(descriptorhandle: *mut ::core::ffi::c_void, recnumber: i16, name: &mut [u8], stringlengthptr: *mut i16, typeptr: *mut i16, subtypeptr: *mut i16, lengthptr: *mut i64, precisionptr: *mut i16, scaleptr: *mut i16, nullableptr: *mut i16) -> i16 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -25820,7 +25723,6 @@ pub unsafe fn SQLGetDescRec(descriptorhandle: *mut ::core::ffi::c_void, recnumbe
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[cfg(target_arch = "x86")]
-#[inline]
 pub unsafe fn SQLGetDescRec(descriptorhandle: *mut ::core::ffi::c_void, recnumber: i16, name: &mut [u8], stringlengthptr: *mut i16, typeptr: *mut i16, subtypeptr: *mut i16, lengthptr: *mut i32, precisionptr: *mut i16, scaleptr: *mut i16, nullableptr: *mut i16) -> i16 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -25830,7 +25732,6 @@ pub unsafe fn SQLGetDescRec(descriptorhandle: *mut ::core::ffi::c_void, recnumbe
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-#[inline]
 pub unsafe fn SQLGetDescRecA(hdesc: *mut ::core::ffi::c_void, irecord: i16, szname: &mut [u8], pcbname: *mut i16, pftype: *mut i16, pfsubtype: *mut i16, plength: *mut i64, pprecision: *mut i16, pscale: *mut i16, pnullable: *mut i16) -> i16 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -25840,7 +25741,6 @@ pub unsafe fn SQLGetDescRecA(hdesc: *mut ::core::ffi::c_void, irecord: i16, szna
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[cfg(target_arch = "x86")]
-#[inline]
 pub unsafe fn SQLGetDescRecA(hdesc: *mut ::core::ffi::c_void, irecord: i16, szname: &mut [u8], pcbname: *mut i16, pftype: *mut i16, pfsubtype: *mut i16, plength: *mut i32, pprecision: *mut i16, pscale: *mut i16, pnullable: *mut i16) -> i16 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -25850,7 +25750,6 @@ pub unsafe fn SQLGetDescRecA(hdesc: *mut ::core::ffi::c_void, irecord: i16, szna
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-#[inline]
 pub unsafe fn SQLGetDescRecW(hdesc: *mut ::core::ffi::c_void, irecord: i16, szname: &mut [u16], pcchname: *mut i16, pftype: *mut i16, pfsubtype: *mut i16, plength: *mut i64, pprecision: *mut i16, pscale: *mut i16, pnullable: *mut i16) -> i16 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -25860,7 +25759,6 @@ pub unsafe fn SQLGetDescRecW(hdesc: *mut ::core::ffi::c_void, irecord: i16, szna
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[cfg(target_arch = "x86")]
-#[inline]
 pub unsafe fn SQLGetDescRecW(hdesc: *mut ::core::ffi::c_void, irecord: i16, szname: &mut [u16], pcchname: *mut i16, pftype: *mut i16, pfsubtype: *mut i16, plength: *mut i32, pprecision: *mut i16, pscale: *mut i16, pnullable: *mut i16) -> i16 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -25869,7 +25767,6 @@ pub unsafe fn SQLGetDescRecW(hdesc: *mut ::core::ffi::c_void, irecord: i16, szna
     SQLGetDescRecW(::core::mem::transmute(hdesc), irecord, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(szname)), szname.len() as _, ::core::mem::transmute(pcchname), ::core::mem::transmute(pftype), ::core::mem::transmute(pfsubtype), ::core::mem::transmute(plength), ::core::mem::transmute(pprecision), ::core::mem::transmute(pscale), ::core::mem::transmute(pnullable))
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
-#[inline]
 pub unsafe fn SQLGetDiagField(handletype: i16, handle: *mut ::core::ffi::c_void, recnumber: i16, diagidentifier: i16, diaginfo: *mut ::core::ffi::c_void, bufferlength: i16, stringlength: *mut i16) -> i16 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -25878,7 +25775,6 @@ pub unsafe fn SQLGetDiagField(handletype: i16, handle: *mut ::core::ffi::c_void,
     SQLGetDiagField(handletype, ::core::mem::transmute(handle), recnumber, diagidentifier, ::core::mem::transmute(diaginfo), bufferlength, ::core::mem::transmute(stringlength))
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
-#[inline]
 pub unsafe fn SQLGetDiagFieldA(fhandletype: i16, handle: *mut ::core::ffi::c_void, irecord: i16, fdiagfield: i16, rgbdiaginfo: *mut ::core::ffi::c_void, cbdiaginfomax: i16, pcbdiaginfo: *mut i16) -> i16 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -25887,7 +25783,6 @@ pub unsafe fn SQLGetDiagFieldA(fhandletype: i16, handle: *mut ::core::ffi::c_voi
     SQLGetDiagFieldA(fhandletype, ::core::mem::transmute(handle), irecord, fdiagfield, ::core::mem::transmute(rgbdiaginfo), cbdiaginfomax, ::core::mem::transmute(pcbdiaginfo))
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
-#[inline]
 pub unsafe fn SQLGetDiagFieldW(fhandletype: i16, handle: *mut ::core::ffi::c_void, irecord: i16, fdiagfield: i16, rgbdiaginfo: *mut ::core::ffi::c_void, cbbufferlength: i16, pcbstringlength: *mut i16) -> i16 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -25896,7 +25791,6 @@ pub unsafe fn SQLGetDiagFieldW(fhandletype: i16, handle: *mut ::core::ffi::c_voi
     SQLGetDiagFieldW(fhandletype, ::core::mem::transmute(handle), irecord, fdiagfield, ::core::mem::transmute(rgbdiaginfo), cbbufferlength, ::core::mem::transmute(pcbstringlength))
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
-#[inline]
 pub unsafe fn SQLGetDiagRec(handletype: i16, handle: *mut ::core::ffi::c_void, recnumber: i16, sqlstate: &mut [u8; 6], nativeerror: *mut i32, messagetext: &mut [u8], textlength: *mut i16) -> i16 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -25905,7 +25799,6 @@ pub unsafe fn SQLGetDiagRec(handletype: i16, handle: *mut ::core::ffi::c_void, r
     SQLGetDiagRec(handletype, ::core::mem::transmute(handle), recnumber, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(sqlstate)), ::core::mem::transmute(nativeerror), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(messagetext)), messagetext.len() as _, ::core::mem::transmute(textlength))
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
-#[inline]
 pub unsafe fn SQLGetDiagRecA(fhandletype: i16, handle: *mut ::core::ffi::c_void, irecord: i16, szsqlstate: &mut [u8; 6], pfnativeerror: *mut i32, szerrormsg: &mut [u8], pcberrormsg: *mut i16) -> i16 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -25914,7 +25807,6 @@ pub unsafe fn SQLGetDiagRecA(fhandletype: i16, handle: *mut ::core::ffi::c_void,
     SQLGetDiagRecA(fhandletype, ::core::mem::transmute(handle), irecord, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(szsqlstate)), ::core::mem::transmute(pfnativeerror), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(szerrormsg)), szerrormsg.len() as _, ::core::mem::transmute(pcberrormsg))
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
-#[inline]
 pub unsafe fn SQLGetDiagRecW(fhandletype: i16, handle: *mut ::core::ffi::c_void, irecord: i16, szsqlstate: &mut [u16; 6], pfnativeerror: *mut i32, szerrormsg: &mut [u16], pccherrormsg: *mut i16) -> i16 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -25923,7 +25815,6 @@ pub unsafe fn SQLGetDiagRecW(fhandletype: i16, handle: *mut ::core::ffi::c_void,
     SQLGetDiagRecW(fhandletype, ::core::mem::transmute(handle), irecord, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(szsqlstate)), ::core::mem::transmute(pfnativeerror), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(szerrormsg)), szerrormsg.len() as _, ::core::mem::transmute(pccherrormsg))
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
-#[inline]
 pub unsafe fn SQLGetEnvAttr(environmenthandle: *mut ::core::ffi::c_void, attribute: i32, value: *mut ::core::ffi::c_void, bufferlength: i32, stringlength: *mut i32) -> i16 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -25932,7 +25823,6 @@ pub unsafe fn SQLGetEnvAttr(environmenthandle: *mut ::core::ffi::c_void, attribu
     SQLGetEnvAttr(::core::mem::transmute(environmenthandle), attribute, ::core::mem::transmute(value), bufferlength, ::core::mem::transmute(stringlength))
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
-#[inline]
 pub unsafe fn SQLGetFunctions(connectionhandle: *mut ::core::ffi::c_void, functionid: u16, supported: *mut u16) -> i16 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -25941,7 +25831,6 @@ pub unsafe fn SQLGetFunctions(connectionhandle: *mut ::core::ffi::c_void, functi
     SQLGetFunctions(::core::mem::transmute(connectionhandle), functionid, ::core::mem::transmute(supported))
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
-#[inline]
 pub unsafe fn SQLGetInfo(connectionhandle: *mut ::core::ffi::c_void, infotype: u16, infovalue: *mut ::core::ffi::c_void, bufferlength: i16, stringlengthptr: *mut i16) -> i16 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -25950,7 +25839,6 @@ pub unsafe fn SQLGetInfo(connectionhandle: *mut ::core::ffi::c_void, infotype: u
     SQLGetInfo(::core::mem::transmute(connectionhandle), infotype, ::core::mem::transmute(infovalue), bufferlength, ::core::mem::transmute(stringlengthptr))
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
-#[inline]
 pub unsafe fn SQLGetInfoA(hdbc: *mut ::core::ffi::c_void, finfotype: u16, rgbinfovalue: *mut ::core::ffi::c_void, cbinfovaluemax: i16, pcbinfovalue: *mut i16) -> i16 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -25959,7 +25847,6 @@ pub unsafe fn SQLGetInfoA(hdbc: *mut ::core::ffi::c_void, finfotype: u16, rgbinf
     SQLGetInfoA(::core::mem::transmute(hdbc), finfotype, ::core::mem::transmute(rgbinfovalue), cbinfovaluemax, ::core::mem::transmute(pcbinfovalue))
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
-#[inline]
 pub unsafe fn SQLGetInfoW(hdbc: *mut ::core::ffi::c_void, finfotype: u16, rgbinfovalue: *mut ::core::ffi::c_void, cbinfovaluemax: i16, pcbinfovalue: *mut i16) -> i16 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -25969,7 +25856,6 @@ pub unsafe fn SQLGetInfoW(hdbc: *mut ::core::ffi::c_void, finfotype: u16, rgbinf
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn SQLGetNextEnumeration<'a, P0>(henumhandle: P0, prgenumdata: *mut u8, pienumlength: *mut i32) -> i16
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
@@ -25981,7 +25867,6 @@ where
     SQLGetNextEnumeration(henumhandle.into(), ::core::mem::transmute(prgenumdata), ::core::mem::transmute(pienumlength))
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
-#[inline]
 pub unsafe fn SQLGetStmtAttr(statementhandle: *mut ::core::ffi::c_void, attribute: i32, value: *mut ::core::ffi::c_void, bufferlength: i32, stringlength: *mut i32) -> i16 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -25990,7 +25875,6 @@ pub unsafe fn SQLGetStmtAttr(statementhandle: *mut ::core::ffi::c_void, attribut
     SQLGetStmtAttr(::core::mem::transmute(statementhandle), attribute, ::core::mem::transmute(value), bufferlength, ::core::mem::transmute(stringlength))
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
-#[inline]
 pub unsafe fn SQLGetStmtAttrA(hstmt: *mut ::core::ffi::c_void, fattribute: i32, rgbvalue: *mut ::core::ffi::c_void, cbvaluemax: i32, pcbvalue: *mut i32) -> i16 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -25999,7 +25883,6 @@ pub unsafe fn SQLGetStmtAttrA(hstmt: *mut ::core::ffi::c_void, fattribute: i32, 
     SQLGetStmtAttrA(::core::mem::transmute(hstmt), fattribute, ::core::mem::transmute(rgbvalue), cbvaluemax, ::core::mem::transmute(pcbvalue))
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
-#[inline]
 pub unsafe fn SQLGetStmtAttrW(hstmt: *mut ::core::ffi::c_void, fattribute: i32, rgbvalue: *mut ::core::ffi::c_void, cbvaluemax: i32, pcbvalue: *mut i32) -> i16 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -26008,7 +25891,6 @@ pub unsafe fn SQLGetStmtAttrW(hstmt: *mut ::core::ffi::c_void, fattribute: i32, 
     SQLGetStmtAttrW(::core::mem::transmute(hstmt), fattribute, ::core::mem::transmute(rgbvalue), cbvaluemax, ::core::mem::transmute(pcbvalue))
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
-#[inline]
 pub unsafe fn SQLGetStmtOption(statementhandle: *mut ::core::ffi::c_void, option: u16, value: *mut ::core::ffi::c_void) -> i16 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -26017,7 +25899,6 @@ pub unsafe fn SQLGetStmtOption(statementhandle: *mut ::core::ffi::c_void, option
     SQLGetStmtOption(::core::mem::transmute(statementhandle), option, ::core::mem::transmute(value))
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
-#[inline]
 pub unsafe fn SQLGetTypeInfo(statementhandle: *mut ::core::ffi::c_void, datatype: i16) -> i16 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -26026,7 +25907,6 @@ pub unsafe fn SQLGetTypeInfo(statementhandle: *mut ::core::ffi::c_void, datatype
     SQLGetTypeInfo(::core::mem::transmute(statementhandle), datatype)
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
-#[inline]
 pub unsafe fn SQLGetTypeInfoA(statementhandle: *mut ::core::ffi::c_void, datatype: i16) -> i16 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -26035,7 +25915,6 @@ pub unsafe fn SQLGetTypeInfoA(statementhandle: *mut ::core::ffi::c_void, datatyp
     SQLGetTypeInfoA(::core::mem::transmute(statementhandle), datatype)
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
-#[inline]
 pub unsafe fn SQLGetTypeInfoW(statementhandle: *mut ::core::ffi::c_void, datatype: i16) -> i16 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -26106,7 +25985,6 @@ impl ::core::fmt::Debug for SQLINTERVAL {
 pub const SQLINTN: u32 = 38u32;
 #[doc = "*Required features: `\"Win32_System_Search\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn SQLInitEnumServers<'a, P0, P1>(pwchservername: P0, pwchinstancename: P1) -> super::super::Foundation::HANDLE
 where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
@@ -26119,7 +25997,6 @@ where
     SQLInitEnumServers(pwchservername.into(), pwchinstancename.into())
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
-#[inline]
 pub unsafe fn SQLLinkedCatalogsA<'a, P0>(param0: *mut ::core::ffi::c_void, param1: P0, param2: i16) -> i16
 where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
@@ -26131,7 +26008,6 @@ where
     SQLLinkedCatalogsA(::core::mem::transmute(param0), param1.into(), param2)
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
-#[inline]
 pub unsafe fn SQLLinkedCatalogsW<'a, P0>(param0: *mut ::core::ffi::c_void, param1: P0, param2: i16) -> i16
 where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
@@ -26143,7 +26019,6 @@ where
     SQLLinkedCatalogsW(::core::mem::transmute(param0), param1.into(), param2)
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
-#[inline]
 pub unsafe fn SQLLinkedServers(param0: *mut ::core::ffi::c_void) -> i16 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -26158,7 +26033,6 @@ pub const SQLMONEY4: u32 = 122u32;
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 pub const SQLMONEYN: u32 = 110u32;
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
-#[inline]
 pub unsafe fn SQLMoreResults(hstmt: *mut ::core::ffi::c_void) -> i16 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -26177,7 +26051,6 @@ pub const SQLNUMERICN: u32 = 108u32;
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 pub const SQLNVARCHAR: u32 = 231u32;
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
-#[inline]
 pub unsafe fn SQLNativeSql(hdbc: *mut ::core::ffi::c_void, szsqlstrin: &[u8], szsqlstr: &mut [u8], pcbsqlstr: *mut i32) -> i16 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -26186,7 +26059,6 @@ pub unsafe fn SQLNativeSql(hdbc: *mut ::core::ffi::c_void, szsqlstrin: &[u8], sz
     SQLNativeSql(::core::mem::transmute(hdbc), ::core::mem::transmute(::windows::core::as_ptr_or_null(szsqlstrin)), szsqlstrin.len() as _, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(szsqlstr)), szsqlstr.len() as _, ::core::mem::transmute(pcbsqlstr))
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
-#[inline]
 pub unsafe fn SQLNativeSqlA(hdbc: *mut ::core::ffi::c_void, szsqlstrin: &[u8], szsqlstr: &mut [u8], pcbsqlstr: *mut i32) -> i16 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -26195,7 +26067,6 @@ pub unsafe fn SQLNativeSqlA(hdbc: *mut ::core::ffi::c_void, szsqlstrin: &[u8], s
     SQLNativeSqlA(::core::mem::transmute(hdbc), ::core::mem::transmute(::windows::core::as_ptr_or_null(szsqlstrin)), szsqlstrin.len() as _, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(szsqlstr)), szsqlstr.len() as _, ::core::mem::transmute(pcbsqlstr))
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
-#[inline]
 pub unsafe fn SQLNativeSqlW(hdbc: *mut ::core::ffi::c_void, szsqlstrin: &[u16], szsqlstr: &mut [u16], pcchsqlstr: *mut i32) -> i16 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -26204,7 +26075,6 @@ pub unsafe fn SQLNativeSqlW(hdbc: *mut ::core::ffi::c_void, szsqlstrin: &[u16], 
     SQLNativeSqlW(::core::mem::transmute(hdbc), ::core::mem::transmute(::windows::core::as_ptr_or_null(szsqlstrin)), szsqlstrin.len() as _, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(szsqlstr)), szsqlstr.len() as _, ::core::mem::transmute(pcchsqlstr))
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
-#[inline]
 pub unsafe fn SQLNumParams(hstmt: *mut ::core::ffi::c_void, pcpar: *mut i16) -> i16 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -26213,7 +26083,6 @@ pub unsafe fn SQLNumParams(hstmt: *mut ::core::ffi::c_void, pcpar: *mut i16) -> 
     SQLNumParams(::core::mem::transmute(hstmt), ::core::mem::transmute(pcpar))
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
-#[inline]
 pub unsafe fn SQLNumResultCols(statementhandle: *mut ::core::ffi::c_void, columncount: *mut i16) -> i16 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -26222,7 +26091,6 @@ pub unsafe fn SQLNumResultCols(statementhandle: *mut ::core::ffi::c_void, column
     SQLNumResultCols(::core::mem::transmute(statementhandle), ::core::mem::transmute(columncount))
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
-#[inline]
 pub unsafe fn SQLParamData(statementhandle: *mut ::core::ffi::c_void, value: *mut *mut ::core::ffi::c_void) -> i16 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -26232,7 +26100,6 @@ pub unsafe fn SQLParamData(statementhandle: *mut ::core::ffi::c_void, value: *mu
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-#[inline]
 pub unsafe fn SQLParamOptions(hstmt: *mut ::core::ffi::c_void, crow: u64, pirow: *mut u64) -> i16 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -26242,7 +26109,6 @@ pub unsafe fn SQLParamOptions(hstmt: *mut ::core::ffi::c_void, crow: u64, pirow:
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[cfg(target_arch = "x86")]
-#[inline]
 pub unsafe fn SQLParamOptions(hstmt: *mut ::core::ffi::c_void, crow: u32, pirow: *mut u32) -> i16 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -26251,7 +26117,6 @@ pub unsafe fn SQLParamOptions(hstmt: *mut ::core::ffi::c_void, crow: u32, pirow:
     SQLParamOptions(::core::mem::transmute(hstmt), crow, ::core::mem::transmute(pirow))
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
-#[inline]
 pub unsafe fn SQLPrepare(statementhandle: *mut ::core::ffi::c_void, statementtext: &[u8]) -> i16 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -26260,7 +26125,6 @@ pub unsafe fn SQLPrepare(statementhandle: *mut ::core::ffi::c_void, statementtex
     SQLPrepare(::core::mem::transmute(statementhandle), ::core::mem::transmute(::windows::core::as_ptr_or_null(statementtext)), statementtext.len() as _)
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
-#[inline]
 pub unsafe fn SQLPrepareA(hstmt: *mut ::core::ffi::c_void, szsqlstr: &[u8]) -> i16 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -26269,7 +26133,6 @@ pub unsafe fn SQLPrepareA(hstmt: *mut ::core::ffi::c_void, szsqlstr: &[u8]) -> i
     SQLPrepareA(::core::mem::transmute(hstmt), ::core::mem::transmute(::windows::core::as_ptr_or_null(szsqlstr)), szsqlstr.len() as _)
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
-#[inline]
 pub unsafe fn SQLPrepareW(hstmt: *mut ::core::ffi::c_void, szsqlstr: &[u16]) -> i16 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -26278,7 +26141,6 @@ pub unsafe fn SQLPrepareW(hstmt: *mut ::core::ffi::c_void, szsqlstr: &[u16]) -> 
     SQLPrepareW(::core::mem::transmute(hstmt), ::core::mem::transmute(::windows::core::as_ptr_or_null(szsqlstr)), szsqlstr.len() as _)
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
-#[inline]
 pub unsafe fn SQLPrimaryKeys(hstmt: *mut ::core::ffi::c_void, szcatalogname: &[u8], szschemaname: &[u8], sztablename: &[u8]) -> i16 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -26287,7 +26149,6 @@ pub unsafe fn SQLPrimaryKeys(hstmt: *mut ::core::ffi::c_void, szcatalogname: &[u
     SQLPrimaryKeys(::core::mem::transmute(hstmt), ::core::mem::transmute(::windows::core::as_ptr_or_null(szcatalogname)), szcatalogname.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(szschemaname)), szschemaname.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(sztablename)), sztablename.len() as _)
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
-#[inline]
 pub unsafe fn SQLPrimaryKeysA(hstmt: *mut ::core::ffi::c_void, szcatalogname: &[u8], szschemaname: &[u8], sztablename: &[u8]) -> i16 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -26296,7 +26157,6 @@ pub unsafe fn SQLPrimaryKeysA(hstmt: *mut ::core::ffi::c_void, szcatalogname: &[
     SQLPrimaryKeysA(::core::mem::transmute(hstmt), ::core::mem::transmute(::windows::core::as_ptr_or_null(szcatalogname)), szcatalogname.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(szschemaname)), szschemaname.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(sztablename)), sztablename.len() as _)
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
-#[inline]
 pub unsafe fn SQLPrimaryKeysW(hstmt: *mut ::core::ffi::c_void, szcatalogname: &[u16], szschemaname: &[u16], sztablename: &[u16]) -> i16 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -26305,7 +26165,6 @@ pub unsafe fn SQLPrimaryKeysW(hstmt: *mut ::core::ffi::c_void, szcatalogname: &[
     SQLPrimaryKeysW(::core::mem::transmute(hstmt), ::core::mem::transmute(::windows::core::as_ptr_or_null(szcatalogname)), szcatalogname.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(szschemaname)), szschemaname.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(sztablename)), sztablename.len() as _)
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
-#[inline]
 pub unsafe fn SQLProcedureColumns(hstmt: *mut ::core::ffi::c_void, szcatalogname: &[u8], szschemaname: &[u8], szprocname: &[u8], szcolumnname: &[u8]) -> i16 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -26314,7 +26173,6 @@ pub unsafe fn SQLProcedureColumns(hstmt: *mut ::core::ffi::c_void, szcatalogname
     SQLProcedureColumns(::core::mem::transmute(hstmt), ::core::mem::transmute(::windows::core::as_ptr_or_null(szcatalogname)), szcatalogname.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(szschemaname)), szschemaname.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(szprocname)), szprocname.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(szcolumnname)), szcolumnname.len() as _)
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
-#[inline]
 pub unsafe fn SQLProcedureColumnsA(hstmt: *mut ::core::ffi::c_void, szcatalogname: &[u8], szschemaname: &[u8], szprocname: &[u8], szcolumnname: &[u8]) -> i16 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -26323,7 +26181,6 @@ pub unsafe fn SQLProcedureColumnsA(hstmt: *mut ::core::ffi::c_void, szcatalognam
     SQLProcedureColumnsA(::core::mem::transmute(hstmt), ::core::mem::transmute(::windows::core::as_ptr_or_null(szcatalogname)), szcatalogname.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(szschemaname)), szschemaname.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(szprocname)), szprocname.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(szcolumnname)), szcolumnname.len() as _)
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
-#[inline]
 pub unsafe fn SQLProcedureColumnsW(hstmt: *mut ::core::ffi::c_void, szcatalogname: &[u16], szschemaname: &[u16], szprocname: &[u16], szcolumnname: &[u16]) -> i16 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -26332,7 +26189,6 @@ pub unsafe fn SQLProcedureColumnsW(hstmt: *mut ::core::ffi::c_void, szcatalognam
     SQLProcedureColumnsW(::core::mem::transmute(hstmt), ::core::mem::transmute(::windows::core::as_ptr_or_null(szcatalogname)), szcatalogname.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(szschemaname)), szschemaname.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(szprocname)), szprocname.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(szcolumnname)), szcolumnname.len() as _)
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
-#[inline]
 pub unsafe fn SQLProcedures(hstmt: *mut ::core::ffi::c_void, szcatalogname: &[u8], szschemaname: &[u8], szprocname: &[u8]) -> i16 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -26341,7 +26197,6 @@ pub unsafe fn SQLProcedures(hstmt: *mut ::core::ffi::c_void, szcatalogname: &[u8
     SQLProcedures(::core::mem::transmute(hstmt), ::core::mem::transmute(::windows::core::as_ptr_or_null(szcatalogname)), szcatalogname.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(szschemaname)), szschemaname.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(szprocname)), szprocname.len() as _)
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
-#[inline]
 pub unsafe fn SQLProceduresA(hstmt: *mut ::core::ffi::c_void, szcatalogname: &[u8], szschemaname: &[u8], szprocname: &[u8]) -> i16 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -26350,7 +26205,6 @@ pub unsafe fn SQLProceduresA(hstmt: *mut ::core::ffi::c_void, szcatalogname: &[u
     SQLProceduresA(::core::mem::transmute(hstmt), ::core::mem::transmute(::windows::core::as_ptr_or_null(szcatalogname)), szcatalogname.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(szschemaname)), szschemaname.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(szprocname)), szprocname.len() as _)
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
-#[inline]
 pub unsafe fn SQLProceduresW(hstmt: *mut ::core::ffi::c_void, szcatalogname: &[u16], szschemaname: &[u16], szprocname: &[u16]) -> i16 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -26360,7 +26214,6 @@ pub unsafe fn SQLProceduresW(hstmt: *mut ::core::ffi::c_void, szcatalogname: &[u
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-#[inline]
 pub unsafe fn SQLPutData(statementhandle: *mut ::core::ffi::c_void, data: *const ::core::ffi::c_void, strlen_or_ind: i64) -> i16 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -26370,7 +26223,6 @@ pub unsafe fn SQLPutData(statementhandle: *mut ::core::ffi::c_void, data: *const
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[cfg(target_arch = "x86")]
-#[inline]
 pub unsafe fn SQLPutData(statementhandle: *mut ::core::ffi::c_void, data: *const ::core::ffi::c_void, strlen_or_ind: i32) -> i16 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -26380,7 +26232,6 @@ pub unsafe fn SQLPutData(statementhandle: *mut ::core::ffi::c_void, data: *const
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-#[inline]
 pub unsafe fn SQLRowCount(statementhandle: *const ::core::ffi::c_void, rowcount: *mut i64) -> i16 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -26390,7 +26241,6 @@ pub unsafe fn SQLRowCount(statementhandle: *const ::core::ffi::c_void, rowcount:
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[cfg(target_arch = "x86")]
-#[inline]
 pub unsafe fn SQLRowCount(statementhandle: *const ::core::ffi::c_void, rowcount: *mut i32) -> i16 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -26399,7 +26249,6 @@ pub unsafe fn SQLRowCount(statementhandle: *const ::core::ffi::c_void, rowcount:
     SQLRowCount(::core::mem::transmute(statementhandle), ::core::mem::transmute(rowcount))
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
-#[inline]
 pub unsafe fn SQLSetConnectAttr(connectionhandle: *mut ::core::ffi::c_void, attribute: i32, value: *const ::core::ffi::c_void, stringlength: i32) -> i16 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -26408,7 +26257,6 @@ pub unsafe fn SQLSetConnectAttr(connectionhandle: *mut ::core::ffi::c_void, attr
     SQLSetConnectAttr(::core::mem::transmute(connectionhandle), attribute, ::core::mem::transmute(value), stringlength)
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
-#[inline]
 pub unsafe fn SQLSetConnectAttrA(hdbc: *mut ::core::ffi::c_void, fattribute: i32, rgbvalue: *const ::core::ffi::c_void, cbvalue: i32) -> i16 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -26417,7 +26265,6 @@ pub unsafe fn SQLSetConnectAttrA(hdbc: *mut ::core::ffi::c_void, fattribute: i32
     SQLSetConnectAttrA(::core::mem::transmute(hdbc), fattribute, ::core::mem::transmute(rgbvalue), cbvalue)
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
-#[inline]
 pub unsafe fn SQLSetConnectAttrW(hdbc: *mut ::core::ffi::c_void, fattribute: i32, rgbvalue: *const ::core::ffi::c_void, cbvalue: i32) -> i16 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -26427,7 +26274,6 @@ pub unsafe fn SQLSetConnectAttrW(hdbc: *mut ::core::ffi::c_void, fattribute: i32
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-#[inline]
 pub unsafe fn SQLSetConnectOption(connectionhandle: *mut ::core::ffi::c_void, option: u16, value: u64) -> i16 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -26437,7 +26283,6 @@ pub unsafe fn SQLSetConnectOption(connectionhandle: *mut ::core::ffi::c_void, op
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[cfg(target_arch = "x86")]
-#[inline]
 pub unsafe fn SQLSetConnectOption(connectionhandle: *mut ::core::ffi::c_void, option: u16, value: u32) -> i16 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -26447,7 +26292,6 @@ pub unsafe fn SQLSetConnectOption(connectionhandle: *mut ::core::ffi::c_void, op
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-#[inline]
 pub unsafe fn SQLSetConnectOptionA(hdbc: *mut ::core::ffi::c_void, foption: u16, vparam: u64) -> i16 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -26457,7 +26301,6 @@ pub unsafe fn SQLSetConnectOptionA(hdbc: *mut ::core::ffi::c_void, foption: u16,
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[cfg(target_arch = "x86")]
-#[inline]
 pub unsafe fn SQLSetConnectOptionA(hdbc: *mut ::core::ffi::c_void, foption: u16, vparam: u32) -> i16 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -26467,7 +26310,6 @@ pub unsafe fn SQLSetConnectOptionA(hdbc: *mut ::core::ffi::c_void, foption: u16,
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-#[inline]
 pub unsafe fn SQLSetConnectOptionW(hdbc: *mut ::core::ffi::c_void, foption: u16, vparam: u64) -> i16 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -26477,7 +26319,6 @@ pub unsafe fn SQLSetConnectOptionW(hdbc: *mut ::core::ffi::c_void, foption: u16,
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[cfg(target_arch = "x86")]
-#[inline]
 pub unsafe fn SQLSetConnectOptionW(hdbc: *mut ::core::ffi::c_void, foption: u16, vparam: u32) -> i16 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -26486,7 +26327,6 @@ pub unsafe fn SQLSetConnectOptionW(hdbc: *mut ::core::ffi::c_void, foption: u16,
     SQLSetConnectOptionW(::core::mem::transmute(hdbc), foption, vparam)
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
-#[inline]
 pub unsafe fn SQLSetCursorName(statementhandle: *mut ::core::ffi::c_void, cursorname: &[u8]) -> i16 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -26495,7 +26335,6 @@ pub unsafe fn SQLSetCursorName(statementhandle: *mut ::core::ffi::c_void, cursor
     SQLSetCursorName(::core::mem::transmute(statementhandle), ::core::mem::transmute(::windows::core::as_ptr_or_null(cursorname)), cursorname.len() as _)
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
-#[inline]
 pub unsafe fn SQLSetCursorNameA(hstmt: *mut ::core::ffi::c_void, szcursor: &[u8]) -> i16 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -26504,7 +26343,6 @@ pub unsafe fn SQLSetCursorNameA(hstmt: *mut ::core::ffi::c_void, szcursor: &[u8]
     SQLSetCursorNameA(::core::mem::transmute(hstmt), ::core::mem::transmute(::windows::core::as_ptr_or_null(szcursor)), szcursor.len() as _)
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
-#[inline]
 pub unsafe fn SQLSetCursorNameW(hstmt: *mut ::core::ffi::c_void, szcursor: &[u16]) -> i16 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -26513,7 +26351,6 @@ pub unsafe fn SQLSetCursorNameW(hstmt: *mut ::core::ffi::c_void, szcursor: &[u16
     SQLSetCursorNameW(::core::mem::transmute(hstmt), ::core::mem::transmute(::windows::core::as_ptr_or_null(szcursor)), szcursor.len() as _)
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
-#[inline]
 pub unsafe fn SQLSetDescField(descriptorhandle: *mut ::core::ffi::c_void, recnumber: i16, fieldidentifier: i16, value: *const ::core::ffi::c_void, bufferlength: i32) -> i16 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -26522,7 +26359,6 @@ pub unsafe fn SQLSetDescField(descriptorhandle: *mut ::core::ffi::c_void, recnum
     SQLSetDescField(::core::mem::transmute(descriptorhandle), recnumber, fieldidentifier, ::core::mem::transmute(value), bufferlength)
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
-#[inline]
 pub unsafe fn SQLSetDescFieldW(descriptorhandle: *mut ::core::ffi::c_void, recnumber: i16, fieldidentifier: i16, value: *mut ::core::ffi::c_void, bufferlength: i32) -> i16 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -26532,7 +26368,6 @@ pub unsafe fn SQLSetDescFieldW(descriptorhandle: *mut ::core::ffi::c_void, recnu
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-#[inline]
 pub unsafe fn SQLSetDescRec(descriptorhandle: *mut ::core::ffi::c_void, recnumber: i16, r#type: i16, subtype: i16, length: i64, precision: i16, scale: i16, data: *mut ::core::ffi::c_void, stringlength: *mut i64, indicator: *mut i64) -> i16 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -26542,7 +26377,6 @@ pub unsafe fn SQLSetDescRec(descriptorhandle: *mut ::core::ffi::c_void, recnumbe
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[cfg(target_arch = "x86")]
-#[inline]
 pub unsafe fn SQLSetDescRec(descriptorhandle: *mut ::core::ffi::c_void, recnumber: i16, r#type: i16, subtype: i16, length: i32, precision: i16, scale: i16, data: *mut ::core::ffi::c_void, stringlength: *mut i32, indicator: *mut i32) -> i16 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -26551,7 +26385,6 @@ pub unsafe fn SQLSetDescRec(descriptorhandle: *mut ::core::ffi::c_void, recnumbe
     SQLSetDescRec(::core::mem::transmute(descriptorhandle), recnumber, r#type, subtype, length, precision, scale, ::core::mem::transmute(data), ::core::mem::transmute(stringlength), ::core::mem::transmute(indicator))
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
-#[inline]
 pub unsafe fn SQLSetEnvAttr(environmenthandle: *mut ::core::ffi::c_void, attribute: i32, value: *const ::core::ffi::c_void, stringlength: i32) -> i16 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -26561,7 +26394,6 @@ pub unsafe fn SQLSetEnvAttr(environmenthandle: *mut ::core::ffi::c_void, attribu
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-#[inline]
 pub unsafe fn SQLSetParam(statementhandle: *mut ::core::ffi::c_void, parameternumber: u16, valuetype: i16, parametertype: i16, lengthprecision: u64, parameterscale: i16, parametervalue: *const ::core::ffi::c_void, strlen_or_ind: *mut i64) -> i16 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -26571,7 +26403,6 @@ pub unsafe fn SQLSetParam(statementhandle: *mut ::core::ffi::c_void, parameternu
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[cfg(target_arch = "x86")]
-#[inline]
 pub unsafe fn SQLSetParam(statementhandle: *mut ::core::ffi::c_void, parameternumber: u16, valuetype: i16, parametertype: i16, lengthprecision: u32, parameterscale: i16, parametervalue: *const ::core::ffi::c_void, strlen_or_ind: *mut i32) -> i16 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -26581,7 +26412,6 @@ pub unsafe fn SQLSetParam(statementhandle: *mut ::core::ffi::c_void, parameternu
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-#[inline]
 pub unsafe fn SQLSetPos(hstmt: *mut ::core::ffi::c_void, irow: u64, foption: u16, flock: u16) -> i16 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -26591,7 +26421,6 @@ pub unsafe fn SQLSetPos(hstmt: *mut ::core::ffi::c_void, irow: u64, foption: u16
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[cfg(target_arch = "x86")]
-#[inline]
 pub unsafe fn SQLSetPos(hstmt: *mut ::core::ffi::c_void, irow: u16, foption: u16, flock: u16) -> i16 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -26601,7 +26430,6 @@ pub unsafe fn SQLSetPos(hstmt: *mut ::core::ffi::c_void, irow: u16, foption: u16
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-#[inline]
 pub unsafe fn SQLSetScrollOptions(hstmt: *mut ::core::ffi::c_void, fconcurrency: u16, crowkeyset: i64, crowrowset: u16) -> i16 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -26611,7 +26439,6 @@ pub unsafe fn SQLSetScrollOptions(hstmt: *mut ::core::ffi::c_void, fconcurrency:
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[cfg(target_arch = "x86")]
-#[inline]
 pub unsafe fn SQLSetScrollOptions(hstmt: *mut ::core::ffi::c_void, fconcurrency: u16, crowkeyset: i32, crowrowset: u16) -> i16 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -26620,7 +26447,6 @@ pub unsafe fn SQLSetScrollOptions(hstmt: *mut ::core::ffi::c_void, fconcurrency:
     SQLSetScrollOptions(::core::mem::transmute(hstmt), fconcurrency, crowkeyset, crowrowset)
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
-#[inline]
 pub unsafe fn SQLSetStmtAttr(statementhandle: *mut ::core::ffi::c_void, attribute: i32, value: *const ::core::ffi::c_void, stringlength: i32) -> i16 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -26629,7 +26455,6 @@ pub unsafe fn SQLSetStmtAttr(statementhandle: *mut ::core::ffi::c_void, attribut
     SQLSetStmtAttr(::core::mem::transmute(statementhandle), attribute, ::core::mem::transmute(value), stringlength)
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
-#[inline]
 pub unsafe fn SQLSetStmtAttrW(hstmt: *mut ::core::ffi::c_void, fattribute: i32, rgbvalue: *mut ::core::ffi::c_void, cbvaluemax: i32) -> i16 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -26639,7 +26464,6 @@ pub unsafe fn SQLSetStmtAttrW(hstmt: *mut ::core::ffi::c_void, fattribute: i32, 
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-#[inline]
 pub unsafe fn SQLSetStmtOption(statementhandle: *mut ::core::ffi::c_void, option: u16, value: u64) -> i16 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -26649,7 +26473,6 @@ pub unsafe fn SQLSetStmtOption(statementhandle: *mut ::core::ffi::c_void, option
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[cfg(target_arch = "x86")]
-#[inline]
 pub unsafe fn SQLSetStmtOption(statementhandle: *mut ::core::ffi::c_void, option: u16, value: u32) -> i16 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -26658,7 +26481,6 @@ pub unsafe fn SQLSetStmtOption(statementhandle: *mut ::core::ffi::c_void, option
     SQLSetStmtOption(::core::mem::transmute(statementhandle), option, value)
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
-#[inline]
 pub unsafe fn SQLSpecialColumns(statementhandle: *mut ::core::ffi::c_void, identifiertype: u16, catalogname: &[u8], schemaname: &[u8], tablename: &[u8], scope: u16, nullable: u16) -> i16 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -26667,7 +26489,6 @@ pub unsafe fn SQLSpecialColumns(statementhandle: *mut ::core::ffi::c_void, ident
     SQLSpecialColumns(::core::mem::transmute(statementhandle), identifiertype, ::core::mem::transmute(::windows::core::as_ptr_or_null(catalogname)), catalogname.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(schemaname)), schemaname.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(tablename)), tablename.len() as _, scope, nullable)
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
-#[inline]
 pub unsafe fn SQLSpecialColumnsA(hstmt: *mut ::core::ffi::c_void, fcoltype: u16, szcatalogname: &[u8], szschemaname: &[u8], sztablename: &[u8], fscope: u16, fnullable: u16) -> i16 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -26676,7 +26497,6 @@ pub unsafe fn SQLSpecialColumnsA(hstmt: *mut ::core::ffi::c_void, fcoltype: u16,
     SQLSpecialColumnsA(::core::mem::transmute(hstmt), fcoltype, ::core::mem::transmute(::windows::core::as_ptr_or_null(szcatalogname)), szcatalogname.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(szschemaname)), szschemaname.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(sztablename)), sztablename.len() as _, fscope, fnullable)
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
-#[inline]
 pub unsafe fn SQLSpecialColumnsW(hstmt: *mut ::core::ffi::c_void, fcoltype: u16, szcatalogname: &[u16], szschemaname: &[u16], sztablename: &[u16], fscope: u16, fnullable: u16) -> i16 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -26685,7 +26505,6 @@ pub unsafe fn SQLSpecialColumnsW(hstmt: *mut ::core::ffi::c_void, fcoltype: u16,
     SQLSpecialColumnsW(::core::mem::transmute(hstmt), fcoltype, ::core::mem::transmute(::windows::core::as_ptr_or_null(szcatalogname)), szcatalogname.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(szschemaname)), szschemaname.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(sztablename)), sztablename.len() as _, fscope, fnullable)
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
-#[inline]
 pub unsafe fn SQLStatistics(statementhandle: *mut ::core::ffi::c_void, catalogname: &[u8], schemaname: &[u8], tablename: &[u8], unique: u16, reserved: u16) -> i16 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -26694,7 +26513,6 @@ pub unsafe fn SQLStatistics(statementhandle: *mut ::core::ffi::c_void, catalogna
     SQLStatistics(::core::mem::transmute(statementhandle), ::core::mem::transmute(::windows::core::as_ptr_or_null(catalogname)), catalogname.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(schemaname)), schemaname.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(tablename)), tablename.len() as _, unique, reserved)
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
-#[inline]
 pub unsafe fn SQLStatisticsA(hstmt: *mut ::core::ffi::c_void, szcatalogname: &[u8], szschemaname: &[u8], sztablename: &[u8], funique: u16, faccuracy: u16) -> i16 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -26703,7 +26521,6 @@ pub unsafe fn SQLStatisticsA(hstmt: *mut ::core::ffi::c_void, szcatalogname: &[u
     SQLStatisticsA(::core::mem::transmute(hstmt), ::core::mem::transmute(::windows::core::as_ptr_or_null(szcatalogname)), szcatalogname.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(szschemaname)), szschemaname.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(sztablename)), sztablename.len() as _, funique, faccuracy)
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
-#[inline]
 pub unsafe fn SQLStatisticsW(hstmt: *mut ::core::ffi::c_void, szcatalogname: &[u16], szschemaname: &[u16], sztablename: &[u16], funique: u16, faccuracy: u16) -> i16 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -26714,7 +26531,6 @@ pub unsafe fn SQLStatisticsW(hstmt: *mut ::core::ffi::c_void, szcatalogname: &[u
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 pub const SQLTEXT: u32 = 35u32;
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
-#[inline]
 pub unsafe fn SQLTablePrivileges(hstmt: *mut ::core::ffi::c_void, szcatalogname: &[u8], szschemaname: &[u8], sztablename: &[u8]) -> i16 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -26723,7 +26539,6 @@ pub unsafe fn SQLTablePrivileges(hstmt: *mut ::core::ffi::c_void, szcatalogname:
     SQLTablePrivileges(::core::mem::transmute(hstmt), ::core::mem::transmute(::windows::core::as_ptr_or_null(szcatalogname)), szcatalogname.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(szschemaname)), szschemaname.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(sztablename)), sztablename.len() as _)
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
-#[inline]
 pub unsafe fn SQLTablePrivilegesA(hstmt: *mut ::core::ffi::c_void, szcatalogname: &[u8], szschemaname: &[u8], sztablename: &[u8]) -> i16 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -26732,7 +26547,6 @@ pub unsafe fn SQLTablePrivilegesA(hstmt: *mut ::core::ffi::c_void, szcatalogname
     SQLTablePrivilegesA(::core::mem::transmute(hstmt), ::core::mem::transmute(::windows::core::as_ptr_or_null(szcatalogname)), szcatalogname.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(szschemaname)), szschemaname.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(sztablename)), sztablename.len() as _)
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
-#[inline]
 pub unsafe fn SQLTablePrivilegesW(hstmt: *mut ::core::ffi::c_void, szcatalogname: &[u16], szschemaname: &[u16], sztablename: &[u16]) -> i16 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -26741,7 +26555,6 @@ pub unsafe fn SQLTablePrivilegesW(hstmt: *mut ::core::ffi::c_void, szcatalogname
     SQLTablePrivilegesW(::core::mem::transmute(hstmt), ::core::mem::transmute(::windows::core::as_ptr_or_null(szcatalogname)), szcatalogname.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(szschemaname)), szschemaname.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(sztablename)), sztablename.len() as _)
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
-#[inline]
 pub unsafe fn SQLTables(statementhandle: *mut ::core::ffi::c_void, catalogname: &[u8], schemaname: &[u8], tablename: &[u8], tabletype: &[u8]) -> i16 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -26750,7 +26563,6 @@ pub unsafe fn SQLTables(statementhandle: *mut ::core::ffi::c_void, catalogname: 
     SQLTables(::core::mem::transmute(statementhandle), ::core::mem::transmute(::windows::core::as_ptr_or_null(catalogname)), catalogname.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(schemaname)), schemaname.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(tablename)), tablename.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(tabletype)), tabletype.len() as _)
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
-#[inline]
 pub unsafe fn SQLTablesA(hstmt: *mut ::core::ffi::c_void, szcatalogname: &[u8], szschemaname: &[u8], sztablename: &[u8], sztabletype: &[u8]) -> i16 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -26759,7 +26571,6 @@ pub unsafe fn SQLTablesA(hstmt: *mut ::core::ffi::c_void, szcatalogname: &[u8], 
     SQLTablesA(::core::mem::transmute(hstmt), ::core::mem::transmute(::windows::core::as_ptr_or_null(szcatalogname)), szcatalogname.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(szschemaname)), szschemaname.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(sztablename)), sztablename.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(sztabletype)), sztabletype.len() as _)
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
-#[inline]
 pub unsafe fn SQLTablesW(hstmt: *mut ::core::ffi::c_void, szcatalogname: &[u16], szschemaname: &[u16], sztablename: &[u16], sztabletype: &[u16]) -> i16 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -26768,7 +26579,6 @@ pub unsafe fn SQLTablesW(hstmt: *mut ::core::ffi::c_void, szcatalogname: &[u16],
     SQLTablesW(::core::mem::transmute(hstmt), ::core::mem::transmute(::windows::core::as_ptr_or_null(szcatalogname)), szcatalogname.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(szschemaname)), szschemaname.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(sztablename)), sztablename.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(sztabletype)), sztabletype.len() as _)
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
-#[inline]
 pub unsafe fn SQLTransact(environmenthandle: *mut ::core::ffi::c_void, connectionhandle: *mut ::core::ffi::c_void, completiontype: u16) -> i16 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -31309,7 +31119,6 @@ pub const _MAPI_E_VERSION: i32 = -2147221232i32;
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 pub const _MAPI_W_NO_SERVICE: i32 = 262659i32;
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
-#[inline]
 pub unsafe fn bcp_batch(param0: *mut ::core::ffi::c_void) -> i32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -31318,7 +31127,6 @@ pub unsafe fn bcp_batch(param0: *mut ::core::ffi::c_void) -> i32 {
     bcp_batch(::core::mem::transmute(param0))
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
-#[inline]
 pub unsafe fn bcp_bind(param0: *mut ::core::ffi::c_void, param1: *mut u8, param2: i32, param3: i32, param4: *mut u8, param5: i32, param6: i32, param7: i32) -> i16 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -31327,7 +31135,6 @@ pub unsafe fn bcp_bind(param0: *mut ::core::ffi::c_void, param1: *mut u8, param2
     bcp_bind(::core::mem::transmute(param0), ::core::mem::transmute(param1), param2, param3, ::core::mem::transmute(param4), param5, param6, param7)
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
-#[inline]
 pub unsafe fn bcp_colfmt(param0: *mut ::core::ffi::c_void, param1: i32, param2: u8, param3: i32, param4: i32, param5: *mut u8, param6: i32, param7: i32) -> i16 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -31336,7 +31143,6 @@ pub unsafe fn bcp_colfmt(param0: *mut ::core::ffi::c_void, param1: i32, param2: 
     bcp_colfmt(::core::mem::transmute(param0), param1, param2, param3, param4, ::core::mem::transmute(param5), param6, param7)
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
-#[inline]
 pub unsafe fn bcp_collen(param0: *mut ::core::ffi::c_void, param1: i32, param2: i32) -> i16 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -31345,7 +31151,6 @@ pub unsafe fn bcp_collen(param0: *mut ::core::ffi::c_void, param1: i32, param2: 
     bcp_collen(::core::mem::transmute(param0), param1, param2)
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
-#[inline]
 pub unsafe fn bcp_colptr(param0: *mut ::core::ffi::c_void, param1: *mut u8, param2: i32) -> i16 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -31354,7 +31159,6 @@ pub unsafe fn bcp_colptr(param0: *mut ::core::ffi::c_void, param1: *mut u8, para
     bcp_colptr(::core::mem::transmute(param0), ::core::mem::transmute(param1), param2)
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
-#[inline]
 pub unsafe fn bcp_columns(param0: *mut ::core::ffi::c_void, param1: i32) -> i16 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -31363,7 +31167,6 @@ pub unsafe fn bcp_columns(param0: *mut ::core::ffi::c_void, param1: i32) -> i16 
     bcp_columns(::core::mem::transmute(param0), param1)
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
-#[inline]
 pub unsafe fn bcp_control(param0: *mut ::core::ffi::c_void, param1: i32, param2: *mut ::core::ffi::c_void) -> i16 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -31372,7 +31175,6 @@ pub unsafe fn bcp_control(param0: *mut ::core::ffi::c_void, param1: i32, param2:
     bcp_control(::core::mem::transmute(param0), param1, ::core::mem::transmute(param2))
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
-#[inline]
 pub unsafe fn bcp_done(param0: *mut ::core::ffi::c_void) -> i32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -31381,7 +31183,6 @@ pub unsafe fn bcp_done(param0: *mut ::core::ffi::c_void) -> i32 {
     bcp_done(::core::mem::transmute(param0))
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
-#[inline]
 pub unsafe fn bcp_exec(param0: *mut ::core::ffi::c_void, param1: *mut i32) -> i16 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -31390,7 +31191,6 @@ pub unsafe fn bcp_exec(param0: *mut ::core::ffi::c_void, param1: *mut i32) -> i1
     bcp_exec(::core::mem::transmute(param0), ::core::mem::transmute(param1))
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
-#[inline]
 pub unsafe fn bcp_getcolfmt(param0: *mut ::core::ffi::c_void, param1: i32, param2: i32, param3: *mut ::core::ffi::c_void, param4: i32, param5: *mut i32) -> i16 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -31399,7 +31199,6 @@ pub unsafe fn bcp_getcolfmt(param0: *mut ::core::ffi::c_void, param1: i32, param
     bcp_getcolfmt(::core::mem::transmute(param0), param1, param2, ::core::mem::transmute(param3), param4, ::core::mem::transmute(param5))
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
-#[inline]
 pub unsafe fn bcp_initA<'a, P0, P1, P2>(param0: *mut ::core::ffi::c_void, param1: P0, param2: P1, param3: P2, param4: i32) -> i16
 where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
@@ -31413,7 +31212,6 @@ where
     bcp_initA(::core::mem::transmute(param0), param1.into(), param2.into(), param3.into(), param4)
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
-#[inline]
 pub unsafe fn bcp_initW<'a, P0, P1, P2>(param0: *mut ::core::ffi::c_void, param1: P0, param2: P1, param3: P2, param4: i32) -> i16
 where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
@@ -31427,7 +31225,6 @@ where
     bcp_initW(::core::mem::transmute(param0), param1.into(), param2.into(), param3.into(), param4)
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
-#[inline]
 pub unsafe fn bcp_moretext(param0: *mut ::core::ffi::c_void, param1: i32, param2: *mut u8) -> i16 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -31436,7 +31233,6 @@ pub unsafe fn bcp_moretext(param0: *mut ::core::ffi::c_void, param1: i32, param2
     bcp_moretext(::core::mem::transmute(param0), param1, ::core::mem::transmute(param2))
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
-#[inline]
 pub unsafe fn bcp_readfmtA<'a, P0>(param0: *mut ::core::ffi::c_void, param1: P0) -> i16
 where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
@@ -31448,7 +31244,6 @@ where
     bcp_readfmtA(::core::mem::transmute(param0), param1.into())
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
-#[inline]
 pub unsafe fn bcp_readfmtW<'a, P0>(param0: *mut ::core::ffi::c_void, param1: P0) -> i16
 where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
@@ -31460,7 +31255,6 @@ where
     bcp_readfmtW(::core::mem::transmute(param0), param1.into())
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
-#[inline]
 pub unsafe fn bcp_sendrow(param0: *mut ::core::ffi::c_void) -> i16 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -31469,7 +31263,6 @@ pub unsafe fn bcp_sendrow(param0: *mut ::core::ffi::c_void) -> i16 {
     bcp_sendrow(::core::mem::transmute(param0))
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
-#[inline]
 pub unsafe fn bcp_setcolfmt(param0: *mut ::core::ffi::c_void, param1: i32, param2: i32, param3: *mut ::core::ffi::c_void, param4: i32) -> i16 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -31478,7 +31271,6 @@ pub unsafe fn bcp_setcolfmt(param0: *mut ::core::ffi::c_void, param1: i32, param
     bcp_setcolfmt(::core::mem::transmute(param0), param1, param2, ::core::mem::transmute(param3), param4)
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
-#[inline]
 pub unsafe fn bcp_writefmtA<'a, P0>(param0: *mut ::core::ffi::c_void, param1: P0) -> i16
 where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
@@ -31490,7 +31282,6 @@ where
     bcp_writefmtA(::core::mem::transmute(param0), param1.into())
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
-#[inline]
 pub unsafe fn bcp_writefmtW<'a, P0>(param0: *mut ::core::ffi::c_void, param1: P0) -> i16
 where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
@@ -31595,7 +31386,6 @@ impl ::core::default::Default for dbmoney {
     }
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
-#[inline]
 pub unsafe fn dbprtypeA(param0: i32) -> ::windows::core::PSTR {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -31604,7 +31394,6 @@ pub unsafe fn dbprtypeA(param0: i32) -> ::windows::core::PSTR {
     dbprtypeA(param0)
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
-#[inline]
 pub unsafe fn dbprtypeW(param0: i32) -> ::windows::core::PWSTR {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {

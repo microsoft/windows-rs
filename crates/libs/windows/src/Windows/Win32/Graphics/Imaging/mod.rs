@@ -6296,7 +6296,6 @@ impl ::core::fmt::Debug for WICComponentType {
     }
 }
 #[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
-#[inline]
 pub unsafe fn WICConvertBitmapSource<'a, P0>(dstformat: *const ::windows::core::GUID, pisrc: P0) -> ::windows::core::Result<IWICBitmapSource>
 where
     P0: ::std::convert::Into<::windows::core::InParam<'a, IWICBitmapSource>>,
@@ -6310,7 +6309,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_Graphics_Imaging\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn WICCreateBitmapFromSection<'a, P0>(width: u32, height: u32, pixelformat: *const ::windows::core::GUID, hsection: P0, stride: u32, offset: u32) -> ::windows::core::Result<IWICBitmap>
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
@@ -6324,7 +6322,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_Graphics_Imaging\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn WICCreateBitmapFromSectionEx<'a, P0>(width: u32, height: u32, pixelformat: *const ::windows::core::GUID, hsection: P0, stride: u32, offset: u32, desiredaccesslevel: WICSectionAccessLevel) -> ::windows::core::Result<IWICBitmap>
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
@@ -6520,7 +6517,6 @@ impl ::core::fmt::Debug for WICDecodeOptions {
     }
 }
 #[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
-#[inline]
 pub unsafe fn WICGetMetadataContentSize<'a, P0>(guidcontainerformat: *const ::windows::core::GUID, piwriter: P0) -> ::windows::core::Result<u64>
 where
     P0: ::std::convert::Into<::windows::core::InParam<'a, IWICMetadataWriter>>,
@@ -7102,7 +7098,6 @@ impl ::core::fmt::Debug for WICJpegYCrCbSubsamplingOption {
     }
 }
 #[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
-#[inline]
 pub unsafe fn WICMapGuidToShortName(guid: *const ::windows::core::GUID, wzname: &mut [u16], pcchactual: *mut u32) -> ::windows::core::Result<()> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -7111,7 +7106,6 @@ pub unsafe fn WICMapGuidToShortName(guid: *const ::windows::core::GUID, wzname: 
     WICMapGuidToShortName(::core::mem::transmute(guid), wzname.len() as _, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(wzname)), ::core::mem::transmute(pcchactual)).ok()
 }
 #[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
-#[inline]
 pub unsafe fn WICMapSchemaToName<'a, P0>(guidmetadataformat: *const ::windows::core::GUID, pwzschema: P0, wzname: &mut [u16], pcchactual: *mut u32) -> ::windows::core::Result<()>
 where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
@@ -7123,7 +7117,6 @@ where
     WICMapSchemaToName(::core::mem::transmute(guidmetadataformat), pwzschema.into(), wzname.len() as _, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(wzname)), ::core::mem::transmute(pcchactual)).ok()
 }
 #[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
-#[inline]
 pub unsafe fn WICMapShortNameToGuid<'a, P0>(wzname: P0) -> ::windows::core::Result<::windows::core::GUID>
 where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
@@ -7137,7 +7130,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_Graphics_Imaging\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
-#[inline]
 pub unsafe fn WICMatchMetadataContent<'a, P0>(guidcontainerformat: *const ::windows::core::GUID, pguidvendor: *const ::windows::core::GUID, pistream: P0) -> ::windows::core::Result<::windows::core::GUID>
 where
     P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::System::Com::IStream>>,
@@ -8096,7 +8088,6 @@ impl ::core::fmt::Debug for WICSectionAccessLevel {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Imaging\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
-#[inline]
 pub unsafe fn WICSerializeMetadataContent<'a, P0, P1>(guidcontainerformat: *const ::windows::core::GUID, piwriter: P0, dwpersistoptions: u32, pistream: P1) -> ::windows::core::Result<()>
 where
     P0: ::std::convert::Into<::windows::core::InParam<'a, IWICMetadataWriter>>,

@@ -1279,7 +1279,6 @@ unsafe impl ::windows::core::Abi for BSTR {
     type Abi = ::core::mem::ManuallyDrop<Self>;
 }
 pub const CLASS_E_CLASSNOTAVAILABLE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147221231i32);
-#[inline]
 pub unsafe fn CloseHandle<'a, P0>(hobject: P0) -> BOOL
 where
     P0: ::std::convert::Into<HANDLE>,
@@ -1296,7 +1295,6 @@ pub const E_OUTOFMEMORY: ::windows::core::HRESULT = ::windows::core::HRESULT(-21
 pub const RPC_E_DISCONNECTED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147417848i32);
 pub const JSCRIPT_E_CANTEXECUTE: ::windows::core::HRESULT = ::windows::core::HRESULT(-1996357631i32);
 pub type FARPROC = ::core::option::Option<unsafe extern "system" fn() -> isize>;
-#[inline]
 pub unsafe fn GetLastError() -> WIN32_ERROR {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -1369,7 +1367,6 @@ unsafe impl ::windows::core::Abi for HINSTANCE {
     type Abi = Self;
 }
 pub const S_OK: ::windows::core::HRESULT = ::windows::core::HRESULT(0i32);
-#[inline]
 pub unsafe fn SysAllocStringByteLen<'a, P0>(psz: P0, len: u32) -> BSTR
 where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
@@ -1380,7 +1377,6 @@ where
     }
     SysAllocStringByteLen(psz.into(), len)
 }
-#[inline]
 pub unsafe fn SysAllocStringLen(strin: &[u16]) -> BSTR {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -1388,7 +1384,6 @@ pub unsafe fn SysAllocStringLen(strin: &[u16]) -> BSTR {
     }
     SysAllocStringLen(::core::mem::transmute(::windows::core::as_ptr_or_null(strin)), strin.len() as _)
 }
-#[inline]
 pub unsafe fn SysFreeString<'a, P0>(bstrstring: P0)
 where
     P0: ::std::convert::Into<::windows::core::InParam<'a, BSTR>>,
@@ -1399,7 +1394,6 @@ where
     }
     SysFreeString(bstrstring.into().abi())
 }
-#[inline]
 pub unsafe fn SysStringLen<'a, P0>(pbstr: P0) -> u32
 where
     P0: ::std::convert::Into<::windows::core::InParam<'a, BSTR>>,
@@ -1504,7 +1498,6 @@ impl ::core::default::Default for SECURITY_ATTRIBUTES {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[inline]
 pub unsafe fn CoCreateGuid() -> ::windows::core::Result<::windows::core::GUID> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -1513,7 +1506,6 @@ pub unsafe fn CoCreateGuid() -> ::windows::core::Result<::windows::core::GUID> {
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
     CoCreateGuid(::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::GUID>(result__)
 }
-#[inline]
 pub unsafe fn CoTaskMemAlloc(cb: usize) -> *mut ::core::ffi::c_void {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -1521,7 +1513,6 @@ pub unsafe fn CoTaskMemAlloc(cb: usize) -> *mut ::core::ffi::c_void {
     }
     CoTaskMemAlloc(cb)
 }
-#[inline]
 pub unsafe fn CoTaskMemFree(pv: *const ::core::ffi::c_void) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -1529,7 +1520,6 @@ pub unsafe fn CoTaskMemFree(pv: *const ::core::ffi::c_void) {
     }
     CoTaskMemFree(::core::mem::transmute(pv))
 }
-#[inline]
 pub unsafe fn GetErrorInfo(dwreserved: u32) -> ::windows::core::Result<IErrorInfo> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -1650,7 +1640,6 @@ pub struct IErrorInfo_Vtbl {
     pub GetHelpFile: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrhelpfile: *mut BSTR) -> ::windows::core::HRESULT,
     pub GetHelpContext: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdwhelpcontext: *mut u32) -> ::windows::core::HRESULT,
 }
-#[inline]
 pub unsafe fn SetErrorInfo<'a, P0>(dwreserved: u32, perrinfo: P0) -> ::windows::core::Result<()>
 where
     P0: ::std::convert::Into<::windows::core::InParam<'a, IErrorInfo>>,
@@ -1661,7 +1650,6 @@ where
     }
     SetErrorInfo(dwreserved, perrinfo.into().abi()).ok()
 }
-#[inline]
 pub unsafe fn EncodePointer(ptr: *const ::core::ffi::c_void) -> *mut ::core::ffi::c_void {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -1725,7 +1713,6 @@ impl ::core::ops::Not for FORMAT_MESSAGE_OPTIONS {
         Self(self.0.not())
     }
 }
-#[inline]
 pub unsafe fn FormatMessageW(dwflags: FORMAT_MESSAGE_OPTIONS, lpsource: *const ::core::ffi::c_void, dwmessageid: u32, dwlanguageid: u32, lpbuffer: ::windows::core::PWSTR, nsize: u32, arguments: *const *const i8) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -1733,7 +1720,6 @@ pub unsafe fn FormatMessageW(dwflags: FORMAT_MESSAGE_OPTIONS, lpsource: *const :
     }
     FormatMessageW(dwflags, ::core::mem::transmute(lpsource), dwmessageid, dwlanguageid, ::core::mem::transmute(lpbuffer), nsize, ::core::mem::transmute(arguments))
 }
-#[inline]
 pub unsafe fn FreeLibrary<'a, P0>(hlibmodule: P0) -> BOOL
 where
     P0: ::std::convert::Into<HINSTANCE>,
@@ -1744,7 +1730,6 @@ where
     }
     FreeLibrary(hlibmodule.into())
 }
-#[inline]
 pub unsafe fn GetProcAddress<'a, P0, P1>(hmodule: P0, lpprocname: P1) -> FARPROC
 where
     P0: ::std::convert::Into<HINSTANCE>,
@@ -1756,7 +1741,6 @@ where
     }
     GetProcAddress(hmodule.into(), lpprocname.into())
 }
-#[inline]
 pub unsafe fn LoadLibraryA<'a, P0>(lplibfilename: P0) -> ::windows::core::Result<HINSTANCE>
 where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
@@ -1768,7 +1752,6 @@ where
     let result__ = LoadLibraryA(lplibfilename.into());
     (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
 }
-#[inline]
 pub unsafe fn GetProcessHeap() -> ::windows::core::Result<HeapHandle> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -1844,7 +1827,6 @@ impl ::core::ops::Not for HEAP_FLAGS {
         Self(self.0.not())
     }
 }
-#[inline]
 pub unsafe fn HeapAlloc<'a, P0>(hheap: P0, dwflags: HEAP_FLAGS, dwbytes: usize) -> *mut ::core::ffi::c_void
 where
     P0: ::std::convert::Into<HeapHandle>,
@@ -1855,7 +1837,6 @@ where
     }
     HeapAlloc(hheap.into(), dwflags, dwbytes)
 }
-#[inline]
 pub unsafe fn HeapFree<'a, P0>(hheap: P0, dwflags: HEAP_FLAGS, lpmem: *const ::core::ffi::c_void) -> BOOL
 where
     P0: ::std::convert::Into<HeapHandle>,
@@ -1898,7 +1879,6 @@ impl ::core::convert::From<::core::option::Option<HeapHandle>> for HeapHandle {
 unsafe impl ::windows::core::Abi for HeapHandle {
     type Abi = Self;
 }
-#[inline]
 pub unsafe fn CreateEventA<'a, P0, P1, P2>(lpeventattributes: *const SECURITY_ATTRIBUTES, bmanualreset: P0, binitialstate: P1, lpname: P2) -> ::windows::core::Result<HANDLE>
 where
     P0: ::std::convert::Into<BOOL>,
@@ -1912,7 +1892,6 @@ where
     let result__ = CreateEventA(::core::mem::transmute(lpeventattributes), bmanualreset.into(), binitialstate.into(), lpname.into());
     (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
 }
-#[inline]
 pub unsafe fn SetEvent<'a, P0>(hevent: P0) -> BOOL
 where
     P0: ::std::convert::Into<HANDLE>,
@@ -1923,7 +1902,6 @@ where
     }
     SetEvent(hevent.into())
 }
-#[inline]
 pub unsafe fn WaitForSingleObject<'a, P0>(hhandle: P0, dwmilliseconds: u32) -> u32
 where
     P0: ::std::convert::Into<HANDLE>,
@@ -2010,7 +1988,6 @@ impl ::core::fmt::Debug for AgileReferenceOptions {
         f.debug_tuple("AgileReferenceOptions").field(&self.0).finish()
     }
 }
-#[inline]
 pub unsafe fn RoGetAgileReference<'a, P0>(options: AgileReferenceOptions, riid: *const ::windows::core::GUID, punk: P0) -> ::windows::core::Result<IAgileReference>
 where
     P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>,

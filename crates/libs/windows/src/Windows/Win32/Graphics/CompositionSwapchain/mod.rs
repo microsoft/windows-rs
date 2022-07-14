@@ -73,7 +73,6 @@ impl ::core::fmt::Debug for CompositionFrameInstanceKind {
     }
 }
 #[doc = "*Required features: `\"Win32_Graphics_CompositionSwapchain\"`*"]
-#[inline]
 pub unsafe fn CreatePresentationFactory<'a, P0>(d3ddevice: P0, riid: *const ::windows::core::GUID, presentationfactory: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>
 where
     P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>,

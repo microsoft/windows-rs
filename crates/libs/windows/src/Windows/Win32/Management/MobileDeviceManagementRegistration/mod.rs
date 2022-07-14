@@ -1,5 +1,4 @@
 #[doc = "*Required features: `\"Win32_Management_MobileDeviceManagementRegistration\"`*"]
-#[inline]
 pub unsafe fn ApplyLocalManagementSyncML<'a, P0>(syncmlrequest: P0) -> ::windows::core::Result<::windows::core::PWSTR>
 where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
@@ -22,7 +21,6 @@ pub const DEVICEREGISTRATIONTYPE_MDM_USERSPECIFIC_WITH_AAD: u32 = 13u32;
 #[doc = "*Required features: `\"Win32_Management_MobileDeviceManagementRegistration\"`*"]
 pub const DEVICE_ENROLLER_FACILITY_CODE: u32 = 24u32;
 #[doc = "*Required features: `\"Win32_Management_MobileDeviceManagementRegistration\"`*"]
-#[inline]
 pub unsafe fn DiscoverManagementService<'a, P0>(pszupn: P0) -> ::windows::core::Result<*mut MANAGEMENT_SERVICE_INFO>
 where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
@@ -35,7 +33,6 @@ where
     DiscoverManagementService(pszupn.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<*mut MANAGEMENT_SERVICE_INFO>(result__)
 }
 #[doc = "*Required features: `\"Win32_Management_MobileDeviceManagementRegistration\"`*"]
-#[inline]
 pub unsafe fn DiscoverManagementServiceEx<'a, P0, P1>(pszupn: P0, pszdiscoveryservicecandidate: P1) -> ::windows::core::Result<*mut MANAGEMENT_SERVICE_INFO>
 where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
@@ -49,7 +46,6 @@ where
     DiscoverManagementServiceEx(pszupn.into(), pszdiscoveryservicecandidate.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<*mut MANAGEMENT_SERVICE_INFO>(result__)
 }
 #[doc = "*Required features: `\"Win32_Management_MobileDeviceManagementRegistration\"`*"]
-#[inline]
 pub unsafe fn GetDeviceManagementConfigInfo<'a, P0>(providerid: P0, configstringbufferlength: *mut u32, configstring: ::windows::core::PWSTR) -> ::windows::core::Result<()>
 where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
@@ -61,7 +57,6 @@ where
     GetDeviceManagementConfigInfo(providerid.into(), ::core::mem::transmute(configstringbufferlength), ::core::mem::transmute(configstring)).ok()
 }
 #[doc = "*Required features: `\"Win32_Management_MobileDeviceManagementRegistration\"`*"]
-#[inline]
 pub unsafe fn GetDeviceRegistrationInfo(deviceinformationclass: REGISTRATION_INFORMATION_CLASS, ppdeviceregistrationinfo: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -70,7 +65,6 @@ pub unsafe fn GetDeviceRegistrationInfo(deviceinformationclass: REGISTRATION_INF
     GetDeviceRegistrationInfo(deviceinformationclass, ::core::mem::transmute(ppdeviceregistrationinfo)).ok()
 }
 #[doc = "*Required features: `\"Win32_Management_MobileDeviceManagementRegistration\"`*"]
-#[inline]
 pub unsafe fn GetManagementAppHyperlink(pszhyperlink: &mut [u16]) -> ::windows::core::Result<()> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -80,7 +74,6 @@ pub unsafe fn GetManagementAppHyperlink(pszhyperlink: &mut [u16]) -> ::windows::
 }
 #[doc = "*Required features: `\"Win32_Management_MobileDeviceManagementRegistration\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn IsDeviceRegisteredWithManagement(pfisdeviceregisteredwithmanagement: *mut super::super::Foundation::BOOL, pszupn: &mut [u16]) -> ::windows::core::Result<()> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -90,7 +83,6 @@ pub unsafe fn IsDeviceRegisteredWithManagement(pfisdeviceregisteredwithmanagemen
 }
 #[doc = "*Required features: `\"Win32_Management_MobileDeviceManagementRegistration\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn IsManagementRegistrationAllowed() -> ::windows::core::Result<super::super::Foundation::BOOL> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -101,7 +93,6 @@ pub unsafe fn IsManagementRegistrationAllowed() -> ::windows::core::Result<super
 }
 #[doc = "*Required features: `\"Win32_Management_MobileDeviceManagementRegistration\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn IsMdmUxWithoutAadAllowed() -> ::windows::core::Result<super::super::Foundation::BOOL> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -333,7 +324,6 @@ impl ::core::fmt::Debug for REGISTRATION_INFORMATION_CLASS {
 }
 #[doc = "*Required features: `\"Win32_Management_MobileDeviceManagementRegistration\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn RegisterDeviceWithLocalManagement() -> ::windows::core::Result<super::super::Foundation::BOOL> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -343,7 +333,6 @@ pub unsafe fn RegisterDeviceWithLocalManagement() -> ::windows::core::Result<sup
     RegisterDeviceWithLocalManagement(::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BOOL>(result__)
 }
 #[doc = "*Required features: `\"Win32_Management_MobileDeviceManagementRegistration\"`*"]
-#[inline]
 pub unsafe fn RegisterDeviceWithManagement<'a, P0, P1, P2>(pszupn: P0, ppszmdmserviceuri: P1, ppzsaccesstoken: P2) -> ::windows::core::Result<()>
 where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
@@ -358,7 +347,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_Management_MobileDeviceManagementRegistration\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn RegisterDeviceWithManagementUsingAADCredentials<'a, P0>(usertoken: P0) -> ::windows::core::Result<()>
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
@@ -370,7 +358,6 @@ where
     RegisterDeviceWithManagementUsingAADCredentials(usertoken.into()).ok()
 }
 #[doc = "*Required features: `\"Win32_Management_MobileDeviceManagementRegistration\"`*"]
-#[inline]
 pub unsafe fn RegisterDeviceWithManagementUsingAADDeviceCredentials() -> ::windows::core::Result<()> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -379,7 +366,6 @@ pub unsafe fn RegisterDeviceWithManagementUsingAADDeviceCredentials() -> ::windo
     RegisterDeviceWithManagementUsingAADDeviceCredentials().ok()
 }
 #[doc = "*Required features: `\"Win32_Management_MobileDeviceManagementRegistration\"`*"]
-#[inline]
 pub unsafe fn RegisterDeviceWithManagementUsingAADDeviceCredentials2<'a, P0>(mdmapplicationid: P0) -> ::windows::core::Result<()>
 where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
@@ -391,7 +377,6 @@ where
     RegisterDeviceWithManagementUsingAADDeviceCredentials2(mdmapplicationid.into()).ok()
 }
 #[doc = "*Required features: `\"Win32_Management_MobileDeviceManagementRegistration\"`*"]
-#[inline]
 pub unsafe fn SetDeviceManagementConfigInfo<'a, P0, P1>(providerid: P0, configstring: P1) -> ::windows::core::Result<()>
 where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
@@ -405,7 +390,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_Management_MobileDeviceManagementRegistration\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn SetManagedExternally<'a, P0>(ismanagedexternally: P0) -> ::windows::core::Result<()>
 where
     P0: ::std::convert::Into<super::super::Foundation::BOOL>,
@@ -417,7 +401,6 @@ where
     SetManagedExternally(ismanagedexternally.into()).ok()
 }
 #[doc = "*Required features: `\"Win32_Management_MobileDeviceManagementRegistration\"`*"]
-#[inline]
 pub unsafe fn UnregisterDeviceWithLocalManagement() -> ::windows::core::Result<()> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -426,7 +409,6 @@ pub unsafe fn UnregisterDeviceWithLocalManagement() -> ::windows::core::Result<(
     UnregisterDeviceWithLocalManagement().ok()
 }
 #[doc = "*Required features: `\"Win32_Management_MobileDeviceManagementRegistration\"`*"]
-#[inline]
 pub unsafe fn UnregisterDeviceWithManagement<'a, P0>(enrollmentid: P0) -> ::windows::core::Result<()>
 where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,

@@ -5,7 +5,6 @@ pub mod Printing;
 pub type ABORTPROC = ::core::option::Option<unsafe extern "system" fn(param0: super::super::Graphics::Gdi::HDC, param1: i32) -> super::super::Foundation::BOOL>;
 #[doc = "*Required features: `\"Win32_Storage_Xps\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(feature = "Win32_Graphics_Gdi")]
-#[inline]
 pub unsafe fn AbortDoc<'a, P0>(hdc: P0) -> i32
 where
     P0: ::std::convert::Into<super::super::Graphics::Gdi::HDC>,
@@ -210,7 +209,6 @@ impl ::core::default::Default for DRAWPATRECT {
 }
 #[doc = "*Required features: `\"Win32_Storage_Xps\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-#[inline]
 pub unsafe fn DeviceCapabilitiesA<'a, P0, P1>(pdevice: P0, pport: P1, fwcapability: DEVICE_CAPABILITIES, poutput: ::windows::core::PSTR, pdevmode: *const super::super::Graphics::Gdi::DEVMODEA) -> i32
 where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
@@ -224,7 +222,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_Storage_Xps\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-#[inline]
 pub unsafe fn DeviceCapabilitiesW<'a, P0, P1>(pdevice: P0, pport: P1, fwcapability: DEVICE_CAPABILITIES, poutput: ::windows::core::PWSTR, pdevmode: *const super::super::Graphics::Gdi::DEVMODEW) -> i32
 where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
@@ -238,7 +235,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_Storage_Xps\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(feature = "Win32_Graphics_Gdi")]
-#[inline]
 pub unsafe fn EndDoc<'a, P0>(hdc: P0) -> i32
 where
     P0: ::std::convert::Into<super::super::Graphics::Gdi::HDC>,
@@ -251,7 +247,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_Storage_Xps\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(feature = "Win32_Graphics_Gdi")]
-#[inline]
 pub unsafe fn EndPage<'a, P0>(hdc: P0) -> i32
 where
     P0: ::std::convert::Into<super::super::Graphics::Gdi::HDC>,
@@ -264,7 +259,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_Storage_Xps\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(feature = "Win32_Graphics_Gdi")]
-#[inline]
 pub unsafe fn Escape<'a, P0, P1>(hdc: P0, iescape: i32, cjin: i32, pvin: P1, pvout: *mut ::core::ffi::c_void) -> i32
 where
     P0: ::std::convert::Into<super::super::Graphics::Gdi::HDC>,
@@ -278,7 +272,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_Storage_Xps\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(feature = "Win32_Graphics_Gdi")]
-#[inline]
 pub unsafe fn ExtEscape<'a, P0, P1>(hdc: P0, iescape: i32, cjinput: i32, lpindata: P1, cjoutput: i32, lpoutdata: ::windows::core::PSTR) -> i32
 where
     P0: ::std::convert::Into<super::super::Graphics::Gdi::HDC>,
@@ -9714,7 +9707,6 @@ impl ::core::ops::Not for PSINJECT_POINT {
 }
 #[doc = "*Required features: `\"Win32_Storage_Xps\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-#[inline]
 pub unsafe fn PrintWindow<'a, P0, P1>(hwnd: P0, hdcblt: P1, nflags: PRINT_WINDOW_FLAGS) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::super::Foundation::HWND>,
@@ -9728,7 +9720,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_Storage_Xps\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-#[inline]
 pub unsafe fn SetAbortProc<'a, P0>(hdc: P0, proc: ABORTPROC) -> i32
 where
     P0: ::std::convert::Into<super::super::Graphics::Gdi::HDC>,
@@ -9741,7 +9732,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_Storage_Xps\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(feature = "Win32_Graphics_Gdi")]
-#[inline]
 pub unsafe fn StartDocA<'a, P0>(hdc: P0, lpdi: *const DOCINFOA) -> i32
 where
     P0: ::std::convert::Into<super::super::Graphics::Gdi::HDC>,
@@ -9754,7 +9744,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_Storage_Xps\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(feature = "Win32_Graphics_Gdi")]
-#[inline]
 pub unsafe fn StartDocW<'a, P0>(hdc: P0, lpdi: *const DOCINFOW) -> i32
 where
     P0: ::std::convert::Into<super::super::Graphics::Gdi::HDC>,
@@ -9767,7 +9756,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_Storage_Xps\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(feature = "Win32_Graphics_Gdi")]
-#[inline]
 pub unsafe fn StartPage<'a, P0>(hdc: P0) -> i32
 where
     P0: ::std::convert::Into<super::super::Graphics::Gdi::HDC>,

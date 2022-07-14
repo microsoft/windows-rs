@@ -171,7 +171,6 @@ impl ::core::default::Default for BSMINFO {
 }
 #[doc = "*Required features: `\"Win32_System_StationsAndDesktops\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn BroadcastSystemMessageA<'a, P0, P1>(flags: u32, lpinfo: *mut u32, msg: u32, wparam: P0, lparam: P1) -> i32
 where
     P0: ::std::convert::Into<super::super::Foundation::WPARAM>,
@@ -185,7 +184,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_StationsAndDesktops\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn BroadcastSystemMessageExA<'a, P0, P1>(flags: BROADCAST_SYSTEM_MESSAGE_FLAGS, lpinfo: *mut BROADCAST_SYSTEM_MESSAGE_INFO, msg: u32, wparam: P0, lparam: P1, pbsminfo: *mut BSMINFO) -> i32
 where
     P0: ::std::convert::Into<super::super::Foundation::WPARAM>,
@@ -199,7 +197,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_StationsAndDesktops\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn BroadcastSystemMessageExW<'a, P0, P1>(flags: BROADCAST_SYSTEM_MESSAGE_FLAGS, lpinfo: *mut BROADCAST_SYSTEM_MESSAGE_INFO, msg: u32, wparam: P0, lparam: P1, pbsminfo: *mut BSMINFO) -> i32
 where
     P0: ::std::convert::Into<super::super::Foundation::WPARAM>,
@@ -213,7 +210,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_StationsAndDesktops\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn BroadcastSystemMessageW<'a, P0, P1>(flags: BROADCAST_SYSTEM_MESSAGE_FLAGS, lpinfo: *mut BROADCAST_SYSTEM_MESSAGE_INFO, msg: u32, wparam: P0, lparam: P1) -> i32
 where
     P0: ::std::convert::Into<super::super::Foundation::WPARAM>,
@@ -227,7 +223,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_StationsAndDesktops\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn CloseDesktop<'a, P0>(hdesktop: P0) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<HDESK>,
@@ -240,7 +235,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_StationsAndDesktops\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn CloseWindowStation<'a, P0>(hwinsta: P0) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<HWINSTA>,
@@ -253,7 +247,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_StationsAndDesktops\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`, `\"Win32_Security\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_Security"))]
-#[inline]
 pub unsafe fn CreateDesktopA<'a, P0, P1>(lpszdesktop: P0, lpszdevice: P1, pdevmode: *mut super::super::Graphics::Gdi::DEVMODEA, dwflags: u32, dwdesiredaccess: u32, lpsa: *const super::super::Security::SECURITY_ATTRIBUTES) -> ::windows::core::Result<HDESK>
 where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
@@ -268,7 +261,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_StationsAndDesktops\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`, `\"Win32_Security\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_Security"))]
-#[inline]
 pub unsafe fn CreateDesktopExA<'a, P0, P1>(lpszdesktop: P0, lpszdevice: P1, pdevmode: *mut super::super::Graphics::Gdi::DEVMODEA, dwflags: u32, dwdesiredaccess: u32, lpsa: *const super::super::Security::SECURITY_ATTRIBUTES, ulheapsize: u32, pvoid: *mut ::core::ffi::c_void) -> ::windows::core::Result<HDESK>
 where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
@@ -283,7 +275,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_StationsAndDesktops\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`, `\"Win32_Security\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_Security"))]
-#[inline]
 pub unsafe fn CreateDesktopExW<'a, P0, P1>(lpszdesktop: P0, lpszdevice: P1, pdevmode: *mut super::super::Graphics::Gdi::DEVMODEW, dwflags: u32, dwdesiredaccess: u32, lpsa: *const super::super::Security::SECURITY_ATTRIBUTES, ulheapsize: u32, pvoid: *mut ::core::ffi::c_void) -> ::windows::core::Result<HDESK>
 where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
@@ -298,7 +289,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_StationsAndDesktops\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`, `\"Win32_Security\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_Security"))]
-#[inline]
 pub unsafe fn CreateDesktopW<'a, P0, P1>(lpszdesktop: P0, lpszdevice: P1, pdevmode: *mut super::super::Graphics::Gdi::DEVMODEW, dwflags: u32, dwdesiredaccess: u32, lpsa: *const super::super::Security::SECURITY_ATTRIBUTES) -> ::windows::core::Result<HDESK>
 where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
@@ -313,7 +303,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_StationsAndDesktops\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-#[inline]
 pub unsafe fn CreateWindowStationA<'a, P0>(lpwinsta: P0, dwflags: u32, dwdesiredaccess: u32, lpsa: *const super::super::Security::SECURITY_ATTRIBUTES) -> ::windows::core::Result<HWINSTA>
 where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
@@ -327,7 +316,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_StationsAndDesktops\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-#[inline]
 pub unsafe fn CreateWindowStationW<'a, P0>(lpwinsta: P0, dwflags: u32, dwdesiredaccess: u32, lpsa: *const super::super::Security::SECURITY_ATTRIBUTES) -> ::windows::core::Result<HWINSTA>
 where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
@@ -347,7 +335,6 @@ pub type DESKTOPENUMPROCA = ::core::option::Option<unsafe extern "system" fn(par
 pub type DESKTOPENUMPROCW = ::core::option::Option<unsafe extern "system" fn(param0: ::windows::core::PCWSTR, param1: super::super::Foundation::LPARAM) -> super::super::Foundation::BOOL>;
 #[doc = "*Required features: `\"Win32_System_StationsAndDesktops\"`, `\"Win32_Foundation\"`, `\"Win32_UI_WindowsAndMessaging\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
-#[inline]
 pub unsafe fn EnumDesktopWindows<'a, P0, P1>(hdesktop: P0, lpfn: super::super::UI::WindowsAndMessaging::WNDENUMPROC, lparam: P1) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<HDESK>,
@@ -361,7 +348,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_StationsAndDesktops\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn EnumDesktopsA<'a, P0, P1>(hwinsta: P0, lpenumfunc: DESKTOPENUMPROCA, lparam: P1) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<HWINSTA>,
@@ -375,7 +361,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_StationsAndDesktops\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn EnumDesktopsW<'a, P0, P1>(hwinsta: P0, lpenumfunc: DESKTOPENUMPROCW, lparam: P1) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<HWINSTA>,
@@ -389,7 +374,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_StationsAndDesktops\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn EnumWindowStationsA<'a, P0>(lpenumfunc: WINSTAENUMPROCA, lparam: P0) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::super::Foundation::LPARAM>,
@@ -402,7 +386,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_StationsAndDesktops\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn EnumWindowStationsW<'a, P0>(lpenumfunc: WINSTAENUMPROCW, lparam: P0) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::super::Foundation::LPARAM>,
@@ -414,7 +397,6 @@ where
     EnumWindowStationsW(::core::mem::transmute(lpenumfunc), lparam.into())
 }
 #[doc = "*Required features: `\"Win32_System_StationsAndDesktops\"`*"]
-#[inline]
 pub unsafe fn GetProcessWindowStation() -> ::windows::core::Result<HWINSTA> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -424,7 +406,6 @@ pub unsafe fn GetProcessWindowStation() -> ::windows::core::Result<HWINSTA> {
     (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
 }
 #[doc = "*Required features: `\"Win32_System_StationsAndDesktops\"`*"]
-#[inline]
 pub unsafe fn GetThreadDesktop(dwthreadid: u32) -> ::windows::core::Result<HDESK> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -435,7 +416,6 @@ pub unsafe fn GetThreadDesktop(dwthreadid: u32) -> ::windows::core::Result<HDESK
 }
 #[doc = "*Required features: `\"Win32_System_StationsAndDesktops\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn GetUserObjectInformationA<'a, P0>(hobj: P0, nindex: USER_OBJECT_INFORMATION_INDEX, pvinfo: *mut ::core::ffi::c_void, nlength: u32, lpnlengthneeded: *mut u32) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
@@ -448,7 +428,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_StationsAndDesktops\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn GetUserObjectInformationW<'a, P0>(hobj: P0, nindex: USER_OBJECT_INFORMATION_INDEX, pvinfo: *mut ::core::ffi::c_void, nlength: u32, lpnlengthneeded: *mut u32) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
@@ -525,7 +504,6 @@ unsafe impl ::windows::core::Abi for HWINSTA {
 }
 #[doc = "*Required features: `\"Win32_System_StationsAndDesktops\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn OpenDesktopA<'a, P0, P1>(lpszdesktop: P0, dwflags: u32, finherit: P1, dwdesiredaccess: u32) -> ::windows::core::Result<HDESK>
 where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
@@ -540,7 +518,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_StationsAndDesktops\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn OpenDesktopW<'a, P0, P1>(lpszdesktop: P0, dwflags: u32, finherit: P1, dwdesiredaccess: u32) -> ::windows::core::Result<HDESK>
 where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
@@ -555,7 +532,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_StationsAndDesktops\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn OpenInputDesktop<'a, P0>(dwflags: u32, finherit: P0, dwdesiredaccess: u32) -> ::windows::core::Result<HDESK>
 where
     P0: ::std::convert::Into<super::super::Foundation::BOOL>,
@@ -569,7 +545,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_StationsAndDesktops\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn OpenWindowStationA<'a, P0, P1>(lpszwinsta: P0, finherit: P1, dwdesiredaccess: u32) -> ::windows::core::Result<HWINSTA>
 where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
@@ -584,7 +559,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_StationsAndDesktops\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn OpenWindowStationW<'a, P0, P1>(lpszwinsta: P0, finherit: P1, dwdesiredaccess: u32) -> ::windows::core::Result<HWINSTA>
 where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
@@ -599,7 +573,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_StationsAndDesktops\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn SetProcessWindowStation<'a, P0>(hwinsta: P0) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<HWINSTA>,
@@ -612,7 +585,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_StationsAndDesktops\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn SetThreadDesktop<'a, P0>(hdesktop: P0) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<HDESK>,
@@ -625,7 +597,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_StationsAndDesktops\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn SetUserObjectInformationA<'a, P0>(hobj: P0, nindex: i32, pvinfo: *const ::core::ffi::c_void, nlength: u32) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
@@ -638,7 +609,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_StationsAndDesktops\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn SetUserObjectInformationW<'a, P0>(hobj: P0, nindex: i32, pvinfo: *const ::core::ffi::c_void, nlength: u32) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
@@ -651,7 +621,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_StationsAndDesktops\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn SwitchDesktop<'a, P0>(hdesktop: P0) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<HDESK>,

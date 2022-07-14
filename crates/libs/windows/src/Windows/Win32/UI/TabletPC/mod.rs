@@ -49,7 +49,6 @@ pub const ASYNC_RECO_SETTEXTCONTEXT_FAILED: u32 = 256u32;
 pub const ASYNC_RECO_SETWORDLIST_FAILED: u32 = 512u32;
 #[doc = "*Required features: `\"Win32_UI_TabletPC\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(feature = "Win32_Graphics_Gdi")]
-#[inline]
 pub unsafe fn AddStroke<'a, P0>(hrc: P0, ppacketdesc: *const PACKET_DESCRIPTION, cbpacket: u32, ppacket: *const u8, pxform: *const super::super::Graphics::Gdi::XFORM) -> ::windows::core::Result<()>
 where
     P0: ::std::convert::Into<HRECOCONTEXT>,
@@ -61,7 +60,6 @@ where
     AddStroke(hrc.into(), ::core::mem::transmute(ppacketdesc), cbpacket, ::core::mem::transmute(ppacket), ::core::mem::transmute(pxform)).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
-#[inline]
 pub unsafe fn AddWordsToWordList<'a, P0, P1>(hwl: P0, pwcwords: P1) -> ::windows::core::Result<()>
 where
     P0: ::std::convert::Into<HRECOWORDLIST>,
@@ -75,7 +73,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_UI_TabletPC\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn AdviseInkChange<'a, P0, P1>(hrc: P0, bnewstroke: P1) -> ::windows::core::Result<()>
 where
     P0: ::std::convert::Into<HRECOCONTEXT>,
@@ -270,7 +267,6 @@ impl ::core::fmt::Debug for CorrectionPosition {
     }
 }
 #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
-#[inline]
 pub unsafe fn CreateContext<'a, P0>(hrec: P0, phrc: *mut HRECOCONTEXT) -> ::windows::core::Result<()>
 where
     P0: ::std::convert::Into<HRECOGNIZER>,
@@ -282,7 +278,6 @@ where
     CreateContext(hrec.into(), ::core::mem::transmute(phrc)).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
-#[inline]
 pub unsafe fn CreateRecognizer(pclsid: *mut ::windows::core::GUID, phrec: *mut HRECOGNIZER) -> ::windows::core::Result<()> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -2165,7 +2160,6 @@ impl ::core::default::Default for DYNAMIC_RENDERER_CACHED_DATA {
     }
 }
 #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
-#[inline]
 pub unsafe fn DestroyContext<'a, P0>(hrc: P0) -> ::windows::core::Result<()>
 where
     P0: ::std::convert::Into<HRECOCONTEXT>,
@@ -2177,7 +2171,6 @@ where
     DestroyContext(hrc.into()).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
-#[inline]
 pub unsafe fn DestroyRecognizer<'a, P0>(hrec: P0) -> ::windows::core::Result<()>
 where
     P0: ::std::convert::Into<HRECOGNIZER>,
@@ -2189,7 +2182,6 @@ where
     DestroyRecognizer(hrec.into()).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
-#[inline]
 pub unsafe fn DestroyWordList<'a, P0>(hwl: P0) -> ::windows::core::Result<()>
 where
     P0: ::std::convert::Into<HRECOWORDLIST>,
@@ -2254,7 +2246,6 @@ pub const EM_SETSELINKDISPLAYMODE: u32 = 1561u32;
 #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const EM_SETUSEMOUSEFORINPUT: u32 = 1560u32;
 #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
-#[inline]
 pub unsafe fn EndInkInput<'a, P0>(hrc: P0) -> ::windows::core::Result<()>
 where
     P0: ::std::convert::Into<HRECOCONTEXT>,
@@ -2878,7 +2869,6 @@ pub const GUID_PACKETPROPERTY_GUID_Y_TILT_ORIENTATION: ::windows::core::GUID = :
 pub const GUID_PACKETPROPERTY_GUID_Z: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x735adb30_0ebb_4788_a0e4_0f316490055d);
 pub const GestureRecognizer: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xea30c654_c62c_441f_ac00_95f9a196782c);
 #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
-#[inline]
 pub unsafe fn GetAllRecognizers(recognizerclsids: *mut *mut ::windows::core::GUID, count: *mut u32) -> ::windows::core::Result<()> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -2887,7 +2877,6 @@ pub unsafe fn GetAllRecognizers(recognizerclsids: *mut *mut ::windows::core::GUI
     GetAllRecognizers(::core::mem::transmute(recognizerclsids), ::core::mem::transmute(count)).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
-#[inline]
 pub unsafe fn GetBestResultString<'a, P0>(hrc: P0, pcsize: *mut u32, pwcbestresult: ::windows::core::PWSTR) -> ::windows::core::Result<()>
 where
     P0: ::std::convert::Into<HRECOCONTEXT>,
@@ -2899,7 +2888,6 @@ where
     GetBestResultString(hrc.into(), ::core::mem::transmute(pcsize), ::core::mem::transmute(pwcbestresult)).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
-#[inline]
 pub unsafe fn GetLatticePtr<'a, P0>(hrc: P0, pplattice: *mut *mut RECO_LATTICE) -> ::windows::core::Result<()>
 where
     P0: ::std::convert::Into<HRECOCONTEXT>,
@@ -2911,7 +2899,6 @@ where
     GetLatticePtr(hrc.into(), ::core::mem::transmute(pplattice)).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
-#[inline]
 pub unsafe fn GetLeftSeparator<'a, P0>(hrc: P0, pcsize: *mut u32, pwcleftseparator: ::windows::core::PWSTR) -> ::windows::core::Result<()>
 where
     P0: ::std::convert::Into<HRECOCONTEXT>,
@@ -2923,7 +2910,6 @@ where
     GetLeftSeparator(hrc.into(), ::core::mem::transmute(pcsize), ::core::mem::transmute(pwcleftseparator)).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
-#[inline]
 pub unsafe fn GetRecoAttributes<'a, P0>(hrec: P0, precoattrs: *mut RECO_ATTRS) -> ::windows::core::Result<()>
 where
     P0: ::std::convert::Into<HRECOGNIZER>,
@@ -2935,7 +2921,6 @@ where
     GetRecoAttributes(hrec.into(), ::core::mem::transmute(precoattrs)).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
-#[inline]
 pub unsafe fn GetResultPropertyList<'a, P0>(hrec: P0, ppropertycount: *mut u32, ppropertyguid: *mut ::windows::core::GUID) -> ::windows::core::Result<()>
 where
     P0: ::std::convert::Into<HRECOGNIZER>,
@@ -2947,7 +2932,6 @@ where
     GetResultPropertyList(hrec.into(), ::core::mem::transmute(ppropertycount), ::core::mem::transmute(ppropertyguid)).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
-#[inline]
 pub unsafe fn GetRightSeparator<'a, P0>(hrc: P0, pcsize: *mut u32, pwcrightseparator: ::windows::core::PWSTR) -> ::windows::core::Result<()>
 where
     P0: ::std::convert::Into<HRECOCONTEXT>,
@@ -2959,7 +2943,6 @@ where
     GetRightSeparator(hrc.into(), ::core::mem::transmute(pcsize), ::core::mem::transmute(pwcrightseparator)).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
-#[inline]
 pub unsafe fn GetUnicodeRanges<'a, P0>(hrec: P0, pcranges: *mut u32, pcr: *mut CHARACTER_RANGE) -> ::windows::core::Result<()>
 where
     P0: ::std::convert::Into<HRECOGNIZER>,
@@ -14251,7 +14234,6 @@ impl ::core::fmt::Debug for InteractionMode {
     }
 }
 #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
-#[inline]
 pub unsafe fn IsStringSupported<'a, P0, P1>(hrc: P0, wcstring: u32, pwcstring: P1) -> ::windows::core::Result<()>
 where
     P0: ::std::convert::Into<HRECOCONTEXT>,
@@ -14408,7 +14390,6 @@ impl ::core::default::Default for LINE_SEGMENT {
     }
 }
 #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
-#[inline]
 pub unsafe fn LoadCachedAttributes(clsid: ::windows::core::GUID, precoattributes: *mut RECO_ATTRS) -> ::windows::core::Result<()> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -14511,7 +14492,6 @@ impl ::core::fmt::Debug for MICUIELEMENTSTATE {
     }
 }
 #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
-#[inline]
 pub unsafe fn MakeWordList<'a, P0, P1>(hrec: P0, pbuffer: P1, phwl: *mut HRECOWORDLIST) -> ::windows::core::Result<()>
 where
     P0: ::std::convert::Into<HRECOGNIZER>,
@@ -14780,7 +14760,6 @@ pub const PenInputPanel_Internal: ::windows::core::GUID = ::windows::core::GUID:
 pub type PfnRecoCallback = ::core::option::Option<unsafe extern "system" fn(param0: u32, param1: *mut u8, param2: HRECOCONTEXT) -> ::windows::core::HRESULT>;
 #[doc = "*Required features: `\"Win32_UI_TabletPC\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn Process<'a, P0>(hrc: P0, pbpartialprocessing: *mut super::super::Foundation::BOOL) -> ::windows::core::Result<()>
 where
     P0: ::std::convert::Into<HRECOCONTEXT>,
@@ -15458,7 +15437,6 @@ impl ::core::fmt::Debug for SelectionHitResult {
     }
 }
 #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
-#[inline]
 pub unsafe fn SetEnabledUnicodeRanges<'a, P0>(hrc: P0, cranges: u32, pcr: *mut CHARACTER_RANGE) -> ::windows::core::Result<()>
 where
     P0: ::std::convert::Into<HRECOCONTEXT>,
@@ -15470,7 +15448,6 @@ where
     SetEnabledUnicodeRanges(hrc.into(), cranges, ::core::mem::transmute(pcr)).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
-#[inline]
 pub unsafe fn SetFactoid<'a, P0, P1>(hrc: P0, cwcfactoid: u32, pwcfactoid: P1) -> ::windows::core::Result<()>
 where
     P0: ::std::convert::Into<HRECOCONTEXT>,
@@ -15483,7 +15460,6 @@ where
     SetFactoid(hrc.into(), cwcfactoid, pwcfactoid.into()).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
-#[inline]
 pub unsafe fn SetFlags<'a, P0>(hrc: P0, dwflags: u32) -> ::windows::core::Result<()>
 where
     P0: ::std::convert::Into<HRECOCONTEXT>,
@@ -15495,7 +15471,6 @@ where
     SetFlags(hrc.into(), dwflags).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
-#[inline]
 pub unsafe fn SetGuide<'a, P0>(hrc: P0, pguide: *const RECO_GUIDE, iindex: u32) -> ::windows::core::Result<()>
 where
     P0: ::std::convert::Into<HRECOCONTEXT>,
@@ -15507,7 +15482,6 @@ where
     SetGuide(hrc.into(), ::core::mem::transmute(pguide), iindex).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
-#[inline]
 pub unsafe fn SetTextContext<'a, P0>(hrc: P0, pwcbefore: &[u16], pwcafter: &[u16]) -> ::windows::core::Result<()>
 where
     P0: ::std::convert::Into<HRECOCONTEXT>,
@@ -15519,7 +15493,6 @@ where
     SetTextContext(hrc.into(), pwcbefore.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(pwcbefore)), pwcafter.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(pwcafter))).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
-#[inline]
 pub unsafe fn SetWordList<'a, P0, P1>(hrc: P0, hwl: P1) -> ::windows::core::Result<()>
 where
     P0: ::std::convert::Into<HRECOCONTEXT>,

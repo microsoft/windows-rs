@@ -11685,7 +11685,6 @@ impl ::core::fmt::Debug for WEBSTREAM_SAMPLE_TYPE {
     }
 }
 #[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
-#[inline]
 pub unsafe fn WMCreateBackupRestorer<'a, P0>(pcallback: P0) -> ::windows::core::Result<IWMLicenseBackup>
 where
     P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>,
@@ -11698,7 +11697,6 @@ where
     WMCreateBackupRestorer(pcallback.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IWMLicenseBackup>(result__)
 }
 #[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
-#[inline]
 pub unsafe fn WMCreateEditor() -> ::windows::core::Result<IWMMetadataEditor> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -11708,7 +11706,6 @@ pub unsafe fn WMCreateEditor() -> ::windows::core::Result<IWMMetadataEditor> {
     WMCreateEditor(::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IWMMetadataEditor>(result__)
 }
 #[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
-#[inline]
 pub unsafe fn WMCreateIndexer() -> ::windows::core::Result<IWMIndexer> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -11718,7 +11715,6 @@ pub unsafe fn WMCreateIndexer() -> ::windows::core::Result<IWMIndexer> {
     WMCreateIndexer(::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IWMIndexer>(result__)
 }
 #[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
-#[inline]
 pub unsafe fn WMCreateProfileManager() -> ::windows::core::Result<IWMProfileManager> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -11728,7 +11724,6 @@ pub unsafe fn WMCreateProfileManager() -> ::windows::core::Result<IWMProfileMana
     WMCreateProfileManager(::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IWMProfileManager>(result__)
 }
 #[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
-#[inline]
 pub unsafe fn WMCreateReader<'a, P0>(punkcert: P0, dwrights: u32) -> ::windows::core::Result<IWMReader>
 where
     P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>,
@@ -11741,7 +11736,6 @@ where
     WMCreateReader(punkcert.into().abi(), dwrights, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IWMReader>(result__)
 }
 #[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
-#[inline]
 pub unsafe fn WMCreateSyncReader<'a, P0>(punkcert: P0, dwrights: u32) -> ::windows::core::Result<IWMSyncReader>
 where
     P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>,
@@ -11754,7 +11748,6 @@ where
     WMCreateSyncReader(punkcert.into().abi(), dwrights, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IWMSyncReader>(result__)
 }
 #[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
-#[inline]
 pub unsafe fn WMCreateWriter<'a, P0>(punkcert: P0) -> ::windows::core::Result<IWMWriter>
 where
     P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>,
@@ -11767,7 +11760,6 @@ where
     WMCreateWriter(punkcert.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IWMWriter>(result__)
 }
 #[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
-#[inline]
 pub unsafe fn WMCreateWriterFileSink() -> ::windows::core::Result<IWMWriterFileSink> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -11777,7 +11769,6 @@ pub unsafe fn WMCreateWriterFileSink() -> ::windows::core::Result<IWMWriterFileS
     WMCreateWriterFileSink(::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IWMWriterFileSink>(result__)
 }
 #[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
-#[inline]
 pub unsafe fn WMCreateWriterNetworkSink() -> ::windows::core::Result<IWMWriterNetworkSink> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -11787,7 +11778,6 @@ pub unsafe fn WMCreateWriterNetworkSink() -> ::windows::core::Result<IWMWriterNe
     WMCreateWriterNetworkSink(::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IWMWriterNetworkSink>(result__)
 }
 #[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
-#[inline]
 pub unsafe fn WMCreateWriterPushSink() -> ::windows::core::Result<IWMWriterPushSink> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -11839,7 +11829,6 @@ pub const WMFORMAT_WaveFormatEx: ::windows::core::GUID = ::windows::core::GUID::
 pub const WMFORMAT_WebStream: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xda1e6b13_8359_4050_b398_388e965bf00c);
 #[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn WMIsContentProtected<'a, P0>(pwszfilename: P0, pfisprotected: *mut super::super::Foundation::BOOL) -> ::windows::core::Result<()>
 where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,

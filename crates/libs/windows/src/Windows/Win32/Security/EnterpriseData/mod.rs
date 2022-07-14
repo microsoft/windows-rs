@@ -527,7 +527,6 @@ pub struct IProtectionPolicyManagerInterop3_Vtbl {
     RequestAccessToFilesForProcessWithMessageAndBehaviorForWindowAsync: usize,
 }
 #[doc = "*Required features: `\"Win32_Security_EnterpriseData\"`*"]
-#[inline]
 pub unsafe fn ProtectFileToEnterpriseIdentity<'a, P0, P1>(fileorfolderpath: P0, identity: P1) -> ::windows::core::Result<()>
 where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
@@ -595,7 +594,6 @@ impl ::core::fmt::Debug for SRPHOSTING_VERSION {
 }
 #[doc = "*Required features: `\"Win32_Security_EnterpriseData\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn SrpCloseThreadNetworkContext(threadnetworkcontext: *mut HTHREAD_NETWORK_CONTEXT) -> ::windows::core::Result<()> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -605,7 +603,6 @@ pub unsafe fn SrpCloseThreadNetworkContext(threadnetworkcontext: *mut HTHREAD_NE
 }
 #[doc = "*Required features: `\"Win32_Security_EnterpriseData\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn SrpCreateThreadNetworkContext<'a, P0>(enterpriseid: P0) -> ::windows::core::Result<HTHREAD_NETWORK_CONTEXT>
 where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
@@ -618,7 +615,6 @@ where
     SrpCreateThreadNetworkContext(enterpriseid.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<HTHREAD_NETWORK_CONTEXT>(result__)
 }
 #[doc = "*Required features: `\"Win32_Security_EnterpriseData\"`*"]
-#[inline]
 pub unsafe fn SrpDisablePermissiveModeFileEncryption() -> ::windows::core::Result<()> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -628,7 +624,6 @@ pub unsafe fn SrpDisablePermissiveModeFileEncryption() -> ::windows::core::Resul
 }
 #[doc = "*Required features: `\"Win32_Security_EnterpriseData\"`, `\"Win32_Foundation\"`, `\"Win32_Storage_Packaging_Appx\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_Packaging_Appx"))]
-#[inline]
 pub unsafe fn SrpDoesPolicyAllowAppExecution(packageid: *const super::super::Storage::Packaging::Appx::PACKAGE_ID) -> ::windows::core::Result<super::super::Foundation::BOOL> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -638,7 +633,6 @@ pub unsafe fn SrpDoesPolicyAllowAppExecution(packageid: *const super::super::Sto
     SrpDoesPolicyAllowAppExecution(::core::mem::transmute(packageid), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BOOL>(result__)
 }
 #[doc = "*Required features: `\"Win32_Security_EnterpriseData\"`*"]
-#[inline]
 pub unsafe fn SrpEnablePermissiveModeFileEncryption<'a, P0>(enterpriseid: P0) -> ::windows::core::Result<()>
 where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
@@ -651,7 +645,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_Security_EnterpriseData\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn SrpGetEnterpriseIds<'a, P0>(tokenhandle: P0, numberofbytes: *mut u32, enterpriseids: *mut ::windows::core::PWSTR, enterpriseidcount: *mut u32) -> ::windows::core::Result<()>
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
@@ -664,7 +657,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_Security_EnterpriseData\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn SrpGetEnterprisePolicy<'a, P0>(tokenhandle: P0) -> ::windows::core::Result<ENTERPRISE_DATA_POLICIES>
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
@@ -677,7 +669,6 @@ where
     SrpGetEnterprisePolicy(tokenhandle.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ENTERPRISE_DATA_POLICIES>(result__)
 }
 #[doc = "*Required features: `\"Win32_Security_EnterpriseData\"`*"]
-#[inline]
 pub unsafe fn SrpHostingInitialize(version: SRPHOSTING_VERSION, r#type: SRPHOSTING_TYPE, pvdata: *const ::core::ffi::c_void, cbdata: u32) -> ::windows::core::Result<()> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -686,7 +677,6 @@ pub unsafe fn SrpHostingInitialize(version: SRPHOSTING_VERSION, r#type: SRPHOSTI
     SrpHostingInitialize(version, r#type, ::core::mem::transmute(pvdata), cbdata).ok()
 }
 #[doc = "*Required features: `\"Win32_Security_EnterpriseData\"`*"]
-#[inline]
 pub unsafe fn SrpHostingTerminate(r#type: SRPHOSTING_TYPE) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -696,7 +686,6 @@ pub unsafe fn SrpHostingTerminate(r#type: SRPHOSTING_TYPE) {
 }
 #[doc = "*Required features: `\"Win32_Security_EnterpriseData\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn SrpIsTokenService<'a, P0>(tokenhandle: P0, istokenservice: *mut u8) -> ::windows::core::Result<()>
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
@@ -709,7 +698,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_Security_EnterpriseData\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn SrpSetTokenEnterpriseId<'a, P0, P1>(tokenhandle: P0, enterpriseid: P1) -> ::windows::core::Result<()>
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
@@ -722,7 +710,6 @@ where
     SrpSetTokenEnterpriseId(tokenhandle.into(), enterpriseid.into()).ok()
 }
 #[doc = "*Required features: `\"Win32_Security_EnterpriseData\"`*"]
-#[inline]
 pub unsafe fn UnprotectFile<'a, P0>(fileorfolderpath: P0, options: *const FILE_UNPROTECT_OPTIONS) -> ::windows::core::Result<()>
 where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,

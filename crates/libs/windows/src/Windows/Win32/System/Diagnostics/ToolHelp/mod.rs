@@ -65,7 +65,6 @@ impl ::core::ops::Not for CREATE_TOOLHELP_SNAPSHOT_FLAGS {
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_ToolHelp\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn CreateToolhelp32Snapshot(dwflags: CREATE_TOOLHELP_SNAPSHOT_FLAGS, th32processid: u32) -> ::windows::core::Result<super::super::super::Foundation::HANDLE> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -188,7 +187,6 @@ pub const HF32_DEFAULT: u32 = 1u32;
 pub const HF32_SHARED: u32 = 2u32;
 #[doc = "*Required features: `\"Win32_System_Diagnostics_ToolHelp\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn Heap32First(lphe: *mut HEAPENTRY32, th32processid: u32, th32heapid: usize) -> super::super::super::Foundation::BOOL {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -198,7 +196,6 @@ pub unsafe fn Heap32First(lphe: *mut HEAPENTRY32, th32processid: u32, th32heapid
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_ToolHelp\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn Heap32ListFirst<'a, P0>(hsnapshot: P0, lphl: *mut HEAPLIST32) -> super::super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::super::super::Foundation::HANDLE>,
@@ -211,7 +208,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_ToolHelp\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn Heap32ListNext<'a, P0>(hsnapshot: P0, lphl: *mut HEAPLIST32) -> super::super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::super::super::Foundation::HANDLE>,
@@ -224,7 +220,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_ToolHelp\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn Heap32Next(lphe: *mut HEAPENTRY32) -> super::super::super::Foundation::BOOL {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -330,7 +325,6 @@ impl ::core::default::Default for MODULEENTRY32W {
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_ToolHelp\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn Module32First<'a, P0>(hsnapshot: P0, lpme: *mut MODULEENTRY32) -> super::super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::super::super::Foundation::HANDLE>,
@@ -343,7 +337,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_ToolHelp\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn Module32FirstW<'a, P0>(hsnapshot: P0, lpme: *mut MODULEENTRY32W) -> super::super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::super::super::Foundation::HANDLE>,
@@ -356,7 +349,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_ToolHelp\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn Module32Next<'a, P0>(hsnapshot: P0, lpme: *mut MODULEENTRY32) -> super::super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::super::super::Foundation::HANDLE>,
@@ -369,7 +361,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_ToolHelp\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn Module32NextW<'a, P0>(hsnapshot: P0, lpme: *mut MODULEENTRY32W) -> super::super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::super::super::Foundation::HANDLE>,
@@ -468,7 +459,6 @@ impl ::core::default::Default for PROCESSENTRY32W {
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_ToolHelp\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn Process32First<'a, P0>(hsnapshot: P0, lppe: *mut PROCESSENTRY32) -> super::super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::super::super::Foundation::HANDLE>,
@@ -481,7 +471,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_ToolHelp\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn Process32FirstW<'a, P0>(hsnapshot: P0, lppe: *mut PROCESSENTRY32W) -> super::super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::super::super::Foundation::HANDLE>,
@@ -494,7 +483,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_ToolHelp\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn Process32Next<'a, P0>(hsnapshot: P0, lppe: *mut PROCESSENTRY32) -> super::super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::super::super::Foundation::HANDLE>,
@@ -507,7 +495,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_ToolHelp\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn Process32NextW<'a, P0>(hsnapshot: P0, lppe: *mut PROCESSENTRY32W) -> super::super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::super::super::Foundation::HANDLE>,
@@ -556,7 +543,6 @@ impl ::core::default::Default for THREADENTRY32 {
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_ToolHelp\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn Thread32First<'a, P0>(hsnapshot: P0, lpte: *mut THREADENTRY32) -> super::super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::super::super::Foundation::HANDLE>,
@@ -569,7 +555,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_ToolHelp\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn Thread32Next<'a, P0>(hsnapshot: P0, lpte: *mut THREADENTRY32) -> super::super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::super::super::Foundation::HANDLE>,
@@ -582,7 +567,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_ToolHelp\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn Toolhelp32ReadProcessMemory(th32processid: u32, lpbaseaddress: *const ::core::ffi::c_void, lpbuffer: *mut ::core::ffi::c_void, cbread: usize, lpnumberofbytesread: *mut usize) -> super::super::super::Foundation::BOOL {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {

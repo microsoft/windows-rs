@@ -74,7 +74,6 @@ pub const DCM_FLAGS_LOCALTHREADTSF: u32 = 4u32;
 pub const DCM_FLAGS_TASKENG: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_UI_TextServices\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn DoMsCtfMonitor<'a, P0>(dwflags: u32, heventforservicestop: P0) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
@@ -13003,7 +13002,6 @@ pub struct IVersionInfo_Vtbl {
     GetInstanceDescription: usize,
 }
 #[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
-#[inline]
 pub unsafe fn InitLocalMsCtfMonitor(dwflags: u32) -> ::windows::core::Result<()> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -15322,7 +15320,6 @@ impl ::core::fmt::Debug for TsShiftDir {
     }
 }
 #[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
-#[inline]
 pub unsafe fn UninitLocalMsCtfMonitor() -> ::windows::core::Result<()> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {

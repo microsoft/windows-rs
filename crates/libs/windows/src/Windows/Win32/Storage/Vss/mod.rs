@@ -1,5 +1,4 @@
 #[doc = "*Required features: `\"Win32_Storage_Vss\"`*"]
-#[inline]
 pub unsafe fn CreateVssExpressWriterInternal() -> ::windows::core::Result<IVssExpressWriter> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {

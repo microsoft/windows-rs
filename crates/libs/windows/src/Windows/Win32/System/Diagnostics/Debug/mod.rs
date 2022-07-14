@@ -584,7 +584,6 @@ impl ::core::default::Default for ARM64_NT_NEON128_0 {
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`, `\"Win32_System_Kernel\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
-#[inline]
 pub unsafe fn AddVectoredContinueHandler(first: u32, handler: PVECTORED_EXCEPTION_HANDLER) -> *mut ::core::ffi::c_void {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -594,7 +593,6 @@ pub unsafe fn AddVectoredContinueHandler(first: u32, handler: PVECTORED_EXCEPTIO
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`, `\"Win32_System_Kernel\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
-#[inline]
 pub unsafe fn AddVectoredExceptionHandler(first: u32, handler: PVECTORED_EXCEPTION_HANDLER) -> *mut ::core::ffi::c_void {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -1896,7 +1894,6 @@ impl ::core::fmt::Debug for BUGCHECK_ERROR {
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn Beep(dwfreq: u32, dwduration: u32) -> super::super::super::Foundation::BOOL {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -1906,7 +1903,6 @@ pub unsafe fn Beep(dwfreq: u32, dwduration: u32) -> super::super::super::Foundat
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn BindImage<'a, P0, P1, P2>(imagename: P0, dllpath: P1, symbolpath: P2) -> super::super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
@@ -1921,7 +1917,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn BindImageEx<'a, P0, P1, P2>(flags: u32, imagename: P0, dllpath: P1, symbolpath: P2, statusroutine: PIMAGEHLP_STATUS_ROUTINE) -> super::super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
@@ -2689,7 +2684,6 @@ impl ::core::fmt::Debug for CallingConventionKind {
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn CheckRemoteDebuggerPresent<'a, P0>(hprocess: P0, pbdebuggerpresent: *mut super::super::super::Foundation::BOOL) -> super::super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::super::super::Foundation::HANDLE>,
@@ -2703,7 +2697,6 @@ where
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_System_SystemInformation\"`*"]
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_System_SystemInformation")]
-#[inline]
 pub unsafe fn CheckSumMappedFile(baseaddress: *const ::core::ffi::c_void, filelength: u32, headersum: *mut u32, checksum: *mut u32) -> *mut IMAGE_NT_HEADERS64 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -2714,7 +2707,6 @@ pub unsafe fn CheckSumMappedFile(baseaddress: *const ::core::ffi::c_void, filele
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_System_SystemInformation\"`*"]
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_System_SystemInformation")]
-#[inline]
 pub unsafe fn CheckSumMappedFile(baseaddress: *const ::core::ffi::c_void, filelength: u32, headersum: *mut u32, checksum: *mut u32) -> *mut IMAGE_NT_HEADERS32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -2723,7 +2715,6 @@ pub unsafe fn CheckSumMappedFile(baseaddress: *const ::core::ffi::c_void, filele
     CheckSumMappedFile(::core::mem::transmute(baseaddress), filelength, ::core::mem::transmute(headersum), ::core::mem::transmute(checksum))
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
-#[inline]
 pub unsafe fn CloseThreadWaitChainSession(wcthandle: *const ::core::ffi::c_void) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -2733,7 +2724,6 @@ pub unsafe fn CloseThreadWaitChainSession(wcthandle: *const ::core::ffi::c_void)
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn ContinueDebugEvent(dwprocessid: u32, dwthreadid: u32, dwcontinuestatus: u32) -> super::super::super::Foundation::BOOL {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -2743,7 +2733,6 @@ pub unsafe fn ContinueDebugEvent(dwprocessid: u32, dwthreadid: u32, dwcontinuest
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`, `\"Win32_System_Kernel\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
-#[inline]
 pub unsafe fn CopyContext(destination: *mut CONTEXT, contextflags: u32, source: *const CONTEXT) -> super::super::super::Foundation::BOOL {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -2752,7 +2741,6 @@ pub unsafe fn CopyContext(destination: *mut CONTEXT, contextflags: u32, source: 
     CopyContext(::core::mem::transmute(destination), contextflags, ::core::mem::transmute(source))
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
-#[inline]
 pub unsafe fn CreateDataModelManager<'a, P0>(debughost: P0) -> ::windows::core::Result<IDataModelManager>
 where
     P0: ::std::convert::Into<::windows::core::InParam<'a, IDebugHost>>,
@@ -6954,7 +6942,6 @@ pub const DUMP_SUMMARY_VALID_CURRENT_USER_VA: u32 = 2u32;
 pub const DUMP_SUMMARY_VALID_KERNEL_VA: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn DbgHelpCreateUserDump<'a, P0>(filename: P0, callback: PDBGHELP_CREATE_USER_DUMP_CALLBACK, userdata: *const ::core::ffi::c_void) -> super::super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
@@ -6967,7 +6954,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn DbgHelpCreateUserDumpW<'a, P0>(filename: P0, callback: PDBGHELP_CREATE_USER_DUMP_CALLBACK, userdata: *const ::core::ffi::c_void) -> super::super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
@@ -6980,7 +6966,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn DebugActiveProcess(dwprocessid: u32) -> super::super::super::Foundation::BOOL {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -6990,7 +6975,6 @@ pub unsafe fn DebugActiveProcess(dwprocessid: u32) -> super::super::super::Found
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn DebugActiveProcessStop(dwprocessid: u32) -> super::super::super::Foundation::BOOL {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -7237,7 +7221,6 @@ pub struct DebugBaseEventCallbacksWide_Vtbl {
     pub base__: IDebugEventCallbacksWide_Vtbl,
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
-#[inline]
 pub unsafe fn DebugBreak() {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -7247,7 +7230,6 @@ pub unsafe fn DebugBreak() {
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn DebugBreakProcess<'a, P0>(process: P0) -> super::super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::super::super::Foundation::HANDLE>,
@@ -7259,7 +7241,6 @@ where
     DebugBreakProcess(process.into())
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
-#[inline]
 pub unsafe fn DebugConnect<'a, P0>(remoteoptions: P0, interfaceid: *const ::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>
 where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
@@ -7271,7 +7252,6 @@ where
     DebugConnect(remoteoptions.into(), ::core::mem::transmute(interfaceid), ::core::mem::transmute(interface)).ok()
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
-#[inline]
 pub unsafe fn DebugConnectWide<'a, P0>(remoteoptions: P0, interfaceid: *const ::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>
 where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
@@ -7283,7 +7263,6 @@ where
     DebugConnectWide(remoteoptions.into(), ::core::mem::transmute(interfaceid), ::core::mem::transmute(interface)).ok()
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
-#[inline]
 pub unsafe fn DebugCreate<T>() -> ::windows::core::Result<T>
 where
     T: ::windows::core::Interface,
@@ -7296,7 +7275,6 @@ where
     DebugCreate(&<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
-#[inline]
 pub unsafe fn DebugCreateEx<T>(dbgengoptions: u32) -> ::windows::core::Result<T>
 where
     T: ::windows::core::Interface,
@@ -7361,7 +7339,6 @@ impl ::core::default::Default for DebugPropertyInfo {
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn DebugSetProcessKillOnExit<'a, P0>(killonexit: P0) -> super::super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::super::super::Foundation::BOOL>,
@@ -7453,7 +7430,6 @@ impl ::core::default::Default for DebugStackFrameDescriptor64 {
     }
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
-#[inline]
 pub unsafe fn DecodePointer(ptr: *const ::core::ffi::c_void) -> *mut ::core::ffi::c_void {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -7463,7 +7439,6 @@ pub unsafe fn DecodePointer(ptr: *const ::core::ffi::c_void) -> *mut ::core::ffi
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn DecodeRemotePointer<'a, P0>(processhandle: P0, ptr: *const ::core::ffi::c_void, decodedptr: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>
 where
     P0: ::std::convert::Into<super::super::super::Foundation::HANDLE>,
@@ -7475,7 +7450,6 @@ where
     DecodeRemotePointer(processhandle.into(), ::core::mem::transmute(ptr), ::core::mem::transmute(decodedptr)).ok()
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
-#[inline]
 pub unsafe fn DecodeSystemPointer(ptr: *const ::core::ffi::c_void) -> *mut ::core::ffi::c_void {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -8228,7 +8202,6 @@ pub const E_JsDEBUG_SOURCE_LOCATION_NOT_FOUND: ::windows::core::HRESULT = ::wind
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
 pub const E_JsDEBUG_UNKNOWN_THREAD: ::windows::core::HRESULT = ::windows::core::HRESULT(-1916338174i32);
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
-#[inline]
 pub unsafe fn EncodePointer(ptr: *const ::core::ffi::c_void) -> *mut ::core::ffi::c_void {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -8238,7 +8211,6 @@ pub unsafe fn EncodePointer(ptr: *const ::core::ffi::c_void) -> *mut ::core::ffi
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn EncodeRemotePointer<'a, P0>(processhandle: P0, ptr: *const ::core::ffi::c_void, encodedptr: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>
 where
     P0: ::std::convert::Into<super::super::super::Foundation::HANDLE>,
@@ -8250,7 +8222,6 @@ where
     EncodeRemotePointer(processhandle.into(), ::core::mem::transmute(ptr), ::core::mem::transmute(encodedptr)).ok()
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
-#[inline]
 pub unsafe fn EncodeSystemPointer(ptr: *const ::core::ffi::c_void) -> *mut ::core::ffi::c_void {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -8260,7 +8231,6 @@ pub unsafe fn EncodeSystemPointer(ptr: *const ::core::ffi::c_void) -> *mut ::cor
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn EnumDirTree<'a, P0, P1, P2>(hprocess: P0, rootpath: P1, inputpathname: P2, outputpathbuffer: ::windows::core::PSTR, cb: PENUMDIRTREE_CALLBACK, data: *const ::core::ffi::c_void) -> super::super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::super::super::Foundation::HANDLE>,
@@ -8275,7 +8245,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn EnumDirTreeW<'a, P0, P1, P2>(hprocess: P0, rootpath: P1, inputpathname: P2, outputpathbuffer: ::windows::core::PWSTR, cb: PENUMDIRTREE_CALLBACKW, data: *const ::core::ffi::c_void) -> super::super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::super::super::Foundation::HANDLE>,
@@ -8291,7 +8260,6 @@ where
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn EnumerateLoadedModules<'a, P0>(hprocess: P0, enumloadedmodulescallback: PENUMLOADED_MODULES_CALLBACK, usercontext: *const ::core::ffi::c_void) -> super::super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::super::super::Foundation::HANDLE>,
@@ -8304,7 +8272,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn EnumerateLoadedModules64<'a, P0>(hprocess: P0, enumloadedmodulescallback: PENUMLOADED_MODULES_CALLBACK64, usercontext: *const ::core::ffi::c_void) -> super::super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::super::super::Foundation::HANDLE>,
@@ -8317,7 +8284,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn EnumerateLoadedModulesEx<'a, P0>(hprocess: P0, enumloadedmodulescallback: PENUMLOADED_MODULES_CALLBACK64, usercontext: *const ::core::ffi::c_void) -> super::super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::super::super::Foundation::HANDLE>,
@@ -8330,7 +8296,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn EnumerateLoadedModulesExW<'a, P0>(hprocess: P0, enumloadedmodulescallback: PENUMLOADED_MODULES_CALLBACKW64, usercontext: *const ::core::ffi::c_void) -> super::super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::super::super::Foundation::HANDLE>,
@@ -8343,7 +8308,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn EnumerateLoadedModulesW64<'a, P0>(hprocess: P0, enumloadedmodulescallback: PENUMLOADED_MODULES_CALLBACKW64, usercontext: *const ::core::ffi::c_void) -> super::super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::super::super::Foundation::HANDLE>,
@@ -8964,7 +8928,6 @@ impl ::core::default::Default for FPO_DATA {
     }
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
-#[inline]
 pub unsafe fn FatalAppExitA<'a, P0>(uaction: u32, lpmessagetext: P0)
 where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
@@ -8976,7 +8939,6 @@ where
     FatalAppExitA(uaction, lpmessagetext.into())
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
-#[inline]
 pub unsafe fn FatalAppExitW<'a, P0>(uaction: u32, lpmessagetext: P0)
 where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
@@ -8988,7 +8950,6 @@ where
     FatalAppExitW(uaction, lpmessagetext.into())
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
-#[inline]
 pub unsafe fn FatalExit(exitcode: i32) -> ! {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -8998,7 +8959,6 @@ pub unsafe fn FatalExit(exitcode: i32) -> ! {
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn FindDebugInfoFile<'a, P0, P1>(filename: P0, symbolpath: P1, debugfilepath: ::windows::core::PSTR) -> ::windows::core::Result<super::super::super::Foundation::HANDLE>
 where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
@@ -9013,7 +8973,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn FindDebugInfoFileEx<'a, P0, P1>(filename: P0, symbolpath: P1, debugfilepath: ::windows::core::PSTR, callback: PFIND_DEBUG_FILE_CALLBACK, callerdata: *const ::core::ffi::c_void) -> ::windows::core::Result<super::super::super::Foundation::HANDLE>
 where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
@@ -9028,7 +8987,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn FindDebugInfoFileExW<'a, P0, P1>(filename: P0, symbolpath: P1, debugfilepath: ::windows::core::PWSTR, callback: PFIND_DEBUG_FILE_CALLBACKW, callerdata: *const ::core::ffi::c_void) -> ::windows::core::Result<super::super::super::Foundation::HANDLE>
 where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
@@ -9043,7 +9001,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn FindExecutableImage<'a, P0, P1>(filename: P0, symbolpath: P1, imagefilepath: ::windows::core::PSTR) -> ::windows::core::Result<super::super::super::Foundation::HANDLE>
 where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
@@ -9058,7 +9015,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn FindExecutableImageEx<'a, P0, P1>(filename: P0, symbolpath: P1, imagefilepath: ::windows::core::PSTR, callback: PFIND_EXE_FILE_CALLBACK, callerdata: *const ::core::ffi::c_void) -> ::windows::core::Result<super::super::super::Foundation::HANDLE>
 where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
@@ -9073,7 +9029,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn FindExecutableImageExW<'a, P0, P1>(filename: P0, symbolpath: P1, imagefilepath: ::windows::core::PWSTR, callback: PFIND_EXE_FILE_CALLBACKW, callerdata: *const ::core::ffi::c_void) -> ::windows::core::Result<super::super::super::Foundation::HANDLE>
 where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
@@ -9088,7 +9043,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn FindFileInPath<'a, P0, P1, P2>(hprocess: P0, searchpatha: P1, filename: P2, id: *const ::core::ffi::c_void, two: u32, three: u32, flags: u32, filepath: ::windows::core::PSTR) -> super::super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::super::super::Foundation::HANDLE>,
@@ -9103,7 +9057,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn FindFileInSearchPath<'a, P0, P1, P2>(hprocess: P0, searchpatha: P1, filename: P2, one: u32, two: u32, three: u32, filepath: ::windows::core::PSTR) -> super::super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::super::super::Foundation::HANDLE>,
@@ -9118,7 +9071,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn FlushInstructionCache<'a, P0>(hprocess: P0, lpbaseaddress: *const ::core::ffi::c_void, dwsize: usize) -> super::super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::super::super::Foundation::HANDLE>,
@@ -9130,7 +9082,6 @@ where
     FlushInstructionCache(hprocess.into(), ::core::mem::transmute(lpbaseaddress), dwsize)
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
-#[inline]
 pub unsafe fn FormatMessageA(dwflags: FORMAT_MESSAGE_OPTIONS, lpsource: *const ::core::ffi::c_void, dwmessageid: u32, dwlanguageid: u32, lpbuffer: ::windows::core::PSTR, nsize: u32, arguments: *const *const i8) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -9139,7 +9090,6 @@ pub unsafe fn FormatMessageA(dwflags: FORMAT_MESSAGE_OPTIONS, lpsource: *const :
     FormatMessageA(dwflags, ::core::mem::transmute(lpsource), dwmessageid, dwlanguageid, ::core::mem::transmute(lpbuffer), nsize, ::core::mem::transmute(arguments))
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
-#[inline]
 pub unsafe fn FormatMessageW(dwflags: FORMAT_MESSAGE_OPTIONS, lpsource: *const ::core::ffi::c_void, dwmessageid: u32, dwlanguageid: u32, lpbuffer: ::windows::core::PWSTR, nsize: u32, arguments: *const *const i8) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -9410,7 +9360,6 @@ impl ::core::default::Default for GET_TEB_ADDRESS {
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
 #[cfg(any(target_arch = "x86", target_arch = "x86_64"))]
-#[inline]
 pub unsafe fn GetEnabledXStateFeatures() -> u64 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -9419,7 +9368,6 @@ pub unsafe fn GetEnabledXStateFeatures() -> u64 {
     GetEnabledXStateFeatures()
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
-#[inline]
 pub unsafe fn GetErrorMode() -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -9430,7 +9378,6 @@ pub unsafe fn GetErrorMode() -> u32 {
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`, `\"Win32_System_Kernel\"`, `\"Win32_System_SystemInformation\"`*"]
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel", feature = "Win32_System_SystemInformation"))]
-#[inline]
 pub unsafe fn GetImageConfigInformation(loadedimage: *const LOADED_IMAGE, imageconfiginformation: *mut IMAGE_LOAD_CONFIG_DIRECTORY64) -> super::super::super::Foundation::BOOL {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -9441,7 +9388,6 @@ pub unsafe fn GetImageConfigInformation(loadedimage: *const LOADED_IMAGE, imagec
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`, `\"Win32_System_Kernel\"`, `\"Win32_System_SystemInformation\"`*"]
 #[cfg(target_arch = "x86")]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel", feature = "Win32_System_SystemInformation"))]
-#[inline]
 pub unsafe fn GetImageConfigInformation(loadedimage: *const LOADED_IMAGE, imageconfiginformation: *mut IMAGE_LOAD_CONFIG_DIRECTORY32) -> super::super::super::Foundation::BOOL {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -9451,7 +9397,6 @@ pub unsafe fn GetImageConfigInformation(loadedimage: *const LOADED_IMAGE, imagec
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`, `\"Win32_System_Kernel\"`, `\"Win32_System_SystemInformation\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel", feature = "Win32_System_SystemInformation"))]
-#[inline]
 pub unsafe fn GetImageUnusedHeaderBytes(loadedimage: *const LOADED_IMAGE, sizeunusedheaderbytes: *mut u32) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -9460,7 +9405,6 @@ pub unsafe fn GetImageUnusedHeaderBytes(loadedimage: *const LOADED_IMAGE, sizeun
     GetImageUnusedHeaderBytes(::core::mem::transmute(loadedimage), ::core::mem::transmute(sizeunusedheaderbytes))
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
-#[inline]
 pub unsafe fn GetSymLoadError() -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -9470,7 +9414,6 @@ pub unsafe fn GetSymLoadError() -> u32 {
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`, `\"Win32_System_Kernel\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
-#[inline]
 pub unsafe fn GetThreadContext<'a, P0>(hthread: P0, lpcontext: *mut CONTEXT) -> super::super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::super::super::Foundation::HANDLE>,
@@ -9482,7 +9425,6 @@ where
     GetThreadContext(hthread.into(), ::core::mem::transmute(lpcontext))
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
-#[inline]
 pub unsafe fn GetThreadErrorMode() -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -9492,7 +9434,6 @@ pub unsafe fn GetThreadErrorMode() -> u32 {
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn GetThreadSelectorEntry<'a, P0>(hthread: P0, dwselector: u32, lpselectorentry: *mut LDT_ENTRY) -> super::super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::super::super::Foundation::HANDLE>,
@@ -9505,7 +9446,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn GetThreadWaitChain(wcthandle: *const ::core::ffi::c_void, context: usize, flags: WAIT_CHAIN_THREAD_OPTIONS, threadid: u32, nodecount: *mut u32, nodeinfoarray: *mut WAITCHAIN_NODE_INFO, iscycle: *mut i32) -> super::super::super::Foundation::BOOL {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -9515,7 +9455,6 @@ pub unsafe fn GetThreadWaitChain(wcthandle: *const ::core::ffi::c_void, context:
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn GetTimestampForLoadedLibrary<'a, P0>(module: P0) -> u32
 where
     P0: ::std::convert::Into<super::super::super::Foundation::HINSTANCE>,
@@ -9529,7 +9468,6 @@ where
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`, `\"Win32_System_Kernel\"`*"]
 #[cfg(any(target_arch = "x86", target_arch = "x86_64"))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
-#[inline]
 pub unsafe fn GetXStateFeaturesMask(context: *const CONTEXT, featuremask: *mut u64) -> super::super::super::Foundation::BOOL {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -46076,7 +46014,6 @@ pub struct IWebAppDiagnosticsSetup_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`, `\"Win32_Security_WinTrust\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_WinTrust"))]
-#[inline]
 pub unsafe fn ImageAddCertificate<'a, P0>(filehandle: P0, certificate: *const super::super::super::Security::WinTrust::WIN_CERTIFICATE, index: *mut u32) -> super::super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::super::super::Foundation::HANDLE>,
@@ -46089,7 +46026,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn ImageDirectoryEntryToData<'a, P0>(base: *const ::core::ffi::c_void, mappedasimage: P0, directoryentry: IMAGE_DIRECTORY_ENTRY, size: *mut u32) -> *mut ::core::ffi::c_void
 where
     P0: ::std::convert::Into<super::super::super::Foundation::BOOLEAN>,
@@ -46102,7 +46038,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn ImageDirectoryEntryToDataEx<'a, P0>(base: *const ::core::ffi::c_void, mappedasimage: P0, directoryentry: IMAGE_DIRECTORY_ENTRY, size: *mut u32, foundheader: *mut *mut IMAGE_SECTION_HEADER) -> *mut ::core::ffi::c_void
 where
     P0: ::std::convert::Into<super::super::super::Foundation::BOOLEAN>,
@@ -46115,7 +46050,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn ImageEnumerateCertificates<'a, P0>(filehandle: P0, typefilter: u16, certificatecount: *mut u32, indices: &mut [u32]) -> super::super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::super::super::Foundation::HANDLE>,
@@ -46128,7 +46062,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`, `\"Win32_Security_WinTrust\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_WinTrust"))]
-#[inline]
 pub unsafe fn ImageGetCertificateData<'a, P0>(filehandle: P0, certificateindex: u32, certificate: *mut super::super::super::Security::WinTrust::WIN_CERTIFICATE, requiredlength: *mut u32) -> super::super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::super::super::Foundation::HANDLE>,
@@ -46141,7 +46074,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`, `\"Win32_Security_WinTrust\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_WinTrust"))]
-#[inline]
 pub unsafe fn ImageGetCertificateHeader<'a, P0>(filehandle: P0, certificateindex: u32, certificateheader: *mut super::super::super::Security::WinTrust::WIN_CERTIFICATE) -> super::super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::super::super::Foundation::HANDLE>,
@@ -46154,7 +46086,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn ImageGetDigestStream<'a, P0>(filehandle: P0, digestlevel: u32, digestfunction: DIGEST_FUNCTION, digesthandle: *const ::core::ffi::c_void) -> super::super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::super::super::Foundation::HANDLE>,
@@ -46167,7 +46098,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`, `\"Win32_System_Kernel\"`, `\"Win32_System_SystemInformation\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel", feature = "Win32_System_SystemInformation"))]
-#[inline]
 pub unsafe fn ImageLoad<'a, P0, P1>(dllname: P0, dllpath: P1) -> *mut LOADED_IMAGE
 where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
@@ -46182,7 +46112,6 @@ where
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_System_SystemInformation\"`*"]
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_System_SystemInformation")]
-#[inline]
 pub unsafe fn ImageNtHeader(base: *const ::core::ffi::c_void) -> *mut IMAGE_NT_HEADERS64 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -46193,7 +46122,6 @@ pub unsafe fn ImageNtHeader(base: *const ::core::ffi::c_void) -> *mut IMAGE_NT_H
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_System_SystemInformation\"`*"]
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_System_SystemInformation")]
-#[inline]
 pub unsafe fn ImageNtHeader(base: *const ::core::ffi::c_void) -> *mut IMAGE_NT_HEADERS32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -46203,7 +46131,6 @@ pub unsafe fn ImageNtHeader(base: *const ::core::ffi::c_void) -> *mut IMAGE_NT_H
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn ImageRemoveCertificate<'a, P0>(filehandle: P0, index: u32) -> super::super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::super::super::Foundation::HANDLE>,
@@ -46217,7 +46144,6 @@ where
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_System_SystemInformation\"`*"]
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_System_SystemInformation")]
-#[inline]
 pub unsafe fn ImageRvaToSection(ntheaders: *const IMAGE_NT_HEADERS64, base: *const ::core::ffi::c_void, rva: u32) -> *mut IMAGE_SECTION_HEADER {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -46228,7 +46154,6 @@ pub unsafe fn ImageRvaToSection(ntheaders: *const IMAGE_NT_HEADERS64, base: *con
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_System_SystemInformation\"`*"]
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_System_SystemInformation")]
-#[inline]
 pub unsafe fn ImageRvaToSection(ntheaders: *const IMAGE_NT_HEADERS32, base: *const ::core::ffi::c_void, rva: u32) -> *mut IMAGE_SECTION_HEADER {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -46239,7 +46164,6 @@ pub unsafe fn ImageRvaToSection(ntheaders: *const IMAGE_NT_HEADERS32, base: *con
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_System_SystemInformation\"`*"]
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_System_SystemInformation")]
-#[inline]
 pub unsafe fn ImageRvaToVa(ntheaders: *const IMAGE_NT_HEADERS64, base: *const ::core::ffi::c_void, rva: u32, lastrvasection: *const *const IMAGE_SECTION_HEADER) -> *mut ::core::ffi::c_void {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -46250,7 +46174,6 @@ pub unsafe fn ImageRvaToVa(ntheaders: *const IMAGE_NT_HEADERS64, base: *const ::
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_System_SystemInformation\"`*"]
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_System_SystemInformation")]
-#[inline]
 pub unsafe fn ImageRvaToVa(ntheaders: *const IMAGE_NT_HEADERS32, base: *const ::core::ffi::c_void, rva: u32, lastrvasection: *const *const IMAGE_SECTION_HEADER) -> *mut ::core::ffi::c_void {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -46260,7 +46183,6 @@ pub unsafe fn ImageRvaToVa(ntheaders: *const IMAGE_NT_HEADERS32, base: *const ::
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`, `\"Win32_System_Kernel\"`, `\"Win32_System_SystemInformation\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel", feature = "Win32_System_SystemInformation"))]
-#[inline]
 pub unsafe fn ImageUnload(loadedimage: *mut LOADED_IMAGE) -> super::super::super::Foundation::BOOL {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -46269,7 +46191,6 @@ pub unsafe fn ImageUnload(loadedimage: *mut LOADED_IMAGE) -> super::super::super
     ImageUnload(::core::mem::transmute(loadedimage))
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
-#[inline]
 pub unsafe fn ImagehlpApiVersion() -> *mut API_VERSION {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -46278,7 +46199,6 @@ pub unsafe fn ImagehlpApiVersion() -> *mut API_VERSION {
     ImagehlpApiVersion()
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
-#[inline]
 pub unsafe fn ImagehlpApiVersionEx(appversion: *const API_VERSION) -> *mut API_VERSION {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -46288,7 +46208,6 @@ pub unsafe fn ImagehlpApiVersionEx(appversion: *const API_VERSION) -> *mut API_V
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`, `\"Win32_System_Kernel\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
-#[inline]
 pub unsafe fn InitializeContext(buffer: *mut ::core::ffi::c_void, contextflags: u32, context: *mut *mut CONTEXT, contextlength: *mut u32) -> super::super::super::Foundation::BOOL {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -46298,7 +46217,6 @@ pub unsafe fn InitializeContext(buffer: *mut ::core::ffi::c_void, contextflags: 
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`, `\"Win32_System_Kernel\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
-#[inline]
 pub unsafe fn InitializeContext2(buffer: *mut ::core::ffi::c_void, contextflags: u32, context: *mut *mut CONTEXT, contextlength: *mut u32, xstatecompactionmask: u64) -> super::super::super::Foundation::BOOL {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -46355,7 +46273,6 @@ impl ::core::fmt::Debug for IntrinsicKind {
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn IsDebuggerPresent() -> super::super::super::Foundation::BOOL {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -47867,7 +47784,6 @@ impl ::core::fmt::Debug for LanguageKind {
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_System_Kernel\"`*"]
 #[cfg(any(target_arch = "x86", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_System_Kernel")]
-#[inline]
 pub unsafe fn LocateXStateFeature(context: *const CONTEXT, featureid: u32, length: *mut u32) -> *mut ::core::ffi::c_void {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -51470,7 +51386,6 @@ pub const MachineDebugManager_DEBUG: ::windows::core::GUID = ::windows::core::GU
 pub const MachineDebugManager_RETAIL: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0c0a3666_30c9_11d0_8f20_00805f2cd064);
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn MakeSureDirectoryPathExists<'a, P0>(dirpath: P0) -> super::super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
@@ -51483,7 +51398,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`, `\"Win32_System_Kernel\"`, `\"Win32_System_SystemInformation\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel", feature = "Win32_System_SystemInformation"))]
-#[inline]
 pub unsafe fn MapAndLoad<'a, P0, P1, P2, P3>(imagename: P0, dllpath: P1, loadedimage: *mut LOADED_IMAGE, dotdll: P2, readonly: P3) -> super::super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
@@ -51498,7 +51412,6 @@ where
     MapAndLoad(imagename.into(), dllpath.into(), ::core::mem::transmute(loadedimage), dotdll.into(), readonly.into())
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
-#[inline]
 pub unsafe fn MapFileAndCheckSumA<'a, P0>(filename: P0, headersum: *mut u32, checksum: *mut u32) -> u32
 where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
@@ -51510,7 +51423,6 @@ where
     MapFileAndCheckSumA(filename.into(), ::core::mem::transmute(headersum), ::core::mem::transmute(checksum))
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
-#[inline]
 pub unsafe fn MapFileAndCheckSumW<'a, P0>(filename: P0, headersum: *mut u32, checksum: *mut u32) -> u32
 where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
@@ -51523,7 +51435,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn MessageBeep(utype: u32) -> super::super::super::Foundation::BOOL {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -51533,7 +51444,6 @@ pub unsafe fn MessageBeep(utype: u32) -> super::super::super::Foundation::BOOL {
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn MiniDumpReadDumpStream(baseofdump: *const ::core::ffi::c_void, streamnumber: u32, dir: *mut *mut MINIDUMP_DIRECTORY, streampointer: *mut *mut ::core::ffi::c_void, streamsize: *mut u32) -> super::super::super::Foundation::BOOL {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -51543,7 +51453,6 @@ pub unsafe fn MiniDumpReadDumpStream(baseofdump: *const ::core::ffi::c_void, str
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`, `\"Win32_Storage_FileSystem\"`, `\"Win32_System_Kernel\"`, `\"Win32_System_Memory\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_FileSystem", feature = "Win32_System_Kernel", feature = "Win32_System_Memory"))]
-#[inline]
 pub unsafe fn MiniDumpWriteDump<'a, P0, P1>(hprocess: P0, processid: u32, hfile: P1, dumptype: MINIDUMP_TYPE, exceptionparam: *const MINIDUMP_EXCEPTION_INFORMATION, userstreamparam: *const MINIDUMP_USER_STREAM_INFORMATION, callbackparam: *const MINIDUMP_CALLBACK_INFORMATION) -> super::super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::super::super::Foundation::HANDLE>,
@@ -51818,7 +51727,6 @@ impl ::core::default::Default for OUTPUT_DEBUG_STRING_INFO {
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn OpenThreadWaitChainSession(flags: OPEN_THREAD_WAIT_CHAIN_SESSION_FLAGS, callback: PWAITCHAINCALLBACK) -> *mut ::core::ffi::c_void {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -51827,7 +51735,6 @@ pub unsafe fn OpenThreadWaitChainSession(flags: OPEN_THREAD_WAIT_CHAIN_SESSION_F
     OpenThreadWaitChainSession(flags, ::core::mem::transmute(callback))
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
-#[inline]
 pub unsafe fn OutputDebugStringA<'a, P0>(lpoutputstring: P0)
 where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
@@ -51839,7 +51746,6 @@ where
     OutputDebugStringA(lpoutputstring.into())
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
-#[inline]
 pub unsafe fn OutputDebugStringW<'a, P0>(lpoutputstring: P0)
 where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
@@ -53667,7 +53573,6 @@ impl ::core::fmt::Debug for RTL_VIRTUAL_UNWIND_HANDLER_TYPE {
     }
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
-#[inline]
 pub unsafe fn RaiseException(dwexceptioncode: u32, dwexceptionflags: u32, lparguments: &[usize]) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -53677,7 +53582,6 @@ pub unsafe fn RaiseException(dwexceptioncode: u32, dwexceptionflags: u32, lpargu
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`, `\"Win32_System_Kernel\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
-#[inline]
 pub unsafe fn RaiseFailFastException(pexceptionrecord: *const EXCEPTION_RECORD, pcontextrecord: *const CONTEXT, dwflags: u32) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -53687,7 +53591,6 @@ pub unsafe fn RaiseFailFastException(pexceptionrecord: *const EXCEPTION_RECORD, 
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn RangeMapAddPeImageSections<'a, P0>(rmaphandle: *const ::core::ffi::c_void, imagename: P0, mappedimage: *const ::core::ffi::c_void, mappingbytes: u32, imagebase: u64, usertag: u64, mappingflags: u32) -> super::super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
@@ -53699,7 +53602,6 @@ where
     RangeMapAddPeImageSections(::core::mem::transmute(rmaphandle), imagename.into(), ::core::mem::transmute(mappedimage), mappingbytes, imagebase, usertag, mappingflags)
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
-#[inline]
 pub unsafe fn RangeMapCreate() -> *mut ::core::ffi::c_void {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -53708,7 +53610,6 @@ pub unsafe fn RangeMapCreate() -> *mut ::core::ffi::c_void {
     RangeMapCreate()
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
-#[inline]
 pub unsafe fn RangeMapFree(rmaphandle: *const ::core::ffi::c_void) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -53718,7 +53619,6 @@ pub unsafe fn RangeMapFree(rmaphandle: *const ::core::ffi::c_void) {
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn RangeMapRead(rmaphandle: *const ::core::ffi::c_void, offset: u64, buffer: *mut ::core::ffi::c_void, requestbytes: u32, flags: u32, donebytes: *mut u32) -> super::super::super::Foundation::BOOL {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -53728,7 +53628,6 @@ pub unsafe fn RangeMapRead(rmaphandle: *const ::core::ffi::c_void, offset: u64, 
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn RangeMapRemove(rmaphandle: *const ::core::ffi::c_void, usertag: u64) -> super::super::super::Foundation::BOOL {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -53738,7 +53637,6 @@ pub unsafe fn RangeMapRemove(rmaphandle: *const ::core::ffi::c_void, usertag: u6
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn RangeMapWrite(rmaphandle: *const ::core::ffi::c_void, offset: u64, buffer: *const ::core::ffi::c_void, requestbytes: u32, flags: u32, donebytes: *mut u32) -> super::super::super::Foundation::BOOL {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -53775,7 +53673,6 @@ impl ::core::fmt::Debug for RawSearchFlags {
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn ReBaseImage<'a, P0, P1, P2, P3, P4>(currentimagename: P0, symbolpath: P1, frebase: P2, frebasesysfileok: P3, fgoingdown: P4, checkimagesize: u32, oldimagesize: *mut u32, oldimagebase: *mut usize, newimagesize: *mut u32, newimagebase: *mut usize, timestamp: u32) -> super::super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
@@ -53792,7 +53689,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn ReBaseImage64<'a, P0, P1, P2, P3, P4>(currentimagename: P0, symbolpath: P1, frebase: P2, frebasesysfileok: P3, fgoingdown: P4, checkimagesize: u32, oldimagesize: *mut u32, oldimagebase: *mut u64, newimagesize: *mut u32, newimagebase: *mut u64, timestamp: u32) -> super::super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
@@ -53809,7 +53705,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn ReadProcessMemory<'a, P0>(hprocess: P0, lpbaseaddress: *const ::core::ffi::c_void, lpbuffer: *mut ::core::ffi::c_void, nsize: usize, lpnumberofbytesread: *mut usize) -> super::super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::super::super::Foundation::HANDLE>,
@@ -53821,7 +53716,6 @@ where
     ReadProcessMemory(hprocess.into(), ::core::mem::transmute(lpbaseaddress), ::core::mem::transmute(lpbuffer), nsize, ::core::mem::transmute(lpnumberofbytesread))
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
-#[inline]
 pub unsafe fn RegisterWaitChainCOMCallback(callstatecallback: PCOGETCALLSTATE, activationstatecallback: PCOGETACTIVATIONSTATE) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -53831,7 +53725,6 @@ pub unsafe fn RegisterWaitChainCOMCallback(callstatecallback: PCOGETCALLSTATE, a
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn RemoveInvalidModuleList<'a, P0>(hprocess: P0)
 where
     P0: ::std::convert::Into<super::super::super::Foundation::HANDLE>,
@@ -53843,7 +53736,6 @@ where
     RemoveInvalidModuleList(hprocess.into())
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
-#[inline]
 pub unsafe fn RemoveVectoredContinueHandler(handle: *const ::core::ffi::c_void) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -53852,7 +53744,6 @@ pub unsafe fn RemoveVectoredContinueHandler(handle: *const ::core::ffi::c_void) 
     RemoveVectoredContinueHandler(::core::mem::transmute(handle))
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
-#[inline]
 pub unsafe fn RemoveVectoredExceptionHandler(handle: *const ::core::ffi::c_void) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -53862,7 +53753,6 @@ pub unsafe fn RemoveVectoredExceptionHandler(handle: *const ::core::ffi::c_void)
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn ReportSymbolLoadSummary<'a, P0, P1>(hprocess: P0, ploadmodule: P1, psymboldata: *const DBGHELP_DATA_REPORT_STRUCT) -> super::super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::super::super::Foundation::HANDLE>,
@@ -53877,7 +53767,6 @@ where
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
 #[cfg(target_arch = "aarch64")]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn RtlAddFunctionTable(functiontable: &[IMAGE_ARM64_RUNTIME_FUNCTION_ENTRY], baseaddress: usize) -> super::super::super::Foundation::BOOLEAN {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -53888,7 +53777,6 @@ pub unsafe fn RtlAddFunctionTable(functiontable: &[IMAGE_ARM64_RUNTIME_FUNCTION_
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
 #[cfg(target_arch = "x86_64")]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn RtlAddFunctionTable(functiontable: &[IMAGE_RUNTIME_FUNCTION_ENTRY], baseaddress: u64) -> super::super::super::Foundation::BOOLEAN {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -53898,7 +53786,6 @@ pub unsafe fn RtlAddFunctionTable(functiontable: &[IMAGE_RUNTIME_FUNCTION_ENTRY]
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
 #[cfg(target_arch = "aarch64")]
-#[inline]
 pub unsafe fn RtlAddGrowableFunctionTable(dynamictable: *mut *mut ::core::ffi::c_void, functiontable: &[IMAGE_ARM64_RUNTIME_FUNCTION_ENTRY], entrycount: u32, rangebase: usize, rangeend: usize) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -53908,7 +53795,6 @@ pub unsafe fn RtlAddGrowableFunctionTable(dynamictable: *mut *mut ::core::ffi::c
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
 #[cfg(target_arch = "x86_64")]
-#[inline]
 pub unsafe fn RtlAddGrowableFunctionTable(dynamictable: *mut *mut ::core::ffi::c_void, functiontable: &[IMAGE_RUNTIME_FUNCTION_ENTRY], entrycount: u32, rangebase: usize, rangeend: usize) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -53918,7 +53804,6 @@ pub unsafe fn RtlAddGrowableFunctionTable(dynamictable: *mut *mut ::core::ffi::c
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_System_Kernel\"`*"]
 #[cfg(feature = "Win32_System_Kernel")]
-#[inline]
 pub unsafe fn RtlCaptureContext(contextrecord: *mut CONTEXT) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -53929,7 +53814,6 @@ pub unsafe fn RtlCaptureContext(contextrecord: *mut CONTEXT) {
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_System_Kernel\"`*"]
 #[cfg(target_arch = "x86_64")]
 #[cfg(feature = "Win32_System_Kernel")]
-#[inline]
 pub unsafe fn RtlCaptureContext2(contextrecord: *mut CONTEXT) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -53938,7 +53822,6 @@ pub unsafe fn RtlCaptureContext2(contextrecord: *mut CONTEXT) {
     RtlCaptureContext2(::core::mem::transmute(contextrecord))
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
-#[inline]
 pub unsafe fn RtlCaptureStackBackTrace(framestoskip: u32, backtrace: &mut [*mut ::core::ffi::c_void], backtracehash: *mut u32) -> u16 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -53949,7 +53832,6 @@ pub unsafe fn RtlCaptureStackBackTrace(framestoskip: u32, backtrace: &mut [*mut 
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
 #[cfg(target_arch = "aarch64")]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn RtlDeleteFunctionTable(functiontable: *const IMAGE_ARM64_RUNTIME_FUNCTION_ENTRY) -> super::super::super::Foundation::BOOLEAN {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -53960,7 +53842,6 @@ pub unsafe fn RtlDeleteFunctionTable(functiontable: *const IMAGE_ARM64_RUNTIME_F
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
 #[cfg(target_arch = "x86_64")]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn RtlDeleteFunctionTable(functiontable: *const IMAGE_RUNTIME_FUNCTION_ENTRY) -> super::super::super::Foundation::BOOLEAN {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -53970,7 +53851,6 @@ pub unsafe fn RtlDeleteFunctionTable(functiontable: *const IMAGE_RUNTIME_FUNCTIO
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-#[inline]
 pub unsafe fn RtlDeleteGrowableFunctionTable(dynamictable: *const ::core::ffi::c_void) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -53980,7 +53860,6 @@ pub unsafe fn RtlDeleteGrowableFunctionTable(dynamictable: *const ::core::ffi::c
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-#[inline]
 pub unsafe fn RtlGrowFunctionTable(dynamictable: *mut ::core::ffi::c_void, newentrycount: u32) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -53991,7 +53870,6 @@ pub unsafe fn RtlGrowFunctionTable(dynamictable: *mut ::core::ffi::c_void, newen
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn RtlInstallFunctionTableCallback<'a, P0>(tableidentifier: u64, baseaddress: u64, length: u32, callback: PGET_RUNTIME_FUNCTION_CALLBACK, context: *const ::core::ffi::c_void, outofprocesscallbackdll: P0) -> super::super::super::Foundation::BOOLEAN
 where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
@@ -54004,7 +53882,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
 #[cfg(target_arch = "aarch64")]
-#[inline]
 pub unsafe fn RtlLookupFunctionEntry(controlpc: usize, imagebase: *mut usize, historytable: *mut UNWIND_HISTORY_TABLE) -> *mut IMAGE_ARM64_RUNTIME_FUNCTION_ENTRY {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -54014,7 +53891,6 @@ pub unsafe fn RtlLookupFunctionEntry(controlpc: usize, imagebase: *mut usize, hi
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
 #[cfg(target_arch = "x86_64")]
-#[inline]
 pub unsafe fn RtlLookupFunctionEntry(controlpc: u64, imagebase: *mut u64, historytable: *mut UNWIND_HISTORY_TABLE) -> *mut IMAGE_RUNTIME_FUNCTION_ENTRY {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -54023,7 +53899,6 @@ pub unsafe fn RtlLookupFunctionEntry(controlpc: u64, imagebase: *mut u64, histor
     RtlLookupFunctionEntry(controlpc, ::core::mem::transmute(imagebase), ::core::mem::transmute(historytable))
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
-#[inline]
 pub unsafe fn RtlPcToFileHeader(pcvalue: *const ::core::ffi::c_void, baseofimage: *mut *mut ::core::ffi::c_void) -> *mut ::core::ffi::c_void {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -54033,7 +53908,6 @@ pub unsafe fn RtlPcToFileHeader(pcvalue: *const ::core::ffi::c_void, baseofimage
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn RtlRaiseException(exceptionrecord: *const EXCEPTION_RECORD) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -54043,7 +53917,6 @@ pub unsafe fn RtlRaiseException(exceptionrecord: *const EXCEPTION_RECORD) {
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`, `\"Win32_System_Kernel\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
-#[inline]
 pub unsafe fn RtlRestoreContext(contextrecord: *const CONTEXT, exceptionrecord: *const EXCEPTION_RECORD) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -54053,7 +53926,6 @@ pub unsafe fn RtlRestoreContext(contextrecord: *const CONTEXT, exceptionrecord: 
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn RtlUnwind(targetframe: *const ::core::ffi::c_void, targetip: *const ::core::ffi::c_void, exceptionrecord: *const EXCEPTION_RECORD, returnvalue: *const ::core::ffi::c_void) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -54064,7 +53936,6 @@ pub unsafe fn RtlUnwind(targetframe: *const ::core::ffi::c_void, targetip: *cons
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`, `\"Win32_System_Kernel\"`*"]
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
-#[inline]
 pub unsafe fn RtlUnwindEx(targetframe: *const ::core::ffi::c_void, targetip: *const ::core::ffi::c_void, exceptionrecord: *const EXCEPTION_RECORD, returnvalue: *const ::core::ffi::c_void, contextrecord: *const CONTEXT, historytable: *const UNWIND_HISTORY_TABLE) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -54075,7 +53946,6 @@ pub unsafe fn RtlUnwindEx(targetframe: *const ::core::ffi::c_void, targetip: *co
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`, `\"Win32_System_Kernel\"`*"]
 #[cfg(target_arch = "aarch64")]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
-#[inline]
 pub unsafe fn RtlVirtualUnwind(handlertype: RTL_VIRTUAL_UNWIND_HANDLER_TYPE, imagebase: usize, controlpc: usize, functionentry: *const IMAGE_ARM64_RUNTIME_FUNCTION_ENTRY, contextrecord: *mut CONTEXT, handlerdata: *mut *mut ::core::ffi::c_void, establisherframe: *mut usize, contextpointers: *mut KNONVOLATILE_CONTEXT_POINTERS_ARM64) -> super::super::Kernel::EXCEPTION_ROUTINE {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -54086,7 +53956,6 @@ pub unsafe fn RtlVirtualUnwind(handlertype: RTL_VIRTUAL_UNWIND_HANDLER_TYPE, ima
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`, `\"Win32_System_Kernel\"`*"]
 #[cfg(target_arch = "x86_64")]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
-#[inline]
 pub unsafe fn RtlVirtualUnwind(handlertype: RTL_VIRTUAL_UNWIND_HANDLER_TYPE, imagebase: u64, controlpc: u64, functionentry: *const IMAGE_RUNTIME_FUNCTION_ENTRY, contextrecord: *mut CONTEXT, handlerdata: *mut *mut ::core::ffi::c_void, establisherframe: *mut u64, contextpointers: *mut KNONVOLATILE_CONTEXT_POINTERS) -> super::super::Kernel::EXCEPTION_ROUTINE {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -56216,7 +56085,6 @@ impl ::core::fmt::Debug for ScriptExecutionKind {
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn SearchTreeForFile<'a, P0, P1>(rootpath: P0, inputpathname: P1, outputpathbuffer: ::windows::core::PSTR) -> super::super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
@@ -56230,7 +56098,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn SearchTreeForFileW<'a, P0, P1>(rootpath: P0, inputpathname: P1, outputpathbuffer: ::windows::core::PWSTR) -> super::super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
@@ -56243,7 +56110,6 @@ where
     SearchTreeForFileW(rootpath.into(), inputpathname.into(), ::core::mem::transmute(outputpathbuffer))
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
-#[inline]
 pub unsafe fn SetCheckUserInterruptShared(lpstartaddress: LPCALL_BACK_USER_INTERRUPT_ROUTINE) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -56252,7 +56118,6 @@ pub unsafe fn SetCheckUserInterruptShared(lpstartaddress: LPCALL_BACK_USER_INTER
     SetCheckUserInterruptShared(::core::mem::transmute(lpstartaddress))
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
-#[inline]
 pub unsafe fn SetErrorMode(umode: THREAD_ERROR_MODE) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -56263,7 +56128,6 @@ pub unsafe fn SetErrorMode(umode: THREAD_ERROR_MODE) -> u32 {
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`, `\"Win32_System_Kernel\"`, `\"Win32_System_SystemInformation\"`*"]
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel", feature = "Win32_System_SystemInformation"))]
-#[inline]
 pub unsafe fn SetImageConfigInformation(loadedimage: *mut LOADED_IMAGE, imageconfiginformation: *const IMAGE_LOAD_CONFIG_DIRECTORY64) -> super::super::super::Foundation::BOOL {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -56274,7 +56138,6 @@ pub unsafe fn SetImageConfigInformation(loadedimage: *mut LOADED_IMAGE, imagecon
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`, `\"Win32_System_Kernel\"`, `\"Win32_System_SystemInformation\"`*"]
 #[cfg(target_arch = "x86")]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel", feature = "Win32_System_SystemInformation"))]
-#[inline]
 pub unsafe fn SetImageConfigInformation(loadedimage: *mut LOADED_IMAGE, imageconfiginformation: *const IMAGE_LOAD_CONFIG_DIRECTORY32) -> super::super::super::Foundation::BOOL {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -56283,7 +56146,6 @@ pub unsafe fn SetImageConfigInformation(loadedimage: *mut LOADED_IMAGE, imagecon
     SetImageConfigInformation(::core::mem::transmute(loadedimage), ::core::mem::transmute(imageconfiginformation))
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
-#[inline]
 pub unsafe fn SetSymLoadError(error: u32) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -56293,7 +56155,6 @@ pub unsafe fn SetSymLoadError(error: u32) {
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`, `\"Win32_System_Kernel\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
-#[inline]
 pub unsafe fn SetThreadContext<'a, P0>(hthread: P0, lpcontext: *const CONTEXT) -> super::super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::super::super::Foundation::HANDLE>,
@@ -56306,7 +56167,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn SetThreadErrorMode(dwnewmode: THREAD_ERROR_MODE, lpoldmode: *const THREAD_ERROR_MODE) -> super::super::super::Foundation::BOOL {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -56316,7 +56176,6 @@ pub unsafe fn SetThreadErrorMode(dwnewmode: THREAD_ERROR_MODE, lpoldmode: *const
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`, `\"Win32_System_Kernel\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
-#[inline]
 pub unsafe fn SetUnhandledExceptionFilter(lptoplevelexceptionfilter: LPTOP_LEVEL_EXCEPTION_FILTER) -> LPTOP_LEVEL_EXCEPTION_FILTER {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -56327,7 +56186,6 @@ pub unsafe fn SetUnhandledExceptionFilter(lptoplevelexceptionfilter: LPTOP_LEVEL
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`, `\"Win32_System_Kernel\"`*"]
 #[cfg(any(target_arch = "x86", target_arch = "x86_64"))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
-#[inline]
 pub unsafe fn SetXStateFeaturesMask(context: *mut CONTEXT, featuremask: u64) -> super::super::super::Foundation::BOOL {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -56371,7 +56229,6 @@ impl ::core::fmt::Debug for SignatureComparison {
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn StackWalk<'a, P0, P1>(machinetype: u32, hprocess: P0, hthread: P1, stackframe: *mut STACKFRAME, contextrecord: *mut ::core::ffi::c_void, readmemoryroutine: PREAD_PROCESS_MEMORY_ROUTINE, functiontableaccessroutine: PFUNCTION_TABLE_ACCESS_ROUTINE, getmodulebaseroutine: PGET_MODULE_BASE_ROUTINE, translateaddress: PTRANSLATE_ADDRESS_ROUTINE) -> super::super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::super::super::Foundation::HANDLE>,
@@ -56385,7 +56242,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn StackWalk64<'a, P0, P1>(machinetype: u32, hprocess: P0, hthread: P1, stackframe: *mut STACKFRAME64, contextrecord: *mut ::core::ffi::c_void, readmemoryroutine: PREAD_PROCESS_MEMORY_ROUTINE64, functiontableaccessroutine: PFUNCTION_TABLE_ACCESS_ROUTINE64, getmodulebaseroutine: PGET_MODULE_BASE_ROUTINE64, translateaddress: PTRANSLATE_ADDRESS_ROUTINE64) -> super::super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::super::super::Foundation::HANDLE>,
@@ -56399,7 +56255,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn StackWalkEx<'a, P0, P1>(machinetype: u32, hprocess: P0, hthread: P1, stackframe: *mut STACKFRAME_EX, contextrecord: *mut ::core::ffi::c_void, readmemoryroutine: PREAD_PROCESS_MEMORY_ROUTINE64, functiontableaccessroutine: PFUNCTION_TABLE_ACCESS_ROUTINE64, getmodulebaseroutine: PGET_MODULE_BASE_ROUTINE64, translateaddress: PTRANSLATE_ADDRESS_ROUTINE64, flags: u32) -> super::super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::super::super::Foundation::HANDLE>,
@@ -56413,7 +56268,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn SymAddSourceStream<'a, P0, P1>(hprocess: P0, base: u64, streamfile: P1, buffer: *const u8, size: usize) -> super::super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::super::super::Foundation::HANDLE>,
@@ -56427,7 +56281,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn SymAddSourceStreamA<'a, P0, P1>(hprocess: P0, base: u64, streamfile: P1, buffer: *const u8, size: usize) -> super::super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::super::super::Foundation::HANDLE>,
@@ -56441,7 +56294,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn SymAddSourceStreamW<'a, P0, P1>(hprocess: P0, base: u64, filespec: P1, buffer: *const u8, size: usize) -> super::super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::super::super::Foundation::HANDLE>,
@@ -56455,7 +56307,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn SymAddSymbol<'a, P0, P1>(hprocess: P0, baseofdll: u64, name: P1, address: u64, size: u32, flags: u32) -> super::super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::super::super::Foundation::HANDLE>,
@@ -56469,7 +56320,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn SymAddSymbolW<'a, P0, P1>(hprocess: P0, baseofdll: u64, name: P1, address: u64, size: u32, flags: u32) -> super::super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::super::super::Foundation::HANDLE>,
@@ -56483,7 +56333,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn SymAddrIncludeInlineTrace<'a, P0>(hprocess: P0, address: u64) -> u32
 where
     P0: ::std::convert::Into<super::super::super::Foundation::HANDLE>,
@@ -56496,7 +56345,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn SymCleanup<'a, P0>(hprocess: P0) -> super::super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::super::super::Foundation::HANDLE>,
@@ -56509,7 +56357,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn SymCompareInlineTrace<'a, P0>(hprocess: P0, address1: u64, inlinecontext1: u32, retaddress1: u64, address2: u64, retaddress2: u64) -> u32
 where
     P0: ::std::convert::Into<super::super::super::Foundation::HANDLE>,
@@ -56522,7 +56369,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn SymDeleteSymbol<'a, P0, P1>(hprocess: P0, baseofdll: u64, name: P1, address: u64, flags: u32) -> super::super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::super::super::Foundation::HANDLE>,
@@ -56536,7 +56382,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn SymDeleteSymbolW<'a, P0, P1>(hprocess: P0, baseofdll: u64, name: P1, address: u64, flags: u32) -> super::super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::super::super::Foundation::HANDLE>,
@@ -56550,7 +56395,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn SymEnumLines<'a, P0, P1, P2>(hprocess: P0, base: u64, obj: P1, file: P2, enumlinescallback: PSYM_ENUMLINES_CALLBACK, usercontext: *const ::core::ffi::c_void) -> super::super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::super::super::Foundation::HANDLE>,
@@ -56565,7 +56409,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn SymEnumLinesW<'a, P0, P1, P2>(hprocess: P0, base: u64, obj: P1, file: P2, enumlinescallback: PSYM_ENUMLINES_CALLBACKW, usercontext: *const ::core::ffi::c_void) -> super::super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::super::super::Foundation::HANDLE>,
@@ -56580,7 +56423,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn SymEnumProcesses(enumprocessescallback: PSYM_ENUMPROCESSES_CALLBACK, usercontext: *const ::core::ffi::c_void) -> super::super::super::Foundation::BOOL {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -56590,7 +56432,6 @@ pub unsafe fn SymEnumProcesses(enumprocessescallback: PSYM_ENUMPROCESSES_CALLBAC
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn SymEnumSourceFileTokens<'a, P0>(hprocess: P0, base: u64, callback: PENUMSOURCEFILETOKENSCALLBACK) -> super::super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::super::super::Foundation::HANDLE>,
@@ -56603,7 +56444,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn SymEnumSourceFiles<'a, P0, P1>(hprocess: P0, modbase: u64, mask: P1, cbsrcfiles: PSYM_ENUMSOURCEFILES_CALLBACK, usercontext: *const ::core::ffi::c_void) -> super::super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::super::super::Foundation::HANDLE>,
@@ -56617,7 +56457,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn SymEnumSourceFilesW<'a, P0, P1>(hprocess: P0, modbase: u64, mask: P1, cbsrcfiles: PSYM_ENUMSOURCEFILES_CALLBACKW, usercontext: *const ::core::ffi::c_void) -> super::super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::super::super::Foundation::HANDLE>,
@@ -56631,7 +56470,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn SymEnumSourceLines<'a, P0, P1, P2>(hprocess: P0, base: u64, obj: P1, file: P2, line: u32, flags: u32, enumlinescallback: PSYM_ENUMLINES_CALLBACK, usercontext: *const ::core::ffi::c_void) -> super::super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::super::super::Foundation::HANDLE>,
@@ -56646,7 +56484,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn SymEnumSourceLinesW<'a, P0, P1, P2>(hprocess: P0, base: u64, obj: P1, file: P2, line: u32, flags: u32, enumlinescallback: PSYM_ENUMLINES_CALLBACKW, usercontext: *const ::core::ffi::c_void) -> super::super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::super::super::Foundation::HANDLE>,
@@ -56661,7 +56498,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn SymEnumSym<'a, P0>(hprocess: P0, baseofdll: u64, enumsymbolscallback: PSYM_ENUMERATESYMBOLS_CALLBACK, usercontext: *const ::core::ffi::c_void) -> super::super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::super::super::Foundation::HANDLE>,
@@ -56674,7 +56510,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn SymEnumSymbols<'a, P0, P1>(hprocess: P0, baseofdll: u64, mask: P1, enumsymbolscallback: PSYM_ENUMERATESYMBOLS_CALLBACK, usercontext: *const ::core::ffi::c_void) -> super::super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::super::super::Foundation::HANDLE>,
@@ -56688,7 +56523,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn SymEnumSymbolsEx<'a, P0, P1>(hprocess: P0, baseofdll: u64, mask: P1, enumsymbolscallback: PSYM_ENUMERATESYMBOLS_CALLBACK, usercontext: *const ::core::ffi::c_void, options: u32) -> super::super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::super::super::Foundation::HANDLE>,
@@ -56702,7 +56536,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn SymEnumSymbolsExW<'a, P0, P1>(hprocess: P0, baseofdll: u64, mask: P1, enumsymbolscallback: PSYM_ENUMERATESYMBOLS_CALLBACKW, usercontext: *const ::core::ffi::c_void, options: u32) -> super::super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::super::super::Foundation::HANDLE>,
@@ -56716,7 +56549,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn SymEnumSymbolsForAddr<'a, P0>(hprocess: P0, address: u64, enumsymbolscallback: PSYM_ENUMERATESYMBOLS_CALLBACK, usercontext: *const ::core::ffi::c_void) -> super::super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::super::super::Foundation::HANDLE>,
@@ -56729,7 +56561,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn SymEnumSymbolsForAddrW<'a, P0>(hprocess: P0, address: u64, enumsymbolscallback: PSYM_ENUMERATESYMBOLS_CALLBACKW, usercontext: *const ::core::ffi::c_void) -> super::super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::super::super::Foundation::HANDLE>,
@@ -56742,7 +56573,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn SymEnumSymbolsW<'a, P0, P1>(hprocess: P0, baseofdll: u64, mask: P1, enumsymbolscallback: PSYM_ENUMERATESYMBOLS_CALLBACKW, usercontext: *const ::core::ffi::c_void) -> super::super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::super::super::Foundation::HANDLE>,
@@ -56756,7 +56586,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn SymEnumTypes<'a, P0>(hprocess: P0, baseofdll: u64, enumsymbolscallback: PSYM_ENUMERATESYMBOLS_CALLBACK, usercontext: *const ::core::ffi::c_void) -> super::super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::super::super::Foundation::HANDLE>,
@@ -56769,7 +56598,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn SymEnumTypesByName<'a, P0, P1>(hprocess: P0, baseofdll: u64, mask: P1, enumsymbolscallback: PSYM_ENUMERATESYMBOLS_CALLBACK, usercontext: *const ::core::ffi::c_void) -> super::super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::super::super::Foundation::HANDLE>,
@@ -56783,7 +56611,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn SymEnumTypesByNameW<'a, P0, P1>(hprocess: P0, baseofdll: u64, mask: P1, enumsymbolscallback: PSYM_ENUMERATESYMBOLS_CALLBACKW, usercontext: *const ::core::ffi::c_void) -> super::super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::super::super::Foundation::HANDLE>,
@@ -56797,7 +56624,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn SymEnumTypesW<'a, P0>(hprocess: P0, baseofdll: u64, enumsymbolscallback: PSYM_ENUMERATESYMBOLS_CALLBACKW, usercontext: *const ::core::ffi::c_void) -> super::super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::super::super::Foundation::HANDLE>,
@@ -56811,7 +56637,6 @@ where
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn SymEnumerateModules<'a, P0>(hprocess: P0, enummodulescallback: PSYM_ENUMMODULES_CALLBACK, usercontext: *const ::core::ffi::c_void) -> super::super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::super::super::Foundation::HANDLE>,
@@ -56824,7 +56649,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn SymEnumerateModules64<'a, P0>(hprocess: P0, enummodulescallback: PSYM_ENUMMODULES_CALLBACK64, usercontext: *const ::core::ffi::c_void) -> super::super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::super::super::Foundation::HANDLE>,
@@ -56837,7 +56661,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn SymEnumerateModulesW64<'a, P0>(hprocess: P0, enummodulescallback: PSYM_ENUMMODULES_CALLBACKW64, usercontext: *const ::core::ffi::c_void) -> super::super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::super::super::Foundation::HANDLE>,
@@ -56851,7 +56674,6 @@ where
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn SymEnumerateSymbols<'a, P0>(hprocess: P0, baseofdll: u32, enumsymbolscallback: PSYM_ENUMSYMBOLS_CALLBACK, usercontext: *const ::core::ffi::c_void) -> super::super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::super::super::Foundation::HANDLE>,
@@ -56864,7 +56686,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn SymEnumerateSymbols64<'a, P0>(hprocess: P0, baseofdll: u64, enumsymbolscallback: PSYM_ENUMSYMBOLS_CALLBACK64, usercontext: *const ::core::ffi::c_void) -> super::super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::super::super::Foundation::HANDLE>,
@@ -56878,7 +56699,6 @@ where
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn SymEnumerateSymbolsW<'a, P0>(hprocess: P0, baseofdll: u32, enumsymbolscallback: PSYM_ENUMSYMBOLS_CALLBACKW, usercontext: *const ::core::ffi::c_void) -> super::super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::super::super::Foundation::HANDLE>,
@@ -56891,7 +56711,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn SymEnumerateSymbolsW64<'a, P0>(hprocess: P0, baseofdll: u64, enumsymbolscallback: PSYM_ENUMSYMBOLS_CALLBACK64W, usercontext: *const ::core::ffi::c_void) -> super::super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::super::super::Foundation::HANDLE>,
@@ -56904,7 +56723,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn SymFindDebugInfoFile<'a, P0, P1>(hprocess: P0, filename: P1, debugfilepath: ::windows::core::PSTR, callback: PFIND_DEBUG_FILE_CALLBACK, callerdata: *const ::core::ffi::c_void) -> ::windows::core::Result<super::super::super::Foundation::HANDLE>
 where
     P0: ::std::convert::Into<super::super::super::Foundation::HANDLE>,
@@ -56919,7 +56737,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn SymFindDebugInfoFileW<'a, P0, P1>(hprocess: P0, filename: P1, debugfilepath: ::windows::core::PWSTR, callback: PFIND_DEBUG_FILE_CALLBACKW, callerdata: *const ::core::ffi::c_void) -> ::windows::core::Result<super::super::super::Foundation::HANDLE>
 where
     P0: ::std::convert::Into<super::super::super::Foundation::HANDLE>,
@@ -56934,7 +56751,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn SymFindExecutableImage<'a, P0, P1>(hprocess: P0, filename: P1, imagefilepath: ::windows::core::PSTR, callback: PFIND_EXE_FILE_CALLBACK, callerdata: *const ::core::ffi::c_void) -> ::windows::core::Result<super::super::super::Foundation::HANDLE>
 where
     P0: ::std::convert::Into<super::super::super::Foundation::HANDLE>,
@@ -56949,7 +56765,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn SymFindExecutableImageW<'a, P0, P1>(hprocess: P0, filename: P1, imagefilepath: ::windows::core::PWSTR, callback: PFIND_EXE_FILE_CALLBACKW, callerdata: *const ::core::ffi::c_void) -> ::windows::core::Result<super::super::super::Foundation::HANDLE>
 where
     P0: ::std::convert::Into<super::super::super::Foundation::HANDLE>,
@@ -56964,7 +56779,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn SymFindFileInPath<'a, P0, P1, P2>(hprocess: P0, searchpatha: P1, filename: P2, id: *const ::core::ffi::c_void, two: u32, three: u32, flags: SYM_FIND_ID_OPTION, foundfile: ::windows::core::PSTR, callback: PFINDFILEINPATHCALLBACK, context: *const ::core::ffi::c_void) -> super::super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::super::super::Foundation::HANDLE>,
@@ -56979,7 +56793,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn SymFindFileInPathW<'a, P0, P1, P2>(hprocess: P0, searchpatha: P1, filename: P2, id: *const ::core::ffi::c_void, two: u32, three: u32, flags: SYM_FIND_ID_OPTION, foundfile: ::windows::core::PWSTR, callback: PFINDFILEINPATHCALLBACKW, context: *const ::core::ffi::c_void) -> super::super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::super::super::Foundation::HANDLE>,
@@ -56994,7 +56807,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn SymFromAddr<'a, P0>(hprocess: P0, address: u64, displacement: *mut u64, symbol: *mut SYMBOL_INFO) -> super::super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::super::super::Foundation::HANDLE>,
@@ -57007,7 +56819,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn SymFromAddrW<'a, P0>(hprocess: P0, address: u64, displacement: *mut u64, symbol: *mut SYMBOL_INFOW) -> super::super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::super::super::Foundation::HANDLE>,
@@ -57020,7 +56831,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn SymFromIndex<'a, P0>(hprocess: P0, baseofdll: u64, index: u32, symbol: *mut SYMBOL_INFO) -> super::super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::super::super::Foundation::HANDLE>,
@@ -57033,7 +56843,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn SymFromIndexW<'a, P0>(hprocess: P0, baseofdll: u64, index: u32, symbol: *mut SYMBOL_INFOW) -> super::super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::super::super::Foundation::HANDLE>,
@@ -57046,7 +56855,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn SymFromInlineContext<'a, P0>(hprocess: P0, address: u64, inlinecontext: u32, displacement: *mut u64, symbol: *mut SYMBOL_INFO) -> super::super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::super::super::Foundation::HANDLE>,
@@ -57059,7 +56867,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn SymFromInlineContextW<'a, P0>(hprocess: P0, address: u64, inlinecontext: u32, displacement: *mut u64, symbol: *mut SYMBOL_INFOW) -> super::super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::super::super::Foundation::HANDLE>,
@@ -57072,7 +56879,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn SymFromName<'a, P0, P1>(hprocess: P0, name: P1, symbol: *mut SYMBOL_INFO) -> super::super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::super::super::Foundation::HANDLE>,
@@ -57086,7 +56892,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn SymFromNameW<'a, P0, P1>(hprocess: P0, name: P1, symbol: *mut SYMBOL_INFOW) -> super::super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::super::super::Foundation::HANDLE>,
@@ -57100,7 +56905,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn SymFromToken<'a, P0>(hprocess: P0, base: u64, token: u32, symbol: *mut SYMBOL_INFO) -> super::super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::super::super::Foundation::HANDLE>,
@@ -57113,7 +56917,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn SymFromTokenW<'a, P0>(hprocess: P0, base: u64, token: u32, symbol: *mut SYMBOL_INFOW) -> super::super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::super::super::Foundation::HANDLE>,
@@ -57127,7 +56930,6 @@ where
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn SymFunctionTableAccess<'a, P0>(hprocess: P0, addrbase: u32) -> *mut ::core::ffi::c_void
 where
     P0: ::std::convert::Into<super::super::super::Foundation::HANDLE>,
@@ -57140,7 +56942,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn SymFunctionTableAccess64<'a, P0>(hprocess: P0, addrbase: u64) -> *mut ::core::ffi::c_void
 where
     P0: ::std::convert::Into<super::super::super::Foundation::HANDLE>,
@@ -57153,7 +56954,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn SymFunctionTableAccess64AccessRoutines<'a, P0>(hprocess: P0, addrbase: u64, readmemoryroutine: PREAD_PROCESS_MEMORY_ROUTINE64, getmodulebaseroutine: PGET_MODULE_BASE_ROUTINE64) -> *mut ::core::ffi::c_void
 where
     P0: ::std::convert::Into<super::super::super::Foundation::HANDLE>,
@@ -57166,7 +56966,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn SymGetExtendedOption(option: IMAGEHLP_EXTENDED_OPTIONS) -> super::super::super::Foundation::BOOL {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -57176,7 +56975,6 @@ pub unsafe fn SymGetExtendedOption(option: IMAGEHLP_EXTENDED_OPTIONS) -> super::
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn SymGetFileLineOffsets64<'a, P0, P1, P2>(hprocess: P0, modulename: P1, filename: P2, buffer: &mut [u64]) -> u32
 where
     P0: ::std::convert::Into<super::super::super::Foundation::HANDLE>,
@@ -57190,7 +56988,6 @@ where
     SymGetFileLineOffsets64(hprocess.into(), modulename.into(), filename.into(), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(buffer)), buffer.len() as _)
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
-#[inline]
 pub unsafe fn SymGetHomeDirectory(r#type: IMAGEHLP_HD_TYPE, dir: &mut [u8]) -> ::windows::core::PSTR {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -57199,7 +56996,6 @@ pub unsafe fn SymGetHomeDirectory(r#type: IMAGEHLP_HD_TYPE, dir: &mut [u8]) -> :
     SymGetHomeDirectory(r#type, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(dir)), dir.len() as _)
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
-#[inline]
 pub unsafe fn SymGetHomeDirectoryW(r#type: IMAGEHLP_HD_TYPE, dir: &mut [u16]) -> ::windows::core::PWSTR {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -57210,7 +57006,6 @@ pub unsafe fn SymGetHomeDirectoryW(r#type: IMAGEHLP_HD_TYPE, dir: &mut [u16]) ->
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn SymGetLineFromAddr<'a, P0>(hprocess: P0, dwaddr: u32, pdwdisplacement: *mut u32, line: *mut IMAGEHLP_LINE) -> super::super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::super::super::Foundation::HANDLE>,
@@ -57223,7 +57018,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn SymGetLineFromAddr64<'a, P0>(hprocess: P0, qwaddr: u64, pdwdisplacement: *mut u32, line64: *mut IMAGEHLP_LINE64) -> super::super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::super::super::Foundation::HANDLE>,
@@ -57236,7 +57030,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn SymGetLineFromAddrW64<'a, P0>(hprocess: P0, dwaddr: u64, pdwdisplacement: *mut u32, line: *mut IMAGEHLP_LINEW64) -> super::super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::super::super::Foundation::HANDLE>,
@@ -57249,7 +57042,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn SymGetLineFromInlineContext<'a, P0>(hprocess: P0, qwaddr: u64, inlinecontext: u32, qwmodulebaseaddress: u64, pdwdisplacement: *mut u32, line64: *mut IMAGEHLP_LINE64) -> super::super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::super::super::Foundation::HANDLE>,
@@ -57262,7 +57054,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn SymGetLineFromInlineContextW<'a, P0>(hprocess: P0, dwaddr: u64, inlinecontext: u32, qwmodulebaseaddress: u64, pdwdisplacement: *mut u32, line: *mut IMAGEHLP_LINEW64) -> super::super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::super::super::Foundation::HANDLE>,
@@ -57276,7 +57067,6 @@ where
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn SymGetLineFromName<'a, P0, P1, P2>(hprocess: P0, modulename: P1, filename: P2, dwlinenumber: u32, pldisplacement: *mut i32, line: *mut IMAGEHLP_LINE) -> super::super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::super::super::Foundation::HANDLE>,
@@ -57291,7 +57081,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn SymGetLineFromName64<'a, P0, P1, P2>(hprocess: P0, modulename: P1, filename: P2, dwlinenumber: u32, pldisplacement: *mut i32, line: *mut IMAGEHLP_LINE64) -> super::super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::super::super::Foundation::HANDLE>,
@@ -57306,7 +57095,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn SymGetLineFromNameW64<'a, P0, P1, P2>(hprocess: P0, modulename: P1, filename: P2, dwlinenumber: u32, pldisplacement: *mut i32, line: *mut IMAGEHLP_LINEW64) -> super::super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::super::super::Foundation::HANDLE>,
@@ -57322,7 +57110,6 @@ where
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn SymGetLineNext<'a, P0>(hprocess: P0, line: *mut IMAGEHLP_LINE) -> super::super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::super::super::Foundation::HANDLE>,
@@ -57335,7 +57122,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn SymGetLineNext64<'a, P0>(hprocess: P0, line: *mut IMAGEHLP_LINE64) -> super::super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::super::super::Foundation::HANDLE>,
@@ -57348,7 +57134,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn SymGetLineNextW64<'a, P0>(hprocess: P0, line: *mut IMAGEHLP_LINEW64) -> super::super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::super::super::Foundation::HANDLE>,
@@ -57362,7 +57147,6 @@ where
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn SymGetLinePrev<'a, P0>(hprocess: P0, line: *mut IMAGEHLP_LINE) -> super::super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::super::super::Foundation::HANDLE>,
@@ -57375,7 +57159,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn SymGetLinePrev64<'a, P0>(hprocess: P0, line: *mut IMAGEHLP_LINE64) -> super::super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::super::super::Foundation::HANDLE>,
@@ -57388,7 +57171,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn SymGetLinePrevW64<'a, P0>(hprocess: P0, line: *mut IMAGEHLP_LINEW64) -> super::super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::super::super::Foundation::HANDLE>,
@@ -57402,7 +57184,6 @@ where
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn SymGetModuleBase<'a, P0>(hprocess: P0, dwaddr: u32) -> u32
 where
     P0: ::std::convert::Into<super::super::super::Foundation::HANDLE>,
@@ -57415,7 +57196,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn SymGetModuleBase64<'a, P0>(hprocess: P0, qwaddr: u64) -> u64
 where
     P0: ::std::convert::Into<super::super::super::Foundation::HANDLE>,
@@ -57429,7 +57209,6 @@ where
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn SymGetModuleInfo<'a, P0>(hprocess: P0, dwaddr: u32, moduleinfo: *mut IMAGEHLP_MODULE) -> super::super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::super::super::Foundation::HANDLE>,
@@ -57442,7 +57221,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn SymGetModuleInfo64<'a, P0>(hprocess: P0, qwaddr: u64, moduleinfo: *mut IMAGEHLP_MODULE64) -> super::super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::super::super::Foundation::HANDLE>,
@@ -57456,7 +57234,6 @@ where
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn SymGetModuleInfoW<'a, P0>(hprocess: P0, dwaddr: u32, moduleinfo: *mut IMAGEHLP_MODULEW) -> super::super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::super::super::Foundation::HANDLE>,
@@ -57469,7 +57246,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn SymGetModuleInfoW64<'a, P0>(hprocess: P0, qwaddr: u64, moduleinfo: *mut IMAGEHLP_MODULEW64) -> super::super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::super::super::Foundation::HANDLE>,
@@ -57482,7 +57258,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn SymGetOmaps<'a, P0>(hprocess: P0, baseofdll: u64, omapto: *mut *mut OMAP, comapto: *mut u64, omapfrom: *mut *mut OMAP, comapfrom: *mut u64) -> super::super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::super::super::Foundation::HANDLE>,
@@ -57494,7 +57269,6 @@ where
     SymGetOmaps(hprocess.into(), baseofdll, ::core::mem::transmute(omapto), ::core::mem::transmute(comapto), ::core::mem::transmute(omapfrom), ::core::mem::transmute(comapfrom))
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
-#[inline]
 pub unsafe fn SymGetOptions() -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -57504,7 +57278,6 @@ pub unsafe fn SymGetOptions() -> u32 {
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn SymGetScope<'a, P0>(hprocess: P0, baseofdll: u64, index: u32, symbol: *mut SYMBOL_INFO) -> super::super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::super::super::Foundation::HANDLE>,
@@ -57517,7 +57290,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn SymGetScopeW<'a, P0>(hprocess: P0, baseofdll: u64, index: u32, symbol: *mut SYMBOL_INFOW) -> super::super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::super::super::Foundation::HANDLE>,
@@ -57530,7 +57302,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn SymGetSearchPath<'a, P0>(hprocess: P0, searchpatha: &mut [u8]) -> super::super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::super::super::Foundation::HANDLE>,
@@ -57543,7 +57314,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn SymGetSearchPathW<'a, P0>(hprocess: P0, searchpatha: &mut [u16]) -> super::super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::super::super::Foundation::HANDLE>,
@@ -57556,7 +57326,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn SymGetSourceFile<'a, P0, P1, P2>(hprocess: P0, base: u64, params: P1, filespec: P2, filepath: &mut [u8]) -> super::super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::super::super::Foundation::HANDLE>,
@@ -57571,7 +57340,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn SymGetSourceFileChecksum<'a, P0, P1>(hprocess: P0, base: u64, filespec: P1, pchecksumtype: *mut u32, pchecksum: &mut [u8], pactualbyteswritten: *mut u32) -> super::super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::super::super::Foundation::HANDLE>,
@@ -57585,7 +57353,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn SymGetSourceFileChecksumW<'a, P0, P1>(hprocess: P0, base: u64, filespec: P1, pchecksumtype: *mut u32, pchecksum: &mut [u8], pactualbyteswritten: *mut u32) -> super::super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::super::super::Foundation::HANDLE>,
@@ -57599,7 +57366,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn SymGetSourceFileFromToken<'a, P0, P1>(hprocess: P0, token: *const ::core::ffi::c_void, params: P1, filepath: &mut [u8]) -> super::super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::super::super::Foundation::HANDLE>,
@@ -57613,7 +57379,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn SymGetSourceFileFromTokenByTokenName<'a, P0, P1, P2>(hprocess: P0, token: *const ::core::ffi::c_void, tokenname: P1, params: P2, filepath: &mut [u8]) -> super::super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::super::super::Foundation::HANDLE>,
@@ -57628,7 +57393,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn SymGetSourceFileFromTokenByTokenNameW<'a, P0, P1, P2>(hprocess: P0, token: *const ::core::ffi::c_void, tokenname: P1, params: P2, filepath: &mut [u16]) -> super::super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::super::super::Foundation::HANDLE>,
@@ -57643,7 +57407,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn SymGetSourceFileFromTokenW<'a, P0, P1>(hprocess: P0, token: *const ::core::ffi::c_void, params: P1, filepath: &mut [u16]) -> super::super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::super::super::Foundation::HANDLE>,
@@ -57657,7 +57420,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn SymGetSourceFileToken<'a, P0, P1>(hprocess: P0, base: u64, filespec: P1, token: *mut *mut ::core::ffi::c_void, size: *mut u32) -> super::super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::super::super::Foundation::HANDLE>,
@@ -57671,7 +57433,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn SymGetSourceFileTokenByTokenName<'a, P0, P1, P2, P3>(hprocess: P0, base: u64, filespec: P1, tokenname: P2, tokenparameters: P3, token: *mut *mut ::core::ffi::c_void, size: *mut u32) -> super::super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::super::super::Foundation::HANDLE>,
@@ -57687,7 +57448,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn SymGetSourceFileTokenByTokenNameW<'a, P0, P1, P2, P3>(hprocess: P0, base: u64, filespec: P1, tokenname: P2, tokenparameters: P3, token: *mut *mut ::core::ffi::c_void, size: *mut u32) -> super::super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::super::super::Foundation::HANDLE>,
@@ -57703,7 +57463,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn SymGetSourceFileTokenW<'a, P0, P1>(hprocess: P0, base: u64, filespec: P1, token: *mut *mut ::core::ffi::c_void, size: *mut u32) -> super::super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::super::super::Foundation::HANDLE>,
@@ -57717,7 +57476,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn SymGetSourceFileW<'a, P0, P1, P2>(hprocess: P0, base: u64, params: P1, filespec: P2, filepath: &mut [u16]) -> super::super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::super::super::Foundation::HANDLE>,
@@ -57732,7 +57490,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn SymGetSourceVarFromToken<'a, P0, P1, P2>(hprocess: P0, token: *const ::core::ffi::c_void, params: P1, varname: P2, value: &mut [u8]) -> super::super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::super::super::Foundation::HANDLE>,
@@ -57747,7 +57504,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn SymGetSourceVarFromTokenW<'a, P0, P1, P2>(hprocess: P0, token: *const ::core::ffi::c_void, params: P1, varname: P2, value: &mut [u16]) -> super::super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::super::super::Foundation::HANDLE>,
@@ -57763,7 +57519,6 @@ where
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn SymGetSymFromAddr<'a, P0>(hprocess: P0, dwaddr: u32, pdwdisplacement: *mut u32, symbol: *mut IMAGEHLP_SYMBOL) -> super::super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::super::super::Foundation::HANDLE>,
@@ -57776,7 +57531,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn SymGetSymFromAddr64<'a, P0>(hprocess: P0, qwaddr: u64, pdwdisplacement: *mut u64, symbol: *mut IMAGEHLP_SYMBOL64) -> super::super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::super::super::Foundation::HANDLE>,
@@ -57790,7 +57544,6 @@ where
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn SymGetSymFromName<'a, P0, P1>(hprocess: P0, name: P1, symbol: *mut IMAGEHLP_SYMBOL) -> super::super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::super::super::Foundation::HANDLE>,
@@ -57804,7 +57557,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn SymGetSymFromName64<'a, P0, P1>(hprocess: P0, name: P1, symbol: *mut IMAGEHLP_SYMBOL64) -> super::super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::super::super::Foundation::HANDLE>,
@@ -57819,7 +57571,6 @@ where
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn SymGetSymNext<'a, P0>(hprocess: P0, symbol: *mut IMAGEHLP_SYMBOL) -> super::super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::super::super::Foundation::HANDLE>,
@@ -57832,7 +57583,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn SymGetSymNext64<'a, P0>(hprocess: P0, symbol: *mut IMAGEHLP_SYMBOL64) -> super::super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::super::super::Foundation::HANDLE>,
@@ -57846,7 +57596,6 @@ where
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn SymGetSymPrev<'a, P0>(hprocess: P0, symbol: *mut IMAGEHLP_SYMBOL) -> super::super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::super::super::Foundation::HANDLE>,
@@ -57859,7 +57608,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn SymGetSymPrev64<'a, P0>(hprocess: P0, symbol: *mut IMAGEHLP_SYMBOL64) -> super::super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::super::super::Foundation::HANDLE>,
@@ -57872,7 +57620,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn SymGetSymbolFile<'a, P0, P1, P2>(hprocess: P0, sympath: P1, imagefile: P2, r#type: IMAGEHLP_SF_TYPE, symbolfile: &mut [u8], dbgfile: &mut [u8]) -> super::super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::super::super::Foundation::HANDLE>,
@@ -57887,7 +57634,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn SymGetSymbolFileW<'a, P0, P1, P2>(hprocess: P0, sympath: P1, imagefile: P2, r#type: IMAGEHLP_SF_TYPE, symbolfile: &mut [u16], dbgfile: &mut [u16]) -> super::super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::super::super::Foundation::HANDLE>,
@@ -57902,7 +57648,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn SymGetTypeFromName<'a, P0, P1>(hprocess: P0, baseofdll: u64, name: P1, symbol: *mut SYMBOL_INFO) -> super::super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::super::super::Foundation::HANDLE>,
@@ -57916,7 +57661,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn SymGetTypeFromNameW<'a, P0, P1>(hprocess: P0, baseofdll: u64, name: P1, symbol: *mut SYMBOL_INFOW) -> super::super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::super::super::Foundation::HANDLE>,
@@ -57930,7 +57674,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn SymGetTypeInfo<'a, P0>(hprocess: P0, modbase: u64, typeid: u32, gettype: IMAGEHLP_SYMBOL_TYPE_INFO, pinfo: *mut ::core::ffi::c_void) -> super::super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::super::super::Foundation::HANDLE>,
@@ -57943,7 +57686,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn SymGetTypeInfoEx<'a, P0>(hprocess: P0, modbase: u64, params: *mut IMAGEHLP_GET_TYPE_INFO_PARAMS) -> super::super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::super::super::Foundation::HANDLE>,
@@ -57956,7 +57698,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn SymGetUnwindInfo<'a, P0>(hprocess: P0, address: u64, buffer: *mut ::core::ffi::c_void, size: *mut u32) -> super::super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::super::super::Foundation::HANDLE>,
@@ -57969,7 +57710,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn SymInitialize<'a, P0, P1, P2>(hprocess: P0, usersearchpath: P1, finvadeprocess: P2) -> super::super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::super::super::Foundation::HANDLE>,
@@ -57984,7 +57724,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn SymInitializeW<'a, P0, P1, P2>(hprocess: P0, usersearchpath: P1, finvadeprocess: P2) -> super::super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::super::super::Foundation::HANDLE>,
@@ -58000,7 +57739,6 @@ where
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn SymLoadModule<'a, P0, P1, P2, P3>(hprocess: P0, hfile: P1, imagename: P2, modulename: P3, baseofdll: u32, sizeofdll: u32) -> u32
 where
     P0: ::std::convert::Into<super::super::super::Foundation::HANDLE>,
@@ -58016,7 +57754,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn SymLoadModule64<'a, P0, P1, P2, P3>(hprocess: P0, hfile: P1, imagename: P2, modulename: P3, baseofdll: u64, sizeofdll: u32) -> u64
 where
     P0: ::std::convert::Into<super::super::super::Foundation::HANDLE>,
@@ -58032,7 +57769,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn SymLoadModuleEx<'a, P0, P1, P2, P3>(hprocess: P0, hfile: P1, imagename: P2, modulename: P3, baseofdll: u64, dllsize: u32, data: *const MODLOAD_DATA, flags: SYM_LOAD_FLAGS) -> u64
 where
     P0: ::std::convert::Into<super::super::super::Foundation::HANDLE>,
@@ -58048,7 +57784,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn SymLoadModuleExW<'a, P0, P1, P2, P3>(hprocess: P0, hfile: P1, imagename: P2, modulename: P3, baseofdll: u64, dllsize: u32, data: *const MODLOAD_DATA, flags: SYM_LOAD_FLAGS) -> u64
 where
     P0: ::std::convert::Into<super::super::super::Foundation::HANDLE>,
@@ -58064,7 +57799,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn SymMatchFileName<'a, P0, P1>(filename: P0, r#match: P1, filenamestop: *mut ::windows::core::PSTR, matchstop: *mut ::windows::core::PSTR) -> super::super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
@@ -58078,7 +57812,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn SymMatchFileNameW<'a, P0, P1>(filename: P0, r#match: P1, filenamestop: *mut ::windows::core::PWSTR, matchstop: *mut ::windows::core::PWSTR) -> super::super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
@@ -58092,7 +57825,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn SymMatchString<'a, P0, P1, P2>(string: P0, expression: P1, fcase: P2) -> super::super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
@@ -58107,7 +57839,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn SymMatchStringA<'a, P0, P1, P2>(string: P0, expression: P1, fcase: P2) -> super::super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
@@ -58122,7 +57853,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn SymMatchStringW<'a, P0, P1, P2>(string: P0, expression: P1, fcase: P2) -> super::super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
@@ -58137,7 +57867,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn SymNext<'a, P0>(hprocess: P0, si: *mut SYMBOL_INFO) -> super::super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::super::super::Foundation::HANDLE>,
@@ -58150,7 +57879,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn SymNextW<'a, P0>(hprocess: P0, siw: *mut SYMBOL_INFOW) -> super::super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::super::super::Foundation::HANDLE>,
@@ -58163,7 +57891,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn SymPrev<'a, P0>(hprocess: P0, si: *mut SYMBOL_INFO) -> super::super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::super::super::Foundation::HANDLE>,
@@ -58176,7 +57903,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn SymPrevW<'a, P0>(hprocess: P0, siw: *mut SYMBOL_INFOW) -> super::super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::super::super::Foundation::HANDLE>,
@@ -58189,7 +57915,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn SymQueryInlineTrace<'a, P0>(hprocess: P0, startaddress: u64, startcontext: u32, startretaddress: u64, curaddress: u64, curcontext: *mut u32, curframeindex: *mut u32) -> super::super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::super::super::Foundation::HANDLE>,
@@ -58202,7 +57927,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn SymRefreshModuleList<'a, P0>(hprocess: P0) -> super::super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::super::super::Foundation::HANDLE>,
@@ -58216,7 +57940,6 @@ where
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn SymRegisterCallback<'a, P0>(hprocess: P0, callbackfunction: PSYMBOL_REGISTERED_CALLBACK, usercontext: *const ::core::ffi::c_void) -> super::super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::super::super::Foundation::HANDLE>,
@@ -58229,7 +57952,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn SymRegisterCallback64<'a, P0>(hprocess: P0, callbackfunction: PSYMBOL_REGISTERED_CALLBACK64, usercontext: u64) -> super::super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::super::super::Foundation::HANDLE>,
@@ -58242,7 +57964,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn SymRegisterCallbackW64<'a, P0>(hprocess: P0, callbackfunction: PSYMBOL_REGISTERED_CALLBACK64, usercontext: u64) -> super::super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::super::super::Foundation::HANDLE>,
@@ -58256,7 +57977,6 @@ where
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn SymRegisterFunctionEntryCallback<'a, P0>(hprocess: P0, callbackfunction: PSYMBOL_FUNCENTRY_CALLBACK, usercontext: *const ::core::ffi::c_void) -> super::super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::super::super::Foundation::HANDLE>,
@@ -58269,7 +57989,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn SymRegisterFunctionEntryCallback64<'a, P0>(hprocess: P0, callbackfunction: PSYMBOL_FUNCENTRY_CALLBACK64, usercontext: u64) -> super::super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::super::super::Foundation::HANDLE>,
@@ -58282,7 +58001,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn SymSearch<'a, P0, P1>(hprocess: P0, baseofdll: u64, index: u32, symtag: u32, mask: P1, address: u64, enumsymbolscallback: PSYM_ENUMERATESYMBOLS_CALLBACK, usercontext: *const ::core::ffi::c_void, options: u32) -> super::super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::super::super::Foundation::HANDLE>,
@@ -58296,7 +58014,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn SymSearchW<'a, P0, P1>(hprocess: P0, baseofdll: u64, index: u32, symtag: u32, mask: P1, address: u64, enumsymbolscallback: PSYM_ENUMERATESYMBOLS_CALLBACKW, usercontext: *const ::core::ffi::c_void, options: u32) -> super::super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::super::super::Foundation::HANDLE>,
@@ -58310,7 +58027,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn SymSetContext<'a, P0>(hprocess: P0, stackframe: *const IMAGEHLP_STACK_FRAME, context: *const ::core::ffi::c_void) -> super::super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::super::super::Foundation::HANDLE>,
@@ -58323,7 +58039,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn SymSetExtendedOption<'a, P0>(option: IMAGEHLP_EXTENDED_OPTIONS, value: P0) -> super::super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::super::super::Foundation::BOOL>,
@@ -58336,7 +58051,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn SymSetHomeDirectory<'a, P0, P1>(hprocess: P0, dir: P1) -> ::windows::core::PSTR
 where
     P0: ::std::convert::Into<super::super::super::Foundation::HANDLE>,
@@ -58350,7 +58064,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn SymSetHomeDirectoryW<'a, P0, P1>(hprocess: P0, dir: P1) -> ::windows::core::PWSTR
 where
     P0: ::std::convert::Into<super::super::super::Foundation::HANDLE>,
@@ -58363,7 +58076,6 @@ where
     SymSetHomeDirectoryW(hprocess.into(), dir.into())
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
-#[inline]
 pub unsafe fn SymSetOptions(symoptions: u32) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -58373,7 +58085,6 @@ pub unsafe fn SymSetOptions(symoptions: u32) -> u32 {
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn SymSetParentWindow<'a, P0>(hwnd: P0) -> super::super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::super::super::Foundation::HWND>,
@@ -58386,7 +58097,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn SymSetScopeFromAddr<'a, P0>(hprocess: P0, address: u64) -> super::super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::super::super::Foundation::HANDLE>,
@@ -58399,7 +58109,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn SymSetScopeFromIndex<'a, P0>(hprocess: P0, baseofdll: u64, index: u32) -> super::super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::super::super::Foundation::HANDLE>,
@@ -58412,7 +58121,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn SymSetScopeFromInlineContext<'a, P0>(hprocess: P0, address: u64, inlinecontext: u32) -> super::super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::super::super::Foundation::HANDLE>,
@@ -58425,7 +58133,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn SymSetSearchPath<'a, P0, P1>(hprocess: P0, searchpatha: P1) -> super::super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::super::super::Foundation::HANDLE>,
@@ -58439,7 +58146,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn SymSetSearchPathW<'a, P0, P1>(hprocess: P0, searchpatha: P1) -> super::super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::super::super::Foundation::HANDLE>,
@@ -58453,7 +58159,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn SymSrvDeltaName<'a, P0, P1, P2, P3, P4>(hprocess: P0, sympath: P1, r#type: P2, file1: P3, file2: P4) -> ::windows::core::PSTR
 where
     P0: ::std::convert::Into<super::super::super::Foundation::HANDLE>,
@@ -58470,7 +58175,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn SymSrvDeltaNameW<'a, P0, P1, P2, P3, P4>(hprocess: P0, sympath: P1, r#type: P2, file1: P3, file2: P4) -> ::windows::core::PWSTR
 where
     P0: ::std::convert::Into<super::super::super::Foundation::HANDLE>,
@@ -58487,7 +58191,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn SymSrvGetFileIndexInfo<'a, P0>(file: P0, info: *mut SYMSRV_INDEX_INFO, flags: u32) -> super::super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
@@ -58500,7 +58203,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn SymSrvGetFileIndexInfoW<'a, P0>(file: P0, info: *mut SYMSRV_INDEX_INFOW, flags: u32) -> super::super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
@@ -58513,7 +58215,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn SymSrvGetFileIndexString<'a, P0, P1, P2>(hprocess: P0, srvpath: P1, file: P2, index: &mut [u8], flags: u32) -> super::super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::super::super::Foundation::HANDLE>,
@@ -58528,7 +58229,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn SymSrvGetFileIndexStringW<'a, P0, P1, P2>(hprocess: P0, srvpath: P1, file: P2, index: &mut [u16], flags: u32) -> super::super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::super::super::Foundation::HANDLE>,
@@ -58543,7 +58243,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn SymSrvGetFileIndexes<'a, P0>(file: P0, id: *mut ::windows::core::GUID, val1: *mut u32, val2: *mut u32, flags: u32) -> super::super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
@@ -58556,7 +58255,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn SymSrvGetFileIndexesW<'a, P0>(file: P0, id: *mut ::windows::core::GUID, val1: *mut u32, val2: *mut u32, flags: u32) -> super::super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
@@ -58569,7 +58267,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn SymSrvGetSupplement<'a, P0, P1, P2, P3>(hprocess: P0, sympath: P1, node: P2, file: P3) -> ::windows::core::PSTR
 where
     P0: ::std::convert::Into<super::super::super::Foundation::HANDLE>,
@@ -58585,7 +58282,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn SymSrvGetSupplementW<'a, P0, P1, P2, P3>(hprocess: P0, sympath: P1, node: P2, file: P3) -> ::windows::core::PWSTR
 where
     P0: ::std::convert::Into<super::super::super::Foundation::HANDLE>,
@@ -58601,7 +58297,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn SymSrvIsStore<'a, P0, P1>(hprocess: P0, path: P1) -> super::super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::super::super::Foundation::HANDLE>,
@@ -58615,7 +58310,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn SymSrvIsStoreW<'a, P0, P1>(hprocess: P0, path: P1) -> super::super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::super::super::Foundation::HANDLE>,
@@ -58629,7 +58323,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn SymSrvStoreFile<'a, P0, P1, P2>(hprocess: P0, srvpath: P1, file: P2, flags: SYM_SRV_STORE_FILE_FLAGS) -> ::windows::core::PSTR
 where
     P0: ::std::convert::Into<super::super::super::Foundation::HANDLE>,
@@ -58644,7 +58337,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn SymSrvStoreFileW<'a, P0, P1, P2>(hprocess: P0, srvpath: P1, file: P2, flags: SYM_SRV_STORE_FILE_FLAGS) -> ::windows::core::PWSTR
 where
     P0: ::std::convert::Into<super::super::super::Foundation::HANDLE>,
@@ -58659,7 +58351,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn SymSrvStoreSupplement<'a, P0, P1, P2, P3>(hprocess: P0, srvpath: P1, node: P2, file: P3, flags: u32) -> ::windows::core::PSTR
 where
     P0: ::std::convert::Into<super::super::super::Foundation::HANDLE>,
@@ -58675,7 +58366,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn SymSrvStoreSupplementW<'a, P0, P1, P2, P3>(hprocess: P0, sympath: P1, node: P2, file: P3, flags: u32) -> ::windows::core::PWSTR
 where
     P0: ::std::convert::Into<super::super::super::Foundation::HANDLE>,
@@ -58692,7 +58382,6 @@ where
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn SymUnDName(sym: *const IMAGEHLP_SYMBOL, undecname: &mut [u8]) -> super::super::super::Foundation::BOOL {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -58702,7 +58391,6 @@ pub unsafe fn SymUnDName(sym: *const IMAGEHLP_SYMBOL, undecname: &mut [u8]) -> s
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn SymUnDName64(sym: *const IMAGEHLP_SYMBOL64, undecname: &mut [u8]) -> super::super::super::Foundation::BOOL {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -58713,7 +58401,6 @@ pub unsafe fn SymUnDName64(sym: *const IMAGEHLP_SYMBOL64, undecname: &mut [u8]) 
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn SymUnloadModule<'a, P0>(hprocess: P0, baseofdll: u32) -> super::super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::super::super::Foundation::HANDLE>,
@@ -58726,7 +58413,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn SymUnloadModule64<'a, P0>(hprocess: P0, baseofdll: u64) -> super::super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::super::super::Foundation::HANDLE>,
@@ -59016,7 +58702,6 @@ impl ::core::default::Default for TRANSLATE_VIRTUAL_TO_PHYSICAL {
     }
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
-#[inline]
 pub unsafe fn TerminateProcessOnMemoryExhaustion(failedallocationsize: usize) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -59026,7 +58711,6 @@ pub unsafe fn TerminateProcessOnMemoryExhaustion(failedallocationsize: usize) {
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn TouchFileTimes<'a, P0>(filehandle: P0, psystemtime: *const super::super::super::Foundation::SYSTEMTIME) -> super::super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::super::super::Foundation::HANDLE>,
@@ -59268,7 +58952,6 @@ impl ::core::default::Default for UNWIND_HISTORY_TABLE_ENTRY {
     }
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
-#[inline]
 pub unsafe fn UnDecorateSymbolName<'a, P0>(name: P0, outputstring: &mut [u8], flags: u32) -> u32
 where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
@@ -59280,7 +58963,6 @@ where
     UnDecorateSymbolName(name.into(), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(outputstring)), outputstring.len() as _, flags)
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
-#[inline]
 pub unsafe fn UnDecorateSymbolNameW<'a, P0>(name: P0, outputstring: &mut [u16], flags: u32) -> u32
 where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
@@ -59293,7 +58975,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`, `\"Win32_System_Kernel\"`, `\"Win32_System_SystemInformation\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel", feature = "Win32_System_SystemInformation"))]
-#[inline]
 pub unsafe fn UnMapAndLoad(loadedimage: *mut LOADED_IMAGE) -> super::super::super::Foundation::BOOL {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -59303,7 +58984,6 @@ pub unsafe fn UnMapAndLoad(loadedimage: *mut LOADED_IMAGE) -> super::super::supe
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`, `\"Win32_System_Kernel\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
-#[inline]
 pub unsafe fn UnhandledExceptionFilter(exceptioninfo: *const EXCEPTION_POINTERS) -> i32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -59313,7 +58993,6 @@ pub unsafe fn UnhandledExceptionFilter(exceptioninfo: *const EXCEPTION_POINTERS)
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`, `\"Win32_System_SystemInformation\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemInformation"))]
-#[inline]
 pub unsafe fn UpdateDebugInfoFile<'a, P0, P1>(imagefilename: P0, symbolpath: P1, debugfilepath: ::windows::core::PSTR, ntheaders: *const IMAGE_NT_HEADERS32) -> super::super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
@@ -59327,7 +59006,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`, `\"Win32_System_SystemInformation\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemInformation"))]
-#[inline]
 pub unsafe fn UpdateDebugInfoFileEx<'a, P0, P1>(imagefilename: P0, symbolpath: P1, debugfilepath: ::windows::core::PSTR, ntheaders: *const IMAGE_NT_HEADERS32, oldchecksum: u32) -> super::super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
@@ -61781,7 +61459,6 @@ pub const WOW64_MAXIMUM_SUPPORTED_EXTENSION: u32 = 512u32;
 pub const WOW64_SIZE_OF_80387_REGISTERS: u32 = 80u32;
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`, `\"Win32_System_Threading\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Threading"))]
-#[inline]
 pub unsafe fn WaitForDebugEvent(lpdebugevent: *mut DEBUG_EVENT, dwmilliseconds: u32) -> super::super::super::Foundation::BOOL {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -61791,7 +61468,6 @@ pub unsafe fn WaitForDebugEvent(lpdebugevent: *mut DEBUG_EVENT, dwmilliseconds: 
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`, `\"Win32_System_Threading\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Threading"))]
-#[inline]
 pub unsafe fn WaitForDebugEventEx(lpdebugevent: *mut DEBUG_EVENT, dwmilliseconds: u32) -> super::super::super::Foundation::BOOL {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -61801,7 +61477,6 @@ pub unsafe fn WaitForDebugEventEx(lpdebugevent: *mut DEBUG_EVENT, dwmilliseconds
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn Wow64GetThreadContext<'a, P0>(hthread: P0, lpcontext: *mut WOW64_CONTEXT) -> super::super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::super::super::Foundation::HANDLE>,
@@ -61814,7 +61489,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn Wow64GetThreadSelectorEntry<'a, P0>(hthread: P0, dwselector: u32, lpselectorentry: *mut WOW64_LDT_ENTRY) -> super::super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::super::super::Foundation::HANDLE>,
@@ -61827,7 +61501,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn Wow64SetThreadContext<'a, P0>(hthread: P0, lpcontext: *const WOW64_CONTEXT) -> super::super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::super::super::Foundation::HANDLE>,
@@ -61840,7 +61513,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn WriteProcessMemory<'a, P0>(hprocess: P0, lpbaseaddress: *const ::core::ffi::c_void, lpbuffer: *const ::core::ffi::c_void, nsize: usize, lpnumberofbyteswritten: *mut usize) -> super::super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::super::super::Foundation::HANDLE>,

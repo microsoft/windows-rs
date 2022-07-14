@@ -841,7 +841,6 @@ impl ::core::fmt::Debug for WSC_SECURITY_SIGNATURE_STATUS {
     }
 }
 #[doc = "*Required features: `\"Win32_System_SecurityCenter\"`*"]
-#[inline]
 pub unsafe fn WscGetAntiMalwareUri() -> ::windows::core::Result<::windows::core::PWSTR> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -851,7 +850,6 @@ pub unsafe fn WscGetAntiMalwareUri() -> ::windows::core::Result<::windows::core:
     WscGetAntiMalwareUri(::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::PWSTR>(result__)
 }
 #[doc = "*Required features: `\"Win32_System_SecurityCenter\"`*"]
-#[inline]
 pub unsafe fn WscGetSecurityProviderHealth(providers: u32, phealth: *mut WSC_SECURITY_PROVIDER_HEALTH) -> ::windows::core::Result<()> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -860,7 +858,6 @@ pub unsafe fn WscGetSecurityProviderHealth(providers: u32, phealth: *mut WSC_SEC
     WscGetSecurityProviderHealth(providers, ::core::mem::transmute(phealth)).ok()
 }
 #[doc = "*Required features: `\"Win32_System_SecurityCenter\"`*"]
-#[inline]
 pub unsafe fn WscQueryAntiMalwareUri() -> ::windows::core::Result<()> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -870,7 +867,6 @@ pub unsafe fn WscQueryAntiMalwareUri() -> ::windows::core::Result<()> {
 }
 #[doc = "*Required features: `\"Win32_System_SecurityCenter\"`, `\"Win32_Foundation\"`, `\"Win32_System_Threading\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Threading"))]
-#[inline]
 pub unsafe fn WscRegisterForChanges(reserved: *mut ::core::ffi::c_void, phcallbackregistration: *mut super::super::Foundation::HANDLE, lpcallbackaddress: super::Threading::LPTHREAD_START_ROUTINE, pcontext: *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -879,7 +875,6 @@ pub unsafe fn WscRegisterForChanges(reserved: *mut ::core::ffi::c_void, phcallba
     WscRegisterForChanges(::core::mem::transmute(reserved), ::core::mem::transmute(phcallbackregistration), ::core::mem::transmute(lpcallbackaddress), ::core::mem::transmute(pcontext)).ok()
 }
 #[doc = "*Required features: `\"Win32_System_SecurityCenter\"`*"]
-#[inline]
 pub unsafe fn WscRegisterForUserNotifications() -> ::windows::core::Result<()> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -889,7 +884,6 @@ pub unsafe fn WscRegisterForUserNotifications() -> ::windows::core::Result<()> {
 }
 #[doc = "*Required features: `\"Win32_System_SecurityCenter\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn WscUnRegisterChanges<'a, P0>(hregistrationhandle: P0) -> ::windows::core::Result<()>
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,

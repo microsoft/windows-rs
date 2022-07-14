@@ -774,7 +774,6 @@ pub const TIME_TICKS: u32 = 32u32;
 #[doc = "*Required features: `\"Win32_Media\"`*"]
 pub const WAVERR_BASE: u32 = 32u32;
 #[doc = "*Required features: `\"Win32_Media\"`*"]
-#[inline]
 pub unsafe fn timeBeginPeriod(uperiod: u32) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -783,7 +782,6 @@ pub unsafe fn timeBeginPeriod(uperiod: u32) -> u32 {
     timeBeginPeriod(uperiod)
 }
 #[doc = "*Required features: `\"Win32_Media\"`*"]
-#[inline]
 pub unsafe fn timeEndPeriod(uperiod: u32) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -792,7 +790,6 @@ pub unsafe fn timeEndPeriod(uperiod: u32) -> u32 {
     timeEndPeriod(uperiod)
 }
 #[doc = "*Required features: `\"Win32_Media\"`*"]
-#[inline]
 pub unsafe fn timeGetDevCaps(ptc: *mut TIMECAPS, cbtc: u32) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -801,7 +798,6 @@ pub unsafe fn timeGetDevCaps(ptc: *mut TIMECAPS, cbtc: u32) -> u32 {
     timeGetDevCaps(::core::mem::transmute(ptc), cbtc)
 }
 #[doc = "*Required features: `\"Win32_Media\"`*"]
-#[inline]
 pub unsafe fn timeGetSystemTime(pmmt: *mut MMTIME, cbmmt: u32) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -810,7 +806,6 @@ pub unsafe fn timeGetSystemTime(pmmt: *mut MMTIME, cbmmt: u32) -> u32 {
     timeGetSystemTime(::core::mem::transmute(pmmt), cbmmt)
 }
 #[doc = "*Required features: `\"Win32_Media\"`*"]
-#[inline]
 pub unsafe fn timeGetTime() -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -819,7 +814,6 @@ pub unsafe fn timeGetTime() -> u32 {
     timeGetTime()
 }
 #[doc = "*Required features: `\"Win32_Media\"`*"]
-#[inline]
 pub unsafe fn timeKillEvent(utimerid: u32) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -828,7 +822,6 @@ pub unsafe fn timeKillEvent(utimerid: u32) -> u32 {
     timeKillEvent(utimerid)
 }
 #[doc = "*Required features: `\"Win32_Media\"`*"]
-#[inline]
 pub unsafe fn timeSetEvent(udelay: u32, uresolution: u32, fptc: LPTIMECALLBACK, dwuser: usize, fuevent: u32) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {

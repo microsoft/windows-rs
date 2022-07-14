@@ -66,7 +66,6 @@ pub const E_PRINTTICKET_FORMAT: u32 = 2147745795u32;
 pub const PRINTTICKET_ISTREAM_APIS: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_Graphics_Printing_PrintTicket\"`, `\"Win32_Storage_Xps\"`*"]
 #[cfg(feature = "Win32_Storage_Xps")]
-#[inline]
 pub unsafe fn PTCloseProvider<'a, P0>(hprovider: P0) -> ::windows::core::Result<()>
 where
     P0: ::std::convert::Into<super::super::super::Storage::Xps::HPTPROVIDER>,
@@ -79,7 +78,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_Graphics_Printing_PrintTicket\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`, `\"Win32_Storage_Xps\"`, `\"Win32_System_Com\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_Storage_Xps", feature = "Win32_System_Com"))]
-#[inline]
 pub unsafe fn PTConvertDevModeToPrintTicket<'a, P0, P1>(hprovider: P0, cbdevmode: u32, pdevmode: *const super::super::Gdi::DEVMODEA, scope: EPrintTicketScope, pprintticket: P1) -> ::windows::core::Result<()>
 where
     P0: ::std::convert::Into<super::super::super::Storage::Xps::HPTPROVIDER>,
@@ -93,7 +91,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_Graphics_Printing_PrintTicket\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`, `\"Win32_Storage_Xps\"`, `\"Win32_System_Com\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_Storage_Xps", feature = "Win32_System_Com"))]
-#[inline]
 pub unsafe fn PTConvertPrintTicketToDevMode<'a, P0, P1>(hprovider: P0, pprintticket: P1, basedevmodetype: EDefaultDevmodeType, scope: EPrintTicketScope, pcbdevmode: *mut u32, ppdevmode: *mut *mut super::super::Gdi::DEVMODEA, pbstrerrormessage: *mut super::super::super::Foundation::BSTR) -> ::windows::core::Result<()>
 where
     P0: ::std::convert::Into<super::super::super::Storage::Xps::HPTPROVIDER>,
@@ -107,7 +104,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_Graphics_Printing_PrintTicket\"`, `\"Win32_Foundation\"`, `\"Win32_Storage_Xps\"`, `\"Win32_System_Com\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_Xps", feature = "Win32_System_Com"))]
-#[inline]
 pub unsafe fn PTGetPrintCapabilities<'a, P0, P1, P2>(hprovider: P0, pprintticket: P1, pcapabilities: P2) -> ::windows::core::Result<super::super::super::Foundation::BSTR>
 where
     P0: ::std::convert::Into<super::super::super::Storage::Xps::HPTPROVIDER>,
@@ -123,7 +119,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_Graphics_Printing_PrintTicket\"`, `\"Win32_Foundation\"`, `\"Win32_Storage_Xps\"`, `\"Win32_System_Com\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_Xps", feature = "Win32_System_Com"))]
-#[inline]
 pub unsafe fn PTGetPrintDeviceCapabilities<'a, P0, P1, P2>(hprovider: P0, pprintticket: P1, pdevicecapabilities: P2) -> ::windows::core::Result<super::super::super::Foundation::BSTR>
 where
     P0: ::std::convert::Into<super::super::super::Storage::Xps::HPTPROVIDER>,
@@ -139,7 +134,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_Graphics_Printing_PrintTicket\"`, `\"Win32_Foundation\"`, `\"Win32_Storage_Xps\"`, `\"Win32_System_Com\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_Xps", feature = "Win32_System_Com"))]
-#[inline]
 pub unsafe fn PTGetPrintDeviceResources<'a, P0, P1, P2, P3>(hprovider: P0, pszlocalename: P1, pprintticket: P2, pdeviceresources: P3) -> ::windows::core::Result<super::super::super::Foundation::BSTR>
 where
     P0: ::std::convert::Into<super::super::super::Storage::Xps::HPTPROVIDER>,
@@ -156,7 +150,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_Graphics_Printing_PrintTicket\"`, `\"Win32_Foundation\"`, `\"Win32_Storage_Xps\"`, `\"Win32_System_Com\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_Xps", feature = "Win32_System_Com"))]
-#[inline]
 pub unsafe fn PTMergeAndValidatePrintTicket<'a, P0, P1, P2, P3>(hprovider: P0, pbaseticket: P1, pdeltaticket: P2, scope: EPrintTicketScope, presultticket: P3) -> ::windows::core::Result<super::super::super::Foundation::BSTR>
 where
     P0: ::std::convert::Into<super::super::super::Storage::Xps::HPTPROVIDER>,
@@ -173,7 +166,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_Graphics_Printing_PrintTicket\"`, `\"Win32_Storage_Xps\"`*"]
 #[cfg(feature = "Win32_Storage_Xps")]
-#[inline]
 pub unsafe fn PTOpenProvider<'a, P0>(pszprintername: P0, dwversion: u32) -> ::windows::core::Result<super::super::super::Storage::Xps::HPTPROVIDER>
 where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
@@ -187,7 +179,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_Graphics_Printing_PrintTicket\"`, `\"Win32_Storage_Xps\"`*"]
 #[cfg(feature = "Win32_Storage_Xps")]
-#[inline]
 pub unsafe fn PTOpenProviderEx<'a, P0>(pszprintername: P0, dwmaxversion: u32, dwprefversion: u32, phprovider: *mut super::super::super::Storage::Xps::HPTPROVIDER, pusedversion: *mut u32) -> ::windows::core::Result<()>
 where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
@@ -199,7 +190,6 @@ where
     PTOpenProviderEx(pszprintername.into(), dwmaxversion, dwprefversion, ::core::mem::transmute(phprovider), ::core::mem::transmute(pusedversion)).ok()
 }
 #[doc = "*Required features: `\"Win32_Graphics_Printing_PrintTicket\"`*"]
-#[inline]
 pub unsafe fn PTQuerySchemaVersionSupport<'a, P0>(pszprintername: P0) -> ::windows::core::Result<u32>
 where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
@@ -212,7 +202,6 @@ where
     PTQuerySchemaVersionSupport(pszprintername.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
 }
 #[doc = "*Required features: `\"Win32_Graphics_Printing_PrintTicket\"`*"]
-#[inline]
 pub unsafe fn PTReleaseMemory(pbuffer: *const ::core::ffi::c_void) -> ::windows::core::Result<()> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {

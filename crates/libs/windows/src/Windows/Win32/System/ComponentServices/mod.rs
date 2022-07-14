@@ -1769,7 +1769,6 @@ impl ::core::fmt::Debug for CSC_TransactionConfig {
 pub const CServiceConfig: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xecabb0c8_7f19_11d2_978e_0000f8757e2a);
 pub const ClrAssemblyLocator: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x458aa3b5_265a_4b75_bc05_9bea4630cf18);
 #[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-#[inline]
 pub unsafe fn CoCreateActivity<'a, P0>(piunknown: P0, riid: *const ::windows::core::GUID, ppobj: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>
 where
     P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>,
@@ -1781,7 +1780,6 @@ where
     CoCreateActivity(piunknown.into().abi(), ::core::mem::transmute(riid), ::core::mem::transmute(ppobj)).ok()
 }
 #[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-#[inline]
 pub unsafe fn CoEnterServiceDomain<'a, P0>(pconfigobject: P0) -> ::windows::core::Result<()>
 where
     P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>,
@@ -1794,7 +1792,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_ComponentServices\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
-#[inline]
 pub unsafe fn CoGetDefaultContext(apttype: super::Com::APTTYPE, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -1803,7 +1800,6 @@ pub unsafe fn CoGetDefaultContext(apttype: super::Com::APTTYPE, riid: *const ::w
     CoGetDefaultContext(apttype, ::core::mem::transmute(riid), ::core::mem::transmute(ppv)).ok()
 }
 #[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-#[inline]
 pub unsafe fn CoLeaveServiceDomain<'a, P0>(punkstatus: P0)
 where
     P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>,
@@ -2351,7 +2347,6 @@ impl ::core::fmt::Debug for GetAppTrackerDataFlags {
     }
 }
 #[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-#[inline]
 pub unsafe fn GetDispenserManager() -> ::windows::core::Result<IDispenserManager> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -2361,7 +2356,6 @@ pub unsafe fn GetDispenserManager() -> ::windows::core::Result<IDispenserManager
     GetDispenserManager(::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IDispenserManager>(result__)
 }
 #[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-#[inline]
 pub unsafe fn GetManagedExtensions(dwexts: *mut u32) -> ::windows::core::Result<()> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -12319,7 +12313,6 @@ impl ::core::fmt::Debug for LockModes {
     }
 }
 #[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-#[inline]
 pub unsafe fn MTSCreateActivity(riid: *const ::windows::core::GUID, ppobj: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -12593,7 +12586,6 @@ impl ::core::default::Default for RECYCLE_INFO {
     }
 }
 #[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-#[inline]
 pub unsafe fn RecycleSurrogate(lreasoncode: i32) -> ::windows::core::Result<()> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -12629,7 +12621,6 @@ impl ::core::fmt::Debug for ReleaseModes {
     }
 }
 #[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-#[inline]
 pub unsafe fn SafeRef<'a, P0>(rid: *const ::windows::core::GUID, punk: P0) -> *mut ::core::ffi::c_void
 where
     P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>,

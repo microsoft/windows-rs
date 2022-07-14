@@ -344,7 +344,6 @@ pub const FhConfigMgr: ::windows::core::GUID = ::windows::core::GUID::from_u128(
 pub const FhReassociation: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4d728e35_16fa_4320_9e8b_bfd7100a8846);
 #[doc = "*Required features: `\"Win32_Storage_FileHistory\"`, `\"Win32_System_WindowsProgramming\"`*"]
 #[cfg(feature = "Win32_System_WindowsProgramming")]
-#[inline]
 pub unsafe fn FhServiceBlockBackup<'a, P0>(pipe: P0) -> ::windows::core::Result<()>
 where
     P0: ::std::convert::Into<super::super::System::WindowsProgramming::FH_SERVICE_PIPE_HANDLE>,
@@ -357,7 +356,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_Storage_FileHistory\"`, `\"Win32_System_WindowsProgramming\"`*"]
 #[cfg(feature = "Win32_System_WindowsProgramming")]
-#[inline]
 pub unsafe fn FhServiceClosePipe<'a, P0>(pipe: P0) -> ::windows::core::Result<()>
 where
     P0: ::std::convert::Into<super::super::System::WindowsProgramming::FH_SERVICE_PIPE_HANDLE>,
@@ -370,7 +368,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_Storage_FileHistory\"`, `\"Win32_Foundation\"`, `\"Win32_System_WindowsProgramming\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_WindowsProgramming"))]
-#[inline]
 pub unsafe fn FhServiceOpenPipe<'a, P0>(startserviceifstopped: P0) -> ::windows::core::Result<super::super::System::WindowsProgramming::FH_SERVICE_PIPE_HANDLE>
 where
     P0: ::std::convert::Into<super::super::Foundation::BOOL>,
@@ -384,7 +381,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_Storage_FileHistory\"`, `\"Win32_System_WindowsProgramming\"`*"]
 #[cfg(feature = "Win32_System_WindowsProgramming")]
-#[inline]
 pub unsafe fn FhServiceReloadConfiguration<'a, P0>(pipe: P0) -> ::windows::core::Result<()>
 where
     P0: ::std::convert::Into<super::super::System::WindowsProgramming::FH_SERVICE_PIPE_HANDLE>,
@@ -397,7 +393,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_Storage_FileHistory\"`, `\"Win32_Foundation\"`, `\"Win32_System_WindowsProgramming\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_WindowsProgramming"))]
-#[inline]
 pub unsafe fn FhServiceStartBackup<'a, P0, P1>(pipe: P0, lowpriorityio: P1) -> ::windows::core::Result<()>
 where
     P0: ::std::convert::Into<super::super::System::WindowsProgramming::FH_SERVICE_PIPE_HANDLE>,
@@ -411,7 +406,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_Storage_FileHistory\"`, `\"Win32_Foundation\"`, `\"Win32_System_WindowsProgramming\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_WindowsProgramming"))]
-#[inline]
 pub unsafe fn FhServiceStopBackup<'a, P0, P1>(pipe: P0, stoptracking: P1) -> ::windows::core::Result<()>
 where
     P0: ::std::convert::Into<super::super::System::WindowsProgramming::FH_SERVICE_PIPE_HANDLE>,
@@ -425,7 +419,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_Storage_FileHistory\"`, `\"Win32_System_WindowsProgramming\"`*"]
 #[cfg(feature = "Win32_System_WindowsProgramming")]
-#[inline]
 pub unsafe fn FhServiceUnblockBackup<'a, P0>(pipe: P0) -> ::windows::core::Result<()>
 where
     P0: ::std::convert::Into<super::super::System::WindowsProgramming::FH_SERVICE_PIPE_HANDLE>,

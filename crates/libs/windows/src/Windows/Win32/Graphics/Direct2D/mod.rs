@@ -67,7 +67,6 @@ pub const CLSID_D2D1WhiteLevelAdjustment: ::windows::core::GUID = ::windows::cor
 pub const CLSID_D2D1YCbCr: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x99503cc1_66c7_45c9_a875_8ad8a7914401);
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`, `\"Foundation_Numerics\"`*"]
 #[cfg(feature = "Foundation_Numerics")]
-#[inline]
 pub unsafe fn D2D1ComputeMaximumScaleFactor(matrix: *const super::super::super::Foundation::Numerics::Matrix3x2) -> f32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -77,7 +76,6 @@ pub unsafe fn D2D1ComputeMaximumScaleFactor(matrix: *const super::super::super::
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`, `\"Win32_Graphics_Direct2D_Common\"`*"]
 #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-#[inline]
 pub unsafe fn D2D1ConvertColorSpace(sourcecolorspace: D2D1_COLOR_SPACE, destinationcolorspace: D2D1_COLOR_SPACE, color: *const Common::D2D1_COLOR_F) -> Common::D2D1_COLOR_F {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -87,7 +85,6 @@ pub unsafe fn D2D1ConvertColorSpace(sourcecolorspace: D2D1_COLOR_SPACE, destinat
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`, `\"Win32_Graphics_Dxgi\"`*"]
 #[cfg(feature = "Win32_Graphics_Dxgi")]
-#[inline]
 pub unsafe fn D2D1CreateDevice<'a, P0>(dxgidevice: P0, creationproperties: *const D2D1_CREATION_PROPERTIES) -> ::windows::core::Result<ID2D1Device>
 where
     P0: ::std::convert::Into<::windows::core::InParam<'a, super::Dxgi::IDXGIDevice>>,
@@ -101,7 +98,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`, `\"Win32_Graphics_Dxgi\"`*"]
 #[cfg(feature = "Win32_Graphics_Dxgi")]
-#[inline]
 pub unsafe fn D2D1CreateDeviceContext<'a, P0>(dxgisurface: P0, creationproperties: *const D2D1_CREATION_PROPERTIES) -> ::windows::core::Result<ID2D1DeviceContext>
 where
     P0: ::std::convert::Into<::windows::core::InParam<'a, super::Dxgi::IDXGISurface>>,
@@ -114,7 +110,6 @@ where
     D2D1CreateDeviceContext(dxgisurface.into().abi(), ::core::mem::transmute(creationproperties), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ID2D1DeviceContext>(result__)
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`*"]
-#[inline]
 pub unsafe fn D2D1CreateFactory<T>(factorytype: D2D1_FACTORY_TYPE, pfactoryoptions: *const D2D1_FACTORY_OPTIONS) -> ::windows::core::Result<T>
 where
     T: ::windows::core::Interface,
@@ -128,7 +123,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`, `\"Win32_Graphics_Direct2D_Common\"`*"]
 #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-#[inline]
 pub unsafe fn D2D1GetGradientMeshInteriorPointsFromCoonsPatch(ppoint0: *const Common::D2D_POINT_2F, ppoint1: *const Common::D2D_POINT_2F, ppoint2: *const Common::D2D_POINT_2F, ppoint3: *const Common::D2D_POINT_2F, ppoint4: *const Common::D2D_POINT_2F, ppoint5: *const Common::D2D_POINT_2F, ppoint6: *const Common::D2D_POINT_2F, ppoint7: *const Common::D2D_POINT_2F, ppoint8: *const Common::D2D_POINT_2F, ppoint9: *const Common::D2D_POINT_2F, ppoint10: *const Common::D2D_POINT_2F, ppoint11: *const Common::D2D_POINT_2F, ptensorpoint11: *mut Common::D2D_POINT_2F, ptensorpoint12: *mut Common::D2D_POINT_2F, ptensorpoint21: *mut Common::D2D_POINT_2F, ptensorpoint22: *mut Common::D2D_POINT_2F) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -155,7 +149,6 @@ pub unsafe fn D2D1GetGradientMeshInteriorPointsFromCoonsPatch(ppoint0: *const Co
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`, `\"Foundation_Numerics\"`, `\"Win32_Foundation\"`*"]
 #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Foundation"))]
-#[inline]
 pub unsafe fn D2D1InvertMatrix(matrix: *mut super::super::super::Foundation::Numerics::Matrix3x2) -> super::super::Foundation::BOOL {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -165,7 +158,6 @@ pub unsafe fn D2D1InvertMatrix(matrix: *mut super::super::super::Foundation::Num
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`, `\"Foundation_Numerics\"`, `\"Win32_Foundation\"`*"]
 #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Foundation"))]
-#[inline]
 pub unsafe fn D2D1IsMatrixInvertible(matrix: *const super::super::super::Foundation::Numerics::Matrix3x2) -> super::super::Foundation::BOOL {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -175,7 +167,6 @@ pub unsafe fn D2D1IsMatrixInvertible(matrix: *const super::super::super::Foundat
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`, `\"Foundation_Numerics\"`, `\"Win32_Graphics_Direct2D_Common\"`*"]
 #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common"))]
-#[inline]
 pub unsafe fn D2D1MakeRotateMatrix(angle: f32, center: Common::D2D_POINT_2F, matrix: *mut super::super::super::Foundation::Numerics::Matrix3x2) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -185,7 +176,6 @@ pub unsafe fn D2D1MakeRotateMatrix(angle: f32, center: Common::D2D_POINT_2F, mat
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`, `\"Foundation_Numerics\"`, `\"Win32_Graphics_Direct2D_Common\"`*"]
 #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common"))]
-#[inline]
 pub unsafe fn D2D1MakeSkewMatrix(anglex: f32, angley: f32, center: Common::D2D_POINT_2F, matrix: *mut super::super::super::Foundation::Numerics::Matrix3x2) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -194,7 +184,6 @@ pub unsafe fn D2D1MakeSkewMatrix(anglex: f32, angley: f32, center: Common::D2D_P
     D2D1MakeSkewMatrix(anglex, angley, ::core::mem::transmute(center), ::core::mem::transmute(matrix))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`*"]
-#[inline]
 pub unsafe fn D2D1SinCos(angle: f32, s: *mut f32, c: *mut f32) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -203,7 +192,6 @@ pub unsafe fn D2D1SinCos(angle: f32, s: *mut f32, c: *mut f32) {
     D2D1SinCos(angle, ::core::mem::transmute(s), ::core::mem::transmute(c))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`*"]
-#[inline]
 pub unsafe fn D2D1Tan(angle: f32) -> f32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -212,7 +200,6 @@ pub unsafe fn D2D1Tan(angle: f32) -> f32 {
     D2D1Tan(angle)
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`*"]
-#[inline]
 pub unsafe fn D2D1Vec3Length(x: f32, y: f32, z: f32) -> f32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {

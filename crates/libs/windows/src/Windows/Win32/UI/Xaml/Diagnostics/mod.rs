@@ -919,7 +919,6 @@ pub struct IXamlDiagnostics_Vtbl {
     GetInitializationData: usize,
 }
 #[doc = "*Required features: `\"Win32_UI_Xaml_Diagnostics\"`*"]
-#[inline]
 pub unsafe fn InitializeXamlDiagnostic<'a, P0, P1, P2>(endpointname: P0, pid: u32, wszdllxamldiagnostics: P1, wsztapdllname: P2, tapclsid: ::windows::core::GUID) -> ::windows::core::Result<()>
 where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
@@ -933,7 +932,6 @@ where
     InitializeXamlDiagnostic(endpointname.into(), pid, wszdllxamldiagnostics.into(), wsztapdllname.into(), ::core::mem::transmute(tapclsid)).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Xaml_Diagnostics\"`*"]
-#[inline]
 pub unsafe fn InitializeXamlDiagnosticsEx<'a, P0, P1, P2, P3>(endpointname: P0, pid: u32, wszdllxamldiagnostics: P1, wsztapdllname: P2, tapclsid: ::windows::core::GUID, wszinitializationdata: P3) -> ::windows::core::Result<()>
 where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,

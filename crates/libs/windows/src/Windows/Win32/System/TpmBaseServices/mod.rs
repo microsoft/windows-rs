@@ -1,6 +1,5 @@
 #[doc = "*Required features: `\"Win32_System_TpmBaseServices\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn GetDeviceID(pbwindowsaik: *mut u8, cbwindowsaik: u32, pcbresult: *mut u32, pfprotectedbytpm: *mut super::super::Foundation::BOOL) -> ::windows::core::Result<()> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -10,7 +9,6 @@ pub unsafe fn GetDeviceID(pbwindowsaik: *mut u8, cbwindowsaik: u32, pcbresult: *
 }
 #[doc = "*Required features: `\"Win32_System_TpmBaseServices\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn GetDeviceIDString(pszwindowsaik: &mut [u16], pcchresult: *mut u32, pfprotectedbytpm: *mut super::super::Foundation::BOOL) -> ::windows::core::Result<()> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -284,7 +282,6 @@ pub const TPM_WNF_INFO_NO_REBOOT_REQUIRED: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_System_TpmBaseServices\"`*"]
 pub const TPM_WNF_INFO_OWNERSHIP_SUCCESSFUL: u32 = 2u32;
 #[doc = "*Required features: `\"Win32_System_TpmBaseServices\"`*"]
-#[inline]
 pub unsafe fn Tbsi_Context_Create(pcontextparams: *const TBS_CONTEXT_PARAMS, phcontext: *mut *mut ::core::ffi::c_void) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -293,7 +290,6 @@ pub unsafe fn Tbsi_Context_Create(pcontextparams: *const TBS_CONTEXT_PARAMS, phc
     Tbsi_Context_Create(::core::mem::transmute(pcontextparams), ::core::mem::transmute(phcontext))
 }
 #[doc = "*Required features: `\"Win32_System_TpmBaseServices\"`*"]
-#[inline]
 pub unsafe fn Tbsi_Create_Windows_Key(keyhandle: u32) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -302,7 +298,6 @@ pub unsafe fn Tbsi_Create_Windows_Key(keyhandle: u32) -> u32 {
     Tbsi_Create_Windows_Key(keyhandle)
 }
 #[doc = "*Required features: `\"Win32_System_TpmBaseServices\"`*"]
-#[inline]
 pub unsafe fn Tbsi_GetDeviceInfo(size: u32, info: *mut ::core::ffi::c_void) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -311,7 +306,6 @@ pub unsafe fn Tbsi_GetDeviceInfo(size: u32, info: *mut ::core::ffi::c_void) -> u
     Tbsi_GetDeviceInfo(size, ::core::mem::transmute(info))
 }
 #[doc = "*Required features: `\"Win32_System_TpmBaseServices\"`*"]
-#[inline]
 pub unsafe fn Tbsi_Get_OwnerAuth(hcontext: *const ::core::ffi::c_void, ownerauthtype: u32, poutputbuf: *mut u8, poutputbuflen: *mut u32) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -320,7 +314,6 @@ pub unsafe fn Tbsi_Get_OwnerAuth(hcontext: *const ::core::ffi::c_void, ownerauth
     Tbsi_Get_OwnerAuth(::core::mem::transmute(hcontext), ownerauthtype, ::core::mem::transmute(poutputbuf), ::core::mem::transmute(poutputbuflen))
 }
 #[doc = "*Required features: `\"Win32_System_TpmBaseServices\"`*"]
-#[inline]
 pub unsafe fn Tbsi_Get_TCG_Log(hcontext: *const ::core::ffi::c_void, poutputbuf: *mut u8, poutputbuflen: *mut u32) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -329,7 +322,6 @@ pub unsafe fn Tbsi_Get_TCG_Log(hcontext: *const ::core::ffi::c_void, poutputbuf:
     Tbsi_Get_TCG_Log(::core::mem::transmute(hcontext), ::core::mem::transmute(poutputbuf), ::core::mem::transmute(poutputbuflen))
 }
 #[doc = "*Required features: `\"Win32_System_TpmBaseServices\"`*"]
-#[inline]
 pub unsafe fn Tbsi_Get_TCG_Log_Ex(logtype: u32, pboutput: *mut u8, pcboutput: *mut u32) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -338,7 +330,6 @@ pub unsafe fn Tbsi_Get_TCG_Log_Ex(logtype: u32, pboutput: *mut u8, pcboutput: *m
     Tbsi_Get_TCG_Log_Ex(logtype, ::core::mem::transmute(pboutput), ::core::mem::transmute(pcboutput))
 }
 #[doc = "*Required features: `\"Win32_System_TpmBaseServices\"`*"]
-#[inline]
 pub unsafe fn Tbsi_Physical_Presence_Command(hcontext: *const ::core::ffi::c_void, pabinput: *const u8, cbinput: u32, paboutput: *mut u8, pcboutput: *mut u32) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -347,7 +338,6 @@ pub unsafe fn Tbsi_Physical_Presence_Command(hcontext: *const ::core::ffi::c_voi
     Tbsi_Physical_Presence_Command(::core::mem::transmute(hcontext), ::core::mem::transmute(pabinput), cbinput, ::core::mem::transmute(paboutput), ::core::mem::transmute(pcboutput))
 }
 #[doc = "*Required features: `\"Win32_System_TpmBaseServices\"`*"]
-#[inline]
 pub unsafe fn Tbsi_Revoke_Attestation() -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -356,7 +346,6 @@ pub unsafe fn Tbsi_Revoke_Attestation() -> u32 {
     Tbsi_Revoke_Attestation()
 }
 #[doc = "*Required features: `\"Win32_System_TpmBaseServices\"`*"]
-#[inline]
 pub unsafe fn Tbsip_Cancel_Commands(hcontext: *const ::core::ffi::c_void) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -365,7 +354,6 @@ pub unsafe fn Tbsip_Cancel_Commands(hcontext: *const ::core::ffi::c_void) -> u32
     Tbsip_Cancel_Commands(::core::mem::transmute(hcontext))
 }
 #[doc = "*Required features: `\"Win32_System_TpmBaseServices\"`*"]
-#[inline]
 pub unsafe fn Tbsip_Context_Close(hcontext: *const ::core::ffi::c_void) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -374,7 +362,6 @@ pub unsafe fn Tbsip_Context_Close(hcontext: *const ::core::ffi::c_void) -> u32 {
     Tbsip_Context_Close(::core::mem::transmute(hcontext))
 }
 #[doc = "*Required features: `\"Win32_System_TpmBaseServices\"`*"]
-#[inline]
 pub unsafe fn Tbsip_Submit_Command(hcontext: *const ::core::ffi::c_void, locality: TBS_COMMAND_LOCALITY, priority: TBS_COMMAND_PRIORITY, pabcommand: *const u8, cbcommand: u32, pabresult: *mut u8, pcbresult: *mut u32) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {

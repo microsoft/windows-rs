@@ -4,7 +4,6 @@ pub const ALTNUMPAD_BIT: u32 = 67108864u32;
 pub const ATTACH_PARENT_PROCESS: u32 = 4294967295u32;
 #[doc = "*Required features: `\"Win32_System_Console\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn AddConsoleAliasA<'a, P0, P1, P2>(source: P0, target: P1, exename: P2) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
@@ -19,7 +18,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Console\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn AddConsoleAliasW<'a, P0, P1, P2>(source: P0, target: P1, exename: P2) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
@@ -34,7 +32,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Console\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn AllocConsole() -> super::super::Foundation::BOOL {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -44,7 +41,6 @@ pub unsafe fn AllocConsole() -> super::super::Foundation::BOOL {
 }
 #[doc = "*Required features: `\"Win32_System_Console\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn AttachConsole(dwprocessid: u32) -> super::super::Foundation::BOOL {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -570,7 +566,6 @@ pub const CTRL_LOGOFF_EVENT: u32 = 5u32;
 #[doc = "*Required features: `\"Win32_System_Console\"`*"]
 pub const CTRL_SHUTDOWN_EVENT: u32 = 6u32;
 #[doc = "*Required features: `\"Win32_System_Console\"`*"]
-#[inline]
 pub unsafe fn ClosePseudoConsole<'a, P0>(hpc: P0)
 where
     P0: ::std::convert::Into<HPCON>,
@@ -583,7 +578,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Console\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-#[inline]
 pub unsafe fn CreateConsoleScreenBuffer(dwdesiredaccess: u32, dwsharemode: u32, lpsecurityattributes: *const super::super::Security::SECURITY_ATTRIBUTES, dwflags: u32, lpscreenbufferdata: *mut ::core::ffi::c_void) -> ::windows::core::Result<super::super::Foundation::HANDLE> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -594,7 +588,6 @@ pub unsafe fn CreateConsoleScreenBuffer(dwdesiredaccess: u32, dwsharemode: u32, 
 }
 #[doc = "*Required features: `\"Win32_System_Console\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn CreatePseudoConsole<'a, P0, P1>(size: COORD, hinput: P0, houtput: P1, dwflags: u32) -> ::windows::core::Result<HPCON>
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
@@ -612,7 +605,6 @@ pub const DOUBLE_CLICK: u32 = 2u32;
 #[doc = "*Required features: `\"Win32_System_Console\"`*"]
 pub const ENHANCED_KEY: u32 = 256u32;
 #[doc = "*Required features: `\"Win32_System_Console\"`*"]
-#[inline]
 pub unsafe fn ExpungeConsoleCommandHistoryA<'a, P0>(exename: P0)
 where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
@@ -624,7 +616,6 @@ where
     ExpungeConsoleCommandHistoryA(exename.into())
 }
 #[doc = "*Required features: `\"Win32_System_Console\"`*"]
-#[inline]
 pub unsafe fn ExpungeConsoleCommandHistoryW<'a, P0>(exename: P0)
 where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
@@ -693,7 +684,6 @@ pub const FROM_LEFT_3RD_BUTTON_PRESSED: u32 = 8u32;
 pub const FROM_LEFT_4TH_BUTTON_PRESSED: u32 = 16u32;
 #[doc = "*Required features: `\"Win32_System_Console\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn FillConsoleOutputAttribute<'a, P0>(hconsoleoutput: P0, wattribute: u16, nlength: u32, dwwritecoord: COORD, lpnumberofattrswritten: *mut u32) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
@@ -706,7 +696,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Console\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn FillConsoleOutputCharacterA<'a, P0, P1>(hconsoleoutput: P0, ccharacter: P1, nlength: u32, dwwritecoord: COORD, lpnumberofcharswritten: *mut u32) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
@@ -720,7 +709,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Console\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn FillConsoleOutputCharacterW<'a, P0>(hconsoleoutput: P0, ccharacter: u16, nlength: u32, dwwritecoord: COORD, lpnumberofcharswritten: *mut u32) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
@@ -733,7 +721,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Console\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn FlushConsoleInputBuffer<'a, P0>(hconsoleinput: P0) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
@@ -746,7 +733,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Console\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn FreeConsole() -> super::super::Foundation::BOOL {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -756,7 +742,6 @@ pub unsafe fn FreeConsole() -> super::super::Foundation::BOOL {
 }
 #[doc = "*Required features: `\"Win32_System_Console\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn GenerateConsoleCtrlEvent(dwctrlevent: u32, dwprocessgroupid: u32) -> super::super::Foundation::BOOL {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -765,7 +750,6 @@ pub unsafe fn GenerateConsoleCtrlEvent(dwctrlevent: u32, dwprocessgroupid: u32) 
     GenerateConsoleCtrlEvent(dwctrlevent, dwprocessgroupid)
 }
 #[doc = "*Required features: `\"Win32_System_Console\"`*"]
-#[inline]
 pub unsafe fn GetConsoleAliasA<'a, P0, P1>(source: P0, targetbuffer: &mut [u8], exename: P1) -> u32
 where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
@@ -778,7 +762,6 @@ where
     GetConsoleAliasA(source.into(), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(targetbuffer)), targetbuffer.len() as _, exename.into())
 }
 #[doc = "*Required features: `\"Win32_System_Console\"`*"]
-#[inline]
 pub unsafe fn GetConsoleAliasExesA(exenamebuffer: &mut [u8]) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -787,7 +770,6 @@ pub unsafe fn GetConsoleAliasExesA(exenamebuffer: &mut [u8]) -> u32 {
     GetConsoleAliasExesA(::core::mem::transmute(::windows::core::as_mut_ptr_or_null(exenamebuffer)), exenamebuffer.len() as _)
 }
 #[doc = "*Required features: `\"Win32_System_Console\"`*"]
-#[inline]
 pub unsafe fn GetConsoleAliasExesLengthA() -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -796,7 +778,6 @@ pub unsafe fn GetConsoleAliasExesLengthA() -> u32 {
     GetConsoleAliasExesLengthA()
 }
 #[doc = "*Required features: `\"Win32_System_Console\"`*"]
-#[inline]
 pub unsafe fn GetConsoleAliasExesLengthW() -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -805,7 +786,6 @@ pub unsafe fn GetConsoleAliasExesLengthW() -> u32 {
     GetConsoleAliasExesLengthW()
 }
 #[doc = "*Required features: `\"Win32_System_Console\"`*"]
-#[inline]
 pub unsafe fn GetConsoleAliasExesW(exenamebuffer: &mut [u16]) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -814,7 +794,6 @@ pub unsafe fn GetConsoleAliasExesW(exenamebuffer: &mut [u16]) -> u32 {
     GetConsoleAliasExesW(::core::mem::transmute(::windows::core::as_mut_ptr_or_null(exenamebuffer)), exenamebuffer.len() as _)
 }
 #[doc = "*Required features: `\"Win32_System_Console\"`*"]
-#[inline]
 pub unsafe fn GetConsoleAliasW<'a, P0, P1>(source: P0, targetbuffer: &mut [u16], exename: P1) -> u32
 where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
@@ -827,7 +806,6 @@ where
     GetConsoleAliasW(source.into(), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(targetbuffer)), targetbuffer.len() as _, exename.into())
 }
 #[doc = "*Required features: `\"Win32_System_Console\"`*"]
-#[inline]
 pub unsafe fn GetConsoleAliasesA<'a, P0>(aliasbuffer: &mut [u8], exename: P0) -> u32
 where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
@@ -839,7 +817,6 @@ where
     GetConsoleAliasesA(::core::mem::transmute(::windows::core::as_mut_ptr_or_null(aliasbuffer)), aliasbuffer.len() as _, exename.into())
 }
 #[doc = "*Required features: `\"Win32_System_Console\"`*"]
-#[inline]
 pub unsafe fn GetConsoleAliasesLengthA<'a, P0>(exename: P0) -> u32
 where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
@@ -851,7 +828,6 @@ where
     GetConsoleAliasesLengthA(exename.into())
 }
 #[doc = "*Required features: `\"Win32_System_Console\"`*"]
-#[inline]
 pub unsafe fn GetConsoleAliasesLengthW<'a, P0>(exename: P0) -> u32
 where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
@@ -863,7 +839,6 @@ where
     GetConsoleAliasesLengthW(exename.into())
 }
 #[doc = "*Required features: `\"Win32_System_Console\"`*"]
-#[inline]
 pub unsafe fn GetConsoleAliasesW<'a, P0>(aliasbuffer: &mut [u16], exename: P0) -> u32
 where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
@@ -875,7 +850,6 @@ where
     GetConsoleAliasesW(::core::mem::transmute(::windows::core::as_mut_ptr_or_null(aliasbuffer)), aliasbuffer.len() as _, exename.into())
 }
 #[doc = "*Required features: `\"Win32_System_Console\"`*"]
-#[inline]
 pub unsafe fn GetConsoleCP() -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -884,7 +858,6 @@ pub unsafe fn GetConsoleCP() -> u32 {
     GetConsoleCP()
 }
 #[doc = "*Required features: `\"Win32_System_Console\"`*"]
-#[inline]
 pub unsafe fn GetConsoleCommandHistoryA<'a, P0>(commands: ::windows::core::PSTR, commandbufferlength: u32, exename: P0) -> u32
 where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
@@ -896,7 +869,6 @@ where
     GetConsoleCommandHistoryA(::core::mem::transmute(commands), commandbufferlength, exename.into())
 }
 #[doc = "*Required features: `\"Win32_System_Console\"`*"]
-#[inline]
 pub unsafe fn GetConsoleCommandHistoryLengthA<'a, P0>(exename: P0) -> u32
 where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
@@ -908,7 +880,6 @@ where
     GetConsoleCommandHistoryLengthA(exename.into())
 }
 #[doc = "*Required features: `\"Win32_System_Console\"`*"]
-#[inline]
 pub unsafe fn GetConsoleCommandHistoryLengthW<'a, P0>(exename: P0) -> u32
 where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
@@ -920,7 +891,6 @@ where
     GetConsoleCommandHistoryLengthW(exename.into())
 }
 #[doc = "*Required features: `\"Win32_System_Console\"`*"]
-#[inline]
 pub unsafe fn GetConsoleCommandHistoryW<'a, P0>(commands: ::windows::core::PWSTR, commandbufferlength: u32, exename: P0) -> u32
 where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
@@ -933,7 +903,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Console\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn GetConsoleCursorInfo<'a, P0>(hconsoleoutput: P0, lpconsolecursorinfo: *mut CONSOLE_CURSOR_INFO) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
@@ -946,7 +915,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Console\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn GetConsoleDisplayMode(lpmodeflags: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -956,7 +924,6 @@ pub unsafe fn GetConsoleDisplayMode(lpmodeflags: *mut u32) -> super::super::Foun
 }
 #[doc = "*Required features: `\"Win32_System_Console\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn GetConsoleFontSize<'a, P0>(hconsoleoutput: P0, nfont: u32) -> COORD
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
@@ -969,7 +936,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Console\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn GetConsoleHistoryInfo(lpconsolehistoryinfo: *mut CONSOLE_HISTORY_INFO) -> super::super::Foundation::BOOL {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -979,7 +945,6 @@ pub unsafe fn GetConsoleHistoryInfo(lpconsolehistoryinfo: *mut CONSOLE_HISTORY_I
 }
 #[doc = "*Required features: `\"Win32_System_Console\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn GetConsoleMode<'a, P0>(hconsolehandle: P0, lpmode: *mut CONSOLE_MODE) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
@@ -991,7 +956,6 @@ where
     GetConsoleMode(hconsolehandle.into(), ::core::mem::transmute(lpmode))
 }
 #[doc = "*Required features: `\"Win32_System_Console\"`*"]
-#[inline]
 pub unsafe fn GetConsoleOriginalTitleA(lpconsoletitle: &mut [u8]) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -1000,7 +964,6 @@ pub unsafe fn GetConsoleOriginalTitleA(lpconsoletitle: &mut [u8]) -> u32 {
     GetConsoleOriginalTitleA(::core::mem::transmute(::windows::core::as_mut_ptr_or_null(lpconsoletitle)), lpconsoletitle.len() as _)
 }
 #[doc = "*Required features: `\"Win32_System_Console\"`*"]
-#[inline]
 pub unsafe fn GetConsoleOriginalTitleW(lpconsoletitle: &mut [u16]) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -1009,7 +972,6 @@ pub unsafe fn GetConsoleOriginalTitleW(lpconsoletitle: &mut [u16]) -> u32 {
     GetConsoleOriginalTitleW(::core::mem::transmute(::windows::core::as_mut_ptr_or_null(lpconsoletitle)), lpconsoletitle.len() as _)
 }
 #[doc = "*Required features: `\"Win32_System_Console\"`*"]
-#[inline]
 pub unsafe fn GetConsoleOutputCP() -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -1018,7 +980,6 @@ pub unsafe fn GetConsoleOutputCP() -> u32 {
     GetConsoleOutputCP()
 }
 #[doc = "*Required features: `\"Win32_System_Console\"`*"]
-#[inline]
 pub unsafe fn GetConsoleProcessList(lpdwprocesslist: &mut [u32]) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -1028,7 +989,6 @@ pub unsafe fn GetConsoleProcessList(lpdwprocesslist: &mut [u32]) -> u32 {
 }
 #[doc = "*Required features: `\"Win32_System_Console\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn GetConsoleScreenBufferInfo<'a, P0>(hconsoleoutput: P0, lpconsolescreenbufferinfo: *mut CONSOLE_SCREEN_BUFFER_INFO) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
@@ -1041,7 +1001,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Console\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn GetConsoleScreenBufferInfoEx<'a, P0>(hconsoleoutput: P0, lpconsolescreenbufferinfoex: *mut CONSOLE_SCREEN_BUFFER_INFOEX) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
@@ -1054,7 +1013,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Console\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn GetConsoleSelectionInfo(lpconsoleselectioninfo: *mut CONSOLE_SELECTION_INFO) -> super::super::Foundation::BOOL {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -1063,7 +1021,6 @@ pub unsafe fn GetConsoleSelectionInfo(lpconsoleselectioninfo: *mut CONSOLE_SELEC
     GetConsoleSelectionInfo(::core::mem::transmute(lpconsoleselectioninfo))
 }
 #[doc = "*Required features: `\"Win32_System_Console\"`*"]
-#[inline]
 pub unsafe fn GetConsoleTitleA(lpconsoletitle: &mut [u8]) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -1072,7 +1029,6 @@ pub unsafe fn GetConsoleTitleA(lpconsoletitle: &mut [u8]) -> u32 {
     GetConsoleTitleA(::core::mem::transmute(::windows::core::as_mut_ptr_or_null(lpconsoletitle)), lpconsoletitle.len() as _)
 }
 #[doc = "*Required features: `\"Win32_System_Console\"`*"]
-#[inline]
 pub unsafe fn GetConsoleTitleW(lpconsoletitle: &mut [u16]) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -1082,7 +1038,6 @@ pub unsafe fn GetConsoleTitleW(lpconsoletitle: &mut [u16]) -> u32 {
 }
 #[doc = "*Required features: `\"Win32_System_Console\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn GetConsoleWindow() -> super::super::Foundation::HWND {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -1092,7 +1047,6 @@ pub unsafe fn GetConsoleWindow() -> super::super::Foundation::HWND {
 }
 #[doc = "*Required features: `\"Win32_System_Console\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn GetCurrentConsoleFont<'a, P0, P1>(hconsoleoutput: P0, bmaximumwindow: P1, lpconsolecurrentfont: *mut CONSOLE_FONT_INFO) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
@@ -1106,7 +1060,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Console\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn GetCurrentConsoleFontEx<'a, P0, P1>(hconsoleoutput: P0, bmaximumwindow: P1, lpconsolecurrentfontex: *mut CONSOLE_FONT_INFOEX) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
@@ -1120,7 +1073,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Console\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn GetLargestConsoleWindowSize<'a, P0>(hconsoleoutput: P0) -> COORD
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
@@ -1133,7 +1085,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Console\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn GetNumberOfConsoleInputEvents<'a, P0>(hconsoleinput: P0, lpnumberofevents: *mut u32) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
@@ -1146,7 +1097,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Console\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn GetNumberOfConsoleMouseButtons(lpnumberofmousebuttons: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -1156,7 +1106,6 @@ pub unsafe fn GetNumberOfConsoleMouseButtons(lpnumberofmousebuttons: *mut u32) -
 }
 #[doc = "*Required features: `\"Win32_System_Console\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn GetStdHandle(nstdhandle: STD_HANDLE) -> ::windows::core::Result<super::super::Foundation::HANDLE> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -1440,7 +1389,6 @@ pub type PHANDLER_ROUTINE = ::core::option::Option<unsafe extern "system" fn(ctr
 pub const PSEUDOCONSOLE_INHERIT_CURSOR: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_System_Console\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn PeekConsoleInputA<'a, P0>(hconsoleinput: P0, lpbuffer: &mut [INPUT_RECORD], lpnumberofeventsread: *mut u32) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
@@ -1453,7 +1401,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Console\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn PeekConsoleInputW<'a, P0>(hconsoleinput: P0, lpbuffer: &mut [INPUT_RECORD], lpnumberofeventsread: *mut u32) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
@@ -1472,7 +1419,6 @@ pub const RIGHT_ALT_PRESSED: u32 = 1u32;
 pub const RIGHT_CTRL_PRESSED: u32 = 4u32;
 #[doc = "*Required features: `\"Win32_System_Console\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn ReadConsoleA<'a, P0>(hconsoleinput: P0, lpbuffer: *mut ::core::ffi::c_void, nnumberofcharstoread: u32, lpnumberofcharsread: *mut u32, pinputcontrol: *const CONSOLE_READCONSOLE_CONTROL) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
@@ -1485,7 +1431,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Console\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn ReadConsoleInputA<'a, P0>(hconsoleinput: P0, lpbuffer: &mut [INPUT_RECORD], lpnumberofeventsread: *mut u32) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
@@ -1498,7 +1443,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Console\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn ReadConsoleInputW<'a, P0>(hconsoleinput: P0, lpbuffer: &mut [INPUT_RECORD], lpnumberofeventsread: *mut u32) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
@@ -1511,7 +1455,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Console\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn ReadConsoleOutputA<'a, P0>(hconsoleoutput: P0, lpbuffer: *mut CHAR_INFO, dwbuffersize: COORD, dwbuffercoord: COORD, lpreadregion: *mut SMALL_RECT) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
@@ -1524,7 +1467,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Console\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn ReadConsoleOutputAttribute<'a, P0>(hconsoleoutput: P0, lpattribute: &mut [u16], dwreadcoord: COORD, lpnumberofattrsread: *mut u32) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
@@ -1537,7 +1479,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Console\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn ReadConsoleOutputCharacterA<'a, P0>(hconsoleoutput: P0, lpcharacter: &mut [u8], dwreadcoord: COORD, lpnumberofcharsread: *mut u32) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
@@ -1550,7 +1491,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Console\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn ReadConsoleOutputCharacterW<'a, P0>(hconsoleoutput: P0, lpcharacter: &mut [u16], dwreadcoord: COORD, lpnumberofcharsread: *mut u32) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
@@ -1563,7 +1503,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Console\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn ReadConsoleOutputW<'a, P0>(hconsoleoutput: P0, lpbuffer: *mut CHAR_INFO, dwbuffersize: COORD, dwbuffercoord: COORD, lpreadregion: *mut SMALL_RECT) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
@@ -1576,7 +1515,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Console\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn ReadConsoleW<'a, P0>(hconsoleinput: P0, lpbuffer: *mut ::core::ffi::c_void, nnumberofcharstoread: u32, lpnumberofcharsread: *mut u32, pinputcontrol: *const CONSOLE_READCONSOLE_CONTROL) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
@@ -1588,7 +1526,6 @@ where
     ReadConsoleW(hconsoleinput.into(), ::core::mem::transmute(lpbuffer), nnumberofcharstoread, ::core::mem::transmute(lpnumberofcharsread), ::core::mem::transmute(pinputcontrol))
 }
 #[doc = "*Required features: `\"Win32_System_Console\"`*"]
-#[inline]
 pub unsafe fn ResizePseudoConsole<'a, P0>(hpc: P0, size: COORD) -> ::windows::core::Result<()>
 where
     P0: ::std::convert::Into<HPCON>,
@@ -1667,7 +1604,6 @@ impl ::core::fmt::Debug for STD_HANDLE {
 }
 #[doc = "*Required features: `\"Win32_System_Console\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn ScrollConsoleScreenBufferA<'a, P0>(hconsoleoutput: P0, lpscrollrectangle: *const SMALL_RECT, lpcliprectangle: *const SMALL_RECT, dwdestinationorigin: COORD, lpfill: *const CHAR_INFO) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
@@ -1680,7 +1616,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Console\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn ScrollConsoleScreenBufferW<'a, P0>(hconsoleoutput: P0, lpscrollrectangle: *const SMALL_RECT, lpcliprectangle: *const SMALL_RECT, dwdestinationorigin: COORD, lpfill: *const CHAR_INFO) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
@@ -1693,7 +1628,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Console\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn SetConsoleActiveScreenBuffer<'a, P0>(hconsoleoutput: P0) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
@@ -1706,7 +1640,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Console\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn SetConsoleCP(wcodepageid: u32) -> super::super::Foundation::BOOL {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -1716,7 +1649,6 @@ pub unsafe fn SetConsoleCP(wcodepageid: u32) -> super::super::Foundation::BOOL {
 }
 #[doc = "*Required features: `\"Win32_System_Console\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn SetConsoleCtrlHandler<'a, P0>(handlerroutine: PHANDLER_ROUTINE, add: P0) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::super::Foundation::BOOL>,
@@ -1729,7 +1661,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Console\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn SetConsoleCursorInfo<'a, P0>(hconsoleoutput: P0, lpconsolecursorinfo: *const CONSOLE_CURSOR_INFO) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
@@ -1742,7 +1673,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Console\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn SetConsoleCursorPosition<'a, P0>(hconsoleoutput: P0, dwcursorposition: COORD) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
@@ -1755,7 +1685,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Console\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn SetConsoleDisplayMode<'a, P0>(hconsoleoutput: P0, dwflags: u32, lpnewscreenbufferdimensions: *mut COORD) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
@@ -1768,7 +1697,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Console\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn SetConsoleHistoryInfo(lpconsolehistoryinfo: *const CONSOLE_HISTORY_INFO) -> super::super::Foundation::BOOL {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -1778,7 +1706,6 @@ pub unsafe fn SetConsoleHistoryInfo(lpconsolehistoryinfo: *const CONSOLE_HISTORY
 }
 #[doc = "*Required features: `\"Win32_System_Console\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn SetConsoleMode<'a, P0>(hconsolehandle: P0, dwmode: CONSOLE_MODE) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
@@ -1791,7 +1718,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Console\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn SetConsoleNumberOfCommandsA<'a, P0>(number: u32, exename: P0) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
@@ -1804,7 +1730,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Console\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn SetConsoleNumberOfCommandsW<'a, P0>(number: u32, exename: P0) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
@@ -1817,7 +1742,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Console\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn SetConsoleOutputCP(wcodepageid: u32) -> super::super::Foundation::BOOL {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -1827,7 +1751,6 @@ pub unsafe fn SetConsoleOutputCP(wcodepageid: u32) -> super::super::Foundation::
 }
 #[doc = "*Required features: `\"Win32_System_Console\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn SetConsoleScreenBufferInfoEx<'a, P0>(hconsoleoutput: P0, lpconsolescreenbufferinfoex: *const CONSOLE_SCREEN_BUFFER_INFOEX) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
@@ -1840,7 +1763,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Console\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn SetConsoleScreenBufferSize<'a, P0>(hconsoleoutput: P0, dwsize: COORD) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
@@ -1853,7 +1775,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Console\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn SetConsoleTextAttribute<'a, P0>(hconsoleoutput: P0, wattributes: u16) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
@@ -1866,7 +1787,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Console\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn SetConsoleTitleA<'a, P0>(lpconsoletitle: P0) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
@@ -1879,7 +1799,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Console\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn SetConsoleTitleW<'a, P0>(lpconsoletitle: P0) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
@@ -1892,7 +1811,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Console\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn SetConsoleWindowInfo<'a, P0, P1>(hconsoleoutput: P0, babsolute: P1, lpconsolewindow: *const SMALL_RECT) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
@@ -1906,7 +1824,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Console\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn SetCurrentConsoleFontEx<'a, P0, P1>(hconsoleoutput: P0, bmaximumwindow: P1, lpconsolecurrentfontex: *const CONSOLE_FONT_INFOEX) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
@@ -1920,7 +1837,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Console\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn SetStdHandle<'a, P0>(nstdhandle: STD_HANDLE, hhandle: P0) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
@@ -1933,7 +1849,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Console\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn SetStdHandleEx<'a, P0>(nstdhandle: STD_HANDLE, hhandle: P0, phprevvalue: *mut super::super::Foundation::HANDLE) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
@@ -1978,7 +1893,6 @@ impl ::core::default::Default for WINDOW_BUFFER_SIZE_RECORD {
 }
 #[doc = "*Required features: `\"Win32_System_Console\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn WriteConsoleA<'a, P0>(hconsoleoutput: P0, lpbuffer: &[u8], lpnumberofcharswritten: *mut u32, lpreserved: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
@@ -1991,7 +1905,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Console\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn WriteConsoleInputA<'a, P0>(hconsoleinput: P0, lpbuffer: &[INPUT_RECORD], lpnumberofeventswritten: *mut u32) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
@@ -2004,7 +1917,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Console\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn WriteConsoleInputW<'a, P0>(hconsoleinput: P0, lpbuffer: &[INPUT_RECORD], lpnumberofeventswritten: *mut u32) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
@@ -2017,7 +1929,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Console\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn WriteConsoleOutputA<'a, P0>(hconsoleoutput: P0, lpbuffer: *const CHAR_INFO, dwbuffersize: COORD, dwbuffercoord: COORD, lpwriteregion: *mut SMALL_RECT) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
@@ -2030,7 +1941,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Console\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn WriteConsoleOutputAttribute<'a, P0>(hconsoleoutput: P0, lpattribute: &[u16], dwwritecoord: COORD, lpnumberofattrswritten: *mut u32) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
@@ -2043,7 +1953,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Console\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn WriteConsoleOutputCharacterA<'a, P0>(hconsoleoutput: P0, lpcharacter: &[u8], dwwritecoord: COORD, lpnumberofcharswritten: *mut u32) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
@@ -2056,7 +1965,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Console\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn WriteConsoleOutputCharacterW<'a, P0>(hconsoleoutput: P0, lpcharacter: &[u16], dwwritecoord: COORD, lpnumberofcharswritten: *mut u32) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
@@ -2069,7 +1977,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Console\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn WriteConsoleOutputW<'a, P0>(hconsoleoutput: P0, lpbuffer: *const CHAR_INFO, dwbuffersize: COORD, dwbuffercoord: COORD, lpwriteregion: *mut SMALL_RECT) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
@@ -2082,7 +1989,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Console\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn WriteConsoleW<'a, P0>(hconsoleoutput: P0, lpbuffer: &[u8], lpnumberofcharswritten: *mut u32, lpreserved: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,

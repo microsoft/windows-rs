@@ -272,7 +272,6 @@ impl ::core::fmt::Debug for CALLFRAME_WALK {
     }
 }
 #[doc = "*Required features: `\"Win32_System_Com_CallObj\"`*"]
-#[inline]
 pub unsafe fn CoGetInterceptor<'a, P0>(iidintercepted: *const ::windows::core::GUID, punkouter: P0, iid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>
 where
     P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>,
@@ -284,7 +283,6 @@ where
     CoGetInterceptor(::core::mem::transmute(iidintercepted), punkouter.into().abi(), ::core::mem::transmute(iid), ::core::mem::transmute(ppv)).ok()
 }
 #[doc = "*Required features: `\"Win32_System_Com_CallObj\"`*"]
-#[inline]
 pub unsafe fn CoGetInterceptorFromTypeInfo<'a, P0, P1>(iidintercepted: *const ::windows::core::GUID, punkouter: P0, typeinfo: P1, iid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>
 where
     P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>,

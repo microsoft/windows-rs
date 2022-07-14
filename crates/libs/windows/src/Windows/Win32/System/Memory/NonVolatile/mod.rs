@@ -31,7 +31,6 @@ impl ::core::default::Default for NV_MEMORY_RANGE {
 }
 #[doc = "*Required features: `\"Win32_System_Memory_NonVolatile\"`*"]
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-#[inline]
 pub unsafe fn RtlDrainNonVolatileFlush(nvtoken: *const ::core::ffi::c_void) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -41,7 +40,6 @@ pub unsafe fn RtlDrainNonVolatileFlush(nvtoken: *const ::core::ffi::c_void) -> u
 }
 #[doc = "*Required features: `\"Win32_System_Memory_NonVolatile\"`*"]
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-#[inline]
 pub unsafe fn RtlFillNonVolatileMemory(nvtoken: *const ::core::ffi::c_void, nvdestination: *mut ::core::ffi::c_void, size: usize, value: u8, flags: u32) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -51,7 +49,6 @@ pub unsafe fn RtlFillNonVolatileMemory(nvtoken: *const ::core::ffi::c_void, nvde
 }
 #[doc = "*Required features: `\"Win32_System_Memory_NonVolatile\"`*"]
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-#[inline]
 pub unsafe fn RtlFlushNonVolatileMemory(nvtoken: *const ::core::ffi::c_void, nvbuffer: *const ::core::ffi::c_void, size: usize, flags: u32) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -61,7 +58,6 @@ pub unsafe fn RtlFlushNonVolatileMemory(nvtoken: *const ::core::ffi::c_void, nvb
 }
 #[doc = "*Required features: `\"Win32_System_Memory_NonVolatile\"`*"]
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-#[inline]
 pub unsafe fn RtlFlushNonVolatileMemoryRanges(nvtoken: *const ::core::ffi::c_void, nvranges: &[NV_MEMORY_RANGE], flags: u32) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -71,7 +67,6 @@ pub unsafe fn RtlFlushNonVolatileMemoryRanges(nvtoken: *const ::core::ffi::c_voi
 }
 #[doc = "*Required features: `\"Win32_System_Memory_NonVolatile\"`*"]
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-#[inline]
 pub unsafe fn RtlFreeNonVolatileToken(nvtoken: *const ::core::ffi::c_void) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -81,7 +76,6 @@ pub unsafe fn RtlFreeNonVolatileToken(nvtoken: *const ::core::ffi::c_void) -> u3
 }
 #[doc = "*Required features: `\"Win32_System_Memory_NonVolatile\"`*"]
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-#[inline]
 pub unsafe fn RtlGetNonVolatileToken(nvbuffer: *const ::core::ffi::c_void, size: usize, nvtoken: *mut *mut ::core::ffi::c_void) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -91,7 +85,6 @@ pub unsafe fn RtlGetNonVolatileToken(nvbuffer: *const ::core::ffi::c_void, size:
 }
 #[doc = "*Required features: `\"Win32_System_Memory_NonVolatile\"`*"]
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-#[inline]
 pub unsafe fn RtlWriteNonVolatileMemory(nvtoken: *const ::core::ffi::c_void, nvdestination: *mut ::core::ffi::c_void, source: *const ::core::ffi::c_void, size: usize, flags: u32) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {

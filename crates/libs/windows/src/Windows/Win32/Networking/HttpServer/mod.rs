@@ -5052,7 +5052,6 @@ impl ::core::default::Default for HTTP_WSK_API_TIMINGS {
 }
 #[doc = "*Required features: `\"Win32_Networking_HttpServer\"`, `\"Win32_Foundation\"`, `\"Win32_System_IO\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
-#[inline]
 pub unsafe fn HttpAddFragmentToCache<'a, P0, P1>(requestqueuehandle: P0, urlprefix: P1, datachunk: *mut HTTP_DATA_CHUNK, cachepolicy: *mut HTTP_CACHE_POLICY, overlapped: *mut super::super::System::IO::OVERLAPPED) -> u32
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
@@ -5066,7 +5065,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_Networking_HttpServer\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn HttpAddUrl<'a, P0, P1>(requestqueuehandle: P0, fullyqualifiedurl: P1, reserved: *mut ::core::ffi::c_void) -> u32
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
@@ -5079,7 +5077,6 @@ where
     HttpAddUrl(requestqueuehandle.into(), fullyqualifiedurl.into(), ::core::mem::transmute(reserved))
 }
 #[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
-#[inline]
 pub unsafe fn HttpAddUrlToUrlGroup<'a, P0>(urlgroupid: u64, pfullyqualifiedurl: P0, urlcontext: u64, reserved: u32) -> u32
 where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
@@ -5092,7 +5089,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_Networking_HttpServer\"`, `\"Win32_Foundation\"`, `\"Win32_System_IO\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
-#[inline]
 pub unsafe fn HttpCancelHttpRequest<'a, P0>(requestqueuehandle: P0, requestid: u64, overlapped: *mut super::super::System::IO::OVERLAPPED) -> u32
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
@@ -5105,7 +5101,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_Networking_HttpServer\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn HttpCloseRequestQueue<'a, P0>(requestqueuehandle: P0) -> u32
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
@@ -5117,7 +5112,6 @@ where
     HttpCloseRequestQueue(requestqueuehandle.into())
 }
 #[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
-#[inline]
 pub unsafe fn HttpCloseServerSession(serversessionid: u64) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -5126,7 +5120,6 @@ pub unsafe fn HttpCloseServerSession(serversessionid: u64) -> u32 {
     HttpCloseServerSession(serversessionid)
 }
 #[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
-#[inline]
 pub unsafe fn HttpCloseUrlGroup(urlgroupid: u64) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -5136,7 +5129,6 @@ pub unsafe fn HttpCloseUrlGroup(urlgroupid: u64) -> u32 {
 }
 #[doc = "*Required features: `\"Win32_Networking_HttpServer\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn HttpCreateHttpHandle(requestqueuehandle: *mut super::super::Foundation::HANDLE, reserved: u32) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -5146,7 +5138,6 @@ pub unsafe fn HttpCreateHttpHandle(requestqueuehandle: *mut super::super::Founda
 }
 #[doc = "*Required features: `\"Win32_Networking_HttpServer\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-#[inline]
 pub unsafe fn HttpCreateRequestQueue<'a, P0>(version: HTTPAPI_VERSION, name: P0, securityattributes: *mut super::super::Security::SECURITY_ATTRIBUTES, flags: u32, requestqueuehandle: *mut super::super::Foundation::HANDLE) -> u32
 where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
@@ -5158,7 +5149,6 @@ where
     HttpCreateRequestQueue(::core::mem::transmute(version), name.into(), ::core::mem::transmute(securityattributes), flags, ::core::mem::transmute(requestqueuehandle))
 }
 #[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
-#[inline]
 pub unsafe fn HttpCreateServerSession(version: HTTPAPI_VERSION, serversessionid: *mut u64, reserved: u32) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -5167,7 +5157,6 @@ pub unsafe fn HttpCreateServerSession(version: HTTPAPI_VERSION, serversessionid:
     HttpCreateServerSession(::core::mem::transmute(version), ::core::mem::transmute(serversessionid), reserved)
 }
 #[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
-#[inline]
 pub unsafe fn HttpCreateUrlGroup(serversessionid: u64, purlgroupid: *mut u64, reserved: u32) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -5177,7 +5166,6 @@ pub unsafe fn HttpCreateUrlGroup(serversessionid: u64, purlgroupid: *mut u64, re
 }
 #[doc = "*Required features: `\"Win32_Networking_HttpServer\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn HttpDeclarePush<'a, P0, P1, P2>(requestqueuehandle: P0, requestid: u64, verb: HTTP_VERB, path: P1, query: P2, headers: *const HTTP_REQUEST_HEADERS) -> u32
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
@@ -5192,7 +5180,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_Networking_HttpServer\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn HttpDelegateRequestEx<'a, P0, P1>(requestqueuehandle: P0, delegatequeuehandle: P1, requestid: u64, delegateurlgroupid: u64, propertyinfosetsize: u32, propertyinfoset: *const HTTP_DELEGATE_REQUEST_PROPERTY_INFO) -> u32
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
@@ -5206,7 +5193,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_Networking_HttpServer\"`, `\"Win32_Foundation\"`, `\"Win32_System_IO\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
-#[inline]
 pub unsafe fn HttpDeleteServiceConfiguration<'a, P0>(servicehandle: P0, configid: HTTP_SERVICE_CONFIG_ID, pconfiginformation: *const ::core::ffi::c_void, configinformationlength: u32, poverlapped: *mut super::super::System::IO::OVERLAPPED) -> u32
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
@@ -5219,7 +5205,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_Networking_HttpServer\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn HttpFindUrlGroupId<'a, P0, P1>(fullyqualifiedurl: P0, requestqueuehandle: P1, urlgroupid: *mut u64) -> u32
 where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
@@ -5233,7 +5218,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_Networking_HttpServer\"`, `\"Win32_Foundation\"`, `\"Win32_System_IO\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
-#[inline]
 pub unsafe fn HttpFlushResponseCache<'a, P0, P1>(requestqueuehandle: P0, urlprefix: P1, flags: u32, overlapped: *mut super::super::System::IO::OVERLAPPED) -> u32
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
@@ -5246,7 +5230,6 @@ where
     HttpFlushResponseCache(requestqueuehandle.into(), urlprefix.into(), flags, ::core::mem::transmute(overlapped))
 }
 #[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
-#[inline]
 pub unsafe fn HttpGetExtension(version: HTTPAPI_VERSION, extension: u32, buffer: *mut ::core::ffi::c_void, buffersize: u32) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -5255,7 +5238,6 @@ pub unsafe fn HttpGetExtension(version: HTTPAPI_VERSION, extension: u32, buffer:
     HttpGetExtension(::core::mem::transmute(version), extension, ::core::mem::transmute(buffer), buffersize)
 }
 #[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
-#[inline]
 pub unsafe fn HttpInitialize(version: HTTPAPI_VERSION, flags: HTTP_INITIALIZE, preserved: *mut ::core::ffi::c_void) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -5265,7 +5247,6 @@ pub unsafe fn HttpInitialize(version: HTTPAPI_VERSION, flags: HTTP_INITIALIZE, p
 }
 #[doc = "*Required features: `\"Win32_Networking_HttpServer\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn HttpIsFeatureSupported(featureid: HTTP_FEATURE_ID) -> super::super::Foundation::BOOL {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -5274,7 +5255,6 @@ pub unsafe fn HttpIsFeatureSupported(featureid: HTTP_FEATURE_ID) -> super::super
     HttpIsFeatureSupported(featureid)
 }
 #[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
-#[inline]
 pub unsafe fn HttpPrepareUrl<'a, P0>(reserved: *mut ::core::ffi::c_void, flags: u32, url: P0, preparedurl: *mut ::windows::core::PWSTR) -> u32
 where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
@@ -5287,7 +5267,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_Networking_HttpServer\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn HttpQueryRequestQueueProperty<'a, P0>(requestqueuehandle: P0, property: HTTP_SERVER_PROPERTY, propertyinformation: *mut ::core::ffi::c_void, propertyinformationlength: u32, reserved1: u32, returnlength: *mut u32, reserved2: *mut ::core::ffi::c_void) -> u32
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
@@ -5299,7 +5278,6 @@ where
     HttpQueryRequestQueueProperty(requestqueuehandle.into(), property, ::core::mem::transmute(propertyinformation), propertyinformationlength, reserved1, ::core::mem::transmute(returnlength), ::core::mem::transmute(reserved2))
 }
 #[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
-#[inline]
 pub unsafe fn HttpQueryServerSessionProperty(serversessionid: u64, property: HTTP_SERVER_PROPERTY, propertyinformation: *mut ::core::ffi::c_void, propertyinformationlength: u32, returnlength: *mut u32) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -5309,7 +5287,6 @@ pub unsafe fn HttpQueryServerSessionProperty(serversessionid: u64, property: HTT
 }
 #[doc = "*Required features: `\"Win32_Networking_HttpServer\"`, `\"Win32_Foundation\"`, `\"Win32_System_IO\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
-#[inline]
 pub unsafe fn HttpQueryServiceConfiguration<'a, P0>(servicehandle: P0, configid: HTTP_SERVICE_CONFIG_ID, pinput: *const ::core::ffi::c_void, inputlength: u32, poutput: *mut ::core::ffi::c_void, outputlength: u32, preturnlength: *mut u32, poverlapped: *mut super::super::System::IO::OVERLAPPED) -> u32
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
@@ -5321,7 +5298,6 @@ where
     HttpQueryServiceConfiguration(servicehandle.into(), configid, ::core::mem::transmute(pinput), inputlength, ::core::mem::transmute(poutput), outputlength, ::core::mem::transmute(preturnlength), ::core::mem::transmute(poverlapped))
 }
 #[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
-#[inline]
 pub unsafe fn HttpQueryUrlGroupProperty(urlgroupid: u64, property: HTTP_SERVER_PROPERTY, propertyinformation: *mut ::core::ffi::c_void, propertyinformationlength: u32, returnlength: *mut u32) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -5331,7 +5307,6 @@ pub unsafe fn HttpQueryUrlGroupProperty(urlgroupid: u64, property: HTTP_SERVER_P
 }
 #[doc = "*Required features: `\"Win32_Networking_HttpServer\"`, `\"Win32_Foundation\"`, `\"Win32_System_IO\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
-#[inline]
 pub unsafe fn HttpReadFragmentFromCache<'a, P0, P1>(requestqueuehandle: P0, urlprefix: P1, byterange: *mut HTTP_BYTE_RANGE, buffer: *mut ::core::ffi::c_void, bufferlength: u32, bytesread: *mut u32, overlapped: *mut super::super::System::IO::OVERLAPPED) -> u32
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
@@ -5345,7 +5320,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_Networking_HttpServer\"`, `\"Win32_Foundation\"`, `\"Win32_System_IO\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
-#[inline]
 pub unsafe fn HttpReceiveClientCertificate<'a, P0>(requestqueuehandle: P0, connectionid: u64, flags: u32, sslclientcertinfo: *mut HTTP_SSL_CLIENT_CERT_INFO, sslclientcertinfosize: u32, bytesreceived: *mut u32, overlapped: *mut super::super::System::IO::OVERLAPPED) -> u32
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
@@ -5358,7 +5332,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_Networking_HttpServer\"`, `\"Win32_Foundation\"`, `\"Win32_Networking_WinSock\"`, `\"Win32_System_IO\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock", feature = "Win32_System_IO"))]
-#[inline]
 pub unsafe fn HttpReceiveHttpRequest<'a, P0>(requestqueuehandle: P0, requestid: u64, flags: HTTP_RECEIVE_HTTP_REQUEST_FLAGS, requestbuffer: *mut HTTP_REQUEST_V2, requestbufferlength: u32, bytesreturned: *mut u32, overlapped: *mut super::super::System::IO::OVERLAPPED) -> u32
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
@@ -5371,7 +5344,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_Networking_HttpServer\"`, `\"Win32_Foundation\"`, `\"Win32_System_IO\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
-#[inline]
 pub unsafe fn HttpReceiveRequestEntityBody<'a, P0>(requestqueuehandle: P0, requestid: u64, flags: u32, entitybuffer: *mut ::core::ffi::c_void, entitybufferlength: u32, bytesreturned: *mut u32, overlapped: *mut super::super::System::IO::OVERLAPPED) -> u32
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
@@ -5384,7 +5356,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_Networking_HttpServer\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn HttpRemoveUrl<'a, P0, P1>(requestqueuehandle: P0, fullyqualifiedurl: P1) -> u32
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
@@ -5397,7 +5368,6 @@ where
     HttpRemoveUrl(requestqueuehandle.into(), fullyqualifiedurl.into())
 }
 #[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
-#[inline]
 pub unsafe fn HttpRemoveUrlFromUrlGroup<'a, P0>(urlgroupid: u64, pfullyqualifiedurl: P0, flags: u32) -> u32
 where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
@@ -5410,7 +5380,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_Networking_HttpServer\"`, `\"Win32_Foundation\"`, `\"Win32_System_IO\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
-#[inline]
 pub unsafe fn HttpSendHttpResponse<'a, P0>(requestqueuehandle: P0, requestid: u64, flags: u32, httpresponse: *mut HTTP_RESPONSE_V2, cachepolicy: *mut HTTP_CACHE_POLICY, bytessent: *mut u32, reserved1: *mut ::core::ffi::c_void, reserved2: u32, overlapped: *mut super::super::System::IO::OVERLAPPED, logdata: *mut HTTP_LOG_DATA) -> u32
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
@@ -5423,7 +5392,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_Networking_HttpServer\"`, `\"Win32_Foundation\"`, `\"Win32_System_IO\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
-#[inline]
 pub unsafe fn HttpSendResponseEntityBody<'a, P0>(requestqueuehandle: P0, requestid: u64, flags: u32, entitychunks: &[HTTP_DATA_CHUNK], bytessent: *mut u32, reserved1: *mut ::core::ffi::c_void, reserved2: u32, overlapped: *mut super::super::System::IO::OVERLAPPED, logdata: *mut HTTP_LOG_DATA) -> u32
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
@@ -5436,7 +5404,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_Networking_HttpServer\"`, `\"Win32_Foundation\"`, `\"Win32_System_IO\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
-#[inline]
 pub unsafe fn HttpSetRequestProperty<'a, P0>(requestqueuehandle: P0, id: u64, propertyid: HTTP_REQUEST_PROPERTY, input: *const ::core::ffi::c_void, inputpropertysize: u32, overlapped: *const super::super::System::IO::OVERLAPPED) -> u32
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
@@ -5449,7 +5416,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_Networking_HttpServer\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn HttpSetRequestQueueProperty<'a, P0>(requestqueuehandle: P0, property: HTTP_SERVER_PROPERTY, propertyinformation: *const ::core::ffi::c_void, propertyinformationlength: u32, reserved1: u32, reserved2: *mut ::core::ffi::c_void) -> u32
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
@@ -5461,7 +5427,6 @@ where
     HttpSetRequestQueueProperty(requestqueuehandle.into(), property, ::core::mem::transmute(propertyinformation), propertyinformationlength, reserved1, ::core::mem::transmute(reserved2))
 }
 #[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
-#[inline]
 pub unsafe fn HttpSetServerSessionProperty(serversessionid: u64, property: HTTP_SERVER_PROPERTY, propertyinformation: *const ::core::ffi::c_void, propertyinformationlength: u32) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -5471,7 +5436,6 @@ pub unsafe fn HttpSetServerSessionProperty(serversessionid: u64, property: HTTP_
 }
 #[doc = "*Required features: `\"Win32_Networking_HttpServer\"`, `\"Win32_Foundation\"`, `\"Win32_System_IO\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
-#[inline]
 pub unsafe fn HttpSetServiceConfiguration<'a, P0>(servicehandle: P0, configid: HTTP_SERVICE_CONFIG_ID, pconfiginformation: *const ::core::ffi::c_void, configinformationlength: u32, poverlapped: *mut super::super::System::IO::OVERLAPPED) -> u32
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
@@ -5483,7 +5447,6 @@ where
     HttpSetServiceConfiguration(servicehandle.into(), configid, ::core::mem::transmute(pconfiginformation), configinformationlength, ::core::mem::transmute(poverlapped))
 }
 #[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
-#[inline]
 pub unsafe fn HttpSetUrlGroupProperty(urlgroupid: u64, property: HTTP_SERVER_PROPERTY, propertyinformation: *const ::core::ffi::c_void, propertyinformationlength: u32) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -5493,7 +5456,6 @@ pub unsafe fn HttpSetUrlGroupProperty(urlgroupid: u64, property: HTTP_SERVER_PRO
 }
 #[doc = "*Required features: `\"Win32_Networking_HttpServer\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn HttpShutdownRequestQueue<'a, P0>(requestqueuehandle: P0) -> u32
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
@@ -5505,7 +5467,6 @@ where
     HttpShutdownRequestQueue(requestqueuehandle.into())
 }
 #[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
-#[inline]
 pub unsafe fn HttpTerminate(flags: HTTP_INITIALIZE, preserved: *mut ::core::ffi::c_void) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -5515,7 +5476,6 @@ pub unsafe fn HttpTerminate(flags: HTTP_INITIALIZE, preserved: *mut ::core::ffi:
 }
 #[doc = "*Required features: `\"Win32_Networking_HttpServer\"`, `\"Win32_Foundation\"`, `\"Win32_System_IO\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
-#[inline]
 pub unsafe fn HttpUpdateServiceConfiguration<'a, P0>(handle: P0, configid: HTTP_SERVICE_CONFIG_ID, configinfo: *const ::core::ffi::c_void, configinfolength: u32, overlapped: *mut super::super::System::IO::OVERLAPPED) -> u32
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
@@ -5528,7 +5488,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_Networking_HttpServer\"`, `\"Win32_Foundation\"`, `\"Win32_System_IO\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
-#[inline]
 pub unsafe fn HttpWaitForDemandStart<'a, P0>(requestqueuehandle: P0, overlapped: *mut super::super::System::IO::OVERLAPPED) -> u32
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
@@ -5541,7 +5500,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_Networking_HttpServer\"`, `\"Win32_Foundation\"`, `\"Win32_System_IO\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
-#[inline]
 pub unsafe fn HttpWaitForDisconnect<'a, P0>(requestqueuehandle: P0, connectionid: u64, overlapped: *mut super::super::System::IO::OVERLAPPED) -> u32
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
@@ -5554,7 +5512,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_Networking_HttpServer\"`, `\"Win32_Foundation\"`, `\"Win32_System_IO\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
-#[inline]
 pub unsafe fn HttpWaitForDisconnectEx<'a, P0>(requestqueuehandle: P0, connectionid: u64, reserved: u32, overlapped: *mut super::super::System::IO::OVERLAPPED) -> u32
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,

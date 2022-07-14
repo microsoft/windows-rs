@@ -2,7 +2,6 @@
 pub const CFSTR_ACLUI_SID_INFO_LIST: &str = "CFSTR_ACLUI_SID_INFO_LIST";
 #[doc = "*Required features: `\"Win32_Security_Authorization_UI\"`, `\"Win32_UI_Controls\"`*"]
 #[cfg(feature = "Win32_UI_Controls")]
-#[inline]
 pub unsafe fn CreateSecurityPage<'a, P0>(psi: P0) -> ::windows::core::Result<super::super::super::UI::Controls::HPROPSHEETPAGE>
 where
     P0: ::std::convert::Into<::windows::core::InParam<'a, ISecurityInformation>>,
@@ -67,7 +66,6 @@ impl ::core::default::Default for EFFPERM_RESULT_LIST {
 }
 #[doc = "*Required features: `\"Win32_Security_Authorization_UI\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn EditSecurity<'a, P0, P1>(hwndowner: P0, psi: P1) -> super::super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::super::super::Foundation::HWND>,
@@ -81,7 +79,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_Security_Authorization_UI\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn EditSecurityAdvanced<'a, P0, P1>(hwndowner: P0, psi: P1, usipage: SI_PAGE_TYPE) -> ::windows::core::Result<()>
 where
     P0: ::std::convert::Into<super::super::super::Foundation::HWND>,

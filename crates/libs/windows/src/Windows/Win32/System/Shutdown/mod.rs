@@ -1,6 +1,5 @@
 #[doc = "*Required features: `\"Win32_System_Shutdown\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn AbortSystemShutdownA<'a, P0>(lpmachinename: P0) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
@@ -13,7 +12,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Shutdown\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn AbortSystemShutdownW<'a, P0>(lpmachinename: P0) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
@@ -26,7 +24,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Shutdown\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn CheckForHiberboot<'a, P0>(phiberboot: *mut super::super::Foundation::BOOLEAN, bclearflag: P0) -> u32
 where
     P0: ::std::convert::Into<super::super::Foundation::BOOLEAN>,
@@ -74,7 +71,6 @@ impl ::core::fmt::Debug for EXIT_WINDOWS_FLAGS {
 }
 #[doc = "*Required features: `\"Win32_System_Shutdown\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn ExitWindowsEx(uflags: EXIT_WINDOWS_FLAGS, dwreason: SHUTDOWN_REASON) -> super::super::Foundation::BOOL {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -83,7 +79,6 @@ pub unsafe fn ExitWindowsEx(uflags: EXIT_WINDOWS_FLAGS, dwreason: SHUTDOWN_REASO
     ExitWindowsEx(uflags, dwreason)
 }
 #[doc = "*Required features: `\"Win32_System_Shutdown\"`*"]
-#[inline]
 pub unsafe fn InitiateShutdownA<'a, P0, P1>(lpmachinename: P0, lpmessage: P1, dwgraceperiod: u32, dwshutdownflags: SHUTDOWN_FLAGS, dwreason: SHUTDOWN_REASON) -> u32
 where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
@@ -96,7 +91,6 @@ where
     InitiateShutdownA(lpmachinename.into(), lpmessage.into(), dwgraceperiod, dwshutdownflags, dwreason)
 }
 #[doc = "*Required features: `\"Win32_System_Shutdown\"`*"]
-#[inline]
 pub unsafe fn InitiateShutdownW<'a, P0, P1>(lpmachinename: P0, lpmessage: P1, dwgraceperiod: u32, dwshutdownflags: SHUTDOWN_FLAGS, dwreason: SHUTDOWN_REASON) -> u32
 where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
@@ -110,7 +104,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Shutdown\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn InitiateSystemShutdownA<'a, P0, P1, P2, P3>(lpmachinename: P0, lpmessage: P1, dwtimeout: u32, bforceappsclosed: P2, brebootaftershutdown: P3) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
@@ -126,7 +119,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Shutdown\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn InitiateSystemShutdownExA<'a, P0, P1, P2, P3>(lpmachinename: P0, lpmessage: P1, dwtimeout: u32, bforceappsclosed: P2, brebootaftershutdown: P3, dwreason: SHUTDOWN_REASON) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
@@ -142,7 +134,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Shutdown\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn InitiateSystemShutdownExW<'a, P0, P1, P2, P3>(lpmachinename: P0, lpmessage: P1, dwtimeout: u32, bforceappsclosed: P2, brebootaftershutdown: P3, dwreason: SHUTDOWN_REASON) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
@@ -158,7 +149,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Shutdown\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn InitiateSystemShutdownW<'a, P0, P1, P2, P3>(lpmachinename: P0, lpmessage: P1, dwtimeout: u32, bforceappsclosed: P2, brebootaftershutdown: P3) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
@@ -174,7 +164,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Shutdown\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn LockWorkStation() -> super::super::Foundation::BOOL {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -448,7 +437,6 @@ pub const SNAPSHOT_POLICY_NEVER: u32 = 0u32;
 pub const SNAPSHOT_POLICY_UNPLANNED: u32 = 2u32;
 #[doc = "*Required features: `\"Win32_System_Shutdown\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn ShutdownBlockReasonCreate<'a, P0, P1>(hwnd: P0, pwszreason: P1) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::super::Foundation::HWND>,
@@ -462,7 +450,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Shutdown\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn ShutdownBlockReasonDestroy<'a, P0>(hwnd: P0) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::super::Foundation::HWND>,
@@ -475,7 +462,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Shutdown\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn ShutdownBlockReasonQuery<'a, P0>(hwnd: P0, pwszbuff: ::windows::core::PWSTR, pcchbuff: *mut u32) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::super::Foundation::HWND>,

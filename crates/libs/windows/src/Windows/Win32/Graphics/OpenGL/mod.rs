@@ -1,6 +1,5 @@
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(feature = "Win32_Graphics_Gdi")]
-#[inline]
 pub unsafe fn ChoosePixelFormat<'a, P0>(hdc: P0, ppfd: *const PIXELFORMATDESCRIPTOR) -> i32
 where
     P0: ::std::convert::Into<super::Gdi::HDC>,
@@ -13,7 +12,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(feature = "Win32_Graphics_Gdi")]
-#[inline]
 pub unsafe fn DescribePixelFormat<'a, P0>(hdc: P0, ipixelformat: PFD_PIXEL_TYPE, nbytes: u32, ppfd: *mut PIXELFORMATDESCRIPTOR) -> i32
 where
     P0: ::std::convert::Into<super::Gdi::HDC>,
@@ -1539,7 +1537,6 @@ pub const GL_ZOOM_X: u32 = 3350u32;
 pub const GL_ZOOM_Y: u32 = 3351u32;
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(feature = "Win32_Graphics_Gdi")]
-#[inline]
 pub unsafe fn GetEnhMetaFilePixelFormat<'a, P0>(hemf: P0, cbbuffer: u32, ppfd: *mut PIXELFORMATDESCRIPTOR) -> u32
 where
     P0: ::std::convert::Into<super::Gdi::HENHMETAFILE>,
@@ -1552,7 +1549,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(feature = "Win32_Graphics_Gdi")]
-#[inline]
 pub unsafe fn GetPixelFormat<'a, P0>(hdc: P0) -> i32
 where
     P0: ::std::convert::Into<super::Gdi::HDC>,
@@ -1967,7 +1963,6 @@ impl ::core::default::Default for POINTFLOAT {
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-#[inline]
 pub unsafe fn SetPixelFormat<'a, P0>(hdc: P0, format: i32, ppfd: *const PIXELFORMATDESCRIPTOR) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::Gdi::HDC>,
@@ -1980,7 +1975,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-#[inline]
 pub unsafe fn SwapBuffers<'a, P0>(param0: P0) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::Gdi::HDC>,
@@ -1992,7 +1986,6 @@ where
     SwapBuffers(param0.into())
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
-#[inline]
 pub unsafe fn glAccum(op: u32, value: f32) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -2001,7 +1994,6 @@ pub unsafe fn glAccum(op: u32, value: f32) {
     glAccum(op, value)
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
-#[inline]
 pub unsafe fn glAlphaFunc(func: u32, r#ref: f32) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -2010,7 +2002,6 @@ pub unsafe fn glAlphaFunc(func: u32, r#ref: f32) {
     glAlphaFunc(func, r#ref)
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
-#[inline]
 pub unsafe fn glAreTexturesResident(n: i32, textures: *const u32, residences: *mut u8) -> u8 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -2019,7 +2010,6 @@ pub unsafe fn glAreTexturesResident(n: i32, textures: *const u32, residences: *m
     glAreTexturesResident(n, ::core::mem::transmute(textures), ::core::mem::transmute(residences))
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
-#[inline]
 pub unsafe fn glArrayElement(i: i32) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -2028,7 +2018,6 @@ pub unsafe fn glArrayElement(i: i32) {
     glArrayElement(i)
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
-#[inline]
 pub unsafe fn glBegin(mode: u32) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -2037,7 +2026,6 @@ pub unsafe fn glBegin(mode: u32) {
     glBegin(mode)
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
-#[inline]
 pub unsafe fn glBindTexture(target: u32, texture: u32) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -2046,7 +2034,6 @@ pub unsafe fn glBindTexture(target: u32, texture: u32) {
     glBindTexture(target, texture)
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
-#[inline]
 pub unsafe fn glBitmap(width: i32, height: i32, xorig: f32, yorig: f32, xmove: f32, ymove: f32, bitmap: *const u8) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -2055,7 +2042,6 @@ pub unsafe fn glBitmap(width: i32, height: i32, xorig: f32, yorig: f32, xmove: f
     glBitmap(width, height, xorig, yorig, xmove, ymove, ::core::mem::transmute(bitmap))
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
-#[inline]
 pub unsafe fn glBlendFunc(sfactor: u32, dfactor: u32) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -2064,7 +2050,6 @@ pub unsafe fn glBlendFunc(sfactor: u32, dfactor: u32) {
     glBlendFunc(sfactor, dfactor)
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
-#[inline]
 pub unsafe fn glCallList(list: u32) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -2073,7 +2058,6 @@ pub unsafe fn glCallList(list: u32) {
     glCallList(list)
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
-#[inline]
 pub unsafe fn glCallLists(n: i32, r#type: u32, lists: *const ::core::ffi::c_void) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -2082,7 +2066,6 @@ pub unsafe fn glCallLists(n: i32, r#type: u32, lists: *const ::core::ffi::c_void
     glCallLists(n, r#type, ::core::mem::transmute(lists))
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
-#[inline]
 pub unsafe fn glClear(mask: u32) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -2091,7 +2074,6 @@ pub unsafe fn glClear(mask: u32) {
     glClear(mask)
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
-#[inline]
 pub unsafe fn glClearAccum(red: f32, green: f32, blue: f32, alpha: f32) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -2100,7 +2082,6 @@ pub unsafe fn glClearAccum(red: f32, green: f32, blue: f32, alpha: f32) {
     glClearAccum(red, green, blue, alpha)
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
-#[inline]
 pub unsafe fn glClearColor(red: f32, green: f32, blue: f32, alpha: f32) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -2109,7 +2090,6 @@ pub unsafe fn glClearColor(red: f32, green: f32, blue: f32, alpha: f32) {
     glClearColor(red, green, blue, alpha)
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
-#[inline]
 pub unsafe fn glClearDepth(depth: f64) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -2118,7 +2098,6 @@ pub unsafe fn glClearDepth(depth: f64) {
     glClearDepth(depth)
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
-#[inline]
 pub unsafe fn glClearIndex(c: f32) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -2127,7 +2106,6 @@ pub unsafe fn glClearIndex(c: f32) {
     glClearIndex(c)
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
-#[inline]
 pub unsafe fn glClearStencil(s: i32) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -2136,7 +2114,6 @@ pub unsafe fn glClearStencil(s: i32) {
     glClearStencil(s)
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
-#[inline]
 pub unsafe fn glClipPlane(plane: u32, equation: *const f64) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -2145,7 +2122,6 @@ pub unsafe fn glClipPlane(plane: u32, equation: *const f64) {
     glClipPlane(plane, ::core::mem::transmute(equation))
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
-#[inline]
 pub unsafe fn glColor3b(red: i8, green: i8, blue: i8) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -2154,7 +2130,6 @@ pub unsafe fn glColor3b(red: i8, green: i8, blue: i8) {
     glColor3b(red, green, blue)
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
-#[inline]
 pub unsafe fn glColor3bv(v: *const i8) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -2163,7 +2138,6 @@ pub unsafe fn glColor3bv(v: *const i8) {
     glColor3bv(::core::mem::transmute(v))
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
-#[inline]
 pub unsafe fn glColor3d(red: f64, green: f64, blue: f64) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -2172,7 +2146,6 @@ pub unsafe fn glColor3d(red: f64, green: f64, blue: f64) {
     glColor3d(red, green, blue)
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
-#[inline]
 pub unsafe fn glColor3dv(v: *const f64) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -2181,7 +2154,6 @@ pub unsafe fn glColor3dv(v: *const f64) {
     glColor3dv(::core::mem::transmute(v))
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
-#[inline]
 pub unsafe fn glColor3f(red: f32, green: f32, blue: f32) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -2190,7 +2162,6 @@ pub unsafe fn glColor3f(red: f32, green: f32, blue: f32) {
     glColor3f(red, green, blue)
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
-#[inline]
 pub unsafe fn glColor3fv(v: *const f32) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -2199,7 +2170,6 @@ pub unsafe fn glColor3fv(v: *const f32) {
     glColor3fv(::core::mem::transmute(v))
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
-#[inline]
 pub unsafe fn glColor3i(red: i32, green: i32, blue: i32) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -2208,7 +2178,6 @@ pub unsafe fn glColor3i(red: i32, green: i32, blue: i32) {
     glColor3i(red, green, blue)
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
-#[inline]
 pub unsafe fn glColor3iv(v: *const i32) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -2217,7 +2186,6 @@ pub unsafe fn glColor3iv(v: *const i32) {
     glColor3iv(::core::mem::transmute(v))
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
-#[inline]
 pub unsafe fn glColor3s(red: i16, green: i16, blue: i16) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -2226,7 +2194,6 @@ pub unsafe fn glColor3s(red: i16, green: i16, blue: i16) {
     glColor3s(red, green, blue)
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
-#[inline]
 pub unsafe fn glColor3sv(v: *const i16) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -2235,7 +2202,6 @@ pub unsafe fn glColor3sv(v: *const i16) {
     glColor3sv(::core::mem::transmute(v))
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
-#[inline]
 pub unsafe fn glColor3ub(red: u8, green: u8, blue: u8) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -2244,7 +2210,6 @@ pub unsafe fn glColor3ub(red: u8, green: u8, blue: u8) {
     glColor3ub(red, green, blue)
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
-#[inline]
 pub unsafe fn glColor3ubv(v: *const u8) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -2253,7 +2218,6 @@ pub unsafe fn glColor3ubv(v: *const u8) {
     glColor3ubv(::core::mem::transmute(v))
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
-#[inline]
 pub unsafe fn glColor3ui(red: u32, green: u32, blue: u32) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -2262,7 +2226,6 @@ pub unsafe fn glColor3ui(red: u32, green: u32, blue: u32) {
     glColor3ui(red, green, blue)
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
-#[inline]
 pub unsafe fn glColor3uiv(v: *const u32) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -2271,7 +2234,6 @@ pub unsafe fn glColor3uiv(v: *const u32) {
     glColor3uiv(::core::mem::transmute(v))
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
-#[inline]
 pub unsafe fn glColor3us(red: u16, green: u16, blue: u16) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -2280,7 +2242,6 @@ pub unsafe fn glColor3us(red: u16, green: u16, blue: u16) {
     glColor3us(red, green, blue)
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
-#[inline]
 pub unsafe fn glColor3usv(v: *const u16) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -2289,7 +2250,6 @@ pub unsafe fn glColor3usv(v: *const u16) {
     glColor3usv(::core::mem::transmute(v))
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
-#[inline]
 pub unsafe fn glColor4b(red: i8, green: i8, blue: i8, alpha: i8) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -2298,7 +2258,6 @@ pub unsafe fn glColor4b(red: i8, green: i8, blue: i8, alpha: i8) {
     glColor4b(red, green, blue, alpha)
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
-#[inline]
 pub unsafe fn glColor4bv(v: *const i8) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -2307,7 +2266,6 @@ pub unsafe fn glColor4bv(v: *const i8) {
     glColor4bv(::core::mem::transmute(v))
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
-#[inline]
 pub unsafe fn glColor4d(red: f64, green: f64, blue: f64, alpha: f64) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -2316,7 +2274,6 @@ pub unsafe fn glColor4d(red: f64, green: f64, blue: f64, alpha: f64) {
     glColor4d(red, green, blue, alpha)
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
-#[inline]
 pub unsafe fn glColor4dv(v: *const f64) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -2325,7 +2282,6 @@ pub unsafe fn glColor4dv(v: *const f64) {
     glColor4dv(::core::mem::transmute(v))
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
-#[inline]
 pub unsafe fn glColor4f(red: f32, green: f32, blue: f32, alpha: f32) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -2334,7 +2290,6 @@ pub unsafe fn glColor4f(red: f32, green: f32, blue: f32, alpha: f32) {
     glColor4f(red, green, blue, alpha)
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
-#[inline]
 pub unsafe fn glColor4fv(v: *const f32) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -2343,7 +2298,6 @@ pub unsafe fn glColor4fv(v: *const f32) {
     glColor4fv(::core::mem::transmute(v))
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
-#[inline]
 pub unsafe fn glColor4i(red: i32, green: i32, blue: i32, alpha: i32) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -2352,7 +2306,6 @@ pub unsafe fn glColor4i(red: i32, green: i32, blue: i32, alpha: i32) {
     glColor4i(red, green, blue, alpha)
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
-#[inline]
 pub unsafe fn glColor4iv(v: *const i32) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -2361,7 +2314,6 @@ pub unsafe fn glColor4iv(v: *const i32) {
     glColor4iv(::core::mem::transmute(v))
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
-#[inline]
 pub unsafe fn glColor4s(red: i16, green: i16, blue: i16, alpha: i16) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -2370,7 +2322,6 @@ pub unsafe fn glColor4s(red: i16, green: i16, blue: i16, alpha: i16) {
     glColor4s(red, green, blue, alpha)
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
-#[inline]
 pub unsafe fn glColor4sv(v: *const i16) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -2379,7 +2330,6 @@ pub unsafe fn glColor4sv(v: *const i16) {
     glColor4sv(::core::mem::transmute(v))
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
-#[inline]
 pub unsafe fn glColor4ub(red: u8, green: u8, blue: u8, alpha: u8) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -2388,7 +2338,6 @@ pub unsafe fn glColor4ub(red: u8, green: u8, blue: u8, alpha: u8) {
     glColor4ub(red, green, blue, alpha)
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
-#[inline]
 pub unsafe fn glColor4ubv(v: *const u8) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -2397,7 +2346,6 @@ pub unsafe fn glColor4ubv(v: *const u8) {
     glColor4ubv(::core::mem::transmute(v))
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
-#[inline]
 pub unsafe fn glColor4ui(red: u32, green: u32, blue: u32, alpha: u32) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -2406,7 +2354,6 @@ pub unsafe fn glColor4ui(red: u32, green: u32, blue: u32, alpha: u32) {
     glColor4ui(red, green, blue, alpha)
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
-#[inline]
 pub unsafe fn glColor4uiv(v: *const u32) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -2415,7 +2362,6 @@ pub unsafe fn glColor4uiv(v: *const u32) {
     glColor4uiv(::core::mem::transmute(v))
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
-#[inline]
 pub unsafe fn glColor4us(red: u16, green: u16, blue: u16, alpha: u16) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -2424,7 +2370,6 @@ pub unsafe fn glColor4us(red: u16, green: u16, blue: u16, alpha: u16) {
     glColor4us(red, green, blue, alpha)
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
-#[inline]
 pub unsafe fn glColor4usv(v: *const u16) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -2433,7 +2378,6 @@ pub unsafe fn glColor4usv(v: *const u16) {
     glColor4usv(::core::mem::transmute(v))
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
-#[inline]
 pub unsafe fn glColorMask(red: u8, green: u8, blue: u8, alpha: u8) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -2442,7 +2386,6 @@ pub unsafe fn glColorMask(red: u8, green: u8, blue: u8, alpha: u8) {
     glColorMask(red, green, blue, alpha)
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
-#[inline]
 pub unsafe fn glColorMaterial(face: u32, mode: u32) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -2451,7 +2394,6 @@ pub unsafe fn glColorMaterial(face: u32, mode: u32) {
     glColorMaterial(face, mode)
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
-#[inline]
 pub unsafe fn glColorPointer(size: i32, r#type: u32, stride: i32, pointer: *const ::core::ffi::c_void) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -2460,7 +2402,6 @@ pub unsafe fn glColorPointer(size: i32, r#type: u32, stride: i32, pointer: *cons
     glColorPointer(size, r#type, stride, ::core::mem::transmute(pointer))
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
-#[inline]
 pub unsafe fn glCopyPixels(x: i32, y: i32, width: i32, height: i32, r#type: u32) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -2469,7 +2410,6 @@ pub unsafe fn glCopyPixels(x: i32, y: i32, width: i32, height: i32, r#type: u32)
     glCopyPixels(x, y, width, height, r#type)
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
-#[inline]
 pub unsafe fn glCopyTexImage1D(target: u32, level: i32, internalformat: u32, x: i32, y: i32, width: i32, border: i32) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -2478,7 +2418,6 @@ pub unsafe fn glCopyTexImage1D(target: u32, level: i32, internalformat: u32, x: 
     glCopyTexImage1D(target, level, internalformat, x, y, width, border)
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
-#[inline]
 pub unsafe fn glCopyTexImage2D(target: u32, level: i32, internalformat: u32, x: i32, y: i32, width: i32, height: i32, border: i32) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -2487,7 +2426,6 @@ pub unsafe fn glCopyTexImage2D(target: u32, level: i32, internalformat: u32, x: 
     glCopyTexImage2D(target, level, internalformat, x, y, width, height, border)
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
-#[inline]
 pub unsafe fn glCopyTexSubImage1D(target: u32, level: i32, xoffset: i32, x: i32, y: i32, width: i32) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -2496,7 +2434,6 @@ pub unsafe fn glCopyTexSubImage1D(target: u32, level: i32, xoffset: i32, x: i32,
     glCopyTexSubImage1D(target, level, xoffset, x, y, width)
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
-#[inline]
 pub unsafe fn glCopyTexSubImage2D(target: u32, level: i32, xoffset: i32, yoffset: i32, x: i32, y: i32, width: i32, height: i32) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -2505,7 +2442,6 @@ pub unsafe fn glCopyTexSubImage2D(target: u32, level: i32, xoffset: i32, yoffset
     glCopyTexSubImage2D(target, level, xoffset, yoffset, x, y, width, height)
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
-#[inline]
 pub unsafe fn glCullFace(mode: u32) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -2514,7 +2450,6 @@ pub unsafe fn glCullFace(mode: u32) {
     glCullFace(mode)
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
-#[inline]
 pub unsafe fn glDeleteLists(list: u32, range: i32) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -2523,7 +2458,6 @@ pub unsafe fn glDeleteLists(list: u32, range: i32) {
     glDeleteLists(list, range)
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
-#[inline]
 pub unsafe fn glDeleteTextures(n: i32, textures: *const u32) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -2532,7 +2466,6 @@ pub unsafe fn glDeleteTextures(n: i32, textures: *const u32) {
     glDeleteTextures(n, ::core::mem::transmute(textures))
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
-#[inline]
 pub unsafe fn glDepthFunc(func: u32) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -2541,7 +2474,6 @@ pub unsafe fn glDepthFunc(func: u32) {
     glDepthFunc(func)
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
-#[inline]
 pub unsafe fn glDepthMask(flag: u8) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -2550,7 +2482,6 @@ pub unsafe fn glDepthMask(flag: u8) {
     glDepthMask(flag)
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
-#[inline]
 pub unsafe fn glDepthRange(znear: f64, zfar: f64) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -2559,7 +2490,6 @@ pub unsafe fn glDepthRange(znear: f64, zfar: f64) {
     glDepthRange(znear, zfar)
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
-#[inline]
 pub unsafe fn glDisable(cap: u32) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -2568,7 +2498,6 @@ pub unsafe fn glDisable(cap: u32) {
     glDisable(cap)
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
-#[inline]
 pub unsafe fn glDisableClientState(array: u32) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -2577,7 +2506,6 @@ pub unsafe fn glDisableClientState(array: u32) {
     glDisableClientState(array)
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
-#[inline]
 pub unsafe fn glDrawArrays(mode: u32, first: i32, count: i32) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -2586,7 +2514,6 @@ pub unsafe fn glDrawArrays(mode: u32, first: i32, count: i32) {
     glDrawArrays(mode, first, count)
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
-#[inline]
 pub unsafe fn glDrawBuffer(mode: u32) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -2595,7 +2522,6 @@ pub unsafe fn glDrawBuffer(mode: u32) {
     glDrawBuffer(mode)
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
-#[inline]
 pub unsafe fn glDrawElements(mode: u32, count: i32, r#type: u32, indices: *const ::core::ffi::c_void) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -2604,7 +2530,6 @@ pub unsafe fn glDrawElements(mode: u32, count: i32, r#type: u32, indices: *const
     glDrawElements(mode, count, r#type, ::core::mem::transmute(indices))
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
-#[inline]
 pub unsafe fn glDrawPixels(width: i32, height: i32, format: u32, r#type: u32, pixels: *const ::core::ffi::c_void) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -2613,7 +2538,6 @@ pub unsafe fn glDrawPixels(width: i32, height: i32, format: u32, r#type: u32, pi
     glDrawPixels(width, height, format, r#type, ::core::mem::transmute(pixels))
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
-#[inline]
 pub unsafe fn glEdgeFlag(flag: u8) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -2622,7 +2546,6 @@ pub unsafe fn glEdgeFlag(flag: u8) {
     glEdgeFlag(flag)
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
-#[inline]
 pub unsafe fn glEdgeFlagPointer(stride: i32, pointer: *const ::core::ffi::c_void) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -2631,7 +2554,6 @@ pub unsafe fn glEdgeFlagPointer(stride: i32, pointer: *const ::core::ffi::c_void
     glEdgeFlagPointer(stride, ::core::mem::transmute(pointer))
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
-#[inline]
 pub unsafe fn glEdgeFlagv(flag: *const u8) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -2640,7 +2562,6 @@ pub unsafe fn glEdgeFlagv(flag: *const u8) {
     glEdgeFlagv(::core::mem::transmute(flag))
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
-#[inline]
 pub unsafe fn glEnable(cap: u32) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -2649,7 +2570,6 @@ pub unsafe fn glEnable(cap: u32) {
     glEnable(cap)
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
-#[inline]
 pub unsafe fn glEnableClientState(array: u32) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -2658,7 +2578,6 @@ pub unsafe fn glEnableClientState(array: u32) {
     glEnableClientState(array)
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
-#[inline]
 pub unsafe fn glEnd() {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -2667,7 +2586,6 @@ pub unsafe fn glEnd() {
     glEnd()
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
-#[inline]
 pub unsafe fn glEndList() {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -2676,7 +2594,6 @@ pub unsafe fn glEndList() {
     glEndList()
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
-#[inline]
 pub unsafe fn glEvalCoord1d(u: f64) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -2685,7 +2602,6 @@ pub unsafe fn glEvalCoord1d(u: f64) {
     glEvalCoord1d(u)
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
-#[inline]
 pub unsafe fn glEvalCoord1dv(u: *const f64) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -2694,7 +2610,6 @@ pub unsafe fn glEvalCoord1dv(u: *const f64) {
     glEvalCoord1dv(::core::mem::transmute(u))
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
-#[inline]
 pub unsafe fn glEvalCoord1f(u: f32) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -2703,7 +2618,6 @@ pub unsafe fn glEvalCoord1f(u: f32) {
     glEvalCoord1f(u)
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
-#[inline]
 pub unsafe fn glEvalCoord1fv(u: *const f32) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -2712,7 +2626,6 @@ pub unsafe fn glEvalCoord1fv(u: *const f32) {
     glEvalCoord1fv(::core::mem::transmute(u))
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
-#[inline]
 pub unsafe fn glEvalCoord2d(u: f64, v: f64) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -2721,7 +2634,6 @@ pub unsafe fn glEvalCoord2d(u: f64, v: f64) {
     glEvalCoord2d(u, v)
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
-#[inline]
 pub unsafe fn glEvalCoord2dv(u: *const f64) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -2730,7 +2642,6 @@ pub unsafe fn glEvalCoord2dv(u: *const f64) {
     glEvalCoord2dv(::core::mem::transmute(u))
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
-#[inline]
 pub unsafe fn glEvalCoord2f(u: f32, v: f32) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -2739,7 +2650,6 @@ pub unsafe fn glEvalCoord2f(u: f32, v: f32) {
     glEvalCoord2f(u, v)
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
-#[inline]
 pub unsafe fn glEvalCoord2fv(u: *const f32) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -2748,7 +2658,6 @@ pub unsafe fn glEvalCoord2fv(u: *const f32) {
     glEvalCoord2fv(::core::mem::transmute(u))
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
-#[inline]
 pub unsafe fn glEvalMesh1(mode: u32, i1: i32, i2: i32) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -2757,7 +2666,6 @@ pub unsafe fn glEvalMesh1(mode: u32, i1: i32, i2: i32) {
     glEvalMesh1(mode, i1, i2)
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
-#[inline]
 pub unsafe fn glEvalMesh2(mode: u32, i1: i32, i2: i32, j1: i32, j2: i32) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -2766,7 +2674,6 @@ pub unsafe fn glEvalMesh2(mode: u32, i1: i32, i2: i32, j1: i32, j2: i32) {
     glEvalMesh2(mode, i1, i2, j1, j2)
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
-#[inline]
 pub unsafe fn glEvalPoint1(i: i32) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -2775,7 +2682,6 @@ pub unsafe fn glEvalPoint1(i: i32) {
     glEvalPoint1(i)
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
-#[inline]
 pub unsafe fn glEvalPoint2(i: i32, j: i32) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -2784,7 +2690,6 @@ pub unsafe fn glEvalPoint2(i: i32, j: i32) {
     glEvalPoint2(i, j)
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
-#[inline]
 pub unsafe fn glFeedbackBuffer(size: i32, r#type: u32, buffer: *mut f32) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -2793,7 +2698,6 @@ pub unsafe fn glFeedbackBuffer(size: i32, r#type: u32, buffer: *mut f32) {
     glFeedbackBuffer(size, r#type, ::core::mem::transmute(buffer))
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
-#[inline]
 pub unsafe fn glFinish() {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -2802,7 +2706,6 @@ pub unsafe fn glFinish() {
     glFinish()
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
-#[inline]
 pub unsafe fn glFlush() {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -2811,7 +2714,6 @@ pub unsafe fn glFlush() {
     glFlush()
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
-#[inline]
 pub unsafe fn glFogf(pname: u32, param1: f32) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -2820,7 +2722,6 @@ pub unsafe fn glFogf(pname: u32, param1: f32) {
     glFogf(pname, param1)
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
-#[inline]
 pub unsafe fn glFogfv(pname: u32, params: *const f32) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -2829,7 +2730,6 @@ pub unsafe fn glFogfv(pname: u32, params: *const f32) {
     glFogfv(pname, ::core::mem::transmute(params))
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
-#[inline]
 pub unsafe fn glFogi(pname: u32, param1: i32) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -2838,7 +2738,6 @@ pub unsafe fn glFogi(pname: u32, param1: i32) {
     glFogi(pname, param1)
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
-#[inline]
 pub unsafe fn glFogiv(pname: u32, params: *const i32) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -2847,7 +2746,6 @@ pub unsafe fn glFogiv(pname: u32, params: *const i32) {
     glFogiv(pname, ::core::mem::transmute(params))
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
-#[inline]
 pub unsafe fn glFrontFace(mode: u32) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -2856,7 +2754,6 @@ pub unsafe fn glFrontFace(mode: u32) {
     glFrontFace(mode)
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
-#[inline]
 pub unsafe fn glFrustum(left: f64, right: f64, bottom: f64, top: f64, znear: f64, zfar: f64) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -2865,7 +2762,6 @@ pub unsafe fn glFrustum(left: f64, right: f64, bottom: f64, top: f64, znear: f64
     glFrustum(left, right, bottom, top, znear, zfar)
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
-#[inline]
 pub unsafe fn glGenLists(range: i32) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -2874,7 +2770,6 @@ pub unsafe fn glGenLists(range: i32) -> u32 {
     glGenLists(range)
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
-#[inline]
 pub unsafe fn glGenTextures(n: i32, textures: *mut u32) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -2883,7 +2778,6 @@ pub unsafe fn glGenTextures(n: i32, textures: *mut u32) {
     glGenTextures(n, ::core::mem::transmute(textures))
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
-#[inline]
 pub unsafe fn glGetBooleanv(pname: u32, params: *mut u8) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -2892,7 +2786,6 @@ pub unsafe fn glGetBooleanv(pname: u32, params: *mut u8) {
     glGetBooleanv(pname, ::core::mem::transmute(params))
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
-#[inline]
 pub unsafe fn glGetClipPlane(plane: u32, equation: *mut f64) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -2901,7 +2794,6 @@ pub unsafe fn glGetClipPlane(plane: u32, equation: *mut f64) {
     glGetClipPlane(plane, ::core::mem::transmute(equation))
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
-#[inline]
 pub unsafe fn glGetDoublev(pname: u32, params: *mut f64) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -2910,7 +2802,6 @@ pub unsafe fn glGetDoublev(pname: u32, params: *mut f64) {
     glGetDoublev(pname, ::core::mem::transmute(params))
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
-#[inline]
 pub unsafe fn glGetError() -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -2919,7 +2810,6 @@ pub unsafe fn glGetError() -> u32 {
     glGetError()
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
-#[inline]
 pub unsafe fn glGetFloatv(pname: u32, params: *mut f32) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -2928,7 +2818,6 @@ pub unsafe fn glGetFloatv(pname: u32, params: *mut f32) {
     glGetFloatv(pname, ::core::mem::transmute(params))
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
-#[inline]
 pub unsafe fn glGetIntegerv(pname: u32, params: *mut i32) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -2937,7 +2826,6 @@ pub unsafe fn glGetIntegerv(pname: u32, params: *mut i32) {
     glGetIntegerv(pname, ::core::mem::transmute(params))
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
-#[inline]
 pub unsafe fn glGetLightfv(light: u32, pname: u32, params: *mut f32) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -2946,7 +2834,6 @@ pub unsafe fn glGetLightfv(light: u32, pname: u32, params: *mut f32) {
     glGetLightfv(light, pname, ::core::mem::transmute(params))
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
-#[inline]
 pub unsafe fn glGetLightiv(light: u32, pname: u32, params: *mut i32) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -2955,7 +2842,6 @@ pub unsafe fn glGetLightiv(light: u32, pname: u32, params: *mut i32) {
     glGetLightiv(light, pname, ::core::mem::transmute(params))
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
-#[inline]
 pub unsafe fn glGetMapdv(target: u32, query: u32, v: *mut f64) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -2964,7 +2850,6 @@ pub unsafe fn glGetMapdv(target: u32, query: u32, v: *mut f64) {
     glGetMapdv(target, query, ::core::mem::transmute(v))
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
-#[inline]
 pub unsafe fn glGetMapfv(target: u32, query: u32, v: *mut f32) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -2973,7 +2858,6 @@ pub unsafe fn glGetMapfv(target: u32, query: u32, v: *mut f32) {
     glGetMapfv(target, query, ::core::mem::transmute(v))
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
-#[inline]
 pub unsafe fn glGetMapiv(target: u32, query: u32, v: *mut i32) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -2982,7 +2866,6 @@ pub unsafe fn glGetMapiv(target: u32, query: u32, v: *mut i32) {
     glGetMapiv(target, query, ::core::mem::transmute(v))
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
-#[inline]
 pub unsafe fn glGetMaterialfv(face: u32, pname: u32, params: *mut f32) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -2991,7 +2874,6 @@ pub unsafe fn glGetMaterialfv(face: u32, pname: u32, params: *mut f32) {
     glGetMaterialfv(face, pname, ::core::mem::transmute(params))
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
-#[inline]
 pub unsafe fn glGetMaterialiv(face: u32, pname: u32, params: *mut i32) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -3000,7 +2882,6 @@ pub unsafe fn glGetMaterialiv(face: u32, pname: u32, params: *mut i32) {
     glGetMaterialiv(face, pname, ::core::mem::transmute(params))
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
-#[inline]
 pub unsafe fn glGetPixelMapfv(map: u32, values: *mut f32) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -3009,7 +2890,6 @@ pub unsafe fn glGetPixelMapfv(map: u32, values: *mut f32) {
     glGetPixelMapfv(map, ::core::mem::transmute(values))
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
-#[inline]
 pub unsafe fn glGetPixelMapuiv(map: u32, values: *mut u32) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -3018,7 +2898,6 @@ pub unsafe fn glGetPixelMapuiv(map: u32, values: *mut u32) {
     glGetPixelMapuiv(map, ::core::mem::transmute(values))
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
-#[inline]
 pub unsafe fn glGetPixelMapusv(map: u32, values: *mut u16) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -3027,7 +2906,6 @@ pub unsafe fn glGetPixelMapusv(map: u32, values: *mut u16) {
     glGetPixelMapusv(map, ::core::mem::transmute(values))
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
-#[inline]
 pub unsafe fn glGetPointerv(pname: u32, params: *mut *mut ::core::ffi::c_void) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -3036,7 +2914,6 @@ pub unsafe fn glGetPointerv(pname: u32, params: *mut *mut ::core::ffi::c_void) {
     glGetPointerv(pname, ::core::mem::transmute(params))
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
-#[inline]
 pub unsafe fn glGetPolygonStipple(mask: *mut u8) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -3045,7 +2922,6 @@ pub unsafe fn glGetPolygonStipple(mask: *mut u8) {
     glGetPolygonStipple(::core::mem::transmute(mask))
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
-#[inline]
 pub unsafe fn glGetString(name: u32) -> *mut u8 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -3054,7 +2930,6 @@ pub unsafe fn glGetString(name: u32) -> *mut u8 {
     glGetString(name)
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
-#[inline]
 pub unsafe fn glGetTexEnvfv(target: u32, pname: u32, params: *mut f32) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -3063,7 +2938,6 @@ pub unsafe fn glGetTexEnvfv(target: u32, pname: u32, params: *mut f32) {
     glGetTexEnvfv(target, pname, ::core::mem::transmute(params))
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
-#[inline]
 pub unsafe fn glGetTexEnviv(target: u32, pname: u32, params: *mut i32) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -3072,7 +2946,6 @@ pub unsafe fn glGetTexEnviv(target: u32, pname: u32, params: *mut i32) {
     glGetTexEnviv(target, pname, ::core::mem::transmute(params))
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
-#[inline]
 pub unsafe fn glGetTexGendv(coord: u32, pname: u32, params: *mut f64) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -3081,7 +2954,6 @@ pub unsafe fn glGetTexGendv(coord: u32, pname: u32, params: *mut f64) {
     glGetTexGendv(coord, pname, ::core::mem::transmute(params))
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
-#[inline]
 pub unsafe fn glGetTexGenfv(coord: u32, pname: u32, params: *mut f32) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -3090,7 +2962,6 @@ pub unsafe fn glGetTexGenfv(coord: u32, pname: u32, params: *mut f32) {
     glGetTexGenfv(coord, pname, ::core::mem::transmute(params))
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
-#[inline]
 pub unsafe fn glGetTexGeniv(coord: u32, pname: u32, params: *mut i32) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -3099,7 +2970,6 @@ pub unsafe fn glGetTexGeniv(coord: u32, pname: u32, params: *mut i32) {
     glGetTexGeniv(coord, pname, ::core::mem::transmute(params))
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
-#[inline]
 pub unsafe fn glGetTexImage(target: u32, level: i32, format: u32, r#type: u32, pixels: *mut ::core::ffi::c_void) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -3108,7 +2978,6 @@ pub unsafe fn glGetTexImage(target: u32, level: i32, format: u32, r#type: u32, p
     glGetTexImage(target, level, format, r#type, ::core::mem::transmute(pixels))
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
-#[inline]
 pub unsafe fn glGetTexLevelParameterfv(target: u32, level: i32, pname: u32, params: *mut f32) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -3117,7 +2986,6 @@ pub unsafe fn glGetTexLevelParameterfv(target: u32, level: i32, pname: u32, para
     glGetTexLevelParameterfv(target, level, pname, ::core::mem::transmute(params))
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
-#[inline]
 pub unsafe fn glGetTexLevelParameteriv(target: u32, level: i32, pname: u32, params: *mut i32) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -3126,7 +2994,6 @@ pub unsafe fn glGetTexLevelParameteriv(target: u32, level: i32, pname: u32, para
     glGetTexLevelParameteriv(target, level, pname, ::core::mem::transmute(params))
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
-#[inline]
 pub unsafe fn glGetTexParameterfv(target: u32, pname: u32, params: *mut f32) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -3135,7 +3002,6 @@ pub unsafe fn glGetTexParameterfv(target: u32, pname: u32, params: *mut f32) {
     glGetTexParameterfv(target, pname, ::core::mem::transmute(params))
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
-#[inline]
 pub unsafe fn glGetTexParameteriv(target: u32, pname: u32, params: *mut i32) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -3144,7 +3010,6 @@ pub unsafe fn glGetTexParameteriv(target: u32, pname: u32, params: *mut i32) {
     glGetTexParameteriv(target, pname, ::core::mem::transmute(params))
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
-#[inline]
 pub unsafe fn glHint(target: u32, mode: u32) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -3153,7 +3018,6 @@ pub unsafe fn glHint(target: u32, mode: u32) {
     glHint(target, mode)
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
-#[inline]
 pub unsafe fn glIndexMask(mask: u32) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -3162,7 +3026,6 @@ pub unsafe fn glIndexMask(mask: u32) {
     glIndexMask(mask)
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
-#[inline]
 pub unsafe fn glIndexPointer(r#type: u32, stride: i32, pointer: *const ::core::ffi::c_void) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -3171,7 +3034,6 @@ pub unsafe fn glIndexPointer(r#type: u32, stride: i32, pointer: *const ::core::f
     glIndexPointer(r#type, stride, ::core::mem::transmute(pointer))
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
-#[inline]
 pub unsafe fn glIndexd(c: f64) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -3180,7 +3042,6 @@ pub unsafe fn glIndexd(c: f64) {
     glIndexd(c)
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
-#[inline]
 pub unsafe fn glIndexdv(c: *const f64) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -3189,7 +3050,6 @@ pub unsafe fn glIndexdv(c: *const f64) {
     glIndexdv(::core::mem::transmute(c))
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
-#[inline]
 pub unsafe fn glIndexf(c: f32) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -3198,7 +3058,6 @@ pub unsafe fn glIndexf(c: f32) {
     glIndexf(c)
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
-#[inline]
 pub unsafe fn glIndexfv(c: *const f32) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -3207,7 +3066,6 @@ pub unsafe fn glIndexfv(c: *const f32) {
     glIndexfv(::core::mem::transmute(c))
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
-#[inline]
 pub unsafe fn glIndexi(c: i32) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -3216,7 +3074,6 @@ pub unsafe fn glIndexi(c: i32) {
     glIndexi(c)
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
-#[inline]
 pub unsafe fn glIndexiv(c: *const i32) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -3225,7 +3082,6 @@ pub unsafe fn glIndexiv(c: *const i32) {
     glIndexiv(::core::mem::transmute(c))
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
-#[inline]
 pub unsafe fn glIndexs(c: i16) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -3234,7 +3090,6 @@ pub unsafe fn glIndexs(c: i16) {
     glIndexs(c)
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
-#[inline]
 pub unsafe fn glIndexsv(c: *const i16) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -3243,7 +3098,6 @@ pub unsafe fn glIndexsv(c: *const i16) {
     glIndexsv(::core::mem::transmute(c))
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
-#[inline]
 pub unsafe fn glIndexub(c: u8) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -3252,7 +3106,6 @@ pub unsafe fn glIndexub(c: u8) {
     glIndexub(c)
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
-#[inline]
 pub unsafe fn glIndexubv(c: *const u8) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -3261,7 +3114,6 @@ pub unsafe fn glIndexubv(c: *const u8) {
     glIndexubv(::core::mem::transmute(c))
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
-#[inline]
 pub unsafe fn glInitNames() {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -3270,7 +3122,6 @@ pub unsafe fn glInitNames() {
     glInitNames()
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
-#[inline]
 pub unsafe fn glInterleavedArrays(format: u32, stride: i32, pointer: *const ::core::ffi::c_void) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -3279,7 +3130,6 @@ pub unsafe fn glInterleavedArrays(format: u32, stride: i32, pointer: *const ::co
     glInterleavedArrays(format, stride, ::core::mem::transmute(pointer))
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
-#[inline]
 pub unsafe fn glIsEnabled(cap: u32) -> u8 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -3288,7 +3138,6 @@ pub unsafe fn glIsEnabled(cap: u32) -> u8 {
     glIsEnabled(cap)
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
-#[inline]
 pub unsafe fn glIsList(list: u32) -> u8 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -3297,7 +3146,6 @@ pub unsafe fn glIsList(list: u32) -> u8 {
     glIsList(list)
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
-#[inline]
 pub unsafe fn glIsTexture(texture: u32) -> u8 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -3306,7 +3154,6 @@ pub unsafe fn glIsTexture(texture: u32) -> u8 {
     glIsTexture(texture)
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
-#[inline]
 pub unsafe fn glLightModelf(pname: u32, param1: f32) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -3315,7 +3162,6 @@ pub unsafe fn glLightModelf(pname: u32, param1: f32) {
     glLightModelf(pname, param1)
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
-#[inline]
 pub unsafe fn glLightModelfv(pname: u32, params: *const f32) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -3324,7 +3170,6 @@ pub unsafe fn glLightModelfv(pname: u32, params: *const f32) {
     glLightModelfv(pname, ::core::mem::transmute(params))
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
-#[inline]
 pub unsafe fn glLightModeli(pname: u32, param1: i32) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -3333,7 +3178,6 @@ pub unsafe fn glLightModeli(pname: u32, param1: i32) {
     glLightModeli(pname, param1)
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
-#[inline]
 pub unsafe fn glLightModeliv(pname: u32, params: *const i32) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -3342,7 +3186,6 @@ pub unsafe fn glLightModeliv(pname: u32, params: *const i32) {
     glLightModeliv(pname, ::core::mem::transmute(params))
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
-#[inline]
 pub unsafe fn glLightf(light: u32, pname: u32, param2: f32) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -3351,7 +3194,6 @@ pub unsafe fn glLightf(light: u32, pname: u32, param2: f32) {
     glLightf(light, pname, param2)
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
-#[inline]
 pub unsafe fn glLightfv(light: u32, pname: u32, params: *const f32) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -3360,7 +3202,6 @@ pub unsafe fn glLightfv(light: u32, pname: u32, params: *const f32) {
     glLightfv(light, pname, ::core::mem::transmute(params))
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
-#[inline]
 pub unsafe fn glLighti(light: u32, pname: u32, param2: i32) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -3369,7 +3210,6 @@ pub unsafe fn glLighti(light: u32, pname: u32, param2: i32) {
     glLighti(light, pname, param2)
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
-#[inline]
 pub unsafe fn glLightiv(light: u32, pname: u32, params: *const i32) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -3378,7 +3218,6 @@ pub unsafe fn glLightiv(light: u32, pname: u32, params: *const i32) {
     glLightiv(light, pname, ::core::mem::transmute(params))
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
-#[inline]
 pub unsafe fn glLineStipple(factor: i32, pattern: u16) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -3387,7 +3226,6 @@ pub unsafe fn glLineStipple(factor: i32, pattern: u16) {
     glLineStipple(factor, pattern)
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
-#[inline]
 pub unsafe fn glLineWidth(width: f32) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -3396,7 +3234,6 @@ pub unsafe fn glLineWidth(width: f32) {
     glLineWidth(width)
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
-#[inline]
 pub unsafe fn glListBase(base: u32) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -3405,7 +3242,6 @@ pub unsafe fn glListBase(base: u32) {
     glListBase(base)
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
-#[inline]
 pub unsafe fn glLoadIdentity() {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -3414,7 +3250,6 @@ pub unsafe fn glLoadIdentity() {
     glLoadIdentity()
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
-#[inline]
 pub unsafe fn glLoadMatrixd(m: *const f64) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -3423,7 +3258,6 @@ pub unsafe fn glLoadMatrixd(m: *const f64) {
     glLoadMatrixd(::core::mem::transmute(m))
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
-#[inline]
 pub unsafe fn glLoadMatrixf(m: *const f32) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -3432,7 +3266,6 @@ pub unsafe fn glLoadMatrixf(m: *const f32) {
     glLoadMatrixf(::core::mem::transmute(m))
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
-#[inline]
 pub unsafe fn glLoadName(name: u32) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -3441,7 +3274,6 @@ pub unsafe fn glLoadName(name: u32) {
     glLoadName(name)
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
-#[inline]
 pub unsafe fn glLogicOp(opcode: u32) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -3450,7 +3282,6 @@ pub unsafe fn glLogicOp(opcode: u32) {
     glLogicOp(opcode)
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
-#[inline]
 pub unsafe fn glMap1d(target: u32, u1: f64, u2: f64, stride: i32, order: i32, points: *const f64) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -3459,7 +3290,6 @@ pub unsafe fn glMap1d(target: u32, u1: f64, u2: f64, stride: i32, order: i32, po
     glMap1d(target, u1, u2, stride, order, ::core::mem::transmute(points))
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
-#[inline]
 pub unsafe fn glMap1f(target: u32, u1: f32, u2: f32, stride: i32, order: i32, points: *const f32) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -3468,7 +3298,6 @@ pub unsafe fn glMap1f(target: u32, u1: f32, u2: f32, stride: i32, order: i32, po
     glMap1f(target, u1, u2, stride, order, ::core::mem::transmute(points))
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
-#[inline]
 pub unsafe fn glMap2d(target: u32, u1: f64, u2: f64, ustride: i32, uorder: i32, v1: f64, v2: f64, vstride: i32, vorder: i32, points: *const f64) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -3477,7 +3306,6 @@ pub unsafe fn glMap2d(target: u32, u1: f64, u2: f64, ustride: i32, uorder: i32, 
     glMap2d(target, u1, u2, ustride, uorder, v1, v2, vstride, vorder, ::core::mem::transmute(points))
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
-#[inline]
 pub unsafe fn glMap2f(target: u32, u1: f32, u2: f32, ustride: i32, uorder: i32, v1: f32, v2: f32, vstride: i32, vorder: i32, points: *const f32) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -3486,7 +3314,6 @@ pub unsafe fn glMap2f(target: u32, u1: f32, u2: f32, ustride: i32, uorder: i32, 
     glMap2f(target, u1, u2, ustride, uorder, v1, v2, vstride, vorder, ::core::mem::transmute(points))
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
-#[inline]
 pub unsafe fn glMapGrid1d(un: i32, u1: f64, u2: f64) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -3495,7 +3322,6 @@ pub unsafe fn glMapGrid1d(un: i32, u1: f64, u2: f64) {
     glMapGrid1d(un, u1, u2)
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
-#[inline]
 pub unsafe fn glMapGrid1f(un: i32, u1: f32, u2: f32) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -3504,7 +3330,6 @@ pub unsafe fn glMapGrid1f(un: i32, u1: f32, u2: f32) {
     glMapGrid1f(un, u1, u2)
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
-#[inline]
 pub unsafe fn glMapGrid2d(un: i32, u1: f64, u2: f64, vn: i32, v1: f64, v2: f64) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -3513,7 +3338,6 @@ pub unsafe fn glMapGrid2d(un: i32, u1: f64, u2: f64, vn: i32, v1: f64, v2: f64) 
     glMapGrid2d(un, u1, u2, vn, v1, v2)
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
-#[inline]
 pub unsafe fn glMapGrid2f(un: i32, u1: f32, u2: f32, vn: i32, v1: f32, v2: f32) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -3522,7 +3346,6 @@ pub unsafe fn glMapGrid2f(un: i32, u1: f32, u2: f32, vn: i32, v1: f32, v2: f32) 
     glMapGrid2f(un, u1, u2, vn, v1, v2)
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
-#[inline]
 pub unsafe fn glMaterialf(face: u32, pname: u32, param2: f32) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -3531,7 +3354,6 @@ pub unsafe fn glMaterialf(face: u32, pname: u32, param2: f32) {
     glMaterialf(face, pname, param2)
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
-#[inline]
 pub unsafe fn glMaterialfv(face: u32, pname: u32, params: *const f32) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -3540,7 +3362,6 @@ pub unsafe fn glMaterialfv(face: u32, pname: u32, params: *const f32) {
     glMaterialfv(face, pname, ::core::mem::transmute(params))
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
-#[inline]
 pub unsafe fn glMateriali(face: u32, pname: u32, param2: i32) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -3549,7 +3370,6 @@ pub unsafe fn glMateriali(face: u32, pname: u32, param2: i32) {
     glMateriali(face, pname, param2)
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
-#[inline]
 pub unsafe fn glMaterialiv(face: u32, pname: u32, params: *const i32) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -3558,7 +3378,6 @@ pub unsafe fn glMaterialiv(face: u32, pname: u32, params: *const i32) {
     glMaterialiv(face, pname, ::core::mem::transmute(params))
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
-#[inline]
 pub unsafe fn glMatrixMode(mode: u32) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -3567,7 +3386,6 @@ pub unsafe fn glMatrixMode(mode: u32) {
     glMatrixMode(mode)
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
-#[inline]
 pub unsafe fn glMultMatrixd(m: *const f64) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -3576,7 +3394,6 @@ pub unsafe fn glMultMatrixd(m: *const f64) {
     glMultMatrixd(::core::mem::transmute(m))
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
-#[inline]
 pub unsafe fn glMultMatrixf(m: *const f32) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -3585,7 +3402,6 @@ pub unsafe fn glMultMatrixf(m: *const f32) {
     glMultMatrixf(::core::mem::transmute(m))
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
-#[inline]
 pub unsafe fn glNewList(list: u32, mode: u32) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -3594,7 +3410,6 @@ pub unsafe fn glNewList(list: u32, mode: u32) {
     glNewList(list, mode)
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
-#[inline]
 pub unsafe fn glNormal3b(nx: i8, ny: i8, nz: i8) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -3603,7 +3418,6 @@ pub unsafe fn glNormal3b(nx: i8, ny: i8, nz: i8) {
     glNormal3b(nx, ny, nz)
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
-#[inline]
 pub unsafe fn glNormal3bv(v: *const i8) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -3612,7 +3426,6 @@ pub unsafe fn glNormal3bv(v: *const i8) {
     glNormal3bv(::core::mem::transmute(v))
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
-#[inline]
 pub unsafe fn glNormal3d(nx: f64, ny: f64, nz: f64) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -3621,7 +3434,6 @@ pub unsafe fn glNormal3d(nx: f64, ny: f64, nz: f64) {
     glNormal3d(nx, ny, nz)
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
-#[inline]
 pub unsafe fn glNormal3dv(v: *const f64) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -3630,7 +3442,6 @@ pub unsafe fn glNormal3dv(v: *const f64) {
     glNormal3dv(::core::mem::transmute(v))
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
-#[inline]
 pub unsafe fn glNormal3f(nx: f32, ny: f32, nz: f32) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -3639,7 +3450,6 @@ pub unsafe fn glNormal3f(nx: f32, ny: f32, nz: f32) {
     glNormal3f(nx, ny, nz)
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
-#[inline]
 pub unsafe fn glNormal3fv(v: *const f32) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -3648,7 +3458,6 @@ pub unsafe fn glNormal3fv(v: *const f32) {
     glNormal3fv(::core::mem::transmute(v))
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
-#[inline]
 pub unsafe fn glNormal3i(nx: i32, ny: i32, nz: i32) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -3657,7 +3466,6 @@ pub unsafe fn glNormal3i(nx: i32, ny: i32, nz: i32) {
     glNormal3i(nx, ny, nz)
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
-#[inline]
 pub unsafe fn glNormal3iv(v: *const i32) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -3666,7 +3474,6 @@ pub unsafe fn glNormal3iv(v: *const i32) {
     glNormal3iv(::core::mem::transmute(v))
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
-#[inline]
 pub unsafe fn glNormal3s(nx: i16, ny: i16, nz: i16) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -3675,7 +3482,6 @@ pub unsafe fn glNormal3s(nx: i16, ny: i16, nz: i16) {
     glNormal3s(nx, ny, nz)
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
-#[inline]
 pub unsafe fn glNormal3sv(v: *const i16) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -3684,7 +3490,6 @@ pub unsafe fn glNormal3sv(v: *const i16) {
     glNormal3sv(::core::mem::transmute(v))
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
-#[inline]
 pub unsafe fn glNormalPointer(r#type: u32, stride: i32, pointer: *const ::core::ffi::c_void) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -3693,7 +3498,6 @@ pub unsafe fn glNormalPointer(r#type: u32, stride: i32, pointer: *const ::core::
     glNormalPointer(r#type, stride, ::core::mem::transmute(pointer))
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
-#[inline]
 pub unsafe fn glOrtho(left: f64, right: f64, bottom: f64, top: f64, znear: f64, zfar: f64) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -3702,7 +3506,6 @@ pub unsafe fn glOrtho(left: f64, right: f64, bottom: f64, top: f64, znear: f64, 
     glOrtho(left, right, bottom, top, znear, zfar)
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
-#[inline]
 pub unsafe fn glPassThrough(token: f32) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -3711,7 +3514,6 @@ pub unsafe fn glPassThrough(token: f32) {
     glPassThrough(token)
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
-#[inline]
 pub unsafe fn glPixelMapfv(map: u32, mapsize: i32, values: *const f32) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -3720,7 +3522,6 @@ pub unsafe fn glPixelMapfv(map: u32, mapsize: i32, values: *const f32) {
     glPixelMapfv(map, mapsize, ::core::mem::transmute(values))
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
-#[inline]
 pub unsafe fn glPixelMapuiv(map: u32, mapsize: i32, values: *const u32) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -3729,7 +3530,6 @@ pub unsafe fn glPixelMapuiv(map: u32, mapsize: i32, values: *const u32) {
     glPixelMapuiv(map, mapsize, ::core::mem::transmute(values))
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
-#[inline]
 pub unsafe fn glPixelMapusv(map: u32, mapsize: i32, values: *const u16) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -3738,7 +3538,6 @@ pub unsafe fn glPixelMapusv(map: u32, mapsize: i32, values: *const u16) {
     glPixelMapusv(map, mapsize, ::core::mem::transmute(values))
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
-#[inline]
 pub unsafe fn glPixelStoref(pname: u32, param1: f32) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -3747,7 +3546,6 @@ pub unsafe fn glPixelStoref(pname: u32, param1: f32) {
     glPixelStoref(pname, param1)
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
-#[inline]
 pub unsafe fn glPixelStorei(pname: u32, param1: i32) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -3756,7 +3554,6 @@ pub unsafe fn glPixelStorei(pname: u32, param1: i32) {
     glPixelStorei(pname, param1)
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
-#[inline]
 pub unsafe fn glPixelTransferf(pname: u32, param1: f32) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -3765,7 +3562,6 @@ pub unsafe fn glPixelTransferf(pname: u32, param1: f32) {
     glPixelTransferf(pname, param1)
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
-#[inline]
 pub unsafe fn glPixelTransferi(pname: u32, param1: i32) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -3774,7 +3570,6 @@ pub unsafe fn glPixelTransferi(pname: u32, param1: i32) {
     glPixelTransferi(pname, param1)
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
-#[inline]
 pub unsafe fn glPixelZoom(xfactor: f32, yfactor: f32) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -3783,7 +3578,6 @@ pub unsafe fn glPixelZoom(xfactor: f32, yfactor: f32) {
     glPixelZoom(xfactor, yfactor)
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
-#[inline]
 pub unsafe fn glPointSize(size: f32) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -3792,7 +3586,6 @@ pub unsafe fn glPointSize(size: f32) {
     glPointSize(size)
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
-#[inline]
 pub unsafe fn glPolygonMode(face: u32, mode: u32) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -3801,7 +3594,6 @@ pub unsafe fn glPolygonMode(face: u32, mode: u32) {
     glPolygonMode(face, mode)
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
-#[inline]
 pub unsafe fn glPolygonOffset(factor: f32, units: f32) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -3810,7 +3602,6 @@ pub unsafe fn glPolygonOffset(factor: f32, units: f32) {
     glPolygonOffset(factor, units)
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
-#[inline]
 pub unsafe fn glPolygonStipple(mask: *const u8) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -3819,7 +3610,6 @@ pub unsafe fn glPolygonStipple(mask: *const u8) {
     glPolygonStipple(::core::mem::transmute(mask))
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
-#[inline]
 pub unsafe fn glPopAttrib() {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -3828,7 +3618,6 @@ pub unsafe fn glPopAttrib() {
     glPopAttrib()
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
-#[inline]
 pub unsafe fn glPopClientAttrib() {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -3837,7 +3626,6 @@ pub unsafe fn glPopClientAttrib() {
     glPopClientAttrib()
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
-#[inline]
 pub unsafe fn glPopMatrix() {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -3846,7 +3634,6 @@ pub unsafe fn glPopMatrix() {
     glPopMatrix()
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
-#[inline]
 pub unsafe fn glPopName() {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -3855,7 +3642,6 @@ pub unsafe fn glPopName() {
     glPopName()
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
-#[inline]
 pub unsafe fn glPrioritizeTextures(n: i32, textures: *const u32, priorities: *const f32) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -3864,7 +3650,6 @@ pub unsafe fn glPrioritizeTextures(n: i32, textures: *const u32, priorities: *co
     glPrioritizeTextures(n, ::core::mem::transmute(textures), ::core::mem::transmute(priorities))
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
-#[inline]
 pub unsafe fn glPushAttrib(mask: u32) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -3873,7 +3658,6 @@ pub unsafe fn glPushAttrib(mask: u32) {
     glPushAttrib(mask)
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
-#[inline]
 pub unsafe fn glPushClientAttrib(mask: u32) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -3882,7 +3666,6 @@ pub unsafe fn glPushClientAttrib(mask: u32) {
     glPushClientAttrib(mask)
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
-#[inline]
 pub unsafe fn glPushMatrix() {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -3891,7 +3674,6 @@ pub unsafe fn glPushMatrix() {
     glPushMatrix()
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
-#[inline]
 pub unsafe fn glPushName(name: u32) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -3900,7 +3682,6 @@ pub unsafe fn glPushName(name: u32) {
     glPushName(name)
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
-#[inline]
 pub unsafe fn glRasterPos2d(x: f64, y: f64) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -3909,7 +3690,6 @@ pub unsafe fn glRasterPos2d(x: f64, y: f64) {
     glRasterPos2d(x, y)
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
-#[inline]
 pub unsafe fn glRasterPos2dv(v: *const f64) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -3918,7 +3698,6 @@ pub unsafe fn glRasterPos2dv(v: *const f64) {
     glRasterPos2dv(::core::mem::transmute(v))
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
-#[inline]
 pub unsafe fn glRasterPos2f(x: f32, y: f32) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -3927,7 +3706,6 @@ pub unsafe fn glRasterPos2f(x: f32, y: f32) {
     glRasterPos2f(x, y)
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
-#[inline]
 pub unsafe fn glRasterPos2fv(v: *const f32) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -3936,7 +3714,6 @@ pub unsafe fn glRasterPos2fv(v: *const f32) {
     glRasterPos2fv(::core::mem::transmute(v))
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
-#[inline]
 pub unsafe fn glRasterPos2i(x: i32, y: i32) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -3945,7 +3722,6 @@ pub unsafe fn glRasterPos2i(x: i32, y: i32) {
     glRasterPos2i(x, y)
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
-#[inline]
 pub unsafe fn glRasterPos2iv(v: *const i32) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -3954,7 +3730,6 @@ pub unsafe fn glRasterPos2iv(v: *const i32) {
     glRasterPos2iv(::core::mem::transmute(v))
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
-#[inline]
 pub unsafe fn glRasterPos2s(x: i16, y: i16) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -3963,7 +3738,6 @@ pub unsafe fn glRasterPos2s(x: i16, y: i16) {
     glRasterPos2s(x, y)
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
-#[inline]
 pub unsafe fn glRasterPos2sv(v: *const i16) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -3972,7 +3746,6 @@ pub unsafe fn glRasterPos2sv(v: *const i16) {
     glRasterPos2sv(::core::mem::transmute(v))
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
-#[inline]
 pub unsafe fn glRasterPos3d(x: f64, y: f64, z: f64) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -3981,7 +3754,6 @@ pub unsafe fn glRasterPos3d(x: f64, y: f64, z: f64) {
     glRasterPos3d(x, y, z)
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
-#[inline]
 pub unsafe fn glRasterPos3dv(v: *const f64) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -3990,7 +3762,6 @@ pub unsafe fn glRasterPos3dv(v: *const f64) {
     glRasterPos3dv(::core::mem::transmute(v))
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
-#[inline]
 pub unsafe fn glRasterPos3f(x: f32, y: f32, z: f32) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -3999,7 +3770,6 @@ pub unsafe fn glRasterPos3f(x: f32, y: f32, z: f32) {
     glRasterPos3f(x, y, z)
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
-#[inline]
 pub unsafe fn glRasterPos3fv(v: *const f32) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -4008,7 +3778,6 @@ pub unsafe fn glRasterPos3fv(v: *const f32) {
     glRasterPos3fv(::core::mem::transmute(v))
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
-#[inline]
 pub unsafe fn glRasterPos3i(x: i32, y: i32, z: i32) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -4017,7 +3786,6 @@ pub unsafe fn glRasterPos3i(x: i32, y: i32, z: i32) {
     glRasterPos3i(x, y, z)
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
-#[inline]
 pub unsafe fn glRasterPos3iv(v: *const i32) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -4026,7 +3794,6 @@ pub unsafe fn glRasterPos3iv(v: *const i32) {
     glRasterPos3iv(::core::mem::transmute(v))
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
-#[inline]
 pub unsafe fn glRasterPos3s(x: i16, y: i16, z: i16) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -4035,7 +3802,6 @@ pub unsafe fn glRasterPos3s(x: i16, y: i16, z: i16) {
     glRasterPos3s(x, y, z)
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
-#[inline]
 pub unsafe fn glRasterPos3sv(v: *const i16) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -4044,7 +3810,6 @@ pub unsafe fn glRasterPos3sv(v: *const i16) {
     glRasterPos3sv(::core::mem::transmute(v))
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
-#[inline]
 pub unsafe fn glRasterPos4d(x: f64, y: f64, z: f64, w: f64) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -4053,7 +3818,6 @@ pub unsafe fn glRasterPos4d(x: f64, y: f64, z: f64, w: f64) {
     glRasterPos4d(x, y, z, w)
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
-#[inline]
 pub unsafe fn glRasterPos4dv(v: *const f64) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -4062,7 +3826,6 @@ pub unsafe fn glRasterPos4dv(v: *const f64) {
     glRasterPos4dv(::core::mem::transmute(v))
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
-#[inline]
 pub unsafe fn glRasterPos4f(x: f32, y: f32, z: f32, w: f32) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -4071,7 +3834,6 @@ pub unsafe fn glRasterPos4f(x: f32, y: f32, z: f32, w: f32) {
     glRasterPos4f(x, y, z, w)
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
-#[inline]
 pub unsafe fn glRasterPos4fv(v: *const f32) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -4080,7 +3842,6 @@ pub unsafe fn glRasterPos4fv(v: *const f32) {
     glRasterPos4fv(::core::mem::transmute(v))
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
-#[inline]
 pub unsafe fn glRasterPos4i(x: i32, y: i32, z: i32, w: i32) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -4089,7 +3850,6 @@ pub unsafe fn glRasterPos4i(x: i32, y: i32, z: i32, w: i32) {
     glRasterPos4i(x, y, z, w)
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
-#[inline]
 pub unsafe fn glRasterPos4iv(v: *const i32) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -4098,7 +3858,6 @@ pub unsafe fn glRasterPos4iv(v: *const i32) {
     glRasterPos4iv(::core::mem::transmute(v))
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
-#[inline]
 pub unsafe fn glRasterPos4s(x: i16, y: i16, z: i16, w: i16) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -4107,7 +3866,6 @@ pub unsafe fn glRasterPos4s(x: i16, y: i16, z: i16, w: i16) {
     glRasterPos4s(x, y, z, w)
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
-#[inline]
 pub unsafe fn glRasterPos4sv(v: *const i16) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -4116,7 +3874,6 @@ pub unsafe fn glRasterPos4sv(v: *const i16) {
     glRasterPos4sv(::core::mem::transmute(v))
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
-#[inline]
 pub unsafe fn glReadBuffer(mode: u32) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -4125,7 +3882,6 @@ pub unsafe fn glReadBuffer(mode: u32) {
     glReadBuffer(mode)
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
-#[inline]
 pub unsafe fn glReadPixels(x: i32, y: i32, width: i32, height: i32, format: u32, r#type: u32, pixels: *mut ::core::ffi::c_void) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -4134,7 +3890,6 @@ pub unsafe fn glReadPixels(x: i32, y: i32, width: i32, height: i32, format: u32,
     glReadPixels(x, y, width, height, format, r#type, ::core::mem::transmute(pixels))
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
-#[inline]
 pub unsafe fn glRectd(x1: f64, y1: f64, x2: f64, y2: f64) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -4143,7 +3898,6 @@ pub unsafe fn glRectd(x1: f64, y1: f64, x2: f64, y2: f64) {
     glRectd(x1, y1, x2, y2)
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
-#[inline]
 pub unsafe fn glRectdv(v1: *const f64, v2: *const f64) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -4152,7 +3906,6 @@ pub unsafe fn glRectdv(v1: *const f64, v2: *const f64) {
     glRectdv(::core::mem::transmute(v1), ::core::mem::transmute(v2))
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
-#[inline]
 pub unsafe fn glRectf(x1: f32, y1: f32, x2: f32, y2: f32) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -4161,7 +3914,6 @@ pub unsafe fn glRectf(x1: f32, y1: f32, x2: f32, y2: f32) {
     glRectf(x1, y1, x2, y2)
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
-#[inline]
 pub unsafe fn glRectfv(v1: *const f32, v2: *const f32) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -4170,7 +3922,6 @@ pub unsafe fn glRectfv(v1: *const f32, v2: *const f32) {
     glRectfv(::core::mem::transmute(v1), ::core::mem::transmute(v2))
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
-#[inline]
 pub unsafe fn glRecti(x1: i32, y1: i32, x2: i32, y2: i32) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -4179,7 +3930,6 @@ pub unsafe fn glRecti(x1: i32, y1: i32, x2: i32, y2: i32) {
     glRecti(x1, y1, x2, y2)
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
-#[inline]
 pub unsafe fn glRectiv(v1: *const i32, v2: *const i32) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -4188,7 +3938,6 @@ pub unsafe fn glRectiv(v1: *const i32, v2: *const i32) {
     glRectiv(::core::mem::transmute(v1), ::core::mem::transmute(v2))
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
-#[inline]
 pub unsafe fn glRects(x1: i16, y1: i16, x2: i16, y2: i16) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -4197,7 +3946,6 @@ pub unsafe fn glRects(x1: i16, y1: i16, x2: i16, y2: i16) {
     glRects(x1, y1, x2, y2)
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
-#[inline]
 pub unsafe fn glRectsv(v1: *const i16, v2: *const i16) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -4206,7 +3954,6 @@ pub unsafe fn glRectsv(v1: *const i16, v2: *const i16) {
     glRectsv(::core::mem::transmute(v1), ::core::mem::transmute(v2))
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
-#[inline]
 pub unsafe fn glRenderMode(mode: u32) -> i32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -4215,7 +3962,6 @@ pub unsafe fn glRenderMode(mode: u32) -> i32 {
     glRenderMode(mode)
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
-#[inline]
 pub unsafe fn glRotated(angle: f64, x: f64, y: f64, z: f64) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -4224,7 +3970,6 @@ pub unsafe fn glRotated(angle: f64, x: f64, y: f64, z: f64) {
     glRotated(angle, x, y, z)
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
-#[inline]
 pub unsafe fn glRotatef(angle: f32, x: f32, y: f32, z: f32) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -4233,7 +3978,6 @@ pub unsafe fn glRotatef(angle: f32, x: f32, y: f32, z: f32) {
     glRotatef(angle, x, y, z)
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
-#[inline]
 pub unsafe fn glScaled(x: f64, y: f64, z: f64) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -4242,7 +3986,6 @@ pub unsafe fn glScaled(x: f64, y: f64, z: f64) {
     glScaled(x, y, z)
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
-#[inline]
 pub unsafe fn glScalef(x: f32, y: f32, z: f32) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -4251,7 +3994,6 @@ pub unsafe fn glScalef(x: f32, y: f32, z: f32) {
     glScalef(x, y, z)
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
-#[inline]
 pub unsafe fn glScissor(x: i32, y: i32, width: i32, height: i32) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -4260,7 +4002,6 @@ pub unsafe fn glScissor(x: i32, y: i32, width: i32, height: i32) {
     glScissor(x, y, width, height)
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
-#[inline]
 pub unsafe fn glSelectBuffer(size: i32, buffer: *mut u32) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -4269,7 +4010,6 @@ pub unsafe fn glSelectBuffer(size: i32, buffer: *mut u32) {
     glSelectBuffer(size, ::core::mem::transmute(buffer))
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
-#[inline]
 pub unsafe fn glShadeModel(mode: u32) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -4278,7 +4018,6 @@ pub unsafe fn glShadeModel(mode: u32) {
     glShadeModel(mode)
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
-#[inline]
 pub unsafe fn glStencilFunc(func: u32, r#ref: i32, mask: u32) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -4287,7 +4026,6 @@ pub unsafe fn glStencilFunc(func: u32, r#ref: i32, mask: u32) {
     glStencilFunc(func, r#ref, mask)
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
-#[inline]
 pub unsafe fn glStencilMask(mask: u32) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -4296,7 +4034,6 @@ pub unsafe fn glStencilMask(mask: u32) {
     glStencilMask(mask)
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
-#[inline]
 pub unsafe fn glStencilOp(fail: u32, zfail: u32, zpass: u32) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -4305,7 +4042,6 @@ pub unsafe fn glStencilOp(fail: u32, zfail: u32, zpass: u32) {
     glStencilOp(fail, zfail, zpass)
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
-#[inline]
 pub unsafe fn glTexCoord1d(s: f64) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -4314,7 +4050,6 @@ pub unsafe fn glTexCoord1d(s: f64) {
     glTexCoord1d(s)
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
-#[inline]
 pub unsafe fn glTexCoord1dv(v: *const f64) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -4323,7 +4058,6 @@ pub unsafe fn glTexCoord1dv(v: *const f64) {
     glTexCoord1dv(::core::mem::transmute(v))
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
-#[inline]
 pub unsafe fn glTexCoord1f(s: f32) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -4332,7 +4066,6 @@ pub unsafe fn glTexCoord1f(s: f32) {
     glTexCoord1f(s)
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
-#[inline]
 pub unsafe fn glTexCoord1fv(v: *const f32) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -4341,7 +4074,6 @@ pub unsafe fn glTexCoord1fv(v: *const f32) {
     glTexCoord1fv(::core::mem::transmute(v))
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
-#[inline]
 pub unsafe fn glTexCoord1i(s: i32) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -4350,7 +4082,6 @@ pub unsafe fn glTexCoord1i(s: i32) {
     glTexCoord1i(s)
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
-#[inline]
 pub unsafe fn glTexCoord1iv(v: *const i32) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -4359,7 +4090,6 @@ pub unsafe fn glTexCoord1iv(v: *const i32) {
     glTexCoord1iv(::core::mem::transmute(v))
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
-#[inline]
 pub unsafe fn glTexCoord1s(s: i16) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -4368,7 +4098,6 @@ pub unsafe fn glTexCoord1s(s: i16) {
     glTexCoord1s(s)
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
-#[inline]
 pub unsafe fn glTexCoord1sv(v: *const i16) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -4377,7 +4106,6 @@ pub unsafe fn glTexCoord1sv(v: *const i16) {
     glTexCoord1sv(::core::mem::transmute(v))
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
-#[inline]
 pub unsafe fn glTexCoord2d(s: f64, t: f64) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -4386,7 +4114,6 @@ pub unsafe fn glTexCoord2d(s: f64, t: f64) {
     glTexCoord2d(s, t)
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
-#[inline]
 pub unsafe fn glTexCoord2dv(v: *const f64) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -4395,7 +4122,6 @@ pub unsafe fn glTexCoord2dv(v: *const f64) {
     glTexCoord2dv(::core::mem::transmute(v))
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
-#[inline]
 pub unsafe fn glTexCoord2f(s: f32, t: f32) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -4404,7 +4130,6 @@ pub unsafe fn glTexCoord2f(s: f32, t: f32) {
     glTexCoord2f(s, t)
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
-#[inline]
 pub unsafe fn glTexCoord2fv(v: *const f32) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -4413,7 +4138,6 @@ pub unsafe fn glTexCoord2fv(v: *const f32) {
     glTexCoord2fv(::core::mem::transmute(v))
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
-#[inline]
 pub unsafe fn glTexCoord2i(s: i32, t: i32) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -4422,7 +4146,6 @@ pub unsafe fn glTexCoord2i(s: i32, t: i32) {
     glTexCoord2i(s, t)
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
-#[inline]
 pub unsafe fn glTexCoord2iv(v: *const i32) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -4431,7 +4154,6 @@ pub unsafe fn glTexCoord2iv(v: *const i32) {
     glTexCoord2iv(::core::mem::transmute(v))
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
-#[inline]
 pub unsafe fn glTexCoord2s(s: i16, t: i16) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -4440,7 +4162,6 @@ pub unsafe fn glTexCoord2s(s: i16, t: i16) {
     glTexCoord2s(s, t)
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
-#[inline]
 pub unsafe fn glTexCoord2sv(v: *const i16) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -4449,7 +4170,6 @@ pub unsafe fn glTexCoord2sv(v: *const i16) {
     glTexCoord2sv(::core::mem::transmute(v))
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
-#[inline]
 pub unsafe fn glTexCoord3d(s: f64, t: f64, r: f64) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -4458,7 +4178,6 @@ pub unsafe fn glTexCoord3d(s: f64, t: f64, r: f64) {
     glTexCoord3d(s, t, r)
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
-#[inline]
 pub unsafe fn glTexCoord3dv(v: *const f64) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -4467,7 +4186,6 @@ pub unsafe fn glTexCoord3dv(v: *const f64) {
     glTexCoord3dv(::core::mem::transmute(v))
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
-#[inline]
 pub unsafe fn glTexCoord3f(s: f32, t: f32, r: f32) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -4476,7 +4194,6 @@ pub unsafe fn glTexCoord3f(s: f32, t: f32, r: f32) {
     glTexCoord3f(s, t, r)
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
-#[inline]
 pub unsafe fn glTexCoord3fv(v: *const f32) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -4485,7 +4202,6 @@ pub unsafe fn glTexCoord3fv(v: *const f32) {
     glTexCoord3fv(::core::mem::transmute(v))
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
-#[inline]
 pub unsafe fn glTexCoord3i(s: i32, t: i32, r: i32) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -4494,7 +4210,6 @@ pub unsafe fn glTexCoord3i(s: i32, t: i32, r: i32) {
     glTexCoord3i(s, t, r)
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
-#[inline]
 pub unsafe fn glTexCoord3iv(v: *const i32) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -4503,7 +4218,6 @@ pub unsafe fn glTexCoord3iv(v: *const i32) {
     glTexCoord3iv(::core::mem::transmute(v))
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
-#[inline]
 pub unsafe fn glTexCoord3s(s: i16, t: i16, r: i16) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -4512,7 +4226,6 @@ pub unsafe fn glTexCoord3s(s: i16, t: i16, r: i16) {
     glTexCoord3s(s, t, r)
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
-#[inline]
 pub unsafe fn glTexCoord3sv(v: *const i16) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -4521,7 +4234,6 @@ pub unsafe fn glTexCoord3sv(v: *const i16) {
     glTexCoord3sv(::core::mem::transmute(v))
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
-#[inline]
 pub unsafe fn glTexCoord4d(s: f64, t: f64, r: f64, q: f64) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -4530,7 +4242,6 @@ pub unsafe fn glTexCoord4d(s: f64, t: f64, r: f64, q: f64) {
     glTexCoord4d(s, t, r, q)
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
-#[inline]
 pub unsafe fn glTexCoord4dv(v: *const f64) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -4539,7 +4250,6 @@ pub unsafe fn glTexCoord4dv(v: *const f64) {
     glTexCoord4dv(::core::mem::transmute(v))
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
-#[inline]
 pub unsafe fn glTexCoord4f(s: f32, t: f32, r: f32, q: f32) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -4548,7 +4258,6 @@ pub unsafe fn glTexCoord4f(s: f32, t: f32, r: f32, q: f32) {
     glTexCoord4f(s, t, r, q)
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
-#[inline]
 pub unsafe fn glTexCoord4fv(v: *const f32) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -4557,7 +4266,6 @@ pub unsafe fn glTexCoord4fv(v: *const f32) {
     glTexCoord4fv(::core::mem::transmute(v))
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
-#[inline]
 pub unsafe fn glTexCoord4i(s: i32, t: i32, r: i32, q: i32) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -4566,7 +4274,6 @@ pub unsafe fn glTexCoord4i(s: i32, t: i32, r: i32, q: i32) {
     glTexCoord4i(s, t, r, q)
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
-#[inline]
 pub unsafe fn glTexCoord4iv(v: *const i32) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -4575,7 +4282,6 @@ pub unsafe fn glTexCoord4iv(v: *const i32) {
     glTexCoord4iv(::core::mem::transmute(v))
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
-#[inline]
 pub unsafe fn glTexCoord4s(s: i16, t: i16, r: i16, q: i16) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -4584,7 +4290,6 @@ pub unsafe fn glTexCoord4s(s: i16, t: i16, r: i16, q: i16) {
     glTexCoord4s(s, t, r, q)
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
-#[inline]
 pub unsafe fn glTexCoord4sv(v: *const i16) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -4593,7 +4298,6 @@ pub unsafe fn glTexCoord4sv(v: *const i16) {
     glTexCoord4sv(::core::mem::transmute(v))
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
-#[inline]
 pub unsafe fn glTexCoordPointer(size: i32, r#type: u32, stride: i32, pointer: *const ::core::ffi::c_void) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -4602,7 +4306,6 @@ pub unsafe fn glTexCoordPointer(size: i32, r#type: u32, stride: i32, pointer: *c
     glTexCoordPointer(size, r#type, stride, ::core::mem::transmute(pointer))
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
-#[inline]
 pub unsafe fn glTexEnvf(target: u32, pname: u32, param2: f32) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -4611,7 +4314,6 @@ pub unsafe fn glTexEnvf(target: u32, pname: u32, param2: f32) {
     glTexEnvf(target, pname, param2)
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
-#[inline]
 pub unsafe fn glTexEnvfv(target: u32, pname: u32, params: *const f32) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -4620,7 +4322,6 @@ pub unsafe fn glTexEnvfv(target: u32, pname: u32, params: *const f32) {
     glTexEnvfv(target, pname, ::core::mem::transmute(params))
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
-#[inline]
 pub unsafe fn glTexEnvi(target: u32, pname: u32, param2: i32) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -4629,7 +4330,6 @@ pub unsafe fn glTexEnvi(target: u32, pname: u32, param2: i32) {
     glTexEnvi(target, pname, param2)
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
-#[inline]
 pub unsafe fn glTexEnviv(target: u32, pname: u32, params: *const i32) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -4638,7 +4338,6 @@ pub unsafe fn glTexEnviv(target: u32, pname: u32, params: *const i32) {
     glTexEnviv(target, pname, ::core::mem::transmute(params))
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
-#[inline]
 pub unsafe fn glTexGend(coord: u32, pname: u32, param2: f64) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -4647,7 +4346,6 @@ pub unsafe fn glTexGend(coord: u32, pname: u32, param2: f64) {
     glTexGend(coord, pname, param2)
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
-#[inline]
 pub unsafe fn glTexGendv(coord: u32, pname: u32, params: *const f64) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -4656,7 +4354,6 @@ pub unsafe fn glTexGendv(coord: u32, pname: u32, params: *const f64) {
     glTexGendv(coord, pname, ::core::mem::transmute(params))
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
-#[inline]
 pub unsafe fn glTexGenf(coord: u32, pname: u32, param2: f32) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -4665,7 +4362,6 @@ pub unsafe fn glTexGenf(coord: u32, pname: u32, param2: f32) {
     glTexGenf(coord, pname, param2)
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
-#[inline]
 pub unsafe fn glTexGenfv(coord: u32, pname: u32, params: *const f32) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -4674,7 +4370,6 @@ pub unsafe fn glTexGenfv(coord: u32, pname: u32, params: *const f32) {
     glTexGenfv(coord, pname, ::core::mem::transmute(params))
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
-#[inline]
 pub unsafe fn glTexGeni(coord: u32, pname: u32, param2: i32) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -4683,7 +4378,6 @@ pub unsafe fn glTexGeni(coord: u32, pname: u32, param2: i32) {
     glTexGeni(coord, pname, param2)
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
-#[inline]
 pub unsafe fn glTexGeniv(coord: u32, pname: u32, params: *const i32) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -4692,7 +4386,6 @@ pub unsafe fn glTexGeniv(coord: u32, pname: u32, params: *const i32) {
     glTexGeniv(coord, pname, ::core::mem::transmute(params))
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
-#[inline]
 pub unsafe fn glTexImage1D(target: u32, level: i32, internalformat: i32, width: i32, border: i32, format: u32, r#type: u32, pixels: *const ::core::ffi::c_void) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -4701,7 +4394,6 @@ pub unsafe fn glTexImage1D(target: u32, level: i32, internalformat: i32, width: 
     glTexImage1D(target, level, internalformat, width, border, format, r#type, ::core::mem::transmute(pixels))
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
-#[inline]
 pub unsafe fn glTexImage2D(target: u32, level: i32, internalformat: i32, width: i32, height: i32, border: i32, format: u32, r#type: u32, pixels: *const ::core::ffi::c_void) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -4710,7 +4402,6 @@ pub unsafe fn glTexImage2D(target: u32, level: i32, internalformat: i32, width: 
     glTexImage2D(target, level, internalformat, width, height, border, format, r#type, ::core::mem::transmute(pixels))
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
-#[inline]
 pub unsafe fn glTexParameterf(target: u32, pname: u32, param2: f32) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -4719,7 +4410,6 @@ pub unsafe fn glTexParameterf(target: u32, pname: u32, param2: f32) {
     glTexParameterf(target, pname, param2)
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
-#[inline]
 pub unsafe fn glTexParameterfv(target: u32, pname: u32, params: *const f32) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -4728,7 +4418,6 @@ pub unsafe fn glTexParameterfv(target: u32, pname: u32, params: *const f32) {
     glTexParameterfv(target, pname, ::core::mem::transmute(params))
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
-#[inline]
 pub unsafe fn glTexParameteri(target: u32, pname: u32, param2: i32) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -4737,7 +4426,6 @@ pub unsafe fn glTexParameteri(target: u32, pname: u32, param2: i32) {
     glTexParameteri(target, pname, param2)
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
-#[inline]
 pub unsafe fn glTexParameteriv(target: u32, pname: u32, params: *const i32) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -4746,7 +4434,6 @@ pub unsafe fn glTexParameteriv(target: u32, pname: u32, params: *const i32) {
     glTexParameteriv(target, pname, ::core::mem::transmute(params))
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
-#[inline]
 pub unsafe fn glTexSubImage1D(target: u32, level: i32, xoffset: i32, width: i32, format: u32, r#type: u32, pixels: *const ::core::ffi::c_void) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -4755,7 +4442,6 @@ pub unsafe fn glTexSubImage1D(target: u32, level: i32, xoffset: i32, width: i32,
     glTexSubImage1D(target, level, xoffset, width, format, r#type, ::core::mem::transmute(pixels))
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
-#[inline]
 pub unsafe fn glTexSubImage2D(target: u32, level: i32, xoffset: i32, yoffset: i32, width: i32, height: i32, format: u32, r#type: u32, pixels: *const ::core::ffi::c_void) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -4764,7 +4450,6 @@ pub unsafe fn glTexSubImage2D(target: u32, level: i32, xoffset: i32, yoffset: i3
     glTexSubImage2D(target, level, xoffset, yoffset, width, height, format, r#type, ::core::mem::transmute(pixels))
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
-#[inline]
 pub unsafe fn glTranslated(x: f64, y: f64, z: f64) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -4773,7 +4458,6 @@ pub unsafe fn glTranslated(x: f64, y: f64, z: f64) {
     glTranslated(x, y, z)
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
-#[inline]
 pub unsafe fn glTranslatef(x: f32, y: f32, z: f32) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -4782,7 +4466,6 @@ pub unsafe fn glTranslatef(x: f32, y: f32, z: f32) {
     glTranslatef(x, y, z)
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
-#[inline]
 pub unsafe fn glVertex2d(x: f64, y: f64) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -4791,7 +4474,6 @@ pub unsafe fn glVertex2d(x: f64, y: f64) {
     glVertex2d(x, y)
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
-#[inline]
 pub unsafe fn glVertex2dv(v: *const f64) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -4800,7 +4482,6 @@ pub unsafe fn glVertex2dv(v: *const f64) {
     glVertex2dv(::core::mem::transmute(v))
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
-#[inline]
 pub unsafe fn glVertex2f(x: f32, y: f32) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -4809,7 +4490,6 @@ pub unsafe fn glVertex2f(x: f32, y: f32) {
     glVertex2f(x, y)
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
-#[inline]
 pub unsafe fn glVertex2fv(v: *const f32) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -4818,7 +4498,6 @@ pub unsafe fn glVertex2fv(v: *const f32) {
     glVertex2fv(::core::mem::transmute(v))
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
-#[inline]
 pub unsafe fn glVertex2i(x: i32, y: i32) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -4827,7 +4506,6 @@ pub unsafe fn glVertex2i(x: i32, y: i32) {
     glVertex2i(x, y)
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
-#[inline]
 pub unsafe fn glVertex2iv(v: *const i32) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -4836,7 +4514,6 @@ pub unsafe fn glVertex2iv(v: *const i32) {
     glVertex2iv(::core::mem::transmute(v))
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
-#[inline]
 pub unsafe fn glVertex2s(x: i16, y: i16) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -4845,7 +4522,6 @@ pub unsafe fn glVertex2s(x: i16, y: i16) {
     glVertex2s(x, y)
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
-#[inline]
 pub unsafe fn glVertex2sv(v: *const i16) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -4854,7 +4530,6 @@ pub unsafe fn glVertex2sv(v: *const i16) {
     glVertex2sv(::core::mem::transmute(v))
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
-#[inline]
 pub unsafe fn glVertex3d(x: f64, y: f64, z: f64) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -4863,7 +4538,6 @@ pub unsafe fn glVertex3d(x: f64, y: f64, z: f64) {
     glVertex3d(x, y, z)
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
-#[inline]
 pub unsafe fn glVertex3dv(v: *const f64) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -4872,7 +4546,6 @@ pub unsafe fn glVertex3dv(v: *const f64) {
     glVertex3dv(::core::mem::transmute(v))
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
-#[inline]
 pub unsafe fn glVertex3f(x: f32, y: f32, z: f32) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -4881,7 +4554,6 @@ pub unsafe fn glVertex3f(x: f32, y: f32, z: f32) {
     glVertex3f(x, y, z)
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
-#[inline]
 pub unsafe fn glVertex3fv(v: *const f32) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -4890,7 +4562,6 @@ pub unsafe fn glVertex3fv(v: *const f32) {
     glVertex3fv(::core::mem::transmute(v))
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
-#[inline]
 pub unsafe fn glVertex3i(x: i32, y: i32, z: i32) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -4899,7 +4570,6 @@ pub unsafe fn glVertex3i(x: i32, y: i32, z: i32) {
     glVertex3i(x, y, z)
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
-#[inline]
 pub unsafe fn glVertex3iv(v: *const i32) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -4908,7 +4578,6 @@ pub unsafe fn glVertex3iv(v: *const i32) {
     glVertex3iv(::core::mem::transmute(v))
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
-#[inline]
 pub unsafe fn glVertex3s(x: i16, y: i16, z: i16) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -4917,7 +4586,6 @@ pub unsafe fn glVertex3s(x: i16, y: i16, z: i16) {
     glVertex3s(x, y, z)
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
-#[inline]
 pub unsafe fn glVertex3sv(v: *const i16) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -4926,7 +4594,6 @@ pub unsafe fn glVertex3sv(v: *const i16) {
     glVertex3sv(::core::mem::transmute(v))
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
-#[inline]
 pub unsafe fn glVertex4d(x: f64, y: f64, z: f64, w: f64) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -4935,7 +4602,6 @@ pub unsafe fn glVertex4d(x: f64, y: f64, z: f64, w: f64) {
     glVertex4d(x, y, z, w)
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
-#[inline]
 pub unsafe fn glVertex4dv(v: *const f64) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -4944,7 +4610,6 @@ pub unsafe fn glVertex4dv(v: *const f64) {
     glVertex4dv(::core::mem::transmute(v))
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
-#[inline]
 pub unsafe fn glVertex4f(x: f32, y: f32, z: f32, w: f32) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -4953,7 +4618,6 @@ pub unsafe fn glVertex4f(x: f32, y: f32, z: f32, w: f32) {
     glVertex4f(x, y, z, w)
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
-#[inline]
 pub unsafe fn glVertex4fv(v: *const f32) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -4962,7 +4626,6 @@ pub unsafe fn glVertex4fv(v: *const f32) {
     glVertex4fv(::core::mem::transmute(v))
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
-#[inline]
 pub unsafe fn glVertex4i(x: i32, y: i32, z: i32, w: i32) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -4971,7 +4634,6 @@ pub unsafe fn glVertex4i(x: i32, y: i32, z: i32, w: i32) {
     glVertex4i(x, y, z, w)
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
-#[inline]
 pub unsafe fn glVertex4iv(v: *const i32) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -4980,7 +4642,6 @@ pub unsafe fn glVertex4iv(v: *const i32) {
     glVertex4iv(::core::mem::transmute(v))
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
-#[inline]
 pub unsafe fn glVertex4s(x: i16, y: i16, z: i16, w: i16) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -4989,7 +4650,6 @@ pub unsafe fn glVertex4s(x: i16, y: i16, z: i16, w: i16) {
     glVertex4s(x, y, z, w)
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
-#[inline]
 pub unsafe fn glVertex4sv(v: *const i16) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -4998,7 +4658,6 @@ pub unsafe fn glVertex4sv(v: *const i16) {
     glVertex4sv(::core::mem::transmute(v))
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
-#[inline]
 pub unsafe fn glVertexPointer(size: i32, r#type: u32, stride: i32, pointer: *const ::core::ffi::c_void) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -5007,7 +4666,6 @@ pub unsafe fn glVertexPointer(size: i32, r#type: u32, stride: i32, pointer: *con
     glVertexPointer(size, r#type, stride, ::core::mem::transmute(pointer))
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
-#[inline]
 pub unsafe fn glViewport(x: i32, y: i32, width: i32, height: i32) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -5016,7 +4674,6 @@ pub unsafe fn glViewport(x: i32, y: i32, width: i32, height: i32) {
     glViewport(x, y, width, height)
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
-#[inline]
 pub unsafe fn gluBeginCurve(nobj: *mut GLUnurbs) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -5025,7 +4682,6 @@ pub unsafe fn gluBeginCurve(nobj: *mut GLUnurbs) {
     gluBeginCurve(::core::mem::transmute(nobj))
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
-#[inline]
 pub unsafe fn gluBeginPolygon(tess: *mut GLUtesselator) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -5034,7 +4690,6 @@ pub unsafe fn gluBeginPolygon(tess: *mut GLUtesselator) {
     gluBeginPolygon(::core::mem::transmute(tess))
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
-#[inline]
 pub unsafe fn gluBeginSurface(nobj: *mut GLUnurbs) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -5043,7 +4698,6 @@ pub unsafe fn gluBeginSurface(nobj: *mut GLUnurbs) {
     gluBeginSurface(::core::mem::transmute(nobj))
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
-#[inline]
 pub unsafe fn gluBeginTrim(nobj: *mut GLUnurbs) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -5052,7 +4706,6 @@ pub unsafe fn gluBeginTrim(nobj: *mut GLUnurbs) {
     gluBeginTrim(::core::mem::transmute(nobj))
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
-#[inline]
 pub unsafe fn gluBuild1DMipmaps(target: u32, components: i32, width: i32, format: u32, r#type: u32, data: *const ::core::ffi::c_void) -> i32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -5061,7 +4714,6 @@ pub unsafe fn gluBuild1DMipmaps(target: u32, components: i32, width: i32, format
     gluBuild1DMipmaps(target, components, width, format, r#type, ::core::mem::transmute(data))
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
-#[inline]
 pub unsafe fn gluBuild2DMipmaps(target: u32, components: i32, width: i32, height: i32, format: u32, r#type: u32, data: *const ::core::ffi::c_void) -> i32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -5070,7 +4722,6 @@ pub unsafe fn gluBuild2DMipmaps(target: u32, components: i32, width: i32, height
     gluBuild2DMipmaps(target, components, width, height, format, r#type, ::core::mem::transmute(data))
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
-#[inline]
 pub unsafe fn gluCylinder(qobj: *mut GLUquadric, baseradius: f64, topradius: f64, height: f64, slices: i32, stacks: i32) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -5079,7 +4730,6 @@ pub unsafe fn gluCylinder(qobj: *mut GLUquadric, baseradius: f64, topradius: f64
     gluCylinder(::core::mem::transmute(qobj), baseradius, topradius, height, slices, stacks)
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
-#[inline]
 pub unsafe fn gluDeleteNurbsRenderer(nobj: *mut GLUnurbs) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -5088,7 +4738,6 @@ pub unsafe fn gluDeleteNurbsRenderer(nobj: *mut GLUnurbs) {
     gluDeleteNurbsRenderer(::core::mem::transmute(nobj))
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
-#[inline]
 pub unsafe fn gluDeleteQuadric(state: *mut GLUquadric) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -5097,7 +4746,6 @@ pub unsafe fn gluDeleteQuadric(state: *mut GLUquadric) {
     gluDeleteQuadric(::core::mem::transmute(state))
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
-#[inline]
 pub unsafe fn gluDeleteTess(tess: *mut GLUtesselator) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -5106,7 +4754,6 @@ pub unsafe fn gluDeleteTess(tess: *mut GLUtesselator) {
     gluDeleteTess(::core::mem::transmute(tess))
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
-#[inline]
 pub unsafe fn gluDisk(qobj: *mut GLUquadric, innerradius: f64, outerradius: f64, slices: i32, loops: i32) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -5115,7 +4762,6 @@ pub unsafe fn gluDisk(qobj: *mut GLUquadric, innerradius: f64, outerradius: f64,
     gluDisk(::core::mem::transmute(qobj), innerradius, outerradius, slices, loops)
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
-#[inline]
 pub unsafe fn gluEndCurve(nobj: *mut GLUnurbs) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -5124,7 +4770,6 @@ pub unsafe fn gluEndCurve(nobj: *mut GLUnurbs) {
     gluEndCurve(::core::mem::transmute(nobj))
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
-#[inline]
 pub unsafe fn gluEndPolygon(tess: *mut GLUtesselator) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -5133,7 +4778,6 @@ pub unsafe fn gluEndPolygon(tess: *mut GLUtesselator) {
     gluEndPolygon(::core::mem::transmute(tess))
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
-#[inline]
 pub unsafe fn gluEndSurface(nobj: *mut GLUnurbs) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -5142,7 +4786,6 @@ pub unsafe fn gluEndSurface(nobj: *mut GLUnurbs) {
     gluEndSurface(::core::mem::transmute(nobj))
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
-#[inline]
 pub unsafe fn gluEndTrim(nobj: *mut GLUnurbs) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -5151,7 +4794,6 @@ pub unsafe fn gluEndTrim(nobj: *mut GLUnurbs) {
     gluEndTrim(::core::mem::transmute(nobj))
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
-#[inline]
 pub unsafe fn gluErrorString(errcode: u32) -> *mut u8 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -5160,7 +4802,6 @@ pub unsafe fn gluErrorString(errcode: u32) -> *mut u8 {
     gluErrorString(errcode)
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
-#[inline]
 pub unsafe fn gluErrorUnicodeStringEXT(errcode: u32) -> ::windows::core::PWSTR {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -5169,7 +4810,6 @@ pub unsafe fn gluErrorUnicodeStringEXT(errcode: u32) -> ::windows::core::PWSTR {
     gluErrorUnicodeStringEXT(errcode)
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
-#[inline]
 pub unsafe fn gluGetNurbsProperty(nobj: *mut GLUnurbs, property: u32, value: *mut f32) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -5178,7 +4818,6 @@ pub unsafe fn gluGetNurbsProperty(nobj: *mut GLUnurbs, property: u32, value: *mu
     gluGetNurbsProperty(::core::mem::transmute(nobj), property, ::core::mem::transmute(value))
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
-#[inline]
 pub unsafe fn gluGetString(name: u32) -> *mut u8 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -5187,7 +4826,6 @@ pub unsafe fn gluGetString(name: u32) -> *mut u8 {
     gluGetString(name)
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
-#[inline]
 pub unsafe fn gluGetTessProperty(tess: *mut GLUtesselator, which: u32, value: *mut f64) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -5196,7 +4834,6 @@ pub unsafe fn gluGetTessProperty(tess: *mut GLUtesselator, which: u32, value: *m
     gluGetTessProperty(::core::mem::transmute(tess), which, ::core::mem::transmute(value))
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
-#[inline]
 pub unsafe fn gluLoadSamplingMatrices(nobj: *mut GLUnurbs, modelmatrix: *const f32, projmatrix: *const f32, viewport: *const i32) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -5205,7 +4842,6 @@ pub unsafe fn gluLoadSamplingMatrices(nobj: *mut GLUnurbs, modelmatrix: *const f
     gluLoadSamplingMatrices(::core::mem::transmute(nobj), ::core::mem::transmute(modelmatrix), ::core::mem::transmute(projmatrix), ::core::mem::transmute(viewport))
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
-#[inline]
 pub unsafe fn gluLookAt(eyex: f64, eyey: f64, eyez: f64, centerx: f64, centery: f64, centerz: f64, upx: f64, upy: f64, upz: f64) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -5214,7 +4850,6 @@ pub unsafe fn gluLookAt(eyex: f64, eyey: f64, eyez: f64, centerx: f64, centery: 
     gluLookAt(eyex, eyey, eyez, centerx, centery, centerz, upx, upy, upz)
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
-#[inline]
 pub unsafe fn gluNewNurbsRenderer() -> *mut GLUnurbs {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -5223,7 +4858,6 @@ pub unsafe fn gluNewNurbsRenderer() -> *mut GLUnurbs {
     gluNewNurbsRenderer()
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
-#[inline]
 pub unsafe fn gluNewQuadric() -> *mut GLUquadric {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -5232,7 +4866,6 @@ pub unsafe fn gluNewQuadric() -> *mut GLUquadric {
     gluNewQuadric()
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
-#[inline]
 pub unsafe fn gluNewTess() -> *mut GLUtesselator {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -5241,7 +4874,6 @@ pub unsafe fn gluNewTess() -> *mut GLUtesselator {
     gluNewTess()
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
-#[inline]
 pub unsafe fn gluNextContour(tess: *mut GLUtesselator, r#type: u32) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -5250,7 +4882,6 @@ pub unsafe fn gluNextContour(tess: *mut GLUtesselator, r#type: u32) {
     gluNextContour(::core::mem::transmute(tess), r#type)
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
-#[inline]
 pub unsafe fn gluNurbsCallback(nobj: *mut GLUnurbs, which: u32, r#fn: isize) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -5259,7 +4890,6 @@ pub unsafe fn gluNurbsCallback(nobj: *mut GLUnurbs, which: u32, r#fn: isize) {
     gluNurbsCallback(::core::mem::transmute(nobj), which, r#fn)
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
-#[inline]
 pub unsafe fn gluNurbsCurve(nobj: *mut GLUnurbs, nknots: i32, knot: *mut f32, stride: i32, ctlarray: *mut f32, order: i32, r#type: u32) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -5268,7 +4898,6 @@ pub unsafe fn gluNurbsCurve(nobj: *mut GLUnurbs, nknots: i32, knot: *mut f32, st
     gluNurbsCurve(::core::mem::transmute(nobj), nknots, ::core::mem::transmute(knot), stride, ::core::mem::transmute(ctlarray), order, r#type)
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
-#[inline]
 pub unsafe fn gluNurbsProperty(nobj: *mut GLUnurbs, property: u32, value: f32) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -5277,7 +4906,6 @@ pub unsafe fn gluNurbsProperty(nobj: *mut GLUnurbs, property: u32, value: f32) {
     gluNurbsProperty(::core::mem::transmute(nobj), property, value)
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
-#[inline]
 pub unsafe fn gluNurbsSurface(nobj: *mut GLUnurbs, sknot_count: i32, sknot: *mut f32, tknot_count: i32, tknot: *mut f32, s_stride: i32, t_stride: i32, ctlarray: *mut f32, sorder: i32, torder: i32, r#type: u32) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -5286,7 +4914,6 @@ pub unsafe fn gluNurbsSurface(nobj: *mut GLUnurbs, sknot_count: i32, sknot: *mut
     gluNurbsSurface(::core::mem::transmute(nobj), sknot_count, ::core::mem::transmute(sknot), tknot_count, ::core::mem::transmute(tknot), s_stride, t_stride, ::core::mem::transmute(ctlarray), sorder, torder, r#type)
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
-#[inline]
 pub unsafe fn gluOrtho2D(left: f64, right: f64, bottom: f64, top: f64) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -5295,7 +4922,6 @@ pub unsafe fn gluOrtho2D(left: f64, right: f64, bottom: f64, top: f64) {
     gluOrtho2D(left, right, bottom, top)
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
-#[inline]
 pub unsafe fn gluPartialDisk(qobj: *mut GLUquadric, innerradius: f64, outerradius: f64, slices: i32, loops: i32, startangle: f64, sweepangle: f64) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -5304,7 +4930,6 @@ pub unsafe fn gluPartialDisk(qobj: *mut GLUquadric, innerradius: f64, outerradiu
     gluPartialDisk(::core::mem::transmute(qobj), innerradius, outerradius, slices, loops, startangle, sweepangle)
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
-#[inline]
 pub unsafe fn gluPerspective(fovy: f64, aspect: f64, znear: f64, zfar: f64) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -5313,7 +4938,6 @@ pub unsafe fn gluPerspective(fovy: f64, aspect: f64, znear: f64, zfar: f64) {
     gluPerspective(fovy, aspect, znear, zfar)
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
-#[inline]
 pub unsafe fn gluPickMatrix(x: f64, y: f64, width: f64, height: f64, viewport: *mut i32) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -5322,7 +4946,6 @@ pub unsafe fn gluPickMatrix(x: f64, y: f64, width: f64, height: f64, viewport: *
     gluPickMatrix(x, y, width, height, ::core::mem::transmute(viewport))
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
-#[inline]
 pub unsafe fn gluProject(objx: f64, objy: f64, objz: f64, modelmatrix: *const f64, projmatrix: *const f64, viewport: *const i32, winx: *mut f64, winy: *mut f64, winz: *mut f64) -> i32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -5331,7 +4954,6 @@ pub unsafe fn gluProject(objx: f64, objy: f64, objz: f64, modelmatrix: *const f6
     gluProject(objx, objy, objz, ::core::mem::transmute(modelmatrix), ::core::mem::transmute(projmatrix), ::core::mem::transmute(viewport), ::core::mem::transmute(winx), ::core::mem::transmute(winy), ::core::mem::transmute(winz))
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
-#[inline]
 pub unsafe fn gluPwlCurve(nobj: *mut GLUnurbs, count: i32, array: *mut f32, stride: i32, r#type: u32) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -5340,7 +4962,6 @@ pub unsafe fn gluPwlCurve(nobj: *mut GLUnurbs, count: i32, array: *mut f32, stri
     gluPwlCurve(::core::mem::transmute(nobj), count, ::core::mem::transmute(array), stride, r#type)
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
-#[inline]
 pub unsafe fn gluQuadricCallback(qobj: *mut GLUquadric, which: u32, r#fn: isize) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -5349,7 +4970,6 @@ pub unsafe fn gluQuadricCallback(qobj: *mut GLUquadric, which: u32, r#fn: isize)
     gluQuadricCallback(::core::mem::transmute(qobj), which, r#fn)
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
-#[inline]
 pub unsafe fn gluQuadricDrawStyle(quadobject: *mut GLUquadric, drawstyle: u32) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -5358,7 +4978,6 @@ pub unsafe fn gluQuadricDrawStyle(quadobject: *mut GLUquadric, drawstyle: u32) {
     gluQuadricDrawStyle(::core::mem::transmute(quadobject), drawstyle)
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
-#[inline]
 pub unsafe fn gluQuadricNormals(quadobject: *mut GLUquadric, normals: u32) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -5367,7 +4986,6 @@ pub unsafe fn gluQuadricNormals(quadobject: *mut GLUquadric, normals: u32) {
     gluQuadricNormals(::core::mem::transmute(quadobject), normals)
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
-#[inline]
 pub unsafe fn gluQuadricOrientation(quadobject: *mut GLUquadric, orientation: u32) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -5376,7 +4994,6 @@ pub unsafe fn gluQuadricOrientation(quadobject: *mut GLUquadric, orientation: u3
     gluQuadricOrientation(::core::mem::transmute(quadobject), orientation)
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
-#[inline]
 pub unsafe fn gluQuadricTexture(quadobject: *mut GLUquadric, texturecoords: u8) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -5385,7 +5002,6 @@ pub unsafe fn gluQuadricTexture(quadobject: *mut GLUquadric, texturecoords: u8) 
     gluQuadricTexture(::core::mem::transmute(quadobject), texturecoords)
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
-#[inline]
 pub unsafe fn gluScaleImage(format: u32, widthin: i32, heightin: i32, typein: u32, datain: *const ::core::ffi::c_void, widthout: i32, heightout: i32, typeout: u32, dataout: *mut ::core::ffi::c_void) -> i32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -5394,7 +5010,6 @@ pub unsafe fn gluScaleImage(format: u32, widthin: i32, heightin: i32, typein: u3
     gluScaleImage(format, widthin, heightin, typein, ::core::mem::transmute(datain), widthout, heightout, typeout, ::core::mem::transmute(dataout))
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
-#[inline]
 pub unsafe fn gluSphere(qobj: *mut GLUquadric, radius: f64, slices: i32, stacks: i32) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -5403,7 +5018,6 @@ pub unsafe fn gluSphere(qobj: *mut GLUquadric, radius: f64, slices: i32, stacks:
     gluSphere(::core::mem::transmute(qobj), radius, slices, stacks)
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
-#[inline]
 pub unsafe fn gluTessBeginContour(tess: *mut GLUtesselator) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -5412,7 +5026,6 @@ pub unsafe fn gluTessBeginContour(tess: *mut GLUtesselator) {
     gluTessBeginContour(::core::mem::transmute(tess))
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
-#[inline]
 pub unsafe fn gluTessBeginPolygon(tess: *mut GLUtesselator, polygon_data: *mut ::core::ffi::c_void) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -5421,7 +5034,6 @@ pub unsafe fn gluTessBeginPolygon(tess: *mut GLUtesselator, polygon_data: *mut :
     gluTessBeginPolygon(::core::mem::transmute(tess), ::core::mem::transmute(polygon_data))
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
-#[inline]
 pub unsafe fn gluTessCallback(tess: *mut GLUtesselator, which: u32, r#fn: isize) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -5430,7 +5042,6 @@ pub unsafe fn gluTessCallback(tess: *mut GLUtesselator, which: u32, r#fn: isize)
     gluTessCallback(::core::mem::transmute(tess), which, r#fn)
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
-#[inline]
 pub unsafe fn gluTessEndContour(tess: *mut GLUtesselator) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -5439,7 +5050,6 @@ pub unsafe fn gluTessEndContour(tess: *mut GLUtesselator) {
     gluTessEndContour(::core::mem::transmute(tess))
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
-#[inline]
 pub unsafe fn gluTessEndPolygon(tess: *mut GLUtesselator) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -5448,7 +5058,6 @@ pub unsafe fn gluTessEndPolygon(tess: *mut GLUtesselator) {
     gluTessEndPolygon(::core::mem::transmute(tess))
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
-#[inline]
 pub unsafe fn gluTessNormal(tess: *mut GLUtesselator, x: f64, y: f64, z: f64) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -5457,7 +5066,6 @@ pub unsafe fn gluTessNormal(tess: *mut GLUtesselator, x: f64, y: f64, z: f64) {
     gluTessNormal(::core::mem::transmute(tess), x, y, z)
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
-#[inline]
 pub unsafe fn gluTessProperty(tess: *mut GLUtesselator, which: u32, value: f64) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -5466,7 +5074,6 @@ pub unsafe fn gluTessProperty(tess: *mut GLUtesselator, which: u32, value: f64) 
     gluTessProperty(::core::mem::transmute(tess), which, value)
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
-#[inline]
 pub unsafe fn gluTessVertex(tess: *mut GLUtesselator, coords: *mut f64, data: *mut ::core::ffi::c_void) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -5475,7 +5082,6 @@ pub unsafe fn gluTessVertex(tess: *mut GLUtesselator, coords: *mut f64, data: *m
     gluTessVertex(::core::mem::transmute(tess), ::core::mem::transmute(coords), ::core::mem::transmute(data))
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
-#[inline]
 pub unsafe fn gluUnProject(winx: f64, winy: f64, winz: f64, modelmatrix: *const f64, projmatrix: *const f64, viewport: *const i32, objx: *mut f64, objy: *mut f64, objz: *mut f64) -> i32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -5485,7 +5091,6 @@ pub unsafe fn gluUnProject(winx: f64, winy: f64, winz: f64, modelmatrix: *const 
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn wglCopyContext<'a, P0, P1>(param0: P0, param1: P1, param2: u32) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<HGLRC>,
@@ -5499,7 +5104,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(feature = "Win32_Graphics_Gdi")]
-#[inline]
 pub unsafe fn wglCreateContext<'a, P0>(param0: P0) -> ::windows::core::Result<HGLRC>
 where
     P0: ::std::convert::Into<super::Gdi::HDC>,
@@ -5513,7 +5117,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(feature = "Win32_Graphics_Gdi")]
-#[inline]
 pub unsafe fn wglCreateLayerContext<'a, P0>(param0: P0, param1: i32) -> ::windows::core::Result<HGLRC>
 where
     P0: ::std::convert::Into<super::Gdi::HDC>,
@@ -5527,7 +5130,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn wglDeleteContext<'a, P0>(param0: P0) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<HGLRC>,
@@ -5540,7 +5142,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-#[inline]
 pub unsafe fn wglDescribeLayerPlane<'a, P0>(param0: P0, param1: i32, param2: i32, param3: u32, param4: *mut LAYERPLANEDESCRIPTOR) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::Gdi::HDC>,
@@ -5552,7 +5153,6 @@ where
     wglDescribeLayerPlane(param0.into(), param1, param2, param3, ::core::mem::transmute(param4))
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
-#[inline]
 pub unsafe fn wglGetCurrentContext() -> HGLRC {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -5562,7 +5162,6 @@ pub unsafe fn wglGetCurrentContext() -> HGLRC {
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(feature = "Win32_Graphics_Gdi")]
-#[inline]
 pub unsafe fn wglGetCurrentDC() -> super::Gdi::HDC {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -5572,7 +5171,6 @@ pub unsafe fn wglGetCurrentDC() -> super::Gdi::HDC {
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(feature = "Win32_Graphics_Gdi")]
-#[inline]
 pub unsafe fn wglGetLayerPaletteEntries<'a, P0>(param0: P0, param1: i32, param2: i32, param3: i32, param4: *mut u32) -> i32
 where
     P0: ::std::convert::Into<super::Gdi::HDC>,
@@ -5585,7 +5183,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn wglGetProcAddress<'a, P0>(param0: P0) -> super::super::Foundation::PROC
 where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
@@ -5598,7 +5195,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-#[inline]
 pub unsafe fn wglMakeCurrent<'a, P0, P1>(param0: P0, param1: P1) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::Gdi::HDC>,
@@ -5612,7 +5208,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-#[inline]
 pub unsafe fn wglRealizeLayerPalette<'a, P0, P1>(param0: P0, param1: i32, param2: P1) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::Gdi::HDC>,
@@ -5626,7 +5221,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(feature = "Win32_Graphics_Gdi")]
-#[inline]
 pub unsafe fn wglSetLayerPaletteEntries<'a, P0>(param0: P0, param1: i32, param2: i32, param3: i32, param4: *const u32) -> i32
 where
     P0: ::std::convert::Into<super::Gdi::HDC>,
@@ -5639,7 +5233,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn wglShareLists<'a, P0, P1>(param0: P0, param1: P1) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<HGLRC>,
@@ -5653,7 +5246,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-#[inline]
 pub unsafe fn wglSwapLayerBuffers<'a, P0>(param0: P0, param1: u32) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::Gdi::HDC>,
@@ -5666,7 +5258,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-#[inline]
 pub unsafe fn wglUseFontBitmapsA<'a, P0>(param0: P0, param1: u32, param2: u32, param3: u32) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::Gdi::HDC>,
@@ -5679,7 +5270,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-#[inline]
 pub unsafe fn wglUseFontBitmapsW<'a, P0>(param0: P0, param1: u32, param2: u32, param3: u32) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::Gdi::HDC>,
@@ -5692,7 +5282,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-#[inline]
 pub unsafe fn wglUseFontOutlinesA<'a, P0>(param0: P0, param1: u32, param2: u32, param3: u32, param4: f32, param5: f32, param6: i32, param7: *mut GLYPHMETRICSFLOAT) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::Gdi::HDC>,
@@ -5705,7 +5294,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-#[inline]
 pub unsafe fn wglUseFontOutlinesW<'a, P0>(param0: P0, param1: u32, param2: u32, param3: u32, param4: f32, param5: f32, param6: i32, param7: *mut GLYPHMETRICSFLOAT) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::Gdi::HDC>,

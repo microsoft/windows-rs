@@ -1177,7 +1177,6 @@ pub struct IWinMLRuntimeFactory_Vtbl {
     pub CreateRuntime: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, runtimetype: WINML_RUNTIME_TYPE, ppruntime: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_AI_MachineLearning_WinML\"`*"]
-#[inline]
 pub unsafe fn MLCreateOperatorRegistry() -> ::windows::core::Result<IMLOperatorRegistry> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -2505,7 +2504,6 @@ impl ::core::default::Default for WINML_VARIABLE_DESC_0 {
     }
 }
 #[doc = "*Required features: `\"Win32_AI_MachineLearning_WinML\"`*"]
-#[inline]
 pub unsafe fn WinMLCreateRuntime() -> ::windows::core::Result<IWinMLRuntime> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {

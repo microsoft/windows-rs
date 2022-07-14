@@ -1,6 +1,5 @@
 #[doc = "*Required features: `\"Win32_Storage_IndexServer\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
 #[cfg(feature = "Win32_System_Com_StructuredStorage")]
-#[inline]
 pub unsafe fn BindIFilterFromStorage<'a, P0, P1>(pstg: P0, punkouter: P1, ppiunk: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>
 where
     P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::System::Com::StructuredStorage::IStorage>>,
@@ -14,7 +13,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_Storage_IndexServer\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
-#[inline]
 pub unsafe fn BindIFilterFromStream<'a, P0, P1>(pstm: P0, punkouter: P1, ppiunk: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>
 where
     P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::System::Com::IStream>>,
@@ -827,7 +825,6 @@ pub const LIFF_IMPLEMENT_TEXT_FILTER_FALLBACK_POLICY: u32 = 2u32;
 #[doc = "*Required features: `\"Win32_Storage_IndexServer\"`*"]
 pub const LIFF_LOAD_DEFINED_FILTER: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_Storage_IndexServer\"`*"]
-#[inline]
 pub unsafe fn LoadIFilter<'a, P0, P1>(pwcspath: P0, punkouter: P1, ppiunk: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>
 where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
@@ -840,7 +837,6 @@ where
     LoadIFilter(pwcspath.into(), punkouter.into().abi(), ::core::mem::transmute(ppiunk)).ok()
 }
 #[doc = "*Required features: `\"Win32_Storage_IndexServer\"`*"]
-#[inline]
 pub unsafe fn LoadIFilterEx<'a, P0>(pwcspath: P0, dwflags: u32, riid: *const ::windows::core::GUID, ppiunk: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>
 where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,

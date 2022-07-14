@@ -263,7 +263,6 @@ impl ::core::default::Default for AXISINFOW {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn AbortPath<'a, P0>(hdc: P0) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<HDC>,
@@ -276,7 +275,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn AddFontMemResourceEx(pfileview: *const ::core::ffi::c_void, cjsize: u32, pvresrved: *mut ::core::ffi::c_void, pnumfonts: *const u32) -> super::super::Foundation::HANDLE {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -285,7 +283,6 @@ pub unsafe fn AddFontMemResourceEx(pfileview: *const ::core::ffi::c_void, cjsize
     AddFontMemResourceEx(::core::mem::transmute(pfileview), cjsize, ::core::mem::transmute(pvresrved), ::core::mem::transmute(pnumfonts))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-#[inline]
 pub unsafe fn AddFontResourceA<'a, P0>(param0: P0) -> i32
 where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
@@ -297,7 +294,6 @@ where
     AddFontResourceA(param0.into())
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-#[inline]
 pub unsafe fn AddFontResourceExA<'a, P0>(name: P0, fl: FONT_RESOURCE_CHARACTERISTICS, res: *mut ::core::ffi::c_void) -> i32
 where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
@@ -309,7 +305,6 @@ where
     AddFontResourceExA(name.into(), fl, ::core::mem::transmute(res))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-#[inline]
 pub unsafe fn AddFontResourceExW<'a, P0>(name: P0, fl: FONT_RESOURCE_CHARACTERISTICS, res: *mut ::core::ffi::c_void) -> i32
 where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
@@ -321,7 +316,6 @@ where
     AddFontResourceExW(name.into(), fl, ::core::mem::transmute(res))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-#[inline]
 pub unsafe fn AddFontResourceW<'a, P0>(param0: P0) -> i32
 where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
@@ -334,7 +328,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn AlphaBlend<'a, P0, P1>(hdcdest: P0, xorigindest: i32, yorigindest: i32, wdest: i32, hdest: i32, hdcsrc: P1, xoriginsrc: i32, yoriginsrc: i32, wsrc: i32, hsrc: i32, ftn: BLENDFUNCTION) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<HDC>,
@@ -348,7 +341,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn AngleArc<'a, P0>(hdc: P0, x: i32, y: i32, r: u32, startangle: f32, sweepangle: f32) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<HDC>,
@@ -361,7 +353,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn AnimatePalette<'a, P0>(hpal: P0, istartindex: u32, ppe: &[PALETTEENTRY]) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<HPALETTE>,
@@ -374,7 +365,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn Arc<'a, P0>(hdc: P0, x1: i32, y1: i32, x2: i32, y2: i32, x3: i32, y3: i32, x4: i32, y4: i32) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<HDC>,
@@ -387,7 +377,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn ArcTo<'a, P0>(hdc: P0, left: i32, top: i32, right: i32, bottom: i32, xr1: i32, yr1: i32, xr2: i32, yr2: i32) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<HDC>,
@@ -851,7 +840,6 @@ pub const BS_PATTERN8X8: u32 = 7u32;
 pub const BS_SOLID: u32 = 0u32;
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn BeginPaint<'a, P0>(hwnd: P0, lppaint: *mut PAINTSTRUCT) -> HDC
 where
     P0: ::std::convert::Into<super::super::Foundation::HWND>,
@@ -864,7 +852,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn BeginPath<'a, P0>(hdc: P0) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<HDC>,
@@ -877,7 +864,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn BitBlt<'a, P0, P1>(hdc: P0, x: i32, y: i32, cx: i32, cy: i32, hdcsrc: P1, x1: i32, y1: i32, rop: ROP_CODE) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<HDC>,
@@ -1310,7 +1296,6 @@ impl ::core::fmt::Debug for CREATE_POLYGON_RGN_MODE {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn CancelDC<'a, P0>(hdc: P0) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<HDC>,
@@ -1323,7 +1308,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn ChangeDisplaySettingsA(lpdevmode: *const DEVMODEA, dwflags: CDS_TYPE) -> DISP_CHANGE {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -1333,7 +1317,6 @@ pub unsafe fn ChangeDisplaySettingsA(lpdevmode: *const DEVMODEA, dwflags: CDS_TY
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn ChangeDisplaySettingsExA<'a, P0, P1>(lpszdevicename: P0, lpdevmode: *const DEVMODEA, hwnd: P1, dwflags: CDS_TYPE, lparam: *const ::core::ffi::c_void) -> DISP_CHANGE
 where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
@@ -1347,7 +1330,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn ChangeDisplaySettingsExW<'a, P0, P1>(lpszdevicename: P0, lpdevmode: *const DEVMODEW, hwnd: P1, dwflags: CDS_TYPE, lparam: *const ::core::ffi::c_void) -> DISP_CHANGE
 where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
@@ -1361,7 +1343,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn ChangeDisplaySettingsW(lpdevmode: *const DEVMODEW, dwflags: CDS_TYPE) -> DISP_CHANGE {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -1371,7 +1352,6 @@ pub unsafe fn ChangeDisplaySettingsW(lpdevmode: *const DEVMODEW, dwflags: CDS_TY
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn Chord<'a, P0>(hdc: P0, x1: i32, y1: i32, x2: i32, y2: i32, x3: i32, y3: i32, x4: i32, y4: i32) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<HDC>,
@@ -1384,7 +1364,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn ClientToScreen<'a, P0>(hwnd: P0, lppoint: *mut super::super::Foundation::POINT) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::super::Foundation::HWND>,
@@ -1396,7 +1375,6 @@ where
     ClientToScreen(hwnd.into(), ::core::mem::transmute(lppoint))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-#[inline]
 pub unsafe fn CloseEnhMetaFile<'a, P0>(hdc: P0) -> HENHMETAFILE
 where
     P0: ::std::convert::Into<HDC>,
@@ -1409,7 +1387,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn CloseFigure<'a, P0>(hdc: P0) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<HDC>,
@@ -1421,7 +1398,6 @@ where
     CloseFigure(hdc.into())
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-#[inline]
 pub unsafe fn CloseMetaFile<'a, P0>(hdc: P0) -> HMETAFILE
 where
     P0: ::std::convert::Into<HDC>,
@@ -1433,7 +1409,6 @@ where
     CloseMetaFile(hdc.into())
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-#[inline]
 pub unsafe fn CombineRgn<'a, P0, P1, P2>(hrgndst: P0, hrgnsrc1: P1, hrgnsrc2: P2, imode: RGN_COMBINE_MODE) -> i32
 where
     P0: ::std::convert::Into<HRGN>,
@@ -1448,7 +1423,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn CombineTransform(lpxfout: *mut XFORM, lpxf1: *const XFORM, lpxf2: *const XFORM) -> super::super::Foundation::BOOL {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -1457,7 +1431,6 @@ pub unsafe fn CombineTransform(lpxfout: *mut XFORM, lpxf1: *const XFORM, lpxf2: 
     CombineTransform(::core::mem::transmute(lpxfout), ::core::mem::transmute(lpxf1), ::core::mem::transmute(lpxf2))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-#[inline]
 pub unsafe fn CopyEnhMetaFileA<'a, P0, P1>(henh: P0, lpfilename: P1) -> HENHMETAFILE
 where
     P0: ::std::convert::Into<HENHMETAFILE>,
@@ -1470,7 +1443,6 @@ where
     CopyEnhMetaFileA(henh.into(), lpfilename.into())
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-#[inline]
 pub unsafe fn CopyEnhMetaFileW<'a, P0, P1>(henh: P0, lpfilename: P1) -> HENHMETAFILE
 where
     P0: ::std::convert::Into<HENHMETAFILE>,
@@ -1483,7 +1455,6 @@ where
     CopyEnhMetaFileW(henh.into(), lpfilename.into())
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-#[inline]
 pub unsafe fn CopyMetaFileA<'a, P0, P1>(param0: P0, param1: P1) -> HMETAFILE
 where
     P0: ::std::convert::Into<HMETAFILE>,
@@ -1496,7 +1467,6 @@ where
     CopyMetaFileA(param0.into(), param1.into())
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-#[inline]
 pub unsafe fn CopyMetaFileW<'a, P0, P1>(param0: P0, param1: P1) -> HMETAFILE
 where
     P0: ::std::convert::Into<HMETAFILE>,
@@ -1510,7 +1480,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn CopyRect(lprcdst: *mut super::super::Foundation::RECT, lprcsrc: *const super::super::Foundation::RECT) -> super::super::Foundation::BOOL {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -1519,7 +1488,6 @@ pub unsafe fn CopyRect(lprcdst: *mut super::super::Foundation::RECT, lprcsrc: *c
     CopyRect(::core::mem::transmute(lprcdst), ::core::mem::transmute(lprcsrc))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-#[inline]
 pub unsafe fn CreateBitmap(nwidth: i32, nheight: i32, nplanes: u32, nbitcount: u32, lpbits: *const ::core::ffi::c_void) -> HBITMAP {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -1528,7 +1496,6 @@ pub unsafe fn CreateBitmap(nwidth: i32, nheight: i32, nplanes: u32, nbitcount: u
     CreateBitmap(nwidth, nheight, nplanes, nbitcount, ::core::mem::transmute(lpbits))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-#[inline]
 pub unsafe fn CreateBitmapIndirect(pbm: *const BITMAP) -> HBITMAP {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -1537,7 +1504,6 @@ pub unsafe fn CreateBitmapIndirect(pbm: *const BITMAP) -> HBITMAP {
     CreateBitmapIndirect(::core::mem::transmute(pbm))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-#[inline]
 pub unsafe fn CreateBrushIndirect(plbrush: *const LOGBRUSH) -> HBRUSH {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -1546,7 +1512,6 @@ pub unsafe fn CreateBrushIndirect(plbrush: *const LOGBRUSH) -> HBRUSH {
     CreateBrushIndirect(::core::mem::transmute(plbrush))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-#[inline]
 pub unsafe fn CreateCompatibleBitmap<'a, P0>(hdc: P0, cx: i32, cy: i32) -> HBITMAP
 where
     P0: ::std::convert::Into<HDC>,
@@ -1558,7 +1523,6 @@ where
     CreateCompatibleBitmap(hdc.into(), cx, cy)
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-#[inline]
 pub unsafe fn CreateCompatibleDC<'a, P0>(hdc: P0) -> CreatedHDC
 where
     P0: ::std::convert::Into<HDC>,
@@ -1571,7 +1535,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn CreateDCA<'a, P0, P1, P2>(pwszdriver: P0, pwszdevice: P1, pszport: P2, pdm: *const DEVMODEA) -> CreatedHDC
 where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
@@ -1586,7 +1549,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn CreateDCW<'a, P0, P1, P2>(pwszdriver: P0, pwszdevice: P1, pszport: P2, pdm: *const DEVMODEW) -> CreatedHDC
 where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
@@ -1600,7 +1562,6 @@ where
     CreateDCW(pwszdriver.into(), pwszdevice.into(), pszport.into(), ::core::mem::transmute(pdm))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-#[inline]
 pub unsafe fn CreateDIBPatternBrush(h: isize, iusage: DIB_USAGE) -> HBRUSH {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -1609,7 +1570,6 @@ pub unsafe fn CreateDIBPatternBrush(h: isize, iusage: DIB_USAGE) -> HBRUSH {
     CreateDIBPatternBrush(h, iusage)
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-#[inline]
 pub unsafe fn CreateDIBPatternBrushPt(lppackeddib: *const ::core::ffi::c_void, iusage: DIB_USAGE) -> HBRUSH {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -1619,7 +1579,6 @@ pub unsafe fn CreateDIBPatternBrushPt(lppackeddib: *const ::core::ffi::c_void, i
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn CreateDIBSection<'a, P0, P1>(hdc: P0, pbmi: *const BITMAPINFO, usage: DIB_USAGE, ppvbits: *mut *mut ::core::ffi::c_void, hsection: P1, offset: u32) -> ::windows::core::Result<HBITMAP>
 where
     P0: ::std::convert::Into<HDC>,
@@ -1633,7 +1592,6 @@ where
     (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-#[inline]
 pub unsafe fn CreateDIBitmap<'a, P0>(hdc: P0, pbmih: *const BITMAPINFOHEADER, flinit: u32, pjbits: *const ::core::ffi::c_void, pbmi: *const BITMAPINFO, iusage: DIB_USAGE) -> HBITMAP
 where
     P0: ::std::convert::Into<HDC>,
@@ -1645,7 +1603,6 @@ where
     CreateDIBitmap(hdc.into(), ::core::mem::transmute(pbmih), flinit, ::core::mem::transmute(pjbits), ::core::mem::transmute(pbmi), iusage)
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-#[inline]
 pub unsafe fn CreateDiscardableBitmap<'a, P0>(hdc: P0, cx: i32, cy: i32) -> HBITMAP
 where
     P0: ::std::convert::Into<HDC>,
@@ -1657,7 +1614,6 @@ where
     CreateDiscardableBitmap(hdc.into(), cx, cy)
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-#[inline]
 pub unsafe fn CreateEllipticRgn(x1: i32, y1: i32, x2: i32, y2: i32) -> HRGN {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -1667,7 +1623,6 @@ pub unsafe fn CreateEllipticRgn(x1: i32, y1: i32, x2: i32, y2: i32) -> HRGN {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn CreateEllipticRgnIndirect(lprect: *const super::super::Foundation::RECT) -> HRGN {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -1677,7 +1632,6 @@ pub unsafe fn CreateEllipticRgnIndirect(lprect: *const super::super::Foundation:
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn CreateEnhMetaFileA<'a, P0, P1, P2>(hdc: P0, lpfilename: P1, lprc: *const super::super::Foundation::RECT, lpdesc: P2) -> HdcMetdataEnhFileHandle
 where
     P0: ::std::convert::Into<HDC>,
@@ -1692,7 +1646,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn CreateEnhMetaFileW<'a, P0, P1, P2>(hdc: P0, lpfilename: P1, lprc: *const super::super::Foundation::RECT, lpdesc: P2) -> HdcMetdataEnhFileHandle
 where
     P0: ::std::convert::Into<HDC>,
@@ -1706,7 +1659,6 @@ where
     CreateEnhMetaFileW(hdc.into(), lpfilename.into(), ::core::mem::transmute(lprc), lpdesc.into())
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-#[inline]
 pub unsafe fn CreateFontA<'a, P0>(cheight: i32, cwidth: i32, cescapement: i32, corientation: i32, cweight: i32, bitalic: u32, bunderline: u32, bstrikeout: u32, icharset: u32, ioutprecision: FONT_OUTPUT_PRECISION, iclipprecision: FONT_CLIP_PRECISION, iquality: FONT_QUALITY, ipitchandfamily: FONT_PITCH_AND_FAMILY, pszfacename: P0) -> HFONT
 where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
@@ -1719,7 +1671,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn CreateFontIndirectA(lplf: *const LOGFONTA) -> HFONT {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -1729,7 +1680,6 @@ pub unsafe fn CreateFontIndirectA(lplf: *const LOGFONTA) -> HFONT {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn CreateFontIndirectExA(param0: *const ENUMLOGFONTEXDVA) -> HFONT {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -1738,7 +1688,6 @@ pub unsafe fn CreateFontIndirectExA(param0: *const ENUMLOGFONTEXDVA) -> HFONT {
     CreateFontIndirectExA(::core::mem::transmute(param0))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-#[inline]
 pub unsafe fn CreateFontIndirectExW(param0: *const ENUMLOGFONTEXDVW) -> HFONT {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -1747,7 +1696,6 @@ pub unsafe fn CreateFontIndirectExW(param0: *const ENUMLOGFONTEXDVW) -> HFONT {
     CreateFontIndirectExW(::core::mem::transmute(param0))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-#[inline]
 pub unsafe fn CreateFontIndirectW(lplf: *const LOGFONTW) -> HFONT {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -1756,7 +1704,6 @@ pub unsafe fn CreateFontIndirectW(lplf: *const LOGFONTW) -> HFONT {
     CreateFontIndirectW(::core::mem::transmute(lplf))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-#[inline]
 pub unsafe fn CreateFontPackage(puchsrcbuffer: *const u8, ulsrcbuffersize: u32, ppuchfontpackagebuffer: *mut *mut u8, pulfontpackagebuffersize: *mut u32, pulbyteswritten: *mut u32, usflag: u16, usttcindex: u16, ussubsetformat: u16, ussubsetlanguage: u16, ussubsetplatform: CREATE_FONT_PACKAGE_SUBSET_PLATFORM, ussubsetencoding: CREATE_FONT_PACKAGE_SUBSET_ENCODING, pussubsetkeeplist: *const u16, ussubsetlistcount: u16, lpfnallocate: CFP_ALLOCPROC, lpfnreallocate: CFP_REALLOCPROC, lpfnfree: CFP_FREEPROC, lpvreserved: *mut ::core::ffi::c_void) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -1783,7 +1730,6 @@ pub unsafe fn CreateFontPackage(puchsrcbuffer: *const u8, ulsrcbuffersize: u32, 
     )
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-#[inline]
 pub unsafe fn CreateFontW<'a, P0>(cheight: i32, cwidth: i32, cescapement: i32, corientation: i32, cweight: i32, bitalic: u32, bunderline: u32, bstrikeout: u32, icharset: u32, ioutprecision: FONT_OUTPUT_PRECISION, iclipprecision: FONT_CLIP_PRECISION, iquality: FONT_QUALITY, ipitchandfamily: FONT_PITCH_AND_FAMILY, pszfacename: P0) -> HFONT
 where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
@@ -1795,7 +1741,6 @@ where
     CreateFontW(cheight, cwidth, cescapement, corientation, cweight, bitalic, bunderline, bstrikeout, icharset, ioutprecision, iclipprecision, iquality, ipitchandfamily, pszfacename.into())
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-#[inline]
 pub unsafe fn CreateHalftonePalette<'a, P0>(hdc: P0) -> HPALETTE
 where
     P0: ::std::convert::Into<HDC>,
@@ -1807,7 +1752,6 @@ where
     CreateHalftonePalette(hdc.into())
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-#[inline]
 pub unsafe fn CreateHatchBrush(ihatch: HATCH_BRUSH_STYLE, color: u32) -> HBRUSH {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -1817,7 +1761,6 @@ pub unsafe fn CreateHatchBrush(ihatch: HATCH_BRUSH_STYLE, color: u32) -> HBRUSH 
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn CreateICA<'a, P0, P1, P2>(pszdriver: P0, pszdevice: P1, pszport: P2, pdm: *const DEVMODEA) -> CreatedHDC
 where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
@@ -1832,7 +1775,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn CreateICW<'a, P0, P1, P2>(pszdriver: P0, pszdevice: P1, pszport: P2, pdm: *const DEVMODEW) -> CreatedHDC
 where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
@@ -1846,7 +1788,6 @@ where
     CreateICW(pszdriver.into(), pszdevice.into(), pszport.into(), ::core::mem::transmute(pdm))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-#[inline]
 pub unsafe fn CreateMetaFileA<'a, P0>(pszfile: P0) -> HdcMetdataFileHandle
 where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
@@ -1858,7 +1799,6 @@ where
     CreateMetaFileA(pszfile.into())
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-#[inline]
 pub unsafe fn CreateMetaFileW<'a, P0>(pszfile: P0) -> HdcMetdataFileHandle
 where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
@@ -1870,7 +1810,6 @@ where
     CreateMetaFileW(pszfile.into())
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-#[inline]
 pub unsafe fn CreatePalette(plpal: *const LOGPALETTE) -> HPALETTE {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -1879,7 +1818,6 @@ pub unsafe fn CreatePalette(plpal: *const LOGPALETTE) -> HPALETTE {
     CreatePalette(::core::mem::transmute(plpal))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-#[inline]
 pub unsafe fn CreatePatternBrush<'a, P0>(hbm: P0) -> HBRUSH
 where
     P0: ::std::convert::Into<HBITMAP>,
@@ -1891,7 +1829,6 @@ where
     CreatePatternBrush(hbm.into())
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-#[inline]
 pub unsafe fn CreatePen(istyle: PEN_STYLE, cwidth: i32, color: u32) -> HPEN {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -1901,7 +1838,6 @@ pub unsafe fn CreatePen(istyle: PEN_STYLE, cwidth: i32, color: u32) -> HPEN {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn CreatePenIndirect(plpen: *const LOGPEN) -> HPEN {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -1911,7 +1847,6 @@ pub unsafe fn CreatePenIndirect(plpen: *const LOGPEN) -> HPEN {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn CreatePolyPolygonRgn(pptl: *const super::super::Foundation::POINT, pc: &[i32], imode: CREATE_POLYGON_RGN_MODE) -> HRGN {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -1921,7 +1856,6 @@ pub unsafe fn CreatePolyPolygonRgn(pptl: *const super::super::Foundation::POINT,
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn CreatePolygonRgn(pptl: &[super::super::Foundation::POINT], imode: CREATE_POLYGON_RGN_MODE) -> HRGN {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -1930,7 +1864,6 @@ pub unsafe fn CreatePolygonRgn(pptl: &[super::super::Foundation::POINT], imode: 
     CreatePolygonRgn(::core::mem::transmute(::windows::core::as_ptr_or_null(pptl)), pptl.len() as _, imode)
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-#[inline]
 pub unsafe fn CreateRectRgn(x1: i32, y1: i32, x2: i32, y2: i32) -> HRGN {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -1940,7 +1873,6 @@ pub unsafe fn CreateRectRgn(x1: i32, y1: i32, x2: i32, y2: i32) -> HRGN {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn CreateRectRgnIndirect(lprect: *const super::super::Foundation::RECT) -> HRGN {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -1949,7 +1881,6 @@ pub unsafe fn CreateRectRgnIndirect(lprect: *const super::super::Foundation::REC
     CreateRectRgnIndirect(::core::mem::transmute(lprect))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-#[inline]
 pub unsafe fn CreateRoundRectRgn(x1: i32, y1: i32, x2: i32, y2: i32, w: i32, h: i32) -> HRGN {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -1959,7 +1890,6 @@ pub unsafe fn CreateRoundRectRgn(x1: i32, y1: i32, x2: i32, y2: i32, w: i32, h: 
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn CreateScalableFontResourceA<'a, P0, P1, P2>(fdwhidden: u32, lpszfont: P0, lpszfile: P1, lpszpath: P2) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
@@ -1974,7 +1904,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn CreateScalableFontResourceW<'a, P0, P1, P2>(fdwhidden: u32, lpszfont: P0, lpszfile: P1, lpszpath: P2) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
@@ -1988,7 +1917,6 @@ where
     CreateScalableFontResourceW(fdwhidden, lpszfont.into(), lpszfile.into(), lpszpath.into())
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-#[inline]
 pub unsafe fn CreateSolidBrush(color: u32) -> HBRUSH {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -3459,7 +3387,6 @@ pub const DOWNLOADFACE: u32 = 514u32;
 pub const DOWNLOADHEADER: u32 = 4111u32;
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn DPtoLP<'a, P0>(hdc: P0, lppt: &mut [super::super::Foundation::POINT]) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<HDC>,
@@ -3930,7 +3857,6 @@ pub const DT_RASDISPLAY: u32 = 1u32;
 pub const DT_RASPRINTER: u32 = 2u32;
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn DeleteDC<'a, P0>(hdc: P0) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<CreatedHDC>,
@@ -3943,7 +3869,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn DeleteEnhMetaFile<'a, P0>(hmf: P0) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<HENHMETAFILE>,
@@ -3956,7 +3881,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn DeleteMetaFile<'a, P0>(hmf: P0) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<HMETAFILE>,
@@ -3969,7 +3893,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn DeleteObject<'a, P0>(ho: P0) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<HGDIOBJ>,
@@ -3982,7 +3905,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn DrawAnimatedRects<'a, P0>(hwnd: P0, idani: i32, lprcfrom: *const super::super::Foundation::RECT, lprcto: *const super::super::Foundation::RECT) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::super::Foundation::HWND>,
@@ -3995,7 +3917,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn DrawCaption<'a, P0, P1>(hwnd: P0, hdc: P1, lprect: *const super::super::Foundation::RECT, flags: DRAW_CAPTION_FLAGS) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::super::Foundation::HWND>,
@@ -4009,7 +3930,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn DrawEdge<'a, P0>(hdc: P0, qrc: *mut super::super::Foundation::RECT, edge: DRAWEDGE_FLAGS, grfflags: DRAW_EDGE_FLAGS) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<HDC>,
@@ -4021,7 +3941,6 @@ where
     DrawEdge(hdc.into(), ::core::mem::transmute(qrc), edge, grfflags)
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-#[inline]
 pub unsafe fn DrawEscape<'a, P0, P1>(hdc: P0, iescape: i32, cjin: i32, lpin: P1) -> i32
 where
     P0: ::std::convert::Into<HDC>,
@@ -4035,7 +3954,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn DrawFocusRect<'a, P0>(hdc: P0, lprc: *const super::super::Foundation::RECT) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<HDC>,
@@ -4048,7 +3966,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn DrawFrameControl<'a, P0>(param0: P0, param1: *mut super::super::Foundation::RECT, param2: DFC_TYPE, param3: DFCS_STATE) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<HDC>,
@@ -4061,7 +3978,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn DrawStateA<'a, P0, P1, P2, P3>(hdc: P0, hbrfore: P1, qfncallback: DRAWSTATEPROC, ldata: P2, wdata: P3, x: i32, y: i32, cx: i32, cy: i32, uflags: DRAWSTATE_FLAGS) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<HDC>,
@@ -4077,7 +3993,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn DrawStateW<'a, P0, P1, P2, P3>(hdc: P0, hbrfore: P1, qfncallback: DRAWSTATEPROC, ldata: P2, wdata: P3, x: i32, y: i32, cx: i32, cy: i32, uflags: DRAWSTATE_FLAGS) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<HDC>,
@@ -4093,7 +4008,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn DrawTextA<'a, P0>(hdc: P0, lpchtext: &[u8], lprc: *mut super::super::Foundation::RECT, format: DRAW_TEXT_FORMAT) -> i32
 where
     P0: ::std::convert::Into<HDC>,
@@ -4106,7 +4020,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn DrawTextExA<'a, P0>(hdc: P0, lpchtext: &mut [u8], lprc: *mut super::super::Foundation::RECT, format: DRAW_TEXT_FORMAT, lpdtp: *const DRAWTEXTPARAMS) -> i32
 where
     P0: ::std::convert::Into<HDC>,
@@ -4119,7 +4032,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn DrawTextExW<'a, P0>(hdc: P0, lpchtext: &mut [u16], lprc: *mut super::super::Foundation::RECT, format: DRAW_TEXT_FORMAT, lpdtp: *const DRAWTEXTPARAMS) -> i32
 where
     P0: ::std::convert::Into<HDC>,
@@ -4132,7 +4044,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn DrawTextW<'a, P0>(hdc: P0, lpchtext: &[u16], lprc: *mut super::super::Foundation::RECT, format: DRAW_TEXT_FORMAT) -> i32
 where
     P0: ::std::convert::Into<HDC>,
@@ -8028,7 +7939,6 @@ pub const E_TTC_INDEX_OUT_OF_RANGE: i32 = 24i32;
 pub const E_WINDOWSAPI: i32 = 516i32;
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn Ellipse<'a, P0>(hdc: P0, left: i32, top: i32, right: i32, bottom: i32) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<HDC>,
@@ -8041,7 +7951,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn EndPaint<'a, P0>(hwnd: P0, lppaint: *const PAINTSTRUCT) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::super::Foundation::HWND>,
@@ -8054,7 +7963,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn EndPath<'a, P0>(hdc: P0) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<HDC>,
@@ -8067,7 +7975,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn EnumDisplayDevicesA<'a, P0>(lpdevice: P0, idevnum: u32, lpdisplaydevice: *mut DISPLAY_DEVICEA, dwflags: u32) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
@@ -8080,7 +7987,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn EnumDisplayDevicesW<'a, P0>(lpdevice: P0, idevnum: u32, lpdisplaydevice: *mut DISPLAY_DEVICEW, dwflags: u32) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
@@ -8093,7 +7999,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn EnumDisplayMonitors<'a, P0, P1>(hdc: P0, lprcclip: *const super::super::Foundation::RECT, lpfnenum: MONITORENUMPROC, dwdata: P1) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<HDC>,
@@ -8107,7 +8012,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn EnumDisplaySettingsA<'a, P0>(lpszdevicename: P0, imodenum: ENUM_DISPLAY_SETTINGS_MODE, lpdevmode: *mut DEVMODEA) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
@@ -8120,7 +8024,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn EnumDisplaySettingsExA<'a, P0>(lpszdevicename: P0, imodenum: ENUM_DISPLAY_SETTINGS_MODE, lpdevmode: *mut DEVMODEA, dwflags: u32) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
@@ -8133,7 +8036,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn EnumDisplaySettingsExW<'a, P0>(lpszdevicename: P0, imodenum: ENUM_DISPLAY_SETTINGS_MODE, lpdevmode: *mut DEVMODEW, dwflags: u32) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
@@ -8146,7 +8048,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn EnumDisplaySettingsW<'a, P0>(lpszdevicename: P0, imodenum: ENUM_DISPLAY_SETTINGS_MODE, lpdevmode: *mut DEVMODEW) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
@@ -8159,7 +8060,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn EnumEnhMetaFile<'a, P0, P1>(hdc: P0, hmf: P1, proc: ENHMFENUMPROC, param3: *const ::core::ffi::c_void, lprect: *const super::super::Foundation::RECT) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<HDC>,
@@ -8173,7 +8073,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn EnumFontFamiliesA<'a, P0, P1, P2>(hdc: P0, lplogfont: P1, lpproc: FONTENUMPROCA, lparam: P2) -> i32
 where
     P0: ::std::convert::Into<HDC>,
@@ -8188,7 +8087,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn EnumFontFamiliesExA<'a, P0, P1>(hdc: P0, lplogfont: *const LOGFONTA, lpproc: FONTENUMPROCA, lparam: P1, dwflags: u32) -> i32
 where
     P0: ::std::convert::Into<HDC>,
@@ -8202,7 +8100,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn EnumFontFamiliesExW<'a, P0, P1>(hdc: P0, lplogfont: *const LOGFONTW, lpproc: FONTENUMPROCW, lparam: P1, dwflags: u32) -> i32
 where
     P0: ::std::convert::Into<HDC>,
@@ -8216,7 +8113,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn EnumFontFamiliesW<'a, P0, P1, P2>(hdc: P0, lplogfont: P1, lpproc: FONTENUMPROCW, lparam: P2) -> i32
 where
     P0: ::std::convert::Into<HDC>,
@@ -8231,7 +8127,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn EnumFontsA<'a, P0, P1, P2>(hdc: P0, lplogfont: P1, lpproc: FONTENUMPROCA, lparam: P2) -> i32
 where
     P0: ::std::convert::Into<HDC>,
@@ -8246,7 +8141,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn EnumFontsW<'a, P0, P1, P2>(hdc: P0, lplogfont: P1, lpproc: FONTENUMPROCW, lparam: P2) -> i32
 where
     P0: ::std::convert::Into<HDC>,
@@ -8261,7 +8155,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn EnumMetaFile<'a, P0, P1, P2>(hdc: P0, hmf: P1, proc: MFENUMPROC, param3: P2) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<HDC>,
@@ -8276,7 +8169,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn EnumObjects<'a, P0, P1>(hdc: P0, ntype: OBJ_TYPE, lpfunc: GOBJENUMPROC, lparam: P1) -> i32
 where
     P0: ::std::convert::Into<HDC>,
@@ -8290,7 +8182,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn EqualRect(lprc1: *const super::super::Foundation::RECT, lprc2: *const super::super::Foundation::RECT) -> super::super::Foundation::BOOL {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -8300,7 +8191,6 @@ pub unsafe fn EqualRect(lprc1: *const super::super::Foundation::RECT, lprc2: *co
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn EqualRgn<'a, P0, P1>(hrgn1: P0, hrgn2: P1) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<HRGN>,
@@ -8313,7 +8203,6 @@ where
     EqualRgn(hrgn1.into(), hrgn2.into())
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-#[inline]
 pub unsafe fn ExcludeClipRect<'a, P0>(hdc: P0, left: i32, top: i32, right: i32, bottom: i32) -> i32
 where
     P0: ::std::convert::Into<HDC>,
@@ -8326,7 +8215,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn ExcludeUpdateRgn<'a, P0, P1>(hdc: P0, hwnd: P1) -> i32
 where
     P0: ::std::convert::Into<HDC>,
@@ -8339,7 +8227,6 @@ where
     ExcludeUpdateRgn(hdc.into(), hwnd.into())
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-#[inline]
 pub unsafe fn ExtCreatePen(ipenstyle: PEN_STYLE, cwidth: u32, plbrush: *const LOGBRUSH, pstyle: &[u32]) -> HPEN {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -8349,7 +8236,6 @@ pub unsafe fn ExtCreatePen(ipenstyle: PEN_STYLE, cwidth: u32, plbrush: *const LO
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn ExtCreateRegion(lpx: *const XFORM, ncount: u32, lpdata: *const RGNDATA) -> HRGN {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -8359,7 +8245,6 @@ pub unsafe fn ExtCreateRegion(lpx: *const XFORM, ncount: u32, lpdata: *const RGN
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn ExtFloodFill<'a, P0>(hdc: P0, x: i32, y: i32, color: u32, r#type: EXT_FLOOD_FILL_TYPE) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<HDC>,
@@ -8371,7 +8256,6 @@ where
     ExtFloodFill(hdc.into(), x, y, color, r#type)
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-#[inline]
 pub unsafe fn ExtSelectClipRgn<'a, P0, P1>(hdc: P0, hrgn: P1, mode: RGN_COMBINE_MODE) -> i32
 where
     P0: ::std::convert::Into<HDC>,
@@ -8385,7 +8269,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn ExtTextOutA<'a, P0>(hdc: P0, x: i32, y: i32, options: ETO_OPTIONS, lprect: *const super::super::Foundation::RECT, lpstring: ::windows::core::PCSTR, c: u32, lpdx: *const i32) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<HDC>,
@@ -8398,7 +8281,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn ExtTextOutW<'a, P0>(hdc: P0, x: i32, y: i32, options: ETO_OPTIONS, lprect: *const super::super::Foundation::RECT, lpstring: ::windows::core::PCWSTR, c: u32, lpdx: *const i32) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<HDC>,
@@ -8778,7 +8660,6 @@ pub const FW_ULTRABOLD: u32 = 800u32;
 pub const FW_ULTRALIGHT: u32 = 200u32;
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn FillPath<'a, P0>(hdc: P0) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<HDC>,
@@ -8791,7 +8672,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn FillRect<'a, P0, P1>(hdc: P0, lprc: *const super::super::Foundation::RECT, hbr: P1) -> i32
 where
     P0: ::std::convert::Into<HDC>,
@@ -8805,7 +8685,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn FillRgn<'a, P0, P1, P2>(hdc: P0, hrgn: P1, hbr: P2) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<HDC>,
@@ -8820,7 +8699,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn FixBrushOrgEx<'a, P0>(hdc: P0, x: i32, y: i32, ptl: *const super::super::Foundation::POINT) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<HDC>,
@@ -8833,7 +8711,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn FlattenPath<'a, P0>(hdc: P0) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<HDC>,
@@ -8846,7 +8723,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn FloodFill<'a, P0>(hdc: P0, x: i32, y: i32, color: u32) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<HDC>,
@@ -8859,7 +8735,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn FrameRect<'a, P0, P1>(hdc: P0, lprc: *const super::super::Foundation::RECT, hbr: P1) -> i32
 where
     P0: ::std::convert::Into<HDC>,
@@ -8873,7 +8748,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn FrameRgn<'a, P0, P1, P2>(hdc: P0, hrgn: P1, hbr: P2, w: i32, h: i32) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<HDC>,
@@ -9636,7 +9510,6 @@ pub const GREEK_CHARSET: u32 = 161u32;
 pub const GS_8BIT_INDICES: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn GdiAlphaBlend<'a, P0, P1>(hdcdest: P0, xorigindest: i32, yorigindest: i32, wdest: i32, hdest: i32, hdcsrc: P1, xoriginsrc: i32, yoriginsrc: i32, wsrc: i32, hsrc: i32, ftn: BLENDFUNCTION) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<HDC>,
@@ -9650,7 +9523,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn GdiComment<'a, P0>(hdc: P0, nsize: u32, lpdata: *const u8) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<HDC>,
@@ -9663,7 +9535,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn GdiFlush() -> super::super::Foundation::BOOL {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -9672,7 +9543,6 @@ pub unsafe fn GdiFlush() -> super::super::Foundation::BOOL {
     GdiFlush()
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-#[inline]
 pub unsafe fn GdiGetBatchLimit() -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -9682,7 +9552,6 @@ pub unsafe fn GdiGetBatchLimit() -> u32 {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn GdiGradientFill<'a, P0>(hdc: P0, pvertex: &[TRIVERTEX], pmesh: *const ::core::ffi::c_void, ncount: u32, ulmode: GRADIENT_FILL) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<HDC>,
@@ -9694,7 +9563,6 @@ where
     GdiGradientFill(hdc.into(), ::core::mem::transmute(::windows::core::as_ptr_or_null(pvertex)), pvertex.len() as _, ::core::mem::transmute(pmesh), ncount, ulmode)
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-#[inline]
 pub unsafe fn GdiSetBatchLimit(dw: u32) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -9704,7 +9572,6 @@ pub unsafe fn GdiSetBatchLimit(dw: u32) -> u32 {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn GdiTransparentBlt<'a, P0, P1>(hdcdest: P0, xorigindest: i32, yorigindest: i32, wdest: i32, hdest: i32, hdcsrc: P1, xoriginsrc: i32, yoriginsrc: i32, wsrc: i32, hsrc: i32, crtransparent: u32) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<HDC>,
@@ -9717,7 +9584,6 @@ where
     GdiTransparentBlt(hdcdest.into(), xorigindest, yorigindest, wdest, hdest, hdcsrc.into(), xoriginsrc, yoriginsrc, wsrc, hsrc, crtransparent)
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-#[inline]
 pub unsafe fn GetArcDirection<'a, P0>(hdc: P0) -> i32
 where
     P0: ::std::convert::Into<HDC>,
@@ -9730,7 +9596,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn GetAspectRatioFilterEx<'a, P0>(hdc: P0, lpsize: *mut super::super::Foundation::SIZE) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<HDC>,
@@ -9742,7 +9607,6 @@ where
     GetAspectRatioFilterEx(hdc.into(), ::core::mem::transmute(lpsize))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-#[inline]
 pub unsafe fn GetBitmapBits<'a, P0>(hbit: P0, cb: i32, lpvbits: *mut ::core::ffi::c_void) -> i32
 where
     P0: ::std::convert::Into<HBITMAP>,
@@ -9755,7 +9619,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn GetBitmapDimensionEx<'a, P0>(hbit: P0, lpsize: *mut super::super::Foundation::SIZE) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<HBITMAP>,
@@ -9767,7 +9630,6 @@ where
     GetBitmapDimensionEx(hbit.into(), ::core::mem::transmute(lpsize))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-#[inline]
 pub unsafe fn GetBkColor<'a, P0>(hdc: P0) -> u32
 where
     P0: ::std::convert::Into<HDC>,
@@ -9779,7 +9641,6 @@ where
     GetBkColor(hdc.into())
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-#[inline]
 pub unsafe fn GetBkMode<'a, P0>(hdc: P0) -> i32
 where
     P0: ::std::convert::Into<HDC>,
@@ -9792,7 +9653,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn GetBoundsRect<'a, P0>(hdc: P0, lprect: *mut super::super::Foundation::RECT, flags: u32) -> u32
 where
     P0: ::std::convert::Into<HDC>,
@@ -9805,7 +9665,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn GetBrushOrgEx<'a, P0>(hdc: P0, lppt: *mut super::super::Foundation::POINT) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<HDC>,
@@ -9818,7 +9677,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn GetCharABCWidthsA<'a, P0>(hdc: P0, wfirst: u32, wlast: u32, lpabc: *mut ABC) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<HDC>,
@@ -9831,7 +9689,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn GetCharABCWidthsFloatA<'a, P0>(hdc: P0, ifirst: u32, ilast: u32, lpabc: *mut ABCFLOAT) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<HDC>,
@@ -9844,7 +9701,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn GetCharABCWidthsFloatW<'a, P0>(hdc: P0, ifirst: u32, ilast: u32, lpabc: *mut ABCFLOAT) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<HDC>,
@@ -9857,7 +9713,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn GetCharABCWidthsI<'a, P0>(hdc: P0, gifirst: u32, cgi: u32, pgi: *const u16, pabc: *mut ABC) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<HDC>,
@@ -9870,7 +9725,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn GetCharABCWidthsW<'a, P0>(hdc: P0, wfirst: u32, wlast: u32, lpabc: *mut ABC) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<HDC>,
@@ -9883,7 +9737,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn GetCharWidth32A<'a, P0>(hdc: P0, ifirst: u32, ilast: u32, lpbuffer: *mut i32) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<HDC>,
@@ -9896,7 +9749,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn GetCharWidth32W<'a, P0>(hdc: P0, ifirst: u32, ilast: u32, lpbuffer: *mut i32) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<HDC>,
@@ -9909,7 +9761,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn GetCharWidthA<'a, P0>(hdc: P0, ifirst: u32, ilast: u32, lpbuffer: *mut i32) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<HDC>,
@@ -9922,7 +9773,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn GetCharWidthFloatA<'a, P0>(hdc: P0, ifirst: u32, ilast: u32, lpbuffer: *mut f32) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<HDC>,
@@ -9935,7 +9785,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn GetCharWidthFloatW<'a, P0>(hdc: P0, ifirst: u32, ilast: u32, lpbuffer: *mut f32) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<HDC>,
@@ -9948,7 +9797,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn GetCharWidthI<'a, P0>(hdc: P0, gifirst: u32, cgi: u32, pgi: *const u16, piwidths: *mut i32) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<HDC>,
@@ -9961,7 +9809,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn GetCharWidthW<'a, P0>(hdc: P0, ifirst: u32, ilast: u32, lpbuffer: *mut i32) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<HDC>,
@@ -9973,7 +9820,6 @@ where
     GetCharWidthW(hdc.into(), ifirst, ilast, ::core::mem::transmute(lpbuffer))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-#[inline]
 pub unsafe fn GetCharacterPlacementA<'a, P0>(hdc: P0, lpstring: &[u8], nmexextent: i32, lpresults: *mut GCP_RESULTSA, dwflags: GET_CHARACTER_PLACEMENT_FLAGS) -> u32
 where
     P0: ::std::convert::Into<HDC>,
@@ -9985,7 +9831,6 @@ where
     GetCharacterPlacementA(hdc.into(), ::core::mem::transmute(::windows::core::as_ptr_or_null(lpstring)), lpstring.len() as _, nmexextent, ::core::mem::transmute(lpresults), dwflags)
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-#[inline]
 pub unsafe fn GetCharacterPlacementW<'a, P0>(hdc: P0, lpstring: &[u16], nmexextent: i32, lpresults: *mut GCP_RESULTSW, dwflags: GET_CHARACTER_PLACEMENT_FLAGS) -> u32
 where
     P0: ::std::convert::Into<HDC>,
@@ -9998,7 +9843,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn GetClipBox<'a, P0>(hdc: P0, lprect: *mut super::super::Foundation::RECT) -> i32
 where
     P0: ::std::convert::Into<HDC>,
@@ -10010,7 +9854,6 @@ where
     GetClipBox(hdc.into(), ::core::mem::transmute(lprect))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-#[inline]
 pub unsafe fn GetClipRgn<'a, P0, P1>(hdc: P0, hrgn: P1) -> i32
 where
     P0: ::std::convert::Into<HDC>,
@@ -10024,7 +9867,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn GetColorAdjustment<'a, P0>(hdc: P0, lpca: *mut COLORADJUSTMENT) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<HDC>,
@@ -10036,7 +9878,6 @@ where
     GetColorAdjustment(hdc.into(), ::core::mem::transmute(lpca))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-#[inline]
 pub unsafe fn GetCurrentObject<'a, P0>(hdc: P0, r#type: OBJ_TYPE) -> HGDIOBJ
 where
     P0: ::std::convert::Into<HDC>,
@@ -10049,7 +9890,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn GetCurrentPositionEx<'a, P0>(hdc: P0, lppt: *mut super::super::Foundation::POINT) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<HDC>,
@@ -10062,7 +9902,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn GetDC<'a, P0>(hwnd: P0) -> HDC
 where
     P0: ::std::convert::Into<super::super::Foundation::HWND>,
@@ -10074,7 +9913,6 @@ where
     GetDC(hwnd.into())
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-#[inline]
 pub unsafe fn GetDCBrushColor<'a, P0>(hdc: P0) -> u32
 where
     P0: ::std::convert::Into<HDC>,
@@ -10087,7 +9925,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn GetDCEx<'a, P0, P1>(hwnd: P0, hrgnclip: P1, flags: GET_DCX_FLAGS) -> HDC
 where
     P0: ::std::convert::Into<super::super::Foundation::HWND>,
@@ -10101,7 +9938,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn GetDCOrgEx<'a, P0>(hdc: P0, lppt: *mut super::super::Foundation::POINT) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<HDC>,
@@ -10113,7 +9949,6 @@ where
     GetDCOrgEx(hdc.into(), ::core::mem::transmute(lppt))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-#[inline]
 pub unsafe fn GetDCPenColor<'a, P0>(hdc: P0) -> u32
 where
     P0: ::std::convert::Into<HDC>,
@@ -10125,7 +9960,6 @@ where
     GetDCPenColor(hdc.into())
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-#[inline]
 pub unsafe fn GetDIBColorTable<'a, P0>(hdc: P0, istart: u32, prgbq: &mut [RGBQUAD]) -> u32
 where
     P0: ::std::convert::Into<HDC>,
@@ -10137,7 +9971,6 @@ where
     GetDIBColorTable(hdc.into(), istart, prgbq.len() as _, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(prgbq)))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-#[inline]
 pub unsafe fn GetDIBits<'a, P0, P1>(hdc: P0, hbm: P1, start: u32, clines: u32, lpvbits: *mut ::core::ffi::c_void, lpbmi: *mut BITMAPINFO, usage: DIB_USAGE) -> i32
 where
     P0: ::std::convert::Into<HDC>,
@@ -10150,7 +9983,6 @@ where
     GetDIBits(hdc.into(), hbm.into(), start, clines, ::core::mem::transmute(lpvbits), ::core::mem::transmute(lpbmi), usage)
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-#[inline]
 pub unsafe fn GetDeviceCaps<'a, P0>(hdc: P0, index: GET_DEVICE_CAPS_INDEX) -> i32
 where
     P0: ::std::convert::Into<HDC>,
@@ -10162,7 +9994,6 @@ where
     GetDeviceCaps(hdc.into(), index)
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-#[inline]
 pub unsafe fn GetEnhMetaFileA<'a, P0>(lpname: P0) -> HENHMETAFILE
 where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
@@ -10174,7 +10005,6 @@ where
     GetEnhMetaFileA(lpname.into())
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-#[inline]
 pub unsafe fn GetEnhMetaFileBits<'a, P0>(hemf: P0, nsize: u32, lpdata: *mut u8) -> u32
 where
     P0: ::std::convert::Into<HENHMETAFILE>,
@@ -10186,7 +10016,6 @@ where
     GetEnhMetaFileBits(hemf.into(), nsize, ::core::mem::transmute(lpdata))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-#[inline]
 pub unsafe fn GetEnhMetaFileDescriptionA<'a, P0>(hemf: P0, lpdescription: &mut [u8]) -> u32
 where
     P0: ::std::convert::Into<HENHMETAFILE>,
@@ -10198,7 +10027,6 @@ where
     GetEnhMetaFileDescriptionA(hemf.into(), lpdescription.len() as _, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(lpdescription)))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-#[inline]
 pub unsafe fn GetEnhMetaFileDescriptionW<'a, P0>(hemf: P0, lpdescription: &mut [u16]) -> u32
 where
     P0: ::std::convert::Into<HENHMETAFILE>,
@@ -10211,7 +10039,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn GetEnhMetaFileHeader<'a, P0>(hemf: P0, nsize: u32, lpenhmetaheader: *mut ENHMETAHEADER) -> u32
 where
     P0: ::std::convert::Into<HENHMETAFILE>,
@@ -10223,7 +10050,6 @@ where
     GetEnhMetaFileHeader(hemf.into(), nsize, ::core::mem::transmute(lpenhmetaheader))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-#[inline]
 pub unsafe fn GetEnhMetaFilePaletteEntries<'a, P0>(hemf: P0, lppaletteentries: &mut [PALETTEENTRY]) -> u32
 where
     P0: ::std::convert::Into<HENHMETAFILE>,
@@ -10235,7 +10061,6 @@ where
     GetEnhMetaFilePaletteEntries(hemf.into(), lppaletteentries.len() as _, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(lppaletteentries)))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-#[inline]
 pub unsafe fn GetEnhMetaFileW<'a, P0>(lpname: P0) -> HENHMETAFILE
 where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
@@ -10247,7 +10072,6 @@ where
     GetEnhMetaFileW(lpname.into())
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-#[inline]
 pub unsafe fn GetFontData<'a, P0>(hdc: P0, dwtable: u32, dwoffset: u32, pvbuffer: *mut ::core::ffi::c_void, cjbuffer: u32) -> u32
 where
     P0: ::std::convert::Into<HDC>,
@@ -10259,7 +10083,6 @@ where
     GetFontData(hdc.into(), dwtable, dwoffset, ::core::mem::transmute(pvbuffer), cjbuffer)
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-#[inline]
 pub unsafe fn GetFontLanguageInfo<'a, P0>(hdc: P0) -> u32
 where
     P0: ::std::convert::Into<HDC>,
@@ -10271,7 +10094,6 @@ where
     GetFontLanguageInfo(hdc.into())
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-#[inline]
 pub unsafe fn GetFontUnicodeRanges<'a, P0>(hdc: P0, lpgs: *mut GLYPHSET) -> u32
 where
     P0: ::std::convert::Into<HDC>,
@@ -10283,7 +10105,6 @@ where
     GetFontUnicodeRanges(hdc.into(), ::core::mem::transmute(lpgs))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-#[inline]
 pub unsafe fn GetGlyphIndicesA<'a, P0>(hdc: P0, lpstr: ::windows::core::PCSTR, c: i32, pgi: *mut u16, fl: u32) -> u32
 where
     P0: ::std::convert::Into<HDC>,
@@ -10295,7 +10116,6 @@ where
     GetGlyphIndicesA(hdc.into(), ::core::mem::transmute(lpstr), ::core::mem::transmute(c), ::core::mem::transmute(pgi), fl)
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-#[inline]
 pub unsafe fn GetGlyphIndicesW<'a, P0>(hdc: P0, lpstr: ::windows::core::PCWSTR, c: i32, pgi: *mut u16, fl: u32) -> u32
 where
     P0: ::std::convert::Into<HDC>,
@@ -10308,7 +10128,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn GetGlyphOutlineA<'a, P0>(hdc: P0, uchar: u32, fuformat: GET_GLYPH_OUTLINE_FORMAT, lpgm: *mut GLYPHMETRICS, cjbuffer: u32, pvbuffer: *mut ::core::ffi::c_void, lpmat2: *const MAT2) -> u32
 where
     P0: ::std::convert::Into<HDC>,
@@ -10321,7 +10140,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn GetGlyphOutlineW<'a, P0>(hdc: P0, uchar: u32, fuformat: GET_GLYPH_OUTLINE_FORMAT, lpgm: *mut GLYPHMETRICS, cjbuffer: u32, pvbuffer: *mut ::core::ffi::c_void, lpmat2: *const MAT2) -> u32
 where
     P0: ::std::convert::Into<HDC>,
@@ -10333,7 +10151,6 @@ where
     GetGlyphOutlineW(hdc.into(), uchar, fuformat, ::core::mem::transmute(lpgm), cjbuffer, ::core::mem::transmute(pvbuffer), ::core::mem::transmute(lpmat2))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-#[inline]
 pub unsafe fn GetGraphicsMode<'a, P0>(hdc: P0) -> i32
 where
     P0: ::std::convert::Into<HDC>,
@@ -10345,7 +10162,6 @@ where
     GetGraphicsMode(hdc.into())
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-#[inline]
 pub unsafe fn GetKerningPairsA<'a, P0>(hdc: P0, lpkernpair: &mut [KERNINGPAIR]) -> u32
 where
     P0: ::std::convert::Into<HDC>,
@@ -10357,7 +10173,6 @@ where
     GetKerningPairsA(hdc.into(), lpkernpair.len() as _, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(lpkernpair)))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-#[inline]
 pub unsafe fn GetKerningPairsW<'a, P0>(hdc: P0, lpkernpair: &mut [KERNINGPAIR]) -> u32
 where
     P0: ::std::convert::Into<HDC>,
@@ -10369,7 +10184,6 @@ where
     GetKerningPairsW(hdc.into(), lpkernpair.len() as _, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(lpkernpair)))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-#[inline]
 pub unsafe fn GetLayout<'a, P0>(hdc: P0) -> u32
 where
     P0: ::std::convert::Into<HDC>,
@@ -10381,7 +10195,6 @@ where
     GetLayout(hdc.into())
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-#[inline]
 pub unsafe fn GetMapMode<'a, P0>(hdc: P0) -> i32
 where
     P0: ::std::convert::Into<HDC>,
@@ -10393,7 +10206,6 @@ where
     GetMapMode(hdc.into())
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-#[inline]
 pub unsafe fn GetMetaFileA<'a, P0>(lpname: P0) -> HMETAFILE
 where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
@@ -10405,7 +10217,6 @@ where
     GetMetaFileA(lpname.into())
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-#[inline]
 pub unsafe fn GetMetaFileBitsEx<'a, P0>(hmf: P0, cbbuffer: u32, lpdata: *mut ::core::ffi::c_void) -> u32
 where
     P0: ::std::convert::Into<HMETAFILE>,
@@ -10417,7 +10228,6 @@ where
     GetMetaFileBitsEx(hmf.into(), cbbuffer, ::core::mem::transmute(lpdata))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-#[inline]
 pub unsafe fn GetMetaFileW<'a, P0>(lpname: P0) -> HMETAFILE
 where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
@@ -10429,7 +10239,6 @@ where
     GetMetaFileW(lpname.into())
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-#[inline]
 pub unsafe fn GetMetaRgn<'a, P0, P1>(hdc: P0, hrgn: P1) -> i32
 where
     P0: ::std::convert::Into<HDC>,
@@ -10443,7 +10252,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn GetMiterLimit<'a, P0>(hdc: P0, plimit: *mut f32) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<HDC>,
@@ -10456,7 +10264,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn GetMonitorInfoA<'a, P0>(hmonitor: P0, lpmi: *mut MONITORINFO) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<HMONITOR>,
@@ -10469,7 +10276,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn GetMonitorInfoW<'a, P0>(hmonitor: P0, lpmi: *mut MONITORINFO) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<HMONITOR>,
@@ -10481,7 +10287,6 @@ where
     GetMonitorInfoW(hmonitor.into(), ::core::mem::transmute(lpmi))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-#[inline]
 pub unsafe fn GetNearestColor<'a, P0>(hdc: P0, color: u32) -> u32
 where
     P0: ::std::convert::Into<HDC>,
@@ -10493,7 +10298,6 @@ where
     GetNearestColor(hdc.into(), color)
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-#[inline]
 pub unsafe fn GetNearestPaletteIndex<'a, P0>(h: P0, color: u32) -> u32
 where
     P0: ::std::convert::Into<HPALETTE>,
@@ -10505,7 +10309,6 @@ where
     GetNearestPaletteIndex(h.into(), color)
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-#[inline]
 pub unsafe fn GetObjectA<'a, P0>(h: P0, c: i32, pv: *mut ::core::ffi::c_void) -> i32
 where
     P0: ::std::convert::Into<HGDIOBJ>,
@@ -10517,7 +10320,6 @@ where
     GetObjectA(h.into(), c, ::core::mem::transmute(pv))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-#[inline]
 pub unsafe fn GetObjectType<'a, P0>(h: P0) -> u32
 where
     P0: ::std::convert::Into<HGDIOBJ>,
@@ -10529,7 +10331,6 @@ where
     GetObjectType(h.into())
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-#[inline]
 pub unsafe fn GetObjectW<'a, P0>(h: P0, c: i32, pv: *mut ::core::ffi::c_void) -> i32
 where
     P0: ::std::convert::Into<HGDIOBJ>,
@@ -10542,7 +10343,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn GetOutlineTextMetricsA<'a, P0>(hdc: P0, cjcopy: u32, potm: *mut OUTLINETEXTMETRICA) -> u32
 where
     P0: ::std::convert::Into<HDC>,
@@ -10555,7 +10355,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn GetOutlineTextMetricsW<'a, P0>(hdc: P0, cjcopy: u32, potm: *mut OUTLINETEXTMETRICW) -> u32
 where
     P0: ::std::convert::Into<HDC>,
@@ -10567,7 +10366,6 @@ where
     GetOutlineTextMetricsW(hdc.into(), cjcopy, ::core::mem::transmute(potm))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-#[inline]
 pub unsafe fn GetPaletteEntries<'a, P0>(hpal: P0, istart: u32, ppalentries: &mut [PALETTEENTRY]) -> u32
 where
     P0: ::std::convert::Into<HPALETTE>,
@@ -10580,7 +10378,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn GetPath<'a, P0>(hdc: P0, apt: *mut super::super::Foundation::POINT, aj: *mut u8, cpt: i32) -> i32
 where
     P0: ::std::convert::Into<HDC>,
@@ -10592,7 +10389,6 @@ where
     GetPath(hdc.into(), ::core::mem::transmute(apt), ::core::mem::transmute(aj), ::core::mem::transmute(cpt))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-#[inline]
 pub unsafe fn GetPixel<'a, P0>(hdc: P0, x: i32, y: i32) -> u32
 where
     P0: ::std::convert::Into<HDC>,
@@ -10604,7 +10400,6 @@ where
     GetPixel(hdc.into(), x, y)
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-#[inline]
 pub unsafe fn GetPolyFillMode<'a, P0>(hdc: P0) -> i32
 where
     P0: ::std::convert::Into<HDC>,
@@ -10616,7 +10411,6 @@ where
     GetPolyFillMode(hdc.into())
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-#[inline]
 pub unsafe fn GetROP2<'a, P0>(hdc: P0) -> i32
 where
     P0: ::std::convert::Into<HDC>,
@@ -10628,7 +10422,6 @@ where
     GetROP2(hdc.into())
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-#[inline]
 pub unsafe fn GetRandomRgn<'a, P0, P1>(hdc: P0, hrgn: P1, i: i32) -> i32
 where
     P0: ::std::convert::Into<HDC>,
@@ -10642,7 +10435,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn GetRasterizerCaps(lpraststat: *mut RASTERIZER_STATUS, cjbytes: u32) -> super::super::Foundation::BOOL {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -10652,7 +10444,6 @@ pub unsafe fn GetRasterizerCaps(lpraststat: *mut RASTERIZER_STATUS, cjbytes: u32
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn GetRegionData<'a, P0>(hrgn: P0, ncount: u32, lprgndata: *mut RGNDATA) -> u32
 where
     P0: ::std::convert::Into<HRGN>,
@@ -10665,7 +10456,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn GetRgnBox<'a, P0>(hrgn: P0, lprc: *mut super::super::Foundation::RECT) -> i32
 where
     P0: ::std::convert::Into<HRGN>,
@@ -10677,7 +10467,6 @@ where
     GetRgnBox(hrgn.into(), ::core::mem::transmute(lprc))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-#[inline]
 pub unsafe fn GetStockObject(i: GET_STOCK_OBJECT_FLAGS) -> HGDIOBJ {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -10686,7 +10475,6 @@ pub unsafe fn GetStockObject(i: GET_STOCK_OBJECT_FLAGS) -> HGDIOBJ {
     GetStockObject(i)
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-#[inline]
 pub unsafe fn GetStretchBltMode<'a, P0>(hdc: P0) -> i32
 where
     P0: ::std::convert::Into<HDC>,
@@ -10698,7 +10486,6 @@ where
     GetStretchBltMode(hdc.into())
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-#[inline]
 pub unsafe fn GetSysColorBrush(nindex: i32) -> HBRUSH {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -10707,7 +10494,6 @@ pub unsafe fn GetSysColorBrush(nindex: i32) -> HBRUSH {
     GetSysColorBrush(nindex)
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-#[inline]
 pub unsafe fn GetSystemPaletteEntries<'a, P0>(hdc: P0, istart: u32, ppalentries: &mut [PALETTEENTRY]) -> u32
 where
     P0: ::std::convert::Into<HDC>,
@@ -10719,7 +10505,6 @@ where
     GetSystemPaletteEntries(hdc.into(), istart, ppalentries.len() as _, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(ppalentries)))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-#[inline]
 pub unsafe fn GetSystemPaletteUse<'a, P0>(hdc: P0) -> u32
 where
     P0: ::std::convert::Into<HDC>,
@@ -10731,7 +10516,6 @@ where
     GetSystemPaletteUse(hdc.into())
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-#[inline]
 pub unsafe fn GetTabbedTextExtentA<'a, P0>(hdc: P0, lpstring: &[u8], lpntabstoppositions: &[i32]) -> u32
 where
     P0: ::std::convert::Into<HDC>,
@@ -10743,7 +10527,6 @@ where
     GetTabbedTextExtentA(hdc.into(), ::core::mem::transmute(::windows::core::as_ptr_or_null(lpstring)), lpstring.len() as _, lpntabstoppositions.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(lpntabstoppositions)))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-#[inline]
 pub unsafe fn GetTabbedTextExtentW<'a, P0>(hdc: P0, lpstring: &[u16], lpntabstoppositions: &[i32]) -> u32
 where
     P0: ::std::convert::Into<HDC>,
@@ -10755,7 +10538,6 @@ where
     GetTabbedTextExtentW(hdc.into(), ::core::mem::transmute(::windows::core::as_ptr_or_null(lpstring)), lpstring.len() as _, lpntabstoppositions.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(lpntabstoppositions)))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-#[inline]
 pub unsafe fn GetTextAlign<'a, P0>(hdc: P0) -> u32
 where
     P0: ::std::convert::Into<HDC>,
@@ -10767,7 +10549,6 @@ where
     GetTextAlign(hdc.into())
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-#[inline]
 pub unsafe fn GetTextCharacterExtra<'a, P0>(hdc: P0) -> i32
 where
     P0: ::std::convert::Into<HDC>,
@@ -10779,7 +10560,6 @@ where
     GetTextCharacterExtra(hdc.into())
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-#[inline]
 pub unsafe fn GetTextColor<'a, P0>(hdc: P0) -> u32
 where
     P0: ::std::convert::Into<HDC>,
@@ -10792,7 +10572,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn GetTextExtentExPointA<'a, P0>(hdc: P0, lpszstring: ::windows::core::PCSTR, cchstring: i32, nmaxextent: i32, lpnfit: *mut i32, lpndx: *mut i32, lpsize: *mut super::super::Foundation::SIZE) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<HDC>,
@@ -10805,7 +10584,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn GetTextExtentExPointI<'a, P0>(hdc: P0, lpwszstring: *const u16, cwchstring: i32, nmaxextent: i32, lpnfit: *mut i32, lpndx: *mut i32, lpsize: *mut super::super::Foundation::SIZE) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<HDC>,
@@ -10818,7 +10596,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn GetTextExtentExPointW<'a, P0>(hdc: P0, lpszstring: ::windows::core::PCWSTR, cchstring: i32, nmaxextent: i32, lpnfit: *mut i32, lpndx: *mut i32, lpsize: *mut super::super::Foundation::SIZE) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<HDC>,
@@ -10831,7 +10608,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn GetTextExtentPoint32A<'a, P0>(hdc: P0, lpstring: &[u8], psizl: *mut super::super::Foundation::SIZE) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<HDC>,
@@ -10844,7 +10620,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn GetTextExtentPoint32W<'a, P0>(hdc: P0, lpstring: &[u16], psizl: *mut super::super::Foundation::SIZE) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<HDC>,
@@ -10857,7 +10632,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn GetTextExtentPointA<'a, P0>(hdc: P0, lpstring: &[u8], lpsz: *mut super::super::Foundation::SIZE) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<HDC>,
@@ -10870,7 +10644,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn GetTextExtentPointI<'a, P0>(hdc: P0, pgiin: &[u16], psize: *mut super::super::Foundation::SIZE) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<HDC>,
@@ -10883,7 +10656,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn GetTextExtentPointW<'a, P0>(hdc: P0, lpstring: &[u16], lpsz: *mut super::super::Foundation::SIZE) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<HDC>,
@@ -10895,7 +10667,6 @@ where
     GetTextExtentPointW(hdc.into(), ::core::mem::transmute(::windows::core::as_ptr_or_null(lpstring)), lpstring.len() as _, ::core::mem::transmute(lpsz))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-#[inline]
 pub unsafe fn GetTextFaceA<'a, P0>(hdc: P0, lpname: &mut [u8]) -> i32
 where
     P0: ::std::convert::Into<HDC>,
@@ -10907,7 +10678,6 @@ where
     GetTextFaceA(hdc.into(), lpname.len() as _, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(lpname)))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-#[inline]
 pub unsafe fn GetTextFaceW<'a, P0>(hdc: P0, lpname: &mut [u16]) -> i32
 where
     P0: ::std::convert::Into<HDC>,
@@ -10920,7 +10690,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn GetTextMetricsA<'a, P0>(hdc: P0, lptm: *mut TEXTMETRICA) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<HDC>,
@@ -10933,7 +10702,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn GetTextMetricsW<'a, P0>(hdc: P0, lptm: *mut TEXTMETRICW) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<HDC>,
@@ -10946,7 +10714,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn GetUpdateRect<'a, P0, P1>(hwnd: P0, lprect: *mut super::super::Foundation::RECT, berase: P1) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::super::Foundation::HWND>,
@@ -10960,7 +10727,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn GetUpdateRgn<'a, P0, P1, P2>(hwnd: P0, hrgn: P1, berase: P2) -> i32
 where
     P0: ::std::convert::Into<super::super::Foundation::HWND>,
@@ -10975,7 +10741,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn GetViewportExtEx<'a, P0>(hdc: P0, lpsize: *mut super::super::Foundation::SIZE) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<HDC>,
@@ -10988,7 +10753,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn GetViewportOrgEx<'a, P0>(hdc: P0, lppoint: *mut super::super::Foundation::POINT) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<HDC>,
@@ -11000,7 +10764,6 @@ where
     GetViewportOrgEx(hdc.into(), ::core::mem::transmute(lppoint))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-#[inline]
 pub unsafe fn GetWinMetaFileBits<'a, P0, P1>(hemf: P0, cbdata16: u32, pdata16: *mut u8, imapmode: i32, hdcref: P1) -> u32
 where
     P0: ::std::convert::Into<HENHMETAFILE>,
@@ -11014,7 +10777,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn GetWindowDC<'a, P0>(hwnd: P0) -> HDC
 where
     P0: ::std::convert::Into<super::super::Foundation::HWND>,
@@ -11027,7 +10789,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn GetWindowExtEx<'a, P0>(hdc: P0, lpsize: *mut super::super::Foundation::SIZE) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<HDC>,
@@ -11040,7 +10801,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn GetWindowOrgEx<'a, P0>(hdc: P0, lppoint: *mut super::super::Foundation::POINT) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<HDC>,
@@ -11053,7 +10813,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn GetWindowRgn<'a, P0, P1>(hwnd: P0, hrgn: P1) -> i32
 where
     P0: ::std::convert::Into<super::super::Foundation::HWND>,
@@ -11067,7 +10826,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn GetWindowRgnBox<'a, P0>(hwnd: P0, lprc: *mut super::super::Foundation::RECT) -> i32
 where
     P0: ::std::convert::Into<super::super::Foundation::HWND>,
@@ -11080,7 +10838,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn GetWorldTransform<'a, P0>(hdc: P0, lpxf: *mut XFORM) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<HDC>,
@@ -11093,7 +10850,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn GradientFill<'a, P0>(hdc: P0, pvertex: &[TRIVERTEX], pmesh: *const ::core::ffi::c_void, nmesh: u32, ulmode: GRADIENT_FILL) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<HDC>,
@@ -11106,7 +10862,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn GrayStringA<'a, P0, P1, P2>(hdc: P0, hbrush: P1, lpoutputfunc: GRAYSTRINGPROC, lpdata: P2, ncount: i32, x: i32, y: i32, nwidth: i32, nheight: i32) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<HDC>,
@@ -11121,7 +10876,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn GrayStringW<'a, P0, P1, P2>(hdc: P0, hbrush: P1, lpoutputfunc: GRAYSTRINGPROC, lpdata: P2, ncount: i32, x: i32, y: i32, nwidth: i32, nheight: i32) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<HDC>,
@@ -11722,7 +11476,6 @@ pub const ILLUMINANT_NTSC: u32 = 3u32;
 pub const ILLUMINANT_TUNGSTEN: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn InflateRect(lprc: *mut super::super::Foundation::RECT, dx: i32, dy: i32) -> super::super::Foundation::BOOL {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -11731,7 +11484,6 @@ pub unsafe fn InflateRect(lprc: *mut super::super::Foundation::RECT, dx: i32, dy
     InflateRect(::core::mem::transmute(lprc), dx, dy)
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-#[inline]
 pub unsafe fn IntersectClipRect<'a, P0>(hdc: P0, left: i32, top: i32, right: i32, bottom: i32) -> i32
 where
     P0: ::std::convert::Into<HDC>,
@@ -11744,7 +11496,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn IntersectRect(lprcdst: *mut super::super::Foundation::RECT, lprcsrc1: *const super::super::Foundation::RECT, lprcsrc2: *const super::super::Foundation::RECT) -> super::super::Foundation::BOOL {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -11754,7 +11505,6 @@ pub unsafe fn IntersectRect(lprcdst: *mut super::super::Foundation::RECT, lprcsr
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn InvalidateRect<'a, P0, P1>(hwnd: P0, lprect: *const super::super::Foundation::RECT, berase: P1) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::super::Foundation::HWND>,
@@ -11768,7 +11518,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn InvalidateRgn<'a, P0, P1, P2>(hwnd: P0, hrgn: P1, berase: P2) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::super::Foundation::HWND>,
@@ -11783,7 +11532,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn InvertRect<'a, P0>(hdc: P0, lprc: *const super::super::Foundation::RECT) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<HDC>,
@@ -11796,7 +11544,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn InvertRgn<'a, P0, P1>(hdc: P0, hrgn: P1) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<HDC>,
@@ -11810,7 +11557,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn IsRectEmpty(lprc: *const super::super::Foundation::RECT) -> super::super::Foundation::BOOL {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -12181,7 +11927,6 @@ pub type LPFNDEVCAPS = ::core::option::Option<unsafe extern "system" fn(param0: 
 pub type LPFNDEVMODE = ::core::option::Option<unsafe extern "system" fn(param0: super::super::Foundation::HWND, param1: super::super::Foundation::HINSTANCE, param2: *mut DEVMODEA, param3: ::windows::core::PCSTR, param4: ::windows::core::PCSTR, param5: *mut DEVMODEA, param6: ::windows::core::PCSTR, param7: u32) -> u32>;
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn LPtoDP<'a, P0>(hdc: P0, lppt: &mut [super::super::Foundation::POINT]) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<HDC>,
@@ -12194,7 +11939,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn LineDDA<'a, P0>(xstart: i32, ystart: i32, xend: i32, yend: i32, lpproc: LINEDDAPROC, data: P0) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::super::Foundation::LPARAM>,
@@ -12207,7 +11951,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn LineTo<'a, P0>(hdc: P0, x: i32, y: i32) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<HDC>,
@@ -12220,7 +11963,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn LoadBitmapA<'a, P0, P1>(hinstance: P0, lpbitmapname: P1) -> HBITMAP
 where
     P0: ::std::convert::Into<super::super::Foundation::HINSTANCE>,
@@ -12234,7 +11976,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn LoadBitmapW<'a, P0, P1>(hinstance: P0, lpbitmapname: P1) -> HBITMAP
 where
     P0: ::std::convert::Into<super::super::Foundation::HINSTANCE>,
@@ -12248,7 +11989,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn LockWindowUpdate<'a, P0>(hwndlock: P0) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::super::Foundation::HWND>,
@@ -12698,7 +12438,6 @@ pub const MONO_FONT: u32 = 8u32;
 pub const MOUSETRAILS: u32 = 39u32;
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn MapWindowPoints<'a, P0, P1>(hwndfrom: P0, hwndto: P1, lppoints: &mut [super::super::Foundation::POINT]) -> i32
 where
     P0: ::std::convert::Into<super::super::Foundation::HWND>,
@@ -12712,7 +12451,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn MaskBlt<'a, P0, P1, P2>(hdcdest: P0, xdest: i32, ydest: i32, width: i32, height: i32, hdcsrc: P1, xsrc: i32, ysrc: i32, hbmmask: P2, xmask: i32, ymask: i32, rop: u32) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<HDC>,
@@ -12726,7 +12464,6 @@ where
     MaskBlt(hdcdest.into(), xdest, ydest, width, height, hdcsrc.into(), xsrc, ysrc, hbmmask.into(), xmask, ymask, rop)
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-#[inline]
 pub unsafe fn MergeFontPackage(puchmergefontbuffer: *const u8, ulmergefontbuffersize: u32, puchfontpackagebuffer: *const u8, ulfontpackagebuffersize: u32, ppuchdestbuffer: *mut *mut u8, puldestbuffersize: *mut u32, pulbyteswritten: *mut u32, usmode: u16, lpfnallocate: CFP_ALLOCPROC, lpfnreallocate: CFP_REALLOCPROC, lpfnfree: CFP_FREEPROC, lpvreserved: *mut ::core::ffi::c_void) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -12736,7 +12473,6 @@ pub unsafe fn MergeFontPackage(puchmergefontbuffer: *const u8, ulmergefontbuffer
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn ModifyWorldTransform<'a, P0>(hdc: P0, lpxf: *const XFORM, mode: MODIFY_WORLD_TRANSFORM_MODE) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<HDC>,
@@ -12749,7 +12485,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn MonitorFromPoint(pt: super::super::Foundation::POINT, dwflags: MONITOR_FROM_FLAGS) -> HMONITOR {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -12759,7 +12494,6 @@ pub unsafe fn MonitorFromPoint(pt: super::super::Foundation::POINT, dwflags: MON
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn MonitorFromRect(lprc: *const super::super::Foundation::RECT, dwflags: MONITOR_FROM_FLAGS) -> HMONITOR {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -12769,7 +12503,6 @@ pub unsafe fn MonitorFromRect(lprc: *const super::super::Foundation::RECT, dwfla
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn MonitorFromWindow<'a, P0>(hwnd: P0, dwflags: MONITOR_FROM_FLAGS) -> HMONITOR
 where
     P0: ::std::convert::Into<super::super::Foundation::HWND>,
@@ -12782,7 +12515,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn MoveToEx<'a, P0>(hdc: P0, x: i32, y: i32, lppt: *mut super::super::Foundation::POINT) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<HDC>,
@@ -13237,7 +12969,6 @@ impl ::core::default::Default for OUTLINETEXTMETRICW {
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const OUT_SCREEN_OUTLINE_PRECIS: u32 = 9u32;
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-#[inline]
 pub unsafe fn OffsetClipRgn<'a, P0>(hdc: P0, x: i32, y: i32) -> i32
 where
     P0: ::std::convert::Into<HDC>,
@@ -13250,7 +12981,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn OffsetRect(lprc: *mut super::super::Foundation::RECT, dx: i32, dy: i32) -> super::super::Foundation::BOOL {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -13259,7 +12989,6 @@ pub unsafe fn OffsetRect(lprc: *mut super::super::Foundation::RECT, dx: i32, dy:
     OffsetRect(::core::mem::transmute(lprc), dx, dy)
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-#[inline]
 pub unsafe fn OffsetRgn<'a, P0>(hrgn: P0, x: i32, y: i32) -> i32
 where
     P0: ::std::convert::Into<HRGN>,
@@ -13272,7 +13001,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn OffsetViewportOrgEx<'a, P0>(hdc: P0, x: i32, y: i32, lppt: *mut super::super::Foundation::POINT) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<HDC>,
@@ -13285,7 +13013,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn OffsetWindowOrgEx<'a, P0>(hdc: P0, x: i32, y: i32, lppt: *mut super::super::Foundation::POINT) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<HDC>,
@@ -13949,7 +13676,6 @@ pub const PT_LINETO: u32 = 2u32;
 pub const PT_MOVETO: u32 = 6u32;
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn PaintDesktop<'a, P0>(hdc: P0) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<HDC>,
@@ -13962,7 +13688,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn PaintRgn<'a, P0, P1>(hdc: P0, hrgn: P1) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<HDC>,
@@ -13976,7 +13701,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn PatBlt<'a, P0>(hdc: P0, x: i32, y: i32, w: i32, h: i32, rop: ROP_CODE) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<HDC>,
@@ -13988,7 +13712,6 @@ where
     PatBlt(hdc.into(), x, y, w, h, rop)
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-#[inline]
 pub unsafe fn PathToRegion<'a, P0>(hdc: P0) -> HRGN
 where
     P0: ::std::convert::Into<HDC>,
@@ -14001,7 +13724,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn Pie<'a, P0>(hdc: P0, left: i32, top: i32, right: i32, bottom: i32, xr1: i32, yr1: i32, xr2: i32, yr2: i32) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<HDC>,
@@ -14014,7 +13736,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn PlayEnhMetaFile<'a, P0, P1>(hdc: P0, hmf: P1, lprect: *const super::super::Foundation::RECT) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<HDC>,
@@ -14028,7 +13749,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn PlayEnhMetaFileRecord<'a, P0>(hdc: P0, pht: &[HANDLETABLE], pmr: *const ENHMETARECORD) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<HDC>,
@@ -14041,7 +13761,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn PlayMetaFile<'a, P0, P1>(hdc: P0, hmf: P1) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<HDC>,
@@ -14055,7 +13774,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn PlayMetaFileRecord<'a, P0>(hdc: P0, lphandletable: &[HANDLETABLE], lpmr: *const METARECORD) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<HDC>,
@@ -14068,7 +13786,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn PlgBlt<'a, P0, P1, P2>(hdcdest: P0, lppoint: &[super::super::Foundation::POINT; 3], hdcsrc: P1, xsrc: i32, ysrc: i32, width: i32, height: i32, hbmmask: P2, xmask: i32, ymask: i32) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<HDC>,
@@ -14083,7 +13800,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn PolyBezier<'a, P0>(hdc: P0, apt: &[super::super::Foundation::POINT]) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<HDC>,
@@ -14096,7 +13812,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn PolyBezierTo<'a, P0>(hdc: P0, apt: &[super::super::Foundation::POINT]) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<HDC>,
@@ -14109,7 +13824,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn PolyDraw<'a, P0>(hdc: P0, apt: *const super::super::Foundation::POINT, aj: *const u8, cpt: i32) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<HDC>,
@@ -14122,7 +13836,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn PolyPolygon<'a, P0>(hdc: P0, apt: *const super::super::Foundation::POINT, asz: &[i32]) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<HDC>,
@@ -14135,7 +13848,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn PolyPolyline<'a, P0>(hdc: P0, apt: *const super::super::Foundation::POINT, asz: &[u32]) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<HDC>,
@@ -14148,7 +13860,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn PolyTextOutA<'a, P0>(hdc: P0, ppt: &[POLYTEXTA]) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<HDC>,
@@ -14161,7 +13872,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn PolyTextOutW<'a, P0>(hdc: P0, ppt: &[POLYTEXTW]) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<HDC>,
@@ -14174,7 +13884,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn Polygon<'a, P0>(hdc: P0, apt: &[super::super::Foundation::POINT]) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<HDC>,
@@ -14187,7 +13896,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn Polyline<'a, P0>(hdc: P0, apt: &[super::super::Foundation::POINT]) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<HDC>,
@@ -14200,7 +13908,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn PolylineTo<'a, P0>(hdc: P0, apt: &[super::super::Foundation::POINT]) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<HDC>,
@@ -14213,7 +13920,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn PtInRect(lprc: *const super::super::Foundation::RECT, pt: super::super::Foundation::POINT) -> super::super::Foundation::BOOL {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -14223,7 +13929,6 @@ pub unsafe fn PtInRect(lprc: *const super::super::Foundation::RECT, pt: super::s
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn PtInRegion<'a, P0>(hrgn: P0, x: i32, y: i32) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<HRGN>,
@@ -14236,7 +13941,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn PtVisible<'a, P0>(hdc: P0, x: i32, y: i32) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<HDC>,
@@ -14752,7 +14456,6 @@ impl ::core::ops::Not for ROP_CODE {
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const RUSSIAN_CHARSET: u32 = 204u32;
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-#[inline]
 pub unsafe fn RealizePalette<'a, P0>(hdc: P0) -> u32
 where
     P0: ::std::convert::Into<HDC>,
@@ -14765,7 +14468,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn RectInRegion<'a, P0>(hrgn: P0, lprect: *const super::super::Foundation::RECT) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<HRGN>,
@@ -14778,7 +14480,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn RectVisible<'a, P0>(hdc: P0, lprect: *const super::super::Foundation::RECT) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<HDC>,
@@ -14791,7 +14492,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn Rectangle<'a, P0>(hdc: P0, left: i32, top: i32, right: i32, bottom: i32) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<HDC>,
@@ -14804,7 +14504,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn RedrawWindow<'a, P0, P1>(hwnd: P0, lprcupdate: *const super::super::Foundation::RECT, hrgnupdate: P1, flags: REDRAW_WINDOW_FLAGS) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::super::Foundation::HWND>,
@@ -14818,7 +14517,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn ReleaseDC<'a, P0, P1>(hwnd: P0, hdc: P1) -> i32
 where
     P0: ::std::convert::Into<super::super::Foundation::HWND>,
@@ -14832,7 +14530,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn RemoveFontMemResourceEx<'a, P0>(h: P0) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
@@ -14845,7 +14542,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn RemoveFontResourceA<'a, P0>(lpfilename: P0) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
@@ -14858,7 +14554,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn RemoveFontResourceExA<'a, P0>(name: P0, fl: u32, pdv: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
@@ -14871,7 +14566,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn RemoveFontResourceExW<'a, P0>(name: P0, fl: u32, pdv: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
@@ -14884,7 +14578,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn RemoveFontResourceW<'a, P0>(lpfilename: P0) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
@@ -14897,7 +14590,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn ResetDCA<'a, P0>(hdc: P0, lpdm: *const DEVMODEA) -> HDC
 where
     P0: ::std::convert::Into<HDC>,
@@ -14910,7 +14602,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn ResetDCW<'a, P0>(hdc: P0, lpdm: *const DEVMODEW) -> HDC
 where
     P0: ::std::convert::Into<HDC>,
@@ -14923,7 +14614,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn ResizePalette<'a, P0>(hpal: P0, n: u32) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<HPALETTE>,
@@ -14936,7 +14626,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn RestoreDC<'a, P0>(hdc: P0, nsaveddc: i32) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<HDC>,
@@ -14949,7 +14638,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn RoundRect<'a, P0>(hdc: P0, left: i32, top: i32, right: i32, bottom: i32, width: i32, height: i32) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<HDC>,
@@ -15180,7 +14868,6 @@ impl ::core::fmt::Debug for SYSTEM_PALETTE_USE {
     }
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-#[inline]
 pub unsafe fn SaveDC<'a, P0>(hdc: P0) -> i32
 where
     P0: ::std::convert::Into<HDC>,
@@ -15193,7 +14880,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn ScaleViewportExtEx<'a, P0>(hdc: P0, xn: i32, dx: i32, yn: i32, yd: i32, lpsz: *mut super::super::Foundation::SIZE) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<HDC>,
@@ -15206,7 +14892,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn ScaleWindowExtEx<'a, P0>(hdc: P0, xn: i32, xd: i32, yn: i32, yd: i32, lpsz: *mut super::super::Foundation::SIZE) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<HDC>,
@@ -15219,7 +14904,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn ScreenToClient<'a, P0>(hwnd: P0, lppoint: *mut super::super::Foundation::POINT) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::super::Foundation::HWND>,
@@ -15232,7 +14916,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn SelectClipPath<'a, P0>(hdc: P0, mode: RGN_COMBINE_MODE) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<HDC>,
@@ -15244,7 +14927,6 @@ where
     SelectClipPath(hdc.into(), mode)
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-#[inline]
 pub unsafe fn SelectClipRgn<'a, P0, P1>(hdc: P0, hrgn: P1) -> i32
 where
     P0: ::std::convert::Into<HDC>,
@@ -15257,7 +14939,6 @@ where
     SelectClipRgn(hdc.into(), hrgn.into())
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-#[inline]
 pub unsafe fn SelectObject<'a, P0, P1>(hdc: P0, h: P1) -> HGDIOBJ
 where
     P0: ::std::convert::Into<HDC>,
@@ -15271,7 +14952,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn SelectPalette<'a, P0, P1, P2>(hdc: P0, hpal: P1, bforcebkgd: P2) -> HPALETTE
 where
     P0: ::std::convert::Into<HDC>,
@@ -15285,7 +14965,6 @@ where
     SelectPalette(hdc.into(), hpal.into(), bforcebkgd.into())
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-#[inline]
 pub unsafe fn SetArcDirection<'a, P0>(hdc: P0, dir: ARC_DIRECTION) -> i32
 where
     P0: ::std::convert::Into<HDC>,
@@ -15297,7 +14976,6 @@ where
     SetArcDirection(hdc.into(), dir)
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-#[inline]
 pub unsafe fn SetBitmapBits<'a, P0>(hbm: P0, cb: u32, pvbits: *const ::core::ffi::c_void) -> i32
 where
     P0: ::std::convert::Into<HBITMAP>,
@@ -15310,7 +14988,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn SetBitmapDimensionEx<'a, P0>(hbm: P0, w: i32, h: i32, lpsz: *mut super::super::Foundation::SIZE) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<HBITMAP>,
@@ -15322,7 +14999,6 @@ where
     SetBitmapDimensionEx(hbm.into(), w, h, ::core::mem::transmute(lpsz))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-#[inline]
 pub unsafe fn SetBkColor<'a, P0>(hdc: P0, color: u32) -> u32
 where
     P0: ::std::convert::Into<HDC>,
@@ -15334,7 +15010,6 @@ where
     SetBkColor(hdc.into(), color)
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-#[inline]
 pub unsafe fn SetBkMode<'a, P0>(hdc: P0, mode: BACKGROUND_MODE) -> i32
 where
     P0: ::std::convert::Into<HDC>,
@@ -15347,7 +15022,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn SetBoundsRect<'a, P0>(hdc: P0, lprect: *const super::super::Foundation::RECT, flags: SET_BOUNDS_RECT_FLAGS) -> u32
 where
     P0: ::std::convert::Into<HDC>,
@@ -15360,7 +15034,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn SetBrushOrgEx<'a, P0>(hdc: P0, x: i32, y: i32, lppt: *mut super::super::Foundation::POINT) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<HDC>,
@@ -15373,7 +15046,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn SetColorAdjustment<'a, P0>(hdc: P0, lpca: *const COLORADJUSTMENT) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<HDC>,
@@ -15385,7 +15057,6 @@ where
     SetColorAdjustment(hdc.into(), ::core::mem::transmute(lpca))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-#[inline]
 pub unsafe fn SetDCBrushColor<'a, P0>(hdc: P0, color: u32) -> u32
 where
     P0: ::std::convert::Into<HDC>,
@@ -15397,7 +15068,6 @@ where
     SetDCBrushColor(hdc.into(), color)
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-#[inline]
 pub unsafe fn SetDCPenColor<'a, P0>(hdc: P0, color: u32) -> u32
 where
     P0: ::std::convert::Into<HDC>,
@@ -15409,7 +15079,6 @@ where
     SetDCPenColor(hdc.into(), color)
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-#[inline]
 pub unsafe fn SetDIBColorTable<'a, P0>(hdc: P0, istart: u32, prgbq: &[RGBQUAD]) -> u32
 where
     P0: ::std::convert::Into<HDC>,
@@ -15421,7 +15090,6 @@ where
     SetDIBColorTable(hdc.into(), istart, prgbq.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(prgbq)))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-#[inline]
 pub unsafe fn SetDIBits<'a, P0, P1>(hdc: P0, hbm: P1, start: u32, clines: u32, lpbits: *const ::core::ffi::c_void, lpbmi: *const BITMAPINFO, coloruse: DIB_USAGE) -> i32
 where
     P0: ::std::convert::Into<HDC>,
@@ -15434,7 +15102,6 @@ where
     SetDIBits(hdc.into(), hbm.into(), start, clines, ::core::mem::transmute(lpbits), ::core::mem::transmute(lpbmi), coloruse)
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-#[inline]
 pub unsafe fn SetDIBitsToDevice<'a, P0>(hdc: P0, xdest: i32, ydest: i32, w: u32, h: u32, xsrc: i32, ysrc: i32, startscan: u32, clines: u32, lpvbits: *const ::core::ffi::c_void, lpbmi: *const BITMAPINFO, coloruse: DIB_USAGE) -> i32
 where
     P0: ::std::convert::Into<HDC>,
@@ -15446,7 +15113,6 @@ where
     SetDIBitsToDevice(hdc.into(), xdest, ydest, w, h, xsrc, ysrc, startscan, clines, ::core::mem::transmute(lpvbits), ::core::mem::transmute(lpbmi), coloruse)
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-#[inline]
 pub unsafe fn SetEnhMetaFileBits(nsize: u32, pb: *const u8) -> HENHMETAFILE {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -15455,7 +15121,6 @@ pub unsafe fn SetEnhMetaFileBits(nsize: u32, pb: *const u8) -> HENHMETAFILE {
     SetEnhMetaFileBits(nsize, ::core::mem::transmute(pb))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-#[inline]
 pub unsafe fn SetGraphicsMode<'a, P0>(hdc: P0, imode: GRAPHICS_MODE) -> i32
 where
     P0: ::std::convert::Into<HDC>,
@@ -15467,7 +15132,6 @@ where
     SetGraphicsMode(hdc.into(), imode)
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-#[inline]
 pub unsafe fn SetLayout<'a, P0>(hdc: P0, l: DC_LAYOUT) -> u32
 where
     P0: ::std::convert::Into<HDC>,
@@ -15479,7 +15143,6 @@ where
     SetLayout(hdc.into(), l)
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-#[inline]
 pub unsafe fn SetMapMode<'a, P0>(hdc: P0, imode: HDC_MAP_MODE) -> i32
 where
     P0: ::std::convert::Into<HDC>,
@@ -15491,7 +15154,6 @@ where
     SetMapMode(hdc.into(), imode)
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-#[inline]
 pub unsafe fn SetMapperFlags<'a, P0>(hdc: P0, flags: u32) -> u32
 where
     P0: ::std::convert::Into<HDC>,
@@ -15503,7 +15165,6 @@ where
     SetMapperFlags(hdc.into(), flags)
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-#[inline]
 pub unsafe fn SetMetaFileBitsEx(cbbuffer: u32, lpdata: *const u8) -> HMETAFILE {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -15512,7 +15173,6 @@ pub unsafe fn SetMetaFileBitsEx(cbbuffer: u32, lpdata: *const u8) -> HMETAFILE {
     SetMetaFileBitsEx(cbbuffer, ::core::mem::transmute(lpdata))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-#[inline]
 pub unsafe fn SetMetaRgn<'a, P0>(hdc: P0) -> i32
 where
     P0: ::std::convert::Into<HDC>,
@@ -15525,7 +15185,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn SetMiterLimit<'a, P0>(hdc: P0, limit: f32, old: *mut f32) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<HDC>,
@@ -15537,7 +15196,6 @@ where
     SetMiterLimit(hdc.into(), limit, ::core::mem::transmute(old))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-#[inline]
 pub unsafe fn SetPaletteEntries<'a, P0>(hpal: P0, istart: u32, ppalentries: &[PALETTEENTRY]) -> u32
 where
     P0: ::std::convert::Into<HPALETTE>,
@@ -15549,7 +15207,6 @@ where
     SetPaletteEntries(hpal.into(), istart, ppalentries.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(ppalentries)))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-#[inline]
 pub unsafe fn SetPixel<'a, P0>(hdc: P0, x: i32, y: i32, color: u32) -> u32
 where
     P0: ::std::convert::Into<HDC>,
@@ -15562,7 +15219,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn SetPixelV<'a, P0>(hdc: P0, x: i32, y: i32, color: u32) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<HDC>,
@@ -15574,7 +15230,6 @@ where
     SetPixelV(hdc.into(), x, y, color)
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-#[inline]
 pub unsafe fn SetPolyFillMode<'a, P0>(hdc: P0, mode: CREATE_POLYGON_RGN_MODE) -> i32
 where
     P0: ::std::convert::Into<HDC>,
@@ -15586,7 +15241,6 @@ where
     SetPolyFillMode(hdc.into(), mode)
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-#[inline]
 pub unsafe fn SetROP2<'a, P0>(hdc: P0, rop2: R2_MODE) -> i32
 where
     P0: ::std::convert::Into<HDC>,
@@ -15599,7 +15253,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn SetRect(lprc: *mut super::super::Foundation::RECT, xleft: i32, ytop: i32, xright: i32, ybottom: i32) -> super::super::Foundation::BOOL {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -15609,7 +15262,6 @@ pub unsafe fn SetRect(lprc: *mut super::super::Foundation::RECT, xleft: i32, yto
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn SetRectEmpty(lprc: *mut super::super::Foundation::RECT) -> super::super::Foundation::BOOL {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -15619,7 +15271,6 @@ pub unsafe fn SetRectEmpty(lprc: *mut super::super::Foundation::RECT) -> super::
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn SetRectRgn<'a, P0>(hrgn: P0, left: i32, top: i32, right: i32, bottom: i32) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<HRGN>,
@@ -15631,7 +15282,6 @@ where
     SetRectRgn(hrgn.into(), left, top, right, bottom)
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-#[inline]
 pub unsafe fn SetStretchBltMode<'a, P0>(hdc: P0, mode: STRETCH_BLT_MODE) -> i32
 where
     P0: ::std::convert::Into<HDC>,
@@ -15643,7 +15293,6 @@ where
     SetStretchBltMode(hdc.into(), mode)
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-#[inline]
 pub unsafe fn SetSystemPaletteUse<'a, P0>(hdc: P0, r#use: SYSTEM_PALETTE_USE) -> u32
 where
     P0: ::std::convert::Into<HDC>,
@@ -15655,7 +15304,6 @@ where
     SetSystemPaletteUse(hdc.into(), r#use)
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-#[inline]
 pub unsafe fn SetTextAlign<'a, P0>(hdc: P0, align: TEXT_ALIGN_OPTIONS) -> u32
 where
     P0: ::std::convert::Into<HDC>,
@@ -15667,7 +15315,6 @@ where
     SetTextAlign(hdc.into(), align)
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-#[inline]
 pub unsafe fn SetTextCharacterExtra<'a, P0>(hdc: P0, extra: i32) -> i32
 where
     P0: ::std::convert::Into<HDC>,
@@ -15679,7 +15326,6 @@ where
     SetTextCharacterExtra(hdc.into(), extra)
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-#[inline]
 pub unsafe fn SetTextColor<'a, P0>(hdc: P0, color: u32) -> u32
 where
     P0: ::std::convert::Into<HDC>,
@@ -15692,7 +15338,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn SetTextJustification<'a, P0>(hdc: P0, extra: i32, count: i32) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<HDC>,
@@ -15705,7 +15350,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn SetViewportExtEx<'a, P0>(hdc: P0, x: i32, y: i32, lpsz: *mut super::super::Foundation::SIZE) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<HDC>,
@@ -15718,7 +15362,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn SetViewportOrgEx<'a, P0>(hdc: P0, x: i32, y: i32, lppt: *mut super::super::Foundation::POINT) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<HDC>,
@@ -15731,7 +15374,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn SetWindowExtEx<'a, P0>(hdc: P0, x: i32, y: i32, lpsz: *mut super::super::Foundation::SIZE) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<HDC>,
@@ -15744,7 +15386,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn SetWindowOrgEx<'a, P0>(hdc: P0, x: i32, y: i32, lppt: *mut super::super::Foundation::POINT) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<HDC>,
@@ -15757,7 +15398,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn SetWindowRgn<'a, P0, P1, P2>(hwnd: P0, hrgn: P1, bredraw: P2) -> i32
 where
     P0: ::std::convert::Into<super::super::Foundation::HWND>,
@@ -15772,7 +15412,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn SetWorldTransform<'a, P0>(hdc: P0, lpxf: *const XFORM) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<HDC>,
@@ -15785,7 +15424,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn StretchBlt<'a, P0, P1>(hdcdest: P0, xdest: i32, ydest: i32, wdest: i32, hdest: i32, hdcsrc: P1, xsrc: i32, ysrc: i32, wsrc: i32, hsrc: i32, rop: ROP_CODE) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<HDC>,
@@ -15798,7 +15436,6 @@ where
     StretchBlt(hdcdest.into(), xdest, ydest, wdest, hdest, hdcsrc.into(), xsrc, ysrc, wsrc, hsrc, rop)
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-#[inline]
 pub unsafe fn StretchDIBits<'a, P0>(hdc: P0, xdest: i32, ydest: i32, destwidth: i32, destheight: i32, xsrc: i32, ysrc: i32, srcwidth: i32, srcheight: i32, lpbits: *const ::core::ffi::c_void, lpbmi: *const BITMAPINFO, iusage: DIB_USAGE, rop: ROP_CODE) -> i32
 where
     P0: ::std::convert::Into<HDC>,
@@ -15811,7 +15448,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn StrokeAndFillPath<'a, P0>(hdc: P0) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<HDC>,
@@ -15824,7 +15460,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn StrokePath<'a, P0>(hdc: P0) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<HDC>,
@@ -15837,7 +15472,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn SubtractRect(lprcdst: *mut super::super::Foundation::RECT, lprcsrc1: *const super::super::Foundation::RECT, lprcsrc2: *const super::super::Foundation::RECT) -> super::super::Foundation::BOOL {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -16124,7 +15758,6 @@ impl ::core::default::Default for TRIVERTEX {
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const TRUETYPE_FONTTYPE: u32 = 4u32;
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-#[inline]
 pub unsafe fn TTCharToUnicode<'a, P0>(hdc: P0, puccharcodes: &[u8], pusshortcodes: &mut [u16], ulflags: u32) -> i32
 where
     P0: ::std::convert::Into<HDC>,
@@ -16139,7 +15772,6 @@ where
 pub const TTDELETE_DONTREMOVEFONT: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn TTDeleteEmbeddedFont<'a, P0>(hfontreference: P0, ulflags: u32, pulstatus: *mut u32) -> i32
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
@@ -16254,7 +15886,6 @@ pub const TTEMBED_WEBOBJECT: u32 = 128u32;
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const TTEMBED_XORENCRYPTDATA: u32 = 268435456u32;
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-#[inline]
 pub unsafe fn TTEmbedFont<'a, P0>(hdc: P0, ulflags: TTEMBED_FLAGS, ulcharset: EMBED_FONT_CHARSET, pulprivstatus: *mut EMBEDDED_FONT_PRIV_STATUS, pulstatus: *mut u32, lpfnwritetostream: WRITEEMBEDPROC, lpvwritestream: *const ::core::ffi::c_void, puscharcodeset: &[u16], uslanguage: u16, pttembedinfo: *const TTEMBEDINFO) -> i32
 where
     P0: ::std::convert::Into<HDC>,
@@ -16266,7 +15897,6 @@ where
     TTEmbedFont(hdc.into(), ulflags, ulcharset, ::core::mem::transmute(pulprivstatus), ::core::mem::transmute(pulstatus), ::core::mem::transmute(lpfnwritetostream), ::core::mem::transmute(lpvwritestream), ::core::mem::transmute(::windows::core::as_ptr_or_null(puscharcodeset)), puscharcodeset.len() as _, uslanguage, ::core::mem::transmute(pttembedinfo))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-#[inline]
 pub unsafe fn TTEmbedFontEx<'a, P0>(hdc: P0, ulflags: TTEMBED_FLAGS, ulcharset: EMBED_FONT_CHARSET, pulprivstatus: *mut EMBEDDED_FONT_PRIV_STATUS, pulstatus: *mut u32, lpfnwritetostream: WRITEEMBEDPROC, lpvwritestream: *const ::core::ffi::c_void, pulcharcodeset: &[u32], uslanguage: u16, pttembedinfo: *const TTEMBEDINFO) -> i32
 where
     P0: ::std::convert::Into<HDC>,
@@ -16278,7 +15908,6 @@ where
     TTEmbedFontEx(hdc.into(), ulflags, ulcharset, ::core::mem::transmute(pulprivstatus), ::core::mem::transmute(pulstatus), ::core::mem::transmute(lpfnwritetostream), ::core::mem::transmute(lpvwritestream), ::core::mem::transmute(::windows::core::as_ptr_or_null(pulcharcodeset)), pulcharcodeset.len() as _, uslanguage, ::core::mem::transmute(pttembedinfo))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-#[inline]
 pub unsafe fn TTEmbedFontFromFileA<'a, P0, P1>(hdc: P0, szfontfilename: P1, usttcindex: u16, ulflags: TTEMBED_FLAGS, ulcharset: EMBED_FONT_CHARSET, pulprivstatus: *mut EMBEDDED_FONT_PRIV_STATUS, pulstatus: *mut u32, lpfnwritetostream: WRITEEMBEDPROC, lpvwritestream: *const ::core::ffi::c_void, puscharcodeset: &[u16], uslanguage: u16, pttembedinfo: *const TTEMBEDINFO) -> i32
 where
     P0: ::std::convert::Into<HDC>,
@@ -16292,7 +15921,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn TTEnableEmbeddingForFacename<'a, P0, P1>(lpszfacename: P0, benable: P1) -> i32
 where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
@@ -16333,7 +15961,6 @@ pub const TTFMFP_SUBSET: u32 = 0u32;
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const TTFMFP_SUBSET1: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-#[inline]
 pub unsafe fn TTGetEmbeddedFontInfo(ulflags: TTEMBED_FLAGS, pulprivstatus: *mut u32, ulprivs: FONT_LICENSE_PRIVS, pulstatus: *mut u32, lpfnreadfromstream: READEMBEDPROC, lpvreadstream: *const ::core::ffi::c_void, pttloadinfo: *const TTLOADINFO) -> i32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -16342,7 +15969,6 @@ pub unsafe fn TTGetEmbeddedFontInfo(ulflags: TTEMBED_FLAGS, pulprivstatus: *mut 
     TTGetEmbeddedFontInfo(ulflags, ::core::mem::transmute(pulprivstatus), ulprivs, ::core::mem::transmute(pulstatus), ::core::mem::transmute(lpfnreadfromstream), ::core::mem::transmute(lpvreadstream), ::core::mem::transmute(pttloadinfo))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-#[inline]
 pub unsafe fn TTGetEmbeddingType<'a, P0>(hdc: P0, pulembedtype: *mut EMBEDDED_FONT_PRIV_STATUS) -> i32
 where
     P0: ::std::convert::Into<HDC>,
@@ -16355,7 +15981,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn TTGetNewFontName(phfontreference: *const super::super::Foundation::HANDLE, wzwinfamilyname: &mut [u16], szmacfamilyname: &mut [u8]) -> i32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -16365,7 +15990,6 @@ pub unsafe fn TTGetNewFontName(phfontreference: *const super::super::Foundation:
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn TTIsEmbeddingEnabled<'a, P0>(hdc: P0, pbenabled: *mut super::super::Foundation::BOOL) -> i32
 where
     P0: ::std::convert::Into<HDC>,
@@ -16378,7 +16002,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn TTIsEmbeddingEnabledForFacename<'a, P0>(lpszfacename: P0, pbenabled: *mut super::super::Foundation::BOOL) -> i32
 where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
@@ -16484,7 +16107,6 @@ pub const TTLOAD_EUDC_SET: u32 = 4u32;
 pub const TTLOAD_PRIVATE: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn TTLoadEmbeddedFont<'a, P0, P1>(phfontreference: *mut super::super::Foundation::HANDLE, ulflags: u32, pulprivstatus: *mut EMBEDDED_FONT_PRIV_STATUS, ulprivs: FONT_LICENSE_PRIVS, pulstatus: *mut TTLOAD_EMBEDDED_FONT_STATUS, lpfnreadfromstream: READEMBEDPROC, lpvreadstream: *const ::core::ffi::c_void, szwinfamilyname: P0, szmacfamilyname: P1, pttloadinfo: *const TTLOADINFO) -> i32
 where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
@@ -16561,7 +16183,6 @@ impl ::core::default::Default for TTPOLYGONHEADER {
     }
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-#[inline]
 pub unsafe fn TTRunValidationTests<'a, P0>(hdc: P0, ptestparam: *const TTVALIDATIONTESTSPARAMS) -> i32
 where
     P0: ::std::convert::Into<HDC>,
@@ -16573,7 +16194,6 @@ where
     TTRunValidationTests(hdc.into(), ::core::mem::transmute(ptestparam))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-#[inline]
 pub unsafe fn TTRunValidationTestsEx<'a, P0>(hdc: P0, ptestparam: *const TTVALIDATIONTESTSPARAMSEX) -> i32
 where
     P0: ::std::convert::Into<HDC>,
@@ -16671,7 +16291,6 @@ pub const TT_PRIM_QSPLINE: u32 = 2u32;
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const TURKISH_CHARSET: u32 = 162u32;
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-#[inline]
 pub unsafe fn TabbedTextOutA<'a, P0>(hdc: P0, x: i32, y: i32, lpstring: &[u8], lpntabstoppositions: &[i32], ntaborigin: i32) -> i32
 where
     P0: ::std::convert::Into<HDC>,
@@ -16683,7 +16302,6 @@ where
     TabbedTextOutA(hdc.into(), x, y, ::core::mem::transmute(::windows::core::as_ptr_or_null(lpstring)), lpstring.len() as _, lpntabstoppositions.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(lpntabstoppositions)), ntaborigin)
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-#[inline]
 pub unsafe fn TabbedTextOutW<'a, P0>(hdc: P0, x: i32, y: i32, lpstring: &[u16], lpntabstoppositions: &[i32], ntaborigin: i32) -> i32
 where
     P0: ::std::convert::Into<HDC>,
@@ -16696,7 +16314,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn TextOutA<'a, P0>(hdc: P0, x: i32, y: i32, lpstring: &[u8]) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<HDC>,
@@ -16709,7 +16326,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn TextOutW<'a, P0>(hdc: P0, x: i32, y: i32, lpstring: &[u16]) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<HDC>,
@@ -16722,7 +16338,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn TransparentBlt<'a, P0, P1>(hdcdest: P0, xorigindest: i32, yorigindest: i32, wdest: i32, hdest: i32, hdcsrc: P1, xoriginsrc: i32, yoriginsrc: i32, wsrc: i32, hsrc: i32, crtransparent: u32) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<HDC>,
@@ -16736,7 +16351,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn UnionRect(lprcdst: *mut super::super::Foundation::RECT, lprcsrc1: *const super::super::Foundation::RECT, lprcsrc2: *const super::super::Foundation::RECT) -> super::super::Foundation::BOOL {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -16746,7 +16360,6 @@ pub unsafe fn UnionRect(lprcdst: *mut super::super::Foundation::RECT, lprcsrc1: 
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn UnrealizeObject<'a, P0>(h: P0) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<HGDIOBJ>,
@@ -16759,7 +16372,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn UpdateColors<'a, P0>(hdc: P0) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<HDC>,
@@ -16772,7 +16384,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn UpdateWindow<'a, P0>(hwnd: P0) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::super::Foundation::HWND>,
@@ -16789,7 +16400,6 @@ pub const VARIABLE_PITCH: u32 = 2u32;
 pub const VIETNAMESE_CHARSET: u32 = 163u32;
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn ValidateRect<'a, P0>(hwnd: P0, lprect: *const super::super::Foundation::RECT) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::super::Foundation::HWND>,
@@ -16802,7 +16412,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn ValidateRgn<'a, P0, P1>(hwnd: P0, hrgn: P1) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::super::Foundation::HWND>,
@@ -16948,7 +16557,6 @@ pub const WGL_SWAP_UNDERLAY9: u32 = 16777216u32;
 pub type WRITEEMBEDPROC = ::core::option::Option<unsafe extern "system" fn(param0: *mut ::core::ffi::c_void, param1: *const ::core::ffi::c_void, param2: u32) -> u32>;
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn WidenPath<'a, P0>(hdc: P0) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<HDC>,
@@ -16961,7 +16569,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn WindowFromDC<'a, P0>(hdc: P0) -> super::super::Foundation::HWND
 where
     P0: ::std::convert::Into<HDC>,
@@ -17008,7 +16615,6 @@ impl ::core::default::Default for XFORM {
     }
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-#[inline]
 pub unsafe fn wglSwapMultipleBuffers(param0: u32, param1: *const WGLSWAP) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {

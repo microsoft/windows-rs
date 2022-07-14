@@ -116,7 +116,6 @@ impl ::core::default::Default for PDF_RENDER_PARAMS {
 pub type PFN_PDF_CREATE_RENDERER = ::core::option::Option<unsafe extern "system" fn(param0: ::core::option::Option<super::super::super::Graphics::Dxgi::IDXGIDevice>, param1: *mut ::core::option::Option<IPdfRendererNative>) -> ::windows::core::HRESULT>;
 #[doc = "*Required features: `\"Win32_System_WinRT_Pdf\"`, `\"Win32_Graphics_Dxgi\"`*"]
 #[cfg(feature = "Win32_Graphics_Dxgi")]
-#[inline]
 pub unsafe fn PdfCreateRenderer<'a, P0>(pdevice: P0) -> ::windows::core::Result<IPdfRendererNative>
 where
     P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Graphics::Dxgi::IDXGIDevice>>,

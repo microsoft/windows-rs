@@ -1,6 +1,5 @@
 #[doc = "*Required features: `\"Win32_System_Performance_HardwareCounterProfiling\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn DisableThreadProfiling<'a, P0>(performancedatahandle: P0) -> u32
 where
     P0: ::std::convert::Into<super::super::super::Foundation::HANDLE>,
@@ -13,7 +12,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Performance_HardwareCounterProfiling\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn EnableThreadProfiling<'a, P0>(threadhandle: P0, flags: u32, hardwarecounters: u64, performancedatahandle: *mut super::super::super::Foundation::HANDLE) -> u32
 where
     P0: ::std::convert::Into<super::super::super::Foundation::HANDLE>,
@@ -123,7 +121,6 @@ impl ::core::default::Default for PERFORMANCE_DATA {
 }
 #[doc = "*Required features: `\"Win32_System_Performance_HardwareCounterProfiling\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn QueryThreadProfiling<'a, P0>(threadhandle: P0, enabled: *mut super::super::super::Foundation::BOOLEAN) -> u32
 where
     P0: ::std::convert::Into<super::super::super::Foundation::HANDLE>,
@@ -136,7 +133,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Performance_HardwareCounterProfiling\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn ReadThreadProfilingData<'a, P0>(performancedatahandle: P0, flags: u32, performancedata: *mut PERFORMANCE_DATA) -> u32
 where
     P0: ::std::convert::Into<super::super::super::Foundation::HANDLE>,

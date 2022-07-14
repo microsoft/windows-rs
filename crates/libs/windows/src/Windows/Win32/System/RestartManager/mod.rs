@@ -364,7 +364,6 @@ impl ::core::default::Default for RM_UNIQUE_PROCESS {
 pub type RM_WRITE_STATUS_CALLBACK = ::core::option::Option<unsafe extern "system" fn(npercentcomplete: u32)>;
 #[doc = "*Required features: `\"Win32_System_RestartManager\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn RmAddFilter<'a, P0, P1>(dwsessionhandle: u32, strmodulename: P0, pprocess: *const RM_UNIQUE_PROCESS, strserviceshortname: P1, filteraction: RM_FILTER_ACTION) -> u32
 where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
@@ -377,7 +376,6 @@ where
     RmAddFilter(dwsessionhandle, strmodulename.into(), ::core::mem::transmute(pprocess), strserviceshortname.into(), filteraction)
 }
 #[doc = "*Required features: `\"Win32_System_RestartManager\"`*"]
-#[inline]
 pub unsafe fn RmCancelCurrentTask(dwsessionhandle: u32) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -386,7 +384,6 @@ pub unsafe fn RmCancelCurrentTask(dwsessionhandle: u32) -> u32 {
     RmCancelCurrentTask(dwsessionhandle)
 }
 #[doc = "*Required features: `\"Win32_System_RestartManager\"`*"]
-#[inline]
 pub unsafe fn RmEndSession(dwsessionhandle: u32) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -395,7 +392,6 @@ pub unsafe fn RmEndSession(dwsessionhandle: u32) -> u32 {
     RmEndSession(dwsessionhandle)
 }
 #[doc = "*Required features: `\"Win32_System_RestartManager\"`*"]
-#[inline]
 pub unsafe fn RmGetFilterList(dwsessionhandle: u32, pbfilterbuf: *mut u8, cbfilterbuf: u32, cbfilterbufneeded: *mut u32) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -405,7 +401,6 @@ pub unsafe fn RmGetFilterList(dwsessionhandle: u32, pbfilterbuf: *mut u8, cbfilt
 }
 #[doc = "*Required features: `\"Win32_System_RestartManager\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn RmGetList(dwsessionhandle: u32, pnprocinfoneeded: *mut u32, pnprocinfo: *mut u32, rgaffectedapps: *mut RM_PROCESS_INFO, lpdwrebootreasons: *mut u32) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -414,7 +409,6 @@ pub unsafe fn RmGetList(dwsessionhandle: u32, pnprocinfoneeded: *mut u32, pnproc
     RmGetList(dwsessionhandle, ::core::mem::transmute(pnprocinfoneeded), ::core::mem::transmute(pnprocinfo), ::core::mem::transmute(rgaffectedapps), ::core::mem::transmute(lpdwrebootreasons))
 }
 #[doc = "*Required features: `\"Win32_System_RestartManager\"`*"]
-#[inline]
 pub unsafe fn RmJoinSession<'a, P0>(psessionhandle: *mut u32, strsessionkey: P0) -> u32
 where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
@@ -427,7 +421,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_RestartManager\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn RmRegisterResources(dwsessionhandle: u32, rgsfilenames: &[::windows::core::PWSTR], rgapplications: &[RM_UNIQUE_PROCESS], rgsservicenames: &[::windows::core::PWSTR]) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -437,7 +430,6 @@ pub unsafe fn RmRegisterResources(dwsessionhandle: u32, rgsfilenames: &[::window
 }
 #[doc = "*Required features: `\"Win32_System_RestartManager\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn RmRemoveFilter<'a, P0, P1>(dwsessionhandle: u32, strmodulename: P0, pprocess: *const RM_UNIQUE_PROCESS, strserviceshortname: P1) -> u32
 where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
@@ -450,7 +442,6 @@ where
     RmRemoveFilter(dwsessionhandle, strmodulename.into(), ::core::mem::transmute(pprocess), strserviceshortname.into())
 }
 #[doc = "*Required features: `\"Win32_System_RestartManager\"`*"]
-#[inline]
 pub unsafe fn RmRestart(dwsessionhandle: u32, dwrestartflags: u32, fnstatus: RM_WRITE_STATUS_CALLBACK) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -459,7 +450,6 @@ pub unsafe fn RmRestart(dwsessionhandle: u32, dwrestartflags: u32, fnstatus: RM_
     RmRestart(dwsessionhandle, dwrestartflags, ::core::mem::transmute(fnstatus))
 }
 #[doc = "*Required features: `\"Win32_System_RestartManager\"`*"]
-#[inline]
 pub unsafe fn RmShutdown(dwsessionhandle: u32, lactionflags: u32, fnstatus: RM_WRITE_STATUS_CALLBACK) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -468,7 +458,6 @@ pub unsafe fn RmShutdown(dwsessionhandle: u32, lactionflags: u32, fnstatus: RM_W
     RmShutdown(dwsessionhandle, lactionflags, ::core::mem::transmute(fnstatus))
 }
 #[doc = "*Required features: `\"Win32_System_RestartManager\"`*"]
-#[inline]
 pub unsafe fn RmStartSession(psessionhandle: *mut u32, dwsessionflags: u32, strsessionkey: ::windows::core::PWSTR) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {

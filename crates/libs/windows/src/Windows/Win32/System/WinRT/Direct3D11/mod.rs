@@ -1,6 +1,5 @@
 #[doc = "*Required features: `\"Win32_System_WinRT_Direct3D11\"`, `\"Win32_Graphics_Dxgi\"`*"]
 #[cfg(feature = "Win32_Graphics_Dxgi")]
-#[inline]
 pub unsafe fn CreateDirect3D11DeviceFromDXGIDevice<'a, P0>(dxgidevice: P0) -> ::windows::core::Result<::windows::core::IInspectable>
 where
     P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Graphics::Dxgi::IDXGIDevice>>,
@@ -14,7 +13,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_WinRT_Direct3D11\"`, `\"Win32_Graphics_Dxgi\"`*"]
 #[cfg(feature = "Win32_Graphics_Dxgi")]
-#[inline]
 pub unsafe fn CreateDirect3D11SurfaceFromDXGISurface<'a, P0>(dgxisurface: P0) -> ::windows::core::Result<::windows::core::IInspectable>
 where
     P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Graphics::Dxgi::IDXGISurface>>,

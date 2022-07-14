@@ -4411,7 +4411,6 @@ impl ::core::fmt::Debug for DWRITE_WORD_WRAPPING {
     }
 }
 #[doc = "*Required features: `\"Win32_Graphics_DirectWrite\"`*"]
-#[inline]
 pub unsafe fn DWriteCreateFactory(factorytype: DWRITE_FACTORY_TYPE, iid: *const ::windows::core::GUID) -> ::windows::core::Result<::windows::core::IUnknown> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {

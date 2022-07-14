@@ -4456,7 +4456,6 @@ pub const OFFLINEFILES_TRANSITION_FLAG_INTERACTIVE: u32 = 1u32;
 pub const OfflineFilesCache: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x48c6be7c_3871_43cc_b46f_1449a1bb2ff3);
 #[doc = "*Required features: `\"Win32_Storage_OfflineFiles\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn OfflineFilesEnable<'a, P0>(benable: P0, pbrebootrequired: *mut super::super::Foundation::BOOL) -> u32
 where
     P0: ::std::convert::Into<super::super::Foundation::BOOL>,
@@ -4469,7 +4468,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_Storage_OfflineFiles\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn OfflineFilesQueryStatus(pbactive: *mut super::super::Foundation::BOOL, pbenabled: *mut super::super::Foundation::BOOL) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -4479,7 +4477,6 @@ pub unsafe fn OfflineFilesQueryStatus(pbactive: *mut super::super::Foundation::B
 }
 #[doc = "*Required features: `\"Win32_Storage_OfflineFiles\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn OfflineFilesQueryStatusEx(pbactive: *mut super::super::Foundation::BOOL, pbenabled: *mut super::super::Foundation::BOOL, pbavailable: *mut super::super::Foundation::BOOL) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -4489,7 +4486,6 @@ pub unsafe fn OfflineFilesQueryStatusEx(pbactive: *mut super::super::Foundation:
 }
 pub const OfflineFilesSetting: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfd3659e9_a920_4123_ad64_7fc76c7aacdf);
 #[doc = "*Required features: `\"Win32_Storage_OfflineFiles\"`*"]
-#[inline]
 pub unsafe fn OfflineFilesStart() -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {

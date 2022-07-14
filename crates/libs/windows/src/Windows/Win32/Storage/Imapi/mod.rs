@@ -22,7 +22,6 @@ pub const CATID_SMTP_TRANSPORT_ROUTER: ::windows::core::GUID = ::windows::core::
 pub const CATID_SMTP_TRANSPORT_SUBMISSION: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xff3caa23_00b9_11d2_9dfb_00c04fa322ba);
 pub const CLSID_SmtpCat: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb23c35b7_9219_11d2_9e17_00c04fa322ba);
 #[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
-#[inline]
 pub unsafe fn CloseIMsgSession(lpmsgsess: *mut _MSGSESS) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -1217,7 +1216,6 @@ pub const GUID_SMTPSVC_SOURCE: ::windows::core::GUID = ::windows::core::GUID::fr
 pub const GUID_SMTP_SOURCE_TYPE: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfb65c4dc_e468_11d1_aa67_00c04fa345f6);
 #[doc = "*Required features: `\"Win32_Storage_Imapi\"`, `\"Win32_System_AddressBook\"`*"]
 #[cfg(feature = "Win32_System_AddressBook")]
-#[inline]
 pub unsafe fn GetAttribIMsgOnIStg(lpobject: *mut ::core::ffi::c_void, lpproptagarray: *mut super::super::System::AddressBook::SPropTagArray, lpppropattrarray: *mut *mut SPropAttrArray) -> ::windows::core::Result<()> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -10446,7 +10444,6 @@ pub const MSEnumDiscRecordersObj: ::windows::core::GUID = ::windows::core::GUID:
 #[cfg(feature = "Win32_System_AddressBook")]
 pub type MSGCALLRELEASE = ::core::option::Option<unsafe extern "system" fn(ulcallerdata: u32, lpmessage: ::core::option::Option<super::super::System::AddressBook::IMessage>)>;
 #[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
-#[inline]
 pub unsafe fn MapStorageSCode(stgscode: i32) -> i32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -10479,7 +10476,6 @@ pub const NMP_PROCESS_MODERATOR: u32 = 4u32;
 pub const NMP_PROCESS_POST: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_Storage_Imapi\"`, `\"Win32_System_AddressBook\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
 #[cfg(all(feature = "Win32_System_AddressBook", feature = "Win32_System_Com_StructuredStorage"))]
-#[inline]
 pub unsafe fn OpenIMsgOnIStg<'a, P0, P1>(lpmsgsess: *mut _MSGSESS, lpallocatebuffer: super::super::System::AddressBook::LPALLOCATEBUFFER, lpallocatemore: super::super::System::AddressBook::LPALLOCATEMORE, lpfreebuffer: super::super::System::AddressBook::LPFREEBUFFER, lpmalloc: P0, lpmapisup: *mut ::core::ffi::c_void, lpstg: P1, lpfmsgcallrelease: *mut MSGCALLRELEASE, ulcallerdata: u32, ulflags: u32, lppmsg: *mut ::core::option::Option<super::super::System::AddressBook::IMessage>) -> i32
 where
     P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::System::Com::IMalloc>>,
@@ -10493,7 +10489,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_Storage_Imapi\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
-#[inline]
 pub unsafe fn OpenIMsgSession<'a, P0>(lpmalloc: P0, ulflags: u32, lppmsgsess: *mut *mut _MSGSESS) -> i32
 where
     P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::System::Com::IMalloc>>,
@@ -10649,7 +10644,6 @@ impl ::core::default::Default for SPropAttrArray {
 pub const SZ_PROGID_SMTPCAT: &str = "Smtp.Cat";
 #[doc = "*Required features: `\"Win32_Storage_Imapi\"`, `\"Win32_System_AddressBook\"`*"]
 #[cfg(feature = "Win32_System_AddressBook")]
-#[inline]
 pub unsafe fn SetAttribIMsgOnIStg(lpobject: *mut ::core::ffi::c_void, lpproptags: *mut super::super::System::AddressBook::SPropTagArray, lppropattrs: *mut SPropAttrArray, lpppropproblems: *mut *mut super::super::System::AddressBook::SPropProblemArray) -> ::windows::core::Result<()> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {

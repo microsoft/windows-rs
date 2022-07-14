@@ -149,7 +149,6 @@ impl ::core::default::Default for DAV_CALLBACK_CRED {
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_WebDav\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn DavAddConnection<'a, P0, P1, P2>(connectionhandle: *mut super::super::Foundation::HANDLE, remotename: P0, username: P1, password: P2, clientcert: *const u8, certsize: u32) -> u32
 where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
@@ -164,7 +163,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_WebDav\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn DavCancelConnectionsToServer<'a, P0, P1>(lpname: P0, fforce: P1) -> u32
 where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
@@ -178,7 +176,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_WebDav\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn DavDeleteConnection<'a, P0>(connectionhandle: P0) -> u32
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
@@ -191,7 +188,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_WebDav\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn DavFlushFile<'a, P0>(hfile: P0) -> u32
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
@@ -204,7 +200,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_WebDav\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn DavGetExtendedError<'a, P0>(hfile: P0, exterror: *mut u32, exterrorstring: ::windows::core::PWSTR, cchsize: *mut u32) -> u32
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
@@ -216,7 +211,6 @@ where
     DavGetExtendedError(hfile.into(), ::core::mem::transmute(exterror), ::core::mem::transmute(exterrorstring), ::core::mem::transmute(cchsize))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_WebDav\"`*"]
-#[inline]
 pub unsafe fn DavGetHTTPFromUNCPath<'a, P0>(uncpath: P0, url: ::windows::core::PWSTR, lpsize: *mut u32) -> u32
 where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
@@ -228,7 +222,6 @@ where
     DavGetHTTPFromUNCPath(uncpath.into(), ::core::mem::transmute(url), ::core::mem::transmute(lpsize))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_WebDav\"`*"]
-#[inline]
 pub unsafe fn DavGetTheLockOwnerOfTheFile<'a, P0>(filename: P0, lockownername: ::windows::core::PWSTR, lockownernamelengthinbytes: *mut u32) -> u32
 where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
@@ -240,7 +233,6 @@ where
     DavGetTheLockOwnerOfTheFile(filename.into(), ::core::mem::transmute(lockownername), ::core::mem::transmute(lockownernamelengthinbytes))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_WebDav\"`*"]
-#[inline]
 pub unsafe fn DavGetUNCFromHTTPPath<'a, P0>(url: P0, uncpath: ::windows::core::PWSTR, lpsize: *mut u32) -> u32
 where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
@@ -252,7 +244,6 @@ where
     DavGetUNCFromHTTPPath(url.into(), ::core::mem::transmute(uncpath), ::core::mem::transmute(lpsize))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_WebDav\"`*"]
-#[inline]
 pub unsafe fn DavInvalidateCache<'a, P0>(urlname: P0) -> u32
 where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
@@ -265,7 +256,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_WebDav\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn DavRegisterAuthCallback(callback: PFNDAVAUTHCALLBACK, version: u32) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -274,7 +264,6 @@ pub unsafe fn DavRegisterAuthCallback(callback: PFNDAVAUTHCALLBACK, version: u32
     DavRegisterAuthCallback(::core::mem::transmute(callback), version)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_WebDav\"`*"]
-#[inline]
 pub unsafe fn DavUnregisterAuthCallback(hcallback: u32) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {

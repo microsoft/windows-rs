@@ -9,7 +9,6 @@ pub const DMOCATEGORY_VIDEO_DECODER: ::windows::core::GUID = ::windows::core::GU
 pub const DMOCATEGORY_VIDEO_EFFECT: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd990ee14_776c_4723_be46_3da2f56f10b9);
 pub const DMOCATEGORY_VIDEO_ENCODER: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x33d9a760_90c8_11d0_bd43_00a0c911ce86);
 #[doc = "*Required features: `\"Win32_Media_DxMediaObjects\"`*"]
-#[inline]
 pub unsafe fn DMOEnum(guidcategory: *const ::windows::core::GUID, dwflags: u32, cintypes: u32, pintypes: *const DMO_PARTIAL_MEDIATYPE, couttypes: u32, pouttypes: *const DMO_PARTIAL_MEDIATYPE) -> ::windows::core::Result<IEnumDMO> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -19,7 +18,6 @@ pub unsafe fn DMOEnum(guidcategory: *const ::windows::core::GUID, dwflags: u32, 
     DMOEnum(::core::mem::transmute(guidcategory), dwflags, cintypes, ::core::mem::transmute(pintypes), couttypes, ::core::mem::transmute(pouttypes), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IEnumDMO>(result__)
 }
 #[doc = "*Required features: `\"Win32_Media_DxMediaObjects\"`*"]
-#[inline]
 pub unsafe fn DMOGetName(clsiddmo: *const ::windows::core::GUID, szname: &mut [u16; 80]) -> ::windows::core::Result<()> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -28,7 +26,6 @@ pub unsafe fn DMOGetName(clsiddmo: *const ::windows::core::GUID, szname: &mut [u
     DMOGetName(::core::mem::transmute(clsiddmo), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(szname))).ok()
 }
 #[doc = "*Required features: `\"Win32_Media_DxMediaObjects\"`*"]
-#[inline]
 pub unsafe fn DMOGetTypes(clsiddmo: *const ::windows::core::GUID, ulinputtypesrequested: u32, pulinputtypessupplied: *mut u32, pinputtypes: *mut DMO_PARTIAL_MEDIATYPE, uloutputtypesrequested: u32, puloutputtypessupplied: *mut u32, poutputtypes: *mut DMO_PARTIAL_MEDIATYPE) -> ::windows::core::Result<()> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -37,7 +34,6 @@ pub unsafe fn DMOGetTypes(clsiddmo: *const ::windows::core::GUID, ulinputtypesre
     DMOGetTypes(::core::mem::transmute(clsiddmo), ulinputtypesrequested, ::core::mem::transmute(pulinputtypessupplied), ::core::mem::transmute(pinputtypes), uloutputtypesrequested, ::core::mem::transmute(puloutputtypessupplied), ::core::mem::transmute(poutputtypes)).ok()
 }
 #[doc = "*Required features: `\"Win32_Media_DxMediaObjects\"`*"]
-#[inline]
 pub unsafe fn DMORegister<'a, P0>(szname: P0, clsiddmo: *const ::windows::core::GUID, guidcategory: *const ::windows::core::GUID, dwflags: u32, cintypes: u32, pintypes: *const DMO_PARTIAL_MEDIATYPE, couttypes: u32, pouttypes: *const DMO_PARTIAL_MEDIATYPE) -> ::windows::core::Result<()>
 where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
@@ -49,7 +45,6 @@ where
     DMORegister(szname.into(), ::core::mem::transmute(clsiddmo), ::core::mem::transmute(guidcategory), dwflags, cintypes, ::core::mem::transmute(pintypes), couttypes, ::core::mem::transmute(pouttypes)).ok()
 }
 #[doc = "*Required features: `\"Win32_Media_DxMediaObjects\"`*"]
-#[inline]
 pub unsafe fn DMOUnregister(clsiddmo: *const ::windows::core::GUID, guidcategory: *const ::windows::core::GUID) -> ::windows::core::Result<()> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -709,7 +704,6 @@ pub struct IMediaObjectInPlace_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Media_DxMediaObjects\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn MoCopyMediaType(pmtdest: *mut DMO_MEDIA_TYPE, pmtsrc: *const DMO_MEDIA_TYPE) -> ::windows::core::Result<()> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -719,7 +713,6 @@ pub unsafe fn MoCopyMediaType(pmtdest: *mut DMO_MEDIA_TYPE, pmtsrc: *const DMO_M
 }
 #[doc = "*Required features: `\"Win32_Media_DxMediaObjects\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn MoCreateMediaType(ppmt: *mut *mut DMO_MEDIA_TYPE, cbformat: u32) -> ::windows::core::Result<()> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -729,7 +722,6 @@ pub unsafe fn MoCreateMediaType(ppmt: *mut *mut DMO_MEDIA_TYPE, cbformat: u32) -
 }
 #[doc = "*Required features: `\"Win32_Media_DxMediaObjects\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn MoDeleteMediaType(pmt: *mut DMO_MEDIA_TYPE) -> ::windows::core::Result<()> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -739,7 +731,6 @@ pub unsafe fn MoDeleteMediaType(pmt: *mut DMO_MEDIA_TYPE) -> ::windows::core::Re
 }
 #[doc = "*Required features: `\"Win32_Media_DxMediaObjects\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn MoDuplicateMediaType(ppmtdest: *mut *mut DMO_MEDIA_TYPE, pmtsrc: *const DMO_MEDIA_TYPE) -> ::windows::core::Result<()> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -749,7 +740,6 @@ pub unsafe fn MoDuplicateMediaType(ppmtdest: *mut *mut DMO_MEDIA_TYPE, pmtsrc: *
 }
 #[doc = "*Required features: `\"Win32_Media_DxMediaObjects\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn MoFreeMediaType(pmt: *mut DMO_MEDIA_TYPE) -> ::windows::core::Result<()> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -759,7 +749,6 @@ pub unsafe fn MoFreeMediaType(pmt: *mut DMO_MEDIA_TYPE) -> ::windows::core::Resu
 }
 #[doc = "*Required features: `\"Win32_Media_DxMediaObjects\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn MoInitMediaType(pmt: *mut DMO_MEDIA_TYPE, cbformat: u32) -> ::windows::core::Result<()> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {

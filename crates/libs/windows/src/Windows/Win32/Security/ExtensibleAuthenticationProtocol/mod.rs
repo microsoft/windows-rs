@@ -1840,7 +1840,6 @@ impl ::core::fmt::Debug for EapHostPeerAuthParams {
 }
 #[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn EapHostPeerBeginSession<'a, P0>(dwflags: u32, eaptype: EAP_METHOD_TYPE, pattributearray: *const EAP_ATTRIBUTES, htokenimpersonateuser: P0, dwsizeofconnectiondata: u32, pconnectiondata: *const u8, dwsizeofuserdata: u32, puserdata: *const u8, dwmaxsendpacketsize: u32, pconnectionid: *const ::windows::core::GUID, func: NotificationHandler, pcontextdata: *mut ::core::ffi::c_void, psessionid: *mut u32, ppeaperror: *mut *mut EAP_ERROR) -> u32
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
@@ -1852,7 +1851,6 @@ where
     EapHostPeerBeginSession(dwflags, ::core::mem::transmute(eaptype), ::core::mem::transmute(pattributearray), htokenimpersonateuser.into(), dwsizeofconnectiondata, ::core::mem::transmute(pconnectiondata), dwsizeofuserdata, ::core::mem::transmute(puserdata), dwmaxsendpacketsize, ::core::mem::transmute(pconnectionid), ::core::mem::transmute(func), ::core::mem::transmute(pcontextdata), ::core::mem::transmute(psessionid), ::core::mem::transmute(ppeaperror))
 }
 #[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
-#[inline]
 pub unsafe fn EapHostPeerClearConnection(pconnectionid: *mut ::windows::core::GUID, ppeaperror: *mut *mut EAP_ERROR) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -1862,7 +1860,6 @@ pub unsafe fn EapHostPeerClearConnection(pconnectionid: *mut ::windows::core::GU
 }
 #[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`, `\"Win32_Data_Xml_MsXml\"`, `\"Win32_System_Com\"`*"]
 #[cfg(all(feature = "Win32_Data_Xml_MsXml", feature = "Win32_System_Com"))]
-#[inline]
 pub unsafe fn EapHostPeerConfigBlob2Xml(dwflags: u32, eapmethodtype: EAP_METHOD_TYPE, pconfigin: &[u8], ppconfigdoc: *mut ::core::option::Option<super::super::Data::Xml::MsXml::IXMLDOMDocument2>, ppeaperror: *mut *mut EAP_ERROR) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -1872,7 +1869,6 @@ pub unsafe fn EapHostPeerConfigBlob2Xml(dwflags: u32, eapmethodtype: EAP_METHOD_
 }
 #[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`, `\"Win32_Data_Xml_MsXml\"`, `\"Win32_System_Com\"`*"]
 #[cfg(all(feature = "Win32_Data_Xml_MsXml", feature = "Win32_System_Com"))]
-#[inline]
 pub unsafe fn EapHostPeerConfigXml2Blob<'a, P0>(dwflags: u32, pconfigdoc: P0, pdwsizeofconfigout: *mut u32, ppconfigout: *mut *mut u8, peapmethodtype: *mut EAP_METHOD_TYPE, ppeaperror: *mut *mut EAP_ERROR) -> u32
 where
     P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Data::Xml::MsXml::IXMLDOMNode>>,
@@ -1885,7 +1881,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`, `\"Win32_Data_Xml_MsXml\"`, `\"Win32_System_Com\"`*"]
 #[cfg(all(feature = "Win32_Data_Xml_MsXml", feature = "Win32_System_Com"))]
-#[inline]
 pub unsafe fn EapHostPeerCredentialsXml2Blob<'a, P0>(dwflags: u32, pcredentialsdoc: P0, pconfigin: &[u8], pdwsizeofcredentialsout: *mut u32, ppcredentialsout: *mut *mut u8, peapmethodtype: *mut EAP_METHOD_TYPE, ppeaperror: *mut *mut EAP_ERROR) -> u32
 where
     P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Data::Xml::MsXml::IXMLDOMNode>>,
@@ -1897,7 +1892,6 @@ where
     EapHostPeerCredentialsXml2Blob(dwflags, pcredentialsdoc.into().abi(), pconfigin.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(pconfigin)), ::core::mem::transmute(pdwsizeofcredentialsout), ::core::mem::transmute(ppcredentialsout), ::core::mem::transmute(peapmethodtype), ::core::mem::transmute(ppeaperror))
 }
 #[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
-#[inline]
 pub unsafe fn EapHostPeerEndSession(sessionhandle: u32, ppeaperror: *mut *mut EAP_ERROR) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -1906,7 +1900,6 @@ pub unsafe fn EapHostPeerEndSession(sessionhandle: u32, ppeaperror: *mut *mut EA
     EapHostPeerEndSession(sessionhandle, ::core::mem::transmute(ppeaperror))
 }
 #[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
-#[inline]
 pub unsafe fn EapHostPeerFreeEapError(peaperror: *mut EAP_ERROR) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -1915,7 +1908,6 @@ pub unsafe fn EapHostPeerFreeEapError(peaperror: *mut EAP_ERROR) {
     EapHostPeerFreeEapError(::core::mem::transmute(peaperror))
 }
 #[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
-#[inline]
 pub unsafe fn EapHostPeerFreeErrorMemory(peaperror: *mut EAP_ERROR) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -1924,7 +1916,6 @@ pub unsafe fn EapHostPeerFreeErrorMemory(peaperror: *mut EAP_ERROR) {
     EapHostPeerFreeErrorMemory(::core::mem::transmute(peaperror))
 }
 #[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
-#[inline]
 pub unsafe fn EapHostPeerFreeMemory(pdata: *mut u8) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -1933,7 +1924,6 @@ pub unsafe fn EapHostPeerFreeMemory(pdata: *mut u8) {
     EapHostPeerFreeMemory(::core::mem::transmute(pdata))
 }
 #[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
-#[inline]
 pub unsafe fn EapHostPeerFreeRuntimeMemory(pdata: *mut u8) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -1942,7 +1932,6 @@ pub unsafe fn EapHostPeerFreeRuntimeMemory(pdata: *mut u8) {
     EapHostPeerFreeRuntimeMemory(::core::mem::transmute(pdata))
 }
 #[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
-#[inline]
 pub unsafe fn EapHostPeerGetAuthStatus(sessionhandle: u32, authparam: EapHostPeerAuthParams, pcbauthdata: *mut u32, ppauthdata: *mut *mut u8, ppeaperror: *mut *mut EAP_ERROR) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -1952,7 +1941,6 @@ pub unsafe fn EapHostPeerGetAuthStatus(sessionhandle: u32, authparam: EapHostPee
 }
 #[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn EapHostPeerGetDataToUnplumbCredentials(pconnectionidthatlastsavedcreds: *mut ::windows::core::GUID, phcredentialimpersonationtoken: *mut isize, sessionhandle: u32, ppeaperror: *mut *mut EAP_ERROR, fsavetocredman: *mut super::super::Foundation::BOOL) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -1961,7 +1949,6 @@ pub unsafe fn EapHostPeerGetDataToUnplumbCredentials(pconnectionidthatlastsavedc
     EapHostPeerGetDataToUnplumbCredentials(::core::mem::transmute(pconnectionidthatlastsavedcreds), ::core::mem::transmute(phcredentialimpersonationtoken), sessionhandle, ::core::mem::transmute(ppeaperror), ::core::mem::transmute(fsavetocredman))
 }
 #[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
-#[inline]
 pub unsafe fn EapHostPeerGetEncryptedPassword<'a, P0>(dwsizeofpassword: u32, szpassword: P0, ppszencpassword: *mut ::windows::core::PWSTR) -> u32
 where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
@@ -1974,7 +1961,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn EapHostPeerGetIdentity<'a, P0>(dwversion: u32, dwflags: u32, eapmethodtype: EAP_METHOD_TYPE, pconnectiondata: &[u8], puserdata: &[u8], htokenimpersonateuser: P0, pfinvokeui: *mut super::super::Foundation::BOOL, pdwsizeofuserdataout: *mut u32, ppuserdataout: *mut *mut u8, ppwszidentity: *mut ::windows::core::PWSTR, ppeaperror: *mut *mut EAP_ERROR, ppvreserved: *mut *mut u8) -> u32
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
@@ -2002,7 +1988,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn EapHostPeerGetMethodProperties<'a, P0>(dwversion: u32, dwflags: u32, eapmethodtype: EAP_METHOD_TYPE, huserimpersonationtoken: P0, pbeapconndata: &[u8], pbuserdata: &[u8], pmethodpropertyarray: *mut EAP_METHOD_PROPERTY_ARRAY, ppeaperror: *mut *mut EAP_ERROR) -> u32
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
@@ -2014,7 +1999,6 @@ where
     EapHostPeerGetMethodProperties(dwversion, dwflags, ::core::mem::transmute(eapmethodtype), huserimpersonationtoken.into(), pbeapconndata.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(pbeapconndata)), pbuserdata.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(pbuserdata)), ::core::mem::transmute(pmethodpropertyarray), ::core::mem::transmute(ppeaperror))
 }
 #[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
-#[inline]
 pub unsafe fn EapHostPeerGetMethods(peapmethodinfoarray: *mut EAP_METHOD_INFO_ARRAY, ppeaperror: *mut *mut EAP_ERROR) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -2023,7 +2007,6 @@ pub unsafe fn EapHostPeerGetMethods(peapmethodinfoarray: *mut EAP_METHOD_INFO_AR
     EapHostPeerGetMethods(::core::mem::transmute(peapmethodinfoarray), ::core::mem::transmute(ppeaperror))
 }
 #[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
-#[inline]
 pub unsafe fn EapHostPeerGetResponseAttributes(sessionhandle: u32, pattribs: *mut EAP_ATTRIBUTES, ppeaperror: *mut *mut EAP_ERROR) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -2033,7 +2016,6 @@ pub unsafe fn EapHostPeerGetResponseAttributes(sessionhandle: u32, pattribs: *mu
 }
 #[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn EapHostPeerGetResult(sessionhandle: u32, reason: EapHostPeerMethodResultReason, ppresult: *mut EapHostPeerMethodResult, ppeaperror: *mut *mut EAP_ERROR) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -2042,7 +2024,6 @@ pub unsafe fn EapHostPeerGetResult(sessionhandle: u32, reason: EapHostPeerMethod
     EapHostPeerGetResult(sessionhandle, reason, ::core::mem::transmute(ppresult), ::core::mem::transmute(ppeaperror))
 }
 #[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
-#[inline]
 pub unsafe fn EapHostPeerGetSendPacket(sessionhandle: u32, pcbsendpacket: *mut u32, ppsendpacket: *mut *mut u8, ppeaperror: *mut *mut EAP_ERROR) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -2051,7 +2032,6 @@ pub unsafe fn EapHostPeerGetSendPacket(sessionhandle: u32, pcbsendpacket: *mut u
     EapHostPeerGetSendPacket(sessionhandle, ::core::mem::transmute(pcbsendpacket), ::core::mem::transmute(ppsendpacket), ::core::mem::transmute(ppeaperror))
 }
 #[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
-#[inline]
 pub unsafe fn EapHostPeerGetUIContext(sessionhandle: u32, pdwsizeofuicontextdata: *mut u32, ppuicontextdata: *mut *mut u8, ppeaperror: *mut *mut EAP_ERROR) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -2060,7 +2040,6 @@ pub unsafe fn EapHostPeerGetUIContext(sessionhandle: u32, pdwsizeofuicontextdata
     EapHostPeerGetUIContext(sessionhandle, ::core::mem::transmute(pdwsizeofuicontextdata), ::core::mem::transmute(ppuicontextdata), ::core::mem::transmute(ppeaperror))
 }
 #[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
-#[inline]
 pub unsafe fn EapHostPeerInitialize() -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -2070,7 +2049,6 @@ pub unsafe fn EapHostPeerInitialize() -> u32 {
 }
 #[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn EapHostPeerInvokeConfigUI<'a, P0>(hwndparent: P0, dwflags: u32, eapmethodtype: EAP_METHOD_TYPE, pconfigin: &[u8], pdwsizeofconfigout: *mut u32, ppconfigout: *mut *mut u8, ppeaperror: *mut *mut EAP_ERROR) -> u32
 where
     P0: ::std::convert::Into<super::super::Foundation::HWND>,
@@ -2083,7 +2061,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn EapHostPeerInvokeIdentityUI<'a, P0>(dwversion: u32, eapmethodtype: EAP_METHOD_TYPE, dwflags: u32, hwndparent: P0, pconnectiondata: &[u8], puserdata: &[u8], pdwsizeofuserdataout: *mut u32, ppuserdataout: *mut *mut u8, ppwszidentity: *mut ::windows::core::PWSTR, ppeaperror: *mut *mut EAP_ERROR, ppvreserved: *mut *mut ::core::ffi::c_void) -> u32
 where
     P0: ::std::convert::Into<super::super::Foundation::HWND>,
@@ -2096,7 +2073,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn EapHostPeerInvokeInteractiveUI<'a, P0>(hwndparent: P0, puicontextdata: &[u8], pdwsizeofdatafrominteractiveui: *mut u32, ppdatafrominteractiveui: *mut *mut u8, ppeaperror: *mut *mut EAP_ERROR) -> u32
 where
     P0: ::std::convert::Into<super::super::Foundation::HWND>,
@@ -2199,7 +2175,6 @@ impl ::core::fmt::Debug for EapHostPeerMethodResultReason {
     }
 }
 #[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
-#[inline]
 pub unsafe fn EapHostPeerProcessReceivedPacket(sessionhandle: u32, cbreceivepacket: u32, preceivepacket: *const u8, peapoutput: *mut EapHostPeerResponseAction, ppeaperror: *mut *mut EAP_ERROR) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -2209,7 +2184,6 @@ pub unsafe fn EapHostPeerProcessReceivedPacket(sessionhandle: u32, cbreceivepack
 }
 #[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn EapHostPeerQueryCredentialInputFields<'a, P0>(huserimpersonationtoken: P0, eapmethodtype: EAP_METHOD_TYPE, dwflags: u32, pbeapconndata: &[u8], peapconfiginputfieldarray: *mut EAP_CONFIG_INPUT_FIELD_ARRAY, ppeaperror: *mut *mut EAP_ERROR) -> u32
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
@@ -2221,7 +2195,6 @@ where
     EapHostPeerQueryCredentialInputFields(huserimpersonationtoken.into(), ::core::mem::transmute(eapmethodtype), dwflags, pbeapconndata.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(pbeapconndata)), ::core::mem::transmute(peapconfiginputfieldarray), ::core::mem::transmute(ppeaperror))
 }
 #[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
-#[inline]
 pub unsafe fn EapHostPeerQueryInteractiveUIInputFields(dwversion: u32, dwflags: u32, puicontextdata: &[u8], peapinteractiveuidata: *mut EAP_INTERACTIVE_UI_DATA, ppeaperror: *mut *mut EAP_ERROR, ppvreserved: *mut *mut ::core::ffi::c_void) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -2230,7 +2203,6 @@ pub unsafe fn EapHostPeerQueryInteractiveUIInputFields(dwversion: u32, dwflags: 
     EapHostPeerQueryInteractiveUIInputFields(dwversion, dwflags, puicontextdata.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(puicontextdata)), ::core::mem::transmute(peapinteractiveuidata), ::core::mem::transmute(ppeaperror), ::core::mem::transmute(ppvreserved))
 }
 #[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
-#[inline]
 pub unsafe fn EapHostPeerQueryUIBlobFromInteractiveUIInputFields(dwversion: u32, dwflags: u32, puicontextdata: &[u8], peapinteractiveuidata: *const EAP_INTERACTIVE_UI_DATA, pdwsizeofdatafrominteractiveui: *mut u32, ppdatafrominteractiveui: *mut *mut u8, ppeaperror: *mut *mut EAP_ERROR, ppvreserved: *mut *mut ::core::ffi::c_void) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -2240,7 +2212,6 @@ pub unsafe fn EapHostPeerQueryUIBlobFromInteractiveUIInputFields(dwversion: u32,
 }
 #[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn EapHostPeerQueryUserBlobFromCredentialInputFields<'a, P0>(huserimpersonationtoken: P0, eapmethodtype: EAP_METHOD_TYPE, dwflags: u32, pbeapconndata: &[u8], peapconfiginputfieldarray: *const EAP_CONFIG_INPUT_FIELD_ARRAY, pdwuserblobsize: *mut u32, ppbuserblob: *mut *mut u8, ppeaperror: *mut *mut EAP_ERROR) -> u32
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
@@ -2289,7 +2260,6 @@ impl ::core::fmt::Debug for EapHostPeerResponseAction {
     }
 }
 #[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
-#[inline]
 pub unsafe fn EapHostPeerSetResponseAttributes(sessionhandle: u32, pattribs: *const EAP_ATTRIBUTES, peapoutput: *mut EapHostPeerResponseAction, ppeaperror: *mut *mut EAP_ERROR) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -2298,7 +2268,6 @@ pub unsafe fn EapHostPeerSetResponseAttributes(sessionhandle: u32, pattribs: *co
     EapHostPeerSetResponseAttributes(sessionhandle, ::core::mem::transmute(pattribs), ::core::mem::transmute(peapoutput), ::core::mem::transmute(ppeaperror))
 }
 #[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
-#[inline]
 pub unsafe fn EapHostPeerSetUIContext(sessionhandle: u32, dwsizeofuicontextdata: u32, puicontextdata: *const u8, peapoutput: *mut EapHostPeerResponseAction, ppeaperror: *mut *mut EAP_ERROR) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -2307,7 +2276,6 @@ pub unsafe fn EapHostPeerSetUIContext(sessionhandle: u32, dwsizeofuicontextdata:
     EapHostPeerSetUIContext(sessionhandle, dwsizeofuicontextdata, ::core::mem::transmute(puicontextdata), ::core::mem::transmute(peapoutput), ::core::mem::transmute(ppeaperror))
 }
 #[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
-#[inline]
 pub unsafe fn EapHostPeerUninitialize() {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {

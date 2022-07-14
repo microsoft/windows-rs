@@ -1287,7 +1287,6 @@ pub const NET_DFS_SETDC_INITPKT: u32 = 2u32;
 #[doc = "*Required features: `\"Win32_Storage_DistributedFileSystem\"`*"]
 pub const NET_DFS_SETDC_TIMEOUT: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_Storage_DistributedFileSystem\"`*"]
-#[inline]
 pub unsafe fn NetDfsAdd<'a, P0, P1, P2, P3>(dfsentrypath: P0, servername: P1, sharename: P2, comment: P3, flags: u32) -> u32
 where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
@@ -1302,7 +1301,6 @@ where
     NetDfsAdd(dfsentrypath.into(), servername.into(), sharename.into(), comment.into(), flags)
 }
 #[doc = "*Required features: `\"Win32_Storage_DistributedFileSystem\"`*"]
-#[inline]
 pub unsafe fn NetDfsAddFtRoot<'a, P0, P1, P2, P3>(servername: P0, rootshare: P1, ftdfsname: P2, comment: P3, flags: u32) -> u32
 where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
@@ -1317,7 +1315,6 @@ where
     NetDfsAddFtRoot(servername.into(), rootshare.into(), ftdfsname.into(), comment.into(), flags)
 }
 #[doc = "*Required features: `\"Win32_Storage_DistributedFileSystem\"`*"]
-#[inline]
 pub unsafe fn NetDfsAddRootTarget<'a, P0, P1, P2>(pdfspath: P0, ptargetpath: P1, majorversion: u32, pcomment: P2, flags: u32) -> u32
 where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
@@ -1331,7 +1328,6 @@ where
     NetDfsAddRootTarget(pdfspath.into(), ptargetpath.into(), majorversion, pcomment.into(), flags)
 }
 #[doc = "*Required features: `\"Win32_Storage_DistributedFileSystem\"`*"]
-#[inline]
 pub unsafe fn NetDfsAddStdRoot<'a, P0, P1, P2>(servername: P0, rootshare: P1, comment: P2, flags: u32) -> u32
 where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
@@ -1345,7 +1341,6 @@ where
     NetDfsAddStdRoot(servername.into(), rootshare.into(), comment.into(), flags)
 }
 #[doc = "*Required features: `\"Win32_Storage_DistributedFileSystem\"`*"]
-#[inline]
 pub unsafe fn NetDfsEnum<'a, P0>(dfsname: P0, level: u32, prefmaxlen: u32, buffer: *mut *mut u8, entriesread: *mut u32, resumehandle: *mut u32) -> u32
 where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
@@ -1357,7 +1352,6 @@ where
     NetDfsEnum(dfsname.into(), level, prefmaxlen, ::core::mem::transmute(buffer), ::core::mem::transmute(entriesread), ::core::mem::transmute(resumehandle))
 }
 #[doc = "*Required features: `\"Win32_Storage_DistributedFileSystem\"`*"]
-#[inline]
 pub unsafe fn NetDfsGetClientInfo<'a, P0, P1, P2>(dfsentrypath: P0, servername: P1, sharename: P2, level: u32, buffer: *mut *mut u8) -> u32
 where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
@@ -1372,7 +1366,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_Storage_DistributedFileSystem\"`, `\"Win32_Security\"`*"]
 #[cfg(feature = "Win32_Security")]
-#[inline]
 pub unsafe fn NetDfsGetFtContainerSecurity<'a, P0>(domainname: P0, securityinformation: u32, ppsecuritydescriptor: *mut super::super::Security::PSECURITY_DESCRIPTOR, lpcbsecuritydescriptor: *mut u32) -> u32
 where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
@@ -1384,7 +1377,6 @@ where
     NetDfsGetFtContainerSecurity(domainname.into(), securityinformation, ::core::mem::transmute(ppsecuritydescriptor), ::core::mem::transmute(lpcbsecuritydescriptor))
 }
 #[doc = "*Required features: `\"Win32_Storage_DistributedFileSystem\"`*"]
-#[inline]
 pub unsafe fn NetDfsGetInfo<'a, P0, P1, P2>(dfsentrypath: P0, servername: P1, sharename: P2, level: u32, buffer: *mut *mut u8) -> u32
 where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
@@ -1399,7 +1391,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_Storage_DistributedFileSystem\"`, `\"Win32_Security\"`*"]
 #[cfg(feature = "Win32_Security")]
-#[inline]
 pub unsafe fn NetDfsGetSecurity<'a, P0>(dfsentrypath: P0, securityinformation: u32, ppsecuritydescriptor: *mut super::super::Security::PSECURITY_DESCRIPTOR, lpcbsecuritydescriptor: *mut u32) -> u32
 where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
@@ -1412,7 +1403,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_Storage_DistributedFileSystem\"`, `\"Win32_Security\"`*"]
 #[cfg(feature = "Win32_Security")]
-#[inline]
 pub unsafe fn NetDfsGetStdContainerSecurity<'a, P0>(machinename: P0, securityinformation: u32, ppsecuritydescriptor: *mut super::super::Security::PSECURITY_DESCRIPTOR, lpcbsecuritydescriptor: *mut u32) -> u32
 where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
@@ -1424,7 +1414,6 @@ where
     NetDfsGetStdContainerSecurity(machinename.into(), securityinformation, ::core::mem::transmute(ppsecuritydescriptor), ::core::mem::transmute(lpcbsecuritydescriptor))
 }
 #[doc = "*Required features: `\"Win32_Storage_DistributedFileSystem\"`*"]
-#[inline]
 pub unsafe fn NetDfsGetSupportedNamespaceVersion<'a, P0>(origin: DFS_NAMESPACE_VERSION_ORIGIN, pname: P0, ppversioninfo: *mut *mut DFS_SUPPORTED_NAMESPACE_VERSION_INFO) -> u32
 where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
@@ -1436,7 +1425,6 @@ where
     NetDfsGetSupportedNamespaceVersion(origin, pname.into(), ::core::mem::transmute(ppversioninfo))
 }
 #[doc = "*Required features: `\"Win32_Storage_DistributedFileSystem\"`*"]
-#[inline]
 pub unsafe fn NetDfsMove<'a, P0, P1>(olddfsentrypath: P0, newdfsentrypath: P1, flags: u32) -> u32
 where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
@@ -1449,7 +1437,6 @@ where
     NetDfsMove(olddfsentrypath.into(), newdfsentrypath.into(), flags)
 }
 #[doc = "*Required features: `\"Win32_Storage_DistributedFileSystem\"`*"]
-#[inline]
 pub unsafe fn NetDfsRemove<'a, P0, P1, P2>(dfsentrypath: P0, servername: P1, sharename: P2) -> u32
 where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
@@ -1463,7 +1450,6 @@ where
     NetDfsRemove(dfsentrypath.into(), servername.into(), sharename.into())
 }
 #[doc = "*Required features: `\"Win32_Storage_DistributedFileSystem\"`*"]
-#[inline]
 pub unsafe fn NetDfsRemoveFtRoot<'a, P0, P1, P2>(servername: P0, rootshare: P1, ftdfsname: P2, flags: u32) -> u32
 where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
@@ -1477,7 +1463,6 @@ where
     NetDfsRemoveFtRoot(servername.into(), rootshare.into(), ftdfsname.into(), flags)
 }
 #[doc = "*Required features: `\"Win32_Storage_DistributedFileSystem\"`*"]
-#[inline]
 pub unsafe fn NetDfsRemoveFtRootForced<'a, P0, P1, P2, P3>(domainname: P0, servername: P1, rootshare: P2, ftdfsname: P3, flags: u32) -> u32
 where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
@@ -1492,7 +1477,6 @@ where
     NetDfsRemoveFtRootForced(domainname.into(), servername.into(), rootshare.into(), ftdfsname.into(), flags)
 }
 #[doc = "*Required features: `\"Win32_Storage_DistributedFileSystem\"`*"]
-#[inline]
 pub unsafe fn NetDfsRemoveRootTarget<'a, P0, P1>(pdfspath: P0, ptargetpath: P1, flags: u32) -> u32
 where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
@@ -1505,7 +1489,6 @@ where
     NetDfsRemoveRootTarget(pdfspath.into(), ptargetpath.into(), flags)
 }
 #[doc = "*Required features: `\"Win32_Storage_DistributedFileSystem\"`*"]
-#[inline]
 pub unsafe fn NetDfsRemoveStdRoot<'a, P0, P1>(servername: P0, rootshare: P1, flags: u32) -> u32
 where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
@@ -1518,7 +1501,6 @@ where
     NetDfsRemoveStdRoot(servername.into(), rootshare.into(), flags)
 }
 #[doc = "*Required features: `\"Win32_Storage_DistributedFileSystem\"`*"]
-#[inline]
 pub unsafe fn NetDfsSetClientInfo<'a, P0, P1, P2>(dfsentrypath: P0, servername: P1, sharename: P2, level: u32, buffer: *const u8) -> u32
 where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
@@ -1533,7 +1515,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_Storage_DistributedFileSystem\"`, `\"Win32_Security\"`*"]
 #[cfg(feature = "Win32_Security")]
-#[inline]
 pub unsafe fn NetDfsSetFtContainerSecurity<'a, P0, P1>(domainname: P0, securityinformation: u32, psecuritydescriptor: P1) -> u32
 where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
@@ -1546,7 +1527,6 @@ where
     NetDfsSetFtContainerSecurity(domainname.into(), securityinformation, psecuritydescriptor.into())
 }
 #[doc = "*Required features: `\"Win32_Storage_DistributedFileSystem\"`*"]
-#[inline]
 pub unsafe fn NetDfsSetInfo<'a, P0, P1, P2>(dfsentrypath: P0, servername: P1, sharename: P2, level: u32, buffer: *const u8) -> u32
 where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
@@ -1561,7 +1541,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_Storage_DistributedFileSystem\"`, `\"Win32_Security\"`*"]
 #[cfg(feature = "Win32_Security")]
-#[inline]
 pub unsafe fn NetDfsSetSecurity<'a, P0, P1>(dfsentrypath: P0, securityinformation: u32, psecuritydescriptor: P1) -> u32
 where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
@@ -1575,7 +1554,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_Storage_DistributedFileSystem\"`, `\"Win32_Security\"`*"]
 #[cfg(feature = "Win32_Security")]
-#[inline]
 pub unsafe fn NetDfsSetStdContainerSecurity<'a, P0, P1>(machinename: P0, securityinformation: u32, psecuritydescriptor: P1) -> u32
 where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,

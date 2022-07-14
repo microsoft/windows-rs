@@ -175,7 +175,6 @@ impl ::core::fmt::Debug for DXCoreAdapterState {
     }
 }
 #[doc = "*Required features: `\"Win32_Graphics_DXCore\"`*"]
-#[inline]
 pub unsafe fn DXCoreCreateAdapterFactory<T>() -> ::windows::core::Result<T>
 where
     T: ::windows::core::Interface,

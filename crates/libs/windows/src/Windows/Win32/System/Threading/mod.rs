@@ -65,7 +65,6 @@ impl ::core::fmt::Debug for AVRT_PRIORITY {
     }
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`*"]
-#[inline]
 pub unsafe fn AcquireSRWLockExclusive(srwlock: *mut RTL_SRWLOCK) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -74,7 +73,6 @@ pub unsafe fn AcquireSRWLockExclusive(srwlock: *mut RTL_SRWLOCK) {
     AcquireSRWLockExclusive(::core::mem::transmute(srwlock))
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`*"]
-#[inline]
 pub unsafe fn AcquireSRWLockShared(srwlock: *mut RTL_SRWLOCK) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -84,7 +82,6 @@ pub unsafe fn AcquireSRWLockShared(srwlock: *mut RTL_SRWLOCK) {
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn AddIntegrityLabelToBoundaryDescriptor<'a, P0>(boundarydescriptor: *mut super::super::Foundation::HANDLE, integritylabel: P0) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::super::Foundation::PSID>,
@@ -97,7 +94,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn AddSIDToBoundaryDescriptor<'a, P0>(boundarydescriptor: *mut super::super::Foundation::HANDLE, requiredsid: P0) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::super::Foundation::PSID>,
@@ -110,7 +106,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn AttachThreadInput<'a, P0>(idattach: u32, idattachto: u32, fattach: P0) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::super::Foundation::BOOL>,
@@ -123,7 +118,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn AvQuerySystemResponsiveness<'a, P0>(avrthandle: P0, systemresponsivenessvalue: *mut u32) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
@@ -136,7 +130,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn AvRevertMmThreadCharacteristics<'a, P0>(avrthandle: P0) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
@@ -149,7 +142,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn AvRtCreateThreadOrderingGroup(context: *mut super::super::Foundation::HANDLE, period: *const i64, threadorderingguid: *mut ::windows::core::GUID, timeout: *const i64) -> super::super::Foundation::BOOL {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -159,7 +151,6 @@ pub unsafe fn AvRtCreateThreadOrderingGroup(context: *mut super::super::Foundati
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn AvRtCreateThreadOrderingGroupExA<'a, P0>(context: *mut super::super::Foundation::HANDLE, period: *const i64, threadorderingguid: *mut ::windows::core::GUID, timeout: *const i64, taskname: P0) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
@@ -172,7 +163,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn AvRtCreateThreadOrderingGroupExW<'a, P0>(context: *mut super::super::Foundation::HANDLE, period: *const i64, threadorderingguid: *mut ::windows::core::GUID, timeout: *const i64, taskname: P0) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
@@ -185,7 +175,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn AvRtDeleteThreadOrderingGroup<'a, P0>(context: P0) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
@@ -198,7 +187,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn AvRtJoinThreadOrderingGroup<'a, P0>(context: *mut super::super::Foundation::HANDLE, threadorderingguid: *const ::windows::core::GUID, before: P0) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::super::Foundation::BOOL>,
@@ -211,7 +199,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn AvRtLeaveThreadOrderingGroup<'a, P0>(context: P0) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
@@ -224,7 +211,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn AvRtWaitOnThreadOrderingGroup<'a, P0>(context: P0) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
@@ -237,7 +223,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn AvSetMmMaxThreadCharacteristicsA<'a, P0, P1>(firsttask: P0, secondtask: P1, taskindex: *mut u32) -> ::windows::core::Result<super::super::Foundation::HANDLE>
 where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
@@ -252,7 +237,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn AvSetMmMaxThreadCharacteristicsW<'a, P0, P1>(firsttask: P0, secondtask: P1, taskindex: *mut u32) -> ::windows::core::Result<super::super::Foundation::HANDLE>
 where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
@@ -267,7 +251,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn AvSetMmThreadCharacteristicsA<'a, P0>(taskname: P0, taskindex: *mut u32) -> ::windows::core::Result<super::super::Foundation::HANDLE>
 where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
@@ -281,7 +264,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn AvSetMmThreadCharacteristicsW<'a, P0>(taskname: P0, taskindex: *mut u32) -> ::windows::core::Result<super::super::Foundation::HANDLE>
 where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
@@ -295,7 +277,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn AvSetMmThreadPriority<'a, P0>(avrthandle: P0, priority: AVRT_PRIORITY) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
@@ -430,7 +411,6 @@ pub const CREATE_WAITABLE_TIMER_HIGH_RESOLUTION: u32 = 2u32;
 pub const CREATE_WAITABLE_TIMER_MANUAL_RESET: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn CallbackMayRunLong(pci: *mut TP_CALLBACK_INSTANCE) -> super::super::Foundation::BOOL {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -439,7 +419,6 @@ pub unsafe fn CallbackMayRunLong(pci: *mut TP_CALLBACK_INSTANCE) -> super::super
     CallbackMayRunLong(::core::mem::transmute(pci))
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`*"]
-#[inline]
 pub unsafe fn CancelThreadpoolIo(pio: *mut TP_IO) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -449,7 +428,6 @@ pub unsafe fn CancelThreadpoolIo(pio: *mut TP_IO) {
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn CancelWaitableTimer<'a, P0>(htimer: P0) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
@@ -462,7 +440,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn ChangeTimerQueueTimer<'a, P0, P1>(timerqueue: P0, timer: P1, duetime: u32, period: u32) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
@@ -476,7 +453,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn ClosePrivateNamespace<'a, P0>(handle: P0, flags: u32) -> super::super::Foundation::BOOLEAN
 where
     P0: ::std::convert::Into<NamespaceHandle>,
@@ -488,7 +464,6 @@ where
     ClosePrivateNamespace(handle.into(), flags)
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`*"]
-#[inline]
 pub unsafe fn CloseThreadpool<'a, P0>(ptpp: P0)
 where
     P0: ::std::convert::Into<PTP_POOL>,
@@ -500,7 +475,6 @@ where
     CloseThreadpool(ptpp.into())
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`*"]
-#[inline]
 pub unsafe fn CloseThreadpoolCleanupGroup(ptpcg: isize) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -510,7 +484,6 @@ pub unsafe fn CloseThreadpoolCleanupGroup(ptpcg: isize) {
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn CloseThreadpoolCleanupGroupMembers<'a, P0>(ptpcg: isize, fcancelpendingcallbacks: P0, pvcleanupcontext: *mut ::core::ffi::c_void)
 where
     P0: ::std::convert::Into<super::super::Foundation::BOOL>,
@@ -522,7 +495,6 @@ where
     CloseThreadpoolCleanupGroupMembers(ptpcg, fcancelpendingcallbacks.into(), ::core::mem::transmute(pvcleanupcontext))
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`*"]
-#[inline]
 pub unsafe fn CloseThreadpoolIo(pio: *mut TP_IO) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -531,7 +503,6 @@ pub unsafe fn CloseThreadpoolIo(pio: *mut TP_IO) {
     CloseThreadpoolIo(::core::mem::transmute(pio))
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`*"]
-#[inline]
 pub unsafe fn CloseThreadpoolTimer(pti: *mut TP_TIMER) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -540,7 +511,6 @@ pub unsafe fn CloseThreadpoolTimer(pti: *mut TP_TIMER) {
     CloseThreadpoolTimer(::core::mem::transmute(pti))
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`*"]
-#[inline]
 pub unsafe fn CloseThreadpoolWait(pwa: *mut TP_WAIT) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -549,7 +519,6 @@ pub unsafe fn CloseThreadpoolWait(pwa: *mut TP_WAIT) {
     CloseThreadpoolWait(::core::mem::transmute(pwa))
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`*"]
-#[inline]
 pub unsafe fn CloseThreadpoolWork(pwk: *mut TP_WORK) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -559,7 +528,6 @@ pub unsafe fn CloseThreadpoolWork(pwk: *mut TP_WORK) {
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn ConvertFiberToThread() -> super::super::Foundation::BOOL {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -568,7 +536,6 @@ pub unsafe fn ConvertFiberToThread() -> super::super::Foundation::BOOL {
     ConvertFiberToThread()
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`*"]
-#[inline]
 pub unsafe fn ConvertThreadToFiber(lpparameter: *const ::core::ffi::c_void) -> *mut ::core::ffi::c_void {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -577,7 +544,6 @@ pub unsafe fn ConvertThreadToFiber(lpparameter: *const ::core::ffi::c_void) -> *
     ConvertThreadToFiber(::core::mem::transmute(lpparameter))
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`*"]
-#[inline]
 pub unsafe fn ConvertThreadToFiberEx(lpparameter: *const ::core::ffi::c_void, dwflags: u32) -> *mut ::core::ffi::c_void {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -586,7 +552,6 @@ pub unsafe fn ConvertThreadToFiberEx(lpparameter: *const ::core::ffi::c_void, dw
     ConvertThreadToFiberEx(::core::mem::transmute(lpparameter), dwflags)
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`*"]
-#[inline]
 pub unsafe fn CreateBoundaryDescriptorA<'a, P0>(name: P0, flags: u32) -> ::windows::core::Result<BoundaryDescriptorHandle>
 where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
@@ -599,7 +564,6 @@ where
     (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`*"]
-#[inline]
 pub unsafe fn CreateBoundaryDescriptorW<'a, P0>(name: P0, flags: u32) -> BoundaryDescriptorHandle
 where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
@@ -612,7 +576,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-#[inline]
 pub unsafe fn CreateEventA<'a, P0, P1, P2>(lpeventattributes: *const super::super::Security::SECURITY_ATTRIBUTES, bmanualreset: P0, binitialstate: P1, lpname: P2) -> ::windows::core::Result<super::super::Foundation::HANDLE>
 where
     P0: ::std::convert::Into<super::super::Foundation::BOOL>,
@@ -628,7 +591,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-#[inline]
 pub unsafe fn CreateEventExA<'a, P0>(lpeventattributes: *const super::super::Security::SECURITY_ATTRIBUTES, lpname: P0, dwflags: CREATE_EVENT, dwdesiredaccess: u32) -> ::windows::core::Result<super::super::Foundation::HANDLE>
 where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
@@ -642,7 +604,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-#[inline]
 pub unsafe fn CreateEventExW<'a, P0>(lpeventattributes: *const super::super::Security::SECURITY_ATTRIBUTES, lpname: P0, dwflags: CREATE_EVENT, dwdesiredaccess: u32) -> ::windows::core::Result<super::super::Foundation::HANDLE>
 where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
@@ -656,7 +617,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-#[inline]
 pub unsafe fn CreateEventW<'a, P0, P1, P2>(lpeventattributes: *const super::super::Security::SECURITY_ATTRIBUTES, bmanualreset: P0, binitialstate: P1, lpname: P2) -> ::windows::core::Result<super::super::Foundation::HANDLE>
 where
     P0: ::std::convert::Into<super::super::Foundation::BOOL>,
@@ -671,7 +631,6 @@ where
     (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`*"]
-#[inline]
 pub unsafe fn CreateFiber(dwstacksize: usize, lpstartaddress: LPFIBER_START_ROUTINE, lpparameter: *const ::core::ffi::c_void) -> *mut ::core::ffi::c_void {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -680,7 +639,6 @@ pub unsafe fn CreateFiber(dwstacksize: usize, lpstartaddress: LPFIBER_START_ROUT
     CreateFiber(dwstacksize, ::core::mem::transmute(lpstartaddress), ::core::mem::transmute(lpparameter))
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`*"]
-#[inline]
 pub unsafe fn CreateFiberEx(dwstackcommitsize: usize, dwstackreservesize: usize, dwflags: u32, lpstartaddress: LPFIBER_START_ROUTINE, lpparameter: *const ::core::ffi::c_void) -> *mut ::core::ffi::c_void {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -690,7 +648,6 @@ pub unsafe fn CreateFiberEx(dwstackcommitsize: usize, dwstackreservesize: usize,
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-#[inline]
 pub unsafe fn CreateMutexA<'a, P0, P1>(lpmutexattributes: *const super::super::Security::SECURITY_ATTRIBUTES, binitialowner: P0, lpname: P1) -> ::windows::core::Result<super::super::Foundation::HANDLE>
 where
     P0: ::std::convert::Into<super::super::Foundation::BOOL>,
@@ -705,7 +662,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-#[inline]
 pub unsafe fn CreateMutexExA<'a, P0>(lpmutexattributes: *const super::super::Security::SECURITY_ATTRIBUTES, lpname: P0, dwflags: u32, dwdesiredaccess: u32) -> ::windows::core::Result<super::super::Foundation::HANDLE>
 where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
@@ -719,7 +675,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-#[inline]
 pub unsafe fn CreateMutexExW<'a, P0>(lpmutexattributes: *const super::super::Security::SECURITY_ATTRIBUTES, lpname: P0, dwflags: u32, dwdesiredaccess: u32) -> ::windows::core::Result<super::super::Foundation::HANDLE>
 where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
@@ -733,7 +688,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-#[inline]
 pub unsafe fn CreateMutexW<'a, P0, P1>(lpmutexattributes: *const super::super::Security::SECURITY_ATTRIBUTES, binitialowner: P0, lpname: P1) -> ::windows::core::Result<super::super::Foundation::HANDLE>
 where
     P0: ::std::convert::Into<super::super::Foundation::BOOL>,
@@ -748,7 +702,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-#[inline]
 pub unsafe fn CreatePrivateNamespaceA<'a, P0>(lpprivatenamespaceattributes: *const super::super::Security::SECURITY_ATTRIBUTES, lpboundarydescriptor: *const ::core::ffi::c_void, lpaliasprefix: P0) -> ::windows::core::Result<NamespaceHandle>
 where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
@@ -762,7 +715,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-#[inline]
 pub unsafe fn CreatePrivateNamespaceW<'a, P0>(lpprivatenamespaceattributes: *const super::super::Security::SECURITY_ATTRIBUTES, lpboundarydescriptor: *const ::core::ffi::c_void, lpaliasprefix: P0) -> NamespaceHandle
 where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
@@ -775,7 +727,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-#[inline]
 pub unsafe fn CreateProcessA<'a, P0, P1, P2>(lpapplicationname: P0, lpcommandline: ::windows::core::PSTR, lpprocessattributes: *const super::super::Security::SECURITY_ATTRIBUTES, lpthreadattributes: *const super::super::Security::SECURITY_ATTRIBUTES, binherithandles: P1, dwcreationflags: PROCESS_CREATION_FLAGS, lpenvironment: *const ::core::ffi::c_void, lpcurrentdirectory: P2, lpstartupinfo: *const STARTUPINFOA, lpprocessinformation: *mut PROCESS_INFORMATION) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
@@ -790,7 +741,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-#[inline]
 pub unsafe fn CreateProcessAsUserA<'a, P0, P1, P2, P3>(htoken: P0, lpapplicationname: P1, lpcommandline: ::windows::core::PSTR, lpprocessattributes: *const super::super::Security::SECURITY_ATTRIBUTES, lpthreadattributes: *const super::super::Security::SECURITY_ATTRIBUTES, binherithandles: P2, dwcreationflags: u32, lpenvironment: *const ::core::ffi::c_void, lpcurrentdirectory: P3, lpstartupinfo: *const STARTUPINFOA, lpprocessinformation: *mut PROCESS_INFORMATION) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
@@ -806,7 +756,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-#[inline]
 pub unsafe fn CreateProcessAsUserW<'a, P0, P1, P2, P3>(htoken: P0, lpapplicationname: P1, lpcommandline: ::windows::core::PWSTR, lpprocessattributes: *const super::super::Security::SECURITY_ATTRIBUTES, lpthreadattributes: *const super::super::Security::SECURITY_ATTRIBUTES, binherithandles: P2, dwcreationflags: u32, lpenvironment: *const ::core::ffi::c_void, lpcurrentdirectory: P3, lpstartupinfo: *const STARTUPINFOW, lpprocessinformation: *mut PROCESS_INFORMATION) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
@@ -822,7 +771,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-#[inline]
 pub unsafe fn CreateProcessW<'a, P0, P1, P2>(lpapplicationname: P0, lpcommandline: ::windows::core::PWSTR, lpprocessattributes: *const super::super::Security::SECURITY_ATTRIBUTES, lpthreadattributes: *const super::super::Security::SECURITY_ATTRIBUTES, binherithandles: P1, dwcreationflags: PROCESS_CREATION_FLAGS, lpenvironment: *const ::core::ffi::c_void, lpcurrentdirectory: P2, lpstartupinfo: *const STARTUPINFOW, lpprocessinformation: *mut PROCESS_INFORMATION) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
@@ -837,7 +785,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn CreateProcessWithLogonW<'a, P0, P1, P2, P3, P4>(lpusername: P0, lpdomain: P1, lppassword: P2, dwlogonflags: CREATE_PROCESS_LOGON_FLAGS, lpapplicationname: P3, lpcommandline: ::windows::core::PWSTR, dwcreationflags: u32, lpenvironment: *const ::core::ffi::c_void, lpcurrentdirectory: P4, lpstartupinfo: *const STARTUPINFOW, lpprocessinformation: *mut PROCESS_INFORMATION) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
@@ -854,7 +801,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn CreateProcessWithTokenW<'a, P0, P1, P2>(htoken: P0, dwlogonflags: CREATE_PROCESS_LOGON_FLAGS, lpapplicationname: P1, lpcommandline: ::windows::core::PWSTR, dwcreationflags: u32, lpenvironment: *const ::core::ffi::c_void, lpcurrentdirectory: P2, lpstartupinfo: *const STARTUPINFOW, lpprocessinformation: *mut PROCESS_INFORMATION) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
@@ -869,7 +815,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-#[inline]
 pub unsafe fn CreateRemoteThread<'a, P0>(hprocess: P0, lpthreadattributes: *const super::super::Security::SECURITY_ATTRIBUTES, dwstacksize: usize, lpstartaddress: LPTHREAD_START_ROUTINE, lpparameter: *const ::core::ffi::c_void, dwcreationflags: u32, lpthreadid: *mut u32) -> ::windows::core::Result<super::super::Foundation::HANDLE>
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
@@ -883,7 +828,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-#[inline]
 pub unsafe fn CreateRemoteThreadEx<'a, P0, P1>(hprocess: P0, lpthreadattributes: *const super::super::Security::SECURITY_ATTRIBUTES, dwstacksize: usize, lpstartaddress: LPTHREAD_START_ROUTINE, lpparameter: *const ::core::ffi::c_void, dwcreationflags: u32, lpattributelist: P1, lpthreadid: *mut u32) -> ::windows::core::Result<super::super::Foundation::HANDLE>
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
@@ -898,7 +842,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-#[inline]
 pub unsafe fn CreateSemaphoreA<'a, P0>(lpsemaphoreattributes: *const super::super::Security::SECURITY_ATTRIBUTES, linitialcount: i32, lmaximumcount: i32, lpname: P0) -> ::windows::core::Result<super::super::Foundation::HANDLE>
 where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
@@ -912,7 +855,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-#[inline]
 pub unsafe fn CreateSemaphoreExA<'a, P0>(lpsemaphoreattributes: *const super::super::Security::SECURITY_ATTRIBUTES, linitialcount: i32, lmaximumcount: i32, lpname: P0, dwflags: u32, dwdesiredaccess: u32) -> ::windows::core::Result<super::super::Foundation::HANDLE>
 where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
@@ -926,7 +868,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-#[inline]
 pub unsafe fn CreateSemaphoreExW<'a, P0>(lpsemaphoreattributes: *const super::super::Security::SECURITY_ATTRIBUTES, linitialcount: i32, lmaximumcount: i32, lpname: P0, dwflags: u32, dwdesiredaccess: u32) -> ::windows::core::Result<super::super::Foundation::HANDLE>
 where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
@@ -940,7 +881,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-#[inline]
 pub unsafe fn CreateSemaphoreW<'a, P0>(lpsemaphoreattributes: *const super::super::Security::SECURITY_ATTRIBUTES, linitialcount: i32, lmaximumcount: i32, lpname: P0) -> ::windows::core::Result<super::super::Foundation::HANDLE>
 where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
@@ -954,7 +894,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-#[inline]
 pub unsafe fn CreateThread(lpthreadattributes: *const super::super::Security::SECURITY_ATTRIBUTES, dwstacksize: usize, lpstartaddress: LPTHREAD_START_ROUTINE, lpparameter: *const ::core::ffi::c_void, dwcreationflags: THREAD_CREATION_FLAGS, lpthreadid: *mut u32) -> ::windows::core::Result<super::super::Foundation::HANDLE> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -964,7 +903,6 @@ pub unsafe fn CreateThread(lpthreadattributes: *const super::super::Security::SE
     (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`*"]
-#[inline]
 pub unsafe fn CreateThreadpool(reserved: *mut ::core::ffi::c_void) -> PTP_POOL {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -973,7 +911,6 @@ pub unsafe fn CreateThreadpool(reserved: *mut ::core::ffi::c_void) -> PTP_POOL {
     CreateThreadpool(::core::mem::transmute(reserved))
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`*"]
-#[inline]
 pub unsafe fn CreateThreadpoolCleanupGroup() -> isize {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -983,7 +920,6 @@ pub unsafe fn CreateThreadpoolCleanupGroup() -> isize {
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn CreateThreadpoolIo<'a, P0>(fl: P0, pfnio: PTP_WIN32_IO_CALLBACK, pv: *mut ::core::ffi::c_void, pcbe: *const TP_CALLBACK_ENVIRON_V3) -> *mut TP_IO
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
@@ -995,7 +931,6 @@ where
     CreateThreadpoolIo(fl.into(), ::core::mem::transmute(pfnio), ::core::mem::transmute(pv), ::core::mem::transmute(pcbe))
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`*"]
-#[inline]
 pub unsafe fn CreateThreadpoolTimer(pfnti: PTP_TIMER_CALLBACK, pv: *mut ::core::ffi::c_void, pcbe: *const TP_CALLBACK_ENVIRON_V3) -> *mut TP_TIMER {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -1004,7 +939,6 @@ pub unsafe fn CreateThreadpoolTimer(pfnti: PTP_TIMER_CALLBACK, pv: *mut ::core::
     CreateThreadpoolTimer(::core::mem::transmute(pfnti), ::core::mem::transmute(pv), ::core::mem::transmute(pcbe))
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`*"]
-#[inline]
 pub unsafe fn CreateThreadpoolWait(pfnwa: PTP_WAIT_CALLBACK, pv: *mut ::core::ffi::c_void, pcbe: *const TP_CALLBACK_ENVIRON_V3) -> *mut TP_WAIT {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -1013,7 +947,6 @@ pub unsafe fn CreateThreadpoolWait(pfnwa: PTP_WAIT_CALLBACK, pv: *mut ::core::ff
     CreateThreadpoolWait(::core::mem::transmute(pfnwa), ::core::mem::transmute(pv), ::core::mem::transmute(pcbe))
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`*"]
-#[inline]
 pub unsafe fn CreateThreadpoolWork(pfnwk: PTP_WORK_CALLBACK, pv: *mut ::core::ffi::c_void, pcbe: *const TP_CALLBACK_ENVIRON_V3) -> *mut TP_WORK {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -1023,7 +956,6 @@ pub unsafe fn CreateThreadpoolWork(pfnwk: PTP_WORK_CALLBACK, pv: *mut ::core::ff
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn CreateTimerQueue() -> ::windows::core::Result<super::super::Foundation::HANDLE> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -1034,7 +966,6 @@ pub unsafe fn CreateTimerQueue() -> ::windows::core::Result<super::super::Founda
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn CreateTimerQueueTimer<'a, P0>(phnewtimer: *mut super::super::Foundation::HANDLE, timerqueue: P0, callback: WAITORTIMERCALLBACK, parameter: *const ::core::ffi::c_void, duetime: u32, period: u32, flags: WORKER_THREAD_FLAGS) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
@@ -1047,7 +978,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn CreateUmsCompletionList(umscompletionlist: *mut *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -1057,7 +987,6 @@ pub unsafe fn CreateUmsCompletionList(umscompletionlist: *mut *mut ::core::ffi::
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn CreateUmsThreadContext(lpumsthread: *mut *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -1067,7 +996,6 @@ pub unsafe fn CreateUmsThreadContext(lpumsthread: *mut *mut ::core::ffi::c_void)
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-#[inline]
 pub unsafe fn CreateWaitableTimerExW<'a, P0>(lptimerattributes: *const super::super::Security::SECURITY_ATTRIBUTES, lptimername: P0, dwflags: u32, dwdesiredaccess: u32) -> ::windows::core::Result<super::super::Foundation::HANDLE>
 where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
@@ -1081,7 +1009,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-#[inline]
 pub unsafe fn CreateWaitableTimerW<'a, P0, P1>(lptimerattributes: *const super::super::Security::SECURITY_ATTRIBUTES, bmanualreset: P0, lptimername: P1) -> ::windows::core::Result<super::super::Foundation::HANDLE>
 where
     P0: ::std::convert::Into<super::super::Foundation::BOOL>,
@@ -1095,7 +1022,6 @@ where
     (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`*"]
-#[inline]
 pub unsafe fn DeleteBoundaryDescriptor<'a, P0>(boundarydescriptor: P0)
 where
     P0: ::std::convert::Into<BoundaryDescriptorHandle>,
@@ -1108,7 +1034,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`, `\"Win32_System_Kernel\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
-#[inline]
 pub unsafe fn DeleteCriticalSection(lpcriticalsection: *mut RTL_CRITICAL_SECTION) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -1117,7 +1042,6 @@ pub unsafe fn DeleteCriticalSection(lpcriticalsection: *mut RTL_CRITICAL_SECTION
     DeleteCriticalSection(::core::mem::transmute(lpcriticalsection))
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`*"]
-#[inline]
 pub unsafe fn DeleteFiber(lpfiber: *const ::core::ffi::c_void) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -1126,7 +1050,6 @@ pub unsafe fn DeleteFiber(lpfiber: *const ::core::ffi::c_void) {
     DeleteFiber(::core::mem::transmute(lpfiber))
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`*"]
-#[inline]
 pub unsafe fn DeleteProcThreadAttributeList<'a, P0>(lpattributelist: P0)
 where
     P0: ::std::convert::Into<LPPROC_THREAD_ATTRIBUTE_LIST>,
@@ -1139,7 +1062,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn DeleteSynchronizationBarrier(lpbarrier: *mut RTL_BARRIER) -> super::super::Foundation::BOOL {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -1149,7 +1071,6 @@ pub unsafe fn DeleteSynchronizationBarrier(lpbarrier: *mut RTL_BARRIER) -> super
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn DeleteTimerQueue<'a, P0>(timerqueue: P0) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
@@ -1162,7 +1083,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn DeleteTimerQueueEx<'a, P0, P1>(timerqueue: P0, completionevent: P1) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
@@ -1176,7 +1096,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn DeleteTimerQueueTimer<'a, P0, P1, P2>(timerqueue: P0, timer: P1, completionevent: P2) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
@@ -1191,7 +1110,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn DeleteUmsCompletionList(umscompletionlist: *const ::core::ffi::c_void) -> super::super::Foundation::BOOL {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -1201,7 +1119,6 @@ pub unsafe fn DeleteUmsCompletionList(umscompletionlist: *const ::core::ffi::c_v
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn DeleteUmsThreadContext(umsthread: *const ::core::ffi::c_void) -> super::super::Foundation::BOOL {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -1211,7 +1128,6 @@ pub unsafe fn DeleteUmsThreadContext(umsthread: *const ::core::ffi::c_void) -> s
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn DequeueUmsCompletionListItems(umscompletionlist: *const ::core::ffi::c_void, waittimeout: u32, umsthreadlist: *mut *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -1220,7 +1136,6 @@ pub unsafe fn DequeueUmsCompletionListItems(umscompletionlist: *const ::core::ff
     DequeueUmsCompletionListItems(::core::mem::transmute(umscompletionlist), waittimeout, ::core::mem::transmute(umsthreadlist))
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`*"]
-#[inline]
 pub unsafe fn DisassociateCurrentThreadFromCallback(pci: *mut TP_CALLBACK_INSTANCE) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -1230,7 +1145,6 @@ pub unsafe fn DisassociateCurrentThreadFromCallback(pci: *mut TP_CALLBACK_INSTAN
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`, `\"Win32_System_Kernel\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
-#[inline]
 pub unsafe fn EnterCriticalSection(lpcriticalsection: *mut RTL_CRITICAL_SECTION) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -1240,7 +1154,6 @@ pub unsafe fn EnterCriticalSection(lpcriticalsection: *mut RTL_CRITICAL_SECTION)
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn EnterSynchronizationBarrier(lpbarrier: *mut RTL_BARRIER, dwflags: u32) -> super::super::Foundation::BOOL {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -1250,7 +1163,6 @@ pub unsafe fn EnterSynchronizationBarrier(lpbarrier: *mut RTL_BARRIER, dwflags: 
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`, `\"Win32_System_SystemServices\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
-#[inline]
 pub unsafe fn EnterUmsSchedulingMode(schedulerstartupinfo: *const UMS_SCHEDULER_STARTUP_INFO) -> super::super::Foundation::BOOL {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -1260,7 +1172,6 @@ pub unsafe fn EnterUmsSchedulingMode(schedulerstartupinfo: *const UMS_SCHEDULER_
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn ExecuteUmsThread(umsthread: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -1269,7 +1180,6 @@ pub unsafe fn ExecuteUmsThread(umsthread: *mut ::core::ffi::c_void) -> super::su
     ExecuteUmsThread(::core::mem::transmute(umsthread))
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`*"]
-#[inline]
 pub unsafe fn ExitProcess(uexitcode: u32) -> ! {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -1278,7 +1188,6 @@ pub unsafe fn ExitProcess(uexitcode: u32) -> ! {
     ExitProcess(uexitcode)
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`*"]
-#[inline]
 pub unsafe fn ExitThread(dwexitcode: u32) -> ! {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -1287,7 +1196,6 @@ pub unsafe fn ExitThread(dwexitcode: u32) -> ! {
     ExitThread(dwexitcode)
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`*"]
-#[inline]
 pub unsafe fn FlsAlloc(lpcallback: PFLS_CALLBACK_FUNCTION) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -1297,7 +1205,6 @@ pub unsafe fn FlsAlloc(lpcallback: PFLS_CALLBACK_FUNCTION) -> u32 {
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn FlsFree(dwflsindex: u32) -> super::super::Foundation::BOOL {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -1306,7 +1213,6 @@ pub unsafe fn FlsFree(dwflsindex: u32) -> super::super::Foundation::BOOL {
     FlsFree(dwflsindex)
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`*"]
-#[inline]
 pub unsafe fn FlsGetValue(dwflsindex: u32) -> *mut ::core::ffi::c_void {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -1316,7 +1222,6 @@ pub unsafe fn FlsGetValue(dwflsindex: u32) -> *mut ::core::ffi::c_void {
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn FlsSetValue(dwflsindex: u32, lpflsdata: *const ::core::ffi::c_void) -> super::super::Foundation::BOOL {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -1325,7 +1230,6 @@ pub unsafe fn FlsSetValue(dwflsindex: u32, lpflsdata: *const ::core::ffi::c_void
     FlsSetValue(dwflsindex, ::core::mem::transmute(lpflsdata))
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`*"]
-#[inline]
 pub unsafe fn FlushProcessWriteBuffers() {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -1335,7 +1239,6 @@ pub unsafe fn FlushProcessWriteBuffers() {
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn FreeLibraryWhenCallbackReturns<'a, P0>(pci: *mut TP_CALLBACK_INSTANCE, r#mod: P0)
 where
     P0: ::std::convert::Into<super::super::Foundation::HINSTANCE>,
@@ -1378,7 +1281,6 @@ impl ::core::fmt::Debug for GET_GUI_RESOURCES_FLAGS {
     }
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`*"]
-#[inline]
 pub unsafe fn GetActiveProcessorCount(groupnumber: u16) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -1387,7 +1289,6 @@ pub unsafe fn GetActiveProcessorCount(groupnumber: u16) -> u32 {
     GetActiveProcessorCount(groupnumber)
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`*"]
-#[inline]
 pub unsafe fn GetActiveProcessorGroupCount() -> u16 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -1397,7 +1298,6 @@ pub unsafe fn GetActiveProcessorGroupCount() -> u16 {
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn GetCurrentProcess() -> super::super::Foundation::HANDLE {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -1406,7 +1306,6 @@ pub unsafe fn GetCurrentProcess() -> super::super::Foundation::HANDLE {
     GetCurrentProcess()
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`*"]
-#[inline]
 pub unsafe fn GetCurrentProcessId() -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -1415,7 +1314,6 @@ pub unsafe fn GetCurrentProcessId() -> u32 {
     GetCurrentProcessId()
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`*"]
-#[inline]
 pub unsafe fn GetCurrentProcessorNumber() -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -1425,7 +1323,6 @@ pub unsafe fn GetCurrentProcessorNumber() -> u32 {
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_System_Kernel\"`*"]
 #[cfg(feature = "Win32_System_Kernel")]
-#[inline]
 pub unsafe fn GetCurrentProcessorNumberEx(procnumber: *mut super::Kernel::PROCESSOR_NUMBER) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -1435,7 +1332,6 @@ pub unsafe fn GetCurrentProcessorNumberEx(procnumber: *mut super::Kernel::PROCES
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn GetCurrentThread() -> super::super::Foundation::HANDLE {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -1444,7 +1340,6 @@ pub unsafe fn GetCurrentThread() -> super::super::Foundation::HANDLE {
     GetCurrentThread()
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`*"]
-#[inline]
 pub unsafe fn GetCurrentThreadId() -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -1453,7 +1348,6 @@ pub unsafe fn GetCurrentThreadId() -> u32 {
     GetCurrentThreadId()
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`*"]
-#[inline]
 pub unsafe fn GetCurrentThreadStackLimits(lowlimit: *mut usize, highlimit: *mut usize) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -1462,7 +1356,6 @@ pub unsafe fn GetCurrentThreadStackLimits(lowlimit: *mut usize, highlimit: *mut 
     GetCurrentThreadStackLimits(::core::mem::transmute(lowlimit), ::core::mem::transmute(highlimit))
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`*"]
-#[inline]
 pub unsafe fn GetCurrentUmsThread() -> *mut ::core::ffi::c_void {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -1472,7 +1365,6 @@ pub unsafe fn GetCurrentUmsThread() -> *mut ::core::ffi::c_void {
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn GetExitCodeProcess<'a, P0>(hprocess: P0, lpexitcode: *mut u32) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
@@ -1485,7 +1377,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn GetExitCodeThread<'a, P0>(hthread: P0, lpexitcode: *mut u32) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
@@ -1498,7 +1389,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn GetGuiResources<'a, P0>(hprocess: P0, uiflags: GET_GUI_RESOURCES_FLAGS) -> u32
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
@@ -1510,7 +1400,6 @@ where
     GetGuiResources(hprocess.into(), uiflags)
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`*"]
-#[inline]
 pub unsafe fn GetMachineTypeAttributes(machine: u16) -> ::windows::core::Result<MACHINE_ATTRIBUTES> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -1520,7 +1409,6 @@ pub unsafe fn GetMachineTypeAttributes(machine: u16) -> ::windows::core::Result<
     GetMachineTypeAttributes(machine, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<MACHINE_ATTRIBUTES>(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`*"]
-#[inline]
 pub unsafe fn GetMaximumProcessorCount(groupnumber: u16) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -1529,7 +1417,6 @@ pub unsafe fn GetMaximumProcessorCount(groupnumber: u16) -> u32 {
     GetMaximumProcessorCount(groupnumber)
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`*"]
-#[inline]
 pub unsafe fn GetMaximumProcessorGroupCount() -> u16 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -1538,7 +1425,6 @@ pub unsafe fn GetMaximumProcessorGroupCount() -> u16 {
     GetMaximumProcessorGroupCount()
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`*"]
-#[inline]
 pub unsafe fn GetNextUmsListItem(umscontext: *mut ::core::ffi::c_void) -> *mut ::core::ffi::c_void {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -1548,7 +1434,6 @@ pub unsafe fn GetNextUmsListItem(umscontext: *mut ::core::ffi::c_void) -> *mut :
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn GetNumaAvailableMemoryNode(node: u8, availablebytes: *mut u64) -> super::super::Foundation::BOOL {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -1558,7 +1443,6 @@ pub unsafe fn GetNumaAvailableMemoryNode(node: u8, availablebytes: *mut u64) -> 
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn GetNumaAvailableMemoryNodeEx(node: u16, availablebytes: *mut u64) -> super::super::Foundation::BOOL {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -1568,7 +1452,6 @@ pub unsafe fn GetNumaAvailableMemoryNodeEx(node: u16, availablebytes: *mut u64) 
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn GetNumaHighestNodeNumber(highestnodenumber: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -1578,7 +1461,6 @@ pub unsafe fn GetNumaHighestNodeNumber(highestnodenumber: *mut u32) -> super::su
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn GetNumaNodeNumberFromHandle<'a, P0>(hfile: P0, nodenumber: *mut u16) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
@@ -1591,7 +1473,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn GetNumaNodeProcessorMask(node: u8, processormask: *mut u64) -> super::super::Foundation::BOOL {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -1601,7 +1482,6 @@ pub unsafe fn GetNumaNodeProcessorMask(node: u8, processormask: *mut u64) -> sup
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`, `\"Win32_System_SystemInformation\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemInformation"))]
-#[inline]
 pub unsafe fn GetNumaNodeProcessorMask2(nodenumber: u16, processormasks: &mut [super::SystemInformation::GROUP_AFFINITY], requiredmaskcount: *mut u16) -> super::super::Foundation::BOOL {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -1611,7 +1491,6 @@ pub unsafe fn GetNumaNodeProcessorMask2(nodenumber: u16, processormasks: &mut [s
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`, `\"Win32_System_SystemInformation\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemInformation"))]
-#[inline]
 pub unsafe fn GetNumaNodeProcessorMaskEx(node: u16, processormask: *mut super::SystemInformation::GROUP_AFFINITY) -> super::super::Foundation::BOOL {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -1621,7 +1500,6 @@ pub unsafe fn GetNumaNodeProcessorMaskEx(node: u16, processormask: *mut super::S
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn GetNumaProcessorNode(processor: u8, nodenumber: *mut u8) -> super::super::Foundation::BOOL {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -1631,7 +1509,6 @@ pub unsafe fn GetNumaProcessorNode(processor: u8, nodenumber: *mut u8) -> super:
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`, `\"Win32_System_Kernel\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
-#[inline]
 pub unsafe fn GetNumaProcessorNodeEx(processor: *const super::Kernel::PROCESSOR_NUMBER, nodenumber: *mut u16) -> super::super::Foundation::BOOL {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -1641,7 +1518,6 @@ pub unsafe fn GetNumaProcessorNodeEx(processor: *const super::Kernel::PROCESSOR_
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn GetNumaProximityNode(proximityid: u32, nodenumber: *mut u8) -> super::super::Foundation::BOOL {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -1651,7 +1527,6 @@ pub unsafe fn GetNumaProximityNode(proximityid: u32, nodenumber: *mut u8) -> sup
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn GetNumaProximityNodeEx(proximityid: u32, nodenumber: *mut u16) -> super::super::Foundation::BOOL {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -1661,7 +1536,6 @@ pub unsafe fn GetNumaProximityNodeEx(proximityid: u32, nodenumber: *mut u16) -> 
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn GetPriorityClass<'a, P0>(hprocess: P0) -> u32
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
@@ -1674,7 +1548,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn GetProcessAffinityMask<'a, P0>(hprocess: P0, lpprocessaffinitymask: *mut usize, lpsystemaffinitymask: *mut usize) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
@@ -1687,7 +1560,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn GetProcessDEPPolicy<'a, P0>(hprocess: P0, lpflags: *mut u32, lppermanent: *mut super::super::Foundation::BOOL) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
@@ -1700,7 +1572,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`, `\"Win32_System_SystemInformation\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemInformation"))]
-#[inline]
 pub unsafe fn GetProcessDefaultCpuSetMasks<'a, P0>(process: P0, cpusetmasks: &mut [super::SystemInformation::GROUP_AFFINITY], requiredmaskcount: *mut u16) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
@@ -1713,7 +1584,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn GetProcessDefaultCpuSets<'a, P0>(process: P0, cpusetids: &mut [u32], requiredidcount: *mut u32) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
@@ -1726,7 +1596,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn GetProcessGroupAffinity<'a, P0>(hprocess: P0, groupcount: *mut u16, grouparray: *mut u16) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
@@ -1739,7 +1608,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn GetProcessHandleCount<'a, P0>(hprocess: P0, pdwhandlecount: *mut u32) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
@@ -1752,7 +1620,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn GetProcessId<'a, P0>(process: P0) -> u32
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
@@ -1765,7 +1632,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn GetProcessIdOfThread<'a, P0>(thread: P0) -> u32
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
@@ -1778,7 +1644,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn GetProcessInformation<'a, P0>(hprocess: P0, processinformationclass: PROCESS_INFORMATION_CLASS, processinformation: *mut ::core::ffi::c_void, processinformationsize: u32) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
@@ -1791,7 +1656,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn GetProcessIoCounters<'a, P0>(hprocess: P0, lpiocounters: *mut IO_COUNTERS) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
@@ -1804,7 +1668,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn GetProcessMitigationPolicy<'a, P0>(hprocess: P0, mitigationpolicy: PROCESS_MITIGATION_POLICY, lpbuffer: *mut ::core::ffi::c_void, dwlength: usize) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
@@ -1817,7 +1680,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn GetProcessPriorityBoost<'a, P0>(hprocess: P0, pdisablepriorityboost: *mut super::super::Foundation::BOOL) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
@@ -1830,7 +1692,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn GetProcessShutdownParameters(lpdwlevel: *mut u32, lpdwflags: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -1840,7 +1701,6 @@ pub unsafe fn GetProcessShutdownParameters(lpdwlevel: *mut u32, lpdwflags: *mut 
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn GetProcessTimes<'a, P0>(hprocess: P0, lpcreationtime: *mut super::super::Foundation::FILETIME, lpexittime: *mut super::super::Foundation::FILETIME, lpkerneltime: *mut super::super::Foundation::FILETIME, lpusertime: *mut super::super::Foundation::FILETIME) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
@@ -1852,7 +1712,6 @@ where
     GetProcessTimes(hprocess.into(), ::core::mem::transmute(lpcreationtime), ::core::mem::transmute(lpexittime), ::core::mem::transmute(lpkerneltime), ::core::mem::transmute(lpusertime))
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`*"]
-#[inline]
 pub unsafe fn GetProcessVersion(processid: u32) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -1862,7 +1721,6 @@ pub unsafe fn GetProcessVersion(processid: u32) -> u32 {
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn GetProcessWorkingSetSize<'a, P0>(hprocess: P0, lpminimumworkingsetsize: *mut usize, lpmaximumworkingsetsize: *mut usize) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
@@ -1875,7 +1733,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn GetStartupInfoA(lpstartupinfo: *mut STARTUPINFOA) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -1885,7 +1742,6 @@ pub unsafe fn GetStartupInfoA(lpstartupinfo: *mut STARTUPINFOA) {
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn GetStartupInfoW(lpstartupinfo: *mut STARTUPINFOW) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -1895,7 +1751,6 @@ pub unsafe fn GetStartupInfoW(lpstartupinfo: *mut STARTUPINFOW) {
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn GetSystemTimes(lpidletime: *mut super::super::Foundation::FILETIME, lpkerneltime: *mut super::super::Foundation::FILETIME, lpusertime: *mut super::super::Foundation::FILETIME) -> super::super::Foundation::BOOL {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -1905,7 +1760,6 @@ pub unsafe fn GetSystemTimes(lpidletime: *mut super::super::Foundation::FILETIME
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn GetThreadDescription<'a, P0>(hthread: P0) -> ::windows::core::Result<::windows::core::PWSTR>
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
@@ -1919,7 +1773,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`, `\"Win32_System_SystemInformation\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemInformation"))]
-#[inline]
 pub unsafe fn GetThreadGroupAffinity<'a, P0>(hthread: P0, groupaffinity: *mut super::SystemInformation::GROUP_AFFINITY) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
@@ -1932,7 +1785,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn GetThreadIOPendingFlag<'a, P0>(hthread: P0, lpioispending: *mut super::super::Foundation::BOOL) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
@@ -1945,7 +1797,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn GetThreadId<'a, P0>(thread: P0) -> u32
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
@@ -1958,7 +1809,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`, `\"Win32_System_Kernel\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
-#[inline]
 pub unsafe fn GetThreadIdealProcessorEx<'a, P0>(hthread: P0, lpidealprocessor: *mut super::Kernel::PROCESSOR_NUMBER) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
@@ -1971,7 +1821,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn GetThreadInformation<'a, P0>(hthread: P0, threadinformationclass: THREAD_INFORMATION_CLASS, threadinformation: *mut ::core::ffi::c_void, threadinformationsize: u32) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
@@ -1984,7 +1833,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn GetThreadPriority<'a, P0>(hthread: P0) -> i32
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
@@ -1997,7 +1845,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn GetThreadPriorityBoost<'a, P0>(hthread: P0, pdisablepriorityboost: *mut super::super::Foundation::BOOL) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
@@ -2010,7 +1857,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`, `\"Win32_System_SystemInformation\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemInformation"))]
-#[inline]
 pub unsafe fn GetThreadSelectedCpuSetMasks<'a, P0>(thread: P0, cpusetmasks: &mut [super::SystemInformation::GROUP_AFFINITY], requiredmaskcount: *mut u16) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
@@ -2023,7 +1869,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn GetThreadSelectedCpuSets<'a, P0>(thread: P0, cpusetids: &mut [u32], requiredidcount: *mut u32) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
@@ -2036,7 +1881,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn GetThreadTimes<'a, P0>(hthread: P0, lpcreationtime: *mut super::super::Foundation::FILETIME, lpexittime: *mut super::super::Foundation::FILETIME, lpkerneltime: *mut super::super::Foundation::FILETIME, lpusertime: *mut super::super::Foundation::FILETIME) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
@@ -2049,7 +1893,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn GetUmsCompletionListEvent(umscompletionlist: *const ::core::ffi::c_void, umscompletionevent: *mut super::super::Foundation::HANDLE) -> super::super::Foundation::BOOL {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -2059,7 +1902,6 @@ pub unsafe fn GetUmsCompletionListEvent(umscompletionlist: *const ::core::ffi::c
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn GetUmsSystemThreadInformation<'a, P0>(threadhandle: P0, systemthreadinfo: *mut UMS_SYSTEM_THREAD_INFORMATION) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
@@ -2115,7 +1957,6 @@ impl ::core::default::Default for IO_COUNTERS {
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn InitOnceBeginInitialize(lpinitonce: *mut RTL_RUN_ONCE, dwflags: u32, fpending: *mut super::super::Foundation::BOOL, lpcontext: *mut *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -2125,7 +1966,6 @@ pub unsafe fn InitOnceBeginInitialize(lpinitonce: *mut RTL_RUN_ONCE, dwflags: u3
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn InitOnceComplete(lpinitonce: *mut RTL_RUN_ONCE, dwflags: u32, lpcontext: *const ::core::ffi::c_void) -> super::super::Foundation::BOOL {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -2135,7 +1975,6 @@ pub unsafe fn InitOnceComplete(lpinitonce: *mut RTL_RUN_ONCE, dwflags: u32, lpco
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn InitOnceExecuteOnce(initonce: *mut RTL_RUN_ONCE, initfn: PINIT_ONCE_FN, parameter: *mut ::core::ffi::c_void, context: *mut *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -2144,7 +1983,6 @@ pub unsafe fn InitOnceExecuteOnce(initonce: *mut RTL_RUN_ONCE, initfn: PINIT_ONC
     InitOnceExecuteOnce(::core::mem::transmute(initonce), ::core::mem::transmute(initfn), ::core::mem::transmute(parameter), ::core::mem::transmute(context))
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`*"]
-#[inline]
 pub unsafe fn InitOnceInitialize(initonce: *mut RTL_RUN_ONCE) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -2153,7 +1991,6 @@ pub unsafe fn InitOnceInitialize(initonce: *mut RTL_RUN_ONCE) {
     InitOnceInitialize(::core::mem::transmute(initonce))
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`*"]
-#[inline]
 pub unsafe fn InitializeConditionVariable(conditionvariable: *mut RTL_CONDITION_VARIABLE) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -2163,7 +2000,6 @@ pub unsafe fn InitializeConditionVariable(conditionvariable: *mut RTL_CONDITION_
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`, `\"Win32_System_Kernel\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
-#[inline]
 pub unsafe fn InitializeCriticalSection(lpcriticalsection: *mut RTL_CRITICAL_SECTION) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -2173,7 +2009,6 @@ pub unsafe fn InitializeCriticalSection(lpcriticalsection: *mut RTL_CRITICAL_SEC
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`, `\"Win32_System_Kernel\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
-#[inline]
 pub unsafe fn InitializeCriticalSectionAndSpinCount(lpcriticalsection: *mut RTL_CRITICAL_SECTION, dwspincount: u32) -> super::super::Foundation::BOOL {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -2183,7 +2018,6 @@ pub unsafe fn InitializeCriticalSectionAndSpinCount(lpcriticalsection: *mut RTL_
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`, `\"Win32_System_Kernel\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
-#[inline]
 pub unsafe fn InitializeCriticalSectionEx(lpcriticalsection: *mut RTL_CRITICAL_SECTION, dwspincount: u32, flags: u32) -> super::super::Foundation::BOOL {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -2193,7 +2027,6 @@ pub unsafe fn InitializeCriticalSectionEx(lpcriticalsection: *mut RTL_CRITICAL_S
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn InitializeProcThreadAttributeList(lpattributelist: LPPROC_THREAD_ATTRIBUTE_LIST, dwattributecount: u32, dwflags: u32, lpsize: *mut usize) -> super::super::Foundation::BOOL {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -2203,7 +2036,6 @@ pub unsafe fn InitializeProcThreadAttributeList(lpattributelist: LPPROC_THREAD_A
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_System_Kernel\"`*"]
 #[cfg(feature = "Win32_System_Kernel")]
-#[inline]
 pub unsafe fn InitializeSListHead(listhead: *mut super::Kernel::SLIST_HEADER) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -2212,7 +2044,6 @@ pub unsafe fn InitializeSListHead(listhead: *mut super::Kernel::SLIST_HEADER) {
     InitializeSListHead(::core::mem::transmute(listhead))
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`*"]
-#[inline]
 pub unsafe fn InitializeSRWLock(srwlock: *mut RTL_SRWLOCK) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -2222,7 +2053,6 @@ pub unsafe fn InitializeSRWLock(srwlock: *mut RTL_SRWLOCK) {
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn InitializeSynchronizationBarrier(lpbarrier: *mut RTL_BARRIER, ltotalthreads: i32, lspincount: i32) -> super::super::Foundation::BOOL {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -2232,7 +2062,6 @@ pub unsafe fn InitializeSynchronizationBarrier(lpbarrier: *mut RTL_BARRIER, ltot
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_System_Kernel\"`*"]
 #[cfg(feature = "Win32_System_Kernel")]
-#[inline]
 pub unsafe fn InterlockedFlushSList(listhead: *mut super::Kernel::SLIST_HEADER) -> *mut super::Kernel::SLIST_ENTRY {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -2242,7 +2071,6 @@ pub unsafe fn InterlockedFlushSList(listhead: *mut super::Kernel::SLIST_HEADER) 
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_System_Kernel\"`*"]
 #[cfg(feature = "Win32_System_Kernel")]
-#[inline]
 pub unsafe fn InterlockedPopEntrySList(listhead: *mut super::Kernel::SLIST_HEADER) -> *mut super::Kernel::SLIST_ENTRY {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -2252,7 +2080,6 @@ pub unsafe fn InterlockedPopEntrySList(listhead: *mut super::Kernel::SLIST_HEADE
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_System_Kernel\"`*"]
 #[cfg(feature = "Win32_System_Kernel")]
-#[inline]
 pub unsafe fn InterlockedPushEntrySList(listhead: *mut super::Kernel::SLIST_HEADER, listentry: *mut super::Kernel::SLIST_ENTRY) -> *mut super::Kernel::SLIST_ENTRY {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -2262,7 +2089,6 @@ pub unsafe fn InterlockedPushEntrySList(listhead: *mut super::Kernel::SLIST_HEAD
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_System_Kernel\"`*"]
 #[cfg(feature = "Win32_System_Kernel")]
-#[inline]
 pub unsafe fn InterlockedPushListSListEx(listhead: *mut super::Kernel::SLIST_HEADER, list: *mut super::Kernel::SLIST_ENTRY, listend: *mut super::Kernel::SLIST_ENTRY, count: u32) -> *mut super::Kernel::SLIST_ENTRY {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -2272,7 +2098,6 @@ pub unsafe fn InterlockedPushListSListEx(listhead: *mut super::Kernel::SLIST_HEA
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn IsImmersiveProcess<'a, P0>(hprocess: P0) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
@@ -2285,7 +2110,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn IsProcessCritical<'a, P0>(hprocess: P0, critical: *mut super::super::Foundation::BOOL) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
@@ -2298,7 +2122,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn IsProcessorFeaturePresent(processorfeature: PROCESSOR_FEATURE_ID) -> super::super::Foundation::BOOL {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -2308,7 +2131,6 @@ pub unsafe fn IsProcessorFeaturePresent(processorfeature: PROCESSOR_FEATURE_ID) 
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn IsThreadAFiber() -> super::super::Foundation::BOOL {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -2318,7 +2140,6 @@ pub unsafe fn IsThreadAFiber() -> super::super::Foundation::BOOL {
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn IsThreadpoolTimerSet(pti: *mut TP_TIMER) -> super::super::Foundation::BOOL {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -2328,7 +2149,6 @@ pub unsafe fn IsThreadpoolTimerSet(pti: *mut TP_TIMER) -> super::super::Foundati
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn IsWow64Process<'a, P0>(hprocess: P0, wow64process: *mut super::super::Foundation::BOOL) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
@@ -2341,7 +2161,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`, `\"Win32_System_SystemInformation\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemInformation"))]
-#[inline]
 pub unsafe fn IsWow64Process2<'a, P0>(hprocess: P0, pprocessmachine: *mut super::SystemInformation::IMAGE_FILE_MACHINE, pnativemachine: *mut super::SystemInformation::IMAGE_FILE_MACHINE) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
@@ -2390,7 +2209,6 @@ unsafe impl ::windows::core::Abi for LPPROC_THREAD_ATTRIBUTE_LIST {
 pub type LPTHREAD_START_ROUTINE = ::core::option::Option<unsafe extern "system" fn(lpthreadparameter: *mut ::core::ffi::c_void) -> u32>;
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`, `\"Win32_System_Kernel\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
-#[inline]
 pub unsafe fn LeaveCriticalSection(lpcriticalsection: *mut RTL_CRITICAL_SECTION) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -2400,7 +2218,6 @@ pub unsafe fn LeaveCriticalSection(lpcriticalsection: *mut RTL_CRITICAL_SECTION)
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`, `\"Win32_System_Kernel\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
-#[inline]
 pub unsafe fn LeaveCriticalSectionWhenCallbackReturns(pci: *mut TP_CALLBACK_INSTANCE, pcs: *mut RTL_CRITICAL_SECTION) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -2564,7 +2381,6 @@ unsafe impl ::windows::core::Abi for NamespaceHandle {
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn NtQueryInformationProcess<'a, P0>(processhandle: P0, processinformationclass: PROCESSINFOCLASS, processinformation: *mut ::core::ffi::c_void, processinformationlength: u32, returnlength: *mut u32) -> ::windows::core::Result<()>
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
@@ -2577,7 +2393,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn NtQueryInformationThread<'a, P0>(threadhandle: P0, threadinformationclass: THREADINFOCLASS, threadinformation: *mut ::core::ffi::c_void, threadinformationlength: u32, returnlength: *mut u32) -> ::windows::core::Result<()>
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
@@ -2590,7 +2405,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn NtSetInformationThread<'a, P0>(threadhandle: P0, threadinformationclass: THREADINFOCLASS, threadinformation: *const ::core::ffi::c_void, threadinformationlength: u32) -> ::windows::core::Result<()>
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
@@ -2603,7 +2417,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn OpenEventA<'a, P0, P1>(dwdesiredaccess: u32, binherithandle: P0, lpname: P1) -> ::windows::core::Result<super::super::Foundation::HANDLE>
 where
     P0: ::std::convert::Into<super::super::Foundation::BOOL>,
@@ -2618,7 +2431,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn OpenEventW<'a, P0, P1>(dwdesiredaccess: u32, binherithandle: P0, lpname: P1) -> ::windows::core::Result<super::super::Foundation::HANDLE>
 where
     P0: ::std::convert::Into<super::super::Foundation::BOOL>,
@@ -2633,7 +2445,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn OpenMutexW<'a, P0, P1>(dwdesiredaccess: u32, binherithandle: P0, lpname: P1) -> ::windows::core::Result<super::super::Foundation::HANDLE>
 where
     P0: ::std::convert::Into<super::super::Foundation::BOOL>,
@@ -2647,7 +2458,6 @@ where
     (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`*"]
-#[inline]
 pub unsafe fn OpenPrivateNamespaceA<'a, P0>(lpboundarydescriptor: *const ::core::ffi::c_void, lpaliasprefix: P0) -> NamespaceHandle
 where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
@@ -2659,7 +2469,6 @@ where
     OpenPrivateNamespaceA(::core::mem::transmute(lpboundarydescriptor), lpaliasprefix.into())
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`*"]
-#[inline]
 pub unsafe fn OpenPrivateNamespaceW<'a, P0>(lpboundarydescriptor: *const ::core::ffi::c_void, lpaliasprefix: P0) -> NamespaceHandle
 where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
@@ -2672,7 +2481,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn OpenProcess<'a, P0>(dwdesiredaccess: PROCESS_ACCESS_RIGHTS, binherithandle: P0, dwprocessid: u32) -> ::windows::core::Result<super::super::Foundation::HANDLE>
 where
     P0: ::std::convert::Into<super::super::Foundation::BOOL>,
@@ -2686,7 +2494,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-#[inline]
 pub unsafe fn OpenProcessToken<'a, P0>(processhandle: P0, desiredaccess: super::super::Security::TOKEN_ACCESS_MASK, tokenhandle: *mut super::super::Foundation::HANDLE) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
@@ -2699,7 +2506,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn OpenSemaphoreW<'a, P0, P1>(dwdesiredaccess: u32, binherithandle: P0, lpname: P1) -> ::windows::core::Result<super::super::Foundation::HANDLE>
 where
     P0: ::std::convert::Into<super::super::Foundation::BOOL>,
@@ -2714,7 +2520,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn OpenThread<'a, P0>(dwdesiredaccess: THREAD_ACCESS_RIGHTS, binherithandle: P0, dwthreadid: u32) -> ::windows::core::Result<super::super::Foundation::HANDLE>
 where
     P0: ::std::convert::Into<super::super::Foundation::BOOL>,
@@ -2728,7 +2533,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-#[inline]
 pub unsafe fn OpenThreadToken<'a, P0, P1>(threadhandle: P0, desiredaccess: super::super::Security::TOKEN_ACCESS_MASK, openasself: P1, tokenhandle: *mut super::super::Foundation::HANDLE) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
@@ -2742,7 +2546,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn OpenWaitableTimerW<'a, P0, P1>(dwdesiredaccess: u32, binherithandle: P0, lptimername: P1) -> ::windows::core::Result<super::super::Foundation::HANDLE>
 where
     P0: ::std::convert::Into<super::super::Foundation::BOOL>,
@@ -4053,7 +3856,6 @@ pub type PTP_WIN32_IO_CALLBACK = ::core::option::Option<unsafe extern "system" f
 pub type PTP_WORK_CALLBACK = ::core::option::Option<unsafe extern "system" fn(instance: *mut TP_CALLBACK_INSTANCE, context: *mut ::core::ffi::c_void, work: *mut TP_WORK)>;
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn PulseEvent<'a, P0>(hevent: P0) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
@@ -4093,7 +3895,6 @@ impl ::core::fmt::Debug for QUEUE_USER_APC_FLAGS {
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_System_Kernel\"`*"]
 #[cfg(feature = "Win32_System_Kernel")]
-#[inline]
 pub unsafe fn QueryDepthSList(listhead: *const super::Kernel::SLIST_HEADER) -> u16 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -4103,7 +3904,6 @@ pub unsafe fn QueryDepthSList(listhead: *const super::Kernel::SLIST_HEADER) -> u
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn QueryFullProcessImageNameA<'a, P0>(hprocess: P0, dwflags: PROCESS_NAME_FORMAT, lpexename: ::windows::core::PSTR, lpdwsize: *mut u32) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
@@ -4116,7 +3916,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn QueryFullProcessImageNameW<'a, P0>(hprocess: P0, dwflags: PROCESS_NAME_FORMAT, lpexename: ::windows::core::PWSTR, lpdwsize: *mut u32) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
@@ -4129,7 +3928,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn QueryProcessAffinityUpdateMode<'a, P0>(hprocess: P0, lpdwflags: *mut PROCESS_AFFINITY_AUTO_UPDATE_FLAGS) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
@@ -4142,7 +3940,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn QueryProtectedPolicy(policyguid: *const ::windows::core::GUID, policyvalue: *mut usize) -> super::super::Foundation::BOOL {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -4152,7 +3949,6 @@ pub unsafe fn QueryProtectedPolicy(policyguid: *const ::windows::core::GUID, pol
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn QueryThreadpoolStackInformation<'a, P0>(ptpp: P0, ptpsi: *mut TP_POOL_STACK_INFORMATION) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<PTP_POOL>,
@@ -4165,7 +3961,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn QueryUmsThreadInformation(umsthread: *const ::core::ffi::c_void, umsthreadinfoclass: RTL_UMS_THREAD_INFO_CLASS, umsthreadinformation: *mut ::core::ffi::c_void, umsthreadinformationlength: u32, returnlength: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -4175,7 +3970,6 @@ pub unsafe fn QueryUmsThreadInformation(umsthread: *const ::core::ffi::c_void, u
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn QueueUserAPC<'a, P0>(pfnapc: super::super::Foundation::PAPCFUNC, hthread: P0, dwdata: usize) -> u32
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
@@ -4188,7 +3982,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn QueueUserAPC2<'a, P0>(apcroutine: super::super::Foundation::PAPCFUNC, thread: P0, data: usize, flags: QUEUE_USER_APC_FLAGS) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
@@ -4201,7 +3994,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn QueueUserWorkItem(function: LPTHREAD_START_ROUTINE, context: *const ::core::ffi::c_void, flags: WORKER_THREAD_FLAGS) -> super::super::Foundation::BOOL {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -4607,7 +4399,6 @@ impl ::core::default::Default for RTL_USER_PROCESS_PARAMETERS {
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn RegisterWaitForSingleObject<'a, P0>(phnewwaitobject: *mut super::super::Foundation::HANDLE, hobject: P0, callback: WAITORTIMERCALLBACK, context: *const ::core::ffi::c_void, dwmilliseconds: u32, dwflags: WORKER_THREAD_FLAGS) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
@@ -4620,7 +4411,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn ReleaseMutex<'a, P0>(hmutex: P0) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
@@ -4633,7 +4423,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn ReleaseMutexWhenCallbackReturns<'a, P0>(pci: *mut TP_CALLBACK_INSTANCE, r#mut: P0)
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
@@ -4645,7 +4434,6 @@ where
     ReleaseMutexWhenCallbackReturns(::core::mem::transmute(pci), r#mut.into())
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`*"]
-#[inline]
 pub unsafe fn ReleaseSRWLockExclusive(srwlock: *mut RTL_SRWLOCK) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -4654,7 +4442,6 @@ pub unsafe fn ReleaseSRWLockExclusive(srwlock: *mut RTL_SRWLOCK) {
     ReleaseSRWLockExclusive(::core::mem::transmute(srwlock))
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`*"]
-#[inline]
 pub unsafe fn ReleaseSRWLockShared(srwlock: *mut RTL_SRWLOCK) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -4664,7 +4451,6 @@ pub unsafe fn ReleaseSRWLockShared(srwlock: *mut RTL_SRWLOCK) {
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn ReleaseSemaphore<'a, P0>(hsemaphore: P0, lreleasecount: i32, lppreviouscount: *mut i32) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
@@ -4677,7 +4463,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn ReleaseSemaphoreWhenCallbackReturns<'a, P0>(pci: *mut TP_CALLBACK_INSTANCE, sem: P0, crel: u32)
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
@@ -4690,7 +4475,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn ResetEvent<'a, P0>(hevent: P0) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
@@ -4703,7 +4487,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn ResumeThread<'a, P0>(hthread: P0) -> u32
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
@@ -5027,7 +4810,6 @@ pub const SYNCHRONIZATION_BARRIER_FLAGS_NO_DELETE: u32 = 4u32;
 pub const SYNCHRONIZATION_BARRIER_FLAGS_SPIN_ONLY: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`, `\"Win32_System_Kernel\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
-#[inline]
 pub unsafe fn SetCriticalSectionSpinCount(lpcriticalsection: *mut RTL_CRITICAL_SECTION, dwspincount: u32) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -5037,7 +4819,6 @@ pub unsafe fn SetCriticalSectionSpinCount(lpcriticalsection: *mut RTL_CRITICAL_S
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn SetEvent<'a, P0>(hevent: P0) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
@@ -5050,7 +4831,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn SetEventWhenCallbackReturns<'a, P0>(pci: *mut TP_CALLBACK_INSTANCE, evt: P0)
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
@@ -5063,7 +4843,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn SetPriorityClass<'a, P0>(hprocess: P0, dwpriorityclass: PROCESS_CREATION_FLAGS) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
@@ -5076,7 +4855,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn SetProcessAffinityMask<'a, P0>(hprocess: P0, dwprocessaffinitymask: usize) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
@@ -5089,7 +4867,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn SetProcessAffinityUpdateMode<'a, P0>(hprocess: P0, dwflags: PROCESS_AFFINITY_AUTO_UPDATE_FLAGS) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
@@ -5102,7 +4879,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn SetProcessDEPPolicy(dwflags: PROCESS_DEP_FLAGS) -> super::super::Foundation::BOOL {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -5112,7 +4888,6 @@ pub unsafe fn SetProcessDEPPolicy(dwflags: PROCESS_DEP_FLAGS) -> super::super::F
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`, `\"Win32_System_SystemInformation\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemInformation"))]
-#[inline]
 pub unsafe fn SetProcessDefaultCpuSetMasks<'a, P0>(process: P0, cpusetmasks: &[super::SystemInformation::GROUP_AFFINITY]) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
@@ -5125,7 +4900,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn SetProcessDefaultCpuSets<'a, P0>(process: P0, cpusetids: &[u32]) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
@@ -5138,7 +4912,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn SetProcessDynamicEHContinuationTargets<'a, P0>(process: P0, targets: &mut [PROCESS_DYNAMIC_EH_CONTINUATION_TARGET]) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
@@ -5151,7 +4924,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn SetProcessDynamicEnforcedCetCompatibleRanges<'a, P0>(process: P0, ranges: &mut [PROCESS_DYNAMIC_ENFORCED_ADDRESS_RANGE]) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
@@ -5164,7 +4936,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn SetProcessInformation<'a, P0>(hprocess: P0, processinformationclass: PROCESS_INFORMATION_CLASS, processinformation: *const ::core::ffi::c_void, processinformationsize: u32) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
@@ -5177,7 +4948,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn SetProcessMitigationPolicy(mitigationpolicy: PROCESS_MITIGATION_POLICY, lpbuffer: *const ::core::ffi::c_void, dwlength: usize) -> super::super::Foundation::BOOL {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -5187,7 +4957,6 @@ pub unsafe fn SetProcessMitigationPolicy(mitigationpolicy: PROCESS_MITIGATION_PO
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn SetProcessPriorityBoost<'a, P0, P1>(hprocess: P0, bdisablepriorityboost: P1) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
@@ -5201,7 +4970,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn SetProcessRestrictionExemption<'a, P0>(fenableexemption: P0) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::super::Foundation::BOOL>,
@@ -5214,7 +4982,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn SetProcessShutdownParameters(dwlevel: u32, dwflags: u32) -> super::super::Foundation::BOOL {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -5224,7 +4991,6 @@ pub unsafe fn SetProcessShutdownParameters(dwlevel: u32, dwflags: u32) -> super:
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn SetProcessWorkingSetSize<'a, P0>(hprocess: P0, dwminimumworkingsetsize: usize, dwmaximumworkingsetsize: usize) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
@@ -5237,7 +5003,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn SetProtectedPolicy(policyguid: *const ::windows::core::GUID, policyvalue: usize, oldpolicyvalue: *mut usize) -> super::super::Foundation::BOOL {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -5247,7 +5012,6 @@ pub unsafe fn SetProtectedPolicy(policyguid: *const ::windows::core::GUID, polic
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn SetThreadAffinityMask<'a, P0>(hthread: P0, dwthreadaffinitymask: usize) -> usize
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
@@ -5260,7 +5024,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn SetThreadDescription<'a, P0, P1>(hthread: P0, lpthreaddescription: P1) -> ::windows::core::Result<()>
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
@@ -5274,7 +5037,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`, `\"Win32_System_SystemInformation\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemInformation"))]
-#[inline]
 pub unsafe fn SetThreadGroupAffinity<'a, P0>(hthread: P0, groupaffinity: *const super::SystemInformation::GROUP_AFFINITY, previousgroupaffinity: *mut super::SystemInformation::GROUP_AFFINITY) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
@@ -5287,7 +5049,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn SetThreadIdealProcessor<'a, P0>(hthread: P0, dwidealprocessor: u32) -> u32
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
@@ -5300,7 +5061,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`, `\"Win32_System_Kernel\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
-#[inline]
 pub unsafe fn SetThreadIdealProcessorEx<'a, P0>(hthread: P0, lpidealprocessor: *const super::Kernel::PROCESSOR_NUMBER, lppreviousidealprocessor: *mut super::Kernel::PROCESSOR_NUMBER) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
@@ -5313,7 +5073,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn SetThreadInformation<'a, P0>(hthread: P0, threadinformationclass: THREAD_INFORMATION_CLASS, threadinformation: *const ::core::ffi::c_void, threadinformationsize: u32) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
@@ -5326,7 +5085,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn SetThreadPriority<'a, P0>(hthread: P0, npriority: THREAD_PRIORITY) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
@@ -5339,7 +5097,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn SetThreadPriorityBoost<'a, P0, P1>(hthread: P0, bdisablepriorityboost: P1) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
@@ -5353,7 +5110,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`, `\"Win32_System_SystemInformation\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemInformation"))]
-#[inline]
 pub unsafe fn SetThreadSelectedCpuSetMasks<'a, P0>(thread: P0, cpusetmasks: &[super::SystemInformation::GROUP_AFFINITY]) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
@@ -5366,7 +5122,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn SetThreadSelectedCpuSets<'a, P0>(thread: P0, cpusetids: &[u32]) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
@@ -5379,7 +5134,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn SetThreadStackGuarantee(stacksizeinbytes: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -5389,7 +5143,6 @@ pub unsafe fn SetThreadStackGuarantee(stacksizeinbytes: *mut u32) -> super::supe
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn SetThreadToken<'a, P0>(thread: *const super::super::Foundation::HANDLE, token: P0) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
@@ -5402,7 +5155,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn SetThreadpoolStackInformation<'a, P0>(ptpp: P0, ptpsi: *const TP_POOL_STACK_INFORMATION) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<PTP_POOL>,
@@ -5414,7 +5166,6 @@ where
     SetThreadpoolStackInformation(ptpp.into(), ::core::mem::transmute(ptpsi))
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`*"]
-#[inline]
 pub unsafe fn SetThreadpoolThreadMaximum<'a, P0>(ptpp: P0, cthrdmost: u32)
 where
     P0: ::std::convert::Into<PTP_POOL>,
@@ -5427,7 +5178,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn SetThreadpoolThreadMinimum<'a, P0>(ptpp: P0, cthrdmic: u32) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<PTP_POOL>,
@@ -5440,7 +5190,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn SetThreadpoolTimer(pti: *mut TP_TIMER, pftduetime: *const super::super::Foundation::FILETIME, msperiod: u32, mswindowlength: u32) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -5450,7 +5199,6 @@ pub unsafe fn SetThreadpoolTimer(pti: *mut TP_TIMER, pftduetime: *const super::s
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn SetThreadpoolTimerEx(pti: *mut TP_TIMER, pftduetime: *const super::super::Foundation::FILETIME, msperiod: u32, mswindowlength: u32) -> super::super::Foundation::BOOL {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -5460,7 +5208,6 @@ pub unsafe fn SetThreadpoolTimerEx(pti: *mut TP_TIMER, pftduetime: *const super:
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn SetThreadpoolWait<'a, P0>(pwa: *mut TP_WAIT, h: P0, pfttimeout: *const super::super::Foundation::FILETIME)
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
@@ -5473,7 +5220,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn SetThreadpoolWaitEx<'a, P0>(pwa: *mut TP_WAIT, h: P0, pfttimeout: *const super::super::Foundation::FILETIME, reserved: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
@@ -5486,7 +5232,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn SetTimerQueueTimer<'a, P0, P1>(timerqueue: P0, callback: WAITORTIMERCALLBACK, parameter: *const ::core::ffi::c_void, duetime: u32, period: u32, preferio: P1) -> super::super::Foundation::HANDLE
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
@@ -5500,7 +5245,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn SetUmsThreadInformation(umsthread: *const ::core::ffi::c_void, umsthreadinfoclass: RTL_UMS_THREAD_INFO_CLASS, umsthreadinformation: *const ::core::ffi::c_void, umsthreadinformationlength: u32) -> super::super::Foundation::BOOL {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -5510,7 +5254,6 @@ pub unsafe fn SetUmsThreadInformation(umsthread: *const ::core::ffi::c_void, ums
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn SetWaitableTimer<'a, P0, P1>(htimer: P0, lpduetime: *const i64, lperiod: i32, pfncompletionroutine: PTIMERAPCROUTINE, lpargtocompletionroutine: *const ::core::ffi::c_void, fresume: P1) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
@@ -5524,7 +5267,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn SetWaitableTimerEx<'a, P0>(htimer: P0, lpduetime: *const i64, lperiod: i32, pfncompletionroutine: PTIMERAPCROUTINE, lpargtocompletionroutine: *const ::core::ffi::c_void, wakecontext: *const REASON_CONTEXT, tolerabledelay: u32) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
@@ -5536,7 +5278,6 @@ where
     SetWaitableTimerEx(htimer.into(), ::core::mem::transmute(lpduetime), lperiod, ::core::mem::transmute(pfncompletionroutine), ::core::mem::transmute(lpargtocompletionroutine), ::core::mem::transmute(wakecontext), tolerabledelay)
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`*"]
-#[inline]
 pub unsafe fn Sleep(dwmilliseconds: u32) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -5546,7 +5287,6 @@ pub unsafe fn Sleep(dwmilliseconds: u32) {
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`, `\"Win32_System_Kernel\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
-#[inline]
 pub unsafe fn SleepConditionVariableCS(conditionvariable: *mut RTL_CONDITION_VARIABLE, criticalsection: *mut RTL_CRITICAL_SECTION, dwmilliseconds: u32) -> super::super::Foundation::BOOL {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -5556,7 +5296,6 @@ pub unsafe fn SleepConditionVariableCS(conditionvariable: *mut RTL_CONDITION_VAR
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn SleepConditionVariableSRW(conditionvariable: *mut RTL_CONDITION_VARIABLE, srwlock: *mut RTL_SRWLOCK, dwmilliseconds: u32, flags: u32) -> super::super::Foundation::BOOL {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -5566,7 +5305,6 @@ pub unsafe fn SleepConditionVariableSRW(conditionvariable: *mut RTL_CONDITION_VA
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn SleepEx<'a, P0>(dwmilliseconds: u32, balertable: P0) -> u32
 where
     P0: ::std::convert::Into<super::super::Foundation::BOOL>,
@@ -5578,7 +5316,6 @@ where
     SleepEx(dwmilliseconds, balertable.into())
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`*"]
-#[inline]
 pub unsafe fn StartThreadpoolIo(pio: *mut TP_IO) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -5587,7 +5324,6 @@ pub unsafe fn StartThreadpoolIo(pio: *mut TP_IO) {
     StartThreadpoolIo(::core::mem::transmute(pio))
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`*"]
-#[inline]
 pub unsafe fn SubmitThreadpoolWork(pwk: *mut TP_WORK) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -5597,7 +5333,6 @@ pub unsafe fn SubmitThreadpoolWork(pwk: *mut TP_WORK) {
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn SuspendThread<'a, P0>(hthread: P0) -> u32
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
@@ -5609,7 +5344,6 @@ where
     SuspendThread(hthread.into())
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`*"]
-#[inline]
 pub unsafe fn SwitchToFiber(lpfiber: *const ::core::ffi::c_void) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -5619,7 +5353,6 @@ pub unsafe fn SwitchToFiber(lpfiber: *const ::core::ffi::c_void) {
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn SwitchToThread() -> super::super::Foundation::BOOL {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -6082,7 +5815,6 @@ pub struct TP_WAIT(pub u8);
 pub struct TP_WORK(pub u8);
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn TerminateProcess<'a, P0>(hprocess: P0, uexitcode: u32) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
@@ -6095,7 +5827,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn TerminateThread<'a, P0>(hthread: P0, dwexitcode: u32) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
@@ -6139,7 +5870,6 @@ unsafe impl ::windows::core::Abi for TimerQueueHandle {
     type Abi = Self;
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`*"]
-#[inline]
 pub unsafe fn TlsAlloc() -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -6149,7 +5879,6 @@ pub unsafe fn TlsAlloc() -> u32 {
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn TlsFree(dwtlsindex: u32) -> super::super::Foundation::BOOL {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -6158,7 +5887,6 @@ pub unsafe fn TlsFree(dwtlsindex: u32) -> super::super::Foundation::BOOL {
     TlsFree(dwtlsindex)
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`*"]
-#[inline]
 pub unsafe fn TlsGetValue(dwtlsindex: u32) -> *mut ::core::ffi::c_void {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -6168,7 +5896,6 @@ pub unsafe fn TlsGetValue(dwtlsindex: u32) -> *mut ::core::ffi::c_void {
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn TlsSetValue(dwtlsindex: u32, lptlsvalue: *const ::core::ffi::c_void) -> super::super::Foundation::BOOL {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -6178,7 +5905,6 @@ pub unsafe fn TlsSetValue(dwtlsindex: u32, lptlsvalue: *const ::core::ffi::c_voi
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn TryAcquireSRWLockExclusive(srwlock: *mut RTL_SRWLOCK) -> super::super::Foundation::BOOLEAN {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -6188,7 +5914,6 @@ pub unsafe fn TryAcquireSRWLockExclusive(srwlock: *mut RTL_SRWLOCK) -> super::su
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn TryAcquireSRWLockShared(srwlock: *mut RTL_SRWLOCK) -> super::super::Foundation::BOOLEAN {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -6198,7 +5923,6 @@ pub unsafe fn TryAcquireSRWLockShared(srwlock: *mut RTL_SRWLOCK) -> super::super
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`, `\"Win32_System_Kernel\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
-#[inline]
 pub unsafe fn TryEnterCriticalSection(lpcriticalsection: *mut RTL_CRITICAL_SECTION) -> super::super::Foundation::BOOL {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -6208,7 +5932,6 @@ pub unsafe fn TryEnterCriticalSection(lpcriticalsection: *mut RTL_CRITICAL_SECTI
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn TrySubmitThreadpoolCallback(pfns: PTP_SIMPLE_CALLBACK, pv: *mut ::core::ffi::c_void, pcbe: *const TP_CALLBACK_ENVIRON_V3) -> super::super::Foundation::BOOL {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -6341,7 +6064,6 @@ impl ::core::default::Default for UMS_SYSTEM_THREAD_INFORMATION_0_0 {
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn UmsThreadYield(schedulerparam: *const ::core::ffi::c_void) -> super::super::Foundation::BOOL {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -6351,7 +6073,6 @@ pub unsafe fn UmsThreadYield(schedulerparam: *const ::core::ffi::c_void) -> supe
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn UnregisterWait<'a, P0>(waithandle: P0) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
@@ -6364,7 +6085,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn UnregisterWaitEx<'a, P0, P1>(waithandle: P0, completionevent: P1) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
@@ -6378,7 +6098,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn UpdateProcThreadAttribute<'a, P0>(lpattributelist: P0, dwflags: u32, attribute: usize, lpvalue: *const ::core::ffi::c_void, cbsize: usize, lppreviousvalue: *mut ::core::ffi::c_void, lpreturnsize: *const usize) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<LPPROC_THREAD_ATTRIBUTE_LIST>,
@@ -6461,7 +6180,6 @@ impl ::core::ops::Not for WORKER_THREAD_FLAGS {
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn WaitForInputIdle<'a, P0>(hprocess: P0, dwmilliseconds: u32) -> u32
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
@@ -6474,7 +6192,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn WaitForMultipleObjects<'a, P0>(lphandles: &[super::super::Foundation::HANDLE], bwaitall: P0, dwmilliseconds: u32) -> u32
 where
     P0: ::std::convert::Into<super::super::Foundation::BOOL>,
@@ -6487,7 +6204,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn WaitForMultipleObjectsEx<'a, P0, P1>(lphandles: &[super::super::Foundation::HANDLE], bwaitall: P0, dwmilliseconds: u32, balertable: P1) -> u32
 where
     P0: ::std::convert::Into<super::super::Foundation::BOOL>,
@@ -6501,7 +6217,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn WaitForSingleObject<'a, P0>(hhandle: P0, dwmilliseconds: u32) -> u32
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
@@ -6514,7 +6229,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn WaitForSingleObjectEx<'a, P0, P1>(hhandle: P0, dwmilliseconds: u32, balertable: P1) -> u32
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
@@ -6528,7 +6242,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn WaitForThreadpoolIoCallbacks<'a, P0>(pio: *mut TP_IO, fcancelpendingcallbacks: P0)
 where
     P0: ::std::convert::Into<super::super::Foundation::BOOL>,
@@ -6541,7 +6254,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn WaitForThreadpoolTimerCallbacks<'a, P0>(pti: *mut TP_TIMER, fcancelpendingcallbacks: P0)
 where
     P0: ::std::convert::Into<super::super::Foundation::BOOL>,
@@ -6554,7 +6266,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn WaitForThreadpoolWaitCallbacks<'a, P0>(pwa: *mut TP_WAIT, fcancelpendingcallbacks: P0)
 where
     P0: ::std::convert::Into<super::super::Foundation::BOOL>,
@@ -6567,7 +6278,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn WaitForThreadpoolWorkCallbacks<'a, P0>(pwk: *mut TP_WORK, fcancelpendingcallbacks: P0)
 where
     P0: ::std::convert::Into<super::super::Foundation::BOOL>,
@@ -6580,7 +6290,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn WaitOnAddress(address: *const ::core::ffi::c_void, compareaddress: *const ::core::ffi::c_void, addresssize: usize, dwmilliseconds: u32) -> super::super::Foundation::BOOL {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -6589,7 +6298,6 @@ pub unsafe fn WaitOnAddress(address: *const ::core::ffi::c_void, compareaddress:
     WaitOnAddress(::core::mem::transmute(address), ::core::mem::transmute(compareaddress), addresssize, dwmilliseconds)
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`*"]
-#[inline]
 pub unsafe fn WakeAllConditionVariable(conditionvariable: *mut RTL_CONDITION_VARIABLE) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -6598,7 +6306,6 @@ pub unsafe fn WakeAllConditionVariable(conditionvariable: *mut RTL_CONDITION_VAR
     WakeAllConditionVariable(::core::mem::transmute(conditionvariable))
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`*"]
-#[inline]
 pub unsafe fn WakeByAddressAll(address: *const ::core::ffi::c_void) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -6607,7 +6314,6 @@ pub unsafe fn WakeByAddressAll(address: *const ::core::ffi::c_void) {
     WakeByAddressAll(::core::mem::transmute(address))
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`*"]
-#[inline]
 pub unsafe fn WakeByAddressSingle(address: *const ::core::ffi::c_void) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -6616,7 +6322,6 @@ pub unsafe fn WakeByAddressSingle(address: *const ::core::ffi::c_void) {
     WakeByAddressSingle(::core::mem::transmute(address))
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`*"]
-#[inline]
 pub unsafe fn WakeConditionVariable(conditionvariable: *mut RTL_CONDITION_VARIABLE) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -6625,7 +6330,6 @@ pub unsafe fn WakeConditionVariable(conditionvariable: *mut RTL_CONDITION_VARIAB
     WakeConditionVariable(::core::mem::transmute(conditionvariable))
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`*"]
-#[inline]
 pub unsafe fn WinExec<'a, P0>(lpcmdline: P0, ucmdshow: u32) -> u32
 where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
@@ -6637,7 +6341,6 @@ where
     WinExec(lpcmdline.into(), ucmdshow)
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`*"]
-#[inline]
 pub unsafe fn Wow64SetThreadDefaultGuestMachine(machine: u16) -> u16 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -6647,7 +6350,6 @@ pub unsafe fn Wow64SetThreadDefaultGuestMachine(machine: u16) -> u16 {
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn Wow64SuspendThread<'a, P0>(hthread: P0) -> u32
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
