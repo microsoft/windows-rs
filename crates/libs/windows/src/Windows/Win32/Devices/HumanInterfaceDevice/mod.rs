@@ -8169,7 +8169,7 @@ where
     extern "system" {
         fn HidD_FlushQueue(hiddeviceobject: super::super::Foundation::HANDLE) -> super::super::Foundation::BOOLEAN;
     }
-    ::core::mem::transmute(HidD_FlushQueue(hiddeviceobject.into()))
+    HidD_FlushQueue(hiddeviceobject.into())
 }
 #[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -8179,7 +8179,7 @@ pub unsafe fn HidD_FreePreparsedData(preparseddata: isize) -> super::super::Foun
     extern "system" {
         fn HidD_FreePreparsedData(preparseddata: isize) -> super::super::Foundation::BOOLEAN;
     }
-    ::core::mem::transmute(HidD_FreePreparsedData(preparseddata))
+    HidD_FreePreparsedData(preparseddata)
 }
 #[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -8192,7 +8192,7 @@ where
     extern "system" {
         fn HidD_GetAttributes(hiddeviceobject: super::super::Foundation::HANDLE, attributes: *mut HIDD_ATTRIBUTES) -> super::super::Foundation::BOOLEAN;
     }
-    ::core::mem::transmute(HidD_GetAttributes(hiddeviceobject.into(), ::core::mem::transmute(attributes)))
+    HidD_GetAttributes(hiddeviceobject.into(), ::core::mem::transmute(attributes))
 }
 #[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -8205,7 +8205,7 @@ where
     extern "system" {
         fn HidD_GetConfiguration(hiddeviceobject: super::super::Foundation::HANDLE, configuration: *mut HIDD_CONFIGURATION, configurationlength: u32) -> super::super::Foundation::BOOLEAN;
     }
-    ::core::mem::transmute(HidD_GetConfiguration(hiddeviceobject.into(), ::core::mem::transmute(configuration), configurationlength))
+    HidD_GetConfiguration(hiddeviceobject.into(), ::core::mem::transmute(configuration), configurationlength)
 }
 #[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -8218,7 +8218,7 @@ where
     extern "system" {
         fn HidD_GetFeature(hiddeviceobject: super::super::Foundation::HANDLE, reportbuffer: *mut ::core::ffi::c_void, reportbufferlength: u32) -> super::super::Foundation::BOOLEAN;
     }
-    ::core::mem::transmute(HidD_GetFeature(hiddeviceobject.into(), ::core::mem::transmute(reportbuffer), reportbufferlength))
+    HidD_GetFeature(hiddeviceobject.into(), ::core::mem::transmute(reportbuffer), reportbufferlength)
 }
 #[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`*"]
 #[inline]
@@ -8240,7 +8240,7 @@ where
     extern "system" {
         fn HidD_GetIndexedString(hiddeviceobject: super::super::Foundation::HANDLE, stringindex: u32, buffer: *mut ::core::ffi::c_void, bufferlength: u32) -> super::super::Foundation::BOOLEAN;
     }
-    ::core::mem::transmute(HidD_GetIndexedString(hiddeviceobject.into(), stringindex, ::core::mem::transmute(buffer), bufferlength))
+    HidD_GetIndexedString(hiddeviceobject.into(), stringindex, ::core::mem::transmute(buffer), bufferlength)
 }
 #[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -8253,7 +8253,7 @@ where
     extern "system" {
         fn HidD_GetInputReport(hiddeviceobject: super::super::Foundation::HANDLE, reportbuffer: *mut ::core::ffi::c_void, reportbufferlength: u32) -> super::super::Foundation::BOOLEAN;
     }
-    ::core::mem::transmute(HidD_GetInputReport(hiddeviceobject.into(), ::core::mem::transmute(reportbuffer), reportbufferlength))
+    HidD_GetInputReport(hiddeviceobject.into(), ::core::mem::transmute(reportbuffer), reportbufferlength)
 }
 #[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -8266,7 +8266,7 @@ where
     extern "system" {
         fn HidD_GetManufacturerString(hiddeviceobject: super::super::Foundation::HANDLE, buffer: *mut ::core::ffi::c_void, bufferlength: u32) -> super::super::Foundation::BOOLEAN;
     }
-    ::core::mem::transmute(HidD_GetManufacturerString(hiddeviceobject.into(), ::core::mem::transmute(buffer), bufferlength))
+    HidD_GetManufacturerString(hiddeviceobject.into(), ::core::mem::transmute(buffer), bufferlength)
 }
 #[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -8279,7 +8279,7 @@ where
     extern "system" {
         fn HidD_GetMsGenreDescriptor(hiddeviceobject: super::super::Foundation::HANDLE, buffer: *mut ::core::ffi::c_void, bufferlength: u32) -> super::super::Foundation::BOOLEAN;
     }
-    ::core::mem::transmute(HidD_GetMsGenreDescriptor(hiddeviceobject.into(), ::core::mem::transmute(buffer), bufferlength))
+    HidD_GetMsGenreDescriptor(hiddeviceobject.into(), ::core::mem::transmute(buffer), bufferlength)
 }
 #[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -8292,7 +8292,7 @@ where
     extern "system" {
         fn HidD_GetNumInputBuffers(hiddeviceobject: super::super::Foundation::HANDLE, numberbuffers: *mut u32) -> super::super::Foundation::BOOLEAN;
     }
-    ::core::mem::transmute(HidD_GetNumInputBuffers(hiddeviceobject.into(), ::core::mem::transmute(numberbuffers)))
+    HidD_GetNumInputBuffers(hiddeviceobject.into(), ::core::mem::transmute(numberbuffers))
 }
 #[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -8305,7 +8305,7 @@ where
     extern "system" {
         fn HidD_GetPhysicalDescriptor(hiddeviceobject: super::super::Foundation::HANDLE, buffer: *mut ::core::ffi::c_void, bufferlength: u32) -> super::super::Foundation::BOOLEAN;
     }
-    ::core::mem::transmute(HidD_GetPhysicalDescriptor(hiddeviceobject.into(), ::core::mem::transmute(buffer), bufferlength))
+    HidD_GetPhysicalDescriptor(hiddeviceobject.into(), ::core::mem::transmute(buffer), bufferlength)
 }
 #[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -8318,7 +8318,7 @@ where
     extern "system" {
         fn HidD_GetPreparsedData(hiddeviceobject: super::super::Foundation::HANDLE, preparseddata: *mut isize) -> super::super::Foundation::BOOLEAN;
     }
-    ::core::mem::transmute(HidD_GetPreparsedData(hiddeviceobject.into(), ::core::mem::transmute(preparseddata)))
+    HidD_GetPreparsedData(hiddeviceobject.into(), ::core::mem::transmute(preparseddata))
 }
 #[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -8331,7 +8331,7 @@ where
     extern "system" {
         fn HidD_GetProductString(hiddeviceobject: super::super::Foundation::HANDLE, buffer: *mut ::core::ffi::c_void, bufferlength: u32) -> super::super::Foundation::BOOLEAN;
     }
-    ::core::mem::transmute(HidD_GetProductString(hiddeviceobject.into(), ::core::mem::transmute(buffer), bufferlength))
+    HidD_GetProductString(hiddeviceobject.into(), ::core::mem::transmute(buffer), bufferlength)
 }
 #[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -8344,7 +8344,7 @@ where
     extern "system" {
         fn HidD_GetSerialNumberString(hiddeviceobject: super::super::Foundation::HANDLE, buffer: *mut ::core::ffi::c_void, bufferlength: u32) -> super::super::Foundation::BOOLEAN;
     }
-    ::core::mem::transmute(HidD_GetSerialNumberString(hiddeviceobject.into(), ::core::mem::transmute(buffer), bufferlength))
+    HidD_GetSerialNumberString(hiddeviceobject.into(), ::core::mem::transmute(buffer), bufferlength)
 }
 #[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -8357,7 +8357,7 @@ where
     extern "system" {
         fn HidD_SetConfiguration(hiddeviceobject: super::super::Foundation::HANDLE, configuration: *const HIDD_CONFIGURATION, configurationlength: u32) -> super::super::Foundation::BOOLEAN;
     }
-    ::core::mem::transmute(HidD_SetConfiguration(hiddeviceobject.into(), ::core::mem::transmute(configuration), configurationlength))
+    HidD_SetConfiguration(hiddeviceobject.into(), ::core::mem::transmute(configuration), configurationlength)
 }
 #[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -8370,7 +8370,7 @@ where
     extern "system" {
         fn HidD_SetFeature(hiddeviceobject: super::super::Foundation::HANDLE, reportbuffer: *const ::core::ffi::c_void, reportbufferlength: u32) -> super::super::Foundation::BOOLEAN;
     }
-    ::core::mem::transmute(HidD_SetFeature(hiddeviceobject.into(), ::core::mem::transmute(reportbuffer), reportbufferlength))
+    HidD_SetFeature(hiddeviceobject.into(), ::core::mem::transmute(reportbuffer), reportbufferlength)
 }
 #[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -8383,7 +8383,7 @@ where
     extern "system" {
         fn HidD_SetNumInputBuffers(hiddeviceobject: super::super::Foundation::HANDLE, numberbuffers: u32) -> super::super::Foundation::BOOLEAN;
     }
-    ::core::mem::transmute(HidD_SetNumInputBuffers(hiddeviceobject.into(), numberbuffers))
+    HidD_SetNumInputBuffers(hiddeviceobject.into(), numberbuffers)
 }
 #[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -8396,7 +8396,7 @@ where
     extern "system" {
         fn HidD_SetOutputReport(hiddeviceobject: super::super::Foundation::HANDLE, reportbuffer: *const ::core::ffi::c_void, reportbufferlength: u32) -> super::super::Foundation::BOOLEAN;
     }
-    ::core::mem::transmute(HidD_SetOutputReport(hiddeviceobject.into(), ::core::mem::transmute(reportbuffer), reportbufferlength))
+    HidD_SetOutputReport(hiddeviceobject.into(), ::core::mem::transmute(reportbuffer), reportbufferlength)
 }
 #[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -8570,7 +8570,7 @@ pub unsafe fn HidP_MaxDataListLength(reporttype: HIDP_REPORT_TYPE, preparseddata
     extern "system" {
         fn HidP_MaxDataListLength(reporttype: HIDP_REPORT_TYPE, preparseddata: isize) -> u32;
     }
-    ::core::mem::transmute(HidP_MaxDataListLength(reporttype, preparseddata))
+    HidP_MaxDataListLength(reporttype, preparseddata)
 }
 #[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`*"]
 #[inline]
@@ -8579,7 +8579,7 @@ pub unsafe fn HidP_MaxUsageListLength(reporttype: HIDP_REPORT_TYPE, usagepage: u
     extern "system" {
         fn HidP_MaxUsageListLength(reporttype: HIDP_REPORT_TYPE, usagepage: u16, preparseddata: isize) -> u32;
     }
-    ::core::mem::transmute(HidP_MaxUsageListLength(reporttype, usagepage, preparseddata))
+    HidP_MaxUsageListLength(reporttype, usagepage, preparseddata)
 }
 #[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -12719,7 +12719,7 @@ pub unsafe fn joyConfigChanged(dwflags: u32) -> u32 {
     extern "system" {
         fn joyConfigChanged(dwflags: u32) -> u32;
     }
-    ::core::mem::transmute(joyConfigChanged(dwflags))
+    joyConfigChanged(dwflags)
 }
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

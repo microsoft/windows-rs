@@ -6,7 +6,7 @@ pub unsafe fn CeipIsOptedIn() -> super::super::super::Foundation::BOOL {
     extern "system" {
         fn CeipIsOptedIn() -> super::super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(CeipIsOptedIn())
+    CeipIsOptedIn()
 }
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

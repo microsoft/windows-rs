@@ -9,7 +9,7 @@ where
     extern "system" {
         fn CloseGestureInfoHandle(hgestureinfo: HGESTUREINFO) -> super::super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(CloseGestureInfoHandle(hgestureinfo.into()))
+    CloseGestureInfoHandle(hgestureinfo.into())
 }
 #[doc = "*Required features: `\"Win32_UI_Input_Touch\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -22,7 +22,7 @@ where
     extern "system" {
         fn CloseTouchInputHandle(htouchinput: HTOUCHINPUT) -> super::super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(CloseTouchInputHandle(htouchinput.into()))
+    CloseTouchInputHandle(htouchinput.into())
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_UI_Input_Touch\"`*"]
@@ -222,7 +222,7 @@ where
     extern "system" {
         fn GetGestureConfig(hwnd: super::super::super::Foundation::HWND, dwreserved: u32, dwflags: u32, pcids: *const u32, pgestureconfig: *mut GESTURECONFIG, cbsize: u32) -> super::super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(GetGestureConfig(hwnd.into(), dwreserved, dwflags, pgestureconfig.len() as _, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(pgestureconfig)), cbsize))
+    GetGestureConfig(hwnd.into(), dwreserved, dwflags, pgestureconfig.len() as _, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(pgestureconfig)), cbsize)
 }
 #[doc = "*Required features: `\"Win32_UI_Input_Touch\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -235,7 +235,7 @@ where
     extern "system" {
         fn GetGestureExtraArgs(hgestureinfo: HGESTUREINFO, cbextraargs: u32, pextraargs: *mut u8) -> super::super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(GetGestureExtraArgs(hgestureinfo.into(), cbextraargs, ::core::mem::transmute(pextraargs)))
+    GetGestureExtraArgs(hgestureinfo.into(), cbextraargs, ::core::mem::transmute(pextraargs))
 }
 #[doc = "*Required features: `\"Win32_UI_Input_Touch\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -248,7 +248,7 @@ where
     extern "system" {
         fn GetGestureInfo(hgestureinfo: HGESTUREINFO, pgestureinfo: *mut GESTUREINFO) -> super::super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(GetGestureInfo(hgestureinfo.into(), ::core::mem::transmute(pgestureinfo)))
+    GetGestureInfo(hgestureinfo.into(), ::core::mem::transmute(pgestureinfo))
 }
 #[doc = "*Required features: `\"Win32_UI_Input_Touch\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -261,7 +261,7 @@ where
     extern "system" {
         fn GetTouchInputInfo(htouchinput: HTOUCHINPUT, cinputs: u32, pinputs: *mut TOUCHINPUT, cbsize: i32) -> super::super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(GetTouchInputInfo(htouchinput.into(), pinputs.len() as _, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(pinputs)), cbsize))
+    GetTouchInputInfo(htouchinput.into(), pinputs.len() as _, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(pinputs)), cbsize)
 }
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
@@ -752,7 +752,7 @@ where
     extern "system" {
         fn IsTouchWindow(hwnd: super::super::super::Foundation::HWND, pulflags: *mut u32) -> super::super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(IsTouchWindow(hwnd.into(), ::core::mem::transmute(pulflags)))
+    IsTouchWindow(hwnd.into(), ::core::mem::transmute(pulflags))
 }
 #[doc = "*Required features: `\"Win32_UI_Input_Touch\"`*"]
 #[repr(transparent)]
@@ -828,7 +828,7 @@ where
     extern "system" {
         fn RegisterTouchWindow(hwnd: super::super::super::Foundation::HWND, ulflags: REGISTER_TOUCH_WINDOW_FLAGS) -> super::super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(RegisterTouchWindow(hwnd.into(), ulflags))
+    RegisterTouchWindow(hwnd.into(), ulflags)
 }
 #[doc = "*Required features: `\"Win32_UI_Input_Touch\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -841,7 +841,7 @@ where
     extern "system" {
         fn SetGestureConfig(hwnd: super::super::super::Foundation::HWND, dwreserved: u32, cids: u32, pgestureconfig: *const GESTURECONFIG, cbsize: u32) -> super::super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(SetGestureConfig(hwnd.into(), dwreserved, pgestureconfig.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(pgestureconfig)), cbsize))
+    SetGestureConfig(hwnd.into(), dwreserved, pgestureconfig.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(pgestureconfig)), cbsize)
 }
 #[doc = "*Required features: `\"Win32_UI_Input_Touch\"`*"]
 #[repr(transparent)]
@@ -1025,7 +1025,7 @@ where
     extern "system" {
         fn UnregisterTouchWindow(hwnd: super::super::super::Foundation::HWND) -> super::super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(UnregisterTouchWindow(hwnd.into()))
+    UnregisterTouchWindow(hwnd.into())
 }
 #[doc = "*Required features: `\"Win32_UI_Input_Touch\"`*"]
 #[repr(transparent)]

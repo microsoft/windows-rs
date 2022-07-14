@@ -3231,7 +3231,7 @@ pub unsafe fn WSDAllocateLinkedMemory(pparent: *mut ::core::ffi::c_void, cbsize:
     extern "system" {
         fn WSDAllocateLinkedMemory(pparent: *mut ::core::ffi::c_void, cbsize: usize) -> *mut ::core::ffi::c_void;
     }
-    ::core::mem::transmute(WSDAllocateLinkedMemory(::core::mem::transmute(pparent), cbsize))
+    WSDAllocateLinkedMemory(::core::mem::transmute(pparent), cbsize)
 }
 #[doc = "*Required features: `\"Win32_Devices_WebServicesOnDevices\"`*"]
 #[inline]

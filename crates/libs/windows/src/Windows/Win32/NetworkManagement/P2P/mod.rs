@@ -4916,7 +4916,7 @@ pub unsafe fn PeerDistClientAddContentInformation(hpeerdist: isize, hcontenthand
     extern "system" {
         fn PeerDistClientAddContentInformation(hpeerdist: isize, hcontenthandle: isize, cbnumberofbytes: u32, pbuffer: *const u8, lpoverlapped: *const super::super::System::IO::OVERLAPPED) -> u32;
     }
-    ::core::mem::transmute(PeerDistClientAddContentInformation(hpeerdist, hcontenthandle, cbnumberofbytes, ::core::mem::transmute(pbuffer), ::core::mem::transmute(lpoverlapped)))
+    PeerDistClientAddContentInformation(hpeerdist, hcontenthandle, cbnumberofbytes, ::core::mem::transmute(pbuffer), ::core::mem::transmute(lpoverlapped))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_P2P\"`, `\"Win32_Foundation\"`, `\"Win32_System_IO\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
@@ -4926,7 +4926,7 @@ pub unsafe fn PeerDistClientAddData(hpeerdist: isize, hcontenthandle: isize, cbn
     extern "system" {
         fn PeerDistClientAddData(hpeerdist: isize, hcontenthandle: isize, cbnumberofbytes: u32, pbuffer: *const u8, lpoverlapped: *const super::super::System::IO::OVERLAPPED) -> u32;
     }
-    ::core::mem::transmute(PeerDistClientAddData(hpeerdist, hcontenthandle, cbnumberofbytes, ::core::mem::transmute(pbuffer), ::core::mem::transmute(lpoverlapped)))
+    PeerDistClientAddData(hpeerdist, hcontenthandle, cbnumberofbytes, ::core::mem::transmute(pbuffer), ::core::mem::transmute(lpoverlapped))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_P2P\"`, `\"Win32_Foundation\"`, `\"Win32_System_IO\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
@@ -4936,7 +4936,7 @@ pub unsafe fn PeerDistClientBlockRead(hpeerdist: isize, hcontenthandle: isize, c
     extern "system" {
         fn PeerDistClientBlockRead(hpeerdist: isize, hcontenthandle: isize, cbmaxnumberofbytes: u32, pbuffer: *mut u8, dwtimeoutinmilliseconds: u32, lpoverlapped: *const super::super::System::IO::OVERLAPPED) -> u32;
     }
-    ::core::mem::transmute(PeerDistClientBlockRead(hpeerdist, hcontenthandle, cbmaxnumberofbytes, ::core::mem::transmute(pbuffer), dwtimeoutinmilliseconds, ::core::mem::transmute(lpoverlapped)))
+    PeerDistClientBlockRead(hpeerdist, hcontenthandle, cbmaxnumberofbytes, ::core::mem::transmute(pbuffer), dwtimeoutinmilliseconds, ::core::mem::transmute(lpoverlapped))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_P2P\"`, `\"Win32_Foundation\"`, `\"Win32_System_IO\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
@@ -4946,7 +4946,7 @@ pub unsafe fn PeerDistClientCancelAsyncOperation(hpeerdist: isize, hcontenthandl
     extern "system" {
         fn PeerDistClientCancelAsyncOperation(hpeerdist: isize, hcontenthandle: isize, poverlapped: *const super::super::System::IO::OVERLAPPED) -> u32;
     }
-    ::core::mem::transmute(PeerDistClientCancelAsyncOperation(hpeerdist, hcontenthandle, ::core::mem::transmute(poverlapped)))
+    PeerDistClientCancelAsyncOperation(hpeerdist, hcontenthandle, ::core::mem::transmute(poverlapped))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_P2P\"`*"]
 #[inline]
@@ -4955,7 +4955,7 @@ pub unsafe fn PeerDistClientCloseContent(hpeerdist: isize, hcontenthandle: isize
     extern "system" {
         fn PeerDistClientCloseContent(hpeerdist: isize, hcontenthandle: isize) -> u32;
     }
-    ::core::mem::transmute(PeerDistClientCloseContent(hpeerdist, hcontenthandle))
+    PeerDistClientCloseContent(hpeerdist, hcontenthandle)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_P2P\"`, `\"Win32_Foundation\"`, `\"Win32_System_IO\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
@@ -4965,7 +4965,7 @@ pub unsafe fn PeerDistClientCompleteContentInformation(hpeerdist: isize, hconten
     extern "system" {
         fn PeerDistClientCompleteContentInformation(hpeerdist: isize, hcontenthandle: isize, lpoverlapped: *const super::super::System::IO::OVERLAPPED) -> u32;
     }
-    ::core::mem::transmute(PeerDistClientCompleteContentInformation(hpeerdist, hcontenthandle, ::core::mem::transmute(lpoverlapped)))
+    PeerDistClientCompleteContentInformation(hpeerdist, hcontenthandle, ::core::mem::transmute(lpoverlapped))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_P2P\"`, `\"Win32_Foundation\"`, `\"Win32_System_IO\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
@@ -4978,7 +4978,7 @@ where
     extern "system" {
         fn PeerDistClientFlushContent(hpeerdist: isize, pcontenttag: *const PEERDIST_CONTENT_TAG, hcompletionport: super::super::Foundation::HANDLE, ulcompletionkey: usize, lpoverlapped: *const super::super::System::IO::OVERLAPPED) -> u32;
     }
-    ::core::mem::transmute(PeerDistClientFlushContent(hpeerdist, ::core::mem::transmute(pcontenttag), hcompletionport.into(), ulcompletionkey, ::core::mem::transmute(lpoverlapped)))
+    PeerDistClientFlushContent(hpeerdist, ::core::mem::transmute(pcontenttag), hcompletionport.into(), ulcompletionkey, ::core::mem::transmute(lpoverlapped))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_P2P\"`*"]
 #[inline]
@@ -4987,7 +4987,7 @@ pub unsafe fn PeerDistClientGetInformationByHandle(hpeerdist: isize, hcontenthan
     extern "system" {
         fn PeerDistClientGetInformationByHandle(hpeerdist: isize, hcontenthandle: isize, peerdistclientinfoclass: PEERDIST_CLIENT_INFO_BY_HANDLE_CLASS, dwbuffersize: u32, lpinformation: *mut ::core::ffi::c_void) -> u32;
     }
-    ::core::mem::transmute(PeerDistClientGetInformationByHandle(hpeerdist, hcontenthandle, peerdistclientinfoclass, dwbuffersize, ::core::mem::transmute(lpinformation)))
+    PeerDistClientGetInformationByHandle(hpeerdist, hcontenthandle, peerdistclientinfoclass, dwbuffersize, ::core::mem::transmute(lpinformation))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_P2P\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -5000,7 +5000,7 @@ where
     extern "system" {
         fn PeerDistClientOpenContent(hpeerdist: isize, pcontenttag: *const PEERDIST_CONTENT_TAG, hcompletionport: super::super::Foundation::HANDLE, ulcompletionkey: usize, phcontenthandle: *mut isize) -> u32;
     }
-    ::core::mem::transmute(PeerDistClientOpenContent(hpeerdist, ::core::mem::transmute(pcontenttag), hcompletionport.into(), ulcompletionkey, ::core::mem::transmute(phcontenthandle)))
+    PeerDistClientOpenContent(hpeerdist, ::core::mem::transmute(pcontenttag), hcompletionport.into(), ulcompletionkey, ::core::mem::transmute(phcontenthandle))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_P2P\"`, `\"Win32_Foundation\"`, `\"Win32_System_IO\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
@@ -5010,7 +5010,7 @@ pub unsafe fn PeerDistClientStreamRead(hpeerdist: isize, hcontenthandle: isize, 
     extern "system" {
         fn PeerDistClientStreamRead(hpeerdist: isize, hcontenthandle: isize, cbmaxnumberofbytes: u32, pbuffer: *mut u8, dwtimeoutinmilliseconds: u32, lpoverlapped: *const super::super::System::IO::OVERLAPPED) -> u32;
     }
-    ::core::mem::transmute(PeerDistClientStreamRead(hpeerdist, hcontenthandle, cbmaxnumberofbytes, ::core::mem::transmute(pbuffer), dwtimeoutinmilliseconds, ::core::mem::transmute(lpoverlapped)))
+    PeerDistClientStreamRead(hpeerdist, hcontenthandle, cbmaxnumberofbytes, ::core::mem::transmute(pbuffer), dwtimeoutinmilliseconds, ::core::mem::transmute(lpoverlapped))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_P2P\"`, `\"Win32_Foundation\"`, `\"Win32_System_IO\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
@@ -5023,7 +5023,7 @@ where
     extern "system" {
         fn PeerDistGetOverlappedResult(lpoverlapped: *const super::super::System::IO::OVERLAPPED, lpnumberofbytestransferred: *mut u32, bwait: super::super::Foundation::BOOL) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(PeerDistGetOverlappedResult(::core::mem::transmute(lpoverlapped), ::core::mem::transmute(lpnumberofbytestransferred), bwait.into()))
+    PeerDistGetOverlappedResult(::core::mem::transmute(lpoverlapped), ::core::mem::transmute(lpnumberofbytestransferred), bwait.into())
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_P2P\"`*"]
 #[inline]
@@ -5032,7 +5032,7 @@ pub unsafe fn PeerDistGetStatus(hpeerdist: isize, ppeerdiststatus: *mut PEERDIST
     extern "system" {
         fn PeerDistGetStatus(hpeerdist: isize, ppeerdiststatus: *mut PEERDIST_STATUS) -> u32;
     }
-    ::core::mem::transmute(PeerDistGetStatus(hpeerdist, ::core::mem::transmute(ppeerdiststatus)))
+    PeerDistGetStatus(hpeerdist, ::core::mem::transmute(ppeerdiststatus))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_P2P\"`*"]
 #[inline]
@@ -5041,7 +5041,7 @@ pub unsafe fn PeerDistGetStatusEx(hpeerdist: isize, ppeerdiststatus: *mut PEERDI
     extern "system" {
         fn PeerDistGetStatusEx(hpeerdist: isize, ppeerdiststatus: *mut PEERDIST_STATUS_INFO) -> u32;
     }
-    ::core::mem::transmute(PeerDistGetStatusEx(hpeerdist, ::core::mem::transmute(ppeerdiststatus)))
+    PeerDistGetStatusEx(hpeerdist, ::core::mem::transmute(ppeerdiststatus))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_P2P\"`, `\"Win32_Foundation\"`, `\"Win32_System_IO\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
@@ -5054,7 +5054,7 @@ where
     extern "system" {
         fn PeerDistRegisterForStatusChangeNotification(hpeerdist: isize, hcompletionport: super::super::Foundation::HANDLE, ulcompletionkey: usize, lpoverlapped: *const super::super::System::IO::OVERLAPPED, ppeerdiststatus: *mut PEERDIST_STATUS) -> u32;
     }
-    ::core::mem::transmute(PeerDistRegisterForStatusChangeNotification(hpeerdist, hcompletionport.into(), ulcompletionkey, ::core::mem::transmute(lpoverlapped), ::core::mem::transmute(ppeerdiststatus)))
+    PeerDistRegisterForStatusChangeNotification(hpeerdist, hcompletionport.into(), ulcompletionkey, ::core::mem::transmute(lpoverlapped), ::core::mem::transmute(ppeerdiststatus))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_P2P\"`, `\"Win32_Foundation\"`, `\"Win32_System_IO\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
@@ -5067,7 +5067,7 @@ where
     extern "system" {
         fn PeerDistRegisterForStatusChangeNotificationEx(hpeerdist: isize, hcompletionport: super::super::Foundation::HANDLE, ulcompletionkey: usize, lpoverlapped: *const super::super::System::IO::OVERLAPPED, ppeerdiststatus: *mut PEERDIST_STATUS_INFO) -> u32;
     }
-    ::core::mem::transmute(PeerDistRegisterForStatusChangeNotificationEx(hpeerdist, hcompletionport.into(), ulcompletionkey, ::core::mem::transmute(lpoverlapped), ::core::mem::transmute(ppeerdiststatus)))
+    PeerDistRegisterForStatusChangeNotificationEx(hpeerdist, hcompletionport.into(), ulcompletionkey, ::core::mem::transmute(lpoverlapped), ::core::mem::transmute(ppeerdiststatus))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_P2P\"`, `\"Win32_Foundation\"`, `\"Win32_System_IO\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
@@ -5077,7 +5077,7 @@ pub unsafe fn PeerDistServerCancelAsyncOperation(hpeerdist: isize, cbcontentiden
     extern "system" {
         fn PeerDistServerCancelAsyncOperation(hpeerdist: isize, cbcontentidentifier: u32, pcontentidentifier: *const u8, poverlapped: *const super::super::System::IO::OVERLAPPED) -> u32;
     }
-    ::core::mem::transmute(PeerDistServerCancelAsyncOperation(hpeerdist, cbcontentidentifier, ::core::mem::transmute(pcontentidentifier), ::core::mem::transmute(poverlapped)))
+    PeerDistServerCancelAsyncOperation(hpeerdist, cbcontentidentifier, ::core::mem::transmute(pcontentidentifier), ::core::mem::transmute(poverlapped))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_P2P\"`*"]
 #[inline]
@@ -5086,7 +5086,7 @@ pub unsafe fn PeerDistServerCloseContentInformation(hpeerdist: isize, hcontentin
     extern "system" {
         fn PeerDistServerCloseContentInformation(hpeerdist: isize, hcontentinfo: isize) -> u32;
     }
-    ::core::mem::transmute(PeerDistServerCloseContentInformation(hpeerdist, hcontentinfo))
+    PeerDistServerCloseContentInformation(hpeerdist, hcontentinfo)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_P2P\"`*"]
 #[inline]
@@ -5095,7 +5095,7 @@ pub unsafe fn PeerDistServerCloseStreamHandle(hpeerdist: isize, hstream: isize) 
     extern "system" {
         fn PeerDistServerCloseStreamHandle(hpeerdist: isize, hstream: isize) -> u32;
     }
-    ::core::mem::transmute(PeerDistServerCloseStreamHandle(hpeerdist, hstream))
+    PeerDistServerCloseStreamHandle(hpeerdist, hstream)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_P2P\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -5108,7 +5108,7 @@ where
     extern "system" {
         fn PeerDistServerOpenContentInformation(hpeerdist: isize, cbcontentidentifier: u32, pcontentidentifier: *const u8, ullcontentoffset: u64, cbcontentlength: u64, hcompletionport: super::super::Foundation::HANDLE, ulcompletionkey: usize, phcontentinfo: *mut isize) -> u32;
     }
-    ::core::mem::transmute(PeerDistServerOpenContentInformation(hpeerdist, cbcontentidentifier, ::core::mem::transmute(pcontentidentifier), ullcontentoffset, cbcontentlength, hcompletionport.into(), ulcompletionkey, ::core::mem::transmute(phcontentinfo)))
+    PeerDistServerOpenContentInformation(hpeerdist, cbcontentidentifier, ::core::mem::transmute(pcontentidentifier), ullcontentoffset, cbcontentlength, hcompletionport.into(), ulcompletionkey, ::core::mem::transmute(phcontentinfo))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_P2P\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -5121,7 +5121,7 @@ where
     extern "system" {
         fn PeerDistServerOpenContentInformationEx(hpeerdist: isize, cbcontentidentifier: u32, pcontentidentifier: *const u8, ullcontentoffset: u64, cbcontentlength: u64, pretrievaloptions: *const PEERDIST_RETRIEVAL_OPTIONS, hcompletionport: super::super::Foundation::HANDLE, ulcompletionkey: usize, phcontentinfo: *mut isize) -> u32;
     }
-    ::core::mem::transmute(PeerDistServerOpenContentInformationEx(hpeerdist, cbcontentidentifier, ::core::mem::transmute(pcontentidentifier), ullcontentoffset, cbcontentlength, ::core::mem::transmute(pretrievaloptions), hcompletionport.into(), ulcompletionkey, ::core::mem::transmute(phcontentinfo)))
+    PeerDistServerOpenContentInformationEx(hpeerdist, cbcontentidentifier, ::core::mem::transmute(pcontentidentifier), ullcontentoffset, cbcontentlength, ::core::mem::transmute(pretrievaloptions), hcompletionport.into(), ulcompletionkey, ::core::mem::transmute(phcontentinfo))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_P2P\"`, `\"Win32_Foundation\"`, `\"Win32_System_IO\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
@@ -5131,7 +5131,7 @@ pub unsafe fn PeerDistServerPublishAddToStream(hpeerdist: isize, hstream: isize,
     extern "system" {
         fn PeerDistServerPublishAddToStream(hpeerdist: isize, hstream: isize, cbnumberofbytes: u32, pbuffer: *const u8, lpoverlapped: *const super::super::System::IO::OVERLAPPED) -> u32;
     }
-    ::core::mem::transmute(PeerDistServerPublishAddToStream(hpeerdist, hstream, cbnumberofbytes, ::core::mem::transmute(pbuffer), ::core::mem::transmute(lpoverlapped)))
+    PeerDistServerPublishAddToStream(hpeerdist, hstream, cbnumberofbytes, ::core::mem::transmute(pbuffer), ::core::mem::transmute(lpoverlapped))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_P2P\"`, `\"Win32_Foundation\"`, `\"Win32_System_IO\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
@@ -5141,7 +5141,7 @@ pub unsafe fn PeerDistServerPublishCompleteStream(hpeerdist: isize, hstream: isi
     extern "system" {
         fn PeerDistServerPublishCompleteStream(hpeerdist: isize, hstream: isize, lpoverlapped: *const super::super::System::IO::OVERLAPPED) -> u32;
     }
-    ::core::mem::transmute(PeerDistServerPublishCompleteStream(hpeerdist, hstream, ::core::mem::transmute(lpoverlapped)))
+    PeerDistServerPublishCompleteStream(hpeerdist, hstream, ::core::mem::transmute(lpoverlapped))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_P2P\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -5154,7 +5154,7 @@ where
     extern "system" {
         fn PeerDistServerPublishStream(hpeerdist: isize, cbcontentidentifier: u32, pcontentidentifier: *const u8, cbcontentlength: u64, ppublishoptions: *const PEERDIST_PUBLICATION_OPTIONS, hcompletionport: super::super::Foundation::HANDLE, ulcompletionkey: usize, phstream: *mut isize) -> u32;
     }
-    ::core::mem::transmute(PeerDistServerPublishStream(hpeerdist, cbcontentidentifier, ::core::mem::transmute(pcontentidentifier), cbcontentlength, ::core::mem::transmute(ppublishoptions), hcompletionport.into(), ulcompletionkey, ::core::mem::transmute(phstream)))
+    PeerDistServerPublishStream(hpeerdist, cbcontentidentifier, ::core::mem::transmute(pcontentidentifier), cbcontentlength, ::core::mem::transmute(ppublishoptions), hcompletionport.into(), ulcompletionkey, ::core::mem::transmute(phstream))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_P2P\"`, `\"Win32_Foundation\"`, `\"Win32_System_IO\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
@@ -5164,7 +5164,7 @@ pub unsafe fn PeerDistServerRetrieveContentInformation(hpeerdist: isize, hconten
     extern "system" {
         fn PeerDistServerRetrieveContentInformation(hpeerdist: isize, hcontentinfo: isize, cbmaxnumberofbytes: u32, pbuffer: *mut u8, lpoverlapped: *const super::super::System::IO::OVERLAPPED) -> u32;
     }
-    ::core::mem::transmute(PeerDistServerRetrieveContentInformation(hpeerdist, hcontentinfo, cbmaxnumberofbytes, ::core::mem::transmute(pbuffer), ::core::mem::transmute(lpoverlapped)))
+    PeerDistServerRetrieveContentInformation(hpeerdist, hcontentinfo, cbmaxnumberofbytes, ::core::mem::transmute(pbuffer), ::core::mem::transmute(lpoverlapped))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_P2P\"`*"]
 #[inline]
@@ -5173,7 +5173,7 @@ pub unsafe fn PeerDistServerUnpublish(hpeerdist: isize, cbcontentidentifier: u32
     extern "system" {
         fn PeerDistServerUnpublish(hpeerdist: isize, cbcontentidentifier: u32, pcontentidentifier: *const u8) -> u32;
     }
-    ::core::mem::transmute(PeerDistServerUnpublish(hpeerdist, cbcontentidentifier, ::core::mem::transmute(pcontentidentifier)))
+    PeerDistServerUnpublish(hpeerdist, cbcontentidentifier, ::core::mem::transmute(pcontentidentifier))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_P2P\"`*"]
 #[inline]
@@ -5182,7 +5182,7 @@ pub unsafe fn PeerDistShutdown(hpeerdist: isize) -> u32 {
     extern "system" {
         fn PeerDistShutdown(hpeerdist: isize) -> u32;
     }
-    ::core::mem::transmute(PeerDistShutdown(hpeerdist))
+    PeerDistShutdown(hpeerdist)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_P2P\"`*"]
 #[inline]
@@ -5191,7 +5191,7 @@ pub unsafe fn PeerDistStartup(dwversionrequested: u32, phpeerdist: *mut isize, p
     extern "system" {
         fn PeerDistStartup(dwversionrequested: u32, phpeerdist: *mut isize, pdwsupportedversion: *mut u32) -> u32;
     }
-    ::core::mem::transmute(PeerDistStartup(dwversionrequested, ::core::mem::transmute(phpeerdist), ::core::mem::transmute(pdwsupportedversion)))
+    PeerDistStartup(dwversionrequested, ::core::mem::transmute(phpeerdist), ::core::mem::transmute(pdwsupportedversion))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_P2P\"`*"]
 #[inline]
@@ -5200,7 +5200,7 @@ pub unsafe fn PeerDistUnregisterForStatusChangeNotification(hpeerdist: isize) ->
     extern "system" {
         fn PeerDistUnregisterForStatusChangeNotification(hpeerdist: isize) -> u32;
     }
-    ::core::mem::transmute(PeerDistUnregisterForStatusChangeNotification(hpeerdist))
+    PeerDistUnregisterForStatusChangeNotification(hpeerdist)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_P2P\"`*"]
 #[inline]

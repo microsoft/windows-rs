@@ -361,10 +361,10 @@ pub struct IDxcAssembler_Vtbl {
 pub struct IDxcBlob(::windows::core::IUnknown);
 impl IDxcBlob {
     pub unsafe fn GetBufferPointer(&self) -> *mut ::core::ffi::c_void {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).GetBufferPointer)(::windows::core::Interface::as_raw(self)))
+        (::windows::core::Interface::vtable(self).GetBufferPointer)(::windows::core::Interface::as_raw(self))
     }
     pub unsafe fn GetBufferSize(&self) -> usize {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).GetBufferSize)(::windows::core::Interface::as_raw(self)))
+        (::windows::core::Interface::vtable(self).GetBufferSize)(::windows::core::Interface::as_raw(self))
     }
 }
 impl ::core::convert::From<IDxcBlob> for ::windows::core::IUnknown {
@@ -414,10 +414,10 @@ pub struct IDxcBlob_Vtbl {
 pub struct IDxcBlobEncoding(::windows::core::IUnknown);
 impl IDxcBlobEncoding {
     pub unsafe fn GetBufferPointer(&self) -> *mut ::core::ffi::c_void {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).base__.GetBufferPointer)(::windows::core::Interface::as_raw(self)))
+        (::windows::core::Interface::vtable(self).base__.GetBufferPointer)(::windows::core::Interface::as_raw(self))
     }
     pub unsafe fn GetBufferSize(&self) -> usize {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).base__.GetBufferSize)(::windows::core::Interface::as_raw(self)))
+        (::windows::core::Interface::vtable(self).base__.GetBufferSize)(::windows::core::Interface::as_raw(self))
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -489,10 +489,10 @@ pub struct IDxcBlobEncoding_Vtbl {
 pub struct IDxcBlobUtf16(::windows::core::IUnknown);
 impl IDxcBlobUtf16 {
     pub unsafe fn GetBufferPointer(&self) -> *mut ::core::ffi::c_void {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).base__.base__.GetBufferPointer)(::windows::core::Interface::as_raw(self)))
+        (::windows::core::Interface::vtable(self).base__.base__.GetBufferPointer)(::windows::core::Interface::as_raw(self))
     }
     pub unsafe fn GetBufferSize(&self) -> usize {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).base__.base__.GetBufferSize)(::windows::core::Interface::as_raw(self)))
+        (::windows::core::Interface::vtable(self).base__.base__.GetBufferSize)(::windows::core::Interface::as_raw(self))
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -500,10 +500,10 @@ impl IDxcBlobUtf16 {
         (::windows::core::Interface::vtable(self).base__.GetEncoding)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pknown), ::core::mem::transmute(pcodepage)).ok()
     }
     pub unsafe fn GetStringPointer(&self) -> ::windows::core::PWSTR {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).GetStringPointer)(::windows::core::Interface::as_raw(self)))
+        (::windows::core::Interface::vtable(self).GetStringPointer)(::windows::core::Interface::as_raw(self))
     }
     pub unsafe fn GetStringLength(&self) -> usize {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).GetStringLength)(::windows::core::Interface::as_raw(self)))
+        (::windows::core::Interface::vtable(self).GetStringLength)(::windows::core::Interface::as_raw(self))
     }
 }
 impl ::core::convert::From<IDxcBlobUtf16> for ::windows::core::IUnknown {
@@ -583,10 +583,10 @@ pub struct IDxcBlobUtf16_Vtbl {
 pub struct IDxcBlobUtf8(::windows::core::IUnknown);
 impl IDxcBlobUtf8 {
     pub unsafe fn GetBufferPointer(&self) -> *mut ::core::ffi::c_void {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).base__.base__.GetBufferPointer)(::windows::core::Interface::as_raw(self)))
+        (::windows::core::Interface::vtable(self).base__.base__.GetBufferPointer)(::windows::core::Interface::as_raw(self))
     }
     pub unsafe fn GetBufferSize(&self) -> usize {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).base__.base__.GetBufferSize)(::windows::core::Interface::as_raw(self)))
+        (::windows::core::Interface::vtable(self).base__.base__.GetBufferSize)(::windows::core::Interface::as_raw(self))
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -594,10 +594,10 @@ impl IDxcBlobUtf8 {
         (::windows::core::Interface::vtable(self).base__.GetEncoding)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pknown), ::core::mem::transmute(pcodepage)).ok()
     }
     pub unsafe fn GetStringPointer(&self) -> ::windows::core::PSTR {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).GetStringPointer)(::windows::core::Interface::as_raw(self)))
+        (::windows::core::Interface::vtable(self).GetStringPointer)(::windows::core::Interface::as_raw(self))
     }
     pub unsafe fn GetStringLength(&self) -> usize {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).GetStringLength)(::windows::core::Interface::as_raw(self)))
+        (::windows::core::Interface::vtable(self).GetStringLength)(::windows::core::Interface::as_raw(self))
     }
 }
 impl ::core::convert::From<IDxcBlobUtf8> for ::windows::core::IUnknown {
@@ -906,10 +906,10 @@ pub struct IDxcCompiler3_Vtbl {
 pub struct IDxcCompilerArgs(::windows::core::IUnknown);
 impl IDxcCompilerArgs {
     pub unsafe fn GetArguments(&self) -> *mut ::windows::core::PWSTR {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).GetArguments)(::windows::core::Interface::as_raw(self)))
+        (::windows::core::Interface::vtable(self).GetArguments)(::windows::core::Interface::as_raw(self))
     }
     pub unsafe fn GetCount(&self) -> u32 {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).GetCount)(::windows::core::Interface::as_raw(self)))
+        (::windows::core::Interface::vtable(self).GetCount)(::windows::core::Interface::as_raw(self))
     }
     pub unsafe fn AddArguments(&self, parguments: &[::windows::core::PWSTR]) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).AddArguments)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(::windows::core::as_ptr_or_null(parguments)), parguments.len() as _).ok()
@@ -1115,7 +1115,7 @@ pub struct IDxcContainerReflection_Vtbl {
 pub struct IDxcExtraOutputs(::windows::core::IUnknown);
 impl IDxcExtraOutputs {
     pub unsafe fn GetOutputCount(&self) -> u32 {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).GetOutputCount)(::windows::core::Interface::as_raw(self)))
+        (::windows::core::Interface::vtable(self).GetOutputCount)(::windows::core::Interface::as_raw(self))
     }
     pub unsafe fn GetOutput<T>(&self, uindex: u32, ppoutputtype: *mut ::core::option::Option<IDxcBlobUtf16>, ppoutputname: *mut ::core::option::Option<IDxcBlobUtf16>, result__: *mut ::core::option::Option<T>) -> ::windows::core::Result<()>
     where
@@ -1697,7 +1697,7 @@ impl IDxcPdbUtils {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn IsFullPDB(&self) -> super::super::super::Foundation::BOOL {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).IsFullPDB)(::windows::core::Interface::as_raw(self)))
+        (::windows::core::Interface::vtable(self).IsFullPDB)(::windows::core::Interface::as_raw(self))
     }
     pub unsafe fn GetFullPDB(&self) -> ::windows::core::Result<IDxcBlob> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -1840,7 +1840,7 @@ impl IDxcResult {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn HasOutput(&self, dxcoutkind: DXC_OUT_KIND) -> super::super::super::Foundation::BOOL {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).HasOutput)(::windows::core::Interface::as_raw(self), dxcoutkind))
+        (::windows::core::Interface::vtable(self).HasOutput)(::windows::core::Interface::as_raw(self), dxcoutkind)
     }
     pub unsafe fn GetOutput<T>(&self, dxcoutkind: DXC_OUT_KIND, ppoutputname: *mut ::core::option::Option<IDxcBlobUtf16>, result__: *mut ::core::option::Option<T>) -> ::windows::core::Result<()>
     where
@@ -1849,13 +1849,13 @@ impl IDxcResult {
         (::windows::core::Interface::vtable(self).GetOutput)(::windows::core::Interface::as_raw(self), dxcoutkind, &<T as ::windows::core::Interface>::IID, result__ as *mut _ as *mut _, ::core::mem::transmute(ppoutputname)).ok()
     }
     pub unsafe fn GetNumOutputs(&self) -> u32 {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).GetNumOutputs)(::windows::core::Interface::as_raw(self)))
+        (::windows::core::Interface::vtable(self).GetNumOutputs)(::windows::core::Interface::as_raw(self))
     }
     pub unsafe fn GetOutputByIndex(&self, index: u32) -> DXC_OUT_KIND {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).GetOutputByIndex)(::windows::core::Interface::as_raw(self), index))
+        (::windows::core::Interface::vtable(self).GetOutputByIndex)(::windows::core::Interface::as_raw(self), index)
     }
     pub unsafe fn PrimaryOutput(&self) -> DXC_OUT_KIND {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).PrimaryOutput)(::windows::core::Interface::as_raw(self)))
+        (::windows::core::Interface::vtable(self).PrimaryOutput)(::windows::core::Interface::as_raw(self))
     }
 }
 impl ::core::convert::From<IDxcResult> for ::windows::core::IUnknown {

@@ -176,7 +176,7 @@ pub unsafe fn OperationEnd(operationendparams: *const OPERATION_END_PARAMETERS) 
     extern "system" {
         fn OperationEnd(operationendparams: *const OPERATION_END_PARAMETERS) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(OperationEnd(::core::mem::transmute(operationendparams)))
+    OperationEnd(::core::mem::transmute(operationendparams))
 }
 #[doc = "*Required features: `\"Win32_Storage_OperationRecorder\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -186,7 +186,7 @@ pub unsafe fn OperationStart(operationstartparams: *const OPERATION_START_PARAME
     extern "system" {
         fn OperationStart(operationstartparams: *const OPERATION_START_PARAMETERS) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(OperationStart(::core::mem::transmute(operationstartparams)))
+    OperationStart(::core::mem::transmute(operationstartparams))
 }
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

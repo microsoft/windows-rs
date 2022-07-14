@@ -444,7 +444,7 @@ pub unsafe fn WnvOpen() -> super::super::Foundation::HANDLE {
     extern "system" {
         fn WnvOpen() -> super::super::Foundation::HANDLE;
     }
-    ::core::mem::transmute(WnvOpen())
+    WnvOpen()
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsNetworkVirtualization\"`, `\"Win32_Foundation\"`, `\"Win32_System_IO\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
@@ -457,7 +457,7 @@ where
     extern "system" {
         fn WnvRequestNotification(wnvhandle: super::super::Foundation::HANDLE, notificationparam: *mut WNV_NOTIFICATION_PARAM, overlapped: *mut super::super::System::IO::OVERLAPPED, bytestransferred: *mut u32) -> u32;
     }
-    ::core::mem::transmute(WnvRequestNotification(wnvhandle.into(), ::core::mem::transmute(notificationparam), ::core::mem::transmute(overlapped), ::core::mem::transmute(bytestransferred)))
+    WnvRequestNotification(wnvhandle.into(), ::core::mem::transmute(notificationparam), ::core::mem::transmute(overlapped), ::core::mem::transmute(bytestransferred))
 }
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

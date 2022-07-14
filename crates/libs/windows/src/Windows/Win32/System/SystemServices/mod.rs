@@ -16748,7 +16748,7 @@ pub unsafe fn UnregisterDeviceNotification(handle: *const ::core::ffi::c_void) -
     extern "system" {
         fn UnregisterDeviceNotification(handle: *const ::core::ffi::c_void) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(UnregisterDeviceNotification(::core::mem::transmute(handle)))
+    UnregisterDeviceNotification(::core::mem::transmute(handle))
 }
 #[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
 pub const VALID_INHERIT_FLAGS: u32 = 31u32;

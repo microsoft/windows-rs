@@ -4445,7 +4445,7 @@ pub unsafe fn CfGetPlaceholderStateFromAttributeTag(fileattributes: u32, reparse
     extern "system" {
         fn CfGetPlaceholderStateFromAttributeTag(fileattributes: u32, reparsetag: u32) -> CF_PLACEHOLDER_STATE;
     }
-    ::core::mem::transmute(CfGetPlaceholderStateFromAttributeTag(fileattributes, reparsetag))
+    CfGetPlaceholderStateFromAttributeTag(fileattributes, reparsetag)
 }
 #[doc = "*Required features: `\"Win32_Storage_CloudFilters\"`, `\"Win32_Storage_FileSystem\"`*"]
 #[cfg(feature = "Win32_Storage_FileSystem")]
@@ -4455,7 +4455,7 @@ pub unsafe fn CfGetPlaceholderStateFromFileInfo(infobuffer: *const ::core::ffi::
     extern "system" {
         fn CfGetPlaceholderStateFromFileInfo(infobuffer: *const ::core::ffi::c_void, infoclass: super::FileSystem::FILE_INFO_BY_HANDLE_CLASS) -> CF_PLACEHOLDER_STATE;
     }
-    ::core::mem::transmute(CfGetPlaceholderStateFromFileInfo(::core::mem::transmute(infobuffer), infoclass))
+    CfGetPlaceholderStateFromFileInfo(::core::mem::transmute(infobuffer), infoclass)
 }
 #[doc = "*Required features: `\"Win32_Storage_CloudFilters\"`, `\"Win32_Foundation\"`, `\"Win32_Storage_FileSystem\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_FileSystem"))]
@@ -4465,7 +4465,7 @@ pub unsafe fn CfGetPlaceholderStateFromFindData(finddata: *const super::FileSyst
     extern "system" {
         fn CfGetPlaceholderStateFromFindData(finddata: *const super::FileSystem::WIN32_FIND_DATAA) -> CF_PLACEHOLDER_STATE;
     }
-    ::core::mem::transmute(CfGetPlaceholderStateFromFindData(::core::mem::transmute(finddata)))
+    CfGetPlaceholderStateFromFindData(::core::mem::transmute(finddata))
 }
 #[doc = "*Required features: `\"Win32_Storage_CloudFilters\"`*"]
 #[inline]
@@ -4527,7 +4527,7 @@ where
     extern "system" {
         fn CfGetWin32HandleFromProtectedHandle(protectedhandle: super::super::Foundation::HANDLE) -> super::super::Foundation::HANDLE;
     }
-    ::core::mem::transmute(CfGetWin32HandleFromProtectedHandle(protectedhandle.into()))
+    CfGetWin32HandleFromProtectedHandle(protectedhandle.into())
 }
 #[doc = "*Required features: `\"Win32_Storage_CloudFilters\"`, `\"Win32_Foundation\"`, `\"Win32_System_IO\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
@@ -4580,7 +4580,7 @@ where
     extern "system" {
         fn CfReferenceProtectedHandle(protectedhandle: super::super::Foundation::HANDLE) -> super::super::Foundation::BOOLEAN;
     }
-    ::core::mem::transmute(CfReferenceProtectedHandle(protectedhandle.into()))
+    CfReferenceProtectedHandle(protectedhandle.into())
 }
 #[doc = "*Required features: `\"Win32_Storage_CloudFilters\"`*"]
 #[inline]

@@ -184,7 +184,7 @@ pub unsafe fn CreateIProp(lpinterface: *mut ::windows::core::GUID, lpallocatebuf
     extern "system" {
         fn CreateIProp(lpinterface: *mut ::windows::core::GUID, lpallocatebuffer: *mut ::core::ffi::c_void, lpallocatemore: *mut ::core::ffi::c_void, lpfreebuffer: *mut ::core::ffi::c_void, lpvreserved: *mut ::core::ffi::c_void, lpppropdata: *mut *mut ::core::ffi::c_void) -> i32;
     }
-    ::core::mem::transmute(CreateIProp(::core::mem::transmute(lpinterface), ::core::mem::transmute(lpallocatebuffer), ::core::mem::transmute(lpallocatemore), ::core::mem::transmute(lpfreebuffer), ::core::mem::transmute(lpvreserved), ::core::mem::transmute(lpppropdata)))
+    CreateIProp(::core::mem::transmute(lpinterface), ::core::mem::transmute(lpallocatebuffer), ::core::mem::transmute(lpallocatemore), ::core::mem::transmute(lpfreebuffer), ::core::mem::transmute(lpvreserved), ::core::mem::transmute(lpppropdata))
 }
 #[doc = "*Required features: `\"Win32_System_AddressBook\"`*"]
 #[inline]
@@ -193,7 +193,7 @@ pub unsafe fn CreateTable(lpinterface: *mut ::windows::core::GUID, lpallocatebuf
     extern "system" {
         fn CreateTable(lpinterface: *mut ::windows::core::GUID, lpallocatebuffer: *mut ::core::ffi::c_void, lpallocatemore: *mut ::core::ffi::c_void, lpfreebuffer: *mut ::core::ffi::c_void, lpvreserved: *mut ::core::ffi::c_void, ultabletype: u32, ulproptagindexcolumn: u32, lpsproptagarraycolumns: *mut SPropTagArray, lpptabledata: *mut *mut ::core::ffi::c_void) -> i32;
     }
-    ::core::mem::transmute(CreateTable(::core::mem::transmute(lpinterface), ::core::mem::transmute(lpallocatebuffer), ::core::mem::transmute(lpallocatemore), ::core::mem::transmute(lpfreebuffer), ::core::mem::transmute(lpvreserved), ultabletype, ulproptagindexcolumn, ::core::mem::transmute(lpsproptagarraycolumns), ::core::mem::transmute(lpptabledata)))
+    CreateTable(::core::mem::transmute(lpinterface), ::core::mem::transmute(lpallocatebuffer), ::core::mem::transmute(lpallocatemore), ::core::mem::transmute(lpfreebuffer), ::core::mem::transmute(lpvreserved), ultabletype, ulproptagindexcolumn, ::core::mem::transmute(lpsproptagarraycolumns), ::core::mem::transmute(lpptabledata))
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_System_AddressBook\"`*"]
@@ -1010,7 +1010,7 @@ pub unsafe fn FEqualNames(lpname1: *mut MAPINAMEID, lpname2: *mut MAPINAMEID) ->
     extern "system" {
         fn FEqualNames(lpname1: *mut MAPINAMEID, lpname2: *mut MAPINAMEID) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(FEqualNames(::core::mem::transmute(lpname1), ::core::mem::transmute(lpname2)))
+    FEqualNames(::core::mem::transmute(lpname1), ::core::mem::transmute(lpname2))
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_System_AddressBook\"`*"]
@@ -1115,7 +1115,7 @@ pub unsafe fn FPropCompareProp(lpspropvalue1: *mut SPropValue, ulrelop: u32, lps
     extern "system" {
         fn FPropCompareProp(lpspropvalue1: *mut SPropValue, ulrelop: u32, lpspropvalue2: *mut SPropValue) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(FPropCompareProp(::core::mem::transmute(lpspropvalue1), ulrelop, ::core::mem::transmute(lpspropvalue2)))
+    FPropCompareProp(::core::mem::transmute(lpspropvalue1), ulrelop, ::core::mem::transmute(lpspropvalue2))
 }
 #[doc = "*Required features: `\"Win32_System_AddressBook\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
@@ -1125,7 +1125,7 @@ pub unsafe fn FPropContainsProp(lpspropvaluedst: *mut SPropValue, lpspropvaluesr
     extern "system" {
         fn FPropContainsProp(lpspropvaluedst: *mut SPropValue, lpspropvaluesrc: *mut SPropValue, ulfuzzylevel: u32) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(FPropContainsProp(::core::mem::transmute(lpspropvaluedst), ::core::mem::transmute(lpspropvaluesrc), ulfuzzylevel))
+    FPropContainsProp(::core::mem::transmute(lpspropvaluedst), ::core::mem::transmute(lpspropvaluesrc), ulfuzzylevel)
 }
 #[doc = "*Required features: `\"Win32_System_AddressBook\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -1138,7 +1138,7 @@ where
     extern "system" {
         fn FPropExists(lpmapiprop: *mut ::core::ffi::c_void, ulproptag: u32) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(FPropExists(lpmapiprop.into().abi(), ulproptag))
+    FPropExists(lpmapiprop.into().abi(), ulproptag)
 }
 #[doc = "*Required features: `\"Win32_System_AddressBook\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
@@ -1168,7 +1168,7 @@ pub unsafe fn FtAddFt(ftaddend1: super::super::Foundation::FILETIME, ftaddend2: 
     extern "system" {
         fn FtAddFt(ftaddend1: super::super::Foundation::FILETIME, ftaddend2: super::super::Foundation::FILETIME) -> super::super::Foundation::FILETIME;
     }
-    ::core::mem::transmute(FtAddFt(::core::mem::transmute(ftaddend1), ::core::mem::transmute(ftaddend2)))
+    FtAddFt(::core::mem::transmute(ftaddend1), ::core::mem::transmute(ftaddend2))
 }
 #[doc = "*Required features: `\"Win32_System_AddressBook\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -1178,7 +1178,7 @@ pub unsafe fn FtMulDw(ftmultiplier: u32, ftmultiplicand: super::super::Foundatio
     extern "system" {
         fn FtMulDw(ftmultiplier: u32, ftmultiplicand: super::super::Foundation::FILETIME) -> super::super::Foundation::FILETIME;
     }
-    ::core::mem::transmute(FtMulDw(ftmultiplier, ::core::mem::transmute(ftmultiplicand)))
+    FtMulDw(ftmultiplier, ::core::mem::transmute(ftmultiplicand))
 }
 #[doc = "*Required features: `\"Win32_System_AddressBook\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -1188,7 +1188,7 @@ pub unsafe fn FtMulDwDw(ftmultiplicand: u32, ftmultiplier: u32) -> super::super:
     extern "system" {
         fn FtMulDwDw(ftmultiplicand: u32, ftmultiplier: u32) -> super::super::Foundation::FILETIME;
     }
-    ::core::mem::transmute(FtMulDwDw(ftmultiplicand, ftmultiplier))
+    FtMulDwDw(ftmultiplicand, ftmultiplier)
 }
 #[doc = "*Required features: `\"Win32_System_AddressBook\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -1198,7 +1198,7 @@ pub unsafe fn FtNegFt(ft: super::super::Foundation::FILETIME) -> super::super::F
     extern "system" {
         fn FtNegFt(ft: super::super::Foundation::FILETIME) -> super::super::Foundation::FILETIME;
     }
-    ::core::mem::transmute(FtNegFt(::core::mem::transmute(ft)))
+    FtNegFt(::core::mem::transmute(ft))
 }
 #[doc = "*Required features: `\"Win32_System_AddressBook\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -1208,7 +1208,7 @@ pub unsafe fn FtSubFt(ftminuend: super::super::Foundation::FILETIME, ftsubtrahen
     extern "system" {
         fn FtSubFt(ftminuend: super::super::Foundation::FILETIME, ftsubtrahend: super::super::Foundation::FILETIME) -> super::super::Foundation::FILETIME;
     }
-    ::core::mem::transmute(FtSubFt(::core::mem::transmute(ftminuend), ::core::mem::transmute(ftsubtrahend)))
+    FtSubFt(::core::mem::transmute(ftminuend), ::core::mem::transmute(ftsubtrahend))
 }
 #[doc = "*Required features: `\"Win32_System_AddressBook\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -1218,7 +1218,7 @@ pub unsafe fn FtgRegisterIdleRoutine(lpfnidle: PFNIDLE, lpvidleparam: *mut ::cor
     extern "system" {
         fn FtgRegisterIdleRoutine(lpfnidle: *mut ::core::ffi::c_void, lpvidleparam: *mut ::core::ffi::c_void, priidle: i16, csecidle: u32, iroidle: u16) -> *mut ::core::ffi::c_void;
     }
-    ::core::mem::transmute(FtgRegisterIdleRoutine(::core::mem::transmute(lpfnidle), ::core::mem::transmute(lpvidleparam), priidle, csecidle, iroidle))
+    FtgRegisterIdleRoutine(::core::mem::transmute(lpfnidle), ::core::mem::transmute(lpvidleparam), priidle, csecidle, iroidle)
 }
 #[doc = "*Required features: `\"Win32_System_AddressBook\"`*"]
 #[repr(transparent)]
@@ -2010,7 +2010,7 @@ impl IMAPIAdviseSink {
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn OnNotify(&self, cnotif: u32, lpnotifications: *mut NOTIFICATION) -> u32 {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).OnNotify)(::windows::core::Interface::as_raw(self), cnotif, ::core::mem::transmute(lpnotifications)))
+        (::windows::core::Interface::vtable(self).OnNotify)(::windows::core::Interface::as_raw(self), cnotif, ::core::mem::transmute(lpnotifications))
     }
 }
 impl ::core::convert::From<IMAPIAdviseSink> for ::windows::core::IUnknown {
@@ -3925,10 +3925,10 @@ impl IWABOBJECT_ {
         (::windows::core::Interface::vtable(self).QueryInterface)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(riid), ::core::mem::transmute(ppvobj)).ok()
     }
     pub unsafe fn AddRef(&self) -> u32 {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).AddRef)(::windows::core::Interface::as_raw(self)))
+        (::windows::core::Interface::vtable(self).AddRef)(::windows::core::Interface::as_raw(self))
     }
     pub unsafe fn Release(&self) -> u32 {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).Release)(::windows::core::Interface::as_raw(self)))
+        (::windows::core::Interface::vtable(self).Release)(::windows::core::Interface::as_raw(self))
     }
     pub unsafe fn GetLastError(&self, hresult: ::windows::core::HRESULT, ulflags: u32, lppmapierror: *mut *mut MAPIERROR) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).GetLastError)(::windows::core::Interface::as_raw(self), hresult, ulflags, ::core::mem::transmute(lppmapierror)).ok()
@@ -4315,7 +4315,7 @@ pub unsafe fn LPropCompareProp(lpspropvaluea: *mut SPropValue, lpspropvalueb: *m
     extern "system" {
         fn LPropCompareProp(lpspropvaluea: *mut SPropValue, lpspropvalueb: *mut SPropValue) -> i32;
     }
-    ::core::mem::transmute(LPropCompareProp(::core::mem::transmute(lpspropvaluea), ::core::mem::transmute(lpspropvalueb)))
+    LPropCompareProp(::core::mem::transmute(lpspropvaluea), ::core::mem::transmute(lpspropvalueb))
 }
 #[doc = "*Required features: `\"Win32_System_AddressBook\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
@@ -4325,7 +4325,7 @@ pub unsafe fn LpValFindProp(ulproptag: u32, cvalues: u32, lpproparray: *mut SPro
     extern "system" {
         fn LpValFindProp(ulproptag: u32, cvalues: u32, lpproparray: *mut SPropValue) -> *mut SPropValue;
     }
-    ::core::mem::transmute(LpValFindProp(ulproptag, cvalues, ::core::mem::transmute(lpproparray)))
+    LpValFindProp(ulproptag, cvalues, ::core::mem::transmute(lpproparray))
 }
 #[doc = "*Required features: `\"Win32_System_AddressBook\"`*"]
 #[inline]
@@ -4378,7 +4378,7 @@ pub unsafe fn MAPIGetDefaultMalloc() -> ::core::option::Option<super::Com::IMall
     extern "system" {
         fn MAPIGetDefaultMalloc() -> ::core::option::Option<super::Com::IMalloc>;
     }
-    ::core::mem::transmute(MAPIGetDefaultMalloc())
+    MAPIGetDefaultMalloc()
 }
 #[doc = "*Required features: `\"Win32_System_AddressBook\"`*"]
 #[inline]
@@ -4387,7 +4387,7 @@ pub unsafe fn MAPIInitIdle(lpvreserved: *mut ::core::ffi::c_void) -> i32 {
     extern "system" {
         fn MAPIInitIdle(lpvreserved: *mut ::core::ffi::c_void) -> i32;
     }
-    ::core::mem::transmute(MAPIInitIdle(::core::mem::transmute(lpvreserved)))
+    MAPIInitIdle(::core::mem::transmute(lpvreserved))
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_System_AddressBook\"`*"]
@@ -4760,7 +4760,7 @@ pub unsafe fn PpropFindProp(lpproparray: *mut SPropValue, cvalues: u32, ulpropta
     extern "system" {
         fn PpropFindProp(lpproparray: *mut SPropValue, cvalues: u32, ulproptag: u32) -> *mut SPropValue;
     }
-    ::core::mem::transmute(PpropFindProp(::core::mem::transmute(lpproparray), cvalues, ulproptag))
+    PpropFindProp(::core::mem::transmute(lpproparray), cvalues, ulproptag)
 }
 #[doc = "*Required features: `\"Win32_System_AddressBook\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
@@ -4770,7 +4770,7 @@ pub unsafe fn PropCopyMore(lpspropvaluedest: *mut SPropValue, lpspropvaluesrc: *
     extern "system" {
         fn PropCopyMore(lpspropvaluedest: *mut SPropValue, lpspropvaluesrc: *mut SPropValue, lpfallocmore: *mut ::core::ffi::c_void, lpvobject: *mut ::core::ffi::c_void) -> i32;
     }
-    ::core::mem::transmute(PropCopyMore(::core::mem::transmute(lpspropvaluedest), ::core::mem::transmute(lpspropvaluesrc), ::core::mem::transmute(lpfallocmore), ::core::mem::transmute(lpvobject)))
+    PropCopyMore(::core::mem::transmute(lpspropvaluedest), ::core::mem::transmute(lpspropvaluesrc), ::core::mem::transmute(lpfallocmore), ::core::mem::transmute(lpvobject))
 }
 #[doc = "*Required features: `\"Win32_System_AddressBook\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -6019,7 +6019,7 @@ pub unsafe fn ScCopyNotifications(cnotification: i32, lpnotifications: *mut NOTI
     extern "system" {
         fn ScCopyNotifications(cnotification: i32, lpnotifications: *mut NOTIFICATION, lpvdst: *mut ::core::ffi::c_void, lpcb: *mut u32) -> i32;
     }
-    ::core::mem::transmute(ScCopyNotifications(cnotification, ::core::mem::transmute(lpnotifications), ::core::mem::transmute(lpvdst), ::core::mem::transmute(lpcb)))
+    ScCopyNotifications(cnotification, ::core::mem::transmute(lpnotifications), ::core::mem::transmute(lpvdst), ::core::mem::transmute(lpcb))
 }
 #[doc = "*Required features: `\"Win32_System_AddressBook\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
@@ -6029,7 +6029,7 @@ pub unsafe fn ScCopyProps(cvalues: i32, lpproparray: *mut SPropValue, lpvdst: *m
     extern "system" {
         fn ScCopyProps(cvalues: i32, lpproparray: *mut SPropValue, lpvdst: *mut ::core::ffi::c_void, lpcb: *mut u32) -> i32;
     }
-    ::core::mem::transmute(ScCopyProps(cvalues, ::core::mem::transmute(lpproparray), ::core::mem::transmute(lpvdst), ::core::mem::transmute(lpcb)))
+    ScCopyProps(cvalues, ::core::mem::transmute(lpproparray), ::core::mem::transmute(lpvdst), ::core::mem::transmute(lpcb))
 }
 #[doc = "*Required features: `\"Win32_System_AddressBook\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
@@ -6039,7 +6039,7 @@ pub unsafe fn ScCountNotifications(cnotifications: i32, lpnotifications: *mut NO
     extern "system" {
         fn ScCountNotifications(cnotifications: i32, lpnotifications: *mut NOTIFICATION, lpcb: *mut u32) -> i32;
     }
-    ::core::mem::transmute(ScCountNotifications(cnotifications, ::core::mem::transmute(lpnotifications), ::core::mem::transmute(lpcb)))
+    ScCountNotifications(cnotifications, ::core::mem::transmute(lpnotifications), ::core::mem::transmute(lpcb))
 }
 #[doc = "*Required features: `\"Win32_System_AddressBook\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
@@ -6049,7 +6049,7 @@ pub unsafe fn ScCountProps(cvalues: i32, lpproparray: *mut SPropValue, lpcb: *mu
     extern "system" {
         fn ScCountProps(cvalues: i32, lpproparray: *mut SPropValue, lpcb: *mut u32) -> i32;
     }
-    ::core::mem::transmute(ScCountProps(cvalues, ::core::mem::transmute(lpproparray), ::core::mem::transmute(lpcb)))
+    ScCountProps(cvalues, ::core::mem::transmute(lpproparray), ::core::mem::transmute(lpcb))
 }
 #[doc = "*Required features: `\"Win32_System_AddressBook\"`*"]
 #[inline]
@@ -6058,7 +6058,7 @@ pub unsafe fn ScCreateConversationIndex(cbparent: u32, lpbparent: *mut u8, lpcbc
     extern "system" {
         fn ScCreateConversationIndex(cbparent: u32, lpbparent: *mut u8, lpcbconvindex: *mut u32, lppbconvindex: *mut *mut u8) -> i32;
     }
-    ::core::mem::transmute(ScCreateConversationIndex(cbparent, ::core::mem::transmute(lpbparent), ::core::mem::transmute(lpcbconvindex), ::core::mem::transmute(lppbconvindex)))
+    ScCreateConversationIndex(cbparent, ::core::mem::transmute(lpbparent), ::core::mem::transmute(lpcbconvindex), ::core::mem::transmute(lppbconvindex))
 }
 #[doc = "*Required features: `\"Win32_System_AddressBook\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
@@ -6068,7 +6068,7 @@ pub unsafe fn ScDupPropset(cvalues: i32, lpproparray: *mut SPropValue, lpallocat
     extern "system" {
         fn ScDupPropset(cvalues: i32, lpproparray: *mut SPropValue, lpallocatebuffer: *mut ::core::ffi::c_void, lppproparray: *mut *mut SPropValue) -> i32;
     }
-    ::core::mem::transmute(ScDupPropset(cvalues, ::core::mem::transmute(lpproparray), ::core::mem::transmute(lpallocatebuffer), ::core::mem::transmute(lppproparray)))
+    ScDupPropset(cvalues, ::core::mem::transmute(lpproparray), ::core::mem::transmute(lpallocatebuffer), ::core::mem::transmute(lppproparray))
 }
 #[doc = "*Required features: `\"Win32_System_AddressBook\"`*"]
 #[inline]
@@ -6077,7 +6077,7 @@ pub unsafe fn ScInitMapiUtil(ulflags: u32) -> i32 {
     extern "system" {
         fn ScInitMapiUtil(ulflags: u32) -> i32;
     }
-    ::core::mem::transmute(ScInitMapiUtil(ulflags))
+    ScInitMapiUtil(ulflags)
 }
 #[doc = "*Required features: `\"Win32_System_AddressBook\"`*"]
 #[inline]
@@ -6089,7 +6089,7 @@ where
     extern "system" {
         fn ScLocalPathFromUNC(lpszunc: ::windows::core::PCSTR, lpszlocal: ::windows::core::PCSTR, cchlocal: u32) -> i32;
     }
-    ::core::mem::transmute(ScLocalPathFromUNC(lpszunc.into(), ::core::mem::transmute(::windows::core::as_ptr_or_null(lpszlocal)), lpszlocal.len() as _))
+    ScLocalPathFromUNC(lpszunc.into(), ::core::mem::transmute(::windows::core::as_ptr_or_null(lpszlocal)), lpszlocal.len() as _)
 }
 #[doc = "*Required features: `\"Win32_System_AddressBook\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
@@ -6099,7 +6099,7 @@ pub unsafe fn ScRelocNotifications(cnotification: i32, lpnotifications: *mut NOT
     extern "system" {
         fn ScRelocNotifications(cnotification: i32, lpnotifications: *mut NOTIFICATION, lpvbaseold: *mut ::core::ffi::c_void, lpvbasenew: *mut ::core::ffi::c_void, lpcb: *mut u32) -> i32;
     }
-    ::core::mem::transmute(ScRelocNotifications(cnotification, ::core::mem::transmute(lpnotifications), ::core::mem::transmute(lpvbaseold), ::core::mem::transmute(lpvbasenew), ::core::mem::transmute(lpcb)))
+    ScRelocNotifications(cnotification, ::core::mem::transmute(lpnotifications), ::core::mem::transmute(lpvbaseold), ::core::mem::transmute(lpvbasenew), ::core::mem::transmute(lpcb))
 }
 #[doc = "*Required features: `\"Win32_System_AddressBook\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
@@ -6109,7 +6109,7 @@ pub unsafe fn ScRelocProps(cvalues: i32, lpproparray: *mut SPropValue, lpvbaseol
     extern "system" {
         fn ScRelocProps(cvalues: i32, lpproparray: *mut SPropValue, lpvbaseold: *mut ::core::ffi::c_void, lpvbasenew: *mut ::core::ffi::c_void, lpcb: *mut u32) -> i32;
     }
-    ::core::mem::transmute(ScRelocProps(cvalues, ::core::mem::transmute(lpproparray), ::core::mem::transmute(lpvbaseold), ::core::mem::transmute(lpvbasenew), ::core::mem::transmute(lpcb)))
+    ScRelocProps(cvalues, ::core::mem::transmute(lpproparray), ::core::mem::transmute(lpvbaseold), ::core::mem::transmute(lpvbasenew), ::core::mem::transmute(lpcb))
 }
 #[doc = "*Required features: `\"Win32_System_AddressBook\"`*"]
 #[inline]
@@ -6121,7 +6121,7 @@ where
     extern "system" {
         fn ScUNCFromLocalPath(lpszlocal: ::windows::core::PCSTR, lpszunc: ::windows::core::PCSTR, cchunc: u32) -> i32;
     }
-    ::core::mem::transmute(ScUNCFromLocalPath(lpszlocal.into(), ::core::mem::transmute(::windows::core::as_ptr_or_null(lpszunc)), lpszunc.len() as _))
+    ScUNCFromLocalPath(lpszlocal.into(), ::core::mem::transmute(::windows::core::as_ptr_or_null(lpszunc)), lpszunc.len() as _)
 }
 #[doc = "*Required features: `\"Win32_System_AddressBook\"`*"]
 #[inline]
@@ -6130,7 +6130,7 @@ pub unsafe fn SzFindCh(lpsz: *mut i8, ch: u16) -> *mut i8 {
     extern "system" {
         fn SzFindCh(lpsz: *mut i8, ch: u16) -> *mut i8;
     }
-    ::core::mem::transmute(SzFindCh(::core::mem::transmute(lpsz), ch))
+    SzFindCh(::core::mem::transmute(lpsz), ch)
 }
 #[doc = "*Required features: `\"Win32_System_AddressBook\"`*"]
 #[inline]
@@ -6139,7 +6139,7 @@ pub unsafe fn SzFindLastCh(lpsz: *mut i8, ch: u16) -> *mut i8 {
     extern "system" {
         fn SzFindLastCh(lpsz: *mut i8, ch: u16) -> *mut i8;
     }
-    ::core::mem::transmute(SzFindLastCh(::core::mem::transmute(lpsz), ch))
+    SzFindLastCh(::core::mem::transmute(lpsz), ch)
 }
 #[doc = "*Required features: `\"Win32_System_AddressBook\"`*"]
 #[inline]
@@ -6148,7 +6148,7 @@ pub unsafe fn SzFindSz(lpsz: *mut i8, lpszkey: *mut i8) -> *mut i8 {
     extern "system" {
         fn SzFindSz(lpsz: *mut i8, lpszkey: *mut i8) -> *mut i8;
     }
-    ::core::mem::transmute(SzFindSz(::core::mem::transmute(lpsz), ::core::mem::transmute(lpszkey)))
+    SzFindSz(::core::mem::transmute(lpsz), ::core::mem::transmute(lpszkey))
 }
 #[doc = "*Required features: `\"Win32_System_AddressBook\"`*"]
 pub const TABLE_CHANGED: u32 = 1u32;
@@ -6214,7 +6214,7 @@ pub unsafe fn UFromSz(lpsz: *mut i8) -> u32 {
     extern "system" {
         fn UFromSz(lpsz: *mut i8) -> u32;
     }
-    ::core::mem::transmute(UFromSz(::core::mem::transmute(lpsz)))
+    UFromSz(::core::mem::transmute(lpsz))
 }
 #[doc = "*Required features: `\"Win32_System_AddressBook\"`*"]
 pub const UI_CURRENT_PROVIDER_FIRST: u32 = 4u32;
@@ -6227,7 +6227,7 @@ pub unsafe fn UlAddRef(lpunk: *mut ::core::ffi::c_void) -> u32 {
     extern "system" {
         fn UlAddRef(lpunk: *mut ::core::ffi::c_void) -> u32;
     }
-    ::core::mem::transmute(UlAddRef(::core::mem::transmute(lpunk)))
+    UlAddRef(::core::mem::transmute(lpunk))
 }
 #[doc = "*Required features: `\"Win32_System_AddressBook\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
@@ -6237,7 +6237,7 @@ pub unsafe fn UlPropSize(lpspropvalue: *mut SPropValue) -> u32 {
     extern "system" {
         fn UlPropSize(lpspropvalue: *mut SPropValue) -> u32;
     }
-    ::core::mem::transmute(UlPropSize(::core::mem::transmute(lpspropvalue)))
+    UlPropSize(::core::mem::transmute(lpspropvalue))
 }
 #[doc = "*Required features: `\"Win32_System_AddressBook\"`*"]
 #[inline]
@@ -6246,7 +6246,7 @@ pub unsafe fn UlRelease(lpunk: *mut ::core::ffi::c_void) -> u32 {
     extern "system" {
         fn UlRelease(lpunk: *mut ::core::ffi::c_void) -> u32;
     }
-    ::core::mem::transmute(UlRelease(::core::mem::transmute(lpunk)))
+    UlRelease(::core::mem::transmute(lpunk))
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_System_AddressBook\"`, `\"Win32_Foundation\"`*"]

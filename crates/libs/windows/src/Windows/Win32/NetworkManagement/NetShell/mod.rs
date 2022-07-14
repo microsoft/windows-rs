@@ -144,7 +144,7 @@ where
     extern "system" {
         fn MatchEnumTag(hmodule: super::super::Foundation::HANDLE, pwcarg: ::windows::core::PCWSTR, dwnumarg: u32, penumtable: *const TOKEN_VALUE, pdwvalue: *mut u32) -> u32;
     }
-    ::core::mem::transmute(MatchEnumTag(hmodule.into(), pwcarg.into(), dwnumarg, ::core::mem::transmute(penumtable), ::core::mem::transmute(pdwvalue)))
+    MatchEnumTag(hmodule.into(), pwcarg.into(), dwnumarg, ::core::mem::transmute(penumtable), ::core::mem::transmute(pdwvalue))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetShell\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -158,7 +158,7 @@ where
     extern "system" {
         fn MatchToken(pwszusertoken: ::windows::core::PCWSTR, pwszcmdtoken: ::windows::core::PCWSTR) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(MatchToken(pwszusertoken.into(), pwszcmdtoken.into()))
+    MatchToken(pwszusertoken.into(), pwszcmdtoken.into())
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetShell\"`*"]
 pub const NETSH_ARG_DELIMITER: &str = "=";
@@ -545,7 +545,7 @@ where
     extern "system" {
         fn PreprocessCommand(hmodule: super::super::Foundation::HANDLE, ppwcarguments: *mut ::windows::core::PWSTR, dwcurrentindex: u32, dwargcount: u32, ptttags: *mut TAG_TYPE, dwtagcount: u32, dwminargs: u32, dwmaxargs: u32, pdwtagtype: *mut u32) -> u32;
     }
-    ::core::mem::transmute(PreprocessCommand(hmodule.into(), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(ppwcarguments)), dwcurrentindex, ppwcarguments.len() as _, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(ptttags)), ptttags.len() as _, dwminargs, dwmaxargs, ::core::mem::transmute(pdwtagtype)))
+    PreprocessCommand(hmodule.into(), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(ppwcarguments)), dwcurrentindex, ppwcarguments.len() as _, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(ptttags)), ptttags.len() as _, dwminargs, dwmaxargs, ::core::mem::transmute(pdwtagtype))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetShell\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -558,7 +558,7 @@ where
     extern "system" {
         fn PrintError(hmodule: super::super::Foundation::HANDLE, dwerrid: u32) -> u32;
     }
-    ::core::mem::transmute(PrintError(hmodule.into(), dwerrid))
+    PrintError(hmodule.into(), dwerrid)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetShell\"`*"]
 #[inline]
@@ -570,7 +570,7 @@ where
     extern "system" {
         fn PrintMessage(pwszformat: ::windows::core::PCWSTR) -> u32;
     }
-    ::core::mem::transmute(PrintMessage(pwszformat.into()))
+    PrintMessage(pwszformat.into())
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetShell\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -583,7 +583,7 @@ where
     extern "system" {
         fn PrintMessageFromModule(hmodule: super::super::Foundation::HANDLE, dwmsgid: u32) -> u32;
     }
-    ::core::mem::transmute(PrintMessageFromModule(hmodule.into(), dwmsgid))
+    PrintMessageFromModule(hmodule.into(), dwmsgid)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetShell\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -593,7 +593,7 @@ pub unsafe fn RegisterContext(pchildcontext: *const NS_CONTEXT_ATTRIBUTES) -> u3
     extern "system" {
         fn RegisterContext(pchildcontext: *const NS_CONTEXT_ATTRIBUTES) -> u32;
     }
-    ::core::mem::transmute(RegisterContext(::core::mem::transmute(pchildcontext)))
+    RegisterContext(::core::mem::transmute(pchildcontext))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetShell\"`*"]
 #[inline]
@@ -602,7 +602,7 @@ pub unsafe fn RegisterHelper(pguidparentcontext: *const ::windows::core::GUID, p
     extern "system" {
         fn RegisterHelper(pguidparentcontext: *const ::windows::core::GUID, pfnregistersubcontext: *const NS_HELPER_ATTRIBUTES) -> u32;
     }
-    ::core::mem::transmute(RegisterHelper(::core::mem::transmute(pguidparentcontext), ::core::mem::transmute(pfnregistersubcontext)))
+    RegisterHelper(::core::mem::transmute(pguidparentcontext), ::core::mem::transmute(pfnregistersubcontext))
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetShell\"`, `\"Win32_Foundation\"`*"]

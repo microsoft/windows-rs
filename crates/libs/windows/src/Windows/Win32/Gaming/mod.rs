@@ -1240,7 +1240,7 @@ pub unsafe fn TryCancelPendingGameUI() -> super::Foundation::BOOL {
     extern "system" {
         fn TryCancelPendingGameUI() -> super::Foundation::BOOL;
     }
-    ::core::mem::transmute(TryCancelPendingGameUI())
+    TryCancelPendingGameUI()
 }
 #[doc = "*Required features: `\"Win32_Gaming\"`*"]
 #[repr(transparent)]

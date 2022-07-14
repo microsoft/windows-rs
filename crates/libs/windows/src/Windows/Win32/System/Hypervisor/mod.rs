@@ -458,7 +458,7 @@ pub unsafe fn GetSavedStateSymbolProviderHandle(vmsavedstatedumphandle: *mut ::c
     extern "system" {
         fn GetSavedStateSymbolProviderHandle(vmsavedstatedumphandle: *mut ::core::ffi::c_void) -> super::super::Foundation::HANDLE;
     }
-    ::core::mem::transmute(GetSavedStateSymbolProviderHandle(::core::mem::transmute(vmsavedstatedumphandle)))
+    GetSavedStateSymbolProviderHandle(::core::mem::transmute(vmsavedstatedumphandle))
 }
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
 #[inline]

@@ -5116,7 +5116,7 @@ where
     extern "system" {
         fn PifMgr_CloseProperties(hprops: super::super::super::Foundation::HANDLE, flopt: u32) -> super::super::super::Foundation::HANDLE;
     }
-    ::core::mem::transmute(PifMgr_CloseProperties(hprops.into(), flopt))
+    PifMgr_CloseProperties(hprops.into(), flopt)
 }
 #[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -5130,7 +5130,7 @@ where
     extern "system" {
         fn PifMgr_GetProperties(hprops: super::super::super::Foundation::HANDLE, pszgroup: ::windows::core::PCSTR, lpprops: *mut ::core::ffi::c_void, cbprops: i32, flopt: u32) -> i32;
     }
-    ::core::mem::transmute(PifMgr_GetProperties(hprops.into(), pszgroup.into(), ::core::mem::transmute(lpprops), cbprops, flopt))
+    PifMgr_GetProperties(hprops.into(), pszgroup.into(), ::core::mem::transmute(lpprops), cbprops, flopt)
 }
 #[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -5144,7 +5144,7 @@ where
     extern "system" {
         fn PifMgr_OpenProperties(pszapp: ::windows::core::PCWSTR, pszpif: ::windows::core::PCWSTR, hinf: u32, flopt: u32) -> super::super::super::Foundation::HANDLE;
     }
-    ::core::mem::transmute(PifMgr_OpenProperties(pszapp.into(), pszpif.into(), hinf, flopt))
+    PifMgr_OpenProperties(pszapp.into(), pszpif.into(), hinf, flopt)
 }
 #[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -5158,7 +5158,7 @@ where
     extern "system" {
         fn PifMgr_SetProperties(hprops: super::super::super::Foundation::HANDLE, pszgroup: ::windows::core::PCSTR, lpprops: *const ::core::ffi::c_void, cbprops: i32, flopt: u32) -> i32;
     }
-    ::core::mem::transmute(PifMgr_SetProperties(hprops.into(), pszgroup.into(), ::core::mem::transmute(lpprops), cbprops, flopt))
+    PifMgr_SetProperties(hprops.into(), pszgroup.into(), ::core::mem::transmute(lpprops), cbprops, flopt)
 }
 #[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
@@ -5178,7 +5178,7 @@ pub unsafe fn PropVariantCompareEx(propvar1: *const super::super::super::System:
     extern "system" {
         fn PropVariantCompareEx(propvar1: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT, propvar2: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT, unit: PROPVAR_COMPARE_UNIT, flags: PROPVAR_COMPARE_FLAGS) -> i32;
     }
-    ::core::mem::transmute(PropVariantCompareEx(::core::mem::transmute(propvar1), ::core::mem::transmute(propvar2), unit, flags))
+    PropVariantCompareEx(::core::mem::transmute(propvar1), ::core::mem::transmute(propvar2), unit, flags)
 }
 #[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
@@ -5210,7 +5210,7 @@ pub unsafe fn PropVariantGetElementCount(propvar: *const super::super::super::Sy
     extern "system" {
         fn PropVariantGetElementCount(propvar: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT) -> u32;
     }
-    ::core::mem::transmute(PropVariantGetElementCount(::core::mem::transmute(propvar)))
+    PropVariantGetElementCount(::core::mem::transmute(propvar))
 }
 #[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
@@ -5353,7 +5353,7 @@ where
     extern "system" {
         fn PropVariantToBooleanWithDefault(propvarin: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT, fdefault: super::super::super::Foundation::BOOL) -> super::super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(PropVariantToBooleanWithDefault(::core::mem::transmute(propvarin), fdefault.into()))
+    PropVariantToBooleanWithDefault(::core::mem::transmute(propvarin), fdefault.into())
 }
 #[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
@@ -5404,7 +5404,7 @@ pub unsafe fn PropVariantToDoubleWithDefault(propvarin: *const super::super::sup
     extern "system" {
         fn PropVariantToDoubleWithDefault(propvarin: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT, dbldefault: f64) -> f64;
     }
-    ::core::mem::transmute(PropVariantToDoubleWithDefault(::core::mem::transmute(propvarin), dbldefault))
+    PropVariantToDoubleWithDefault(::core::mem::transmute(propvarin), dbldefault)
 }
 #[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
@@ -5487,7 +5487,7 @@ pub unsafe fn PropVariantToInt16WithDefault(propvarin: *const super::super::supe
     extern "system" {
         fn PropVariantToInt16WithDefault(propvarin: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT, idefault: i16) -> i16;
     }
-    ::core::mem::transmute(PropVariantToInt16WithDefault(::core::mem::transmute(propvarin), idefault))
+    PropVariantToInt16WithDefault(::core::mem::transmute(propvarin), idefault)
 }
 #[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
@@ -5528,7 +5528,7 @@ pub unsafe fn PropVariantToInt32WithDefault(propvarin: *const super::super::supe
     extern "system" {
         fn PropVariantToInt32WithDefault(propvarin: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT, ldefault: i32) -> i32;
     }
-    ::core::mem::transmute(PropVariantToInt32WithDefault(::core::mem::transmute(propvarin), ldefault))
+    PropVariantToInt32WithDefault(::core::mem::transmute(propvarin), ldefault)
 }
 #[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
@@ -5569,7 +5569,7 @@ pub unsafe fn PropVariantToInt64WithDefault(propvarin: *const super::super::supe
     extern "system" {
         fn PropVariantToInt64WithDefault(propvarin: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT, lldefault: i64) -> i64;
     }
-    ::core::mem::transmute(PropVariantToInt64WithDefault(::core::mem::transmute(propvarin), lldefault))
+    PropVariantToInt64WithDefault(::core::mem::transmute(propvarin), lldefault)
 }
 #[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_UI_Shell_Common\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_UI_Shell_Common"))]
@@ -5634,7 +5634,7 @@ where
     extern "system" {
         fn PropVariantToStringWithDefault(propvarin: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT, pszdefault: ::windows::core::PCWSTR) -> ::windows::core::PWSTR;
     }
-    ::core::mem::transmute(PropVariantToStringWithDefault(::core::mem::transmute(propvarin), pszdefault.into()))
+    PropVariantToStringWithDefault(::core::mem::transmute(propvarin), pszdefault.into())
 }
 #[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
@@ -5675,7 +5675,7 @@ pub unsafe fn PropVariantToUInt16WithDefault(propvarin: *const super::super::sup
     extern "system" {
         fn PropVariantToUInt16WithDefault(propvarin: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT, uidefault: u16) -> u16;
     }
-    ::core::mem::transmute(PropVariantToUInt16WithDefault(::core::mem::transmute(propvarin), uidefault))
+    PropVariantToUInt16WithDefault(::core::mem::transmute(propvarin), uidefault)
 }
 #[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
@@ -5716,7 +5716,7 @@ pub unsafe fn PropVariantToUInt32WithDefault(propvarin: *const super::super::sup
     extern "system" {
         fn PropVariantToUInt32WithDefault(propvarin: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT, uldefault: u32) -> u32;
     }
-    ::core::mem::transmute(PropVariantToUInt32WithDefault(::core::mem::transmute(propvarin), uldefault))
+    PropVariantToUInt32WithDefault(::core::mem::transmute(propvarin), uldefault)
 }
 #[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
@@ -5757,7 +5757,7 @@ pub unsafe fn PropVariantToUInt64WithDefault(propvarin: *const super::super::sup
     extern "system" {
         fn PropVariantToUInt64WithDefault(propvarin: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT, ulldefault: u64) -> u64;
     }
-    ::core::mem::transmute(PropVariantToUInt64WithDefault(::core::mem::transmute(propvarin), ulldefault))
+    PropVariantToUInt64WithDefault(::core::mem::transmute(propvarin), ulldefault)
 }
 #[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Ole\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole"))]
@@ -6032,7 +6032,7 @@ pub unsafe fn VariantCompare(var1: *const super::super::super::System::Com::VARI
     extern "system" {
         fn VariantCompare(var1: *const super::super::super::System::Com::VARIANT, var2: *const super::super::super::System::Com::VARIANT) -> i32;
     }
-    ::core::mem::transmute(VariantCompare(::core::mem::transmute(var1), ::core::mem::transmute(var2)))
+    VariantCompare(::core::mem::transmute(var1), ::core::mem::transmute(var2))
 }
 #[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -6064,7 +6064,7 @@ pub unsafe fn VariantGetElementCount(varin: *const super::super::super::System::
     extern "system" {
         fn VariantGetElementCount(varin: *const super::super::super::System::Com::VARIANT) -> u32;
     }
-    ::core::mem::transmute(VariantGetElementCount(::core::mem::transmute(varin)))
+    VariantGetElementCount(::core::mem::transmute(varin))
 }
 #[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -6185,7 +6185,7 @@ where
     extern "system" {
         fn VariantToBooleanWithDefault(varin: *const super::super::super::System::Com::VARIANT, fdefault: super::super::super::Foundation::BOOL) -> super::super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(VariantToBooleanWithDefault(::core::mem::transmute(varin), fdefault.into()))
+    VariantToBooleanWithDefault(::core::mem::transmute(varin), fdefault.into())
 }
 #[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -6246,7 +6246,7 @@ pub unsafe fn VariantToDoubleWithDefault(varin: *const super::super::super::Syst
     extern "system" {
         fn VariantToDoubleWithDefault(varin: *const super::super::super::System::Com::VARIANT, dbldefault: f64) -> f64;
     }
-    ::core::mem::transmute(VariantToDoubleWithDefault(::core::mem::transmute(varin), dbldefault))
+    VariantToDoubleWithDefault(::core::mem::transmute(varin), dbldefault)
 }
 #[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -6309,7 +6309,7 @@ pub unsafe fn VariantToInt16WithDefault(varin: *const super::super::super::Syste
     extern "system" {
         fn VariantToInt16WithDefault(varin: *const super::super::super::System::Com::VARIANT, idefault: i16) -> i16;
     }
-    ::core::mem::transmute(VariantToInt16WithDefault(::core::mem::transmute(varin), idefault))
+    VariantToInt16WithDefault(::core::mem::transmute(varin), idefault)
 }
 #[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -6350,7 +6350,7 @@ pub unsafe fn VariantToInt32WithDefault(varin: *const super::super::super::Syste
     extern "system" {
         fn VariantToInt32WithDefault(varin: *const super::super::super::System::Com::VARIANT, ldefault: i32) -> i32;
     }
-    ::core::mem::transmute(VariantToInt32WithDefault(::core::mem::transmute(varin), ldefault))
+    VariantToInt32WithDefault(::core::mem::transmute(varin), ldefault)
 }
 #[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -6391,7 +6391,7 @@ pub unsafe fn VariantToInt64WithDefault(varin: *const super::super::super::Syste
     extern "system" {
         fn VariantToInt64WithDefault(varin: *const super::super::super::System::Com::VARIANT, lldefault: i64) -> i64;
     }
-    ::core::mem::transmute(VariantToInt64WithDefault(::core::mem::transmute(varin), lldefault))
+    VariantToInt64WithDefault(::core::mem::transmute(varin), lldefault)
 }
 #[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Ole\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole"))]
@@ -6467,7 +6467,7 @@ where
     extern "system" {
         fn VariantToStringWithDefault(varin: *const super::super::super::System::Com::VARIANT, pszdefault: ::windows::core::PCWSTR) -> ::windows::core::PWSTR;
     }
-    ::core::mem::transmute(VariantToStringWithDefault(::core::mem::transmute(varin), pszdefault.into()))
+    VariantToStringWithDefault(::core::mem::transmute(varin), pszdefault.into())
 }
 #[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -6508,7 +6508,7 @@ pub unsafe fn VariantToUInt16WithDefault(varin: *const super::super::super::Syst
     extern "system" {
         fn VariantToUInt16WithDefault(varin: *const super::super::super::System::Com::VARIANT, uidefault: u16) -> u16;
     }
-    ::core::mem::transmute(VariantToUInt16WithDefault(::core::mem::transmute(varin), uidefault))
+    VariantToUInt16WithDefault(::core::mem::transmute(varin), uidefault)
 }
 #[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -6549,7 +6549,7 @@ pub unsafe fn VariantToUInt32WithDefault(varin: *const super::super::super::Syst
     extern "system" {
         fn VariantToUInt32WithDefault(varin: *const super::super::super::System::Com::VARIANT, uldefault: u32) -> u32;
     }
-    ::core::mem::transmute(VariantToUInt32WithDefault(::core::mem::transmute(varin), uldefault))
+    VariantToUInt32WithDefault(::core::mem::transmute(varin), uldefault)
 }
 #[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -6590,7 +6590,7 @@ pub unsafe fn VariantToUInt64WithDefault(varin: *const super::super::super::Syst
     extern "system" {
         fn VariantToUInt64WithDefault(varin: *const super::super::super::System::Com::VARIANT, ulldefault: u64) -> u64;
     }
-    ::core::mem::transmute(VariantToUInt64WithDefault(::core::mem::transmute(varin), ulldefault))
+    VariantToUInt64WithDefault(::core::mem::transmute(varin), ulldefault)
 }
 #[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]

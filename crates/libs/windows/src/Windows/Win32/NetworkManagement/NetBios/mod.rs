@@ -562,7 +562,7 @@ pub unsafe fn Netbios(pncb: *mut NCB) -> u8 {
     extern "system" {
         fn Netbios(pncb: *mut NCB) -> u8;
     }
-    ::core::mem::transmute(Netbios(::core::mem::transmute(pncb)))
+    Netbios(::core::mem::transmute(pncb))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetBios\"`*"]
 pub const REGISTERED: u32 = 4u32;

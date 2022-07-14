@@ -617,7 +617,7 @@ where
     extern "system" {
         fn SaferCloseLevel(hlevelhandle: super::SAFER_LEVEL_HANDLE) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(SaferCloseLevel(hlevelhandle.into()))
+    SaferCloseLevel(hlevelhandle.into())
 }
 #[doc = "*Required features: `\"Win32_Security_AppLocker\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -631,7 +631,7 @@ where
     extern "system" {
         fn SaferComputeTokenFromLevel(levelhandle: super::SAFER_LEVEL_HANDLE, inaccesstoken: super::super::Foundation::HANDLE, outaccesstoken: *mut super::super::Foundation::HANDLE, dwflags: SAFER_COMPUTE_TOKEN_FROM_LEVEL_FLAGS, lpreserved: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(SaferComputeTokenFromLevel(levelhandle.into(), inaccesstoken.into(), ::core::mem::transmute(outaccesstoken), dwflags, ::core::mem::transmute(lpreserved)))
+    SaferComputeTokenFromLevel(levelhandle.into(), inaccesstoken.into(), ::core::mem::transmute(outaccesstoken), dwflags, ::core::mem::transmute(lpreserved))
 }
 #[doc = "*Required features: `\"Win32_Security_AppLocker\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -641,7 +641,7 @@ pub unsafe fn SaferCreateLevel(dwscopeid: u32, dwlevelid: u32, openflags: u32, p
     extern "system" {
         fn SaferCreateLevel(dwscopeid: u32, dwlevelid: u32, openflags: u32, plevelhandle: *mut super::SAFER_LEVEL_HANDLE, lpreserved: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(SaferCreateLevel(dwscopeid, dwlevelid, openflags, ::core::mem::transmute(plevelhandle), ::core::mem::transmute(lpreserved)))
+    SaferCreateLevel(dwscopeid, dwlevelid, openflags, ::core::mem::transmute(plevelhandle), ::core::mem::transmute(lpreserved))
 }
 #[doc = "*Required features: `\"Win32_Security_AppLocker\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -654,7 +654,7 @@ where
     extern "system" {
         fn SaferGetLevelInformation(levelhandle: super::SAFER_LEVEL_HANDLE, dwinfotype: SAFER_OBJECT_INFO_CLASS, lpquerybuffer: *mut ::core::ffi::c_void, dwinbuffersize: u32, lpdwoutbuffersize: *mut u32) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(SaferGetLevelInformation(levelhandle.into(), dwinfotype, ::core::mem::transmute(lpquerybuffer), dwinbuffersize, ::core::mem::transmute(lpdwoutbuffersize)))
+    SaferGetLevelInformation(levelhandle.into(), dwinfotype, ::core::mem::transmute(lpquerybuffer), dwinbuffersize, ::core::mem::transmute(lpdwoutbuffersize))
 }
 #[doc = "*Required features: `\"Win32_Security_AppLocker\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -664,7 +664,7 @@ pub unsafe fn SaferGetPolicyInformation(dwscopeid: u32, saferpolicyinfoclass: SA
     extern "system" {
         fn SaferGetPolicyInformation(dwscopeid: u32, saferpolicyinfoclass: SAFER_POLICY_INFO_CLASS, infobuffersize: u32, infobuffer: *mut ::core::ffi::c_void, infobufferretsize: *mut u32, lpreserved: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(SaferGetPolicyInformation(dwscopeid, saferpolicyinfoclass, infobuffersize, ::core::mem::transmute(infobuffer), ::core::mem::transmute(infobufferretsize), ::core::mem::transmute(lpreserved)))
+    SaferGetPolicyInformation(dwscopeid, saferpolicyinfoclass, infobuffersize, ::core::mem::transmute(infobuffer), ::core::mem::transmute(infobufferretsize), ::core::mem::transmute(lpreserved))
 }
 #[doc = "*Required features: `\"Win32_Security_AppLocker\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -674,7 +674,7 @@ pub unsafe fn SaferIdentifyLevel(pcodeproperties: &[SAFER_CODE_PROPERTIES_V2], p
     extern "system" {
         fn SaferIdentifyLevel(dwnumproperties: u32, pcodeproperties: *const SAFER_CODE_PROPERTIES_V2, plevelhandle: *mut super::SAFER_LEVEL_HANDLE, lpreserved: *const ::core::ffi::c_void) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(SaferIdentifyLevel(pcodeproperties.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(pcodeproperties)), ::core::mem::transmute(plevelhandle), ::core::mem::transmute(lpreserved)))
+    SaferIdentifyLevel(pcodeproperties.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(pcodeproperties)), ::core::mem::transmute(plevelhandle), ::core::mem::transmute(lpreserved))
 }
 #[doc = "*Required features: `\"Win32_Security_AppLocker\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -688,7 +688,7 @@ where
     extern "system" {
         fn SaferRecordEventLogEntry(hlevel: super::SAFER_LEVEL_HANDLE, sztargetpath: ::windows::core::PCWSTR, lpreserved: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(SaferRecordEventLogEntry(hlevel.into(), sztargetpath.into(), ::core::mem::transmute(lpreserved)))
+    SaferRecordEventLogEntry(hlevel.into(), sztargetpath.into(), ::core::mem::transmute(lpreserved))
 }
 #[doc = "*Required features: `\"Win32_Security_AppLocker\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -701,7 +701,7 @@ where
     extern "system" {
         fn SaferSetLevelInformation(levelhandle: super::SAFER_LEVEL_HANDLE, dwinfotype: SAFER_OBJECT_INFO_CLASS, lpquerybuffer: *const ::core::ffi::c_void, dwinbuffersize: u32) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(SaferSetLevelInformation(levelhandle.into(), dwinfotype, ::core::mem::transmute(lpquerybuffer), dwinbuffersize))
+    SaferSetLevelInformation(levelhandle.into(), dwinfotype, ::core::mem::transmute(lpquerybuffer), dwinbuffersize)
 }
 #[doc = "*Required features: `\"Win32_Security_AppLocker\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -711,7 +711,7 @@ pub unsafe fn SaferSetPolicyInformation(dwscopeid: u32, saferpolicyinfoclass: SA
     extern "system" {
         fn SaferSetPolicyInformation(dwscopeid: u32, saferpolicyinfoclass: SAFER_POLICY_INFO_CLASS, infobuffersize: u32, infobuffer: *const ::core::ffi::c_void, lpreserved: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(SaferSetPolicyInformation(dwscopeid, saferpolicyinfoclass, infobuffersize, ::core::mem::transmute(infobuffer), ::core::mem::transmute(lpreserved)))
+    SaferSetPolicyInformation(dwscopeid, saferpolicyinfoclass, infobuffersize, ::core::mem::transmute(infobuffer), ::core::mem::transmute(lpreserved))
 }
 #[doc = "*Required features: `\"Win32_Security_AppLocker\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -725,7 +725,7 @@ where
     extern "system" {
         fn SaferiIsExecutableFileType(szfullpathname: ::windows::core::PCWSTR, bfromshellexecute: super::super::Foundation::BOOLEAN) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(SaferiIsExecutableFileType(szfullpathname.into(), bfromshellexecute.into()))
+    SaferiIsExecutableFileType(szfullpathname.into(), bfromshellexecute.into())
 }
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

@@ -245,7 +245,7 @@ where
     extern "system" {
         fn AdjustWindowRect(lprect: *mut super::super::Foundation::RECT, dwstyle: WINDOW_STYLE, bmenu: super::super::Foundation::BOOL) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(AdjustWindowRect(::core::mem::transmute(lprect), dwstyle, bmenu.into()))
+    AdjustWindowRect(::core::mem::transmute(lprect), dwstyle, bmenu.into())
 }
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -258,7 +258,7 @@ where
     extern "system" {
         fn AdjustWindowRectEx(lprect: *mut super::super::Foundation::RECT, dwstyle: WINDOW_STYLE, bmenu: super::super::Foundation::BOOL, dwexstyle: WINDOW_EX_STYLE) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(AdjustWindowRectEx(::core::mem::transmute(lprect), dwstyle, bmenu.into(), dwexstyle))
+    AdjustWindowRectEx(::core::mem::transmute(lprect), dwstyle, bmenu.into(), dwexstyle)
 }
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -268,7 +268,7 @@ pub unsafe fn AllowSetForegroundWindow(dwprocessid: u32) -> super::super::Founda
     extern "system" {
         fn AllowSetForegroundWindow(dwprocessid: u32) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(AllowSetForegroundWindow(dwprocessid))
+    AllowSetForegroundWindow(dwprocessid)
 }
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -281,7 +281,7 @@ where
     extern "system" {
         fn AnimateWindow(hwnd: super::super::Foundation::HWND, dwtime: u32, dwflags: ANIMATE_WINDOW_FLAGS) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(AnimateWindow(hwnd.into(), dwtime, dwflags))
+    AnimateWindow(hwnd.into(), dwtime, dwflags)
 }
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -291,7 +291,7 @@ pub unsafe fn AnyPopup() -> super::super::Foundation::BOOL {
     extern "system" {
         fn AnyPopup() -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(AnyPopup())
+    AnyPopup()
 }
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -305,7 +305,7 @@ where
     extern "system" {
         fn AppendMenuA(hmenu: HMENU, uflags: MENU_ITEM_FLAGS, uidnewitem: usize, lpnewitem: ::windows::core::PCSTR) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(AppendMenuA(hmenu.into(), uflags, uidnewitem, lpnewitem.into()))
+    AppendMenuA(hmenu.into(), uflags, uidnewitem, lpnewitem.into())
 }
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -319,7 +319,7 @@ where
     extern "system" {
         fn AppendMenuW(hmenu: HMENU, uflags: MENU_ITEM_FLAGS, uidnewitem: usize, lpnewitem: ::windows::core::PCWSTR) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(AppendMenuW(hmenu.into(), uflags, uidnewitem, lpnewitem.into()))
+    AppendMenuW(hmenu.into(), uflags, uidnewitem, lpnewitem.into())
 }
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -332,7 +332,7 @@ where
     extern "system" {
         fn ArrangeIconicWindows(hwnd: super::super::Foundation::HWND) -> u32;
     }
-    ::core::mem::transmute(ArrangeIconicWindows(hwnd.into()))
+    ArrangeIconicWindows(hwnd.into())
 }
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
 pub const BM_CLICK: u32 = 245u32;
@@ -449,7 +449,7 @@ pub unsafe fn BeginDeferWindowPos(nnumwindows: i32) -> isize {
     extern "system" {
         fn BeginDeferWindowPos(nnumwindows: i32) -> isize;
     }
-    ::core::mem::transmute(BeginDeferWindowPos(nnumwindows))
+    BeginDeferWindowPos(nnumwindows)
 }
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -462,7 +462,7 @@ where
     extern "system" {
         fn BringWindowToTop(hwnd: super::super::Foundation::HWND) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(BringWindowToTop(hwnd.into()))
+    BringWindowToTop(hwnd.into())
 }
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
 pub const CALERT_SYSTEM: u32 = 6u32;
@@ -1265,7 +1265,7 @@ pub unsafe fn CalculatePopupWindowPosition(anchorpoint: *const super::super::Fou
     extern "system" {
         fn CalculatePopupWindowPosition(anchorpoint: *const super::super::Foundation::POINT, windowsize: *const super::super::Foundation::SIZE, flags: u32, excluderect: *const super::super::Foundation::RECT, popupwindowposition: *mut super::super::Foundation::RECT) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(CalculatePopupWindowPosition(::core::mem::transmute(anchorpoint), ::core::mem::transmute(windowsize), flags, ::core::mem::transmute(excluderect), ::core::mem::transmute(popupwindowposition)))
+    CalculatePopupWindowPosition(::core::mem::transmute(anchorpoint), ::core::mem::transmute(windowsize), flags, ::core::mem::transmute(excluderect), ::core::mem::transmute(popupwindowposition))
 }
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -1275,7 +1275,7 @@ pub unsafe fn CallMsgFilterA(lpmsg: *const MSG, ncode: i32) -> super::super::Fou
     extern "system" {
         fn CallMsgFilterA(lpmsg: *const MSG, ncode: i32) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(CallMsgFilterA(::core::mem::transmute(lpmsg), ncode))
+    CallMsgFilterA(::core::mem::transmute(lpmsg), ncode)
 }
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -1285,7 +1285,7 @@ pub unsafe fn CallMsgFilterW(lpmsg: *const MSG, ncode: i32) -> super::super::Fou
     extern "system" {
         fn CallMsgFilterW(lpmsg: *const MSG, ncode: i32) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(CallMsgFilterW(::core::mem::transmute(lpmsg), ncode))
+    CallMsgFilterW(::core::mem::transmute(lpmsg), ncode)
 }
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -1300,7 +1300,7 @@ where
     extern "system" {
         fn CallNextHookEx(hhk: HHOOK, ncode: i32, wparam: super::super::Foundation::WPARAM, lparam: super::super::Foundation::LPARAM) -> super::super::Foundation::LRESULT;
     }
-    ::core::mem::transmute(CallNextHookEx(hhk.into(), ncode, wparam.into(), lparam.into()))
+    CallNextHookEx(hhk.into(), ncode, wparam.into(), lparam.into())
 }
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -1315,7 +1315,7 @@ where
     extern "system" {
         fn CallWindowProcA(lpprevwndfunc: *mut ::core::ffi::c_void, hwnd: super::super::Foundation::HWND, msg: u32, wparam: super::super::Foundation::WPARAM, lparam: super::super::Foundation::LPARAM) -> super::super::Foundation::LRESULT;
     }
-    ::core::mem::transmute(CallWindowProcA(::core::mem::transmute(lpprevwndfunc), hwnd.into(), msg, wparam.into(), lparam.into()))
+    CallWindowProcA(::core::mem::transmute(lpprevwndfunc), hwnd.into(), msg, wparam.into(), lparam.into())
 }
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -1330,7 +1330,7 @@ where
     extern "system" {
         fn CallWindowProcW(lpprevwndfunc: *mut ::core::ffi::c_void, hwnd: super::super::Foundation::HWND, msg: u32, wparam: super::super::Foundation::WPARAM, lparam: super::super::Foundation::LPARAM) -> super::super::Foundation::LRESULT;
     }
-    ::core::mem::transmute(CallWindowProcW(::core::mem::transmute(lpprevwndfunc), hwnd.into(), msg, wparam.into(), lparam.into()))
+    CallWindowProcW(::core::mem::transmute(lpprevwndfunc), hwnd.into(), msg, wparam.into(), lparam.into())
 }
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -1340,7 +1340,7 @@ pub unsafe fn CancelShutdown() -> super::super::Foundation::BOOL {
     extern "system" {
         fn CancelShutdown() -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(CancelShutdown())
+    CancelShutdown()
 }
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -1353,7 +1353,7 @@ where
     extern "system" {
         fn CascadeWindows(hwndparent: super::super::Foundation::HWND, whow: CASCADE_WINDOWS_HOW, lprect: *const super::super::Foundation::RECT, ckids: u32, lpkids: *const super::super::Foundation::HWND) -> u16;
     }
-    ::core::mem::transmute(CascadeWindows(hwndparent.into(), whow, ::core::mem::transmute(lprect), lpkids.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(lpkids))))
+    CascadeWindows(hwndparent.into(), whow, ::core::mem::transmute(lprect), lpkids.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(lpkids)))
 }
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -1367,7 +1367,7 @@ where
     extern "system" {
         fn ChangeMenuA(hmenu: HMENU, cmd: u32, lpsznewitem: ::windows::core::PCSTR, cmdinsert: u32, flags: u32) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(ChangeMenuA(hmenu.into(), cmd, lpsznewitem.into(), cmdinsert, flags))
+    ChangeMenuA(hmenu.into(), cmd, lpsznewitem.into(), cmdinsert, flags)
 }
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -1381,7 +1381,7 @@ where
     extern "system" {
         fn ChangeMenuW(hmenu: HMENU, cmd: u32, lpsznewitem: ::windows::core::PCWSTR, cmdinsert: u32, flags: u32) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(ChangeMenuW(hmenu.into(), cmd, lpsznewitem.into(), cmdinsert, flags))
+    ChangeMenuW(hmenu.into(), cmd, lpsznewitem.into(), cmdinsert, flags)
 }
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -1391,7 +1391,7 @@ pub unsafe fn ChangeWindowMessageFilter(message: u32, dwflag: CHANGE_WINDOW_MESS
     extern "system" {
         fn ChangeWindowMessageFilter(message: u32, dwflag: CHANGE_WINDOW_MESSAGE_FILTER_FLAGS) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(ChangeWindowMessageFilter(message, dwflag))
+    ChangeWindowMessageFilter(message, dwflag)
 }
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -1404,7 +1404,7 @@ where
     extern "system" {
         fn ChangeWindowMessageFilterEx(hwnd: super::super::Foundation::HWND, message: u32, action: WINDOW_MESSAGE_FILTER_ACTION, pchangefilterstruct: *mut CHANGEFILTERSTRUCT) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(ChangeWindowMessageFilterEx(hwnd.into(), message, action, ::core::mem::transmute(pchangefilterstruct)))
+    ChangeWindowMessageFilterEx(hwnd.into(), message, action, ::core::mem::transmute(pchangefilterstruct))
 }
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
 #[inline]
@@ -1413,7 +1413,7 @@ pub unsafe fn CharLowerA(lpsz: ::windows::core::PSTR) -> ::windows::core::PSTR {
     extern "system" {
         fn CharLowerA(lpsz: ::windows::core::PSTR) -> ::windows::core::PSTR;
     }
-    ::core::mem::transmute(CharLowerA(::core::mem::transmute(lpsz)))
+    CharLowerA(::core::mem::transmute(lpsz))
 }
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
 #[inline]
@@ -1422,7 +1422,7 @@ pub unsafe fn CharLowerBuffA(lpsz: &mut [u8]) -> u32 {
     extern "system" {
         fn CharLowerBuffA(lpsz: ::windows::core::PSTR, cchlength: u32) -> u32;
     }
-    ::core::mem::transmute(CharLowerBuffA(::core::mem::transmute(::windows::core::as_mut_ptr_or_null(lpsz)), lpsz.len() as _))
+    CharLowerBuffA(::core::mem::transmute(::windows::core::as_mut_ptr_or_null(lpsz)), lpsz.len() as _)
 }
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
 #[inline]
@@ -1431,7 +1431,7 @@ pub unsafe fn CharLowerBuffW(lpsz: &mut [u16]) -> u32 {
     extern "system" {
         fn CharLowerBuffW(lpsz: ::windows::core::PWSTR, cchlength: u32) -> u32;
     }
-    ::core::mem::transmute(CharLowerBuffW(::core::mem::transmute(::windows::core::as_mut_ptr_or_null(lpsz)), lpsz.len() as _))
+    CharLowerBuffW(::core::mem::transmute(::windows::core::as_mut_ptr_or_null(lpsz)), lpsz.len() as _)
 }
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
 #[inline]
@@ -1440,7 +1440,7 @@ pub unsafe fn CharLowerW(lpsz: ::windows::core::PWSTR) -> ::windows::core::PWSTR
     extern "system" {
         fn CharLowerW(lpsz: ::windows::core::PWSTR) -> ::windows::core::PWSTR;
     }
-    ::core::mem::transmute(CharLowerW(::core::mem::transmute(lpsz)))
+    CharLowerW(::core::mem::transmute(lpsz))
 }
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
 #[inline]
@@ -1452,7 +1452,7 @@ where
     extern "system" {
         fn CharNextA(lpsz: ::windows::core::PCSTR) -> ::windows::core::PSTR;
     }
-    ::core::mem::transmute(CharNextA(lpsz.into()))
+    CharNextA(lpsz.into())
 }
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
 #[inline]
@@ -1464,7 +1464,7 @@ where
     extern "system" {
         fn CharNextExA(codepage: u16, lpcurrentchar: ::windows::core::PCSTR, dwflags: u32) -> ::windows::core::PSTR;
     }
-    ::core::mem::transmute(CharNextExA(codepage, lpcurrentchar.into(), dwflags))
+    CharNextExA(codepage, lpcurrentchar.into(), dwflags)
 }
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
 #[inline]
@@ -1476,7 +1476,7 @@ where
     extern "system" {
         fn CharNextW(lpsz: ::windows::core::PCWSTR) -> ::windows::core::PWSTR;
     }
-    ::core::mem::transmute(CharNextW(lpsz.into()))
+    CharNextW(lpsz.into())
 }
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
 #[inline]
@@ -1489,7 +1489,7 @@ where
     extern "system" {
         fn CharPrevA(lpszstart: ::windows::core::PCSTR, lpszcurrent: ::windows::core::PCSTR) -> ::windows::core::PSTR;
     }
-    ::core::mem::transmute(CharPrevA(lpszstart.into(), lpszcurrent.into()))
+    CharPrevA(lpszstart.into(), lpszcurrent.into())
 }
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
 #[inline]
@@ -1502,7 +1502,7 @@ where
     extern "system" {
         fn CharPrevExA(codepage: u16, lpstart: ::windows::core::PCSTR, lpcurrentchar: ::windows::core::PCSTR, dwflags: u32) -> ::windows::core::PSTR;
     }
-    ::core::mem::transmute(CharPrevExA(codepage, lpstart.into(), lpcurrentchar.into(), dwflags))
+    CharPrevExA(codepage, lpstart.into(), lpcurrentchar.into(), dwflags)
 }
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
 #[inline]
@@ -1515,7 +1515,7 @@ where
     extern "system" {
         fn CharPrevW(lpszstart: ::windows::core::PCWSTR, lpszcurrent: ::windows::core::PCWSTR) -> ::windows::core::PWSTR;
     }
-    ::core::mem::transmute(CharPrevW(lpszstart.into(), lpszcurrent.into()))
+    CharPrevW(lpszstart.into(), lpszcurrent.into())
 }
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -1528,7 +1528,7 @@ where
     extern "system" {
         fn CharToOemA(psrc: ::windows::core::PCSTR, pdst: ::windows::core::PSTR) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(CharToOemA(psrc.into(), ::core::mem::transmute(pdst)))
+    CharToOemA(psrc.into(), ::core::mem::transmute(pdst))
 }
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -1541,7 +1541,7 @@ where
     extern "system" {
         fn CharToOemBuffA(lpszsrc: ::windows::core::PCSTR, lpszdst: ::windows::core::PSTR, cchdstlength: u32) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(CharToOemBuffA(lpszsrc.into(), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(lpszdst)), lpszdst.len() as _))
+    CharToOemBuffA(lpszsrc.into(), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(lpszdst)), lpszdst.len() as _)
 }
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -1554,7 +1554,7 @@ where
     extern "system" {
         fn CharToOemBuffW(lpszsrc: ::windows::core::PCWSTR, lpszdst: ::windows::core::PSTR, cchdstlength: u32) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(CharToOemBuffW(lpszsrc.into(), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(lpszdst)), lpszdst.len() as _))
+    CharToOemBuffW(lpszsrc.into(), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(lpszdst)), lpszdst.len() as _)
 }
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -1567,7 +1567,7 @@ where
     extern "system" {
         fn CharToOemW(psrc: ::windows::core::PCWSTR, pdst: ::windows::core::PSTR) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(CharToOemW(psrc.into(), ::core::mem::transmute(pdst)))
+    CharToOemW(psrc.into(), ::core::mem::transmute(pdst))
 }
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
 #[inline]
@@ -1576,7 +1576,7 @@ pub unsafe fn CharUpperA(lpsz: ::windows::core::PSTR) -> ::windows::core::PSTR {
     extern "system" {
         fn CharUpperA(lpsz: ::windows::core::PSTR) -> ::windows::core::PSTR;
     }
-    ::core::mem::transmute(CharUpperA(::core::mem::transmute(lpsz)))
+    CharUpperA(::core::mem::transmute(lpsz))
 }
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
 #[inline]
@@ -1585,7 +1585,7 @@ pub unsafe fn CharUpperBuffA(lpsz: &mut [u8]) -> u32 {
     extern "system" {
         fn CharUpperBuffA(lpsz: ::windows::core::PSTR, cchlength: u32) -> u32;
     }
-    ::core::mem::transmute(CharUpperBuffA(::core::mem::transmute(::windows::core::as_mut_ptr_or_null(lpsz)), lpsz.len() as _))
+    CharUpperBuffA(::core::mem::transmute(::windows::core::as_mut_ptr_or_null(lpsz)), lpsz.len() as _)
 }
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
 #[inline]
@@ -1594,7 +1594,7 @@ pub unsafe fn CharUpperBuffW(lpsz: &mut [u16]) -> u32 {
     extern "system" {
         fn CharUpperBuffW(lpsz: ::windows::core::PWSTR, cchlength: u32) -> u32;
     }
-    ::core::mem::transmute(CharUpperBuffW(::core::mem::transmute(::windows::core::as_mut_ptr_or_null(lpsz)), lpsz.len() as _))
+    CharUpperBuffW(::core::mem::transmute(::windows::core::as_mut_ptr_or_null(lpsz)), lpsz.len() as _)
 }
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
 #[inline]
@@ -1603,7 +1603,7 @@ pub unsafe fn CharUpperW(lpsz: ::windows::core::PWSTR) -> ::windows::core::PWSTR
     extern "system" {
         fn CharUpperW(lpsz: ::windows::core::PWSTR) -> ::windows::core::PWSTR;
     }
-    ::core::mem::transmute(CharUpperW(::core::mem::transmute(lpsz)))
+    CharUpperW(::core::mem::transmute(lpsz))
 }
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
 #[inline]
@@ -1615,7 +1615,7 @@ where
     extern "system" {
         fn CheckMenuItem(hmenu: HMENU, uidcheckitem: u32, ucheck: u32) -> u32;
     }
-    ::core::mem::transmute(CheckMenuItem(hmenu.into(), uidcheckitem, ucheck))
+    CheckMenuItem(hmenu.into(), uidcheckitem, ucheck)
 }
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -1628,7 +1628,7 @@ where
     extern "system" {
         fn CheckMenuRadioItem(hmenu: HMENU, first: u32, last: u32, check: u32, flags: u32) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(CheckMenuRadioItem(hmenu.into(), first, last, check, flags))
+    CheckMenuRadioItem(hmenu.into(), first, last, check, flags)
 }
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -1641,7 +1641,7 @@ where
     extern "system" {
         fn ChildWindowFromPoint(hwndparent: super::super::Foundation::HWND, point: super::super::Foundation::POINT) -> super::super::Foundation::HWND;
     }
-    ::core::mem::transmute(ChildWindowFromPoint(hwndparent.into(), ::core::mem::transmute(point)))
+    ChildWindowFromPoint(hwndparent.into(), ::core::mem::transmute(point))
 }
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -1654,7 +1654,7 @@ where
     extern "system" {
         fn ChildWindowFromPointEx(hwnd: super::super::Foundation::HWND, pt: super::super::Foundation::POINT, flags: CWP_FLAGS) -> super::super::Foundation::HWND;
     }
-    ::core::mem::transmute(ChildWindowFromPointEx(hwnd.into(), ::core::mem::transmute(pt), flags))
+    ChildWindowFromPointEx(hwnd.into(), ::core::mem::transmute(pt), flags)
 }
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -1664,7 +1664,7 @@ pub unsafe fn ClipCursor(lprect: *const super::super::Foundation::RECT) -> super
     extern "system" {
         fn ClipCursor(lprect: *const super::super::Foundation::RECT) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(ClipCursor(::core::mem::transmute(lprect)))
+    ClipCursor(::core::mem::transmute(lprect))
 }
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -1677,7 +1677,7 @@ where
     extern "system" {
         fn CloseWindow(hwnd: super::super::Foundation::HWND) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(CloseWindow(hwnd.into()))
+    CloseWindow(hwnd.into())
 }
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
 #[inline]
@@ -1689,7 +1689,7 @@ where
     extern "system" {
         fn CopyAcceleratorTableA(haccelsrc: HACCEL, lpacceldst: *mut ACCEL, caccelentries: i32) -> i32;
     }
-    ::core::mem::transmute(CopyAcceleratorTableA(haccelsrc.into(), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(lpacceldst)), lpacceldst.len() as _))
+    CopyAcceleratorTableA(haccelsrc.into(), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(lpacceldst)), lpacceldst.len() as _)
 }
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
 #[inline]
@@ -1701,7 +1701,7 @@ where
     extern "system" {
         fn CopyAcceleratorTableW(haccelsrc: HACCEL, lpacceldst: *mut ACCEL, caccelentries: i32) -> i32;
     }
-    ::core::mem::transmute(CopyAcceleratorTableW(haccelsrc.into(), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(lpacceldst)), lpacceldst.len() as _))
+    CopyAcceleratorTableW(haccelsrc.into(), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(lpacceldst)), lpacceldst.len() as _)
 }
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
 #[inline]
@@ -1762,7 +1762,7 @@ where
     extern "system" {
         fn CreateCaret(hwnd: super::super::Foundation::HWND, hbitmap: super::super::Graphics::Gdi::HBITMAP, nwidth: i32, nheight: i32) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(CreateCaret(hwnd.into(), hbitmap.into(), nwidth, nheight))
+    CreateCaret(hwnd.into(), hbitmap.into(), nwidth, nheight)
 }
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -1791,7 +1791,7 @@ where
     extern "system" {
         fn CreateDialogIndirectParamA(hinstance: super::super::Foundation::HINSTANCE, lptemplate: *const DLGTEMPLATE, hwndparent: super::super::Foundation::HWND, lpdialogfunc: *mut ::core::ffi::c_void, dwinitparam: super::super::Foundation::LPARAM) -> super::super::Foundation::HWND;
     }
-    ::core::mem::transmute(CreateDialogIndirectParamA(hinstance.into(), ::core::mem::transmute(lptemplate), hwndparent.into(), ::core::mem::transmute(lpdialogfunc), dwinitparam.into()))
+    CreateDialogIndirectParamA(hinstance.into(), ::core::mem::transmute(lptemplate), hwndparent.into(), ::core::mem::transmute(lpdialogfunc), dwinitparam.into())
 }
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -1806,7 +1806,7 @@ where
     extern "system" {
         fn CreateDialogIndirectParamW(hinstance: super::super::Foundation::HINSTANCE, lptemplate: *const DLGTEMPLATE, hwndparent: super::super::Foundation::HWND, lpdialogfunc: *mut ::core::ffi::c_void, dwinitparam: super::super::Foundation::LPARAM) -> super::super::Foundation::HWND;
     }
-    ::core::mem::transmute(CreateDialogIndirectParamW(hinstance.into(), ::core::mem::transmute(lptemplate), hwndparent.into(), ::core::mem::transmute(lpdialogfunc), dwinitparam.into()))
+    CreateDialogIndirectParamW(hinstance.into(), ::core::mem::transmute(lptemplate), hwndparent.into(), ::core::mem::transmute(lpdialogfunc), dwinitparam.into())
 }
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -1822,7 +1822,7 @@ where
     extern "system" {
         fn CreateDialogParamA(hinstance: super::super::Foundation::HINSTANCE, lptemplatename: ::windows::core::PCSTR, hwndparent: super::super::Foundation::HWND, lpdialogfunc: *mut ::core::ffi::c_void, dwinitparam: super::super::Foundation::LPARAM) -> super::super::Foundation::HWND;
     }
-    ::core::mem::transmute(CreateDialogParamA(hinstance.into(), lptemplatename.into(), hwndparent.into(), ::core::mem::transmute(lpdialogfunc), dwinitparam.into()))
+    CreateDialogParamA(hinstance.into(), lptemplatename.into(), hwndparent.into(), ::core::mem::transmute(lpdialogfunc), dwinitparam.into())
 }
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -1838,7 +1838,7 @@ where
     extern "system" {
         fn CreateDialogParamW(hinstance: super::super::Foundation::HINSTANCE, lptemplatename: ::windows::core::PCWSTR, hwndparent: super::super::Foundation::HWND, lpdialogfunc: *mut ::core::ffi::c_void, dwinitparam: super::super::Foundation::LPARAM) -> super::super::Foundation::HWND;
     }
-    ::core::mem::transmute(CreateDialogParamW(hinstance.into(), lptemplatename.into(), hwndparent.into(), ::core::mem::transmute(lpdialogfunc), dwinitparam.into()))
+    CreateDialogParamW(hinstance.into(), lptemplatename.into(), hwndparent.into(), ::core::mem::transmute(lpdialogfunc), dwinitparam.into())
 }
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -1908,7 +1908,7 @@ where
     extern "system" {
         fn CreateMDIWindowA(lpclassname: ::windows::core::PCSTR, lpwindowname: ::windows::core::PCSTR, dwstyle: WINDOW_STYLE, x: i32, y: i32, nwidth: i32, nheight: i32, hwndparent: super::super::Foundation::HWND, hinstance: super::super::Foundation::HINSTANCE, lparam: super::super::Foundation::LPARAM) -> super::super::Foundation::HWND;
     }
-    ::core::mem::transmute(CreateMDIWindowA(lpclassname.into(), lpwindowname.into(), dwstyle, x, y, nwidth, nheight, hwndparent.into(), hinstance.into(), lparam.into()))
+    CreateMDIWindowA(lpclassname.into(), lpwindowname.into(), dwstyle, x, y, nwidth, nheight, hwndparent.into(), hinstance.into(), lparam.into())
 }
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -1925,7 +1925,7 @@ where
     extern "system" {
         fn CreateMDIWindowW(lpclassname: ::windows::core::PCWSTR, lpwindowname: ::windows::core::PCWSTR, dwstyle: WINDOW_STYLE, x: i32, y: i32, nwidth: i32, nheight: i32, hwndparent: super::super::Foundation::HWND, hinstance: super::super::Foundation::HINSTANCE, lparam: super::super::Foundation::LPARAM) -> super::super::Foundation::HWND;
     }
-    ::core::mem::transmute(CreateMDIWindowW(lpclassname.into(), lpwindowname.into(), dwstyle, x, y, nwidth, nheight, hwndparent.into(), hinstance.into(), lparam.into()))
+    CreateMDIWindowW(lpclassname.into(), lpwindowname.into(), dwstyle, x, y, nwidth, nheight, hwndparent.into(), hinstance.into(), lparam.into())
 }
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
 #[inline]
@@ -1975,7 +1975,7 @@ where
     extern "system" {
         fn CreateWindowExA(dwexstyle: WINDOW_EX_STYLE, lpclassname: ::windows::core::PCSTR, lpwindowname: ::windows::core::PCSTR, dwstyle: WINDOW_STYLE, x: i32, y: i32, nwidth: i32, nheight: i32, hwndparent: super::super::Foundation::HWND, hmenu: HMENU, hinstance: super::super::Foundation::HINSTANCE, lpparam: *const ::core::ffi::c_void) -> super::super::Foundation::HWND;
     }
-    ::core::mem::transmute(CreateWindowExA(dwexstyle, lpclassname.into(), lpwindowname.into(), dwstyle, x, y, nwidth, nheight, hwndparent.into(), hmenu.into(), hinstance.into(), ::core::mem::transmute(lpparam)))
+    CreateWindowExA(dwexstyle, lpclassname.into(), lpwindowname.into(), dwstyle, x, y, nwidth, nheight, hwndparent.into(), hmenu.into(), hinstance.into(), ::core::mem::transmute(lpparam))
 }
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -1992,7 +1992,7 @@ where
     extern "system" {
         fn CreateWindowExW(dwexstyle: WINDOW_EX_STYLE, lpclassname: ::windows::core::PCWSTR, lpwindowname: ::windows::core::PCWSTR, dwstyle: WINDOW_STYLE, x: i32, y: i32, nwidth: i32, nheight: i32, hwndparent: super::super::Foundation::HWND, hmenu: HMENU, hinstance: super::super::Foundation::HINSTANCE, lpparam: *const ::core::ffi::c_void) -> super::super::Foundation::HWND;
     }
-    ::core::mem::transmute(CreateWindowExW(dwexstyle, lpclassname.into(), lpwindowname.into(), dwstyle, x, y, nwidth, nheight, hwndparent.into(), hmenu.into(), hinstance.into(), ::core::mem::transmute(lpparam)))
+    CreateWindowExW(dwexstyle, lpclassname.into(), lpwindowname.into(), dwstyle, x, y, nwidth, nheight, hwndparent.into(), hmenu.into(), hinstance.into(), ::core::mem::transmute(lpparam))
 }
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
 pub const DCX_EXCLUDEUPDATE: i32 = 256i32;
@@ -2334,7 +2334,7 @@ where
     extern "system" {
         fn DefDlgProcA(hdlg: super::super::Foundation::HWND, msg: u32, wparam: super::super::Foundation::WPARAM, lparam: super::super::Foundation::LPARAM) -> super::super::Foundation::LRESULT;
     }
-    ::core::mem::transmute(DefDlgProcA(hdlg.into(), msg, wparam.into(), lparam.into()))
+    DefDlgProcA(hdlg.into(), msg, wparam.into(), lparam.into())
 }
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -2349,7 +2349,7 @@ where
     extern "system" {
         fn DefDlgProcW(hdlg: super::super::Foundation::HWND, msg: u32, wparam: super::super::Foundation::WPARAM, lparam: super::super::Foundation::LPARAM) -> super::super::Foundation::LRESULT;
     }
-    ::core::mem::transmute(DefDlgProcW(hdlg.into(), msg, wparam.into(), lparam.into()))
+    DefDlgProcW(hdlg.into(), msg, wparam.into(), lparam.into())
 }
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -2365,7 +2365,7 @@ where
     extern "system" {
         fn DefFrameProcA(hwnd: super::super::Foundation::HWND, hwndmdiclient: super::super::Foundation::HWND, umsg: u32, wparam: super::super::Foundation::WPARAM, lparam: super::super::Foundation::LPARAM) -> super::super::Foundation::LRESULT;
     }
-    ::core::mem::transmute(DefFrameProcA(hwnd.into(), hwndmdiclient.into(), umsg, wparam.into(), lparam.into()))
+    DefFrameProcA(hwnd.into(), hwndmdiclient.into(), umsg, wparam.into(), lparam.into())
 }
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -2381,7 +2381,7 @@ where
     extern "system" {
         fn DefFrameProcW(hwnd: super::super::Foundation::HWND, hwndmdiclient: super::super::Foundation::HWND, umsg: u32, wparam: super::super::Foundation::WPARAM, lparam: super::super::Foundation::LPARAM) -> super::super::Foundation::LRESULT;
     }
-    ::core::mem::transmute(DefFrameProcW(hwnd.into(), hwndmdiclient.into(), umsg, wparam.into(), lparam.into()))
+    DefFrameProcW(hwnd.into(), hwndmdiclient.into(), umsg, wparam.into(), lparam.into())
 }
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -2396,7 +2396,7 @@ where
     extern "system" {
         fn DefMDIChildProcA(hwnd: super::super::Foundation::HWND, umsg: u32, wparam: super::super::Foundation::WPARAM, lparam: super::super::Foundation::LPARAM) -> super::super::Foundation::LRESULT;
     }
-    ::core::mem::transmute(DefMDIChildProcA(hwnd.into(), umsg, wparam.into(), lparam.into()))
+    DefMDIChildProcA(hwnd.into(), umsg, wparam.into(), lparam.into())
 }
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -2411,7 +2411,7 @@ where
     extern "system" {
         fn DefMDIChildProcW(hwnd: super::super::Foundation::HWND, umsg: u32, wparam: super::super::Foundation::WPARAM, lparam: super::super::Foundation::LPARAM) -> super::super::Foundation::LRESULT;
     }
-    ::core::mem::transmute(DefMDIChildProcW(hwnd.into(), umsg, wparam.into(), lparam.into()))
+    DefMDIChildProcW(hwnd.into(), umsg, wparam.into(), lparam.into())
 }
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -2426,7 +2426,7 @@ where
     extern "system" {
         fn DefWindowProcA(hwnd: super::super::Foundation::HWND, msg: u32, wparam: super::super::Foundation::WPARAM, lparam: super::super::Foundation::LPARAM) -> super::super::Foundation::LRESULT;
     }
-    ::core::mem::transmute(DefWindowProcA(hwnd.into(), msg, wparam.into(), lparam.into()))
+    DefWindowProcA(hwnd.into(), msg, wparam.into(), lparam.into())
 }
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -2441,7 +2441,7 @@ where
     extern "system" {
         fn DefWindowProcW(hwnd: super::super::Foundation::HWND, msg: u32, wparam: super::super::Foundation::WPARAM, lparam: super::super::Foundation::LPARAM) -> super::super::Foundation::LRESULT;
     }
-    ::core::mem::transmute(DefWindowProcW(hwnd.into(), msg, wparam.into(), lparam.into()))
+    DefWindowProcW(hwnd.into(), msg, wparam.into(), lparam.into())
 }
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -2455,7 +2455,7 @@ where
     extern "system" {
         fn DeferWindowPos(hwinposinfo: isize, hwnd: super::super::Foundation::HWND, hwndinsertafter: super::super::Foundation::HWND, x: i32, y: i32, cx: i32, cy: i32, uflags: SET_WINDOW_POS_FLAGS) -> isize;
     }
-    ::core::mem::transmute(DeferWindowPos(hwinposinfo, hwnd.into(), hwndinsertafter.into(), x, y, cx, cy, uflags))
+    DeferWindowPos(hwinposinfo, hwnd.into(), hwndinsertafter.into(), x, y, cx, cy, uflags)
 }
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -2468,7 +2468,7 @@ where
     extern "system" {
         fn DeleteMenu(hmenu: HMENU, uposition: u32, uflags: MENU_ITEM_FLAGS) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(DeleteMenu(hmenu.into(), uposition, uflags))
+    DeleteMenu(hmenu.into(), uposition, uflags)
 }
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -2481,7 +2481,7 @@ where
     extern "system" {
         fn DeregisterShellHookWindow(hwnd: super::super::Foundation::HWND) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(DeregisterShellHookWindow(hwnd.into()))
+    DeregisterShellHookWindow(hwnd.into())
 }
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -2494,7 +2494,7 @@ where
     extern "system" {
         fn DestroyAcceleratorTable(haccel: HACCEL) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(DestroyAcceleratorTable(haccel.into()))
+    DestroyAcceleratorTable(haccel.into())
 }
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -2504,7 +2504,7 @@ pub unsafe fn DestroyCaret() -> super::super::Foundation::BOOL {
     extern "system" {
         fn DestroyCaret() -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(DestroyCaret())
+    DestroyCaret()
 }
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -2517,7 +2517,7 @@ where
     extern "system" {
         fn DestroyCursor(hcursor: HCURSOR) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(DestroyCursor(hcursor.into()))
+    DestroyCursor(hcursor.into())
 }
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -2530,7 +2530,7 @@ where
     extern "system" {
         fn DestroyIcon(hicon: HICON) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(DestroyIcon(hicon.into()))
+    DestroyIcon(hicon.into())
 }
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
 #[inline]
@@ -2555,7 +2555,7 @@ where
     extern "system" {
         fn DestroyMenu(hmenu: HMENU) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(DestroyMenu(hmenu.into()))
+    DestroyMenu(hmenu.into())
 }
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
 #[inline]
@@ -2577,7 +2577,7 @@ where
     extern "system" {
         fn DestroyWindow(hwnd: super::super::Foundation::HWND) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(DestroyWindow(hwnd.into()))
+    DestroyWindow(hwnd.into())
 }
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -2592,7 +2592,7 @@ where
     extern "system" {
         fn DialogBoxIndirectParamA(hinstance: super::super::Foundation::HINSTANCE, hdialogtemplate: *const DLGTEMPLATE, hwndparent: super::super::Foundation::HWND, lpdialogfunc: *mut ::core::ffi::c_void, dwinitparam: super::super::Foundation::LPARAM) -> isize;
     }
-    ::core::mem::transmute(DialogBoxIndirectParamA(hinstance.into(), ::core::mem::transmute(hdialogtemplate), hwndparent.into(), ::core::mem::transmute(lpdialogfunc), dwinitparam.into()))
+    DialogBoxIndirectParamA(hinstance.into(), ::core::mem::transmute(hdialogtemplate), hwndparent.into(), ::core::mem::transmute(lpdialogfunc), dwinitparam.into())
 }
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -2607,7 +2607,7 @@ where
     extern "system" {
         fn DialogBoxIndirectParamW(hinstance: super::super::Foundation::HINSTANCE, hdialogtemplate: *const DLGTEMPLATE, hwndparent: super::super::Foundation::HWND, lpdialogfunc: *mut ::core::ffi::c_void, dwinitparam: super::super::Foundation::LPARAM) -> isize;
     }
-    ::core::mem::transmute(DialogBoxIndirectParamW(hinstance.into(), ::core::mem::transmute(hdialogtemplate), hwndparent.into(), ::core::mem::transmute(lpdialogfunc), dwinitparam.into()))
+    DialogBoxIndirectParamW(hinstance.into(), ::core::mem::transmute(hdialogtemplate), hwndparent.into(), ::core::mem::transmute(lpdialogfunc), dwinitparam.into())
 }
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -2623,7 +2623,7 @@ where
     extern "system" {
         fn DialogBoxParamA(hinstance: super::super::Foundation::HINSTANCE, lptemplatename: ::windows::core::PCSTR, hwndparent: super::super::Foundation::HWND, lpdialogfunc: *mut ::core::ffi::c_void, dwinitparam: super::super::Foundation::LPARAM) -> isize;
     }
-    ::core::mem::transmute(DialogBoxParamA(hinstance.into(), lptemplatename.into(), hwndparent.into(), ::core::mem::transmute(lpdialogfunc), dwinitparam.into()))
+    DialogBoxParamA(hinstance.into(), lptemplatename.into(), hwndparent.into(), ::core::mem::transmute(lpdialogfunc), dwinitparam.into())
 }
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -2639,7 +2639,7 @@ where
     extern "system" {
         fn DialogBoxParamW(hinstance: super::super::Foundation::HINSTANCE, lptemplatename: ::windows::core::PCWSTR, hwndparent: super::super::Foundation::HWND, lpdialogfunc: *mut ::core::ffi::c_void, dwinitparam: super::super::Foundation::LPARAM) -> isize;
     }
-    ::core::mem::transmute(DialogBoxParamW(hinstance.into(), lptemplatename.into(), hwndparent.into(), ::core::mem::transmute(lpdialogfunc), dwinitparam.into()))
+    DialogBoxParamW(hinstance.into(), lptemplatename.into(), hwndparent.into(), ::core::mem::transmute(lpdialogfunc), dwinitparam.into())
 }
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
 #[inline]
@@ -2658,7 +2658,7 @@ pub unsafe fn DispatchMessageA(lpmsg: *const MSG) -> super::super::Foundation::L
     extern "system" {
         fn DispatchMessageA(lpmsg: *const MSG) -> super::super::Foundation::LRESULT;
     }
-    ::core::mem::transmute(DispatchMessageA(::core::mem::transmute(lpmsg)))
+    DispatchMessageA(::core::mem::transmute(lpmsg))
 }
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -2668,7 +2668,7 @@ pub unsafe fn DispatchMessageW(lpmsg: *const MSG) -> super::super::Foundation::L
     extern "system" {
         fn DispatchMessageW(lpmsg: *const MSG) -> super::super::Foundation::LRESULT;
     }
-    ::core::mem::transmute(DispatchMessageW(::core::mem::transmute(lpmsg)))
+    DispatchMessageW(::core::mem::transmute(lpmsg))
 }
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -2683,7 +2683,7 @@ where
     extern "system" {
         fn DragObject(hwndparent: super::super::Foundation::HWND, hwndfrom: super::super::Foundation::HWND, fmt: u32, data: usize, hcur: HCURSOR) -> u32;
     }
-    ::core::mem::transmute(DragObject(hwndparent.into(), hwndfrom.into(), fmt, data, hcur.into()))
+    DragObject(hwndparent.into(), hwndfrom.into(), fmt, data, hcur.into())
 }
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
@@ -2697,7 +2697,7 @@ where
     extern "system" {
         fn DrawIcon(hdc: super::super::Graphics::Gdi::HDC, x: i32, y: i32, hicon: HICON) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(DrawIcon(hdc.into(), x, y, hicon.into()))
+    DrawIcon(hdc.into(), x, y, hicon.into())
 }
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
@@ -2712,7 +2712,7 @@ where
     extern "system" {
         fn DrawIconEx(hdc: super::super::Graphics::Gdi::HDC, xleft: i32, ytop: i32, hicon: HICON, cxwidth: i32, cywidth: i32, istepifanicur: u32, hbrflickerfreedraw: super::super::Graphics::Gdi::HBRUSH, diflags: DI_FLAGS) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(DrawIconEx(hdc.into(), xleft, ytop, hicon.into(), cxwidth, cywidth, istepifanicur, hbrflickerfreedraw.into(), diflags))
+    DrawIconEx(hdc.into(), xleft, ytop, hicon.into(), cxwidth, cywidth, istepifanicur, hbrflickerfreedraw.into(), diflags)
 }
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -2725,7 +2725,7 @@ where
     extern "system" {
         fn DrawMenuBar(hwnd: super::super::Foundation::HWND) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(DrawMenuBar(hwnd.into()))
+    DrawMenuBar(hwnd.into())
 }
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
 pub const EC_LEFTMARGIN: u32 = 1u32;
@@ -3071,7 +3071,7 @@ where
     extern "system" {
         fn EnableMenuItem(hmenu: HMENU, uidenableitem: u32, uenable: MENU_ITEM_FLAGS) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(EnableMenuItem(hmenu.into(), uidenableitem, uenable))
+    EnableMenuItem(hmenu.into(), uidenableitem, uenable)
 }
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -3081,7 +3081,7 @@ pub unsafe fn EndDeferWindowPos(hwinposinfo: isize) -> super::super::Foundation:
     extern "system" {
         fn EndDeferWindowPos(hwinposinfo: isize) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(EndDeferWindowPos(hwinposinfo))
+    EndDeferWindowPos(hwinposinfo)
 }
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -3094,7 +3094,7 @@ where
     extern "system" {
         fn EndDialog(hdlg: super::super::Foundation::HWND, nresult: isize) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(EndDialog(hdlg.into(), nresult))
+    EndDialog(hdlg.into(), nresult)
 }
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -3104,7 +3104,7 @@ pub unsafe fn EndMenu() -> super::super::Foundation::BOOL {
     extern "system" {
         fn EndMenu() -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(EndMenu())
+    EndMenu()
 }
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -3118,7 +3118,7 @@ where
     extern "system" {
         fn EnumChildWindows(hwndparent: super::super::Foundation::HWND, lpenumfunc: *mut ::core::ffi::c_void, lparam: super::super::Foundation::LPARAM) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(EnumChildWindows(hwndparent.into(), ::core::mem::transmute(lpenumfunc), lparam.into()))
+    EnumChildWindows(hwndparent.into(), ::core::mem::transmute(lpenumfunc), lparam.into())
 }
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -3131,7 +3131,7 @@ where
     extern "system" {
         fn EnumPropsA(hwnd: super::super::Foundation::HWND, lpenumfunc: *mut ::core::ffi::c_void) -> i32;
     }
-    ::core::mem::transmute(EnumPropsA(hwnd.into(), ::core::mem::transmute(lpenumfunc)))
+    EnumPropsA(hwnd.into(), ::core::mem::transmute(lpenumfunc))
 }
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -3145,7 +3145,7 @@ where
     extern "system" {
         fn EnumPropsExA(hwnd: super::super::Foundation::HWND, lpenumfunc: *mut ::core::ffi::c_void, lparam: super::super::Foundation::LPARAM) -> i32;
     }
-    ::core::mem::transmute(EnumPropsExA(hwnd.into(), ::core::mem::transmute(lpenumfunc), lparam.into()))
+    EnumPropsExA(hwnd.into(), ::core::mem::transmute(lpenumfunc), lparam.into())
 }
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -3159,7 +3159,7 @@ where
     extern "system" {
         fn EnumPropsExW(hwnd: super::super::Foundation::HWND, lpenumfunc: *mut ::core::ffi::c_void, lparam: super::super::Foundation::LPARAM) -> i32;
     }
-    ::core::mem::transmute(EnumPropsExW(hwnd.into(), ::core::mem::transmute(lpenumfunc), lparam.into()))
+    EnumPropsExW(hwnd.into(), ::core::mem::transmute(lpenumfunc), lparam.into())
 }
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -3172,7 +3172,7 @@ where
     extern "system" {
         fn EnumPropsW(hwnd: super::super::Foundation::HWND, lpenumfunc: *mut ::core::ffi::c_void) -> i32;
     }
-    ::core::mem::transmute(EnumPropsW(hwnd.into(), ::core::mem::transmute(lpenumfunc)))
+    EnumPropsW(hwnd.into(), ::core::mem::transmute(lpenumfunc))
 }
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -3185,7 +3185,7 @@ where
     extern "system" {
         fn EnumThreadWindows(dwthreadid: u32, lpfn: *mut ::core::ffi::c_void, lparam: super::super::Foundation::LPARAM) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(EnumThreadWindows(dwthreadid, ::core::mem::transmute(lpfn), lparam.into()))
+    EnumThreadWindows(dwthreadid, ::core::mem::transmute(lpfn), lparam.into())
 }
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -3198,7 +3198,7 @@ where
     extern "system" {
         fn EnumWindows(lpenumfunc: *mut ::core::ffi::c_void, lparam: super::super::Foundation::LPARAM) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(EnumWindows(::core::mem::transmute(lpenumfunc), lparam.into()))
+    EnumWindows(::core::mem::transmute(lpenumfunc), lparam.into())
 }
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
 pub const FALT: u32 = 16u32;
@@ -3384,7 +3384,7 @@ where
     extern "system" {
         fn FindWindowA(lpclassname: ::windows::core::PCSTR, lpwindowname: ::windows::core::PCSTR) -> super::super::Foundation::HWND;
     }
-    ::core::mem::transmute(FindWindowA(lpclassname.into(), lpwindowname.into()))
+    FindWindowA(lpclassname.into(), lpwindowname.into())
 }
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -3400,7 +3400,7 @@ where
     extern "system" {
         fn FindWindowExA(hwndparent: super::super::Foundation::HWND, hwndchildafter: super::super::Foundation::HWND, lpszclass: ::windows::core::PCSTR, lpszwindow: ::windows::core::PCSTR) -> super::super::Foundation::HWND;
     }
-    ::core::mem::transmute(FindWindowExA(hwndparent.into(), hwndchildafter.into(), lpszclass.into(), lpszwindow.into()))
+    FindWindowExA(hwndparent.into(), hwndchildafter.into(), lpszclass.into(), lpszwindow.into())
 }
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -3416,7 +3416,7 @@ where
     extern "system" {
         fn FindWindowExW(hwndparent: super::super::Foundation::HWND, hwndchildafter: super::super::Foundation::HWND, lpszclass: ::windows::core::PCWSTR, lpszwindow: ::windows::core::PCWSTR) -> super::super::Foundation::HWND;
     }
-    ::core::mem::transmute(FindWindowExW(hwndparent.into(), hwndchildafter.into(), lpszclass.into(), lpszwindow.into()))
+    FindWindowExW(hwndparent.into(), hwndchildafter.into(), lpszclass.into(), lpszwindow.into())
 }
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -3430,7 +3430,7 @@ where
     extern "system" {
         fn FindWindowW(lpclassname: ::windows::core::PCWSTR, lpwindowname: ::windows::core::PCWSTR) -> super::super::Foundation::HWND;
     }
-    ::core::mem::transmute(FindWindowW(lpclassname.into(), lpwindowname.into()))
+    FindWindowW(lpclassname.into(), lpwindowname.into())
 }
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -3444,7 +3444,7 @@ where
     extern "system" {
         fn FlashWindow(hwnd: super::super::Foundation::HWND, binvert: super::super::Foundation::BOOL) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(FlashWindow(hwnd.into(), binvert.into()))
+    FlashWindow(hwnd.into(), binvert.into())
 }
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -3454,7 +3454,7 @@ pub unsafe fn FlashWindowEx(pfwi: *const FLASHWINFO) -> super::super::Foundation
     extern "system" {
         fn FlashWindowEx(pfwi: *const FLASHWINFO) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(FlashWindowEx(::core::mem::transmute(pfwi)))
+    FlashWindowEx(::core::mem::transmute(pfwi))
 }
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
 pub const GCF_INCLUDE_ANCESTORS: u32 = 1u32;
@@ -3817,7 +3817,7 @@ where
     extern "system" {
         fn GetAltTabInfoA(hwnd: super::super::Foundation::HWND, iitem: i32, pati: *mut ALTTABINFO, pszitemtext: ::windows::core::PSTR, cchitemtext: u32) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(GetAltTabInfoA(hwnd.into(), iitem, ::core::mem::transmute(pati), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(pszitemtext)), pszitemtext.len() as _))
+    GetAltTabInfoA(hwnd.into(), iitem, ::core::mem::transmute(pati), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(pszitemtext)), pszitemtext.len() as _)
 }
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -3830,7 +3830,7 @@ where
     extern "system" {
         fn GetAltTabInfoW(hwnd: super::super::Foundation::HWND, iitem: i32, pati: *mut ALTTABINFO, pszitemtext: ::windows::core::PWSTR, cchitemtext: u32) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(GetAltTabInfoW(hwnd.into(), iitem, ::core::mem::transmute(pati), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(pszitemtext)), pszitemtext.len() as _))
+    GetAltTabInfoW(hwnd.into(), iitem, ::core::mem::transmute(pati), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(pszitemtext)), pszitemtext.len() as _)
 }
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -3843,7 +3843,7 @@ where
     extern "system" {
         fn GetAncestor(hwnd: super::super::Foundation::HWND, gaflags: GET_ANCESTOR_FLAGS) -> super::super::Foundation::HWND;
     }
-    ::core::mem::transmute(GetAncestor(hwnd.into(), gaflags))
+    GetAncestor(hwnd.into(), gaflags)
 }
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
 #[inline]
@@ -3852,7 +3852,7 @@ pub unsafe fn GetCaretBlinkTime() -> u32 {
     extern "system" {
         fn GetCaretBlinkTime() -> u32;
     }
-    ::core::mem::transmute(GetCaretBlinkTime())
+    GetCaretBlinkTime()
 }
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -3862,7 +3862,7 @@ pub unsafe fn GetCaretPos(lppoint: *mut super::super::Foundation::POINT) -> supe
     extern "system" {
         fn GetCaretPos(lppoint: *mut super::super::Foundation::POINT) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(GetCaretPos(::core::mem::transmute(lppoint)))
+    GetCaretPos(::core::mem::transmute(lppoint))
 }
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
@@ -3876,7 +3876,7 @@ where
     extern "system" {
         fn GetClassInfoA(hinstance: super::super::Foundation::HINSTANCE, lpclassname: ::windows::core::PCSTR, lpwndclass: *mut WNDCLASSA) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(GetClassInfoA(hinstance.into(), lpclassname.into(), ::core::mem::transmute(lpwndclass)))
+    GetClassInfoA(hinstance.into(), lpclassname.into(), ::core::mem::transmute(lpwndclass))
 }
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
@@ -3890,7 +3890,7 @@ where
     extern "system" {
         fn GetClassInfoExA(hinstance: super::super::Foundation::HINSTANCE, lpszclass: ::windows::core::PCSTR, lpwcx: *mut WNDCLASSEXA) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(GetClassInfoExA(hinstance.into(), lpszclass.into(), ::core::mem::transmute(lpwcx)))
+    GetClassInfoExA(hinstance.into(), lpszclass.into(), ::core::mem::transmute(lpwcx))
 }
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
@@ -3904,7 +3904,7 @@ where
     extern "system" {
         fn GetClassInfoExW(hinstance: super::super::Foundation::HINSTANCE, lpszclass: ::windows::core::PCWSTR, lpwcx: *mut WNDCLASSEXW) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(GetClassInfoExW(hinstance.into(), lpszclass.into(), ::core::mem::transmute(lpwcx)))
+    GetClassInfoExW(hinstance.into(), lpszclass.into(), ::core::mem::transmute(lpwcx))
 }
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
@@ -3918,7 +3918,7 @@ where
     extern "system" {
         fn GetClassInfoW(hinstance: super::super::Foundation::HINSTANCE, lpclassname: ::windows::core::PCWSTR, lpwndclass: *mut WNDCLASSW) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(GetClassInfoW(hinstance.into(), lpclassname.into(), ::core::mem::transmute(lpwndclass)))
+    GetClassInfoW(hinstance.into(), lpclassname.into(), ::core::mem::transmute(lpwndclass))
 }
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -3931,7 +3931,7 @@ where
     extern "system" {
         fn GetClassLongA(hwnd: super::super::Foundation::HWND, nindex: GET_CLASS_LONG_INDEX) -> u32;
     }
-    ::core::mem::transmute(GetClassLongA(hwnd.into(), nindex))
+    GetClassLongA(hwnd.into(), nindex)
 }
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`, `\"Win32_Foundation\"`*"]
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
@@ -3945,7 +3945,7 @@ where
     extern "system" {
         fn GetClassLongPtrA(hwnd: super::super::Foundation::HWND, nindex: GET_CLASS_LONG_INDEX) -> usize;
     }
-    ::core::mem::transmute(GetClassLongPtrA(hwnd.into(), nindex))
+    GetClassLongPtrA(hwnd.into(), nindex)
 }
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`, `\"Win32_Foundation\"`*"]
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
@@ -3959,7 +3959,7 @@ where
     extern "system" {
         fn GetClassLongPtrW(hwnd: super::super::Foundation::HWND, nindex: GET_CLASS_LONG_INDEX) -> usize;
     }
-    ::core::mem::transmute(GetClassLongPtrW(hwnd.into(), nindex))
+    GetClassLongPtrW(hwnd.into(), nindex)
 }
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -3972,7 +3972,7 @@ where
     extern "system" {
         fn GetClassLongW(hwnd: super::super::Foundation::HWND, nindex: GET_CLASS_LONG_INDEX) -> u32;
     }
-    ::core::mem::transmute(GetClassLongW(hwnd.into(), nindex))
+    GetClassLongW(hwnd.into(), nindex)
 }
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -3985,7 +3985,7 @@ where
     extern "system" {
         fn GetClassNameA(hwnd: super::super::Foundation::HWND, lpclassname: ::windows::core::PSTR, nmaxcount: i32) -> i32;
     }
-    ::core::mem::transmute(GetClassNameA(hwnd.into(), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(lpclassname)), lpclassname.len() as _))
+    GetClassNameA(hwnd.into(), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(lpclassname)), lpclassname.len() as _)
 }
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -3998,7 +3998,7 @@ where
     extern "system" {
         fn GetClassNameW(hwnd: super::super::Foundation::HWND, lpclassname: ::windows::core::PWSTR, nmaxcount: i32) -> i32;
     }
-    ::core::mem::transmute(GetClassNameW(hwnd.into(), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(lpclassname)), lpclassname.len() as _))
+    GetClassNameW(hwnd.into(), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(lpclassname)), lpclassname.len() as _)
 }
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -4011,7 +4011,7 @@ where
     extern "system" {
         fn GetClassWord(hwnd: super::super::Foundation::HWND, nindex: i32) -> u16;
     }
-    ::core::mem::transmute(GetClassWord(hwnd.into(), nindex))
+    GetClassWord(hwnd.into(), nindex)
 }
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -4024,7 +4024,7 @@ where
     extern "system" {
         fn GetClientRect(hwnd: super::super::Foundation::HWND, lprect: *mut super::super::Foundation::RECT) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(GetClientRect(hwnd.into(), ::core::mem::transmute(lprect)))
+    GetClientRect(hwnd.into(), ::core::mem::transmute(lprect))
 }
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -4034,7 +4034,7 @@ pub unsafe fn GetClipCursor(lprect: *mut super::super::Foundation::RECT) -> supe
     extern "system" {
         fn GetClipCursor(lprect: *mut super::super::Foundation::RECT) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(GetClipCursor(::core::mem::transmute(lprect)))
+    GetClipCursor(::core::mem::transmute(lprect))
 }
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
 #[inline]
@@ -4043,7 +4043,7 @@ pub unsafe fn GetCursor() -> HCURSOR {
     extern "system" {
         fn GetCursor() -> HCURSOR;
     }
-    ::core::mem::transmute(GetCursor())
+    GetCursor()
 }
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -4053,7 +4053,7 @@ pub unsafe fn GetCursorInfo(pci: *mut CURSORINFO) -> super::super::Foundation::B
     extern "system" {
         fn GetCursorInfo(pci: *mut CURSORINFO) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(GetCursorInfo(::core::mem::transmute(pci)))
+    GetCursorInfo(::core::mem::transmute(pci))
 }
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -4063,7 +4063,7 @@ pub unsafe fn GetCursorPos(lppoint: *mut super::super::Foundation::POINT) -> sup
     extern "system" {
         fn GetCursorPos(lppoint: *mut super::super::Foundation::POINT) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(GetCursorPos(::core::mem::transmute(lppoint)))
+    GetCursorPos(::core::mem::transmute(lppoint))
 }
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -4073,7 +4073,7 @@ pub unsafe fn GetDesktopWindow() -> super::super::Foundation::HWND {
     extern "system" {
         fn GetDesktopWindow() -> super::super::Foundation::HWND;
     }
-    ::core::mem::transmute(GetDesktopWindow())
+    GetDesktopWindow()
 }
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
 #[inline]
@@ -4082,7 +4082,7 @@ pub unsafe fn GetDialogBaseUnits() -> i32 {
     extern "system" {
         fn GetDialogBaseUnits() -> i32;
     }
-    ::core::mem::transmute(GetDialogBaseUnits())
+    GetDialogBaseUnits()
 }
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -4095,7 +4095,7 @@ where
     extern "system" {
         fn GetDlgCtrlID(hwnd: super::super::Foundation::HWND) -> i32;
     }
-    ::core::mem::transmute(GetDlgCtrlID(hwnd.into()))
+    GetDlgCtrlID(hwnd.into())
 }
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -4108,7 +4108,7 @@ where
     extern "system" {
         fn GetDlgItem(hdlg: super::super::Foundation::HWND, niddlgitem: i32) -> super::super::Foundation::HWND;
     }
-    ::core::mem::transmute(GetDlgItem(hdlg.into(), niddlgitem))
+    GetDlgItem(hdlg.into(), niddlgitem)
 }
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -4122,7 +4122,7 @@ where
     extern "system" {
         fn GetDlgItemInt(hdlg: super::super::Foundation::HWND, niddlgitem: i32, lptranslated: *mut super::super::Foundation::BOOL, bsigned: super::super::Foundation::BOOL) -> u32;
     }
-    ::core::mem::transmute(GetDlgItemInt(hdlg.into(), niddlgitem, ::core::mem::transmute(lptranslated), bsigned.into()))
+    GetDlgItemInt(hdlg.into(), niddlgitem, ::core::mem::transmute(lptranslated), bsigned.into())
 }
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -4135,7 +4135,7 @@ where
     extern "system" {
         fn GetDlgItemTextA(hdlg: super::super::Foundation::HWND, niddlgitem: i32, lpstring: ::windows::core::PSTR, cchmax: i32) -> u32;
     }
-    ::core::mem::transmute(GetDlgItemTextA(hdlg.into(), niddlgitem, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(lpstring)), lpstring.len() as _))
+    GetDlgItemTextA(hdlg.into(), niddlgitem, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(lpstring)), lpstring.len() as _)
 }
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -4148,7 +4148,7 @@ where
     extern "system" {
         fn GetDlgItemTextW(hdlg: super::super::Foundation::HWND, niddlgitem: i32, lpstring: ::windows::core::PWSTR, cchmax: i32) -> u32;
     }
-    ::core::mem::transmute(GetDlgItemTextW(hdlg.into(), niddlgitem, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(lpstring)), lpstring.len() as _))
+    GetDlgItemTextW(hdlg.into(), niddlgitem, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(lpstring)), lpstring.len() as _)
 }
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -4158,7 +4158,7 @@ pub unsafe fn GetForegroundWindow() -> super::super::Foundation::HWND {
     extern "system" {
         fn GetForegroundWindow() -> super::super::Foundation::HWND;
     }
-    ::core::mem::transmute(GetForegroundWindow())
+    GetForegroundWindow()
 }
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -4168,7 +4168,7 @@ pub unsafe fn GetGUIThreadInfo(idthread: u32, pgui: *mut GUITHREADINFO) -> super
     extern "system" {
         fn GetGUIThreadInfo(idthread: u32, pgui: *mut GUITHREADINFO) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(GetGUIThreadInfo(idthread, ::core::mem::transmute(pgui)))
+    GetGUIThreadInfo(idthread, ::core::mem::transmute(pgui))
 }
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
@@ -4181,7 +4181,7 @@ where
     extern "system" {
         fn GetIconInfo(hicon: HICON, piconinfo: *mut ICONINFO) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(GetIconInfo(hicon.into(), ::core::mem::transmute(piconinfo)))
+    GetIconInfo(hicon.into(), ::core::mem::transmute(piconinfo))
 }
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
@@ -4194,7 +4194,7 @@ where
     extern "system" {
         fn GetIconInfoExA(hicon: HICON, piconinfo: *mut ICONINFOEXA) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(GetIconInfoExA(hicon.into(), ::core::mem::transmute(piconinfo)))
+    GetIconInfoExA(hicon.into(), ::core::mem::transmute(piconinfo))
 }
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
@@ -4207,7 +4207,7 @@ where
     extern "system" {
         fn GetIconInfoExW(hicon: HICON, piconinfo: *mut ICONINFOEXW) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(GetIconInfoExW(hicon.into(), ::core::mem::transmute(piconinfo)))
+    GetIconInfoExW(hicon.into(), ::core::mem::transmute(piconinfo))
 }
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -4217,7 +4217,7 @@ pub unsafe fn GetInputState() -> super::super::Foundation::BOOL {
     extern "system" {
         fn GetInputState() -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(GetInputState())
+    GetInputState()
 }
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -4230,7 +4230,7 @@ where
     extern "system" {
         fn GetLastActivePopup(hwnd: super::super::Foundation::HWND) -> super::super::Foundation::HWND;
     }
-    ::core::mem::transmute(GetLastActivePopup(hwnd.into()))
+    GetLastActivePopup(hwnd.into())
 }
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -4243,7 +4243,7 @@ where
     extern "system" {
         fn GetLayeredWindowAttributes(hwnd: super::super::Foundation::HWND, pcrkey: *mut u32, pbalpha: *mut u8, pdwflags: *mut LAYERED_WINDOW_ATTRIBUTES_FLAGS) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(GetLayeredWindowAttributes(hwnd.into(), ::core::mem::transmute(pcrkey), ::core::mem::transmute(pbalpha), ::core::mem::transmute(pdwflags)))
+    GetLayeredWindowAttributes(hwnd.into(), ::core::mem::transmute(pcrkey), ::core::mem::transmute(pbalpha), ::core::mem::transmute(pdwflags))
 }
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -4256,7 +4256,7 @@ where
     extern "system" {
         fn GetMenu(hwnd: super::super::Foundation::HWND) -> HMENU;
     }
-    ::core::mem::transmute(GetMenu(hwnd.into()))
+    GetMenu(hwnd.into())
 }
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -4269,7 +4269,7 @@ where
     extern "system" {
         fn GetMenuBarInfo(hwnd: super::super::Foundation::HWND, idobject: OBJECT_IDENTIFIER, iditem: i32, pmbi: *mut MENUBARINFO) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(GetMenuBarInfo(hwnd.into(), idobject, iditem, ::core::mem::transmute(pmbi)))
+    GetMenuBarInfo(hwnd.into(), idobject, iditem, ::core::mem::transmute(pmbi))
 }
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
 #[inline]
@@ -4278,7 +4278,7 @@ pub unsafe fn GetMenuCheckMarkDimensions() -> i32 {
     extern "system" {
         fn GetMenuCheckMarkDimensions() -> i32;
     }
-    ::core::mem::transmute(GetMenuCheckMarkDimensions())
+    GetMenuCheckMarkDimensions()
 }
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
 #[inline]
@@ -4290,7 +4290,7 @@ where
     extern "system" {
         fn GetMenuDefaultItem(hmenu: HMENU, fbypos: u32, gmdiflags: GET_MENU_DEFAULT_ITEM_FLAGS) -> u32;
     }
-    ::core::mem::transmute(GetMenuDefaultItem(hmenu.into(), fbypos, gmdiflags))
+    GetMenuDefaultItem(hmenu.into(), fbypos, gmdiflags)
 }
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
@@ -4303,7 +4303,7 @@ where
     extern "system" {
         fn GetMenuInfo(param0: HMENU, param1: *mut MENUINFO) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(GetMenuInfo(param0.into(), ::core::mem::transmute(param1)))
+    GetMenuInfo(param0.into(), ::core::mem::transmute(param1))
 }
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
 #[inline]
@@ -4315,7 +4315,7 @@ where
     extern "system" {
         fn GetMenuItemCount(hmenu: HMENU) -> i32;
     }
-    ::core::mem::transmute(GetMenuItemCount(hmenu.into()))
+    GetMenuItemCount(hmenu.into())
 }
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
 #[inline]
@@ -4327,7 +4327,7 @@ where
     extern "system" {
         fn GetMenuItemID(hmenu: HMENU, npos: i32) -> u32;
     }
-    ::core::mem::transmute(GetMenuItemID(hmenu.into(), npos))
+    GetMenuItemID(hmenu.into(), npos)
 }
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
@@ -4341,7 +4341,7 @@ where
     extern "system" {
         fn GetMenuItemInfoA(hmenu: HMENU, item: u32, fbyposition: super::super::Foundation::BOOL, lpmii: *mut MENUITEMINFOA) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(GetMenuItemInfoA(hmenu.into(), item, fbyposition.into(), ::core::mem::transmute(lpmii)))
+    GetMenuItemInfoA(hmenu.into(), item, fbyposition.into(), ::core::mem::transmute(lpmii))
 }
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
@@ -4355,7 +4355,7 @@ where
     extern "system" {
         fn GetMenuItemInfoW(hmenu: HMENU, item: u32, fbyposition: super::super::Foundation::BOOL, lpmii: *mut MENUITEMINFOW) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(GetMenuItemInfoW(hmenu.into(), item, fbyposition.into(), ::core::mem::transmute(lpmii)))
+    GetMenuItemInfoW(hmenu.into(), item, fbyposition.into(), ::core::mem::transmute(lpmii))
 }
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -4369,7 +4369,7 @@ where
     extern "system" {
         fn GetMenuItemRect(hwnd: super::super::Foundation::HWND, hmenu: HMENU, uitem: u32, lprcitem: *mut super::super::Foundation::RECT) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(GetMenuItemRect(hwnd.into(), hmenu.into(), uitem, ::core::mem::transmute(lprcitem)))
+    GetMenuItemRect(hwnd.into(), hmenu.into(), uitem, ::core::mem::transmute(lprcitem))
 }
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
 #[inline]
@@ -4381,7 +4381,7 @@ where
     extern "system" {
         fn GetMenuState(hmenu: HMENU, uid: u32, uflags: MENU_ITEM_FLAGS) -> u32;
     }
-    ::core::mem::transmute(GetMenuState(hmenu.into(), uid, uflags))
+    GetMenuState(hmenu.into(), uid, uflags)
 }
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
 #[inline]
@@ -4393,7 +4393,7 @@ where
     extern "system" {
         fn GetMenuStringA(hmenu: HMENU, uiditem: u32, lpstring: ::windows::core::PSTR, cchmax: i32, flags: MENU_ITEM_FLAGS) -> i32;
     }
-    ::core::mem::transmute(GetMenuStringA(hmenu.into(), uiditem, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(lpstring)), lpstring.len() as _, flags))
+    GetMenuStringA(hmenu.into(), uiditem, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(lpstring)), lpstring.len() as _, flags)
 }
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
 #[inline]
@@ -4405,7 +4405,7 @@ where
     extern "system" {
         fn GetMenuStringW(hmenu: HMENU, uiditem: u32, lpstring: ::windows::core::PWSTR, cchmax: i32, flags: MENU_ITEM_FLAGS) -> i32;
     }
-    ::core::mem::transmute(GetMenuStringW(hmenu.into(), uiditem, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(lpstring)), lpstring.len() as _, flags))
+    GetMenuStringW(hmenu.into(), uiditem, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(lpstring)), lpstring.len() as _, flags)
 }
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -4418,7 +4418,7 @@ where
     extern "system" {
         fn GetMessageA(lpmsg: *mut MSG, hwnd: super::super::Foundation::HWND, wmsgfiltermin: u32, wmsgfiltermax: u32) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(GetMessageA(::core::mem::transmute(lpmsg), hwnd.into(), wmsgfiltermin, wmsgfiltermax))
+    GetMessageA(::core::mem::transmute(lpmsg), hwnd.into(), wmsgfiltermin, wmsgfiltermax)
 }
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -4428,7 +4428,7 @@ pub unsafe fn GetMessageExtraInfo() -> super::super::Foundation::LPARAM {
     extern "system" {
         fn GetMessageExtraInfo() -> super::super::Foundation::LPARAM;
     }
-    ::core::mem::transmute(GetMessageExtraInfo())
+    GetMessageExtraInfo()
 }
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
 #[inline]
@@ -4437,7 +4437,7 @@ pub unsafe fn GetMessagePos() -> u32 {
     extern "system" {
         fn GetMessagePos() -> u32;
     }
-    ::core::mem::transmute(GetMessagePos())
+    GetMessagePos()
 }
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
 #[inline]
@@ -4446,7 +4446,7 @@ pub unsafe fn GetMessageTime() -> i32 {
     extern "system" {
         fn GetMessageTime() -> i32;
     }
-    ::core::mem::transmute(GetMessageTime())
+    GetMessageTime()
 }
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -4459,7 +4459,7 @@ where
     extern "system" {
         fn GetMessageW(lpmsg: *mut MSG, hwnd: super::super::Foundation::HWND, wmsgfiltermin: u32, wmsgfiltermax: u32) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(GetMessageW(::core::mem::transmute(lpmsg), hwnd.into(), wmsgfiltermin, wmsgfiltermax))
+    GetMessageW(::core::mem::transmute(lpmsg), hwnd.into(), wmsgfiltermin, wmsgfiltermax)
 }
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -4474,7 +4474,7 @@ where
     extern "system" {
         fn GetNextDlgGroupItem(hdlg: super::super::Foundation::HWND, hctl: super::super::Foundation::HWND, bprevious: super::super::Foundation::BOOL) -> super::super::Foundation::HWND;
     }
-    ::core::mem::transmute(GetNextDlgGroupItem(hdlg.into(), hctl.into(), bprevious.into()))
+    GetNextDlgGroupItem(hdlg.into(), hctl.into(), bprevious.into())
 }
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -4489,7 +4489,7 @@ where
     extern "system" {
         fn GetNextDlgTabItem(hdlg: super::super::Foundation::HWND, hctl: super::super::Foundation::HWND, bprevious: super::super::Foundation::BOOL) -> super::super::Foundation::HWND;
     }
-    ::core::mem::transmute(GetNextDlgTabItem(hdlg.into(), hctl.into(), bprevious.into()))
+    GetNextDlgTabItem(hdlg.into(), hctl.into(), bprevious.into())
 }
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -4502,7 +4502,7 @@ where
     extern "system" {
         fn GetParent(hwnd: super::super::Foundation::HWND) -> super::super::Foundation::HWND;
     }
-    ::core::mem::transmute(GetParent(hwnd.into()))
+    GetParent(hwnd.into())
 }
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -4512,7 +4512,7 @@ pub unsafe fn GetPhysicalCursorPos(lppoint: *mut super::super::Foundation::POINT
     extern "system" {
         fn GetPhysicalCursorPos(lppoint: *mut super::super::Foundation::POINT) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(GetPhysicalCursorPos(::core::mem::transmute(lppoint)))
+    GetPhysicalCursorPos(::core::mem::transmute(lppoint))
 }
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -4522,7 +4522,7 @@ pub unsafe fn GetProcessDefaultLayout(pdwdefaultlayout: *mut u32) -> super::supe
     extern "system" {
         fn GetProcessDefaultLayout(pdwdefaultlayout: *mut u32) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(GetProcessDefaultLayout(::core::mem::transmute(pdwdefaultlayout)))
+    GetProcessDefaultLayout(::core::mem::transmute(pdwdefaultlayout))
 }
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -4536,7 +4536,7 @@ where
     extern "system" {
         fn GetPropA(hwnd: super::super::Foundation::HWND, lpstring: ::windows::core::PCSTR) -> super::super::Foundation::HANDLE;
     }
-    ::core::mem::transmute(GetPropA(hwnd.into(), lpstring.into()))
+    GetPropA(hwnd.into(), lpstring.into())
 }
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -4550,7 +4550,7 @@ where
     extern "system" {
         fn GetPropW(hwnd: super::super::Foundation::HWND, lpstring: ::windows::core::PCWSTR) -> super::super::Foundation::HANDLE;
     }
-    ::core::mem::transmute(GetPropW(hwnd.into(), lpstring.into()))
+    GetPropW(hwnd.into(), lpstring.into())
 }
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
 #[inline]
@@ -4559,7 +4559,7 @@ pub unsafe fn GetQueueStatus(flags: QUEUE_STATUS_FLAGS) -> u32 {
     extern "system" {
         fn GetQueueStatus(flags: QUEUE_STATUS_FLAGS) -> u32;
     }
-    ::core::mem::transmute(GetQueueStatus(flags))
+    GetQueueStatus(flags)
 }
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -4572,7 +4572,7 @@ where
     extern "system" {
         fn GetScrollBarInfo(hwnd: super::super::Foundation::HWND, idobject: OBJECT_IDENTIFIER, psbi: *mut SCROLLBARINFO) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(GetScrollBarInfo(hwnd.into(), idobject, ::core::mem::transmute(psbi)))
+    GetScrollBarInfo(hwnd.into(), idobject, ::core::mem::transmute(psbi))
 }
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -4585,7 +4585,7 @@ where
     extern "system" {
         fn GetScrollInfo(hwnd: super::super::Foundation::HWND, nbar: SCROLLBAR_CONSTANTS, lpsi: *mut SCROLLINFO) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(GetScrollInfo(hwnd.into(), nbar, ::core::mem::transmute(lpsi)))
+    GetScrollInfo(hwnd.into(), nbar, ::core::mem::transmute(lpsi))
 }
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -4598,7 +4598,7 @@ where
     extern "system" {
         fn GetScrollPos(hwnd: super::super::Foundation::HWND, nbar: SCROLLBAR_CONSTANTS) -> i32;
     }
-    ::core::mem::transmute(GetScrollPos(hwnd.into(), nbar))
+    GetScrollPos(hwnd.into(), nbar)
 }
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -4611,7 +4611,7 @@ where
     extern "system" {
         fn GetScrollRange(hwnd: super::super::Foundation::HWND, nbar: SCROLLBAR_CONSTANTS, lpminpos: *mut i32, lpmaxpos: *mut i32) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(GetScrollRange(hwnd.into(), nbar, ::core::mem::transmute(lpminpos), ::core::mem::transmute(lpmaxpos)))
+    GetScrollRange(hwnd.into(), nbar, ::core::mem::transmute(lpminpos), ::core::mem::transmute(lpmaxpos))
 }
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -4621,7 +4621,7 @@ pub unsafe fn GetShellWindow() -> super::super::Foundation::HWND {
     extern "system" {
         fn GetShellWindow() -> super::super::Foundation::HWND;
     }
-    ::core::mem::transmute(GetShellWindow())
+    GetShellWindow()
 }
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
 #[inline]
@@ -4633,7 +4633,7 @@ where
     extern "system" {
         fn GetSubMenu(hmenu: HMENU, npos: i32) -> HMENU;
     }
-    ::core::mem::transmute(GetSubMenu(hmenu.into(), npos))
+    GetSubMenu(hmenu.into(), npos)
 }
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
 #[inline]
@@ -4642,7 +4642,7 @@ pub unsafe fn GetSysColor(nindex: SYS_COLOR_INDEX) -> u32 {
     extern "system" {
         fn GetSysColor(nindex: SYS_COLOR_INDEX) -> u32;
     }
-    ::core::mem::transmute(GetSysColor(nindex))
+    GetSysColor(nindex)
 }
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -4656,7 +4656,7 @@ where
     extern "system" {
         fn GetSystemMenu(hwnd: super::super::Foundation::HWND, brevert: super::super::Foundation::BOOL) -> HMENU;
     }
-    ::core::mem::transmute(GetSystemMenu(hwnd.into(), brevert.into()))
+    GetSystemMenu(hwnd.into(), brevert.into())
 }
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
 #[inline]
@@ -4665,7 +4665,7 @@ pub unsafe fn GetSystemMetrics(nindex: SYSTEM_METRICS_INDEX) -> i32 {
     extern "system" {
         fn GetSystemMetrics(nindex: SYSTEM_METRICS_INDEX) -> i32;
     }
-    ::core::mem::transmute(GetSystemMetrics(nindex))
+    GetSystemMetrics(nindex)
 }
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -4678,7 +4678,7 @@ where
     extern "system" {
         fn GetTitleBarInfo(hwnd: super::super::Foundation::HWND, pti: *mut TITLEBARINFO) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(GetTitleBarInfo(hwnd.into(), ::core::mem::transmute(pti)))
+    GetTitleBarInfo(hwnd.into(), ::core::mem::transmute(pti))
 }
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -4691,7 +4691,7 @@ where
     extern "system" {
         fn GetTopWindow(hwnd: super::super::Foundation::HWND) -> super::super::Foundation::HWND;
     }
-    ::core::mem::transmute(GetTopWindow(hwnd.into()))
+    GetTopWindow(hwnd.into())
 }
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -4704,7 +4704,7 @@ where
     extern "system" {
         fn GetWindow(hwnd: super::super::Foundation::HWND, ucmd: GET_WINDOW_CMD) -> super::super::Foundation::HWND;
     }
-    ::core::mem::transmute(GetWindow(hwnd.into(), ucmd))
+    GetWindow(hwnd.into(), ucmd)
 }
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -4717,7 +4717,7 @@ where
     extern "system" {
         fn GetWindowDisplayAffinity(hwnd: super::super::Foundation::HWND, pdwaffinity: *mut u32) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(GetWindowDisplayAffinity(hwnd.into(), ::core::mem::transmute(pdwaffinity)))
+    GetWindowDisplayAffinity(hwnd.into(), ::core::mem::transmute(pdwaffinity))
 }
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -4730,7 +4730,7 @@ where
     extern "system" {
         fn GetWindowInfo(hwnd: super::super::Foundation::HWND, pwi: *mut WINDOWINFO) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(GetWindowInfo(hwnd.into(), ::core::mem::transmute(pwi)))
+    GetWindowInfo(hwnd.into(), ::core::mem::transmute(pwi))
 }
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -4743,7 +4743,7 @@ where
     extern "system" {
         fn GetWindowLongA(hwnd: super::super::Foundation::HWND, nindex: WINDOW_LONG_PTR_INDEX) -> i32;
     }
-    ::core::mem::transmute(GetWindowLongA(hwnd.into(), nindex))
+    GetWindowLongA(hwnd.into(), nindex)
 }
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`, `\"Win32_Foundation\"`*"]
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
@@ -4757,7 +4757,7 @@ where
     extern "system" {
         fn GetWindowLongPtrA(hwnd: super::super::Foundation::HWND, nindex: WINDOW_LONG_PTR_INDEX) -> isize;
     }
-    ::core::mem::transmute(GetWindowLongPtrA(hwnd.into(), nindex))
+    GetWindowLongPtrA(hwnd.into(), nindex)
 }
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`, `\"Win32_Foundation\"`*"]
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
@@ -4771,7 +4771,7 @@ where
     extern "system" {
         fn GetWindowLongPtrW(hwnd: super::super::Foundation::HWND, nindex: WINDOW_LONG_PTR_INDEX) -> isize;
     }
-    ::core::mem::transmute(GetWindowLongPtrW(hwnd.into(), nindex))
+    GetWindowLongPtrW(hwnd.into(), nindex)
 }
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -4784,7 +4784,7 @@ where
     extern "system" {
         fn GetWindowLongW(hwnd: super::super::Foundation::HWND, nindex: WINDOW_LONG_PTR_INDEX) -> i32;
     }
-    ::core::mem::transmute(GetWindowLongW(hwnd.into(), nindex))
+    GetWindowLongW(hwnd.into(), nindex)
 }
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -4797,7 +4797,7 @@ where
     extern "system" {
         fn GetWindowModuleFileNameA(hwnd: super::super::Foundation::HWND, pszfilename: ::windows::core::PSTR, cchfilenamemax: u32) -> u32;
     }
-    ::core::mem::transmute(GetWindowModuleFileNameA(hwnd.into(), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(pszfilename)), pszfilename.len() as _))
+    GetWindowModuleFileNameA(hwnd.into(), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(pszfilename)), pszfilename.len() as _)
 }
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -4810,7 +4810,7 @@ where
     extern "system" {
         fn GetWindowModuleFileNameW(hwnd: super::super::Foundation::HWND, pszfilename: ::windows::core::PWSTR, cchfilenamemax: u32) -> u32;
     }
-    ::core::mem::transmute(GetWindowModuleFileNameW(hwnd.into(), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(pszfilename)), pszfilename.len() as _))
+    GetWindowModuleFileNameW(hwnd.into(), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(pszfilename)), pszfilename.len() as _)
 }
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -4823,7 +4823,7 @@ where
     extern "system" {
         fn GetWindowPlacement(hwnd: super::super::Foundation::HWND, lpwndpl: *mut WINDOWPLACEMENT) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(GetWindowPlacement(hwnd.into(), ::core::mem::transmute(lpwndpl)))
+    GetWindowPlacement(hwnd.into(), ::core::mem::transmute(lpwndpl))
 }
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -4836,7 +4836,7 @@ where
     extern "system" {
         fn GetWindowRect(hwnd: super::super::Foundation::HWND, lprect: *mut super::super::Foundation::RECT) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(GetWindowRect(hwnd.into(), ::core::mem::transmute(lprect)))
+    GetWindowRect(hwnd.into(), ::core::mem::transmute(lprect))
 }
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -4849,7 +4849,7 @@ where
     extern "system" {
         fn GetWindowTextA(hwnd: super::super::Foundation::HWND, lpstring: ::windows::core::PSTR, nmaxcount: i32) -> i32;
     }
-    ::core::mem::transmute(GetWindowTextA(hwnd.into(), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(lpstring)), lpstring.len() as _))
+    GetWindowTextA(hwnd.into(), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(lpstring)), lpstring.len() as _)
 }
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -4862,7 +4862,7 @@ where
     extern "system" {
         fn GetWindowTextLengthA(hwnd: super::super::Foundation::HWND) -> i32;
     }
-    ::core::mem::transmute(GetWindowTextLengthA(hwnd.into()))
+    GetWindowTextLengthA(hwnd.into())
 }
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -4875,7 +4875,7 @@ where
     extern "system" {
         fn GetWindowTextLengthW(hwnd: super::super::Foundation::HWND) -> i32;
     }
-    ::core::mem::transmute(GetWindowTextLengthW(hwnd.into()))
+    GetWindowTextLengthW(hwnd.into())
 }
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -4888,7 +4888,7 @@ where
     extern "system" {
         fn GetWindowTextW(hwnd: super::super::Foundation::HWND, lpstring: ::windows::core::PWSTR, nmaxcount: i32) -> i32;
     }
-    ::core::mem::transmute(GetWindowTextW(hwnd.into(), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(lpstring)), lpstring.len() as _))
+    GetWindowTextW(hwnd.into(), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(lpstring)), lpstring.len() as _)
 }
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -4901,7 +4901,7 @@ where
     extern "system" {
         fn GetWindowThreadProcessId(hwnd: super::super::Foundation::HWND, lpdwprocessid: *mut u32) -> u32;
     }
-    ::core::mem::transmute(GetWindowThreadProcessId(hwnd.into(), ::core::mem::transmute(lpdwprocessid)))
+    GetWindowThreadProcessId(hwnd.into(), ::core::mem::transmute(lpdwprocessid))
 }
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -4914,7 +4914,7 @@ where
     extern "system" {
         fn GetWindowWord(hwnd: super::super::Foundation::HWND, nindex: i32) -> u16;
     }
-    ::core::mem::transmute(GetWindowWord(hwnd.into(), nindex))
+    GetWindowWord(hwnd.into(), nindex)
 }
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
@@ -5394,7 +5394,7 @@ where
     extern "system" {
         fn HideCaret(hwnd: super::super::Foundation::HWND) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(HideCaret(hwnd.into()))
+    HideCaret(hwnd.into())
 }
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -5408,7 +5408,7 @@ where
     extern "system" {
         fn HiliteMenuItem(hwnd: super::super::Foundation::HWND, hmenu: HMENU, uidhiliteitem: u32, uhilite: u32) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(HiliteMenuItem(hwnd.into(), hmenu.into(), uidhiliteitem, uhilite))
+    HiliteMenuItem(hwnd.into(), hmenu.into(), uidhiliteitem, uhilite)
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
@@ -5823,7 +5823,7 @@ pub unsafe fn InSendMessage() -> super::super::Foundation::BOOL {
     extern "system" {
         fn InSendMessage() -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(InSendMessage())
+    InSendMessage()
 }
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
 #[inline]
@@ -5832,7 +5832,7 @@ pub unsafe fn InSendMessageEx(lpreserved: *mut ::core::ffi::c_void) -> u32 {
     extern "system" {
         fn InSendMessageEx(lpreserved: *mut ::core::ffi::c_void) -> u32;
     }
-    ::core::mem::transmute(InSendMessageEx(::core::mem::transmute(lpreserved)))
+    InSendMessageEx(::core::mem::transmute(lpreserved))
 }
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
 #[inline]
@@ -5889,7 +5889,7 @@ where
     extern "system" {
         fn InheritWindowMonitor(hwnd: super::super::Foundation::HWND, hwndinherit: super::super::Foundation::HWND) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(InheritWindowMonitor(hwnd.into(), hwndinherit.into()))
+    InheritWindowMonitor(hwnd.into(), hwndinherit.into())
 }
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -5903,7 +5903,7 @@ where
     extern "system" {
         fn InsertMenuA(hmenu: HMENU, uposition: u32, uflags: MENU_ITEM_FLAGS, uidnewitem: usize, lpnewitem: ::windows::core::PCSTR) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(InsertMenuA(hmenu.into(), uposition, uflags, uidnewitem, lpnewitem.into()))
+    InsertMenuA(hmenu.into(), uposition, uflags, uidnewitem, lpnewitem.into())
 }
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
@@ -5917,7 +5917,7 @@ where
     extern "system" {
         fn InsertMenuItemA(hmenu: HMENU, item: u32, fbyposition: super::super::Foundation::BOOL, lpmi: *const MENUITEMINFOA) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(InsertMenuItemA(hmenu.into(), item, fbyposition.into(), ::core::mem::transmute(lpmi)))
+    InsertMenuItemA(hmenu.into(), item, fbyposition.into(), ::core::mem::transmute(lpmi))
 }
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
@@ -5931,7 +5931,7 @@ where
     extern "system" {
         fn InsertMenuItemW(hmenu: HMENU, item: u32, fbyposition: super::super::Foundation::BOOL, lpmi: *const MENUITEMINFOW) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(InsertMenuItemW(hmenu.into(), item, fbyposition.into(), ::core::mem::transmute(lpmi)))
+    InsertMenuItemW(hmenu.into(), item, fbyposition.into(), ::core::mem::transmute(lpmi))
 }
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -5945,7 +5945,7 @@ where
     extern "system" {
         fn InsertMenuW(hmenu: HMENU, uposition: u32, uflags: MENU_ITEM_FLAGS, uidnewitem: usize, lpnewitem: ::windows::core::PCWSTR) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(InsertMenuW(hmenu.into(), uposition, uflags, uidnewitem, lpnewitem.into()))
+    InsertMenuW(hmenu.into(), uposition, uflags, uidnewitem, lpnewitem.into())
 }
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -5958,7 +5958,7 @@ where
     extern "system" {
         fn InternalGetWindowText(hwnd: super::super::Foundation::HWND, pstring: ::windows::core::PWSTR, cchmaxcount: i32) -> i32;
     }
-    ::core::mem::transmute(InternalGetWindowText(hwnd.into(), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(pstring)), pstring.len() as _))
+    InternalGetWindowText(hwnd.into(), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(pstring)), pstring.len() as _)
 }
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -5971,7 +5971,7 @@ where
     extern "system" {
         fn IsCharAlphaA(ch: super::super::Foundation::CHAR) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(IsCharAlphaA(ch.into()))
+    IsCharAlphaA(ch.into())
 }
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -5984,7 +5984,7 @@ where
     extern "system" {
         fn IsCharAlphaNumericA(ch: super::super::Foundation::CHAR) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(IsCharAlphaNumericA(ch.into()))
+    IsCharAlphaNumericA(ch.into())
 }
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -5994,7 +5994,7 @@ pub unsafe fn IsCharAlphaNumericW(ch: u16) -> super::super::Foundation::BOOL {
     extern "system" {
         fn IsCharAlphaNumericW(ch: u16) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(IsCharAlphaNumericW(ch))
+    IsCharAlphaNumericW(ch)
 }
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -6004,7 +6004,7 @@ pub unsafe fn IsCharAlphaW(ch: u16) -> super::super::Foundation::BOOL {
     extern "system" {
         fn IsCharAlphaW(ch: u16) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(IsCharAlphaW(ch))
+    IsCharAlphaW(ch)
 }
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -6017,7 +6017,7 @@ where
     extern "system" {
         fn IsCharLowerA(ch: super::super::Foundation::CHAR) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(IsCharLowerA(ch.into()))
+    IsCharLowerA(ch.into())
 }
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -6030,7 +6030,7 @@ where
     extern "system" {
         fn IsCharUpperA(ch: super::super::Foundation::CHAR) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(IsCharUpperA(ch.into()))
+    IsCharUpperA(ch.into())
 }
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -6040,7 +6040,7 @@ pub unsafe fn IsCharUpperW(ch: u16) -> super::super::Foundation::BOOL {
     extern "system" {
         fn IsCharUpperW(ch: u16) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(IsCharUpperW(ch))
+    IsCharUpperW(ch)
 }
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -6054,7 +6054,7 @@ where
     extern "system" {
         fn IsChild(hwndparent: super::super::Foundation::HWND, hwnd: super::super::Foundation::HWND) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(IsChild(hwndparent.into(), hwnd.into()))
+    IsChild(hwndparent.into(), hwnd.into())
 }
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -6067,7 +6067,7 @@ where
     extern "system" {
         fn IsDialogMessageA(hdlg: super::super::Foundation::HWND, lpmsg: *const MSG) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(IsDialogMessageA(hdlg.into(), ::core::mem::transmute(lpmsg)))
+    IsDialogMessageA(hdlg.into(), ::core::mem::transmute(lpmsg))
 }
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -6080,7 +6080,7 @@ where
     extern "system" {
         fn IsDialogMessageW(hdlg: super::super::Foundation::HWND, lpmsg: *const MSG) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(IsDialogMessageW(hdlg.into(), ::core::mem::transmute(lpmsg)))
+    IsDialogMessageW(hdlg.into(), ::core::mem::transmute(lpmsg))
 }
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -6093,7 +6093,7 @@ where
     extern "system" {
         fn IsGUIThread(bconvert: super::super::Foundation::BOOL) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(IsGUIThread(bconvert.into()))
+    IsGUIThread(bconvert.into())
 }
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -6106,7 +6106,7 @@ where
     extern "system" {
         fn IsHungAppWindow(hwnd: super::super::Foundation::HWND) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(IsHungAppWindow(hwnd.into()))
+    IsHungAppWindow(hwnd.into())
 }
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -6119,7 +6119,7 @@ where
     extern "system" {
         fn IsIconic(hwnd: super::super::Foundation::HWND) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(IsIconic(hwnd.into()))
+    IsIconic(hwnd.into())
 }
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -6132,7 +6132,7 @@ where
     extern "system" {
         fn IsMenu(hmenu: HMENU) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(IsMenu(hmenu.into()))
+    IsMenu(hmenu.into())
 }
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -6142,7 +6142,7 @@ pub unsafe fn IsProcessDPIAware() -> super::super::Foundation::BOOL {
     extern "system" {
         fn IsProcessDPIAware() -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(IsProcessDPIAware())
+    IsProcessDPIAware()
 }
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -6155,7 +6155,7 @@ where
     extern "system" {
         fn IsWindow(hwnd: super::super::Foundation::HWND) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(IsWindow(hwnd.into()))
+    IsWindow(hwnd.into())
 }
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -6168,7 +6168,7 @@ where
     extern "system" {
         fn IsWindowUnicode(hwnd: super::super::Foundation::HWND) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(IsWindowUnicode(hwnd.into()))
+    IsWindowUnicode(hwnd.into())
 }
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -6181,7 +6181,7 @@ where
     extern "system" {
         fn IsWindowVisible(hwnd: super::super::Foundation::HWND) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(IsWindowVisible(hwnd.into()))
+    IsWindowVisible(hwnd.into())
 }
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -6191,7 +6191,7 @@ pub unsafe fn IsWow64Message() -> super::super::Foundation::BOOL {
     extern "system" {
         fn IsWow64Message() -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(IsWow64Message())
+    IsWow64Message()
 }
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -6204,7 +6204,7 @@ where
     extern "system" {
         fn IsZoomed(hwnd: super::super::Foundation::HWND) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(IsZoomed(hwnd.into()))
+    IsZoomed(hwnd.into())
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
@@ -6326,7 +6326,7 @@ where
     extern "system" {
         fn KillTimer(hwnd: super::super::Foundation::HWND, uidevent: usize) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(KillTimer(hwnd.into(), uidevent))
+    KillTimer(hwnd.into(), uidevent)
 }
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
 #[repr(transparent)]
@@ -6736,7 +6736,7 @@ where
     extern "system" {
         fn LoadStringA(hinstance: super::super::Foundation::HINSTANCE, uid: u32, lpbuffer: ::windows::core::PSTR, cchbuffermax: i32) -> i32;
     }
-    ::core::mem::transmute(LoadStringA(hinstance.into(), uid, ::core::mem::transmute(lpbuffer), cchbuffermax))
+    LoadStringA(hinstance.into(), uid, ::core::mem::transmute(lpbuffer), cchbuffermax)
 }
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -6749,7 +6749,7 @@ where
     extern "system" {
         fn LoadStringW(hinstance: super::super::Foundation::HINSTANCE, uid: u32, lpbuffer: ::windows::core::PWSTR, cchbuffermax: i32) -> i32;
     }
-    ::core::mem::transmute(LoadStringW(hinstance.into(), uid, ::core::mem::transmute(lpbuffer), cchbuffermax))
+    LoadStringW(hinstance.into(), uid, ::core::mem::transmute(lpbuffer), cchbuffermax)
 }
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -6759,7 +6759,7 @@ pub unsafe fn LockSetForegroundWindow(ulockcode: FOREGROUND_WINDOW_LOCK_CODE) ->
     extern "system" {
         fn LockSetForegroundWindow(ulockcode: FOREGROUND_WINDOW_LOCK_CODE) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(LockSetForegroundWindow(ulockcode))
+    LockSetForegroundWindow(ulockcode)
 }
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -6772,7 +6772,7 @@ where
     extern "system" {
         fn LogicalToPhysicalPoint(hwnd: super::super::Foundation::HWND, lppoint: *mut super::super::Foundation::POINT) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(LogicalToPhysicalPoint(hwnd.into(), ::core::mem::transmute(lppoint)))
+    LogicalToPhysicalPoint(hwnd.into(), ::core::mem::transmute(lppoint))
 }
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -6785,7 +6785,7 @@ where
     extern "system" {
         fn LookupIconIdFromDirectory(presbits: *const u8, ficon: super::super::Foundation::BOOL) -> i32;
     }
-    ::core::mem::transmute(LookupIconIdFromDirectory(::core::mem::transmute(presbits), ficon.into()))
+    LookupIconIdFromDirectory(::core::mem::transmute(presbits), ficon.into())
 }
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -6798,7 +6798,7 @@ where
     extern "system" {
         fn LookupIconIdFromDirectoryEx(presbits: *const u8, ficon: super::super::Foundation::BOOL, cxdesired: i32, cydesired: i32, flags: IMAGE_FLAGS) -> i32;
     }
-    ::core::mem::transmute(LookupIconIdFromDirectoryEx(::core::mem::transmute(presbits), ficon.into(), cxdesired, cydesired, flags))
+    LookupIconIdFromDirectoryEx(::core::mem::transmute(presbits), ficon.into(), cxdesired, cydesired, flags)
 }
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
 pub const MAPVK_VK_TO_CHAR: u32 = 2u32;
@@ -8588,7 +8588,7 @@ where
     extern "system" {
         fn MapDialogRect(hdlg: super::super::Foundation::HWND, lprect: *mut super::super::Foundation::RECT) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(MapDialogRect(hdlg.into(), ::core::mem::transmute(lprect)))
+    MapDialogRect(hdlg.into(), ::core::mem::transmute(lprect))
 }
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -8602,7 +8602,7 @@ where
     extern "system" {
         fn MenuItemFromPoint(hwnd: super::super::Foundation::HWND, hmenu: HMENU, ptscreen: super::super::Foundation::POINT) -> i32;
     }
-    ::core::mem::transmute(MenuItemFromPoint(hwnd.into(), hmenu.into(), ::core::mem::transmute(ptscreen)))
+    MenuItemFromPoint(hwnd.into(), hmenu.into(), ::core::mem::transmute(ptscreen))
 }
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -8617,7 +8617,7 @@ where
     extern "system" {
         fn MessageBoxA(hwnd: super::super::Foundation::HWND, lptext: ::windows::core::PCSTR, lpcaption: ::windows::core::PCSTR, utype: MESSAGEBOX_STYLE) -> MESSAGEBOX_RESULT;
     }
-    ::core::mem::transmute(MessageBoxA(hwnd.into(), lptext.into(), lpcaption.into(), utype))
+    MessageBoxA(hwnd.into(), lptext.into(), lpcaption.into(), utype)
 }
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -8632,7 +8632,7 @@ where
     extern "system" {
         fn MessageBoxExA(hwnd: super::super::Foundation::HWND, lptext: ::windows::core::PCSTR, lpcaption: ::windows::core::PCSTR, utype: MESSAGEBOX_STYLE, wlanguageid: u16) -> MESSAGEBOX_RESULT;
     }
-    ::core::mem::transmute(MessageBoxExA(hwnd.into(), lptext.into(), lpcaption.into(), utype, wlanguageid))
+    MessageBoxExA(hwnd.into(), lptext.into(), lpcaption.into(), utype, wlanguageid)
 }
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -8647,7 +8647,7 @@ where
     extern "system" {
         fn MessageBoxExW(hwnd: super::super::Foundation::HWND, lptext: ::windows::core::PCWSTR, lpcaption: ::windows::core::PCWSTR, utype: MESSAGEBOX_STYLE, wlanguageid: u16) -> MESSAGEBOX_RESULT;
     }
-    ::core::mem::transmute(MessageBoxExW(hwnd.into(), lptext.into(), lpcaption.into(), utype, wlanguageid))
+    MessageBoxExW(hwnd.into(), lptext.into(), lpcaption.into(), utype, wlanguageid)
 }
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`, `\"Win32_Foundation\"`, `\"Win32_UI_Shell\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Shell"))]
@@ -8657,7 +8657,7 @@ pub unsafe fn MessageBoxIndirectA(lpmbp: *const MSGBOXPARAMSA) -> MESSAGEBOX_RES
     extern "system" {
         fn MessageBoxIndirectA(lpmbp: *const MSGBOXPARAMSA) -> MESSAGEBOX_RESULT;
     }
-    ::core::mem::transmute(MessageBoxIndirectA(::core::mem::transmute(lpmbp)))
+    MessageBoxIndirectA(::core::mem::transmute(lpmbp))
 }
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`, `\"Win32_Foundation\"`, `\"Win32_UI_Shell\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Shell"))]
@@ -8667,7 +8667,7 @@ pub unsafe fn MessageBoxIndirectW(lpmbp: *const MSGBOXPARAMSW) -> MESSAGEBOX_RES
     extern "system" {
         fn MessageBoxIndirectW(lpmbp: *const MSGBOXPARAMSW) -> MESSAGEBOX_RESULT;
     }
-    ::core::mem::transmute(MessageBoxIndirectW(::core::mem::transmute(lpmbp)))
+    MessageBoxIndirectW(::core::mem::transmute(lpmbp))
 }
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -8682,7 +8682,7 @@ where
     extern "system" {
         fn MessageBoxW(hwnd: super::super::Foundation::HWND, lptext: ::windows::core::PCWSTR, lpcaption: ::windows::core::PCWSTR, utype: MESSAGEBOX_STYLE) -> MESSAGEBOX_RESULT;
     }
-    ::core::mem::transmute(MessageBoxW(hwnd.into(), lptext.into(), lpcaption.into(), utype))
+    MessageBoxW(hwnd.into(), lptext.into(), lpcaption.into(), utype)
 }
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -8696,7 +8696,7 @@ where
     extern "system" {
         fn ModifyMenuA(hmnu: HMENU, uposition: u32, uflags: MENU_ITEM_FLAGS, uidnewitem: usize, lpnewitem: ::windows::core::PCSTR) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(ModifyMenuA(hmnu.into(), uposition, uflags, uidnewitem, lpnewitem.into()))
+    ModifyMenuA(hmnu.into(), uposition, uflags, uidnewitem, lpnewitem.into())
 }
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -8710,7 +8710,7 @@ where
     extern "system" {
         fn ModifyMenuW(hmnu: HMENU, uposition: u32, uflags: MENU_ITEM_FLAGS, uidnewitem: usize, lpnewitem: ::windows::core::PCWSTR) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(ModifyMenuW(hmnu.into(), uposition, uflags, uidnewitem, lpnewitem.into()))
+    ModifyMenuW(hmnu.into(), uposition, uflags, uidnewitem, lpnewitem.into())
 }
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -8724,7 +8724,7 @@ where
     extern "system" {
         fn MoveWindow(hwnd: super::super::Foundation::HWND, x: i32, y: i32, nwidth: i32, nheight: i32, brepaint: super::super::Foundation::BOOL) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(MoveWindow(hwnd.into(), x, y, nwidth, nheight, brepaint.into()))
+    MoveWindow(hwnd.into(), x, y, nwidth, nheight, brepaint.into())
 }
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
 #[inline]
@@ -9256,7 +9256,7 @@ where
     extern "system" {
         fn MsgWaitForMultipleObjects(ncount: u32, phandles: *const super::super::Foundation::HANDLE, fwaitall: super::super::Foundation::BOOL, dwmilliseconds: u32, dwwakemask: QUEUE_STATUS_FLAGS) -> u32;
     }
-    ::core::mem::transmute(MsgWaitForMultipleObjects(phandles.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(phandles)), fwaitall.into(), dwmilliseconds, dwwakemask))
+    MsgWaitForMultipleObjects(phandles.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(phandles)), fwaitall.into(), dwmilliseconds, dwwakemask)
 }
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -9266,7 +9266,7 @@ pub unsafe fn MsgWaitForMultipleObjectsEx(phandles: &[super::super::Foundation::
     extern "system" {
         fn MsgWaitForMultipleObjectsEx(ncount: u32, phandles: *const super::super::Foundation::HANDLE, dwmilliseconds: u32, dwwakemask: QUEUE_STATUS_FLAGS, dwflags: MSG_WAIT_FOR_MULTIPLE_OBJECTS_EX_FLAGS) -> u32;
     }
-    ::core::mem::transmute(MsgWaitForMultipleObjectsEx(phandles.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(phandles)), dwmilliseconds, dwwakemask, dwflags))
+    MsgWaitForMultipleObjectsEx(phandles.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(phandles)), dwmilliseconds, dwwakemask, dwflags)
 }
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -9659,7 +9659,7 @@ where
     extern "system" {
         fn OemToCharA(psrc: ::windows::core::PCSTR, pdst: ::windows::core::PSTR) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(OemToCharA(psrc.into(), ::core::mem::transmute(pdst)))
+    OemToCharA(psrc.into(), ::core::mem::transmute(pdst))
 }
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -9672,7 +9672,7 @@ where
     extern "system" {
         fn OemToCharBuffA(lpszsrc: ::windows::core::PCSTR, lpszdst: ::windows::core::PSTR, cchdstlength: u32) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(OemToCharBuffA(lpszsrc.into(), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(lpszdst)), lpszdst.len() as _))
+    OemToCharBuffA(lpszsrc.into(), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(lpszdst)), lpszdst.len() as _)
 }
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -9685,7 +9685,7 @@ where
     extern "system" {
         fn OemToCharBuffW(lpszsrc: ::windows::core::PCSTR, lpszdst: ::windows::core::PWSTR, cchdstlength: u32) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(OemToCharBuffW(lpszsrc.into(), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(lpszdst)), lpszdst.len() as _))
+    OemToCharBuffW(lpszsrc.into(), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(lpszdst)), lpszdst.len() as _)
 }
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -9698,7 +9698,7 @@ where
     extern "system" {
         fn OemToCharW(psrc: ::windows::core::PCSTR, pdst: ::windows::core::PWSTR) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(OemToCharW(psrc.into(), ::core::mem::transmute(pdst)))
+    OemToCharW(psrc.into(), ::core::mem::transmute(pdst))
 }
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -9711,7 +9711,7 @@ where
     extern "system" {
         fn OpenIcon(hwnd: super::super::Foundation::HWND) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(OpenIcon(hwnd.into()))
+    OpenIcon(hwnd.into())
 }
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
 pub const PA_ACTIVATE: u32 = 1u32;
@@ -9987,7 +9987,7 @@ where
     extern "system" {
         fn PeekMessageA(lpmsg: *mut MSG, hwnd: super::super::Foundation::HWND, wmsgfiltermin: u32, wmsgfiltermax: u32, wremovemsg: PEEK_MESSAGE_REMOVE_TYPE) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(PeekMessageA(::core::mem::transmute(lpmsg), hwnd.into(), wmsgfiltermin, wmsgfiltermax, wremovemsg))
+    PeekMessageA(::core::mem::transmute(lpmsg), hwnd.into(), wmsgfiltermin, wmsgfiltermax, wremovemsg)
 }
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -10000,7 +10000,7 @@ where
     extern "system" {
         fn PeekMessageW(lpmsg: *mut MSG, hwnd: super::super::Foundation::HWND, wmsgfiltermin: u32, wmsgfiltermax: u32, wremovemsg: PEEK_MESSAGE_REMOVE_TYPE) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(PeekMessageW(::core::mem::transmute(lpmsg), hwnd.into(), wmsgfiltermin, wmsgfiltermax, wremovemsg))
+    PeekMessageW(::core::mem::transmute(lpmsg), hwnd.into(), wmsgfiltermin, wmsgfiltermax, wremovemsg)
 }
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -10013,7 +10013,7 @@ where
     extern "system" {
         fn PhysicalToLogicalPoint(hwnd: super::super::Foundation::HWND, lppoint: *mut super::super::Foundation::POINT) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(PhysicalToLogicalPoint(hwnd.into(), ::core::mem::transmute(lppoint)))
+    PhysicalToLogicalPoint(hwnd.into(), ::core::mem::transmute(lppoint))
 }
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -10028,7 +10028,7 @@ where
     extern "system" {
         fn PostMessageA(hwnd: super::super::Foundation::HWND, msg: u32, wparam: super::super::Foundation::WPARAM, lparam: super::super::Foundation::LPARAM) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(PostMessageA(hwnd.into(), msg, wparam.into(), lparam.into()))
+    PostMessageA(hwnd.into(), msg, wparam.into(), lparam.into())
 }
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -10043,7 +10043,7 @@ where
     extern "system" {
         fn PostMessageW(hwnd: super::super::Foundation::HWND, msg: u32, wparam: super::super::Foundation::WPARAM, lparam: super::super::Foundation::LPARAM) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(PostMessageW(hwnd.into(), msg, wparam.into(), lparam.into()))
+    PostMessageW(hwnd.into(), msg, wparam.into(), lparam.into())
 }
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
 #[inline]
@@ -10066,7 +10066,7 @@ where
     extern "system" {
         fn PostThreadMessageA(idthread: u32, msg: u32, wparam: super::super::Foundation::WPARAM, lparam: super::super::Foundation::LPARAM) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(PostThreadMessageA(idthread, msg, wparam.into(), lparam.into()))
+    PostThreadMessageA(idthread, msg, wparam.into(), lparam.into())
 }
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -10080,7 +10080,7 @@ where
     extern "system" {
         fn PostThreadMessageW(idthread: u32, msg: u32, wparam: super::super::Foundation::WPARAM, lparam: super::super::Foundation::LPARAM) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(PostThreadMessageW(idthread, msg, wparam.into(), lparam.into()))
+    PostThreadMessageW(idthread, msg, wparam.into(), lparam.into())
 }
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
 #[inline]
@@ -10089,7 +10089,7 @@ pub unsafe fn PrivateExtractIconsA(szfilename: &[u8; 260], niconindex: i32, cxic
     extern "system" {
         fn PrivateExtractIconsA(szfilename: ::windows::core::PCSTR, niconindex: i32, cxicon: i32, cyicon: i32, phicon: *mut HICON, piconid: *mut u32, nicons: u32, flags: u32) -> u32;
     }
-    ::core::mem::transmute(PrivateExtractIconsA(::core::mem::transmute(::windows::core::as_ptr_or_null(szfilename)), niconindex, cxicon, cyicon, ::core::mem::transmute(phicon), ::core::mem::transmute(piconid), ::core::mem::transmute(nicons), flags))
+    PrivateExtractIconsA(::core::mem::transmute(::windows::core::as_ptr_or_null(szfilename)), niconindex, cxicon, cyicon, ::core::mem::transmute(phicon), ::core::mem::transmute(piconid), ::core::mem::transmute(nicons), flags)
 }
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
 #[inline]
@@ -10098,7 +10098,7 @@ pub unsafe fn PrivateExtractIconsW(szfilename: &[u16; 260], niconindex: i32, cxi
     extern "system" {
         fn PrivateExtractIconsW(szfilename: ::windows::core::PCWSTR, niconindex: i32, cxicon: i32, cyicon: i32, phicon: *mut HICON, piconid: *mut u32, nicons: u32, flags: u32) -> u32;
     }
-    ::core::mem::transmute(PrivateExtractIconsW(::core::mem::transmute(::windows::core::as_ptr_or_null(szfilename)), niconindex, cxicon, cyicon, ::core::mem::transmute(phicon), ::core::mem::transmute(piconid), ::core::mem::transmute(nicons), flags))
+    PrivateExtractIconsW(::core::mem::transmute(::windows::core::as_ptr_or_null(szfilename)), niconindex, cxicon, cyicon, ::core::mem::transmute(phicon), ::core::mem::transmute(piconid), ::core::mem::transmute(nicons), flags)
 }
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
 pub const QS_POINTER: u32 = 4096u32;
@@ -10288,7 +10288,7 @@ where
     extern "system" {
         fn RealChildWindowFromPoint(hwndparent: super::super::Foundation::HWND, ptparentclientcoords: super::super::Foundation::POINT) -> super::super::Foundation::HWND;
     }
-    ::core::mem::transmute(RealChildWindowFromPoint(hwndparent.into(), ::core::mem::transmute(ptparentclientcoords)))
+    RealChildWindowFromPoint(hwndparent.into(), ::core::mem::transmute(ptparentclientcoords))
 }
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -10301,7 +10301,7 @@ where
     extern "system" {
         fn RealGetWindowClassA(hwnd: super::super::Foundation::HWND, ptszclassname: ::windows::core::PSTR, cchclassnamemax: u32) -> u32;
     }
-    ::core::mem::transmute(RealGetWindowClassA(hwnd.into(), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(ptszclassname)), ptszclassname.len() as _))
+    RealGetWindowClassA(hwnd.into(), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(ptszclassname)), ptszclassname.len() as _)
 }
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -10314,7 +10314,7 @@ where
     extern "system" {
         fn RealGetWindowClassW(hwnd: super::super::Foundation::HWND, ptszclassname: ::windows::core::PWSTR, cchclassnamemax: u32) -> u32;
     }
-    ::core::mem::transmute(RealGetWindowClassW(hwnd.into(), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(ptszclassname)), ptszclassname.len() as _))
+    RealGetWindowClassW(hwnd.into(), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(ptszclassname)), ptszclassname.len() as _)
 }
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
@@ -10324,7 +10324,7 @@ pub unsafe fn RegisterClassA(lpwndclass: *const WNDCLASSA) -> u16 {
     extern "system" {
         fn RegisterClassA(lpwndclass: *const WNDCLASSA) -> u16;
     }
-    ::core::mem::transmute(RegisterClassA(::core::mem::transmute(lpwndclass)))
+    RegisterClassA(::core::mem::transmute(lpwndclass))
 }
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
@@ -10334,7 +10334,7 @@ pub unsafe fn RegisterClassExA(param0: *const WNDCLASSEXA) -> u16 {
     extern "system" {
         fn RegisterClassExA(param0: *const WNDCLASSEXA) -> u16;
     }
-    ::core::mem::transmute(RegisterClassExA(::core::mem::transmute(param0)))
+    RegisterClassExA(::core::mem::transmute(param0))
 }
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
@@ -10344,7 +10344,7 @@ pub unsafe fn RegisterClassExW(param0: *const WNDCLASSEXW) -> u16 {
     extern "system" {
         fn RegisterClassExW(param0: *const WNDCLASSEXW) -> u16;
     }
-    ::core::mem::transmute(RegisterClassExW(::core::mem::transmute(param0)))
+    RegisterClassExW(::core::mem::transmute(param0))
 }
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
@@ -10354,7 +10354,7 @@ pub unsafe fn RegisterClassW(lpwndclass: *const WNDCLASSW) -> u16 {
     extern "system" {
         fn RegisterClassW(lpwndclass: *const WNDCLASSW) -> u16;
     }
-    ::core::mem::transmute(RegisterClassW(::core::mem::transmute(lpwndclass)))
+    RegisterClassW(::core::mem::transmute(lpwndclass))
 }
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`, `\"Win32_Foundation\"`, `\"Win32_System_Power\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Power"))]
@@ -10367,7 +10367,7 @@ where
     extern "system" {
         fn RegisterDeviceNotificationA(hrecipient: super::super::Foundation::HANDLE, notificationfilter: *const ::core::ffi::c_void, flags: super::super::System::Power::POWER_SETTING_REGISTER_NOTIFICATION_FLAGS) -> *mut ::core::ffi::c_void;
     }
-    ::core::mem::transmute(RegisterDeviceNotificationA(hrecipient.into(), ::core::mem::transmute(notificationfilter), flags))
+    RegisterDeviceNotificationA(hrecipient.into(), ::core::mem::transmute(notificationfilter), flags)
 }
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`, `\"Win32_Foundation\"`, `\"Win32_System_Power\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Power"))]
@@ -10380,7 +10380,7 @@ where
     extern "system" {
         fn RegisterDeviceNotificationW(hrecipient: super::super::Foundation::HANDLE, notificationfilter: *const ::core::ffi::c_void, flags: super::super::System::Power::POWER_SETTING_REGISTER_NOTIFICATION_FLAGS) -> *mut ::core::ffi::c_void;
     }
-    ::core::mem::transmute(RegisterDeviceNotificationW(hrecipient.into(), ::core::mem::transmute(notificationfilter), flags))
+    RegisterDeviceNotificationW(hrecipient.into(), ::core::mem::transmute(notificationfilter), flags)
 }
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -10393,7 +10393,7 @@ where
     extern "system" {
         fn RegisterShellHookWindow(hwnd: super::super::Foundation::HWND) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(RegisterShellHookWindow(hwnd.into()))
+    RegisterShellHookWindow(hwnd.into())
 }
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
 #[inline]
@@ -10405,7 +10405,7 @@ where
     extern "system" {
         fn RegisterWindowMessageA(lpstring: ::windows::core::PCSTR) -> u32;
     }
-    ::core::mem::transmute(RegisterWindowMessageA(lpstring.into()))
+    RegisterWindowMessageA(lpstring.into())
 }
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
 #[inline]
@@ -10417,7 +10417,7 @@ where
     extern "system" {
         fn RegisterWindowMessageW(lpstring: ::windows::core::PCWSTR) -> u32;
     }
-    ::core::mem::transmute(RegisterWindowMessageW(lpstring.into()))
+    RegisterWindowMessageW(lpstring.into())
 }
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -10430,7 +10430,7 @@ where
     extern "system" {
         fn RemoveMenu(hmenu: HMENU, uposition: u32, uflags: MENU_ITEM_FLAGS) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(RemoveMenu(hmenu.into(), uposition, uflags))
+    RemoveMenu(hmenu.into(), uposition, uflags)
 }
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -10473,7 +10473,7 @@ where
     extern "system" {
         fn ReplyMessage(lresult: super::super::Foundation::LRESULT) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(ReplyMessage(lresult.into()))
+    ReplyMessage(lresult.into())
 }
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
 pub const SBM_ENABLE_ARROWS: u32 = 228u32;
@@ -12292,7 +12292,7 @@ where
     extern "system" {
         fn ScrollDC(hdc: super::super::Graphics::Gdi::HDC, dx: i32, dy: i32, lprcscroll: *const super::super::Foundation::RECT, lprcclip: *const super::super::Foundation::RECT, hrgnupdate: super::super::Graphics::Gdi::HRGN, lprcupdate: *mut super::super::Foundation::RECT) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(ScrollDC(hdc.into(), dx, dy, ::core::mem::transmute(lprcscroll), ::core::mem::transmute(lprcclip), hrgnupdate.into(), ::core::mem::transmute(lprcupdate)))
+    ScrollDC(hdc.into(), dx, dy, ::core::mem::transmute(lprcscroll), ::core::mem::transmute(lprcclip), hrgnupdate.into(), ::core::mem::transmute(lprcupdate))
 }
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -12305,7 +12305,7 @@ where
     extern "system" {
         fn ScrollWindow(hwnd: super::super::Foundation::HWND, xamount: i32, yamount: i32, lprect: *const super::super::Foundation::RECT, lpcliprect: *const super::super::Foundation::RECT) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(ScrollWindow(hwnd.into(), xamount, yamount, ::core::mem::transmute(lprect), ::core::mem::transmute(lpcliprect)))
+    ScrollWindow(hwnd.into(), xamount, yamount, ::core::mem::transmute(lprect), ::core::mem::transmute(lpcliprect))
 }
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
@@ -12319,7 +12319,7 @@ where
     extern "system" {
         fn ScrollWindowEx(hwnd: super::super::Foundation::HWND, dx: i32, dy: i32, prcscroll: *const super::super::Foundation::RECT, prcclip: *const super::super::Foundation::RECT, hrgnupdate: super::super::Graphics::Gdi::HRGN, prcupdate: *mut super::super::Foundation::RECT, flags: SHOW_WINDOW_CMD) -> i32;
     }
-    ::core::mem::transmute(ScrollWindowEx(hwnd.into(), dx, dy, ::core::mem::transmute(prcscroll), ::core::mem::transmute(prcclip), hrgnupdate.into(), ::core::mem::transmute(prcupdate), flags))
+    ScrollWindowEx(hwnd.into(), dx, dy, ::core::mem::transmute(prcscroll), ::core::mem::transmute(prcclip), hrgnupdate.into(), ::core::mem::transmute(prcupdate), flags)
 }
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -12334,7 +12334,7 @@ where
     extern "system" {
         fn SendDlgItemMessageA(hdlg: super::super::Foundation::HWND, niddlgitem: i32, msg: u32, wparam: super::super::Foundation::WPARAM, lparam: super::super::Foundation::LPARAM) -> super::super::Foundation::LRESULT;
     }
-    ::core::mem::transmute(SendDlgItemMessageA(hdlg.into(), niddlgitem, msg, wparam.into(), lparam.into()))
+    SendDlgItemMessageA(hdlg.into(), niddlgitem, msg, wparam.into(), lparam.into())
 }
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -12349,7 +12349,7 @@ where
     extern "system" {
         fn SendDlgItemMessageW(hdlg: super::super::Foundation::HWND, niddlgitem: i32, msg: u32, wparam: super::super::Foundation::WPARAM, lparam: super::super::Foundation::LPARAM) -> super::super::Foundation::LRESULT;
     }
-    ::core::mem::transmute(SendDlgItemMessageW(hdlg.into(), niddlgitem, msg, wparam.into(), lparam.into()))
+    SendDlgItemMessageW(hdlg.into(), niddlgitem, msg, wparam.into(), lparam.into())
 }
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -12362,7 +12362,7 @@ where
     extern "system" {
         fn SendMessageA(hwnd: super::super::Foundation::HWND, msg: u32, wparam: super::super::Foundation::WPARAM, lparam: super::super::Foundation::LPARAM) -> super::super::Foundation::LRESULT;
     }
-    ::core::mem::transmute(SendMessageA(hwnd.into(), msg, ::core::mem::transmute(wparam), ::core::mem::transmute(lparam)))
+    SendMessageA(hwnd.into(), msg, ::core::mem::transmute(wparam), ::core::mem::transmute(lparam))
 }
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -12377,7 +12377,7 @@ where
     extern "system" {
         fn SendMessageCallbackA(hwnd: super::super::Foundation::HWND, msg: u32, wparam: super::super::Foundation::WPARAM, lparam: super::super::Foundation::LPARAM, lpresultcallback: *mut ::core::ffi::c_void, dwdata: usize) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(SendMessageCallbackA(hwnd.into(), msg, wparam.into(), lparam.into(), ::core::mem::transmute(lpresultcallback), dwdata))
+    SendMessageCallbackA(hwnd.into(), msg, wparam.into(), lparam.into(), ::core::mem::transmute(lpresultcallback), dwdata)
 }
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -12392,7 +12392,7 @@ where
     extern "system" {
         fn SendMessageCallbackW(hwnd: super::super::Foundation::HWND, msg: u32, wparam: super::super::Foundation::WPARAM, lparam: super::super::Foundation::LPARAM, lpresultcallback: *mut ::core::ffi::c_void, dwdata: usize) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(SendMessageCallbackW(hwnd.into(), msg, wparam.into(), lparam.into(), ::core::mem::transmute(lpresultcallback), dwdata))
+    SendMessageCallbackW(hwnd.into(), msg, wparam.into(), lparam.into(), ::core::mem::transmute(lpresultcallback), dwdata)
 }
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -12407,7 +12407,7 @@ where
     extern "system" {
         fn SendMessageTimeoutA(hwnd: super::super::Foundation::HWND, msg: u32, wparam: super::super::Foundation::WPARAM, lparam: super::super::Foundation::LPARAM, fuflags: SEND_MESSAGE_TIMEOUT_FLAGS, utimeout: u32, lpdwresult: *mut usize) -> super::super::Foundation::LRESULT;
     }
-    ::core::mem::transmute(SendMessageTimeoutA(hwnd.into(), msg, wparam.into(), lparam.into(), fuflags, utimeout, ::core::mem::transmute(lpdwresult)))
+    SendMessageTimeoutA(hwnd.into(), msg, wparam.into(), lparam.into(), fuflags, utimeout, ::core::mem::transmute(lpdwresult))
 }
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -12422,7 +12422,7 @@ where
     extern "system" {
         fn SendMessageTimeoutW(hwnd: super::super::Foundation::HWND, msg: u32, wparam: super::super::Foundation::WPARAM, lparam: super::super::Foundation::LPARAM, fuflags: SEND_MESSAGE_TIMEOUT_FLAGS, utimeout: u32, lpdwresult: *mut usize) -> super::super::Foundation::LRESULT;
     }
-    ::core::mem::transmute(SendMessageTimeoutW(hwnd.into(), msg, wparam.into(), lparam.into(), fuflags, utimeout, ::core::mem::transmute(lpdwresult)))
+    SendMessageTimeoutW(hwnd.into(), msg, wparam.into(), lparam.into(), fuflags, utimeout, ::core::mem::transmute(lpdwresult))
 }
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -12435,7 +12435,7 @@ where
     extern "system" {
         fn SendMessageW(hwnd: super::super::Foundation::HWND, msg: u32, wparam: super::super::Foundation::WPARAM, lparam: super::super::Foundation::LPARAM) -> super::super::Foundation::LRESULT;
     }
-    ::core::mem::transmute(SendMessageW(hwnd.into(), msg, ::core::mem::transmute(wparam), ::core::mem::transmute(lparam)))
+    SendMessageW(hwnd.into(), msg, ::core::mem::transmute(wparam), ::core::mem::transmute(lparam))
 }
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -12450,7 +12450,7 @@ where
     extern "system" {
         fn SendNotifyMessageA(hwnd: super::super::Foundation::HWND, msg: u32, wparam: super::super::Foundation::WPARAM, lparam: super::super::Foundation::LPARAM) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(SendNotifyMessageA(hwnd.into(), msg, wparam.into(), lparam.into()))
+    SendNotifyMessageA(hwnd.into(), msg, wparam.into(), lparam.into())
 }
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -12465,7 +12465,7 @@ where
     extern "system" {
         fn SendNotifyMessageW(hwnd: super::super::Foundation::HWND, msg: u32, wparam: super::super::Foundation::WPARAM, lparam: super::super::Foundation::LPARAM) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(SendNotifyMessageW(hwnd.into(), msg, wparam.into(), lparam.into()))
+    SendNotifyMessageW(hwnd.into(), msg, wparam.into(), lparam.into())
 }
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -12475,7 +12475,7 @@ pub unsafe fn SetCaretBlinkTime(umseconds: u32) -> super::super::Foundation::BOO
     extern "system" {
         fn SetCaretBlinkTime(umseconds: u32) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(SetCaretBlinkTime(umseconds))
+    SetCaretBlinkTime(umseconds)
 }
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -12485,7 +12485,7 @@ pub unsafe fn SetCaretPos(x: i32, y: i32) -> super::super::Foundation::BOOL {
     extern "system" {
         fn SetCaretPos(x: i32, y: i32) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(SetCaretPos(x, y))
+    SetCaretPos(x, y)
 }
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -12498,7 +12498,7 @@ where
     extern "system" {
         fn SetClassLongA(hwnd: super::super::Foundation::HWND, nindex: GET_CLASS_LONG_INDEX, dwnewlong: i32) -> u32;
     }
-    ::core::mem::transmute(SetClassLongA(hwnd.into(), nindex, dwnewlong))
+    SetClassLongA(hwnd.into(), nindex, dwnewlong)
 }
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`, `\"Win32_Foundation\"`*"]
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
@@ -12512,7 +12512,7 @@ where
     extern "system" {
         fn SetClassLongPtrA(hwnd: super::super::Foundation::HWND, nindex: GET_CLASS_LONG_INDEX, dwnewlong: isize) -> usize;
     }
-    ::core::mem::transmute(SetClassLongPtrA(hwnd.into(), nindex, dwnewlong))
+    SetClassLongPtrA(hwnd.into(), nindex, dwnewlong)
 }
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`, `\"Win32_Foundation\"`*"]
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
@@ -12526,7 +12526,7 @@ where
     extern "system" {
         fn SetClassLongPtrW(hwnd: super::super::Foundation::HWND, nindex: GET_CLASS_LONG_INDEX, dwnewlong: isize) -> usize;
     }
-    ::core::mem::transmute(SetClassLongPtrW(hwnd.into(), nindex, dwnewlong))
+    SetClassLongPtrW(hwnd.into(), nindex, dwnewlong)
 }
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -12539,7 +12539,7 @@ where
     extern "system" {
         fn SetClassLongW(hwnd: super::super::Foundation::HWND, nindex: GET_CLASS_LONG_INDEX, dwnewlong: i32) -> u32;
     }
-    ::core::mem::transmute(SetClassLongW(hwnd.into(), nindex, dwnewlong))
+    SetClassLongW(hwnd.into(), nindex, dwnewlong)
 }
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -12552,7 +12552,7 @@ where
     extern "system" {
         fn SetClassWord(hwnd: super::super::Foundation::HWND, nindex: i32, wnewword: u16) -> u16;
     }
-    ::core::mem::transmute(SetClassWord(hwnd.into(), nindex, wnewword))
+    SetClassWord(hwnd.into(), nindex, wnewword)
 }
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -12565,7 +12565,7 @@ where
     extern "system" {
         fn SetCoalescableTimer(hwnd: super::super::Foundation::HWND, nidevent: usize, uelapse: u32, lptimerfunc: *mut ::core::ffi::c_void, utolerancedelay: u32) -> usize;
     }
-    ::core::mem::transmute(SetCoalescableTimer(hwnd.into(), nidevent, uelapse, ::core::mem::transmute(lptimerfunc), utolerancedelay))
+    SetCoalescableTimer(hwnd.into(), nidevent, uelapse, ::core::mem::transmute(lptimerfunc), utolerancedelay)
 }
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
 #[inline]
@@ -12577,7 +12577,7 @@ where
     extern "system" {
         fn SetCursor(hcursor: HCURSOR) -> HCURSOR;
     }
-    ::core::mem::transmute(SetCursor(hcursor.into()))
+    SetCursor(hcursor.into())
 }
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -12587,7 +12587,7 @@ pub unsafe fn SetCursorPos(x: i32, y: i32) -> super::super::Foundation::BOOL {
     extern "system" {
         fn SetCursorPos(x: i32, y: i32) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(SetCursorPos(x, y))
+    SetCursorPos(x, y)
 }
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
 #[inline]
@@ -12610,7 +12610,7 @@ where
     extern "system" {
         fn SetDlgItemInt(hdlg: super::super::Foundation::HWND, niddlgitem: i32, uvalue: u32, bsigned: super::super::Foundation::BOOL) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(SetDlgItemInt(hdlg.into(), niddlgitem, uvalue, bsigned.into()))
+    SetDlgItemInt(hdlg.into(), niddlgitem, uvalue, bsigned.into())
 }
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -12624,7 +12624,7 @@ where
     extern "system" {
         fn SetDlgItemTextA(hdlg: super::super::Foundation::HWND, niddlgitem: i32, lpstring: ::windows::core::PCSTR) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(SetDlgItemTextA(hdlg.into(), niddlgitem, lpstring.into()))
+    SetDlgItemTextA(hdlg.into(), niddlgitem, lpstring.into())
 }
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -12638,7 +12638,7 @@ where
     extern "system" {
         fn SetDlgItemTextW(hdlg: super::super::Foundation::HWND, niddlgitem: i32, lpstring: ::windows::core::PCWSTR) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(SetDlgItemTextW(hdlg.into(), niddlgitem, lpstring.into()))
+    SetDlgItemTextW(hdlg.into(), niddlgitem, lpstring.into())
 }
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -12651,7 +12651,7 @@ where
     extern "system" {
         fn SetForegroundWindow(hwnd: super::super::Foundation::HWND) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(SetForegroundWindow(hwnd.into()))
+    SetForegroundWindow(hwnd.into())
 }
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -12664,7 +12664,7 @@ where
     extern "system" {
         fn SetLayeredWindowAttributes(hwnd: super::super::Foundation::HWND, crkey: u32, balpha: u8, dwflags: LAYERED_WINDOW_ATTRIBUTES_FLAGS) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(SetLayeredWindowAttributes(hwnd.into(), crkey, balpha, dwflags))
+    SetLayeredWindowAttributes(hwnd.into(), crkey, balpha, dwflags)
 }
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -12678,7 +12678,7 @@ where
     extern "system" {
         fn SetMenu(hwnd: super::super::Foundation::HWND, hmenu: HMENU) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(SetMenu(hwnd.into(), hmenu.into()))
+    SetMenu(hwnd.into(), hmenu.into())
 }
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -12691,7 +12691,7 @@ where
     extern "system" {
         fn SetMenuDefaultItem(hmenu: HMENU, uitem: u32, fbypos: u32) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(SetMenuDefaultItem(hmenu.into(), uitem, fbypos))
+    SetMenuDefaultItem(hmenu.into(), uitem, fbypos)
 }
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
@@ -12704,7 +12704,7 @@ where
     extern "system" {
         fn SetMenuInfo(param0: HMENU, param1: *const MENUINFO) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(SetMenuInfo(param0.into(), ::core::mem::transmute(param1)))
+    SetMenuInfo(param0.into(), ::core::mem::transmute(param1))
 }
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
@@ -12719,7 +12719,7 @@ where
     extern "system" {
         fn SetMenuItemBitmaps(hmenu: HMENU, uposition: u32, uflags: MENU_ITEM_FLAGS, hbitmapunchecked: super::super::Graphics::Gdi::HBITMAP, hbitmapchecked: super::super::Graphics::Gdi::HBITMAP) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(SetMenuItemBitmaps(hmenu.into(), uposition, uflags, hbitmapunchecked.into(), hbitmapchecked.into()))
+    SetMenuItemBitmaps(hmenu.into(), uposition, uflags, hbitmapunchecked.into(), hbitmapchecked.into())
 }
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
@@ -12733,7 +12733,7 @@ where
     extern "system" {
         fn SetMenuItemInfoA(hmenu: HMENU, item: u32, fbypositon: super::super::Foundation::BOOL, lpmii: *const MENUITEMINFOA) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(SetMenuItemInfoA(hmenu.into(), item, fbypositon.into(), ::core::mem::transmute(lpmii)))
+    SetMenuItemInfoA(hmenu.into(), item, fbypositon.into(), ::core::mem::transmute(lpmii))
 }
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
@@ -12747,7 +12747,7 @@ where
     extern "system" {
         fn SetMenuItemInfoW(hmenu: HMENU, item: u32, fbypositon: super::super::Foundation::BOOL, lpmii: *const MENUITEMINFOW) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(SetMenuItemInfoW(hmenu.into(), item, fbypositon.into(), ::core::mem::transmute(lpmii)))
+    SetMenuItemInfoW(hmenu.into(), item, fbypositon.into(), ::core::mem::transmute(lpmii))
 }
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -12760,7 +12760,7 @@ where
     extern "system" {
         fn SetMessageExtraInfo(lparam: super::super::Foundation::LPARAM) -> super::super::Foundation::LPARAM;
     }
-    ::core::mem::transmute(SetMessageExtraInfo(lparam.into()))
+    SetMessageExtraInfo(lparam.into())
 }
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -12770,7 +12770,7 @@ pub unsafe fn SetMessageQueue(cmessagesmax: i32) -> super::super::Foundation::BO
     extern "system" {
         fn SetMessageQueue(cmessagesmax: i32) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(SetMessageQueue(cmessagesmax))
+    SetMessageQueue(cmessagesmax)
 }
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -12784,7 +12784,7 @@ where
     extern "system" {
         fn SetParent(hwndchild: super::super::Foundation::HWND, hwndnewparent: super::super::Foundation::HWND) -> super::super::Foundation::HWND;
     }
-    ::core::mem::transmute(SetParent(hwndchild.into(), hwndnewparent.into()))
+    SetParent(hwndchild.into(), hwndnewparent.into())
 }
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -12794,7 +12794,7 @@ pub unsafe fn SetPhysicalCursorPos(x: i32, y: i32) -> super::super::Foundation::
     extern "system" {
         fn SetPhysicalCursorPos(x: i32, y: i32) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(SetPhysicalCursorPos(x, y))
+    SetPhysicalCursorPos(x, y)
 }
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -12804,7 +12804,7 @@ pub unsafe fn SetProcessDPIAware() -> super::super::Foundation::BOOL {
     extern "system" {
         fn SetProcessDPIAware() -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(SetProcessDPIAware())
+    SetProcessDPIAware()
 }
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -12814,7 +12814,7 @@ pub unsafe fn SetProcessDefaultLayout(dwdefaultlayout: u32) -> super::super::Fou
     extern "system" {
         fn SetProcessDefaultLayout(dwdefaultlayout: u32) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(SetProcessDefaultLayout(dwdefaultlayout))
+    SetProcessDefaultLayout(dwdefaultlayout)
 }
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -12829,7 +12829,7 @@ where
     extern "system" {
         fn SetPropA(hwnd: super::super::Foundation::HWND, lpstring: ::windows::core::PCSTR, hdata: super::super::Foundation::HANDLE) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(SetPropA(hwnd.into(), lpstring.into(), hdata.into()))
+    SetPropA(hwnd.into(), lpstring.into(), hdata.into())
 }
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -12844,7 +12844,7 @@ where
     extern "system" {
         fn SetPropW(hwnd: super::super::Foundation::HWND, lpstring: ::windows::core::PCWSTR, hdata: super::super::Foundation::HANDLE) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(SetPropW(hwnd.into(), lpstring.into(), hdata.into()))
+    SetPropW(hwnd.into(), lpstring.into(), hdata.into())
 }
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -12854,7 +12854,7 @@ pub unsafe fn SetSysColors(celements: i32, lpaelements: *const i32, lpargbvalues
     extern "system" {
         fn SetSysColors(celements: i32, lpaelements: *const i32, lpargbvalues: *const u32) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(SetSysColors(::core::mem::transmute(celements), ::core::mem::transmute(lpaelements), ::core::mem::transmute(lpargbvalues)))
+    SetSysColors(::core::mem::transmute(celements), ::core::mem::transmute(lpaelements), ::core::mem::transmute(lpargbvalues))
 }
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -12867,7 +12867,7 @@ where
     extern "system" {
         fn SetSystemCursor(hcur: HCURSOR, id: SYSTEM_CURSOR_ID) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(SetSystemCursor(hcur.into(), id))
+    SetSystemCursor(hcur.into(), id)
 }
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -12880,7 +12880,7 @@ where
     extern "system" {
         fn SetTimer(hwnd: super::super::Foundation::HWND, nidevent: usize, uelapse: u32, lptimerfunc: *mut ::core::ffi::c_void) -> usize;
     }
-    ::core::mem::transmute(SetTimer(hwnd.into(), nidevent, uelapse, ::core::mem::transmute(lptimerfunc)))
+    SetTimer(hwnd.into(), nidevent, uelapse, ::core::mem::transmute(lptimerfunc))
 }
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -12893,7 +12893,7 @@ where
     extern "system" {
         fn SetWindowDisplayAffinity(hwnd: super::super::Foundation::HWND, dwaffinity: WINDOW_DISPLAY_AFFINITY) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(SetWindowDisplayAffinity(hwnd.into(), dwaffinity))
+    SetWindowDisplayAffinity(hwnd.into(), dwaffinity)
 }
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -12906,7 +12906,7 @@ where
     extern "system" {
         fn SetWindowLongA(hwnd: super::super::Foundation::HWND, nindex: WINDOW_LONG_PTR_INDEX, dwnewlong: i32) -> i32;
     }
-    ::core::mem::transmute(SetWindowLongA(hwnd.into(), nindex, dwnewlong))
+    SetWindowLongA(hwnd.into(), nindex, dwnewlong)
 }
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`, `\"Win32_Foundation\"`*"]
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
@@ -12920,7 +12920,7 @@ where
     extern "system" {
         fn SetWindowLongPtrA(hwnd: super::super::Foundation::HWND, nindex: WINDOW_LONG_PTR_INDEX, dwnewlong: isize) -> isize;
     }
-    ::core::mem::transmute(SetWindowLongPtrA(hwnd.into(), nindex, dwnewlong))
+    SetWindowLongPtrA(hwnd.into(), nindex, dwnewlong)
 }
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`, `\"Win32_Foundation\"`*"]
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
@@ -12934,7 +12934,7 @@ where
     extern "system" {
         fn SetWindowLongPtrW(hwnd: super::super::Foundation::HWND, nindex: WINDOW_LONG_PTR_INDEX, dwnewlong: isize) -> isize;
     }
-    ::core::mem::transmute(SetWindowLongPtrW(hwnd.into(), nindex, dwnewlong))
+    SetWindowLongPtrW(hwnd.into(), nindex, dwnewlong)
 }
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -12947,7 +12947,7 @@ where
     extern "system" {
         fn SetWindowLongW(hwnd: super::super::Foundation::HWND, nindex: WINDOW_LONG_PTR_INDEX, dwnewlong: i32) -> i32;
     }
-    ::core::mem::transmute(SetWindowLongW(hwnd.into(), nindex, dwnewlong))
+    SetWindowLongW(hwnd.into(), nindex, dwnewlong)
 }
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -12960,7 +12960,7 @@ where
     extern "system" {
         fn SetWindowPlacement(hwnd: super::super::Foundation::HWND, lpwndpl: *const WINDOWPLACEMENT) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(SetWindowPlacement(hwnd.into(), ::core::mem::transmute(lpwndpl)))
+    SetWindowPlacement(hwnd.into(), ::core::mem::transmute(lpwndpl))
 }
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -12974,7 +12974,7 @@ where
     extern "system" {
         fn SetWindowPos(hwnd: super::super::Foundation::HWND, hwndinsertafter: super::super::Foundation::HWND, x: i32, y: i32, cx: i32, cy: i32, uflags: SET_WINDOW_POS_FLAGS) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(SetWindowPos(hwnd.into(), hwndinsertafter.into(), x, y, cx, cy, uflags))
+    SetWindowPos(hwnd.into(), hwndinsertafter.into(), x, y, cx, cy, uflags)
 }
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -12988,7 +12988,7 @@ where
     extern "system" {
         fn SetWindowTextA(hwnd: super::super::Foundation::HWND, lpstring: ::windows::core::PCSTR) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(SetWindowTextA(hwnd.into(), lpstring.into()))
+    SetWindowTextA(hwnd.into(), lpstring.into())
 }
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -13002,7 +13002,7 @@ where
     extern "system" {
         fn SetWindowTextW(hwnd: super::super::Foundation::HWND, lpstring: ::windows::core::PCWSTR) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(SetWindowTextW(hwnd.into(), lpstring.into()))
+    SetWindowTextW(hwnd.into(), lpstring.into())
 }
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -13015,7 +13015,7 @@ where
     extern "system" {
         fn SetWindowWord(hwnd: super::super::Foundation::HWND, nindex: i32, wnewword: u16) -> u16;
     }
-    ::core::mem::transmute(SetWindowWord(hwnd.into(), nindex, wnewword))
+    SetWindowWord(hwnd.into(), nindex, wnewword)
 }
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -13025,7 +13025,7 @@ pub unsafe fn SetWindowsHookA(nfiltertype: i32, pfnfilterproc: HOOKPROC) -> HHOO
     extern "system" {
         fn SetWindowsHookA(nfiltertype: i32, pfnfilterproc: *mut ::core::ffi::c_void) -> HHOOK;
     }
-    ::core::mem::transmute(SetWindowsHookA(nfiltertype, ::core::mem::transmute(pfnfilterproc)))
+    SetWindowsHookA(nfiltertype, ::core::mem::transmute(pfnfilterproc))
 }
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -13063,7 +13063,7 @@ pub unsafe fn SetWindowsHookW(nfiltertype: i32, pfnfilterproc: HOOKPROC) -> HHOO
     extern "system" {
         fn SetWindowsHookW(nfiltertype: i32, pfnfilterproc: *mut ::core::ffi::c_void) -> HHOOK;
     }
-    ::core::mem::transmute(SetWindowsHookW(nfiltertype, ::core::mem::transmute(pfnfilterproc)))
+    SetWindowsHookW(nfiltertype, ::core::mem::transmute(pfnfilterproc))
 }
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -13076,7 +13076,7 @@ where
     extern "system" {
         fn ShowCaret(hwnd: super::super::Foundation::HWND) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(ShowCaret(hwnd.into()))
+    ShowCaret(hwnd.into())
 }
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -13089,7 +13089,7 @@ where
     extern "system" {
         fn ShowCursor(bshow: super::super::Foundation::BOOL) -> i32;
     }
-    ::core::mem::transmute(ShowCursor(bshow.into()))
+    ShowCursor(bshow.into())
 }
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -13103,7 +13103,7 @@ where
     extern "system" {
         fn ShowOwnedPopups(hwnd: super::super::Foundation::HWND, fshow: super::super::Foundation::BOOL) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(ShowOwnedPopups(hwnd.into(), fshow.into()))
+    ShowOwnedPopups(hwnd.into(), fshow.into())
 }
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -13116,7 +13116,7 @@ where
     extern "system" {
         fn ShowWindow(hwnd: super::super::Foundation::HWND, ncmdshow: SHOW_WINDOW_CMD) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(ShowWindow(hwnd.into(), ncmdshow))
+    ShowWindow(hwnd.into(), ncmdshow)
 }
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -13129,7 +13129,7 @@ where
     extern "system" {
         fn ShowWindowAsync(hwnd: super::super::Foundation::HWND, ncmdshow: SHOW_WINDOW_CMD) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(ShowWindowAsync(hwnd.into(), ncmdshow))
+    ShowWindowAsync(hwnd.into(), ncmdshow)
 }
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -13139,7 +13139,7 @@ pub unsafe fn SoundSentry() -> super::super::Foundation::BOOL {
     extern "system" {
         fn SoundSentry() -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(SoundSentry())
+    SoundSentry()
 }
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -13163,7 +13163,7 @@ pub unsafe fn SystemParametersInfoA(uiaction: SYSTEM_PARAMETERS_INFO_ACTION, uip
     extern "system" {
         fn SystemParametersInfoA(uiaction: SYSTEM_PARAMETERS_INFO_ACTION, uiparam: u32, pvparam: *mut ::core::ffi::c_void, fwinini: SYSTEM_PARAMETERS_INFO_UPDATE_FLAGS) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(SystemParametersInfoA(uiaction, uiparam, ::core::mem::transmute(pvparam), fwinini))
+    SystemParametersInfoA(uiaction, uiparam, ::core::mem::transmute(pvparam), fwinini)
 }
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -13173,7 +13173,7 @@ pub unsafe fn SystemParametersInfoW(uiaction: SYSTEM_PARAMETERS_INFO_ACTION, uip
     extern "system" {
         fn SystemParametersInfoW(uiaction: SYSTEM_PARAMETERS_INFO_ACTION, uiparam: u32, pvparam: *mut ::core::ffi::c_void, fwinini: SYSTEM_PARAMETERS_INFO_UPDATE_FLAGS) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(SystemParametersInfoW(uiaction, uiparam, ::core::mem::transmute(pvparam), fwinini))
+    SystemParametersInfoW(uiaction, uiparam, ::core::mem::transmute(pvparam), fwinini)
 }
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
 #[repr(transparent)]
@@ -13483,7 +13483,7 @@ where
     extern "system" {
         fn TileWindows(hwndparent: super::super::Foundation::HWND, whow: TILE_WINDOWS_HOW, lprect: *const super::super::Foundation::RECT, ckids: u32, lpkids: *const super::super::Foundation::HWND) -> u16;
     }
-    ::core::mem::transmute(TileWindows(hwndparent.into(), whow, ::core::mem::transmute(lprect), lpkids.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(lpkids))))
+    TileWindows(hwndparent.into(), whow, ::core::mem::transmute(lprect), lpkids.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(lpkids)))
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
@@ -13530,7 +13530,7 @@ where
     extern "system" {
         fn TrackPopupMenu(hmenu: HMENU, uflags: TRACK_POPUP_MENU_FLAGS, x: i32, y: i32, nreserved: i32, hwnd: super::super::Foundation::HWND, prcrect: *const super::super::Foundation::RECT) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(TrackPopupMenu(hmenu.into(), uflags, x, y, nreserved, hwnd.into(), ::core::mem::transmute(prcrect)))
+    TrackPopupMenu(hmenu.into(), uflags, x, y, nreserved, hwnd.into(), ::core::mem::transmute(prcrect))
 }
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -13544,7 +13544,7 @@ where
     extern "system" {
         fn TrackPopupMenuEx(hmenu: HMENU, uflags: u32, x: i32, y: i32, hwnd: super::super::Foundation::HWND, lptpm: *const TPMPARAMS) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(TrackPopupMenuEx(hmenu.into(), uflags, x, y, hwnd.into(), ::core::mem::transmute(lptpm)))
+    TrackPopupMenuEx(hmenu.into(), uflags, x, y, hwnd.into(), ::core::mem::transmute(lptpm))
 }
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -13558,7 +13558,7 @@ where
     extern "system" {
         fn TranslateAcceleratorA(hwnd: super::super::Foundation::HWND, hacctable: HACCEL, lpmsg: *const MSG) -> i32;
     }
-    ::core::mem::transmute(TranslateAcceleratorA(hwnd.into(), hacctable.into(), ::core::mem::transmute(lpmsg)))
+    TranslateAcceleratorA(hwnd.into(), hacctable.into(), ::core::mem::transmute(lpmsg))
 }
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -13572,7 +13572,7 @@ where
     extern "system" {
         fn TranslateAcceleratorW(hwnd: super::super::Foundation::HWND, hacctable: HACCEL, lpmsg: *const MSG) -> i32;
     }
-    ::core::mem::transmute(TranslateAcceleratorW(hwnd.into(), hacctable.into(), ::core::mem::transmute(lpmsg)))
+    TranslateAcceleratorW(hwnd.into(), hacctable.into(), ::core::mem::transmute(lpmsg))
 }
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -13585,7 +13585,7 @@ where
     extern "system" {
         fn TranslateMDISysAccel(hwndclient: super::super::Foundation::HWND, lpmsg: *const MSG) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(TranslateMDISysAccel(hwndclient.into(), ::core::mem::transmute(lpmsg)))
+    TranslateMDISysAccel(hwndclient.into(), ::core::mem::transmute(lpmsg))
 }
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -13595,7 +13595,7 @@ pub unsafe fn TranslateMessage(lpmsg: *const MSG) -> super::super::Foundation::B
     extern "system" {
         fn TranslateMessage(lpmsg: *const MSG) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(TranslateMessage(::core::mem::transmute(lpmsg)))
+    TranslateMessage(::core::mem::transmute(lpmsg))
 }
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
 pub const UISF_ACTIVE: u32 = 4u32;
@@ -13705,7 +13705,7 @@ pub unsafe fn UnhookWindowsHook(ncode: i32, pfnfilterproc: HOOKPROC) -> super::s
     extern "system" {
         fn UnhookWindowsHook(ncode: i32, pfnfilterproc: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(UnhookWindowsHook(ncode, ::core::mem::transmute(pfnfilterproc)))
+    UnhookWindowsHook(ncode, ::core::mem::transmute(pfnfilterproc))
 }
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -13718,7 +13718,7 @@ where
     extern "system" {
         fn UnhookWindowsHookEx(hhk: HHOOK) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(UnhookWindowsHookEx(hhk.into()))
+    UnhookWindowsHookEx(hhk.into())
 }
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -13732,7 +13732,7 @@ where
     extern "system" {
         fn UnregisterClassA(lpclassname: ::windows::core::PCSTR, hinstance: super::super::Foundation::HINSTANCE) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(UnregisterClassA(lpclassname.into(), hinstance.into()))
+    UnregisterClassA(lpclassname.into(), hinstance.into())
 }
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -13746,7 +13746,7 @@ where
     extern "system" {
         fn UnregisterClassW(lpclassname: ::windows::core::PCWSTR, hinstance: super::super::Foundation::HINSTANCE) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(UnregisterClassW(lpclassname.into(), hinstance.into()))
+    UnregisterClassW(lpclassname.into(), hinstance.into())
 }
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
@@ -13761,7 +13761,7 @@ where
     extern "system" {
         fn UpdateLayeredWindow(hwnd: super::super::Foundation::HWND, hdcdst: super::super::Graphics::Gdi::HDC, pptdst: *const super::super::Foundation::POINT, psize: *const super::super::Foundation::SIZE, hdcsrc: super::super::Graphics::Gdi::HDC, pptsrc: *const super::super::Foundation::POINT, crkey: u32, pblend: *const super::super::Graphics::Gdi::BLENDFUNCTION, dwflags: UPDATE_LAYERED_WINDOW_FLAGS) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(UpdateLayeredWindow(hwnd.into(), hdcdst.into(), ::core::mem::transmute(pptdst), ::core::mem::transmute(psize), hdcsrc.into(), ::core::mem::transmute(pptsrc), crkey, ::core::mem::transmute(pblend), dwflags))
+    UpdateLayeredWindow(hwnd.into(), hdcdst.into(), ::core::mem::transmute(pptdst), ::core::mem::transmute(psize), hdcsrc.into(), ::core::mem::transmute(pptsrc), crkey, ::core::mem::transmute(pblend), dwflags)
 }
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
@@ -13774,7 +13774,7 @@ where
     extern "system" {
         fn UpdateLayeredWindowIndirect(hwnd: super::super::Foundation::HWND, pulwinfo: *const UPDATELAYEREDWINDOWINFO) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(UpdateLayeredWindowIndirect(hwnd.into(), ::core::mem::transmute(pulwinfo)))
+    UpdateLayeredWindowIndirect(hwnd.into(), ::core::mem::transmute(pulwinfo))
 }
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
 pub const WA_ACTIVE: u32 = 1u32;
@@ -15252,7 +15252,7 @@ pub unsafe fn WaitMessage() -> super::super::Foundation::BOOL {
     extern "system" {
         fn WaitMessage() -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(WaitMessage())
+    WaitMessage()
 }
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -15262,7 +15262,7 @@ pub unsafe fn WindowFromPhysicalPoint(point: super::super::Foundation::POINT) ->
     extern "system" {
         fn WindowFromPhysicalPoint(point: super::super::Foundation::POINT) -> super::super::Foundation::HWND;
     }
-    ::core::mem::transmute(WindowFromPhysicalPoint(::core::mem::transmute(point)))
+    WindowFromPhysicalPoint(::core::mem::transmute(point))
 }
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -15272,7 +15272,7 @@ pub unsafe fn WindowFromPoint(point: super::super::Foundation::POINT) -> super::
     extern "system" {
         fn WindowFromPoint(point: super::super::Foundation::POINT) -> super::super::Foundation::HWND;
     }
-    ::core::mem::transmute(WindowFromPoint(::core::mem::transmute(point)))
+    WindowFromPoint(::core::mem::transmute(point))
 }
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
 pub const __WARNING_BANNED_API_USAGE: u32 = 28719u32;
@@ -15318,7 +15318,7 @@ where
     extern "system" {
         fn wsprintfA(param0: ::windows::core::PSTR, param1: ::windows::core::PCSTR) -> i32;
     }
-    ::core::mem::transmute(wsprintfA(::core::mem::transmute(param0), param1.into()))
+    wsprintfA(::core::mem::transmute(param0), param1.into())
 }
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
 #[inline]
@@ -15330,7 +15330,7 @@ where
     extern "system" {
         fn wsprintfW(param0: ::windows::core::PWSTR, param1: ::windows::core::PCWSTR) -> i32;
     }
-    ::core::mem::transmute(wsprintfW(::core::mem::transmute(param0), param1.into()))
+    wsprintfW(::core::mem::transmute(param0), param1.into())
 }
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
 #[inline]
@@ -15342,7 +15342,7 @@ where
     extern "system" {
         fn wvsprintfA(param0: ::windows::core::PSTR, param1: ::windows::core::PCSTR, arglist: *const i8) -> i32;
     }
-    ::core::mem::transmute(wvsprintfA(::core::mem::transmute(param0), param1.into(), ::core::mem::transmute(arglist)))
+    wvsprintfA(::core::mem::transmute(param0), param1.into(), ::core::mem::transmute(arglist))
 }
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
 #[inline]
@@ -15354,7 +15354,7 @@ where
     extern "system" {
         fn wvsprintfW(param0: ::windows::core::PWSTR, param1: ::windows::core::PCWSTR, arglist: *const i8) -> i32;
     }
-    ::core::mem::transmute(wvsprintfW(::core::mem::transmute(param0), param1.into(), ::core::mem::transmute(arglist)))
+    wvsprintfW(::core::mem::transmute(param0), param1.into(), ::core::mem::transmute(arglist))
 }
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

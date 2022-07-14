@@ -7,7 +7,7 @@ pub unsafe fn JsAddRef(r#ref: *const ::core::ffi::c_void, count: *mut u32) -> Js
     extern "system" {
         fn JsAddRef(r#ref: *const ::core::ffi::c_void, count: *mut u32) -> JsErrorCode;
     }
-    ::core::mem::transmute(JsAddRef(::core::mem::transmute(r#ref), ::core::mem::transmute(count)))
+    JsAddRef(::core::mem::transmute(r#ref), ::core::mem::transmute(count))
 }
 #[doc = "*Required features: `\"Win32_System_Js\"`*"]
 pub type JsBackgroundWorkItemCallback = ::core::option::Option<unsafe extern "system" fn(callbackstate: *const ::core::ffi::c_void)>;
@@ -20,7 +20,7 @@ pub unsafe fn JsBoolToBoolean(value: u8, booleanvalue: *mut *mut ::core::ffi::c_
     extern "system" {
         fn JsBoolToBoolean(value: u8, booleanvalue: *mut *mut ::core::ffi::c_void) -> JsErrorCode;
     }
-    ::core::mem::transmute(JsBoolToBoolean(value, ::core::mem::transmute(booleanvalue)))
+    JsBoolToBoolean(value, ::core::mem::transmute(booleanvalue))
 }
 #[doc = "*Required features: `\"Win32_System_Js\"`*"]
 #[inline]
@@ -29,7 +29,7 @@ pub unsafe fn JsBooleanToBool(value: *const ::core::ffi::c_void, boolvalue: *mut
     extern "system" {
         fn JsBooleanToBool(value: *const ::core::ffi::c_void, boolvalue: *mut bool) -> JsErrorCode;
     }
-    ::core::mem::transmute(JsBooleanToBool(::core::mem::transmute(value), ::core::mem::transmute(boolvalue)))
+    JsBooleanToBool(::core::mem::transmute(value), ::core::mem::transmute(boolvalue))
 }
 #[doc = "*Required features: `\"Win32_System_Js\"`*"]
 #[inline]
@@ -38,7 +38,7 @@ pub unsafe fn JsCallFunction(function: *const ::core::ffi::c_void, arguments: &[
     extern "system" {
         fn JsCallFunction(function: *const ::core::ffi::c_void, arguments: *const *const ::core::ffi::c_void, argumentcount: u16, result: *mut *mut ::core::ffi::c_void) -> JsErrorCode;
     }
-    ::core::mem::transmute(JsCallFunction(::core::mem::transmute(function), ::core::mem::transmute(::windows::core::as_ptr_or_null(arguments)), arguments.len() as _, ::core::mem::transmute(result)))
+    JsCallFunction(::core::mem::transmute(function), ::core::mem::transmute(::windows::core::as_ptr_or_null(arguments)), arguments.len() as _, ::core::mem::transmute(result))
 }
 #[doc = "*Required features: `\"Win32_System_Js\"`*"]
 #[inline]
@@ -47,7 +47,7 @@ pub unsafe fn JsCollectGarbage(runtime: *const ::core::ffi::c_void) -> JsErrorCo
     extern "system" {
         fn JsCollectGarbage(runtime: *const ::core::ffi::c_void) -> JsErrorCode;
     }
-    ::core::mem::transmute(JsCollectGarbage(::core::mem::transmute(runtime)))
+    JsCollectGarbage(::core::mem::transmute(runtime))
 }
 #[doc = "*Required features: `\"Win32_System_Js\"`*"]
 #[inline]
@@ -56,7 +56,7 @@ pub unsafe fn JsConstructObject(function: *const ::core::ffi::c_void, arguments:
     extern "system" {
         fn JsConstructObject(function: *const ::core::ffi::c_void, arguments: *const *const ::core::ffi::c_void, argumentcount: u16, result: *mut *mut ::core::ffi::c_void) -> JsErrorCode;
     }
-    ::core::mem::transmute(JsConstructObject(::core::mem::transmute(function), ::core::mem::transmute(::windows::core::as_ptr_or_null(arguments)), arguments.len() as _, ::core::mem::transmute(result)))
+    JsConstructObject(::core::mem::transmute(function), ::core::mem::transmute(::windows::core::as_ptr_or_null(arguments)), arguments.len() as _, ::core::mem::transmute(result))
 }
 #[doc = "*Required features: `\"Win32_System_Js\"`*"]
 #[inline]
@@ -65,7 +65,7 @@ pub unsafe fn JsConvertValueToBoolean(value: *const ::core::ffi::c_void, boolean
     extern "system" {
         fn JsConvertValueToBoolean(value: *const ::core::ffi::c_void, booleanvalue: *mut *mut ::core::ffi::c_void) -> JsErrorCode;
     }
-    ::core::mem::transmute(JsConvertValueToBoolean(::core::mem::transmute(value), ::core::mem::transmute(booleanvalue)))
+    JsConvertValueToBoolean(::core::mem::transmute(value), ::core::mem::transmute(booleanvalue))
 }
 #[doc = "*Required features: `\"Win32_System_Js\"`*"]
 #[inline]
@@ -74,7 +74,7 @@ pub unsafe fn JsConvertValueToNumber(value: *const ::core::ffi::c_void, numberva
     extern "system" {
         fn JsConvertValueToNumber(value: *const ::core::ffi::c_void, numbervalue: *mut *mut ::core::ffi::c_void) -> JsErrorCode;
     }
-    ::core::mem::transmute(JsConvertValueToNumber(::core::mem::transmute(value), ::core::mem::transmute(numbervalue)))
+    JsConvertValueToNumber(::core::mem::transmute(value), ::core::mem::transmute(numbervalue))
 }
 #[doc = "*Required features: `\"Win32_System_Js\"`*"]
 #[inline]
@@ -83,7 +83,7 @@ pub unsafe fn JsConvertValueToObject(value: *const ::core::ffi::c_void, object: 
     extern "system" {
         fn JsConvertValueToObject(value: *const ::core::ffi::c_void, object: *mut *mut ::core::ffi::c_void) -> JsErrorCode;
     }
-    ::core::mem::transmute(JsConvertValueToObject(::core::mem::transmute(value), ::core::mem::transmute(object)))
+    JsConvertValueToObject(::core::mem::transmute(value), ::core::mem::transmute(object))
 }
 #[doc = "*Required features: `\"Win32_System_Js\"`*"]
 #[inline]
@@ -92,7 +92,7 @@ pub unsafe fn JsConvertValueToString(value: *const ::core::ffi::c_void, stringva
     extern "system" {
         fn JsConvertValueToString(value: *const ::core::ffi::c_void, stringvalue: *mut *mut ::core::ffi::c_void) -> JsErrorCode;
     }
-    ::core::mem::transmute(JsConvertValueToString(::core::mem::transmute(value), ::core::mem::transmute(stringvalue)))
+    JsConvertValueToString(::core::mem::transmute(value), ::core::mem::transmute(stringvalue))
 }
 #[doc = "*Required features: `\"Win32_System_Js\"`*"]
 #[inline]
@@ -101,7 +101,7 @@ pub unsafe fn JsCreateArray(length: u32, result: *mut *mut ::core::ffi::c_void) 
     extern "system" {
         fn JsCreateArray(length: u32, result: *mut *mut ::core::ffi::c_void) -> JsErrorCode;
     }
-    ::core::mem::transmute(JsCreateArray(length, ::core::mem::transmute(result)))
+    JsCreateArray(length, ::core::mem::transmute(result))
 }
 #[doc = "*Required features: `\"Win32_System_Js\"`, `\"Win32_System_Diagnostics_Debug\"`*"]
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
@@ -115,7 +115,7 @@ where
     extern "system" {
         fn JsCreateContext(runtime: *const ::core::ffi::c_void, debugapplication: *mut ::core::ffi::c_void, newcontext: *mut *mut ::core::ffi::c_void) -> JsErrorCode;
     }
-    ::core::mem::transmute(JsCreateContext(::core::mem::transmute(runtime), debugapplication.into().abi(), ::core::mem::transmute(newcontext)))
+    JsCreateContext(::core::mem::transmute(runtime), debugapplication.into().abi(), ::core::mem::transmute(newcontext))
 }
 #[doc = "*Required features: `\"Win32_System_Js\"`, `\"Win32_System_Diagnostics_Debug\"`*"]
 #[cfg(target_arch = "x86")]
@@ -129,7 +129,7 @@ where
     extern "system" {
         fn JsCreateContext(runtime: *const ::core::ffi::c_void, debugapplication: *mut ::core::ffi::c_void, newcontext: *mut *mut ::core::ffi::c_void) -> JsErrorCode;
     }
-    ::core::mem::transmute(JsCreateContext(::core::mem::transmute(runtime), debugapplication.into().abi(), ::core::mem::transmute(newcontext)))
+    JsCreateContext(::core::mem::transmute(runtime), debugapplication.into().abi(), ::core::mem::transmute(newcontext))
 }
 #[doc = "*Required features: `\"Win32_System_Js\"`*"]
 #[inline]
@@ -138,7 +138,7 @@ pub unsafe fn JsCreateError(message: *const ::core::ffi::c_void, error: *mut *mu
     extern "system" {
         fn JsCreateError(message: *const ::core::ffi::c_void, error: *mut *mut ::core::ffi::c_void) -> JsErrorCode;
     }
-    ::core::mem::transmute(JsCreateError(::core::mem::transmute(message), ::core::mem::transmute(error)))
+    JsCreateError(::core::mem::transmute(message), ::core::mem::transmute(error))
 }
 #[doc = "*Required features: `\"Win32_System_Js\"`*"]
 #[inline]
@@ -147,7 +147,7 @@ pub unsafe fn JsCreateExternalObject(data: *const ::core::ffi::c_void, finalizec
     extern "system" {
         fn JsCreateExternalObject(data: *const ::core::ffi::c_void, finalizecallback: *mut ::core::ffi::c_void, object: *mut *mut ::core::ffi::c_void) -> JsErrorCode;
     }
-    ::core::mem::transmute(JsCreateExternalObject(::core::mem::transmute(data), ::core::mem::transmute(finalizecallback), ::core::mem::transmute(object)))
+    JsCreateExternalObject(::core::mem::transmute(data), ::core::mem::transmute(finalizecallback), ::core::mem::transmute(object))
 }
 #[doc = "*Required features: `\"Win32_System_Js\"`*"]
 #[inline]
@@ -156,7 +156,7 @@ pub unsafe fn JsCreateFunction(nativefunction: JsNativeFunction, callbackstate: 
     extern "system" {
         fn JsCreateFunction(nativefunction: *mut ::core::ffi::c_void, callbackstate: *const ::core::ffi::c_void, function: *mut *mut ::core::ffi::c_void) -> JsErrorCode;
     }
-    ::core::mem::transmute(JsCreateFunction(::core::mem::transmute(nativefunction), ::core::mem::transmute(callbackstate), ::core::mem::transmute(function)))
+    JsCreateFunction(::core::mem::transmute(nativefunction), ::core::mem::transmute(callbackstate), ::core::mem::transmute(function))
 }
 #[doc = "*Required features: `\"Win32_System_Js\"`*"]
 #[inline]
@@ -165,7 +165,7 @@ pub unsafe fn JsCreateObject(object: *mut *mut ::core::ffi::c_void) -> JsErrorCo
     extern "system" {
         fn JsCreateObject(object: *mut *mut ::core::ffi::c_void) -> JsErrorCode;
     }
-    ::core::mem::transmute(JsCreateObject(::core::mem::transmute(object)))
+    JsCreateObject(::core::mem::transmute(object))
 }
 #[doc = "*Required features: `\"Win32_System_Js\"`*"]
 #[inline]
@@ -174,7 +174,7 @@ pub unsafe fn JsCreateRangeError(message: *const ::core::ffi::c_void, error: *mu
     extern "system" {
         fn JsCreateRangeError(message: *const ::core::ffi::c_void, error: *mut *mut ::core::ffi::c_void) -> JsErrorCode;
     }
-    ::core::mem::transmute(JsCreateRangeError(::core::mem::transmute(message), ::core::mem::transmute(error)))
+    JsCreateRangeError(::core::mem::transmute(message), ::core::mem::transmute(error))
 }
 #[doc = "*Required features: `\"Win32_System_Js\"`*"]
 #[inline]
@@ -183,7 +183,7 @@ pub unsafe fn JsCreateReferenceError(message: *const ::core::ffi::c_void, error:
     extern "system" {
         fn JsCreateReferenceError(message: *const ::core::ffi::c_void, error: *mut *mut ::core::ffi::c_void) -> JsErrorCode;
     }
-    ::core::mem::transmute(JsCreateReferenceError(::core::mem::transmute(message), ::core::mem::transmute(error)))
+    JsCreateReferenceError(::core::mem::transmute(message), ::core::mem::transmute(error))
 }
 #[doc = "*Required features: `\"Win32_System_Js\"`*"]
 #[inline]
@@ -192,7 +192,7 @@ pub unsafe fn JsCreateRuntime(attributes: JsRuntimeAttributes, runtimeversion: J
     extern "system" {
         fn JsCreateRuntime(attributes: JsRuntimeAttributes, runtimeversion: JsRuntimeVersion, threadservice: *mut ::core::ffi::c_void, runtime: *mut *mut ::core::ffi::c_void) -> JsErrorCode;
     }
-    ::core::mem::transmute(JsCreateRuntime(attributes, runtimeversion, ::core::mem::transmute(threadservice), ::core::mem::transmute(runtime)))
+    JsCreateRuntime(attributes, runtimeversion, ::core::mem::transmute(threadservice), ::core::mem::transmute(runtime))
 }
 #[doc = "*Required features: `\"Win32_System_Js\"`*"]
 #[inline]
@@ -201,7 +201,7 @@ pub unsafe fn JsCreateSyntaxError(message: *const ::core::ffi::c_void, error: *m
     extern "system" {
         fn JsCreateSyntaxError(message: *const ::core::ffi::c_void, error: *mut *mut ::core::ffi::c_void) -> JsErrorCode;
     }
-    ::core::mem::transmute(JsCreateSyntaxError(::core::mem::transmute(message), ::core::mem::transmute(error)))
+    JsCreateSyntaxError(::core::mem::transmute(message), ::core::mem::transmute(error))
 }
 #[doc = "*Required features: `\"Win32_System_Js\"`*"]
 #[inline]
@@ -210,7 +210,7 @@ pub unsafe fn JsCreateTypeError(message: *const ::core::ffi::c_void, error: *mut
     extern "system" {
         fn JsCreateTypeError(message: *const ::core::ffi::c_void, error: *mut *mut ::core::ffi::c_void) -> JsErrorCode;
     }
-    ::core::mem::transmute(JsCreateTypeError(::core::mem::transmute(message), ::core::mem::transmute(error)))
+    JsCreateTypeError(::core::mem::transmute(message), ::core::mem::transmute(error))
 }
 #[doc = "*Required features: `\"Win32_System_Js\"`*"]
 #[inline]
@@ -219,7 +219,7 @@ pub unsafe fn JsCreateURIError(message: *const ::core::ffi::c_void, error: *mut 
     extern "system" {
         fn JsCreateURIError(message: *const ::core::ffi::c_void, error: *mut *mut ::core::ffi::c_void) -> JsErrorCode;
     }
-    ::core::mem::transmute(JsCreateURIError(::core::mem::transmute(message), ::core::mem::transmute(error)))
+    JsCreateURIError(::core::mem::transmute(message), ::core::mem::transmute(error))
 }
 #[doc = "*Required features: `\"Win32_System_Js\"`*"]
 #[inline]
@@ -228,7 +228,7 @@ pub unsafe fn JsDefineProperty(object: *const ::core::ffi::c_void, propertyid: *
     extern "system" {
         fn JsDefineProperty(object: *const ::core::ffi::c_void, propertyid: *const ::core::ffi::c_void, propertydescriptor: *const ::core::ffi::c_void, result: *mut bool) -> JsErrorCode;
     }
-    ::core::mem::transmute(JsDefineProperty(::core::mem::transmute(object), ::core::mem::transmute(propertyid), ::core::mem::transmute(propertydescriptor), ::core::mem::transmute(result)))
+    JsDefineProperty(::core::mem::transmute(object), ::core::mem::transmute(propertyid), ::core::mem::transmute(propertydescriptor), ::core::mem::transmute(result))
 }
 #[doc = "*Required features: `\"Win32_System_Js\"`*"]
 #[inline]
@@ -237,7 +237,7 @@ pub unsafe fn JsDeleteIndexedProperty(object: *const ::core::ffi::c_void, index:
     extern "system" {
         fn JsDeleteIndexedProperty(object: *const ::core::ffi::c_void, index: *const ::core::ffi::c_void) -> JsErrorCode;
     }
-    ::core::mem::transmute(JsDeleteIndexedProperty(::core::mem::transmute(object), ::core::mem::transmute(index)))
+    JsDeleteIndexedProperty(::core::mem::transmute(object), ::core::mem::transmute(index))
 }
 #[doc = "*Required features: `\"Win32_System_Js\"`*"]
 #[inline]
@@ -246,7 +246,7 @@ pub unsafe fn JsDeleteProperty(object: *const ::core::ffi::c_void, propertyid: *
     extern "system" {
         fn JsDeleteProperty(object: *const ::core::ffi::c_void, propertyid: *const ::core::ffi::c_void, usestrictrules: u8, result: *mut *mut ::core::ffi::c_void) -> JsErrorCode;
     }
-    ::core::mem::transmute(JsDeleteProperty(::core::mem::transmute(object), ::core::mem::transmute(propertyid), usestrictrules, ::core::mem::transmute(result)))
+    JsDeleteProperty(::core::mem::transmute(object), ::core::mem::transmute(propertyid), usestrictrules, ::core::mem::transmute(result))
 }
 #[doc = "*Required features: `\"Win32_System_Js\"`*"]
 #[inline]
@@ -255,7 +255,7 @@ pub unsafe fn JsDisableRuntimeExecution(runtime: *const ::core::ffi::c_void) -> 
     extern "system" {
         fn JsDisableRuntimeExecution(runtime: *const ::core::ffi::c_void) -> JsErrorCode;
     }
-    ::core::mem::transmute(JsDisableRuntimeExecution(::core::mem::transmute(runtime)))
+    JsDisableRuntimeExecution(::core::mem::transmute(runtime))
 }
 #[doc = "*Required features: `\"Win32_System_Js\"`*"]
 #[inline]
@@ -264,7 +264,7 @@ pub unsafe fn JsDisposeRuntime(runtime: *const ::core::ffi::c_void) -> JsErrorCo
     extern "system" {
         fn JsDisposeRuntime(runtime: *const ::core::ffi::c_void) -> JsErrorCode;
     }
-    ::core::mem::transmute(JsDisposeRuntime(::core::mem::transmute(runtime)))
+    JsDisposeRuntime(::core::mem::transmute(runtime))
 }
 #[doc = "*Required features: `\"Win32_System_Js\"`*"]
 #[inline]
@@ -273,7 +273,7 @@ pub unsafe fn JsDoubleToNumber(doublevalue: f64, value: *mut *mut ::core::ffi::c
     extern "system" {
         fn JsDoubleToNumber(doublevalue: f64, value: *mut *mut ::core::ffi::c_void) -> JsErrorCode;
     }
-    ::core::mem::transmute(JsDoubleToNumber(doublevalue, ::core::mem::transmute(value)))
+    JsDoubleToNumber(doublevalue, ::core::mem::transmute(value))
 }
 #[doc = "*Required features: `\"Win32_System_Js\"`*"]
 #[inline]
@@ -282,7 +282,7 @@ pub unsafe fn JsEnableRuntimeExecution(runtime: *const ::core::ffi::c_void) -> J
     extern "system" {
         fn JsEnableRuntimeExecution(runtime: *const ::core::ffi::c_void) -> JsErrorCode;
     }
-    ::core::mem::transmute(JsEnableRuntimeExecution(::core::mem::transmute(runtime)))
+    JsEnableRuntimeExecution(::core::mem::transmute(runtime))
 }
 #[doc = "*Required features: `\"Win32_System_Js\"`, `\"Win32_System_Diagnostics_Debug\"`*"]
 #[cfg(feature = "Win32_System_Diagnostics_Debug")]
@@ -292,7 +292,7 @@ pub unsafe fn JsEnumerateHeap(enumerator: *mut ::core::option::Option<super::Dia
     extern "system" {
         fn JsEnumerateHeap(enumerator: *mut *mut ::core::ffi::c_void) -> JsErrorCode;
     }
-    ::core::mem::transmute(JsEnumerateHeap(::core::mem::transmute(enumerator)))
+    JsEnumerateHeap(::core::mem::transmute(enumerator))
 }
 #[doc = "*Required features: `\"Win32_System_Js\"`*"]
 #[inline]
@@ -301,7 +301,7 @@ pub unsafe fn JsEquals(object1: *const ::core::ffi::c_void, object2: *const ::co
     extern "system" {
         fn JsEquals(object1: *const ::core::ffi::c_void, object2: *const ::core::ffi::c_void, result: *mut bool) -> JsErrorCode;
     }
-    ::core::mem::transmute(JsEquals(::core::mem::transmute(object1), ::core::mem::transmute(object2), ::core::mem::transmute(result)))
+    JsEquals(::core::mem::transmute(object1), ::core::mem::transmute(object2), ::core::mem::transmute(result))
 }
 #[doc = "*Required features: `\"Win32_System_Js\"`*"]
 #[repr(transparent)]
@@ -393,7 +393,7 @@ pub unsafe fn JsGetAndClearException(exception: *mut *mut ::core::ffi::c_void) -
     extern "system" {
         fn JsGetAndClearException(exception: *mut *mut ::core::ffi::c_void) -> JsErrorCode;
     }
-    ::core::mem::transmute(JsGetAndClearException(::core::mem::transmute(exception)))
+    JsGetAndClearException(::core::mem::transmute(exception))
 }
 #[doc = "*Required features: `\"Win32_System_Js\"`*"]
 #[inline]
@@ -402,7 +402,7 @@ pub unsafe fn JsGetCurrentContext(currentcontext: *mut *mut ::core::ffi::c_void)
     extern "system" {
         fn JsGetCurrentContext(currentcontext: *mut *mut ::core::ffi::c_void) -> JsErrorCode;
     }
-    ::core::mem::transmute(JsGetCurrentContext(::core::mem::transmute(currentcontext)))
+    JsGetCurrentContext(::core::mem::transmute(currentcontext))
 }
 #[doc = "*Required features: `\"Win32_System_Js\"`*"]
 #[inline]
@@ -411,7 +411,7 @@ pub unsafe fn JsGetExtensionAllowed(object: *const ::core::ffi::c_void, value: *
     extern "system" {
         fn JsGetExtensionAllowed(object: *const ::core::ffi::c_void, value: *mut bool) -> JsErrorCode;
     }
-    ::core::mem::transmute(JsGetExtensionAllowed(::core::mem::transmute(object), ::core::mem::transmute(value)))
+    JsGetExtensionAllowed(::core::mem::transmute(object), ::core::mem::transmute(value))
 }
 #[doc = "*Required features: `\"Win32_System_Js\"`*"]
 #[inline]
@@ -420,7 +420,7 @@ pub unsafe fn JsGetExternalData(object: *const ::core::ffi::c_void, externaldata
     extern "system" {
         fn JsGetExternalData(object: *const ::core::ffi::c_void, externaldata: *mut *mut ::core::ffi::c_void) -> JsErrorCode;
     }
-    ::core::mem::transmute(JsGetExternalData(::core::mem::transmute(object), ::core::mem::transmute(externaldata)))
+    JsGetExternalData(::core::mem::transmute(object), ::core::mem::transmute(externaldata))
 }
 #[doc = "*Required features: `\"Win32_System_Js\"`*"]
 #[inline]
@@ -429,7 +429,7 @@ pub unsafe fn JsGetFalseValue(falsevalue: *mut *mut ::core::ffi::c_void) -> JsEr
     extern "system" {
         fn JsGetFalseValue(falsevalue: *mut *mut ::core::ffi::c_void) -> JsErrorCode;
     }
-    ::core::mem::transmute(JsGetFalseValue(::core::mem::transmute(falsevalue)))
+    JsGetFalseValue(::core::mem::transmute(falsevalue))
 }
 #[doc = "*Required features: `\"Win32_System_Js\"`*"]
 #[inline]
@@ -438,7 +438,7 @@ pub unsafe fn JsGetGlobalObject(globalobject: *mut *mut ::core::ffi::c_void) -> 
     extern "system" {
         fn JsGetGlobalObject(globalobject: *mut *mut ::core::ffi::c_void) -> JsErrorCode;
     }
-    ::core::mem::transmute(JsGetGlobalObject(::core::mem::transmute(globalobject)))
+    JsGetGlobalObject(::core::mem::transmute(globalobject))
 }
 #[doc = "*Required features: `\"Win32_System_Js\"`*"]
 #[inline]
@@ -447,7 +447,7 @@ pub unsafe fn JsGetIndexedProperty(object: *const ::core::ffi::c_void, index: *c
     extern "system" {
         fn JsGetIndexedProperty(object: *const ::core::ffi::c_void, index: *const ::core::ffi::c_void, result: *mut *mut ::core::ffi::c_void) -> JsErrorCode;
     }
-    ::core::mem::transmute(JsGetIndexedProperty(::core::mem::transmute(object), ::core::mem::transmute(index), ::core::mem::transmute(result)))
+    JsGetIndexedProperty(::core::mem::transmute(object), ::core::mem::transmute(index), ::core::mem::transmute(result))
 }
 #[doc = "*Required features: `\"Win32_System_Js\"`*"]
 #[inline]
@@ -456,7 +456,7 @@ pub unsafe fn JsGetNullValue(nullvalue: *mut *mut ::core::ffi::c_void) -> JsErro
     extern "system" {
         fn JsGetNullValue(nullvalue: *mut *mut ::core::ffi::c_void) -> JsErrorCode;
     }
-    ::core::mem::transmute(JsGetNullValue(::core::mem::transmute(nullvalue)))
+    JsGetNullValue(::core::mem::transmute(nullvalue))
 }
 #[doc = "*Required features: `\"Win32_System_Js\"`*"]
 #[inline]
@@ -465,7 +465,7 @@ pub unsafe fn JsGetOwnPropertyDescriptor(object: *const ::core::ffi::c_void, pro
     extern "system" {
         fn JsGetOwnPropertyDescriptor(object: *const ::core::ffi::c_void, propertyid: *const ::core::ffi::c_void, propertydescriptor: *mut *mut ::core::ffi::c_void) -> JsErrorCode;
     }
-    ::core::mem::transmute(JsGetOwnPropertyDescriptor(::core::mem::transmute(object), ::core::mem::transmute(propertyid), ::core::mem::transmute(propertydescriptor)))
+    JsGetOwnPropertyDescriptor(::core::mem::transmute(object), ::core::mem::transmute(propertyid), ::core::mem::transmute(propertydescriptor))
 }
 #[doc = "*Required features: `\"Win32_System_Js\"`*"]
 #[inline]
@@ -474,7 +474,7 @@ pub unsafe fn JsGetOwnPropertyNames(object: *const ::core::ffi::c_void, property
     extern "system" {
         fn JsGetOwnPropertyNames(object: *const ::core::ffi::c_void, propertynames: *mut *mut ::core::ffi::c_void) -> JsErrorCode;
     }
-    ::core::mem::transmute(JsGetOwnPropertyNames(::core::mem::transmute(object), ::core::mem::transmute(propertynames)))
+    JsGetOwnPropertyNames(::core::mem::transmute(object), ::core::mem::transmute(propertynames))
 }
 #[doc = "*Required features: `\"Win32_System_Js\"`*"]
 #[inline]
@@ -483,7 +483,7 @@ pub unsafe fn JsGetProperty(object: *const ::core::ffi::c_void, propertyid: *con
     extern "system" {
         fn JsGetProperty(object: *const ::core::ffi::c_void, propertyid: *const ::core::ffi::c_void, value: *mut *mut ::core::ffi::c_void) -> JsErrorCode;
     }
-    ::core::mem::transmute(JsGetProperty(::core::mem::transmute(object), ::core::mem::transmute(propertyid), ::core::mem::transmute(value)))
+    JsGetProperty(::core::mem::transmute(object), ::core::mem::transmute(propertyid), ::core::mem::transmute(value))
 }
 #[doc = "*Required features: `\"Win32_System_Js\"`*"]
 #[inline]
@@ -495,7 +495,7 @@ where
     extern "system" {
         fn JsGetPropertyIdFromName(name: ::windows::core::PCWSTR, propertyid: *mut *mut ::core::ffi::c_void) -> JsErrorCode;
     }
-    ::core::mem::transmute(JsGetPropertyIdFromName(name.into(), ::core::mem::transmute(propertyid)))
+    JsGetPropertyIdFromName(name.into(), ::core::mem::transmute(propertyid))
 }
 #[doc = "*Required features: `\"Win32_System_Js\"`*"]
 #[inline]
@@ -504,7 +504,7 @@ pub unsafe fn JsGetPropertyNameFromId(propertyid: *const ::core::ffi::c_void, na
     extern "system" {
         fn JsGetPropertyNameFromId(propertyid: *const ::core::ffi::c_void, name: *mut *mut u16) -> JsErrorCode;
     }
-    ::core::mem::transmute(JsGetPropertyNameFromId(::core::mem::transmute(propertyid), ::core::mem::transmute(name)))
+    JsGetPropertyNameFromId(::core::mem::transmute(propertyid), ::core::mem::transmute(name))
 }
 #[doc = "*Required features: `\"Win32_System_Js\"`*"]
 #[inline]
@@ -513,7 +513,7 @@ pub unsafe fn JsGetPrototype(object: *const ::core::ffi::c_void, prototypeobject
     extern "system" {
         fn JsGetPrototype(object: *const ::core::ffi::c_void, prototypeobject: *mut *mut ::core::ffi::c_void) -> JsErrorCode;
     }
-    ::core::mem::transmute(JsGetPrototype(::core::mem::transmute(object), ::core::mem::transmute(prototypeobject)))
+    JsGetPrototype(::core::mem::transmute(object), ::core::mem::transmute(prototypeobject))
 }
 #[doc = "*Required features: `\"Win32_System_Js\"`*"]
 #[inline]
@@ -522,7 +522,7 @@ pub unsafe fn JsGetRuntime(context: *const ::core::ffi::c_void, runtime: *mut *m
     extern "system" {
         fn JsGetRuntime(context: *const ::core::ffi::c_void, runtime: *mut *mut ::core::ffi::c_void) -> JsErrorCode;
     }
-    ::core::mem::transmute(JsGetRuntime(::core::mem::transmute(context), ::core::mem::transmute(runtime)))
+    JsGetRuntime(::core::mem::transmute(context), ::core::mem::transmute(runtime))
 }
 #[doc = "*Required features: `\"Win32_System_Js\"`*"]
 #[inline]
@@ -531,7 +531,7 @@ pub unsafe fn JsGetRuntimeMemoryLimit(runtime: *const ::core::ffi::c_void, memor
     extern "system" {
         fn JsGetRuntimeMemoryLimit(runtime: *const ::core::ffi::c_void, memorylimit: *mut usize) -> JsErrorCode;
     }
-    ::core::mem::transmute(JsGetRuntimeMemoryLimit(::core::mem::transmute(runtime), ::core::mem::transmute(memorylimit)))
+    JsGetRuntimeMemoryLimit(::core::mem::transmute(runtime), ::core::mem::transmute(memorylimit))
 }
 #[doc = "*Required features: `\"Win32_System_Js\"`*"]
 #[inline]
@@ -540,7 +540,7 @@ pub unsafe fn JsGetRuntimeMemoryUsage(runtime: *const ::core::ffi::c_void, memor
     extern "system" {
         fn JsGetRuntimeMemoryUsage(runtime: *const ::core::ffi::c_void, memoryusage: *mut usize) -> JsErrorCode;
     }
-    ::core::mem::transmute(JsGetRuntimeMemoryUsage(::core::mem::transmute(runtime), ::core::mem::transmute(memoryusage)))
+    JsGetRuntimeMemoryUsage(::core::mem::transmute(runtime), ::core::mem::transmute(memoryusage))
 }
 #[doc = "*Required features: `\"Win32_System_Js\"`*"]
 #[inline]
@@ -549,7 +549,7 @@ pub unsafe fn JsGetStringLength(stringvalue: *const ::core::ffi::c_void, length:
     extern "system" {
         fn JsGetStringLength(stringvalue: *const ::core::ffi::c_void, length: *mut i32) -> JsErrorCode;
     }
-    ::core::mem::transmute(JsGetStringLength(::core::mem::transmute(stringvalue), ::core::mem::transmute(length)))
+    JsGetStringLength(::core::mem::transmute(stringvalue), ::core::mem::transmute(length))
 }
 #[doc = "*Required features: `\"Win32_System_Js\"`*"]
 #[inline]
@@ -558,7 +558,7 @@ pub unsafe fn JsGetTrueValue(truevalue: *mut *mut ::core::ffi::c_void) -> JsErro
     extern "system" {
         fn JsGetTrueValue(truevalue: *mut *mut ::core::ffi::c_void) -> JsErrorCode;
     }
-    ::core::mem::transmute(JsGetTrueValue(::core::mem::transmute(truevalue)))
+    JsGetTrueValue(::core::mem::transmute(truevalue))
 }
 #[doc = "*Required features: `\"Win32_System_Js\"`*"]
 #[inline]
@@ -567,7 +567,7 @@ pub unsafe fn JsGetUndefinedValue(undefinedvalue: *mut *mut ::core::ffi::c_void)
     extern "system" {
         fn JsGetUndefinedValue(undefinedvalue: *mut *mut ::core::ffi::c_void) -> JsErrorCode;
     }
-    ::core::mem::transmute(JsGetUndefinedValue(::core::mem::transmute(undefinedvalue)))
+    JsGetUndefinedValue(::core::mem::transmute(undefinedvalue))
 }
 #[doc = "*Required features: `\"Win32_System_Js\"`*"]
 #[inline]
@@ -576,7 +576,7 @@ pub unsafe fn JsGetValueType(value: *const ::core::ffi::c_void, r#type: *mut JsV
     extern "system" {
         fn JsGetValueType(value: *const ::core::ffi::c_void, r#type: *mut JsValueType) -> JsErrorCode;
     }
-    ::core::mem::transmute(JsGetValueType(::core::mem::transmute(value), ::core::mem::transmute(r#type)))
+    JsGetValueType(::core::mem::transmute(value), ::core::mem::transmute(r#type))
 }
 #[doc = "*Required features: `\"Win32_System_Js\"`*"]
 #[inline]
@@ -585,7 +585,7 @@ pub unsafe fn JsHasException(hasexception: *mut bool) -> JsErrorCode {
     extern "system" {
         fn JsHasException(hasexception: *mut bool) -> JsErrorCode;
     }
-    ::core::mem::transmute(JsHasException(::core::mem::transmute(hasexception)))
+    JsHasException(::core::mem::transmute(hasexception))
 }
 #[doc = "*Required features: `\"Win32_System_Js\"`*"]
 #[inline]
@@ -594,7 +594,7 @@ pub unsafe fn JsHasExternalData(object: *const ::core::ffi::c_void, value: *mut 
     extern "system" {
         fn JsHasExternalData(object: *const ::core::ffi::c_void, value: *mut bool) -> JsErrorCode;
     }
-    ::core::mem::transmute(JsHasExternalData(::core::mem::transmute(object), ::core::mem::transmute(value)))
+    JsHasExternalData(::core::mem::transmute(object), ::core::mem::transmute(value))
 }
 #[doc = "*Required features: `\"Win32_System_Js\"`*"]
 #[inline]
@@ -603,7 +603,7 @@ pub unsafe fn JsHasIndexedProperty(object: *const ::core::ffi::c_void, index: *c
     extern "system" {
         fn JsHasIndexedProperty(object: *const ::core::ffi::c_void, index: *const ::core::ffi::c_void, result: *mut bool) -> JsErrorCode;
     }
-    ::core::mem::transmute(JsHasIndexedProperty(::core::mem::transmute(object), ::core::mem::transmute(index), ::core::mem::transmute(result)))
+    JsHasIndexedProperty(::core::mem::transmute(object), ::core::mem::transmute(index), ::core::mem::transmute(result))
 }
 #[doc = "*Required features: `\"Win32_System_Js\"`*"]
 #[inline]
@@ -612,7 +612,7 @@ pub unsafe fn JsHasProperty(object: *const ::core::ffi::c_void, propertyid: *con
     extern "system" {
         fn JsHasProperty(object: *const ::core::ffi::c_void, propertyid: *const ::core::ffi::c_void, hasproperty: *mut bool) -> JsErrorCode;
     }
-    ::core::mem::transmute(JsHasProperty(::core::mem::transmute(object), ::core::mem::transmute(propertyid), ::core::mem::transmute(hasproperty)))
+    JsHasProperty(::core::mem::transmute(object), ::core::mem::transmute(propertyid), ::core::mem::transmute(hasproperty))
 }
 #[doc = "*Required features: `\"Win32_System_Js\"`*"]
 #[inline]
@@ -621,7 +621,7 @@ pub unsafe fn JsIdle(nextidletick: *mut u32) -> JsErrorCode {
     extern "system" {
         fn JsIdle(nextidletick: *mut u32) -> JsErrorCode;
     }
-    ::core::mem::transmute(JsIdle(::core::mem::transmute(nextidletick)))
+    JsIdle(::core::mem::transmute(nextidletick))
 }
 #[doc = "*Required features: `\"Win32_System_Js\"`*"]
 #[inline]
@@ -630,7 +630,7 @@ pub unsafe fn JsIntToNumber(intvalue: i32, value: *mut *mut ::core::ffi::c_void)
     extern "system" {
         fn JsIntToNumber(intvalue: i32, value: *mut *mut ::core::ffi::c_void) -> JsErrorCode;
     }
-    ::core::mem::transmute(JsIntToNumber(intvalue, ::core::mem::transmute(value)))
+    JsIntToNumber(intvalue, ::core::mem::transmute(value))
 }
 #[doc = "*Required features: `\"Win32_System_Js\"`*"]
 #[inline]
@@ -639,7 +639,7 @@ pub unsafe fn JsIsEnumeratingHeap(isenumeratingheap: *mut bool) -> JsErrorCode {
     extern "system" {
         fn JsIsEnumeratingHeap(isenumeratingheap: *mut bool) -> JsErrorCode;
     }
-    ::core::mem::transmute(JsIsEnumeratingHeap(::core::mem::transmute(isenumeratingheap)))
+    JsIsEnumeratingHeap(::core::mem::transmute(isenumeratingheap))
 }
 #[doc = "*Required features: `\"Win32_System_Js\"`*"]
 #[inline]
@@ -648,7 +648,7 @@ pub unsafe fn JsIsRuntimeExecutionDisabled(runtime: *const ::core::ffi::c_void, 
     extern "system" {
         fn JsIsRuntimeExecutionDisabled(runtime: *const ::core::ffi::c_void, isdisabled: *mut bool) -> JsErrorCode;
     }
-    ::core::mem::transmute(JsIsRuntimeExecutionDisabled(::core::mem::transmute(runtime), ::core::mem::transmute(isdisabled)))
+    JsIsRuntimeExecutionDisabled(::core::mem::transmute(runtime), ::core::mem::transmute(isdisabled))
 }
 #[doc = "*Required features: `\"Win32_System_Js\"`*"]
 pub type JsMemoryAllocationCallback = ::core::option::Option<unsafe extern "system" fn(callbackstate: *const ::core::ffi::c_void, allocationevent: JsMemoryEventType, allocationsize: usize) -> bool>;
@@ -690,7 +690,7 @@ pub unsafe fn JsNumberToDouble(value: *const ::core::ffi::c_void, doublevalue: *
     extern "system" {
         fn JsNumberToDouble(value: *const ::core::ffi::c_void, doublevalue: *mut f64) -> JsErrorCode;
     }
-    ::core::mem::transmute(JsNumberToDouble(::core::mem::transmute(value), ::core::mem::transmute(doublevalue)))
+    JsNumberToDouble(::core::mem::transmute(value), ::core::mem::transmute(doublevalue))
 }
 #[doc = "*Required features: `\"Win32_System_Js\"`*"]
 #[inline]
@@ -703,7 +703,7 @@ where
     extern "system" {
         fn JsParseScript(script: ::windows::core::PCWSTR, sourcecontext: usize, sourceurl: ::windows::core::PCWSTR, result: *mut *mut ::core::ffi::c_void) -> JsErrorCode;
     }
-    ::core::mem::transmute(JsParseScript(script.into(), sourcecontext, sourceurl.into(), ::core::mem::transmute(result)))
+    JsParseScript(script.into(), sourcecontext, sourceurl.into(), ::core::mem::transmute(result))
 }
 #[doc = "*Required features: `\"Win32_System_Js\"`*"]
 #[inline]
@@ -716,7 +716,7 @@ where
     extern "system" {
         fn JsParseSerializedScript(script: ::windows::core::PCWSTR, buffer: *const u8, sourcecontext: usize, sourceurl: ::windows::core::PCWSTR, result: *mut *mut ::core::ffi::c_void) -> JsErrorCode;
     }
-    ::core::mem::transmute(JsParseSerializedScript(script.into(), ::core::mem::transmute(buffer), sourcecontext, sourceurl.into(), ::core::mem::transmute(result)))
+    JsParseSerializedScript(script.into(), ::core::mem::transmute(buffer), sourcecontext, sourceurl.into(), ::core::mem::transmute(result))
 }
 #[doc = "*Required features: `\"Win32_System_Js\"`*"]
 #[inline]
@@ -725,7 +725,7 @@ pub unsafe fn JsPointerToString(stringvalue: &[u16], value: *mut *mut ::core::ff
     extern "system" {
         fn JsPointerToString(stringvalue: ::windows::core::PCWSTR, stringlength: usize, value: *mut *mut ::core::ffi::c_void) -> JsErrorCode;
     }
-    ::core::mem::transmute(JsPointerToString(::core::mem::transmute(::windows::core::as_ptr_or_null(stringvalue)), stringvalue.len() as _, ::core::mem::transmute(value)))
+    JsPointerToString(::core::mem::transmute(::windows::core::as_ptr_or_null(stringvalue)), stringvalue.len() as _, ::core::mem::transmute(value))
 }
 #[doc = "*Required features: `\"Win32_System_Js\"`*"]
 #[inline]
@@ -734,7 +734,7 @@ pub unsafe fn JsPreventExtension(object: *const ::core::ffi::c_void) -> JsErrorC
     extern "system" {
         fn JsPreventExtension(object: *const ::core::ffi::c_void) -> JsErrorCode;
     }
-    ::core::mem::transmute(JsPreventExtension(::core::mem::transmute(object)))
+    JsPreventExtension(::core::mem::transmute(object))
 }
 #[doc = "*Required features: `\"Win32_System_Js\"`*"]
 #[inline]
@@ -743,7 +743,7 @@ pub unsafe fn JsRelease(r#ref: *const ::core::ffi::c_void, count: *mut u32) -> J
     extern "system" {
         fn JsRelease(r#ref: *const ::core::ffi::c_void, count: *mut u32) -> JsErrorCode;
     }
-    ::core::mem::transmute(JsRelease(::core::mem::transmute(r#ref), ::core::mem::transmute(count)))
+    JsRelease(::core::mem::transmute(r#ref), ::core::mem::transmute(count))
 }
 #[doc = "*Required features: `\"Win32_System_Js\"`*"]
 #[inline]
@@ -756,7 +756,7 @@ where
     extern "system" {
         fn JsRunScript(script: ::windows::core::PCWSTR, sourcecontext: usize, sourceurl: ::windows::core::PCWSTR, result: *mut *mut ::core::ffi::c_void) -> JsErrorCode;
     }
-    ::core::mem::transmute(JsRunScript(script.into(), sourcecontext, sourceurl.into(), ::core::mem::transmute(result)))
+    JsRunScript(script.into(), sourcecontext, sourceurl.into(), ::core::mem::transmute(result))
 }
 #[doc = "*Required features: `\"Win32_System_Js\"`*"]
 #[inline]
@@ -769,7 +769,7 @@ where
     extern "system" {
         fn JsRunSerializedScript(script: ::windows::core::PCWSTR, buffer: *const u8, sourcecontext: usize, sourceurl: ::windows::core::PCWSTR, result: *mut *mut ::core::ffi::c_void) -> JsErrorCode;
     }
-    ::core::mem::transmute(JsRunSerializedScript(script.into(), ::core::mem::transmute(buffer), sourcecontext, sourceurl.into(), ::core::mem::transmute(result)))
+    JsRunSerializedScript(script.into(), ::core::mem::transmute(buffer), sourcecontext, sourceurl.into(), ::core::mem::transmute(result))
 }
 #[doc = "*Required features: `\"Win32_System_Js\"`*"]
 #[repr(transparent)]
@@ -845,7 +845,7 @@ where
     extern "system" {
         fn JsSerializeScript(script: ::windows::core::PCWSTR, buffer: *mut u8, buffersize: *mut u32) -> JsErrorCode;
     }
-    ::core::mem::transmute(JsSerializeScript(script.into(), ::core::mem::transmute(buffer), ::core::mem::transmute(buffersize)))
+    JsSerializeScript(script.into(), ::core::mem::transmute(buffer), ::core::mem::transmute(buffersize))
 }
 #[doc = "*Required features: `\"Win32_System_Js\"`*"]
 #[inline]
@@ -854,7 +854,7 @@ pub unsafe fn JsSetCurrentContext(context: *const ::core::ffi::c_void) -> JsErro
     extern "system" {
         fn JsSetCurrentContext(context: *const ::core::ffi::c_void) -> JsErrorCode;
     }
-    ::core::mem::transmute(JsSetCurrentContext(::core::mem::transmute(context)))
+    JsSetCurrentContext(::core::mem::transmute(context))
 }
 #[doc = "*Required features: `\"Win32_System_Js\"`*"]
 #[inline]
@@ -863,7 +863,7 @@ pub unsafe fn JsSetException(exception: *const ::core::ffi::c_void) -> JsErrorCo
     extern "system" {
         fn JsSetException(exception: *const ::core::ffi::c_void) -> JsErrorCode;
     }
-    ::core::mem::transmute(JsSetException(::core::mem::transmute(exception)))
+    JsSetException(::core::mem::transmute(exception))
 }
 #[doc = "*Required features: `\"Win32_System_Js\"`*"]
 #[inline]
@@ -872,7 +872,7 @@ pub unsafe fn JsSetExternalData(object: *const ::core::ffi::c_void, externaldata
     extern "system" {
         fn JsSetExternalData(object: *const ::core::ffi::c_void, externaldata: *const ::core::ffi::c_void) -> JsErrorCode;
     }
-    ::core::mem::transmute(JsSetExternalData(::core::mem::transmute(object), ::core::mem::transmute(externaldata)))
+    JsSetExternalData(::core::mem::transmute(object), ::core::mem::transmute(externaldata))
 }
 #[doc = "*Required features: `\"Win32_System_Js\"`*"]
 #[inline]
@@ -881,7 +881,7 @@ pub unsafe fn JsSetIndexedProperty(object: *const ::core::ffi::c_void, index: *c
     extern "system" {
         fn JsSetIndexedProperty(object: *const ::core::ffi::c_void, index: *const ::core::ffi::c_void, value: *const ::core::ffi::c_void) -> JsErrorCode;
     }
-    ::core::mem::transmute(JsSetIndexedProperty(::core::mem::transmute(object), ::core::mem::transmute(index), ::core::mem::transmute(value)))
+    JsSetIndexedProperty(::core::mem::transmute(object), ::core::mem::transmute(index), ::core::mem::transmute(value))
 }
 #[doc = "*Required features: `\"Win32_System_Js\"`*"]
 #[inline]
@@ -890,7 +890,7 @@ pub unsafe fn JsSetProperty(object: *const ::core::ffi::c_void, propertyid: *con
     extern "system" {
         fn JsSetProperty(object: *const ::core::ffi::c_void, propertyid: *const ::core::ffi::c_void, value: *const ::core::ffi::c_void, usestrictrules: u8) -> JsErrorCode;
     }
-    ::core::mem::transmute(JsSetProperty(::core::mem::transmute(object), ::core::mem::transmute(propertyid), ::core::mem::transmute(value), usestrictrules))
+    JsSetProperty(::core::mem::transmute(object), ::core::mem::transmute(propertyid), ::core::mem::transmute(value), usestrictrules)
 }
 #[doc = "*Required features: `\"Win32_System_Js\"`*"]
 #[inline]
@@ -899,7 +899,7 @@ pub unsafe fn JsSetPrototype(object: *const ::core::ffi::c_void, prototypeobject
     extern "system" {
         fn JsSetPrototype(object: *const ::core::ffi::c_void, prototypeobject: *const ::core::ffi::c_void) -> JsErrorCode;
     }
-    ::core::mem::transmute(JsSetPrototype(::core::mem::transmute(object), ::core::mem::transmute(prototypeobject)))
+    JsSetPrototype(::core::mem::transmute(object), ::core::mem::transmute(prototypeobject))
 }
 #[doc = "*Required features: `\"Win32_System_Js\"`*"]
 #[inline]
@@ -908,7 +908,7 @@ pub unsafe fn JsSetRuntimeBeforeCollectCallback(runtime: *const ::core::ffi::c_v
     extern "system" {
         fn JsSetRuntimeBeforeCollectCallback(runtime: *const ::core::ffi::c_void, callbackstate: *const ::core::ffi::c_void, beforecollectcallback: *mut ::core::ffi::c_void) -> JsErrorCode;
     }
-    ::core::mem::transmute(JsSetRuntimeBeforeCollectCallback(::core::mem::transmute(runtime), ::core::mem::transmute(callbackstate), ::core::mem::transmute(beforecollectcallback)))
+    JsSetRuntimeBeforeCollectCallback(::core::mem::transmute(runtime), ::core::mem::transmute(callbackstate), ::core::mem::transmute(beforecollectcallback))
 }
 #[doc = "*Required features: `\"Win32_System_Js\"`*"]
 #[inline]
@@ -917,7 +917,7 @@ pub unsafe fn JsSetRuntimeMemoryAllocationCallback(runtime: *const ::core::ffi::
     extern "system" {
         fn JsSetRuntimeMemoryAllocationCallback(runtime: *const ::core::ffi::c_void, callbackstate: *const ::core::ffi::c_void, allocationcallback: *mut ::core::ffi::c_void) -> JsErrorCode;
     }
-    ::core::mem::transmute(JsSetRuntimeMemoryAllocationCallback(::core::mem::transmute(runtime), ::core::mem::transmute(callbackstate), ::core::mem::transmute(allocationcallback)))
+    JsSetRuntimeMemoryAllocationCallback(::core::mem::transmute(runtime), ::core::mem::transmute(callbackstate), ::core::mem::transmute(allocationcallback))
 }
 #[doc = "*Required features: `\"Win32_System_Js\"`*"]
 #[inline]
@@ -926,7 +926,7 @@ pub unsafe fn JsSetRuntimeMemoryLimit(runtime: *const ::core::ffi::c_void, memor
     extern "system" {
         fn JsSetRuntimeMemoryLimit(runtime: *const ::core::ffi::c_void, memorylimit: usize) -> JsErrorCode;
     }
-    ::core::mem::transmute(JsSetRuntimeMemoryLimit(::core::mem::transmute(runtime), memorylimit))
+    JsSetRuntimeMemoryLimit(::core::mem::transmute(runtime), memorylimit)
 }
 #[doc = "*Required features: `\"Win32_System_Js\"`, `\"Win32_System_Diagnostics_Debug\"`*"]
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
@@ -940,7 +940,7 @@ where
     extern "system" {
         fn JsStartDebugging(debugapplication: *mut ::core::ffi::c_void) -> JsErrorCode;
     }
-    ::core::mem::transmute(JsStartDebugging(debugapplication.into().abi()))
+    JsStartDebugging(debugapplication.into().abi())
 }
 #[doc = "*Required features: `\"Win32_System_Js\"`, `\"Win32_System_Diagnostics_Debug\"`*"]
 #[cfg(target_arch = "x86")]
@@ -954,7 +954,7 @@ where
     extern "system" {
         fn JsStartDebugging(debugapplication: *mut ::core::ffi::c_void) -> JsErrorCode;
     }
-    ::core::mem::transmute(JsStartDebugging(debugapplication.into().abi()))
+    JsStartDebugging(debugapplication.into().abi())
 }
 #[doc = "*Required features: `\"Win32_System_Js\"`, `\"Win32_System_Diagnostics_Debug\"`*"]
 #[cfg(feature = "Win32_System_Diagnostics_Debug")]
@@ -967,7 +967,7 @@ where
     extern "system" {
         fn JsStartProfiling(callback: *mut ::core::ffi::c_void, eventmask: super::Diagnostics::Debug::PROFILER_EVENT_MASK, context: u32) -> JsErrorCode;
     }
-    ::core::mem::transmute(JsStartProfiling(callback.into().abi(), eventmask, context))
+    JsStartProfiling(callback.into().abi(), eventmask, context)
 }
 #[doc = "*Required features: `\"Win32_System_Js\"`*"]
 #[inline]
@@ -976,7 +976,7 @@ pub unsafe fn JsStopProfiling(reason: ::windows::core::HRESULT) -> JsErrorCode {
     extern "system" {
         fn JsStopProfiling(reason: ::windows::core::HRESULT) -> JsErrorCode;
     }
-    ::core::mem::transmute(JsStopProfiling(reason))
+    JsStopProfiling(reason)
 }
 #[doc = "*Required features: `\"Win32_System_Js\"`*"]
 #[inline]
@@ -985,7 +985,7 @@ pub unsafe fn JsStrictEquals(object1: *const ::core::ffi::c_void, object2: *cons
     extern "system" {
         fn JsStrictEquals(object1: *const ::core::ffi::c_void, object2: *const ::core::ffi::c_void, result: *mut bool) -> JsErrorCode;
     }
-    ::core::mem::transmute(JsStrictEquals(::core::mem::transmute(object1), ::core::mem::transmute(object2), ::core::mem::transmute(result)))
+    JsStrictEquals(::core::mem::transmute(object1), ::core::mem::transmute(object2), ::core::mem::transmute(result))
 }
 #[doc = "*Required features: `\"Win32_System_Js\"`*"]
 #[inline]
@@ -994,7 +994,7 @@ pub unsafe fn JsStringToPointer(value: *const ::core::ffi::c_void, stringvalue: 
     extern "system" {
         fn JsStringToPointer(value: *const ::core::ffi::c_void, stringvalue: *mut *mut u16, stringlength: *mut usize) -> JsErrorCode;
     }
-    ::core::mem::transmute(JsStringToPointer(::core::mem::transmute(value), ::core::mem::transmute(stringvalue), ::core::mem::transmute(stringlength)))
+    JsStringToPointer(::core::mem::transmute(value), ::core::mem::transmute(stringvalue), ::core::mem::transmute(stringlength))
 }
 #[doc = "*Required features: `\"Win32_System_Js\"`*"]
 pub type JsThreadServiceCallback = ::core::option::Option<unsafe extern "system" fn(callback: JsBackgroundWorkItemCallback, callbackstate: *const ::core::ffi::c_void) -> bool>;
@@ -1006,7 +1006,7 @@ pub unsafe fn JsValueToVariant(object: *const ::core::ffi::c_void, variant: *mut
     extern "system" {
         fn JsValueToVariant(object: *const ::core::ffi::c_void, variant: *mut super::Com::VARIANT) -> JsErrorCode;
     }
-    ::core::mem::transmute(JsValueToVariant(::core::mem::transmute(object), ::core::mem::transmute(variant)))
+    JsValueToVariant(::core::mem::transmute(object), ::core::mem::transmute(variant))
 }
 #[doc = "*Required features: `\"Win32_System_Js\"`*"]
 #[repr(transparent)]
@@ -1057,7 +1057,7 @@ pub unsafe fn JsVariantToValue(variant: *const super::Com::VARIANT, value: *mut 
     extern "system" {
         fn JsVariantToValue(variant: *const super::Com::VARIANT, value: *mut *mut ::core::ffi::c_void) -> JsErrorCode;
     }
-    ::core::mem::transmute(JsVariantToValue(::core::mem::transmute(variant), ::core::mem::transmute(value)))
+    JsVariantToValue(::core::mem::transmute(variant), ::core::mem::transmute(value))
 }
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

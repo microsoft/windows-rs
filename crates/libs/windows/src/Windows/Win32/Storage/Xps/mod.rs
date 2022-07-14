@@ -14,7 +14,7 @@ where
     extern "system" {
         fn AbortDoc(hdc: super::super::Graphics::Gdi::HDC) -> i32;
     }
-    ::core::mem::transmute(AbortDoc(hdc.into()))
+    AbortDoc(hdc.into())
 }
 #[doc = "*Required features: `\"Win32_Storage_Xps\"`*"]
 #[repr(transparent)]
@@ -220,7 +220,7 @@ where
     extern "system" {
         fn DeviceCapabilitiesA(pdevice: ::windows::core::PCSTR, pport: ::windows::core::PCSTR, fwcapability: DEVICE_CAPABILITIES, poutput: ::windows::core::PSTR, pdevmode: *const super::super::Graphics::Gdi::DEVMODEA) -> i32;
     }
-    ::core::mem::transmute(DeviceCapabilitiesA(pdevice.into(), pport.into(), fwcapability, ::core::mem::transmute(poutput), ::core::mem::transmute(pdevmode)))
+    DeviceCapabilitiesA(pdevice.into(), pport.into(), fwcapability, ::core::mem::transmute(poutput), ::core::mem::transmute(pdevmode))
 }
 #[doc = "*Required features: `\"Win32_Storage_Xps\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
@@ -234,7 +234,7 @@ where
     extern "system" {
         fn DeviceCapabilitiesW(pdevice: ::windows::core::PCWSTR, pport: ::windows::core::PCWSTR, fwcapability: DEVICE_CAPABILITIES, poutput: ::windows::core::PWSTR, pdevmode: *const super::super::Graphics::Gdi::DEVMODEW) -> i32;
     }
-    ::core::mem::transmute(DeviceCapabilitiesW(pdevice.into(), pport.into(), fwcapability, ::core::mem::transmute(poutput), ::core::mem::transmute(pdevmode)))
+    DeviceCapabilitiesW(pdevice.into(), pport.into(), fwcapability, ::core::mem::transmute(poutput), ::core::mem::transmute(pdevmode))
 }
 #[doc = "*Required features: `\"Win32_Storage_Xps\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(feature = "Win32_Graphics_Gdi")]
@@ -247,7 +247,7 @@ where
     extern "system" {
         fn EndDoc(hdc: super::super::Graphics::Gdi::HDC) -> i32;
     }
-    ::core::mem::transmute(EndDoc(hdc.into()))
+    EndDoc(hdc.into())
 }
 #[doc = "*Required features: `\"Win32_Storage_Xps\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(feature = "Win32_Graphics_Gdi")]
@@ -260,7 +260,7 @@ where
     extern "system" {
         fn EndPage(hdc: super::super::Graphics::Gdi::HDC) -> i32;
     }
-    ::core::mem::transmute(EndPage(hdc.into()))
+    EndPage(hdc.into())
 }
 #[doc = "*Required features: `\"Win32_Storage_Xps\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(feature = "Win32_Graphics_Gdi")]
@@ -274,7 +274,7 @@ where
     extern "system" {
         fn Escape(hdc: super::super::Graphics::Gdi::HDC, iescape: i32, cjin: i32, pvin: ::windows::core::PCSTR, pvout: *mut ::core::ffi::c_void) -> i32;
     }
-    ::core::mem::transmute(Escape(hdc.into(), iescape, cjin, pvin.into(), ::core::mem::transmute(pvout)))
+    Escape(hdc.into(), iescape, cjin, pvin.into(), ::core::mem::transmute(pvout))
 }
 #[doc = "*Required features: `\"Win32_Storage_Xps\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(feature = "Win32_Graphics_Gdi")]
@@ -288,7 +288,7 @@ where
     extern "system" {
         fn ExtEscape(hdc: super::super::Graphics::Gdi::HDC, iescape: i32, cjinput: i32, lpindata: ::windows::core::PCSTR, cjoutput: i32, lpoutdata: ::windows::core::PSTR) -> i32;
     }
-    ::core::mem::transmute(ExtEscape(hdc.into(), iescape, cjinput, lpindata.into(), cjoutput, ::core::mem::transmute(lpoutdata)))
+    ExtEscape(hdc.into(), iescape, cjinput, lpindata.into(), cjoutput, ::core::mem::transmute(lpoutdata))
 }
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
@@ -9724,7 +9724,7 @@ where
     extern "system" {
         fn PrintWindow(hwnd: super::super::Foundation::HWND, hdcblt: super::super::Graphics::Gdi::HDC, nflags: PRINT_WINDOW_FLAGS) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(PrintWindow(hwnd.into(), hdcblt.into(), nflags))
+    PrintWindow(hwnd.into(), hdcblt.into(), nflags)
 }
 #[doc = "*Required features: `\"Win32_Storage_Xps\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
@@ -9737,7 +9737,7 @@ where
     extern "system" {
         fn SetAbortProc(hdc: super::super::Graphics::Gdi::HDC, proc: *mut ::core::ffi::c_void) -> i32;
     }
-    ::core::mem::transmute(SetAbortProc(hdc.into(), ::core::mem::transmute(proc)))
+    SetAbortProc(hdc.into(), ::core::mem::transmute(proc))
 }
 #[doc = "*Required features: `\"Win32_Storage_Xps\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(feature = "Win32_Graphics_Gdi")]
@@ -9750,7 +9750,7 @@ where
     extern "system" {
         fn StartDocA(hdc: super::super::Graphics::Gdi::HDC, lpdi: *const DOCINFOA) -> i32;
     }
-    ::core::mem::transmute(StartDocA(hdc.into(), ::core::mem::transmute(lpdi)))
+    StartDocA(hdc.into(), ::core::mem::transmute(lpdi))
 }
 #[doc = "*Required features: `\"Win32_Storage_Xps\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(feature = "Win32_Graphics_Gdi")]
@@ -9763,7 +9763,7 @@ where
     extern "system" {
         fn StartDocW(hdc: super::super::Graphics::Gdi::HDC, lpdi: *const DOCINFOW) -> i32;
     }
-    ::core::mem::transmute(StartDocW(hdc.into(), ::core::mem::transmute(lpdi)))
+    StartDocW(hdc.into(), ::core::mem::transmute(lpdi))
 }
 #[doc = "*Required features: `\"Win32_Storage_Xps\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(feature = "Win32_Graphics_Gdi")]
@@ -9776,7 +9776,7 @@ where
     extern "system" {
         fn StartPage(hdc: super::super::Graphics::Gdi::HDC) -> i32;
     }
-    ::core::mem::transmute(StartPage(hdc.into()))
+    StartPage(hdc.into())
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Storage_Xps\"`*"]

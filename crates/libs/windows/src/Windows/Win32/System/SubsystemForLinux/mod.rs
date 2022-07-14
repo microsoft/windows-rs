@@ -92,7 +92,7 @@ where
     extern "system" {
         fn WslIsDistributionRegistered(distributionname: ::windows::core::PCWSTR) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(WslIsDistributionRegistered(distributionname.into()))
+    WslIsDistributionRegistered(distributionname.into())
 }
 #[doc = "*Required features: `\"Win32_System_SubsystemForLinux\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]

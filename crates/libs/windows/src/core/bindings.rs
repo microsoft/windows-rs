@@ -1288,7 +1288,7 @@ where
     extern "system" {
         fn CloseHandle(hobject: HANDLE) -> BOOL;
     }
-    ::core::mem::transmute(CloseHandle(hobject.into()))
+    CloseHandle(hobject.into())
 }
 pub const CO_E_NOTINITIALIZED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147221008i32);
 pub const E_NOINTERFACE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147467262i32);
@@ -1302,7 +1302,7 @@ pub unsafe fn GetLastError() -> WIN32_ERROR {
     extern "system" {
         fn GetLastError() -> WIN32_ERROR;
     }
-    ::core::mem::transmute(GetLastError())
+    GetLastError()
 }
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
@@ -1378,7 +1378,7 @@ where
     extern "system" {
         fn SysAllocStringByteLen(psz: ::windows::core::PCSTR, len: u32) -> BSTR;
     }
-    ::core::mem::transmute(SysAllocStringByteLen(psz.into(), len))
+    SysAllocStringByteLen(psz.into(), len)
 }
 #[inline]
 pub unsafe fn SysAllocStringLen(strin: &[u16]) -> BSTR {
@@ -1386,7 +1386,7 @@ pub unsafe fn SysAllocStringLen(strin: &[u16]) -> BSTR {
     extern "system" {
         fn SysAllocStringLen(strin: ::windows::core::PCWSTR, ui: u32) -> BSTR;
     }
-    ::core::mem::transmute(SysAllocStringLen(::core::mem::transmute(::windows::core::as_ptr_or_null(strin)), strin.len() as _))
+    SysAllocStringLen(::core::mem::transmute(::windows::core::as_ptr_or_null(strin)), strin.len() as _)
 }
 #[inline]
 pub unsafe fn SysFreeString<'a, P0>(bstrstring: P0)
@@ -1408,7 +1408,7 @@ where
     extern "system" {
         fn SysStringLen(pbstr: ::core::mem::ManuallyDrop<BSTR>) -> u32;
     }
-    ::core::mem::transmute(SysStringLen(pbstr.into().abi()))
+    SysStringLen(pbstr.into().abi())
 }
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
@@ -1519,7 +1519,7 @@ pub unsafe fn CoTaskMemAlloc(cb: usize) -> *mut ::core::ffi::c_void {
     extern "system" {
         fn CoTaskMemAlloc(cb: usize) -> *mut ::core::ffi::c_void;
     }
-    ::core::mem::transmute(CoTaskMemAlloc(cb))
+    CoTaskMemAlloc(cb)
 }
 #[inline]
 pub unsafe fn CoTaskMemFree(pv: *const ::core::ffi::c_void) {
@@ -1667,7 +1667,7 @@ pub unsafe fn EncodePointer(ptr: *const ::core::ffi::c_void) -> *mut ::core::ffi
     extern "system" {
         fn EncodePointer(ptr: *const ::core::ffi::c_void) -> *mut ::core::ffi::c_void;
     }
-    ::core::mem::transmute(EncodePointer(::core::mem::transmute(ptr)))
+    EncodePointer(::core::mem::transmute(ptr))
 }
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
@@ -1731,7 +1731,7 @@ pub unsafe fn FormatMessageW(dwflags: FORMAT_MESSAGE_OPTIONS, lpsource: *const :
     extern "system" {
         fn FormatMessageW(dwflags: FORMAT_MESSAGE_OPTIONS, lpsource: *const ::core::ffi::c_void, dwmessageid: u32, dwlanguageid: u32, lpbuffer: ::windows::core::PWSTR, nsize: u32, arguments: *const *const i8) -> u32;
     }
-    ::core::mem::transmute(FormatMessageW(dwflags, ::core::mem::transmute(lpsource), dwmessageid, dwlanguageid, ::core::mem::transmute(lpbuffer), nsize, ::core::mem::transmute(arguments)))
+    FormatMessageW(dwflags, ::core::mem::transmute(lpsource), dwmessageid, dwlanguageid, ::core::mem::transmute(lpbuffer), nsize, ::core::mem::transmute(arguments))
 }
 #[inline]
 pub unsafe fn FreeLibrary<'a, P0>(hlibmodule: P0) -> BOOL
@@ -1742,7 +1742,7 @@ where
     extern "system" {
         fn FreeLibrary(hlibmodule: HINSTANCE) -> BOOL;
     }
-    ::core::mem::transmute(FreeLibrary(hlibmodule.into()))
+    FreeLibrary(hlibmodule.into())
 }
 #[inline]
 pub unsafe fn GetProcAddress<'a, P0, P1>(hmodule: P0, lpprocname: P1) -> FARPROC
@@ -1754,7 +1754,7 @@ where
     extern "system" {
         fn GetProcAddress(hmodule: HINSTANCE, lpprocname: ::windows::core::PCSTR) -> FARPROC;
     }
-    ::core::mem::transmute(GetProcAddress(hmodule.into(), lpprocname.into()))
+    GetProcAddress(hmodule.into(), lpprocname.into())
 }
 #[inline]
 pub unsafe fn LoadLibraryA<'a, P0>(lplibfilename: P0) -> ::windows::core::Result<HINSTANCE>
@@ -1853,7 +1853,7 @@ where
     extern "system" {
         fn HeapAlloc(hheap: HeapHandle, dwflags: HEAP_FLAGS, dwbytes: usize) -> *mut ::core::ffi::c_void;
     }
-    ::core::mem::transmute(HeapAlloc(hheap.into(), dwflags, dwbytes))
+    HeapAlloc(hheap.into(), dwflags, dwbytes)
 }
 #[inline]
 pub unsafe fn HeapFree<'a, P0>(hheap: P0, dwflags: HEAP_FLAGS, lpmem: *const ::core::ffi::c_void) -> BOOL
@@ -1864,7 +1864,7 @@ where
     extern "system" {
         fn HeapFree(hheap: HeapHandle, dwflags: HEAP_FLAGS, lpmem: *const ::core::ffi::c_void) -> BOOL;
     }
-    ::core::mem::transmute(HeapFree(hheap.into(), dwflags, ::core::mem::transmute(lpmem)))
+    HeapFree(hheap.into(), dwflags, ::core::mem::transmute(lpmem))
 }
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
@@ -1921,7 +1921,7 @@ where
     extern "system" {
         fn SetEvent(hevent: HANDLE) -> BOOL;
     }
-    ::core::mem::transmute(SetEvent(hevent.into()))
+    SetEvent(hevent.into())
 }
 #[inline]
 pub unsafe fn WaitForSingleObject<'a, P0>(hhandle: P0, dwmilliseconds: u32) -> u32
@@ -1932,7 +1932,7 @@ where
     extern "system" {
         fn WaitForSingleObject(hhandle: HANDLE, dwmilliseconds: u32) -> u32;
     }
-    ::core::mem::transmute(WaitForSingleObject(hhandle.into(), dwmilliseconds))
+    WaitForSingleObject(hhandle.into(), dwmilliseconds)
 }
 #[repr(transparent)]
 pub struct IAgileReference(::windows::core::IUnknown);

@@ -525,7 +525,7 @@ where
     extern "system" {
         fn IsDestinationReachableA(lpszdestination: ::windows::core::PCSTR, lpqocinfo: *mut QOCINFO) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(IsDestinationReachableA(lpszdestination.into(), ::core::mem::transmute(lpqocinfo)))
+    IsDestinationReachableA(lpszdestination.into(), ::core::mem::transmute(lpqocinfo))
 }
 #[doc = "*Required features: `\"Win32_System_EventNotificationService\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -538,7 +538,7 @@ where
     extern "system" {
         fn IsDestinationReachableW(lpszdestination: ::windows::core::PCWSTR, lpqocinfo: *mut QOCINFO) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(IsDestinationReachableW(lpszdestination.into(), ::core::mem::transmute(lpqocinfo)))
+    IsDestinationReachableW(lpszdestination.into(), ::core::mem::transmute(lpqocinfo))
 }
 #[doc = "*Required features: `\"Win32_System_EventNotificationService\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -548,7 +548,7 @@ pub unsafe fn IsNetworkAlive(lpdwflags: *mut u32) -> super::super::Foundation::B
     extern "system" {
         fn IsNetworkAlive(lpdwflags: *mut u32) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(IsNetworkAlive(::core::mem::transmute(lpdwflags)))
+    IsNetworkAlive(::core::mem::transmute(lpdwflags))
 }
 #[doc = "*Required features: `\"Win32_System_EventNotificationService\"`*"]
 pub const NETWORK_ALIVE_AOL: u32 = 4u32;

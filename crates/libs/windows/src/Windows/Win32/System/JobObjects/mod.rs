@@ -10,7 +10,7 @@ where
     extern "system" {
         fn AssignProcessToJobObject(hjob: super::super::Foundation::HANDLE, hprocess: super::super::Foundation::HANDLE) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(AssignProcessToJobObject(hjob.into(), hprocess.into()))
+    AssignProcessToJobObject(hjob.into(), hprocess.into())
 }
 #[doc = "*Required features: `\"Win32_System_JobObjects\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
@@ -48,7 +48,7 @@ pub unsafe fn CreateJobSet(userjobset: &[JOB_SET_ARRAY], flags: u32) -> super::s
     extern "system" {
         fn CreateJobSet(numjob: u32, userjobset: *const JOB_SET_ARRAY, flags: u32) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(CreateJobSet(userjobset.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(userjobset)), flags))
+    CreateJobSet(userjobset.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(userjobset)), flags)
 }
 #[doc = "*Required features: `\"Win32_System_JobObjects\"`*"]
 #[inline]
@@ -71,7 +71,7 @@ where
     extern "system" {
         fn IsProcessInJob(processhandle: super::super::Foundation::HANDLE, jobhandle: super::super::Foundation::HANDLE, result: *mut super::super::Foundation::BOOL) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(IsProcessInJob(processhandle.into(), jobhandle.into(), ::core::mem::transmute(result)))
+    IsProcessInJob(processhandle.into(), jobhandle.into(), ::core::mem::transmute(result))
 }
 #[doc = "*Required features: `\"Win32_System_JobObjects\"`*"]
 #[repr(transparent)]
@@ -1855,7 +1855,7 @@ where
     extern "system" {
         fn QueryInformationJobObject(hjob: super::super::Foundation::HANDLE, jobobjectinformationclass: JOBOBJECTINFOCLASS, lpjobobjectinformation: *mut ::core::ffi::c_void, cbjobobjectinformationlength: u32, lpreturnlength: *mut u32) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(QueryInformationJobObject(hjob.into(), jobobjectinformationclass, ::core::mem::transmute(lpjobobjectinformation), cbjobobjectinformationlength, ::core::mem::transmute(lpreturnlength)))
+    QueryInformationJobObject(hjob.into(), jobobjectinformationclass, ::core::mem::transmute(lpjobobjectinformation), cbjobobjectinformationlength, ::core::mem::transmute(lpreturnlength))
 }
 #[doc = "*Required features: `\"Win32_System_JobObjects\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -1869,7 +1869,7 @@ where
     extern "system" {
         fn QueryIoRateControlInformationJobObject(hjob: super::super::Foundation::HANDLE, volumename: ::windows::core::PCWSTR, infoblocks: *mut *mut JOBOBJECT_IO_RATE_CONTROL_INFORMATION, infoblockcount: *mut u32) -> u32;
     }
-    ::core::mem::transmute(QueryIoRateControlInformationJobObject(hjob.into(), volumename.into(), ::core::mem::transmute(infoblocks), ::core::mem::transmute(infoblockcount)))
+    QueryIoRateControlInformationJobObject(hjob.into(), volumename.into(), ::core::mem::transmute(infoblocks), ::core::mem::transmute(infoblockcount))
 }
 #[doc = "*Required features: `\"Win32_System_JobObjects\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -1882,7 +1882,7 @@ where
     extern "system" {
         fn SetInformationJobObject(hjob: super::super::Foundation::HANDLE, jobobjectinformationclass: JOBOBJECTINFOCLASS, lpjobobjectinformation: *const ::core::ffi::c_void, cbjobobjectinformationlength: u32) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(SetInformationJobObject(hjob.into(), jobobjectinformationclass, ::core::mem::transmute(lpjobobjectinformation), cbjobobjectinformationlength))
+    SetInformationJobObject(hjob.into(), jobobjectinformationclass, ::core::mem::transmute(lpjobobjectinformation), cbjobobjectinformationlength)
 }
 #[doc = "*Required features: `\"Win32_System_JobObjects\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -1895,7 +1895,7 @@ where
     extern "system" {
         fn SetIoRateControlInformationJobObject(hjob: super::super::Foundation::HANDLE, ioratecontrolinfo: *const JOBOBJECT_IO_RATE_CONTROL_INFORMATION) -> u32;
     }
-    ::core::mem::transmute(SetIoRateControlInformationJobObject(hjob.into(), ::core::mem::transmute(ioratecontrolinfo)))
+    SetIoRateControlInformationJobObject(hjob.into(), ::core::mem::transmute(ioratecontrolinfo))
 }
 #[doc = "*Required features: `\"Win32_System_JobObjects\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -1908,7 +1908,7 @@ where
     extern "system" {
         fn TerminateJobObject(hjob: super::super::Foundation::HANDLE, uexitcode: u32) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(TerminateJobObject(hjob.into(), uexitcode))
+    TerminateJobObject(hjob.into(), uexitcode)
 }
 #[doc = "*Required features: `\"Win32_System_JobObjects\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -1923,7 +1923,7 @@ where
     extern "system" {
         fn UserHandleGrantAccess(huserhandle: super::super::Foundation::HANDLE, hjob: super::super::Foundation::HANDLE, bgrant: super::super::Foundation::BOOL) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(UserHandleGrantAccess(huserhandle.into(), hjob.into(), bgrant.into()))
+    UserHandleGrantAccess(huserhandle.into(), hjob.into(), bgrant.into())
 }
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

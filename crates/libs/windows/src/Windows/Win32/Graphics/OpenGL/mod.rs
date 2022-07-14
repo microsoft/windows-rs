@@ -9,7 +9,7 @@ where
     extern "system" {
         fn ChoosePixelFormat(hdc: super::Gdi::HDC, ppfd: *const PIXELFORMATDESCRIPTOR) -> i32;
     }
-    ::core::mem::transmute(ChoosePixelFormat(hdc.into(), ::core::mem::transmute(ppfd)))
+    ChoosePixelFormat(hdc.into(), ::core::mem::transmute(ppfd))
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(feature = "Win32_Graphics_Gdi")]
@@ -22,7 +22,7 @@ where
     extern "system" {
         fn DescribePixelFormat(hdc: super::Gdi::HDC, ipixelformat: PFD_PIXEL_TYPE, nbytes: u32, ppfd: *mut PIXELFORMATDESCRIPTOR) -> i32;
     }
-    ::core::mem::transmute(DescribePixelFormat(hdc.into(), ipixelformat, nbytes, ::core::mem::transmute(ppfd)))
+    DescribePixelFormat(hdc.into(), ipixelformat, nbytes, ::core::mem::transmute(ppfd))
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`, `\"Win32_Graphics_Gdi\"`*"]
@@ -1548,7 +1548,7 @@ where
     extern "system" {
         fn GetEnhMetaFilePixelFormat(hemf: super::Gdi::HENHMETAFILE, cbbuffer: u32, ppfd: *mut PIXELFORMATDESCRIPTOR) -> u32;
     }
-    ::core::mem::transmute(GetEnhMetaFilePixelFormat(hemf.into(), cbbuffer, ::core::mem::transmute(ppfd)))
+    GetEnhMetaFilePixelFormat(hemf.into(), cbbuffer, ::core::mem::transmute(ppfd))
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(feature = "Win32_Graphics_Gdi")]
@@ -1561,7 +1561,7 @@ where
     extern "system" {
         fn GetPixelFormat(hdc: super::Gdi::HDC) -> i32;
     }
-    ::core::mem::transmute(GetPixelFormat(hdc.into()))
+    GetPixelFormat(hdc.into())
 }
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
@@ -1976,7 +1976,7 @@ where
     extern "system" {
         fn SetPixelFormat(hdc: super::Gdi::HDC, format: i32, ppfd: *const PIXELFORMATDESCRIPTOR) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(SetPixelFormat(hdc.into(), format, ::core::mem::transmute(ppfd)))
+    SetPixelFormat(hdc.into(), format, ::core::mem::transmute(ppfd))
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
@@ -1989,7 +1989,7 @@ where
     extern "system" {
         fn SwapBuffers(param0: super::Gdi::HDC) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(SwapBuffers(param0.into()))
+    SwapBuffers(param0.into())
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
 #[inline]
@@ -2016,7 +2016,7 @@ pub unsafe fn glAreTexturesResident(n: i32, textures: *const u32, residences: *m
     extern "system" {
         fn glAreTexturesResident(n: i32, textures: *const u32, residences: *mut u8) -> u8;
     }
-    ::core::mem::transmute(glAreTexturesResident(n, ::core::mem::transmute(textures), ::core::mem::transmute(residences)))
+    glAreTexturesResident(n, ::core::mem::transmute(textures), ::core::mem::transmute(residences))
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
 #[inline]
@@ -2871,7 +2871,7 @@ pub unsafe fn glGenLists(range: i32) -> u32 {
     extern "system" {
         fn glGenLists(range: i32) -> u32;
     }
-    ::core::mem::transmute(glGenLists(range))
+    glGenLists(range)
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
 #[inline]
@@ -2916,7 +2916,7 @@ pub unsafe fn glGetError() -> u32 {
     extern "system" {
         fn glGetError() -> u32;
     }
-    ::core::mem::transmute(glGetError())
+    glGetError()
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
 #[inline]
@@ -3051,7 +3051,7 @@ pub unsafe fn glGetString(name: u32) -> *mut u8 {
     extern "system" {
         fn glGetString(name: u32) -> *mut u8;
     }
-    ::core::mem::transmute(glGetString(name))
+    glGetString(name)
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
 #[inline]
@@ -3285,7 +3285,7 @@ pub unsafe fn glIsEnabled(cap: u32) -> u8 {
     extern "system" {
         fn glIsEnabled(cap: u32) -> u8;
     }
-    ::core::mem::transmute(glIsEnabled(cap))
+    glIsEnabled(cap)
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
 #[inline]
@@ -3294,7 +3294,7 @@ pub unsafe fn glIsList(list: u32) -> u8 {
     extern "system" {
         fn glIsList(list: u32) -> u8;
     }
-    ::core::mem::transmute(glIsList(list))
+    glIsList(list)
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
 #[inline]
@@ -3303,7 +3303,7 @@ pub unsafe fn glIsTexture(texture: u32) -> u8 {
     extern "system" {
         fn glIsTexture(texture: u32) -> u8;
     }
-    ::core::mem::transmute(glIsTexture(texture))
+    glIsTexture(texture)
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
 #[inline]
@@ -4212,7 +4212,7 @@ pub unsafe fn glRenderMode(mode: u32) -> i32 {
     extern "system" {
         fn glRenderMode(mode: u32) -> i32;
     }
-    ::core::mem::transmute(glRenderMode(mode))
+    glRenderMode(mode)
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
 #[inline]
@@ -5058,7 +5058,7 @@ pub unsafe fn gluBuild1DMipmaps(target: u32, components: i32, width: i32, format
     extern "system" {
         fn gluBuild1DMipmaps(target: u32, components: i32, width: i32, format: u32, r#type: u32, data: *const ::core::ffi::c_void) -> i32;
     }
-    ::core::mem::transmute(gluBuild1DMipmaps(target, components, width, format, r#type, ::core::mem::transmute(data)))
+    gluBuild1DMipmaps(target, components, width, format, r#type, ::core::mem::transmute(data))
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
 #[inline]
@@ -5067,7 +5067,7 @@ pub unsafe fn gluBuild2DMipmaps(target: u32, components: i32, width: i32, height
     extern "system" {
         fn gluBuild2DMipmaps(target: u32, components: i32, width: i32, height: i32, format: u32, r#type: u32, data: *const ::core::ffi::c_void) -> i32;
     }
-    ::core::mem::transmute(gluBuild2DMipmaps(target, components, width, height, format, r#type, ::core::mem::transmute(data)))
+    gluBuild2DMipmaps(target, components, width, height, format, r#type, ::core::mem::transmute(data))
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
 #[inline]
@@ -5157,7 +5157,7 @@ pub unsafe fn gluErrorString(errcode: u32) -> *mut u8 {
     extern "system" {
         fn gluErrorString(errcode: u32) -> *mut u8;
     }
-    ::core::mem::transmute(gluErrorString(errcode))
+    gluErrorString(errcode)
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
 #[inline]
@@ -5166,7 +5166,7 @@ pub unsafe fn gluErrorUnicodeStringEXT(errcode: u32) -> ::windows::core::PWSTR {
     extern "system" {
         fn gluErrorUnicodeStringEXT(errcode: u32) -> ::windows::core::PWSTR;
     }
-    ::core::mem::transmute(gluErrorUnicodeStringEXT(errcode))
+    gluErrorUnicodeStringEXT(errcode)
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
 #[inline]
@@ -5184,7 +5184,7 @@ pub unsafe fn gluGetString(name: u32) -> *mut u8 {
     extern "system" {
         fn gluGetString(name: u32) -> *mut u8;
     }
-    ::core::mem::transmute(gluGetString(name))
+    gluGetString(name)
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
 #[inline]
@@ -5220,7 +5220,7 @@ pub unsafe fn gluNewNurbsRenderer() -> *mut GLUnurbs {
     extern "system" {
         fn gluNewNurbsRenderer() -> *mut GLUnurbs;
     }
-    ::core::mem::transmute(gluNewNurbsRenderer())
+    gluNewNurbsRenderer()
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
 #[inline]
@@ -5229,7 +5229,7 @@ pub unsafe fn gluNewQuadric() -> *mut GLUquadric {
     extern "system" {
         fn gluNewQuadric() -> *mut GLUquadric;
     }
-    ::core::mem::transmute(gluNewQuadric())
+    gluNewQuadric()
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
 #[inline]
@@ -5238,7 +5238,7 @@ pub unsafe fn gluNewTess() -> *mut GLUtesselator {
     extern "system" {
         fn gluNewTess() -> *mut GLUtesselator;
     }
-    ::core::mem::transmute(gluNewTess())
+    gluNewTess()
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
 #[inline]
@@ -5328,7 +5328,7 @@ pub unsafe fn gluProject(objx: f64, objy: f64, objz: f64, modelmatrix: *const f6
     extern "system" {
         fn gluProject(objx: f64, objy: f64, objz: f64, modelmatrix: *const f64, projmatrix: *const f64, viewport: *const i32, winx: *mut f64, winy: *mut f64, winz: *mut f64) -> i32;
     }
-    ::core::mem::transmute(gluProject(objx, objy, objz, ::core::mem::transmute(modelmatrix), ::core::mem::transmute(projmatrix), ::core::mem::transmute(viewport), ::core::mem::transmute(winx), ::core::mem::transmute(winy), ::core::mem::transmute(winz)))
+    gluProject(objx, objy, objz, ::core::mem::transmute(modelmatrix), ::core::mem::transmute(projmatrix), ::core::mem::transmute(viewport), ::core::mem::transmute(winx), ::core::mem::transmute(winy), ::core::mem::transmute(winz))
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
 #[inline]
@@ -5391,7 +5391,7 @@ pub unsafe fn gluScaleImage(format: u32, widthin: i32, heightin: i32, typein: u3
     extern "system" {
         fn gluScaleImage(format: u32, widthin: i32, heightin: i32, typein: u32, datain: *const ::core::ffi::c_void, widthout: i32, heightout: i32, typeout: u32, dataout: *mut ::core::ffi::c_void) -> i32;
     }
-    ::core::mem::transmute(gluScaleImage(format, widthin, heightin, typein, ::core::mem::transmute(datain), widthout, heightout, typeout, ::core::mem::transmute(dataout)))
+    gluScaleImage(format, widthin, heightin, typein, ::core::mem::transmute(datain), widthout, heightout, typeout, ::core::mem::transmute(dataout))
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
 #[inline]
@@ -5481,7 +5481,7 @@ pub unsafe fn gluUnProject(winx: f64, winy: f64, winz: f64, modelmatrix: *const 
     extern "system" {
         fn gluUnProject(winx: f64, winy: f64, winz: f64, modelmatrix: *const f64, projmatrix: *const f64, viewport: *const i32, objx: *mut f64, objy: *mut f64, objz: *mut f64) -> i32;
     }
-    ::core::mem::transmute(gluUnProject(winx, winy, winz, ::core::mem::transmute(modelmatrix), ::core::mem::transmute(projmatrix), ::core::mem::transmute(viewport), ::core::mem::transmute(objx), ::core::mem::transmute(objy), ::core::mem::transmute(objz)))
+    gluUnProject(winx, winy, winz, ::core::mem::transmute(modelmatrix), ::core::mem::transmute(projmatrix), ::core::mem::transmute(viewport), ::core::mem::transmute(objx), ::core::mem::transmute(objy), ::core::mem::transmute(objz))
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -5495,7 +5495,7 @@ where
     extern "system" {
         fn wglCopyContext(param0: HGLRC, param1: HGLRC, param2: u32) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(wglCopyContext(param0.into(), param1.into(), param2))
+    wglCopyContext(param0.into(), param1.into(), param2)
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(feature = "Win32_Graphics_Gdi")]
@@ -5536,7 +5536,7 @@ where
     extern "system" {
         fn wglDeleteContext(param0: HGLRC) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(wglDeleteContext(param0.into()))
+    wglDeleteContext(param0.into())
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
@@ -5549,7 +5549,7 @@ where
     extern "system" {
         fn wglDescribeLayerPlane(param0: super::Gdi::HDC, param1: i32, param2: i32, param3: u32, param4: *mut LAYERPLANEDESCRIPTOR) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(wglDescribeLayerPlane(param0.into(), param1, param2, param3, ::core::mem::transmute(param4)))
+    wglDescribeLayerPlane(param0.into(), param1, param2, param3, ::core::mem::transmute(param4))
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
 #[inline]
@@ -5558,7 +5558,7 @@ pub unsafe fn wglGetCurrentContext() -> HGLRC {
     extern "system" {
         fn wglGetCurrentContext() -> HGLRC;
     }
-    ::core::mem::transmute(wglGetCurrentContext())
+    wglGetCurrentContext()
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(feature = "Win32_Graphics_Gdi")]
@@ -5568,7 +5568,7 @@ pub unsafe fn wglGetCurrentDC() -> super::Gdi::HDC {
     extern "system" {
         fn wglGetCurrentDC() -> super::Gdi::HDC;
     }
-    ::core::mem::transmute(wglGetCurrentDC())
+    wglGetCurrentDC()
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(feature = "Win32_Graphics_Gdi")]
@@ -5581,7 +5581,7 @@ where
     extern "system" {
         fn wglGetLayerPaletteEntries(param0: super::Gdi::HDC, param1: i32, param2: i32, param3: i32, param4: *mut u32) -> i32;
     }
-    ::core::mem::transmute(wglGetLayerPaletteEntries(param0.into(), param1, param2, param3, ::core::mem::transmute(param4)))
+    wglGetLayerPaletteEntries(param0.into(), param1, param2, param3, ::core::mem::transmute(param4))
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -5594,7 +5594,7 @@ where
     extern "system" {
         fn wglGetProcAddress(param0: ::windows::core::PCSTR) -> super::super::Foundation::PROC;
     }
-    ::core::mem::transmute(wglGetProcAddress(param0.into()))
+    wglGetProcAddress(param0.into())
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
@@ -5608,7 +5608,7 @@ where
     extern "system" {
         fn wglMakeCurrent(param0: super::Gdi::HDC, param1: HGLRC) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(wglMakeCurrent(param0.into(), param1.into()))
+    wglMakeCurrent(param0.into(), param1.into())
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
@@ -5622,7 +5622,7 @@ where
     extern "system" {
         fn wglRealizeLayerPalette(param0: super::Gdi::HDC, param1: i32, param2: super::super::Foundation::BOOL) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(wglRealizeLayerPalette(param0.into(), param1, param2.into()))
+    wglRealizeLayerPalette(param0.into(), param1, param2.into())
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(feature = "Win32_Graphics_Gdi")]
@@ -5635,7 +5635,7 @@ where
     extern "system" {
         fn wglSetLayerPaletteEntries(param0: super::Gdi::HDC, param1: i32, param2: i32, param3: i32, param4: *const u32) -> i32;
     }
-    ::core::mem::transmute(wglSetLayerPaletteEntries(param0.into(), param1, param2, param3, ::core::mem::transmute(param4)))
+    wglSetLayerPaletteEntries(param0.into(), param1, param2, param3, ::core::mem::transmute(param4))
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -5649,7 +5649,7 @@ where
     extern "system" {
         fn wglShareLists(param0: HGLRC, param1: HGLRC) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(wglShareLists(param0.into(), param1.into()))
+    wglShareLists(param0.into(), param1.into())
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
@@ -5662,7 +5662,7 @@ where
     extern "system" {
         fn wglSwapLayerBuffers(param0: super::Gdi::HDC, param1: u32) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(wglSwapLayerBuffers(param0.into(), param1))
+    wglSwapLayerBuffers(param0.into(), param1)
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
@@ -5675,7 +5675,7 @@ where
     extern "system" {
         fn wglUseFontBitmapsA(param0: super::Gdi::HDC, param1: u32, param2: u32, param3: u32) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(wglUseFontBitmapsA(param0.into(), param1, param2, param3))
+    wglUseFontBitmapsA(param0.into(), param1, param2, param3)
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
@@ -5688,7 +5688,7 @@ where
     extern "system" {
         fn wglUseFontBitmapsW(param0: super::Gdi::HDC, param1: u32, param2: u32, param3: u32) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(wglUseFontBitmapsW(param0.into(), param1, param2, param3))
+    wglUseFontBitmapsW(param0.into(), param1, param2, param3)
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
@@ -5701,7 +5701,7 @@ where
     extern "system" {
         fn wglUseFontOutlinesA(param0: super::Gdi::HDC, param1: u32, param2: u32, param3: u32, param4: f32, param5: f32, param6: i32, param7: *mut GLYPHMETRICSFLOAT) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(wglUseFontOutlinesA(param0.into(), param1, param2, param3, param4, param5, param6, ::core::mem::transmute(param7)))
+    wglUseFontOutlinesA(param0.into(), param1, param2, param3, param4, param5, param6, ::core::mem::transmute(param7))
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
@@ -5714,7 +5714,7 @@ where
     extern "system" {
         fn wglUseFontOutlinesW(param0: super::Gdi::HDC, param1: u32, param2: u32, param3: u32, param4: f32, param5: f32, param6: i32, param7: *mut GLYPHMETRICSFLOAT) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(wglUseFontOutlinesW(param0.into(), param1, param2, param3, param4, param5, param6, ::core::mem::transmute(param7)))
+    wglUseFontOutlinesW(param0.into(), param1, param2, param3, param4, param5, param6, ::core::mem::transmute(param7))
 }
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

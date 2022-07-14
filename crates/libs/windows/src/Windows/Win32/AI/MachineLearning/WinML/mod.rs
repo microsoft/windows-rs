@@ -225,16 +225,16 @@ impl IMLOperatorKernelCreationContext {
         (::windows::core::Interface::vtable(self).base__.GetStringAttributeElement)(::windows::core::Interface::as_raw(self), name.into(), elementindex, attributeelement.len() as _, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(attributeelement))).ok()
     }
     pub unsafe fn GetInputCount(&self) -> u32 {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).GetInputCount)(::windows::core::Interface::as_raw(self)))
+        (::windows::core::Interface::vtable(self).GetInputCount)(::windows::core::Interface::as_raw(self))
     }
     pub unsafe fn GetOutputCount(&self) -> u32 {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).GetOutputCount)(::windows::core::Interface::as_raw(self)))
+        (::windows::core::Interface::vtable(self).GetOutputCount)(::windows::core::Interface::as_raw(self))
     }
     pub unsafe fn IsInputValid(&self, inputindex: u32) -> bool {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).IsInputValid)(::windows::core::Interface::as_raw(self), inputindex))
+        (::windows::core::Interface::vtable(self).IsInputValid)(::windows::core::Interface::as_raw(self), inputindex)
     }
     pub unsafe fn IsOutputValid(&self, outputindex: u32) -> bool {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).IsOutputValid)(::windows::core::Interface::as_raw(self), outputindex))
+        (::windows::core::Interface::vtable(self).IsOutputValid)(::windows::core::Interface::as_raw(self), outputindex)
     }
     pub unsafe fn GetInputEdgeDescription(&self, inputindex: u32) -> ::windows::core::Result<MLOperatorEdgeDescription> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -245,7 +245,7 @@ impl IMLOperatorKernelCreationContext {
         (::windows::core::Interface::vtable(self).GetOutputEdgeDescription)(::windows::core::Interface::as_raw(self), outputindex, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<MLOperatorEdgeDescription>(result__)
     }
     pub unsafe fn HasTensorShapeDescription(&self) -> bool {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).HasTensorShapeDescription)(::windows::core::Interface::as_raw(self)))
+        (::windows::core::Interface::vtable(self).HasTensorShapeDescription)(::windows::core::Interface::as_raw(self))
     }
     pub unsafe fn GetTensorShapeDescription(&self) -> ::windows::core::Result<IMLOperatorTensorShapeDescription> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -464,16 +464,16 @@ impl IMLOperatorShapeInferenceContext {
         (::windows::core::Interface::vtable(self).base__.GetStringAttributeElement)(::windows::core::Interface::as_raw(self), name.into(), elementindex, attributeelement.len() as _, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(attributeelement))).ok()
     }
     pub unsafe fn GetInputCount(&self) -> u32 {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).GetInputCount)(::windows::core::Interface::as_raw(self)))
+        (::windows::core::Interface::vtable(self).GetInputCount)(::windows::core::Interface::as_raw(self))
     }
     pub unsafe fn GetOutputCount(&self) -> u32 {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).GetOutputCount)(::windows::core::Interface::as_raw(self)))
+        (::windows::core::Interface::vtable(self).GetOutputCount)(::windows::core::Interface::as_raw(self))
     }
     pub unsafe fn IsInputValid(&self, inputindex: u32) -> bool {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).IsInputValid)(::windows::core::Interface::as_raw(self), inputindex))
+        (::windows::core::Interface::vtable(self).IsInputValid)(::windows::core::Interface::as_raw(self), inputindex)
     }
     pub unsafe fn IsOutputValid(&self, outputindex: u32) -> bool {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).IsOutputValid)(::windows::core::Interface::as_raw(self), outputindex))
+        (::windows::core::Interface::vtable(self).IsOutputValid)(::windows::core::Interface::as_raw(self), outputindex)
     }
     pub unsafe fn GetInputEdgeDescription(&self, inputindex: u32) -> ::windows::core::Result<MLOperatorEdgeDescription> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -610,22 +610,22 @@ pub struct IMLOperatorShapeInferrer_Vtbl {
 pub struct IMLOperatorTensor(::windows::core::IUnknown);
 impl IMLOperatorTensor {
     pub unsafe fn GetDimensionCount(&self) -> u32 {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).GetDimensionCount)(::windows::core::Interface::as_raw(self)))
+        (::windows::core::Interface::vtable(self).GetDimensionCount)(::windows::core::Interface::as_raw(self))
     }
     pub unsafe fn GetShape(&self, dimensions: &mut [u32]) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).GetShape)(::windows::core::Interface::as_raw(self), dimensions.len() as _, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(dimensions))).ok()
     }
     pub unsafe fn GetTensorDataType(&self) -> MLOperatorTensorDataType {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).GetTensorDataType)(::windows::core::Interface::as_raw(self)))
+        (::windows::core::Interface::vtable(self).GetTensorDataType)(::windows::core::Interface::as_raw(self))
     }
     pub unsafe fn IsCpuData(&self) -> bool {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).IsCpuData)(::windows::core::Interface::as_raw(self)))
+        (::windows::core::Interface::vtable(self).IsCpuData)(::windows::core::Interface::as_raw(self))
     }
     pub unsafe fn IsDataInterface(&self) -> bool {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).IsDataInterface)(::windows::core::Interface::as_raw(self)))
+        (::windows::core::Interface::vtable(self).IsDataInterface)(::windows::core::Interface::as_raw(self))
     }
     pub unsafe fn GetData(&self) -> *mut ::core::ffi::c_void {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).GetData)(::windows::core::Interface::as_raw(self)))
+        (::windows::core::Interface::vtable(self).GetData)(::windows::core::Interface::as_raw(self))
     }
     pub unsafe fn GetDataInterface(&self, datainterface: *mut ::core::option::Option<::windows::core::IUnknown>) {
         (::windows::core::Interface::vtable(self).GetDataInterface)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(datainterface))
@@ -690,7 +690,7 @@ impl IMLOperatorTensorShapeDescription {
         (::windows::core::Interface::vtable(self).GetInputTensorShape)(::windows::core::Interface::as_raw(self), inputindex, dimensions.len() as _, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(dimensions))).ok()
     }
     pub unsafe fn HasOutputShapeDescription(&self) -> bool {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).HasOutputShapeDescription)(::windows::core::Interface::as_raw(self)))
+        (::windows::core::Interface::vtable(self).HasOutputShapeDescription)(::windows::core::Interface::as_raw(self))
     }
     pub unsafe fn GetOutputTensorDimensionCount(&self, outputindex: u32) -> ::windows::core::Result<u32> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -776,16 +776,16 @@ impl IMLOperatorTypeInferenceContext {
         (::windows::core::Interface::vtable(self).base__.GetStringAttributeElement)(::windows::core::Interface::as_raw(self), name.into(), elementindex, attributeelement.len() as _, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(attributeelement))).ok()
     }
     pub unsafe fn GetInputCount(&self) -> u32 {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).GetInputCount)(::windows::core::Interface::as_raw(self)))
+        (::windows::core::Interface::vtable(self).GetInputCount)(::windows::core::Interface::as_raw(self))
     }
     pub unsafe fn GetOutputCount(&self) -> u32 {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).GetOutputCount)(::windows::core::Interface::as_raw(self)))
+        (::windows::core::Interface::vtable(self).GetOutputCount)(::windows::core::Interface::as_raw(self))
     }
     pub unsafe fn IsInputValid(&self, inputindex: u32) -> bool {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).IsInputValid)(::windows::core::Interface::as_raw(self), inputindex))
+        (::windows::core::Interface::vtable(self).IsInputValid)(::windows::core::Interface::as_raw(self), inputindex)
     }
     pub unsafe fn IsOutputValid(&self, outputindex: u32) -> bool {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).IsOutputValid)(::windows::core::Interface::as_raw(self), outputindex))
+        (::windows::core::Interface::vtable(self).IsOutputValid)(::windows::core::Interface::as_raw(self), outputindex)
     }
     pub unsafe fn GetInputEdgeDescription(&self, inputindex: u32) -> ::windows::core::Result<MLOperatorEdgeDescription> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();

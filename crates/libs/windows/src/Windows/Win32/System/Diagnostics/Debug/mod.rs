@@ -590,7 +590,7 @@ pub unsafe fn AddVectoredContinueHandler(first: u32, handler: PVECTORED_EXCEPTIO
     extern "system" {
         fn AddVectoredContinueHandler(first: u32, handler: *mut ::core::ffi::c_void) -> *mut ::core::ffi::c_void;
     }
-    ::core::mem::transmute(AddVectoredContinueHandler(first, ::core::mem::transmute(handler)))
+    AddVectoredContinueHandler(first, ::core::mem::transmute(handler))
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`, `\"Win32_System_Kernel\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
@@ -600,7 +600,7 @@ pub unsafe fn AddVectoredExceptionHandler(first: u32, handler: PVECTORED_EXCEPTI
     extern "system" {
         fn AddVectoredExceptionHandler(first: u32, handler: *mut ::core::ffi::c_void) -> *mut ::core::ffi::c_void;
     }
-    ::core::mem::transmute(AddVectoredExceptionHandler(first, ::core::mem::transmute(handler)))
+    AddVectoredExceptionHandler(first, ::core::mem::transmute(handler))
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
@@ -1902,7 +1902,7 @@ pub unsafe fn Beep(dwfreq: u32, dwduration: u32) -> super::super::super::Foundat
     extern "system" {
         fn Beep(dwfreq: u32, dwduration: u32) -> super::super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(Beep(dwfreq, dwduration))
+    Beep(dwfreq, dwduration)
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -1917,7 +1917,7 @@ where
     extern "system" {
         fn BindImage(imagename: ::windows::core::PCSTR, dllpath: ::windows::core::PCSTR, symbolpath: ::windows::core::PCSTR) -> super::super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(BindImage(imagename.into(), dllpath.into(), symbolpath.into()))
+    BindImage(imagename.into(), dllpath.into(), symbolpath.into())
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -1932,7 +1932,7 @@ where
     extern "system" {
         fn BindImageEx(flags: u32, imagename: ::windows::core::PCSTR, dllpath: ::windows::core::PCSTR, symbolpath: ::windows::core::PCSTR, statusroutine: *mut ::core::ffi::c_void) -> super::super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(BindImageEx(flags, imagename.into(), dllpath.into(), symbolpath.into(), ::core::mem::transmute(statusroutine)))
+    BindImageEx(flags, imagename.into(), dllpath.into(), symbolpath.into(), ::core::mem::transmute(statusroutine))
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
 pub const CANNOT_ALLOCATE_MEMORY: u32 = 9u32;
@@ -2698,7 +2698,7 @@ where
     extern "system" {
         fn CheckRemoteDebuggerPresent(hprocess: super::super::super::Foundation::HANDLE, pbdebuggerpresent: *mut super::super::super::Foundation::BOOL) -> super::super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(CheckRemoteDebuggerPresent(hprocess.into(), ::core::mem::transmute(pbdebuggerpresent)))
+    CheckRemoteDebuggerPresent(hprocess.into(), ::core::mem::transmute(pbdebuggerpresent))
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_System_SystemInformation\"`*"]
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
@@ -2709,7 +2709,7 @@ pub unsafe fn CheckSumMappedFile(baseaddress: *const ::core::ffi::c_void, filele
     extern "system" {
         fn CheckSumMappedFile(baseaddress: *const ::core::ffi::c_void, filelength: u32, headersum: *mut u32, checksum: *mut u32) -> *mut IMAGE_NT_HEADERS64;
     }
-    ::core::mem::transmute(CheckSumMappedFile(::core::mem::transmute(baseaddress), filelength, ::core::mem::transmute(headersum), ::core::mem::transmute(checksum)))
+    CheckSumMappedFile(::core::mem::transmute(baseaddress), filelength, ::core::mem::transmute(headersum), ::core::mem::transmute(checksum))
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_System_SystemInformation\"`*"]
 #[cfg(target_arch = "x86")]
@@ -2720,7 +2720,7 @@ pub unsafe fn CheckSumMappedFile(baseaddress: *const ::core::ffi::c_void, filele
     extern "system" {
         fn CheckSumMappedFile(baseaddress: *const ::core::ffi::c_void, filelength: u32, headersum: *mut u32, checksum: *mut u32) -> *mut IMAGE_NT_HEADERS32;
     }
-    ::core::mem::transmute(CheckSumMappedFile(::core::mem::transmute(baseaddress), filelength, ::core::mem::transmute(headersum), ::core::mem::transmute(checksum)))
+    CheckSumMappedFile(::core::mem::transmute(baseaddress), filelength, ::core::mem::transmute(headersum), ::core::mem::transmute(checksum))
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
 #[inline]
@@ -2739,7 +2739,7 @@ pub unsafe fn ContinueDebugEvent(dwprocessid: u32, dwthreadid: u32, dwcontinuest
     extern "system" {
         fn ContinueDebugEvent(dwprocessid: u32, dwthreadid: u32, dwcontinuestatus: u32) -> super::super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(ContinueDebugEvent(dwprocessid, dwthreadid, dwcontinuestatus))
+    ContinueDebugEvent(dwprocessid, dwthreadid, dwcontinuestatus)
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`, `\"Win32_System_Kernel\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
@@ -2749,7 +2749,7 @@ pub unsafe fn CopyContext(destination: *mut CONTEXT, contextflags: u32, source: 
     extern "system" {
         fn CopyContext(destination: *mut CONTEXT, contextflags: u32, source: *const CONTEXT) -> super::super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(CopyContext(::core::mem::transmute(destination), contextflags, ::core::mem::transmute(source)))
+    CopyContext(::core::mem::transmute(destination), contextflags, ::core::mem::transmute(source))
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
 #[inline]
@@ -6963,7 +6963,7 @@ where
     extern "system" {
         fn DbgHelpCreateUserDump(filename: ::windows::core::PCSTR, callback: *mut ::core::ffi::c_void, userdata: *const ::core::ffi::c_void) -> super::super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(DbgHelpCreateUserDump(filename.into(), ::core::mem::transmute(callback), ::core::mem::transmute(userdata)))
+    DbgHelpCreateUserDump(filename.into(), ::core::mem::transmute(callback), ::core::mem::transmute(userdata))
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -6976,7 +6976,7 @@ where
     extern "system" {
         fn DbgHelpCreateUserDumpW(filename: ::windows::core::PCWSTR, callback: *mut ::core::ffi::c_void, userdata: *const ::core::ffi::c_void) -> super::super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(DbgHelpCreateUserDumpW(filename.into(), ::core::mem::transmute(callback), ::core::mem::transmute(userdata)))
+    DbgHelpCreateUserDumpW(filename.into(), ::core::mem::transmute(callback), ::core::mem::transmute(userdata))
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -6986,7 +6986,7 @@ pub unsafe fn DebugActiveProcess(dwprocessid: u32) -> super::super::super::Found
     extern "system" {
         fn DebugActiveProcess(dwprocessid: u32) -> super::super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(DebugActiveProcess(dwprocessid))
+    DebugActiveProcess(dwprocessid)
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -6996,7 +6996,7 @@ pub unsafe fn DebugActiveProcessStop(dwprocessid: u32) -> super::super::super::F
     extern "system" {
         fn DebugActiveProcessStop(dwprocessid: u32) -> super::super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(DebugActiveProcessStop(dwprocessid))
+    DebugActiveProcessStop(dwprocessid)
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
 #[repr(transparent)]
@@ -7256,7 +7256,7 @@ where
     extern "system" {
         fn DebugBreakProcess(process: super::super::super::Foundation::HANDLE) -> super::super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(DebugBreakProcess(process.into()))
+    DebugBreakProcess(process.into())
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
 #[inline]
@@ -7370,7 +7370,7 @@ where
     extern "system" {
         fn DebugSetProcessKillOnExit(killonexit: super::super::super::Foundation::BOOL) -> super::super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(DebugSetProcessKillOnExit(killonexit.into()))
+    DebugSetProcessKillOnExit(killonexit.into())
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
@@ -7459,7 +7459,7 @@ pub unsafe fn DecodePointer(ptr: *const ::core::ffi::c_void) -> *mut ::core::ffi
     extern "system" {
         fn DecodePointer(ptr: *const ::core::ffi::c_void) -> *mut ::core::ffi::c_void;
     }
-    ::core::mem::transmute(DecodePointer(::core::mem::transmute(ptr)))
+    DecodePointer(::core::mem::transmute(ptr))
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -7481,7 +7481,7 @@ pub unsafe fn DecodeSystemPointer(ptr: *const ::core::ffi::c_void) -> *mut ::cor
     extern "system" {
         fn DecodeSystemPointer(ptr: *const ::core::ffi::c_void) -> *mut ::core::ffi::c_void;
     }
-    ::core::mem::transmute(DecodeSystemPointer(::core::mem::transmute(ptr)))
+    DecodeSystemPointer(::core::mem::transmute(ptr))
 }
 pub const DefaultDebugSessionProvider: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x834128a2_51f4_11d0_8f20_00805f2cd064);
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
@@ -8234,7 +8234,7 @@ pub unsafe fn EncodePointer(ptr: *const ::core::ffi::c_void) -> *mut ::core::ffi
     extern "system" {
         fn EncodePointer(ptr: *const ::core::ffi::c_void) -> *mut ::core::ffi::c_void;
     }
-    ::core::mem::transmute(EncodePointer(::core::mem::transmute(ptr)))
+    EncodePointer(::core::mem::transmute(ptr))
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -8256,7 +8256,7 @@ pub unsafe fn EncodeSystemPointer(ptr: *const ::core::ffi::c_void) -> *mut ::cor
     extern "system" {
         fn EncodeSystemPointer(ptr: *const ::core::ffi::c_void) -> *mut ::core::ffi::c_void;
     }
-    ::core::mem::transmute(EncodeSystemPointer(::core::mem::transmute(ptr)))
+    EncodeSystemPointer(::core::mem::transmute(ptr))
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -8271,7 +8271,7 @@ where
     extern "system" {
         fn EnumDirTree(hprocess: super::super::super::Foundation::HANDLE, rootpath: ::windows::core::PCSTR, inputpathname: ::windows::core::PCSTR, outputpathbuffer: ::windows::core::PSTR, cb: *mut ::core::ffi::c_void, data: *const ::core::ffi::c_void) -> super::super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(EnumDirTree(hprocess.into(), rootpath.into(), inputpathname.into(), ::core::mem::transmute(outputpathbuffer), ::core::mem::transmute(cb), ::core::mem::transmute(data)))
+    EnumDirTree(hprocess.into(), rootpath.into(), inputpathname.into(), ::core::mem::transmute(outputpathbuffer), ::core::mem::transmute(cb), ::core::mem::transmute(data))
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -8286,7 +8286,7 @@ where
     extern "system" {
         fn EnumDirTreeW(hprocess: super::super::super::Foundation::HANDLE, rootpath: ::windows::core::PCWSTR, inputpathname: ::windows::core::PCWSTR, outputpathbuffer: ::windows::core::PWSTR, cb: *mut ::core::ffi::c_void, data: *const ::core::ffi::c_void) -> super::super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(EnumDirTreeW(hprocess.into(), rootpath.into(), inputpathname.into(), ::core::mem::transmute(outputpathbuffer), ::core::mem::transmute(cb), ::core::mem::transmute(data)))
+    EnumDirTreeW(hprocess.into(), rootpath.into(), inputpathname.into(), ::core::mem::transmute(outputpathbuffer), ::core::mem::transmute(cb), ::core::mem::transmute(data))
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
 #[cfg(target_arch = "x86")]
@@ -8300,7 +8300,7 @@ where
     extern "system" {
         fn EnumerateLoadedModules(hprocess: super::super::super::Foundation::HANDLE, enumloadedmodulescallback: *mut ::core::ffi::c_void, usercontext: *const ::core::ffi::c_void) -> super::super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(EnumerateLoadedModules(hprocess.into(), ::core::mem::transmute(enumloadedmodulescallback), ::core::mem::transmute(usercontext)))
+    EnumerateLoadedModules(hprocess.into(), ::core::mem::transmute(enumloadedmodulescallback), ::core::mem::transmute(usercontext))
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -8313,7 +8313,7 @@ where
     extern "system" {
         fn EnumerateLoadedModules64(hprocess: super::super::super::Foundation::HANDLE, enumloadedmodulescallback: *mut ::core::ffi::c_void, usercontext: *const ::core::ffi::c_void) -> super::super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(EnumerateLoadedModules64(hprocess.into(), ::core::mem::transmute(enumloadedmodulescallback), ::core::mem::transmute(usercontext)))
+    EnumerateLoadedModules64(hprocess.into(), ::core::mem::transmute(enumloadedmodulescallback), ::core::mem::transmute(usercontext))
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -8326,7 +8326,7 @@ where
     extern "system" {
         fn EnumerateLoadedModulesEx(hprocess: super::super::super::Foundation::HANDLE, enumloadedmodulescallback: *mut ::core::ffi::c_void, usercontext: *const ::core::ffi::c_void) -> super::super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(EnumerateLoadedModulesEx(hprocess.into(), ::core::mem::transmute(enumloadedmodulescallback), ::core::mem::transmute(usercontext)))
+    EnumerateLoadedModulesEx(hprocess.into(), ::core::mem::transmute(enumloadedmodulescallback), ::core::mem::transmute(usercontext))
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -8339,7 +8339,7 @@ where
     extern "system" {
         fn EnumerateLoadedModulesExW(hprocess: super::super::super::Foundation::HANDLE, enumloadedmodulescallback: *mut ::core::ffi::c_void, usercontext: *const ::core::ffi::c_void) -> super::super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(EnumerateLoadedModulesExW(hprocess.into(), ::core::mem::transmute(enumloadedmodulescallback), ::core::mem::transmute(usercontext)))
+    EnumerateLoadedModulesExW(hprocess.into(), ::core::mem::transmute(enumloadedmodulescallback), ::core::mem::transmute(usercontext))
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -8352,7 +8352,7 @@ where
     extern "system" {
         fn EnumerateLoadedModulesW64(hprocess: super::super::super::Foundation::HANDLE, enumloadedmodulescallback: *mut ::core::ffi::c_void, usercontext: *const ::core::ffi::c_void) -> super::super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(EnumerateLoadedModulesW64(hprocess.into(), ::core::mem::transmute(enumloadedmodulescallback), ::core::mem::transmute(usercontext)))
+    EnumerateLoadedModulesW64(hprocess.into(), ::core::mem::transmute(enumloadedmodulescallback), ::core::mem::transmute(usercontext))
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
 #[repr(transparent)]
@@ -9099,7 +9099,7 @@ where
     extern "system" {
         fn FindFileInPath(hprocess: super::super::super::Foundation::HANDLE, searchpatha: ::windows::core::PCSTR, filename: ::windows::core::PCSTR, id: *const ::core::ffi::c_void, two: u32, three: u32, flags: u32, filepath: ::windows::core::PSTR) -> super::super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(FindFileInPath(hprocess.into(), searchpatha.into(), filename.into(), ::core::mem::transmute(id), two, three, flags, ::core::mem::transmute(filepath)))
+    FindFileInPath(hprocess.into(), searchpatha.into(), filename.into(), ::core::mem::transmute(id), two, three, flags, ::core::mem::transmute(filepath))
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -9114,7 +9114,7 @@ where
     extern "system" {
         fn FindFileInSearchPath(hprocess: super::super::super::Foundation::HANDLE, searchpatha: ::windows::core::PCSTR, filename: ::windows::core::PCSTR, one: u32, two: u32, three: u32, filepath: ::windows::core::PSTR) -> super::super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(FindFileInSearchPath(hprocess.into(), searchpatha.into(), filename.into(), one, two, three, ::core::mem::transmute(filepath)))
+    FindFileInSearchPath(hprocess.into(), searchpatha.into(), filename.into(), one, two, three, ::core::mem::transmute(filepath))
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -9127,7 +9127,7 @@ where
     extern "system" {
         fn FlushInstructionCache(hprocess: super::super::super::Foundation::HANDLE, lpbaseaddress: *const ::core::ffi::c_void, dwsize: usize) -> super::super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(FlushInstructionCache(hprocess.into(), ::core::mem::transmute(lpbaseaddress), dwsize))
+    FlushInstructionCache(hprocess.into(), ::core::mem::transmute(lpbaseaddress), dwsize)
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
 #[inline]
@@ -9136,7 +9136,7 @@ pub unsafe fn FormatMessageA(dwflags: FORMAT_MESSAGE_OPTIONS, lpsource: *const :
     extern "system" {
         fn FormatMessageA(dwflags: FORMAT_MESSAGE_OPTIONS, lpsource: *const ::core::ffi::c_void, dwmessageid: u32, dwlanguageid: u32, lpbuffer: ::windows::core::PSTR, nsize: u32, arguments: *const *const i8) -> u32;
     }
-    ::core::mem::transmute(FormatMessageA(dwflags, ::core::mem::transmute(lpsource), dwmessageid, dwlanguageid, ::core::mem::transmute(lpbuffer), nsize, ::core::mem::transmute(arguments)))
+    FormatMessageA(dwflags, ::core::mem::transmute(lpsource), dwmessageid, dwlanguageid, ::core::mem::transmute(lpbuffer), nsize, ::core::mem::transmute(arguments))
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
 #[inline]
@@ -9145,7 +9145,7 @@ pub unsafe fn FormatMessageW(dwflags: FORMAT_MESSAGE_OPTIONS, lpsource: *const :
     extern "system" {
         fn FormatMessageW(dwflags: FORMAT_MESSAGE_OPTIONS, lpsource: *const ::core::ffi::c_void, dwmessageid: u32, dwlanguageid: u32, lpbuffer: ::windows::core::PWSTR, nsize: u32, arguments: *const *const i8) -> u32;
     }
-    ::core::mem::transmute(FormatMessageW(dwflags, ::core::mem::transmute(lpsource), dwmessageid, dwlanguageid, ::core::mem::transmute(lpbuffer), nsize, ::core::mem::transmute(arguments)))
+    FormatMessageW(dwflags, ::core::mem::transmute(lpsource), dwmessageid, dwlanguageid, ::core::mem::transmute(lpbuffer), nsize, ::core::mem::transmute(arguments))
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
 pub const GETATTRFLAG_HUMANTEXT: u32 = 32768u32;
@@ -9416,7 +9416,7 @@ pub unsafe fn GetEnabledXStateFeatures() -> u64 {
     extern "system" {
         fn GetEnabledXStateFeatures() -> u64;
     }
-    ::core::mem::transmute(GetEnabledXStateFeatures())
+    GetEnabledXStateFeatures()
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
 #[inline]
@@ -9425,7 +9425,7 @@ pub unsafe fn GetErrorMode() -> u32 {
     extern "system" {
         fn GetErrorMode() -> u32;
     }
-    ::core::mem::transmute(GetErrorMode())
+    GetErrorMode()
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`, `\"Win32_System_Kernel\"`, `\"Win32_System_SystemInformation\"`*"]
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
@@ -9436,7 +9436,7 @@ pub unsafe fn GetImageConfigInformation(loadedimage: *const LOADED_IMAGE, imagec
     extern "system" {
         fn GetImageConfigInformation(loadedimage: *const LOADED_IMAGE, imageconfiginformation: *mut IMAGE_LOAD_CONFIG_DIRECTORY64) -> super::super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(GetImageConfigInformation(::core::mem::transmute(loadedimage), ::core::mem::transmute(imageconfiginformation)))
+    GetImageConfigInformation(::core::mem::transmute(loadedimage), ::core::mem::transmute(imageconfiginformation))
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`, `\"Win32_System_Kernel\"`, `\"Win32_System_SystemInformation\"`*"]
 #[cfg(target_arch = "x86")]
@@ -9447,7 +9447,7 @@ pub unsafe fn GetImageConfigInformation(loadedimage: *const LOADED_IMAGE, imagec
     extern "system" {
         fn GetImageConfigInformation(loadedimage: *const LOADED_IMAGE, imageconfiginformation: *mut IMAGE_LOAD_CONFIG_DIRECTORY32) -> super::super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(GetImageConfigInformation(::core::mem::transmute(loadedimage), ::core::mem::transmute(imageconfiginformation)))
+    GetImageConfigInformation(::core::mem::transmute(loadedimage), ::core::mem::transmute(imageconfiginformation))
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`, `\"Win32_System_Kernel\"`, `\"Win32_System_SystemInformation\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel", feature = "Win32_System_SystemInformation"))]
@@ -9457,7 +9457,7 @@ pub unsafe fn GetImageUnusedHeaderBytes(loadedimage: *const LOADED_IMAGE, sizeun
     extern "system" {
         fn GetImageUnusedHeaderBytes(loadedimage: *const LOADED_IMAGE, sizeunusedheaderbytes: *mut u32) -> u32;
     }
-    ::core::mem::transmute(GetImageUnusedHeaderBytes(::core::mem::transmute(loadedimage), ::core::mem::transmute(sizeunusedheaderbytes)))
+    GetImageUnusedHeaderBytes(::core::mem::transmute(loadedimage), ::core::mem::transmute(sizeunusedheaderbytes))
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
 #[inline]
@@ -9466,7 +9466,7 @@ pub unsafe fn GetSymLoadError() -> u32 {
     extern "system" {
         fn GetSymLoadError() -> u32;
     }
-    ::core::mem::transmute(GetSymLoadError())
+    GetSymLoadError()
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`, `\"Win32_System_Kernel\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
@@ -9479,7 +9479,7 @@ where
     extern "system" {
         fn GetThreadContext(hthread: super::super::super::Foundation::HANDLE, lpcontext: *mut CONTEXT) -> super::super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(GetThreadContext(hthread.into(), ::core::mem::transmute(lpcontext)))
+    GetThreadContext(hthread.into(), ::core::mem::transmute(lpcontext))
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
 #[inline]
@@ -9488,7 +9488,7 @@ pub unsafe fn GetThreadErrorMode() -> u32 {
     extern "system" {
         fn GetThreadErrorMode() -> u32;
     }
-    ::core::mem::transmute(GetThreadErrorMode())
+    GetThreadErrorMode()
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -9501,7 +9501,7 @@ where
     extern "system" {
         fn GetThreadSelectorEntry(hthread: super::super::super::Foundation::HANDLE, dwselector: u32, lpselectorentry: *mut LDT_ENTRY) -> super::super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(GetThreadSelectorEntry(hthread.into(), dwselector, ::core::mem::transmute(lpselectorentry)))
+    GetThreadSelectorEntry(hthread.into(), dwselector, ::core::mem::transmute(lpselectorentry))
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -9511,7 +9511,7 @@ pub unsafe fn GetThreadWaitChain(wcthandle: *const ::core::ffi::c_void, context:
     extern "system" {
         fn GetThreadWaitChain(wcthandle: *const ::core::ffi::c_void, context: usize, flags: WAIT_CHAIN_THREAD_OPTIONS, threadid: u32, nodecount: *mut u32, nodeinfoarray: *mut WAITCHAIN_NODE_INFO, iscycle: *mut i32) -> super::super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(GetThreadWaitChain(::core::mem::transmute(wcthandle), context, flags, threadid, ::core::mem::transmute(nodecount), ::core::mem::transmute(nodeinfoarray), ::core::mem::transmute(iscycle)))
+    GetThreadWaitChain(::core::mem::transmute(wcthandle), context, flags, threadid, ::core::mem::transmute(nodecount), ::core::mem::transmute(nodeinfoarray), ::core::mem::transmute(iscycle))
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -9524,7 +9524,7 @@ where
     extern "system" {
         fn GetTimestampForLoadedLibrary(module: super::super::super::Foundation::HINSTANCE) -> u32;
     }
-    ::core::mem::transmute(GetTimestampForLoadedLibrary(module.into()))
+    GetTimestampForLoadedLibrary(module.into())
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`, `\"Win32_System_Kernel\"`*"]
 #[cfg(any(target_arch = "x86", target_arch = "x86_64"))]
@@ -9535,7 +9535,7 @@ pub unsafe fn GetXStateFeaturesMask(context: *const CONTEXT, featuremask: *mut u
     extern "system" {
         fn GetXStateFeaturesMask(context: *const CONTEXT, featuremask: *mut u64) -> super::super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(GetXStateFeaturesMask(::core::mem::transmute(context), ::core::mem::transmute(featuremask)))
+    GetXStateFeaturesMask(::core::mem::transmute(context), ::core::mem::transmute(featuremask))
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
 #[repr(transparent)]
@@ -13794,7 +13794,7 @@ pub struct IDataModelScriptClient_Vtbl {
 pub struct IDataModelScriptDebug(::windows::core::IUnknown);
 impl IDataModelScriptDebug {
     pub unsafe fn GetDebugState(&self) -> ScriptDebugState {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).GetDebugState)(::windows::core::Interface::as_raw(self)))
+        (::windows::core::Interface::vtable(self).GetDebugState)(::windows::core::Interface::as_raw(self))
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -13895,7 +13895,7 @@ pub struct IDataModelScriptDebug_Vtbl {
 pub struct IDataModelScriptDebug2(::windows::core::IUnknown);
 impl IDataModelScriptDebug2 {
     pub unsafe fn GetDebugState(&self) -> ScriptDebugState {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).base__.GetDebugState)(::windows::core::Interface::as_raw(self)))
+        (::windows::core::Interface::vtable(self).base__.GetDebugState)(::windows::core::Interface::as_raw(self))
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -14006,10 +14006,10 @@ pub struct IDataModelScriptDebug2_Vtbl {
 pub struct IDataModelScriptDebugBreakpoint(::windows::core::IUnknown);
 impl IDataModelScriptDebugBreakpoint {
     pub unsafe fn GetId(&self) -> u64 {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).GetId)(::windows::core::Interface::as_raw(self)))
+        (::windows::core::Interface::vtable(self).GetId)(::windows::core::Interface::as_raw(self))
     }
     pub unsafe fn IsEnabled(&self) -> bool {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).IsEnabled)(::windows::core::Interface::as_raw(self)))
+        (::windows::core::Interface::vtable(self).IsEnabled)(::windows::core::Interface::as_raw(self))
     }
     pub unsafe fn Enable(&self) {
         (::windows::core::Interface::vtable(self).Enable)(::windows::core::Interface::as_raw(self))
@@ -14187,7 +14187,7 @@ pub struct IDataModelScriptDebugClient_Vtbl {
 pub struct IDataModelScriptDebugStack(::windows::core::IUnknown);
 impl IDataModelScriptDebugStack {
     pub unsafe fn GetFrameCount(&self) -> u64 {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).GetFrameCount)(::windows::core::Interface::as_raw(self)))
+        (::windows::core::Interface::vtable(self).GetFrameCount)(::windows::core::Interface::as_raw(self))
     }
     pub unsafe fn GetStackFrame(&self, framenumber: u64) -> ::windows::core::Result<IDataModelScriptDebugStackFrame> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -15444,12 +15444,12 @@ impl IDebugApplication32 {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn FCanJitDebug(&self) -> super::super::super::Foundation::BOOL {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).FCanJitDebug)(::windows::core::Interface::as_raw(self)))
+        (::windows::core::Interface::vtable(self).FCanJitDebug)(::windows::core::Interface::as_raw(self))
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn FIsAutoJitDebugEnabled(&self) -> super::super::super::Foundation::BOOL {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).FIsAutoJitDebugEnabled)(::windows::core::Interface::as_raw(self)))
+        (::windows::core::Interface::vtable(self).FIsAutoJitDebugEnabled)(::windows::core::Interface::as_raw(self))
     }
     pub unsafe fn AddGlobalExpressionContextProvider<'a, P0>(&self, pdsfs: P0) -> ::windows::core::Result<u32>
     where
@@ -15680,12 +15680,12 @@ impl IDebugApplication64 {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn FCanJitDebug(&self) -> super::super::super::Foundation::BOOL {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).FCanJitDebug)(::windows::core::Interface::as_raw(self)))
+        (::windows::core::Interface::vtable(self).FCanJitDebug)(::windows::core::Interface::as_raw(self))
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn FIsAutoJitDebugEnabled(&self) -> super::super::super::Foundation::BOOL {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).FIsAutoJitDebugEnabled)(::windows::core::Interface::as_raw(self)))
+        (::windows::core::Interface::vtable(self).FIsAutoJitDebugEnabled)(::windows::core::Interface::as_raw(self))
     }
     pub unsafe fn AddGlobalExpressionContextProvider<'a, P0>(&self, pdsfs: P0) -> ::windows::core::Result<u64>
     where
@@ -46085,7 +46085,7 @@ where
     extern "system" {
         fn ImageAddCertificate(filehandle: super::super::super::Foundation::HANDLE, certificate: *const super::super::super::Security::WinTrust::WIN_CERTIFICATE, index: *mut u32) -> super::super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(ImageAddCertificate(filehandle.into(), ::core::mem::transmute(certificate), ::core::mem::transmute(index)))
+    ImageAddCertificate(filehandle.into(), ::core::mem::transmute(certificate), ::core::mem::transmute(index))
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -46098,7 +46098,7 @@ where
     extern "system" {
         fn ImageDirectoryEntryToData(base: *const ::core::ffi::c_void, mappedasimage: super::super::super::Foundation::BOOLEAN, directoryentry: IMAGE_DIRECTORY_ENTRY, size: *mut u32) -> *mut ::core::ffi::c_void;
     }
-    ::core::mem::transmute(ImageDirectoryEntryToData(::core::mem::transmute(base), mappedasimage.into(), directoryentry, ::core::mem::transmute(size)))
+    ImageDirectoryEntryToData(::core::mem::transmute(base), mappedasimage.into(), directoryentry, ::core::mem::transmute(size))
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -46111,7 +46111,7 @@ where
     extern "system" {
         fn ImageDirectoryEntryToDataEx(base: *const ::core::ffi::c_void, mappedasimage: super::super::super::Foundation::BOOLEAN, directoryentry: IMAGE_DIRECTORY_ENTRY, size: *mut u32, foundheader: *mut *mut IMAGE_SECTION_HEADER) -> *mut ::core::ffi::c_void;
     }
-    ::core::mem::transmute(ImageDirectoryEntryToDataEx(::core::mem::transmute(base), mappedasimage.into(), directoryentry, ::core::mem::transmute(size), ::core::mem::transmute(foundheader)))
+    ImageDirectoryEntryToDataEx(::core::mem::transmute(base), mappedasimage.into(), directoryentry, ::core::mem::transmute(size), ::core::mem::transmute(foundheader))
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -46124,7 +46124,7 @@ where
     extern "system" {
         fn ImageEnumerateCertificates(filehandle: super::super::super::Foundation::HANDLE, typefilter: u16, certificatecount: *mut u32, indices: *mut u32, indexcount: u32) -> super::super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(ImageEnumerateCertificates(filehandle.into(), typefilter, ::core::mem::transmute(certificatecount), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(indices)), indices.len() as _))
+    ImageEnumerateCertificates(filehandle.into(), typefilter, ::core::mem::transmute(certificatecount), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(indices)), indices.len() as _)
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`, `\"Win32_Security_WinTrust\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_WinTrust"))]
@@ -46137,7 +46137,7 @@ where
     extern "system" {
         fn ImageGetCertificateData(filehandle: super::super::super::Foundation::HANDLE, certificateindex: u32, certificate: *mut super::super::super::Security::WinTrust::WIN_CERTIFICATE, requiredlength: *mut u32) -> super::super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(ImageGetCertificateData(filehandle.into(), certificateindex, ::core::mem::transmute(certificate), ::core::mem::transmute(requiredlength)))
+    ImageGetCertificateData(filehandle.into(), certificateindex, ::core::mem::transmute(certificate), ::core::mem::transmute(requiredlength))
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`, `\"Win32_Security_WinTrust\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_WinTrust"))]
@@ -46150,7 +46150,7 @@ where
     extern "system" {
         fn ImageGetCertificateHeader(filehandle: super::super::super::Foundation::HANDLE, certificateindex: u32, certificateheader: *mut super::super::super::Security::WinTrust::WIN_CERTIFICATE) -> super::super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(ImageGetCertificateHeader(filehandle.into(), certificateindex, ::core::mem::transmute(certificateheader)))
+    ImageGetCertificateHeader(filehandle.into(), certificateindex, ::core::mem::transmute(certificateheader))
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -46163,7 +46163,7 @@ where
     extern "system" {
         fn ImageGetDigestStream(filehandle: super::super::super::Foundation::HANDLE, digestlevel: u32, digestfunction: *mut ::core::ffi::c_void, digesthandle: *const ::core::ffi::c_void) -> super::super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(ImageGetDigestStream(filehandle.into(), digestlevel, ::core::mem::transmute(digestfunction), ::core::mem::transmute(digesthandle)))
+    ImageGetDigestStream(filehandle.into(), digestlevel, ::core::mem::transmute(digestfunction), ::core::mem::transmute(digesthandle))
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`, `\"Win32_System_Kernel\"`, `\"Win32_System_SystemInformation\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel", feature = "Win32_System_SystemInformation"))]
@@ -46177,7 +46177,7 @@ where
     extern "system" {
         fn ImageLoad(dllname: ::windows::core::PCSTR, dllpath: ::windows::core::PCSTR) -> *mut LOADED_IMAGE;
     }
-    ::core::mem::transmute(ImageLoad(dllname.into(), dllpath.into()))
+    ImageLoad(dllname.into(), dllpath.into())
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_System_SystemInformation\"`*"]
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
@@ -46188,7 +46188,7 @@ pub unsafe fn ImageNtHeader(base: *const ::core::ffi::c_void) -> *mut IMAGE_NT_H
     extern "system" {
         fn ImageNtHeader(base: *const ::core::ffi::c_void) -> *mut IMAGE_NT_HEADERS64;
     }
-    ::core::mem::transmute(ImageNtHeader(::core::mem::transmute(base)))
+    ImageNtHeader(::core::mem::transmute(base))
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_System_SystemInformation\"`*"]
 #[cfg(target_arch = "x86")]
@@ -46199,7 +46199,7 @@ pub unsafe fn ImageNtHeader(base: *const ::core::ffi::c_void) -> *mut IMAGE_NT_H
     extern "system" {
         fn ImageNtHeader(base: *const ::core::ffi::c_void) -> *mut IMAGE_NT_HEADERS32;
     }
-    ::core::mem::transmute(ImageNtHeader(::core::mem::transmute(base)))
+    ImageNtHeader(::core::mem::transmute(base))
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -46212,7 +46212,7 @@ where
     extern "system" {
         fn ImageRemoveCertificate(filehandle: super::super::super::Foundation::HANDLE, index: u32) -> super::super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(ImageRemoveCertificate(filehandle.into(), index))
+    ImageRemoveCertificate(filehandle.into(), index)
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_System_SystemInformation\"`*"]
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
@@ -46223,7 +46223,7 @@ pub unsafe fn ImageRvaToSection(ntheaders: *const IMAGE_NT_HEADERS64, base: *con
     extern "system" {
         fn ImageRvaToSection(ntheaders: *const IMAGE_NT_HEADERS64, base: *const ::core::ffi::c_void, rva: u32) -> *mut IMAGE_SECTION_HEADER;
     }
-    ::core::mem::transmute(ImageRvaToSection(::core::mem::transmute(ntheaders), ::core::mem::transmute(base), rva))
+    ImageRvaToSection(::core::mem::transmute(ntheaders), ::core::mem::transmute(base), rva)
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_System_SystemInformation\"`*"]
 #[cfg(target_arch = "x86")]
@@ -46234,7 +46234,7 @@ pub unsafe fn ImageRvaToSection(ntheaders: *const IMAGE_NT_HEADERS32, base: *con
     extern "system" {
         fn ImageRvaToSection(ntheaders: *const IMAGE_NT_HEADERS32, base: *const ::core::ffi::c_void, rva: u32) -> *mut IMAGE_SECTION_HEADER;
     }
-    ::core::mem::transmute(ImageRvaToSection(::core::mem::transmute(ntheaders), ::core::mem::transmute(base), rva))
+    ImageRvaToSection(::core::mem::transmute(ntheaders), ::core::mem::transmute(base), rva)
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_System_SystemInformation\"`*"]
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
@@ -46245,7 +46245,7 @@ pub unsafe fn ImageRvaToVa(ntheaders: *const IMAGE_NT_HEADERS64, base: *const ::
     extern "system" {
         fn ImageRvaToVa(ntheaders: *const IMAGE_NT_HEADERS64, base: *const ::core::ffi::c_void, rva: u32, lastrvasection: *const *const IMAGE_SECTION_HEADER) -> *mut ::core::ffi::c_void;
     }
-    ::core::mem::transmute(ImageRvaToVa(::core::mem::transmute(ntheaders), ::core::mem::transmute(base), rva, ::core::mem::transmute(lastrvasection)))
+    ImageRvaToVa(::core::mem::transmute(ntheaders), ::core::mem::transmute(base), rva, ::core::mem::transmute(lastrvasection))
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_System_SystemInformation\"`*"]
 #[cfg(target_arch = "x86")]
@@ -46256,7 +46256,7 @@ pub unsafe fn ImageRvaToVa(ntheaders: *const IMAGE_NT_HEADERS32, base: *const ::
     extern "system" {
         fn ImageRvaToVa(ntheaders: *const IMAGE_NT_HEADERS32, base: *const ::core::ffi::c_void, rva: u32, lastrvasection: *const *const IMAGE_SECTION_HEADER) -> *mut ::core::ffi::c_void;
     }
-    ::core::mem::transmute(ImageRvaToVa(::core::mem::transmute(ntheaders), ::core::mem::transmute(base), rva, ::core::mem::transmute(lastrvasection)))
+    ImageRvaToVa(::core::mem::transmute(ntheaders), ::core::mem::transmute(base), rva, ::core::mem::transmute(lastrvasection))
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`, `\"Win32_System_Kernel\"`, `\"Win32_System_SystemInformation\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel", feature = "Win32_System_SystemInformation"))]
@@ -46266,7 +46266,7 @@ pub unsafe fn ImageUnload(loadedimage: *mut LOADED_IMAGE) -> super::super::super
     extern "system" {
         fn ImageUnload(loadedimage: *mut LOADED_IMAGE) -> super::super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(ImageUnload(::core::mem::transmute(loadedimage)))
+    ImageUnload(::core::mem::transmute(loadedimage))
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
 #[inline]
@@ -46275,7 +46275,7 @@ pub unsafe fn ImagehlpApiVersion() -> *mut API_VERSION {
     extern "system" {
         fn ImagehlpApiVersion() -> *mut API_VERSION;
     }
-    ::core::mem::transmute(ImagehlpApiVersion())
+    ImagehlpApiVersion()
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
 #[inline]
@@ -46284,7 +46284,7 @@ pub unsafe fn ImagehlpApiVersionEx(appversion: *const API_VERSION) -> *mut API_V
     extern "system" {
         fn ImagehlpApiVersionEx(appversion: *const API_VERSION) -> *mut API_VERSION;
     }
-    ::core::mem::transmute(ImagehlpApiVersionEx(::core::mem::transmute(appversion)))
+    ImagehlpApiVersionEx(::core::mem::transmute(appversion))
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`, `\"Win32_System_Kernel\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
@@ -46294,7 +46294,7 @@ pub unsafe fn InitializeContext(buffer: *mut ::core::ffi::c_void, contextflags: 
     extern "system" {
         fn InitializeContext(buffer: *mut ::core::ffi::c_void, contextflags: u32, context: *mut *mut CONTEXT, contextlength: *mut u32) -> super::super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(InitializeContext(::core::mem::transmute(buffer), contextflags, ::core::mem::transmute(context), ::core::mem::transmute(contextlength)))
+    InitializeContext(::core::mem::transmute(buffer), contextflags, ::core::mem::transmute(context), ::core::mem::transmute(contextlength))
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`, `\"Win32_System_Kernel\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
@@ -46304,7 +46304,7 @@ pub unsafe fn InitializeContext2(buffer: *mut ::core::ffi::c_void, contextflags:
     extern "system" {
         fn InitializeContext2(buffer: *mut ::core::ffi::c_void, contextflags: u32, context: *mut *mut CONTEXT, contextlength: *mut u32, xstatecompactionmask: u64) -> super::super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(InitializeContext2(::core::mem::transmute(buffer), contextflags, ::core::mem::transmute(context), ::core::mem::transmute(contextlength), xstatecompactionmask))
+    InitializeContext2(::core::mem::transmute(buffer), contextflags, ::core::mem::transmute(context), ::core::mem::transmute(contextlength), xstatecompactionmask)
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
 #[repr(transparent)]
@@ -46361,7 +46361,7 @@ pub unsafe fn IsDebuggerPresent() -> super::super::super::Foundation::BOOL {
     extern "system" {
         fn IsDebuggerPresent() -> super::super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(IsDebuggerPresent())
+    IsDebuggerPresent()
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
@@ -47873,7 +47873,7 @@ pub unsafe fn LocateXStateFeature(context: *const CONTEXT, featureid: u32, lengt
     extern "system" {
         fn LocateXStateFeature(context: *const CONTEXT, featureid: u32, length: *mut u32) -> *mut ::core::ffi::c_void;
     }
-    ::core::mem::transmute(LocateXStateFeature(::core::mem::transmute(context), featureid, ::core::mem::transmute(length)))
+    LocateXStateFeature(::core::mem::transmute(context), featureid, ::core::mem::transmute(length))
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
@@ -51479,7 +51479,7 @@ where
     extern "system" {
         fn MakeSureDirectoryPathExists(dirpath: ::windows::core::PCSTR) -> super::super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(MakeSureDirectoryPathExists(dirpath.into()))
+    MakeSureDirectoryPathExists(dirpath.into())
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`, `\"Win32_System_Kernel\"`, `\"Win32_System_SystemInformation\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel", feature = "Win32_System_SystemInformation"))]
@@ -51495,7 +51495,7 @@ where
     extern "system" {
         fn MapAndLoad(imagename: ::windows::core::PCSTR, dllpath: ::windows::core::PCSTR, loadedimage: *mut LOADED_IMAGE, dotdll: super::super::super::Foundation::BOOL, readonly: super::super::super::Foundation::BOOL) -> super::super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(MapAndLoad(imagename.into(), dllpath.into(), ::core::mem::transmute(loadedimage), dotdll.into(), readonly.into()))
+    MapAndLoad(imagename.into(), dllpath.into(), ::core::mem::transmute(loadedimage), dotdll.into(), readonly.into())
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
 #[inline]
@@ -51507,7 +51507,7 @@ where
     extern "system" {
         fn MapFileAndCheckSumA(filename: ::windows::core::PCSTR, headersum: *mut u32, checksum: *mut u32) -> u32;
     }
-    ::core::mem::transmute(MapFileAndCheckSumA(filename.into(), ::core::mem::transmute(headersum), ::core::mem::transmute(checksum)))
+    MapFileAndCheckSumA(filename.into(), ::core::mem::transmute(headersum), ::core::mem::transmute(checksum))
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
 #[inline]
@@ -51519,7 +51519,7 @@ where
     extern "system" {
         fn MapFileAndCheckSumW(filename: ::windows::core::PCWSTR, headersum: *mut u32, checksum: *mut u32) -> u32;
     }
-    ::core::mem::transmute(MapFileAndCheckSumW(filename.into(), ::core::mem::transmute(headersum), ::core::mem::transmute(checksum)))
+    MapFileAndCheckSumW(filename.into(), ::core::mem::transmute(headersum), ::core::mem::transmute(checksum))
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -51529,7 +51529,7 @@ pub unsafe fn MessageBeep(utype: u32) -> super::super::super::Foundation::BOOL {
     extern "system" {
         fn MessageBeep(utype: u32) -> super::super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(MessageBeep(utype))
+    MessageBeep(utype)
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -51539,7 +51539,7 @@ pub unsafe fn MiniDumpReadDumpStream(baseofdump: *const ::core::ffi::c_void, str
     extern "system" {
         fn MiniDumpReadDumpStream(baseofdump: *const ::core::ffi::c_void, streamnumber: u32, dir: *mut *mut MINIDUMP_DIRECTORY, streampointer: *mut *mut ::core::ffi::c_void, streamsize: *mut u32) -> super::super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(MiniDumpReadDumpStream(::core::mem::transmute(baseofdump), streamnumber, ::core::mem::transmute(dir), ::core::mem::transmute(streampointer), ::core::mem::transmute(streamsize)))
+    MiniDumpReadDumpStream(::core::mem::transmute(baseofdump), streamnumber, ::core::mem::transmute(dir), ::core::mem::transmute(streampointer), ::core::mem::transmute(streamsize))
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`, `\"Win32_Storage_FileSystem\"`, `\"Win32_System_Kernel\"`, `\"Win32_System_Memory\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_FileSystem", feature = "Win32_System_Kernel", feature = "Win32_System_Memory"))]
@@ -51553,7 +51553,7 @@ where
     extern "system" {
         fn MiniDumpWriteDump(hprocess: super::super::super::Foundation::HANDLE, processid: u32, hfile: super::super::super::Foundation::HANDLE, dumptype: MINIDUMP_TYPE, exceptionparam: *const MINIDUMP_EXCEPTION_INFORMATION, userstreamparam: *const MINIDUMP_USER_STREAM_INFORMATION, callbackparam: *const MINIDUMP_CALLBACK_INFORMATION) -> super::super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(MiniDumpWriteDump(hprocess.into(), processid, hfile.into(), dumptype, ::core::mem::transmute(exceptionparam), ::core::mem::transmute(userstreamparam), ::core::mem::transmute(callbackparam)))
+    MiniDumpWriteDump(hprocess.into(), processid, hfile.into(), dumptype, ::core::mem::transmute(exceptionparam), ::core::mem::transmute(userstreamparam), ::core::mem::transmute(callbackparam))
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
 #[repr(transparent)]
@@ -51824,7 +51824,7 @@ pub unsafe fn OpenThreadWaitChainSession(flags: OPEN_THREAD_WAIT_CHAIN_SESSION_F
     extern "system" {
         fn OpenThreadWaitChainSession(flags: OPEN_THREAD_WAIT_CHAIN_SESSION_FLAGS, callback: *mut ::core::ffi::c_void) -> *mut ::core::ffi::c_void;
     }
-    ::core::mem::transmute(OpenThreadWaitChainSession(flags, ::core::mem::transmute(callback)))
+    OpenThreadWaitChainSession(flags, ::core::mem::transmute(callback))
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
 #[inline]
@@ -53696,7 +53696,7 @@ where
     extern "system" {
         fn RangeMapAddPeImageSections(rmaphandle: *const ::core::ffi::c_void, imagename: ::windows::core::PCWSTR, mappedimage: *const ::core::ffi::c_void, mappingbytes: u32, imagebase: u64, usertag: u64, mappingflags: u32) -> super::super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(RangeMapAddPeImageSections(::core::mem::transmute(rmaphandle), imagename.into(), ::core::mem::transmute(mappedimage), mappingbytes, imagebase, usertag, mappingflags))
+    RangeMapAddPeImageSections(::core::mem::transmute(rmaphandle), imagename.into(), ::core::mem::transmute(mappedimage), mappingbytes, imagebase, usertag, mappingflags)
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
 #[inline]
@@ -53705,7 +53705,7 @@ pub unsafe fn RangeMapCreate() -> *mut ::core::ffi::c_void {
     extern "system" {
         fn RangeMapCreate() -> *mut ::core::ffi::c_void;
     }
-    ::core::mem::transmute(RangeMapCreate())
+    RangeMapCreate()
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
 #[inline]
@@ -53724,7 +53724,7 @@ pub unsafe fn RangeMapRead(rmaphandle: *const ::core::ffi::c_void, offset: u64, 
     extern "system" {
         fn RangeMapRead(rmaphandle: *const ::core::ffi::c_void, offset: u64, buffer: *mut ::core::ffi::c_void, requestbytes: u32, flags: u32, donebytes: *mut u32) -> super::super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(RangeMapRead(::core::mem::transmute(rmaphandle), offset, ::core::mem::transmute(buffer), requestbytes, flags, ::core::mem::transmute(donebytes)))
+    RangeMapRead(::core::mem::transmute(rmaphandle), offset, ::core::mem::transmute(buffer), requestbytes, flags, ::core::mem::transmute(donebytes))
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -53734,7 +53734,7 @@ pub unsafe fn RangeMapRemove(rmaphandle: *const ::core::ffi::c_void, usertag: u6
     extern "system" {
         fn RangeMapRemove(rmaphandle: *const ::core::ffi::c_void, usertag: u64) -> super::super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(RangeMapRemove(::core::mem::transmute(rmaphandle), usertag))
+    RangeMapRemove(::core::mem::transmute(rmaphandle), usertag)
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -53744,7 +53744,7 @@ pub unsafe fn RangeMapWrite(rmaphandle: *const ::core::ffi::c_void, offset: u64,
     extern "system" {
         fn RangeMapWrite(rmaphandle: *const ::core::ffi::c_void, offset: u64, buffer: *const ::core::ffi::c_void, requestbytes: u32, flags: u32, donebytes: *mut u32) -> super::super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(RangeMapWrite(::core::mem::transmute(rmaphandle), offset, ::core::mem::transmute(buffer), requestbytes, flags, ::core::mem::transmute(donebytes)))
+    RangeMapWrite(::core::mem::transmute(rmaphandle), offset, ::core::mem::transmute(buffer), requestbytes, flags, ::core::mem::transmute(donebytes))
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
 #[repr(transparent)]
@@ -53788,7 +53788,7 @@ where
     extern "system" {
         fn ReBaseImage(currentimagename: ::windows::core::PCSTR, symbolpath: ::windows::core::PCSTR, frebase: super::super::super::Foundation::BOOL, frebasesysfileok: super::super::super::Foundation::BOOL, fgoingdown: super::super::super::Foundation::BOOL, checkimagesize: u32, oldimagesize: *mut u32, oldimagebase: *mut usize, newimagesize: *mut u32, newimagebase: *mut usize, timestamp: u32) -> super::super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(ReBaseImage(currentimagename.into(), symbolpath.into(), frebase.into(), frebasesysfileok.into(), fgoingdown.into(), checkimagesize, ::core::mem::transmute(oldimagesize), ::core::mem::transmute(oldimagebase), ::core::mem::transmute(newimagesize), ::core::mem::transmute(newimagebase), timestamp))
+    ReBaseImage(currentimagename.into(), symbolpath.into(), frebase.into(), frebasesysfileok.into(), fgoingdown.into(), checkimagesize, ::core::mem::transmute(oldimagesize), ::core::mem::transmute(oldimagebase), ::core::mem::transmute(newimagesize), ::core::mem::transmute(newimagebase), timestamp)
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -53805,7 +53805,7 @@ where
     extern "system" {
         fn ReBaseImage64(currentimagename: ::windows::core::PCSTR, symbolpath: ::windows::core::PCSTR, frebase: super::super::super::Foundation::BOOL, frebasesysfileok: super::super::super::Foundation::BOOL, fgoingdown: super::super::super::Foundation::BOOL, checkimagesize: u32, oldimagesize: *mut u32, oldimagebase: *mut u64, newimagesize: *mut u32, newimagebase: *mut u64, timestamp: u32) -> super::super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(ReBaseImage64(currentimagename.into(), symbolpath.into(), frebase.into(), frebasesysfileok.into(), fgoingdown.into(), checkimagesize, ::core::mem::transmute(oldimagesize), ::core::mem::transmute(oldimagebase), ::core::mem::transmute(newimagesize), ::core::mem::transmute(newimagebase), timestamp))
+    ReBaseImage64(currentimagename.into(), symbolpath.into(), frebase.into(), frebasesysfileok.into(), fgoingdown.into(), checkimagesize, ::core::mem::transmute(oldimagesize), ::core::mem::transmute(oldimagebase), ::core::mem::transmute(newimagesize), ::core::mem::transmute(newimagebase), timestamp)
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -53818,7 +53818,7 @@ where
     extern "system" {
         fn ReadProcessMemory(hprocess: super::super::super::Foundation::HANDLE, lpbaseaddress: *const ::core::ffi::c_void, lpbuffer: *mut ::core::ffi::c_void, nsize: usize, lpnumberofbytesread: *mut usize) -> super::super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(ReadProcessMemory(hprocess.into(), ::core::mem::transmute(lpbaseaddress), ::core::mem::transmute(lpbuffer), nsize, ::core::mem::transmute(lpnumberofbytesread)))
+    ReadProcessMemory(hprocess.into(), ::core::mem::transmute(lpbaseaddress), ::core::mem::transmute(lpbuffer), nsize, ::core::mem::transmute(lpnumberofbytesread))
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
 #[inline]
@@ -53849,7 +53849,7 @@ pub unsafe fn RemoveVectoredContinueHandler(handle: *const ::core::ffi::c_void) 
     extern "system" {
         fn RemoveVectoredContinueHandler(handle: *const ::core::ffi::c_void) -> u32;
     }
-    ::core::mem::transmute(RemoveVectoredContinueHandler(::core::mem::transmute(handle)))
+    RemoveVectoredContinueHandler(::core::mem::transmute(handle))
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
 #[inline]
@@ -53858,7 +53858,7 @@ pub unsafe fn RemoveVectoredExceptionHandler(handle: *const ::core::ffi::c_void)
     extern "system" {
         fn RemoveVectoredExceptionHandler(handle: *const ::core::ffi::c_void) -> u32;
     }
-    ::core::mem::transmute(RemoveVectoredExceptionHandler(::core::mem::transmute(handle)))
+    RemoveVectoredExceptionHandler(::core::mem::transmute(handle))
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -53872,7 +53872,7 @@ where
     extern "system" {
         fn ReportSymbolLoadSummary(hprocess: super::super::super::Foundation::HANDLE, ploadmodule: ::windows::core::PCWSTR, psymboldata: *const DBGHELP_DATA_REPORT_STRUCT) -> super::super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(ReportSymbolLoadSummary(hprocess.into(), ploadmodule.into(), ::core::mem::transmute(psymboldata)))
+    ReportSymbolLoadSummary(hprocess.into(), ploadmodule.into(), ::core::mem::transmute(psymboldata))
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
 #[cfg(target_arch = "aarch64")]
@@ -53883,7 +53883,7 @@ pub unsafe fn RtlAddFunctionTable(functiontable: &[IMAGE_ARM64_RUNTIME_FUNCTION_
     extern "system" {
         fn RtlAddFunctionTable(functiontable: *const IMAGE_ARM64_RUNTIME_FUNCTION_ENTRY, entrycount: u32, baseaddress: usize) -> super::super::super::Foundation::BOOLEAN;
     }
-    ::core::mem::transmute(RtlAddFunctionTable(::core::mem::transmute(::windows::core::as_ptr_or_null(functiontable)), functiontable.len() as _, baseaddress))
+    RtlAddFunctionTable(::core::mem::transmute(::windows::core::as_ptr_or_null(functiontable)), functiontable.len() as _, baseaddress)
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
 #[cfg(target_arch = "x86_64")]
@@ -53894,7 +53894,7 @@ pub unsafe fn RtlAddFunctionTable(functiontable: &[IMAGE_RUNTIME_FUNCTION_ENTRY]
     extern "system" {
         fn RtlAddFunctionTable(functiontable: *const IMAGE_RUNTIME_FUNCTION_ENTRY, entrycount: u32, baseaddress: u64) -> super::super::super::Foundation::BOOLEAN;
     }
-    ::core::mem::transmute(RtlAddFunctionTable(::core::mem::transmute(::windows::core::as_ptr_or_null(functiontable)), functiontable.len() as _, baseaddress))
+    RtlAddFunctionTable(::core::mem::transmute(::windows::core::as_ptr_or_null(functiontable)), functiontable.len() as _, baseaddress)
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
 #[cfg(target_arch = "aarch64")]
@@ -53904,7 +53904,7 @@ pub unsafe fn RtlAddGrowableFunctionTable(dynamictable: *mut *mut ::core::ffi::c
     extern "system" {
         fn RtlAddGrowableFunctionTable(dynamictable: *mut *mut ::core::ffi::c_void, functiontable: *const IMAGE_ARM64_RUNTIME_FUNCTION_ENTRY, entrycount: u32, maximumentrycount: u32, rangebase: usize, rangeend: usize) -> u32;
     }
-    ::core::mem::transmute(RtlAddGrowableFunctionTable(::core::mem::transmute(dynamictable), ::core::mem::transmute(::windows::core::as_ptr_or_null(functiontable)), entrycount, functiontable.len() as _, rangebase, rangeend))
+    RtlAddGrowableFunctionTable(::core::mem::transmute(dynamictable), ::core::mem::transmute(::windows::core::as_ptr_or_null(functiontable)), entrycount, functiontable.len() as _, rangebase, rangeend)
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
 #[cfg(target_arch = "x86_64")]
@@ -53914,7 +53914,7 @@ pub unsafe fn RtlAddGrowableFunctionTable(dynamictable: *mut *mut ::core::ffi::c
     extern "system" {
         fn RtlAddGrowableFunctionTable(dynamictable: *mut *mut ::core::ffi::c_void, functiontable: *const IMAGE_RUNTIME_FUNCTION_ENTRY, entrycount: u32, maximumentrycount: u32, rangebase: usize, rangeend: usize) -> u32;
     }
-    ::core::mem::transmute(RtlAddGrowableFunctionTable(::core::mem::transmute(dynamictable), ::core::mem::transmute(::windows::core::as_ptr_or_null(functiontable)), entrycount, functiontable.len() as _, rangebase, rangeend))
+    RtlAddGrowableFunctionTable(::core::mem::transmute(dynamictable), ::core::mem::transmute(::windows::core::as_ptr_or_null(functiontable)), entrycount, functiontable.len() as _, rangebase, rangeend)
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_System_Kernel\"`*"]
 #[cfg(feature = "Win32_System_Kernel")]
@@ -53944,7 +53944,7 @@ pub unsafe fn RtlCaptureStackBackTrace(framestoskip: u32, backtrace: &mut [*mut 
     extern "system" {
         fn RtlCaptureStackBackTrace(framestoskip: u32, framestocapture: u32, backtrace: *mut *mut ::core::ffi::c_void, backtracehash: *mut u32) -> u16;
     }
-    ::core::mem::transmute(RtlCaptureStackBackTrace(framestoskip, backtrace.len() as _, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(backtrace)), ::core::mem::transmute(backtracehash)))
+    RtlCaptureStackBackTrace(framestoskip, backtrace.len() as _, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(backtrace)), ::core::mem::transmute(backtracehash))
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
 #[cfg(target_arch = "aarch64")]
@@ -53955,7 +53955,7 @@ pub unsafe fn RtlDeleteFunctionTable(functiontable: *const IMAGE_ARM64_RUNTIME_F
     extern "system" {
         fn RtlDeleteFunctionTable(functiontable: *const IMAGE_ARM64_RUNTIME_FUNCTION_ENTRY) -> super::super::super::Foundation::BOOLEAN;
     }
-    ::core::mem::transmute(RtlDeleteFunctionTable(::core::mem::transmute(functiontable)))
+    RtlDeleteFunctionTable(::core::mem::transmute(functiontable))
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
 #[cfg(target_arch = "x86_64")]
@@ -53966,7 +53966,7 @@ pub unsafe fn RtlDeleteFunctionTable(functiontable: *const IMAGE_RUNTIME_FUNCTIO
     extern "system" {
         fn RtlDeleteFunctionTable(functiontable: *const IMAGE_RUNTIME_FUNCTION_ENTRY) -> super::super::super::Foundation::BOOLEAN;
     }
-    ::core::mem::transmute(RtlDeleteFunctionTable(::core::mem::transmute(functiontable)))
+    RtlDeleteFunctionTable(::core::mem::transmute(functiontable))
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
@@ -54000,7 +54000,7 @@ where
     extern "system" {
         fn RtlInstallFunctionTableCallback(tableidentifier: u64, baseaddress: u64, length: u32, callback: *mut ::core::ffi::c_void, context: *const ::core::ffi::c_void, outofprocesscallbackdll: ::windows::core::PCWSTR) -> super::super::super::Foundation::BOOLEAN;
     }
-    ::core::mem::transmute(RtlInstallFunctionTableCallback(tableidentifier, baseaddress, length, ::core::mem::transmute(callback), ::core::mem::transmute(context), outofprocesscallbackdll.into()))
+    RtlInstallFunctionTableCallback(tableidentifier, baseaddress, length, ::core::mem::transmute(callback), ::core::mem::transmute(context), outofprocesscallbackdll.into())
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
 #[cfg(target_arch = "aarch64")]
@@ -54010,7 +54010,7 @@ pub unsafe fn RtlLookupFunctionEntry(controlpc: usize, imagebase: *mut usize, hi
     extern "system" {
         fn RtlLookupFunctionEntry(controlpc: usize, imagebase: *mut usize, historytable: *mut UNWIND_HISTORY_TABLE) -> *mut IMAGE_ARM64_RUNTIME_FUNCTION_ENTRY;
     }
-    ::core::mem::transmute(RtlLookupFunctionEntry(controlpc, ::core::mem::transmute(imagebase), ::core::mem::transmute(historytable)))
+    RtlLookupFunctionEntry(controlpc, ::core::mem::transmute(imagebase), ::core::mem::transmute(historytable))
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
 #[cfg(target_arch = "x86_64")]
@@ -54020,7 +54020,7 @@ pub unsafe fn RtlLookupFunctionEntry(controlpc: u64, imagebase: *mut u64, histor
     extern "system" {
         fn RtlLookupFunctionEntry(controlpc: u64, imagebase: *mut u64, historytable: *mut UNWIND_HISTORY_TABLE) -> *mut IMAGE_RUNTIME_FUNCTION_ENTRY;
     }
-    ::core::mem::transmute(RtlLookupFunctionEntry(controlpc, ::core::mem::transmute(imagebase), ::core::mem::transmute(historytable)))
+    RtlLookupFunctionEntry(controlpc, ::core::mem::transmute(imagebase), ::core::mem::transmute(historytable))
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
 #[inline]
@@ -54029,7 +54029,7 @@ pub unsafe fn RtlPcToFileHeader(pcvalue: *const ::core::ffi::c_void, baseofimage
     extern "system" {
         fn RtlPcToFileHeader(pcvalue: *const ::core::ffi::c_void, baseofimage: *mut *mut ::core::ffi::c_void) -> *mut ::core::ffi::c_void;
     }
-    ::core::mem::transmute(RtlPcToFileHeader(::core::mem::transmute(pcvalue), ::core::mem::transmute(baseofimage)))
+    RtlPcToFileHeader(::core::mem::transmute(pcvalue), ::core::mem::transmute(baseofimage))
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -54081,7 +54081,7 @@ pub unsafe fn RtlVirtualUnwind(handlertype: RTL_VIRTUAL_UNWIND_HANDLER_TYPE, ima
     extern "system" {
         fn RtlVirtualUnwind(handlertype: RTL_VIRTUAL_UNWIND_HANDLER_TYPE, imagebase: usize, controlpc: usize, functionentry: *const IMAGE_ARM64_RUNTIME_FUNCTION_ENTRY, contextrecord: *mut CONTEXT, handlerdata: *mut *mut ::core::ffi::c_void, establisherframe: *mut usize, contextpointers: *mut KNONVOLATILE_CONTEXT_POINTERS_ARM64) -> super::super::Kernel::EXCEPTION_ROUTINE;
     }
-    ::core::mem::transmute(RtlVirtualUnwind(handlertype, imagebase, controlpc, ::core::mem::transmute(functionentry), ::core::mem::transmute(contextrecord), ::core::mem::transmute(handlerdata), ::core::mem::transmute(establisherframe), ::core::mem::transmute(contextpointers)))
+    RtlVirtualUnwind(handlertype, imagebase, controlpc, ::core::mem::transmute(functionentry), ::core::mem::transmute(contextrecord), ::core::mem::transmute(handlerdata), ::core::mem::transmute(establisherframe), ::core::mem::transmute(contextpointers))
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`, `\"Win32_System_Kernel\"`*"]
 #[cfg(target_arch = "x86_64")]
@@ -54092,7 +54092,7 @@ pub unsafe fn RtlVirtualUnwind(handlertype: RTL_VIRTUAL_UNWIND_HANDLER_TYPE, ima
     extern "system" {
         fn RtlVirtualUnwind(handlertype: RTL_VIRTUAL_UNWIND_HANDLER_TYPE, imagebase: u64, controlpc: u64, functionentry: *const IMAGE_RUNTIME_FUNCTION_ENTRY, contextrecord: *mut CONTEXT, handlerdata: *mut *mut ::core::ffi::c_void, establisherframe: *mut u64, contextpointers: *mut KNONVOLATILE_CONTEXT_POINTERS) -> super::super::Kernel::EXCEPTION_ROUTINE;
     }
-    ::core::mem::transmute(RtlVirtualUnwind(handlertype, imagebase, controlpc, ::core::mem::transmute(functionentry), ::core::mem::transmute(contextrecord), ::core::mem::transmute(handlerdata), ::core::mem::transmute(establisherframe), ::core::mem::transmute(contextpointers)))
+    RtlVirtualUnwind(handlertype, imagebase, controlpc, ::core::mem::transmute(functionentry), ::core::mem::transmute(contextrecord), ::core::mem::transmute(handlerdata), ::core::mem::transmute(establisherframe), ::core::mem::transmute(contextpointers))
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
 #[repr(transparent)]
@@ -56226,7 +56226,7 @@ where
     extern "system" {
         fn SearchTreeForFile(rootpath: ::windows::core::PCSTR, inputpathname: ::windows::core::PCSTR, outputpathbuffer: ::windows::core::PSTR) -> super::super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(SearchTreeForFile(rootpath.into(), inputpathname.into(), ::core::mem::transmute(outputpathbuffer)))
+    SearchTreeForFile(rootpath.into(), inputpathname.into(), ::core::mem::transmute(outputpathbuffer))
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -56240,7 +56240,7 @@ where
     extern "system" {
         fn SearchTreeForFileW(rootpath: ::windows::core::PCWSTR, inputpathname: ::windows::core::PCWSTR, outputpathbuffer: ::windows::core::PWSTR) -> super::super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(SearchTreeForFileW(rootpath.into(), inputpathname.into(), ::core::mem::transmute(outputpathbuffer)))
+    SearchTreeForFileW(rootpath.into(), inputpathname.into(), ::core::mem::transmute(outputpathbuffer))
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
 #[inline]
@@ -56258,7 +56258,7 @@ pub unsafe fn SetErrorMode(umode: THREAD_ERROR_MODE) -> u32 {
     extern "system" {
         fn SetErrorMode(umode: THREAD_ERROR_MODE) -> u32;
     }
-    ::core::mem::transmute(SetErrorMode(umode))
+    SetErrorMode(umode)
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`, `\"Win32_System_Kernel\"`, `\"Win32_System_SystemInformation\"`*"]
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
@@ -56269,7 +56269,7 @@ pub unsafe fn SetImageConfigInformation(loadedimage: *mut LOADED_IMAGE, imagecon
     extern "system" {
         fn SetImageConfigInformation(loadedimage: *mut LOADED_IMAGE, imageconfiginformation: *const IMAGE_LOAD_CONFIG_DIRECTORY64) -> super::super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(SetImageConfigInformation(::core::mem::transmute(loadedimage), ::core::mem::transmute(imageconfiginformation)))
+    SetImageConfigInformation(::core::mem::transmute(loadedimage), ::core::mem::transmute(imageconfiginformation))
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`, `\"Win32_System_Kernel\"`, `\"Win32_System_SystemInformation\"`*"]
 #[cfg(target_arch = "x86")]
@@ -56280,7 +56280,7 @@ pub unsafe fn SetImageConfigInformation(loadedimage: *mut LOADED_IMAGE, imagecon
     extern "system" {
         fn SetImageConfigInformation(loadedimage: *mut LOADED_IMAGE, imageconfiginformation: *const IMAGE_LOAD_CONFIG_DIRECTORY32) -> super::super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(SetImageConfigInformation(::core::mem::transmute(loadedimage), ::core::mem::transmute(imageconfiginformation)))
+    SetImageConfigInformation(::core::mem::transmute(loadedimage), ::core::mem::transmute(imageconfiginformation))
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
 #[inline]
@@ -56302,7 +56302,7 @@ where
     extern "system" {
         fn SetThreadContext(hthread: super::super::super::Foundation::HANDLE, lpcontext: *const CONTEXT) -> super::super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(SetThreadContext(hthread.into(), ::core::mem::transmute(lpcontext)))
+    SetThreadContext(hthread.into(), ::core::mem::transmute(lpcontext))
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -56312,7 +56312,7 @@ pub unsafe fn SetThreadErrorMode(dwnewmode: THREAD_ERROR_MODE, lpoldmode: *const
     extern "system" {
         fn SetThreadErrorMode(dwnewmode: THREAD_ERROR_MODE, lpoldmode: *const THREAD_ERROR_MODE) -> super::super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(SetThreadErrorMode(dwnewmode, ::core::mem::transmute(lpoldmode)))
+    SetThreadErrorMode(dwnewmode, ::core::mem::transmute(lpoldmode))
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`, `\"Win32_System_Kernel\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
@@ -56322,7 +56322,7 @@ pub unsafe fn SetUnhandledExceptionFilter(lptoplevelexceptionfilter: LPTOP_LEVEL
     extern "system" {
         fn SetUnhandledExceptionFilter(lptoplevelexceptionfilter: *mut ::core::ffi::c_void) -> LPTOP_LEVEL_EXCEPTION_FILTER;
     }
-    ::core::mem::transmute(SetUnhandledExceptionFilter(::core::mem::transmute(lptoplevelexceptionfilter)))
+    SetUnhandledExceptionFilter(::core::mem::transmute(lptoplevelexceptionfilter))
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`, `\"Win32_System_Kernel\"`*"]
 #[cfg(any(target_arch = "x86", target_arch = "x86_64"))]
@@ -56333,7 +56333,7 @@ pub unsafe fn SetXStateFeaturesMask(context: *mut CONTEXT, featuremask: u64) -> 
     extern "system" {
         fn SetXStateFeaturesMask(context: *mut CONTEXT, featuremask: u64) -> super::super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(SetXStateFeaturesMask(::core::mem::transmute(context), featuremask))
+    SetXStateFeaturesMask(::core::mem::transmute(context), featuremask)
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
 #[repr(transparent)]
@@ -56381,7 +56381,7 @@ where
     extern "system" {
         fn StackWalk(machinetype: u32, hprocess: super::super::super::Foundation::HANDLE, hthread: super::super::super::Foundation::HANDLE, stackframe: *mut STACKFRAME, contextrecord: *mut ::core::ffi::c_void, readmemoryroutine: *mut ::core::ffi::c_void, functiontableaccessroutine: *mut ::core::ffi::c_void, getmodulebaseroutine: *mut ::core::ffi::c_void, translateaddress: *mut ::core::ffi::c_void) -> super::super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(StackWalk(machinetype, hprocess.into(), hthread.into(), ::core::mem::transmute(stackframe), ::core::mem::transmute(contextrecord), ::core::mem::transmute(readmemoryroutine), ::core::mem::transmute(functiontableaccessroutine), ::core::mem::transmute(getmodulebaseroutine), ::core::mem::transmute(translateaddress)))
+    StackWalk(machinetype, hprocess.into(), hthread.into(), ::core::mem::transmute(stackframe), ::core::mem::transmute(contextrecord), ::core::mem::transmute(readmemoryroutine), ::core::mem::transmute(functiontableaccessroutine), ::core::mem::transmute(getmodulebaseroutine), ::core::mem::transmute(translateaddress))
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -56395,7 +56395,7 @@ where
     extern "system" {
         fn StackWalk64(machinetype: u32, hprocess: super::super::super::Foundation::HANDLE, hthread: super::super::super::Foundation::HANDLE, stackframe: *mut STACKFRAME64, contextrecord: *mut ::core::ffi::c_void, readmemoryroutine: *mut ::core::ffi::c_void, functiontableaccessroutine: *mut ::core::ffi::c_void, getmodulebaseroutine: *mut ::core::ffi::c_void, translateaddress: *mut ::core::ffi::c_void) -> super::super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(StackWalk64(machinetype, hprocess.into(), hthread.into(), ::core::mem::transmute(stackframe), ::core::mem::transmute(contextrecord), ::core::mem::transmute(readmemoryroutine), ::core::mem::transmute(functiontableaccessroutine), ::core::mem::transmute(getmodulebaseroutine), ::core::mem::transmute(translateaddress)))
+    StackWalk64(machinetype, hprocess.into(), hthread.into(), ::core::mem::transmute(stackframe), ::core::mem::transmute(contextrecord), ::core::mem::transmute(readmemoryroutine), ::core::mem::transmute(functiontableaccessroutine), ::core::mem::transmute(getmodulebaseroutine), ::core::mem::transmute(translateaddress))
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -56409,7 +56409,7 @@ where
     extern "system" {
         fn StackWalkEx(machinetype: u32, hprocess: super::super::super::Foundation::HANDLE, hthread: super::super::super::Foundation::HANDLE, stackframe: *mut STACKFRAME_EX, contextrecord: *mut ::core::ffi::c_void, readmemoryroutine: *mut ::core::ffi::c_void, functiontableaccessroutine: *mut ::core::ffi::c_void, getmodulebaseroutine: *mut ::core::ffi::c_void, translateaddress: *mut ::core::ffi::c_void, flags: u32) -> super::super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(StackWalkEx(machinetype, hprocess.into(), hthread.into(), ::core::mem::transmute(stackframe), ::core::mem::transmute(contextrecord), ::core::mem::transmute(readmemoryroutine), ::core::mem::transmute(functiontableaccessroutine), ::core::mem::transmute(getmodulebaseroutine), ::core::mem::transmute(translateaddress), flags))
+    StackWalkEx(machinetype, hprocess.into(), hthread.into(), ::core::mem::transmute(stackframe), ::core::mem::transmute(contextrecord), ::core::mem::transmute(readmemoryroutine), ::core::mem::transmute(functiontableaccessroutine), ::core::mem::transmute(getmodulebaseroutine), ::core::mem::transmute(translateaddress), flags)
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -56423,7 +56423,7 @@ where
     extern "system" {
         fn SymAddSourceStream(hprocess: super::super::super::Foundation::HANDLE, base: u64, streamfile: ::windows::core::PCSTR, buffer: *const u8, size: usize) -> super::super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(SymAddSourceStream(hprocess.into(), base, streamfile.into(), ::core::mem::transmute(buffer), size))
+    SymAddSourceStream(hprocess.into(), base, streamfile.into(), ::core::mem::transmute(buffer), size)
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -56437,7 +56437,7 @@ where
     extern "system" {
         fn SymAddSourceStreamA(hprocess: super::super::super::Foundation::HANDLE, base: u64, streamfile: ::windows::core::PCSTR, buffer: *const u8, size: usize) -> super::super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(SymAddSourceStreamA(hprocess.into(), base, streamfile.into(), ::core::mem::transmute(buffer), size))
+    SymAddSourceStreamA(hprocess.into(), base, streamfile.into(), ::core::mem::transmute(buffer), size)
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -56451,7 +56451,7 @@ where
     extern "system" {
         fn SymAddSourceStreamW(hprocess: super::super::super::Foundation::HANDLE, base: u64, filespec: ::windows::core::PCWSTR, buffer: *const u8, size: usize) -> super::super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(SymAddSourceStreamW(hprocess.into(), base, filespec.into(), ::core::mem::transmute(buffer), size))
+    SymAddSourceStreamW(hprocess.into(), base, filespec.into(), ::core::mem::transmute(buffer), size)
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -56465,7 +56465,7 @@ where
     extern "system" {
         fn SymAddSymbol(hprocess: super::super::super::Foundation::HANDLE, baseofdll: u64, name: ::windows::core::PCSTR, address: u64, size: u32, flags: u32) -> super::super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(SymAddSymbol(hprocess.into(), baseofdll, name.into(), address, size, flags))
+    SymAddSymbol(hprocess.into(), baseofdll, name.into(), address, size, flags)
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -56479,7 +56479,7 @@ where
     extern "system" {
         fn SymAddSymbolW(hprocess: super::super::super::Foundation::HANDLE, baseofdll: u64, name: ::windows::core::PCWSTR, address: u64, size: u32, flags: u32) -> super::super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(SymAddSymbolW(hprocess.into(), baseofdll, name.into(), address, size, flags))
+    SymAddSymbolW(hprocess.into(), baseofdll, name.into(), address, size, flags)
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -56492,7 +56492,7 @@ where
     extern "system" {
         fn SymAddrIncludeInlineTrace(hprocess: super::super::super::Foundation::HANDLE, address: u64) -> u32;
     }
-    ::core::mem::transmute(SymAddrIncludeInlineTrace(hprocess.into(), address))
+    SymAddrIncludeInlineTrace(hprocess.into(), address)
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -56505,7 +56505,7 @@ where
     extern "system" {
         fn SymCleanup(hprocess: super::super::super::Foundation::HANDLE) -> super::super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(SymCleanup(hprocess.into()))
+    SymCleanup(hprocess.into())
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -56518,7 +56518,7 @@ where
     extern "system" {
         fn SymCompareInlineTrace(hprocess: super::super::super::Foundation::HANDLE, address1: u64, inlinecontext1: u32, retaddress1: u64, address2: u64, retaddress2: u64) -> u32;
     }
-    ::core::mem::transmute(SymCompareInlineTrace(hprocess.into(), address1, inlinecontext1, retaddress1, address2, retaddress2))
+    SymCompareInlineTrace(hprocess.into(), address1, inlinecontext1, retaddress1, address2, retaddress2)
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -56532,7 +56532,7 @@ where
     extern "system" {
         fn SymDeleteSymbol(hprocess: super::super::super::Foundation::HANDLE, baseofdll: u64, name: ::windows::core::PCSTR, address: u64, flags: u32) -> super::super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(SymDeleteSymbol(hprocess.into(), baseofdll, name.into(), address, flags))
+    SymDeleteSymbol(hprocess.into(), baseofdll, name.into(), address, flags)
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -56546,7 +56546,7 @@ where
     extern "system" {
         fn SymDeleteSymbolW(hprocess: super::super::super::Foundation::HANDLE, baseofdll: u64, name: ::windows::core::PCWSTR, address: u64, flags: u32) -> super::super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(SymDeleteSymbolW(hprocess.into(), baseofdll, name.into(), address, flags))
+    SymDeleteSymbolW(hprocess.into(), baseofdll, name.into(), address, flags)
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -56561,7 +56561,7 @@ where
     extern "system" {
         fn SymEnumLines(hprocess: super::super::super::Foundation::HANDLE, base: u64, obj: ::windows::core::PCSTR, file: ::windows::core::PCSTR, enumlinescallback: *mut ::core::ffi::c_void, usercontext: *const ::core::ffi::c_void) -> super::super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(SymEnumLines(hprocess.into(), base, obj.into(), file.into(), ::core::mem::transmute(enumlinescallback), ::core::mem::transmute(usercontext)))
+    SymEnumLines(hprocess.into(), base, obj.into(), file.into(), ::core::mem::transmute(enumlinescallback), ::core::mem::transmute(usercontext))
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -56576,7 +56576,7 @@ where
     extern "system" {
         fn SymEnumLinesW(hprocess: super::super::super::Foundation::HANDLE, base: u64, obj: ::windows::core::PCWSTR, file: ::windows::core::PCWSTR, enumlinescallback: *mut ::core::ffi::c_void, usercontext: *const ::core::ffi::c_void) -> super::super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(SymEnumLinesW(hprocess.into(), base, obj.into(), file.into(), ::core::mem::transmute(enumlinescallback), ::core::mem::transmute(usercontext)))
+    SymEnumLinesW(hprocess.into(), base, obj.into(), file.into(), ::core::mem::transmute(enumlinescallback), ::core::mem::transmute(usercontext))
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -56586,7 +56586,7 @@ pub unsafe fn SymEnumProcesses(enumprocessescallback: PSYM_ENUMPROCESSES_CALLBAC
     extern "system" {
         fn SymEnumProcesses(enumprocessescallback: *mut ::core::ffi::c_void, usercontext: *const ::core::ffi::c_void) -> super::super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(SymEnumProcesses(::core::mem::transmute(enumprocessescallback), ::core::mem::transmute(usercontext)))
+    SymEnumProcesses(::core::mem::transmute(enumprocessescallback), ::core::mem::transmute(usercontext))
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -56599,7 +56599,7 @@ where
     extern "system" {
         fn SymEnumSourceFileTokens(hprocess: super::super::super::Foundation::HANDLE, base: u64, callback: *mut ::core::ffi::c_void) -> super::super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(SymEnumSourceFileTokens(hprocess.into(), base, ::core::mem::transmute(callback)))
+    SymEnumSourceFileTokens(hprocess.into(), base, ::core::mem::transmute(callback))
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -56613,7 +56613,7 @@ where
     extern "system" {
         fn SymEnumSourceFiles(hprocess: super::super::super::Foundation::HANDLE, modbase: u64, mask: ::windows::core::PCSTR, cbsrcfiles: *mut ::core::ffi::c_void, usercontext: *const ::core::ffi::c_void) -> super::super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(SymEnumSourceFiles(hprocess.into(), modbase, mask.into(), ::core::mem::transmute(cbsrcfiles), ::core::mem::transmute(usercontext)))
+    SymEnumSourceFiles(hprocess.into(), modbase, mask.into(), ::core::mem::transmute(cbsrcfiles), ::core::mem::transmute(usercontext))
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -56627,7 +56627,7 @@ where
     extern "system" {
         fn SymEnumSourceFilesW(hprocess: super::super::super::Foundation::HANDLE, modbase: u64, mask: ::windows::core::PCWSTR, cbsrcfiles: *mut ::core::ffi::c_void, usercontext: *const ::core::ffi::c_void) -> super::super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(SymEnumSourceFilesW(hprocess.into(), modbase, mask.into(), ::core::mem::transmute(cbsrcfiles), ::core::mem::transmute(usercontext)))
+    SymEnumSourceFilesW(hprocess.into(), modbase, mask.into(), ::core::mem::transmute(cbsrcfiles), ::core::mem::transmute(usercontext))
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -56642,7 +56642,7 @@ where
     extern "system" {
         fn SymEnumSourceLines(hprocess: super::super::super::Foundation::HANDLE, base: u64, obj: ::windows::core::PCSTR, file: ::windows::core::PCSTR, line: u32, flags: u32, enumlinescallback: *mut ::core::ffi::c_void, usercontext: *const ::core::ffi::c_void) -> super::super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(SymEnumSourceLines(hprocess.into(), base, obj.into(), file.into(), line, flags, ::core::mem::transmute(enumlinescallback), ::core::mem::transmute(usercontext)))
+    SymEnumSourceLines(hprocess.into(), base, obj.into(), file.into(), line, flags, ::core::mem::transmute(enumlinescallback), ::core::mem::transmute(usercontext))
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -56657,7 +56657,7 @@ where
     extern "system" {
         fn SymEnumSourceLinesW(hprocess: super::super::super::Foundation::HANDLE, base: u64, obj: ::windows::core::PCWSTR, file: ::windows::core::PCWSTR, line: u32, flags: u32, enumlinescallback: *mut ::core::ffi::c_void, usercontext: *const ::core::ffi::c_void) -> super::super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(SymEnumSourceLinesW(hprocess.into(), base, obj.into(), file.into(), line, flags, ::core::mem::transmute(enumlinescallback), ::core::mem::transmute(usercontext)))
+    SymEnumSourceLinesW(hprocess.into(), base, obj.into(), file.into(), line, flags, ::core::mem::transmute(enumlinescallback), ::core::mem::transmute(usercontext))
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -56670,7 +56670,7 @@ where
     extern "system" {
         fn SymEnumSym(hprocess: super::super::super::Foundation::HANDLE, baseofdll: u64, enumsymbolscallback: *mut ::core::ffi::c_void, usercontext: *const ::core::ffi::c_void) -> super::super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(SymEnumSym(hprocess.into(), baseofdll, ::core::mem::transmute(enumsymbolscallback), ::core::mem::transmute(usercontext)))
+    SymEnumSym(hprocess.into(), baseofdll, ::core::mem::transmute(enumsymbolscallback), ::core::mem::transmute(usercontext))
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -56684,7 +56684,7 @@ where
     extern "system" {
         fn SymEnumSymbols(hprocess: super::super::super::Foundation::HANDLE, baseofdll: u64, mask: ::windows::core::PCSTR, enumsymbolscallback: *mut ::core::ffi::c_void, usercontext: *const ::core::ffi::c_void) -> super::super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(SymEnumSymbols(hprocess.into(), baseofdll, mask.into(), ::core::mem::transmute(enumsymbolscallback), ::core::mem::transmute(usercontext)))
+    SymEnumSymbols(hprocess.into(), baseofdll, mask.into(), ::core::mem::transmute(enumsymbolscallback), ::core::mem::transmute(usercontext))
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -56698,7 +56698,7 @@ where
     extern "system" {
         fn SymEnumSymbolsEx(hprocess: super::super::super::Foundation::HANDLE, baseofdll: u64, mask: ::windows::core::PCSTR, enumsymbolscallback: *mut ::core::ffi::c_void, usercontext: *const ::core::ffi::c_void, options: u32) -> super::super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(SymEnumSymbolsEx(hprocess.into(), baseofdll, mask.into(), ::core::mem::transmute(enumsymbolscallback), ::core::mem::transmute(usercontext), options))
+    SymEnumSymbolsEx(hprocess.into(), baseofdll, mask.into(), ::core::mem::transmute(enumsymbolscallback), ::core::mem::transmute(usercontext), options)
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -56712,7 +56712,7 @@ where
     extern "system" {
         fn SymEnumSymbolsExW(hprocess: super::super::super::Foundation::HANDLE, baseofdll: u64, mask: ::windows::core::PCWSTR, enumsymbolscallback: *mut ::core::ffi::c_void, usercontext: *const ::core::ffi::c_void, options: u32) -> super::super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(SymEnumSymbolsExW(hprocess.into(), baseofdll, mask.into(), ::core::mem::transmute(enumsymbolscallback), ::core::mem::transmute(usercontext), options))
+    SymEnumSymbolsExW(hprocess.into(), baseofdll, mask.into(), ::core::mem::transmute(enumsymbolscallback), ::core::mem::transmute(usercontext), options)
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -56725,7 +56725,7 @@ where
     extern "system" {
         fn SymEnumSymbolsForAddr(hprocess: super::super::super::Foundation::HANDLE, address: u64, enumsymbolscallback: *mut ::core::ffi::c_void, usercontext: *const ::core::ffi::c_void) -> super::super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(SymEnumSymbolsForAddr(hprocess.into(), address, ::core::mem::transmute(enumsymbolscallback), ::core::mem::transmute(usercontext)))
+    SymEnumSymbolsForAddr(hprocess.into(), address, ::core::mem::transmute(enumsymbolscallback), ::core::mem::transmute(usercontext))
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -56738,7 +56738,7 @@ where
     extern "system" {
         fn SymEnumSymbolsForAddrW(hprocess: super::super::super::Foundation::HANDLE, address: u64, enumsymbolscallback: *mut ::core::ffi::c_void, usercontext: *const ::core::ffi::c_void) -> super::super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(SymEnumSymbolsForAddrW(hprocess.into(), address, ::core::mem::transmute(enumsymbolscallback), ::core::mem::transmute(usercontext)))
+    SymEnumSymbolsForAddrW(hprocess.into(), address, ::core::mem::transmute(enumsymbolscallback), ::core::mem::transmute(usercontext))
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -56752,7 +56752,7 @@ where
     extern "system" {
         fn SymEnumSymbolsW(hprocess: super::super::super::Foundation::HANDLE, baseofdll: u64, mask: ::windows::core::PCWSTR, enumsymbolscallback: *mut ::core::ffi::c_void, usercontext: *const ::core::ffi::c_void) -> super::super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(SymEnumSymbolsW(hprocess.into(), baseofdll, mask.into(), ::core::mem::transmute(enumsymbolscallback), ::core::mem::transmute(usercontext)))
+    SymEnumSymbolsW(hprocess.into(), baseofdll, mask.into(), ::core::mem::transmute(enumsymbolscallback), ::core::mem::transmute(usercontext))
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -56765,7 +56765,7 @@ where
     extern "system" {
         fn SymEnumTypes(hprocess: super::super::super::Foundation::HANDLE, baseofdll: u64, enumsymbolscallback: *mut ::core::ffi::c_void, usercontext: *const ::core::ffi::c_void) -> super::super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(SymEnumTypes(hprocess.into(), baseofdll, ::core::mem::transmute(enumsymbolscallback), ::core::mem::transmute(usercontext)))
+    SymEnumTypes(hprocess.into(), baseofdll, ::core::mem::transmute(enumsymbolscallback), ::core::mem::transmute(usercontext))
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -56779,7 +56779,7 @@ where
     extern "system" {
         fn SymEnumTypesByName(hprocess: super::super::super::Foundation::HANDLE, baseofdll: u64, mask: ::windows::core::PCSTR, enumsymbolscallback: *mut ::core::ffi::c_void, usercontext: *const ::core::ffi::c_void) -> super::super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(SymEnumTypesByName(hprocess.into(), baseofdll, mask.into(), ::core::mem::transmute(enumsymbolscallback), ::core::mem::transmute(usercontext)))
+    SymEnumTypesByName(hprocess.into(), baseofdll, mask.into(), ::core::mem::transmute(enumsymbolscallback), ::core::mem::transmute(usercontext))
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -56793,7 +56793,7 @@ where
     extern "system" {
         fn SymEnumTypesByNameW(hprocess: super::super::super::Foundation::HANDLE, baseofdll: u64, mask: ::windows::core::PCWSTR, enumsymbolscallback: *mut ::core::ffi::c_void, usercontext: *const ::core::ffi::c_void) -> super::super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(SymEnumTypesByNameW(hprocess.into(), baseofdll, mask.into(), ::core::mem::transmute(enumsymbolscallback), ::core::mem::transmute(usercontext)))
+    SymEnumTypesByNameW(hprocess.into(), baseofdll, mask.into(), ::core::mem::transmute(enumsymbolscallback), ::core::mem::transmute(usercontext))
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -56806,7 +56806,7 @@ where
     extern "system" {
         fn SymEnumTypesW(hprocess: super::super::super::Foundation::HANDLE, baseofdll: u64, enumsymbolscallback: *mut ::core::ffi::c_void, usercontext: *const ::core::ffi::c_void) -> super::super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(SymEnumTypesW(hprocess.into(), baseofdll, ::core::mem::transmute(enumsymbolscallback), ::core::mem::transmute(usercontext)))
+    SymEnumTypesW(hprocess.into(), baseofdll, ::core::mem::transmute(enumsymbolscallback), ::core::mem::transmute(usercontext))
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
 #[cfg(target_arch = "x86")]
@@ -56820,7 +56820,7 @@ where
     extern "system" {
         fn SymEnumerateModules(hprocess: super::super::super::Foundation::HANDLE, enummodulescallback: *mut ::core::ffi::c_void, usercontext: *const ::core::ffi::c_void) -> super::super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(SymEnumerateModules(hprocess.into(), ::core::mem::transmute(enummodulescallback), ::core::mem::transmute(usercontext)))
+    SymEnumerateModules(hprocess.into(), ::core::mem::transmute(enummodulescallback), ::core::mem::transmute(usercontext))
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -56833,7 +56833,7 @@ where
     extern "system" {
         fn SymEnumerateModules64(hprocess: super::super::super::Foundation::HANDLE, enummodulescallback: *mut ::core::ffi::c_void, usercontext: *const ::core::ffi::c_void) -> super::super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(SymEnumerateModules64(hprocess.into(), ::core::mem::transmute(enummodulescallback), ::core::mem::transmute(usercontext)))
+    SymEnumerateModules64(hprocess.into(), ::core::mem::transmute(enummodulescallback), ::core::mem::transmute(usercontext))
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -56846,7 +56846,7 @@ where
     extern "system" {
         fn SymEnumerateModulesW64(hprocess: super::super::super::Foundation::HANDLE, enummodulescallback: *mut ::core::ffi::c_void, usercontext: *const ::core::ffi::c_void) -> super::super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(SymEnumerateModulesW64(hprocess.into(), ::core::mem::transmute(enummodulescallback), ::core::mem::transmute(usercontext)))
+    SymEnumerateModulesW64(hprocess.into(), ::core::mem::transmute(enummodulescallback), ::core::mem::transmute(usercontext))
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
 #[cfg(target_arch = "x86")]
@@ -56860,7 +56860,7 @@ where
     extern "system" {
         fn SymEnumerateSymbols(hprocess: super::super::super::Foundation::HANDLE, baseofdll: u32, enumsymbolscallback: *mut ::core::ffi::c_void, usercontext: *const ::core::ffi::c_void) -> super::super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(SymEnumerateSymbols(hprocess.into(), baseofdll, ::core::mem::transmute(enumsymbolscallback), ::core::mem::transmute(usercontext)))
+    SymEnumerateSymbols(hprocess.into(), baseofdll, ::core::mem::transmute(enumsymbolscallback), ::core::mem::transmute(usercontext))
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -56873,7 +56873,7 @@ where
     extern "system" {
         fn SymEnumerateSymbols64(hprocess: super::super::super::Foundation::HANDLE, baseofdll: u64, enumsymbolscallback: *mut ::core::ffi::c_void, usercontext: *const ::core::ffi::c_void) -> super::super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(SymEnumerateSymbols64(hprocess.into(), baseofdll, ::core::mem::transmute(enumsymbolscallback), ::core::mem::transmute(usercontext)))
+    SymEnumerateSymbols64(hprocess.into(), baseofdll, ::core::mem::transmute(enumsymbolscallback), ::core::mem::transmute(usercontext))
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
 #[cfg(target_arch = "x86")]
@@ -56887,7 +56887,7 @@ where
     extern "system" {
         fn SymEnumerateSymbolsW(hprocess: super::super::super::Foundation::HANDLE, baseofdll: u32, enumsymbolscallback: *mut ::core::ffi::c_void, usercontext: *const ::core::ffi::c_void) -> super::super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(SymEnumerateSymbolsW(hprocess.into(), baseofdll, ::core::mem::transmute(enumsymbolscallback), ::core::mem::transmute(usercontext)))
+    SymEnumerateSymbolsW(hprocess.into(), baseofdll, ::core::mem::transmute(enumsymbolscallback), ::core::mem::transmute(usercontext))
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -56900,7 +56900,7 @@ where
     extern "system" {
         fn SymEnumerateSymbolsW64(hprocess: super::super::super::Foundation::HANDLE, baseofdll: u64, enumsymbolscallback: *mut ::core::ffi::c_void, usercontext: *const ::core::ffi::c_void) -> super::super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(SymEnumerateSymbolsW64(hprocess.into(), baseofdll, ::core::mem::transmute(enumsymbolscallback), ::core::mem::transmute(usercontext)))
+    SymEnumerateSymbolsW64(hprocess.into(), baseofdll, ::core::mem::transmute(enumsymbolscallback), ::core::mem::transmute(usercontext))
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -56975,7 +56975,7 @@ where
     extern "system" {
         fn SymFindFileInPath(hprocess: super::super::super::Foundation::HANDLE, searchpatha: ::windows::core::PCSTR, filename: ::windows::core::PCSTR, id: *const ::core::ffi::c_void, two: u32, three: u32, flags: SYM_FIND_ID_OPTION, foundfile: ::windows::core::PSTR, callback: *mut ::core::ffi::c_void, context: *const ::core::ffi::c_void) -> super::super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(SymFindFileInPath(hprocess.into(), searchpatha.into(), filename.into(), ::core::mem::transmute(id), two, three, flags, ::core::mem::transmute(foundfile), ::core::mem::transmute(callback), ::core::mem::transmute(context)))
+    SymFindFileInPath(hprocess.into(), searchpatha.into(), filename.into(), ::core::mem::transmute(id), two, three, flags, ::core::mem::transmute(foundfile), ::core::mem::transmute(callback), ::core::mem::transmute(context))
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -56990,7 +56990,7 @@ where
     extern "system" {
         fn SymFindFileInPathW(hprocess: super::super::super::Foundation::HANDLE, searchpatha: ::windows::core::PCWSTR, filename: ::windows::core::PCWSTR, id: *const ::core::ffi::c_void, two: u32, three: u32, flags: SYM_FIND_ID_OPTION, foundfile: ::windows::core::PWSTR, callback: *mut ::core::ffi::c_void, context: *const ::core::ffi::c_void) -> super::super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(SymFindFileInPathW(hprocess.into(), searchpatha.into(), filename.into(), ::core::mem::transmute(id), two, three, flags, ::core::mem::transmute(foundfile), ::core::mem::transmute(callback), ::core::mem::transmute(context)))
+    SymFindFileInPathW(hprocess.into(), searchpatha.into(), filename.into(), ::core::mem::transmute(id), two, three, flags, ::core::mem::transmute(foundfile), ::core::mem::transmute(callback), ::core::mem::transmute(context))
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -57003,7 +57003,7 @@ where
     extern "system" {
         fn SymFromAddr(hprocess: super::super::super::Foundation::HANDLE, address: u64, displacement: *mut u64, symbol: *mut SYMBOL_INFO) -> super::super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(SymFromAddr(hprocess.into(), address, ::core::mem::transmute(displacement), ::core::mem::transmute(symbol)))
+    SymFromAddr(hprocess.into(), address, ::core::mem::transmute(displacement), ::core::mem::transmute(symbol))
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -57016,7 +57016,7 @@ where
     extern "system" {
         fn SymFromAddrW(hprocess: super::super::super::Foundation::HANDLE, address: u64, displacement: *mut u64, symbol: *mut SYMBOL_INFOW) -> super::super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(SymFromAddrW(hprocess.into(), address, ::core::mem::transmute(displacement), ::core::mem::transmute(symbol)))
+    SymFromAddrW(hprocess.into(), address, ::core::mem::transmute(displacement), ::core::mem::transmute(symbol))
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -57029,7 +57029,7 @@ where
     extern "system" {
         fn SymFromIndex(hprocess: super::super::super::Foundation::HANDLE, baseofdll: u64, index: u32, symbol: *mut SYMBOL_INFO) -> super::super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(SymFromIndex(hprocess.into(), baseofdll, index, ::core::mem::transmute(symbol)))
+    SymFromIndex(hprocess.into(), baseofdll, index, ::core::mem::transmute(symbol))
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -57042,7 +57042,7 @@ where
     extern "system" {
         fn SymFromIndexW(hprocess: super::super::super::Foundation::HANDLE, baseofdll: u64, index: u32, symbol: *mut SYMBOL_INFOW) -> super::super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(SymFromIndexW(hprocess.into(), baseofdll, index, ::core::mem::transmute(symbol)))
+    SymFromIndexW(hprocess.into(), baseofdll, index, ::core::mem::transmute(symbol))
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -57055,7 +57055,7 @@ where
     extern "system" {
         fn SymFromInlineContext(hprocess: super::super::super::Foundation::HANDLE, address: u64, inlinecontext: u32, displacement: *mut u64, symbol: *mut SYMBOL_INFO) -> super::super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(SymFromInlineContext(hprocess.into(), address, inlinecontext, ::core::mem::transmute(displacement), ::core::mem::transmute(symbol)))
+    SymFromInlineContext(hprocess.into(), address, inlinecontext, ::core::mem::transmute(displacement), ::core::mem::transmute(symbol))
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -57068,7 +57068,7 @@ where
     extern "system" {
         fn SymFromInlineContextW(hprocess: super::super::super::Foundation::HANDLE, address: u64, inlinecontext: u32, displacement: *mut u64, symbol: *mut SYMBOL_INFOW) -> super::super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(SymFromInlineContextW(hprocess.into(), address, inlinecontext, ::core::mem::transmute(displacement), ::core::mem::transmute(symbol)))
+    SymFromInlineContextW(hprocess.into(), address, inlinecontext, ::core::mem::transmute(displacement), ::core::mem::transmute(symbol))
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -57082,7 +57082,7 @@ where
     extern "system" {
         fn SymFromName(hprocess: super::super::super::Foundation::HANDLE, name: ::windows::core::PCSTR, symbol: *mut SYMBOL_INFO) -> super::super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(SymFromName(hprocess.into(), name.into(), ::core::mem::transmute(symbol)))
+    SymFromName(hprocess.into(), name.into(), ::core::mem::transmute(symbol))
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -57096,7 +57096,7 @@ where
     extern "system" {
         fn SymFromNameW(hprocess: super::super::super::Foundation::HANDLE, name: ::windows::core::PCWSTR, symbol: *mut SYMBOL_INFOW) -> super::super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(SymFromNameW(hprocess.into(), name.into(), ::core::mem::transmute(symbol)))
+    SymFromNameW(hprocess.into(), name.into(), ::core::mem::transmute(symbol))
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -57109,7 +57109,7 @@ where
     extern "system" {
         fn SymFromToken(hprocess: super::super::super::Foundation::HANDLE, base: u64, token: u32, symbol: *mut SYMBOL_INFO) -> super::super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(SymFromToken(hprocess.into(), base, token, ::core::mem::transmute(symbol)))
+    SymFromToken(hprocess.into(), base, token, ::core::mem::transmute(symbol))
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -57122,7 +57122,7 @@ where
     extern "system" {
         fn SymFromTokenW(hprocess: super::super::super::Foundation::HANDLE, base: u64, token: u32, symbol: *mut SYMBOL_INFOW) -> super::super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(SymFromTokenW(hprocess.into(), base, token, ::core::mem::transmute(symbol)))
+    SymFromTokenW(hprocess.into(), base, token, ::core::mem::transmute(symbol))
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
 #[cfg(target_arch = "x86")]
@@ -57136,7 +57136,7 @@ where
     extern "system" {
         fn SymFunctionTableAccess(hprocess: super::super::super::Foundation::HANDLE, addrbase: u32) -> *mut ::core::ffi::c_void;
     }
-    ::core::mem::transmute(SymFunctionTableAccess(hprocess.into(), addrbase))
+    SymFunctionTableAccess(hprocess.into(), addrbase)
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -57149,7 +57149,7 @@ where
     extern "system" {
         fn SymFunctionTableAccess64(hprocess: super::super::super::Foundation::HANDLE, addrbase: u64) -> *mut ::core::ffi::c_void;
     }
-    ::core::mem::transmute(SymFunctionTableAccess64(hprocess.into(), addrbase))
+    SymFunctionTableAccess64(hprocess.into(), addrbase)
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -57162,7 +57162,7 @@ where
     extern "system" {
         fn SymFunctionTableAccess64AccessRoutines(hprocess: super::super::super::Foundation::HANDLE, addrbase: u64, readmemoryroutine: *mut ::core::ffi::c_void, getmodulebaseroutine: *mut ::core::ffi::c_void) -> *mut ::core::ffi::c_void;
     }
-    ::core::mem::transmute(SymFunctionTableAccess64AccessRoutines(hprocess.into(), addrbase, ::core::mem::transmute(readmemoryroutine), ::core::mem::transmute(getmodulebaseroutine)))
+    SymFunctionTableAccess64AccessRoutines(hprocess.into(), addrbase, ::core::mem::transmute(readmemoryroutine), ::core::mem::transmute(getmodulebaseroutine))
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -57172,7 +57172,7 @@ pub unsafe fn SymGetExtendedOption(option: IMAGEHLP_EXTENDED_OPTIONS) -> super::
     extern "system" {
         fn SymGetExtendedOption(option: IMAGEHLP_EXTENDED_OPTIONS) -> super::super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(SymGetExtendedOption(option))
+    SymGetExtendedOption(option)
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -57187,7 +57187,7 @@ where
     extern "system" {
         fn SymGetFileLineOffsets64(hprocess: super::super::super::Foundation::HANDLE, modulename: ::windows::core::PCSTR, filename: ::windows::core::PCSTR, buffer: *mut u64, bufferlines: u32) -> u32;
     }
-    ::core::mem::transmute(SymGetFileLineOffsets64(hprocess.into(), modulename.into(), filename.into(), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(buffer)), buffer.len() as _))
+    SymGetFileLineOffsets64(hprocess.into(), modulename.into(), filename.into(), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(buffer)), buffer.len() as _)
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
 #[inline]
@@ -57196,7 +57196,7 @@ pub unsafe fn SymGetHomeDirectory(r#type: IMAGEHLP_HD_TYPE, dir: &mut [u8]) -> :
     extern "system" {
         fn SymGetHomeDirectory(r#type: IMAGEHLP_HD_TYPE, dir: ::windows::core::PSTR, size: usize) -> ::windows::core::PSTR;
     }
-    ::core::mem::transmute(SymGetHomeDirectory(r#type, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(dir)), dir.len() as _))
+    SymGetHomeDirectory(r#type, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(dir)), dir.len() as _)
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
 #[inline]
@@ -57205,7 +57205,7 @@ pub unsafe fn SymGetHomeDirectoryW(r#type: IMAGEHLP_HD_TYPE, dir: &mut [u16]) ->
     extern "system" {
         fn SymGetHomeDirectoryW(r#type: IMAGEHLP_HD_TYPE, dir: ::windows::core::PWSTR, size: usize) -> ::windows::core::PWSTR;
     }
-    ::core::mem::transmute(SymGetHomeDirectoryW(r#type, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(dir)), dir.len() as _))
+    SymGetHomeDirectoryW(r#type, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(dir)), dir.len() as _)
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
 #[cfg(target_arch = "x86")]
@@ -57219,7 +57219,7 @@ where
     extern "system" {
         fn SymGetLineFromAddr(hprocess: super::super::super::Foundation::HANDLE, dwaddr: u32, pdwdisplacement: *mut u32, line: *mut IMAGEHLP_LINE) -> super::super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(SymGetLineFromAddr(hprocess.into(), dwaddr, ::core::mem::transmute(pdwdisplacement), ::core::mem::transmute(line)))
+    SymGetLineFromAddr(hprocess.into(), dwaddr, ::core::mem::transmute(pdwdisplacement), ::core::mem::transmute(line))
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -57232,7 +57232,7 @@ where
     extern "system" {
         fn SymGetLineFromAddr64(hprocess: super::super::super::Foundation::HANDLE, qwaddr: u64, pdwdisplacement: *mut u32, line64: *mut IMAGEHLP_LINE64) -> super::super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(SymGetLineFromAddr64(hprocess.into(), qwaddr, ::core::mem::transmute(pdwdisplacement), ::core::mem::transmute(line64)))
+    SymGetLineFromAddr64(hprocess.into(), qwaddr, ::core::mem::transmute(pdwdisplacement), ::core::mem::transmute(line64))
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -57245,7 +57245,7 @@ where
     extern "system" {
         fn SymGetLineFromAddrW64(hprocess: super::super::super::Foundation::HANDLE, dwaddr: u64, pdwdisplacement: *mut u32, line: *mut IMAGEHLP_LINEW64) -> super::super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(SymGetLineFromAddrW64(hprocess.into(), dwaddr, ::core::mem::transmute(pdwdisplacement), ::core::mem::transmute(line)))
+    SymGetLineFromAddrW64(hprocess.into(), dwaddr, ::core::mem::transmute(pdwdisplacement), ::core::mem::transmute(line))
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -57258,7 +57258,7 @@ where
     extern "system" {
         fn SymGetLineFromInlineContext(hprocess: super::super::super::Foundation::HANDLE, qwaddr: u64, inlinecontext: u32, qwmodulebaseaddress: u64, pdwdisplacement: *mut u32, line64: *mut IMAGEHLP_LINE64) -> super::super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(SymGetLineFromInlineContext(hprocess.into(), qwaddr, inlinecontext, qwmodulebaseaddress, ::core::mem::transmute(pdwdisplacement), ::core::mem::transmute(line64)))
+    SymGetLineFromInlineContext(hprocess.into(), qwaddr, inlinecontext, qwmodulebaseaddress, ::core::mem::transmute(pdwdisplacement), ::core::mem::transmute(line64))
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -57271,7 +57271,7 @@ where
     extern "system" {
         fn SymGetLineFromInlineContextW(hprocess: super::super::super::Foundation::HANDLE, dwaddr: u64, inlinecontext: u32, qwmodulebaseaddress: u64, pdwdisplacement: *mut u32, line: *mut IMAGEHLP_LINEW64) -> super::super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(SymGetLineFromInlineContextW(hprocess.into(), dwaddr, inlinecontext, qwmodulebaseaddress, ::core::mem::transmute(pdwdisplacement), ::core::mem::transmute(line)))
+    SymGetLineFromInlineContextW(hprocess.into(), dwaddr, inlinecontext, qwmodulebaseaddress, ::core::mem::transmute(pdwdisplacement), ::core::mem::transmute(line))
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
 #[cfg(target_arch = "x86")]
@@ -57287,7 +57287,7 @@ where
     extern "system" {
         fn SymGetLineFromName(hprocess: super::super::super::Foundation::HANDLE, modulename: ::windows::core::PCSTR, filename: ::windows::core::PCSTR, dwlinenumber: u32, pldisplacement: *mut i32, line: *mut IMAGEHLP_LINE) -> super::super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(SymGetLineFromName(hprocess.into(), modulename.into(), filename.into(), dwlinenumber, ::core::mem::transmute(pldisplacement), ::core::mem::transmute(line)))
+    SymGetLineFromName(hprocess.into(), modulename.into(), filename.into(), dwlinenumber, ::core::mem::transmute(pldisplacement), ::core::mem::transmute(line))
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -57302,7 +57302,7 @@ where
     extern "system" {
         fn SymGetLineFromName64(hprocess: super::super::super::Foundation::HANDLE, modulename: ::windows::core::PCSTR, filename: ::windows::core::PCSTR, dwlinenumber: u32, pldisplacement: *mut i32, line: *mut IMAGEHLP_LINE64) -> super::super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(SymGetLineFromName64(hprocess.into(), modulename.into(), filename.into(), dwlinenumber, ::core::mem::transmute(pldisplacement), ::core::mem::transmute(line)))
+    SymGetLineFromName64(hprocess.into(), modulename.into(), filename.into(), dwlinenumber, ::core::mem::transmute(pldisplacement), ::core::mem::transmute(line))
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -57317,7 +57317,7 @@ where
     extern "system" {
         fn SymGetLineFromNameW64(hprocess: super::super::super::Foundation::HANDLE, modulename: ::windows::core::PCWSTR, filename: ::windows::core::PCWSTR, dwlinenumber: u32, pldisplacement: *mut i32, line: *mut IMAGEHLP_LINEW64) -> super::super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(SymGetLineFromNameW64(hprocess.into(), modulename.into(), filename.into(), dwlinenumber, ::core::mem::transmute(pldisplacement), ::core::mem::transmute(line)))
+    SymGetLineFromNameW64(hprocess.into(), modulename.into(), filename.into(), dwlinenumber, ::core::mem::transmute(pldisplacement), ::core::mem::transmute(line))
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
 #[cfg(target_arch = "x86")]
@@ -57331,7 +57331,7 @@ where
     extern "system" {
         fn SymGetLineNext(hprocess: super::super::super::Foundation::HANDLE, line: *mut IMAGEHLP_LINE) -> super::super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(SymGetLineNext(hprocess.into(), ::core::mem::transmute(line)))
+    SymGetLineNext(hprocess.into(), ::core::mem::transmute(line))
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -57344,7 +57344,7 @@ where
     extern "system" {
         fn SymGetLineNext64(hprocess: super::super::super::Foundation::HANDLE, line: *mut IMAGEHLP_LINE64) -> super::super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(SymGetLineNext64(hprocess.into(), ::core::mem::transmute(line)))
+    SymGetLineNext64(hprocess.into(), ::core::mem::transmute(line))
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -57357,7 +57357,7 @@ where
     extern "system" {
         fn SymGetLineNextW64(hprocess: super::super::super::Foundation::HANDLE, line: *mut IMAGEHLP_LINEW64) -> super::super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(SymGetLineNextW64(hprocess.into(), ::core::mem::transmute(line)))
+    SymGetLineNextW64(hprocess.into(), ::core::mem::transmute(line))
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
 #[cfg(target_arch = "x86")]
@@ -57371,7 +57371,7 @@ where
     extern "system" {
         fn SymGetLinePrev(hprocess: super::super::super::Foundation::HANDLE, line: *mut IMAGEHLP_LINE) -> super::super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(SymGetLinePrev(hprocess.into(), ::core::mem::transmute(line)))
+    SymGetLinePrev(hprocess.into(), ::core::mem::transmute(line))
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -57384,7 +57384,7 @@ where
     extern "system" {
         fn SymGetLinePrev64(hprocess: super::super::super::Foundation::HANDLE, line: *mut IMAGEHLP_LINE64) -> super::super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(SymGetLinePrev64(hprocess.into(), ::core::mem::transmute(line)))
+    SymGetLinePrev64(hprocess.into(), ::core::mem::transmute(line))
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -57397,7 +57397,7 @@ where
     extern "system" {
         fn SymGetLinePrevW64(hprocess: super::super::super::Foundation::HANDLE, line: *mut IMAGEHLP_LINEW64) -> super::super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(SymGetLinePrevW64(hprocess.into(), ::core::mem::transmute(line)))
+    SymGetLinePrevW64(hprocess.into(), ::core::mem::transmute(line))
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
 #[cfg(target_arch = "x86")]
@@ -57411,7 +57411,7 @@ where
     extern "system" {
         fn SymGetModuleBase(hprocess: super::super::super::Foundation::HANDLE, dwaddr: u32) -> u32;
     }
-    ::core::mem::transmute(SymGetModuleBase(hprocess.into(), dwaddr))
+    SymGetModuleBase(hprocess.into(), dwaddr)
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -57424,7 +57424,7 @@ where
     extern "system" {
         fn SymGetModuleBase64(hprocess: super::super::super::Foundation::HANDLE, qwaddr: u64) -> u64;
     }
-    ::core::mem::transmute(SymGetModuleBase64(hprocess.into(), qwaddr))
+    SymGetModuleBase64(hprocess.into(), qwaddr)
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
 #[cfg(target_arch = "x86")]
@@ -57438,7 +57438,7 @@ where
     extern "system" {
         fn SymGetModuleInfo(hprocess: super::super::super::Foundation::HANDLE, dwaddr: u32, moduleinfo: *mut IMAGEHLP_MODULE) -> super::super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(SymGetModuleInfo(hprocess.into(), dwaddr, ::core::mem::transmute(moduleinfo)))
+    SymGetModuleInfo(hprocess.into(), dwaddr, ::core::mem::transmute(moduleinfo))
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -57451,7 +57451,7 @@ where
     extern "system" {
         fn SymGetModuleInfo64(hprocess: super::super::super::Foundation::HANDLE, qwaddr: u64, moduleinfo: *mut IMAGEHLP_MODULE64) -> super::super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(SymGetModuleInfo64(hprocess.into(), qwaddr, ::core::mem::transmute(moduleinfo)))
+    SymGetModuleInfo64(hprocess.into(), qwaddr, ::core::mem::transmute(moduleinfo))
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
 #[cfg(target_arch = "x86")]
@@ -57465,7 +57465,7 @@ where
     extern "system" {
         fn SymGetModuleInfoW(hprocess: super::super::super::Foundation::HANDLE, dwaddr: u32, moduleinfo: *mut IMAGEHLP_MODULEW) -> super::super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(SymGetModuleInfoW(hprocess.into(), dwaddr, ::core::mem::transmute(moduleinfo)))
+    SymGetModuleInfoW(hprocess.into(), dwaddr, ::core::mem::transmute(moduleinfo))
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -57478,7 +57478,7 @@ where
     extern "system" {
         fn SymGetModuleInfoW64(hprocess: super::super::super::Foundation::HANDLE, qwaddr: u64, moduleinfo: *mut IMAGEHLP_MODULEW64) -> super::super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(SymGetModuleInfoW64(hprocess.into(), qwaddr, ::core::mem::transmute(moduleinfo)))
+    SymGetModuleInfoW64(hprocess.into(), qwaddr, ::core::mem::transmute(moduleinfo))
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -57491,7 +57491,7 @@ where
     extern "system" {
         fn SymGetOmaps(hprocess: super::super::super::Foundation::HANDLE, baseofdll: u64, omapto: *mut *mut OMAP, comapto: *mut u64, omapfrom: *mut *mut OMAP, comapfrom: *mut u64) -> super::super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(SymGetOmaps(hprocess.into(), baseofdll, ::core::mem::transmute(omapto), ::core::mem::transmute(comapto), ::core::mem::transmute(omapfrom), ::core::mem::transmute(comapfrom)))
+    SymGetOmaps(hprocess.into(), baseofdll, ::core::mem::transmute(omapto), ::core::mem::transmute(comapto), ::core::mem::transmute(omapfrom), ::core::mem::transmute(comapfrom))
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
 #[inline]
@@ -57500,7 +57500,7 @@ pub unsafe fn SymGetOptions() -> u32 {
     extern "system" {
         fn SymGetOptions() -> u32;
     }
-    ::core::mem::transmute(SymGetOptions())
+    SymGetOptions()
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -57513,7 +57513,7 @@ where
     extern "system" {
         fn SymGetScope(hprocess: super::super::super::Foundation::HANDLE, baseofdll: u64, index: u32, symbol: *mut SYMBOL_INFO) -> super::super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(SymGetScope(hprocess.into(), baseofdll, index, ::core::mem::transmute(symbol)))
+    SymGetScope(hprocess.into(), baseofdll, index, ::core::mem::transmute(symbol))
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -57526,7 +57526,7 @@ where
     extern "system" {
         fn SymGetScopeW(hprocess: super::super::super::Foundation::HANDLE, baseofdll: u64, index: u32, symbol: *mut SYMBOL_INFOW) -> super::super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(SymGetScopeW(hprocess.into(), baseofdll, index, ::core::mem::transmute(symbol)))
+    SymGetScopeW(hprocess.into(), baseofdll, index, ::core::mem::transmute(symbol))
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -57539,7 +57539,7 @@ where
     extern "system" {
         fn SymGetSearchPath(hprocess: super::super::super::Foundation::HANDLE, searchpatha: ::windows::core::PSTR, searchpathlength: u32) -> super::super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(SymGetSearchPath(hprocess.into(), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(searchpatha)), searchpatha.len() as _))
+    SymGetSearchPath(hprocess.into(), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(searchpatha)), searchpatha.len() as _)
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -57552,7 +57552,7 @@ where
     extern "system" {
         fn SymGetSearchPathW(hprocess: super::super::super::Foundation::HANDLE, searchpatha: ::windows::core::PWSTR, searchpathlength: u32) -> super::super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(SymGetSearchPathW(hprocess.into(), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(searchpatha)), searchpatha.len() as _))
+    SymGetSearchPathW(hprocess.into(), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(searchpatha)), searchpatha.len() as _)
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -57567,7 +57567,7 @@ where
     extern "system" {
         fn SymGetSourceFile(hprocess: super::super::super::Foundation::HANDLE, base: u64, params: ::windows::core::PCSTR, filespec: ::windows::core::PCSTR, filepath: ::windows::core::PSTR, size: u32) -> super::super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(SymGetSourceFile(hprocess.into(), base, params.into(), filespec.into(), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(filepath)), filepath.len() as _))
+    SymGetSourceFile(hprocess.into(), base, params.into(), filespec.into(), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(filepath)), filepath.len() as _)
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -57581,7 +57581,7 @@ where
     extern "system" {
         fn SymGetSourceFileChecksum(hprocess: super::super::super::Foundation::HANDLE, base: u64, filespec: ::windows::core::PCSTR, pchecksumtype: *mut u32, pchecksum: *mut u8, checksumsize: u32, pactualbyteswritten: *mut u32) -> super::super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(SymGetSourceFileChecksum(hprocess.into(), base, filespec.into(), ::core::mem::transmute(pchecksumtype), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(pchecksum)), pchecksum.len() as _, ::core::mem::transmute(pactualbyteswritten)))
+    SymGetSourceFileChecksum(hprocess.into(), base, filespec.into(), ::core::mem::transmute(pchecksumtype), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(pchecksum)), pchecksum.len() as _, ::core::mem::transmute(pactualbyteswritten))
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -57595,7 +57595,7 @@ where
     extern "system" {
         fn SymGetSourceFileChecksumW(hprocess: super::super::super::Foundation::HANDLE, base: u64, filespec: ::windows::core::PCWSTR, pchecksumtype: *mut u32, pchecksum: *mut u8, checksumsize: u32, pactualbyteswritten: *mut u32) -> super::super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(SymGetSourceFileChecksumW(hprocess.into(), base, filespec.into(), ::core::mem::transmute(pchecksumtype), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(pchecksum)), pchecksum.len() as _, ::core::mem::transmute(pactualbyteswritten)))
+    SymGetSourceFileChecksumW(hprocess.into(), base, filespec.into(), ::core::mem::transmute(pchecksumtype), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(pchecksum)), pchecksum.len() as _, ::core::mem::transmute(pactualbyteswritten))
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -57609,7 +57609,7 @@ where
     extern "system" {
         fn SymGetSourceFileFromToken(hprocess: super::super::super::Foundation::HANDLE, token: *const ::core::ffi::c_void, params: ::windows::core::PCSTR, filepath: ::windows::core::PSTR, size: u32) -> super::super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(SymGetSourceFileFromToken(hprocess.into(), ::core::mem::transmute(token), params.into(), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(filepath)), filepath.len() as _))
+    SymGetSourceFileFromToken(hprocess.into(), ::core::mem::transmute(token), params.into(), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(filepath)), filepath.len() as _)
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -57624,7 +57624,7 @@ where
     extern "system" {
         fn SymGetSourceFileFromTokenByTokenName(hprocess: super::super::super::Foundation::HANDLE, token: *const ::core::ffi::c_void, tokenname: ::windows::core::PCSTR, params: ::windows::core::PCSTR, filepath: ::windows::core::PSTR, size: u32) -> super::super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(SymGetSourceFileFromTokenByTokenName(hprocess.into(), ::core::mem::transmute(token), tokenname.into(), params.into(), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(filepath)), filepath.len() as _))
+    SymGetSourceFileFromTokenByTokenName(hprocess.into(), ::core::mem::transmute(token), tokenname.into(), params.into(), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(filepath)), filepath.len() as _)
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -57639,7 +57639,7 @@ where
     extern "system" {
         fn SymGetSourceFileFromTokenByTokenNameW(hprocess: super::super::super::Foundation::HANDLE, token: *const ::core::ffi::c_void, tokenname: ::windows::core::PCWSTR, params: ::windows::core::PCWSTR, filepath: ::windows::core::PWSTR, size: u32) -> super::super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(SymGetSourceFileFromTokenByTokenNameW(hprocess.into(), ::core::mem::transmute(token), tokenname.into(), params.into(), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(filepath)), filepath.len() as _))
+    SymGetSourceFileFromTokenByTokenNameW(hprocess.into(), ::core::mem::transmute(token), tokenname.into(), params.into(), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(filepath)), filepath.len() as _)
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -57653,7 +57653,7 @@ where
     extern "system" {
         fn SymGetSourceFileFromTokenW(hprocess: super::super::super::Foundation::HANDLE, token: *const ::core::ffi::c_void, params: ::windows::core::PCWSTR, filepath: ::windows::core::PWSTR, size: u32) -> super::super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(SymGetSourceFileFromTokenW(hprocess.into(), ::core::mem::transmute(token), params.into(), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(filepath)), filepath.len() as _))
+    SymGetSourceFileFromTokenW(hprocess.into(), ::core::mem::transmute(token), params.into(), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(filepath)), filepath.len() as _)
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -57667,7 +57667,7 @@ where
     extern "system" {
         fn SymGetSourceFileToken(hprocess: super::super::super::Foundation::HANDLE, base: u64, filespec: ::windows::core::PCSTR, token: *mut *mut ::core::ffi::c_void, size: *mut u32) -> super::super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(SymGetSourceFileToken(hprocess.into(), base, filespec.into(), ::core::mem::transmute(token), ::core::mem::transmute(size)))
+    SymGetSourceFileToken(hprocess.into(), base, filespec.into(), ::core::mem::transmute(token), ::core::mem::transmute(size))
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -57683,7 +57683,7 @@ where
     extern "system" {
         fn SymGetSourceFileTokenByTokenName(hprocess: super::super::super::Foundation::HANDLE, base: u64, filespec: ::windows::core::PCSTR, tokenname: ::windows::core::PCSTR, tokenparameters: ::windows::core::PCSTR, token: *mut *mut ::core::ffi::c_void, size: *mut u32) -> super::super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(SymGetSourceFileTokenByTokenName(hprocess.into(), base, filespec.into(), tokenname.into(), tokenparameters.into(), ::core::mem::transmute(token), ::core::mem::transmute(size)))
+    SymGetSourceFileTokenByTokenName(hprocess.into(), base, filespec.into(), tokenname.into(), tokenparameters.into(), ::core::mem::transmute(token), ::core::mem::transmute(size))
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -57699,7 +57699,7 @@ where
     extern "system" {
         fn SymGetSourceFileTokenByTokenNameW(hprocess: super::super::super::Foundation::HANDLE, base: u64, filespec: ::windows::core::PCWSTR, tokenname: ::windows::core::PCWSTR, tokenparameters: ::windows::core::PCWSTR, token: *mut *mut ::core::ffi::c_void, size: *mut u32) -> super::super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(SymGetSourceFileTokenByTokenNameW(hprocess.into(), base, filespec.into(), tokenname.into(), tokenparameters.into(), ::core::mem::transmute(token), ::core::mem::transmute(size)))
+    SymGetSourceFileTokenByTokenNameW(hprocess.into(), base, filespec.into(), tokenname.into(), tokenparameters.into(), ::core::mem::transmute(token), ::core::mem::transmute(size))
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -57713,7 +57713,7 @@ where
     extern "system" {
         fn SymGetSourceFileTokenW(hprocess: super::super::super::Foundation::HANDLE, base: u64, filespec: ::windows::core::PCWSTR, token: *mut *mut ::core::ffi::c_void, size: *mut u32) -> super::super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(SymGetSourceFileTokenW(hprocess.into(), base, filespec.into(), ::core::mem::transmute(token), ::core::mem::transmute(size)))
+    SymGetSourceFileTokenW(hprocess.into(), base, filespec.into(), ::core::mem::transmute(token), ::core::mem::transmute(size))
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -57728,7 +57728,7 @@ where
     extern "system" {
         fn SymGetSourceFileW(hprocess: super::super::super::Foundation::HANDLE, base: u64, params: ::windows::core::PCWSTR, filespec: ::windows::core::PCWSTR, filepath: ::windows::core::PWSTR, size: u32) -> super::super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(SymGetSourceFileW(hprocess.into(), base, params.into(), filespec.into(), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(filepath)), filepath.len() as _))
+    SymGetSourceFileW(hprocess.into(), base, params.into(), filespec.into(), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(filepath)), filepath.len() as _)
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -57743,7 +57743,7 @@ where
     extern "system" {
         fn SymGetSourceVarFromToken(hprocess: super::super::super::Foundation::HANDLE, token: *const ::core::ffi::c_void, params: ::windows::core::PCSTR, varname: ::windows::core::PCSTR, value: ::windows::core::PSTR, size: u32) -> super::super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(SymGetSourceVarFromToken(hprocess.into(), ::core::mem::transmute(token), params.into(), varname.into(), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(value)), value.len() as _))
+    SymGetSourceVarFromToken(hprocess.into(), ::core::mem::transmute(token), params.into(), varname.into(), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(value)), value.len() as _)
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -57758,7 +57758,7 @@ where
     extern "system" {
         fn SymGetSourceVarFromTokenW(hprocess: super::super::super::Foundation::HANDLE, token: *const ::core::ffi::c_void, params: ::windows::core::PCWSTR, varname: ::windows::core::PCWSTR, value: ::windows::core::PWSTR, size: u32) -> super::super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(SymGetSourceVarFromTokenW(hprocess.into(), ::core::mem::transmute(token), params.into(), varname.into(), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(value)), value.len() as _))
+    SymGetSourceVarFromTokenW(hprocess.into(), ::core::mem::transmute(token), params.into(), varname.into(), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(value)), value.len() as _)
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
 #[cfg(target_arch = "x86")]
@@ -57772,7 +57772,7 @@ where
     extern "system" {
         fn SymGetSymFromAddr(hprocess: super::super::super::Foundation::HANDLE, dwaddr: u32, pdwdisplacement: *mut u32, symbol: *mut IMAGEHLP_SYMBOL) -> super::super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(SymGetSymFromAddr(hprocess.into(), dwaddr, ::core::mem::transmute(pdwdisplacement), ::core::mem::transmute(symbol)))
+    SymGetSymFromAddr(hprocess.into(), dwaddr, ::core::mem::transmute(pdwdisplacement), ::core::mem::transmute(symbol))
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -57785,7 +57785,7 @@ where
     extern "system" {
         fn SymGetSymFromAddr64(hprocess: super::super::super::Foundation::HANDLE, qwaddr: u64, pdwdisplacement: *mut u64, symbol: *mut IMAGEHLP_SYMBOL64) -> super::super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(SymGetSymFromAddr64(hprocess.into(), qwaddr, ::core::mem::transmute(pdwdisplacement), ::core::mem::transmute(symbol)))
+    SymGetSymFromAddr64(hprocess.into(), qwaddr, ::core::mem::transmute(pdwdisplacement), ::core::mem::transmute(symbol))
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
 #[cfg(target_arch = "x86")]
@@ -57800,7 +57800,7 @@ where
     extern "system" {
         fn SymGetSymFromName(hprocess: super::super::super::Foundation::HANDLE, name: ::windows::core::PCSTR, symbol: *mut IMAGEHLP_SYMBOL) -> super::super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(SymGetSymFromName(hprocess.into(), name.into(), ::core::mem::transmute(symbol)))
+    SymGetSymFromName(hprocess.into(), name.into(), ::core::mem::transmute(symbol))
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -57814,7 +57814,7 @@ where
     extern "system" {
         fn SymGetSymFromName64(hprocess: super::super::super::Foundation::HANDLE, name: ::windows::core::PCSTR, symbol: *mut IMAGEHLP_SYMBOL64) -> super::super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(SymGetSymFromName64(hprocess.into(), name.into(), ::core::mem::transmute(symbol)))
+    SymGetSymFromName64(hprocess.into(), name.into(), ::core::mem::transmute(symbol))
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
 #[cfg(target_arch = "x86")]
@@ -57828,7 +57828,7 @@ where
     extern "system" {
         fn SymGetSymNext(hprocess: super::super::super::Foundation::HANDLE, symbol: *mut IMAGEHLP_SYMBOL) -> super::super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(SymGetSymNext(hprocess.into(), ::core::mem::transmute(symbol)))
+    SymGetSymNext(hprocess.into(), ::core::mem::transmute(symbol))
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -57841,7 +57841,7 @@ where
     extern "system" {
         fn SymGetSymNext64(hprocess: super::super::super::Foundation::HANDLE, symbol: *mut IMAGEHLP_SYMBOL64) -> super::super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(SymGetSymNext64(hprocess.into(), ::core::mem::transmute(symbol)))
+    SymGetSymNext64(hprocess.into(), ::core::mem::transmute(symbol))
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
 #[cfg(target_arch = "x86")]
@@ -57855,7 +57855,7 @@ where
     extern "system" {
         fn SymGetSymPrev(hprocess: super::super::super::Foundation::HANDLE, symbol: *mut IMAGEHLP_SYMBOL) -> super::super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(SymGetSymPrev(hprocess.into(), ::core::mem::transmute(symbol)))
+    SymGetSymPrev(hprocess.into(), ::core::mem::transmute(symbol))
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -57868,7 +57868,7 @@ where
     extern "system" {
         fn SymGetSymPrev64(hprocess: super::super::super::Foundation::HANDLE, symbol: *mut IMAGEHLP_SYMBOL64) -> super::super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(SymGetSymPrev64(hprocess.into(), ::core::mem::transmute(symbol)))
+    SymGetSymPrev64(hprocess.into(), ::core::mem::transmute(symbol))
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -57883,7 +57883,7 @@ where
     extern "system" {
         fn SymGetSymbolFile(hprocess: super::super::super::Foundation::HANDLE, sympath: ::windows::core::PCSTR, imagefile: ::windows::core::PCSTR, r#type: IMAGEHLP_SF_TYPE, symbolfile: ::windows::core::PSTR, csymbolfile: usize, dbgfile: ::windows::core::PSTR, cdbgfile: usize) -> super::super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(SymGetSymbolFile(hprocess.into(), sympath.into(), imagefile.into(), r#type, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(symbolfile)), symbolfile.len() as _, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(dbgfile)), dbgfile.len() as _))
+    SymGetSymbolFile(hprocess.into(), sympath.into(), imagefile.into(), r#type, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(symbolfile)), symbolfile.len() as _, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(dbgfile)), dbgfile.len() as _)
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -57898,7 +57898,7 @@ where
     extern "system" {
         fn SymGetSymbolFileW(hprocess: super::super::super::Foundation::HANDLE, sympath: ::windows::core::PCWSTR, imagefile: ::windows::core::PCWSTR, r#type: IMAGEHLP_SF_TYPE, symbolfile: ::windows::core::PWSTR, csymbolfile: usize, dbgfile: ::windows::core::PWSTR, cdbgfile: usize) -> super::super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(SymGetSymbolFileW(hprocess.into(), sympath.into(), imagefile.into(), r#type, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(symbolfile)), symbolfile.len() as _, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(dbgfile)), dbgfile.len() as _))
+    SymGetSymbolFileW(hprocess.into(), sympath.into(), imagefile.into(), r#type, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(symbolfile)), symbolfile.len() as _, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(dbgfile)), dbgfile.len() as _)
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -57912,7 +57912,7 @@ where
     extern "system" {
         fn SymGetTypeFromName(hprocess: super::super::super::Foundation::HANDLE, baseofdll: u64, name: ::windows::core::PCSTR, symbol: *mut SYMBOL_INFO) -> super::super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(SymGetTypeFromName(hprocess.into(), baseofdll, name.into(), ::core::mem::transmute(symbol)))
+    SymGetTypeFromName(hprocess.into(), baseofdll, name.into(), ::core::mem::transmute(symbol))
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -57926,7 +57926,7 @@ where
     extern "system" {
         fn SymGetTypeFromNameW(hprocess: super::super::super::Foundation::HANDLE, baseofdll: u64, name: ::windows::core::PCWSTR, symbol: *mut SYMBOL_INFOW) -> super::super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(SymGetTypeFromNameW(hprocess.into(), baseofdll, name.into(), ::core::mem::transmute(symbol)))
+    SymGetTypeFromNameW(hprocess.into(), baseofdll, name.into(), ::core::mem::transmute(symbol))
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -57939,7 +57939,7 @@ where
     extern "system" {
         fn SymGetTypeInfo(hprocess: super::super::super::Foundation::HANDLE, modbase: u64, typeid: u32, gettype: IMAGEHLP_SYMBOL_TYPE_INFO, pinfo: *mut ::core::ffi::c_void) -> super::super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(SymGetTypeInfo(hprocess.into(), modbase, typeid, gettype, ::core::mem::transmute(pinfo)))
+    SymGetTypeInfo(hprocess.into(), modbase, typeid, gettype, ::core::mem::transmute(pinfo))
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -57952,7 +57952,7 @@ where
     extern "system" {
         fn SymGetTypeInfoEx(hprocess: super::super::super::Foundation::HANDLE, modbase: u64, params: *mut IMAGEHLP_GET_TYPE_INFO_PARAMS) -> super::super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(SymGetTypeInfoEx(hprocess.into(), modbase, ::core::mem::transmute(params)))
+    SymGetTypeInfoEx(hprocess.into(), modbase, ::core::mem::transmute(params))
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -57965,7 +57965,7 @@ where
     extern "system" {
         fn SymGetUnwindInfo(hprocess: super::super::super::Foundation::HANDLE, address: u64, buffer: *mut ::core::ffi::c_void, size: *mut u32) -> super::super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(SymGetUnwindInfo(hprocess.into(), address, ::core::mem::transmute(buffer), ::core::mem::transmute(size)))
+    SymGetUnwindInfo(hprocess.into(), address, ::core::mem::transmute(buffer), ::core::mem::transmute(size))
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -57980,7 +57980,7 @@ where
     extern "system" {
         fn SymInitialize(hprocess: super::super::super::Foundation::HANDLE, usersearchpath: ::windows::core::PCSTR, finvadeprocess: super::super::super::Foundation::BOOL) -> super::super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(SymInitialize(hprocess.into(), usersearchpath.into(), finvadeprocess.into()))
+    SymInitialize(hprocess.into(), usersearchpath.into(), finvadeprocess.into())
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -57995,7 +57995,7 @@ where
     extern "system" {
         fn SymInitializeW(hprocess: super::super::super::Foundation::HANDLE, usersearchpath: ::windows::core::PCWSTR, finvadeprocess: super::super::super::Foundation::BOOL) -> super::super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(SymInitializeW(hprocess.into(), usersearchpath.into(), finvadeprocess.into()))
+    SymInitializeW(hprocess.into(), usersearchpath.into(), finvadeprocess.into())
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
 #[cfg(target_arch = "x86")]
@@ -58012,7 +58012,7 @@ where
     extern "system" {
         fn SymLoadModule(hprocess: super::super::super::Foundation::HANDLE, hfile: super::super::super::Foundation::HANDLE, imagename: ::windows::core::PCSTR, modulename: ::windows::core::PCSTR, baseofdll: u32, sizeofdll: u32) -> u32;
     }
-    ::core::mem::transmute(SymLoadModule(hprocess.into(), hfile.into(), imagename.into(), modulename.into(), baseofdll, sizeofdll))
+    SymLoadModule(hprocess.into(), hfile.into(), imagename.into(), modulename.into(), baseofdll, sizeofdll)
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -58028,7 +58028,7 @@ where
     extern "system" {
         fn SymLoadModule64(hprocess: super::super::super::Foundation::HANDLE, hfile: super::super::super::Foundation::HANDLE, imagename: ::windows::core::PCSTR, modulename: ::windows::core::PCSTR, baseofdll: u64, sizeofdll: u32) -> u64;
     }
-    ::core::mem::transmute(SymLoadModule64(hprocess.into(), hfile.into(), imagename.into(), modulename.into(), baseofdll, sizeofdll))
+    SymLoadModule64(hprocess.into(), hfile.into(), imagename.into(), modulename.into(), baseofdll, sizeofdll)
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -58044,7 +58044,7 @@ where
     extern "system" {
         fn SymLoadModuleEx(hprocess: super::super::super::Foundation::HANDLE, hfile: super::super::super::Foundation::HANDLE, imagename: ::windows::core::PCSTR, modulename: ::windows::core::PCSTR, baseofdll: u64, dllsize: u32, data: *const MODLOAD_DATA, flags: SYM_LOAD_FLAGS) -> u64;
     }
-    ::core::mem::transmute(SymLoadModuleEx(hprocess.into(), hfile.into(), imagename.into(), modulename.into(), baseofdll, dllsize, ::core::mem::transmute(data), flags))
+    SymLoadModuleEx(hprocess.into(), hfile.into(), imagename.into(), modulename.into(), baseofdll, dllsize, ::core::mem::transmute(data), flags)
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -58060,7 +58060,7 @@ where
     extern "system" {
         fn SymLoadModuleExW(hprocess: super::super::super::Foundation::HANDLE, hfile: super::super::super::Foundation::HANDLE, imagename: ::windows::core::PCWSTR, modulename: ::windows::core::PCWSTR, baseofdll: u64, dllsize: u32, data: *const MODLOAD_DATA, flags: SYM_LOAD_FLAGS) -> u64;
     }
-    ::core::mem::transmute(SymLoadModuleExW(hprocess.into(), hfile.into(), imagename.into(), modulename.into(), baseofdll, dllsize, ::core::mem::transmute(data), flags))
+    SymLoadModuleExW(hprocess.into(), hfile.into(), imagename.into(), modulename.into(), baseofdll, dllsize, ::core::mem::transmute(data), flags)
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -58074,7 +58074,7 @@ where
     extern "system" {
         fn SymMatchFileName(filename: ::windows::core::PCSTR, r#match: ::windows::core::PCSTR, filenamestop: *mut ::windows::core::PSTR, matchstop: *mut ::windows::core::PSTR) -> super::super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(SymMatchFileName(filename.into(), r#match.into(), ::core::mem::transmute(filenamestop), ::core::mem::transmute(matchstop)))
+    SymMatchFileName(filename.into(), r#match.into(), ::core::mem::transmute(filenamestop), ::core::mem::transmute(matchstop))
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -58088,7 +58088,7 @@ where
     extern "system" {
         fn SymMatchFileNameW(filename: ::windows::core::PCWSTR, r#match: ::windows::core::PCWSTR, filenamestop: *mut ::windows::core::PWSTR, matchstop: *mut ::windows::core::PWSTR) -> super::super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(SymMatchFileNameW(filename.into(), r#match.into(), ::core::mem::transmute(filenamestop), ::core::mem::transmute(matchstop)))
+    SymMatchFileNameW(filename.into(), r#match.into(), ::core::mem::transmute(filenamestop), ::core::mem::transmute(matchstop))
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -58103,7 +58103,7 @@ where
     extern "system" {
         fn SymMatchString(string: ::windows::core::PCSTR, expression: ::windows::core::PCSTR, fcase: super::super::super::Foundation::BOOL) -> super::super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(SymMatchString(string.into(), expression.into(), fcase.into()))
+    SymMatchString(string.into(), expression.into(), fcase.into())
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -58118,7 +58118,7 @@ where
     extern "system" {
         fn SymMatchStringA(string: ::windows::core::PCSTR, expression: ::windows::core::PCSTR, fcase: super::super::super::Foundation::BOOL) -> super::super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(SymMatchStringA(string.into(), expression.into(), fcase.into()))
+    SymMatchStringA(string.into(), expression.into(), fcase.into())
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -58133,7 +58133,7 @@ where
     extern "system" {
         fn SymMatchStringW(string: ::windows::core::PCWSTR, expression: ::windows::core::PCWSTR, fcase: super::super::super::Foundation::BOOL) -> super::super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(SymMatchStringW(string.into(), expression.into(), fcase.into()))
+    SymMatchStringW(string.into(), expression.into(), fcase.into())
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -58146,7 +58146,7 @@ where
     extern "system" {
         fn SymNext(hprocess: super::super::super::Foundation::HANDLE, si: *mut SYMBOL_INFO) -> super::super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(SymNext(hprocess.into(), ::core::mem::transmute(si)))
+    SymNext(hprocess.into(), ::core::mem::transmute(si))
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -58159,7 +58159,7 @@ where
     extern "system" {
         fn SymNextW(hprocess: super::super::super::Foundation::HANDLE, siw: *mut SYMBOL_INFOW) -> super::super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(SymNextW(hprocess.into(), ::core::mem::transmute(siw)))
+    SymNextW(hprocess.into(), ::core::mem::transmute(siw))
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -58172,7 +58172,7 @@ where
     extern "system" {
         fn SymPrev(hprocess: super::super::super::Foundation::HANDLE, si: *mut SYMBOL_INFO) -> super::super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(SymPrev(hprocess.into(), ::core::mem::transmute(si)))
+    SymPrev(hprocess.into(), ::core::mem::transmute(si))
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -58185,7 +58185,7 @@ where
     extern "system" {
         fn SymPrevW(hprocess: super::super::super::Foundation::HANDLE, siw: *mut SYMBOL_INFOW) -> super::super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(SymPrevW(hprocess.into(), ::core::mem::transmute(siw)))
+    SymPrevW(hprocess.into(), ::core::mem::transmute(siw))
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -58198,7 +58198,7 @@ where
     extern "system" {
         fn SymQueryInlineTrace(hprocess: super::super::super::Foundation::HANDLE, startaddress: u64, startcontext: u32, startretaddress: u64, curaddress: u64, curcontext: *mut u32, curframeindex: *mut u32) -> super::super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(SymQueryInlineTrace(hprocess.into(), startaddress, startcontext, startretaddress, curaddress, ::core::mem::transmute(curcontext), ::core::mem::transmute(curframeindex)))
+    SymQueryInlineTrace(hprocess.into(), startaddress, startcontext, startretaddress, curaddress, ::core::mem::transmute(curcontext), ::core::mem::transmute(curframeindex))
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -58211,7 +58211,7 @@ where
     extern "system" {
         fn SymRefreshModuleList(hprocess: super::super::super::Foundation::HANDLE) -> super::super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(SymRefreshModuleList(hprocess.into()))
+    SymRefreshModuleList(hprocess.into())
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
 #[cfg(target_arch = "x86")]
@@ -58225,7 +58225,7 @@ where
     extern "system" {
         fn SymRegisterCallback(hprocess: super::super::super::Foundation::HANDLE, callbackfunction: *mut ::core::ffi::c_void, usercontext: *const ::core::ffi::c_void) -> super::super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(SymRegisterCallback(hprocess.into(), ::core::mem::transmute(callbackfunction), ::core::mem::transmute(usercontext)))
+    SymRegisterCallback(hprocess.into(), ::core::mem::transmute(callbackfunction), ::core::mem::transmute(usercontext))
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -58238,7 +58238,7 @@ where
     extern "system" {
         fn SymRegisterCallback64(hprocess: super::super::super::Foundation::HANDLE, callbackfunction: *mut ::core::ffi::c_void, usercontext: u64) -> super::super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(SymRegisterCallback64(hprocess.into(), ::core::mem::transmute(callbackfunction), usercontext))
+    SymRegisterCallback64(hprocess.into(), ::core::mem::transmute(callbackfunction), usercontext)
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -58251,7 +58251,7 @@ where
     extern "system" {
         fn SymRegisterCallbackW64(hprocess: super::super::super::Foundation::HANDLE, callbackfunction: *mut ::core::ffi::c_void, usercontext: u64) -> super::super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(SymRegisterCallbackW64(hprocess.into(), ::core::mem::transmute(callbackfunction), usercontext))
+    SymRegisterCallbackW64(hprocess.into(), ::core::mem::transmute(callbackfunction), usercontext)
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
 #[cfg(target_arch = "x86")]
@@ -58265,7 +58265,7 @@ where
     extern "system" {
         fn SymRegisterFunctionEntryCallback(hprocess: super::super::super::Foundation::HANDLE, callbackfunction: *mut ::core::ffi::c_void, usercontext: *const ::core::ffi::c_void) -> super::super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(SymRegisterFunctionEntryCallback(hprocess.into(), ::core::mem::transmute(callbackfunction), ::core::mem::transmute(usercontext)))
+    SymRegisterFunctionEntryCallback(hprocess.into(), ::core::mem::transmute(callbackfunction), ::core::mem::transmute(usercontext))
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -58278,7 +58278,7 @@ where
     extern "system" {
         fn SymRegisterFunctionEntryCallback64(hprocess: super::super::super::Foundation::HANDLE, callbackfunction: *mut ::core::ffi::c_void, usercontext: u64) -> super::super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(SymRegisterFunctionEntryCallback64(hprocess.into(), ::core::mem::transmute(callbackfunction), usercontext))
+    SymRegisterFunctionEntryCallback64(hprocess.into(), ::core::mem::transmute(callbackfunction), usercontext)
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -58292,7 +58292,7 @@ where
     extern "system" {
         fn SymSearch(hprocess: super::super::super::Foundation::HANDLE, baseofdll: u64, index: u32, symtag: u32, mask: ::windows::core::PCSTR, address: u64, enumsymbolscallback: *mut ::core::ffi::c_void, usercontext: *const ::core::ffi::c_void, options: u32) -> super::super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(SymSearch(hprocess.into(), baseofdll, index, symtag, mask.into(), address, ::core::mem::transmute(enumsymbolscallback), ::core::mem::transmute(usercontext), options))
+    SymSearch(hprocess.into(), baseofdll, index, symtag, mask.into(), address, ::core::mem::transmute(enumsymbolscallback), ::core::mem::transmute(usercontext), options)
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -58306,7 +58306,7 @@ where
     extern "system" {
         fn SymSearchW(hprocess: super::super::super::Foundation::HANDLE, baseofdll: u64, index: u32, symtag: u32, mask: ::windows::core::PCWSTR, address: u64, enumsymbolscallback: *mut ::core::ffi::c_void, usercontext: *const ::core::ffi::c_void, options: u32) -> super::super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(SymSearchW(hprocess.into(), baseofdll, index, symtag, mask.into(), address, ::core::mem::transmute(enumsymbolscallback), ::core::mem::transmute(usercontext), options))
+    SymSearchW(hprocess.into(), baseofdll, index, symtag, mask.into(), address, ::core::mem::transmute(enumsymbolscallback), ::core::mem::transmute(usercontext), options)
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -58319,7 +58319,7 @@ where
     extern "system" {
         fn SymSetContext(hprocess: super::super::super::Foundation::HANDLE, stackframe: *const IMAGEHLP_STACK_FRAME, context: *const ::core::ffi::c_void) -> super::super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(SymSetContext(hprocess.into(), ::core::mem::transmute(stackframe), ::core::mem::transmute(context)))
+    SymSetContext(hprocess.into(), ::core::mem::transmute(stackframe), ::core::mem::transmute(context))
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -58332,7 +58332,7 @@ where
     extern "system" {
         fn SymSetExtendedOption(option: IMAGEHLP_EXTENDED_OPTIONS, value: super::super::super::Foundation::BOOL) -> super::super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(SymSetExtendedOption(option, value.into()))
+    SymSetExtendedOption(option, value.into())
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -58346,7 +58346,7 @@ where
     extern "system" {
         fn SymSetHomeDirectory(hprocess: super::super::super::Foundation::HANDLE, dir: ::windows::core::PCSTR) -> ::windows::core::PSTR;
     }
-    ::core::mem::transmute(SymSetHomeDirectory(hprocess.into(), dir.into()))
+    SymSetHomeDirectory(hprocess.into(), dir.into())
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -58360,7 +58360,7 @@ where
     extern "system" {
         fn SymSetHomeDirectoryW(hprocess: super::super::super::Foundation::HANDLE, dir: ::windows::core::PCWSTR) -> ::windows::core::PWSTR;
     }
-    ::core::mem::transmute(SymSetHomeDirectoryW(hprocess.into(), dir.into()))
+    SymSetHomeDirectoryW(hprocess.into(), dir.into())
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
 #[inline]
@@ -58369,7 +58369,7 @@ pub unsafe fn SymSetOptions(symoptions: u32) -> u32 {
     extern "system" {
         fn SymSetOptions(symoptions: u32) -> u32;
     }
-    ::core::mem::transmute(SymSetOptions(symoptions))
+    SymSetOptions(symoptions)
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -58382,7 +58382,7 @@ where
     extern "system" {
         fn SymSetParentWindow(hwnd: super::super::super::Foundation::HWND) -> super::super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(SymSetParentWindow(hwnd.into()))
+    SymSetParentWindow(hwnd.into())
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -58395,7 +58395,7 @@ where
     extern "system" {
         fn SymSetScopeFromAddr(hprocess: super::super::super::Foundation::HANDLE, address: u64) -> super::super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(SymSetScopeFromAddr(hprocess.into(), address))
+    SymSetScopeFromAddr(hprocess.into(), address)
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -58408,7 +58408,7 @@ where
     extern "system" {
         fn SymSetScopeFromIndex(hprocess: super::super::super::Foundation::HANDLE, baseofdll: u64, index: u32) -> super::super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(SymSetScopeFromIndex(hprocess.into(), baseofdll, index))
+    SymSetScopeFromIndex(hprocess.into(), baseofdll, index)
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -58421,7 +58421,7 @@ where
     extern "system" {
         fn SymSetScopeFromInlineContext(hprocess: super::super::super::Foundation::HANDLE, address: u64, inlinecontext: u32) -> super::super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(SymSetScopeFromInlineContext(hprocess.into(), address, inlinecontext))
+    SymSetScopeFromInlineContext(hprocess.into(), address, inlinecontext)
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -58435,7 +58435,7 @@ where
     extern "system" {
         fn SymSetSearchPath(hprocess: super::super::super::Foundation::HANDLE, searchpatha: ::windows::core::PCSTR) -> super::super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(SymSetSearchPath(hprocess.into(), searchpatha.into()))
+    SymSetSearchPath(hprocess.into(), searchpatha.into())
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -58449,7 +58449,7 @@ where
     extern "system" {
         fn SymSetSearchPathW(hprocess: super::super::super::Foundation::HANDLE, searchpatha: ::windows::core::PCWSTR) -> super::super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(SymSetSearchPathW(hprocess.into(), searchpatha.into()))
+    SymSetSearchPathW(hprocess.into(), searchpatha.into())
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -58466,7 +58466,7 @@ where
     extern "system" {
         fn SymSrvDeltaName(hprocess: super::super::super::Foundation::HANDLE, sympath: ::windows::core::PCSTR, r#type: ::windows::core::PCSTR, file1: ::windows::core::PCSTR, file2: ::windows::core::PCSTR) -> ::windows::core::PSTR;
     }
-    ::core::mem::transmute(SymSrvDeltaName(hprocess.into(), sympath.into(), r#type.into(), file1.into(), file2.into()))
+    SymSrvDeltaName(hprocess.into(), sympath.into(), r#type.into(), file1.into(), file2.into())
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -58483,7 +58483,7 @@ where
     extern "system" {
         fn SymSrvDeltaNameW(hprocess: super::super::super::Foundation::HANDLE, sympath: ::windows::core::PCWSTR, r#type: ::windows::core::PCWSTR, file1: ::windows::core::PCWSTR, file2: ::windows::core::PCWSTR) -> ::windows::core::PWSTR;
     }
-    ::core::mem::transmute(SymSrvDeltaNameW(hprocess.into(), sympath.into(), r#type.into(), file1.into(), file2.into()))
+    SymSrvDeltaNameW(hprocess.into(), sympath.into(), r#type.into(), file1.into(), file2.into())
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -58496,7 +58496,7 @@ where
     extern "system" {
         fn SymSrvGetFileIndexInfo(file: ::windows::core::PCSTR, info: *mut SYMSRV_INDEX_INFO, flags: u32) -> super::super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(SymSrvGetFileIndexInfo(file.into(), ::core::mem::transmute(info), flags))
+    SymSrvGetFileIndexInfo(file.into(), ::core::mem::transmute(info), flags)
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -58509,7 +58509,7 @@ where
     extern "system" {
         fn SymSrvGetFileIndexInfoW(file: ::windows::core::PCWSTR, info: *mut SYMSRV_INDEX_INFOW, flags: u32) -> super::super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(SymSrvGetFileIndexInfoW(file.into(), ::core::mem::transmute(info), flags))
+    SymSrvGetFileIndexInfoW(file.into(), ::core::mem::transmute(info), flags)
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -58524,7 +58524,7 @@ where
     extern "system" {
         fn SymSrvGetFileIndexString(hprocess: super::super::super::Foundation::HANDLE, srvpath: ::windows::core::PCSTR, file: ::windows::core::PCSTR, index: ::windows::core::PSTR, size: usize, flags: u32) -> super::super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(SymSrvGetFileIndexString(hprocess.into(), srvpath.into(), file.into(), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(index)), index.len() as _, flags))
+    SymSrvGetFileIndexString(hprocess.into(), srvpath.into(), file.into(), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(index)), index.len() as _, flags)
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -58539,7 +58539,7 @@ where
     extern "system" {
         fn SymSrvGetFileIndexStringW(hprocess: super::super::super::Foundation::HANDLE, srvpath: ::windows::core::PCWSTR, file: ::windows::core::PCWSTR, index: ::windows::core::PWSTR, size: usize, flags: u32) -> super::super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(SymSrvGetFileIndexStringW(hprocess.into(), srvpath.into(), file.into(), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(index)), index.len() as _, flags))
+    SymSrvGetFileIndexStringW(hprocess.into(), srvpath.into(), file.into(), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(index)), index.len() as _, flags)
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -58552,7 +58552,7 @@ where
     extern "system" {
         fn SymSrvGetFileIndexes(file: ::windows::core::PCSTR, id: *mut ::windows::core::GUID, val1: *mut u32, val2: *mut u32, flags: u32) -> super::super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(SymSrvGetFileIndexes(file.into(), ::core::mem::transmute(id), ::core::mem::transmute(val1), ::core::mem::transmute(val2), flags))
+    SymSrvGetFileIndexes(file.into(), ::core::mem::transmute(id), ::core::mem::transmute(val1), ::core::mem::transmute(val2), flags)
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -58565,7 +58565,7 @@ where
     extern "system" {
         fn SymSrvGetFileIndexesW(file: ::windows::core::PCWSTR, id: *mut ::windows::core::GUID, val1: *mut u32, val2: *mut u32, flags: u32) -> super::super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(SymSrvGetFileIndexesW(file.into(), ::core::mem::transmute(id), ::core::mem::transmute(val1), ::core::mem::transmute(val2), flags))
+    SymSrvGetFileIndexesW(file.into(), ::core::mem::transmute(id), ::core::mem::transmute(val1), ::core::mem::transmute(val2), flags)
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -58581,7 +58581,7 @@ where
     extern "system" {
         fn SymSrvGetSupplement(hprocess: super::super::super::Foundation::HANDLE, sympath: ::windows::core::PCSTR, node: ::windows::core::PCSTR, file: ::windows::core::PCSTR) -> ::windows::core::PSTR;
     }
-    ::core::mem::transmute(SymSrvGetSupplement(hprocess.into(), sympath.into(), node.into(), file.into()))
+    SymSrvGetSupplement(hprocess.into(), sympath.into(), node.into(), file.into())
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -58597,7 +58597,7 @@ where
     extern "system" {
         fn SymSrvGetSupplementW(hprocess: super::super::super::Foundation::HANDLE, sympath: ::windows::core::PCWSTR, node: ::windows::core::PCWSTR, file: ::windows::core::PCWSTR) -> ::windows::core::PWSTR;
     }
-    ::core::mem::transmute(SymSrvGetSupplementW(hprocess.into(), sympath.into(), node.into(), file.into()))
+    SymSrvGetSupplementW(hprocess.into(), sympath.into(), node.into(), file.into())
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -58611,7 +58611,7 @@ where
     extern "system" {
         fn SymSrvIsStore(hprocess: super::super::super::Foundation::HANDLE, path: ::windows::core::PCSTR) -> super::super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(SymSrvIsStore(hprocess.into(), path.into()))
+    SymSrvIsStore(hprocess.into(), path.into())
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -58625,7 +58625,7 @@ where
     extern "system" {
         fn SymSrvIsStoreW(hprocess: super::super::super::Foundation::HANDLE, path: ::windows::core::PCWSTR) -> super::super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(SymSrvIsStoreW(hprocess.into(), path.into()))
+    SymSrvIsStoreW(hprocess.into(), path.into())
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -58640,7 +58640,7 @@ where
     extern "system" {
         fn SymSrvStoreFile(hprocess: super::super::super::Foundation::HANDLE, srvpath: ::windows::core::PCSTR, file: ::windows::core::PCSTR, flags: SYM_SRV_STORE_FILE_FLAGS) -> ::windows::core::PSTR;
     }
-    ::core::mem::transmute(SymSrvStoreFile(hprocess.into(), srvpath.into(), file.into(), flags))
+    SymSrvStoreFile(hprocess.into(), srvpath.into(), file.into(), flags)
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -58655,7 +58655,7 @@ where
     extern "system" {
         fn SymSrvStoreFileW(hprocess: super::super::super::Foundation::HANDLE, srvpath: ::windows::core::PCWSTR, file: ::windows::core::PCWSTR, flags: SYM_SRV_STORE_FILE_FLAGS) -> ::windows::core::PWSTR;
     }
-    ::core::mem::transmute(SymSrvStoreFileW(hprocess.into(), srvpath.into(), file.into(), flags))
+    SymSrvStoreFileW(hprocess.into(), srvpath.into(), file.into(), flags)
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -58671,7 +58671,7 @@ where
     extern "system" {
         fn SymSrvStoreSupplement(hprocess: super::super::super::Foundation::HANDLE, srvpath: ::windows::core::PCSTR, node: ::windows::core::PCSTR, file: ::windows::core::PCSTR, flags: u32) -> ::windows::core::PSTR;
     }
-    ::core::mem::transmute(SymSrvStoreSupplement(hprocess.into(), srvpath.into(), node.into(), file.into(), flags))
+    SymSrvStoreSupplement(hprocess.into(), srvpath.into(), node.into(), file.into(), flags)
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -58687,7 +58687,7 @@ where
     extern "system" {
         fn SymSrvStoreSupplementW(hprocess: super::super::super::Foundation::HANDLE, sympath: ::windows::core::PCWSTR, node: ::windows::core::PCWSTR, file: ::windows::core::PCWSTR, flags: u32) -> ::windows::core::PWSTR;
     }
-    ::core::mem::transmute(SymSrvStoreSupplementW(hprocess.into(), sympath.into(), node.into(), file.into(), flags))
+    SymSrvStoreSupplementW(hprocess.into(), sympath.into(), node.into(), file.into(), flags)
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
 #[cfg(target_arch = "x86")]
@@ -58698,7 +58698,7 @@ pub unsafe fn SymUnDName(sym: *const IMAGEHLP_SYMBOL, undecname: &mut [u8]) -> s
     extern "system" {
         fn SymUnDName(sym: *const IMAGEHLP_SYMBOL, undecname: ::windows::core::PSTR, undecnamelength: u32) -> super::super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(SymUnDName(::core::mem::transmute(sym), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(undecname)), undecname.len() as _))
+    SymUnDName(::core::mem::transmute(sym), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(undecname)), undecname.len() as _)
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -58708,7 +58708,7 @@ pub unsafe fn SymUnDName64(sym: *const IMAGEHLP_SYMBOL64, undecname: &mut [u8]) 
     extern "system" {
         fn SymUnDName64(sym: *const IMAGEHLP_SYMBOL64, undecname: ::windows::core::PSTR, undecnamelength: u32) -> super::super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(SymUnDName64(::core::mem::transmute(sym), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(undecname)), undecname.len() as _))
+    SymUnDName64(::core::mem::transmute(sym), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(undecname)), undecname.len() as _)
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
 #[cfg(target_arch = "x86")]
@@ -58722,7 +58722,7 @@ where
     extern "system" {
         fn SymUnloadModule(hprocess: super::super::super::Foundation::HANDLE, baseofdll: u32) -> super::super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(SymUnloadModule(hprocess.into(), baseofdll))
+    SymUnloadModule(hprocess.into(), baseofdll)
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -58735,7 +58735,7 @@ where
     extern "system" {
         fn SymUnloadModule64(hprocess: super::super::super::Foundation::HANDLE, baseofdll: u64) -> super::super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(SymUnloadModule64(hprocess.into(), baseofdll))
+    SymUnloadModule64(hprocess.into(), baseofdll)
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
 #[repr(transparent)]
@@ -59035,7 +59035,7 @@ where
     extern "system" {
         fn TouchFileTimes(filehandle: super::super::super::Foundation::HANDLE, psystemtime: *const super::super::super::Foundation::SYSTEMTIME) -> super::super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(TouchFileTimes(filehandle.into(), ::core::mem::transmute(psystemtime)))
+    TouchFileTimes(filehandle.into(), ::core::mem::transmute(psystemtime))
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
 #[repr(transparent)]
@@ -59277,7 +59277,7 @@ where
     extern "system" {
         fn UnDecorateSymbolName(name: ::windows::core::PCSTR, outputstring: ::windows::core::PSTR, maxstringlength: u32, flags: u32) -> u32;
     }
-    ::core::mem::transmute(UnDecorateSymbolName(name.into(), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(outputstring)), outputstring.len() as _, flags))
+    UnDecorateSymbolName(name.into(), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(outputstring)), outputstring.len() as _, flags)
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
 #[inline]
@@ -59289,7 +59289,7 @@ where
     extern "system" {
         fn UnDecorateSymbolNameW(name: ::windows::core::PCWSTR, outputstring: ::windows::core::PWSTR, maxstringlength: u32, flags: u32) -> u32;
     }
-    ::core::mem::transmute(UnDecorateSymbolNameW(name.into(), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(outputstring)), outputstring.len() as _, flags))
+    UnDecorateSymbolNameW(name.into(), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(outputstring)), outputstring.len() as _, flags)
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`, `\"Win32_System_Kernel\"`, `\"Win32_System_SystemInformation\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel", feature = "Win32_System_SystemInformation"))]
@@ -59299,7 +59299,7 @@ pub unsafe fn UnMapAndLoad(loadedimage: *mut LOADED_IMAGE) -> super::super::supe
     extern "system" {
         fn UnMapAndLoad(loadedimage: *mut LOADED_IMAGE) -> super::super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(UnMapAndLoad(::core::mem::transmute(loadedimage)))
+    UnMapAndLoad(::core::mem::transmute(loadedimage))
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`, `\"Win32_System_Kernel\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
@@ -59309,7 +59309,7 @@ pub unsafe fn UnhandledExceptionFilter(exceptioninfo: *const EXCEPTION_POINTERS)
     extern "system" {
         fn UnhandledExceptionFilter(exceptioninfo: *const EXCEPTION_POINTERS) -> i32;
     }
-    ::core::mem::transmute(UnhandledExceptionFilter(::core::mem::transmute(exceptioninfo)))
+    UnhandledExceptionFilter(::core::mem::transmute(exceptioninfo))
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`, `\"Win32_System_SystemInformation\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemInformation"))]
@@ -59323,7 +59323,7 @@ where
     extern "system" {
         fn UpdateDebugInfoFile(imagefilename: ::windows::core::PCSTR, symbolpath: ::windows::core::PCSTR, debugfilepath: ::windows::core::PSTR, ntheaders: *const IMAGE_NT_HEADERS32) -> super::super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(UpdateDebugInfoFile(imagefilename.into(), symbolpath.into(), ::core::mem::transmute(debugfilepath), ::core::mem::transmute(ntheaders)))
+    UpdateDebugInfoFile(imagefilename.into(), symbolpath.into(), ::core::mem::transmute(debugfilepath), ::core::mem::transmute(ntheaders))
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`, `\"Win32_System_SystemInformation\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemInformation"))]
@@ -59337,7 +59337,7 @@ where
     extern "system" {
         fn UpdateDebugInfoFileEx(imagefilename: ::windows::core::PCSTR, symbolpath: ::windows::core::PCSTR, debugfilepath: ::windows::core::PSTR, ntheaders: *const IMAGE_NT_HEADERS32, oldchecksum: u32) -> super::super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(UpdateDebugInfoFileEx(imagefilename.into(), symbolpath.into(), ::core::mem::transmute(debugfilepath), ::core::mem::transmute(ntheaders), oldchecksum))
+    UpdateDebugInfoFileEx(imagefilename.into(), symbolpath.into(), ::core::mem::transmute(debugfilepath), ::core::mem::transmute(ntheaders), oldchecksum)
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
 #[repr(transparent)]
@@ -61787,7 +61787,7 @@ pub unsafe fn WaitForDebugEvent(lpdebugevent: *mut DEBUG_EVENT, dwmilliseconds: 
     extern "system" {
         fn WaitForDebugEvent(lpdebugevent: *mut DEBUG_EVENT, dwmilliseconds: u32) -> super::super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(WaitForDebugEvent(::core::mem::transmute(lpdebugevent), dwmilliseconds))
+    WaitForDebugEvent(::core::mem::transmute(lpdebugevent), dwmilliseconds)
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`, `\"Win32_System_Threading\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Threading"))]
@@ -61797,7 +61797,7 @@ pub unsafe fn WaitForDebugEventEx(lpdebugevent: *mut DEBUG_EVENT, dwmilliseconds
     extern "system" {
         fn WaitForDebugEventEx(lpdebugevent: *mut DEBUG_EVENT, dwmilliseconds: u32) -> super::super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(WaitForDebugEventEx(::core::mem::transmute(lpdebugevent), dwmilliseconds))
+    WaitForDebugEventEx(::core::mem::transmute(lpdebugevent), dwmilliseconds)
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -61810,7 +61810,7 @@ where
     extern "system" {
         fn Wow64GetThreadContext(hthread: super::super::super::Foundation::HANDLE, lpcontext: *mut WOW64_CONTEXT) -> super::super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(Wow64GetThreadContext(hthread.into(), ::core::mem::transmute(lpcontext)))
+    Wow64GetThreadContext(hthread.into(), ::core::mem::transmute(lpcontext))
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -61823,7 +61823,7 @@ where
     extern "system" {
         fn Wow64GetThreadSelectorEntry(hthread: super::super::super::Foundation::HANDLE, dwselector: u32, lpselectorentry: *mut WOW64_LDT_ENTRY) -> super::super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(Wow64GetThreadSelectorEntry(hthread.into(), dwselector, ::core::mem::transmute(lpselectorentry)))
+    Wow64GetThreadSelectorEntry(hthread.into(), dwselector, ::core::mem::transmute(lpselectorentry))
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -61836,7 +61836,7 @@ where
     extern "system" {
         fn Wow64SetThreadContext(hthread: super::super::super::Foundation::HANDLE, lpcontext: *const WOW64_CONTEXT) -> super::super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(Wow64SetThreadContext(hthread.into(), ::core::mem::transmute(lpcontext)))
+    Wow64SetThreadContext(hthread.into(), ::core::mem::transmute(lpcontext))
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -61849,7 +61849,7 @@ where
     extern "system" {
         fn WriteProcessMemory(hprocess: super::super::super::Foundation::HANDLE, lpbaseaddress: *const ::core::ffi::c_void, lpbuffer: *const ::core::ffi::c_void, nsize: usize, lpnumberofbyteswritten: *mut usize) -> super::super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(WriteProcessMemory(hprocess.into(), ::core::mem::transmute(lpbaseaddress), ::core::mem::transmute(lpbuffer), nsize, ::core::mem::transmute(lpnumberofbyteswritten)))
+    WriteProcessMemory(hprocess.into(), ::core::mem::transmute(lpbaseaddress), ::core::mem::transmute(lpbuffer), nsize, ::core::mem::transmute(lpnumberofbyteswritten))
 }
 #[repr(C, packed(1))]
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]

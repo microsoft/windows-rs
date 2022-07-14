@@ -20,7 +20,7 @@ pub unsafe fn DefRawInputProc(parawinput: &[*const RAWINPUT], cbsizeheader: u32)
     extern "system" {
         fn DefRawInputProc(parawinput: *const *const RAWINPUT, ninput: i32, cbsizeheader: u32) -> super::super::Foundation::LRESULT;
     }
-    ::core::mem::transmute(DefRawInputProc(::core::mem::transmute(::windows::core::as_ptr_or_null(parawinput)), parawinput.len() as _, cbsizeheader))
+    DefRawInputProc(::core::mem::transmute(::windows::core::as_ptr_or_null(parawinput)), parawinput.len() as _, cbsizeheader)
 }
 #[doc = "*Required features: `\"Win32_UI_Input\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -30,7 +30,7 @@ pub unsafe fn GetCIMSSM(inputmessagesource: *mut INPUT_MESSAGE_SOURCE) -> super:
     extern "system" {
         fn GetCIMSSM(inputmessagesource: *mut INPUT_MESSAGE_SOURCE) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(GetCIMSSM(::core::mem::transmute(inputmessagesource)))
+    GetCIMSSM(::core::mem::transmute(inputmessagesource))
 }
 #[doc = "*Required features: `\"Win32_UI_Input\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -40,7 +40,7 @@ pub unsafe fn GetCurrentInputMessageSource(inputmessagesource: *mut INPUT_MESSAG
     extern "system" {
         fn GetCurrentInputMessageSource(inputmessagesource: *mut INPUT_MESSAGE_SOURCE) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(GetCurrentInputMessageSource(::core::mem::transmute(inputmessagesource)))
+    GetCurrentInputMessageSource(::core::mem::transmute(inputmessagesource))
 }
 #[doc = "*Required features: `\"Win32_UI_Input\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -50,7 +50,7 @@ pub unsafe fn GetRawInputBuffer(pdata: *mut RAWINPUT, pcbsize: *mut u32, cbsizeh
     extern "system" {
         fn GetRawInputBuffer(pdata: *mut RAWINPUT, pcbsize: *mut u32, cbsizeheader: u32) -> u32;
     }
-    ::core::mem::transmute(GetRawInputBuffer(::core::mem::transmute(pdata), ::core::mem::transmute(pcbsize), cbsizeheader))
+    GetRawInputBuffer(::core::mem::transmute(pdata), ::core::mem::transmute(pcbsize), cbsizeheader)
 }
 #[doc = "*Required features: `\"Win32_UI_Input\"`*"]
 #[inline]
@@ -62,7 +62,7 @@ where
     extern "system" {
         fn GetRawInputData(hrawinput: HRAWINPUT, uicommand: RAW_INPUT_DATA_COMMAND_FLAGS, pdata: *mut ::core::ffi::c_void, pcbsize: *mut u32, cbsizeheader: u32) -> u32;
     }
-    ::core::mem::transmute(GetRawInputData(hrawinput.into(), uicommand, ::core::mem::transmute(pdata), ::core::mem::transmute(pcbsize), cbsizeheader))
+    GetRawInputData(hrawinput.into(), uicommand, ::core::mem::transmute(pdata), ::core::mem::transmute(pcbsize), cbsizeheader)
 }
 #[doc = "*Required features: `\"Win32_UI_Input\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -75,7 +75,7 @@ where
     extern "system" {
         fn GetRawInputDeviceInfoA(hdevice: super::super::Foundation::HANDLE, uicommand: RAW_INPUT_DEVICE_INFO_COMMAND, pdata: *mut ::core::ffi::c_void, pcbsize: *mut u32) -> u32;
     }
-    ::core::mem::transmute(GetRawInputDeviceInfoA(hdevice.into(), uicommand, ::core::mem::transmute(pdata), ::core::mem::transmute(pcbsize)))
+    GetRawInputDeviceInfoA(hdevice.into(), uicommand, ::core::mem::transmute(pdata), ::core::mem::transmute(pcbsize))
 }
 #[doc = "*Required features: `\"Win32_UI_Input\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -88,7 +88,7 @@ where
     extern "system" {
         fn GetRawInputDeviceInfoW(hdevice: super::super::Foundation::HANDLE, uicommand: RAW_INPUT_DEVICE_INFO_COMMAND, pdata: *mut ::core::ffi::c_void, pcbsize: *mut u32) -> u32;
     }
-    ::core::mem::transmute(GetRawInputDeviceInfoW(hdevice.into(), uicommand, ::core::mem::transmute(pdata), ::core::mem::transmute(pcbsize)))
+    GetRawInputDeviceInfoW(hdevice.into(), uicommand, ::core::mem::transmute(pdata), ::core::mem::transmute(pcbsize))
 }
 #[doc = "*Required features: `\"Win32_UI_Input\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -98,7 +98,7 @@ pub unsafe fn GetRawInputDeviceList(prawinputdevicelist: *mut RAWINPUTDEVICELIST
     extern "system" {
         fn GetRawInputDeviceList(prawinputdevicelist: *mut RAWINPUTDEVICELIST, puinumdevices: *mut u32, cbsize: u32) -> u32;
     }
-    ::core::mem::transmute(GetRawInputDeviceList(::core::mem::transmute(prawinputdevicelist), ::core::mem::transmute(puinumdevices), cbsize))
+    GetRawInputDeviceList(::core::mem::transmute(prawinputdevicelist), ::core::mem::transmute(puinumdevices), cbsize)
 }
 #[doc = "*Required features: `\"Win32_UI_Input\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -108,7 +108,7 @@ pub unsafe fn GetRegisteredRawInputDevices(prawinputdevices: *mut RAWINPUTDEVICE
     extern "system" {
         fn GetRegisteredRawInputDevices(prawinputdevices: *mut RAWINPUTDEVICE, puinumdevices: *mut u32, cbsize: u32) -> u32;
     }
-    ::core::mem::transmute(GetRegisteredRawInputDevices(::core::mem::transmute(prawinputdevices), ::core::mem::transmute(puinumdevices), cbsize))
+    GetRegisteredRawInputDevices(::core::mem::transmute(prawinputdevices), ::core::mem::transmute(puinumdevices), cbsize)
 }
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
@@ -923,7 +923,7 @@ pub unsafe fn RegisterRawInputDevices(prawinputdevices: &[RAWINPUTDEVICE], cbsiz
     extern "system" {
         fn RegisterRawInputDevices(prawinputdevices: *const RAWINPUTDEVICE, uinumdevices: u32, cbsize: u32) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(RegisterRawInputDevices(::core::mem::transmute(::windows::core::as_ptr_or_null(prawinputdevices)), prawinputdevices.len() as _, cbsize))
+    RegisterRawInputDevices(::core::mem::transmute(::windows::core::as_ptr_or_null(prawinputdevices)), prawinputdevices.len() as _, cbsize)
 }
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

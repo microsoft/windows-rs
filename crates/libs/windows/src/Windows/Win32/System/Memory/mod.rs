@@ -8,7 +8,7 @@ pub unsafe fn AddSecureMemoryCacheCallback(pfncallback: PSECURE_MEMORY_CACHE_CAL
     extern "system" {
         fn AddSecureMemoryCacheCallback(pfncallback: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(AddSecureMemoryCacheCallback(::core::mem::transmute(pfncallback)))
+    AddSecureMemoryCacheCallback(::core::mem::transmute(pfncallback))
 }
 #[doc = "*Required features: `\"Win32_System_Memory\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -21,7 +21,7 @@ where
     extern "system" {
         fn AllocateUserPhysicalPages(hprocess: super::super::Foundation::HANDLE, numberofpages: *mut usize, pagearray: *mut usize) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(AllocateUserPhysicalPages(hprocess.into(), ::core::mem::transmute(numberofpages), ::core::mem::transmute(pagearray)))
+    AllocateUserPhysicalPages(hprocess.into(), ::core::mem::transmute(numberofpages), ::core::mem::transmute(pagearray))
 }
 #[doc = "*Required features: `\"Win32_System_Memory\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -34,7 +34,7 @@ where
     extern "system" {
         fn AllocateUserPhysicalPages2(objecthandle: super::super::Foundation::HANDLE, numberofpages: *mut usize, pagearray: *mut usize, extendedparameters: *mut MEM_EXTENDED_PARAMETER, extendedparametercount: u32) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(AllocateUserPhysicalPages2(objecthandle.into(), ::core::mem::transmute(numberofpages), ::core::mem::transmute(pagearray), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(extendedparameters)), extendedparameters.len() as _))
+    AllocateUserPhysicalPages2(objecthandle.into(), ::core::mem::transmute(numberofpages), ::core::mem::transmute(pagearray), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(extendedparameters)), extendedparameters.len() as _)
 }
 #[doc = "*Required features: `\"Win32_System_Memory\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -47,7 +47,7 @@ where
     extern "system" {
         fn AllocateUserPhysicalPagesNuma(hprocess: super::super::Foundation::HANDLE, numberofpages: *mut usize, pagearray: *mut usize, nndpreferred: u32) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(AllocateUserPhysicalPagesNuma(hprocess.into(), ::core::mem::transmute(numberofpages), ::core::mem::transmute(pagearray), nndpreferred))
+    AllocateUserPhysicalPagesNuma(hprocess.into(), ::core::mem::transmute(numberofpages), ::core::mem::transmute(pagearray), nndpreferred)
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_System_Memory\"`*"]
@@ -188,7 +188,7 @@ pub unsafe fn DiscardVirtualMemory(virtualaddress: &mut [u8]) -> u32 {
     extern "system" {
         fn DiscardVirtualMemory(virtualaddress: *mut ::core::ffi::c_void, size: usize) -> u32;
     }
-    ::core::mem::transmute(DiscardVirtualMemory(::core::mem::transmute(::windows::core::as_mut_ptr_or_null(virtualaddress)), virtualaddress.len() as _))
+    DiscardVirtualMemory(::core::mem::transmute(::windows::core::as_mut_ptr_or_null(virtualaddress)), virtualaddress.len() as _)
 }
 #[doc = "*Required features: `\"Win32_System_Memory\"`*"]
 pub const FILE_CACHE_MAX_HARD_DISABLE: u32 = 2u32;
@@ -273,7 +273,7 @@ pub unsafe fn FlushViewOfFile(lpbaseaddress: *const ::core::ffi::c_void, dwnumbe
     extern "system" {
         fn FlushViewOfFile(lpbaseaddress: *const ::core::ffi::c_void, dwnumberofbytestoflush: usize) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(FlushViewOfFile(::core::mem::transmute(lpbaseaddress), dwnumberofbytestoflush))
+    FlushViewOfFile(::core::mem::transmute(lpbaseaddress), dwnumberofbytestoflush)
 }
 #[doc = "*Required features: `\"Win32_System_Memory\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -286,7 +286,7 @@ where
     extern "system" {
         fn FreeUserPhysicalPages(hprocess: super::super::Foundation::HANDLE, numberofpages: *mut usize, pagearray: *const usize) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(FreeUserPhysicalPages(hprocess.into(), ::core::mem::transmute(numberofpages), ::core::mem::transmute(pagearray)))
+    FreeUserPhysicalPages(hprocess.into(), ::core::mem::transmute(numberofpages), ::core::mem::transmute(pagearray))
 }
 #[doc = "*Required features: `\"Win32_System_Memory\"`*"]
 #[repr(transparent)]
@@ -356,7 +356,7 @@ pub unsafe fn GetLargePageMinimum() -> usize {
     extern "system" {
         fn GetLargePageMinimum() -> usize;
     }
-    ::core::mem::transmute(GetLargePageMinimum())
+    GetLargePageMinimum()
 }
 #[doc = "*Required features: `\"Win32_System_Memory\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -366,7 +366,7 @@ pub unsafe fn GetMemoryErrorHandlingCapabilities(capabilities: *mut u32) -> supe
     extern "system" {
         fn GetMemoryErrorHandlingCapabilities(capabilities: *mut u32) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(GetMemoryErrorHandlingCapabilities(::core::mem::transmute(capabilities)))
+    GetMemoryErrorHandlingCapabilities(::core::mem::transmute(capabilities))
 }
 #[doc = "*Required features: `\"Win32_System_Memory\"`*"]
 #[inline]
@@ -385,7 +385,7 @@ pub unsafe fn GetProcessHeaps(processheaps: &mut [HeapHandle]) -> u32 {
     extern "system" {
         fn GetProcessHeaps(numberofheaps: u32, processheaps: *mut HeapHandle) -> u32;
     }
-    ::core::mem::transmute(GetProcessHeaps(processheaps.len() as _, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(processheaps))))
+    GetProcessHeaps(processheaps.len() as _, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(processheaps)))
 }
 #[doc = "*Required features: `\"Win32_System_Memory\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -398,7 +398,7 @@ where
     extern "system" {
         fn GetProcessWorkingSetSizeEx(hprocess: super::super::Foundation::HANDLE, lpminimumworkingsetsize: *mut usize, lpmaximumworkingsetsize: *mut usize, flags: *mut u32) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(GetProcessWorkingSetSizeEx(hprocess.into(), ::core::mem::transmute(lpminimumworkingsetsize), ::core::mem::transmute(lpmaximumworkingsetsize), ::core::mem::transmute(flags)))
+    GetProcessWorkingSetSizeEx(hprocess.into(), ::core::mem::transmute(lpminimumworkingsetsize), ::core::mem::transmute(lpmaximumworkingsetsize), ::core::mem::transmute(flags))
 }
 #[doc = "*Required features: `\"Win32_System_Memory\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -408,7 +408,7 @@ pub unsafe fn GetSystemFileCacheSize(lpminimumfilecachesize: *mut usize, lpmaxim
     extern "system" {
         fn GetSystemFileCacheSize(lpminimumfilecachesize: *mut usize, lpmaximumfilecachesize: *mut usize, lpflags: *mut u32) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(GetSystemFileCacheSize(::core::mem::transmute(lpminimumfilecachesize), ::core::mem::transmute(lpmaximumfilecachesize), ::core::mem::transmute(lpflags)))
+    GetSystemFileCacheSize(::core::mem::transmute(lpminimumfilecachesize), ::core::mem::transmute(lpmaximumfilecachesize), ::core::mem::transmute(lpflags))
 }
 #[doc = "*Required features: `\"Win32_System_Memory\"`*"]
 #[inline]
@@ -417,7 +417,7 @@ pub unsafe fn GetWriteWatch(dwflags: u32, lpbaseaddress: *const ::core::ffi::c_v
     extern "system" {
         fn GetWriteWatch(dwflags: u32, lpbaseaddress: *const ::core::ffi::c_void, dwregionsize: usize, lpaddresses: *mut *mut ::core::ffi::c_void, lpdwcount: *mut usize, lpdwgranularity: *mut u32) -> u32;
     }
-    ::core::mem::transmute(GetWriteWatch(dwflags, ::core::mem::transmute(lpbaseaddress), dwregionsize, ::core::mem::transmute(lpaddresses), ::core::mem::transmute(lpdwcount), ::core::mem::transmute(lpdwgranularity)))
+    GetWriteWatch(dwflags, ::core::mem::transmute(lpbaseaddress), dwregionsize, ::core::mem::transmute(lpaddresses), ::core::mem::transmute(lpdwcount), ::core::mem::transmute(lpdwgranularity))
 }
 #[doc = "*Required features: `\"Win32_System_Memory\"`*"]
 #[inline]
@@ -426,7 +426,7 @@ pub unsafe fn GlobalAlloc(uflags: GLOBAL_ALLOC_FLAGS, dwbytes: usize) -> isize {
     extern "system" {
         fn GlobalAlloc(uflags: GLOBAL_ALLOC_FLAGS, dwbytes: usize) -> isize;
     }
-    ::core::mem::transmute(GlobalAlloc(uflags, dwbytes))
+    GlobalAlloc(uflags, dwbytes)
 }
 #[doc = "*Required features: `\"Win32_System_Memory\"`*"]
 #[inline]
@@ -435,7 +435,7 @@ pub unsafe fn GlobalFlags(hmem: isize) -> u32 {
     extern "system" {
         fn GlobalFlags(hmem: isize) -> u32;
     }
-    ::core::mem::transmute(GlobalFlags(hmem))
+    GlobalFlags(hmem)
 }
 #[doc = "*Required features: `\"Win32_System_Memory\"`*"]
 #[inline]
@@ -444,7 +444,7 @@ pub unsafe fn GlobalFree(hmem: isize) -> isize {
     extern "system" {
         fn GlobalFree(hmem: isize) -> isize;
     }
-    ::core::mem::transmute(GlobalFree(::core::mem::transmute(hmem)))
+    GlobalFree(::core::mem::transmute(hmem))
 }
 #[doc = "*Required features: `\"Win32_System_Memory\"`*"]
 #[inline]
@@ -453,7 +453,7 @@ pub unsafe fn GlobalHandle(pmem: *const ::core::ffi::c_void) -> isize {
     extern "system" {
         fn GlobalHandle(pmem: *const ::core::ffi::c_void) -> isize;
     }
-    ::core::mem::transmute(GlobalHandle(::core::mem::transmute(pmem)))
+    GlobalHandle(::core::mem::transmute(pmem))
 }
 #[doc = "*Required features: `\"Win32_System_Memory\"`*"]
 #[inline]
@@ -462,7 +462,7 @@ pub unsafe fn GlobalLock(hmem: isize) -> *mut ::core::ffi::c_void {
     extern "system" {
         fn GlobalLock(hmem: isize) -> *mut ::core::ffi::c_void;
     }
-    ::core::mem::transmute(GlobalLock(hmem))
+    GlobalLock(hmem)
 }
 #[doc = "*Required features: `\"Win32_System_Memory\"`*"]
 #[inline]
@@ -471,7 +471,7 @@ pub unsafe fn GlobalReAlloc(hmem: isize, dwbytes: usize, uflags: u32) -> isize {
     extern "system" {
         fn GlobalReAlloc(hmem: isize, dwbytes: usize, uflags: u32) -> isize;
     }
-    ::core::mem::transmute(GlobalReAlloc(hmem, dwbytes, uflags))
+    GlobalReAlloc(hmem, dwbytes, uflags)
 }
 #[doc = "*Required features: `\"Win32_System_Memory\"`*"]
 #[inline]
@@ -480,7 +480,7 @@ pub unsafe fn GlobalSize(hmem: isize) -> usize {
     extern "system" {
         fn GlobalSize(hmem: isize) -> usize;
     }
-    ::core::mem::transmute(GlobalSize(hmem))
+    GlobalSize(hmem)
 }
 #[doc = "*Required features: `\"Win32_System_Memory\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -490,7 +490,7 @@ pub unsafe fn GlobalUnlock(hmem: isize) -> super::super::Foundation::BOOL {
     extern "system" {
         fn GlobalUnlock(hmem: isize) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(GlobalUnlock(hmem))
+    GlobalUnlock(hmem)
 }
 #[doc = "*Required features: `\"Win32_System_Memory\"`*"]
 #[repr(transparent)]
@@ -652,7 +652,7 @@ where
     extern "system" {
         fn HeapAlloc(hheap: HeapHandle, dwflags: HEAP_FLAGS, dwbytes: usize) -> *mut ::core::ffi::c_void;
     }
-    ::core::mem::transmute(HeapAlloc(hheap.into(), dwflags, dwbytes))
+    HeapAlloc(hheap.into(), dwflags, dwbytes)
 }
 #[doc = "*Required features: `\"Win32_System_Memory\"`*"]
 #[inline]
@@ -664,7 +664,7 @@ where
     extern "system" {
         fn HeapCompact(hheap: HeapHandle, dwflags: HEAP_FLAGS) -> usize;
     }
-    ::core::mem::transmute(HeapCompact(hheap.into(), dwflags))
+    HeapCompact(hheap.into(), dwflags)
 }
 #[doc = "*Required features: `\"Win32_System_Memory\"`*"]
 #[inline]
@@ -687,7 +687,7 @@ where
     extern "system" {
         fn HeapDestroy(hheap: HeapHandle) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(HeapDestroy(hheap.into()))
+    HeapDestroy(hheap.into())
 }
 #[doc = "*Required features: `\"Win32_System_Memory\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -700,7 +700,7 @@ where
     extern "system" {
         fn HeapFree(hheap: HeapHandle, dwflags: HEAP_FLAGS, lpmem: *const ::core::ffi::c_void) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(HeapFree(hheap.into(), dwflags, ::core::mem::transmute(lpmem)))
+    HeapFree(hheap.into(), dwflags, ::core::mem::transmute(lpmem))
 }
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
@@ -745,7 +745,7 @@ where
     extern "system" {
         fn HeapLock(hheap: HeapHandle) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(HeapLock(hheap.into()))
+    HeapLock(hheap.into())
 }
 #[doc = "*Required features: `\"Win32_System_Memory\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -758,7 +758,7 @@ where
     extern "system" {
         fn HeapQueryInformation(heaphandle: HeapHandle, heapinformationclass: HEAP_INFORMATION_CLASS, heapinformation: *mut ::core::ffi::c_void, heapinformationlength: usize, returnlength: *mut usize) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(HeapQueryInformation(heaphandle.into(), heapinformationclass, ::core::mem::transmute(heapinformation), heapinformationlength, ::core::mem::transmute(returnlength)))
+    HeapQueryInformation(heaphandle.into(), heapinformationclass, ::core::mem::transmute(heapinformation), heapinformationlength, ::core::mem::transmute(returnlength))
 }
 #[doc = "*Required features: `\"Win32_System_Memory\"`*"]
 #[inline]
@@ -770,7 +770,7 @@ where
     extern "system" {
         fn HeapReAlloc(hheap: HeapHandle, dwflags: HEAP_FLAGS, lpmem: *const ::core::ffi::c_void, dwbytes: usize) -> *mut ::core::ffi::c_void;
     }
-    ::core::mem::transmute(HeapReAlloc(hheap.into(), dwflags, ::core::mem::transmute(lpmem), dwbytes))
+    HeapReAlloc(hheap.into(), dwflags, ::core::mem::transmute(lpmem), dwbytes)
 }
 #[doc = "*Required features: `\"Win32_System_Memory\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -783,7 +783,7 @@ where
     extern "system" {
         fn HeapSetInformation(heaphandle: HeapHandle, heapinformationclass: HEAP_INFORMATION_CLASS, heapinformation: *const ::core::ffi::c_void, heapinformationlength: usize) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(HeapSetInformation(heaphandle.into(), heapinformationclass, ::core::mem::transmute(heapinformation), heapinformationlength))
+    HeapSetInformation(heaphandle.into(), heapinformationclass, ::core::mem::transmute(heapinformation), heapinformationlength)
 }
 #[doc = "*Required features: `\"Win32_System_Memory\"`*"]
 #[inline]
@@ -795,7 +795,7 @@ where
     extern "system" {
         fn HeapSize(hheap: HeapHandle, dwflags: HEAP_FLAGS, lpmem: *const ::core::ffi::c_void) -> usize;
     }
-    ::core::mem::transmute(HeapSize(hheap.into(), dwflags, ::core::mem::transmute(lpmem)))
+    HeapSize(hheap.into(), dwflags, ::core::mem::transmute(lpmem))
 }
 #[doc = "*Required features: `\"Win32_System_Memory\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -808,7 +808,7 @@ where
     extern "system" {
         fn HeapSummary(hheap: super::super::Foundation::HANDLE, dwflags: u32, lpsummary: *mut HEAP_SUMMARY) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(HeapSummary(hheap.into(), dwflags, ::core::mem::transmute(lpsummary)))
+    HeapSummary(hheap.into(), dwflags, ::core::mem::transmute(lpsummary))
 }
 #[doc = "*Required features: `\"Win32_System_Memory\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -821,7 +821,7 @@ where
     extern "system" {
         fn HeapUnlock(hheap: HeapHandle) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(HeapUnlock(hheap.into()))
+    HeapUnlock(hheap.into())
 }
 #[doc = "*Required features: `\"Win32_System_Memory\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -834,7 +834,7 @@ where
     extern "system" {
         fn HeapValidate(hheap: HeapHandle, dwflags: HEAP_FLAGS, lpmem: *const ::core::ffi::c_void) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(HeapValidate(hheap.into(), dwflags, ::core::mem::transmute(lpmem)))
+    HeapValidate(hheap.into(), dwflags, ::core::mem::transmute(lpmem))
 }
 #[doc = "*Required features: `\"Win32_System_Memory\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -847,7 +847,7 @@ where
     extern "system" {
         fn HeapWalk(hheap: HeapHandle, lpentry: *mut PROCESS_HEAP_ENTRY) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(HeapWalk(hheap.into(), ::core::mem::transmute(lpentry)))
+    HeapWalk(hheap.into(), ::core::mem::transmute(lpentry))
 }
 #[doc = "*Required features: `\"Win32_System_Memory\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -857,7 +857,7 @@ pub unsafe fn IsBadCodePtr(lpfn: super::super::Foundation::FARPROC) -> super::su
     extern "system" {
         fn IsBadCodePtr(lpfn: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(IsBadCodePtr(::core::mem::transmute(lpfn)))
+    IsBadCodePtr(::core::mem::transmute(lpfn))
 }
 #[doc = "*Required features: `\"Win32_System_Memory\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -867,7 +867,7 @@ pub unsafe fn IsBadReadPtr(lp: *const ::core::ffi::c_void, ucb: usize) -> super:
     extern "system" {
         fn IsBadReadPtr(lp: *const ::core::ffi::c_void, ucb: usize) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(IsBadReadPtr(::core::mem::transmute(lp), ucb))
+    IsBadReadPtr(::core::mem::transmute(lp), ucb)
 }
 #[doc = "*Required features: `\"Win32_System_Memory\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -880,7 +880,7 @@ where
     extern "system" {
         fn IsBadStringPtrA(lpsz: ::windows::core::PCSTR, ucchmax: usize) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(IsBadStringPtrA(lpsz.into(), ucchmax))
+    IsBadStringPtrA(lpsz.into(), ucchmax)
 }
 #[doc = "*Required features: `\"Win32_System_Memory\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -893,7 +893,7 @@ where
     extern "system" {
         fn IsBadStringPtrW(lpsz: ::windows::core::PCWSTR, ucchmax: usize) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(IsBadStringPtrW(lpsz.into(), ucchmax))
+    IsBadStringPtrW(lpsz.into(), ucchmax)
 }
 #[doc = "*Required features: `\"Win32_System_Memory\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -903,7 +903,7 @@ pub unsafe fn IsBadWritePtr(lp: *const ::core::ffi::c_void, ucb: usize) -> super
     extern "system" {
         fn IsBadWritePtr(lp: *const ::core::ffi::c_void, ucb: usize) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(IsBadWritePtr(::core::mem::transmute(lp), ucb))
+    IsBadWritePtr(::core::mem::transmute(lp), ucb)
 }
 #[doc = "*Required features: `\"Win32_System_Memory\"`*"]
 #[repr(transparent)]
@@ -977,7 +977,7 @@ pub unsafe fn LocalAlloc(uflags: LOCAL_ALLOC_FLAGS, ubytes: usize) -> isize {
     extern "system" {
         fn LocalAlloc(uflags: LOCAL_ALLOC_FLAGS, ubytes: usize) -> isize;
     }
-    ::core::mem::transmute(LocalAlloc(uflags, ubytes))
+    LocalAlloc(uflags, ubytes)
 }
 #[doc = "*Required features: `\"Win32_System_Memory\"`*"]
 #[inline]
@@ -986,7 +986,7 @@ pub unsafe fn LocalFlags(hmem: isize) -> u32 {
     extern "system" {
         fn LocalFlags(hmem: isize) -> u32;
     }
-    ::core::mem::transmute(LocalFlags(hmem))
+    LocalFlags(hmem)
 }
 #[doc = "*Required features: `\"Win32_System_Memory\"`*"]
 #[inline]
@@ -995,7 +995,7 @@ pub unsafe fn LocalFree(hmem: isize) -> isize {
     extern "system" {
         fn LocalFree(hmem: isize) -> isize;
     }
-    ::core::mem::transmute(LocalFree(::core::mem::transmute(hmem)))
+    LocalFree(::core::mem::transmute(hmem))
 }
 #[doc = "*Required features: `\"Win32_System_Memory\"`*"]
 #[inline]
@@ -1004,7 +1004,7 @@ pub unsafe fn LocalHandle(pmem: *const ::core::ffi::c_void) -> isize {
     extern "system" {
         fn LocalHandle(pmem: *const ::core::ffi::c_void) -> isize;
     }
-    ::core::mem::transmute(LocalHandle(::core::mem::transmute(pmem)))
+    LocalHandle(::core::mem::transmute(pmem))
 }
 #[doc = "*Required features: `\"Win32_System_Memory\"`*"]
 #[inline]
@@ -1013,7 +1013,7 @@ pub unsafe fn LocalLock(hmem: isize) -> *mut ::core::ffi::c_void {
     extern "system" {
         fn LocalLock(hmem: isize) -> *mut ::core::ffi::c_void;
     }
-    ::core::mem::transmute(LocalLock(hmem))
+    LocalLock(hmem)
 }
 #[doc = "*Required features: `\"Win32_System_Memory\"`*"]
 #[inline]
@@ -1022,7 +1022,7 @@ pub unsafe fn LocalReAlloc(hmem: isize, ubytes: usize, uflags: u32) -> isize {
     extern "system" {
         fn LocalReAlloc(hmem: isize, ubytes: usize, uflags: u32) -> isize;
     }
-    ::core::mem::transmute(LocalReAlloc(::core::mem::transmute(hmem), ubytes, uflags))
+    LocalReAlloc(::core::mem::transmute(hmem), ubytes, uflags)
 }
 #[doc = "*Required features: `\"Win32_System_Memory\"`*"]
 #[inline]
@@ -1031,7 +1031,7 @@ pub unsafe fn LocalSize(hmem: isize) -> usize {
     extern "system" {
         fn LocalSize(hmem: isize) -> usize;
     }
-    ::core::mem::transmute(LocalSize(hmem))
+    LocalSize(hmem)
 }
 #[doc = "*Required features: `\"Win32_System_Memory\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -1041,7 +1041,7 @@ pub unsafe fn LocalUnlock(hmem: isize) -> super::super::Foundation::BOOL {
     extern "system" {
         fn LocalUnlock(hmem: isize) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(LocalUnlock(hmem))
+    LocalUnlock(hmem)
 }
 #[doc = "*Required features: `\"Win32_System_Memory\"`*"]
 pub const MEHC_PATROL_SCRUBBER_PRESENT: u32 = 1u32;
@@ -1421,7 +1421,7 @@ pub unsafe fn MapUserPhysicalPages(virtualaddress: *const ::core::ffi::c_void, p
     extern "system" {
         fn MapUserPhysicalPages(virtualaddress: *const ::core::ffi::c_void, numberofpages: usize, pagearray: *const usize) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(MapUserPhysicalPages(::core::mem::transmute(virtualaddress), pagearray.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(pagearray))))
+    MapUserPhysicalPages(::core::mem::transmute(virtualaddress), pagearray.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(pagearray)))
 }
 #[doc = "*Required features: `\"Win32_System_Memory\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -1431,7 +1431,7 @@ pub unsafe fn MapUserPhysicalPagesScatter(virtualaddresses: *const *const ::core
     extern "system" {
         fn MapUserPhysicalPagesScatter(virtualaddresses: *const *const ::core::ffi::c_void, numberofpages: usize, pagearray: *const usize) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(MapUserPhysicalPagesScatter(::core::mem::transmute(virtualaddresses), ::core::mem::transmute(numberofpages), ::core::mem::transmute(pagearray)))
+    MapUserPhysicalPagesScatter(::core::mem::transmute(virtualaddresses), ::core::mem::transmute(numberofpages), ::core::mem::transmute(pagearray))
 }
 #[doc = "*Required features: `\"Win32_System_Memory\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -1444,7 +1444,7 @@ where
     extern "system" {
         fn MapViewOfFile(hfilemappingobject: super::super::Foundation::HANDLE, dwdesiredaccess: FILE_MAP, dwfileoffsethigh: u32, dwfileoffsetlow: u32, dwnumberofbytestomap: usize) -> *mut ::core::ffi::c_void;
     }
-    ::core::mem::transmute(MapViewOfFile(hfilemappingobject.into(), dwdesiredaccess, dwfileoffsethigh, dwfileoffsetlow, dwnumberofbytestomap))
+    MapViewOfFile(hfilemappingobject.into(), dwdesiredaccess, dwfileoffsethigh, dwfileoffsetlow, dwnumberofbytestomap)
 }
 #[doc = "*Required features: `\"Win32_System_Memory\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -1458,7 +1458,7 @@ where
     extern "system" {
         fn MapViewOfFile3(filemapping: super::super::Foundation::HANDLE, process: super::super::Foundation::HANDLE, baseaddress: *const ::core::ffi::c_void, offset: u64, viewsize: usize, allocationtype: VIRTUAL_ALLOCATION_TYPE, pageprotection: u32, extendedparameters: *mut MEM_EXTENDED_PARAMETER, parametercount: u32) -> *mut ::core::ffi::c_void;
     }
-    ::core::mem::transmute(MapViewOfFile3(filemapping.into(), process.into(), ::core::mem::transmute(baseaddress), offset, viewsize, allocationtype, pageprotection, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(extendedparameters)), extendedparameters.len() as _))
+    MapViewOfFile3(filemapping.into(), process.into(), ::core::mem::transmute(baseaddress), offset, viewsize, allocationtype, pageprotection, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(extendedparameters)), extendedparameters.len() as _)
 }
 #[doc = "*Required features: `\"Win32_System_Memory\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -1472,7 +1472,7 @@ where
     extern "system" {
         fn MapViewOfFile3FromApp(filemapping: super::super::Foundation::HANDLE, process: super::super::Foundation::HANDLE, baseaddress: *const ::core::ffi::c_void, offset: u64, viewsize: usize, allocationtype: VIRTUAL_ALLOCATION_TYPE, pageprotection: u32, extendedparameters: *mut MEM_EXTENDED_PARAMETER, parametercount: u32) -> *mut ::core::ffi::c_void;
     }
-    ::core::mem::transmute(MapViewOfFile3FromApp(filemapping.into(), process.into(), ::core::mem::transmute(baseaddress), offset, viewsize, allocationtype, pageprotection, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(extendedparameters)), extendedparameters.len() as _))
+    MapViewOfFile3FromApp(filemapping.into(), process.into(), ::core::mem::transmute(baseaddress), offset, viewsize, allocationtype, pageprotection, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(extendedparameters)), extendedparameters.len() as _)
 }
 #[doc = "*Required features: `\"Win32_System_Memory\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -1485,7 +1485,7 @@ where
     extern "system" {
         fn MapViewOfFileEx(hfilemappingobject: super::super::Foundation::HANDLE, dwdesiredaccess: FILE_MAP, dwfileoffsethigh: u32, dwfileoffsetlow: u32, dwnumberofbytestomap: usize, lpbaseaddress: *const ::core::ffi::c_void) -> *mut ::core::ffi::c_void;
     }
-    ::core::mem::transmute(MapViewOfFileEx(hfilemappingobject.into(), dwdesiredaccess, dwfileoffsethigh, dwfileoffsetlow, dwnumberofbytestomap, ::core::mem::transmute(lpbaseaddress)))
+    MapViewOfFileEx(hfilemappingobject.into(), dwdesiredaccess, dwfileoffsethigh, dwfileoffsetlow, dwnumberofbytestomap, ::core::mem::transmute(lpbaseaddress))
 }
 #[doc = "*Required features: `\"Win32_System_Memory\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -1498,7 +1498,7 @@ where
     extern "system" {
         fn MapViewOfFileExNuma(hfilemappingobject: super::super::Foundation::HANDLE, dwdesiredaccess: FILE_MAP, dwfileoffsethigh: u32, dwfileoffsetlow: u32, dwnumberofbytestomap: usize, lpbaseaddress: *const ::core::ffi::c_void, nndpreferred: u32) -> *mut ::core::ffi::c_void;
     }
-    ::core::mem::transmute(MapViewOfFileExNuma(hfilemappingobject.into(), dwdesiredaccess, dwfileoffsethigh, dwfileoffsetlow, dwnumberofbytestomap, ::core::mem::transmute(lpbaseaddress), nndpreferred))
+    MapViewOfFileExNuma(hfilemappingobject.into(), dwdesiredaccess, dwfileoffsethigh, dwfileoffsetlow, dwnumberofbytestomap, ::core::mem::transmute(lpbaseaddress), nndpreferred)
 }
 #[doc = "*Required features: `\"Win32_System_Memory\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -1511,7 +1511,7 @@ where
     extern "system" {
         fn MapViewOfFileFromApp(hfilemappingobject: super::super::Foundation::HANDLE, desiredaccess: FILE_MAP, fileoffset: u64, numberofbytestomap: usize) -> *mut ::core::ffi::c_void;
     }
-    ::core::mem::transmute(MapViewOfFileFromApp(hfilemappingobject.into(), desiredaccess, fileoffset, numberofbytestomap))
+    MapViewOfFileFromApp(hfilemappingobject.into(), desiredaccess, fileoffset, numberofbytestomap)
 }
 #[doc = "*Required features: `\"Win32_System_Memory\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -1525,7 +1525,7 @@ where
     extern "system" {
         fn MapViewOfFileNuma2(filemappinghandle: super::super::Foundation::HANDLE, processhandle: super::super::Foundation::HANDLE, offset: u64, baseaddress: *const ::core::ffi::c_void, viewsize: usize, allocationtype: u32, pageprotection: u32, preferrednode: u32) -> *mut ::core::ffi::c_void;
     }
-    ::core::mem::transmute(MapViewOfFileNuma2(filemappinghandle.into(), processhandle.into(), offset, ::core::mem::transmute(baseaddress), viewsize, allocationtype, pageprotection, preferrednode))
+    MapViewOfFileNuma2(filemappinghandle.into(), processhandle.into(), offset, ::core::mem::transmute(baseaddress), viewsize, allocationtype, pageprotection, preferrednode)
 }
 #[doc = "*Required features: `\"Win32_System_Memory\"`*"]
 #[repr(transparent)]
@@ -1565,7 +1565,7 @@ pub unsafe fn OfferVirtualMemory(virtualaddress: &mut [u8], priority: OFFER_PRIO
     extern "system" {
         fn OfferVirtualMemory(virtualaddress: *mut ::core::ffi::c_void, size: usize, priority: OFFER_PRIORITY) -> u32;
     }
-    ::core::mem::transmute(OfferVirtualMemory(::core::mem::transmute(::windows::core::as_mut_ptr_or_null(virtualaddress)), virtualaddress.len() as _, priority))
+    OfferVirtualMemory(::core::mem::transmute(::windows::core::as_mut_ptr_or_null(virtualaddress)), virtualaddress.len() as _, priority)
 }
 #[doc = "*Required features: `\"Win32_System_Memory\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -1579,7 +1579,7 @@ where
     extern "system" {
         fn OpenDedicatedMemoryPartition(partition: super::super::Foundation::HANDLE, dedicatedmemorytypeid: u64, desiredaccess: u32, inherithandle: super::super::Foundation::BOOL) -> super::super::Foundation::HANDLE;
     }
-    ::core::mem::transmute(OpenDedicatedMemoryPartition(partition.into(), dedicatedmemorytypeid, desiredaccess, inherithandle.into()))
+    OpenDedicatedMemoryPartition(partition.into(), dedicatedmemorytypeid, desiredaccess, inherithandle.into())
 }
 #[doc = "*Required features: `\"Win32_System_Memory\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -1978,7 +1978,7 @@ where
     extern "system" {
         fn PrefetchVirtualMemory(hprocess: super::super::Foundation::HANDLE, numberofentries: usize, virtualaddresses: *const WIN32_MEMORY_RANGE_ENTRY, flags: u32) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(PrefetchVirtualMemory(hprocess.into(), virtualaddresses.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(virtualaddresses)), flags))
+    PrefetchVirtualMemory(hprocess.into(), virtualaddresses.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(virtualaddresses)), flags)
 }
 #[doc = "*Required features: `\"Win32_System_Memory\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -1991,7 +1991,7 @@ where
     extern "system" {
         fn QueryMemoryResourceNotification(resourcenotificationhandle: super::super::Foundation::HANDLE, resourcestate: *mut super::super::Foundation::BOOL) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(QueryMemoryResourceNotification(resourcenotificationhandle.into(), ::core::mem::transmute(resourcestate)))
+    QueryMemoryResourceNotification(resourcenotificationhandle.into(), ::core::mem::transmute(resourcestate))
 }
 #[doc = "*Required features: `\"Win32_System_Memory\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -2004,7 +2004,7 @@ where
     extern "system" {
         fn QueryPartitionInformation(partition: super::super::Foundation::HANDLE, partitioninformationclass: WIN32_MEMORY_PARTITION_INFORMATION_CLASS, partitioninformation: *mut ::core::ffi::c_void, partitioninformationlength: u32) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(QueryPartitionInformation(partition.into(), partitioninformationclass, ::core::mem::transmute(partitioninformation), partitioninformationlength))
+    QueryPartitionInformation(partition.into(), partitioninformationclass, ::core::mem::transmute(partitioninformation), partitioninformationlength)
 }
 #[doc = "*Required features: `\"Win32_System_Memory\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -2017,7 +2017,7 @@ where
     extern "system" {
         fn QueryVirtualMemoryInformation(process: super::super::Foundation::HANDLE, virtualaddress: *const ::core::ffi::c_void, memoryinformationclass: WIN32_MEMORY_INFORMATION_CLASS, memoryinformation: *mut ::core::ffi::c_void, memoryinformationsize: usize, returnsize: *mut usize) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(QueryVirtualMemoryInformation(process.into(), ::core::mem::transmute(virtualaddress), memoryinformationclass, ::core::mem::transmute(memoryinformation), memoryinformationsize, ::core::mem::transmute(returnsize)))
+    QueryVirtualMemoryInformation(process.into(), ::core::mem::transmute(virtualaddress), memoryinformationclass, ::core::mem::transmute(memoryinformation), memoryinformationsize, ::core::mem::transmute(returnsize))
 }
 #[doc = "*Required features: `\"Win32_System_Memory\"`*"]
 #[inline]
@@ -2026,7 +2026,7 @@ pub unsafe fn ReclaimVirtualMemory(virtualaddress: &[u8]) -> u32 {
     extern "system" {
         fn ReclaimVirtualMemory(virtualaddress: *const ::core::ffi::c_void, size: usize) -> u32;
     }
-    ::core::mem::transmute(ReclaimVirtualMemory(::core::mem::transmute(::windows::core::as_ptr_or_null(virtualaddress)), virtualaddress.len() as _))
+    ReclaimVirtualMemory(::core::mem::transmute(::windows::core::as_ptr_or_null(virtualaddress)), virtualaddress.len() as _)
 }
 #[doc = "*Required features: `\"Win32_System_Memory\"`*"]
 #[inline]
@@ -2035,7 +2035,7 @@ pub unsafe fn RegisterBadMemoryNotification(callback: PBAD_MEMORY_CALLBACK_ROUTI
     extern "system" {
         fn RegisterBadMemoryNotification(callback: *mut ::core::ffi::c_void) -> *mut ::core::ffi::c_void;
     }
-    ::core::mem::transmute(RegisterBadMemoryNotification(::core::mem::transmute(callback)))
+    RegisterBadMemoryNotification(::core::mem::transmute(callback))
 }
 #[doc = "*Required features: `\"Win32_System_Memory\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -2045,7 +2045,7 @@ pub unsafe fn RemoveSecureMemoryCacheCallback(pfncallback: PSECURE_MEMORY_CACHE_
     extern "system" {
         fn RemoveSecureMemoryCacheCallback(pfncallback: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(RemoveSecureMemoryCacheCallback(::core::mem::transmute(pfncallback)))
+    RemoveSecureMemoryCacheCallback(::core::mem::transmute(pfncallback))
 }
 #[doc = "*Required features: `\"Win32_System_Memory\"`*"]
 #[inline]
@@ -2054,7 +2054,7 @@ pub unsafe fn ResetWriteWatch(lpbaseaddress: *const ::core::ffi::c_void, dwregio
     extern "system" {
         fn ResetWriteWatch(lpbaseaddress: *const ::core::ffi::c_void, dwregionsize: usize) -> u32;
     }
-    ::core::mem::transmute(ResetWriteWatch(::core::mem::transmute(lpbaseaddress), dwregionsize))
+    ResetWriteWatch(::core::mem::transmute(lpbaseaddress), dwregionsize)
 }
 #[doc = "*Required features: `\"Win32_System_Memory\"`*"]
 #[inline]
@@ -2063,7 +2063,7 @@ pub unsafe fn RtlCompareMemory(source1: *const ::core::ffi::c_void, source2: *co
     extern "system" {
         fn RtlCompareMemory(source1: *const ::core::ffi::c_void, source2: *const ::core::ffi::c_void, length: usize) -> usize;
     }
-    ::core::mem::transmute(RtlCompareMemory(::core::mem::transmute(source1), ::core::mem::transmute(source2), length))
+    RtlCompareMemory(::core::mem::transmute(source1), ::core::mem::transmute(source2), length)
 }
 #[doc = "*Required features: `\"Win32_System_Memory\"`*"]
 #[inline]
@@ -2072,7 +2072,7 @@ pub unsafe fn RtlCrc32(buffer: *const ::core::ffi::c_void, size: usize, initialc
     extern "system" {
         fn RtlCrc32(buffer: *const ::core::ffi::c_void, size: usize, initialcrc: u32) -> u32;
     }
-    ::core::mem::transmute(RtlCrc32(::core::mem::transmute(buffer), size, initialcrc))
+    RtlCrc32(::core::mem::transmute(buffer), size, initialcrc)
 }
 #[doc = "*Required features: `\"Win32_System_Memory\"`*"]
 #[inline]
@@ -2081,7 +2081,7 @@ pub unsafe fn RtlCrc64(buffer: *const ::core::ffi::c_void, size: usize, initialc
     extern "system" {
         fn RtlCrc64(buffer: *const ::core::ffi::c_void, size: usize, initialcrc: u64) -> u64;
     }
-    ::core::mem::transmute(RtlCrc64(::core::mem::transmute(buffer), size, initialcrc))
+    RtlCrc64(::core::mem::transmute(buffer), size, initialcrc)
 }
 #[doc = "*Required features: `\"Win32_System_Memory\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -2091,7 +2091,7 @@ pub unsafe fn RtlIsZeroMemory(buffer: *const ::core::ffi::c_void, length: usize)
     extern "system" {
         fn RtlIsZeroMemory(buffer: *const ::core::ffi::c_void, length: usize) -> super::super::Foundation::BOOLEAN;
     }
-    ::core::mem::transmute(RtlIsZeroMemory(::core::mem::transmute(buffer), length))
+    RtlIsZeroMemory(::core::mem::transmute(buffer), length)
 }
 #[doc = "*Required features: `\"Win32_System_Memory\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -2104,7 +2104,7 @@ where
     extern "system" {
         fn SetProcessValidCallTargets(hprocess: super::super::Foundation::HANDLE, virtualaddress: *const ::core::ffi::c_void, regionsize: usize, numberofoffsets: u32, offsetinformation: *mut CFG_CALL_TARGET_INFO) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(SetProcessValidCallTargets(hprocess.into(), ::core::mem::transmute(virtualaddress), regionsize, offsetinformation.len() as _, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(offsetinformation))))
+    SetProcessValidCallTargets(hprocess.into(), ::core::mem::transmute(virtualaddress), regionsize, offsetinformation.len() as _, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(offsetinformation)))
 }
 #[doc = "*Required features: `\"Win32_System_Memory\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -2118,7 +2118,7 @@ where
     extern "system" {
         fn SetProcessValidCallTargetsForMappedView(process: super::super::Foundation::HANDLE, virtualaddress: *const ::core::ffi::c_void, regionsize: usize, numberofoffsets: u32, offsetinformation: *mut CFG_CALL_TARGET_INFO, section: super::super::Foundation::HANDLE, expectedfileoffset: u64) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(SetProcessValidCallTargetsForMappedView(process.into(), ::core::mem::transmute(virtualaddress), regionsize, offsetinformation.len() as _, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(offsetinformation)), section.into(), expectedfileoffset))
+    SetProcessValidCallTargetsForMappedView(process.into(), ::core::mem::transmute(virtualaddress), regionsize, offsetinformation.len() as _, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(offsetinformation)), section.into(), expectedfileoffset)
 }
 #[doc = "*Required features: `\"Win32_System_Memory\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -2131,7 +2131,7 @@ where
     extern "system" {
         fn SetProcessWorkingSetSizeEx(hprocess: super::super::Foundation::HANDLE, dwminimumworkingsetsize: usize, dwmaximumworkingsetsize: usize, flags: u32) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(SetProcessWorkingSetSizeEx(hprocess.into(), dwminimumworkingsetsize, dwmaximumworkingsetsize, flags))
+    SetProcessWorkingSetSizeEx(hprocess.into(), dwminimumworkingsetsize, dwmaximumworkingsetsize, flags)
 }
 #[doc = "*Required features: `\"Win32_System_Memory\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -2141,7 +2141,7 @@ pub unsafe fn SetSystemFileCacheSize(minimumfilecachesize: usize, maximumfilecac
     extern "system" {
         fn SetSystemFileCacheSize(minimumfilecachesize: usize, maximumfilecachesize: usize, flags: u32) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(SetSystemFileCacheSize(minimumfilecachesize, maximumfilecachesize, flags))
+    SetSystemFileCacheSize(minimumfilecachesize, maximumfilecachesize, flags)
 }
 #[doc = "*Required features: `\"Win32_System_Memory\"`*"]
 #[repr(transparent)]
@@ -2180,7 +2180,7 @@ pub unsafe fn UnmapViewOfFile(lpbaseaddress: *const ::core::ffi::c_void) -> supe
     extern "system" {
         fn UnmapViewOfFile(lpbaseaddress: *const ::core::ffi::c_void) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(UnmapViewOfFile(::core::mem::transmute(lpbaseaddress)))
+    UnmapViewOfFile(::core::mem::transmute(lpbaseaddress))
 }
 #[doc = "*Required features: `\"Win32_System_Memory\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -2193,7 +2193,7 @@ where
     extern "system" {
         fn UnmapViewOfFile2(process: super::super::Foundation::HANDLE, baseaddress: *const ::core::ffi::c_void, unmapflags: UNMAP_VIEW_OF_FILE_FLAGS) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(UnmapViewOfFile2(process.into(), ::core::mem::transmute(baseaddress), unmapflags))
+    UnmapViewOfFile2(process.into(), ::core::mem::transmute(baseaddress), unmapflags)
 }
 #[doc = "*Required features: `\"Win32_System_Memory\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -2203,7 +2203,7 @@ pub unsafe fn UnmapViewOfFileEx(baseaddress: *const ::core::ffi::c_void, unmapfl
     extern "system" {
         fn UnmapViewOfFileEx(baseaddress: *const ::core::ffi::c_void, unmapflags: UNMAP_VIEW_OF_FILE_FLAGS) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(UnmapViewOfFileEx(::core::mem::transmute(baseaddress), unmapflags))
+    UnmapViewOfFileEx(::core::mem::transmute(baseaddress), unmapflags)
 }
 #[doc = "*Required features: `\"Win32_System_Memory\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -2213,7 +2213,7 @@ pub unsafe fn UnregisterBadMemoryNotification(registrationhandle: *const ::core:
     extern "system" {
         fn UnregisterBadMemoryNotification(registrationhandle: *const ::core::ffi::c_void) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(UnregisterBadMemoryNotification(::core::mem::transmute(registrationhandle)))
+    UnregisterBadMemoryNotification(::core::mem::transmute(registrationhandle))
 }
 #[doc = "*Required features: `\"Win32_System_Memory\"`*"]
 #[repr(transparent)]
@@ -2316,7 +2316,7 @@ pub unsafe fn VirtualAlloc(lpaddress: *const ::core::ffi::c_void, dwsize: usize,
     extern "system" {
         fn VirtualAlloc(lpaddress: *const ::core::ffi::c_void, dwsize: usize, flallocationtype: VIRTUAL_ALLOCATION_TYPE, flprotect: PAGE_PROTECTION_FLAGS) -> *mut ::core::ffi::c_void;
     }
-    ::core::mem::transmute(VirtualAlloc(::core::mem::transmute(lpaddress), dwsize, flallocationtype, flprotect))
+    VirtualAlloc(::core::mem::transmute(lpaddress), dwsize, flallocationtype, flprotect)
 }
 #[doc = "*Required features: `\"Win32_System_Memory\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -2329,7 +2329,7 @@ where
     extern "system" {
         fn VirtualAlloc2(process: super::super::Foundation::HANDLE, baseaddress: *const ::core::ffi::c_void, size: usize, allocationtype: VIRTUAL_ALLOCATION_TYPE, pageprotection: u32, extendedparameters: *mut MEM_EXTENDED_PARAMETER, parametercount: u32) -> *mut ::core::ffi::c_void;
     }
-    ::core::mem::transmute(VirtualAlloc2(process.into(), ::core::mem::transmute(baseaddress), size, allocationtype, pageprotection, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(extendedparameters)), extendedparameters.len() as _))
+    VirtualAlloc2(process.into(), ::core::mem::transmute(baseaddress), size, allocationtype, pageprotection, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(extendedparameters)), extendedparameters.len() as _)
 }
 #[doc = "*Required features: `\"Win32_System_Memory\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -2342,7 +2342,7 @@ where
     extern "system" {
         fn VirtualAlloc2FromApp(process: super::super::Foundation::HANDLE, baseaddress: *const ::core::ffi::c_void, size: usize, allocationtype: VIRTUAL_ALLOCATION_TYPE, pageprotection: u32, extendedparameters: *mut MEM_EXTENDED_PARAMETER, parametercount: u32) -> *mut ::core::ffi::c_void;
     }
-    ::core::mem::transmute(VirtualAlloc2FromApp(process.into(), ::core::mem::transmute(baseaddress), size, allocationtype, pageprotection, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(extendedparameters)), extendedparameters.len() as _))
+    VirtualAlloc2FromApp(process.into(), ::core::mem::transmute(baseaddress), size, allocationtype, pageprotection, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(extendedparameters)), extendedparameters.len() as _)
 }
 #[doc = "*Required features: `\"Win32_System_Memory\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -2355,7 +2355,7 @@ where
     extern "system" {
         fn VirtualAllocEx(hprocess: super::super::Foundation::HANDLE, lpaddress: *const ::core::ffi::c_void, dwsize: usize, flallocationtype: VIRTUAL_ALLOCATION_TYPE, flprotect: PAGE_PROTECTION_FLAGS) -> *mut ::core::ffi::c_void;
     }
-    ::core::mem::transmute(VirtualAllocEx(hprocess.into(), ::core::mem::transmute(lpaddress), dwsize, flallocationtype, flprotect))
+    VirtualAllocEx(hprocess.into(), ::core::mem::transmute(lpaddress), dwsize, flallocationtype, flprotect)
 }
 #[doc = "*Required features: `\"Win32_System_Memory\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -2368,7 +2368,7 @@ where
     extern "system" {
         fn VirtualAllocExNuma(hprocess: super::super::Foundation::HANDLE, lpaddress: *const ::core::ffi::c_void, dwsize: usize, flallocationtype: VIRTUAL_ALLOCATION_TYPE, flprotect: u32, nndpreferred: u32) -> *mut ::core::ffi::c_void;
     }
-    ::core::mem::transmute(VirtualAllocExNuma(hprocess.into(), ::core::mem::transmute(lpaddress), dwsize, flallocationtype, flprotect, nndpreferred))
+    VirtualAllocExNuma(hprocess.into(), ::core::mem::transmute(lpaddress), dwsize, flallocationtype, flprotect, nndpreferred)
 }
 #[doc = "*Required features: `\"Win32_System_Memory\"`*"]
 #[inline]
@@ -2377,7 +2377,7 @@ pub unsafe fn VirtualAllocFromApp(baseaddress: *const ::core::ffi::c_void, size:
     extern "system" {
         fn VirtualAllocFromApp(baseaddress: *const ::core::ffi::c_void, size: usize, allocationtype: VIRTUAL_ALLOCATION_TYPE, protection: u32) -> *mut ::core::ffi::c_void;
     }
-    ::core::mem::transmute(VirtualAllocFromApp(::core::mem::transmute(baseaddress), size, allocationtype, protection))
+    VirtualAllocFromApp(::core::mem::transmute(baseaddress), size, allocationtype, protection)
 }
 #[doc = "*Required features: `\"Win32_System_Memory\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -2387,7 +2387,7 @@ pub unsafe fn VirtualFree(lpaddress: *mut ::core::ffi::c_void, dwsize: usize, dw
     extern "system" {
         fn VirtualFree(lpaddress: *mut ::core::ffi::c_void, dwsize: usize, dwfreetype: VIRTUAL_FREE_TYPE) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(VirtualFree(::core::mem::transmute(lpaddress), dwsize, dwfreetype))
+    VirtualFree(::core::mem::transmute(lpaddress), dwsize, dwfreetype)
 }
 #[doc = "*Required features: `\"Win32_System_Memory\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -2400,7 +2400,7 @@ where
     extern "system" {
         fn VirtualFreeEx(hprocess: super::super::Foundation::HANDLE, lpaddress: *mut ::core::ffi::c_void, dwsize: usize, dwfreetype: VIRTUAL_FREE_TYPE) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(VirtualFreeEx(hprocess.into(), ::core::mem::transmute(lpaddress), dwsize, dwfreetype))
+    VirtualFreeEx(hprocess.into(), ::core::mem::transmute(lpaddress), dwsize, dwfreetype)
 }
 #[doc = "*Required features: `\"Win32_System_Memory\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -2410,7 +2410,7 @@ pub unsafe fn VirtualLock(lpaddress: *const ::core::ffi::c_void, dwsize: usize) 
     extern "system" {
         fn VirtualLock(lpaddress: *const ::core::ffi::c_void, dwsize: usize) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(VirtualLock(::core::mem::transmute(lpaddress), dwsize))
+    VirtualLock(::core::mem::transmute(lpaddress), dwsize)
 }
 #[doc = "*Required features: `\"Win32_System_Memory\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -2420,7 +2420,7 @@ pub unsafe fn VirtualProtect(lpaddress: *const ::core::ffi::c_void, dwsize: usiz
     extern "system" {
         fn VirtualProtect(lpaddress: *const ::core::ffi::c_void, dwsize: usize, flnewprotect: PAGE_PROTECTION_FLAGS, lpfloldprotect: *mut PAGE_PROTECTION_FLAGS) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(VirtualProtect(::core::mem::transmute(lpaddress), dwsize, flnewprotect, ::core::mem::transmute(lpfloldprotect)))
+    VirtualProtect(::core::mem::transmute(lpaddress), dwsize, flnewprotect, ::core::mem::transmute(lpfloldprotect))
 }
 #[doc = "*Required features: `\"Win32_System_Memory\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -2433,7 +2433,7 @@ where
     extern "system" {
         fn VirtualProtectEx(hprocess: super::super::Foundation::HANDLE, lpaddress: *const ::core::ffi::c_void, dwsize: usize, flnewprotect: PAGE_PROTECTION_FLAGS, lpfloldprotect: *mut PAGE_PROTECTION_FLAGS) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(VirtualProtectEx(hprocess.into(), ::core::mem::transmute(lpaddress), dwsize, flnewprotect, ::core::mem::transmute(lpfloldprotect)))
+    VirtualProtectEx(hprocess.into(), ::core::mem::transmute(lpaddress), dwsize, flnewprotect, ::core::mem::transmute(lpfloldprotect))
 }
 #[doc = "*Required features: `\"Win32_System_Memory\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -2443,7 +2443,7 @@ pub unsafe fn VirtualProtectFromApp(address: *const ::core::ffi::c_void, size: u
     extern "system" {
         fn VirtualProtectFromApp(address: *const ::core::ffi::c_void, size: usize, newprotection: u32, oldprotection: *mut u32) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(VirtualProtectFromApp(::core::mem::transmute(address), size, newprotection, ::core::mem::transmute(oldprotection)))
+    VirtualProtectFromApp(::core::mem::transmute(address), size, newprotection, ::core::mem::transmute(oldprotection))
 }
 #[doc = "*Required features: `\"Win32_System_Memory\"`*"]
 #[inline]
@@ -2452,7 +2452,7 @@ pub unsafe fn VirtualQuery(lpaddress: *const ::core::ffi::c_void, lpbuffer: *mut
     extern "system" {
         fn VirtualQuery(lpaddress: *const ::core::ffi::c_void, lpbuffer: *mut MEMORY_BASIC_INFORMATION, dwlength: usize) -> usize;
     }
-    ::core::mem::transmute(VirtualQuery(::core::mem::transmute(lpaddress), ::core::mem::transmute(lpbuffer), dwlength))
+    VirtualQuery(::core::mem::transmute(lpaddress), ::core::mem::transmute(lpbuffer), dwlength)
 }
 #[doc = "*Required features: `\"Win32_System_Memory\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -2465,7 +2465,7 @@ where
     extern "system" {
         fn VirtualQueryEx(hprocess: super::super::Foundation::HANDLE, lpaddress: *const ::core::ffi::c_void, lpbuffer: *mut MEMORY_BASIC_INFORMATION, dwlength: usize) -> usize;
     }
-    ::core::mem::transmute(VirtualQueryEx(hprocess.into(), ::core::mem::transmute(lpaddress), ::core::mem::transmute(lpbuffer), dwlength))
+    VirtualQueryEx(hprocess.into(), ::core::mem::transmute(lpaddress), ::core::mem::transmute(lpbuffer), dwlength)
 }
 #[doc = "*Required features: `\"Win32_System_Memory\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -2475,7 +2475,7 @@ pub unsafe fn VirtualUnlock(lpaddress: *const ::core::ffi::c_void, dwsize: usize
     extern "system" {
         fn VirtualUnlock(lpaddress: *const ::core::ffi::c_void, dwsize: usize) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(VirtualUnlock(::core::mem::transmute(lpaddress), dwsize))
+    VirtualUnlock(::core::mem::transmute(lpaddress), dwsize)
 }
 #[doc = "*Required features: `\"Win32_System_Memory\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -2488,7 +2488,7 @@ where
     extern "system" {
         fn VirtualUnlockEx(process: super::super::Foundation::HANDLE, address: *const ::core::ffi::c_void, size: usize) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(VirtualUnlockEx(process.into(), ::core::mem::transmute(address), size))
+    VirtualUnlockEx(process.into(), ::core::mem::transmute(address), size)
 }
 #[doc = "*Required features: `\"Win32_System_Memory\"`*"]
 #[repr(transparent)]

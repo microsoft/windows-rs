@@ -15392,16 +15392,16 @@ impl IEnroll {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn getCertContextFromPKCS7(&self, pblobpkcs7: *mut super::CRYPTOAPI_BLOB) -> *mut super::CERT_CONTEXT {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).getCertContextFromPKCS7)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pblobpkcs7)))
+        (::windows::core::Interface::vtable(self).getCertContextFromPKCS7)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pblobpkcs7))
     }
     pub unsafe fn getMyStore(&self) -> super::HCERTSTORE {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).getMyStore)(::windows::core::Interface::as_raw(self)))
+        (::windows::core::Interface::vtable(self).getMyStore)(::windows::core::Interface::as_raw(self))
     }
     pub unsafe fn getCAStore(&self) -> super::HCERTSTORE {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).getCAStore)(::windows::core::Interface::as_raw(self)))
+        (::windows::core::Interface::vtable(self).getCAStore)(::windows::core::Interface::as_raw(self))
     }
     pub unsafe fn getROOTHStore(&self) -> super::HCERTSTORE {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).getROOTHStore)(::windows::core::Interface::as_raw(self)))
+        (::windows::core::Interface::vtable(self).getROOTHStore)(::windows::core::Interface::as_raw(self))
     }
     pub unsafe fn enumProvidersWStr(&self, dwindex: i32, dwflags: i32, pbstrprovname: *mut ::windows::core::PWSTR) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).enumProvidersWStr)(::windows::core::Interface::as_raw(self), dwindex, dwflags, ::core::mem::transmute(pbstrprovname)).ok()
@@ -15865,16 +15865,16 @@ impl IEnroll2 {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn getCertContextFromPKCS7(&self, pblobpkcs7: *mut super::CRYPTOAPI_BLOB) -> *mut super::CERT_CONTEXT {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).base__.getCertContextFromPKCS7)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pblobpkcs7)))
+        (::windows::core::Interface::vtable(self).base__.getCertContextFromPKCS7)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pblobpkcs7))
     }
     pub unsafe fn getMyStore(&self) -> super::HCERTSTORE {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).base__.getMyStore)(::windows::core::Interface::as_raw(self)))
+        (::windows::core::Interface::vtable(self).base__.getMyStore)(::windows::core::Interface::as_raw(self))
     }
     pub unsafe fn getCAStore(&self) -> super::HCERTSTORE {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).base__.getCAStore)(::windows::core::Interface::as_raw(self)))
+        (::windows::core::Interface::vtable(self).base__.getCAStore)(::windows::core::Interface::as_raw(self))
     }
     pub unsafe fn getROOTHStore(&self) -> super::HCERTSTORE {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).base__.getROOTHStore)(::windows::core::Interface::as_raw(self)))
+        (::windows::core::Interface::vtable(self).base__.getROOTHStore)(::windows::core::Interface::as_raw(self))
     }
     pub unsafe fn enumProvidersWStr(&self, dwindex: i32, dwflags: i32, pbstrprovname: *mut ::windows::core::PWSTR) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.enumProvidersWStr)(::windows::core::Interface::as_raw(self), dwindex, dwflags, ::core::mem::transmute(pbstrprovname)).ok()
@@ -16370,16 +16370,16 @@ impl IEnroll4 {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn getCertContextFromPKCS7(&self, pblobpkcs7: *mut super::CRYPTOAPI_BLOB) -> *mut super::CERT_CONTEXT {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).base__.base__.getCertContextFromPKCS7)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pblobpkcs7)))
+        (::windows::core::Interface::vtable(self).base__.base__.getCertContextFromPKCS7)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pblobpkcs7))
     }
     pub unsafe fn getMyStore(&self) -> super::HCERTSTORE {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).base__.base__.getMyStore)(::windows::core::Interface::as_raw(self)))
+        (::windows::core::Interface::vtable(self).base__.base__.getMyStore)(::windows::core::Interface::as_raw(self))
     }
     pub unsafe fn getCAStore(&self) -> super::HCERTSTORE {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).base__.base__.getCAStore)(::windows::core::Interface::as_raw(self)))
+        (::windows::core::Interface::vtable(self).base__.base__.getCAStore)(::windows::core::Interface::as_raw(self))
     }
     pub unsafe fn getROOTHStore(&self) -> super::HCERTSTORE {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).base__.base__.getROOTHStore)(::windows::core::Interface::as_raw(self)))
+        (::windows::core::Interface::vtable(self).base__.base__.getROOTHStore)(::windows::core::Interface::as_raw(self))
     }
     pub unsafe fn enumProvidersWStr(&self, dwindex: i32, dwflags: i32, pbstrprovname: *mut ::windows::core::PWSTR) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.base__.enumProvidersWStr)(::windows::core::Interface::as_raw(self), dwindex, dwflags, ::core::mem::transmute(pbstrprovname)).ok()
@@ -16763,7 +16763,7 @@ impl IEnroll4 {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetPrivateKeyArchiveCertificate(&self) -> *mut super::CERT_CONTEXT {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).GetPrivateKeyArchiveCertificate)(::windows::core::Interface::as_raw(self)))
+        (::windows::core::Interface::vtable(self).GetPrivateKeyArchiveCertificate)(::windows::core::Interface::as_raw(self))
     }
     pub unsafe fn binaryBlobToString(&self, flags: i32, pblobbinary: *mut super::CRYPTOAPI_BLOB, ppwszstring: *mut ::windows::core::PWSTR) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).binaryBlobToString)(::windows::core::Interface::as_raw(self), flags, ::core::mem::transmute(pblobbinary), ::core::mem::transmute(ppwszstring)).ok()

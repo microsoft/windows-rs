@@ -279,7 +279,7 @@ where
     extern "system" {
         fn AbortPrinter(hprinter: super::super::Foundation::HANDLE) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(AbortPrinter(hprinter.into()))
+    AbortPrinter(hprinter.into())
 }
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -292,7 +292,7 @@ where
     extern "system" {
         fn AddFormA(hprinter: super::super::Foundation::HANDLE, level: u32, pform: *const u8) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(AddFormA(hprinter.into(), level, ::core::mem::transmute(pform)))
+    AddFormA(hprinter.into(), level, ::core::mem::transmute(pform))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -305,7 +305,7 @@ where
     extern "system" {
         fn AddFormW(hprinter: super::super::Foundation::HANDLE, level: u32, pform: *const u8) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(AddFormW(hprinter.into(), level, ::core::mem::transmute(pform)))
+    AddFormW(hprinter.into(), level, ::core::mem::transmute(pform))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -318,7 +318,7 @@ where
     extern "system" {
         fn AddJobA(hprinter: super::super::Foundation::HANDLE, level: u32, pdata: *mut u8, cbbuf: u32, pcbneeded: *mut u32) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(AddJobA(hprinter.into(), level, ::core::mem::transmute(pdata), cbbuf, ::core::mem::transmute(pcbneeded)))
+    AddJobA(hprinter.into(), level, ::core::mem::transmute(pdata), cbbuf, ::core::mem::transmute(pcbneeded))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -331,7 +331,7 @@ where
     extern "system" {
         fn AddJobW(hprinter: super::super::Foundation::HANDLE, level: u32, pdata: *mut u8, cbbuf: u32, pcbneeded: *mut u32) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(AddJobW(hprinter.into(), level, ::core::mem::transmute(pdata), cbbuf, ::core::mem::transmute(pcbneeded)))
+    AddJobW(hprinter.into(), level, ::core::mem::transmute(pdata), cbbuf, ::core::mem::transmute(pcbneeded))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -344,7 +344,7 @@ where
     extern "system" {
         fn AddMonitorA(pname: ::windows::core::PCSTR, level: u32, pmonitors: *const u8) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(AddMonitorA(pname.into(), level, ::core::mem::transmute(pmonitors)))
+    AddMonitorA(pname.into(), level, ::core::mem::transmute(pmonitors))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -357,7 +357,7 @@ where
     extern "system" {
         fn AddMonitorW(pname: ::windows::core::PCWSTR, level: u32, pmonitors: *const u8) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(AddMonitorW(pname.into(), level, ::core::mem::transmute(pmonitors)))
+    AddMonitorW(pname.into(), level, ::core::mem::transmute(pmonitors))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -372,7 +372,7 @@ where
     extern "system" {
         fn AddPortA(pname: ::windows::core::PCSTR, hwnd: super::super::Foundation::HWND, pmonitorname: ::windows::core::PCSTR) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(AddPortA(pname.into(), hwnd.into(), pmonitorname.into()))
+    AddPortA(pname.into(), hwnd.into(), pmonitorname.into())
 }
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -387,7 +387,7 @@ where
     extern "system" {
         fn AddPortW(pname: ::windows::core::PCWSTR, hwnd: super::super::Foundation::HWND, pmonitorname: ::windows::core::PCWSTR) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(AddPortW(pname.into(), hwnd.into(), pmonitorname.into()))
+    AddPortW(pname.into(), hwnd.into(), pmonitorname.into())
 }
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -417,7 +417,7 @@ where
     extern "system" {
         fn AddPrintProcessorA(pname: ::windows::core::PCSTR, penvironment: ::windows::core::PCSTR, ppathname: ::windows::core::PCSTR, pprintprocessorname: ::windows::core::PCSTR) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(AddPrintProcessorA(pname.into(), penvironment.into(), ppathname.into(), pprintprocessorname.into()))
+    AddPrintProcessorA(pname.into(), penvironment.into(), ppathname.into(), pprintprocessorname.into())
 }
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -433,7 +433,7 @@ where
     extern "system" {
         fn AddPrintProcessorW(pname: ::windows::core::PCWSTR, penvironment: ::windows::core::PCWSTR, ppathname: ::windows::core::PCWSTR, pprintprocessorname: ::windows::core::PCWSTR) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(AddPrintProcessorW(pname.into(), penvironment.into(), ppathname.into(), pprintprocessorname.into()))
+    AddPrintProcessorW(pname.into(), penvironment.into(), ppathname.into(), pprintprocessorname.into())
 }
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -446,7 +446,7 @@ where
     extern "system" {
         fn AddPrintProvidorA(pname: ::windows::core::PCSTR, level: u32, pprovidorinfo: *const u8) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(AddPrintProvidorA(pname.into(), level, ::core::mem::transmute(pprovidorinfo)))
+    AddPrintProvidorA(pname.into(), level, ::core::mem::transmute(pprovidorinfo))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -459,7 +459,7 @@ where
     extern "system" {
         fn AddPrintProvidorW(pname: ::windows::core::PCWSTR, level: u32, pprovidorinfo: *const u8) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(AddPrintProvidorW(pname.into(), level, ::core::mem::transmute(pprovidorinfo)))
+    AddPrintProvidorW(pname.into(), level, ::core::mem::transmute(pprovidorinfo))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -472,7 +472,7 @@ where
     extern "system" {
         fn AddPrinterA(pname: ::windows::core::PCSTR, level: u32, pprinter: *const u8) -> super::super::Foundation::HANDLE;
     }
-    ::core::mem::transmute(AddPrinterA(pname.into(), level, ::core::mem::transmute(pprinter)))
+    AddPrinterA(pname.into(), level, ::core::mem::transmute(pprinter))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -486,7 +486,7 @@ where
     extern "system" {
         fn AddPrinterConnection2A(hwnd: super::super::Foundation::HWND, pszname: ::windows::core::PCSTR, dwlevel: u32, pconnectioninfo: *const ::core::ffi::c_void) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(AddPrinterConnection2A(hwnd.into(), pszname.into(), dwlevel, ::core::mem::transmute(pconnectioninfo)))
+    AddPrinterConnection2A(hwnd.into(), pszname.into(), dwlevel, ::core::mem::transmute(pconnectioninfo))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -500,7 +500,7 @@ where
     extern "system" {
         fn AddPrinterConnection2W(hwnd: super::super::Foundation::HWND, pszname: ::windows::core::PCWSTR, dwlevel: u32, pconnectioninfo: *const ::core::ffi::c_void) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(AddPrinterConnection2W(hwnd.into(), pszname.into(), dwlevel, ::core::mem::transmute(pconnectioninfo)))
+    AddPrinterConnection2W(hwnd.into(), pszname.into(), dwlevel, ::core::mem::transmute(pconnectioninfo))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -513,7 +513,7 @@ where
     extern "system" {
         fn AddPrinterConnectionA(pname: ::windows::core::PCSTR) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(AddPrinterConnectionA(pname.into()))
+    AddPrinterConnectionA(pname.into())
 }
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -526,7 +526,7 @@ where
     extern "system" {
         fn AddPrinterConnectionW(pname: ::windows::core::PCWSTR) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(AddPrinterConnectionW(pname.into()))
+    AddPrinterConnectionW(pname.into())
 }
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -539,7 +539,7 @@ where
     extern "system" {
         fn AddPrinterDriverA(pname: ::windows::core::PCSTR, level: u32, pdriverinfo: *const u8) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(AddPrinterDriverA(pname.into(), level, ::core::mem::transmute(pdriverinfo)))
+    AddPrinterDriverA(pname.into(), level, ::core::mem::transmute(pdriverinfo))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -552,7 +552,7 @@ where
     extern "system" {
         fn AddPrinterDriverExA(pname: ::windows::core::PCSTR, level: u32, lpbdriverinfo: *const u8, dwfilecopyflags: u32) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(AddPrinterDriverExA(pname.into(), level, ::core::mem::transmute(lpbdriverinfo), dwfilecopyflags))
+    AddPrinterDriverExA(pname.into(), level, ::core::mem::transmute(lpbdriverinfo), dwfilecopyflags)
 }
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -565,7 +565,7 @@ where
     extern "system" {
         fn AddPrinterDriverExW(pname: ::windows::core::PCWSTR, level: u32, lpbdriverinfo: *const u8, dwfilecopyflags: u32) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(AddPrinterDriverExW(pname.into(), level, ::core::mem::transmute(lpbdriverinfo), dwfilecopyflags))
+    AddPrinterDriverExW(pname.into(), level, ::core::mem::transmute(lpbdriverinfo), dwfilecopyflags)
 }
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -578,7 +578,7 @@ where
     extern "system" {
         fn AddPrinterDriverW(pname: ::windows::core::PCWSTR, level: u32, pdriverinfo: *const u8) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(AddPrinterDriverW(pname.into(), level, ::core::mem::transmute(pdriverinfo)))
+    AddPrinterDriverW(pname.into(), level, ::core::mem::transmute(pdriverinfo))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -591,7 +591,7 @@ where
     extern "system" {
         fn AddPrinterW(pname: ::windows::core::PCWSTR, level: u32, pprinter: *const u8) -> super::super::Foundation::HANDLE;
     }
-    ::core::mem::transmute(AddPrinterW(pname.into(), level, ::core::mem::transmute(pprinter)))
+    AddPrinterW(pname.into(), level, ::core::mem::transmute(pprinter))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
@@ -606,7 +606,7 @@ where
     extern "system" {
         fn AdvancedDocumentPropertiesA(hwnd: super::super::Foundation::HWND, hprinter: super::super::Foundation::HANDLE, pdevicename: ::windows::core::PCSTR, pdevmodeoutput: *mut super::Gdi::DEVMODEA, pdevmodeinput: *const super::Gdi::DEVMODEA) -> i32;
     }
-    ::core::mem::transmute(AdvancedDocumentPropertiesA(hwnd.into(), hprinter.into(), pdevicename.into(), ::core::mem::transmute(pdevmodeoutput), ::core::mem::transmute(pdevmodeinput)))
+    AdvancedDocumentPropertiesA(hwnd.into(), hprinter.into(), pdevicename.into(), ::core::mem::transmute(pdevmodeoutput), ::core::mem::transmute(pdevmodeinput))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
@@ -621,7 +621,7 @@ where
     extern "system" {
         fn AdvancedDocumentPropertiesW(hwnd: super::super::Foundation::HWND, hprinter: super::super::Foundation::HANDLE, pdevicename: ::windows::core::PCWSTR, pdevmodeoutput: *mut super::Gdi::DEVMODEW, pdevmodeinput: *const super::Gdi::DEVMODEW) -> i32;
     }
-    ::core::mem::transmute(AdvancedDocumentPropertiesW(hwnd.into(), hprinter.into(), pdevicename.into(), ::core::mem::transmute(pdevmodeoutput), ::core::mem::transmute(pdevmodeinput)))
+    AdvancedDocumentPropertiesW(hwnd.into(), hprinter.into(), pdevicename.into(), ::core::mem::transmute(pdevmodeoutput), ::core::mem::transmute(pdevmodeinput))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -631,7 +631,7 @@ pub unsafe fn AppendPrinterNotifyInfoData(pinfodest: *const PRINTER_NOTIFY_INFO,
     extern "system" {
         fn AppendPrinterNotifyInfoData(pinfodest: *const PRINTER_NOTIFY_INFO, pdatasrc: *const PRINTER_NOTIFY_INFO_DATA, fdwflags: u32) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(AppendPrinterNotifyInfoData(::core::mem::transmute(pinfodest), ::core::mem::transmute(pdatasrc), fdwflags))
+    AppendPrinterNotifyInfoData(::core::mem::transmute(pinfodest), ::core::mem::transmute(pdatasrc), fdwflags)
 }
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
 pub const BIDI_ACCESS_ADMINISTRATOR: u32 = 1u32;
@@ -1735,7 +1735,7 @@ where
     extern "system" {
         fn CallRouterFindFirstPrinterChangeNotification(hprinterrpc: super::super::Foundation::HANDLE, fdwfilterflags: u32, fdwoptions: u32, hnotify: super::super::Foundation::HANDLE, pprinternotifyoptions: *const PRINTER_NOTIFY_OPTIONS) -> u32;
     }
-    ::core::mem::transmute(CallRouterFindFirstPrinterChangeNotification(hprinterrpc.into(), fdwfilterflags, fdwoptions, hnotify.into(), ::core::mem::transmute(pprinternotifyoptions)))
+    CallRouterFindFirstPrinterChangeNotification(hprinterrpc.into(), fdwfilterflags, fdwoptions, hnotify.into(), ::core::mem::transmute(pprinternotifyoptions))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -1748,7 +1748,7 @@ where
     extern "system" {
         fn ClosePrinter(hprinter: super::super::Foundation::HANDLE) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(ClosePrinter(hprinter.into()))
+    ClosePrinter(hprinter.into())
 }
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -1762,7 +1762,7 @@ where
     extern "system" {
         fn CloseSpoolFileHandle(hprinter: super::super::Foundation::HANDLE, hspoolfile: super::super::Foundation::HANDLE) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(CloseSpoolFileHandle(hprinter.into(), hspoolfile.into()))
+    CloseSpoolFileHandle(hprinter.into(), hspoolfile.into())
 }
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -1776,7 +1776,7 @@ where
     extern "system" {
         fn CommitSpoolData(hprinter: super::super::Foundation::HANDLE, hspoolfile: super::super::Foundation::HANDLE, cbcommit: u32) -> super::super::Foundation::HANDLE;
     }
-    ::core::mem::transmute(CommitSpoolData(hprinter.into(), hspoolfile.into(), cbcommit))
+    CommitSpoolData(hprinter.into(), hspoolfile.into(), cbcommit)
 }
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -1790,7 +1790,7 @@ where
     extern "system" {
         fn CommonPropertySheetUIA(hwndowner: super::super::Foundation::HWND, pfnpropsheetui: *mut ::core::ffi::c_void, lparam: super::super::Foundation::LPARAM, presult: *mut u32) -> i32;
     }
-    ::core::mem::transmute(CommonPropertySheetUIA(hwndowner.into(), ::core::mem::transmute(pfnpropsheetui), lparam.into(), ::core::mem::transmute(presult)))
+    CommonPropertySheetUIA(hwndowner.into(), ::core::mem::transmute(pfnpropsheetui), lparam.into(), ::core::mem::transmute(presult))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -1804,7 +1804,7 @@ where
     extern "system" {
         fn CommonPropertySheetUIW(hwndowner: super::super::Foundation::HWND, pfnpropsheetui: *mut ::core::ffi::c_void, lparam: super::super::Foundation::LPARAM, presult: *mut u32) -> i32;
     }
-    ::core::mem::transmute(CommonPropertySheetUIW(hwndowner.into(), ::core::mem::transmute(pfnpropsheetui), lparam.into(), ::core::mem::transmute(presult)))
+    CommonPropertySheetUIW(hwndowner.into(), ::core::mem::transmute(pfnpropsheetui), lparam.into(), ::core::mem::transmute(presult))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -1819,7 +1819,7 @@ where
     extern "system" {
         fn ConfigurePortA(pname: ::windows::core::PCSTR, hwnd: super::super::Foundation::HWND, pportname: ::windows::core::PCSTR) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(ConfigurePortA(pname.into(), hwnd.into(), pportname.into()))
+    ConfigurePortA(pname.into(), hwnd.into(), pportname.into())
 }
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -1834,7 +1834,7 @@ where
     extern "system" {
         fn ConfigurePortW(pname: ::windows::core::PCWSTR, hwnd: super::super::Foundation::HWND, pportname: ::windows::core::PCWSTR) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(ConfigurePortW(pname.into(), hwnd.into(), pportname.into()))
+    ConfigurePortW(pname.into(), hwnd.into(), pportname.into())
 }
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -1847,7 +1847,7 @@ where
     extern "system" {
         fn ConnectToPrinterDlg(hwnd: super::super::Foundation::HWND, flags: u32) -> super::super::Foundation::HANDLE;
     }
-    ::core::mem::transmute(ConnectToPrinterDlg(hwnd.into(), flags))
+    ConnectToPrinterDlg(hwnd.into(), flags)
 }
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -1904,7 +1904,7 @@ where
     extern "system" {
         fn CreatePrinterIC(hprinter: super::super::Foundation::HANDLE, pdevmode: *const super::Gdi::DEVMODEW) -> super::super::Foundation::HANDLE;
     }
-    ::core::mem::transmute(CreatePrinterIC(hprinter.into(), ::core::mem::transmute(pdevmode)))
+    CreatePrinterIC(hprinter.into(), ::core::mem::transmute(pdevmode))
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
@@ -3821,7 +3821,7 @@ where
     extern "system" {
         fn DeleteFormA(hprinter: super::super::Foundation::HANDLE, pformname: ::windows::core::PCSTR) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(DeleteFormA(hprinter.into(), pformname.into()))
+    DeleteFormA(hprinter.into(), pformname.into())
 }
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -3835,7 +3835,7 @@ where
     extern "system" {
         fn DeleteFormW(hprinter: super::super::Foundation::HANDLE, pformname: ::windows::core::PCWSTR) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(DeleteFormW(hprinter.into(), pformname.into()))
+    DeleteFormW(hprinter.into(), pformname.into())
 }
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -3849,7 +3849,7 @@ where
     extern "system" {
         fn DeleteJobNamedProperty(hprinter: super::super::Foundation::HANDLE, jobid: u32, pszname: ::windows::core::PCWSTR) -> u32;
     }
-    ::core::mem::transmute(DeleteJobNamedProperty(hprinter.into(), jobid, pszname.into()))
+    DeleteJobNamedProperty(hprinter.into(), jobid, pszname.into())
 }
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -3864,7 +3864,7 @@ where
     extern "system" {
         fn DeleteMonitorA(pname: ::windows::core::PCSTR, penvironment: ::windows::core::PCSTR, pmonitorname: ::windows::core::PCSTR) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(DeleteMonitorA(pname.into(), penvironment.into(), pmonitorname.into()))
+    DeleteMonitorA(pname.into(), penvironment.into(), pmonitorname.into())
 }
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -3879,7 +3879,7 @@ where
     extern "system" {
         fn DeleteMonitorW(pname: ::windows::core::PCWSTR, penvironment: ::windows::core::PCWSTR, pmonitorname: ::windows::core::PCWSTR) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(DeleteMonitorW(pname.into(), penvironment.into(), pmonitorname.into()))
+    DeleteMonitorW(pname.into(), penvironment.into(), pmonitorname.into())
 }
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -3894,7 +3894,7 @@ where
     extern "system" {
         fn DeletePortA(pname: ::windows::core::PCSTR, hwnd: super::super::Foundation::HWND, pportname: ::windows::core::PCSTR) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(DeletePortA(pname.into(), hwnd.into(), pportname.into()))
+    DeletePortA(pname.into(), hwnd.into(), pportname.into())
 }
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -3909,7 +3909,7 @@ where
     extern "system" {
         fn DeletePortW(pname: ::windows::core::PCWSTR, hwnd: super::super::Foundation::HWND, pportname: ::windows::core::PCWSTR) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(DeletePortW(pname.into(), hwnd.into(), pportname.into()))
+    DeletePortW(pname.into(), hwnd.into(), pportname.into())
 }
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -3924,7 +3924,7 @@ where
     extern "system" {
         fn DeletePrintProcessorA(pname: ::windows::core::PCSTR, penvironment: ::windows::core::PCSTR, pprintprocessorname: ::windows::core::PCSTR) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(DeletePrintProcessorA(pname.into(), penvironment.into(), pprintprocessorname.into()))
+    DeletePrintProcessorA(pname.into(), penvironment.into(), pprintprocessorname.into())
 }
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -3939,7 +3939,7 @@ where
     extern "system" {
         fn DeletePrintProcessorW(pname: ::windows::core::PCWSTR, penvironment: ::windows::core::PCWSTR, pprintprocessorname: ::windows::core::PCWSTR) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(DeletePrintProcessorW(pname.into(), penvironment.into(), pprintprocessorname.into()))
+    DeletePrintProcessorW(pname.into(), penvironment.into(), pprintprocessorname.into())
 }
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -3954,7 +3954,7 @@ where
     extern "system" {
         fn DeletePrintProvidorA(pname: ::windows::core::PCSTR, penvironment: ::windows::core::PCSTR, pprintprovidorname: ::windows::core::PCSTR) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(DeletePrintProvidorA(pname.into(), penvironment.into(), pprintprovidorname.into()))
+    DeletePrintProvidorA(pname.into(), penvironment.into(), pprintprovidorname.into())
 }
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -3969,7 +3969,7 @@ where
     extern "system" {
         fn DeletePrintProvidorW(pname: ::windows::core::PCWSTR, penvironment: ::windows::core::PCWSTR, pprintprovidorname: ::windows::core::PCWSTR) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(DeletePrintProvidorW(pname.into(), penvironment.into(), pprintprovidorname.into()))
+    DeletePrintProvidorW(pname.into(), penvironment.into(), pprintprovidorname.into())
 }
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -3982,7 +3982,7 @@ where
     extern "system" {
         fn DeletePrinter(hprinter: super::super::Foundation::HANDLE) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(DeletePrinter(hprinter.into()))
+    DeletePrinter(hprinter.into())
 }
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -3995,7 +3995,7 @@ where
     extern "system" {
         fn DeletePrinterConnectionA(pname: ::windows::core::PCSTR) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(DeletePrinterConnectionA(pname.into()))
+    DeletePrinterConnectionA(pname.into())
 }
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -4008,7 +4008,7 @@ where
     extern "system" {
         fn DeletePrinterConnectionW(pname: ::windows::core::PCWSTR) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(DeletePrinterConnectionW(pname.into()))
+    DeletePrinterConnectionW(pname.into())
 }
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -4022,7 +4022,7 @@ where
     extern "system" {
         fn DeletePrinterDataA(hprinter: super::super::Foundation::HANDLE, pvaluename: ::windows::core::PCSTR) -> u32;
     }
-    ::core::mem::transmute(DeletePrinterDataA(hprinter.into(), pvaluename.into()))
+    DeletePrinterDataA(hprinter.into(), pvaluename.into())
 }
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -4037,7 +4037,7 @@ where
     extern "system" {
         fn DeletePrinterDataExA(hprinter: super::super::Foundation::HANDLE, pkeyname: ::windows::core::PCSTR, pvaluename: ::windows::core::PCSTR) -> u32;
     }
-    ::core::mem::transmute(DeletePrinterDataExA(hprinter.into(), pkeyname.into(), pvaluename.into()))
+    DeletePrinterDataExA(hprinter.into(), pkeyname.into(), pvaluename.into())
 }
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -4052,7 +4052,7 @@ where
     extern "system" {
         fn DeletePrinterDataExW(hprinter: super::super::Foundation::HANDLE, pkeyname: ::windows::core::PCWSTR, pvaluename: ::windows::core::PCWSTR) -> u32;
     }
-    ::core::mem::transmute(DeletePrinterDataExW(hprinter.into(), pkeyname.into(), pvaluename.into()))
+    DeletePrinterDataExW(hprinter.into(), pkeyname.into(), pvaluename.into())
 }
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -4066,7 +4066,7 @@ where
     extern "system" {
         fn DeletePrinterDataW(hprinter: super::super::Foundation::HANDLE, pvaluename: ::windows::core::PCWSTR) -> u32;
     }
-    ::core::mem::transmute(DeletePrinterDataW(hprinter.into(), pvaluename.into()))
+    DeletePrinterDataW(hprinter.into(), pvaluename.into())
 }
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -4081,7 +4081,7 @@ where
     extern "system" {
         fn DeletePrinterDriverA(pname: ::windows::core::PCSTR, penvironment: ::windows::core::PCSTR, pdrivername: ::windows::core::PCSTR) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(DeletePrinterDriverA(pname.into(), penvironment.into(), pdrivername.into()))
+    DeletePrinterDriverA(pname.into(), penvironment.into(), pdrivername.into())
 }
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -4096,7 +4096,7 @@ where
     extern "system" {
         fn DeletePrinterDriverExA(pname: ::windows::core::PCSTR, penvironment: ::windows::core::PCSTR, pdrivername: ::windows::core::PCSTR, dwdeleteflag: u32, dwversionflag: u32) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(DeletePrinterDriverExA(pname.into(), penvironment.into(), pdrivername.into(), dwdeleteflag, dwversionflag))
+    DeletePrinterDriverExA(pname.into(), penvironment.into(), pdrivername.into(), dwdeleteflag, dwversionflag)
 }
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -4111,7 +4111,7 @@ where
     extern "system" {
         fn DeletePrinterDriverExW(pname: ::windows::core::PCWSTR, penvironment: ::windows::core::PCWSTR, pdrivername: ::windows::core::PCWSTR, dwdeleteflag: u32, dwversionflag: u32) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(DeletePrinterDriverExW(pname.into(), penvironment.into(), pdrivername.into(), dwdeleteflag, dwversionflag))
+    DeletePrinterDriverExW(pname.into(), penvironment.into(), pdrivername.into(), dwdeleteflag, dwversionflag)
 }
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
 #[inline]
@@ -4154,7 +4154,7 @@ where
     extern "system" {
         fn DeletePrinterDriverW(pname: ::windows::core::PCWSTR, penvironment: ::windows::core::PCWSTR, pdrivername: ::windows::core::PCWSTR) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(DeletePrinterDriverW(pname.into(), penvironment.into(), pdrivername.into()))
+    DeletePrinterDriverW(pname.into(), penvironment.into(), pdrivername.into())
 }
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -4167,7 +4167,7 @@ where
     extern "system" {
         fn DeletePrinterIC(hprinteric: super::super::Foundation::HANDLE) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(DeletePrinterIC(hprinteric.into()))
+    DeletePrinterIC(hprinteric.into())
 }
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -4181,7 +4181,7 @@ where
     extern "system" {
         fn DeletePrinterKeyA(hprinter: super::super::Foundation::HANDLE, pkeyname: ::windows::core::PCSTR) -> u32;
     }
-    ::core::mem::transmute(DeletePrinterKeyA(hprinter.into(), pkeyname.into()))
+    DeletePrinterKeyA(hprinter.into(), pkeyname.into())
 }
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -4195,7 +4195,7 @@ where
     extern "system" {
         fn DeletePrinterKeyW(hprinter: super::super::Foundation::HANDLE, pkeyname: ::windows::core::PCWSTR) -> u32;
     }
-    ::core::mem::transmute(DeletePrinterKeyW(hprinter.into(), pkeyname.into()))
+    DeletePrinterKeyW(hprinter.into(), pkeyname.into())
 }
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
@@ -4208,7 +4208,7 @@ where
     extern "system" {
         fn DevQueryPrint(hprinter: super::super::Foundation::HANDLE, pdevmode: *const super::Gdi::DEVMODEA, presid: *mut u32) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(DevQueryPrint(hprinter.into(), ::core::mem::transmute(pdevmode), ::core::mem::transmute(presid)))
+    DevQueryPrint(hprinter.into(), ::core::mem::transmute(pdevmode), ::core::mem::transmute(presid))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
@@ -4218,7 +4218,7 @@ pub unsafe fn DevQueryPrintEx(pdqpinfo: *mut DEVQUERYPRINT_INFO) -> super::super
     extern "system" {
         fn DevQueryPrintEx(pdqpinfo: *mut DEVQUERYPRINT_INFO) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(DevQueryPrintEx(::core::mem::transmute(pdqpinfo)))
+    DevQueryPrintEx(::core::mem::transmute(pdqpinfo))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
@@ -4233,7 +4233,7 @@ where
     extern "system" {
         fn DocumentPropertiesA(hwnd: super::super::Foundation::HWND, hprinter: super::super::Foundation::HANDLE, pdevicename: ::windows::core::PCSTR, pdevmodeoutput: *mut super::Gdi::DEVMODEA, pdevmodeinput: *const super::Gdi::DEVMODEA, fmode: u32) -> i32;
     }
-    ::core::mem::transmute(DocumentPropertiesA(hwnd.into(), hprinter.into(), pdevicename.into(), ::core::mem::transmute(pdevmodeoutput), ::core::mem::transmute(pdevmodeinput), fmode))
+    DocumentPropertiesA(hwnd.into(), hprinter.into(), pdevicename.into(), ::core::mem::transmute(pdevmodeoutput), ::core::mem::transmute(pdevmodeinput), fmode)
 }
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
@@ -4248,7 +4248,7 @@ where
     extern "system" {
         fn DocumentPropertiesW(hwnd: super::super::Foundation::HWND, hprinter: super::super::Foundation::HANDLE, pdevicename: ::windows::core::PCWSTR, pdevmodeoutput: *mut super::Gdi::DEVMODEW, pdevmodeinput: *const super::Gdi::DEVMODEW, fmode: u32) -> i32;
     }
-    ::core::mem::transmute(DocumentPropertiesW(hwnd.into(), hprinter.into(), pdevicename.into(), ::core::mem::transmute(pdevmodeoutput), ::core::mem::transmute(pdevmodeinput), fmode))
+    DocumentPropertiesW(hwnd.into(), hprinter.into(), pdevicename.into(), ::core::mem::transmute(pdevmodeoutput), ::core::mem::transmute(pdevmodeinput), fmode)
 }
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
 #[repr(transparent)]
@@ -4968,7 +4968,7 @@ where
     extern "system" {
         fn EndDocPrinter(hprinter: super::super::Foundation::HANDLE) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(EndDocPrinter(hprinter.into()))
+    EndDocPrinter(hprinter.into())
 }
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -4981,7 +4981,7 @@ where
     extern "system" {
         fn EndPagePrinter(hprinter: super::super::Foundation::HANDLE) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(EndPagePrinter(hprinter.into()))
+    EndPagePrinter(hprinter.into())
 }
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -4994,7 +4994,7 @@ where
     extern "system" {
         fn EnumFormsA(hprinter: super::super::Foundation::HANDLE, level: u32, pform: *mut u8, cbbuf: u32, pcbneeded: *mut u32, pcreturned: *mut u32) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(EnumFormsA(hprinter.into(), level, ::core::mem::transmute(pform), cbbuf, ::core::mem::transmute(pcbneeded), ::core::mem::transmute(pcreturned)))
+    EnumFormsA(hprinter.into(), level, ::core::mem::transmute(pform), cbbuf, ::core::mem::transmute(pcbneeded), ::core::mem::transmute(pcreturned))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -5007,7 +5007,7 @@ where
     extern "system" {
         fn EnumFormsW(hprinter: super::super::Foundation::HANDLE, level: u32, pform: *mut u8, cbbuf: u32, pcbneeded: *mut u32, pcreturned: *mut u32) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(EnumFormsW(hprinter.into(), level, ::core::mem::transmute(pform), cbbuf, ::core::mem::transmute(pcbneeded), ::core::mem::transmute(pcreturned)))
+    EnumFormsW(hprinter.into(), level, ::core::mem::transmute(pform), cbbuf, ::core::mem::transmute(pcbneeded), ::core::mem::transmute(pcreturned))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -5020,7 +5020,7 @@ where
     extern "system" {
         fn EnumJobNamedProperties(hprinter: super::super::Foundation::HANDLE, jobid: u32, pcproperties: *mut u32, ppproperties: *mut *mut PrintNamedProperty) -> u32;
     }
-    ::core::mem::transmute(EnumJobNamedProperties(hprinter.into(), jobid, ::core::mem::transmute(pcproperties), ::core::mem::transmute(ppproperties)))
+    EnumJobNamedProperties(hprinter.into(), jobid, ::core::mem::transmute(pcproperties), ::core::mem::transmute(ppproperties))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -5033,7 +5033,7 @@ where
     extern "system" {
         fn EnumJobsA(hprinter: super::super::Foundation::HANDLE, firstjob: u32, nojobs: u32, level: u32, pjob: *mut u8, cbbuf: u32, pcbneeded: *mut u32, pcreturned: *mut u32) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(EnumJobsA(hprinter.into(), firstjob, nojobs, level, ::core::mem::transmute(pjob), cbbuf, ::core::mem::transmute(pcbneeded), ::core::mem::transmute(pcreturned)))
+    EnumJobsA(hprinter.into(), firstjob, nojobs, level, ::core::mem::transmute(pjob), cbbuf, ::core::mem::transmute(pcbneeded), ::core::mem::transmute(pcreturned))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -5046,7 +5046,7 @@ where
     extern "system" {
         fn EnumJobsW(hprinter: super::super::Foundation::HANDLE, firstjob: u32, nojobs: u32, level: u32, pjob: *mut u8, cbbuf: u32, pcbneeded: *mut u32, pcreturned: *mut u32) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(EnumJobsW(hprinter.into(), firstjob, nojobs, level, ::core::mem::transmute(pjob), cbbuf, ::core::mem::transmute(pcbneeded), ::core::mem::transmute(pcreturned)))
+    EnumJobsW(hprinter.into(), firstjob, nojobs, level, ::core::mem::transmute(pjob), cbbuf, ::core::mem::transmute(pcbneeded), ::core::mem::transmute(pcreturned))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -5059,7 +5059,7 @@ where
     extern "system" {
         fn EnumMonitorsA(pname: ::windows::core::PCSTR, level: u32, pmonitor: *mut u8, cbbuf: u32, pcbneeded: *mut u32, pcreturned: *mut u32) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(EnumMonitorsA(pname.into(), level, ::core::mem::transmute(pmonitor), cbbuf, ::core::mem::transmute(pcbneeded), ::core::mem::transmute(pcreturned)))
+    EnumMonitorsA(pname.into(), level, ::core::mem::transmute(pmonitor), cbbuf, ::core::mem::transmute(pcbneeded), ::core::mem::transmute(pcreturned))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -5072,7 +5072,7 @@ where
     extern "system" {
         fn EnumMonitorsW(pname: ::windows::core::PCWSTR, level: u32, pmonitor: *mut u8, cbbuf: u32, pcbneeded: *mut u32, pcreturned: *mut u32) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(EnumMonitorsW(pname.into(), level, ::core::mem::transmute(pmonitor), cbbuf, ::core::mem::transmute(pcbneeded), ::core::mem::transmute(pcreturned)))
+    EnumMonitorsW(pname.into(), level, ::core::mem::transmute(pmonitor), cbbuf, ::core::mem::transmute(pcbneeded), ::core::mem::transmute(pcreturned))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -5085,7 +5085,7 @@ where
     extern "system" {
         fn EnumPortsA(pname: ::windows::core::PCSTR, level: u32, pport: *mut u8, cbbuf: u32, pcbneeded: *mut u32, pcreturned: *mut u32) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(EnumPortsA(pname.into(), level, ::core::mem::transmute(pport), cbbuf, ::core::mem::transmute(pcbneeded), ::core::mem::transmute(pcreturned)))
+    EnumPortsA(pname.into(), level, ::core::mem::transmute(pport), cbbuf, ::core::mem::transmute(pcbneeded), ::core::mem::transmute(pcreturned))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -5098,7 +5098,7 @@ where
     extern "system" {
         fn EnumPortsW(pname: ::windows::core::PCWSTR, level: u32, pport: *mut u8, cbbuf: u32, pcbneeded: *mut u32, pcreturned: *mut u32) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(EnumPortsW(pname.into(), level, ::core::mem::transmute(pport), cbbuf, ::core::mem::transmute(pcbneeded), ::core::mem::transmute(pcreturned)))
+    EnumPortsW(pname.into(), level, ::core::mem::transmute(pport), cbbuf, ::core::mem::transmute(pcbneeded), ::core::mem::transmute(pcreturned))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -5112,7 +5112,7 @@ where
     extern "system" {
         fn EnumPrintProcessorDatatypesA(pname: ::windows::core::PCSTR, pprintprocessorname: ::windows::core::PCSTR, level: u32, pdatatypes: *mut u8, cbbuf: u32, pcbneeded: *mut u32, pcreturned: *mut u32) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(EnumPrintProcessorDatatypesA(pname.into(), pprintprocessorname.into(), level, ::core::mem::transmute(pdatatypes), cbbuf, ::core::mem::transmute(pcbneeded), ::core::mem::transmute(pcreturned)))
+    EnumPrintProcessorDatatypesA(pname.into(), pprintprocessorname.into(), level, ::core::mem::transmute(pdatatypes), cbbuf, ::core::mem::transmute(pcbneeded), ::core::mem::transmute(pcreturned))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -5126,7 +5126,7 @@ where
     extern "system" {
         fn EnumPrintProcessorDatatypesW(pname: ::windows::core::PCWSTR, pprintprocessorname: ::windows::core::PCWSTR, level: u32, pdatatypes: *mut u8, cbbuf: u32, pcbneeded: *mut u32, pcreturned: *mut u32) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(EnumPrintProcessorDatatypesW(pname.into(), pprintprocessorname.into(), level, ::core::mem::transmute(pdatatypes), cbbuf, ::core::mem::transmute(pcbneeded), ::core::mem::transmute(pcreturned)))
+    EnumPrintProcessorDatatypesW(pname.into(), pprintprocessorname.into(), level, ::core::mem::transmute(pdatatypes), cbbuf, ::core::mem::transmute(pcbneeded), ::core::mem::transmute(pcreturned))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -5140,7 +5140,7 @@ where
     extern "system" {
         fn EnumPrintProcessorsA(pname: ::windows::core::PCSTR, penvironment: ::windows::core::PCSTR, level: u32, pprintprocessorinfo: *mut u8, cbbuf: u32, pcbneeded: *mut u32, pcreturned: *mut u32) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(EnumPrintProcessorsA(pname.into(), penvironment.into(), level, ::core::mem::transmute(pprintprocessorinfo), cbbuf, ::core::mem::transmute(pcbneeded), ::core::mem::transmute(pcreturned)))
+    EnumPrintProcessorsA(pname.into(), penvironment.into(), level, ::core::mem::transmute(pprintprocessorinfo), cbbuf, ::core::mem::transmute(pcbneeded), ::core::mem::transmute(pcreturned))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -5154,7 +5154,7 @@ where
     extern "system" {
         fn EnumPrintProcessorsW(pname: ::windows::core::PCWSTR, penvironment: ::windows::core::PCWSTR, level: u32, pprintprocessorinfo: *mut u8, cbbuf: u32, pcbneeded: *mut u32, pcreturned: *mut u32) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(EnumPrintProcessorsW(pname.into(), penvironment.into(), level, ::core::mem::transmute(pprintprocessorinfo), cbbuf, ::core::mem::transmute(pcbneeded), ::core::mem::transmute(pcreturned)))
+    EnumPrintProcessorsW(pname.into(), penvironment.into(), level, ::core::mem::transmute(pprintprocessorinfo), cbbuf, ::core::mem::transmute(pcbneeded), ::core::mem::transmute(pcreturned))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -5167,7 +5167,7 @@ where
     extern "system" {
         fn EnumPrinterDataA(hprinter: super::super::Foundation::HANDLE, dwindex: u32, pvaluename: ::windows::core::PSTR, cbvaluename: u32, pcbvaluename: *mut u32, ptype: *mut u32, pdata: *mut u8, cbdata: u32, pcbdata: *mut u32) -> u32;
     }
-    ::core::mem::transmute(EnumPrinterDataA(hprinter.into(), dwindex, ::core::mem::transmute(pvaluename), cbvaluename, ::core::mem::transmute(pcbvaluename), ::core::mem::transmute(ptype), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(pdata)), pdata.len() as _, ::core::mem::transmute(pcbdata)))
+    EnumPrinterDataA(hprinter.into(), dwindex, ::core::mem::transmute(pvaluename), cbvaluename, ::core::mem::transmute(pcbvaluename), ::core::mem::transmute(ptype), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(pdata)), pdata.len() as _, ::core::mem::transmute(pcbdata))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -5181,7 +5181,7 @@ where
     extern "system" {
         fn EnumPrinterDataExA(hprinter: super::super::Foundation::HANDLE, pkeyname: ::windows::core::PCSTR, penumvalues: *mut u8, cbenumvalues: u32, pcbenumvalues: *mut u32, pnenumvalues: *mut u32) -> u32;
     }
-    ::core::mem::transmute(EnumPrinterDataExA(hprinter.into(), pkeyname.into(), ::core::mem::transmute(penumvalues), cbenumvalues, ::core::mem::transmute(pcbenumvalues), ::core::mem::transmute(pnenumvalues)))
+    EnumPrinterDataExA(hprinter.into(), pkeyname.into(), ::core::mem::transmute(penumvalues), cbenumvalues, ::core::mem::transmute(pcbenumvalues), ::core::mem::transmute(pnenumvalues))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -5195,7 +5195,7 @@ where
     extern "system" {
         fn EnumPrinterDataExW(hprinter: super::super::Foundation::HANDLE, pkeyname: ::windows::core::PCWSTR, penumvalues: *mut u8, cbenumvalues: u32, pcbenumvalues: *mut u32, pnenumvalues: *mut u32) -> u32;
     }
-    ::core::mem::transmute(EnumPrinterDataExW(hprinter.into(), pkeyname.into(), ::core::mem::transmute(penumvalues), cbenumvalues, ::core::mem::transmute(pcbenumvalues), ::core::mem::transmute(pnenumvalues)))
+    EnumPrinterDataExW(hprinter.into(), pkeyname.into(), ::core::mem::transmute(penumvalues), cbenumvalues, ::core::mem::transmute(pcbenumvalues), ::core::mem::transmute(pnenumvalues))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -5208,7 +5208,7 @@ where
     extern "system" {
         fn EnumPrinterDataW(hprinter: super::super::Foundation::HANDLE, dwindex: u32, pvaluename: ::windows::core::PWSTR, cbvaluename: u32, pcbvaluename: *mut u32, ptype: *mut u32, pdata: *mut u8, cbdata: u32, pcbdata: *mut u32) -> u32;
     }
-    ::core::mem::transmute(EnumPrinterDataW(hprinter.into(), dwindex, ::core::mem::transmute(pvaluename), cbvaluename, ::core::mem::transmute(pcbvaluename), ::core::mem::transmute(ptype), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(pdata)), pdata.len() as _, ::core::mem::transmute(pcbdata)))
+    EnumPrinterDataW(hprinter.into(), dwindex, ::core::mem::transmute(pvaluename), cbvaluename, ::core::mem::transmute(pcbvaluename), ::core::mem::transmute(ptype), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(pdata)), pdata.len() as _, ::core::mem::transmute(pcbdata))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -5222,7 +5222,7 @@ where
     extern "system" {
         fn EnumPrinterDriversA(pname: ::windows::core::PCSTR, penvironment: ::windows::core::PCSTR, level: u32, pdriverinfo: *mut u8, cbbuf: u32, pcbneeded: *mut u32, pcreturned: *mut u32) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(EnumPrinterDriversA(pname.into(), penvironment.into(), level, ::core::mem::transmute(pdriverinfo), cbbuf, ::core::mem::transmute(pcbneeded), ::core::mem::transmute(pcreturned)))
+    EnumPrinterDriversA(pname.into(), penvironment.into(), level, ::core::mem::transmute(pdriverinfo), cbbuf, ::core::mem::transmute(pcbneeded), ::core::mem::transmute(pcreturned))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -5236,7 +5236,7 @@ where
     extern "system" {
         fn EnumPrinterDriversW(pname: ::windows::core::PCWSTR, penvironment: ::windows::core::PCWSTR, level: u32, pdriverinfo: *mut u8, cbbuf: u32, pcbneeded: *mut u32, pcreturned: *mut u32) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(EnumPrinterDriversW(pname.into(), penvironment.into(), level, ::core::mem::transmute(pdriverinfo), cbbuf, ::core::mem::transmute(pcbneeded), ::core::mem::transmute(pcreturned)))
+    EnumPrinterDriversW(pname.into(), penvironment.into(), level, ::core::mem::transmute(pdriverinfo), cbbuf, ::core::mem::transmute(pcbneeded), ::core::mem::transmute(pcreturned))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -5250,7 +5250,7 @@ where
     extern "system" {
         fn EnumPrinterKeyA(hprinter: super::super::Foundation::HANDLE, pkeyname: ::windows::core::PCSTR, psubkey: ::windows::core::PSTR, cbsubkey: u32, pcbsubkey: *mut u32) -> u32;
     }
-    ::core::mem::transmute(EnumPrinterKeyA(hprinter.into(), pkeyname.into(), ::core::mem::transmute(psubkey), cbsubkey, ::core::mem::transmute(pcbsubkey)))
+    EnumPrinterKeyA(hprinter.into(), pkeyname.into(), ::core::mem::transmute(psubkey), cbsubkey, ::core::mem::transmute(pcbsubkey))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -5264,7 +5264,7 @@ where
     extern "system" {
         fn EnumPrinterKeyW(hprinter: super::super::Foundation::HANDLE, pkeyname: ::windows::core::PCWSTR, psubkey: ::windows::core::PWSTR, cbsubkey: u32, pcbsubkey: *mut u32) -> u32;
     }
-    ::core::mem::transmute(EnumPrinterKeyW(hprinter.into(), pkeyname.into(), ::core::mem::transmute(psubkey), cbsubkey, ::core::mem::transmute(pcbsubkey)))
+    EnumPrinterKeyW(hprinter.into(), pkeyname.into(), ::core::mem::transmute(psubkey), cbsubkey, ::core::mem::transmute(pcbsubkey))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -5277,7 +5277,7 @@ where
     extern "system" {
         fn EnumPrintersA(flags: u32, name: ::windows::core::PCSTR, level: u32, pprinterenum: *mut u8, cbbuf: u32, pcbneeded: *mut u32, pcreturned: *mut u32) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(EnumPrintersA(flags, name.into(), level, ::core::mem::transmute(pprinterenum), cbbuf, ::core::mem::transmute(pcbneeded), ::core::mem::transmute(pcreturned)))
+    EnumPrintersA(flags, name.into(), level, ::core::mem::transmute(pprinterenum), cbbuf, ::core::mem::transmute(pcbneeded), ::core::mem::transmute(pcreturned))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -5290,7 +5290,7 @@ where
     extern "system" {
         fn EnumPrintersW(flags: u32, name: ::windows::core::PCWSTR, level: u32, pprinterenum: *mut u8, cbbuf: u32, pcbneeded: *mut u32, pcreturned: *mut u32) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(EnumPrintersW(flags, name.into(), level, ::core::mem::transmute(pprinterenum), cbbuf, ::core::mem::transmute(pcbneeded), ::core::mem::transmute(pcreturned)))
+    EnumPrintersW(flags, name.into(), level, ::core::mem::transmute(pprinterenum), cbbuf, ::core::mem::transmute(pcbneeded), ::core::mem::transmute(pcreturned))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
@@ -5307,7 +5307,7 @@ where
     extern "system" {
         fn ExtDeviceMode(hwnd: super::super::Foundation::HWND, hinst: super::super::Foundation::HANDLE, pdevmodeoutput: *mut super::Gdi::DEVMODEA, pdevicename: ::windows::core::PCSTR, pport: ::windows::core::PCSTR, pdevmodeinput: *const super::Gdi::DEVMODEA, pprofile: ::windows::core::PCSTR, fmode: u32) -> i32;
     }
-    ::core::mem::transmute(ExtDeviceMode(hwnd.into(), hinst.into(), ::core::mem::transmute(pdevmodeoutput), pdevicename.into(), pport.into(), ::core::mem::transmute(pdevmodeinput), pprofile.into(), fmode))
+    ExtDeviceMode(hwnd.into(), hinst.into(), ::core::mem::transmute(pdevmodeoutput), pdevicename.into(), pport.into(), ::core::mem::transmute(pdevmodeinput), pprofile.into(), fmode)
 }
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
 pub const FG_CANCHANGE: u32 = 128u32;
@@ -5555,7 +5555,7 @@ where
     extern "system" {
         fn FindClosePrinterChangeNotification(hchange: super::super::Foundation::HANDLE) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(FindClosePrinterChangeNotification(hchange.into()))
+    FindClosePrinterChangeNotification(hchange.into())
 }
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -5568,7 +5568,7 @@ where
     extern "system" {
         fn FindFirstPrinterChangeNotification(hprinter: super::super::Foundation::HANDLE, fdwfilter: u32, fdwoptions: u32, pprinternotifyoptions: *const ::core::ffi::c_void) -> super::super::Foundation::HANDLE;
     }
-    ::core::mem::transmute(FindFirstPrinterChangeNotification(hprinter.into(), fdwfilter, fdwoptions, ::core::mem::transmute(pprinternotifyoptions)))
+    FindFirstPrinterChangeNotification(hprinter.into(), fdwfilter, fdwoptions, ::core::mem::transmute(pprinternotifyoptions))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -5581,7 +5581,7 @@ where
     extern "system" {
         fn FindNextPrinterChangeNotification(hchange: super::super::Foundation::HANDLE, pdwchange: *mut u32, pvreserved: *const ::core::ffi::c_void, ppprinternotifyinfo: *mut *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(FindNextPrinterChangeNotification(hchange.into(), ::core::mem::transmute(pdwchange), ::core::mem::transmute(pvreserved), ::core::mem::transmute(ppprinternotifyinfo)))
+    FindNextPrinterChangeNotification(hchange.into(), ::core::mem::transmute(pdwchange), ::core::mem::transmute(pvreserved), ::core::mem::transmute(ppprinternotifyinfo))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -5594,7 +5594,7 @@ where
     extern "system" {
         fn FlushPrinter(hprinter: super::super::Foundation::HANDLE, pbuf: *const ::core::ffi::c_void, cbbuf: u32, pcwritten: *mut u32, csleep: u32) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(FlushPrinter(hprinter.into(), ::core::mem::transmute(pbuf), cbbuf, ::core::mem::transmute(pcwritten), csleep))
+    FlushPrinter(hprinter.into(), ::core::mem::transmute(pbuf), cbbuf, ::core::mem::transmute(pcwritten), csleep)
 }
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
 #[inline]
@@ -5622,7 +5622,7 @@ pub unsafe fn FreePrinterNotifyInfo(pprinternotifyinfo: *const PRINTER_NOTIFY_IN
     extern "system" {
         fn FreePrinterNotifyInfo(pprinternotifyinfo: *const PRINTER_NOTIFY_INFO) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(FreePrinterNotifyInfo(::core::mem::transmute(pprinternotifyinfo)))
+    FreePrinterNotifyInfo(::core::mem::transmute(pprinternotifyinfo))
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
@@ -5670,7 +5670,7 @@ where
     extern "system" {
         fn GdiDeleteSpoolFileHandle(spoolfilehandle: super::super::Foundation::HANDLE) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(GdiDeleteSpoolFileHandle(spoolfilehandle.into()))
+    GdiDeleteSpoolFileHandle(spoolfilehandle.into())
 }
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -5683,7 +5683,7 @@ where
     extern "system" {
         fn GdiEndDocEMF(spoolfilehandle: super::super::Foundation::HANDLE) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(GdiEndDocEMF(spoolfilehandle.into()))
+    GdiEndDocEMF(spoolfilehandle.into())
 }
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -5696,7 +5696,7 @@ where
     extern "system" {
         fn GdiEndPageEMF(spoolfilehandle: super::super::Foundation::HANDLE, dwoptimization: u32) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(GdiEndPageEMF(spoolfilehandle.into(), dwoptimization))
+    GdiEndPageEMF(spoolfilehandle.into(), dwoptimization)
 }
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
@@ -5709,7 +5709,7 @@ where
     extern "system" {
         fn GdiGetDC(spoolfilehandle: super::super::Foundation::HANDLE) -> super::Gdi::HDC;
     }
-    ::core::mem::transmute(GdiGetDC(spoolfilehandle.into()))
+    GdiGetDC(spoolfilehandle.into())
 }
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
@@ -5722,7 +5722,7 @@ where
     extern "system" {
         fn GdiGetDevmodeForPage(spoolfilehandle: super::super::Foundation::HANDLE, dwpagenumber: u32, pcurrdm: *mut *mut super::Gdi::DEVMODEW, plastdm: *mut *mut super::Gdi::DEVMODEW) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(GdiGetDevmodeForPage(spoolfilehandle.into(), dwpagenumber, ::core::mem::transmute(pcurrdm), ::core::mem::transmute(plastdm)))
+    GdiGetDevmodeForPage(spoolfilehandle.into(), dwpagenumber, ::core::mem::transmute(pcurrdm), ::core::mem::transmute(plastdm))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -5735,7 +5735,7 @@ where
     extern "system" {
         fn GdiGetPageCount(spoolfilehandle: super::super::Foundation::HANDLE) -> u32;
     }
-    ::core::mem::transmute(GdiGetPageCount(spoolfilehandle.into()))
+    GdiGetPageCount(spoolfilehandle.into())
 }
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -5748,7 +5748,7 @@ where
     extern "system" {
         fn GdiGetPageHandle(spoolfilehandle: super::super::Foundation::HANDLE, page: u32, pdwpagetype: *mut u32) -> super::super::Foundation::HANDLE;
     }
-    ::core::mem::transmute(GdiGetPageHandle(spoolfilehandle.into(), page, ::core::mem::transmute(pdwpagetype)))
+    GdiGetPageHandle(spoolfilehandle.into(), page, ::core::mem::transmute(pdwpagetype))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
@@ -5762,7 +5762,7 @@ where
     extern "system" {
         fn GdiGetSpoolFileHandle(pwszprintername: ::windows::core::PCWSTR, pdevmode: *mut super::Gdi::DEVMODEW, pwszdocname: ::windows::core::PCWSTR) -> super::super::Foundation::HANDLE;
     }
-    ::core::mem::transmute(GdiGetSpoolFileHandle(pwszprintername.into(), ::core::mem::transmute(pdevmode), pwszdocname.into()))
+    GdiGetSpoolFileHandle(pwszprintername.into(), ::core::mem::transmute(pdevmode), pwszdocname.into())
 }
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -5776,7 +5776,7 @@ where
     extern "system" {
         fn GdiPlayPageEMF(spoolfilehandle: super::super::Foundation::HANDLE, hemf: super::super::Foundation::HANDLE, prectdocument: *mut super::super::Foundation::RECT, prectborder: *mut super::super::Foundation::RECT, prectclip: *mut super::super::Foundation::RECT) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(GdiPlayPageEMF(spoolfilehandle.into(), hemf.into(), ::core::mem::transmute(prectdocument), ::core::mem::transmute(prectborder), ::core::mem::transmute(prectclip)))
+    GdiPlayPageEMF(spoolfilehandle.into(), hemf.into(), ::core::mem::transmute(prectdocument), ::core::mem::transmute(prectborder), ::core::mem::transmute(prectclip))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
@@ -5789,7 +5789,7 @@ where
     extern "system" {
         fn GdiResetDCEMF(spoolfilehandle: super::super::Foundation::HANDLE, pcurrdm: *mut super::Gdi::DEVMODEW) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(GdiResetDCEMF(spoolfilehandle.into(), ::core::mem::transmute(pcurrdm)))
+    GdiResetDCEMF(spoolfilehandle.into(), ::core::mem::transmute(pcurrdm))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`, `\"Win32_Storage_Xps\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_Xps"))]
@@ -5802,7 +5802,7 @@ where
     extern "system" {
         fn GdiStartDocEMF(spoolfilehandle: super::super::Foundation::HANDLE, pdocinfo: *mut super::super::Storage::Xps::DOCINFOW) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(GdiStartDocEMF(spoolfilehandle.into(), ::core::mem::transmute(pdocinfo)))
+    GdiStartDocEMF(spoolfilehandle.into(), ::core::mem::transmute(pdocinfo))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -5815,7 +5815,7 @@ where
     extern "system" {
         fn GdiStartPageEMF(spoolfilehandle: super::super::Foundation::HANDLE) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(GdiStartPageEMF(spoolfilehandle.into()))
+    GdiStartPageEMF(spoolfilehandle.into())
 }
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
 #[inline]
@@ -5828,7 +5828,7 @@ where
     extern "system" {
         fn GenerateCopyFilePaths(pszprintername: ::windows::core::PCWSTR, pszdirectory: ::windows::core::PCWSTR, psplclientinfo: *const u8, dwlevel: u32, pszsourcedir: ::windows::core::PWSTR, pcchsourcedirsize: *mut u32, psztargetdir: ::windows::core::PWSTR, pcchtargetdirsize: *mut u32, dwflags: u32) -> u32;
     }
-    ::core::mem::transmute(GenerateCopyFilePaths(pszprintername.into(), pszdirectory.into(), ::core::mem::transmute(psplclientinfo), dwlevel, ::core::mem::transmute(pszsourcedir), ::core::mem::transmute(pcchsourcedirsize), ::core::mem::transmute(psztargetdir), ::core::mem::transmute(pcchtargetdirsize), dwflags))
+    GenerateCopyFilePaths(pszprintername.into(), pszdirectory.into(), ::core::mem::transmute(psplclientinfo), dwlevel, ::core::mem::transmute(pszsourcedir), ::core::mem::transmute(pcchsourcedirsize), ::core::mem::transmute(psztargetdir), ::core::mem::transmute(pcchtargetdirsize), dwflags)
 }
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -5841,7 +5841,7 @@ where
     extern "system" {
         fn GetCPSUIUserData(hdlg: super::super::Foundation::HWND) -> usize;
     }
-    ::core::mem::transmute(GetCPSUIUserData(hdlg.into()))
+    GetCPSUIUserData(hdlg.into())
 }
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -5881,7 +5881,7 @@ pub unsafe fn GetDefaultPrinterA(pszbuffer: ::windows::core::PSTR, pcchbuffer: *
     extern "system" {
         fn GetDefaultPrinterA(pszbuffer: ::windows::core::PSTR, pcchbuffer: *mut u32) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(GetDefaultPrinterA(::core::mem::transmute(pszbuffer), ::core::mem::transmute(pcchbuffer)))
+    GetDefaultPrinterA(::core::mem::transmute(pszbuffer), ::core::mem::transmute(pcchbuffer))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -5891,7 +5891,7 @@ pub unsafe fn GetDefaultPrinterW(pszbuffer: ::windows::core::PWSTR, pcchbuffer: 
     extern "system" {
         fn GetDefaultPrinterW(pszbuffer: ::windows::core::PWSTR, pcchbuffer: *mut u32) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(GetDefaultPrinterW(::core::mem::transmute(pszbuffer), ::core::mem::transmute(pcchbuffer)))
+    GetDefaultPrinterW(::core::mem::transmute(pszbuffer), ::core::mem::transmute(pcchbuffer))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -5905,7 +5905,7 @@ where
     extern "system" {
         fn GetFormA(hprinter: super::super::Foundation::HANDLE, pformname: ::windows::core::PCSTR, level: u32, pform: *mut u8, cbbuf: u32, pcbneeded: *mut u32) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(GetFormA(hprinter.into(), pformname.into(), level, ::core::mem::transmute(pform), cbbuf, ::core::mem::transmute(pcbneeded)))
+    GetFormA(hprinter.into(), pformname.into(), level, ::core::mem::transmute(pform), cbbuf, ::core::mem::transmute(pcbneeded))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -5919,7 +5919,7 @@ where
     extern "system" {
         fn GetFormW(hprinter: super::super::Foundation::HANDLE, pformname: ::windows::core::PCWSTR, level: u32, pform: *mut u8, cbbuf: u32, pcbneeded: *mut u32) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(GetFormW(hprinter.into(), pformname.into(), level, ::core::mem::transmute(pform), cbbuf, ::core::mem::transmute(pcbneeded)))
+    GetFormW(hprinter.into(), pformname.into(), level, ::core::mem::transmute(pform), cbbuf, ::core::mem::transmute(pcbneeded))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -5932,7 +5932,7 @@ where
     extern "system" {
         fn GetJobA(hprinter: super::super::Foundation::HANDLE, jobid: u32, level: u32, pjob: *mut u8, cbbuf: u32, pcbneeded: *mut u32) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(GetJobA(hprinter.into(), jobid, level, ::core::mem::transmute(pjob), cbbuf, ::core::mem::transmute(pcbneeded)))
+    GetJobA(hprinter.into(), jobid, level, ::core::mem::transmute(pjob), cbbuf, ::core::mem::transmute(pcbneeded))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
@@ -5945,7 +5945,7 @@ where
     extern "system" {
         fn GetJobAttributes(pprintername: ::windows::core::PCWSTR, pdevmode: *const super::Gdi::DEVMODEW, pattributeinfo: *mut ATTRIBUTE_INFO_3) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(GetJobAttributes(pprintername.into(), ::core::mem::transmute(pdevmode), ::core::mem::transmute(pattributeinfo)))
+    GetJobAttributes(pprintername.into(), ::core::mem::transmute(pdevmode), ::core::mem::transmute(pattributeinfo))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
@@ -5958,7 +5958,7 @@ where
     extern "system" {
         fn GetJobAttributesEx(pprintername: ::windows::core::PCWSTR, pdevmode: *const super::Gdi::DEVMODEW, dwlevel: u32, pattributeinfo: *mut u8, nsize: u32, dwflags: u32) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(GetJobAttributesEx(pprintername.into(), ::core::mem::transmute(pdevmode), dwlevel, ::core::mem::transmute(pattributeinfo), nsize, dwflags))
+    GetJobAttributesEx(pprintername.into(), ::core::mem::transmute(pdevmode), dwlevel, ::core::mem::transmute(pattributeinfo), nsize, dwflags)
 }
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -5972,7 +5972,7 @@ where
     extern "system" {
         fn GetJobNamedPropertyValue(hprinter: super::super::Foundation::HANDLE, jobid: u32, pszname: ::windows::core::PCWSTR, pvalue: *mut PrintPropertyValue) -> u32;
     }
-    ::core::mem::transmute(GetJobNamedPropertyValue(hprinter.into(), jobid, pszname.into(), ::core::mem::transmute(pvalue)))
+    GetJobNamedPropertyValue(hprinter.into(), jobid, pszname.into(), ::core::mem::transmute(pvalue))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -5985,7 +5985,7 @@ where
     extern "system" {
         fn GetJobW(hprinter: super::super::Foundation::HANDLE, jobid: u32, level: u32, pjob: *mut u8, cbbuf: u32, pcbneeded: *mut u32) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(GetJobW(hprinter.into(), jobid, level, ::core::mem::transmute(pjob), cbbuf, ::core::mem::transmute(pcbneeded)))
+    GetJobW(hprinter.into(), jobid, level, ::core::mem::transmute(pjob), cbbuf, ::core::mem::transmute(pcbneeded))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -5995,7 +5995,7 @@ pub unsafe fn GetPrintExecutionData(pdata: *mut PRINT_EXECUTION_DATA) -> super::
     extern "system" {
         fn GetPrintExecutionData(pdata: *mut PRINT_EXECUTION_DATA) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(GetPrintExecutionData(::core::mem::transmute(pdata)))
+    GetPrintExecutionData(::core::mem::transmute(pdata))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -6023,7 +6023,7 @@ where
     extern "system" {
         fn GetPrintProcessorDirectoryA(pname: ::windows::core::PCSTR, penvironment: ::windows::core::PCSTR, level: u32, pprintprocessorinfo: *mut u8, cbbuf: u32, pcbneeded: *mut u32) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(GetPrintProcessorDirectoryA(pname.into(), penvironment.into(), level, ::core::mem::transmute(pprintprocessorinfo), cbbuf, ::core::mem::transmute(pcbneeded)))
+    GetPrintProcessorDirectoryA(pname.into(), penvironment.into(), level, ::core::mem::transmute(pprintprocessorinfo), cbbuf, ::core::mem::transmute(pcbneeded))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -6037,7 +6037,7 @@ where
     extern "system" {
         fn GetPrintProcessorDirectoryW(pname: ::windows::core::PCWSTR, penvironment: ::windows::core::PCWSTR, level: u32, pprintprocessorinfo: *mut u8, cbbuf: u32, pcbneeded: *mut u32) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(GetPrintProcessorDirectoryW(pname.into(), penvironment.into(), level, ::core::mem::transmute(pprintprocessorinfo), cbbuf, ::core::mem::transmute(pcbneeded)))
+    GetPrintProcessorDirectoryW(pname.into(), penvironment.into(), level, ::core::mem::transmute(pprintprocessorinfo), cbbuf, ::core::mem::transmute(pcbneeded))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -6050,7 +6050,7 @@ where
     extern "system" {
         fn GetPrinterA(hprinter: super::super::Foundation::HANDLE, level: u32, pprinter: *mut u8, cbbuf: u32, pcbneeded: *mut u32) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(GetPrinterA(hprinter.into(), level, ::core::mem::transmute(pprinter), cbbuf, ::core::mem::transmute(pcbneeded)))
+    GetPrinterA(hprinter.into(), level, ::core::mem::transmute(pprinter), cbbuf, ::core::mem::transmute(pcbneeded))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -6064,7 +6064,7 @@ where
     extern "system" {
         fn GetPrinterDataA(hprinter: super::super::Foundation::HANDLE, pvaluename: ::windows::core::PCSTR, ptype: *mut u32, pdata: *mut u8, nsize: u32, pcbneeded: *mut u32) -> u32;
     }
-    ::core::mem::transmute(GetPrinterDataA(hprinter.into(), pvaluename.into(), ::core::mem::transmute(ptype), ::core::mem::transmute(pdata), nsize, ::core::mem::transmute(pcbneeded)))
+    GetPrinterDataA(hprinter.into(), pvaluename.into(), ::core::mem::transmute(ptype), ::core::mem::transmute(pdata), nsize, ::core::mem::transmute(pcbneeded))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -6079,7 +6079,7 @@ where
     extern "system" {
         fn GetPrinterDataExA(hprinter: super::super::Foundation::HANDLE, pkeyname: ::windows::core::PCSTR, pvaluename: ::windows::core::PCSTR, ptype: *mut u32, pdata: *mut u8, nsize: u32, pcbneeded: *mut u32) -> u32;
     }
-    ::core::mem::transmute(GetPrinterDataExA(hprinter.into(), pkeyname.into(), pvaluename.into(), ::core::mem::transmute(ptype), ::core::mem::transmute(pdata), nsize, ::core::mem::transmute(pcbneeded)))
+    GetPrinterDataExA(hprinter.into(), pkeyname.into(), pvaluename.into(), ::core::mem::transmute(ptype), ::core::mem::transmute(pdata), nsize, ::core::mem::transmute(pcbneeded))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -6094,7 +6094,7 @@ where
     extern "system" {
         fn GetPrinterDataExW(hprinter: super::super::Foundation::HANDLE, pkeyname: ::windows::core::PCWSTR, pvaluename: ::windows::core::PCWSTR, ptype: *mut u32, pdata: *mut u8, nsize: u32, pcbneeded: *mut u32) -> u32;
     }
-    ::core::mem::transmute(GetPrinterDataExW(hprinter.into(), pkeyname.into(), pvaluename.into(), ::core::mem::transmute(ptype), ::core::mem::transmute(pdata), nsize, ::core::mem::transmute(pcbneeded)))
+    GetPrinterDataExW(hprinter.into(), pkeyname.into(), pvaluename.into(), ::core::mem::transmute(ptype), ::core::mem::transmute(pdata), nsize, ::core::mem::transmute(pcbneeded))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -6108,7 +6108,7 @@ where
     extern "system" {
         fn GetPrinterDataW(hprinter: super::super::Foundation::HANDLE, pvaluename: ::windows::core::PCWSTR, ptype: *mut u32, pdata: *mut u8, nsize: u32, pcbneeded: *mut u32) -> u32;
     }
-    ::core::mem::transmute(GetPrinterDataW(hprinter.into(), pvaluename.into(), ::core::mem::transmute(ptype), ::core::mem::transmute(pdata), nsize, ::core::mem::transmute(pcbneeded)))
+    GetPrinterDataW(hprinter.into(), pvaluename.into(), ::core::mem::transmute(ptype), ::core::mem::transmute(pdata), nsize, ::core::mem::transmute(pcbneeded))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -6123,7 +6123,7 @@ where
     extern "system" {
         fn GetPrinterDriver2A(hwnd: super::super::Foundation::HWND, hprinter: super::super::Foundation::HANDLE, penvironment: ::windows::core::PCSTR, level: u32, pdriverinfo: *mut u8, cbbuf: u32, pcbneeded: *mut u32) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(GetPrinterDriver2A(hwnd.into(), hprinter.into(), penvironment.into(), level, ::core::mem::transmute(pdriverinfo), cbbuf, ::core::mem::transmute(pcbneeded)))
+    GetPrinterDriver2A(hwnd.into(), hprinter.into(), penvironment.into(), level, ::core::mem::transmute(pdriverinfo), cbbuf, ::core::mem::transmute(pcbneeded))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -6138,7 +6138,7 @@ where
     extern "system" {
         fn GetPrinterDriver2W(hwnd: super::super::Foundation::HWND, hprinter: super::super::Foundation::HANDLE, penvironment: ::windows::core::PCWSTR, level: u32, pdriverinfo: *mut u8, cbbuf: u32, pcbneeded: *mut u32) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(GetPrinterDriver2W(hwnd.into(), hprinter.into(), penvironment.into(), level, ::core::mem::transmute(pdriverinfo), cbbuf, ::core::mem::transmute(pcbneeded)))
+    GetPrinterDriver2W(hwnd.into(), hprinter.into(), penvironment.into(), level, ::core::mem::transmute(pdriverinfo), cbbuf, ::core::mem::transmute(pcbneeded))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -6152,7 +6152,7 @@ where
     extern "system" {
         fn GetPrinterDriverA(hprinter: super::super::Foundation::HANDLE, penvironment: ::windows::core::PCSTR, level: u32, pdriverinfo: *mut u8, cbbuf: u32, pcbneeded: *mut u32) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(GetPrinterDriverA(hprinter.into(), penvironment.into(), level, ::core::mem::transmute(pdriverinfo), cbbuf, ::core::mem::transmute(pcbneeded)))
+    GetPrinterDriverA(hprinter.into(), penvironment.into(), level, ::core::mem::transmute(pdriverinfo), cbbuf, ::core::mem::transmute(pcbneeded))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -6166,7 +6166,7 @@ where
     extern "system" {
         fn GetPrinterDriverDirectoryA(pname: ::windows::core::PCSTR, penvironment: ::windows::core::PCSTR, level: u32, pdriverdirectory: *mut u8, cbbuf: u32, pcbneeded: *mut u32) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(GetPrinterDriverDirectoryA(pname.into(), penvironment.into(), level, ::core::mem::transmute(pdriverdirectory), cbbuf, ::core::mem::transmute(pcbneeded)))
+    GetPrinterDriverDirectoryA(pname.into(), penvironment.into(), level, ::core::mem::transmute(pdriverdirectory), cbbuf, ::core::mem::transmute(pcbneeded))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -6180,7 +6180,7 @@ where
     extern "system" {
         fn GetPrinterDriverDirectoryW(pname: ::windows::core::PCWSTR, penvironment: ::windows::core::PCWSTR, level: u32, pdriverdirectory: *mut u8, cbbuf: u32, pcbneeded: *mut u32) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(GetPrinterDriverDirectoryW(pname.into(), penvironment.into(), level, ::core::mem::transmute(pdriverdirectory), cbbuf, ::core::mem::transmute(pcbneeded)))
+    GetPrinterDriverDirectoryW(pname.into(), penvironment.into(), level, ::core::mem::transmute(pdriverdirectory), cbbuf, ::core::mem::transmute(pcbneeded))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
 #[inline]
@@ -6224,7 +6224,7 @@ where
     extern "system" {
         fn GetPrinterDriverW(hprinter: super::super::Foundation::HANDLE, penvironment: ::windows::core::PCWSTR, level: u32, pdriverinfo: *mut u8, cbbuf: u32, pcbneeded: *mut u32) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(GetPrinterDriverW(hprinter.into(), penvironment.into(), level, ::core::mem::transmute(pdriverinfo), cbbuf, ::core::mem::transmute(pcbneeded)))
+    GetPrinterDriverW(hprinter.into(), penvironment.into(), level, ::core::mem::transmute(pdriverinfo), cbbuf, ::core::mem::transmute(pcbneeded))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -6237,7 +6237,7 @@ where
     extern "system" {
         fn GetPrinterW(hprinter: super::super::Foundation::HANDLE, level: u32, pprinter: *mut u8, cbbuf: u32, pcbneeded: *mut u32) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(GetPrinterW(hprinter.into(), level, ::core::mem::transmute(pprinter), cbbuf, ::core::mem::transmute(pcbneeded)))
+    GetPrinterW(hprinter.into(), level, ::core::mem::transmute(pprinter), cbbuf, ::core::mem::transmute(pcbneeded))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -6250,7 +6250,7 @@ where
     extern "system" {
         fn GetSpoolFileHandle(hprinter: super::super::Foundation::HANDLE) -> super::super::Foundation::HANDLE;
     }
-    ::core::mem::transmute(GetSpoolFileHandle(hprinter.into()))
+    GetSpoolFileHandle(hprinter.into())
 }
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
 #[repr(transparent)]
@@ -11184,7 +11184,7 @@ impl IPrintPipelinePropertyBag {
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).DeleteProperty)(::windows::core::Interface::as_raw(self), pszname.into()))
+        (::windows::core::Interface::vtable(self).DeleteProperty)(::windows::core::Interface::as_raw(self), pszname.into())
     }
 }
 impl ::core::convert::From<IPrintPipelinePropertyBag> for ::windows::core::IUnknown {
@@ -16586,7 +16586,7 @@ impl IXpsPartIterator {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn IsDone(&self) -> super::super::Foundation::BOOL {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).IsDone)(::windows::core::Interface::as_raw(self)))
+        (::windows::core::Interface::vtable(self).IsDone)(::windows::core::Interface::as_raw(self))
     }
     pub unsafe fn Next(&self) {
         (::windows::core::Interface::vtable(self).Next)(::windows::core::Interface::as_raw(self))
@@ -16996,7 +16996,7 @@ where
     extern "system" {
         fn ImpersonatePrinterClient(htoken: super::super::Foundation::HANDLE) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(ImpersonatePrinterClient(htoken.into()))
+    ImpersonatePrinterClient(htoken.into())
 }
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
 #[inline]
@@ -17036,7 +17036,7 @@ pub unsafe fn IsValidDevmodeA(pdevmode: *const super::Gdi::DEVMODEA, devmodesize
     extern "system" {
         fn IsValidDevmodeA(pdevmode: *const super::Gdi::DEVMODEA, devmodesize: usize) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(IsValidDevmodeA(::core::mem::transmute(pdevmode), devmodesize))
+    IsValidDevmodeA(::core::mem::transmute(pdevmode), devmodesize)
 }
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
@@ -17046,7 +17046,7 @@ pub unsafe fn IsValidDevmodeW(pdevmode: *const super::Gdi::DEVMODEW, devmodesize
     extern "system" {
         fn IsValidDevmodeW(pdevmode: *const super::Gdi::DEVMODEW, devmodesize: usize) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(IsValidDevmodeW(::core::mem::transmute(pdevmode), devmodesize))
+    IsValidDevmodeW(::core::mem::transmute(pdevmode), devmodesize)
 }
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
 pub const JOB_ACCESS_ADMINISTER: u32 = 16u32;
@@ -19456,7 +19456,7 @@ where
     extern "system" {
         fn OpenPrinter2A(pprintername: ::windows::core::PCSTR, phprinter: *mut super::super::Foundation::HANDLE, pdefault: *const PRINTER_DEFAULTSA, poptions: *const PRINTER_OPTIONSA) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(OpenPrinter2A(pprintername.into(), ::core::mem::transmute(phprinter), ::core::mem::transmute(pdefault), ::core::mem::transmute(poptions)))
+    OpenPrinter2A(pprintername.into(), ::core::mem::transmute(phprinter), ::core::mem::transmute(pdefault), ::core::mem::transmute(poptions))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
@@ -19469,7 +19469,7 @@ where
     extern "system" {
         fn OpenPrinter2W(pprintername: ::windows::core::PCWSTR, phprinter: *mut super::super::Foundation::HANDLE, pdefault: *const PRINTER_DEFAULTSW, poptions: *const PRINTER_OPTIONSW) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(OpenPrinter2W(pprintername.into(), ::core::mem::transmute(phprinter), ::core::mem::transmute(pdefault), ::core::mem::transmute(poptions)))
+    OpenPrinter2W(pprintername.into(), ::core::mem::transmute(phprinter), ::core::mem::transmute(pdefault), ::core::mem::transmute(poptions))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
@@ -19482,7 +19482,7 @@ where
     extern "system" {
         fn OpenPrinterA(pprintername: ::windows::core::PCSTR, phprinter: *mut super::super::Foundation::HANDLE, pdefault: *const PRINTER_DEFAULTSA) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(OpenPrinterA(pprintername.into(), ::core::mem::transmute(phprinter), ::core::mem::transmute(pdefault)))
+    OpenPrinterA(pprintername.into(), ::core::mem::transmute(phprinter), ::core::mem::transmute(pdefault))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
@@ -19495,7 +19495,7 @@ where
     extern "system" {
         fn OpenPrinterW(pprintername: ::windows::core::PCWSTR, phprinter: *mut super::super::Foundation::HANDLE, pdefault: *const PRINTER_DEFAULTSW) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(OpenPrinterW(pprintername.into(), ::core::mem::transmute(phprinter), ::core::mem::transmute(pdefault)))
+    OpenPrinterW(pprintername.into(), ::core::mem::transmute(phprinter), ::core::mem::transmute(pdefault))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
 pub const PDEV_ADJUST_PAPER_MARGIN_TYPE: u32 = 1u32;
@@ -22706,7 +22706,7 @@ where
     extern "system" {
         fn PartialReplyPrinterChangeNotification(hprinter: super::super::Foundation::HANDLE, pdatasrc: *const PRINTER_NOTIFY_INFO_DATA) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(PartialReplyPrinterChangeNotification(hprinter.into(), ::core::mem::transmute(pdatasrc)))
+    PartialReplyPrinterChangeNotification(hprinter.into(), ::core::mem::transmute(pdatasrc))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -22719,7 +22719,7 @@ where
     extern "system" {
         fn PlayGdiScriptOnPrinterIC(hprinteric: super::super::Foundation::HANDLE, pin: *const u8, cin: u32, pout: *mut u8, cout: u32, ul: u32) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(PlayGdiScriptOnPrinterIC(hprinteric.into(), ::core::mem::transmute(pin), cin, ::core::mem::transmute(pout), cout, ul))
+    PlayGdiScriptOnPrinterIC(hprinteric.into(), ::core::mem::transmute(pin), cin, ::core::mem::transmute(pout), cout, ul)
 }
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
 #[repr(transparent)]
@@ -23143,7 +23143,7 @@ where
     extern "system" {
         fn PrinterMessageBoxA(hprinter: super::super::Foundation::HANDLE, error: u32, hwnd: super::super::Foundation::HWND, ptext: ::windows::core::PCSTR, pcaption: ::windows::core::PCSTR, dwtype: u32) -> u32;
     }
-    ::core::mem::transmute(PrinterMessageBoxA(hprinter.into(), error, hwnd.into(), ptext.into(), pcaption.into(), dwtype))
+    PrinterMessageBoxA(hprinter.into(), error, hwnd.into(), ptext.into(), pcaption.into(), dwtype)
 }
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -23159,7 +23159,7 @@ where
     extern "system" {
         fn PrinterMessageBoxW(hprinter: super::super::Foundation::HANDLE, error: u32, hwnd: super::super::Foundation::HWND, ptext: ::windows::core::PCWSTR, pcaption: ::windows::core::PCWSTR, dwtype: u32) -> u32;
     }
-    ::core::mem::transmute(PrinterMessageBoxW(hprinter.into(), error, hwnd.into(), ptext.into(), pcaption.into(), dwtype))
+    PrinterMessageBoxW(hprinter.into(), error, hwnd.into(), ptext.into(), pcaption.into(), dwtype)
 }
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -23173,7 +23173,7 @@ where
     extern "system" {
         fn PrinterProperties(hwnd: super::super::Foundation::HWND, hprinter: super::super::Foundation::HANDLE) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(PrinterProperties(hwnd.into(), hprinter.into()))
+    PrinterProperties(hwnd.into(), hprinter.into())
 }
 pub const PrinterQueue: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xeb54c230_798c_4c9e_b461_29fad04039b1);
 pub const PrinterQueueView: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xeb54c231_798c_4c9e_b461_29fad04039b1);
@@ -23188,7 +23188,7 @@ where
     extern "system" {
         fn ProvidorFindClosePrinterChangeNotification(hprinter: super::super::Foundation::HANDLE) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(ProvidorFindClosePrinterChangeNotification(hprinter.into()))
+    ProvidorFindClosePrinterChangeNotification(hprinter.into())
 }
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -23202,7 +23202,7 @@ where
     extern "system" {
         fn ProvidorFindFirstPrinterChangeNotification(hprinter: super::super::Foundation::HANDLE, fdwflags: u32, fdwoptions: u32, hnotify: super::super::Foundation::HANDLE, pprinternotifyoptions: *const ::core::ffi::c_void, pvreserved1: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(ProvidorFindFirstPrinterChangeNotification(hprinter.into(), fdwflags, fdwoptions, hnotify.into(), ::core::mem::transmute(pprinternotifyoptions), ::core::mem::transmute(pvreserved1)))
+    ProvidorFindFirstPrinterChangeNotification(hprinter.into(), fdwflags, fdwoptions, hnotify.into(), ::core::mem::transmute(pprinternotifyoptions), ::core::mem::transmute(pvreserved1))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
 pub const QCP_DEVICEPROFILE: u32 = 0u32;
@@ -23240,7 +23240,7 @@ where
     extern "system" {
         fn ReadPrinter(hprinter: super::super::Foundation::HANDLE, pbuf: *mut ::core::ffi::c_void, cbbuf: u32, pnobytesread: *mut u32) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(ReadPrinter(hprinter.into(), ::core::mem::transmute(pbuf), cbbuf, ::core::mem::transmute(pnobytesread)))
+    ReadPrinter(hprinter.into(), ::core::mem::transmute(pbuf), cbbuf, ::core::mem::transmute(pnobytesread))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -23281,7 +23281,7 @@ where
     extern "system" {
         fn ReplyPrinterChangeNotification(hprinter: super::super::Foundation::HANDLE, fdwchangeflags: u32, pdwresult: *mut u32, pprinternotifyinfo: *const ::core::ffi::c_void) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(ReplyPrinterChangeNotification(hprinter.into(), fdwchangeflags, ::core::mem::transmute(pdwresult), ::core::mem::transmute(pprinternotifyinfo)))
+    ReplyPrinterChangeNotification(hprinter.into(), fdwchangeflags, ::core::mem::transmute(pdwresult), ::core::mem::transmute(pprinternotifyinfo))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -23294,7 +23294,7 @@ where
     extern "system" {
         fn ReplyPrinterChangeNotificationEx(hnotify: super::super::Foundation::HANDLE, dwcolor: u32, fdwflags: u32, pdwresult: *mut u32, pprinternotifyinfo: *const ::core::ffi::c_void) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(ReplyPrinterChangeNotificationEx(hnotify.into(), dwcolor, fdwflags, ::core::mem::transmute(pdwresult), ::core::mem::transmute(pprinternotifyinfo)))
+    ReplyPrinterChangeNotificationEx(hnotify.into(), dwcolor, fdwflags, ::core::mem::transmute(pdwresult), ::core::mem::transmute(pprinternotifyinfo))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -23320,7 +23320,7 @@ where
     extern "system" {
         fn ResetPrinterA(hprinter: super::super::Foundation::HANDLE, pdefault: *const PRINTER_DEFAULTSA) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(ResetPrinterA(hprinter.into(), ::core::mem::transmute(pdefault)))
+    ResetPrinterA(hprinter.into(), ::core::mem::transmute(pdefault))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
@@ -23333,7 +23333,7 @@ where
     extern "system" {
         fn ResetPrinterW(hprinter: super::super::Foundation::HANDLE, pdefault: *const PRINTER_DEFAULTSW) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(ResetPrinterW(hprinter.into(), ::core::mem::transmute(pdefault)))
+    ResetPrinterW(hprinter.into(), ::core::mem::transmute(pdefault))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -23343,7 +23343,7 @@ pub unsafe fn RevertToPrinterSelf() -> super::super::Foundation::HANDLE {
     extern "system" {
         fn RevertToPrinterSelf() -> super::super::Foundation::HANDLE;
     }
-    ::core::mem::transmute(RevertToPrinterSelf())
+    RevertToPrinterSelf()
 }
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
 #[inline]
@@ -23352,7 +23352,7 @@ pub unsafe fn RouterAllocBidiMem(numbytes: usize) -> *mut ::core::ffi::c_void {
     extern "system" {
         fn RouterAllocBidiMem(numbytes: usize) -> *mut ::core::ffi::c_void;
     }
-    ::core::mem::transmute(RouterAllocBidiMem(numbytes))
+    RouterAllocBidiMem(numbytes)
 }
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -23362,7 +23362,7 @@ pub unsafe fn RouterAllocBidiResponseContainer(count: u32) -> *mut BIDI_RESPONSE
     extern "system" {
         fn RouterAllocBidiResponseContainer(count: u32) -> *mut BIDI_RESPONSE_CONTAINER;
     }
-    ::core::mem::transmute(RouterAllocBidiResponseContainer(count))
+    RouterAllocBidiResponseContainer(count)
 }
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
 #[inline]
@@ -23371,7 +23371,7 @@ pub unsafe fn RouterAllocPrinterNotifyInfo(cprinternotifyinfodata: u32) -> *mut 
     extern "system" {
         fn RouterAllocPrinterNotifyInfo(cprinternotifyinfodata: u32) -> *mut PRINTER_NOTIFY_INFO;
     }
-    ::core::mem::transmute(RouterAllocPrinterNotifyInfo(cprinternotifyinfodata))
+    RouterAllocPrinterNotifyInfo(cprinternotifyinfodata)
 }
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
 #[inline]
@@ -23390,7 +23390,7 @@ pub unsafe fn RouterFreeBidiResponseContainer(pdata: *const BIDI_RESPONSE_CONTAI
     extern "system" {
         fn RouterFreeBidiResponseContainer(pdata: *const BIDI_RESPONSE_CONTAINER) -> u32;
     }
-    ::core::mem::transmute(RouterFreeBidiResponseContainer(::core::mem::transmute(pdata)))
+    RouterFreeBidiResponseContainer(::core::mem::transmute(pdata))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -23400,7 +23400,7 @@ pub unsafe fn RouterFreePrinterNotifyInfo(pinfo: *const PRINTER_NOTIFY_INFO) -> 
     extern "system" {
         fn RouterFreePrinterNotifyInfo(pinfo: *const PRINTER_NOTIFY_INFO) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(RouterFreePrinterNotifyInfo(::core::mem::transmute(pinfo)))
+    RouterFreePrinterNotifyInfo(::core::mem::transmute(pinfo))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
 pub const SERVER_NOTIFY_FIELD_PRINT_DRIVER_ISOLATION_GROUP: u32 = 0u32;
@@ -23837,7 +23837,7 @@ where
     extern "system" {
         fn ScheduleJob(hprinter: super::super::Foundation::HANDLE, jobid: u32) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(ScheduleJob(hprinter.into(), jobid))
+    ScheduleJob(hprinter.into(), jobid)
 }
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -23850,7 +23850,7 @@ where
     extern "system" {
         fn SetCPSUIUserData(hdlg: super::super::Foundation::HWND, cpsuiuserdata: usize) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(SetCPSUIUserData(hdlg.into(), cpsuiuserdata))
+    SetCPSUIUserData(hdlg.into(), cpsuiuserdata)
 }
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -23863,7 +23863,7 @@ where
     extern "system" {
         fn SetDefaultPrinterA(pszprinter: ::windows::core::PCSTR) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(SetDefaultPrinterA(pszprinter.into()))
+    SetDefaultPrinterA(pszprinter.into())
 }
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -23876,7 +23876,7 @@ where
     extern "system" {
         fn SetDefaultPrinterW(pszprinter: ::windows::core::PCWSTR) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(SetDefaultPrinterW(pszprinter.into()))
+    SetDefaultPrinterW(pszprinter.into())
 }
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -23890,7 +23890,7 @@ where
     extern "system" {
         fn SetFormA(hprinter: super::super::Foundation::HANDLE, pformname: ::windows::core::PCSTR, level: u32, pform: *const u8) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(SetFormA(hprinter.into(), pformname.into(), level, ::core::mem::transmute(pform)))
+    SetFormA(hprinter.into(), pformname.into(), level, ::core::mem::transmute(pform))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -23904,7 +23904,7 @@ where
     extern "system" {
         fn SetFormW(hprinter: super::super::Foundation::HANDLE, pformname: ::windows::core::PCWSTR, level: u32, pform: *const u8) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(SetFormW(hprinter.into(), pformname.into(), level, ::core::mem::transmute(pform)))
+    SetFormW(hprinter.into(), pformname.into(), level, ::core::mem::transmute(pform))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -23917,7 +23917,7 @@ where
     extern "system" {
         fn SetJobA(hprinter: super::super::Foundation::HANDLE, jobid: u32, level: u32, pjob: *mut u8, command: u32) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(SetJobA(hprinter.into(), jobid, level, ::core::mem::transmute(pjob), command))
+    SetJobA(hprinter.into(), jobid, level, ::core::mem::transmute(pjob), command)
 }
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -23930,7 +23930,7 @@ where
     extern "system" {
         fn SetJobNamedProperty(hprinter: super::super::Foundation::HANDLE, jobid: u32, pproperty: *const PrintNamedProperty) -> u32;
     }
-    ::core::mem::transmute(SetJobNamedProperty(hprinter.into(), jobid, ::core::mem::transmute(pproperty)))
+    SetJobNamedProperty(hprinter.into(), jobid, ::core::mem::transmute(pproperty))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -23943,7 +23943,7 @@ where
     extern "system" {
         fn SetJobW(hprinter: super::super::Foundation::HANDLE, jobid: u32, level: u32, pjob: *mut u8, command: u32) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(SetJobW(hprinter.into(), jobid, level, ::core::mem::transmute(pjob), command))
+    SetJobW(hprinter.into(), jobid, level, ::core::mem::transmute(pjob), command)
 }
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -23957,7 +23957,7 @@ where
     extern "system" {
         fn SetPortA(pname: ::windows::core::PCSTR, pportname: ::windows::core::PCSTR, dwlevel: u32, pportinfo: *const u8) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(SetPortA(pname.into(), pportname.into(), dwlevel, ::core::mem::transmute(pportinfo)))
+    SetPortA(pname.into(), pportname.into(), dwlevel, ::core::mem::transmute(pportinfo))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -23971,7 +23971,7 @@ where
     extern "system" {
         fn SetPortW(pname: ::windows::core::PCWSTR, pportname: ::windows::core::PCWSTR, dwlevel: u32, pportinfo: *const u8) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(SetPortW(pname.into(), pportname.into(), dwlevel, ::core::mem::transmute(pportinfo)))
+    SetPortW(pname.into(), pportname.into(), dwlevel, ::core::mem::transmute(pportinfo))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -23984,7 +23984,7 @@ where
     extern "system" {
         fn SetPrinterA(hprinter: super::super::Foundation::HANDLE, level: u32, pprinter: *const u8, command: u32) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(SetPrinterA(hprinter.into(), level, ::core::mem::transmute(pprinter), command))
+    SetPrinterA(hprinter.into(), level, ::core::mem::transmute(pprinter), command)
 }
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -23998,7 +23998,7 @@ where
     extern "system" {
         fn SetPrinterDataA(hprinter: super::super::Foundation::HANDLE, pvaluename: ::windows::core::PCSTR, r#type: u32, pdata: *const u8, cbdata: u32) -> u32;
     }
-    ::core::mem::transmute(SetPrinterDataA(hprinter.into(), pvaluename.into(), r#type, ::core::mem::transmute(pdata), cbdata))
+    SetPrinterDataA(hprinter.into(), pvaluename.into(), r#type, ::core::mem::transmute(pdata), cbdata)
 }
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -24013,7 +24013,7 @@ where
     extern "system" {
         fn SetPrinterDataExA(hprinter: super::super::Foundation::HANDLE, pkeyname: ::windows::core::PCSTR, pvaluename: ::windows::core::PCSTR, r#type: u32, pdata: *const u8, cbdata: u32) -> u32;
     }
-    ::core::mem::transmute(SetPrinterDataExA(hprinter.into(), pkeyname.into(), pvaluename.into(), r#type, ::core::mem::transmute(pdata), cbdata))
+    SetPrinterDataExA(hprinter.into(), pkeyname.into(), pvaluename.into(), r#type, ::core::mem::transmute(pdata), cbdata)
 }
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -24028,7 +24028,7 @@ where
     extern "system" {
         fn SetPrinterDataExW(hprinter: super::super::Foundation::HANDLE, pkeyname: ::windows::core::PCWSTR, pvaluename: ::windows::core::PCWSTR, r#type: u32, pdata: *const u8, cbdata: u32) -> u32;
     }
-    ::core::mem::transmute(SetPrinterDataExW(hprinter.into(), pkeyname.into(), pvaluename.into(), r#type, ::core::mem::transmute(pdata), cbdata))
+    SetPrinterDataExW(hprinter.into(), pkeyname.into(), pvaluename.into(), r#type, ::core::mem::transmute(pdata), cbdata)
 }
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -24042,7 +24042,7 @@ where
     extern "system" {
         fn SetPrinterDataW(hprinter: super::super::Foundation::HANDLE, pvaluename: ::windows::core::PCWSTR, r#type: u32, pdata: *const u8, cbdata: u32) -> u32;
     }
-    ::core::mem::transmute(SetPrinterDataW(hprinter.into(), pvaluename.into(), r#type, ::core::mem::transmute(pdata), cbdata))
+    SetPrinterDataW(hprinter.into(), pvaluename.into(), r#type, ::core::mem::transmute(pdata), cbdata)
 }
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -24055,7 +24055,7 @@ where
     extern "system" {
         fn SetPrinterW(hprinter: super::super::Foundation::HANDLE, level: u32, pprinter: *const u8, command: u32) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(SetPrinterW(hprinter.into(), level, ::core::mem::transmute(pprinter), command))
+    SetPrinterW(hprinter.into(), level, ::core::mem::transmute(pprinter), command)
 }
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -24068,7 +24068,7 @@ where
     extern "system" {
         fn SplIsSessionZero(hprinter: super::super::Foundation::HANDLE, jobid: u32, pissessionzero: *mut super::super::Foundation::BOOL) -> u32;
     }
-    ::core::mem::transmute(SplIsSessionZero(hprinter.into(), jobid, ::core::mem::transmute(pissessionzero)))
+    SplIsSessionZero(hprinter.into(), jobid, ::core::mem::transmute(pissessionzero))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -24081,7 +24081,7 @@ where
     extern "system" {
         fn SplPromptUIInUsersSession(hprinter: super::super::Foundation::HANDLE, jobid: u32, puiparams: *const SHOWUIPARAMS, presponse: *mut u32) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(SplPromptUIInUsersSession(hprinter.into(), jobid, ::core::mem::transmute(puiparams), ::core::mem::transmute(presponse)))
+    SplPromptUIInUsersSession(hprinter.into(), jobid, ::core::mem::transmute(puiparams), ::core::mem::transmute(presponse))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -24095,7 +24095,7 @@ where
     extern "system" {
         fn SpoolerCopyFileEvent(pszprintername: ::windows::core::PCWSTR, pszkey: ::windows::core::PCWSTR, dwcopyfileevent: u32) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(SpoolerCopyFileEvent(pszprintername.into(), pszkey.into(), dwcopyfileevent))
+    SpoolerCopyFileEvent(pszprintername.into(), pszkey.into(), dwcopyfileevent)
 }
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -24108,7 +24108,7 @@ where
     extern "system" {
         fn SpoolerFindClosePrinterChangeNotification(hprinter: super::super::Foundation::HANDLE) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(SpoolerFindClosePrinterChangeNotification(hprinter.into()))
+    SpoolerFindClosePrinterChangeNotification(hprinter.into())
 }
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -24121,7 +24121,7 @@ where
     extern "system" {
         fn SpoolerFindFirstPrinterChangeNotification(hprinter: super::super::Foundation::HANDLE, fdwfilterflags: u32, fdwoptions: u32, pprinternotifyoptions: *const ::core::ffi::c_void, pvreserved: *const ::core::ffi::c_void, pnotificationconfig: *const ::core::ffi::c_void, phnotify: *mut super::super::Foundation::HANDLE, phevent: *mut super::super::Foundation::HANDLE) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(SpoolerFindFirstPrinterChangeNotification(hprinter.into(), fdwfilterflags, fdwoptions, ::core::mem::transmute(pprinternotifyoptions), ::core::mem::transmute(pvreserved), ::core::mem::transmute(pnotificationconfig), ::core::mem::transmute(phnotify), ::core::mem::transmute(phevent)))
+    SpoolerFindFirstPrinterChangeNotification(hprinter.into(), fdwfilterflags, fdwoptions, ::core::mem::transmute(pprinternotifyoptions), ::core::mem::transmute(pvreserved), ::core::mem::transmute(pnotificationconfig), ::core::mem::transmute(phnotify), ::core::mem::transmute(phevent))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -24134,7 +24134,7 @@ where
     extern "system" {
         fn SpoolerFindNextPrinterChangeNotification(hprinter: super::super::Foundation::HANDLE, pfdwchange: *mut u32, pprinternotifyoptions: *const ::core::ffi::c_void, ppprinternotifyinfo: *mut *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(SpoolerFindNextPrinterChangeNotification(hprinter.into(), ::core::mem::transmute(pfdwchange), ::core::mem::transmute(pprinternotifyoptions), ::core::mem::transmute(ppprinternotifyinfo)))
+    SpoolerFindNextPrinterChangeNotification(hprinter.into(), ::core::mem::transmute(pfdwchange), ::core::mem::transmute(pprinternotifyoptions), ::core::mem::transmute(ppprinternotifyinfo))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
 #[inline]
@@ -24156,7 +24156,7 @@ where
     extern "system" {
         fn SpoolerRefreshPrinterChangeNotification(hprinter: super::super::Foundation::HANDLE, dwcolor: u32, poptions: *const PRINTER_NOTIFY_OPTIONS, ppinfo: *mut *mut PRINTER_NOTIFY_INFO) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(SpoolerRefreshPrinterChangeNotification(hprinter.into(), dwcolor, ::core::mem::transmute(poptions), ::core::mem::transmute(ppinfo)))
+    SpoolerRefreshPrinterChangeNotification(hprinter.into(), dwcolor, ::core::mem::transmute(poptions), ::core::mem::transmute(ppinfo))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -24169,7 +24169,7 @@ where
     extern "system" {
         fn StartDocPrinterA(hprinter: super::super::Foundation::HANDLE, level: u32, pdocinfo: *const DOC_INFO_1A) -> u32;
     }
-    ::core::mem::transmute(StartDocPrinterA(hprinter.into(), level, ::core::mem::transmute(pdocinfo)))
+    StartDocPrinterA(hprinter.into(), level, ::core::mem::transmute(pdocinfo))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -24182,7 +24182,7 @@ where
     extern "system" {
         fn StartDocPrinterW(hprinter: super::super::Foundation::HANDLE, level: u32, pdocinfo: *const DOC_INFO_1W) -> u32;
     }
-    ::core::mem::transmute(StartDocPrinterW(hprinter.into(), level, ::core::mem::transmute(pdocinfo)))
+    StartDocPrinterW(hprinter.into(), level, ::core::mem::transmute(pdocinfo))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -24195,7 +24195,7 @@ where
     extern "system" {
         fn StartPagePrinter(hprinter: super::super::Foundation::HANDLE) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(StartPagePrinter(hprinter.into()))
+    StartPagePrinter(hprinter.into())
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
@@ -24811,7 +24811,7 @@ where
     extern "system" {
         fn WaitForPrinterChange(hprinter: super::super::Foundation::HANDLE, flags: u32) -> u32;
     }
-    ::core::mem::transmute(WaitForPrinterChange(hprinter.into(), flags))
+    WaitForPrinterChange(hprinter.into(), flags)
 }
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -24824,7 +24824,7 @@ where
     extern "system" {
         fn WritePrinter(hprinter: super::super::Foundation::HANDLE, pbuf: *const ::core::ffi::c_void, cbbuf: u32, pcwritten: *mut u32) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(WritePrinter(hprinter.into(), ::core::mem::transmute(pbuf), cbbuf, ::core::mem::transmute(pcwritten)))
+    WritePrinter(hprinter.into(), ::core::mem::transmute(pbuf), cbbuf, ::core::mem::transmute(pcwritten))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
 #[repr(transparent)]
@@ -24955,7 +24955,7 @@ where
     extern "system" {
         fn XcvDataW(hxcv: super::super::Foundation::HANDLE, pszdataname: ::windows::core::PCWSTR, pinputdata: *const u8, cbinputdata: u32, poutputdata: *mut u8, cboutputdata: u32, pcboutputneeded: *mut u32, pdwstatus: *mut u32) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(XcvDataW(hxcv.into(), pszdataname.into(), ::core::mem::transmute(pinputdata), cbinputdata, ::core::mem::transmute(poutputdata), cboutputdata, ::core::mem::transmute(pcboutputneeded), ::core::mem::transmute(pdwstatus)))
+    XcvDataW(hxcv.into(), pszdataname.into(), ::core::mem::transmute(pinputdata), cbinputdata, ::core::mem::transmute(poutputdata), cboutputdata, ::core::mem::transmute(pcboutputneeded), ::core::mem::transmute(pdwstatus))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`, `\"Win32_UI_WindowsAndMessaging\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]

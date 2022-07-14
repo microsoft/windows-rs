@@ -1725,7 +1725,7 @@ pub unsafe fn IEGetUserPrivateNamespaceName() -> ::windows::core::PWSTR {
     extern "system" {
         fn IEGetUserPrivateNamespaceName() -> ::windows::core::PWSTR;
     }
-    ::core::mem::transmute(IEGetUserPrivateNamespaceName())
+    IEGetUserPrivateNamespaceName()
 }
 #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
 #[inline]
@@ -4237,7 +4237,7 @@ impl IPersistMoniker {
         (::windows::core::Interface::vtable(self).GetClassID)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::GUID>(result__)
     }
     pub unsafe fn IsDirty(&self) -> ::windows::core::HRESULT {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).IsDirty)(::windows::core::Interface::as_raw(self)))
+        (::windows::core::Interface::vtable(self).IsDirty)(::windows::core::Interface::as_raw(self))
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -5128,7 +5128,7 @@ where
     extern "system" {
         fn IsLoggingEnabledA(pszurl: ::windows::core::PCSTR) -> super::super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(IsLoggingEnabledA(pszurl.into()))
+    IsLoggingEnabledA(pszurl.into())
 }
 #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -5141,7 +5141,7 @@ where
     extern "system" {
         fn IsLoggingEnabledW(pwszurl: ::windows::core::PCWSTR) -> super::super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(IsLoggingEnabledW(pwszurl.into()))
+    IsLoggingEnabledW(pwszurl.into())
 }
 #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
 #[inline]
@@ -6796,7 +6796,7 @@ pub unsafe fn WriteHitLogging(lplogginginfo: *const HIT_LOGGING_INFO) -> super::
     extern "system" {
         fn WriteHitLogging(lplogginginfo: *const HIT_LOGGING_INFO) -> super::super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(WriteHitLogging(::core::mem::transmute(lplogginginfo)))
+    WriteHitLogging(::core::mem::transmute(lplogginginfo))
 }
 #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
 #[repr(transparent)]

@@ -839,7 +839,7 @@ pub unsafe fn CompareStringA(locale: u32, dwcmpflags: u32, lpstring1: &[i8], lps
     extern "system" {
         fn CompareStringA(locale: u32, dwcmpflags: u32, lpstring1: *const i8, cchcount1: i32, lpstring2: *const i8, cchcount2: i32) -> i32;
     }
-    ::core::mem::transmute(CompareStringA(locale, dwcmpflags, ::core::mem::transmute(::windows::core::as_ptr_or_null(lpstring1)), lpstring1.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(lpstring2)), lpstring2.len() as _))
+    CompareStringA(locale, dwcmpflags, ::core::mem::transmute(::windows::core::as_ptr_or_null(lpstring1)), lpstring1.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(lpstring2)), lpstring2.len() as _)
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -853,7 +853,7 @@ where
     extern "system" {
         fn CompareStringEx(lplocalename: ::windows::core::PCWSTR, dwcmpflags: COMPARE_STRING_FLAGS, lpstring1: ::windows::core::PCWSTR, cchcount1: i32, lpstring2: ::windows::core::PCWSTR, cchcount2: i32, lpversioninformation: *mut NLSVERSIONINFO, lpreserved: *mut ::core::ffi::c_void, lparam: super::Foundation::LPARAM) -> i32;
     }
-    ::core::mem::transmute(CompareStringEx(lplocalename.into(), dwcmpflags, ::core::mem::transmute(::windows::core::as_ptr_or_null(lpstring1)), lpstring1.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(lpstring2)), lpstring2.len() as _, ::core::mem::transmute(lpversioninformation), ::core::mem::transmute(lpreserved), lparam.into()))
+    CompareStringEx(lplocalename.into(), dwcmpflags, ::core::mem::transmute(::windows::core::as_ptr_or_null(lpstring1)), lpstring1.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(lpstring2)), lpstring2.len() as _, ::core::mem::transmute(lpversioninformation), ::core::mem::transmute(lpreserved), lparam.into())
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -866,7 +866,7 @@ where
     extern "system" {
         fn CompareStringOrdinal(lpstring1: ::windows::core::PCWSTR, cchcount1: i32, lpstring2: ::windows::core::PCWSTR, cchcount2: i32, bignorecase: super::Foundation::BOOL) -> i32;
     }
-    ::core::mem::transmute(CompareStringOrdinal(::core::mem::transmute(::windows::core::as_ptr_or_null(lpstring1)), lpstring1.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(lpstring2)), lpstring2.len() as _, bignorecase.into()))
+    CompareStringOrdinal(::core::mem::transmute(::windows::core::as_ptr_or_null(lpstring1)), lpstring1.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(lpstring2)), lpstring2.len() as _, bignorecase.into())
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -875,7 +875,7 @@ pub unsafe fn CompareStringW(locale: u32, dwcmpflags: u32, lpstring1: &[u16], lp
     extern "system" {
         fn CompareStringW(locale: u32, dwcmpflags: u32, lpstring1: ::windows::core::PCWSTR, cchcount1: i32, lpstring2: ::windows::core::PCWSTR, cchcount2: i32) -> i32;
     }
-    ::core::mem::transmute(CompareStringW(locale, dwcmpflags, ::core::mem::transmute(::windows::core::as_ptr_or_null(lpstring1)), lpstring1.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(lpstring2)), lpstring2.len() as _))
+    CompareStringW(locale, dwcmpflags, ::core::mem::transmute(::windows::core::as_ptr_or_null(lpstring1)), lpstring1.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(lpstring2)), lpstring2.len() as _)
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -884,7 +884,7 @@ pub unsafe fn ConvertDefaultLocale(locale: u32) -> u32 {
     extern "system" {
         fn ConvertDefaultLocale(locale: u32) -> u32;
     }
-    ::core::mem::transmute(ConvertDefaultLocale(locale))
+    ConvertDefaultLocale(locale)
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -1124,7 +1124,7 @@ pub unsafe fn EnumCalendarInfoA(lpcalinfoenumproc: CALINFO_ENUMPROCA, locale: u3
     extern "system" {
         fn EnumCalendarInfoA(lpcalinfoenumproc: *mut ::core::ffi::c_void, locale: u32, calendar: u32, caltype: u32) -> super::Foundation::BOOL;
     }
-    ::core::mem::transmute(EnumCalendarInfoA(::core::mem::transmute(lpcalinfoenumproc), locale, calendar, caltype))
+    EnumCalendarInfoA(::core::mem::transmute(lpcalinfoenumproc), locale, calendar, caltype)
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -1134,7 +1134,7 @@ pub unsafe fn EnumCalendarInfoExA(lpcalinfoenumprocex: CALINFO_ENUMPROCEXA, loca
     extern "system" {
         fn EnumCalendarInfoExA(lpcalinfoenumprocex: *mut ::core::ffi::c_void, locale: u32, calendar: u32, caltype: u32) -> super::Foundation::BOOL;
     }
-    ::core::mem::transmute(EnumCalendarInfoExA(::core::mem::transmute(lpcalinfoenumprocex), locale, calendar, caltype))
+    EnumCalendarInfoExA(::core::mem::transmute(lpcalinfoenumprocex), locale, calendar, caltype)
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -1149,7 +1149,7 @@ where
     extern "system" {
         fn EnumCalendarInfoExEx(pcalinfoenumprocexex: *mut ::core::ffi::c_void, lplocalename: ::windows::core::PCWSTR, calendar: u32, lpreserved: ::windows::core::PCWSTR, caltype: u32, lparam: super::Foundation::LPARAM) -> super::Foundation::BOOL;
     }
-    ::core::mem::transmute(EnumCalendarInfoExEx(::core::mem::transmute(pcalinfoenumprocexex), lplocalename.into(), calendar, lpreserved.into(), caltype, lparam.into()))
+    EnumCalendarInfoExEx(::core::mem::transmute(pcalinfoenumprocexex), lplocalename.into(), calendar, lpreserved.into(), caltype, lparam.into())
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -1159,7 +1159,7 @@ pub unsafe fn EnumCalendarInfoExW(lpcalinfoenumprocex: CALINFO_ENUMPROCEXW, loca
     extern "system" {
         fn EnumCalendarInfoExW(lpcalinfoenumprocex: *mut ::core::ffi::c_void, locale: u32, calendar: u32, caltype: u32) -> super::Foundation::BOOL;
     }
-    ::core::mem::transmute(EnumCalendarInfoExW(::core::mem::transmute(lpcalinfoenumprocex), locale, calendar, caltype))
+    EnumCalendarInfoExW(::core::mem::transmute(lpcalinfoenumprocex), locale, calendar, caltype)
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -1169,7 +1169,7 @@ pub unsafe fn EnumCalendarInfoW(lpcalinfoenumproc: CALINFO_ENUMPROCW, locale: u3
     extern "system" {
         fn EnumCalendarInfoW(lpcalinfoenumproc: *mut ::core::ffi::c_void, locale: u32, calendar: u32, caltype: u32) -> super::Foundation::BOOL;
     }
-    ::core::mem::transmute(EnumCalendarInfoW(::core::mem::transmute(lpcalinfoenumproc), locale, calendar, caltype))
+    EnumCalendarInfoW(::core::mem::transmute(lpcalinfoenumproc), locale, calendar, caltype)
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -1179,7 +1179,7 @@ pub unsafe fn EnumDateFormatsA(lpdatefmtenumproc: DATEFMT_ENUMPROCA, locale: u32
     extern "system" {
         fn EnumDateFormatsA(lpdatefmtenumproc: *mut ::core::ffi::c_void, locale: u32, dwflags: u32) -> super::Foundation::BOOL;
     }
-    ::core::mem::transmute(EnumDateFormatsA(::core::mem::transmute(lpdatefmtenumproc), locale, dwflags))
+    EnumDateFormatsA(::core::mem::transmute(lpdatefmtenumproc), locale, dwflags)
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -1189,7 +1189,7 @@ pub unsafe fn EnumDateFormatsExA(lpdatefmtenumprocex: DATEFMT_ENUMPROCEXA, local
     extern "system" {
         fn EnumDateFormatsExA(lpdatefmtenumprocex: *mut ::core::ffi::c_void, locale: u32, dwflags: u32) -> super::Foundation::BOOL;
     }
-    ::core::mem::transmute(EnumDateFormatsExA(::core::mem::transmute(lpdatefmtenumprocex), locale, dwflags))
+    EnumDateFormatsExA(::core::mem::transmute(lpdatefmtenumprocex), locale, dwflags)
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -1203,7 +1203,7 @@ where
     extern "system" {
         fn EnumDateFormatsExEx(lpdatefmtenumprocexex: *mut ::core::ffi::c_void, lplocalename: ::windows::core::PCWSTR, dwflags: ENUM_DATE_FORMATS_FLAGS, lparam: super::Foundation::LPARAM) -> super::Foundation::BOOL;
     }
-    ::core::mem::transmute(EnumDateFormatsExEx(::core::mem::transmute(lpdatefmtenumprocexex), lplocalename.into(), dwflags, lparam.into()))
+    EnumDateFormatsExEx(::core::mem::transmute(lpdatefmtenumprocexex), lplocalename.into(), dwflags, lparam.into())
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -1213,7 +1213,7 @@ pub unsafe fn EnumDateFormatsExW(lpdatefmtenumprocex: DATEFMT_ENUMPROCEXW, local
     extern "system" {
         fn EnumDateFormatsExW(lpdatefmtenumprocex: *mut ::core::ffi::c_void, locale: u32, dwflags: u32) -> super::Foundation::BOOL;
     }
-    ::core::mem::transmute(EnumDateFormatsExW(::core::mem::transmute(lpdatefmtenumprocex), locale, dwflags))
+    EnumDateFormatsExW(::core::mem::transmute(lpdatefmtenumprocex), locale, dwflags)
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -1223,7 +1223,7 @@ pub unsafe fn EnumDateFormatsW(lpdatefmtenumproc: DATEFMT_ENUMPROCW, locale: u32
     extern "system" {
         fn EnumDateFormatsW(lpdatefmtenumproc: *mut ::core::ffi::c_void, locale: u32, dwflags: u32) -> super::Foundation::BOOL;
     }
-    ::core::mem::transmute(EnumDateFormatsW(::core::mem::transmute(lpdatefmtenumproc), locale, dwflags))
+    EnumDateFormatsW(::core::mem::transmute(lpdatefmtenumproc), locale, dwflags)
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -1233,7 +1233,7 @@ pub unsafe fn EnumLanguageGroupLocalesA(lplanggrouplocaleenumproc: LANGGROUPLOCA
     extern "system" {
         fn EnumLanguageGroupLocalesA(lplanggrouplocaleenumproc: *mut ::core::ffi::c_void, languagegroup: u32, dwflags: u32, lparam: isize) -> super::Foundation::BOOL;
     }
-    ::core::mem::transmute(EnumLanguageGroupLocalesA(::core::mem::transmute(lplanggrouplocaleenumproc), languagegroup, dwflags, lparam))
+    EnumLanguageGroupLocalesA(::core::mem::transmute(lplanggrouplocaleenumproc), languagegroup, dwflags, lparam)
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -1243,7 +1243,7 @@ pub unsafe fn EnumLanguageGroupLocalesW(lplanggrouplocaleenumproc: LANGGROUPLOCA
     extern "system" {
         fn EnumLanguageGroupLocalesW(lplanggrouplocaleenumproc: *mut ::core::ffi::c_void, languagegroup: u32, dwflags: u32, lparam: isize) -> super::Foundation::BOOL;
     }
-    ::core::mem::transmute(EnumLanguageGroupLocalesW(::core::mem::transmute(lplanggrouplocaleenumproc), languagegroup, dwflags, lparam))
+    EnumLanguageGroupLocalesW(::core::mem::transmute(lplanggrouplocaleenumproc), languagegroup, dwflags, lparam)
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -1253,7 +1253,7 @@ pub unsafe fn EnumSystemCodePagesA(lpcodepageenumproc: CODEPAGE_ENUMPROCA, dwfla
     extern "system" {
         fn EnumSystemCodePagesA(lpcodepageenumproc: *mut ::core::ffi::c_void, dwflags: ENUM_SYSTEM_CODE_PAGES_FLAGS) -> super::Foundation::BOOL;
     }
-    ::core::mem::transmute(EnumSystemCodePagesA(::core::mem::transmute(lpcodepageenumproc), dwflags))
+    EnumSystemCodePagesA(::core::mem::transmute(lpcodepageenumproc), dwflags)
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -1263,7 +1263,7 @@ pub unsafe fn EnumSystemCodePagesW(lpcodepageenumproc: CODEPAGE_ENUMPROCW, dwfla
     extern "system" {
         fn EnumSystemCodePagesW(lpcodepageenumproc: *mut ::core::ffi::c_void, dwflags: ENUM_SYSTEM_CODE_PAGES_FLAGS) -> super::Foundation::BOOL;
     }
-    ::core::mem::transmute(EnumSystemCodePagesW(::core::mem::transmute(lpcodepageenumproc), dwflags))
+    EnumSystemCodePagesW(::core::mem::transmute(lpcodepageenumproc), dwflags)
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -1273,7 +1273,7 @@ pub unsafe fn EnumSystemGeoID(geoclass: u32, parentgeoid: i32, lpgeoenumproc: GE
     extern "system" {
         fn EnumSystemGeoID(geoclass: u32, parentgeoid: i32, lpgeoenumproc: *mut ::core::ffi::c_void) -> super::Foundation::BOOL;
     }
-    ::core::mem::transmute(EnumSystemGeoID(geoclass, parentgeoid, ::core::mem::transmute(lpgeoenumproc)))
+    EnumSystemGeoID(geoclass, parentgeoid, ::core::mem::transmute(lpgeoenumproc))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -1286,7 +1286,7 @@ where
     extern "system" {
         fn EnumSystemGeoNames(geoclass: u32, geoenumproc: *mut ::core::ffi::c_void, data: super::Foundation::LPARAM) -> super::Foundation::BOOL;
     }
-    ::core::mem::transmute(EnumSystemGeoNames(geoclass, ::core::mem::transmute(geoenumproc), data.into()))
+    EnumSystemGeoNames(geoclass, ::core::mem::transmute(geoenumproc), data.into())
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -1296,7 +1296,7 @@ pub unsafe fn EnumSystemLanguageGroupsA(lplanguagegroupenumproc: LANGUAGEGROUP_E
     extern "system" {
         fn EnumSystemLanguageGroupsA(lplanguagegroupenumproc: *mut ::core::ffi::c_void, dwflags: ENUM_SYSTEM_LANGUAGE_GROUPS_FLAGS, lparam: isize) -> super::Foundation::BOOL;
     }
-    ::core::mem::transmute(EnumSystemLanguageGroupsA(::core::mem::transmute(lplanguagegroupenumproc), dwflags, lparam))
+    EnumSystemLanguageGroupsA(::core::mem::transmute(lplanguagegroupenumproc), dwflags, lparam)
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -1306,7 +1306,7 @@ pub unsafe fn EnumSystemLanguageGroupsW(lplanguagegroupenumproc: LANGUAGEGROUP_E
     extern "system" {
         fn EnumSystemLanguageGroupsW(lplanguagegroupenumproc: *mut ::core::ffi::c_void, dwflags: ENUM_SYSTEM_LANGUAGE_GROUPS_FLAGS, lparam: isize) -> super::Foundation::BOOL;
     }
-    ::core::mem::transmute(EnumSystemLanguageGroupsW(::core::mem::transmute(lplanguagegroupenumproc), dwflags, lparam))
+    EnumSystemLanguageGroupsW(::core::mem::transmute(lplanguagegroupenumproc), dwflags, lparam)
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -1316,7 +1316,7 @@ pub unsafe fn EnumSystemLocalesA(lplocaleenumproc: LOCALE_ENUMPROCA, dwflags: u3
     extern "system" {
         fn EnumSystemLocalesA(lplocaleenumproc: *mut ::core::ffi::c_void, dwflags: u32) -> super::Foundation::BOOL;
     }
-    ::core::mem::transmute(EnumSystemLocalesA(::core::mem::transmute(lplocaleenumproc), dwflags))
+    EnumSystemLocalesA(::core::mem::transmute(lplocaleenumproc), dwflags)
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -1329,7 +1329,7 @@ where
     extern "system" {
         fn EnumSystemLocalesEx(lplocaleenumprocex: *mut ::core::ffi::c_void, dwflags: u32, lparam: super::Foundation::LPARAM, lpreserved: *const ::core::ffi::c_void) -> super::Foundation::BOOL;
     }
-    ::core::mem::transmute(EnumSystemLocalesEx(::core::mem::transmute(lplocaleenumprocex), dwflags, lparam.into(), ::core::mem::transmute(lpreserved)))
+    EnumSystemLocalesEx(::core::mem::transmute(lplocaleenumprocex), dwflags, lparam.into(), ::core::mem::transmute(lpreserved))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -1339,7 +1339,7 @@ pub unsafe fn EnumSystemLocalesW(lplocaleenumproc: LOCALE_ENUMPROCW, dwflags: u3
     extern "system" {
         fn EnumSystemLocalesW(lplocaleenumproc: *mut ::core::ffi::c_void, dwflags: u32) -> super::Foundation::BOOL;
     }
-    ::core::mem::transmute(EnumSystemLocalesW(::core::mem::transmute(lplocaleenumproc), dwflags))
+    EnumSystemLocalesW(::core::mem::transmute(lplocaleenumproc), dwflags)
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -1349,7 +1349,7 @@ pub unsafe fn EnumTimeFormatsA(lptimefmtenumproc: TIMEFMT_ENUMPROCA, locale: u32
     extern "system" {
         fn EnumTimeFormatsA(lptimefmtenumproc: *mut ::core::ffi::c_void, locale: u32, dwflags: TIME_FORMAT_FLAGS) -> super::Foundation::BOOL;
     }
-    ::core::mem::transmute(EnumTimeFormatsA(::core::mem::transmute(lptimefmtenumproc), locale, dwflags))
+    EnumTimeFormatsA(::core::mem::transmute(lptimefmtenumproc), locale, dwflags)
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -1363,7 +1363,7 @@ where
     extern "system" {
         fn EnumTimeFormatsEx(lptimefmtenumprocex: *mut ::core::ffi::c_void, lplocalename: ::windows::core::PCWSTR, dwflags: u32, lparam: super::Foundation::LPARAM) -> super::Foundation::BOOL;
     }
-    ::core::mem::transmute(EnumTimeFormatsEx(::core::mem::transmute(lptimefmtenumprocex), lplocalename.into(), dwflags, lparam.into()))
+    EnumTimeFormatsEx(::core::mem::transmute(lptimefmtenumprocex), lplocalename.into(), dwflags, lparam.into())
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -1373,7 +1373,7 @@ pub unsafe fn EnumTimeFormatsW(lptimefmtenumproc: TIMEFMT_ENUMPROCW, locale: u32
     extern "system" {
         fn EnumTimeFormatsW(lptimefmtenumproc: *mut ::core::ffi::c_void, locale: u32, dwflags: TIME_FORMAT_FLAGS) -> super::Foundation::BOOL;
     }
-    ::core::mem::transmute(EnumTimeFormatsW(::core::mem::transmute(lptimefmtenumproc), locale, dwflags))
+    EnumTimeFormatsW(::core::mem::transmute(lptimefmtenumproc), locale, dwflags)
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -1383,7 +1383,7 @@ pub unsafe fn EnumUILanguagesA(lpuilanguageenumproc: UILANGUAGE_ENUMPROCA, dwfla
     extern "system" {
         fn EnumUILanguagesA(lpuilanguageenumproc: *mut ::core::ffi::c_void, dwflags: u32, lparam: isize) -> super::Foundation::BOOL;
     }
-    ::core::mem::transmute(EnumUILanguagesA(::core::mem::transmute(lpuilanguageenumproc), dwflags, lparam))
+    EnumUILanguagesA(::core::mem::transmute(lpuilanguageenumproc), dwflags, lparam)
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -1393,7 +1393,7 @@ pub unsafe fn EnumUILanguagesW(lpuilanguageenumproc: UILANGUAGE_ENUMPROCW, dwfla
     extern "system" {
         fn EnumUILanguagesW(lpuilanguageenumproc: *mut ::core::ffi::c_void, dwflags: u32, lparam: isize) -> super::Foundation::BOOL;
     }
-    ::core::mem::transmute(EnumUILanguagesW(::core::mem::transmute(lpuilanguageenumproc), dwflags, lparam))
+    EnumUILanguagesW(::core::mem::transmute(lpuilanguageenumproc), dwflags, lparam)
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
@@ -1558,7 +1558,7 @@ pub unsafe fn FindNLSString(locale: u32, dwfindnlsstringflags: u32, lpstringsour
     extern "system" {
         fn FindNLSString(locale: u32, dwfindnlsstringflags: u32, lpstringsource: ::windows::core::PCWSTR, cchsource: i32, lpstringvalue: ::windows::core::PCWSTR, cchvalue: i32, pcchfound: *mut i32) -> i32;
     }
-    ::core::mem::transmute(FindNLSString(locale, dwfindnlsstringflags, ::core::mem::transmute(::windows::core::as_ptr_or_null(lpstringsource)), lpstringsource.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(lpstringvalue)), lpstringvalue.len() as _, ::core::mem::transmute(pcchfound)))
+    FindNLSString(locale, dwfindnlsstringflags, ::core::mem::transmute(::windows::core::as_ptr_or_null(lpstringsource)), lpstringsource.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(lpstringvalue)), lpstringvalue.len() as _, ::core::mem::transmute(pcchfound))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -1572,7 +1572,7 @@ where
     extern "system" {
         fn FindNLSStringEx(lplocalename: ::windows::core::PCWSTR, dwfindnlsstringflags: u32, lpstringsource: ::windows::core::PCWSTR, cchsource: i32, lpstringvalue: ::windows::core::PCWSTR, cchvalue: i32, pcchfound: *mut i32, lpversioninformation: *const NLSVERSIONINFO, lpreserved: *const ::core::ffi::c_void, sorthandle: super::Foundation::LPARAM) -> i32;
     }
-    ::core::mem::transmute(FindNLSStringEx(lplocalename.into(), dwfindnlsstringflags, ::core::mem::transmute(::windows::core::as_ptr_or_null(lpstringsource)), lpstringsource.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(lpstringvalue)), lpstringvalue.len() as _, ::core::mem::transmute(pcchfound), ::core::mem::transmute(lpversioninformation), ::core::mem::transmute(lpreserved), sorthandle.into()))
+    FindNLSStringEx(lplocalename.into(), dwfindnlsstringflags, ::core::mem::transmute(::windows::core::as_ptr_or_null(lpstringsource)), lpstringsource.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(lpstringvalue)), lpstringvalue.len() as _, ::core::mem::transmute(pcchfound), ::core::mem::transmute(lpversioninformation), ::core::mem::transmute(lpreserved), sorthandle.into())
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -1585,7 +1585,7 @@ where
     extern "system" {
         fn FindStringOrdinal(dwfindstringordinalflags: u32, lpstringsource: ::windows::core::PCWSTR, cchsource: i32, lpstringvalue: ::windows::core::PCWSTR, cchvalue: i32, bignorecase: super::Foundation::BOOL) -> i32;
     }
-    ::core::mem::transmute(FindStringOrdinal(dwfindstringordinalflags, ::core::mem::transmute(::windows::core::as_ptr_or_null(lpstringsource)), lpstringsource.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(lpstringvalue)), lpstringvalue.len() as _, bignorecase.into()))
+    FindStringOrdinal(dwfindstringordinalflags, ::core::mem::transmute(::windows::core::as_ptr_or_null(lpstringsource)), lpstringsource.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(lpstringvalue)), lpstringvalue.len() as _, bignorecase.into())
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -1594,7 +1594,7 @@ pub unsafe fn FoldStringA(dwmapflags: FOLD_STRING_MAP_FLAGS, lpsrcstr: &[u8], lp
     extern "system" {
         fn FoldStringA(dwmapflags: FOLD_STRING_MAP_FLAGS, lpsrcstr: ::windows::core::PCSTR, cchsrc: i32, lpdeststr: ::windows::core::PSTR, cchdest: i32) -> i32;
     }
-    ::core::mem::transmute(FoldStringA(dwmapflags, ::core::mem::transmute(::windows::core::as_ptr_or_null(lpsrcstr)), lpsrcstr.len() as _, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(lpdeststr)), lpdeststr.len() as _))
+    FoldStringA(dwmapflags, ::core::mem::transmute(::windows::core::as_ptr_or_null(lpsrcstr)), lpsrcstr.len() as _, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(lpdeststr)), lpdeststr.len() as _)
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -1603,7 +1603,7 @@ pub unsafe fn FoldStringW(dwmapflags: FOLD_STRING_MAP_FLAGS, lpsrcstr: &[u16], l
     extern "system" {
         fn FoldStringW(dwmapflags: FOLD_STRING_MAP_FLAGS, lpsrcstr: ::windows::core::PCWSTR, cchsrc: i32, lpdeststr: ::windows::core::PWSTR, cchdest: i32) -> i32;
     }
-    ::core::mem::transmute(FoldStringW(dwmapflags, ::core::mem::transmute(::windows::core::as_ptr_or_null(lpsrcstr)), lpsrcstr.len() as _, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(lpdeststr)), lpdeststr.len() as _))
+    FoldStringW(dwmapflags, ::core::mem::transmute(::windows::core::as_ptr_or_null(lpsrcstr)), lpsrcstr.len() as _, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(lpdeststr)), lpdeststr.len() as _)
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 pub const GEOID_NOT_AVAILABLE: i32 = -1i32;
@@ -1653,7 +1653,7 @@ pub unsafe fn GetACP() -> u32 {
     extern "system" {
         fn GetACP() -> u32;
     }
-    ::core::mem::transmute(GetACP())
+    GetACP()
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -1663,7 +1663,7 @@ pub unsafe fn GetCPInfo(codepage: u32, lpcpinfo: *mut CPINFO) -> super::Foundati
     extern "system" {
         fn GetCPInfo(codepage: u32, lpcpinfo: *mut CPINFO) -> super::Foundation::BOOL;
     }
-    ::core::mem::transmute(GetCPInfo(codepage, ::core::mem::transmute(lpcpinfo)))
+    GetCPInfo(codepage, ::core::mem::transmute(lpcpinfo))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -1673,7 +1673,7 @@ pub unsafe fn GetCPInfoExA(codepage: u32, dwflags: u32, lpcpinfoex: *mut CPINFOE
     extern "system" {
         fn GetCPInfoExA(codepage: u32, dwflags: u32, lpcpinfoex: *mut CPINFOEXA) -> super::Foundation::BOOL;
     }
-    ::core::mem::transmute(GetCPInfoExA(codepage, dwflags, ::core::mem::transmute(lpcpinfoex)))
+    GetCPInfoExA(codepage, dwflags, ::core::mem::transmute(lpcpinfoex))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -1683,7 +1683,7 @@ pub unsafe fn GetCPInfoExW(codepage: u32, dwflags: u32, lpcpinfoex: *mut CPINFOE
     extern "system" {
         fn GetCPInfoExW(codepage: u32, dwflags: u32, lpcpinfoex: *mut CPINFOEXW) -> super::Foundation::BOOL;
     }
-    ::core::mem::transmute(GetCPInfoExW(codepage, dwflags, ::core::mem::transmute(lpcpinfoex)))
+    GetCPInfoExW(codepage, dwflags, ::core::mem::transmute(lpcpinfoex))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -1692,7 +1692,7 @@ pub unsafe fn GetCalendarInfoA(locale: u32, calendar: u32, caltype: u32, lpcalda
     extern "system" {
         fn GetCalendarInfoA(locale: u32, calendar: u32, caltype: u32, lpcaldata: ::windows::core::PSTR, cchdata: i32, lpvalue: *mut u32) -> i32;
     }
-    ::core::mem::transmute(GetCalendarInfoA(locale, calendar, caltype, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(lpcaldata)), lpcaldata.len() as _, ::core::mem::transmute(lpvalue)))
+    GetCalendarInfoA(locale, calendar, caltype, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(lpcaldata)), lpcaldata.len() as _, ::core::mem::transmute(lpvalue))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -1705,7 +1705,7 @@ where
     extern "system" {
         fn GetCalendarInfoEx(lplocalename: ::windows::core::PCWSTR, calendar: u32, lpreserved: ::windows::core::PCWSTR, caltype: u32, lpcaldata: ::windows::core::PWSTR, cchdata: i32, lpvalue: *mut u32) -> i32;
     }
-    ::core::mem::transmute(GetCalendarInfoEx(lplocalename.into(), calendar, lpreserved.into(), caltype, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(lpcaldata)), lpcaldata.len() as _, ::core::mem::transmute(lpvalue)))
+    GetCalendarInfoEx(lplocalename.into(), calendar, lpreserved.into(), caltype, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(lpcaldata)), lpcaldata.len() as _, ::core::mem::transmute(lpvalue))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -1714,7 +1714,7 @@ pub unsafe fn GetCalendarInfoW(locale: u32, calendar: u32, caltype: u32, lpcalda
     extern "system" {
         fn GetCalendarInfoW(locale: u32, calendar: u32, caltype: u32, lpcaldata: ::windows::core::PWSTR, cchdata: i32, lpvalue: *mut u32) -> i32;
     }
-    ::core::mem::transmute(GetCalendarInfoW(locale, calendar, caltype, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(lpcaldata)), lpcaldata.len() as _, ::core::mem::transmute(lpvalue)))
+    GetCalendarInfoW(locale, calendar, caltype, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(lpcaldata)), lpcaldata.len() as _, ::core::mem::transmute(lpvalue))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -1726,7 +1726,7 @@ where
     extern "system" {
         fn GetCurrencyFormatA(locale: u32, dwflags: u32, lpvalue: ::windows::core::PCSTR, lpformat: *const CURRENCYFMTA, lpcurrencystr: ::windows::core::PSTR, cchcurrency: i32) -> i32;
     }
-    ::core::mem::transmute(GetCurrencyFormatA(locale, dwflags, lpvalue.into(), ::core::mem::transmute(lpformat), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(lpcurrencystr)), lpcurrencystr.len() as _))
+    GetCurrencyFormatA(locale, dwflags, lpvalue.into(), ::core::mem::transmute(lpformat), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(lpcurrencystr)), lpcurrencystr.len() as _)
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -1739,7 +1739,7 @@ where
     extern "system" {
         fn GetCurrencyFormatEx(lplocalename: ::windows::core::PCWSTR, dwflags: u32, lpvalue: ::windows::core::PCWSTR, lpformat: *const CURRENCYFMTW, lpcurrencystr: ::windows::core::PWSTR, cchcurrency: i32) -> i32;
     }
-    ::core::mem::transmute(GetCurrencyFormatEx(lplocalename.into(), dwflags, lpvalue.into(), ::core::mem::transmute(lpformat), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(lpcurrencystr)), lpcurrencystr.len() as _))
+    GetCurrencyFormatEx(lplocalename.into(), dwflags, lpvalue.into(), ::core::mem::transmute(lpformat), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(lpcurrencystr)), lpcurrencystr.len() as _)
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -1751,7 +1751,7 @@ where
     extern "system" {
         fn GetCurrencyFormatW(locale: u32, dwflags: u32, lpvalue: ::windows::core::PCWSTR, lpformat: *const CURRENCYFMTW, lpcurrencystr: ::windows::core::PWSTR, cchcurrency: i32) -> i32;
     }
-    ::core::mem::transmute(GetCurrencyFormatW(locale, dwflags, lpvalue.into(), ::core::mem::transmute(lpformat), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(lpcurrencystr)), lpcurrencystr.len() as _))
+    GetCurrencyFormatW(locale, dwflags, lpvalue.into(), ::core::mem::transmute(lpformat), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(lpcurrencystr)), lpcurrencystr.len() as _)
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -1764,7 +1764,7 @@ where
     extern "system" {
         fn GetDateFormatA(locale: u32, dwflags: u32, lpdate: *const super::Foundation::SYSTEMTIME, lpformat: ::windows::core::PCSTR, lpdatestr: ::windows::core::PSTR, cchdate: i32) -> i32;
     }
-    ::core::mem::transmute(GetDateFormatA(locale, dwflags, ::core::mem::transmute(lpdate), lpformat.into(), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(lpdatestr)), lpdatestr.len() as _))
+    GetDateFormatA(locale, dwflags, ::core::mem::transmute(lpdate), lpformat.into(), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(lpdatestr)), lpdatestr.len() as _)
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -1779,7 +1779,7 @@ where
     extern "system" {
         fn GetDateFormatEx(lplocalename: ::windows::core::PCWSTR, dwflags: ENUM_DATE_FORMATS_FLAGS, lpdate: *const super::Foundation::SYSTEMTIME, lpformat: ::windows::core::PCWSTR, lpdatestr: ::windows::core::PWSTR, cchdate: i32, lpcalendar: ::windows::core::PCWSTR) -> i32;
     }
-    ::core::mem::transmute(GetDateFormatEx(lplocalename.into(), dwflags, ::core::mem::transmute(lpdate), lpformat.into(), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(lpdatestr)), lpdatestr.len() as _, lpcalendar.into()))
+    GetDateFormatEx(lplocalename.into(), dwflags, ::core::mem::transmute(lpdate), lpformat.into(), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(lpdatestr)), lpdatestr.len() as _, lpcalendar.into())
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -1792,7 +1792,7 @@ where
     extern "system" {
         fn GetDateFormatW(locale: u32, dwflags: u32, lpdate: *const super::Foundation::SYSTEMTIME, lpformat: ::windows::core::PCWSTR, lpdatestr: ::windows::core::PWSTR, cchdate: i32) -> i32;
     }
-    ::core::mem::transmute(GetDateFormatW(locale, dwflags, ::core::mem::transmute(lpdate), lpformat.into(), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(lpdatestr)), lpdatestr.len() as _))
+    GetDateFormatW(locale, dwflags, ::core::mem::transmute(lpdate), lpformat.into(), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(lpdatestr)), lpdatestr.len() as _)
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -1819,7 +1819,7 @@ where
     extern "system" {
         fn GetDurationFormat(locale: u32, dwflags: u32, lpduration: *const super::Foundation::SYSTEMTIME, ullduration: u64, lpformat: ::windows::core::PCWSTR, lpdurationstr: ::windows::core::PWSTR, cchduration: i32) -> i32;
     }
-    ::core::mem::transmute(GetDurationFormat(locale, dwflags, ::core::mem::transmute(lpduration), ullduration, lpformat.into(), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(lpdurationstr)), lpdurationstr.len() as _))
+    GetDurationFormat(locale, dwflags, ::core::mem::transmute(lpduration), ullduration, lpformat.into(), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(lpdurationstr)), lpdurationstr.len() as _)
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -1833,7 +1833,7 @@ where
     extern "system" {
         fn GetDurationFormatEx(lplocalename: ::windows::core::PCWSTR, dwflags: u32, lpduration: *const super::Foundation::SYSTEMTIME, ullduration: u64, lpformat: ::windows::core::PCWSTR, lpdurationstr: ::windows::core::PWSTR, cchduration: i32) -> i32;
     }
-    ::core::mem::transmute(GetDurationFormatEx(lplocalename.into(), dwflags, ::core::mem::transmute(lpduration), ullduration, lpformat.into(), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(lpdurationstr)), lpdurationstr.len() as _))
+    GetDurationFormatEx(lplocalename.into(), dwflags, ::core::mem::transmute(lpduration), ullduration, lpformat.into(), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(lpdurationstr)), lpdurationstr.len() as _)
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -1846,7 +1846,7 @@ where
     extern "system" {
         fn GetFileMUIInfo(dwflags: u32, pcwszfilepath: ::windows::core::PCWSTR, pfilemuiinfo: *mut FILEMUIINFO, pcbfilemuiinfo: *mut u32) -> super::Foundation::BOOL;
     }
-    ::core::mem::transmute(GetFileMUIInfo(dwflags, pcwszfilepath.into(), ::core::mem::transmute(pfilemuiinfo), ::core::mem::transmute(pcbfilemuiinfo)))
+    GetFileMUIInfo(dwflags, pcwszfilepath.into(), ::core::mem::transmute(pfilemuiinfo), ::core::mem::transmute(pcbfilemuiinfo))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -1859,7 +1859,7 @@ where
     extern "system" {
         fn GetFileMUIPath(dwflags: u32, pcwszfilepath: ::windows::core::PCWSTR, pwszlanguage: ::windows::core::PWSTR, pcchlanguage: *mut u32, pwszfilemuipath: ::windows::core::PWSTR, pcchfilemuipath: *mut u32, pululenumerator: *mut u64) -> super::Foundation::BOOL;
     }
-    ::core::mem::transmute(GetFileMUIPath(dwflags, pcwszfilepath.into(), ::core::mem::transmute(pwszlanguage), ::core::mem::transmute(pcchlanguage), ::core::mem::transmute(pwszfilemuipath), ::core::mem::transmute(pcchfilemuipath), ::core::mem::transmute(pululenumerator)))
+    GetFileMUIPath(dwflags, pcwszfilepath.into(), ::core::mem::transmute(pwszlanguage), ::core::mem::transmute(pcchlanguage), ::core::mem::transmute(pwszfilemuipath), ::core::mem::transmute(pcchfilemuipath), ::core::mem::transmute(pululenumerator))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -1868,7 +1868,7 @@ pub unsafe fn GetGeoInfoA(location: i32, geotype: u32, lpgeodata: &mut [u8], lan
     extern "system" {
         fn GetGeoInfoA(location: i32, geotype: u32, lpgeodata: ::windows::core::PSTR, cchdata: i32, langid: u16) -> i32;
     }
-    ::core::mem::transmute(GetGeoInfoA(location, geotype, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(lpgeodata)), lpgeodata.len() as _, langid))
+    GetGeoInfoA(location, geotype, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(lpgeodata)), lpgeodata.len() as _, langid)
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -1880,7 +1880,7 @@ where
     extern "system" {
         fn GetGeoInfoEx(location: ::windows::core::PCWSTR, geotype: u32, geodata: ::windows::core::PWSTR, geodatacount: i32) -> i32;
     }
-    ::core::mem::transmute(GetGeoInfoEx(location.into(), geotype, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(geodata)), geodata.len() as _))
+    GetGeoInfoEx(location.into(), geotype, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(geodata)), geodata.len() as _)
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -1889,7 +1889,7 @@ pub unsafe fn GetGeoInfoW(location: i32, geotype: u32, lpgeodata: &mut [u16], la
     extern "system" {
         fn GetGeoInfoW(location: i32, geotype: u32, lpgeodata: ::windows::core::PWSTR, cchdata: i32, langid: u16) -> i32;
     }
-    ::core::mem::transmute(GetGeoInfoW(location, geotype, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(lpgeodata)), lpgeodata.len() as _, langid))
+    GetGeoInfoW(location, geotype, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(lpgeodata)), lpgeodata.len() as _, langid)
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -1898,7 +1898,7 @@ pub unsafe fn GetLocaleInfoA(locale: u32, lctype: u32, lplcdata: &mut [u8]) -> i
     extern "system" {
         fn GetLocaleInfoA(locale: u32, lctype: u32, lplcdata: ::windows::core::PSTR, cchdata: i32) -> i32;
     }
-    ::core::mem::transmute(GetLocaleInfoA(locale, lctype, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(lplcdata)), lplcdata.len() as _))
+    GetLocaleInfoA(locale, lctype, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(lplcdata)), lplcdata.len() as _)
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -1910,7 +1910,7 @@ where
     extern "system" {
         fn GetLocaleInfoEx(lplocalename: ::windows::core::PCWSTR, lctype: u32, lplcdata: ::windows::core::PWSTR, cchdata: i32) -> i32;
     }
-    ::core::mem::transmute(GetLocaleInfoEx(lplocalename.into(), lctype, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(lplcdata)), lplcdata.len() as _))
+    GetLocaleInfoEx(lplocalename.into(), lctype, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(lplcdata)), lplcdata.len() as _)
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -1919,7 +1919,7 @@ pub unsafe fn GetLocaleInfoW(locale: u32, lctype: u32, lplcdata: &mut [u16]) -> 
     extern "system" {
         fn GetLocaleInfoW(locale: u32, lctype: u32, lplcdata: ::windows::core::PWSTR, cchdata: i32) -> i32;
     }
-    ::core::mem::transmute(GetLocaleInfoW(locale, lctype, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(lplcdata)), lplcdata.len() as _))
+    GetLocaleInfoW(locale, lctype, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(lplcdata)), lplcdata.len() as _)
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -1929,7 +1929,7 @@ pub unsafe fn GetNLSVersion(function: u32, locale: u32, lpversioninformation: *m
     extern "system" {
         fn GetNLSVersion(function: u32, locale: u32, lpversioninformation: *mut NLSVERSIONINFO) -> super::Foundation::BOOL;
     }
-    ::core::mem::transmute(GetNLSVersion(function, locale, ::core::mem::transmute(lpversioninformation)))
+    GetNLSVersion(function, locale, ::core::mem::transmute(lpversioninformation))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -1942,7 +1942,7 @@ where
     extern "system" {
         fn GetNLSVersionEx(function: u32, lplocalename: ::windows::core::PCWSTR, lpversioninformation: *mut NLSVERSIONINFOEX) -> super::Foundation::BOOL;
     }
-    ::core::mem::transmute(GetNLSVersionEx(function, lplocalename.into(), ::core::mem::transmute(lpversioninformation)))
+    GetNLSVersionEx(function, lplocalename.into(), ::core::mem::transmute(lpversioninformation))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -1954,7 +1954,7 @@ where
     extern "system" {
         fn GetNumberFormatA(locale: u32, dwflags: u32, lpvalue: ::windows::core::PCSTR, lpformat: *const NUMBERFMTA, lpnumberstr: ::windows::core::PSTR, cchnumber: i32) -> i32;
     }
-    ::core::mem::transmute(GetNumberFormatA(locale, dwflags, lpvalue.into(), ::core::mem::transmute(lpformat), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(lpnumberstr)), lpnumberstr.len() as _))
+    GetNumberFormatA(locale, dwflags, lpvalue.into(), ::core::mem::transmute(lpformat), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(lpnumberstr)), lpnumberstr.len() as _)
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -1967,7 +1967,7 @@ where
     extern "system" {
         fn GetNumberFormatEx(lplocalename: ::windows::core::PCWSTR, dwflags: u32, lpvalue: ::windows::core::PCWSTR, lpformat: *const NUMBERFMTW, lpnumberstr: ::windows::core::PWSTR, cchnumber: i32) -> i32;
     }
-    ::core::mem::transmute(GetNumberFormatEx(lplocalename.into(), dwflags, lpvalue.into(), ::core::mem::transmute(lpformat), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(lpnumberstr)), lpnumberstr.len() as _))
+    GetNumberFormatEx(lplocalename.into(), dwflags, lpvalue.into(), ::core::mem::transmute(lpformat), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(lpnumberstr)), lpnumberstr.len() as _)
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -1979,7 +1979,7 @@ where
     extern "system" {
         fn GetNumberFormatW(locale: u32, dwflags: u32, lpvalue: ::windows::core::PCWSTR, lpformat: *const NUMBERFMTW, lpnumberstr: ::windows::core::PWSTR, cchnumber: i32) -> i32;
     }
-    ::core::mem::transmute(GetNumberFormatW(locale, dwflags, lpvalue.into(), ::core::mem::transmute(lpformat), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(lpnumberstr)), lpnumberstr.len() as _))
+    GetNumberFormatW(locale, dwflags, lpvalue.into(), ::core::mem::transmute(lpformat), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(lpnumberstr)), lpnumberstr.len() as _)
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -1988,7 +1988,7 @@ pub unsafe fn GetOEMCP() -> u32 {
     extern "system" {
         fn GetOEMCP() -> u32;
     }
-    ::core::mem::transmute(GetOEMCP())
+    GetOEMCP()
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -1998,7 +1998,7 @@ pub unsafe fn GetProcessPreferredUILanguages(dwflags: u32, pulnumlanguages: *mut
     extern "system" {
         fn GetProcessPreferredUILanguages(dwflags: u32, pulnumlanguages: *mut u32, pwszlanguagesbuffer: ::windows::core::PWSTR, pcchlanguagesbuffer: *mut u32) -> super::Foundation::BOOL;
     }
-    ::core::mem::transmute(GetProcessPreferredUILanguages(dwflags, ::core::mem::transmute(pulnumlanguages), ::core::mem::transmute(pwszlanguagesbuffer), ::core::mem::transmute(pcchlanguagesbuffer)))
+    GetProcessPreferredUILanguages(dwflags, ::core::mem::transmute(pulnumlanguages), ::core::mem::transmute(pwszlanguagesbuffer), ::core::mem::transmute(pcchlanguagesbuffer))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -2010,7 +2010,7 @@ where
     extern "system" {
         fn GetStringScripts(dwflags: u32, lpstring: ::windows::core::PCWSTR, cchstring: i32, lpscripts: ::windows::core::PWSTR, cchscripts: i32) -> i32;
     }
-    ::core::mem::transmute(GetStringScripts(dwflags, lpstring.into(), cchstring, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(lpscripts)), lpscripts.len() as _))
+    GetStringScripts(dwflags, lpstring.into(), cchstring, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(lpscripts)), lpscripts.len() as _)
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -2020,7 +2020,7 @@ pub unsafe fn GetStringTypeA(locale: u32, dwinfotype: u32, lpsrcstr: &[u8], lpch
     extern "system" {
         fn GetStringTypeA(locale: u32, dwinfotype: u32, lpsrcstr: ::windows::core::PCSTR, cchsrc: i32, lpchartype: *mut u16) -> super::Foundation::BOOL;
     }
-    ::core::mem::transmute(GetStringTypeA(locale, dwinfotype, ::core::mem::transmute(::windows::core::as_ptr_or_null(lpsrcstr)), lpsrcstr.len() as _, ::core::mem::transmute(lpchartype)))
+    GetStringTypeA(locale, dwinfotype, ::core::mem::transmute(::windows::core::as_ptr_or_null(lpsrcstr)), lpsrcstr.len() as _, ::core::mem::transmute(lpchartype))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -2030,7 +2030,7 @@ pub unsafe fn GetStringTypeExA(locale: u32, dwinfotype: u32, lpsrcstr: ::windows
     extern "system" {
         fn GetStringTypeExA(locale: u32, dwinfotype: u32, lpsrcstr: ::windows::core::PCSTR, cchsrc: i32, lpchartype: *mut u16) -> super::Foundation::BOOL;
     }
-    ::core::mem::transmute(GetStringTypeExA(locale, dwinfotype, ::core::mem::transmute(lpsrcstr), ::core::mem::transmute(cchsrc), ::core::mem::transmute(lpchartype)))
+    GetStringTypeExA(locale, dwinfotype, ::core::mem::transmute(lpsrcstr), ::core::mem::transmute(cchsrc), ::core::mem::transmute(lpchartype))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -2040,7 +2040,7 @@ pub unsafe fn GetStringTypeExW(locale: u32, dwinfotype: u32, lpsrcstr: ::windows
     extern "system" {
         fn GetStringTypeExW(locale: u32, dwinfotype: u32, lpsrcstr: ::windows::core::PCWSTR, cchsrc: i32, lpchartype: *mut u16) -> super::Foundation::BOOL;
     }
-    ::core::mem::transmute(GetStringTypeExW(locale, dwinfotype, ::core::mem::transmute(lpsrcstr), ::core::mem::transmute(cchsrc), ::core::mem::transmute(lpchartype)))
+    GetStringTypeExW(locale, dwinfotype, ::core::mem::transmute(lpsrcstr), ::core::mem::transmute(cchsrc), ::core::mem::transmute(lpchartype))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -2050,7 +2050,7 @@ pub unsafe fn GetStringTypeW(dwinfotype: u32, lpsrcstr: &[u16], lpchartype: *mut
     extern "system" {
         fn GetStringTypeW(dwinfotype: u32, lpsrcstr: ::windows::core::PCWSTR, cchsrc: i32, lpchartype: *mut u16) -> super::Foundation::BOOL;
     }
-    ::core::mem::transmute(GetStringTypeW(dwinfotype, ::core::mem::transmute(::windows::core::as_ptr_or_null(lpsrcstr)), lpsrcstr.len() as _, ::core::mem::transmute(lpchartype)))
+    GetStringTypeW(dwinfotype, ::core::mem::transmute(::windows::core::as_ptr_or_null(lpsrcstr)), lpsrcstr.len() as _, ::core::mem::transmute(lpchartype))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -2059,7 +2059,7 @@ pub unsafe fn GetSystemDefaultLCID() -> u32 {
     extern "system" {
         fn GetSystemDefaultLCID() -> u32;
     }
-    ::core::mem::transmute(GetSystemDefaultLCID())
+    GetSystemDefaultLCID()
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -2068,7 +2068,7 @@ pub unsafe fn GetSystemDefaultLangID() -> u16 {
     extern "system" {
         fn GetSystemDefaultLangID() -> u16;
     }
-    ::core::mem::transmute(GetSystemDefaultLangID())
+    GetSystemDefaultLangID()
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -2077,7 +2077,7 @@ pub unsafe fn GetSystemDefaultLocaleName(lplocalename: &mut [u16]) -> i32 {
     extern "system" {
         fn GetSystemDefaultLocaleName(lplocalename: ::windows::core::PWSTR, cchlocalename: i32) -> i32;
     }
-    ::core::mem::transmute(GetSystemDefaultLocaleName(::core::mem::transmute(::windows::core::as_mut_ptr_or_null(lplocalename)), lplocalename.len() as _))
+    GetSystemDefaultLocaleName(::core::mem::transmute(::windows::core::as_mut_ptr_or_null(lplocalename)), lplocalename.len() as _)
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -2086,7 +2086,7 @@ pub unsafe fn GetSystemDefaultUILanguage() -> u16 {
     extern "system" {
         fn GetSystemDefaultUILanguage() -> u16;
     }
-    ::core::mem::transmute(GetSystemDefaultUILanguage())
+    GetSystemDefaultUILanguage()
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -2096,7 +2096,7 @@ pub unsafe fn GetSystemPreferredUILanguages(dwflags: u32, pulnumlanguages: *mut 
     extern "system" {
         fn GetSystemPreferredUILanguages(dwflags: u32, pulnumlanguages: *mut u32, pwszlanguagesbuffer: ::windows::core::PWSTR, pcchlanguagesbuffer: *mut u32) -> super::Foundation::BOOL;
     }
-    ::core::mem::transmute(GetSystemPreferredUILanguages(dwflags, ::core::mem::transmute(pulnumlanguages), ::core::mem::transmute(pwszlanguagesbuffer), ::core::mem::transmute(pcchlanguagesbuffer)))
+    GetSystemPreferredUILanguages(dwflags, ::core::mem::transmute(pulnumlanguages), ::core::mem::transmute(pwszlanguagesbuffer), ::core::mem::transmute(pcchlanguagesbuffer))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(feature = "Win32_Graphics_Gdi")]
@@ -2109,7 +2109,7 @@ where
     extern "system" {
         fn GetTextCharset(hdc: super::Graphics::Gdi::HDC) -> i32;
     }
-    ::core::mem::transmute(GetTextCharset(hdc.into()))
+    GetTextCharset(hdc.into())
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(feature = "Win32_Graphics_Gdi")]
@@ -2122,7 +2122,7 @@ where
     extern "system" {
         fn GetTextCharsetInfo(hdc: super::Graphics::Gdi::HDC, lpsig: *mut FONTSIGNATURE, dwflags: u32) -> i32;
     }
-    ::core::mem::transmute(GetTextCharsetInfo(hdc.into(), ::core::mem::transmute(lpsig), dwflags))
+    GetTextCharsetInfo(hdc.into(), ::core::mem::transmute(lpsig), dwflags)
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -2131,7 +2131,7 @@ pub unsafe fn GetThreadLocale() -> u32 {
     extern "system" {
         fn GetThreadLocale() -> u32;
     }
-    ::core::mem::transmute(GetThreadLocale())
+    GetThreadLocale()
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -2141,7 +2141,7 @@ pub unsafe fn GetThreadPreferredUILanguages(dwflags: u32, pulnumlanguages: *mut 
     extern "system" {
         fn GetThreadPreferredUILanguages(dwflags: u32, pulnumlanguages: *mut u32, pwszlanguagesbuffer: ::windows::core::PWSTR, pcchlanguagesbuffer: *mut u32) -> super::Foundation::BOOL;
     }
-    ::core::mem::transmute(GetThreadPreferredUILanguages(dwflags, ::core::mem::transmute(pulnumlanguages), ::core::mem::transmute(pwszlanguagesbuffer), ::core::mem::transmute(pcchlanguagesbuffer)))
+    GetThreadPreferredUILanguages(dwflags, ::core::mem::transmute(pulnumlanguages), ::core::mem::transmute(pwszlanguagesbuffer), ::core::mem::transmute(pcchlanguagesbuffer))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -2150,7 +2150,7 @@ pub unsafe fn GetThreadUILanguage() -> u16 {
     extern "system" {
         fn GetThreadUILanguage() -> u16;
     }
-    ::core::mem::transmute(GetThreadUILanguage())
+    GetThreadUILanguage()
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -2163,7 +2163,7 @@ where
     extern "system" {
         fn GetTimeFormatA(locale: u32, dwflags: u32, lptime: *const super::Foundation::SYSTEMTIME, lpformat: ::windows::core::PCSTR, lptimestr: ::windows::core::PSTR, cchtime: i32) -> i32;
     }
-    ::core::mem::transmute(GetTimeFormatA(locale, dwflags, ::core::mem::transmute(lptime), lpformat.into(), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(lptimestr)), lptimestr.len() as _))
+    GetTimeFormatA(locale, dwflags, ::core::mem::transmute(lptime), lpformat.into(), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(lptimestr)), lptimestr.len() as _)
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -2177,7 +2177,7 @@ where
     extern "system" {
         fn GetTimeFormatEx(lplocalename: ::windows::core::PCWSTR, dwflags: TIME_FORMAT_FLAGS, lptime: *const super::Foundation::SYSTEMTIME, lpformat: ::windows::core::PCWSTR, lptimestr: ::windows::core::PWSTR, cchtime: i32) -> i32;
     }
-    ::core::mem::transmute(GetTimeFormatEx(lplocalename.into(), dwflags, ::core::mem::transmute(lptime), lpformat.into(), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(lptimestr)), lptimestr.len() as _))
+    GetTimeFormatEx(lplocalename.into(), dwflags, ::core::mem::transmute(lptime), lpformat.into(), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(lptimestr)), lptimestr.len() as _)
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -2190,7 +2190,7 @@ where
     extern "system" {
         fn GetTimeFormatW(locale: u32, dwflags: u32, lptime: *const super::Foundation::SYSTEMTIME, lpformat: ::windows::core::PCWSTR, lptimestr: ::windows::core::PWSTR, cchtime: i32) -> i32;
     }
-    ::core::mem::transmute(GetTimeFormatW(locale, dwflags, ::core::mem::transmute(lptime), lpformat.into(), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(lptimestr)), lptimestr.len() as _))
+    GetTimeFormatW(locale, dwflags, ::core::mem::transmute(lptime), lpformat.into(), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(lptimestr)), lptimestr.len() as _)
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -2203,7 +2203,7 @@ where
     extern "system" {
         fn GetUILanguageInfo(dwflags: u32, pwmszlanguage: ::windows::core::PCWSTR, pwszfallbacklanguages: ::windows::core::PWSTR, pcchfallbacklanguages: *mut u32, pattributes: *mut u32) -> super::Foundation::BOOL;
     }
-    ::core::mem::transmute(GetUILanguageInfo(dwflags, pwmszlanguage.into(), ::core::mem::transmute(pwszfallbacklanguages), ::core::mem::transmute(pcchfallbacklanguages), ::core::mem::transmute(pattributes)))
+    GetUILanguageInfo(dwflags, pwmszlanguage.into(), ::core::mem::transmute(pwszfallbacklanguages), ::core::mem::transmute(pcchfallbacklanguages), ::core::mem::transmute(pattributes))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -2212,7 +2212,7 @@ pub unsafe fn GetUserDefaultGeoName(geoname: &mut [u16]) -> i32 {
     extern "system" {
         fn GetUserDefaultGeoName(geoname: ::windows::core::PWSTR, geonamecount: i32) -> i32;
     }
-    ::core::mem::transmute(GetUserDefaultGeoName(::core::mem::transmute(::windows::core::as_mut_ptr_or_null(geoname)), geoname.len() as _))
+    GetUserDefaultGeoName(::core::mem::transmute(::windows::core::as_mut_ptr_or_null(geoname)), geoname.len() as _)
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -2221,7 +2221,7 @@ pub unsafe fn GetUserDefaultLCID() -> u32 {
     extern "system" {
         fn GetUserDefaultLCID() -> u32;
     }
-    ::core::mem::transmute(GetUserDefaultLCID())
+    GetUserDefaultLCID()
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -2230,7 +2230,7 @@ pub unsafe fn GetUserDefaultLangID() -> u16 {
     extern "system" {
         fn GetUserDefaultLangID() -> u16;
     }
-    ::core::mem::transmute(GetUserDefaultLangID())
+    GetUserDefaultLangID()
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -2239,7 +2239,7 @@ pub unsafe fn GetUserDefaultLocaleName(lplocalename: &mut [u16]) -> i32 {
     extern "system" {
         fn GetUserDefaultLocaleName(lplocalename: ::windows::core::PWSTR, cchlocalename: i32) -> i32;
     }
-    ::core::mem::transmute(GetUserDefaultLocaleName(::core::mem::transmute(::windows::core::as_mut_ptr_or_null(lplocalename)), lplocalename.len() as _))
+    GetUserDefaultLocaleName(::core::mem::transmute(::windows::core::as_mut_ptr_or_null(lplocalename)), lplocalename.len() as _)
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -2248,7 +2248,7 @@ pub unsafe fn GetUserDefaultUILanguage() -> u16 {
     extern "system" {
         fn GetUserDefaultUILanguage() -> u16;
     }
-    ::core::mem::transmute(GetUserDefaultUILanguage())
+    GetUserDefaultUILanguage()
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -2257,7 +2257,7 @@ pub unsafe fn GetUserGeoID(geoclass: u32) -> i32 {
     extern "system" {
         fn GetUserGeoID(geoclass: u32) -> i32;
     }
-    ::core::mem::transmute(GetUserGeoID(geoclass))
+    GetUserGeoID(geoclass)
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -2267,7 +2267,7 @@ pub unsafe fn GetUserPreferredUILanguages(dwflags: u32, pulnumlanguages: *mut u3
     extern "system" {
         fn GetUserPreferredUILanguages(dwflags: u32, pulnumlanguages: *mut u32, pwszlanguagesbuffer: ::windows::core::PWSTR, pcchlanguagesbuffer: *mut u32) -> super::Foundation::BOOL;
     }
-    ::core::mem::transmute(GetUserPreferredUILanguages(dwflags, ::core::mem::transmute(pulnumlanguages), ::core::mem::transmute(pwszlanguagesbuffer), ::core::mem::transmute(pcchlanguagesbuffer)))
+    GetUserPreferredUILanguages(dwflags, ::core::mem::transmute(pulnumlanguages), ::core::mem::transmute(pwszlanguagesbuffer), ::core::mem::transmute(pcchlanguagesbuffer))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 pub const HIGHLEVEL_SERVICE_TYPES: u32 = 1u32;
@@ -5141,7 +5141,7 @@ pub unsafe fn IdnToAscii(dwflags: u32, lpunicodecharstr: &[u16], lpasciicharstr:
     extern "system" {
         fn IdnToAscii(dwflags: u32, lpunicodecharstr: ::windows::core::PCWSTR, cchunicodechar: i32, lpasciicharstr: ::windows::core::PWSTR, cchasciichar: i32) -> i32;
     }
-    ::core::mem::transmute(IdnToAscii(dwflags, ::core::mem::transmute(::windows::core::as_ptr_or_null(lpunicodecharstr)), lpunicodecharstr.len() as _, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(lpasciicharstr)), lpasciicharstr.len() as _))
+    IdnToAscii(dwflags, ::core::mem::transmute(::windows::core::as_ptr_or_null(lpunicodecharstr)), lpunicodecharstr.len() as _, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(lpasciicharstr)), lpasciicharstr.len() as _)
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -5150,7 +5150,7 @@ pub unsafe fn IdnToNameprepUnicode(dwflags: u32, lpunicodecharstr: &[u16], lpnam
     extern "system" {
         fn IdnToNameprepUnicode(dwflags: u32, lpunicodecharstr: ::windows::core::PCWSTR, cchunicodechar: i32, lpnameprepcharstr: ::windows::core::PWSTR, cchnameprepchar: i32) -> i32;
     }
-    ::core::mem::transmute(IdnToNameprepUnicode(dwflags, ::core::mem::transmute(::windows::core::as_ptr_or_null(lpunicodecharstr)), lpunicodecharstr.len() as _, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(lpnameprepcharstr)), lpnameprepcharstr.len() as _))
+    IdnToNameprepUnicode(dwflags, ::core::mem::transmute(::windows::core::as_ptr_or_null(lpunicodecharstr)), lpunicodecharstr.len() as _, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(lpnameprepcharstr)), lpnameprepcharstr.len() as _)
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -5159,7 +5159,7 @@ pub unsafe fn IdnToUnicode(dwflags: u32, lpasciicharstr: &[u16], lpunicodecharst
     extern "system" {
         fn IdnToUnicode(dwflags: u32, lpasciicharstr: ::windows::core::PCWSTR, cchasciichar: i32, lpunicodecharstr: ::windows::core::PWSTR, cchunicodechar: i32) -> i32;
     }
-    ::core::mem::transmute(IdnToUnicode(dwflags, ::core::mem::transmute(::windows::core::as_ptr_or_null(lpasciicharstr)), lpasciicharstr.len() as _, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(lpunicodecharstr)), lpunicodecharstr.len() as _))
+    IdnToUnicode(dwflags, ::core::mem::transmute(::windows::core::as_ptr_or_null(lpasciicharstr)), lpasciicharstr.len() as _, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(lpunicodecharstr)), lpunicodecharstr.len() as _)
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -5169,7 +5169,7 @@ pub unsafe fn IsDBCSLeadByte(testchar: u8) -> super::Foundation::BOOL {
     extern "system" {
         fn IsDBCSLeadByte(testchar: u8) -> super::Foundation::BOOL;
     }
-    ::core::mem::transmute(IsDBCSLeadByte(testchar))
+    IsDBCSLeadByte(testchar)
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -5179,7 +5179,7 @@ pub unsafe fn IsDBCSLeadByteEx(codepage: u32, testchar: u8) -> super::Foundation
     extern "system" {
         fn IsDBCSLeadByteEx(codepage: u32, testchar: u8) -> super::Foundation::BOOL;
     }
-    ::core::mem::transmute(IsDBCSLeadByteEx(codepage, testchar))
+    IsDBCSLeadByteEx(codepage, testchar)
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -5189,7 +5189,7 @@ pub unsafe fn IsNLSDefinedString(function: u32, dwflags: u32, lpversioninformati
     extern "system" {
         fn IsNLSDefinedString(function: u32, dwflags: u32, lpversioninformation: *const NLSVERSIONINFO, lpstring: ::windows::core::PCWSTR, cchstr: i32) -> super::Foundation::BOOL;
     }
-    ::core::mem::transmute(IsNLSDefinedString(function, dwflags, ::core::mem::transmute(lpversioninformation), ::core::mem::transmute(::windows::core::as_ptr_or_null(lpstring)), lpstring.len() as _))
+    IsNLSDefinedString(function, dwflags, ::core::mem::transmute(lpversioninformation), ::core::mem::transmute(::windows::core::as_ptr_or_null(lpstring)), lpstring.len() as _)
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -5199,7 +5199,7 @@ pub unsafe fn IsNormalizedString(normform: NORM_FORM, lpstring: &[u16]) -> super
     extern "system" {
         fn IsNormalizedString(normform: NORM_FORM, lpstring: ::windows::core::PCWSTR, cwlength: i32) -> super::Foundation::BOOL;
     }
-    ::core::mem::transmute(IsNormalizedString(normform, ::core::mem::transmute(::windows::core::as_ptr_or_null(lpstring)), lpstring.len() as _))
+    IsNormalizedString(normform, ::core::mem::transmute(::windows::core::as_ptr_or_null(lpstring)), lpstring.len() as _)
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -5209,7 +5209,7 @@ pub unsafe fn IsTextUnicode(lpv: *const ::core::ffi::c_void, isize: i32, lpiresu
     extern "system" {
         fn IsTextUnicode(lpv: *const ::core::ffi::c_void, isize: i32, lpiresult: *mut IS_TEXT_UNICODE_RESULT) -> super::Foundation::BOOL;
     }
-    ::core::mem::transmute(IsTextUnicode(::core::mem::transmute(lpv), isize, ::core::mem::transmute(lpiresult)))
+    IsTextUnicode(::core::mem::transmute(lpv), isize, ::core::mem::transmute(lpiresult))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -5219,7 +5219,7 @@ pub unsafe fn IsValidCodePage(codepage: u32) -> super::Foundation::BOOL {
     extern "system" {
         fn IsValidCodePage(codepage: u32) -> super::Foundation::BOOL;
     }
-    ::core::mem::transmute(IsValidCodePage(codepage))
+    IsValidCodePage(codepage)
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -5229,7 +5229,7 @@ pub unsafe fn IsValidLanguageGroup(languagegroup: u32, dwflags: ENUM_SYSTEM_LANG
     extern "system" {
         fn IsValidLanguageGroup(languagegroup: u32, dwflags: ENUM_SYSTEM_LANGUAGE_GROUPS_FLAGS) -> super::Foundation::BOOL;
     }
-    ::core::mem::transmute(IsValidLanguageGroup(languagegroup, dwflags))
+    IsValidLanguageGroup(languagegroup, dwflags)
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -5239,7 +5239,7 @@ pub unsafe fn IsValidLocale(locale: u32, dwflags: IS_VALID_LOCALE_FLAGS) -> supe
     extern "system" {
         fn IsValidLocale(locale: u32, dwflags: IS_VALID_LOCALE_FLAGS) -> super::Foundation::BOOL;
     }
-    ::core::mem::transmute(IsValidLocale(locale, dwflags))
+    IsValidLocale(locale, dwflags)
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -5252,7 +5252,7 @@ where
     extern "system" {
         fn IsValidLocaleName(lplocalename: ::windows::core::PCWSTR) -> super::Foundation::BOOL;
     }
-    ::core::mem::transmute(IsValidLocaleName(lplocalename.into()))
+    IsValidLocaleName(lplocalename.into())
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -5264,7 +5264,7 @@ where
     extern "system" {
         fn IsValidNLSVersion(function: u32, lplocalename: ::windows::core::PCWSTR, lpversioninformation: *const NLSVERSIONINFOEX) -> u32;
     }
-    ::core::mem::transmute(IsValidNLSVersion(function, lplocalename.into(), ::core::mem::transmute(lpversioninformation)))
+    IsValidNLSVersion(function, lplocalename.into(), ::core::mem::transmute(lpversioninformation))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -5276,7 +5276,7 @@ where
     extern "system" {
         fn IsWellFormedTag(psztag: ::windows::core::PCWSTR) -> u8;
     }
-    ::core::mem::transmute(IsWellFormedTag(psztag.into()))
+    IsWellFormedTag(psztag.into())
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -5297,7 +5297,7 @@ pub unsafe fn LCIDToLocaleName(locale: u32, lpname: &mut [u16], dwflags: u32) ->
     extern "system" {
         fn LCIDToLocaleName(locale: u32, lpname: ::windows::core::PWSTR, cchname: i32, dwflags: u32) -> i32;
     }
-    ::core::mem::transmute(LCIDToLocaleName(locale, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(lpname)), lpname.len() as _, dwflags))
+    LCIDToLocaleName(locale, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(lpname)), lpname.len() as _, dwflags)
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 pub const LCID_ALTERNATE_SORTS: u32 = 4u32;
@@ -5336,7 +5336,7 @@ pub unsafe fn LCMapStringA(locale: u32, dwmapflags: u32, lpsrcstr: &[u8], lpdest
     extern "system" {
         fn LCMapStringA(locale: u32, dwmapflags: u32, lpsrcstr: ::windows::core::PCSTR, cchsrc: i32, lpdeststr: ::windows::core::PSTR, cchdest: i32) -> i32;
     }
-    ::core::mem::transmute(LCMapStringA(locale, dwmapflags, ::core::mem::transmute(::windows::core::as_ptr_or_null(lpsrcstr)), lpsrcstr.len() as _, ::core::mem::transmute(lpdeststr), cchdest))
+    LCMapStringA(locale, dwmapflags, ::core::mem::transmute(::windows::core::as_ptr_or_null(lpsrcstr)), lpsrcstr.len() as _, ::core::mem::transmute(lpdeststr), cchdest)
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -5350,7 +5350,7 @@ where
     extern "system" {
         fn LCMapStringEx(lplocalename: ::windows::core::PCWSTR, dwmapflags: u32, lpsrcstr: ::windows::core::PCWSTR, cchsrc: i32, lpdeststr: ::windows::core::PWSTR, cchdest: i32, lpversioninformation: *const NLSVERSIONINFO, lpreserved: *const ::core::ffi::c_void, sorthandle: super::Foundation::LPARAM) -> i32;
     }
-    ::core::mem::transmute(LCMapStringEx(lplocalename.into(), dwmapflags, ::core::mem::transmute(::windows::core::as_ptr_or_null(lpsrcstr)), lpsrcstr.len() as _, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(lpdeststr)), lpdeststr.len() as _, ::core::mem::transmute(lpversioninformation), ::core::mem::transmute(lpreserved), sorthandle.into()))
+    LCMapStringEx(lplocalename.into(), dwmapflags, ::core::mem::transmute(::windows::core::as_ptr_or_null(lpsrcstr)), lpsrcstr.len() as _, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(lpdeststr)), lpdeststr.len() as _, ::core::mem::transmute(lpversioninformation), ::core::mem::transmute(lpreserved), sorthandle.into())
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -5359,7 +5359,7 @@ pub unsafe fn LCMapStringW(locale: u32, dwmapflags: u32, lpsrcstr: &[u16], lpdes
     extern "system" {
         fn LCMapStringW(locale: u32, dwmapflags: u32, lpsrcstr: ::windows::core::PCWSTR, cchsrc: i32, lpdeststr: ::windows::core::PWSTR, cchdest: i32) -> i32;
     }
-    ::core::mem::transmute(LCMapStringW(locale, dwmapflags, ::core::mem::transmute(::windows::core::as_ptr_or_null(lpsrcstr)), lpsrcstr.len() as _, ::core::mem::transmute(lpdeststr), cchdest))
+    LCMapStringW(locale, dwmapflags, ::core::mem::transmute(::windows::core::as_ptr_or_null(lpsrcstr)), lpsrcstr.len() as _, ::core::mem::transmute(lpdeststr), cchdest)
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 pub const LGRPID_ARABIC: u32 = 13u32;
@@ -5798,7 +5798,7 @@ where
     extern "system" {
         fn LocaleNameToLCID(lpname: ::windows::core::PCWSTR, dwflags: u32) -> u32;
     }
-    ::core::mem::transmute(LocaleNameToLCID(lpname.into(), dwflags))
+    LocaleNameToLCID(lpname.into(), dwflags)
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
@@ -6470,7 +6470,7 @@ pub unsafe fn MultiByteToWideChar(codepage: u32, dwflags: MULTI_BYTE_TO_WIDE_CHA
     extern "system" {
         fn MultiByteToWideChar(codepage: u32, dwflags: MULTI_BYTE_TO_WIDE_CHAR_FLAGS, lpmultibytestr: ::windows::core::PCSTR, cbmultibyte: i32, lpwidecharstr: ::windows::core::PWSTR, cchwidechar: i32) -> i32;
     }
-    ::core::mem::transmute(MultiByteToWideChar(codepage, dwflags, ::core::mem::transmute(::windows::core::as_ptr_or_null(lpmultibytestr)), lpmultibytestr.len() as _, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(lpwidecharstr)), lpwidecharstr.len() as _))
+    MultiByteToWideChar(codepage, dwflags, ::core::mem::transmute(::windows::core::as_ptr_or_null(lpmultibytestr)), lpmultibytestr.len() as _, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(lpwidecharstr)), lpwidecharstr.len() as _)
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Globalization\"`, `\"Win32_Graphics_Gdi\"`*"]
@@ -6736,7 +6736,7 @@ pub unsafe fn NormalizeString(normform: NORM_FORM, lpsrcstring: &[u16], lpdststr
     extern "system" {
         fn NormalizeString(normform: NORM_FORM, lpsrcstring: ::windows::core::PCWSTR, cwsrclength: i32, lpdststring: ::windows::core::PWSTR, cwdstlength: i32) -> i32;
     }
-    ::core::mem::transmute(NormalizeString(normform, ::core::mem::transmute(::windows::core::as_ptr_or_null(lpsrcstring)), lpsrcstring.len() as _, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(lpdststring)), lpdststring.len() as _))
+    NormalizeString(normform, ::core::mem::transmute(::windows::core::as_ptr_or_null(lpsrcstring)), lpsrcstring.len() as _, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(lpdststring)), lpdststring.len() as _)
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -6750,7 +6750,7 @@ where
     extern "system" {
         fn NotifyUILanguageChange(dwflags: u32, pcwstrnewlanguage: ::windows::core::PCWSTR, pcwstrpreviouslanguage: ::windows::core::PCWSTR, dwreserved: u32, pdwstatusrtrn: *mut u32) -> super::Foundation::BOOL;
     }
-    ::core::mem::transmute(NotifyUILanguageChange(dwflags, pcwstrnewlanguage.into(), pcwstrpreviouslanguage.into(), dwreserved, ::core::mem::transmute(pdwstatusrtrn)))
+    NotifyUILanguageChange(dwflags, pcwstrnewlanguage.into(), pcwstrpreviouslanguage.into(), dwreserved, ::core::mem::transmute(pdwstatusrtrn))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 pub const OFFLINE_SERVICES: u32 = 2u32;
@@ -6800,7 +6800,7 @@ where
     extern "system" {
         fn ResolveLocaleName(lpnametoresolve: ::windows::core::PCWSTR, lplocalename: ::windows::core::PWSTR, cchlocalename: i32) -> i32;
     }
-    ::core::mem::transmute(ResolveLocaleName(lpnametoresolve.into(), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(lplocalename)), lplocalename.len() as _))
+    ResolveLocaleName(lpnametoresolve.into(), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(lplocalename)), lplocalename.len() as _)
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -7986,7 +7986,7 @@ pub unsafe fn ScriptString_pLogAttr(ssa: *const ::core::ffi::c_void) -> *mut SCR
     extern "system" {
         fn ScriptString_pLogAttr(ssa: *const ::core::ffi::c_void) -> *mut SCRIPT_LOGATTR;
     }
-    ::core::mem::transmute(ScriptString_pLogAttr(::core::mem::transmute(ssa)))
+    ScriptString_pLogAttr(::core::mem::transmute(ssa))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -7996,7 +7996,7 @@ pub unsafe fn ScriptString_pSize(ssa: *const ::core::ffi::c_void) -> *mut super:
     extern "system" {
         fn ScriptString_pSize(ssa: *const ::core::ffi::c_void) -> *mut super::Foundation::SIZE;
     }
-    ::core::mem::transmute(ScriptString_pSize(::core::mem::transmute(ssa)))
+    ScriptString_pSize(::core::mem::transmute(ssa))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -8005,7 +8005,7 @@ pub unsafe fn ScriptString_pcOutChars(ssa: *const ::core::ffi::c_void) -> *mut i
     extern "system" {
         fn ScriptString_pcOutChars(ssa: *const ::core::ffi::c_void) -> *mut i32;
     }
-    ::core::mem::transmute(ScriptString_pcOutChars(::core::mem::transmute(ssa)))
+    ScriptString_pcOutChars(::core::mem::transmute(ssa))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(feature = "Win32_Graphics_Gdi")]
@@ -8054,7 +8054,7 @@ where
     extern "system" {
         fn SetCalendarInfoA(locale: u32, calendar: u32, caltype: u32, lpcaldata: ::windows::core::PCSTR) -> super::Foundation::BOOL;
     }
-    ::core::mem::transmute(SetCalendarInfoA(locale, calendar, caltype, lpcaldata.into()))
+    SetCalendarInfoA(locale, calendar, caltype, lpcaldata.into())
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -8067,7 +8067,7 @@ where
     extern "system" {
         fn SetCalendarInfoW(locale: u32, calendar: u32, caltype: u32, lpcaldata: ::windows::core::PCWSTR) -> super::Foundation::BOOL;
     }
-    ::core::mem::transmute(SetCalendarInfoW(locale, calendar, caltype, lpcaldata.into()))
+    SetCalendarInfoW(locale, calendar, caltype, lpcaldata.into())
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -8080,7 +8080,7 @@ where
     extern "system" {
         fn SetLocaleInfoA(locale: u32, lctype: u32, lplcdata: ::windows::core::PCSTR) -> super::Foundation::BOOL;
     }
-    ::core::mem::transmute(SetLocaleInfoA(locale, lctype, lplcdata.into()))
+    SetLocaleInfoA(locale, lctype, lplcdata.into())
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -8093,7 +8093,7 @@ where
     extern "system" {
         fn SetLocaleInfoW(locale: u32, lctype: u32, lplcdata: ::windows::core::PCWSTR) -> super::Foundation::BOOL;
     }
-    ::core::mem::transmute(SetLocaleInfoW(locale, lctype, lplcdata.into()))
+    SetLocaleInfoW(locale, lctype, lplcdata.into())
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -8106,7 +8106,7 @@ where
     extern "system" {
         fn SetProcessPreferredUILanguages(dwflags: u32, pwszlanguagesbuffer: ::windows::core::PCWSTR, pulnumlanguages: *mut u32) -> super::Foundation::BOOL;
     }
-    ::core::mem::transmute(SetProcessPreferredUILanguages(dwflags, pwszlanguagesbuffer.into(), ::core::mem::transmute(pulnumlanguages)))
+    SetProcessPreferredUILanguages(dwflags, pwszlanguagesbuffer.into(), ::core::mem::transmute(pulnumlanguages))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -8116,7 +8116,7 @@ pub unsafe fn SetThreadLocale(locale: u32) -> super::Foundation::BOOL {
     extern "system" {
         fn SetThreadLocale(locale: u32) -> super::Foundation::BOOL;
     }
-    ::core::mem::transmute(SetThreadLocale(locale))
+    SetThreadLocale(locale)
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -8129,7 +8129,7 @@ where
     extern "system" {
         fn SetThreadPreferredUILanguages(dwflags: u32, pwszlanguagesbuffer: ::windows::core::PCWSTR, pulnumlanguages: *mut u32) -> super::Foundation::BOOL;
     }
-    ::core::mem::transmute(SetThreadPreferredUILanguages(dwflags, pwszlanguagesbuffer.into(), ::core::mem::transmute(pulnumlanguages)))
+    SetThreadPreferredUILanguages(dwflags, pwszlanguagesbuffer.into(), ::core::mem::transmute(pulnumlanguages))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -8142,7 +8142,7 @@ where
     extern "system" {
         fn SetThreadPreferredUILanguages2(flags: u32, languages: ::windows::core::PCWSTR, numlanguagesset: *mut u32, snapshot: *mut HSAVEDUILANGUAGES) -> super::Foundation::BOOL;
     }
-    ::core::mem::transmute(SetThreadPreferredUILanguages2(flags, languages.into(), ::core::mem::transmute(numlanguagesset), ::core::mem::transmute(snapshot)))
+    SetThreadPreferredUILanguages2(flags, languages.into(), ::core::mem::transmute(numlanguagesset), ::core::mem::transmute(snapshot))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -8151,7 +8151,7 @@ pub unsafe fn SetThreadUILanguage(langid: u16) -> u16 {
     extern "system" {
         fn SetThreadUILanguage(langid: u16) -> u16;
     }
-    ::core::mem::transmute(SetThreadUILanguage(langid))
+    SetThreadUILanguage(langid)
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -8161,7 +8161,7 @@ pub unsafe fn SetUserGeoID(geoid: i32) -> super::Foundation::BOOL {
     extern "system" {
         fn SetUserGeoID(geoid: i32) -> super::Foundation::BOOL;
     }
-    ::core::mem::transmute(SetUserGeoID(geoid))
+    SetUserGeoID(geoid)
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -8174,7 +8174,7 @@ where
     extern "system" {
         fn SetUserGeoName(geoname: ::windows::core::PCWSTR) -> super::Foundation::BOOL;
     }
-    ::core::mem::transmute(SetUserGeoName(geoname.into()))
+    SetUserGeoName(geoname.into())
 }
 pub const SpellCheckerFactory: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7ab36653_1796_484b_bdfa_e74f1db7c1dc);
 #[doc = "*Required features: `\"Win32_Globalization\"`, `\"Win32_Foundation\"`*"]
@@ -8284,7 +8284,7 @@ pub unsafe fn TranslateCharsetInfo(lpsrc: *mut u32, lpcs: *mut CHARSETINFO, dwfl
     extern "system" {
         fn TranslateCharsetInfo(lpsrc: *mut u32, lpcs: *mut CHARSETINFO, dwflags: TRANSLATE_CHARSET_INFO_FLAGS) -> super::Foundation::BOOL;
     }
-    ::core::mem::transmute(TranslateCharsetInfo(::core::mem::transmute(lpsrc), ::core::mem::transmute(lpcs), dwflags))
+    TranslateCharsetInfo(::core::mem::transmute(lpsrc), ::core::mem::transmute(lpcs), dwflags)
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 pub const U16_MAX_LENGTH: u32 = 2u32;
@@ -16845,7 +16845,7 @@ where
     extern "system" {
         fn VerifyScripts(dwflags: u32, lplocalescripts: ::windows::core::PCWSTR, cchlocalescripts: i32, lptestscripts: ::windows::core::PCWSTR, cchtestscripts: i32) -> super::Foundation::BOOL;
     }
-    ::core::mem::transmute(VerifyScripts(dwflags, lplocalescripts.into(), cchlocalescripts, lptestscripts.into(), cchtestscripts))
+    VerifyScripts(dwflags, lplocalescripts.into(), cchlocalescripts, lptestscripts.into(), cchtestscripts)
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 pub const WC_COMPOSITECHECK: u32 = 512u32;
@@ -16900,7 +16900,7 @@ where
     extern "system" {
         fn WideCharToMultiByte(codepage: u32, dwflags: u32, lpwidecharstr: ::windows::core::PCWSTR, cchwidechar: i32, lpmultibytestr: ::windows::core::PSTR, cbmultibyte: i32, lpdefaultchar: ::windows::core::PCSTR, lpuseddefaultchar: *mut i32) -> i32;
     }
-    ::core::mem::transmute(WideCharToMultiByte(codepage, dwflags, ::core::mem::transmute(::windows::core::as_ptr_or_null(lpwidecharstr)), lpwidecharstr.len() as _, ::core::mem::transmute(lpmultibytestr), cbmultibyte, lpdefaultchar.into(), ::core::mem::transmute(lpuseddefaultchar)))
+    WideCharToMultiByte(codepage, dwflags, ::core::mem::transmute(::windows::core::as_ptr_or_null(lpwidecharstr)), lpwidecharstr.len() as _, ::core::mem::transmute(lpmultibytestr), cbmultibyte, lpdefaultchar.into(), ::core::mem::transmute(lpuseddefaultchar))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -16912,7 +16912,7 @@ where
     extern "system" {
         fn lstrcatA(lpstring1: ::windows::core::PSTR, lpstring2: ::windows::core::PCSTR) -> ::windows::core::PSTR;
     }
-    ::core::mem::transmute(lstrcatA(::core::mem::transmute(lpstring1), lpstring2.into()))
+    lstrcatA(::core::mem::transmute(lpstring1), lpstring2.into())
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -16924,7 +16924,7 @@ where
     extern "system" {
         fn lstrcatW(lpstring1: ::windows::core::PWSTR, lpstring2: ::windows::core::PCWSTR) -> ::windows::core::PWSTR;
     }
-    ::core::mem::transmute(lstrcatW(::core::mem::transmute(lpstring1), lpstring2.into()))
+    lstrcatW(::core::mem::transmute(lpstring1), lpstring2.into())
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -16937,7 +16937,7 @@ where
     extern "system" {
         fn lstrcmpA(lpstring1: ::windows::core::PCSTR, lpstring2: ::windows::core::PCSTR) -> i32;
     }
-    ::core::mem::transmute(lstrcmpA(lpstring1.into(), lpstring2.into()))
+    lstrcmpA(lpstring1.into(), lpstring2.into())
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -16950,7 +16950,7 @@ where
     extern "system" {
         fn lstrcmpW(lpstring1: ::windows::core::PCWSTR, lpstring2: ::windows::core::PCWSTR) -> i32;
     }
-    ::core::mem::transmute(lstrcmpW(lpstring1.into(), lpstring2.into()))
+    lstrcmpW(lpstring1.into(), lpstring2.into())
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -16963,7 +16963,7 @@ where
     extern "system" {
         fn lstrcmpiA(lpstring1: ::windows::core::PCSTR, lpstring2: ::windows::core::PCSTR) -> i32;
     }
-    ::core::mem::transmute(lstrcmpiA(lpstring1.into(), lpstring2.into()))
+    lstrcmpiA(lpstring1.into(), lpstring2.into())
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -16976,7 +16976,7 @@ where
     extern "system" {
         fn lstrcmpiW(lpstring1: ::windows::core::PCWSTR, lpstring2: ::windows::core::PCWSTR) -> i32;
     }
-    ::core::mem::transmute(lstrcmpiW(lpstring1.into(), lpstring2.into()))
+    lstrcmpiW(lpstring1.into(), lpstring2.into())
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -16988,7 +16988,7 @@ where
     extern "system" {
         fn lstrcpyA(lpstring1: ::windows::core::PSTR, lpstring2: ::windows::core::PCSTR) -> ::windows::core::PSTR;
     }
-    ::core::mem::transmute(lstrcpyA(::core::mem::transmute(lpstring1), lpstring2.into()))
+    lstrcpyA(::core::mem::transmute(lpstring1), lpstring2.into())
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -17000,7 +17000,7 @@ where
     extern "system" {
         fn lstrcpyW(lpstring1: ::windows::core::PWSTR, lpstring2: ::windows::core::PCWSTR) -> ::windows::core::PWSTR;
     }
-    ::core::mem::transmute(lstrcpyW(::core::mem::transmute(lpstring1), lpstring2.into()))
+    lstrcpyW(::core::mem::transmute(lpstring1), lpstring2.into())
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -17012,7 +17012,7 @@ where
     extern "system" {
         fn lstrcpynA(lpstring1: ::windows::core::PSTR, lpstring2: ::windows::core::PCSTR, imaxlength: i32) -> ::windows::core::PSTR;
     }
-    ::core::mem::transmute(lstrcpynA(::core::mem::transmute(::windows::core::as_mut_ptr_or_null(lpstring1)), lpstring2.into(), lpstring1.len() as _))
+    lstrcpynA(::core::mem::transmute(::windows::core::as_mut_ptr_or_null(lpstring1)), lpstring2.into(), lpstring1.len() as _)
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -17024,7 +17024,7 @@ where
     extern "system" {
         fn lstrcpynW(lpstring1: ::windows::core::PWSTR, lpstring2: ::windows::core::PCWSTR, imaxlength: i32) -> ::windows::core::PWSTR;
     }
-    ::core::mem::transmute(lstrcpynW(::core::mem::transmute(::windows::core::as_mut_ptr_or_null(lpstring1)), lpstring2.into(), lpstring1.len() as _))
+    lstrcpynW(::core::mem::transmute(::windows::core::as_mut_ptr_or_null(lpstring1)), lpstring2.into(), lpstring1.len() as _)
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -17036,7 +17036,7 @@ where
     extern "system" {
         fn lstrlenA(lpstring: ::windows::core::PCSTR) -> i32;
     }
-    ::core::mem::transmute(lstrlenA(lpstring.into()))
+    lstrlenA(lpstring.into())
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -17048,7 +17048,7 @@ where
     extern "system" {
         fn lstrlenW(lpstring: ::windows::core::PCWSTR) -> i32;
     }
-    ::core::mem::transmute(lstrlenW(lpstring.into()))
+    lstrlenW(lpstring.into())
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
@@ -17302,7 +17302,7 @@ where
     extern "system" {
         fn u_austrcpy(dst: ::windows::core::PCSTR, src: *const u16) -> ::windows::core::PSTR;
     }
-    ::core::mem::transmute(u_austrcpy(dst.into(), ::core::mem::transmute(src)))
+    u_austrcpy(dst.into(), ::core::mem::transmute(src))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -17314,7 +17314,7 @@ where
     extern "system" {
         fn u_austrncpy(dst: ::windows::core::PCSTR, src: *const u16, n: i32) -> ::windows::core::PSTR;
     }
-    ::core::mem::transmute(u_austrncpy(dst.into(), ::core::mem::transmute(src), n))
+    u_austrncpy(dst.into(), ::core::mem::transmute(src), n)
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -17332,7 +17332,7 @@ pub unsafe fn u_catgets(catd: *mut UResourceBundle, set_num: i32, msg_num: i32, 
     extern "system" {
         fn u_catgets(catd: *mut UResourceBundle, set_num: i32, msg_num: i32, s: *const u16, len: *mut i32, ec: *mut UErrorCode) -> *mut u16;
     }
-    ::core::mem::transmute(u_catgets(::core::mem::transmute(catd), set_num, msg_num, ::core::mem::transmute(s), ::core::mem::transmute(len), ::core::mem::transmute(ec)))
+    u_catgets(::core::mem::transmute(catd), set_num, msg_num, ::core::mem::transmute(s), ::core::mem::transmute(len), ::core::mem::transmute(ec))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -17345,7 +17345,7 @@ where
     extern "system" {
         fn u_catopen(name: ::windows::core::PCSTR, locale: ::windows::core::PCSTR, ec: *mut UErrorCode) -> *mut UResourceBundle;
     }
-    ::core::mem::transmute(u_catopen(name.into(), locale.into(), ::core::mem::transmute(ec)))
+    u_catopen(name.into(), locale.into(), ::core::mem::transmute(ec))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -17363,7 +17363,7 @@ pub unsafe fn u_charDigitValue(c: i32) -> i32 {
     extern "system" {
         fn u_charDigitValue(c: i32) -> i32;
     }
-    ::core::mem::transmute(u_charDigitValue(c))
+    u_charDigitValue(c)
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -17372,7 +17372,7 @@ pub unsafe fn u_charDirection(c: i32) -> UCharDirection {
     extern "system" {
         fn u_charDirection(c: i32) -> UCharDirection;
     }
-    ::core::mem::transmute(u_charDirection(c))
+    u_charDirection(c)
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -17384,7 +17384,7 @@ where
     extern "system" {
         fn u_charFromName(namechoice: UCharNameChoice, name: ::windows::core::PCSTR, perrorcode: *mut UErrorCode) -> i32;
     }
-    ::core::mem::transmute(u_charFromName(namechoice, name.into(), ::core::mem::transmute(perrorcode)))
+    u_charFromName(namechoice, name.into(), ::core::mem::transmute(perrorcode))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -17393,7 +17393,7 @@ pub unsafe fn u_charMirror(c: i32) -> i32 {
     extern "system" {
         fn u_charMirror(c: i32) -> i32;
     }
-    ::core::mem::transmute(u_charMirror(c))
+    u_charMirror(c)
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -17405,7 +17405,7 @@ where
     extern "system" {
         fn u_charName(code: i32, namechoice: UCharNameChoice, buffer: ::windows::core::PCSTR, bufferlength: i32, perrorcode: *mut UErrorCode) -> i32;
     }
-    ::core::mem::transmute(u_charName(code, namechoice, buffer.into(), bufferlength, ::core::mem::transmute(perrorcode)))
+    u_charName(code, namechoice, buffer.into(), bufferlength, ::core::mem::transmute(perrorcode))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -17414,7 +17414,7 @@ pub unsafe fn u_charType(c: i32) -> i8 {
     extern "system" {
         fn u_charType(c: i32) -> i8;
     }
-    ::core::mem::transmute(u_charType(c))
+    u_charType(c)
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -17444,7 +17444,7 @@ pub unsafe fn u_countChar32(s: *const u16, length: i32) -> i32 {
     extern "system" {
         fn u_countChar32(s: *const u16, length: i32) -> i32;
     }
-    ::core::mem::transmute(u_countChar32(::core::mem::transmute(s), length))
+    u_countChar32(::core::mem::transmute(s), length)
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -17453,7 +17453,7 @@ pub unsafe fn u_digit(ch: i32, radix: i8) -> i32 {
     extern "system" {
         fn u_digit(ch: i32, radix: i8) -> i32;
     }
-    ::core::mem::transmute(u_digit(ch, radix))
+    u_digit(ch, radix)
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -17480,7 +17480,7 @@ pub unsafe fn u_errorName(code: UErrorCode) -> ::windows::core::PSTR {
     extern "system" {
         fn u_errorName(code: UErrorCode) -> ::windows::core::PSTR;
     }
-    ::core::mem::transmute(u_errorName(code))
+    u_errorName(code)
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -17489,7 +17489,7 @@ pub unsafe fn u_foldCase(c: i32, options: u32) -> i32 {
     extern "system" {
         fn u_foldCase(c: i32, options: u32) -> i32;
     }
-    ::core::mem::transmute(u_foldCase(c, options))
+    u_foldCase(c, options)
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -17498,7 +17498,7 @@ pub unsafe fn u_forDigit(digit: i32, radix: i8) -> i32 {
     extern "system" {
         fn u_forDigit(digit: i32, radix: i8) -> i32;
     }
-    ::core::mem::transmute(u_forDigit(digit, radix))
+    u_forDigit(digit, radix)
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -17510,7 +17510,7 @@ where
     extern "system" {
         fn u_formatMessage(locale: ::windows::core::PCSTR, pattern: *const u16, patternlength: i32, result: *mut u16, resultlength: i32, status: *mut UErrorCode) -> i32;
     }
-    ::core::mem::transmute(u_formatMessage(locale.into(), ::core::mem::transmute(pattern), patternlength, ::core::mem::transmute(result), resultlength, ::core::mem::transmute(status)))
+    u_formatMessage(locale.into(), ::core::mem::transmute(pattern), patternlength, ::core::mem::transmute(result), resultlength, ::core::mem::transmute(status))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -17522,7 +17522,7 @@ where
     extern "system" {
         fn u_formatMessageWithError(locale: ::windows::core::PCSTR, pattern: *const u16, patternlength: i32, result: *mut u16, resultlength: i32, parseerror: *mut UParseError, status: *mut UErrorCode) -> i32;
     }
-    ::core::mem::transmute(u_formatMessageWithError(locale.into(), ::core::mem::transmute(pattern), patternlength, ::core::mem::transmute(result), resultlength, ::core::mem::transmute(parseerror), ::core::mem::transmute(status)))
+    u_formatMessageWithError(locale.into(), ::core::mem::transmute(pattern), patternlength, ::core::mem::transmute(result), resultlength, ::core::mem::transmute(parseerror), ::core::mem::transmute(status))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -17531,7 +17531,7 @@ pub unsafe fn u_getBidiPairedBracket(c: i32) -> i32 {
     extern "system" {
         fn u_getBidiPairedBracket(c: i32) -> i32;
     }
-    ::core::mem::transmute(u_getBidiPairedBracket(c))
+    u_getBidiPairedBracket(c)
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -17540,7 +17540,7 @@ pub unsafe fn u_getBinaryPropertySet(property: UProperty, perrorcode: *mut UErro
     extern "system" {
         fn u_getBinaryPropertySet(property: UProperty, perrorcode: *mut UErrorCode) -> *mut USet;
     }
-    ::core::mem::transmute(u_getBinaryPropertySet(property, ::core::mem::transmute(perrorcode)))
+    u_getBinaryPropertySet(property, ::core::mem::transmute(perrorcode))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -17549,7 +17549,7 @@ pub unsafe fn u_getCombiningClass(c: i32) -> u8 {
     extern "system" {
         fn u_getCombiningClass(c: i32) -> u8;
     }
-    ::core::mem::transmute(u_getCombiningClass(c))
+    u_getCombiningClass(c)
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -17567,7 +17567,7 @@ pub unsafe fn u_getFC_NFKC_Closure(c: i32, dest: *mut u16, destcapacity: i32, pe
     extern "system" {
         fn u_getFC_NFKC_Closure(c: i32, dest: *mut u16, destcapacity: i32, perrorcode: *mut UErrorCode) -> i32;
     }
-    ::core::mem::transmute(u_getFC_NFKC_Closure(c, ::core::mem::transmute(dest), destcapacity, ::core::mem::transmute(perrorcode)))
+    u_getFC_NFKC_Closure(c, ::core::mem::transmute(dest), destcapacity, ::core::mem::transmute(perrorcode))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -17576,7 +17576,7 @@ pub unsafe fn u_getIntPropertyMap(property: UProperty, perrorcode: *mut UErrorCo
     extern "system" {
         fn u_getIntPropertyMap(property: UProperty, perrorcode: *mut UErrorCode) -> *mut UCPMap;
     }
-    ::core::mem::transmute(u_getIntPropertyMap(property, ::core::mem::transmute(perrorcode)))
+    u_getIntPropertyMap(property, ::core::mem::transmute(perrorcode))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -17585,7 +17585,7 @@ pub unsafe fn u_getIntPropertyMaxValue(which: UProperty) -> i32 {
     extern "system" {
         fn u_getIntPropertyMaxValue(which: UProperty) -> i32;
     }
-    ::core::mem::transmute(u_getIntPropertyMaxValue(which))
+    u_getIntPropertyMaxValue(which)
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -17594,7 +17594,7 @@ pub unsafe fn u_getIntPropertyMinValue(which: UProperty) -> i32 {
     extern "system" {
         fn u_getIntPropertyMinValue(which: UProperty) -> i32;
     }
-    ::core::mem::transmute(u_getIntPropertyMinValue(which))
+    u_getIntPropertyMinValue(which)
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -17603,7 +17603,7 @@ pub unsafe fn u_getIntPropertyValue(c: i32, which: UProperty) -> i32 {
     extern "system" {
         fn u_getIntPropertyValue(c: i32, which: UProperty) -> i32;
     }
-    ::core::mem::transmute(u_getIntPropertyValue(c, which))
+    u_getIntPropertyValue(c, which)
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -17612,7 +17612,7 @@ pub unsafe fn u_getNumericValue(c: i32) -> f64 {
     extern "system" {
         fn u_getNumericValue(c: i32) -> f64;
     }
-    ::core::mem::transmute(u_getNumericValue(c))
+    u_getNumericValue(c)
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -17624,7 +17624,7 @@ where
     extern "system" {
         fn u_getPropertyEnum(alias: ::windows::core::PCSTR) -> UProperty;
     }
-    ::core::mem::transmute(u_getPropertyEnum(alias.into()))
+    u_getPropertyEnum(alias.into())
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -17633,7 +17633,7 @@ pub unsafe fn u_getPropertyName(property: UProperty, namechoice: UPropertyNameCh
     extern "system" {
         fn u_getPropertyName(property: UProperty, namechoice: UPropertyNameChoice) -> ::windows::core::PSTR;
     }
-    ::core::mem::transmute(u_getPropertyName(property, namechoice))
+    u_getPropertyName(property, namechoice)
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -17645,7 +17645,7 @@ where
     extern "system" {
         fn u_getPropertyValueEnum(property: UProperty, alias: ::windows::core::PCSTR) -> i32;
     }
-    ::core::mem::transmute(u_getPropertyValueEnum(property, alias.into()))
+    u_getPropertyValueEnum(property, alias.into())
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -17654,7 +17654,7 @@ pub unsafe fn u_getPropertyValueName(property: UProperty, value: i32, namechoice
     extern "system" {
         fn u_getPropertyValueName(property: UProperty, value: i32, namechoice: UPropertyNameChoice) -> ::windows::core::PSTR;
     }
-    ::core::mem::transmute(u_getPropertyValueName(property, value, namechoice))
+    u_getPropertyValueName(property, value, namechoice)
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -17681,7 +17681,7 @@ pub unsafe fn u_hasBinaryProperty(c: i32, which: UProperty) -> i8 {
     extern "system" {
         fn u_hasBinaryProperty(c: i32, which: UProperty) -> i8;
     }
-    ::core::mem::transmute(u_hasBinaryProperty(c, which))
+    u_hasBinaryProperty(c, which)
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -17699,7 +17699,7 @@ pub unsafe fn u_isIDIgnorable(c: i32) -> i8 {
     extern "system" {
         fn u_isIDIgnorable(c: i32) -> i8;
     }
-    ::core::mem::transmute(u_isIDIgnorable(c))
+    u_isIDIgnorable(c)
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -17708,7 +17708,7 @@ pub unsafe fn u_isIDPart(c: i32) -> i8 {
     extern "system" {
         fn u_isIDPart(c: i32) -> i8;
     }
-    ::core::mem::transmute(u_isIDPart(c))
+    u_isIDPart(c)
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -17717,7 +17717,7 @@ pub unsafe fn u_isIDStart(c: i32) -> i8 {
     extern "system" {
         fn u_isIDStart(c: i32) -> i8;
     }
-    ::core::mem::transmute(u_isIDStart(c))
+    u_isIDStart(c)
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -17726,7 +17726,7 @@ pub unsafe fn u_isISOControl(c: i32) -> i8 {
     extern "system" {
         fn u_isISOControl(c: i32) -> i8;
     }
-    ::core::mem::transmute(u_isISOControl(c))
+    u_isISOControl(c)
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -17735,7 +17735,7 @@ pub unsafe fn u_isJavaIDPart(c: i32) -> i8 {
     extern "system" {
         fn u_isJavaIDPart(c: i32) -> i8;
     }
-    ::core::mem::transmute(u_isJavaIDPart(c))
+    u_isJavaIDPart(c)
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -17744,7 +17744,7 @@ pub unsafe fn u_isJavaIDStart(c: i32) -> i8 {
     extern "system" {
         fn u_isJavaIDStart(c: i32) -> i8;
     }
-    ::core::mem::transmute(u_isJavaIDStart(c))
+    u_isJavaIDStart(c)
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -17753,7 +17753,7 @@ pub unsafe fn u_isJavaSpaceChar(c: i32) -> i8 {
     extern "system" {
         fn u_isJavaSpaceChar(c: i32) -> i8;
     }
-    ::core::mem::transmute(u_isJavaSpaceChar(c))
+    u_isJavaSpaceChar(c)
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -17762,7 +17762,7 @@ pub unsafe fn u_isMirrored(c: i32) -> i8 {
     extern "system" {
         fn u_isMirrored(c: i32) -> i8;
     }
-    ::core::mem::transmute(u_isMirrored(c))
+    u_isMirrored(c)
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -17771,7 +17771,7 @@ pub unsafe fn u_isUAlphabetic(c: i32) -> i8 {
     extern "system" {
         fn u_isUAlphabetic(c: i32) -> i8;
     }
-    ::core::mem::transmute(u_isUAlphabetic(c))
+    u_isUAlphabetic(c)
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -17780,7 +17780,7 @@ pub unsafe fn u_isULowercase(c: i32) -> i8 {
     extern "system" {
         fn u_isULowercase(c: i32) -> i8;
     }
-    ::core::mem::transmute(u_isULowercase(c))
+    u_isULowercase(c)
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -17789,7 +17789,7 @@ pub unsafe fn u_isUUppercase(c: i32) -> i8 {
     extern "system" {
         fn u_isUUppercase(c: i32) -> i8;
     }
-    ::core::mem::transmute(u_isUUppercase(c))
+    u_isUUppercase(c)
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -17798,7 +17798,7 @@ pub unsafe fn u_isUWhiteSpace(c: i32) -> i8 {
     extern "system" {
         fn u_isUWhiteSpace(c: i32) -> i8;
     }
-    ::core::mem::transmute(u_isUWhiteSpace(c))
+    u_isUWhiteSpace(c)
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -17807,7 +17807,7 @@ pub unsafe fn u_isWhitespace(c: i32) -> i8 {
     extern "system" {
         fn u_isWhitespace(c: i32) -> i8;
     }
-    ::core::mem::transmute(u_isWhitespace(c))
+    u_isWhitespace(c)
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -17816,7 +17816,7 @@ pub unsafe fn u_isalnum(c: i32) -> i8 {
     extern "system" {
         fn u_isalnum(c: i32) -> i8;
     }
-    ::core::mem::transmute(u_isalnum(c))
+    u_isalnum(c)
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -17825,7 +17825,7 @@ pub unsafe fn u_isalpha(c: i32) -> i8 {
     extern "system" {
         fn u_isalpha(c: i32) -> i8;
     }
-    ::core::mem::transmute(u_isalpha(c))
+    u_isalpha(c)
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -17834,7 +17834,7 @@ pub unsafe fn u_isbase(c: i32) -> i8 {
     extern "system" {
         fn u_isbase(c: i32) -> i8;
     }
-    ::core::mem::transmute(u_isbase(c))
+    u_isbase(c)
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -17843,7 +17843,7 @@ pub unsafe fn u_isblank(c: i32) -> i8 {
     extern "system" {
         fn u_isblank(c: i32) -> i8;
     }
-    ::core::mem::transmute(u_isblank(c))
+    u_isblank(c)
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -17852,7 +17852,7 @@ pub unsafe fn u_iscntrl(c: i32) -> i8 {
     extern "system" {
         fn u_iscntrl(c: i32) -> i8;
     }
-    ::core::mem::transmute(u_iscntrl(c))
+    u_iscntrl(c)
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -17861,7 +17861,7 @@ pub unsafe fn u_isdefined(c: i32) -> i8 {
     extern "system" {
         fn u_isdefined(c: i32) -> i8;
     }
-    ::core::mem::transmute(u_isdefined(c))
+    u_isdefined(c)
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -17870,7 +17870,7 @@ pub unsafe fn u_isdigit(c: i32) -> i8 {
     extern "system" {
         fn u_isdigit(c: i32) -> i8;
     }
-    ::core::mem::transmute(u_isdigit(c))
+    u_isdigit(c)
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -17879,7 +17879,7 @@ pub unsafe fn u_isgraph(c: i32) -> i8 {
     extern "system" {
         fn u_isgraph(c: i32) -> i8;
     }
-    ::core::mem::transmute(u_isgraph(c))
+    u_isgraph(c)
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -17888,7 +17888,7 @@ pub unsafe fn u_islower(c: i32) -> i8 {
     extern "system" {
         fn u_islower(c: i32) -> i8;
     }
-    ::core::mem::transmute(u_islower(c))
+    u_islower(c)
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -17897,7 +17897,7 @@ pub unsafe fn u_isprint(c: i32) -> i8 {
     extern "system" {
         fn u_isprint(c: i32) -> i8;
     }
-    ::core::mem::transmute(u_isprint(c))
+    u_isprint(c)
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -17906,7 +17906,7 @@ pub unsafe fn u_ispunct(c: i32) -> i8 {
     extern "system" {
         fn u_ispunct(c: i32) -> i8;
     }
-    ::core::mem::transmute(u_ispunct(c))
+    u_ispunct(c)
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -17915,7 +17915,7 @@ pub unsafe fn u_isspace(c: i32) -> i8 {
     extern "system" {
         fn u_isspace(c: i32) -> i8;
     }
-    ::core::mem::transmute(u_isspace(c))
+    u_isspace(c)
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -17924,7 +17924,7 @@ pub unsafe fn u_istitle(c: i32) -> i8 {
     extern "system" {
         fn u_istitle(c: i32) -> i8;
     }
-    ::core::mem::transmute(u_istitle(c))
+    u_istitle(c)
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -17933,7 +17933,7 @@ pub unsafe fn u_isupper(c: i32) -> i8 {
     extern "system" {
         fn u_isupper(c: i32) -> i8;
     }
-    ::core::mem::transmute(u_isupper(c))
+    u_isupper(c)
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -17942,7 +17942,7 @@ pub unsafe fn u_isxdigit(c: i32) -> i8 {
     extern "system" {
         fn u_isxdigit(c: i32) -> i8;
     }
-    ::core::mem::transmute(u_isxdigit(c))
+    u_isxdigit(c)
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -17951,7 +17951,7 @@ pub unsafe fn u_memcasecmp(s1: *const u16, s2: *const u16, length: i32, options:
     extern "system" {
         fn u_memcasecmp(s1: *const u16, s2: *const u16, length: i32, options: u32) -> i32;
     }
-    ::core::mem::transmute(u_memcasecmp(::core::mem::transmute(s1), ::core::mem::transmute(s2), length, options))
+    u_memcasecmp(::core::mem::transmute(s1), ::core::mem::transmute(s2), length, options)
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -17960,7 +17960,7 @@ pub unsafe fn u_memchr(s: *const u16, c: u16, count: i32) -> *mut u16 {
     extern "system" {
         fn u_memchr(s: *const u16, c: u16, count: i32) -> *mut u16;
     }
-    ::core::mem::transmute(u_memchr(::core::mem::transmute(s), c, count))
+    u_memchr(::core::mem::transmute(s), c, count)
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -17969,7 +17969,7 @@ pub unsafe fn u_memchr32(s: *const u16, c: i32, count: i32) -> *mut u16 {
     extern "system" {
         fn u_memchr32(s: *const u16, c: i32, count: i32) -> *mut u16;
     }
-    ::core::mem::transmute(u_memchr32(::core::mem::transmute(s), c, count))
+    u_memchr32(::core::mem::transmute(s), c, count)
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -17978,7 +17978,7 @@ pub unsafe fn u_memcmp(buf1: *const u16, buf2: *const u16, count: i32) -> i32 {
     extern "system" {
         fn u_memcmp(buf1: *const u16, buf2: *const u16, count: i32) -> i32;
     }
-    ::core::mem::transmute(u_memcmp(::core::mem::transmute(buf1), ::core::mem::transmute(buf2), count))
+    u_memcmp(::core::mem::transmute(buf1), ::core::mem::transmute(buf2), count)
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -17987,7 +17987,7 @@ pub unsafe fn u_memcmpCodePointOrder(s1: *const u16, s2: *const u16, count: i32)
     extern "system" {
         fn u_memcmpCodePointOrder(s1: *const u16, s2: *const u16, count: i32) -> i32;
     }
-    ::core::mem::transmute(u_memcmpCodePointOrder(::core::mem::transmute(s1), ::core::mem::transmute(s2), count))
+    u_memcmpCodePointOrder(::core::mem::transmute(s1), ::core::mem::transmute(s2), count)
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -17996,7 +17996,7 @@ pub unsafe fn u_memcpy(dest: *mut u16, src: *const u16, count: i32) -> *mut u16 
     extern "system" {
         fn u_memcpy(dest: *mut u16, src: *const u16, count: i32) -> *mut u16;
     }
-    ::core::mem::transmute(u_memcpy(::core::mem::transmute(dest), ::core::mem::transmute(src), count))
+    u_memcpy(::core::mem::transmute(dest), ::core::mem::transmute(src), count)
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -18005,7 +18005,7 @@ pub unsafe fn u_memmove(dest: *mut u16, src: *const u16, count: i32) -> *mut u16
     extern "system" {
         fn u_memmove(dest: *mut u16, src: *const u16, count: i32) -> *mut u16;
     }
-    ::core::mem::transmute(u_memmove(::core::mem::transmute(dest), ::core::mem::transmute(src), count))
+    u_memmove(::core::mem::transmute(dest), ::core::mem::transmute(src), count)
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -18014,7 +18014,7 @@ pub unsafe fn u_memrchr(s: *const u16, c: u16, count: i32) -> *mut u16 {
     extern "system" {
         fn u_memrchr(s: *const u16, c: u16, count: i32) -> *mut u16;
     }
-    ::core::mem::transmute(u_memrchr(::core::mem::transmute(s), c, count))
+    u_memrchr(::core::mem::transmute(s), c, count)
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -18023,7 +18023,7 @@ pub unsafe fn u_memrchr32(s: *const u16, c: i32, count: i32) -> *mut u16 {
     extern "system" {
         fn u_memrchr32(s: *const u16, c: i32, count: i32) -> *mut u16;
     }
-    ::core::mem::transmute(u_memrchr32(::core::mem::transmute(s), c, count))
+    u_memrchr32(::core::mem::transmute(s), c, count)
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -18032,7 +18032,7 @@ pub unsafe fn u_memset(dest: *mut u16, c: u16, count: i32) -> *mut u16 {
     extern "system" {
         fn u_memset(dest: *mut u16, c: u16, count: i32) -> *mut u16;
     }
-    ::core::mem::transmute(u_memset(::core::mem::transmute(dest), c, count))
+    u_memset(::core::mem::transmute(dest), c, count)
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -18074,7 +18074,7 @@ pub unsafe fn u_shapeArabic(source: *const u16, sourcelength: i32, dest: *mut u1
     extern "system" {
         fn u_shapeArabic(source: *const u16, sourcelength: i32, dest: *mut u16, destsize: i32, options: u32, perrorcode: *mut UErrorCode) -> i32;
     }
-    ::core::mem::transmute(u_shapeArabic(::core::mem::transmute(source), sourcelength, ::core::mem::transmute(dest), destsize, options, ::core::mem::transmute(perrorcode)))
+    u_shapeArabic(::core::mem::transmute(source), sourcelength, ::core::mem::transmute(dest), destsize, options, ::core::mem::transmute(perrorcode))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -18083,7 +18083,7 @@ pub unsafe fn u_strCaseCompare(s1: *const u16, length1: i32, s2: *const u16, len
     extern "system" {
         fn u_strCaseCompare(s1: *const u16, length1: i32, s2: *const u16, length2: i32, options: u32, perrorcode: *mut UErrorCode) -> i32;
     }
-    ::core::mem::transmute(u_strCaseCompare(::core::mem::transmute(s1), length1, ::core::mem::transmute(s2), length2, options, ::core::mem::transmute(perrorcode)))
+    u_strCaseCompare(::core::mem::transmute(s1), length1, ::core::mem::transmute(s2), length2, options, ::core::mem::transmute(perrorcode))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -18092,7 +18092,7 @@ pub unsafe fn u_strCompare(s1: *const u16, length1: i32, s2: *const u16, length2
     extern "system" {
         fn u_strCompare(s1: *const u16, length1: i32, s2: *const u16, length2: i32, codepointorder: i8) -> i32;
     }
-    ::core::mem::transmute(u_strCompare(::core::mem::transmute(s1), length1, ::core::mem::transmute(s2), length2, codepointorder))
+    u_strCompare(::core::mem::transmute(s1), length1, ::core::mem::transmute(s2), length2, codepointorder)
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -18101,7 +18101,7 @@ pub unsafe fn u_strCompareIter(iter1: *mut UCharIterator, iter2: *mut UCharItera
     extern "system" {
         fn u_strCompareIter(iter1: *mut UCharIterator, iter2: *mut UCharIterator, codepointorder: i8) -> i32;
     }
-    ::core::mem::transmute(u_strCompareIter(::core::mem::transmute(iter1), ::core::mem::transmute(iter2), codepointorder))
+    u_strCompareIter(::core::mem::transmute(iter1), ::core::mem::transmute(iter2), codepointorder)
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -18110,7 +18110,7 @@ pub unsafe fn u_strFindFirst(s: *const u16, length: i32, substring: *const u16, 
     extern "system" {
         fn u_strFindFirst(s: *const u16, length: i32, substring: *const u16, sublength: i32) -> *mut u16;
     }
-    ::core::mem::transmute(u_strFindFirst(::core::mem::transmute(s), length, ::core::mem::transmute(substring), sublength))
+    u_strFindFirst(::core::mem::transmute(s), length, ::core::mem::transmute(substring), sublength)
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -18119,7 +18119,7 @@ pub unsafe fn u_strFindLast(s: *const u16, length: i32, substring: *const u16, s
     extern "system" {
         fn u_strFindLast(s: *const u16, length: i32, substring: *const u16, sublength: i32) -> *mut u16;
     }
-    ::core::mem::transmute(u_strFindLast(::core::mem::transmute(s), length, ::core::mem::transmute(substring), sublength))
+    u_strFindLast(::core::mem::transmute(s), length, ::core::mem::transmute(substring), sublength)
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -18128,7 +18128,7 @@ pub unsafe fn u_strFoldCase(dest: *mut u16, destcapacity: i32, src: *const u16, 
     extern "system" {
         fn u_strFoldCase(dest: *mut u16, destcapacity: i32, src: *const u16, srclength: i32, options: u32, perrorcode: *mut UErrorCode) -> i32;
     }
-    ::core::mem::transmute(u_strFoldCase(::core::mem::transmute(dest), destcapacity, ::core::mem::transmute(src), srclength, options, ::core::mem::transmute(perrorcode)))
+    u_strFoldCase(::core::mem::transmute(dest), destcapacity, ::core::mem::transmute(src), srclength, options, ::core::mem::transmute(perrorcode))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -18140,7 +18140,7 @@ where
     extern "system" {
         fn u_strFromJavaModifiedUTF8WithSub(dest: *mut u16, destcapacity: i32, pdestlength: *mut i32, src: ::windows::core::PCSTR, srclength: i32, subchar: i32, pnumsubstitutions: *mut i32, perrorcode: *mut UErrorCode) -> *mut u16;
     }
-    ::core::mem::transmute(u_strFromJavaModifiedUTF8WithSub(::core::mem::transmute(dest), destcapacity, ::core::mem::transmute(pdestlength), src.into(), srclength, subchar, ::core::mem::transmute(pnumsubstitutions), ::core::mem::transmute(perrorcode)))
+    u_strFromJavaModifiedUTF8WithSub(::core::mem::transmute(dest), destcapacity, ::core::mem::transmute(pdestlength), src.into(), srclength, subchar, ::core::mem::transmute(pnumsubstitutions), ::core::mem::transmute(perrorcode))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -18149,7 +18149,7 @@ pub unsafe fn u_strFromUTF32(dest: *mut u16, destcapacity: i32, pdestlength: *mu
     extern "system" {
         fn u_strFromUTF32(dest: *mut u16, destcapacity: i32, pdestlength: *mut i32, src: *const i32, srclength: i32, perrorcode: *mut UErrorCode) -> *mut u16;
     }
-    ::core::mem::transmute(u_strFromUTF32(::core::mem::transmute(dest), destcapacity, ::core::mem::transmute(pdestlength), ::core::mem::transmute(src), srclength, ::core::mem::transmute(perrorcode)))
+    u_strFromUTF32(::core::mem::transmute(dest), destcapacity, ::core::mem::transmute(pdestlength), ::core::mem::transmute(src), srclength, ::core::mem::transmute(perrorcode))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -18158,7 +18158,7 @@ pub unsafe fn u_strFromUTF32WithSub(dest: *mut u16, destcapacity: i32, pdestleng
     extern "system" {
         fn u_strFromUTF32WithSub(dest: *mut u16, destcapacity: i32, pdestlength: *mut i32, src: *const i32, srclength: i32, subchar: i32, pnumsubstitutions: *mut i32, perrorcode: *mut UErrorCode) -> *mut u16;
     }
-    ::core::mem::transmute(u_strFromUTF32WithSub(::core::mem::transmute(dest), destcapacity, ::core::mem::transmute(pdestlength), ::core::mem::transmute(src), srclength, subchar, ::core::mem::transmute(pnumsubstitutions), ::core::mem::transmute(perrorcode)))
+    u_strFromUTF32WithSub(::core::mem::transmute(dest), destcapacity, ::core::mem::transmute(pdestlength), ::core::mem::transmute(src), srclength, subchar, ::core::mem::transmute(pnumsubstitutions), ::core::mem::transmute(perrorcode))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -18170,7 +18170,7 @@ where
     extern "system" {
         fn u_strFromUTF8(dest: *mut u16, destcapacity: i32, pdestlength: *mut i32, src: ::windows::core::PCSTR, srclength: i32, perrorcode: *mut UErrorCode) -> *mut u16;
     }
-    ::core::mem::transmute(u_strFromUTF8(::core::mem::transmute(dest), destcapacity, ::core::mem::transmute(pdestlength), src.into(), srclength, ::core::mem::transmute(perrorcode)))
+    u_strFromUTF8(::core::mem::transmute(dest), destcapacity, ::core::mem::transmute(pdestlength), src.into(), srclength, ::core::mem::transmute(perrorcode))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -18182,7 +18182,7 @@ where
     extern "system" {
         fn u_strFromUTF8Lenient(dest: *mut u16, destcapacity: i32, pdestlength: *mut i32, src: ::windows::core::PCSTR, srclength: i32, perrorcode: *mut UErrorCode) -> *mut u16;
     }
-    ::core::mem::transmute(u_strFromUTF8Lenient(::core::mem::transmute(dest), destcapacity, ::core::mem::transmute(pdestlength), src.into(), srclength, ::core::mem::transmute(perrorcode)))
+    u_strFromUTF8Lenient(::core::mem::transmute(dest), destcapacity, ::core::mem::transmute(pdestlength), src.into(), srclength, ::core::mem::transmute(perrorcode))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -18194,7 +18194,7 @@ where
     extern "system" {
         fn u_strFromUTF8WithSub(dest: *mut u16, destcapacity: i32, pdestlength: *mut i32, src: ::windows::core::PCSTR, srclength: i32, subchar: i32, pnumsubstitutions: *mut i32, perrorcode: *mut UErrorCode) -> *mut u16;
     }
-    ::core::mem::transmute(u_strFromUTF8WithSub(::core::mem::transmute(dest), destcapacity, ::core::mem::transmute(pdestlength), src.into(), srclength, subchar, ::core::mem::transmute(pnumsubstitutions), ::core::mem::transmute(perrorcode)))
+    u_strFromUTF8WithSub(::core::mem::transmute(dest), destcapacity, ::core::mem::transmute(pdestlength), src.into(), srclength, subchar, ::core::mem::transmute(pnumsubstitutions), ::core::mem::transmute(perrorcode))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -18206,7 +18206,7 @@ where
     extern "system" {
         fn u_strFromWCS(dest: *mut u16, destcapacity: i32, pdestlength: *mut i32, src: ::windows::core::PCWSTR, srclength: i32, perrorcode: *mut UErrorCode) -> *mut u16;
     }
-    ::core::mem::transmute(u_strFromWCS(::core::mem::transmute(dest), destcapacity, ::core::mem::transmute(pdestlength), src.into(), srclength, ::core::mem::transmute(perrorcode)))
+    u_strFromWCS(::core::mem::transmute(dest), destcapacity, ::core::mem::transmute(pdestlength), src.into(), srclength, ::core::mem::transmute(perrorcode))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -18215,7 +18215,7 @@ pub unsafe fn u_strHasMoreChar32Than(s: *const u16, length: i32, number: i32) ->
     extern "system" {
         fn u_strHasMoreChar32Than(s: *const u16, length: i32, number: i32) -> i8;
     }
-    ::core::mem::transmute(u_strHasMoreChar32Than(::core::mem::transmute(s), length, number))
+    u_strHasMoreChar32Than(::core::mem::transmute(s), length, number)
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -18227,7 +18227,7 @@ where
     extern "system" {
         fn u_strToJavaModifiedUTF8(dest: ::windows::core::PCSTR, destcapacity: i32, pdestlength: *mut i32, src: *const u16, srclength: i32, perrorcode: *mut UErrorCode) -> ::windows::core::PSTR;
     }
-    ::core::mem::transmute(u_strToJavaModifiedUTF8(dest.into(), destcapacity, ::core::mem::transmute(pdestlength), ::core::mem::transmute(src), srclength, ::core::mem::transmute(perrorcode)))
+    u_strToJavaModifiedUTF8(dest.into(), destcapacity, ::core::mem::transmute(pdestlength), ::core::mem::transmute(src), srclength, ::core::mem::transmute(perrorcode))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -18239,7 +18239,7 @@ where
     extern "system" {
         fn u_strToLower(dest: *mut u16, destcapacity: i32, src: *const u16, srclength: i32, locale: ::windows::core::PCSTR, perrorcode: *mut UErrorCode) -> i32;
     }
-    ::core::mem::transmute(u_strToLower(::core::mem::transmute(dest), destcapacity, ::core::mem::transmute(src), srclength, locale.into(), ::core::mem::transmute(perrorcode)))
+    u_strToLower(::core::mem::transmute(dest), destcapacity, ::core::mem::transmute(src), srclength, locale.into(), ::core::mem::transmute(perrorcode))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -18251,7 +18251,7 @@ where
     extern "system" {
         fn u_strToTitle(dest: *mut u16, destcapacity: i32, src: *const u16, srclength: i32, titleiter: *mut UBreakIterator, locale: ::windows::core::PCSTR, perrorcode: *mut UErrorCode) -> i32;
     }
-    ::core::mem::transmute(u_strToTitle(::core::mem::transmute(dest), destcapacity, ::core::mem::transmute(src), srclength, ::core::mem::transmute(titleiter), locale.into(), ::core::mem::transmute(perrorcode)))
+    u_strToTitle(::core::mem::transmute(dest), destcapacity, ::core::mem::transmute(src), srclength, ::core::mem::transmute(titleiter), locale.into(), ::core::mem::transmute(perrorcode))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -18260,7 +18260,7 @@ pub unsafe fn u_strToUTF32(dest: *mut i32, destcapacity: i32, pdestlength: *mut 
     extern "system" {
         fn u_strToUTF32(dest: *mut i32, destcapacity: i32, pdestlength: *mut i32, src: *const u16, srclength: i32, perrorcode: *mut UErrorCode) -> *mut i32;
     }
-    ::core::mem::transmute(u_strToUTF32(::core::mem::transmute(dest), destcapacity, ::core::mem::transmute(pdestlength), ::core::mem::transmute(src), srclength, ::core::mem::transmute(perrorcode)))
+    u_strToUTF32(::core::mem::transmute(dest), destcapacity, ::core::mem::transmute(pdestlength), ::core::mem::transmute(src), srclength, ::core::mem::transmute(perrorcode))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -18269,7 +18269,7 @@ pub unsafe fn u_strToUTF32WithSub(dest: *mut i32, destcapacity: i32, pdestlength
     extern "system" {
         fn u_strToUTF32WithSub(dest: *mut i32, destcapacity: i32, pdestlength: *mut i32, src: *const u16, srclength: i32, subchar: i32, pnumsubstitutions: *mut i32, perrorcode: *mut UErrorCode) -> *mut i32;
     }
-    ::core::mem::transmute(u_strToUTF32WithSub(::core::mem::transmute(dest), destcapacity, ::core::mem::transmute(pdestlength), ::core::mem::transmute(src), srclength, subchar, ::core::mem::transmute(pnumsubstitutions), ::core::mem::transmute(perrorcode)))
+    u_strToUTF32WithSub(::core::mem::transmute(dest), destcapacity, ::core::mem::transmute(pdestlength), ::core::mem::transmute(src), srclength, subchar, ::core::mem::transmute(pnumsubstitutions), ::core::mem::transmute(perrorcode))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -18281,7 +18281,7 @@ where
     extern "system" {
         fn u_strToUTF8(dest: ::windows::core::PCSTR, destcapacity: i32, pdestlength: *mut i32, src: *const u16, srclength: i32, perrorcode: *mut UErrorCode) -> ::windows::core::PSTR;
     }
-    ::core::mem::transmute(u_strToUTF8(dest.into(), destcapacity, ::core::mem::transmute(pdestlength), ::core::mem::transmute(src), srclength, ::core::mem::transmute(perrorcode)))
+    u_strToUTF8(dest.into(), destcapacity, ::core::mem::transmute(pdestlength), ::core::mem::transmute(src), srclength, ::core::mem::transmute(perrorcode))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -18293,7 +18293,7 @@ where
     extern "system" {
         fn u_strToUTF8WithSub(dest: ::windows::core::PCSTR, destcapacity: i32, pdestlength: *mut i32, src: *const u16, srclength: i32, subchar: i32, pnumsubstitutions: *mut i32, perrorcode: *mut UErrorCode) -> ::windows::core::PSTR;
     }
-    ::core::mem::transmute(u_strToUTF8WithSub(dest.into(), destcapacity, ::core::mem::transmute(pdestlength), ::core::mem::transmute(src), srclength, subchar, ::core::mem::transmute(pnumsubstitutions), ::core::mem::transmute(perrorcode)))
+    u_strToUTF8WithSub(dest.into(), destcapacity, ::core::mem::transmute(pdestlength), ::core::mem::transmute(src), srclength, subchar, ::core::mem::transmute(pnumsubstitutions), ::core::mem::transmute(perrorcode))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -18305,7 +18305,7 @@ where
     extern "system" {
         fn u_strToUpper(dest: *mut u16, destcapacity: i32, src: *const u16, srclength: i32, locale: ::windows::core::PCSTR, perrorcode: *mut UErrorCode) -> i32;
     }
-    ::core::mem::transmute(u_strToUpper(::core::mem::transmute(dest), destcapacity, ::core::mem::transmute(src), srclength, locale.into(), ::core::mem::transmute(perrorcode)))
+    u_strToUpper(::core::mem::transmute(dest), destcapacity, ::core::mem::transmute(src), srclength, locale.into(), ::core::mem::transmute(perrorcode))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -18317,7 +18317,7 @@ where
     extern "system" {
         fn u_strToWCS(dest: ::windows::core::PCWSTR, destcapacity: i32, pdestlength: *mut i32, src: *const u16, srclength: i32, perrorcode: *mut UErrorCode) -> ::windows::core::PWSTR;
     }
-    ::core::mem::transmute(u_strToWCS(dest.into(), destcapacity, ::core::mem::transmute(pdestlength), ::core::mem::transmute(src), srclength, ::core::mem::transmute(perrorcode)))
+    u_strToWCS(dest.into(), destcapacity, ::core::mem::transmute(pdestlength), ::core::mem::transmute(src), srclength, ::core::mem::transmute(perrorcode))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -18326,7 +18326,7 @@ pub unsafe fn u_strcasecmp(s1: *const u16, s2: *const u16, options: u32) -> i32 
     extern "system" {
         fn u_strcasecmp(s1: *const u16, s2: *const u16, options: u32) -> i32;
     }
-    ::core::mem::transmute(u_strcasecmp(::core::mem::transmute(s1), ::core::mem::transmute(s2), options))
+    u_strcasecmp(::core::mem::transmute(s1), ::core::mem::transmute(s2), options)
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -18335,7 +18335,7 @@ pub unsafe fn u_strcat(dst: *mut u16, src: *const u16) -> *mut u16 {
     extern "system" {
         fn u_strcat(dst: *mut u16, src: *const u16) -> *mut u16;
     }
-    ::core::mem::transmute(u_strcat(::core::mem::transmute(dst), ::core::mem::transmute(src)))
+    u_strcat(::core::mem::transmute(dst), ::core::mem::transmute(src))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -18344,7 +18344,7 @@ pub unsafe fn u_strchr(s: *const u16, c: u16) -> *mut u16 {
     extern "system" {
         fn u_strchr(s: *const u16, c: u16) -> *mut u16;
     }
-    ::core::mem::transmute(u_strchr(::core::mem::transmute(s), c))
+    u_strchr(::core::mem::transmute(s), c)
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -18353,7 +18353,7 @@ pub unsafe fn u_strchr32(s: *const u16, c: i32) -> *mut u16 {
     extern "system" {
         fn u_strchr32(s: *const u16, c: i32) -> *mut u16;
     }
-    ::core::mem::transmute(u_strchr32(::core::mem::transmute(s), c))
+    u_strchr32(::core::mem::transmute(s), c)
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -18362,7 +18362,7 @@ pub unsafe fn u_strcmp(s1: *const u16, s2: *const u16) -> i32 {
     extern "system" {
         fn u_strcmp(s1: *const u16, s2: *const u16) -> i32;
     }
-    ::core::mem::transmute(u_strcmp(::core::mem::transmute(s1), ::core::mem::transmute(s2)))
+    u_strcmp(::core::mem::transmute(s1), ::core::mem::transmute(s2))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -18371,7 +18371,7 @@ pub unsafe fn u_strcmpCodePointOrder(s1: *const u16, s2: *const u16) -> i32 {
     extern "system" {
         fn u_strcmpCodePointOrder(s1: *const u16, s2: *const u16) -> i32;
     }
-    ::core::mem::transmute(u_strcmpCodePointOrder(::core::mem::transmute(s1), ::core::mem::transmute(s2)))
+    u_strcmpCodePointOrder(::core::mem::transmute(s1), ::core::mem::transmute(s2))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -18380,7 +18380,7 @@ pub unsafe fn u_strcpy(dst: *mut u16, src: *const u16) -> *mut u16 {
     extern "system" {
         fn u_strcpy(dst: *mut u16, src: *const u16) -> *mut u16;
     }
-    ::core::mem::transmute(u_strcpy(::core::mem::transmute(dst), ::core::mem::transmute(src)))
+    u_strcpy(::core::mem::transmute(dst), ::core::mem::transmute(src))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -18389,7 +18389,7 @@ pub unsafe fn u_strcspn(string: *const u16, matchset: *const u16) -> i32 {
     extern "system" {
         fn u_strcspn(string: *const u16, matchset: *const u16) -> i32;
     }
-    ::core::mem::transmute(u_strcspn(::core::mem::transmute(string), ::core::mem::transmute(matchset)))
+    u_strcspn(::core::mem::transmute(string), ::core::mem::transmute(matchset))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -18398,7 +18398,7 @@ pub unsafe fn u_strlen(s: *const u16) -> i32 {
     extern "system" {
         fn u_strlen(s: *const u16) -> i32;
     }
-    ::core::mem::transmute(u_strlen(::core::mem::transmute(s)))
+    u_strlen(::core::mem::transmute(s))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -18407,7 +18407,7 @@ pub unsafe fn u_strncasecmp(s1: *const u16, s2: *const u16, n: i32, options: u32
     extern "system" {
         fn u_strncasecmp(s1: *const u16, s2: *const u16, n: i32, options: u32) -> i32;
     }
-    ::core::mem::transmute(u_strncasecmp(::core::mem::transmute(s1), ::core::mem::transmute(s2), n, options))
+    u_strncasecmp(::core::mem::transmute(s1), ::core::mem::transmute(s2), n, options)
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -18416,7 +18416,7 @@ pub unsafe fn u_strncat(dst: *mut u16, src: *const u16, n: i32) -> *mut u16 {
     extern "system" {
         fn u_strncat(dst: *mut u16, src: *const u16, n: i32) -> *mut u16;
     }
-    ::core::mem::transmute(u_strncat(::core::mem::transmute(dst), ::core::mem::transmute(src), n))
+    u_strncat(::core::mem::transmute(dst), ::core::mem::transmute(src), n)
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -18425,7 +18425,7 @@ pub unsafe fn u_strncmp(ucs1: *const u16, ucs2: *const u16, n: i32) -> i32 {
     extern "system" {
         fn u_strncmp(ucs1: *const u16, ucs2: *const u16, n: i32) -> i32;
     }
-    ::core::mem::transmute(u_strncmp(::core::mem::transmute(ucs1), ::core::mem::transmute(ucs2), n))
+    u_strncmp(::core::mem::transmute(ucs1), ::core::mem::transmute(ucs2), n)
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -18434,7 +18434,7 @@ pub unsafe fn u_strncmpCodePointOrder(s1: *const u16, s2: *const u16, n: i32) ->
     extern "system" {
         fn u_strncmpCodePointOrder(s1: *const u16, s2: *const u16, n: i32) -> i32;
     }
-    ::core::mem::transmute(u_strncmpCodePointOrder(::core::mem::transmute(s1), ::core::mem::transmute(s2), n))
+    u_strncmpCodePointOrder(::core::mem::transmute(s1), ::core::mem::transmute(s2), n)
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -18443,7 +18443,7 @@ pub unsafe fn u_strncpy(dst: *mut u16, src: *const u16, n: i32) -> *mut u16 {
     extern "system" {
         fn u_strncpy(dst: *mut u16, src: *const u16, n: i32) -> *mut u16;
     }
-    ::core::mem::transmute(u_strncpy(::core::mem::transmute(dst), ::core::mem::transmute(src), n))
+    u_strncpy(::core::mem::transmute(dst), ::core::mem::transmute(src), n)
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -18452,7 +18452,7 @@ pub unsafe fn u_strpbrk(string: *const u16, matchset: *const u16) -> *mut u16 {
     extern "system" {
         fn u_strpbrk(string: *const u16, matchset: *const u16) -> *mut u16;
     }
-    ::core::mem::transmute(u_strpbrk(::core::mem::transmute(string), ::core::mem::transmute(matchset)))
+    u_strpbrk(::core::mem::transmute(string), ::core::mem::transmute(matchset))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -18461,7 +18461,7 @@ pub unsafe fn u_strrchr(s: *const u16, c: u16) -> *mut u16 {
     extern "system" {
         fn u_strrchr(s: *const u16, c: u16) -> *mut u16;
     }
-    ::core::mem::transmute(u_strrchr(::core::mem::transmute(s), c))
+    u_strrchr(::core::mem::transmute(s), c)
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -18470,7 +18470,7 @@ pub unsafe fn u_strrchr32(s: *const u16, c: i32) -> *mut u16 {
     extern "system" {
         fn u_strrchr32(s: *const u16, c: i32) -> *mut u16;
     }
-    ::core::mem::transmute(u_strrchr32(::core::mem::transmute(s), c))
+    u_strrchr32(::core::mem::transmute(s), c)
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -18479,7 +18479,7 @@ pub unsafe fn u_strrstr(s: *const u16, substring: *const u16) -> *mut u16 {
     extern "system" {
         fn u_strrstr(s: *const u16, substring: *const u16) -> *mut u16;
     }
-    ::core::mem::transmute(u_strrstr(::core::mem::transmute(s), ::core::mem::transmute(substring)))
+    u_strrstr(::core::mem::transmute(s), ::core::mem::transmute(substring))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -18488,7 +18488,7 @@ pub unsafe fn u_strspn(string: *const u16, matchset: *const u16) -> i32 {
     extern "system" {
         fn u_strspn(string: *const u16, matchset: *const u16) -> i32;
     }
-    ::core::mem::transmute(u_strspn(::core::mem::transmute(string), ::core::mem::transmute(matchset)))
+    u_strspn(::core::mem::transmute(string), ::core::mem::transmute(matchset))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -18497,7 +18497,7 @@ pub unsafe fn u_strstr(s: *const u16, substring: *const u16) -> *mut u16 {
     extern "system" {
         fn u_strstr(s: *const u16, substring: *const u16) -> *mut u16;
     }
-    ::core::mem::transmute(u_strstr(::core::mem::transmute(s), ::core::mem::transmute(substring)))
+    u_strstr(::core::mem::transmute(s), ::core::mem::transmute(substring))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -18506,7 +18506,7 @@ pub unsafe fn u_strtok_r(src: *mut u16, delim: *const u16, savestate: *mut *mut 
     extern "system" {
         fn u_strtok_r(src: *mut u16, delim: *const u16, savestate: *mut *mut u16) -> *mut u16;
     }
-    ::core::mem::transmute(u_strtok_r(::core::mem::transmute(src), ::core::mem::transmute(delim), ::core::mem::transmute(savestate)))
+    u_strtok_r(::core::mem::transmute(src), ::core::mem::transmute(delim), ::core::mem::transmute(savestate))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -18515,7 +18515,7 @@ pub unsafe fn u_tolower(c: i32) -> i32 {
     extern "system" {
         fn u_tolower(c: i32) -> i32;
     }
-    ::core::mem::transmute(u_tolower(c))
+    u_tolower(c)
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -18524,7 +18524,7 @@ pub unsafe fn u_totitle(c: i32) -> i32 {
     extern "system" {
         fn u_totitle(c: i32) -> i32;
     }
-    ::core::mem::transmute(u_totitle(c))
+    u_totitle(c)
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -18533,7 +18533,7 @@ pub unsafe fn u_toupper(c: i32) -> i32 {
     extern "system" {
         fn u_toupper(c: i32) -> i32;
     }
-    ::core::mem::transmute(u_toupper(c))
+    u_toupper(c)
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -18545,7 +18545,7 @@ where
     extern "system" {
         fn u_uastrcpy(dst: *mut u16, src: ::windows::core::PCSTR) -> *mut u16;
     }
-    ::core::mem::transmute(u_uastrcpy(::core::mem::transmute(dst), src.into()))
+    u_uastrcpy(::core::mem::transmute(dst), src.into())
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -18557,7 +18557,7 @@ where
     extern "system" {
         fn u_uastrncpy(dst: *mut u16, src: ::windows::core::PCSTR, n: i32) -> *mut u16;
     }
-    ::core::mem::transmute(u_uastrncpy(::core::mem::transmute(dst), src.into(), n))
+    u_uastrncpy(::core::mem::transmute(dst), src.into(), n)
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -18569,7 +18569,7 @@ where
     extern "system" {
         fn u_unescape(src: ::windows::core::PCSTR, dest: *mut u16, destcapacity: i32) -> i32;
     }
-    ::core::mem::transmute(u_unescape(src.into(), ::core::mem::transmute(dest), destcapacity))
+    u_unescape(src.into(), ::core::mem::transmute(dest), destcapacity)
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -18578,7 +18578,7 @@ pub unsafe fn u_unescapeAt(charat: UNESCAPE_CHAR_AT, offset: *mut i32, length: i
     extern "system" {
         fn u_unescapeAt(charat: *mut ::core::ffi::c_void, offset: *mut i32, length: i32, context: *mut ::core::ffi::c_void) -> i32;
     }
-    ::core::mem::transmute(u_unescapeAt(::core::mem::transmute(charat), ::core::mem::transmute(offset), length, ::core::mem::transmute(context)))
+    u_unescapeAt(::core::mem::transmute(charat), ::core::mem::transmute(offset), length, ::core::mem::transmute(context))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -18623,7 +18623,7 @@ where
     extern "system" {
         fn u_vformatMessage(locale: ::windows::core::PCSTR, pattern: *const u16, patternlength: i32, result: *mut u16, resultlength: i32, ap: *mut i8, status: *mut UErrorCode) -> i32;
     }
-    ::core::mem::transmute(u_vformatMessage(locale.into(), ::core::mem::transmute(pattern), patternlength, ::core::mem::transmute(result), resultlength, ::core::mem::transmute(ap), ::core::mem::transmute(status)))
+    u_vformatMessage(locale.into(), ::core::mem::transmute(pattern), patternlength, ::core::mem::transmute(result), resultlength, ::core::mem::transmute(ap), ::core::mem::transmute(status))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -18635,7 +18635,7 @@ where
     extern "system" {
         fn u_vformatMessageWithError(locale: ::windows::core::PCSTR, pattern: *const u16, patternlength: i32, result: *mut u16, resultlength: i32, parseerror: *mut UParseError, ap: *mut i8, status: *mut UErrorCode) -> i32;
     }
-    ::core::mem::transmute(u_vformatMessageWithError(locale.into(), ::core::mem::transmute(pattern), patternlength, ::core::mem::transmute(result), resultlength, ::core::mem::transmute(parseerror), ::core::mem::transmute(ap), ::core::mem::transmute(status)))
+    u_vformatMessageWithError(locale.into(), ::core::mem::transmute(pattern), patternlength, ::core::mem::transmute(result), resultlength, ::core::mem::transmute(parseerror), ::core::mem::transmute(ap), ::core::mem::transmute(status))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -18677,7 +18677,7 @@ pub unsafe fn ubidi_countParagraphs(pbidi: *mut UBiDi) -> i32 {
     extern "system" {
         fn ubidi_countParagraphs(pbidi: *mut UBiDi) -> i32;
     }
-    ::core::mem::transmute(ubidi_countParagraphs(::core::mem::transmute(pbidi)))
+    ubidi_countParagraphs(::core::mem::transmute(pbidi))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -18686,7 +18686,7 @@ pub unsafe fn ubidi_countRuns(pbidi: *mut UBiDi, perrorcode: *mut UErrorCode) ->
     extern "system" {
         fn ubidi_countRuns(pbidi: *mut UBiDi, perrorcode: *mut UErrorCode) -> i32;
     }
-    ::core::mem::transmute(ubidi_countRuns(::core::mem::transmute(pbidi), ::core::mem::transmute(perrorcode)))
+    ubidi_countRuns(::core::mem::transmute(pbidi), ::core::mem::transmute(perrorcode))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -18695,7 +18695,7 @@ pub unsafe fn ubidi_getBaseDirection(text: *const u16, length: i32) -> UBiDiDire
     extern "system" {
         fn ubidi_getBaseDirection(text: *const u16, length: i32) -> UBiDiDirection;
     }
-    ::core::mem::transmute(ubidi_getBaseDirection(::core::mem::transmute(text), length))
+    ubidi_getBaseDirection(::core::mem::transmute(text), length)
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -18713,7 +18713,7 @@ pub unsafe fn ubidi_getCustomizedClass(pbidi: *mut UBiDi, c: i32) -> UCharDirect
     extern "system" {
         fn ubidi_getCustomizedClass(pbidi: *mut UBiDi, c: i32) -> UCharDirection;
     }
-    ::core::mem::transmute(ubidi_getCustomizedClass(::core::mem::transmute(pbidi), c))
+    ubidi_getCustomizedClass(::core::mem::transmute(pbidi), c)
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -18722,7 +18722,7 @@ pub unsafe fn ubidi_getDirection(pbidi: *const UBiDi) -> UBiDiDirection {
     extern "system" {
         fn ubidi_getDirection(pbidi: *const UBiDi) -> UBiDiDirection;
     }
-    ::core::mem::transmute(ubidi_getDirection(::core::mem::transmute(pbidi)))
+    ubidi_getDirection(::core::mem::transmute(pbidi))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -18731,7 +18731,7 @@ pub unsafe fn ubidi_getLength(pbidi: *const UBiDi) -> i32 {
     extern "system" {
         fn ubidi_getLength(pbidi: *const UBiDi) -> i32;
     }
-    ::core::mem::transmute(ubidi_getLength(::core::mem::transmute(pbidi)))
+    ubidi_getLength(::core::mem::transmute(pbidi))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -18740,7 +18740,7 @@ pub unsafe fn ubidi_getLevelAt(pbidi: *const UBiDi, charindex: i32) -> u8 {
     extern "system" {
         fn ubidi_getLevelAt(pbidi: *const UBiDi, charindex: i32) -> u8;
     }
-    ::core::mem::transmute(ubidi_getLevelAt(::core::mem::transmute(pbidi), charindex))
+    ubidi_getLevelAt(::core::mem::transmute(pbidi), charindex)
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -18749,7 +18749,7 @@ pub unsafe fn ubidi_getLevels(pbidi: *mut UBiDi, perrorcode: *mut UErrorCode) ->
     extern "system" {
         fn ubidi_getLevels(pbidi: *mut UBiDi, perrorcode: *mut UErrorCode) -> *mut u8;
     }
-    ::core::mem::transmute(ubidi_getLevels(::core::mem::transmute(pbidi), ::core::mem::transmute(perrorcode)))
+    ubidi_getLevels(::core::mem::transmute(pbidi), ::core::mem::transmute(perrorcode))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -18758,7 +18758,7 @@ pub unsafe fn ubidi_getLogicalIndex(pbidi: *mut UBiDi, visualindex: i32, perrorc
     extern "system" {
         fn ubidi_getLogicalIndex(pbidi: *mut UBiDi, visualindex: i32, perrorcode: *mut UErrorCode) -> i32;
     }
-    ::core::mem::transmute(ubidi_getLogicalIndex(::core::mem::transmute(pbidi), visualindex, ::core::mem::transmute(perrorcode)))
+    ubidi_getLogicalIndex(::core::mem::transmute(pbidi), visualindex, ::core::mem::transmute(perrorcode))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -18785,7 +18785,7 @@ pub unsafe fn ubidi_getParaLevel(pbidi: *const UBiDi) -> u8 {
     extern "system" {
         fn ubidi_getParaLevel(pbidi: *const UBiDi) -> u8;
     }
-    ::core::mem::transmute(ubidi_getParaLevel(::core::mem::transmute(pbidi)))
+    ubidi_getParaLevel(::core::mem::transmute(pbidi))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -18794,7 +18794,7 @@ pub unsafe fn ubidi_getParagraph(pbidi: *const UBiDi, charindex: i32, pparastart
     extern "system" {
         fn ubidi_getParagraph(pbidi: *const UBiDi, charindex: i32, pparastart: *mut i32, pparalimit: *mut i32, pparalevel: *mut u8, perrorcode: *mut UErrorCode) -> i32;
     }
-    ::core::mem::transmute(ubidi_getParagraph(::core::mem::transmute(pbidi), charindex, ::core::mem::transmute(pparastart), ::core::mem::transmute(pparalimit), ::core::mem::transmute(pparalevel), ::core::mem::transmute(perrorcode)))
+    ubidi_getParagraph(::core::mem::transmute(pbidi), charindex, ::core::mem::transmute(pparastart), ::core::mem::transmute(pparalimit), ::core::mem::transmute(pparalevel), ::core::mem::transmute(perrorcode))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -18812,7 +18812,7 @@ pub unsafe fn ubidi_getProcessedLength(pbidi: *const UBiDi) -> i32 {
     extern "system" {
         fn ubidi_getProcessedLength(pbidi: *const UBiDi) -> i32;
     }
-    ::core::mem::transmute(ubidi_getProcessedLength(::core::mem::transmute(pbidi)))
+    ubidi_getProcessedLength(::core::mem::transmute(pbidi))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -18821,7 +18821,7 @@ pub unsafe fn ubidi_getReorderingMode(pbidi: *mut UBiDi) -> UBiDiReorderingMode 
     extern "system" {
         fn ubidi_getReorderingMode(pbidi: *mut UBiDi) -> UBiDiReorderingMode;
     }
-    ::core::mem::transmute(ubidi_getReorderingMode(::core::mem::transmute(pbidi)))
+    ubidi_getReorderingMode(::core::mem::transmute(pbidi))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -18830,7 +18830,7 @@ pub unsafe fn ubidi_getReorderingOptions(pbidi: *mut UBiDi) -> u32 {
     extern "system" {
         fn ubidi_getReorderingOptions(pbidi: *mut UBiDi) -> u32;
     }
-    ::core::mem::transmute(ubidi_getReorderingOptions(::core::mem::transmute(pbidi)))
+    ubidi_getReorderingOptions(::core::mem::transmute(pbidi))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -18839,7 +18839,7 @@ pub unsafe fn ubidi_getResultLength(pbidi: *const UBiDi) -> i32 {
     extern "system" {
         fn ubidi_getResultLength(pbidi: *const UBiDi) -> i32;
     }
-    ::core::mem::transmute(ubidi_getResultLength(::core::mem::transmute(pbidi)))
+    ubidi_getResultLength(::core::mem::transmute(pbidi))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -18848,7 +18848,7 @@ pub unsafe fn ubidi_getText(pbidi: *const UBiDi) -> *mut u16 {
     extern "system" {
         fn ubidi_getText(pbidi: *const UBiDi) -> *mut u16;
     }
-    ::core::mem::transmute(ubidi_getText(::core::mem::transmute(pbidi)))
+    ubidi_getText(::core::mem::transmute(pbidi))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -18857,7 +18857,7 @@ pub unsafe fn ubidi_getVisualIndex(pbidi: *mut UBiDi, logicalindex: i32, perrorc
     extern "system" {
         fn ubidi_getVisualIndex(pbidi: *mut UBiDi, logicalindex: i32, perrorcode: *mut UErrorCode) -> i32;
     }
-    ::core::mem::transmute(ubidi_getVisualIndex(::core::mem::transmute(pbidi), logicalindex, ::core::mem::transmute(perrorcode)))
+    ubidi_getVisualIndex(::core::mem::transmute(pbidi), logicalindex, ::core::mem::transmute(perrorcode))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -18875,7 +18875,7 @@ pub unsafe fn ubidi_getVisualRun(pbidi: *mut UBiDi, runindex: i32, plogicalstart
     extern "system" {
         fn ubidi_getVisualRun(pbidi: *mut UBiDi, runindex: i32, plogicalstart: *mut i32, plength: *mut i32) -> UBiDiDirection;
     }
-    ::core::mem::transmute(ubidi_getVisualRun(::core::mem::transmute(pbidi), runindex, ::core::mem::transmute(plogicalstart), ::core::mem::transmute(plength)))
+    ubidi_getVisualRun(::core::mem::transmute(pbidi), runindex, ::core::mem::transmute(plogicalstart), ::core::mem::transmute(plength))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -18893,7 +18893,7 @@ pub unsafe fn ubidi_isInverse(pbidi: *mut UBiDi) -> i8 {
     extern "system" {
         fn ubidi_isInverse(pbidi: *mut UBiDi) -> i8;
     }
-    ::core::mem::transmute(ubidi_isInverse(::core::mem::transmute(pbidi)))
+    ubidi_isInverse(::core::mem::transmute(pbidi))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -18902,7 +18902,7 @@ pub unsafe fn ubidi_isOrderParagraphsLTR(pbidi: *mut UBiDi) -> i8 {
     extern "system" {
         fn ubidi_isOrderParagraphsLTR(pbidi: *mut UBiDi) -> i8;
     }
-    ::core::mem::transmute(ubidi_isOrderParagraphsLTR(::core::mem::transmute(pbidi)))
+    ubidi_isOrderParagraphsLTR(::core::mem::transmute(pbidi))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -18911,7 +18911,7 @@ pub unsafe fn ubidi_open() -> *mut UBiDi {
     extern "system" {
         fn ubidi_open() -> *mut UBiDi;
     }
-    ::core::mem::transmute(ubidi_open())
+    ubidi_open()
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -18920,7 +18920,7 @@ pub unsafe fn ubidi_openSized(maxlength: i32, maxruncount: i32, perrorcode: *mut
     extern "system" {
         fn ubidi_openSized(maxlength: i32, maxruncount: i32, perrorcode: *mut UErrorCode) -> *mut UBiDi;
     }
-    ::core::mem::transmute(ubidi_openSized(maxlength, maxruncount, ::core::mem::transmute(perrorcode)))
+    ubidi_openSized(maxlength, maxruncount, ::core::mem::transmute(perrorcode))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -19019,7 +19019,7 @@ pub unsafe fn ubidi_writeReordered(pbidi: *mut UBiDi, dest: *mut u16, destsize: 
     extern "system" {
         fn ubidi_writeReordered(pbidi: *mut UBiDi, dest: *mut u16, destsize: i32, options: u16, perrorcode: *mut UErrorCode) -> i32;
     }
-    ::core::mem::transmute(ubidi_writeReordered(::core::mem::transmute(pbidi), ::core::mem::transmute(dest), destsize, options, ::core::mem::transmute(perrorcode)))
+    ubidi_writeReordered(::core::mem::transmute(pbidi), ::core::mem::transmute(dest), destsize, options, ::core::mem::transmute(perrorcode))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -19028,7 +19028,7 @@ pub unsafe fn ubidi_writeReverse(src: *const u16, srclength: i32, dest: *mut u16
     extern "system" {
         fn ubidi_writeReverse(src: *const u16, srclength: i32, dest: *mut u16, destsize: i32, options: u16, perrorcode: *mut UErrorCode) -> i32;
     }
-    ::core::mem::transmute(ubidi_writeReverse(::core::mem::transmute(src), srclength, ::core::mem::transmute(dest), destsize, options, ::core::mem::transmute(perrorcode)))
+    ubidi_writeReverse(::core::mem::transmute(src), srclength, ::core::mem::transmute(dest), destsize, options, ::core::mem::transmute(perrorcode))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -19046,7 +19046,7 @@ pub unsafe fn ubiditransform_open(perrorcode: *mut UErrorCode) -> *mut UBiDiTran
     extern "system" {
         fn ubiditransform_open(perrorcode: *mut UErrorCode) -> *mut UBiDiTransform;
     }
-    ::core::mem::transmute(ubiditransform_open(::core::mem::transmute(perrorcode)))
+    ubiditransform_open(::core::mem::transmute(perrorcode))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -19055,7 +19055,7 @@ pub unsafe fn ubiditransform_transform(pbiditransform: *mut UBiDiTransform, src:
     extern "system" {
         fn ubiditransform_transform(pbiditransform: *mut UBiDiTransform, src: *const u16, srclength: i32, dest: *mut u16, destsize: i32, inparalevel: u8, inorder: UBiDiOrder, outparalevel: u8, outorder: UBiDiOrder, domirroring: UBiDiMirroring, shapingoptions: u32, perrorcode: *mut UErrorCode) -> u32;
     }
-    ::core::mem::transmute(ubiditransform_transform(::core::mem::transmute(pbiditransform), ::core::mem::transmute(src), srclength, ::core::mem::transmute(dest), destsize, inparalevel, inorder, outparalevel, outorder, domirroring, shapingoptions, ::core::mem::transmute(perrorcode)))
+    ubiditransform_transform(::core::mem::transmute(pbiditransform), ::core::mem::transmute(src), srclength, ::core::mem::transmute(dest), destsize, inparalevel, inorder, outparalevel, outorder, domirroring, shapingoptions, ::core::mem::transmute(perrorcode))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -19064,7 +19064,7 @@ pub unsafe fn ublock_getCode(c: i32) -> UBlockCode {
     extern "system" {
         fn ublock_getCode(c: i32) -> UBlockCode;
     }
-    ::core::mem::transmute(ublock_getCode(c))
+    ublock_getCode(c)
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -19082,7 +19082,7 @@ pub unsafe fn ubrk_countAvailable() -> i32 {
     extern "system" {
         fn ubrk_countAvailable() -> i32;
     }
-    ::core::mem::transmute(ubrk_countAvailable())
+    ubrk_countAvailable()
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -19091,7 +19091,7 @@ pub unsafe fn ubrk_current(bi: *const UBreakIterator) -> i32 {
     extern "system" {
         fn ubrk_current(bi: *const UBreakIterator) -> i32;
     }
-    ::core::mem::transmute(ubrk_current(::core::mem::transmute(bi)))
+    ubrk_current(::core::mem::transmute(bi))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -19100,7 +19100,7 @@ pub unsafe fn ubrk_first(bi: *mut UBreakIterator) -> i32 {
     extern "system" {
         fn ubrk_first(bi: *mut UBreakIterator) -> i32;
     }
-    ::core::mem::transmute(ubrk_first(::core::mem::transmute(bi)))
+    ubrk_first(::core::mem::transmute(bi))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -19109,7 +19109,7 @@ pub unsafe fn ubrk_following(bi: *mut UBreakIterator, offset: i32) -> i32 {
     extern "system" {
         fn ubrk_following(bi: *mut UBreakIterator, offset: i32) -> i32;
     }
-    ::core::mem::transmute(ubrk_following(::core::mem::transmute(bi), offset))
+    ubrk_following(::core::mem::transmute(bi), offset)
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -19118,7 +19118,7 @@ pub unsafe fn ubrk_getAvailable(index: i32) -> ::windows::core::PSTR {
     extern "system" {
         fn ubrk_getAvailable(index: i32) -> ::windows::core::PSTR;
     }
-    ::core::mem::transmute(ubrk_getAvailable(index))
+    ubrk_getAvailable(index)
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -19127,7 +19127,7 @@ pub unsafe fn ubrk_getBinaryRules(bi: *mut UBreakIterator, binaryrules: *mut u8,
     extern "system" {
         fn ubrk_getBinaryRules(bi: *mut UBreakIterator, binaryrules: *mut u8, rulescapacity: i32, status: *mut UErrorCode) -> i32;
     }
-    ::core::mem::transmute(ubrk_getBinaryRules(::core::mem::transmute(bi), ::core::mem::transmute(binaryrules), rulescapacity, ::core::mem::transmute(status)))
+    ubrk_getBinaryRules(::core::mem::transmute(bi), ::core::mem::transmute(binaryrules), rulescapacity, ::core::mem::transmute(status))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -19136,7 +19136,7 @@ pub unsafe fn ubrk_getLocaleByType(bi: *const UBreakIterator, r#type: ULocDataLo
     extern "system" {
         fn ubrk_getLocaleByType(bi: *const UBreakIterator, r#type: ULocDataLocaleType, status: *mut UErrorCode) -> ::windows::core::PSTR;
     }
-    ::core::mem::transmute(ubrk_getLocaleByType(::core::mem::transmute(bi), r#type, ::core::mem::transmute(status)))
+    ubrk_getLocaleByType(::core::mem::transmute(bi), r#type, ::core::mem::transmute(status))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -19145,7 +19145,7 @@ pub unsafe fn ubrk_getRuleStatus(bi: *mut UBreakIterator) -> i32 {
     extern "system" {
         fn ubrk_getRuleStatus(bi: *mut UBreakIterator) -> i32;
     }
-    ::core::mem::transmute(ubrk_getRuleStatus(::core::mem::transmute(bi)))
+    ubrk_getRuleStatus(::core::mem::transmute(bi))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -19154,7 +19154,7 @@ pub unsafe fn ubrk_getRuleStatusVec(bi: *mut UBreakIterator, fillinvec: *mut i32
     extern "system" {
         fn ubrk_getRuleStatusVec(bi: *mut UBreakIterator, fillinvec: *mut i32, capacity: i32, status: *mut UErrorCode) -> i32;
     }
-    ::core::mem::transmute(ubrk_getRuleStatusVec(::core::mem::transmute(bi), ::core::mem::transmute(fillinvec), capacity, ::core::mem::transmute(status)))
+    ubrk_getRuleStatusVec(::core::mem::transmute(bi), ::core::mem::transmute(fillinvec), capacity, ::core::mem::transmute(status))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -19163,7 +19163,7 @@ pub unsafe fn ubrk_isBoundary(bi: *mut UBreakIterator, offset: i32) -> i8 {
     extern "system" {
         fn ubrk_isBoundary(bi: *mut UBreakIterator, offset: i32) -> i8;
     }
-    ::core::mem::transmute(ubrk_isBoundary(::core::mem::transmute(bi), offset))
+    ubrk_isBoundary(::core::mem::transmute(bi), offset)
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -19172,7 +19172,7 @@ pub unsafe fn ubrk_last(bi: *mut UBreakIterator) -> i32 {
     extern "system" {
         fn ubrk_last(bi: *mut UBreakIterator) -> i32;
     }
-    ::core::mem::transmute(ubrk_last(::core::mem::transmute(bi)))
+    ubrk_last(::core::mem::transmute(bi))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -19181,7 +19181,7 @@ pub unsafe fn ubrk_next(bi: *mut UBreakIterator) -> i32 {
     extern "system" {
         fn ubrk_next(bi: *mut UBreakIterator) -> i32;
     }
-    ::core::mem::transmute(ubrk_next(::core::mem::transmute(bi)))
+    ubrk_next(::core::mem::transmute(bi))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -19193,7 +19193,7 @@ where
     extern "system" {
         fn ubrk_open(r#type: UBreakIteratorType, locale: ::windows::core::PCSTR, text: *const u16, textlength: i32, status: *mut UErrorCode) -> *mut UBreakIterator;
     }
-    ::core::mem::transmute(ubrk_open(r#type, locale.into(), ::core::mem::transmute(text), textlength, ::core::mem::transmute(status)))
+    ubrk_open(r#type, locale.into(), ::core::mem::transmute(text), textlength, ::core::mem::transmute(status))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -19202,7 +19202,7 @@ pub unsafe fn ubrk_openBinaryRules(binaryrules: *const u8, ruleslength: i32, tex
     extern "system" {
         fn ubrk_openBinaryRules(binaryrules: *const u8, ruleslength: i32, text: *const u16, textlength: i32, status: *mut UErrorCode) -> *mut UBreakIterator;
     }
-    ::core::mem::transmute(ubrk_openBinaryRules(::core::mem::transmute(binaryrules), ruleslength, ::core::mem::transmute(text), textlength, ::core::mem::transmute(status)))
+    ubrk_openBinaryRules(::core::mem::transmute(binaryrules), ruleslength, ::core::mem::transmute(text), textlength, ::core::mem::transmute(status))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -19211,7 +19211,7 @@ pub unsafe fn ubrk_openRules(rules: *const u16, ruleslength: i32, text: *const u
     extern "system" {
         fn ubrk_openRules(rules: *const u16, ruleslength: i32, text: *const u16, textlength: i32, parseerr: *mut UParseError, status: *mut UErrorCode) -> *mut UBreakIterator;
     }
-    ::core::mem::transmute(ubrk_openRules(::core::mem::transmute(rules), ruleslength, ::core::mem::transmute(text), textlength, ::core::mem::transmute(parseerr), ::core::mem::transmute(status)))
+    ubrk_openRules(::core::mem::transmute(rules), ruleslength, ::core::mem::transmute(text), textlength, ::core::mem::transmute(parseerr), ::core::mem::transmute(status))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -19220,7 +19220,7 @@ pub unsafe fn ubrk_preceding(bi: *mut UBreakIterator, offset: i32) -> i32 {
     extern "system" {
         fn ubrk_preceding(bi: *mut UBreakIterator, offset: i32) -> i32;
     }
-    ::core::mem::transmute(ubrk_preceding(::core::mem::transmute(bi), offset))
+    ubrk_preceding(::core::mem::transmute(bi), offset)
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -19229,7 +19229,7 @@ pub unsafe fn ubrk_previous(bi: *mut UBreakIterator) -> i32 {
     extern "system" {
         fn ubrk_previous(bi: *mut UBreakIterator) -> i32;
     }
-    ::core::mem::transmute(ubrk_previous(::core::mem::transmute(bi)))
+    ubrk_previous(::core::mem::transmute(bi))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -19247,7 +19247,7 @@ pub unsafe fn ubrk_safeClone(bi: *const UBreakIterator, stackbuffer: *mut ::core
     extern "system" {
         fn ubrk_safeClone(bi: *const UBreakIterator, stackbuffer: *mut ::core::ffi::c_void, pbuffersize: *mut i32, status: *mut UErrorCode) -> *mut UBreakIterator;
     }
-    ::core::mem::transmute(ubrk_safeClone(::core::mem::transmute(bi), ::core::mem::transmute(stackbuffer), ::core::mem::transmute(pbuffersize), ::core::mem::transmute(status)))
+    ubrk_safeClone(::core::mem::transmute(bi), ::core::mem::transmute(stackbuffer), ::core::mem::transmute(pbuffersize), ::core::mem::transmute(status))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -19301,7 +19301,7 @@ pub unsafe fn ucal_clone(cal: *const *const ::core::ffi::c_void, status: *mut UE
     extern "system" {
         fn ucal_clone(cal: *const *const ::core::ffi::c_void, status: *mut UErrorCode) -> *mut *mut ::core::ffi::c_void;
     }
-    ::core::mem::transmute(ucal_clone(::core::mem::transmute(cal), ::core::mem::transmute(status)))
+    ucal_clone(::core::mem::transmute(cal), ::core::mem::transmute(status))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -19319,7 +19319,7 @@ pub unsafe fn ucal_countAvailable() -> i32 {
     extern "system" {
         fn ucal_countAvailable() -> i32;
     }
-    ::core::mem::transmute(ucal_countAvailable())
+    ucal_countAvailable()
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -19328,7 +19328,7 @@ pub unsafe fn ucal_equivalentTo(cal1: *const *const ::core::ffi::c_void, cal2: *
     extern "system" {
         fn ucal_equivalentTo(cal1: *const *const ::core::ffi::c_void, cal2: *const *const ::core::ffi::c_void) -> i8;
     }
-    ::core::mem::transmute(ucal_equivalentTo(::core::mem::transmute(cal1), ::core::mem::transmute(cal2)))
+    ucal_equivalentTo(::core::mem::transmute(cal1), ::core::mem::transmute(cal2))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -19337,7 +19337,7 @@ pub unsafe fn ucal_get(cal: *const *const ::core::ffi::c_void, field: UCalendarD
     extern "system" {
         fn ucal_get(cal: *const *const ::core::ffi::c_void, field: UCalendarDateFields, status: *mut UErrorCode) -> i32;
     }
-    ::core::mem::transmute(ucal_get(::core::mem::transmute(cal), field, ::core::mem::transmute(status)))
+    ucal_get(::core::mem::transmute(cal), field, ::core::mem::transmute(status))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -19346,7 +19346,7 @@ pub unsafe fn ucal_getAttribute(cal: *const *const ::core::ffi::c_void, attr: UC
     extern "system" {
         fn ucal_getAttribute(cal: *const *const ::core::ffi::c_void, attr: UCalendarAttribute) -> i32;
     }
-    ::core::mem::transmute(ucal_getAttribute(::core::mem::transmute(cal), attr))
+    ucal_getAttribute(::core::mem::transmute(cal), attr)
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -19355,7 +19355,7 @@ pub unsafe fn ucal_getAvailable(localeindex: i32) -> ::windows::core::PSTR {
     extern "system" {
         fn ucal_getAvailable(localeindex: i32) -> ::windows::core::PSTR;
     }
-    ::core::mem::transmute(ucal_getAvailable(localeindex))
+    ucal_getAvailable(localeindex)
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -19364,7 +19364,7 @@ pub unsafe fn ucal_getCanonicalTimeZoneID(id: *const u16, len: i32, result: *mut
     extern "system" {
         fn ucal_getCanonicalTimeZoneID(id: *const u16, len: i32, result: *mut u16, resultcapacity: i32, issystemid: *mut i8, status: *mut UErrorCode) -> i32;
     }
-    ::core::mem::transmute(ucal_getCanonicalTimeZoneID(::core::mem::transmute(id), len, ::core::mem::transmute(result), resultcapacity, ::core::mem::transmute(issystemid), ::core::mem::transmute(status)))
+    ucal_getCanonicalTimeZoneID(::core::mem::transmute(id), len, ::core::mem::transmute(result), resultcapacity, ::core::mem::transmute(issystemid), ::core::mem::transmute(status))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -19373,7 +19373,7 @@ pub unsafe fn ucal_getDSTSavings(zoneid: *const u16, ec: *mut UErrorCode) -> i32
     extern "system" {
         fn ucal_getDSTSavings(zoneid: *const u16, ec: *mut UErrorCode) -> i32;
     }
-    ::core::mem::transmute(ucal_getDSTSavings(::core::mem::transmute(zoneid), ::core::mem::transmute(ec)))
+    ucal_getDSTSavings(::core::mem::transmute(zoneid), ::core::mem::transmute(ec))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -19382,7 +19382,7 @@ pub unsafe fn ucal_getDayOfWeekType(cal: *const *const ::core::ffi::c_void, dayo
     extern "system" {
         fn ucal_getDayOfWeekType(cal: *const *const ::core::ffi::c_void, dayofweek: UCalendarDaysOfWeek, status: *mut UErrorCode) -> UCalendarWeekdayType;
     }
-    ::core::mem::transmute(ucal_getDayOfWeekType(::core::mem::transmute(cal), dayofweek, ::core::mem::transmute(status)))
+    ucal_getDayOfWeekType(::core::mem::transmute(cal), dayofweek, ::core::mem::transmute(status))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -19391,7 +19391,7 @@ pub unsafe fn ucal_getDefaultTimeZone(result: *mut u16, resultcapacity: i32, ec:
     extern "system" {
         fn ucal_getDefaultTimeZone(result: *mut u16, resultcapacity: i32, ec: *mut UErrorCode) -> i32;
     }
-    ::core::mem::transmute(ucal_getDefaultTimeZone(::core::mem::transmute(result), resultcapacity, ::core::mem::transmute(ec)))
+    ucal_getDefaultTimeZone(::core::mem::transmute(result), resultcapacity, ::core::mem::transmute(ec))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -19400,7 +19400,7 @@ pub unsafe fn ucal_getFieldDifference(cal: *mut *mut ::core::ffi::c_void, target
     extern "system" {
         fn ucal_getFieldDifference(cal: *mut *mut ::core::ffi::c_void, target: f64, field: UCalendarDateFields, status: *mut UErrorCode) -> i32;
     }
-    ::core::mem::transmute(ucal_getFieldDifference(::core::mem::transmute(cal), target, field, ::core::mem::transmute(status)))
+    ucal_getFieldDifference(::core::mem::transmute(cal), target, field, ::core::mem::transmute(status))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -19409,7 +19409,7 @@ pub unsafe fn ucal_getGregorianChange(cal: *const *const ::core::ffi::c_void, pe
     extern "system" {
         fn ucal_getGregorianChange(cal: *const *const ::core::ffi::c_void, perrorcode: *mut UErrorCode) -> f64;
     }
-    ::core::mem::transmute(ucal_getGregorianChange(::core::mem::transmute(cal), ::core::mem::transmute(perrorcode)))
+    ucal_getGregorianChange(::core::mem::transmute(cal), ::core::mem::transmute(perrorcode))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -19418,7 +19418,7 @@ pub unsafe fn ucal_getHostTimeZone(result: *mut u16, resultcapacity: i32, ec: *m
     extern "system" {
         fn ucal_getHostTimeZone(result: *mut u16, resultcapacity: i32, ec: *mut UErrorCode) -> i32;
     }
-    ::core::mem::transmute(ucal_getHostTimeZone(::core::mem::transmute(result), resultcapacity, ::core::mem::transmute(ec)))
+    ucal_getHostTimeZone(::core::mem::transmute(result), resultcapacity, ::core::mem::transmute(ec))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -19431,7 +19431,7 @@ where
     extern "system" {
         fn ucal_getKeywordValuesForLocale(key: ::windows::core::PCSTR, locale: ::windows::core::PCSTR, commonlyused: i8, status: *mut UErrorCode) -> *mut UEnumeration;
     }
-    ::core::mem::transmute(ucal_getKeywordValuesForLocale(key.into(), locale.into(), commonlyused, ::core::mem::transmute(status)))
+    ucal_getKeywordValuesForLocale(key.into(), locale.into(), commonlyused, ::core::mem::transmute(status))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -19440,7 +19440,7 @@ pub unsafe fn ucal_getLimit(cal: *const *const ::core::ffi::c_void, field: UCale
     extern "system" {
         fn ucal_getLimit(cal: *const *const ::core::ffi::c_void, field: UCalendarDateFields, r#type: UCalendarLimitType, status: *mut UErrorCode) -> i32;
     }
-    ::core::mem::transmute(ucal_getLimit(::core::mem::transmute(cal), field, r#type, ::core::mem::transmute(status)))
+    ucal_getLimit(::core::mem::transmute(cal), field, r#type, ::core::mem::transmute(status))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -19449,7 +19449,7 @@ pub unsafe fn ucal_getLocaleByType(cal: *const *const ::core::ffi::c_void, r#typ
     extern "system" {
         fn ucal_getLocaleByType(cal: *const *const ::core::ffi::c_void, r#type: ULocDataLocaleType, status: *mut UErrorCode) -> ::windows::core::PSTR;
     }
-    ::core::mem::transmute(ucal_getLocaleByType(::core::mem::transmute(cal), r#type, ::core::mem::transmute(status)))
+    ucal_getLocaleByType(::core::mem::transmute(cal), r#type, ::core::mem::transmute(status))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -19458,7 +19458,7 @@ pub unsafe fn ucal_getMillis(cal: *const *const ::core::ffi::c_void, status: *mu
     extern "system" {
         fn ucal_getMillis(cal: *const *const ::core::ffi::c_void, status: *mut UErrorCode) -> f64;
     }
-    ::core::mem::transmute(ucal_getMillis(::core::mem::transmute(cal), ::core::mem::transmute(status)))
+    ucal_getMillis(::core::mem::transmute(cal), ::core::mem::transmute(status))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -19467,7 +19467,7 @@ pub unsafe fn ucal_getNow() -> f64 {
     extern "system" {
         fn ucal_getNow() -> f64;
     }
-    ::core::mem::transmute(ucal_getNow())
+    ucal_getNow()
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -19476,7 +19476,7 @@ pub unsafe fn ucal_getTZDataVersion(status: *mut UErrorCode) -> ::windows::core:
     extern "system" {
         fn ucal_getTZDataVersion(status: *mut UErrorCode) -> ::windows::core::PSTR;
     }
-    ::core::mem::transmute(ucal_getTZDataVersion(::core::mem::transmute(status)))
+    ucal_getTZDataVersion(::core::mem::transmute(status))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -19488,7 +19488,7 @@ where
     extern "system" {
         fn ucal_getTimeZoneDisplayName(cal: *const *const ::core::ffi::c_void, r#type: UCalendarDisplayNameType, locale: ::windows::core::PCSTR, result: *mut u16, resultlength: i32, status: *mut UErrorCode) -> i32;
     }
-    ::core::mem::transmute(ucal_getTimeZoneDisplayName(::core::mem::transmute(cal), r#type, locale.into(), ::core::mem::transmute(result), resultlength, ::core::mem::transmute(status)))
+    ucal_getTimeZoneDisplayName(::core::mem::transmute(cal), r#type, locale.into(), ::core::mem::transmute(result), resultlength, ::core::mem::transmute(status))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -19497,7 +19497,7 @@ pub unsafe fn ucal_getTimeZoneID(cal: *const *const ::core::ffi::c_void, result:
     extern "system" {
         fn ucal_getTimeZoneID(cal: *const *const ::core::ffi::c_void, result: *mut u16, resultlength: i32, status: *mut UErrorCode) -> i32;
     }
-    ::core::mem::transmute(ucal_getTimeZoneID(::core::mem::transmute(cal), ::core::mem::transmute(result), resultlength, ::core::mem::transmute(status)))
+    ucal_getTimeZoneID(::core::mem::transmute(cal), ::core::mem::transmute(result), resultlength, ::core::mem::transmute(status))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -19509,7 +19509,7 @@ where
     extern "system" {
         fn ucal_getTimeZoneIDForWindowsID(winid: *const u16, len: i32, region: ::windows::core::PCSTR, id: *mut u16, idcapacity: i32, status: *mut UErrorCode) -> i32;
     }
-    ::core::mem::transmute(ucal_getTimeZoneIDForWindowsID(::core::mem::transmute(winid), len, region.into(), ::core::mem::transmute(id), idcapacity, ::core::mem::transmute(status)))
+    ucal_getTimeZoneIDForWindowsID(::core::mem::transmute(winid), len, region.into(), ::core::mem::transmute(id), idcapacity, ::core::mem::transmute(status))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -19518,7 +19518,7 @@ pub unsafe fn ucal_getTimeZoneTransitionDate(cal: *const *const ::core::ffi::c_v
     extern "system" {
         fn ucal_getTimeZoneTransitionDate(cal: *const *const ::core::ffi::c_void, r#type: UTimeZoneTransitionType, transition: *mut f64, status: *mut UErrorCode) -> i8;
     }
-    ::core::mem::transmute(ucal_getTimeZoneTransitionDate(::core::mem::transmute(cal), r#type, ::core::mem::transmute(transition), ::core::mem::transmute(status)))
+    ucal_getTimeZoneTransitionDate(::core::mem::transmute(cal), r#type, ::core::mem::transmute(transition), ::core::mem::transmute(status))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -19527,7 +19527,7 @@ pub unsafe fn ucal_getType(cal: *const *const ::core::ffi::c_void, status: *mut 
     extern "system" {
         fn ucal_getType(cal: *const *const ::core::ffi::c_void, status: *mut UErrorCode) -> ::windows::core::PSTR;
     }
-    ::core::mem::transmute(ucal_getType(::core::mem::transmute(cal), ::core::mem::transmute(status)))
+    ucal_getType(::core::mem::transmute(cal), ::core::mem::transmute(status))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -19536,7 +19536,7 @@ pub unsafe fn ucal_getWeekendTransition(cal: *const *const ::core::ffi::c_void, 
     extern "system" {
         fn ucal_getWeekendTransition(cal: *const *const ::core::ffi::c_void, dayofweek: UCalendarDaysOfWeek, status: *mut UErrorCode) -> i32;
     }
-    ::core::mem::transmute(ucal_getWeekendTransition(::core::mem::transmute(cal), dayofweek, ::core::mem::transmute(status)))
+    ucal_getWeekendTransition(::core::mem::transmute(cal), dayofweek, ::core::mem::transmute(status))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -19545,7 +19545,7 @@ pub unsafe fn ucal_getWindowsTimeZoneID(id: *const u16, len: i32, winid: *mut u1
     extern "system" {
         fn ucal_getWindowsTimeZoneID(id: *const u16, len: i32, winid: *mut u16, winidcapacity: i32, status: *mut UErrorCode) -> i32;
     }
-    ::core::mem::transmute(ucal_getWindowsTimeZoneID(::core::mem::transmute(id), len, ::core::mem::transmute(winid), winidcapacity, ::core::mem::transmute(status)))
+    ucal_getWindowsTimeZoneID(::core::mem::transmute(id), len, ::core::mem::transmute(winid), winidcapacity, ::core::mem::transmute(status))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -19554,7 +19554,7 @@ pub unsafe fn ucal_inDaylightTime(cal: *const *const ::core::ffi::c_void, status
     extern "system" {
         fn ucal_inDaylightTime(cal: *const *const ::core::ffi::c_void, status: *mut UErrorCode) -> i8;
     }
-    ::core::mem::transmute(ucal_inDaylightTime(::core::mem::transmute(cal), ::core::mem::transmute(status)))
+    ucal_inDaylightTime(::core::mem::transmute(cal), ::core::mem::transmute(status))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -19563,7 +19563,7 @@ pub unsafe fn ucal_isSet(cal: *const *const ::core::ffi::c_void, field: UCalenda
     extern "system" {
         fn ucal_isSet(cal: *const *const ::core::ffi::c_void, field: UCalendarDateFields) -> i8;
     }
-    ::core::mem::transmute(ucal_isSet(::core::mem::transmute(cal), field))
+    ucal_isSet(::core::mem::transmute(cal), field)
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -19572,7 +19572,7 @@ pub unsafe fn ucal_isWeekend(cal: *const *const ::core::ffi::c_void, date: f64, 
     extern "system" {
         fn ucal_isWeekend(cal: *const *const ::core::ffi::c_void, date: f64, status: *mut UErrorCode) -> i8;
     }
-    ::core::mem::transmute(ucal_isWeekend(::core::mem::transmute(cal), date, ::core::mem::transmute(status)))
+    ucal_isWeekend(::core::mem::transmute(cal), date, ::core::mem::transmute(status))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -19584,7 +19584,7 @@ where
     extern "system" {
         fn ucal_open(zoneid: *const u16, len: i32, locale: ::windows::core::PCSTR, r#type: UCalendarType, status: *mut UErrorCode) -> *mut *mut ::core::ffi::c_void;
     }
-    ::core::mem::transmute(ucal_open(::core::mem::transmute(zoneid), len, locale.into(), r#type, ::core::mem::transmute(status)))
+    ucal_open(::core::mem::transmute(zoneid), len, locale.into(), r#type, ::core::mem::transmute(status))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -19596,7 +19596,7 @@ where
     extern "system" {
         fn ucal_openCountryTimeZones(country: ::windows::core::PCSTR, ec: *mut UErrorCode) -> *mut UEnumeration;
     }
-    ::core::mem::transmute(ucal_openCountryTimeZones(country.into(), ::core::mem::transmute(ec)))
+    ucal_openCountryTimeZones(country.into(), ::core::mem::transmute(ec))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -19608,7 +19608,7 @@ where
     extern "system" {
         fn ucal_openTimeZoneIDEnumeration(zonetype: USystemTimeZoneType, region: ::windows::core::PCSTR, rawoffset: *const i32, ec: *mut UErrorCode) -> *mut UEnumeration;
     }
-    ::core::mem::transmute(ucal_openTimeZoneIDEnumeration(zonetype, region.into(), ::core::mem::transmute(rawoffset), ::core::mem::transmute(ec)))
+    ucal_openTimeZoneIDEnumeration(zonetype, region.into(), ::core::mem::transmute(rawoffset), ::core::mem::transmute(ec))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -19617,7 +19617,7 @@ pub unsafe fn ucal_openTimeZones(ec: *mut UErrorCode) -> *mut UEnumeration {
     extern "system" {
         fn ucal_openTimeZones(ec: *mut UErrorCode) -> *mut UEnumeration;
     }
-    ::core::mem::transmute(ucal_openTimeZones(::core::mem::transmute(ec)))
+    ucal_openTimeZones(::core::mem::transmute(ec))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -19716,7 +19716,7 @@ pub unsafe fn ucasemap_getBreakIterator(csm: *const UCaseMap) -> *mut UBreakIter
     extern "system" {
         fn ucasemap_getBreakIterator(csm: *const UCaseMap) -> *mut UBreakIterator;
     }
-    ::core::mem::transmute(ucasemap_getBreakIterator(::core::mem::transmute(csm)))
+    ucasemap_getBreakIterator(::core::mem::transmute(csm))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -19725,7 +19725,7 @@ pub unsafe fn ucasemap_getLocale(csm: *const UCaseMap) -> ::windows::core::PSTR 
     extern "system" {
         fn ucasemap_getLocale(csm: *const UCaseMap) -> ::windows::core::PSTR;
     }
-    ::core::mem::transmute(ucasemap_getLocale(::core::mem::transmute(csm)))
+    ucasemap_getLocale(::core::mem::transmute(csm))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -19734,7 +19734,7 @@ pub unsafe fn ucasemap_getOptions(csm: *const UCaseMap) -> u32 {
     extern "system" {
         fn ucasemap_getOptions(csm: *const UCaseMap) -> u32;
     }
-    ::core::mem::transmute(ucasemap_getOptions(::core::mem::transmute(csm)))
+    ucasemap_getOptions(::core::mem::transmute(csm))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -19746,7 +19746,7 @@ where
     extern "system" {
         fn ucasemap_open(locale: ::windows::core::PCSTR, options: u32, perrorcode: *mut UErrorCode) -> *mut UCaseMap;
     }
-    ::core::mem::transmute(ucasemap_open(locale.into(), options, ::core::mem::transmute(perrorcode)))
+    ucasemap_open(locale.into(), options, ::core::mem::transmute(perrorcode))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -19785,7 +19785,7 @@ pub unsafe fn ucasemap_toTitle(csm: *mut UCaseMap, dest: *mut u16, destcapacity:
     extern "system" {
         fn ucasemap_toTitle(csm: *mut UCaseMap, dest: *mut u16, destcapacity: i32, src: *const u16, srclength: i32, perrorcode: *mut UErrorCode) -> i32;
     }
-    ::core::mem::transmute(ucasemap_toTitle(::core::mem::transmute(csm), ::core::mem::transmute(dest), destcapacity, ::core::mem::transmute(src), srclength, ::core::mem::transmute(perrorcode)))
+    ucasemap_toTitle(::core::mem::transmute(csm), ::core::mem::transmute(dest), destcapacity, ::core::mem::transmute(src), srclength, ::core::mem::transmute(perrorcode))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -19798,7 +19798,7 @@ where
     extern "system" {
         fn ucasemap_utf8FoldCase(csm: *const UCaseMap, dest: ::windows::core::PCSTR, destcapacity: i32, src: ::windows::core::PCSTR, srclength: i32, perrorcode: *mut UErrorCode) -> i32;
     }
-    ::core::mem::transmute(ucasemap_utf8FoldCase(::core::mem::transmute(csm), dest.into(), destcapacity, src.into(), srclength, ::core::mem::transmute(perrorcode)))
+    ucasemap_utf8FoldCase(::core::mem::transmute(csm), dest.into(), destcapacity, src.into(), srclength, ::core::mem::transmute(perrorcode))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -19811,7 +19811,7 @@ where
     extern "system" {
         fn ucasemap_utf8ToLower(csm: *const UCaseMap, dest: ::windows::core::PCSTR, destcapacity: i32, src: ::windows::core::PCSTR, srclength: i32, perrorcode: *mut UErrorCode) -> i32;
     }
-    ::core::mem::transmute(ucasemap_utf8ToLower(::core::mem::transmute(csm), dest.into(), destcapacity, src.into(), srclength, ::core::mem::transmute(perrorcode)))
+    ucasemap_utf8ToLower(::core::mem::transmute(csm), dest.into(), destcapacity, src.into(), srclength, ::core::mem::transmute(perrorcode))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -19824,7 +19824,7 @@ where
     extern "system" {
         fn ucasemap_utf8ToTitle(csm: *mut UCaseMap, dest: ::windows::core::PCSTR, destcapacity: i32, src: ::windows::core::PCSTR, srclength: i32, perrorcode: *mut UErrorCode) -> i32;
     }
-    ::core::mem::transmute(ucasemap_utf8ToTitle(::core::mem::transmute(csm), dest.into(), destcapacity, src.into(), srclength, ::core::mem::transmute(perrorcode)))
+    ucasemap_utf8ToTitle(::core::mem::transmute(csm), dest.into(), destcapacity, src.into(), srclength, ::core::mem::transmute(perrorcode))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -19837,7 +19837,7 @@ where
     extern "system" {
         fn ucasemap_utf8ToUpper(csm: *const UCaseMap, dest: ::windows::core::PCSTR, destcapacity: i32, src: ::windows::core::PCSTR, srclength: i32, perrorcode: *mut UErrorCode) -> i32;
     }
-    ::core::mem::transmute(ucasemap_utf8ToUpper(::core::mem::transmute(csm), dest.into(), destcapacity, src.into(), srclength, ::core::mem::transmute(perrorcode)))
+    ucasemap_utf8ToUpper(::core::mem::transmute(csm), dest.into(), destcapacity, src.into(), srclength, ::core::mem::transmute(perrorcode))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -19873,7 +19873,7 @@ pub unsafe fn ucfpos_getCategory(ucfpos: *const UConstrainedFieldPosition, ec: *
     extern "system" {
         fn ucfpos_getCategory(ucfpos: *const UConstrainedFieldPosition, ec: *mut UErrorCode) -> i32;
     }
-    ::core::mem::transmute(ucfpos_getCategory(::core::mem::transmute(ucfpos), ::core::mem::transmute(ec)))
+    ucfpos_getCategory(::core::mem::transmute(ucfpos), ::core::mem::transmute(ec))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -19882,7 +19882,7 @@ pub unsafe fn ucfpos_getField(ucfpos: *const UConstrainedFieldPosition, ec: *mut
     extern "system" {
         fn ucfpos_getField(ucfpos: *const UConstrainedFieldPosition, ec: *mut UErrorCode) -> i32;
     }
-    ::core::mem::transmute(ucfpos_getField(::core::mem::transmute(ucfpos), ::core::mem::transmute(ec)))
+    ucfpos_getField(::core::mem::transmute(ucfpos), ::core::mem::transmute(ec))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -19900,7 +19900,7 @@ pub unsafe fn ucfpos_getInt64IterationContext(ucfpos: *const UConstrainedFieldPo
     extern "system" {
         fn ucfpos_getInt64IterationContext(ucfpos: *const UConstrainedFieldPosition, ec: *mut UErrorCode) -> i64;
     }
-    ::core::mem::transmute(ucfpos_getInt64IterationContext(::core::mem::transmute(ucfpos), ::core::mem::transmute(ec)))
+    ucfpos_getInt64IterationContext(::core::mem::transmute(ucfpos), ::core::mem::transmute(ec))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -19909,7 +19909,7 @@ pub unsafe fn ucfpos_matchesField(ucfpos: *const UConstrainedFieldPosition, cate
     extern "system" {
         fn ucfpos_matchesField(ucfpos: *const UConstrainedFieldPosition, category: i32, field: i32, ec: *mut UErrorCode) -> i8;
     }
-    ::core::mem::transmute(ucfpos_matchesField(::core::mem::transmute(ucfpos), category, field, ::core::mem::transmute(ec)))
+    ucfpos_matchesField(::core::mem::transmute(ucfpos), category, field, ::core::mem::transmute(ec))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -19918,7 +19918,7 @@ pub unsafe fn ucfpos_open(ec: *mut UErrorCode) -> *mut UConstrainedFieldPosition
     extern "system" {
         fn ucfpos_open(ec: *mut UErrorCode) -> *mut UConstrainedFieldPosition;
     }
-    ::core::mem::transmute(ucfpos_open(::core::mem::transmute(ec)))
+    ucfpos_open(::core::mem::transmute(ec))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -20015,7 +20015,7 @@ where
     extern "system" {
         fn ucnv_compareNames(name1: ::windows::core::PCSTR, name2: ::windows::core::PCSTR) -> i32;
     }
-    ::core::mem::transmute(ucnv_compareNames(name1.into(), name2.into()))
+    ucnv_compareNames(name1.into(), name2.into())
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -20030,7 +20030,7 @@ where
     extern "system" {
         fn ucnv_convert(toconvertername: ::windows::core::PCSTR, fromconvertername: ::windows::core::PCSTR, target: ::windows::core::PCSTR, targetcapacity: i32, source: ::windows::core::PCSTR, sourcelength: i32, perrorcode: *mut UErrorCode) -> i32;
     }
-    ::core::mem::transmute(ucnv_convert(toconvertername.into(), fromconvertername.into(), target.into(), targetcapacity, source.into(), sourcelength, ::core::mem::transmute(perrorcode)))
+    ucnv_convert(toconvertername.into(), fromconvertername.into(), target.into(), targetcapacity, source.into(), sourcelength, ::core::mem::transmute(perrorcode))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -20055,7 +20055,7 @@ where
     extern "system" {
         fn ucnv_countAliases(alias: ::windows::core::PCSTR, perrorcode: *mut UErrorCode) -> u16;
     }
-    ::core::mem::transmute(ucnv_countAliases(alias.into(), ::core::mem::transmute(perrorcode)))
+    ucnv_countAliases(alias.into(), ::core::mem::transmute(perrorcode))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -20064,7 +20064,7 @@ pub unsafe fn ucnv_countAvailable() -> i32 {
     extern "system" {
         fn ucnv_countAvailable() -> i32;
     }
-    ::core::mem::transmute(ucnv_countAvailable())
+    ucnv_countAvailable()
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -20073,7 +20073,7 @@ pub unsafe fn ucnv_countStandards() -> u16 {
     extern "system" {
         fn ucnv_countStandards() -> u16;
     }
-    ::core::mem::transmute(ucnv_countStandards())
+    ucnv_countStandards()
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -20085,7 +20085,7 @@ where
     extern "system" {
         fn ucnv_detectUnicodeSignature(source: ::windows::core::PCSTR, sourcelength: i32, signaturelength: *mut i32, perrorcode: *mut UErrorCode) -> ::windows::core::PSTR;
     }
-    ::core::mem::transmute(ucnv_detectUnicodeSignature(source.into(), sourcelength, ::core::mem::transmute(signaturelength), ::core::mem::transmute(perrorcode)))
+    ucnv_detectUnicodeSignature(source.into(), sourcelength, ::core::mem::transmute(signaturelength), ::core::mem::transmute(perrorcode))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -20103,7 +20103,7 @@ pub unsafe fn ucnv_flushCache() -> i32 {
     extern "system" {
         fn ucnv_flushCache() -> i32;
     }
-    ::core::mem::transmute(ucnv_flushCache())
+    ucnv_flushCache()
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -20116,7 +20116,7 @@ where
     extern "system" {
         fn ucnv_fromAlgorithmic(cnv: *mut UConverter, algorithmictype: UConverterType, target: ::windows::core::PCSTR, targetcapacity: i32, source: ::windows::core::PCSTR, sourcelength: i32, perrorcode: *mut UErrorCode) -> i32;
     }
-    ::core::mem::transmute(ucnv_fromAlgorithmic(::core::mem::transmute(cnv), algorithmictype, target.into(), targetcapacity, source.into(), sourcelength, ::core::mem::transmute(perrorcode)))
+    ucnv_fromAlgorithmic(::core::mem::transmute(cnv), algorithmictype, target.into(), targetcapacity, source.into(), sourcelength, ::core::mem::transmute(perrorcode))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -20128,7 +20128,7 @@ where
     extern "system" {
         fn ucnv_fromUChars(cnv: *mut UConverter, dest: ::windows::core::PCSTR, destcapacity: i32, src: *const u16, srclength: i32, perrorcode: *mut UErrorCode) -> i32;
     }
-    ::core::mem::transmute(ucnv_fromUChars(::core::mem::transmute(cnv), dest.into(), destcapacity, ::core::mem::transmute(src), srclength, ::core::mem::transmute(perrorcode)))
+    ucnv_fromUChars(::core::mem::transmute(cnv), dest.into(), destcapacity, ::core::mem::transmute(src), srclength, ::core::mem::transmute(perrorcode))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -20137,7 +20137,7 @@ pub unsafe fn ucnv_fromUCountPending(cnv: *const UConverter, status: *mut UError
     extern "system" {
         fn ucnv_fromUCountPending(cnv: *const UConverter, status: *mut UErrorCode) -> i32;
     }
-    ::core::mem::transmute(ucnv_fromUCountPending(::core::mem::transmute(cnv), ::core::mem::transmute(status)))
+    ucnv_fromUCountPending(::core::mem::transmute(cnv), ::core::mem::transmute(status))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -20161,7 +20161,7 @@ where
     extern "system" {
         fn ucnv_getAlias(alias: ::windows::core::PCSTR, n: u16, perrorcode: *mut UErrorCode) -> ::windows::core::PSTR;
     }
-    ::core::mem::transmute(ucnv_getAlias(alias.into(), n, ::core::mem::transmute(perrorcode)))
+    ucnv_getAlias(alias.into(), n, ::core::mem::transmute(perrorcode))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -20182,7 +20182,7 @@ pub unsafe fn ucnv_getAvailableName(n: i32) -> ::windows::core::PSTR {
     extern "system" {
         fn ucnv_getAvailableName(n: i32) -> ::windows::core::PSTR;
     }
-    ::core::mem::transmute(ucnv_getAvailableName(n))
+    ucnv_getAvailableName(n)
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -20191,7 +20191,7 @@ pub unsafe fn ucnv_getCCSID(converter: *const UConverter, err: *mut UErrorCode) 
     extern "system" {
         fn ucnv_getCCSID(converter: *const UConverter, err: *mut UErrorCode) -> i32;
     }
-    ::core::mem::transmute(ucnv_getCCSID(::core::mem::transmute(converter), ::core::mem::transmute(err)))
+    ucnv_getCCSID(::core::mem::transmute(converter), ::core::mem::transmute(err))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -20204,7 +20204,7 @@ where
     extern "system" {
         fn ucnv_getCanonicalName(alias: ::windows::core::PCSTR, standard: ::windows::core::PCSTR, perrorcode: *mut UErrorCode) -> ::windows::core::PSTR;
     }
-    ::core::mem::transmute(ucnv_getCanonicalName(alias.into(), standard.into(), ::core::mem::transmute(perrorcode)))
+    ucnv_getCanonicalName(alias.into(), standard.into(), ::core::mem::transmute(perrorcode))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -20213,7 +20213,7 @@ pub unsafe fn ucnv_getDefaultName() -> ::windows::core::PSTR {
     extern "system" {
         fn ucnv_getDefaultName() -> ::windows::core::PSTR;
     }
-    ::core::mem::transmute(ucnv_getDefaultName())
+    ucnv_getDefaultName()
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -20225,7 +20225,7 @@ where
     extern "system" {
         fn ucnv_getDisplayName(converter: *const UConverter, displaylocale: ::windows::core::PCSTR, displayname: *mut u16, displaynamecapacity: i32, err: *mut UErrorCode) -> i32;
     }
-    ::core::mem::transmute(ucnv_getDisplayName(::core::mem::transmute(converter), displaylocale.into(), ::core::mem::transmute(displayname), displaynamecapacity, ::core::mem::transmute(err)))
+    ucnv_getDisplayName(::core::mem::transmute(converter), displaylocale.into(), ::core::mem::transmute(displayname), displaynamecapacity, ::core::mem::transmute(err))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -20264,7 +20264,7 @@ pub unsafe fn ucnv_getMaxCharSize(converter: *const UConverter) -> i8 {
     extern "system" {
         fn ucnv_getMaxCharSize(converter: *const UConverter) -> i8;
     }
-    ::core::mem::transmute(ucnv_getMaxCharSize(::core::mem::transmute(converter)))
+    ucnv_getMaxCharSize(::core::mem::transmute(converter))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -20273,7 +20273,7 @@ pub unsafe fn ucnv_getMinCharSize(converter: *const UConverter) -> i8 {
     extern "system" {
         fn ucnv_getMinCharSize(converter: *const UConverter) -> i8;
     }
-    ::core::mem::transmute(ucnv_getMinCharSize(::core::mem::transmute(converter)))
+    ucnv_getMinCharSize(::core::mem::transmute(converter))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -20282,7 +20282,7 @@ pub unsafe fn ucnv_getName(converter: *const UConverter, err: *mut UErrorCode) -
     extern "system" {
         fn ucnv_getName(converter: *const UConverter, err: *mut UErrorCode) -> ::windows::core::PSTR;
     }
-    ::core::mem::transmute(ucnv_getName(::core::mem::transmute(converter), ::core::mem::transmute(err)))
+    ucnv_getName(::core::mem::transmute(converter), ::core::mem::transmute(err))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -20294,7 +20294,7 @@ where
     extern "system" {
         fn ucnv_getNextUChar(converter: *mut UConverter, source: *const *const i8, sourcelimit: ::windows::core::PCSTR, err: *mut UErrorCode) -> i32;
     }
-    ::core::mem::transmute(ucnv_getNextUChar(::core::mem::transmute(converter), ::core::mem::transmute(source), sourcelimit.into(), ::core::mem::transmute(err)))
+    ucnv_getNextUChar(::core::mem::transmute(converter), ::core::mem::transmute(source), sourcelimit.into(), ::core::mem::transmute(err))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -20303,7 +20303,7 @@ pub unsafe fn ucnv_getPlatform(converter: *const UConverter, err: *mut UErrorCod
     extern "system" {
         fn ucnv_getPlatform(converter: *const UConverter, err: *mut UErrorCode) -> UConverterPlatform;
     }
-    ::core::mem::transmute(ucnv_getPlatform(::core::mem::transmute(converter), ::core::mem::transmute(err)))
+    ucnv_getPlatform(::core::mem::transmute(converter), ::core::mem::transmute(err))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -20312,7 +20312,7 @@ pub unsafe fn ucnv_getStandard(n: u16, perrorcode: *mut UErrorCode) -> ::windows
     extern "system" {
         fn ucnv_getStandard(n: u16, perrorcode: *mut UErrorCode) -> ::windows::core::PSTR;
     }
-    ::core::mem::transmute(ucnv_getStandard(n, ::core::mem::transmute(perrorcode)))
+    ucnv_getStandard(n, ::core::mem::transmute(perrorcode))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -20325,7 +20325,7 @@ where
     extern "system" {
         fn ucnv_getStandardName(name: ::windows::core::PCSTR, standard: ::windows::core::PCSTR, perrorcode: *mut UErrorCode) -> ::windows::core::PSTR;
     }
-    ::core::mem::transmute(ucnv_getStandardName(name.into(), standard.into(), ::core::mem::transmute(perrorcode)))
+    ucnv_getStandardName(name.into(), standard.into(), ::core::mem::transmute(perrorcode))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -20364,7 +20364,7 @@ pub unsafe fn ucnv_getType(converter: *const UConverter) -> UConverterType {
     extern "system" {
         fn ucnv_getType(converter: *const UConverter) -> UConverterType;
     }
-    ::core::mem::transmute(ucnv_getType(::core::mem::transmute(converter)))
+    ucnv_getType(::core::mem::transmute(converter))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -20382,7 +20382,7 @@ pub unsafe fn ucnv_isAmbiguous(cnv: *const UConverter) -> i8 {
     extern "system" {
         fn ucnv_isAmbiguous(cnv: *const UConverter) -> i8;
     }
-    ::core::mem::transmute(ucnv_isAmbiguous(::core::mem::transmute(cnv)))
+    ucnv_isAmbiguous(::core::mem::transmute(cnv))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -20391,7 +20391,7 @@ pub unsafe fn ucnv_isFixedWidth(cnv: *mut UConverter, status: *mut UErrorCode) -
     extern "system" {
         fn ucnv_isFixedWidth(cnv: *mut UConverter, status: *mut UErrorCode) -> i8;
     }
-    ::core::mem::transmute(ucnv_isFixedWidth(::core::mem::transmute(cnv), ::core::mem::transmute(status)))
+    ucnv_isFixedWidth(::core::mem::transmute(cnv), ::core::mem::transmute(status))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -20403,7 +20403,7 @@ where
     extern "system" {
         fn ucnv_open(convertername: ::windows::core::PCSTR, err: *mut UErrorCode) -> *mut UConverter;
     }
-    ::core::mem::transmute(ucnv_open(convertername.into(), ::core::mem::transmute(err)))
+    ucnv_open(convertername.into(), ::core::mem::transmute(err))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -20412,7 +20412,7 @@ pub unsafe fn ucnv_openAllNames(perrorcode: *mut UErrorCode) -> *mut UEnumeratio
     extern "system" {
         fn ucnv_openAllNames(perrorcode: *mut UErrorCode) -> *mut UEnumeration;
     }
-    ::core::mem::transmute(ucnv_openAllNames(::core::mem::transmute(perrorcode)))
+    ucnv_openAllNames(::core::mem::transmute(perrorcode))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -20421,7 +20421,7 @@ pub unsafe fn ucnv_openCCSID(codepage: i32, platform: UConverterPlatform, err: *
     extern "system" {
         fn ucnv_openCCSID(codepage: i32, platform: UConverterPlatform, err: *mut UErrorCode) -> *mut UConverter;
     }
-    ::core::mem::transmute(ucnv_openCCSID(codepage, platform, ::core::mem::transmute(err)))
+    ucnv_openCCSID(codepage, platform, ::core::mem::transmute(err))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -20434,7 +20434,7 @@ where
     extern "system" {
         fn ucnv_openPackage(packagename: ::windows::core::PCSTR, convertername: ::windows::core::PCSTR, err: *mut UErrorCode) -> *mut UConverter;
     }
-    ::core::mem::transmute(ucnv_openPackage(packagename.into(), convertername.into(), ::core::mem::transmute(err)))
+    ucnv_openPackage(packagename.into(), convertername.into(), ::core::mem::transmute(err))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -20447,7 +20447,7 @@ where
     extern "system" {
         fn ucnv_openStandardNames(convname: ::windows::core::PCSTR, standard: ::windows::core::PCSTR, perrorcode: *mut UErrorCode) -> *mut UEnumeration;
     }
-    ::core::mem::transmute(ucnv_openStandardNames(convname.into(), standard.into(), ::core::mem::transmute(perrorcode)))
+    ucnv_openStandardNames(convname.into(), standard.into(), ::core::mem::transmute(perrorcode))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -20456,7 +20456,7 @@ pub unsafe fn ucnv_openU(name: *const u16, err: *mut UErrorCode) -> *mut UConver
     extern "system" {
         fn ucnv_openU(name: *const u16, err: *mut UErrorCode) -> *mut UConverter;
     }
-    ::core::mem::transmute(ucnv_openU(::core::mem::transmute(name), ::core::mem::transmute(err)))
+    ucnv_openU(::core::mem::transmute(name), ::core::mem::transmute(err))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -20492,7 +20492,7 @@ pub unsafe fn ucnv_safeClone(cnv: *const UConverter, stackbuffer: *mut ::core::f
     extern "system" {
         fn ucnv_safeClone(cnv: *const UConverter, stackbuffer: *mut ::core::ffi::c_void, pbuffersize: *mut i32, status: *mut UErrorCode) -> *mut UConverter;
     }
-    ::core::mem::transmute(ucnv_safeClone(::core::mem::transmute(cnv), ::core::mem::transmute(stackbuffer), ::core::mem::transmute(pbuffersize), ::core::mem::transmute(status)))
+    ucnv_safeClone(::core::mem::transmute(cnv), ::core::mem::transmute(stackbuffer), ::core::mem::transmute(pbuffersize), ::core::mem::transmute(status))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -20565,7 +20565,7 @@ where
     extern "system" {
         fn ucnv_toAlgorithmic(algorithmictype: UConverterType, cnv: *mut UConverter, target: ::windows::core::PCSTR, targetcapacity: i32, source: ::windows::core::PCSTR, sourcelength: i32, perrorcode: *mut UErrorCode) -> i32;
     }
-    ::core::mem::transmute(ucnv_toAlgorithmic(algorithmictype, ::core::mem::transmute(cnv), target.into(), targetcapacity, source.into(), sourcelength, ::core::mem::transmute(perrorcode)))
+    ucnv_toAlgorithmic(algorithmictype, ::core::mem::transmute(cnv), target.into(), targetcapacity, source.into(), sourcelength, ::core::mem::transmute(perrorcode))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -20577,7 +20577,7 @@ where
     extern "system" {
         fn ucnv_toUChars(cnv: *mut UConverter, dest: *mut u16, destcapacity: i32, src: ::windows::core::PCSTR, srclength: i32, perrorcode: *mut UErrorCode) -> i32;
     }
-    ::core::mem::transmute(ucnv_toUChars(::core::mem::transmute(cnv), ::core::mem::transmute(dest), destcapacity, src.into(), srclength, ::core::mem::transmute(perrorcode)))
+    ucnv_toUChars(::core::mem::transmute(cnv), ::core::mem::transmute(dest), destcapacity, src.into(), srclength, ::core::mem::transmute(perrorcode))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -20586,7 +20586,7 @@ pub unsafe fn ucnv_toUCountPending(cnv: *const UConverter, status: *mut UErrorCo
     extern "system" {
         fn ucnv_toUCountPending(cnv: *const UConverter, status: *mut UErrorCode) -> i32;
     }
-    ::core::mem::transmute(ucnv_toUCountPending(::core::mem::transmute(cnv), ::core::mem::transmute(status)))
+    ucnv_toUCountPending(::core::mem::transmute(cnv), ::core::mem::transmute(status))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -20607,7 +20607,7 @@ pub unsafe fn ucnv_usesFallback(cnv: *const UConverter) -> i8 {
     extern "system" {
         fn ucnv_usesFallback(cnv: *const UConverter) -> i8;
     }
-    ::core::mem::transmute(ucnv_usesFallback(::core::mem::transmute(cnv)))
+    ucnv_usesFallback(::core::mem::transmute(cnv))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -20625,7 +20625,7 @@ pub unsafe fn ucnvsel_open(converterlist: *const *const i8, converterlistsize: i
     extern "system" {
         fn ucnvsel_open(converterlist: *const *const i8, converterlistsize: i32, excludedcodepoints: *const USet, whichset: UConverterUnicodeSet, status: *mut UErrorCode) -> *mut UConverterSelector;
     }
-    ::core::mem::transmute(ucnvsel_open(::core::mem::transmute(converterlist), converterlistsize, ::core::mem::transmute(excludedcodepoints), whichset, ::core::mem::transmute(status)))
+    ucnvsel_open(::core::mem::transmute(converterlist), converterlistsize, ::core::mem::transmute(excludedcodepoints), whichset, ::core::mem::transmute(status))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -20634,7 +20634,7 @@ pub unsafe fn ucnvsel_openFromSerialized(buffer: *const ::core::ffi::c_void, len
     extern "system" {
         fn ucnvsel_openFromSerialized(buffer: *const ::core::ffi::c_void, length: i32, status: *mut UErrorCode) -> *mut UConverterSelector;
     }
-    ::core::mem::transmute(ucnvsel_openFromSerialized(::core::mem::transmute(buffer), length, ::core::mem::transmute(status)))
+    ucnvsel_openFromSerialized(::core::mem::transmute(buffer), length, ::core::mem::transmute(status))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -20643,7 +20643,7 @@ pub unsafe fn ucnvsel_selectForString(sel: *const UConverterSelector, s: *const 
     extern "system" {
         fn ucnvsel_selectForString(sel: *const UConverterSelector, s: *const u16, length: i32, status: *mut UErrorCode) -> *mut UEnumeration;
     }
-    ::core::mem::transmute(ucnvsel_selectForString(::core::mem::transmute(sel), ::core::mem::transmute(s), length, ::core::mem::transmute(status)))
+    ucnvsel_selectForString(::core::mem::transmute(sel), ::core::mem::transmute(s), length, ::core::mem::transmute(status))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -20655,7 +20655,7 @@ where
     extern "system" {
         fn ucnvsel_selectForUTF8(sel: *const UConverterSelector, s: ::windows::core::PCSTR, length: i32, status: *mut UErrorCode) -> *mut UEnumeration;
     }
-    ::core::mem::transmute(ucnvsel_selectForUTF8(::core::mem::transmute(sel), s.into(), length, ::core::mem::transmute(status)))
+    ucnvsel_selectForUTF8(::core::mem::transmute(sel), s.into(), length, ::core::mem::transmute(status))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -20664,7 +20664,7 @@ pub unsafe fn ucnvsel_serialize(sel: *const UConverterSelector, buffer: *mut ::c
     extern "system" {
         fn ucnvsel_serialize(sel: *const UConverterSelector, buffer: *mut ::core::ffi::c_void, buffercapacity: i32, status: *mut UErrorCode) -> i32;
     }
-    ::core::mem::transmute(ucnvsel_serialize(::core::mem::transmute(sel), ::core::mem::transmute(buffer), buffercapacity, ::core::mem::transmute(status)))
+    ucnvsel_serialize(::core::mem::transmute(sel), ::core::mem::transmute(buffer), buffercapacity, ::core::mem::transmute(status))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -20673,7 +20673,7 @@ pub unsafe fn ucol_cloneBinary(coll: *const UCollator, buffer: *mut u8, capacity
     extern "system" {
         fn ucol_cloneBinary(coll: *const UCollator, buffer: *mut u8, capacity: i32, status: *mut UErrorCode) -> i32;
     }
-    ::core::mem::transmute(ucol_cloneBinary(::core::mem::transmute(coll), ::core::mem::transmute(buffer), capacity, ::core::mem::transmute(status)))
+    ucol_cloneBinary(::core::mem::transmute(coll), ::core::mem::transmute(buffer), capacity, ::core::mem::transmute(status))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -20700,7 +20700,7 @@ pub unsafe fn ucol_countAvailable() -> i32 {
     extern "system" {
         fn ucol_countAvailable() -> i32;
     }
-    ::core::mem::transmute(ucol_countAvailable())
+    ucol_countAvailable()
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -20709,7 +20709,7 @@ pub unsafe fn ucol_equal(coll: *const UCollator, source: *const u16, sourcelengt
     extern "system" {
         fn ucol_equal(coll: *const UCollator, source: *const u16, sourcelength: i32, target: *const u16, targetlength: i32) -> i8;
     }
-    ::core::mem::transmute(ucol_equal(::core::mem::transmute(coll), ::core::mem::transmute(source), sourcelength, ::core::mem::transmute(target), targetlength))
+    ucol_equal(::core::mem::transmute(coll), ::core::mem::transmute(source), sourcelength, ::core::mem::transmute(target), targetlength)
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -20718,7 +20718,7 @@ pub unsafe fn ucol_getAttribute(coll: *const UCollator, attr: UColAttribute, sta
     extern "system" {
         fn ucol_getAttribute(coll: *const UCollator, attr: UColAttribute, status: *mut UErrorCode) -> UColAttributeValue;
     }
-    ::core::mem::transmute(ucol_getAttribute(::core::mem::transmute(coll), attr, ::core::mem::transmute(status)))
+    ucol_getAttribute(::core::mem::transmute(coll), attr, ::core::mem::transmute(status))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -20727,7 +20727,7 @@ pub unsafe fn ucol_getAvailable(localeindex: i32) -> ::windows::core::PSTR {
     extern "system" {
         fn ucol_getAvailable(localeindex: i32) -> ::windows::core::PSTR;
     }
-    ::core::mem::transmute(ucol_getAvailable(localeindex))
+    ucol_getAvailable(localeindex)
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -20736,7 +20736,7 @@ pub unsafe fn ucol_getBound(source: *const u8, sourcelength: i32, boundtype: UCo
     extern "system" {
         fn ucol_getBound(source: *const u8, sourcelength: i32, boundtype: UColBoundMode, nooflevels: u32, result: *mut u8, resultlength: i32, status: *mut UErrorCode) -> i32;
     }
-    ::core::mem::transmute(ucol_getBound(::core::mem::transmute(source), sourcelength, boundtype, nooflevels, ::core::mem::transmute(result), resultlength, ::core::mem::transmute(status)))
+    ucol_getBound(::core::mem::transmute(source), sourcelength, boundtype, nooflevels, ::core::mem::transmute(result), resultlength, ::core::mem::transmute(status))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -20758,7 +20758,7 @@ where
     extern "system" {
         fn ucol_getDisplayName(objloc: ::windows::core::PCSTR, disploc: ::windows::core::PCSTR, result: *mut u16, resultlength: i32, status: *mut UErrorCode) -> i32;
     }
-    ::core::mem::transmute(ucol_getDisplayName(objloc.into(), disploc.into(), ::core::mem::transmute(result), resultlength, ::core::mem::transmute(status)))
+    ucol_getDisplayName(objloc.into(), disploc.into(), ::core::mem::transmute(result), resultlength, ::core::mem::transmute(status))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -20767,7 +20767,7 @@ pub unsafe fn ucol_getEquivalentReorderCodes(reordercode: i32, dest: *mut i32, d
     extern "system" {
         fn ucol_getEquivalentReorderCodes(reordercode: i32, dest: *mut i32, destcapacity: i32, perrorcode: *mut UErrorCode) -> i32;
     }
-    ::core::mem::transmute(ucol_getEquivalentReorderCodes(reordercode, ::core::mem::transmute(dest), destcapacity, ::core::mem::transmute(perrorcode)))
+    ucol_getEquivalentReorderCodes(reordercode, ::core::mem::transmute(dest), destcapacity, ::core::mem::transmute(perrorcode))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -20781,7 +20781,7 @@ where
     extern "system" {
         fn ucol_getFunctionalEquivalent(result: ::windows::core::PCSTR, resultcapacity: i32, keyword: ::windows::core::PCSTR, locale: ::windows::core::PCSTR, isavailable: *mut i8, status: *mut UErrorCode) -> i32;
     }
-    ::core::mem::transmute(ucol_getFunctionalEquivalent(result.into(), resultcapacity, keyword.into(), locale.into(), ::core::mem::transmute(isavailable), ::core::mem::transmute(status)))
+    ucol_getFunctionalEquivalent(result.into(), resultcapacity, keyword.into(), locale.into(), ::core::mem::transmute(isavailable), ::core::mem::transmute(status))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -20793,7 +20793,7 @@ where
     extern "system" {
         fn ucol_getKeywordValues(keyword: ::windows::core::PCSTR, status: *mut UErrorCode) -> *mut UEnumeration;
     }
-    ::core::mem::transmute(ucol_getKeywordValues(keyword.into(), ::core::mem::transmute(status)))
+    ucol_getKeywordValues(keyword.into(), ::core::mem::transmute(status))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -20806,7 +20806,7 @@ where
     extern "system" {
         fn ucol_getKeywordValuesForLocale(key: ::windows::core::PCSTR, locale: ::windows::core::PCSTR, commonlyused: i8, status: *mut UErrorCode) -> *mut UEnumeration;
     }
-    ::core::mem::transmute(ucol_getKeywordValuesForLocale(key.into(), locale.into(), commonlyused, ::core::mem::transmute(status)))
+    ucol_getKeywordValuesForLocale(key.into(), locale.into(), commonlyused, ::core::mem::transmute(status))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -20815,7 +20815,7 @@ pub unsafe fn ucol_getKeywords(status: *mut UErrorCode) -> *mut UEnumeration {
     extern "system" {
         fn ucol_getKeywords(status: *mut UErrorCode) -> *mut UEnumeration;
     }
-    ::core::mem::transmute(ucol_getKeywords(::core::mem::transmute(status)))
+    ucol_getKeywords(::core::mem::transmute(status))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -20824,7 +20824,7 @@ pub unsafe fn ucol_getLocaleByType(coll: *const UCollator, r#type: ULocDataLocal
     extern "system" {
         fn ucol_getLocaleByType(coll: *const UCollator, r#type: ULocDataLocaleType, status: *mut UErrorCode) -> ::windows::core::PSTR;
     }
-    ::core::mem::transmute(ucol_getLocaleByType(::core::mem::transmute(coll), r#type, ::core::mem::transmute(status)))
+    ucol_getLocaleByType(::core::mem::transmute(coll), r#type, ::core::mem::transmute(status))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -20833,7 +20833,7 @@ pub unsafe fn ucol_getMaxExpansion(elems: *const UCollationElements, order: i32)
     extern "system" {
         fn ucol_getMaxExpansion(elems: *const UCollationElements, order: i32) -> i32;
     }
-    ::core::mem::transmute(ucol_getMaxExpansion(::core::mem::transmute(elems), order))
+    ucol_getMaxExpansion(::core::mem::transmute(elems), order)
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -20842,7 +20842,7 @@ pub unsafe fn ucol_getMaxVariable(coll: *const UCollator) -> UColReorderCode {
     extern "system" {
         fn ucol_getMaxVariable(coll: *const UCollator) -> UColReorderCode;
     }
-    ::core::mem::transmute(ucol_getMaxVariable(::core::mem::transmute(coll)))
+    ucol_getMaxVariable(::core::mem::transmute(coll))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -20851,7 +20851,7 @@ pub unsafe fn ucol_getOffset(elems: *const UCollationElements) -> i32 {
     extern "system" {
         fn ucol_getOffset(elems: *const UCollationElements) -> i32;
     }
-    ::core::mem::transmute(ucol_getOffset(::core::mem::transmute(elems)))
+    ucol_getOffset(::core::mem::transmute(elems))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -20860,7 +20860,7 @@ pub unsafe fn ucol_getReorderCodes(coll: *const UCollator, dest: *mut i32, destc
     extern "system" {
         fn ucol_getReorderCodes(coll: *const UCollator, dest: *mut i32, destcapacity: i32, perrorcode: *mut UErrorCode) -> i32;
     }
-    ::core::mem::transmute(ucol_getReorderCodes(::core::mem::transmute(coll), ::core::mem::transmute(dest), destcapacity, ::core::mem::transmute(perrorcode)))
+    ucol_getReorderCodes(::core::mem::transmute(coll), ::core::mem::transmute(dest), destcapacity, ::core::mem::transmute(perrorcode))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -20869,7 +20869,7 @@ pub unsafe fn ucol_getRules(coll: *const UCollator, length: *mut i32) -> *mut u1
     extern "system" {
         fn ucol_getRules(coll: *const UCollator, length: *mut i32) -> *mut u16;
     }
-    ::core::mem::transmute(ucol_getRules(::core::mem::transmute(coll), ::core::mem::transmute(length)))
+    ucol_getRules(::core::mem::transmute(coll), ::core::mem::transmute(length))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -20878,7 +20878,7 @@ pub unsafe fn ucol_getRulesEx(coll: *const UCollator, delta: UColRuleOption, buf
     extern "system" {
         fn ucol_getRulesEx(coll: *const UCollator, delta: UColRuleOption, buffer: *mut u16, bufferlen: i32) -> i32;
     }
-    ::core::mem::transmute(ucol_getRulesEx(::core::mem::transmute(coll), delta, ::core::mem::transmute(buffer), bufferlen))
+    ucol_getRulesEx(::core::mem::transmute(coll), delta, ::core::mem::transmute(buffer), bufferlen)
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -20887,7 +20887,7 @@ pub unsafe fn ucol_getSortKey(coll: *const UCollator, source: *const u16, source
     extern "system" {
         fn ucol_getSortKey(coll: *const UCollator, source: *const u16, sourcelength: i32, result: *mut u8, resultlength: i32) -> i32;
     }
-    ::core::mem::transmute(ucol_getSortKey(::core::mem::transmute(coll), ::core::mem::transmute(source), sourcelength, ::core::mem::transmute(result), resultlength))
+    ucol_getSortKey(::core::mem::transmute(coll), ::core::mem::transmute(source), sourcelength, ::core::mem::transmute(result), resultlength)
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -20896,7 +20896,7 @@ pub unsafe fn ucol_getStrength(coll: *const UCollator) -> UColAttributeValue {
     extern "system" {
         fn ucol_getStrength(coll: *const UCollator) -> UColAttributeValue;
     }
-    ::core::mem::transmute(ucol_getStrength(::core::mem::transmute(coll)))
+    ucol_getStrength(::core::mem::transmute(coll))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -20905,7 +20905,7 @@ pub unsafe fn ucol_getTailoredSet(coll: *const UCollator, status: *mut UErrorCod
     extern "system" {
         fn ucol_getTailoredSet(coll: *const UCollator, status: *mut UErrorCode) -> *mut USet;
     }
-    ::core::mem::transmute(ucol_getTailoredSet(::core::mem::transmute(coll), ::core::mem::transmute(status)))
+    ucol_getTailoredSet(::core::mem::transmute(coll), ::core::mem::transmute(status))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -20923,7 +20923,7 @@ pub unsafe fn ucol_getVariableTop(coll: *const UCollator, status: *mut UErrorCod
     extern "system" {
         fn ucol_getVariableTop(coll: *const UCollator, status: *mut UErrorCode) -> u32;
     }
-    ::core::mem::transmute(ucol_getVariableTop(::core::mem::transmute(coll), ::core::mem::transmute(status)))
+    ucol_getVariableTop(::core::mem::transmute(coll), ::core::mem::transmute(status))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -20941,7 +20941,7 @@ pub unsafe fn ucol_greater(coll: *const UCollator, source: *const u16, sourcelen
     extern "system" {
         fn ucol_greater(coll: *const UCollator, source: *const u16, sourcelength: i32, target: *const u16, targetlength: i32) -> i8;
     }
-    ::core::mem::transmute(ucol_greater(::core::mem::transmute(coll), ::core::mem::transmute(source), sourcelength, ::core::mem::transmute(target), targetlength))
+    ucol_greater(::core::mem::transmute(coll), ::core::mem::transmute(source), sourcelength, ::core::mem::transmute(target), targetlength)
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -20950,7 +20950,7 @@ pub unsafe fn ucol_greaterOrEqual(coll: *const UCollator, source: *const u16, so
     extern "system" {
         fn ucol_greaterOrEqual(coll: *const UCollator, source: *const u16, sourcelength: i32, target: *const u16, targetlength: i32) -> i8;
     }
-    ::core::mem::transmute(ucol_greaterOrEqual(::core::mem::transmute(coll), ::core::mem::transmute(source), sourcelength, ::core::mem::transmute(target), targetlength))
+    ucol_greaterOrEqual(::core::mem::transmute(coll), ::core::mem::transmute(source), sourcelength, ::core::mem::transmute(target), targetlength)
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -20959,7 +20959,7 @@ pub unsafe fn ucol_keyHashCode(key: *const u8, length: i32) -> i32 {
     extern "system" {
         fn ucol_keyHashCode(key: *const u8, length: i32) -> i32;
     }
-    ::core::mem::transmute(ucol_keyHashCode(::core::mem::transmute(key), length))
+    ucol_keyHashCode(::core::mem::transmute(key), length)
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -20968,7 +20968,7 @@ pub unsafe fn ucol_mergeSortkeys(src1: *const u8, src1length: i32, src2: *const 
     extern "system" {
         fn ucol_mergeSortkeys(src1: *const u8, src1length: i32, src2: *const u8, src2length: i32, dest: *mut u8, destcapacity: i32) -> i32;
     }
-    ::core::mem::transmute(ucol_mergeSortkeys(::core::mem::transmute(src1), src1length, ::core::mem::transmute(src2), src2length, ::core::mem::transmute(dest), destcapacity))
+    ucol_mergeSortkeys(::core::mem::transmute(src1), src1length, ::core::mem::transmute(src2), src2length, ::core::mem::transmute(dest), destcapacity)
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -20977,7 +20977,7 @@ pub unsafe fn ucol_next(elems: *mut UCollationElements, status: *mut UErrorCode)
     extern "system" {
         fn ucol_next(elems: *mut UCollationElements, status: *mut UErrorCode) -> i32;
     }
-    ::core::mem::transmute(ucol_next(::core::mem::transmute(elems), ::core::mem::transmute(status)))
+    ucol_next(::core::mem::transmute(elems), ::core::mem::transmute(status))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -20986,7 +20986,7 @@ pub unsafe fn ucol_nextSortKeyPart(coll: *const UCollator, iter: *mut UCharItera
     extern "system" {
         fn ucol_nextSortKeyPart(coll: *const UCollator, iter: *mut UCharIterator, state: *mut u32, dest: *mut u8, count: i32, status: *mut UErrorCode) -> i32;
     }
-    ::core::mem::transmute(ucol_nextSortKeyPart(::core::mem::transmute(coll), ::core::mem::transmute(iter), ::core::mem::transmute(state), ::core::mem::transmute(dest), count, ::core::mem::transmute(status)))
+    ucol_nextSortKeyPart(::core::mem::transmute(coll), ::core::mem::transmute(iter), ::core::mem::transmute(state), ::core::mem::transmute(dest), count, ::core::mem::transmute(status))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -20998,7 +20998,7 @@ where
     extern "system" {
         fn ucol_open(loc: ::windows::core::PCSTR, status: *mut UErrorCode) -> *mut UCollator;
     }
-    ::core::mem::transmute(ucol_open(loc.into(), ::core::mem::transmute(status)))
+    ucol_open(loc.into(), ::core::mem::transmute(status))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -21007,7 +21007,7 @@ pub unsafe fn ucol_openAvailableLocales(status: *mut UErrorCode) -> *mut UEnumer
     extern "system" {
         fn ucol_openAvailableLocales(status: *mut UErrorCode) -> *mut UEnumeration;
     }
-    ::core::mem::transmute(ucol_openAvailableLocales(::core::mem::transmute(status)))
+    ucol_openAvailableLocales(::core::mem::transmute(status))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -21016,7 +21016,7 @@ pub unsafe fn ucol_openBinary(bin: *const u8, length: i32, base: *const UCollato
     extern "system" {
         fn ucol_openBinary(bin: *const u8, length: i32, base: *const UCollator, status: *mut UErrorCode) -> *mut UCollator;
     }
-    ::core::mem::transmute(ucol_openBinary(::core::mem::transmute(bin), length, ::core::mem::transmute(base), ::core::mem::transmute(status)))
+    ucol_openBinary(::core::mem::transmute(bin), length, ::core::mem::transmute(base), ::core::mem::transmute(status))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -21025,7 +21025,7 @@ pub unsafe fn ucol_openElements(coll: *const UCollator, text: *const u16, textle
     extern "system" {
         fn ucol_openElements(coll: *const UCollator, text: *const u16, textlength: i32, status: *mut UErrorCode) -> *mut UCollationElements;
     }
-    ::core::mem::transmute(ucol_openElements(::core::mem::transmute(coll), ::core::mem::transmute(text), textlength, ::core::mem::transmute(status)))
+    ucol_openElements(::core::mem::transmute(coll), ::core::mem::transmute(text), textlength, ::core::mem::transmute(status))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -21034,7 +21034,7 @@ pub unsafe fn ucol_openRules(rules: *const u16, ruleslength: i32, normalizationm
     extern "system" {
         fn ucol_openRules(rules: *const u16, ruleslength: i32, normalizationmode: UColAttributeValue, strength: UColAttributeValue, parseerror: *mut UParseError, status: *mut UErrorCode) -> *mut UCollator;
     }
-    ::core::mem::transmute(ucol_openRules(::core::mem::transmute(rules), ruleslength, normalizationmode, strength, ::core::mem::transmute(parseerror), ::core::mem::transmute(status)))
+    ucol_openRules(::core::mem::transmute(rules), ruleslength, normalizationmode, strength, ::core::mem::transmute(parseerror), ::core::mem::transmute(status))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -21043,7 +21043,7 @@ pub unsafe fn ucol_previous(elems: *mut UCollationElements, status: *mut UErrorC
     extern "system" {
         fn ucol_previous(elems: *mut UCollationElements, status: *mut UErrorCode) -> i32;
     }
-    ::core::mem::transmute(ucol_previous(::core::mem::transmute(elems), ::core::mem::transmute(status)))
+    ucol_previous(::core::mem::transmute(elems), ::core::mem::transmute(status))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -21052,7 +21052,7 @@ pub unsafe fn ucol_primaryOrder(order: i32) -> i32 {
     extern "system" {
         fn ucol_primaryOrder(order: i32) -> i32;
     }
-    ::core::mem::transmute(ucol_primaryOrder(order))
+    ucol_primaryOrder(order)
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -21070,7 +21070,7 @@ pub unsafe fn ucol_safeClone(coll: *const UCollator, stackbuffer: *mut ::core::f
     extern "system" {
         fn ucol_safeClone(coll: *const UCollator, stackbuffer: *mut ::core::ffi::c_void, pbuffersize: *mut i32, status: *mut UErrorCode) -> *mut UCollator;
     }
-    ::core::mem::transmute(ucol_safeClone(::core::mem::transmute(coll), ::core::mem::transmute(stackbuffer), ::core::mem::transmute(pbuffersize), ::core::mem::transmute(status)))
+    ucol_safeClone(::core::mem::transmute(coll), ::core::mem::transmute(stackbuffer), ::core::mem::transmute(pbuffersize), ::core::mem::transmute(status))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -21079,7 +21079,7 @@ pub unsafe fn ucol_secondaryOrder(order: i32) -> i32 {
     extern "system" {
         fn ucol_secondaryOrder(order: i32) -> i32;
     }
-    ::core::mem::transmute(ucol_secondaryOrder(order))
+    ucol_secondaryOrder(order)
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -21142,7 +21142,7 @@ pub unsafe fn ucol_strcoll(coll: *const UCollator, source: *const u16, sourcelen
     extern "system" {
         fn ucol_strcoll(coll: *const UCollator, source: *const u16, sourcelength: i32, target: *const u16, targetlength: i32) -> UCollationResult;
     }
-    ::core::mem::transmute(ucol_strcoll(::core::mem::transmute(coll), ::core::mem::transmute(source), sourcelength, ::core::mem::transmute(target), targetlength))
+    ucol_strcoll(::core::mem::transmute(coll), ::core::mem::transmute(source), sourcelength, ::core::mem::transmute(target), targetlength)
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -21151,7 +21151,7 @@ pub unsafe fn ucol_strcollIter(coll: *const UCollator, siter: *mut UCharIterator
     extern "system" {
         fn ucol_strcollIter(coll: *const UCollator, siter: *mut UCharIterator, titer: *mut UCharIterator, status: *mut UErrorCode) -> UCollationResult;
     }
-    ::core::mem::transmute(ucol_strcollIter(::core::mem::transmute(coll), ::core::mem::transmute(siter), ::core::mem::transmute(titer), ::core::mem::transmute(status)))
+    ucol_strcollIter(::core::mem::transmute(coll), ::core::mem::transmute(siter), ::core::mem::transmute(titer), ::core::mem::transmute(status))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -21164,7 +21164,7 @@ where
     extern "system" {
         fn ucol_strcollUTF8(coll: *const UCollator, source: ::windows::core::PCSTR, sourcelength: i32, target: ::windows::core::PCSTR, targetlength: i32, status: *mut UErrorCode) -> UCollationResult;
     }
-    ::core::mem::transmute(ucol_strcollUTF8(::core::mem::transmute(coll), source.into(), sourcelength, target.into(), targetlength, ::core::mem::transmute(status)))
+    ucol_strcollUTF8(::core::mem::transmute(coll), source.into(), sourcelength, target.into(), targetlength, ::core::mem::transmute(status))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -21173,7 +21173,7 @@ pub unsafe fn ucol_tertiaryOrder(order: i32) -> i32 {
     extern "system" {
         fn ucol_tertiaryOrder(order: i32) -> i32;
     }
-    ::core::mem::transmute(ucol_tertiaryOrder(order))
+    ucol_tertiaryOrder(order)
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -21182,7 +21182,7 @@ pub unsafe fn ucpmap_get(map: *const UCPMap, c: i32) -> u32 {
     extern "system" {
         fn ucpmap_get(map: *const UCPMap, c: i32) -> u32;
     }
-    ::core::mem::transmute(ucpmap_get(::core::mem::transmute(map), c))
+    ucpmap_get(::core::mem::transmute(map), c)
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -21191,7 +21191,7 @@ pub unsafe fn ucpmap_getRange(map: *const UCPMap, start: i32, option: UCPMapRang
     extern "system" {
         fn ucpmap_getRange(map: *const UCPMap, start: i32, option: UCPMapRangeOption, surrogatevalue: u32, filter: *mut *mut ::core::ffi::c_void, context: *const ::core::ffi::c_void, pvalue: *mut u32) -> i32;
     }
-    ::core::mem::transmute(ucpmap_getRange(::core::mem::transmute(map), start, option, surrogatevalue, ::core::mem::transmute(filter), ::core::mem::transmute(context), ::core::mem::transmute(pvalue)))
+    ucpmap_getRange(::core::mem::transmute(map), start, option, surrogatevalue, ::core::mem::transmute(filter), ::core::mem::transmute(context), ::core::mem::transmute(pvalue))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -21209,7 +21209,7 @@ pub unsafe fn ucptrie_get(trie: *const UCPTrie, c: i32) -> u32 {
     extern "system" {
         fn ucptrie_get(trie: *const UCPTrie, c: i32) -> u32;
     }
-    ::core::mem::transmute(ucptrie_get(::core::mem::transmute(trie), c))
+    ucptrie_get(::core::mem::transmute(trie), c)
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -21218,7 +21218,7 @@ pub unsafe fn ucptrie_getRange(trie: *const UCPTrie, start: i32, option: UCPMapR
     extern "system" {
         fn ucptrie_getRange(trie: *const UCPTrie, start: i32, option: UCPMapRangeOption, surrogatevalue: u32, filter: *mut *mut ::core::ffi::c_void, context: *const ::core::ffi::c_void, pvalue: *mut u32) -> i32;
     }
-    ::core::mem::transmute(ucptrie_getRange(::core::mem::transmute(trie), start, option, surrogatevalue, ::core::mem::transmute(filter), ::core::mem::transmute(context), ::core::mem::transmute(pvalue)))
+    ucptrie_getRange(::core::mem::transmute(trie), start, option, surrogatevalue, ::core::mem::transmute(filter), ::core::mem::transmute(context), ::core::mem::transmute(pvalue))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -21227,7 +21227,7 @@ pub unsafe fn ucptrie_getType(trie: *const UCPTrie) -> UCPTrieType {
     extern "system" {
         fn ucptrie_getType(trie: *const UCPTrie) -> UCPTrieType;
     }
-    ::core::mem::transmute(ucptrie_getType(::core::mem::transmute(trie)))
+    ucptrie_getType(::core::mem::transmute(trie))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -21236,7 +21236,7 @@ pub unsafe fn ucptrie_getValueWidth(trie: *const UCPTrie) -> UCPTrieValueWidth {
     extern "system" {
         fn ucptrie_getValueWidth(trie: *const UCPTrie) -> UCPTrieValueWidth;
     }
-    ::core::mem::transmute(ucptrie_getValueWidth(::core::mem::transmute(trie)))
+    ucptrie_getValueWidth(::core::mem::transmute(trie))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -21245,7 +21245,7 @@ pub unsafe fn ucptrie_internalSmallIndex(trie: *const UCPTrie, c: i32) -> i32 {
     extern "system" {
         fn ucptrie_internalSmallIndex(trie: *const UCPTrie, c: i32) -> i32;
     }
-    ::core::mem::transmute(ucptrie_internalSmallIndex(::core::mem::transmute(trie), c))
+    ucptrie_internalSmallIndex(::core::mem::transmute(trie), c)
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -21254,7 +21254,7 @@ pub unsafe fn ucptrie_internalSmallU8Index(trie: *const UCPTrie, lt1: i32, t2: u
     extern "system" {
         fn ucptrie_internalSmallU8Index(trie: *const UCPTrie, lt1: i32, t2: u8, t3: u8) -> i32;
     }
-    ::core::mem::transmute(ucptrie_internalSmallU8Index(::core::mem::transmute(trie), lt1, t2, t3))
+    ucptrie_internalSmallU8Index(::core::mem::transmute(trie), lt1, t2, t3)
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -21263,7 +21263,7 @@ pub unsafe fn ucptrie_internalU8PrevIndex(trie: *const UCPTrie, c: i32, start: *
     extern "system" {
         fn ucptrie_internalU8PrevIndex(trie: *const UCPTrie, c: i32, start: *const u8, src: *const u8) -> i32;
     }
-    ::core::mem::transmute(ucptrie_internalU8PrevIndex(::core::mem::transmute(trie), c, ::core::mem::transmute(start), ::core::mem::transmute(src)))
+    ucptrie_internalU8PrevIndex(::core::mem::transmute(trie), c, ::core::mem::transmute(start), ::core::mem::transmute(src))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -21272,7 +21272,7 @@ pub unsafe fn ucptrie_openFromBinary(r#type: UCPTrieType, valuewidth: UCPTrieVal
     extern "system" {
         fn ucptrie_openFromBinary(r#type: UCPTrieType, valuewidth: UCPTrieValueWidth, data: *const ::core::ffi::c_void, length: i32, pactuallength: *mut i32, perrorcode: *mut UErrorCode) -> *mut UCPTrie;
     }
-    ::core::mem::transmute(ucptrie_openFromBinary(r#type, valuewidth, ::core::mem::transmute(data), length, ::core::mem::transmute(pactuallength), ::core::mem::transmute(perrorcode)))
+    ucptrie_openFromBinary(r#type, valuewidth, ::core::mem::transmute(data), length, ::core::mem::transmute(pactuallength), ::core::mem::transmute(perrorcode))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -21281,7 +21281,7 @@ pub unsafe fn ucptrie_toBinary(trie: *const UCPTrie, data: *mut ::core::ffi::c_v
     extern "system" {
         fn ucptrie_toBinary(trie: *const UCPTrie, data: *mut ::core::ffi::c_void, capacity: i32, perrorcode: *mut UErrorCode) -> i32;
     }
-    ::core::mem::transmute(ucptrie_toBinary(::core::mem::transmute(trie), ::core::mem::transmute(data), capacity, ::core::mem::transmute(perrorcode)))
+    ucptrie_toBinary(::core::mem::transmute(trie), ::core::mem::transmute(data), capacity, ::core::mem::transmute(perrorcode))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -21299,7 +21299,7 @@ pub unsafe fn ucsdet_detect(ucsd: *mut UCharsetDetector, status: *mut UErrorCode
     extern "system" {
         fn ucsdet_detect(ucsd: *mut UCharsetDetector, status: *mut UErrorCode) -> *mut UCharsetMatch;
     }
-    ::core::mem::transmute(ucsdet_detect(::core::mem::transmute(ucsd), ::core::mem::transmute(status)))
+    ucsdet_detect(::core::mem::transmute(ucsd), ::core::mem::transmute(status))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -21308,7 +21308,7 @@ pub unsafe fn ucsdet_detectAll(ucsd: *mut UCharsetDetector, matchesfound: *mut i
     extern "system" {
         fn ucsdet_detectAll(ucsd: *mut UCharsetDetector, matchesfound: *mut i32, status: *mut UErrorCode) -> *mut *mut UCharsetMatch;
     }
-    ::core::mem::transmute(ucsdet_detectAll(::core::mem::transmute(ucsd), ::core::mem::transmute(matchesfound), ::core::mem::transmute(status)))
+    ucsdet_detectAll(::core::mem::transmute(ucsd), ::core::mem::transmute(matchesfound), ::core::mem::transmute(status))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -21317,7 +21317,7 @@ pub unsafe fn ucsdet_enableInputFilter(ucsd: *mut UCharsetDetector, filter: i8) 
     extern "system" {
         fn ucsdet_enableInputFilter(ucsd: *mut UCharsetDetector, filter: i8) -> i8;
     }
-    ::core::mem::transmute(ucsdet_enableInputFilter(::core::mem::transmute(ucsd), filter))
+    ucsdet_enableInputFilter(::core::mem::transmute(ucsd), filter)
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -21326,7 +21326,7 @@ pub unsafe fn ucsdet_getAllDetectableCharsets(ucsd: *const UCharsetDetector, sta
     extern "system" {
         fn ucsdet_getAllDetectableCharsets(ucsd: *const UCharsetDetector, status: *mut UErrorCode) -> *mut UEnumeration;
     }
-    ::core::mem::transmute(ucsdet_getAllDetectableCharsets(::core::mem::transmute(ucsd), ::core::mem::transmute(status)))
+    ucsdet_getAllDetectableCharsets(::core::mem::transmute(ucsd), ::core::mem::transmute(status))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -21335,7 +21335,7 @@ pub unsafe fn ucsdet_getConfidence(ucsm: *const UCharsetMatch, status: *mut UErr
     extern "system" {
         fn ucsdet_getConfidence(ucsm: *const UCharsetMatch, status: *mut UErrorCode) -> i32;
     }
-    ::core::mem::transmute(ucsdet_getConfidence(::core::mem::transmute(ucsm), ::core::mem::transmute(status)))
+    ucsdet_getConfidence(::core::mem::transmute(ucsm), ::core::mem::transmute(status))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -21344,7 +21344,7 @@ pub unsafe fn ucsdet_getLanguage(ucsm: *const UCharsetMatch, status: *mut UError
     extern "system" {
         fn ucsdet_getLanguage(ucsm: *const UCharsetMatch, status: *mut UErrorCode) -> ::windows::core::PSTR;
     }
-    ::core::mem::transmute(ucsdet_getLanguage(::core::mem::transmute(ucsm), ::core::mem::transmute(status)))
+    ucsdet_getLanguage(::core::mem::transmute(ucsm), ::core::mem::transmute(status))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -21353,7 +21353,7 @@ pub unsafe fn ucsdet_getName(ucsm: *const UCharsetMatch, status: *mut UErrorCode
     extern "system" {
         fn ucsdet_getName(ucsm: *const UCharsetMatch, status: *mut UErrorCode) -> ::windows::core::PSTR;
     }
-    ::core::mem::transmute(ucsdet_getName(::core::mem::transmute(ucsm), ::core::mem::transmute(status)))
+    ucsdet_getName(::core::mem::transmute(ucsm), ::core::mem::transmute(status))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -21362,7 +21362,7 @@ pub unsafe fn ucsdet_getUChars(ucsm: *const UCharsetMatch, buf: *mut u16, cap: i
     extern "system" {
         fn ucsdet_getUChars(ucsm: *const UCharsetMatch, buf: *mut u16, cap: i32, status: *mut UErrorCode) -> i32;
     }
-    ::core::mem::transmute(ucsdet_getUChars(::core::mem::transmute(ucsm), ::core::mem::transmute(buf), cap, ::core::mem::transmute(status)))
+    ucsdet_getUChars(::core::mem::transmute(ucsm), ::core::mem::transmute(buf), cap, ::core::mem::transmute(status))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -21371,7 +21371,7 @@ pub unsafe fn ucsdet_isInputFilterEnabled(ucsd: *const UCharsetDetector) -> i8 {
     extern "system" {
         fn ucsdet_isInputFilterEnabled(ucsd: *const UCharsetDetector) -> i8;
     }
-    ::core::mem::transmute(ucsdet_isInputFilterEnabled(::core::mem::transmute(ucsd)))
+    ucsdet_isInputFilterEnabled(::core::mem::transmute(ucsd))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -21380,7 +21380,7 @@ pub unsafe fn ucsdet_open(status: *mut UErrorCode) -> *mut UCharsetDetector {
     extern "system" {
         fn ucsdet_open(status: *mut UErrorCode) -> *mut UCharsetDetector;
     }
-    ::core::mem::transmute(ucsdet_open(::core::mem::transmute(status)))
+    ucsdet_open(::core::mem::transmute(status))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -21416,7 +21416,7 @@ where
     extern "system" {
         fn ucurr_countCurrencies(locale: ::windows::core::PCSTR, date: f64, ec: *mut UErrorCode) -> i32;
     }
-    ::core::mem::transmute(ucurr_countCurrencies(locale.into(), date, ::core::mem::transmute(ec)))
+    ucurr_countCurrencies(locale.into(), date, ::core::mem::transmute(ec))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -21428,7 +21428,7 @@ where
     extern "system" {
         fn ucurr_forLocale(locale: ::windows::core::PCSTR, buff: *mut u16, buffcapacity: i32, ec: *mut UErrorCode) -> i32;
     }
-    ::core::mem::transmute(ucurr_forLocale(locale.into(), ::core::mem::transmute(buff), buffcapacity, ::core::mem::transmute(ec)))
+    ucurr_forLocale(locale.into(), ::core::mem::transmute(buff), buffcapacity, ::core::mem::transmute(ec))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -21440,7 +21440,7 @@ where
     extern "system" {
         fn ucurr_forLocaleAndDate(locale: ::windows::core::PCSTR, date: f64, index: i32, buff: *mut u16, buffcapacity: i32, ec: *mut UErrorCode) -> i32;
     }
-    ::core::mem::transmute(ucurr_forLocaleAndDate(locale.into(), date, index, ::core::mem::transmute(buff), buffcapacity, ::core::mem::transmute(ec)))
+    ucurr_forLocaleAndDate(locale.into(), date, index, ::core::mem::transmute(buff), buffcapacity, ::core::mem::transmute(ec))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -21449,7 +21449,7 @@ pub unsafe fn ucurr_getDefaultFractionDigits(currency: *const u16, ec: *mut UErr
     extern "system" {
         fn ucurr_getDefaultFractionDigits(currency: *const u16, ec: *mut UErrorCode) -> i32;
     }
-    ::core::mem::transmute(ucurr_getDefaultFractionDigits(::core::mem::transmute(currency), ::core::mem::transmute(ec)))
+    ucurr_getDefaultFractionDigits(::core::mem::transmute(currency), ::core::mem::transmute(ec))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -21458,7 +21458,7 @@ pub unsafe fn ucurr_getDefaultFractionDigitsForUsage(currency: *const u16, usage
     extern "system" {
         fn ucurr_getDefaultFractionDigitsForUsage(currency: *const u16, usage: UCurrencyUsage, ec: *mut UErrorCode) -> i32;
     }
-    ::core::mem::transmute(ucurr_getDefaultFractionDigitsForUsage(::core::mem::transmute(currency), usage, ::core::mem::transmute(ec)))
+    ucurr_getDefaultFractionDigitsForUsage(::core::mem::transmute(currency), usage, ::core::mem::transmute(ec))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -21471,7 +21471,7 @@ where
     extern "system" {
         fn ucurr_getKeywordValuesForLocale(key: ::windows::core::PCSTR, locale: ::windows::core::PCSTR, commonlyused: i8, status: *mut UErrorCode) -> *mut UEnumeration;
     }
-    ::core::mem::transmute(ucurr_getKeywordValuesForLocale(key.into(), locale.into(), commonlyused, ::core::mem::transmute(status)))
+    ucurr_getKeywordValuesForLocale(key.into(), locale.into(), commonlyused, ::core::mem::transmute(status))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -21483,7 +21483,7 @@ where
     extern "system" {
         fn ucurr_getName(currency: *const u16, locale: ::windows::core::PCSTR, namestyle: UCurrNameStyle, ischoiceformat: *mut i8, len: *mut i32, ec: *mut UErrorCode) -> *mut u16;
     }
-    ::core::mem::transmute(ucurr_getName(::core::mem::transmute(currency), locale.into(), namestyle, ::core::mem::transmute(ischoiceformat), ::core::mem::transmute(len), ::core::mem::transmute(ec)))
+    ucurr_getName(::core::mem::transmute(currency), locale.into(), namestyle, ::core::mem::transmute(ischoiceformat), ::core::mem::transmute(len), ::core::mem::transmute(ec))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -21492,7 +21492,7 @@ pub unsafe fn ucurr_getNumericCode(currency: *const u16) -> i32 {
     extern "system" {
         fn ucurr_getNumericCode(currency: *const u16) -> i32;
     }
-    ::core::mem::transmute(ucurr_getNumericCode(::core::mem::transmute(currency)))
+    ucurr_getNumericCode(::core::mem::transmute(currency))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -21505,7 +21505,7 @@ where
     extern "system" {
         fn ucurr_getPluralName(currency: *const u16, locale: ::windows::core::PCSTR, ischoiceformat: *mut i8, pluralcount: ::windows::core::PCSTR, len: *mut i32, ec: *mut UErrorCode) -> *mut u16;
     }
-    ::core::mem::transmute(ucurr_getPluralName(::core::mem::transmute(currency), locale.into(), ::core::mem::transmute(ischoiceformat), pluralcount.into(), ::core::mem::transmute(len), ::core::mem::transmute(ec)))
+    ucurr_getPluralName(::core::mem::transmute(currency), locale.into(), ::core::mem::transmute(ischoiceformat), pluralcount.into(), ::core::mem::transmute(len), ::core::mem::transmute(ec))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -21514,7 +21514,7 @@ pub unsafe fn ucurr_getRoundingIncrement(currency: *const u16, ec: *mut UErrorCo
     extern "system" {
         fn ucurr_getRoundingIncrement(currency: *const u16, ec: *mut UErrorCode) -> f64;
     }
-    ::core::mem::transmute(ucurr_getRoundingIncrement(::core::mem::transmute(currency), ::core::mem::transmute(ec)))
+    ucurr_getRoundingIncrement(::core::mem::transmute(currency), ::core::mem::transmute(ec))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -21523,7 +21523,7 @@ pub unsafe fn ucurr_getRoundingIncrementForUsage(currency: *const u16, usage: UC
     extern "system" {
         fn ucurr_getRoundingIncrementForUsage(currency: *const u16, usage: UCurrencyUsage, ec: *mut UErrorCode) -> f64;
     }
-    ::core::mem::transmute(ucurr_getRoundingIncrementForUsage(::core::mem::transmute(currency), usage, ::core::mem::transmute(ec)))
+    ucurr_getRoundingIncrementForUsage(::core::mem::transmute(currency), usage, ::core::mem::transmute(ec))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -21532,7 +21532,7 @@ pub unsafe fn ucurr_isAvailable(isocode: *const u16, from: f64, to: f64, errorco
     extern "system" {
         fn ucurr_isAvailable(isocode: *const u16, from: f64, to: f64, errorcode: *mut UErrorCode) -> i8;
     }
-    ::core::mem::transmute(ucurr_isAvailable(::core::mem::transmute(isocode), from, to, ::core::mem::transmute(errorcode)))
+    ucurr_isAvailable(::core::mem::transmute(isocode), from, to, ::core::mem::transmute(errorcode))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -21541,7 +21541,7 @@ pub unsafe fn ucurr_openISOCurrencies(currtype: u32, perrorcode: *mut UErrorCode
     extern "system" {
         fn ucurr_openISOCurrencies(currtype: u32, perrorcode: *mut UErrorCode) -> *mut UEnumeration;
     }
-    ::core::mem::transmute(ucurr_openISOCurrencies(currtype, ::core::mem::transmute(perrorcode)))
+    ucurr_openISOCurrencies(currtype, ::core::mem::transmute(perrorcode))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -21553,7 +21553,7 @@ where
     extern "system" {
         fn ucurr_register(isocode: *const u16, locale: ::windows::core::PCSTR, status: *mut UErrorCode) -> *mut ::core::ffi::c_void;
     }
-    ::core::mem::transmute(ucurr_register(::core::mem::transmute(isocode), locale.into(), ::core::mem::transmute(status)))
+    ucurr_register(::core::mem::transmute(isocode), locale.into(), ::core::mem::transmute(status))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -21562,7 +21562,7 @@ pub unsafe fn ucurr_unregister(key: *mut ::core::ffi::c_void, status: *mut UErro
     extern "system" {
         fn ucurr_unregister(key: *mut ::core::ffi::c_void, status: *mut UErrorCode) -> i8;
     }
-    ::core::mem::transmute(ucurr_unregister(::core::mem::transmute(key), ::core::mem::transmute(status)))
+    ucurr_unregister(::core::mem::transmute(key), ::core::mem::transmute(status))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -21598,7 +21598,7 @@ pub unsafe fn udat_clone(fmt: *const *const ::core::ffi::c_void, status: *mut UE
     extern "system" {
         fn udat_clone(fmt: *const *const ::core::ffi::c_void, status: *mut UErrorCode) -> *mut *mut ::core::ffi::c_void;
     }
-    ::core::mem::transmute(udat_clone(::core::mem::transmute(fmt), ::core::mem::transmute(status)))
+    udat_clone(::core::mem::transmute(fmt), ::core::mem::transmute(status))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -21616,7 +21616,7 @@ pub unsafe fn udat_countAvailable() -> i32 {
     extern "system" {
         fn udat_countAvailable() -> i32;
     }
-    ::core::mem::transmute(udat_countAvailable())
+    udat_countAvailable()
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -21625,7 +21625,7 @@ pub unsafe fn udat_countSymbols(fmt: *const *const ::core::ffi::c_void, r#type: 
     extern "system" {
         fn udat_countSymbols(fmt: *const *const ::core::ffi::c_void, r#type: UDateFormatSymbolType) -> i32;
     }
-    ::core::mem::transmute(udat_countSymbols(::core::mem::transmute(fmt), r#type))
+    udat_countSymbols(::core::mem::transmute(fmt), r#type)
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -21634,7 +21634,7 @@ pub unsafe fn udat_format(format: *const *const ::core::ffi::c_void, datetoforma
     extern "system" {
         fn udat_format(format: *const *const ::core::ffi::c_void, datetoformat: f64, result: *mut u16, resultlength: i32, position: *mut UFieldPosition, status: *mut UErrorCode) -> i32;
     }
-    ::core::mem::transmute(udat_format(::core::mem::transmute(format), datetoformat, ::core::mem::transmute(result), resultlength, ::core::mem::transmute(position), ::core::mem::transmute(status)))
+    udat_format(::core::mem::transmute(format), datetoformat, ::core::mem::transmute(result), resultlength, ::core::mem::transmute(position), ::core::mem::transmute(status))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -21643,7 +21643,7 @@ pub unsafe fn udat_formatCalendar(format: *const *const ::core::ffi::c_void, cal
     extern "system" {
         fn udat_formatCalendar(format: *const *const ::core::ffi::c_void, calendar: *mut *mut ::core::ffi::c_void, result: *mut u16, capacity: i32, position: *mut UFieldPosition, status: *mut UErrorCode) -> i32;
     }
-    ::core::mem::transmute(udat_formatCalendar(::core::mem::transmute(format), ::core::mem::transmute(calendar), ::core::mem::transmute(result), capacity, ::core::mem::transmute(position), ::core::mem::transmute(status)))
+    udat_formatCalendar(::core::mem::transmute(format), ::core::mem::transmute(calendar), ::core::mem::transmute(result), capacity, ::core::mem::transmute(position), ::core::mem::transmute(status))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -21652,7 +21652,7 @@ pub unsafe fn udat_formatCalendarForFields(format: *const *const ::core::ffi::c_
     extern "system" {
         fn udat_formatCalendarForFields(format: *const *const ::core::ffi::c_void, calendar: *mut *mut ::core::ffi::c_void, result: *mut u16, capacity: i32, fpositer: *mut UFieldPositionIterator, status: *mut UErrorCode) -> i32;
     }
-    ::core::mem::transmute(udat_formatCalendarForFields(::core::mem::transmute(format), ::core::mem::transmute(calendar), ::core::mem::transmute(result), capacity, ::core::mem::transmute(fpositer), ::core::mem::transmute(status)))
+    udat_formatCalendarForFields(::core::mem::transmute(format), ::core::mem::transmute(calendar), ::core::mem::transmute(result), capacity, ::core::mem::transmute(fpositer), ::core::mem::transmute(status))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -21661,7 +21661,7 @@ pub unsafe fn udat_formatForFields(format: *const *const ::core::ffi::c_void, da
     extern "system" {
         fn udat_formatForFields(format: *const *const ::core::ffi::c_void, datetoformat: f64, result: *mut u16, resultlength: i32, fpositer: *mut UFieldPositionIterator, status: *mut UErrorCode) -> i32;
     }
-    ::core::mem::transmute(udat_formatForFields(::core::mem::transmute(format), datetoformat, ::core::mem::transmute(result), resultlength, ::core::mem::transmute(fpositer), ::core::mem::transmute(status)))
+    udat_formatForFields(::core::mem::transmute(format), datetoformat, ::core::mem::transmute(result), resultlength, ::core::mem::transmute(fpositer), ::core::mem::transmute(status))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -21670,7 +21670,7 @@ pub unsafe fn udat_get2DigitYearStart(fmt: *const *const ::core::ffi::c_void, st
     extern "system" {
         fn udat_get2DigitYearStart(fmt: *const *const ::core::ffi::c_void, status: *mut UErrorCode) -> f64;
     }
-    ::core::mem::transmute(udat_get2DigitYearStart(::core::mem::transmute(fmt), ::core::mem::transmute(status)))
+    udat_get2DigitYearStart(::core::mem::transmute(fmt), ::core::mem::transmute(status))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -21679,7 +21679,7 @@ pub unsafe fn udat_getAvailable(localeindex: i32) -> ::windows::core::PSTR {
     extern "system" {
         fn udat_getAvailable(localeindex: i32) -> ::windows::core::PSTR;
     }
-    ::core::mem::transmute(udat_getAvailable(localeindex))
+    udat_getAvailable(localeindex)
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -21688,7 +21688,7 @@ pub unsafe fn udat_getBooleanAttribute(fmt: *const *const ::core::ffi::c_void, a
     extern "system" {
         fn udat_getBooleanAttribute(fmt: *const *const ::core::ffi::c_void, attr: UDateFormatBooleanAttribute, status: *mut UErrorCode) -> i8;
     }
-    ::core::mem::transmute(udat_getBooleanAttribute(::core::mem::transmute(fmt), attr, ::core::mem::transmute(status)))
+    udat_getBooleanAttribute(::core::mem::transmute(fmt), attr, ::core::mem::transmute(status))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -21697,7 +21697,7 @@ pub unsafe fn udat_getCalendar(fmt: *const *const ::core::ffi::c_void) -> *mut *
     extern "system" {
         fn udat_getCalendar(fmt: *const *const ::core::ffi::c_void) -> *mut *mut ::core::ffi::c_void;
     }
-    ::core::mem::transmute(udat_getCalendar(::core::mem::transmute(fmt)))
+    udat_getCalendar(::core::mem::transmute(fmt))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -21706,7 +21706,7 @@ pub unsafe fn udat_getContext(fmt: *const *const ::core::ffi::c_void, r#type: UD
     extern "system" {
         fn udat_getContext(fmt: *const *const ::core::ffi::c_void, r#type: UDisplayContextType, status: *mut UErrorCode) -> UDisplayContext;
     }
-    ::core::mem::transmute(udat_getContext(::core::mem::transmute(fmt), r#type, ::core::mem::transmute(status)))
+    udat_getContext(::core::mem::transmute(fmt), r#type, ::core::mem::transmute(status))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -21715,7 +21715,7 @@ pub unsafe fn udat_getLocaleByType(fmt: *const *const ::core::ffi::c_void, r#typ
     extern "system" {
         fn udat_getLocaleByType(fmt: *const *const ::core::ffi::c_void, r#type: ULocDataLocaleType, status: *mut UErrorCode) -> ::windows::core::PSTR;
     }
-    ::core::mem::transmute(udat_getLocaleByType(::core::mem::transmute(fmt), r#type, ::core::mem::transmute(status)))
+    udat_getLocaleByType(::core::mem::transmute(fmt), r#type, ::core::mem::transmute(status))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -21724,7 +21724,7 @@ pub unsafe fn udat_getNumberFormat(fmt: *const *const ::core::ffi::c_void) -> *m
     extern "system" {
         fn udat_getNumberFormat(fmt: *const *const ::core::ffi::c_void) -> *mut *mut ::core::ffi::c_void;
     }
-    ::core::mem::transmute(udat_getNumberFormat(::core::mem::transmute(fmt)))
+    udat_getNumberFormat(::core::mem::transmute(fmt))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -21733,7 +21733,7 @@ pub unsafe fn udat_getNumberFormatForField(fmt: *const *const ::core::ffi::c_voi
     extern "system" {
         fn udat_getNumberFormatForField(fmt: *const *const ::core::ffi::c_void, field: u16) -> *mut *mut ::core::ffi::c_void;
     }
-    ::core::mem::transmute(udat_getNumberFormatForField(::core::mem::transmute(fmt), field))
+    udat_getNumberFormatForField(::core::mem::transmute(fmt), field)
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -21742,7 +21742,7 @@ pub unsafe fn udat_getSymbols(fmt: *const *const ::core::ffi::c_void, r#type: UD
     extern "system" {
         fn udat_getSymbols(fmt: *const *const ::core::ffi::c_void, r#type: UDateFormatSymbolType, symbolindex: i32, result: *mut u16, resultlength: i32, status: *mut UErrorCode) -> i32;
     }
-    ::core::mem::transmute(udat_getSymbols(::core::mem::transmute(fmt), r#type, symbolindex, ::core::mem::transmute(result), resultlength, ::core::mem::transmute(status)))
+    udat_getSymbols(::core::mem::transmute(fmt), r#type, symbolindex, ::core::mem::transmute(result), resultlength, ::core::mem::transmute(status))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -21751,7 +21751,7 @@ pub unsafe fn udat_isLenient(fmt: *const *const ::core::ffi::c_void) -> i8 {
     extern "system" {
         fn udat_isLenient(fmt: *const *const ::core::ffi::c_void) -> i8;
     }
-    ::core::mem::transmute(udat_isLenient(::core::mem::transmute(fmt)))
+    udat_isLenient(::core::mem::transmute(fmt))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -21763,7 +21763,7 @@ where
     extern "system" {
         fn udat_open(timestyle: UDateFormatStyle, datestyle: UDateFormatStyle, locale: ::windows::core::PCSTR, tzid: *const u16, tzidlength: i32, pattern: *const u16, patternlength: i32, status: *mut UErrorCode) -> *mut *mut ::core::ffi::c_void;
     }
-    ::core::mem::transmute(udat_open(timestyle, datestyle, locale.into(), ::core::mem::transmute(tzid), tzidlength, ::core::mem::transmute(pattern), patternlength, ::core::mem::transmute(status)))
+    udat_open(timestyle, datestyle, locale.into(), ::core::mem::transmute(tzid), tzidlength, ::core::mem::transmute(pattern), patternlength, ::core::mem::transmute(status))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -21772,7 +21772,7 @@ pub unsafe fn udat_parse(format: *const *const ::core::ffi::c_void, text: *const
     extern "system" {
         fn udat_parse(format: *const *const ::core::ffi::c_void, text: *const u16, textlength: i32, parsepos: *mut i32, status: *mut UErrorCode) -> f64;
     }
-    ::core::mem::transmute(udat_parse(::core::mem::transmute(format), ::core::mem::transmute(text), textlength, ::core::mem::transmute(parsepos), ::core::mem::transmute(status)))
+    udat_parse(::core::mem::transmute(format), ::core::mem::transmute(text), textlength, ::core::mem::transmute(parsepos), ::core::mem::transmute(status))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -21853,7 +21853,7 @@ pub unsafe fn udat_toCalendarDateField(field: UDateFormatField) -> UCalendarDate
     extern "system" {
         fn udat_toCalendarDateField(field: UDateFormatField) -> UCalendarDateFields;
     }
-    ::core::mem::transmute(udat_toCalendarDateField(field))
+    udat_toCalendarDateField(field)
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -21862,7 +21862,7 @@ pub unsafe fn udat_toPattern(fmt: *const *const ::core::ffi::c_void, localized: 
     extern "system" {
         fn udat_toPattern(fmt: *const *const ::core::ffi::c_void, localized: i8, result: *mut u16, resultlength: i32, status: *mut UErrorCode) -> i32;
     }
-    ::core::mem::transmute(udat_toPattern(::core::mem::transmute(fmt), localized, ::core::mem::transmute(result), resultlength, ::core::mem::transmute(status)))
+    udat_toPattern(::core::mem::transmute(fmt), localized, ::core::mem::transmute(result), resultlength, ::core::mem::transmute(status))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -21871,7 +21871,7 @@ pub unsafe fn udatpg_addPattern(dtpg: *mut *mut ::core::ffi::c_void, pattern: *c
     extern "system" {
         fn udatpg_addPattern(dtpg: *mut *mut ::core::ffi::c_void, pattern: *const u16, patternlength: i32, r#override: i8, conflictingpattern: *mut u16, capacity: i32, plength: *mut i32, perrorcode: *mut UErrorCode) -> UDateTimePatternConflict;
     }
-    ::core::mem::transmute(udatpg_addPattern(::core::mem::transmute(dtpg), ::core::mem::transmute(pattern), patternlength, r#override, ::core::mem::transmute(conflictingpattern), capacity, ::core::mem::transmute(plength), ::core::mem::transmute(perrorcode)))
+    udatpg_addPattern(::core::mem::transmute(dtpg), ::core::mem::transmute(pattern), patternlength, r#override, ::core::mem::transmute(conflictingpattern), capacity, ::core::mem::transmute(plength), ::core::mem::transmute(perrorcode))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -21880,7 +21880,7 @@ pub unsafe fn udatpg_clone(dtpg: *const *const ::core::ffi::c_void, perrorcode: 
     extern "system" {
         fn udatpg_clone(dtpg: *const *const ::core::ffi::c_void, perrorcode: *mut UErrorCode) -> *mut *mut ::core::ffi::c_void;
     }
-    ::core::mem::transmute(udatpg_clone(::core::mem::transmute(dtpg), ::core::mem::transmute(perrorcode)))
+    udatpg_clone(::core::mem::transmute(dtpg), ::core::mem::transmute(perrorcode))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -21898,7 +21898,7 @@ pub unsafe fn udatpg_getAppendItemFormat(dtpg: *const *const ::core::ffi::c_void
     extern "system" {
         fn udatpg_getAppendItemFormat(dtpg: *const *const ::core::ffi::c_void, field: UDateTimePatternField, plength: *mut i32) -> *mut u16;
     }
-    ::core::mem::transmute(udatpg_getAppendItemFormat(::core::mem::transmute(dtpg), field, ::core::mem::transmute(plength)))
+    udatpg_getAppendItemFormat(::core::mem::transmute(dtpg), field, ::core::mem::transmute(plength))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -21907,7 +21907,7 @@ pub unsafe fn udatpg_getAppendItemName(dtpg: *const *const ::core::ffi::c_void, 
     extern "system" {
         fn udatpg_getAppendItemName(dtpg: *const *const ::core::ffi::c_void, field: UDateTimePatternField, plength: *mut i32) -> *mut u16;
     }
-    ::core::mem::transmute(udatpg_getAppendItemName(::core::mem::transmute(dtpg), field, ::core::mem::transmute(plength)))
+    udatpg_getAppendItemName(::core::mem::transmute(dtpg), field, ::core::mem::transmute(plength))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -21916,7 +21916,7 @@ pub unsafe fn udatpg_getBaseSkeleton(unuseddtpg: *mut *mut ::core::ffi::c_void, 
     extern "system" {
         fn udatpg_getBaseSkeleton(unuseddtpg: *mut *mut ::core::ffi::c_void, pattern: *const u16, length: i32, baseskeleton: *mut u16, capacity: i32, perrorcode: *mut UErrorCode) -> i32;
     }
-    ::core::mem::transmute(udatpg_getBaseSkeleton(::core::mem::transmute(unuseddtpg), ::core::mem::transmute(pattern), length, ::core::mem::transmute(baseskeleton), capacity, ::core::mem::transmute(perrorcode)))
+    udatpg_getBaseSkeleton(::core::mem::transmute(unuseddtpg), ::core::mem::transmute(pattern), length, ::core::mem::transmute(baseskeleton), capacity, ::core::mem::transmute(perrorcode))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -21925,7 +21925,7 @@ pub unsafe fn udatpg_getBestPattern(dtpg: *mut *mut ::core::ffi::c_void, skeleto
     extern "system" {
         fn udatpg_getBestPattern(dtpg: *mut *mut ::core::ffi::c_void, skeleton: *const u16, length: i32, bestpattern: *mut u16, capacity: i32, perrorcode: *mut UErrorCode) -> i32;
     }
-    ::core::mem::transmute(udatpg_getBestPattern(::core::mem::transmute(dtpg), ::core::mem::transmute(skeleton), length, ::core::mem::transmute(bestpattern), capacity, ::core::mem::transmute(perrorcode)))
+    udatpg_getBestPattern(::core::mem::transmute(dtpg), ::core::mem::transmute(skeleton), length, ::core::mem::transmute(bestpattern), capacity, ::core::mem::transmute(perrorcode))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -21934,7 +21934,7 @@ pub unsafe fn udatpg_getBestPatternWithOptions(dtpg: *mut *mut ::core::ffi::c_vo
     extern "system" {
         fn udatpg_getBestPatternWithOptions(dtpg: *mut *mut ::core::ffi::c_void, skeleton: *const u16, length: i32, options: UDateTimePatternMatchOptions, bestpattern: *mut u16, capacity: i32, perrorcode: *mut UErrorCode) -> i32;
     }
-    ::core::mem::transmute(udatpg_getBestPatternWithOptions(::core::mem::transmute(dtpg), ::core::mem::transmute(skeleton), length, options, ::core::mem::transmute(bestpattern), capacity, ::core::mem::transmute(perrorcode)))
+    udatpg_getBestPatternWithOptions(::core::mem::transmute(dtpg), ::core::mem::transmute(skeleton), length, options, ::core::mem::transmute(bestpattern), capacity, ::core::mem::transmute(perrorcode))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -21943,7 +21943,7 @@ pub unsafe fn udatpg_getDateTimeFormat(dtpg: *const *const ::core::ffi::c_void, 
     extern "system" {
         fn udatpg_getDateTimeFormat(dtpg: *const *const ::core::ffi::c_void, plength: *mut i32) -> *mut u16;
     }
-    ::core::mem::transmute(udatpg_getDateTimeFormat(::core::mem::transmute(dtpg), ::core::mem::transmute(plength)))
+    udatpg_getDateTimeFormat(::core::mem::transmute(dtpg), ::core::mem::transmute(plength))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -21952,7 +21952,7 @@ pub unsafe fn udatpg_getDecimal(dtpg: *const *const ::core::ffi::c_void, plength
     extern "system" {
         fn udatpg_getDecimal(dtpg: *const *const ::core::ffi::c_void, plength: *mut i32) -> *mut u16;
     }
-    ::core::mem::transmute(udatpg_getDecimal(::core::mem::transmute(dtpg), ::core::mem::transmute(plength)))
+    udatpg_getDecimal(::core::mem::transmute(dtpg), ::core::mem::transmute(plength))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -21961,7 +21961,7 @@ pub unsafe fn udatpg_getFieldDisplayName(dtpg: *const *const ::core::ffi::c_void
     extern "system" {
         fn udatpg_getFieldDisplayName(dtpg: *const *const ::core::ffi::c_void, field: UDateTimePatternField, width: UDateTimePGDisplayWidth, fieldname: *mut u16, capacity: i32, perrorcode: *mut UErrorCode) -> i32;
     }
-    ::core::mem::transmute(udatpg_getFieldDisplayName(::core::mem::transmute(dtpg), field, width, ::core::mem::transmute(fieldname), capacity, ::core::mem::transmute(perrorcode)))
+    udatpg_getFieldDisplayName(::core::mem::transmute(dtpg), field, width, ::core::mem::transmute(fieldname), capacity, ::core::mem::transmute(perrorcode))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -21970,7 +21970,7 @@ pub unsafe fn udatpg_getPatternForSkeleton(dtpg: *const *const ::core::ffi::c_vo
     extern "system" {
         fn udatpg_getPatternForSkeleton(dtpg: *const *const ::core::ffi::c_void, skeleton: *const u16, skeletonlength: i32, plength: *mut i32) -> *mut u16;
     }
-    ::core::mem::transmute(udatpg_getPatternForSkeleton(::core::mem::transmute(dtpg), ::core::mem::transmute(skeleton), skeletonlength, ::core::mem::transmute(plength)))
+    udatpg_getPatternForSkeleton(::core::mem::transmute(dtpg), ::core::mem::transmute(skeleton), skeletonlength, ::core::mem::transmute(plength))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -21979,7 +21979,7 @@ pub unsafe fn udatpg_getSkeleton(unuseddtpg: *mut *mut ::core::ffi::c_void, patt
     extern "system" {
         fn udatpg_getSkeleton(unuseddtpg: *mut *mut ::core::ffi::c_void, pattern: *const u16, length: i32, skeleton: *mut u16, capacity: i32, perrorcode: *mut UErrorCode) -> i32;
     }
-    ::core::mem::transmute(udatpg_getSkeleton(::core::mem::transmute(unuseddtpg), ::core::mem::transmute(pattern), length, ::core::mem::transmute(skeleton), capacity, ::core::mem::transmute(perrorcode)))
+    udatpg_getSkeleton(::core::mem::transmute(unuseddtpg), ::core::mem::transmute(pattern), length, ::core::mem::transmute(skeleton), capacity, ::core::mem::transmute(perrorcode))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -21991,7 +21991,7 @@ where
     extern "system" {
         fn udatpg_open(locale: ::windows::core::PCSTR, perrorcode: *mut UErrorCode) -> *mut *mut ::core::ffi::c_void;
     }
-    ::core::mem::transmute(udatpg_open(locale.into(), ::core::mem::transmute(perrorcode)))
+    udatpg_open(locale.into(), ::core::mem::transmute(perrorcode))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -22000,7 +22000,7 @@ pub unsafe fn udatpg_openBaseSkeletons(dtpg: *const *const ::core::ffi::c_void, 
     extern "system" {
         fn udatpg_openBaseSkeletons(dtpg: *const *const ::core::ffi::c_void, perrorcode: *mut UErrorCode) -> *mut UEnumeration;
     }
-    ::core::mem::transmute(udatpg_openBaseSkeletons(::core::mem::transmute(dtpg), ::core::mem::transmute(perrorcode)))
+    udatpg_openBaseSkeletons(::core::mem::transmute(dtpg), ::core::mem::transmute(perrorcode))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -22009,7 +22009,7 @@ pub unsafe fn udatpg_openEmpty(perrorcode: *mut UErrorCode) -> *mut *mut ::core:
     extern "system" {
         fn udatpg_openEmpty(perrorcode: *mut UErrorCode) -> *mut *mut ::core::ffi::c_void;
     }
-    ::core::mem::transmute(udatpg_openEmpty(::core::mem::transmute(perrorcode)))
+    udatpg_openEmpty(::core::mem::transmute(perrorcode))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -22018,7 +22018,7 @@ pub unsafe fn udatpg_openSkeletons(dtpg: *const *const ::core::ffi::c_void, perr
     extern "system" {
         fn udatpg_openSkeletons(dtpg: *const *const ::core::ffi::c_void, perrorcode: *mut UErrorCode) -> *mut UEnumeration;
     }
-    ::core::mem::transmute(udatpg_openSkeletons(::core::mem::transmute(dtpg), ::core::mem::transmute(perrorcode)))
+    udatpg_openSkeletons(::core::mem::transmute(dtpg), ::core::mem::transmute(perrorcode))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -22027,7 +22027,7 @@ pub unsafe fn udatpg_replaceFieldTypes(dtpg: *mut *mut ::core::ffi::c_void, patt
     extern "system" {
         fn udatpg_replaceFieldTypes(dtpg: *mut *mut ::core::ffi::c_void, pattern: *const u16, patternlength: i32, skeleton: *const u16, skeletonlength: i32, dest: *mut u16, destcapacity: i32, perrorcode: *mut UErrorCode) -> i32;
     }
-    ::core::mem::transmute(udatpg_replaceFieldTypes(::core::mem::transmute(dtpg), ::core::mem::transmute(pattern), patternlength, ::core::mem::transmute(skeleton), skeletonlength, ::core::mem::transmute(dest), destcapacity, ::core::mem::transmute(perrorcode)))
+    udatpg_replaceFieldTypes(::core::mem::transmute(dtpg), ::core::mem::transmute(pattern), patternlength, ::core::mem::transmute(skeleton), skeletonlength, ::core::mem::transmute(dest), destcapacity, ::core::mem::transmute(perrorcode))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -22036,7 +22036,7 @@ pub unsafe fn udatpg_replaceFieldTypesWithOptions(dtpg: *mut *mut ::core::ffi::c
     extern "system" {
         fn udatpg_replaceFieldTypesWithOptions(dtpg: *mut *mut ::core::ffi::c_void, pattern: *const u16, patternlength: i32, skeleton: *const u16, skeletonlength: i32, options: UDateTimePatternMatchOptions, dest: *mut u16, destcapacity: i32, perrorcode: *mut UErrorCode) -> i32;
     }
-    ::core::mem::transmute(udatpg_replaceFieldTypesWithOptions(::core::mem::transmute(dtpg), ::core::mem::transmute(pattern), patternlength, ::core::mem::transmute(skeleton), skeletonlength, options, ::core::mem::transmute(dest), destcapacity, ::core::mem::transmute(perrorcode)))
+    udatpg_replaceFieldTypesWithOptions(::core::mem::transmute(dtpg), ::core::mem::transmute(pattern), patternlength, ::core::mem::transmute(skeleton), skeletonlength, options, ::core::mem::transmute(dest), destcapacity, ::core::mem::transmute(perrorcode))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -22099,7 +22099,7 @@ pub unsafe fn udtitvfmt_format(formatter: *const UDateIntervalFormat, fromdate: 
     extern "system" {
         fn udtitvfmt_format(formatter: *const UDateIntervalFormat, fromdate: f64, todate: f64, result: *mut u16, resultcapacity: i32, position: *mut UFieldPosition, status: *mut UErrorCode) -> i32;
     }
-    ::core::mem::transmute(udtitvfmt_format(::core::mem::transmute(formatter), fromdate, todate, ::core::mem::transmute(result), resultcapacity, ::core::mem::transmute(position), ::core::mem::transmute(status)))
+    udtitvfmt_format(::core::mem::transmute(formatter), fromdate, todate, ::core::mem::transmute(result), resultcapacity, ::core::mem::transmute(position), ::core::mem::transmute(status))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -22111,7 +22111,7 @@ where
     extern "system" {
         fn udtitvfmt_open(locale: ::windows::core::PCSTR, skeleton: *const u16, skeletonlength: i32, tzid: *const u16, tzidlength: i32, status: *mut UErrorCode) -> *mut UDateIntervalFormat;
     }
-    ::core::mem::transmute(udtitvfmt_open(locale.into(), ::core::mem::transmute(skeleton), skeletonlength, ::core::mem::transmute(tzid), tzidlength, ::core::mem::transmute(status)))
+    udtitvfmt_open(locale.into(), ::core::mem::transmute(skeleton), skeletonlength, ::core::mem::transmute(tzid), tzidlength, ::core::mem::transmute(status))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -22120,7 +22120,7 @@ pub unsafe fn udtitvfmt_openResult(ec: *mut UErrorCode) -> *mut UFormattedDateIn
     extern "system" {
         fn udtitvfmt_openResult(ec: *mut UErrorCode) -> *mut UFormattedDateInterval;
     }
-    ::core::mem::transmute(udtitvfmt_openResult(::core::mem::transmute(ec)))
+    udtitvfmt_openResult(::core::mem::transmute(ec))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -22129,7 +22129,7 @@ pub unsafe fn udtitvfmt_resultAsValue(uresult: *const UFormattedDateInterval, ec
     extern "system" {
         fn udtitvfmt_resultAsValue(uresult: *const UFormattedDateInterval, ec: *mut UErrorCode) -> *mut UFormattedValue;
     }
-    ::core::mem::transmute(udtitvfmt_resultAsValue(::core::mem::transmute(uresult), ::core::mem::transmute(ec)))
+    udtitvfmt_resultAsValue(::core::mem::transmute(uresult), ::core::mem::transmute(ec))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -22147,7 +22147,7 @@ pub unsafe fn uenum_count(en: *mut UEnumeration, status: *mut UErrorCode) -> i32
     extern "system" {
         fn uenum_count(en: *mut UEnumeration, status: *mut UErrorCode) -> i32;
     }
-    ::core::mem::transmute(uenum_count(::core::mem::transmute(en), ::core::mem::transmute(status)))
+    uenum_count(::core::mem::transmute(en), ::core::mem::transmute(status))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -22156,7 +22156,7 @@ pub unsafe fn uenum_next(en: *mut UEnumeration, resultlength: *mut i32, status: 
     extern "system" {
         fn uenum_next(en: *mut UEnumeration, resultlength: *mut i32, status: *mut UErrorCode) -> ::windows::core::PSTR;
     }
-    ::core::mem::transmute(uenum_next(::core::mem::transmute(en), ::core::mem::transmute(resultlength), ::core::mem::transmute(status)))
+    uenum_next(::core::mem::transmute(en), ::core::mem::transmute(resultlength), ::core::mem::transmute(status))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -22165,7 +22165,7 @@ pub unsafe fn uenum_openCharStringsEnumeration(strings: *const *const i8, count:
     extern "system" {
         fn uenum_openCharStringsEnumeration(strings: *const *const i8, count: i32, ec: *mut UErrorCode) -> *mut UEnumeration;
     }
-    ::core::mem::transmute(uenum_openCharStringsEnumeration(::core::mem::transmute(strings), count, ::core::mem::transmute(ec)))
+    uenum_openCharStringsEnumeration(::core::mem::transmute(strings), count, ::core::mem::transmute(ec))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -22174,7 +22174,7 @@ pub unsafe fn uenum_openUCharStringsEnumeration(strings: *const *const u16, coun
     extern "system" {
         fn uenum_openUCharStringsEnumeration(strings: *const *const u16, count: i32, ec: *mut UErrorCode) -> *mut UEnumeration;
     }
-    ::core::mem::transmute(uenum_openUCharStringsEnumeration(::core::mem::transmute(strings), count, ::core::mem::transmute(ec)))
+    uenum_openUCharStringsEnumeration(::core::mem::transmute(strings), count, ::core::mem::transmute(ec))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -22192,7 +22192,7 @@ pub unsafe fn uenum_unext(en: *mut UEnumeration, resultlength: *mut i32, status:
     extern "system" {
         fn uenum_unext(en: *mut UEnumeration, resultlength: *mut i32, status: *mut UErrorCode) -> *mut u16;
     }
-    ::core::mem::transmute(uenum_unext(::core::mem::transmute(en), ::core::mem::transmute(resultlength), ::core::mem::transmute(status)))
+    uenum_unext(::core::mem::transmute(en), ::core::mem::transmute(resultlength), ::core::mem::transmute(status))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -22210,7 +22210,7 @@ pub unsafe fn ufieldpositer_next(fpositer: *mut UFieldPositionIterator, beginind
     extern "system" {
         fn ufieldpositer_next(fpositer: *mut UFieldPositionIterator, beginindex: *mut i32, endindex: *mut i32) -> i32;
     }
-    ::core::mem::transmute(ufieldpositer_next(::core::mem::transmute(fpositer), ::core::mem::transmute(beginindex), ::core::mem::transmute(endindex)))
+    ufieldpositer_next(::core::mem::transmute(fpositer), ::core::mem::transmute(beginindex), ::core::mem::transmute(endindex))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -22219,7 +22219,7 @@ pub unsafe fn ufieldpositer_open(status: *mut UErrorCode) -> *mut UFieldPosition
     extern "system" {
         fn ufieldpositer_open(status: *mut UErrorCode) -> *mut UFieldPositionIterator;
     }
-    ::core::mem::transmute(ufieldpositer_open(::core::mem::transmute(status)))
+    ufieldpositer_open(::core::mem::transmute(status))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -22237,7 +22237,7 @@ pub unsafe fn ufmt_getArrayItemByIndex(fmt: *mut *mut ::core::ffi::c_void, n: i3
     extern "system" {
         fn ufmt_getArrayItemByIndex(fmt: *mut *mut ::core::ffi::c_void, n: i32, status: *mut UErrorCode) -> *mut *mut ::core::ffi::c_void;
     }
-    ::core::mem::transmute(ufmt_getArrayItemByIndex(::core::mem::transmute(fmt), n, ::core::mem::transmute(status)))
+    ufmt_getArrayItemByIndex(::core::mem::transmute(fmt), n, ::core::mem::transmute(status))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -22246,7 +22246,7 @@ pub unsafe fn ufmt_getArrayLength(fmt: *const *const ::core::ffi::c_void, status
     extern "system" {
         fn ufmt_getArrayLength(fmt: *const *const ::core::ffi::c_void, status: *mut UErrorCode) -> i32;
     }
-    ::core::mem::transmute(ufmt_getArrayLength(::core::mem::transmute(fmt), ::core::mem::transmute(status)))
+    ufmt_getArrayLength(::core::mem::transmute(fmt), ::core::mem::transmute(status))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -22255,7 +22255,7 @@ pub unsafe fn ufmt_getDate(fmt: *const *const ::core::ffi::c_void, status: *mut 
     extern "system" {
         fn ufmt_getDate(fmt: *const *const ::core::ffi::c_void, status: *mut UErrorCode) -> f64;
     }
-    ::core::mem::transmute(ufmt_getDate(::core::mem::transmute(fmt), ::core::mem::transmute(status)))
+    ufmt_getDate(::core::mem::transmute(fmt), ::core::mem::transmute(status))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -22264,7 +22264,7 @@ pub unsafe fn ufmt_getDecNumChars(fmt: *mut *mut ::core::ffi::c_void, len: *mut 
     extern "system" {
         fn ufmt_getDecNumChars(fmt: *mut *mut ::core::ffi::c_void, len: *mut i32, status: *mut UErrorCode) -> ::windows::core::PSTR;
     }
-    ::core::mem::transmute(ufmt_getDecNumChars(::core::mem::transmute(fmt), ::core::mem::transmute(len), ::core::mem::transmute(status)))
+    ufmt_getDecNumChars(::core::mem::transmute(fmt), ::core::mem::transmute(len), ::core::mem::transmute(status))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -22273,7 +22273,7 @@ pub unsafe fn ufmt_getDouble(fmt: *mut *mut ::core::ffi::c_void, status: *mut UE
     extern "system" {
         fn ufmt_getDouble(fmt: *mut *mut ::core::ffi::c_void, status: *mut UErrorCode) -> f64;
     }
-    ::core::mem::transmute(ufmt_getDouble(::core::mem::transmute(fmt), ::core::mem::transmute(status)))
+    ufmt_getDouble(::core::mem::transmute(fmt), ::core::mem::transmute(status))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -22282,7 +22282,7 @@ pub unsafe fn ufmt_getInt64(fmt: *mut *mut ::core::ffi::c_void, status: *mut UEr
     extern "system" {
         fn ufmt_getInt64(fmt: *mut *mut ::core::ffi::c_void, status: *mut UErrorCode) -> i64;
     }
-    ::core::mem::transmute(ufmt_getInt64(::core::mem::transmute(fmt), ::core::mem::transmute(status)))
+    ufmt_getInt64(::core::mem::transmute(fmt), ::core::mem::transmute(status))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -22291,7 +22291,7 @@ pub unsafe fn ufmt_getLong(fmt: *mut *mut ::core::ffi::c_void, status: *mut UErr
     extern "system" {
         fn ufmt_getLong(fmt: *mut *mut ::core::ffi::c_void, status: *mut UErrorCode) -> i32;
     }
-    ::core::mem::transmute(ufmt_getLong(::core::mem::transmute(fmt), ::core::mem::transmute(status)))
+    ufmt_getLong(::core::mem::transmute(fmt), ::core::mem::transmute(status))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -22300,7 +22300,7 @@ pub unsafe fn ufmt_getObject(fmt: *const *const ::core::ffi::c_void, status: *mu
     extern "system" {
         fn ufmt_getObject(fmt: *const *const ::core::ffi::c_void, status: *mut UErrorCode) -> *mut ::core::ffi::c_void;
     }
-    ::core::mem::transmute(ufmt_getObject(::core::mem::transmute(fmt), ::core::mem::transmute(status)))
+    ufmt_getObject(::core::mem::transmute(fmt), ::core::mem::transmute(status))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -22309,7 +22309,7 @@ pub unsafe fn ufmt_getType(fmt: *const *const ::core::ffi::c_void, status: *mut 
     extern "system" {
         fn ufmt_getType(fmt: *const *const ::core::ffi::c_void, status: *mut UErrorCode) -> UFormattableType;
     }
-    ::core::mem::transmute(ufmt_getType(::core::mem::transmute(fmt), ::core::mem::transmute(status)))
+    ufmt_getType(::core::mem::transmute(fmt), ::core::mem::transmute(status))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -22318,7 +22318,7 @@ pub unsafe fn ufmt_getUChars(fmt: *mut *mut ::core::ffi::c_void, len: *mut i32, 
     extern "system" {
         fn ufmt_getUChars(fmt: *mut *mut ::core::ffi::c_void, len: *mut i32, status: *mut UErrorCode) -> *mut u16;
     }
-    ::core::mem::transmute(ufmt_getUChars(::core::mem::transmute(fmt), ::core::mem::transmute(len), ::core::mem::transmute(status)))
+    ufmt_getUChars(::core::mem::transmute(fmt), ::core::mem::transmute(len), ::core::mem::transmute(status))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -22327,7 +22327,7 @@ pub unsafe fn ufmt_isNumeric(fmt: *const *const ::core::ffi::c_void) -> i8 {
     extern "system" {
         fn ufmt_isNumeric(fmt: *const *const ::core::ffi::c_void) -> i8;
     }
-    ::core::mem::transmute(ufmt_isNumeric(::core::mem::transmute(fmt)))
+    ufmt_isNumeric(::core::mem::transmute(fmt))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -22336,7 +22336,7 @@ pub unsafe fn ufmt_open(status: *mut UErrorCode) -> *mut *mut ::core::ffi::c_voi
     extern "system" {
         fn ufmt_open(status: *mut UErrorCode) -> *mut *mut ::core::ffi::c_void;
     }
-    ::core::mem::transmute(ufmt_open(::core::mem::transmute(status)))
+    ufmt_open(::core::mem::transmute(status))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -22345,7 +22345,7 @@ pub unsafe fn ufmtval_getString(ufmtval: *const UFormattedValue, plength: *mut i
     extern "system" {
         fn ufmtval_getString(ufmtval: *const UFormattedValue, plength: *mut i32, ec: *mut UErrorCode) -> *mut u16;
     }
-    ::core::mem::transmute(ufmtval_getString(::core::mem::transmute(ufmtval), ::core::mem::transmute(plength), ::core::mem::transmute(ec)))
+    ufmtval_getString(::core::mem::transmute(ufmtval), ::core::mem::transmute(plength), ::core::mem::transmute(ec))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -22354,7 +22354,7 @@ pub unsafe fn ufmtval_nextPosition(ufmtval: *const UFormattedValue, ucfpos: *mut
     extern "system" {
         fn ufmtval_nextPosition(ufmtval: *const UFormattedValue, ucfpos: *mut UConstrainedFieldPosition, ec: *mut UErrorCode) -> i8;
     }
-    ::core::mem::transmute(ufmtval_nextPosition(::core::mem::transmute(ufmtval), ::core::mem::transmute(ucfpos), ::core::mem::transmute(ec)))
+    ufmtval_nextPosition(::core::mem::transmute(ufmtval), ::core::mem::transmute(ucfpos), ::core::mem::transmute(ec))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -22366,7 +22366,7 @@ where
     extern "system" {
         fn ugender_getInstance(locale: ::windows::core::PCSTR, status: *mut UErrorCode) -> *mut UGenderInfo;
     }
-    ::core::mem::transmute(ugender_getInstance(locale.into(), ::core::mem::transmute(status)))
+    ugender_getInstance(locale.into(), ::core::mem::transmute(status))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -22375,7 +22375,7 @@ pub unsafe fn ugender_getListGender(genderinfo: *const UGenderInfo, genders: *co
     extern "system" {
         fn ugender_getListGender(genderinfo: *const UGenderInfo, genders: *const UGender, size: i32, status: *mut UErrorCode) -> UGender;
     }
-    ::core::mem::transmute(ugender_getListGender(::core::mem::transmute(genderinfo), ::core::mem::transmute(genders), size, ::core::mem::transmute(status)))
+    ugender_getListGender(::core::mem::transmute(genderinfo), ::core::mem::transmute(genders), size, ::core::mem::transmute(status))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -22393,7 +22393,7 @@ pub unsafe fn uidna_labelToASCII(idna: *const UIDNA, label: *const u16, length: 
     extern "system" {
         fn uidna_labelToASCII(idna: *const UIDNA, label: *const u16, length: i32, dest: *mut u16, capacity: i32, pinfo: *mut UIDNAInfo, perrorcode: *mut UErrorCode) -> i32;
     }
-    ::core::mem::transmute(uidna_labelToASCII(::core::mem::transmute(idna), ::core::mem::transmute(label), length, ::core::mem::transmute(dest), capacity, ::core::mem::transmute(pinfo), ::core::mem::transmute(perrorcode)))
+    uidna_labelToASCII(::core::mem::transmute(idna), ::core::mem::transmute(label), length, ::core::mem::transmute(dest), capacity, ::core::mem::transmute(pinfo), ::core::mem::transmute(perrorcode))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -22406,7 +22406,7 @@ where
     extern "system" {
         fn uidna_labelToASCII_UTF8(idna: *const UIDNA, label: ::windows::core::PCSTR, length: i32, dest: ::windows::core::PCSTR, capacity: i32, pinfo: *mut UIDNAInfo, perrorcode: *mut UErrorCode) -> i32;
     }
-    ::core::mem::transmute(uidna_labelToASCII_UTF8(::core::mem::transmute(idna), label.into(), length, dest.into(), capacity, ::core::mem::transmute(pinfo), ::core::mem::transmute(perrorcode)))
+    uidna_labelToASCII_UTF8(::core::mem::transmute(idna), label.into(), length, dest.into(), capacity, ::core::mem::transmute(pinfo), ::core::mem::transmute(perrorcode))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -22415,7 +22415,7 @@ pub unsafe fn uidna_labelToUnicode(idna: *const UIDNA, label: *const u16, length
     extern "system" {
         fn uidna_labelToUnicode(idna: *const UIDNA, label: *const u16, length: i32, dest: *mut u16, capacity: i32, pinfo: *mut UIDNAInfo, perrorcode: *mut UErrorCode) -> i32;
     }
-    ::core::mem::transmute(uidna_labelToUnicode(::core::mem::transmute(idna), ::core::mem::transmute(label), length, ::core::mem::transmute(dest), capacity, ::core::mem::transmute(pinfo), ::core::mem::transmute(perrorcode)))
+    uidna_labelToUnicode(::core::mem::transmute(idna), ::core::mem::transmute(label), length, ::core::mem::transmute(dest), capacity, ::core::mem::transmute(pinfo), ::core::mem::transmute(perrorcode))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -22428,7 +22428,7 @@ where
     extern "system" {
         fn uidna_labelToUnicodeUTF8(idna: *const UIDNA, label: ::windows::core::PCSTR, length: i32, dest: ::windows::core::PCSTR, capacity: i32, pinfo: *mut UIDNAInfo, perrorcode: *mut UErrorCode) -> i32;
     }
-    ::core::mem::transmute(uidna_labelToUnicodeUTF8(::core::mem::transmute(idna), label.into(), length, dest.into(), capacity, ::core::mem::transmute(pinfo), ::core::mem::transmute(perrorcode)))
+    uidna_labelToUnicodeUTF8(::core::mem::transmute(idna), label.into(), length, dest.into(), capacity, ::core::mem::transmute(pinfo), ::core::mem::transmute(perrorcode))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -22437,7 +22437,7 @@ pub unsafe fn uidna_nameToASCII(idna: *const UIDNA, name: *const u16, length: i3
     extern "system" {
         fn uidna_nameToASCII(idna: *const UIDNA, name: *const u16, length: i32, dest: *mut u16, capacity: i32, pinfo: *mut UIDNAInfo, perrorcode: *mut UErrorCode) -> i32;
     }
-    ::core::mem::transmute(uidna_nameToASCII(::core::mem::transmute(idna), ::core::mem::transmute(name), length, ::core::mem::transmute(dest), capacity, ::core::mem::transmute(pinfo), ::core::mem::transmute(perrorcode)))
+    uidna_nameToASCII(::core::mem::transmute(idna), ::core::mem::transmute(name), length, ::core::mem::transmute(dest), capacity, ::core::mem::transmute(pinfo), ::core::mem::transmute(perrorcode))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -22450,7 +22450,7 @@ where
     extern "system" {
         fn uidna_nameToASCII_UTF8(idna: *const UIDNA, name: ::windows::core::PCSTR, length: i32, dest: ::windows::core::PCSTR, capacity: i32, pinfo: *mut UIDNAInfo, perrorcode: *mut UErrorCode) -> i32;
     }
-    ::core::mem::transmute(uidna_nameToASCII_UTF8(::core::mem::transmute(idna), name.into(), length, dest.into(), capacity, ::core::mem::transmute(pinfo), ::core::mem::transmute(perrorcode)))
+    uidna_nameToASCII_UTF8(::core::mem::transmute(idna), name.into(), length, dest.into(), capacity, ::core::mem::transmute(pinfo), ::core::mem::transmute(perrorcode))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -22459,7 +22459,7 @@ pub unsafe fn uidna_nameToUnicode(idna: *const UIDNA, name: *const u16, length: 
     extern "system" {
         fn uidna_nameToUnicode(idna: *const UIDNA, name: *const u16, length: i32, dest: *mut u16, capacity: i32, pinfo: *mut UIDNAInfo, perrorcode: *mut UErrorCode) -> i32;
     }
-    ::core::mem::transmute(uidna_nameToUnicode(::core::mem::transmute(idna), ::core::mem::transmute(name), length, ::core::mem::transmute(dest), capacity, ::core::mem::transmute(pinfo), ::core::mem::transmute(perrorcode)))
+    uidna_nameToUnicode(::core::mem::transmute(idna), ::core::mem::transmute(name), length, ::core::mem::transmute(dest), capacity, ::core::mem::transmute(pinfo), ::core::mem::transmute(perrorcode))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -22472,7 +22472,7 @@ where
     extern "system" {
         fn uidna_nameToUnicodeUTF8(idna: *const UIDNA, name: ::windows::core::PCSTR, length: i32, dest: ::windows::core::PCSTR, capacity: i32, pinfo: *mut UIDNAInfo, perrorcode: *mut UErrorCode) -> i32;
     }
-    ::core::mem::transmute(uidna_nameToUnicodeUTF8(::core::mem::transmute(idna), name.into(), length, dest.into(), capacity, ::core::mem::transmute(pinfo), ::core::mem::transmute(perrorcode)))
+    uidna_nameToUnicodeUTF8(::core::mem::transmute(idna), name.into(), length, dest.into(), capacity, ::core::mem::transmute(pinfo), ::core::mem::transmute(perrorcode))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -22481,7 +22481,7 @@ pub unsafe fn uidna_openUTS46(options: u32, perrorcode: *mut UErrorCode) -> *mut
     extern "system" {
         fn uidna_openUTS46(options: u32, perrorcode: *mut UErrorCode) -> *mut UIDNA;
     }
-    ::core::mem::transmute(uidna_openUTS46(options, ::core::mem::transmute(perrorcode)))
+    uidna_openUTS46(options, ::core::mem::transmute(perrorcode))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -22490,7 +22490,7 @@ pub unsafe fn uiter_current32(iter: *mut UCharIterator) -> i32 {
     extern "system" {
         fn uiter_current32(iter: *mut UCharIterator) -> i32;
     }
-    ::core::mem::transmute(uiter_current32(::core::mem::transmute(iter)))
+    uiter_current32(::core::mem::transmute(iter))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -22499,7 +22499,7 @@ pub unsafe fn uiter_getState(iter: *const UCharIterator) -> u32 {
     extern "system" {
         fn uiter_getState(iter: *const UCharIterator) -> u32;
     }
-    ::core::mem::transmute(uiter_getState(::core::mem::transmute(iter)))
+    uiter_getState(::core::mem::transmute(iter))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -22508,7 +22508,7 @@ pub unsafe fn uiter_next32(iter: *mut UCharIterator) -> i32 {
     extern "system" {
         fn uiter_next32(iter: *mut UCharIterator) -> i32;
     }
-    ::core::mem::transmute(uiter_next32(::core::mem::transmute(iter)))
+    uiter_next32(::core::mem::transmute(iter))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -22517,7 +22517,7 @@ pub unsafe fn uiter_previous32(iter: *mut UCharIterator) -> i32 {
     extern "system" {
         fn uiter_previous32(iter: *mut UCharIterator) -> i32;
     }
-    ::core::mem::transmute(uiter_previous32(::core::mem::transmute(iter)))
+    uiter_previous32(::core::mem::transmute(iter))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -22577,7 +22577,7 @@ pub unsafe fn uldn_getContext(ldn: *const ULocaleDisplayNames, r#type: UDisplayC
     extern "system" {
         fn uldn_getContext(ldn: *const ULocaleDisplayNames, r#type: UDisplayContextType, perrorcode: *mut UErrorCode) -> UDisplayContext;
     }
-    ::core::mem::transmute(uldn_getContext(::core::mem::transmute(ldn), r#type, ::core::mem::transmute(perrorcode)))
+    uldn_getContext(::core::mem::transmute(ldn), r#type, ::core::mem::transmute(perrorcode))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -22586,7 +22586,7 @@ pub unsafe fn uldn_getDialectHandling(ldn: *const ULocaleDisplayNames) -> UDiale
     extern "system" {
         fn uldn_getDialectHandling(ldn: *const ULocaleDisplayNames) -> UDialectHandling;
     }
-    ::core::mem::transmute(uldn_getDialectHandling(::core::mem::transmute(ldn)))
+    uldn_getDialectHandling(::core::mem::transmute(ldn))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -22595,7 +22595,7 @@ pub unsafe fn uldn_getLocale(ldn: *const ULocaleDisplayNames) -> ::windows::core
     extern "system" {
         fn uldn_getLocale(ldn: *const ULocaleDisplayNames) -> ::windows::core::PSTR;
     }
-    ::core::mem::transmute(uldn_getLocale(::core::mem::transmute(ldn)))
+    uldn_getLocale(::core::mem::transmute(ldn))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -22607,7 +22607,7 @@ where
     extern "system" {
         fn uldn_keyDisplayName(ldn: *const ULocaleDisplayNames, key: ::windows::core::PCSTR, result: *mut u16, maxresultsize: i32, perrorcode: *mut UErrorCode) -> i32;
     }
-    ::core::mem::transmute(uldn_keyDisplayName(::core::mem::transmute(ldn), key.into(), ::core::mem::transmute(result), maxresultsize, ::core::mem::transmute(perrorcode)))
+    uldn_keyDisplayName(::core::mem::transmute(ldn), key.into(), ::core::mem::transmute(result), maxresultsize, ::core::mem::transmute(perrorcode))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -22620,7 +22620,7 @@ where
     extern "system" {
         fn uldn_keyValueDisplayName(ldn: *const ULocaleDisplayNames, key: ::windows::core::PCSTR, value: ::windows::core::PCSTR, result: *mut u16, maxresultsize: i32, perrorcode: *mut UErrorCode) -> i32;
     }
-    ::core::mem::transmute(uldn_keyValueDisplayName(::core::mem::transmute(ldn), key.into(), value.into(), ::core::mem::transmute(result), maxresultsize, ::core::mem::transmute(perrorcode)))
+    uldn_keyValueDisplayName(::core::mem::transmute(ldn), key.into(), value.into(), ::core::mem::transmute(result), maxresultsize, ::core::mem::transmute(perrorcode))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -22632,7 +22632,7 @@ where
     extern "system" {
         fn uldn_languageDisplayName(ldn: *const ULocaleDisplayNames, lang: ::windows::core::PCSTR, result: *mut u16, maxresultsize: i32, perrorcode: *mut UErrorCode) -> i32;
     }
-    ::core::mem::transmute(uldn_languageDisplayName(::core::mem::transmute(ldn), lang.into(), ::core::mem::transmute(result), maxresultsize, ::core::mem::transmute(perrorcode)))
+    uldn_languageDisplayName(::core::mem::transmute(ldn), lang.into(), ::core::mem::transmute(result), maxresultsize, ::core::mem::transmute(perrorcode))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -22644,7 +22644,7 @@ where
     extern "system" {
         fn uldn_localeDisplayName(ldn: *const ULocaleDisplayNames, locale: ::windows::core::PCSTR, result: *mut u16, maxresultsize: i32, perrorcode: *mut UErrorCode) -> i32;
     }
-    ::core::mem::transmute(uldn_localeDisplayName(::core::mem::transmute(ldn), locale.into(), ::core::mem::transmute(result), maxresultsize, ::core::mem::transmute(perrorcode)))
+    uldn_localeDisplayName(::core::mem::transmute(ldn), locale.into(), ::core::mem::transmute(result), maxresultsize, ::core::mem::transmute(perrorcode))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -22656,7 +22656,7 @@ where
     extern "system" {
         fn uldn_open(locale: ::windows::core::PCSTR, dialecthandling: UDialectHandling, perrorcode: *mut UErrorCode) -> *mut ULocaleDisplayNames;
     }
-    ::core::mem::transmute(uldn_open(locale.into(), dialecthandling, ::core::mem::transmute(perrorcode)))
+    uldn_open(locale.into(), dialecthandling, ::core::mem::transmute(perrorcode))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -22668,7 +22668,7 @@ where
     extern "system" {
         fn uldn_openForContext(locale: ::windows::core::PCSTR, contexts: *mut UDisplayContext, length: i32, perrorcode: *mut UErrorCode) -> *mut ULocaleDisplayNames;
     }
-    ::core::mem::transmute(uldn_openForContext(locale.into(), ::core::mem::transmute(contexts), length, ::core::mem::transmute(perrorcode)))
+    uldn_openForContext(locale.into(), ::core::mem::transmute(contexts), length, ::core::mem::transmute(perrorcode))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -22680,7 +22680,7 @@ where
     extern "system" {
         fn uldn_regionDisplayName(ldn: *const ULocaleDisplayNames, region: ::windows::core::PCSTR, result: *mut u16, maxresultsize: i32, perrorcode: *mut UErrorCode) -> i32;
     }
-    ::core::mem::transmute(uldn_regionDisplayName(::core::mem::transmute(ldn), region.into(), ::core::mem::transmute(result), maxresultsize, ::core::mem::transmute(perrorcode)))
+    uldn_regionDisplayName(::core::mem::transmute(ldn), region.into(), ::core::mem::transmute(result), maxresultsize, ::core::mem::transmute(perrorcode))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -22689,7 +22689,7 @@ pub unsafe fn uldn_scriptCodeDisplayName(ldn: *const ULocaleDisplayNames, script
     extern "system" {
         fn uldn_scriptCodeDisplayName(ldn: *const ULocaleDisplayNames, scriptcode: UScriptCode, result: *mut u16, maxresultsize: i32, perrorcode: *mut UErrorCode) -> i32;
     }
-    ::core::mem::transmute(uldn_scriptCodeDisplayName(::core::mem::transmute(ldn), scriptcode, ::core::mem::transmute(result), maxresultsize, ::core::mem::transmute(perrorcode)))
+    uldn_scriptCodeDisplayName(::core::mem::transmute(ldn), scriptcode, ::core::mem::transmute(result), maxresultsize, ::core::mem::transmute(perrorcode))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -22701,7 +22701,7 @@ where
     extern "system" {
         fn uldn_scriptDisplayName(ldn: *const ULocaleDisplayNames, script: ::windows::core::PCSTR, result: *mut u16, maxresultsize: i32, perrorcode: *mut UErrorCode) -> i32;
     }
-    ::core::mem::transmute(uldn_scriptDisplayName(::core::mem::transmute(ldn), script.into(), ::core::mem::transmute(result), maxresultsize, ::core::mem::transmute(perrorcode)))
+    uldn_scriptDisplayName(::core::mem::transmute(ldn), script.into(), ::core::mem::transmute(result), maxresultsize, ::core::mem::transmute(perrorcode))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -22713,7 +22713,7 @@ where
     extern "system" {
         fn uldn_variantDisplayName(ldn: *const ULocaleDisplayNames, variant: ::windows::core::PCSTR, result: *mut u16, maxresultsize: i32, perrorcode: *mut UErrorCode) -> i32;
     }
-    ::core::mem::transmute(uldn_variantDisplayName(::core::mem::transmute(ldn), variant.into(), ::core::mem::transmute(result), maxresultsize, ::core::mem::transmute(perrorcode)))
+    uldn_variantDisplayName(::core::mem::transmute(ldn), variant.into(), ::core::mem::transmute(result), maxresultsize, ::core::mem::transmute(perrorcode))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -22740,7 +22740,7 @@ pub unsafe fn ulistfmt_format(listfmt: *const UListFormatter, strings: *const *c
     extern "system" {
         fn ulistfmt_format(listfmt: *const UListFormatter, strings: *const *const u16, stringlengths: *const i32, stringcount: i32, result: *mut u16, resultcapacity: i32, status: *mut UErrorCode) -> i32;
     }
-    ::core::mem::transmute(ulistfmt_format(::core::mem::transmute(listfmt), ::core::mem::transmute(strings), ::core::mem::transmute(stringlengths), stringcount, ::core::mem::transmute(result), resultcapacity, ::core::mem::transmute(status)))
+    ulistfmt_format(::core::mem::transmute(listfmt), ::core::mem::transmute(strings), ::core::mem::transmute(stringlengths), stringcount, ::core::mem::transmute(result), resultcapacity, ::core::mem::transmute(status))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -22761,7 +22761,7 @@ where
     extern "system" {
         fn ulistfmt_open(locale: ::windows::core::PCSTR, status: *mut UErrorCode) -> *mut UListFormatter;
     }
-    ::core::mem::transmute(ulistfmt_open(locale.into(), ::core::mem::transmute(status)))
+    ulistfmt_open(locale.into(), ::core::mem::transmute(status))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -22773,7 +22773,7 @@ where
     extern "system" {
         fn ulistfmt_openForType(locale: ::windows::core::PCSTR, r#type: UListFormatterType, width: UListFormatterWidth, status: *mut UErrorCode) -> *mut UListFormatter;
     }
-    ::core::mem::transmute(ulistfmt_openForType(locale.into(), r#type, width, ::core::mem::transmute(status)))
+    ulistfmt_openForType(locale.into(), r#type, width, ::core::mem::transmute(status))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -22782,7 +22782,7 @@ pub unsafe fn ulistfmt_openResult(ec: *mut UErrorCode) -> *mut UFormattedList {
     extern "system" {
         fn ulistfmt_openResult(ec: *mut UErrorCode) -> *mut UFormattedList;
     }
-    ::core::mem::transmute(ulistfmt_openResult(::core::mem::transmute(ec)))
+    ulistfmt_openResult(::core::mem::transmute(ec))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -22791,7 +22791,7 @@ pub unsafe fn ulistfmt_resultAsValue(uresult: *const UFormattedList, ec: *mut UE
     extern "system" {
         fn ulistfmt_resultAsValue(uresult: *const UFormattedList, ec: *mut UErrorCode) -> *mut UFormattedValue;
     }
-    ::core::mem::transmute(ulistfmt_resultAsValue(::core::mem::transmute(uresult), ::core::mem::transmute(ec)))
+    ulistfmt_resultAsValue(::core::mem::transmute(uresult), ::core::mem::transmute(ec))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -22803,7 +22803,7 @@ where
     extern "system" {
         fn uloc_acceptLanguage(result: ::windows::core::PCSTR, resultavailable: i32, outresult: *mut UAcceptResult, acceptlist: *const *const i8, acceptlistcount: i32, availablelocales: *mut UEnumeration, status: *mut UErrorCode) -> i32;
     }
-    ::core::mem::transmute(uloc_acceptLanguage(result.into(), resultavailable, ::core::mem::transmute(outresult), ::core::mem::transmute(acceptlist), acceptlistcount, ::core::mem::transmute(availablelocales), ::core::mem::transmute(status)))
+    uloc_acceptLanguage(result.into(), resultavailable, ::core::mem::transmute(outresult), ::core::mem::transmute(acceptlist), acceptlistcount, ::core::mem::transmute(availablelocales), ::core::mem::transmute(status))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -22816,7 +22816,7 @@ where
     extern "system" {
         fn uloc_acceptLanguageFromHTTP(result: ::windows::core::PCSTR, resultavailable: i32, outresult: *mut UAcceptResult, httpacceptlanguage: ::windows::core::PCSTR, availablelocales: *mut UEnumeration, status: *mut UErrorCode) -> i32;
     }
-    ::core::mem::transmute(uloc_acceptLanguageFromHTTP(result.into(), resultavailable, ::core::mem::transmute(outresult), httpacceptlanguage.into(), ::core::mem::transmute(availablelocales), ::core::mem::transmute(status)))
+    uloc_acceptLanguageFromHTTP(result.into(), resultavailable, ::core::mem::transmute(outresult), httpacceptlanguage.into(), ::core::mem::transmute(availablelocales), ::core::mem::transmute(status))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -22829,7 +22829,7 @@ where
     extern "system" {
         fn uloc_addLikelySubtags(localeid: ::windows::core::PCSTR, maximizedlocaleid: ::windows::core::PCSTR, maximizedlocaleidcapacity: i32, err: *mut UErrorCode) -> i32;
     }
-    ::core::mem::transmute(uloc_addLikelySubtags(localeid.into(), maximizedlocaleid.into(), maximizedlocaleidcapacity, ::core::mem::transmute(err)))
+    uloc_addLikelySubtags(localeid.into(), maximizedlocaleid.into(), maximizedlocaleidcapacity, ::core::mem::transmute(err))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -22842,7 +22842,7 @@ where
     extern "system" {
         fn uloc_canonicalize(localeid: ::windows::core::PCSTR, name: ::windows::core::PCSTR, namecapacity: i32, err: *mut UErrorCode) -> i32;
     }
-    ::core::mem::transmute(uloc_canonicalize(localeid.into(), name.into(), namecapacity, ::core::mem::transmute(err)))
+    uloc_canonicalize(localeid.into(), name.into(), namecapacity, ::core::mem::transmute(err))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -22851,7 +22851,7 @@ pub unsafe fn uloc_countAvailable() -> i32 {
     extern "system" {
         fn uloc_countAvailable() -> i32;
     }
-    ::core::mem::transmute(uloc_countAvailable())
+    uloc_countAvailable()
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -22864,7 +22864,7 @@ where
     extern "system" {
         fn uloc_forLanguageTag(langtag: ::windows::core::PCSTR, localeid: ::windows::core::PCSTR, localeidcapacity: i32, parsedlength: *mut i32, err: *mut UErrorCode) -> i32;
     }
-    ::core::mem::transmute(uloc_forLanguageTag(langtag.into(), localeid.into(), localeidcapacity, ::core::mem::transmute(parsedlength), ::core::mem::transmute(err)))
+    uloc_forLanguageTag(langtag.into(), localeid.into(), localeidcapacity, ::core::mem::transmute(parsedlength), ::core::mem::transmute(err))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -22873,7 +22873,7 @@ pub unsafe fn uloc_getAvailable(n: i32) -> ::windows::core::PSTR {
     extern "system" {
         fn uloc_getAvailable(n: i32) -> ::windows::core::PSTR;
     }
-    ::core::mem::transmute(uloc_getAvailable(n))
+    uloc_getAvailable(n)
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -22886,7 +22886,7 @@ where
     extern "system" {
         fn uloc_getBaseName(localeid: ::windows::core::PCSTR, name: ::windows::core::PCSTR, namecapacity: i32, err: *mut UErrorCode) -> i32;
     }
-    ::core::mem::transmute(uloc_getBaseName(localeid.into(), name.into(), namecapacity, ::core::mem::transmute(err)))
+    uloc_getBaseName(localeid.into(), name.into(), namecapacity, ::core::mem::transmute(err))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -22898,7 +22898,7 @@ where
     extern "system" {
         fn uloc_getCharacterOrientation(localeid: ::windows::core::PCSTR, status: *mut UErrorCode) -> ULayoutType;
     }
-    ::core::mem::transmute(uloc_getCharacterOrientation(localeid.into(), ::core::mem::transmute(status)))
+    uloc_getCharacterOrientation(localeid.into(), ::core::mem::transmute(status))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -22911,7 +22911,7 @@ where
     extern "system" {
         fn uloc_getCountry(localeid: ::windows::core::PCSTR, country: ::windows::core::PCSTR, countrycapacity: i32, err: *mut UErrorCode) -> i32;
     }
-    ::core::mem::transmute(uloc_getCountry(localeid.into(), country.into(), countrycapacity, ::core::mem::transmute(err)))
+    uloc_getCountry(localeid.into(), country.into(), countrycapacity, ::core::mem::transmute(err))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -22920,7 +22920,7 @@ pub unsafe fn uloc_getDefault() -> ::windows::core::PSTR {
     extern "system" {
         fn uloc_getDefault() -> ::windows::core::PSTR;
     }
-    ::core::mem::transmute(uloc_getDefault())
+    uloc_getDefault()
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -22933,7 +22933,7 @@ where
     extern "system" {
         fn uloc_getDisplayCountry(locale: ::windows::core::PCSTR, displaylocale: ::windows::core::PCSTR, country: *mut u16, countrycapacity: i32, status: *mut UErrorCode) -> i32;
     }
-    ::core::mem::transmute(uloc_getDisplayCountry(locale.into(), displaylocale.into(), ::core::mem::transmute(country), countrycapacity, ::core::mem::transmute(status)))
+    uloc_getDisplayCountry(locale.into(), displaylocale.into(), ::core::mem::transmute(country), countrycapacity, ::core::mem::transmute(status))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -22946,7 +22946,7 @@ where
     extern "system" {
         fn uloc_getDisplayKeyword(keyword: ::windows::core::PCSTR, displaylocale: ::windows::core::PCSTR, dest: *mut u16, destcapacity: i32, status: *mut UErrorCode) -> i32;
     }
-    ::core::mem::transmute(uloc_getDisplayKeyword(keyword.into(), displaylocale.into(), ::core::mem::transmute(dest), destcapacity, ::core::mem::transmute(status)))
+    uloc_getDisplayKeyword(keyword.into(), displaylocale.into(), ::core::mem::transmute(dest), destcapacity, ::core::mem::transmute(status))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -22960,7 +22960,7 @@ where
     extern "system" {
         fn uloc_getDisplayKeywordValue(locale: ::windows::core::PCSTR, keyword: ::windows::core::PCSTR, displaylocale: ::windows::core::PCSTR, dest: *mut u16, destcapacity: i32, status: *mut UErrorCode) -> i32;
     }
-    ::core::mem::transmute(uloc_getDisplayKeywordValue(locale.into(), keyword.into(), displaylocale.into(), ::core::mem::transmute(dest), destcapacity, ::core::mem::transmute(status)))
+    uloc_getDisplayKeywordValue(locale.into(), keyword.into(), displaylocale.into(), ::core::mem::transmute(dest), destcapacity, ::core::mem::transmute(status))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -22973,7 +22973,7 @@ where
     extern "system" {
         fn uloc_getDisplayLanguage(locale: ::windows::core::PCSTR, displaylocale: ::windows::core::PCSTR, language: *mut u16, languagecapacity: i32, status: *mut UErrorCode) -> i32;
     }
-    ::core::mem::transmute(uloc_getDisplayLanguage(locale.into(), displaylocale.into(), ::core::mem::transmute(language), languagecapacity, ::core::mem::transmute(status)))
+    uloc_getDisplayLanguage(locale.into(), displaylocale.into(), ::core::mem::transmute(language), languagecapacity, ::core::mem::transmute(status))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -22986,7 +22986,7 @@ where
     extern "system" {
         fn uloc_getDisplayName(localeid: ::windows::core::PCSTR, inlocaleid: ::windows::core::PCSTR, result: *mut u16, maxresultsize: i32, err: *mut UErrorCode) -> i32;
     }
-    ::core::mem::transmute(uloc_getDisplayName(localeid.into(), inlocaleid.into(), ::core::mem::transmute(result), maxresultsize, ::core::mem::transmute(err)))
+    uloc_getDisplayName(localeid.into(), inlocaleid.into(), ::core::mem::transmute(result), maxresultsize, ::core::mem::transmute(err))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -22999,7 +22999,7 @@ where
     extern "system" {
         fn uloc_getDisplayScript(locale: ::windows::core::PCSTR, displaylocale: ::windows::core::PCSTR, script: *mut u16, scriptcapacity: i32, status: *mut UErrorCode) -> i32;
     }
-    ::core::mem::transmute(uloc_getDisplayScript(locale.into(), displaylocale.into(), ::core::mem::transmute(script), scriptcapacity, ::core::mem::transmute(status)))
+    uloc_getDisplayScript(locale.into(), displaylocale.into(), ::core::mem::transmute(script), scriptcapacity, ::core::mem::transmute(status))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -23012,7 +23012,7 @@ where
     extern "system" {
         fn uloc_getDisplayVariant(locale: ::windows::core::PCSTR, displaylocale: ::windows::core::PCSTR, variant: *mut u16, variantcapacity: i32, status: *mut UErrorCode) -> i32;
     }
-    ::core::mem::transmute(uloc_getDisplayVariant(locale.into(), displaylocale.into(), ::core::mem::transmute(variant), variantcapacity, ::core::mem::transmute(status)))
+    uloc_getDisplayVariant(locale.into(), displaylocale.into(), ::core::mem::transmute(variant), variantcapacity, ::core::mem::transmute(status))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -23024,7 +23024,7 @@ where
     extern "system" {
         fn uloc_getISO3Country(localeid: ::windows::core::PCSTR) -> ::windows::core::PSTR;
     }
-    ::core::mem::transmute(uloc_getISO3Country(localeid.into()))
+    uloc_getISO3Country(localeid.into())
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -23036,7 +23036,7 @@ where
     extern "system" {
         fn uloc_getISO3Language(localeid: ::windows::core::PCSTR) -> ::windows::core::PSTR;
     }
-    ::core::mem::transmute(uloc_getISO3Language(localeid.into()))
+    uloc_getISO3Language(localeid.into())
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -23045,7 +23045,7 @@ pub unsafe fn uloc_getISOCountries() -> *mut *mut i8 {
     extern "system" {
         fn uloc_getISOCountries() -> *mut *mut i8;
     }
-    ::core::mem::transmute(uloc_getISOCountries())
+    uloc_getISOCountries()
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -23054,7 +23054,7 @@ pub unsafe fn uloc_getISOLanguages() -> *mut *mut i8 {
     extern "system" {
         fn uloc_getISOLanguages() -> *mut *mut i8;
     }
-    ::core::mem::transmute(uloc_getISOLanguages())
+    uloc_getISOLanguages()
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -23068,7 +23068,7 @@ where
     extern "system" {
         fn uloc_getKeywordValue(localeid: ::windows::core::PCSTR, keywordname: ::windows::core::PCSTR, buffer: ::windows::core::PCSTR, buffercapacity: i32, status: *mut UErrorCode) -> i32;
     }
-    ::core::mem::transmute(uloc_getKeywordValue(localeid.into(), keywordname.into(), buffer.into(), buffercapacity, ::core::mem::transmute(status)))
+    uloc_getKeywordValue(localeid.into(), keywordname.into(), buffer.into(), buffercapacity, ::core::mem::transmute(status))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -23080,7 +23080,7 @@ where
     extern "system" {
         fn uloc_getLCID(localeid: ::windows::core::PCSTR) -> u32;
     }
-    ::core::mem::transmute(uloc_getLCID(localeid.into()))
+    uloc_getLCID(localeid.into())
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -23093,7 +23093,7 @@ where
     extern "system" {
         fn uloc_getLanguage(localeid: ::windows::core::PCSTR, language: ::windows::core::PCSTR, languagecapacity: i32, err: *mut UErrorCode) -> i32;
     }
-    ::core::mem::transmute(uloc_getLanguage(localeid.into(), language.into(), languagecapacity, ::core::mem::transmute(err)))
+    uloc_getLanguage(localeid.into(), language.into(), languagecapacity, ::core::mem::transmute(err))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -23105,7 +23105,7 @@ where
     extern "system" {
         fn uloc_getLineOrientation(localeid: ::windows::core::PCSTR, status: *mut UErrorCode) -> ULayoutType;
     }
-    ::core::mem::transmute(uloc_getLineOrientation(localeid.into(), ::core::mem::transmute(status)))
+    uloc_getLineOrientation(localeid.into(), ::core::mem::transmute(status))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -23117,7 +23117,7 @@ where
     extern "system" {
         fn uloc_getLocaleForLCID(hostid: u32, locale: ::windows::core::PCSTR, localecapacity: i32, status: *mut UErrorCode) -> i32;
     }
-    ::core::mem::transmute(uloc_getLocaleForLCID(hostid, locale.into(), localecapacity, ::core::mem::transmute(status)))
+    uloc_getLocaleForLCID(hostid, locale.into(), localecapacity, ::core::mem::transmute(status))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -23130,7 +23130,7 @@ where
     extern "system" {
         fn uloc_getName(localeid: ::windows::core::PCSTR, name: ::windows::core::PCSTR, namecapacity: i32, err: *mut UErrorCode) -> i32;
     }
-    ::core::mem::transmute(uloc_getName(localeid.into(), name.into(), namecapacity, ::core::mem::transmute(err)))
+    uloc_getName(localeid.into(), name.into(), namecapacity, ::core::mem::transmute(err))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -23143,7 +23143,7 @@ where
     extern "system" {
         fn uloc_getParent(localeid: ::windows::core::PCSTR, parent: ::windows::core::PCSTR, parentcapacity: i32, err: *mut UErrorCode) -> i32;
     }
-    ::core::mem::transmute(uloc_getParent(localeid.into(), parent.into(), parentcapacity, ::core::mem::transmute(err)))
+    uloc_getParent(localeid.into(), parent.into(), parentcapacity, ::core::mem::transmute(err))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -23156,7 +23156,7 @@ where
     extern "system" {
         fn uloc_getScript(localeid: ::windows::core::PCSTR, script: ::windows::core::PCSTR, scriptcapacity: i32, err: *mut UErrorCode) -> i32;
     }
-    ::core::mem::transmute(uloc_getScript(localeid.into(), script.into(), scriptcapacity, ::core::mem::transmute(err)))
+    uloc_getScript(localeid.into(), script.into(), scriptcapacity, ::core::mem::transmute(err))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -23169,7 +23169,7 @@ where
     extern "system" {
         fn uloc_getVariant(localeid: ::windows::core::PCSTR, variant: ::windows::core::PCSTR, variantcapacity: i32, err: *mut UErrorCode) -> i32;
     }
-    ::core::mem::transmute(uloc_getVariant(localeid.into(), variant.into(), variantcapacity, ::core::mem::transmute(err)))
+    uloc_getVariant(localeid.into(), variant.into(), variantcapacity, ::core::mem::transmute(err))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -23181,7 +23181,7 @@ where
     extern "system" {
         fn uloc_isRightToLeft(locale: ::windows::core::PCSTR) -> i8;
     }
-    ::core::mem::transmute(uloc_isRightToLeft(locale.into()))
+    uloc_isRightToLeft(locale.into())
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -23194,7 +23194,7 @@ where
     extern "system" {
         fn uloc_minimizeSubtags(localeid: ::windows::core::PCSTR, minimizedlocaleid: ::windows::core::PCSTR, minimizedlocaleidcapacity: i32, err: *mut UErrorCode) -> i32;
     }
-    ::core::mem::transmute(uloc_minimizeSubtags(localeid.into(), minimizedlocaleid.into(), minimizedlocaleidcapacity, ::core::mem::transmute(err)))
+    uloc_minimizeSubtags(localeid.into(), minimizedlocaleid.into(), minimizedlocaleidcapacity, ::core::mem::transmute(err))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -23203,7 +23203,7 @@ pub unsafe fn uloc_openAvailableByType(r#type: ULocAvailableType, status: *mut U
     extern "system" {
         fn uloc_openAvailableByType(r#type: ULocAvailableType, status: *mut UErrorCode) -> *mut UEnumeration;
     }
-    ::core::mem::transmute(uloc_openAvailableByType(r#type, ::core::mem::transmute(status)))
+    uloc_openAvailableByType(r#type, ::core::mem::transmute(status))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -23215,7 +23215,7 @@ where
     extern "system" {
         fn uloc_openKeywords(localeid: ::windows::core::PCSTR, status: *mut UErrorCode) -> *mut UEnumeration;
     }
-    ::core::mem::transmute(uloc_openKeywords(localeid.into(), ::core::mem::transmute(status)))
+    uloc_openKeywords(localeid.into(), ::core::mem::transmute(status))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -23241,7 +23241,7 @@ where
     extern "system" {
         fn uloc_setKeywordValue(keywordname: ::windows::core::PCSTR, keywordvalue: ::windows::core::PCSTR, buffer: ::windows::core::PCSTR, buffercapacity: i32, status: *mut UErrorCode) -> i32;
     }
-    ::core::mem::transmute(uloc_setKeywordValue(keywordname.into(), keywordvalue.into(), buffer.into(), buffercapacity, ::core::mem::transmute(status)))
+    uloc_setKeywordValue(keywordname.into(), keywordvalue.into(), buffer.into(), buffercapacity, ::core::mem::transmute(status))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -23254,7 +23254,7 @@ where
     extern "system" {
         fn uloc_toLanguageTag(localeid: ::windows::core::PCSTR, langtag: ::windows::core::PCSTR, langtagcapacity: i32, strict: i8, err: *mut UErrorCode) -> i32;
     }
-    ::core::mem::transmute(uloc_toLanguageTag(localeid.into(), langtag.into(), langtagcapacity, strict, ::core::mem::transmute(err)))
+    uloc_toLanguageTag(localeid.into(), langtag.into(), langtagcapacity, strict, ::core::mem::transmute(err))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -23266,7 +23266,7 @@ where
     extern "system" {
         fn uloc_toLegacyKey(keyword: ::windows::core::PCSTR) -> ::windows::core::PSTR;
     }
-    ::core::mem::transmute(uloc_toLegacyKey(keyword.into()))
+    uloc_toLegacyKey(keyword.into())
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -23279,7 +23279,7 @@ where
     extern "system" {
         fn uloc_toLegacyType(keyword: ::windows::core::PCSTR, value: ::windows::core::PCSTR) -> ::windows::core::PSTR;
     }
-    ::core::mem::transmute(uloc_toLegacyType(keyword.into(), value.into()))
+    uloc_toLegacyType(keyword.into(), value.into())
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -23291,7 +23291,7 @@ where
     extern "system" {
         fn uloc_toUnicodeLocaleKey(keyword: ::windows::core::PCSTR) -> ::windows::core::PSTR;
     }
-    ::core::mem::transmute(uloc_toUnicodeLocaleKey(keyword.into()))
+    uloc_toUnicodeLocaleKey(keyword.into())
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -23304,7 +23304,7 @@ where
     extern "system" {
         fn uloc_toUnicodeLocaleType(keyword: ::windows::core::PCSTR, value: ::windows::core::PCSTR) -> ::windows::core::PSTR;
     }
-    ::core::mem::transmute(uloc_toUnicodeLocaleType(keyword.into(), value.into()))
+    uloc_toUnicodeLocaleType(keyword.into(), value.into())
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -23331,7 +23331,7 @@ pub unsafe fn ulocdata_getDelimiter(uld: *mut ULocaleData, r#type: ULocaleDataDe
     extern "system" {
         fn ulocdata_getDelimiter(uld: *mut ULocaleData, r#type: ULocaleDataDelimiterType, result: *mut u16, resultlength: i32, status: *mut UErrorCode) -> i32;
     }
-    ::core::mem::transmute(ulocdata_getDelimiter(::core::mem::transmute(uld), r#type, ::core::mem::transmute(result), resultlength, ::core::mem::transmute(status)))
+    ulocdata_getDelimiter(::core::mem::transmute(uld), r#type, ::core::mem::transmute(result), resultlength, ::core::mem::transmute(status))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -23340,7 +23340,7 @@ pub unsafe fn ulocdata_getExemplarSet(uld: *mut ULocaleData, fillin: *mut USet, 
     extern "system" {
         fn ulocdata_getExemplarSet(uld: *mut ULocaleData, fillin: *mut USet, options: u32, extype: ULocaleDataExemplarSetType, status: *mut UErrorCode) -> *mut USet;
     }
-    ::core::mem::transmute(ulocdata_getExemplarSet(::core::mem::transmute(uld), ::core::mem::transmute(fillin), options, extype, ::core::mem::transmute(status)))
+    ulocdata_getExemplarSet(::core::mem::transmute(uld), ::core::mem::transmute(fillin), options, extype, ::core::mem::transmute(status))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -23349,7 +23349,7 @@ pub unsafe fn ulocdata_getLocaleDisplayPattern(uld: *mut ULocaleData, pattern: *
     extern "system" {
         fn ulocdata_getLocaleDisplayPattern(uld: *mut ULocaleData, pattern: *mut u16, patterncapacity: i32, status: *mut UErrorCode) -> i32;
     }
-    ::core::mem::transmute(ulocdata_getLocaleDisplayPattern(::core::mem::transmute(uld), ::core::mem::transmute(pattern), patterncapacity, ::core::mem::transmute(status)))
+    ulocdata_getLocaleDisplayPattern(::core::mem::transmute(uld), ::core::mem::transmute(pattern), patterncapacity, ::core::mem::transmute(status))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -23358,7 +23358,7 @@ pub unsafe fn ulocdata_getLocaleSeparator(uld: *mut ULocaleData, separator: *mut
     extern "system" {
         fn ulocdata_getLocaleSeparator(uld: *mut ULocaleData, separator: *mut u16, separatorcapacity: i32, status: *mut UErrorCode) -> i32;
     }
-    ::core::mem::transmute(ulocdata_getLocaleSeparator(::core::mem::transmute(uld), ::core::mem::transmute(separator), separatorcapacity, ::core::mem::transmute(status)))
+    ulocdata_getLocaleSeparator(::core::mem::transmute(uld), ::core::mem::transmute(separator), separatorcapacity, ::core::mem::transmute(status))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -23370,7 +23370,7 @@ where
     extern "system" {
         fn ulocdata_getMeasurementSystem(localeid: ::windows::core::PCSTR, status: *mut UErrorCode) -> UMeasurementSystem;
     }
-    ::core::mem::transmute(ulocdata_getMeasurementSystem(localeid.into(), ::core::mem::transmute(status)))
+    ulocdata_getMeasurementSystem(localeid.into(), ::core::mem::transmute(status))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -23379,7 +23379,7 @@ pub unsafe fn ulocdata_getNoSubstitute(uld: *mut ULocaleData) -> i8 {
     extern "system" {
         fn ulocdata_getNoSubstitute(uld: *mut ULocaleData) -> i8;
     }
-    ::core::mem::transmute(ulocdata_getNoSubstitute(::core::mem::transmute(uld)))
+    ulocdata_getNoSubstitute(::core::mem::transmute(uld))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -23403,7 +23403,7 @@ where
     extern "system" {
         fn ulocdata_open(localeid: ::windows::core::PCSTR, status: *mut UErrorCode) -> *mut ULocaleData;
     }
-    ::core::mem::transmute(ulocdata_open(localeid.into(), ::core::mem::transmute(status)))
+    ulocdata_open(localeid.into(), ::core::mem::transmute(status))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -23430,7 +23430,7 @@ pub unsafe fn umsg_autoQuoteApostrophe(pattern: *const u16, patternlength: i32, 
     extern "system" {
         fn umsg_autoQuoteApostrophe(pattern: *const u16, patternlength: i32, dest: *mut u16, destcapacity: i32, ec: *mut UErrorCode) -> i32;
     }
-    ::core::mem::transmute(umsg_autoQuoteApostrophe(::core::mem::transmute(pattern), patternlength, ::core::mem::transmute(dest), destcapacity, ::core::mem::transmute(ec)))
+    umsg_autoQuoteApostrophe(::core::mem::transmute(pattern), patternlength, ::core::mem::transmute(dest), destcapacity, ::core::mem::transmute(ec))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -23439,7 +23439,7 @@ pub unsafe fn umsg_clone(fmt: *const *const ::core::ffi::c_void, status: *mut UE
     extern "system" {
         fn umsg_clone(fmt: *const *const ::core::ffi::c_void, status: *mut UErrorCode) -> *mut ::core::ffi::c_void;
     }
-    ::core::mem::transmute(umsg_clone(::core::mem::transmute(fmt), ::core::mem::transmute(status)))
+    umsg_clone(::core::mem::transmute(fmt), ::core::mem::transmute(status))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -23457,7 +23457,7 @@ pub unsafe fn umsg_format(fmt: *const *const ::core::ffi::c_void, result: *mut u
     extern "system" {
         fn umsg_format(fmt: *const *const ::core::ffi::c_void, result: *mut u16, resultlength: i32, status: *mut UErrorCode) -> i32;
     }
-    ::core::mem::transmute(umsg_format(::core::mem::transmute(fmt), ::core::mem::transmute(result), resultlength, ::core::mem::transmute(status)))
+    umsg_format(::core::mem::transmute(fmt), ::core::mem::transmute(result), resultlength, ::core::mem::transmute(status))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -23466,7 +23466,7 @@ pub unsafe fn umsg_getLocale(fmt: *const *const ::core::ffi::c_void) -> ::window
     extern "system" {
         fn umsg_getLocale(fmt: *const *const ::core::ffi::c_void) -> ::windows::core::PSTR;
     }
-    ::core::mem::transmute(umsg_getLocale(::core::mem::transmute(fmt)))
+    umsg_getLocale(::core::mem::transmute(fmt))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -23478,7 +23478,7 @@ where
     extern "system" {
         fn umsg_open(pattern: *const u16, patternlength: i32, locale: ::windows::core::PCSTR, parseerror: *mut UParseError, status: *mut UErrorCode) -> *mut *mut ::core::ffi::c_void;
     }
-    ::core::mem::transmute(umsg_open(::core::mem::transmute(pattern), patternlength, locale.into(), ::core::mem::transmute(parseerror), ::core::mem::transmute(status)))
+    umsg_open(::core::mem::transmute(pattern), patternlength, locale.into(), ::core::mem::transmute(parseerror), ::core::mem::transmute(status))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -23508,7 +23508,7 @@ pub unsafe fn umsg_toPattern(fmt: *const *const ::core::ffi::c_void, result: *mu
     extern "system" {
         fn umsg_toPattern(fmt: *const *const ::core::ffi::c_void, result: *mut u16, resultlength: i32, status: *mut UErrorCode) -> i32;
     }
-    ::core::mem::transmute(umsg_toPattern(::core::mem::transmute(fmt), ::core::mem::transmute(result), resultlength, ::core::mem::transmute(status)))
+    umsg_toPattern(::core::mem::transmute(fmt), ::core::mem::transmute(result), resultlength, ::core::mem::transmute(status))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -23517,7 +23517,7 @@ pub unsafe fn umsg_vformat(fmt: *const *const ::core::ffi::c_void, result: *mut 
     extern "system" {
         fn umsg_vformat(fmt: *const *const ::core::ffi::c_void, result: *mut u16, resultlength: i32, ap: *mut i8, status: *mut UErrorCode) -> i32;
     }
-    ::core::mem::transmute(umsg_vformat(::core::mem::transmute(fmt), ::core::mem::transmute(result), resultlength, ::core::mem::transmute(ap), ::core::mem::transmute(status)))
+    umsg_vformat(::core::mem::transmute(fmt), ::core::mem::transmute(result), resultlength, ::core::mem::transmute(ap), ::core::mem::transmute(status))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -23535,7 +23535,7 @@ pub unsafe fn umutablecptrie_buildImmutable(trie: *mut UMutableCPTrie, r#type: U
     extern "system" {
         fn umutablecptrie_buildImmutable(trie: *mut UMutableCPTrie, r#type: UCPTrieType, valuewidth: UCPTrieValueWidth, perrorcode: *mut UErrorCode) -> *mut UCPTrie;
     }
-    ::core::mem::transmute(umutablecptrie_buildImmutable(::core::mem::transmute(trie), r#type, valuewidth, ::core::mem::transmute(perrorcode)))
+    umutablecptrie_buildImmutable(::core::mem::transmute(trie), r#type, valuewidth, ::core::mem::transmute(perrorcode))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -23544,7 +23544,7 @@ pub unsafe fn umutablecptrie_clone(other: *const UMutableCPTrie, perrorcode: *mu
     extern "system" {
         fn umutablecptrie_clone(other: *const UMutableCPTrie, perrorcode: *mut UErrorCode) -> *mut UMutableCPTrie;
     }
-    ::core::mem::transmute(umutablecptrie_clone(::core::mem::transmute(other), ::core::mem::transmute(perrorcode)))
+    umutablecptrie_clone(::core::mem::transmute(other), ::core::mem::transmute(perrorcode))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -23562,7 +23562,7 @@ pub unsafe fn umutablecptrie_fromUCPMap(map: *const UCPMap, perrorcode: *mut UEr
     extern "system" {
         fn umutablecptrie_fromUCPMap(map: *const UCPMap, perrorcode: *mut UErrorCode) -> *mut UMutableCPTrie;
     }
-    ::core::mem::transmute(umutablecptrie_fromUCPMap(::core::mem::transmute(map), ::core::mem::transmute(perrorcode)))
+    umutablecptrie_fromUCPMap(::core::mem::transmute(map), ::core::mem::transmute(perrorcode))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -23571,7 +23571,7 @@ pub unsafe fn umutablecptrie_fromUCPTrie(trie: *const UCPTrie, perrorcode: *mut 
     extern "system" {
         fn umutablecptrie_fromUCPTrie(trie: *const UCPTrie, perrorcode: *mut UErrorCode) -> *mut UMutableCPTrie;
     }
-    ::core::mem::transmute(umutablecptrie_fromUCPTrie(::core::mem::transmute(trie), ::core::mem::transmute(perrorcode)))
+    umutablecptrie_fromUCPTrie(::core::mem::transmute(trie), ::core::mem::transmute(perrorcode))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -23580,7 +23580,7 @@ pub unsafe fn umutablecptrie_get(trie: *const UMutableCPTrie, c: i32) -> u32 {
     extern "system" {
         fn umutablecptrie_get(trie: *const UMutableCPTrie, c: i32) -> u32;
     }
-    ::core::mem::transmute(umutablecptrie_get(::core::mem::transmute(trie), c))
+    umutablecptrie_get(::core::mem::transmute(trie), c)
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -23589,7 +23589,7 @@ pub unsafe fn umutablecptrie_getRange(trie: *const UMutableCPTrie, start: i32, o
     extern "system" {
         fn umutablecptrie_getRange(trie: *const UMutableCPTrie, start: i32, option: UCPMapRangeOption, surrogatevalue: u32, filter: *mut *mut ::core::ffi::c_void, context: *const ::core::ffi::c_void, pvalue: *mut u32) -> i32;
     }
-    ::core::mem::transmute(umutablecptrie_getRange(::core::mem::transmute(trie), start, option, surrogatevalue, ::core::mem::transmute(filter), ::core::mem::transmute(context), ::core::mem::transmute(pvalue)))
+    umutablecptrie_getRange(::core::mem::transmute(trie), start, option, surrogatevalue, ::core::mem::transmute(filter), ::core::mem::transmute(context), ::core::mem::transmute(pvalue))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -23598,7 +23598,7 @@ pub unsafe fn umutablecptrie_open(initialvalue: u32, errorvalue: u32, perrorcode
     extern "system" {
         fn umutablecptrie_open(initialvalue: u32, errorvalue: u32, perrorcode: *mut UErrorCode) -> *mut UMutableCPTrie;
     }
-    ::core::mem::transmute(umutablecptrie_open(initialvalue, errorvalue, ::core::mem::transmute(perrorcode)))
+    umutablecptrie_open(initialvalue, errorvalue, ::core::mem::transmute(perrorcode))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -23625,7 +23625,7 @@ pub unsafe fn unorm2_append(norm2: *const UNormalizer2, first: *mut u16, firstle
     extern "system" {
         fn unorm2_append(norm2: *const UNormalizer2, first: *mut u16, firstlength: i32, firstcapacity: i32, second: *const u16, secondlength: i32, perrorcode: *mut UErrorCode) -> i32;
     }
-    ::core::mem::transmute(unorm2_append(::core::mem::transmute(norm2), ::core::mem::transmute(first), firstlength, firstcapacity, ::core::mem::transmute(second), secondlength, ::core::mem::transmute(perrorcode)))
+    unorm2_append(::core::mem::transmute(norm2), ::core::mem::transmute(first), firstlength, firstcapacity, ::core::mem::transmute(second), secondlength, ::core::mem::transmute(perrorcode))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -23643,7 +23643,7 @@ pub unsafe fn unorm2_composePair(norm2: *const UNormalizer2, a: i32, b: i32) -> 
     extern "system" {
         fn unorm2_composePair(norm2: *const UNormalizer2, a: i32, b: i32) -> i32;
     }
-    ::core::mem::transmute(unorm2_composePair(::core::mem::transmute(norm2), a, b))
+    unorm2_composePair(::core::mem::transmute(norm2), a, b)
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -23652,7 +23652,7 @@ pub unsafe fn unorm2_getCombiningClass(norm2: *const UNormalizer2, c: i32) -> u8
     extern "system" {
         fn unorm2_getCombiningClass(norm2: *const UNormalizer2, c: i32) -> u8;
     }
-    ::core::mem::transmute(unorm2_getCombiningClass(::core::mem::transmute(norm2), c))
+    unorm2_getCombiningClass(::core::mem::transmute(norm2), c)
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -23661,7 +23661,7 @@ pub unsafe fn unorm2_getDecomposition(norm2: *const UNormalizer2, c: i32, decomp
     extern "system" {
         fn unorm2_getDecomposition(norm2: *const UNormalizer2, c: i32, decomposition: *mut u16, capacity: i32, perrorcode: *mut UErrorCode) -> i32;
     }
-    ::core::mem::transmute(unorm2_getDecomposition(::core::mem::transmute(norm2), c, ::core::mem::transmute(decomposition), capacity, ::core::mem::transmute(perrorcode)))
+    unorm2_getDecomposition(::core::mem::transmute(norm2), c, ::core::mem::transmute(decomposition), capacity, ::core::mem::transmute(perrorcode))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -23674,7 +23674,7 @@ where
     extern "system" {
         fn unorm2_getInstance(packagename: ::windows::core::PCSTR, name: ::windows::core::PCSTR, mode: UNormalization2Mode, perrorcode: *mut UErrorCode) -> *mut UNormalizer2;
     }
-    ::core::mem::transmute(unorm2_getInstance(packagename.into(), name.into(), mode, ::core::mem::transmute(perrorcode)))
+    unorm2_getInstance(packagename.into(), name.into(), mode, ::core::mem::transmute(perrorcode))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -23683,7 +23683,7 @@ pub unsafe fn unorm2_getNFCInstance(perrorcode: *mut UErrorCode) -> *mut UNormal
     extern "system" {
         fn unorm2_getNFCInstance(perrorcode: *mut UErrorCode) -> *mut UNormalizer2;
     }
-    ::core::mem::transmute(unorm2_getNFCInstance(::core::mem::transmute(perrorcode)))
+    unorm2_getNFCInstance(::core::mem::transmute(perrorcode))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -23692,7 +23692,7 @@ pub unsafe fn unorm2_getNFDInstance(perrorcode: *mut UErrorCode) -> *mut UNormal
     extern "system" {
         fn unorm2_getNFDInstance(perrorcode: *mut UErrorCode) -> *mut UNormalizer2;
     }
-    ::core::mem::transmute(unorm2_getNFDInstance(::core::mem::transmute(perrorcode)))
+    unorm2_getNFDInstance(::core::mem::transmute(perrorcode))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -23701,7 +23701,7 @@ pub unsafe fn unorm2_getNFKCCasefoldInstance(perrorcode: *mut UErrorCode) -> *mu
     extern "system" {
         fn unorm2_getNFKCCasefoldInstance(perrorcode: *mut UErrorCode) -> *mut UNormalizer2;
     }
-    ::core::mem::transmute(unorm2_getNFKCCasefoldInstance(::core::mem::transmute(perrorcode)))
+    unorm2_getNFKCCasefoldInstance(::core::mem::transmute(perrorcode))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -23710,7 +23710,7 @@ pub unsafe fn unorm2_getNFKCInstance(perrorcode: *mut UErrorCode) -> *mut UNorma
     extern "system" {
         fn unorm2_getNFKCInstance(perrorcode: *mut UErrorCode) -> *mut UNormalizer2;
     }
-    ::core::mem::transmute(unorm2_getNFKCInstance(::core::mem::transmute(perrorcode)))
+    unorm2_getNFKCInstance(::core::mem::transmute(perrorcode))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -23719,7 +23719,7 @@ pub unsafe fn unorm2_getNFKDInstance(perrorcode: *mut UErrorCode) -> *mut UNorma
     extern "system" {
         fn unorm2_getNFKDInstance(perrorcode: *mut UErrorCode) -> *mut UNormalizer2;
     }
-    ::core::mem::transmute(unorm2_getNFKDInstance(::core::mem::transmute(perrorcode)))
+    unorm2_getNFKDInstance(::core::mem::transmute(perrorcode))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -23728,7 +23728,7 @@ pub unsafe fn unorm2_getRawDecomposition(norm2: *const UNormalizer2, c: i32, dec
     extern "system" {
         fn unorm2_getRawDecomposition(norm2: *const UNormalizer2, c: i32, decomposition: *mut u16, capacity: i32, perrorcode: *mut UErrorCode) -> i32;
     }
-    ::core::mem::transmute(unorm2_getRawDecomposition(::core::mem::transmute(norm2), c, ::core::mem::transmute(decomposition), capacity, ::core::mem::transmute(perrorcode)))
+    unorm2_getRawDecomposition(::core::mem::transmute(norm2), c, ::core::mem::transmute(decomposition), capacity, ::core::mem::transmute(perrorcode))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -23737,7 +23737,7 @@ pub unsafe fn unorm2_hasBoundaryAfter(norm2: *const UNormalizer2, c: i32) -> i8 
     extern "system" {
         fn unorm2_hasBoundaryAfter(norm2: *const UNormalizer2, c: i32) -> i8;
     }
-    ::core::mem::transmute(unorm2_hasBoundaryAfter(::core::mem::transmute(norm2), c))
+    unorm2_hasBoundaryAfter(::core::mem::transmute(norm2), c)
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -23746,7 +23746,7 @@ pub unsafe fn unorm2_hasBoundaryBefore(norm2: *const UNormalizer2, c: i32) -> i8
     extern "system" {
         fn unorm2_hasBoundaryBefore(norm2: *const UNormalizer2, c: i32) -> i8;
     }
-    ::core::mem::transmute(unorm2_hasBoundaryBefore(::core::mem::transmute(norm2), c))
+    unorm2_hasBoundaryBefore(::core::mem::transmute(norm2), c)
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -23755,7 +23755,7 @@ pub unsafe fn unorm2_isInert(norm2: *const UNormalizer2, c: i32) -> i8 {
     extern "system" {
         fn unorm2_isInert(norm2: *const UNormalizer2, c: i32) -> i8;
     }
-    ::core::mem::transmute(unorm2_isInert(::core::mem::transmute(norm2), c))
+    unorm2_isInert(::core::mem::transmute(norm2), c)
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -23764,7 +23764,7 @@ pub unsafe fn unorm2_isNormalized(norm2: *const UNormalizer2, s: *const u16, len
     extern "system" {
         fn unorm2_isNormalized(norm2: *const UNormalizer2, s: *const u16, length: i32, perrorcode: *mut UErrorCode) -> i8;
     }
-    ::core::mem::transmute(unorm2_isNormalized(::core::mem::transmute(norm2), ::core::mem::transmute(s), length, ::core::mem::transmute(perrorcode)))
+    unorm2_isNormalized(::core::mem::transmute(norm2), ::core::mem::transmute(s), length, ::core::mem::transmute(perrorcode))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -23773,7 +23773,7 @@ pub unsafe fn unorm2_normalize(norm2: *const UNormalizer2, src: *const u16, leng
     extern "system" {
         fn unorm2_normalize(norm2: *const UNormalizer2, src: *const u16, length: i32, dest: *mut u16, capacity: i32, perrorcode: *mut UErrorCode) -> i32;
     }
-    ::core::mem::transmute(unorm2_normalize(::core::mem::transmute(norm2), ::core::mem::transmute(src), length, ::core::mem::transmute(dest), capacity, ::core::mem::transmute(perrorcode)))
+    unorm2_normalize(::core::mem::transmute(norm2), ::core::mem::transmute(src), length, ::core::mem::transmute(dest), capacity, ::core::mem::transmute(perrorcode))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -23782,7 +23782,7 @@ pub unsafe fn unorm2_normalizeSecondAndAppend(norm2: *const UNormalizer2, first:
     extern "system" {
         fn unorm2_normalizeSecondAndAppend(norm2: *const UNormalizer2, first: *mut u16, firstlength: i32, firstcapacity: i32, second: *const u16, secondlength: i32, perrorcode: *mut UErrorCode) -> i32;
     }
-    ::core::mem::transmute(unorm2_normalizeSecondAndAppend(::core::mem::transmute(norm2), ::core::mem::transmute(first), firstlength, firstcapacity, ::core::mem::transmute(second), secondlength, ::core::mem::transmute(perrorcode)))
+    unorm2_normalizeSecondAndAppend(::core::mem::transmute(norm2), ::core::mem::transmute(first), firstlength, firstcapacity, ::core::mem::transmute(second), secondlength, ::core::mem::transmute(perrorcode))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -23791,7 +23791,7 @@ pub unsafe fn unorm2_openFiltered(norm2: *const UNormalizer2, filterset: *const 
     extern "system" {
         fn unorm2_openFiltered(norm2: *const UNormalizer2, filterset: *const USet, perrorcode: *mut UErrorCode) -> *mut UNormalizer2;
     }
-    ::core::mem::transmute(unorm2_openFiltered(::core::mem::transmute(norm2), ::core::mem::transmute(filterset), ::core::mem::transmute(perrorcode)))
+    unorm2_openFiltered(::core::mem::transmute(norm2), ::core::mem::transmute(filterset), ::core::mem::transmute(perrorcode))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -23800,7 +23800,7 @@ pub unsafe fn unorm2_quickCheck(norm2: *const UNormalizer2, s: *const u16, lengt
     extern "system" {
         fn unorm2_quickCheck(norm2: *const UNormalizer2, s: *const u16, length: i32, perrorcode: *mut UErrorCode) -> UNormalizationCheckResult;
     }
-    ::core::mem::transmute(unorm2_quickCheck(::core::mem::transmute(norm2), ::core::mem::transmute(s), length, ::core::mem::transmute(perrorcode)))
+    unorm2_quickCheck(::core::mem::transmute(norm2), ::core::mem::transmute(s), length, ::core::mem::transmute(perrorcode))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -23809,7 +23809,7 @@ pub unsafe fn unorm2_spanQuickCheckYes(norm2: *const UNormalizer2, s: *const u16
     extern "system" {
         fn unorm2_spanQuickCheckYes(norm2: *const UNormalizer2, s: *const u16, length: i32, perrorcode: *mut UErrorCode) -> i32;
     }
-    ::core::mem::transmute(unorm2_spanQuickCheckYes(::core::mem::transmute(norm2), ::core::mem::transmute(s), length, ::core::mem::transmute(perrorcode)))
+    unorm2_spanQuickCheckYes(::core::mem::transmute(norm2), ::core::mem::transmute(s), length, ::core::mem::transmute(perrorcode))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -23818,7 +23818,7 @@ pub unsafe fn unorm_compare(s1: *const u16, length1: i32, s2: *const u16, length
     extern "system" {
         fn unorm_compare(s1: *const u16, length1: i32, s2: *const u16, length2: i32, options: u32, perrorcode: *mut UErrorCode) -> i32;
     }
-    ::core::mem::transmute(unorm_compare(::core::mem::transmute(s1), length1, ::core::mem::transmute(s2), length2, options, ::core::mem::transmute(perrorcode)))
+    unorm_compare(::core::mem::transmute(s1), length1, ::core::mem::transmute(s2), length2, options, ::core::mem::transmute(perrorcode))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -23836,7 +23836,7 @@ pub unsafe fn unum_clone(fmt: *const *const ::core::ffi::c_void, status: *mut UE
     extern "system" {
         fn unum_clone(fmt: *const *const ::core::ffi::c_void, status: *mut UErrorCode) -> *mut *mut ::core::ffi::c_void;
     }
-    ::core::mem::transmute(unum_clone(::core::mem::transmute(fmt), ::core::mem::transmute(status)))
+    unum_clone(::core::mem::transmute(fmt), ::core::mem::transmute(status))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -23854,7 +23854,7 @@ pub unsafe fn unum_countAvailable() -> i32 {
     extern "system" {
         fn unum_countAvailable() -> i32;
     }
-    ::core::mem::transmute(unum_countAvailable())
+    unum_countAvailable()
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -23863,7 +23863,7 @@ pub unsafe fn unum_format(fmt: *const *const ::core::ffi::c_void, number: i32, r
     extern "system" {
         fn unum_format(fmt: *const *const ::core::ffi::c_void, number: i32, result: *mut u16, resultlength: i32, pos: *mut UFieldPosition, status: *mut UErrorCode) -> i32;
     }
-    ::core::mem::transmute(unum_format(::core::mem::transmute(fmt), number, ::core::mem::transmute(result), resultlength, ::core::mem::transmute(pos), ::core::mem::transmute(status)))
+    unum_format(::core::mem::transmute(fmt), number, ::core::mem::transmute(result), resultlength, ::core::mem::transmute(pos), ::core::mem::transmute(status))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -23875,7 +23875,7 @@ where
     extern "system" {
         fn unum_formatDecimal(fmt: *const *const ::core::ffi::c_void, number: ::windows::core::PCSTR, length: i32, result: *mut u16, resultlength: i32, pos: *mut UFieldPosition, status: *mut UErrorCode) -> i32;
     }
-    ::core::mem::transmute(unum_formatDecimal(::core::mem::transmute(fmt), number.into(), length, ::core::mem::transmute(result), resultlength, ::core::mem::transmute(pos), ::core::mem::transmute(status)))
+    unum_formatDecimal(::core::mem::transmute(fmt), number.into(), length, ::core::mem::transmute(result), resultlength, ::core::mem::transmute(pos), ::core::mem::transmute(status))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -23884,7 +23884,7 @@ pub unsafe fn unum_formatDouble(fmt: *const *const ::core::ffi::c_void, number: 
     extern "system" {
         fn unum_formatDouble(fmt: *const *const ::core::ffi::c_void, number: f64, result: *mut u16, resultlength: i32, pos: *mut UFieldPosition, status: *mut UErrorCode) -> i32;
     }
-    ::core::mem::transmute(unum_formatDouble(::core::mem::transmute(fmt), number, ::core::mem::transmute(result), resultlength, ::core::mem::transmute(pos), ::core::mem::transmute(status)))
+    unum_formatDouble(::core::mem::transmute(fmt), number, ::core::mem::transmute(result), resultlength, ::core::mem::transmute(pos), ::core::mem::transmute(status))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -23893,7 +23893,7 @@ pub unsafe fn unum_formatDoubleCurrency(fmt: *const *const ::core::ffi::c_void, 
     extern "system" {
         fn unum_formatDoubleCurrency(fmt: *const *const ::core::ffi::c_void, number: f64, currency: *mut u16, result: *mut u16, resultlength: i32, pos: *mut UFieldPosition, status: *mut UErrorCode) -> i32;
     }
-    ::core::mem::transmute(unum_formatDoubleCurrency(::core::mem::transmute(fmt), number, ::core::mem::transmute(currency), ::core::mem::transmute(result), resultlength, ::core::mem::transmute(pos), ::core::mem::transmute(status)))
+    unum_formatDoubleCurrency(::core::mem::transmute(fmt), number, ::core::mem::transmute(currency), ::core::mem::transmute(result), resultlength, ::core::mem::transmute(pos), ::core::mem::transmute(status))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -23902,7 +23902,7 @@ pub unsafe fn unum_formatDoubleForFields(format: *const *const ::core::ffi::c_vo
     extern "system" {
         fn unum_formatDoubleForFields(format: *const *const ::core::ffi::c_void, number: f64, result: *mut u16, resultlength: i32, fpositer: *mut UFieldPositionIterator, status: *mut UErrorCode) -> i32;
     }
-    ::core::mem::transmute(unum_formatDoubleForFields(::core::mem::transmute(format), number, ::core::mem::transmute(result), resultlength, ::core::mem::transmute(fpositer), ::core::mem::transmute(status)))
+    unum_formatDoubleForFields(::core::mem::transmute(format), number, ::core::mem::transmute(result), resultlength, ::core::mem::transmute(fpositer), ::core::mem::transmute(status))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -23911,7 +23911,7 @@ pub unsafe fn unum_formatInt64(fmt: *const *const ::core::ffi::c_void, number: i
     extern "system" {
         fn unum_formatInt64(fmt: *const *const ::core::ffi::c_void, number: i64, result: *mut u16, resultlength: i32, pos: *mut UFieldPosition, status: *mut UErrorCode) -> i32;
     }
-    ::core::mem::transmute(unum_formatInt64(::core::mem::transmute(fmt), number, ::core::mem::transmute(result), resultlength, ::core::mem::transmute(pos), ::core::mem::transmute(status)))
+    unum_formatInt64(::core::mem::transmute(fmt), number, ::core::mem::transmute(result), resultlength, ::core::mem::transmute(pos), ::core::mem::transmute(status))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -23920,7 +23920,7 @@ pub unsafe fn unum_formatUFormattable(fmt: *const *const ::core::ffi::c_void, nu
     extern "system" {
         fn unum_formatUFormattable(fmt: *const *const ::core::ffi::c_void, number: *const *const ::core::ffi::c_void, result: *mut u16, resultlength: i32, pos: *mut UFieldPosition, status: *mut UErrorCode) -> i32;
     }
-    ::core::mem::transmute(unum_formatUFormattable(::core::mem::transmute(fmt), ::core::mem::transmute(number), ::core::mem::transmute(result), resultlength, ::core::mem::transmute(pos), ::core::mem::transmute(status)))
+    unum_formatUFormattable(::core::mem::transmute(fmt), ::core::mem::transmute(number), ::core::mem::transmute(result), resultlength, ::core::mem::transmute(pos), ::core::mem::transmute(status))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -23929,7 +23929,7 @@ pub unsafe fn unum_getAttribute(fmt: *const *const ::core::ffi::c_void, attr: UN
     extern "system" {
         fn unum_getAttribute(fmt: *const *const ::core::ffi::c_void, attr: UNumberFormatAttribute) -> i32;
     }
-    ::core::mem::transmute(unum_getAttribute(::core::mem::transmute(fmt), attr))
+    unum_getAttribute(::core::mem::transmute(fmt), attr)
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -23938,7 +23938,7 @@ pub unsafe fn unum_getAvailable(localeindex: i32) -> ::windows::core::PSTR {
     extern "system" {
         fn unum_getAvailable(localeindex: i32) -> ::windows::core::PSTR;
     }
-    ::core::mem::transmute(unum_getAvailable(localeindex))
+    unum_getAvailable(localeindex)
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -23947,7 +23947,7 @@ pub unsafe fn unum_getContext(fmt: *const *const ::core::ffi::c_void, r#type: UD
     extern "system" {
         fn unum_getContext(fmt: *const *const ::core::ffi::c_void, r#type: UDisplayContextType, status: *mut UErrorCode) -> UDisplayContext;
     }
-    ::core::mem::transmute(unum_getContext(::core::mem::transmute(fmt), r#type, ::core::mem::transmute(status)))
+    unum_getContext(::core::mem::transmute(fmt), r#type, ::core::mem::transmute(status))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -23956,7 +23956,7 @@ pub unsafe fn unum_getDoubleAttribute(fmt: *const *const ::core::ffi::c_void, at
     extern "system" {
         fn unum_getDoubleAttribute(fmt: *const *const ::core::ffi::c_void, attr: UNumberFormatAttribute) -> f64;
     }
-    ::core::mem::transmute(unum_getDoubleAttribute(::core::mem::transmute(fmt), attr))
+    unum_getDoubleAttribute(::core::mem::transmute(fmt), attr)
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -23965,7 +23965,7 @@ pub unsafe fn unum_getLocaleByType(fmt: *const *const ::core::ffi::c_void, r#typ
     extern "system" {
         fn unum_getLocaleByType(fmt: *const *const ::core::ffi::c_void, r#type: ULocDataLocaleType, status: *mut UErrorCode) -> ::windows::core::PSTR;
     }
-    ::core::mem::transmute(unum_getLocaleByType(::core::mem::transmute(fmt), r#type, ::core::mem::transmute(status)))
+    unum_getLocaleByType(::core::mem::transmute(fmt), r#type, ::core::mem::transmute(status))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -23974,7 +23974,7 @@ pub unsafe fn unum_getSymbol(fmt: *const *const ::core::ffi::c_void, symbol: UNu
     extern "system" {
         fn unum_getSymbol(fmt: *const *const ::core::ffi::c_void, symbol: UNumberFormatSymbol, buffer: *mut u16, size: i32, status: *mut UErrorCode) -> i32;
     }
-    ::core::mem::transmute(unum_getSymbol(::core::mem::transmute(fmt), symbol, ::core::mem::transmute(buffer), size, ::core::mem::transmute(status)))
+    unum_getSymbol(::core::mem::transmute(fmt), symbol, ::core::mem::transmute(buffer), size, ::core::mem::transmute(status))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -23983,7 +23983,7 @@ pub unsafe fn unum_getTextAttribute(fmt: *const *const ::core::ffi::c_void, tag:
     extern "system" {
         fn unum_getTextAttribute(fmt: *const *const ::core::ffi::c_void, tag: UNumberFormatTextAttribute, result: *mut u16, resultlength: i32, status: *mut UErrorCode) -> i32;
     }
-    ::core::mem::transmute(unum_getTextAttribute(::core::mem::transmute(fmt), tag, ::core::mem::transmute(result), resultlength, ::core::mem::transmute(status)))
+    unum_getTextAttribute(::core::mem::transmute(fmt), tag, ::core::mem::transmute(result), resultlength, ::core::mem::transmute(status))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -23995,7 +23995,7 @@ where
     extern "system" {
         fn unum_open(style: UNumberFormatStyle, pattern: *const u16, patternlength: i32, locale: ::windows::core::PCSTR, parseerr: *mut UParseError, status: *mut UErrorCode) -> *mut *mut ::core::ffi::c_void;
     }
-    ::core::mem::transmute(unum_open(style, ::core::mem::transmute(pattern), patternlength, locale.into(), ::core::mem::transmute(parseerr), ::core::mem::transmute(status)))
+    unum_open(style, ::core::mem::transmute(pattern), patternlength, locale.into(), ::core::mem::transmute(parseerr), ::core::mem::transmute(status))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -24004,7 +24004,7 @@ pub unsafe fn unum_parse(fmt: *const *const ::core::ffi::c_void, text: *const u1
     extern "system" {
         fn unum_parse(fmt: *const *const ::core::ffi::c_void, text: *const u16, textlength: i32, parsepos: *mut i32, status: *mut UErrorCode) -> i32;
     }
-    ::core::mem::transmute(unum_parse(::core::mem::transmute(fmt), ::core::mem::transmute(text), textlength, ::core::mem::transmute(parsepos), ::core::mem::transmute(status)))
+    unum_parse(::core::mem::transmute(fmt), ::core::mem::transmute(text), textlength, ::core::mem::transmute(parsepos), ::core::mem::transmute(status))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -24016,7 +24016,7 @@ where
     extern "system" {
         fn unum_parseDecimal(fmt: *const *const ::core::ffi::c_void, text: *const u16, textlength: i32, parsepos: *mut i32, outbuf: ::windows::core::PCSTR, outbuflength: i32, status: *mut UErrorCode) -> i32;
     }
-    ::core::mem::transmute(unum_parseDecimal(::core::mem::transmute(fmt), ::core::mem::transmute(text), textlength, ::core::mem::transmute(parsepos), outbuf.into(), outbuflength, ::core::mem::transmute(status)))
+    unum_parseDecimal(::core::mem::transmute(fmt), ::core::mem::transmute(text), textlength, ::core::mem::transmute(parsepos), outbuf.into(), outbuflength, ::core::mem::transmute(status))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -24025,7 +24025,7 @@ pub unsafe fn unum_parseDouble(fmt: *const *const ::core::ffi::c_void, text: *co
     extern "system" {
         fn unum_parseDouble(fmt: *const *const ::core::ffi::c_void, text: *const u16, textlength: i32, parsepos: *mut i32, status: *mut UErrorCode) -> f64;
     }
-    ::core::mem::transmute(unum_parseDouble(::core::mem::transmute(fmt), ::core::mem::transmute(text), textlength, ::core::mem::transmute(parsepos), ::core::mem::transmute(status)))
+    unum_parseDouble(::core::mem::transmute(fmt), ::core::mem::transmute(text), textlength, ::core::mem::transmute(parsepos), ::core::mem::transmute(status))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -24034,7 +24034,7 @@ pub unsafe fn unum_parseDoubleCurrency(fmt: *const *const ::core::ffi::c_void, t
     extern "system" {
         fn unum_parseDoubleCurrency(fmt: *const *const ::core::ffi::c_void, text: *const u16, textlength: i32, parsepos: *mut i32, currency: *mut u16, status: *mut UErrorCode) -> f64;
     }
-    ::core::mem::transmute(unum_parseDoubleCurrency(::core::mem::transmute(fmt), ::core::mem::transmute(text), textlength, ::core::mem::transmute(parsepos), ::core::mem::transmute(currency), ::core::mem::transmute(status)))
+    unum_parseDoubleCurrency(::core::mem::transmute(fmt), ::core::mem::transmute(text), textlength, ::core::mem::transmute(parsepos), ::core::mem::transmute(currency), ::core::mem::transmute(status))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -24043,7 +24043,7 @@ pub unsafe fn unum_parseInt64(fmt: *const *const ::core::ffi::c_void, text: *con
     extern "system" {
         fn unum_parseInt64(fmt: *const *const ::core::ffi::c_void, text: *const u16, textlength: i32, parsepos: *mut i32, status: *mut UErrorCode) -> i64;
     }
-    ::core::mem::transmute(unum_parseInt64(::core::mem::transmute(fmt), ::core::mem::transmute(text), textlength, ::core::mem::transmute(parsepos), ::core::mem::transmute(status)))
+    unum_parseInt64(::core::mem::transmute(fmt), ::core::mem::transmute(text), textlength, ::core::mem::transmute(parsepos), ::core::mem::transmute(status))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -24052,7 +24052,7 @@ pub unsafe fn unum_parseToUFormattable(fmt: *const *const ::core::ffi::c_void, r
     extern "system" {
         fn unum_parseToUFormattable(fmt: *const *const ::core::ffi::c_void, result: *mut *mut ::core::ffi::c_void, text: *const u16, textlength: i32, parsepos: *mut i32, status: *mut UErrorCode) -> *mut *mut ::core::ffi::c_void;
     }
-    ::core::mem::transmute(unum_parseToUFormattable(::core::mem::transmute(fmt), ::core::mem::transmute(result), ::core::mem::transmute(text), textlength, ::core::mem::transmute(parsepos), ::core::mem::transmute(status)))
+    unum_parseToUFormattable(::core::mem::transmute(fmt), ::core::mem::transmute(result), ::core::mem::transmute(text), textlength, ::core::mem::transmute(parsepos), ::core::mem::transmute(status))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -24106,7 +24106,7 @@ pub unsafe fn unum_toPattern(fmt: *const *const ::core::ffi::c_void, ispatternlo
     extern "system" {
         fn unum_toPattern(fmt: *const *const ::core::ffi::c_void, ispatternlocalized: i8, result: *mut u16, resultlength: i32, status: *mut UErrorCode) -> i32;
     }
-    ::core::mem::transmute(unum_toPattern(::core::mem::transmute(fmt), ispatternlocalized, ::core::mem::transmute(result), resultlength, ::core::mem::transmute(status)))
+    unum_toPattern(::core::mem::transmute(fmt), ispatternlocalized, ::core::mem::transmute(result), resultlength, ::core::mem::transmute(status))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -24166,7 +24166,7 @@ where
     extern "system" {
         fn unumf_openForSkeletonAndLocale(skeleton: *const u16, skeletonlen: i32, locale: ::windows::core::PCSTR, ec: *mut UErrorCode) -> *mut UNumberFormatter;
     }
-    ::core::mem::transmute(unumf_openForSkeletonAndLocale(::core::mem::transmute(skeleton), skeletonlen, locale.into(), ::core::mem::transmute(ec)))
+    unumf_openForSkeletonAndLocale(::core::mem::transmute(skeleton), skeletonlen, locale.into(), ::core::mem::transmute(ec))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -24178,7 +24178,7 @@ where
     extern "system" {
         fn unumf_openForSkeletonAndLocaleWithError(skeleton: *const u16, skeletonlen: i32, locale: ::windows::core::PCSTR, perror: *mut UParseError, ec: *mut UErrorCode) -> *mut UNumberFormatter;
     }
-    ::core::mem::transmute(unumf_openForSkeletonAndLocaleWithError(::core::mem::transmute(skeleton), skeletonlen, locale.into(), ::core::mem::transmute(perror), ::core::mem::transmute(ec)))
+    unumf_openForSkeletonAndLocaleWithError(::core::mem::transmute(skeleton), skeletonlen, locale.into(), ::core::mem::transmute(perror), ::core::mem::transmute(ec))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -24187,7 +24187,7 @@ pub unsafe fn unumf_openResult(ec: *mut UErrorCode) -> *mut UFormattedNumber {
     extern "system" {
         fn unumf_openResult(ec: *mut UErrorCode) -> *mut UFormattedNumber;
     }
-    ::core::mem::transmute(unumf_openResult(::core::mem::transmute(ec)))
+    unumf_openResult(::core::mem::transmute(ec))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -24196,7 +24196,7 @@ pub unsafe fn unumf_resultAsValue(uresult: *const UFormattedNumber, ec: *mut UEr
     extern "system" {
         fn unumf_resultAsValue(uresult: *const UFormattedNumber, ec: *mut UErrorCode) -> *mut UFormattedValue;
     }
-    ::core::mem::transmute(unumf_resultAsValue(::core::mem::transmute(uresult), ::core::mem::transmute(ec)))
+    unumf_resultAsValue(::core::mem::transmute(uresult), ::core::mem::transmute(ec))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -24214,7 +24214,7 @@ pub unsafe fn unumf_resultNextFieldPosition(uresult: *const UFormattedNumber, uf
     extern "system" {
         fn unumf_resultNextFieldPosition(uresult: *const UFormattedNumber, ufpos: *mut UFieldPosition, ec: *mut UErrorCode) -> i8;
     }
-    ::core::mem::transmute(unumf_resultNextFieldPosition(::core::mem::transmute(uresult), ::core::mem::transmute(ufpos), ::core::mem::transmute(ec)))
+    unumf_resultNextFieldPosition(::core::mem::transmute(uresult), ::core::mem::transmute(ufpos), ::core::mem::transmute(ec))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -24223,7 +24223,7 @@ pub unsafe fn unumf_resultToString(uresult: *const UFormattedNumber, buffer: *mu
     extern "system" {
         fn unumf_resultToString(uresult: *const UFormattedNumber, buffer: *mut u16, buffercapacity: i32, ec: *mut UErrorCode) -> i32;
     }
-    ::core::mem::transmute(unumf_resultToString(::core::mem::transmute(uresult), ::core::mem::transmute(buffer), buffercapacity, ::core::mem::transmute(ec)))
+    unumf_resultToString(::core::mem::transmute(uresult), ::core::mem::transmute(buffer), buffercapacity, ::core::mem::transmute(ec))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -24241,7 +24241,7 @@ pub unsafe fn unumsys_getDescription(unumsys: *const UNumberingSystem, result: *
     extern "system" {
         fn unumsys_getDescription(unumsys: *const UNumberingSystem, result: *mut u16, resultlength: i32, status: *mut UErrorCode) -> i32;
     }
-    ::core::mem::transmute(unumsys_getDescription(::core::mem::transmute(unumsys), ::core::mem::transmute(result), resultlength, ::core::mem::transmute(status)))
+    unumsys_getDescription(::core::mem::transmute(unumsys), ::core::mem::transmute(result), resultlength, ::core::mem::transmute(status))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -24250,7 +24250,7 @@ pub unsafe fn unumsys_getName(unumsys: *const UNumberingSystem) -> ::windows::co
     extern "system" {
         fn unumsys_getName(unumsys: *const UNumberingSystem) -> ::windows::core::PSTR;
     }
-    ::core::mem::transmute(unumsys_getName(::core::mem::transmute(unumsys)))
+    unumsys_getName(::core::mem::transmute(unumsys))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -24259,7 +24259,7 @@ pub unsafe fn unumsys_getRadix(unumsys: *const UNumberingSystem) -> i32 {
     extern "system" {
         fn unumsys_getRadix(unumsys: *const UNumberingSystem) -> i32;
     }
-    ::core::mem::transmute(unumsys_getRadix(::core::mem::transmute(unumsys)))
+    unumsys_getRadix(::core::mem::transmute(unumsys))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -24268,7 +24268,7 @@ pub unsafe fn unumsys_isAlgorithmic(unumsys: *const UNumberingSystem) -> i8 {
     extern "system" {
         fn unumsys_isAlgorithmic(unumsys: *const UNumberingSystem) -> i8;
     }
-    ::core::mem::transmute(unumsys_isAlgorithmic(::core::mem::transmute(unumsys)))
+    unumsys_isAlgorithmic(::core::mem::transmute(unumsys))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -24280,7 +24280,7 @@ where
     extern "system" {
         fn unumsys_open(locale: ::windows::core::PCSTR, status: *mut UErrorCode) -> *mut UNumberingSystem;
     }
-    ::core::mem::transmute(unumsys_open(locale.into(), ::core::mem::transmute(status)))
+    unumsys_open(locale.into(), ::core::mem::transmute(status))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -24289,7 +24289,7 @@ pub unsafe fn unumsys_openAvailableNames(status: *mut UErrorCode) -> *mut UEnume
     extern "system" {
         fn unumsys_openAvailableNames(status: *mut UErrorCode) -> *mut UEnumeration;
     }
-    ::core::mem::transmute(unumsys_openAvailableNames(::core::mem::transmute(status)))
+    unumsys_openAvailableNames(::core::mem::transmute(status))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -24301,7 +24301,7 @@ where
     extern "system" {
         fn unumsys_openByName(name: ::windows::core::PCSTR, status: *mut UErrorCode) -> *mut UNumberingSystem;
     }
-    ::core::mem::transmute(unumsys_openByName(name.into(), ::core::mem::transmute(status)))
+    unumsys_openByName(name.into(), ::core::mem::transmute(status))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -24319,7 +24319,7 @@ pub unsafe fn uplrules_getKeywords(uplrules: *const UPluralRules, status: *mut U
     extern "system" {
         fn uplrules_getKeywords(uplrules: *const UPluralRules, status: *mut UErrorCode) -> *mut UEnumeration;
     }
-    ::core::mem::transmute(uplrules_getKeywords(::core::mem::transmute(uplrules), ::core::mem::transmute(status)))
+    uplrules_getKeywords(::core::mem::transmute(uplrules), ::core::mem::transmute(status))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -24331,7 +24331,7 @@ where
     extern "system" {
         fn uplrules_open(locale: ::windows::core::PCSTR, status: *mut UErrorCode) -> *mut UPluralRules;
     }
-    ::core::mem::transmute(uplrules_open(locale.into(), ::core::mem::transmute(status)))
+    uplrules_open(locale.into(), ::core::mem::transmute(status))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -24343,7 +24343,7 @@ where
     extern "system" {
         fn uplrules_openForType(locale: ::windows::core::PCSTR, r#type: UPluralType, status: *mut UErrorCode) -> *mut UPluralRules;
     }
-    ::core::mem::transmute(uplrules_openForType(locale.into(), r#type, ::core::mem::transmute(status)))
+    uplrules_openForType(locale.into(), r#type, ::core::mem::transmute(status))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -24352,7 +24352,7 @@ pub unsafe fn uplrules_select(uplrules: *const UPluralRules, number: f64, keywor
     extern "system" {
         fn uplrules_select(uplrules: *const UPluralRules, number: f64, keyword: *mut u16, capacity: i32, status: *mut UErrorCode) -> i32;
     }
-    ::core::mem::transmute(uplrules_select(::core::mem::transmute(uplrules), number, ::core::mem::transmute(keyword), capacity, ::core::mem::transmute(status)))
+    uplrules_select(::core::mem::transmute(uplrules), number, ::core::mem::transmute(keyword), capacity, ::core::mem::transmute(status))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -24361,7 +24361,7 @@ pub unsafe fn uplrules_selectFormatted(uplrules: *const UPluralRules, number: *c
     extern "system" {
         fn uplrules_selectFormatted(uplrules: *const UPluralRules, number: *const UFormattedNumber, keyword: *mut u16, capacity: i32, status: *mut UErrorCode) -> i32;
     }
-    ::core::mem::transmute(uplrules_selectFormatted(::core::mem::transmute(uplrules), ::core::mem::transmute(number), ::core::mem::transmute(keyword), capacity, ::core::mem::transmute(status)))
+    uplrules_selectFormatted(::core::mem::transmute(uplrules), ::core::mem::transmute(number), ::core::mem::transmute(keyword), capacity, ::core::mem::transmute(status))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -24370,7 +24370,7 @@ pub unsafe fn uregex_appendReplacement(regexp: *mut URegularExpression, replacem
     extern "system" {
         fn uregex_appendReplacement(regexp: *mut URegularExpression, replacementtext: *const u16, replacementlength: i32, destbuf: *mut *mut u16, destcapacity: *mut i32, status: *mut UErrorCode) -> i32;
     }
-    ::core::mem::transmute(uregex_appendReplacement(::core::mem::transmute(regexp), ::core::mem::transmute(replacementtext), replacementlength, ::core::mem::transmute(destbuf), ::core::mem::transmute(destcapacity), ::core::mem::transmute(status)))
+    uregex_appendReplacement(::core::mem::transmute(regexp), ::core::mem::transmute(replacementtext), replacementlength, ::core::mem::transmute(destbuf), ::core::mem::transmute(destcapacity), ::core::mem::transmute(status))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -24388,7 +24388,7 @@ pub unsafe fn uregex_appendTail(regexp: *mut URegularExpression, destbuf: *mut *
     extern "system" {
         fn uregex_appendTail(regexp: *mut URegularExpression, destbuf: *mut *mut u16, destcapacity: *mut i32, status: *mut UErrorCode) -> i32;
     }
-    ::core::mem::transmute(uregex_appendTail(::core::mem::transmute(regexp), ::core::mem::transmute(destbuf), ::core::mem::transmute(destcapacity), ::core::mem::transmute(status)))
+    uregex_appendTail(::core::mem::transmute(regexp), ::core::mem::transmute(destbuf), ::core::mem::transmute(destcapacity), ::core::mem::transmute(status))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -24397,7 +24397,7 @@ pub unsafe fn uregex_appendTailUText(regexp: *mut URegularExpression, dest: *mut
     extern "system" {
         fn uregex_appendTailUText(regexp: *mut URegularExpression, dest: *mut UText, status: *mut UErrorCode) -> *mut UText;
     }
-    ::core::mem::transmute(uregex_appendTailUText(::core::mem::transmute(regexp), ::core::mem::transmute(dest), ::core::mem::transmute(status)))
+    uregex_appendTailUText(::core::mem::transmute(regexp), ::core::mem::transmute(dest), ::core::mem::transmute(status))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -24406,7 +24406,7 @@ pub unsafe fn uregex_clone(regexp: *const URegularExpression, status: *mut UErro
     extern "system" {
         fn uregex_clone(regexp: *const URegularExpression, status: *mut UErrorCode) -> *mut URegularExpression;
     }
-    ::core::mem::transmute(uregex_clone(::core::mem::transmute(regexp), ::core::mem::transmute(status)))
+    uregex_clone(::core::mem::transmute(regexp), ::core::mem::transmute(status))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -24424,7 +24424,7 @@ pub unsafe fn uregex_end(regexp: *mut URegularExpression, groupnum: i32, status:
     extern "system" {
         fn uregex_end(regexp: *mut URegularExpression, groupnum: i32, status: *mut UErrorCode) -> i32;
     }
-    ::core::mem::transmute(uregex_end(::core::mem::transmute(regexp), groupnum, ::core::mem::transmute(status)))
+    uregex_end(::core::mem::transmute(regexp), groupnum, ::core::mem::transmute(status))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -24433,7 +24433,7 @@ pub unsafe fn uregex_end64(regexp: *mut URegularExpression, groupnum: i32, statu
     extern "system" {
         fn uregex_end64(regexp: *mut URegularExpression, groupnum: i32, status: *mut UErrorCode) -> i64;
     }
-    ::core::mem::transmute(uregex_end64(::core::mem::transmute(regexp), groupnum, ::core::mem::transmute(status)))
+    uregex_end64(::core::mem::transmute(regexp), groupnum, ::core::mem::transmute(status))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -24442,7 +24442,7 @@ pub unsafe fn uregex_find(regexp: *mut URegularExpression, startindex: i32, stat
     extern "system" {
         fn uregex_find(regexp: *mut URegularExpression, startindex: i32, status: *mut UErrorCode) -> i8;
     }
-    ::core::mem::transmute(uregex_find(::core::mem::transmute(regexp), startindex, ::core::mem::transmute(status)))
+    uregex_find(::core::mem::transmute(regexp), startindex, ::core::mem::transmute(status))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -24451,7 +24451,7 @@ pub unsafe fn uregex_find64(regexp: *mut URegularExpression, startindex: i64, st
     extern "system" {
         fn uregex_find64(regexp: *mut URegularExpression, startindex: i64, status: *mut UErrorCode) -> i8;
     }
-    ::core::mem::transmute(uregex_find64(::core::mem::transmute(regexp), startindex, ::core::mem::transmute(status)))
+    uregex_find64(::core::mem::transmute(regexp), startindex, ::core::mem::transmute(status))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -24460,7 +24460,7 @@ pub unsafe fn uregex_findNext(regexp: *mut URegularExpression, status: *mut UErr
     extern "system" {
         fn uregex_findNext(regexp: *mut URegularExpression, status: *mut UErrorCode) -> i8;
     }
-    ::core::mem::transmute(uregex_findNext(::core::mem::transmute(regexp), ::core::mem::transmute(status)))
+    uregex_findNext(::core::mem::transmute(regexp), ::core::mem::transmute(status))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -24469,7 +24469,7 @@ pub unsafe fn uregex_flags(regexp: *const URegularExpression, status: *mut UErro
     extern "system" {
         fn uregex_flags(regexp: *const URegularExpression, status: *mut UErrorCode) -> i32;
     }
-    ::core::mem::transmute(uregex_flags(::core::mem::transmute(regexp), ::core::mem::transmute(status)))
+    uregex_flags(::core::mem::transmute(regexp), ::core::mem::transmute(status))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -24496,7 +24496,7 @@ pub unsafe fn uregex_getStackLimit(regexp: *const URegularExpression, status: *m
     extern "system" {
         fn uregex_getStackLimit(regexp: *const URegularExpression, status: *mut UErrorCode) -> i32;
     }
-    ::core::mem::transmute(uregex_getStackLimit(::core::mem::transmute(regexp), ::core::mem::transmute(status)))
+    uregex_getStackLimit(::core::mem::transmute(regexp), ::core::mem::transmute(status))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -24505,7 +24505,7 @@ pub unsafe fn uregex_getText(regexp: *mut URegularExpression, textlength: *mut i
     extern "system" {
         fn uregex_getText(regexp: *mut URegularExpression, textlength: *mut i32, status: *mut UErrorCode) -> *mut u16;
     }
-    ::core::mem::transmute(uregex_getText(::core::mem::transmute(regexp), ::core::mem::transmute(textlength), ::core::mem::transmute(status)))
+    uregex_getText(::core::mem::transmute(regexp), ::core::mem::transmute(textlength), ::core::mem::transmute(status))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -24514,7 +24514,7 @@ pub unsafe fn uregex_getTimeLimit(regexp: *const URegularExpression, status: *mu
     extern "system" {
         fn uregex_getTimeLimit(regexp: *const URegularExpression, status: *mut UErrorCode) -> i32;
     }
-    ::core::mem::transmute(uregex_getTimeLimit(::core::mem::transmute(regexp), ::core::mem::transmute(status)))
+    uregex_getTimeLimit(::core::mem::transmute(regexp), ::core::mem::transmute(status))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -24523,7 +24523,7 @@ pub unsafe fn uregex_getUText(regexp: *mut URegularExpression, dest: *mut UText,
     extern "system" {
         fn uregex_getUText(regexp: *mut URegularExpression, dest: *mut UText, status: *mut UErrorCode) -> *mut UText;
     }
-    ::core::mem::transmute(uregex_getUText(::core::mem::transmute(regexp), ::core::mem::transmute(dest), ::core::mem::transmute(status)))
+    uregex_getUText(::core::mem::transmute(regexp), ::core::mem::transmute(dest), ::core::mem::transmute(status))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -24532,7 +24532,7 @@ pub unsafe fn uregex_group(regexp: *mut URegularExpression, groupnum: i32, dest:
     extern "system" {
         fn uregex_group(regexp: *mut URegularExpression, groupnum: i32, dest: *mut u16, destcapacity: i32, status: *mut UErrorCode) -> i32;
     }
-    ::core::mem::transmute(uregex_group(::core::mem::transmute(regexp), groupnum, ::core::mem::transmute(dest), destcapacity, ::core::mem::transmute(status)))
+    uregex_group(::core::mem::transmute(regexp), groupnum, ::core::mem::transmute(dest), destcapacity, ::core::mem::transmute(status))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -24541,7 +24541,7 @@ pub unsafe fn uregex_groupCount(regexp: *mut URegularExpression, status: *mut UE
     extern "system" {
         fn uregex_groupCount(regexp: *mut URegularExpression, status: *mut UErrorCode) -> i32;
     }
-    ::core::mem::transmute(uregex_groupCount(::core::mem::transmute(regexp), ::core::mem::transmute(status)))
+    uregex_groupCount(::core::mem::transmute(regexp), ::core::mem::transmute(status))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -24553,7 +24553,7 @@ where
     extern "system" {
         fn uregex_groupNumberFromCName(regexp: *mut URegularExpression, groupname: ::windows::core::PCSTR, namelength: i32, status: *mut UErrorCode) -> i32;
     }
-    ::core::mem::transmute(uregex_groupNumberFromCName(::core::mem::transmute(regexp), groupname.into(), namelength, ::core::mem::transmute(status)))
+    uregex_groupNumberFromCName(::core::mem::transmute(regexp), groupname.into(), namelength, ::core::mem::transmute(status))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -24562,7 +24562,7 @@ pub unsafe fn uregex_groupNumberFromName(regexp: *mut URegularExpression, groupn
     extern "system" {
         fn uregex_groupNumberFromName(regexp: *mut URegularExpression, groupname: *const u16, namelength: i32, status: *mut UErrorCode) -> i32;
     }
-    ::core::mem::transmute(uregex_groupNumberFromName(::core::mem::transmute(regexp), ::core::mem::transmute(groupname), namelength, ::core::mem::transmute(status)))
+    uregex_groupNumberFromName(::core::mem::transmute(regexp), ::core::mem::transmute(groupname), namelength, ::core::mem::transmute(status))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -24571,7 +24571,7 @@ pub unsafe fn uregex_groupUText(regexp: *mut URegularExpression, groupnum: i32, 
     extern "system" {
         fn uregex_groupUText(regexp: *mut URegularExpression, groupnum: i32, dest: *mut UText, grouplength: *mut i64, status: *mut UErrorCode) -> *mut UText;
     }
-    ::core::mem::transmute(uregex_groupUText(::core::mem::transmute(regexp), groupnum, ::core::mem::transmute(dest), ::core::mem::transmute(grouplength), ::core::mem::transmute(status)))
+    uregex_groupUText(::core::mem::transmute(regexp), groupnum, ::core::mem::transmute(dest), ::core::mem::transmute(grouplength), ::core::mem::transmute(status))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -24580,7 +24580,7 @@ pub unsafe fn uregex_hasAnchoringBounds(regexp: *const URegularExpression, statu
     extern "system" {
         fn uregex_hasAnchoringBounds(regexp: *const URegularExpression, status: *mut UErrorCode) -> i8;
     }
-    ::core::mem::transmute(uregex_hasAnchoringBounds(::core::mem::transmute(regexp), ::core::mem::transmute(status)))
+    uregex_hasAnchoringBounds(::core::mem::transmute(regexp), ::core::mem::transmute(status))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -24589,7 +24589,7 @@ pub unsafe fn uregex_hasTransparentBounds(regexp: *const URegularExpression, sta
     extern "system" {
         fn uregex_hasTransparentBounds(regexp: *const URegularExpression, status: *mut UErrorCode) -> i8;
     }
-    ::core::mem::transmute(uregex_hasTransparentBounds(::core::mem::transmute(regexp), ::core::mem::transmute(status)))
+    uregex_hasTransparentBounds(::core::mem::transmute(regexp), ::core::mem::transmute(status))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -24598,7 +24598,7 @@ pub unsafe fn uregex_hitEnd(regexp: *const URegularExpression, status: *mut UErr
     extern "system" {
         fn uregex_hitEnd(regexp: *const URegularExpression, status: *mut UErrorCode) -> i8;
     }
-    ::core::mem::transmute(uregex_hitEnd(::core::mem::transmute(regexp), ::core::mem::transmute(status)))
+    uregex_hitEnd(::core::mem::transmute(regexp), ::core::mem::transmute(status))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -24607,7 +24607,7 @@ pub unsafe fn uregex_lookingAt(regexp: *mut URegularExpression, startindex: i32,
     extern "system" {
         fn uregex_lookingAt(regexp: *mut URegularExpression, startindex: i32, status: *mut UErrorCode) -> i8;
     }
-    ::core::mem::transmute(uregex_lookingAt(::core::mem::transmute(regexp), startindex, ::core::mem::transmute(status)))
+    uregex_lookingAt(::core::mem::transmute(regexp), startindex, ::core::mem::transmute(status))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -24616,7 +24616,7 @@ pub unsafe fn uregex_lookingAt64(regexp: *mut URegularExpression, startindex: i6
     extern "system" {
         fn uregex_lookingAt64(regexp: *mut URegularExpression, startindex: i64, status: *mut UErrorCode) -> i8;
     }
-    ::core::mem::transmute(uregex_lookingAt64(::core::mem::transmute(regexp), startindex, ::core::mem::transmute(status)))
+    uregex_lookingAt64(::core::mem::transmute(regexp), startindex, ::core::mem::transmute(status))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -24625,7 +24625,7 @@ pub unsafe fn uregex_matches(regexp: *mut URegularExpression, startindex: i32, s
     extern "system" {
         fn uregex_matches(regexp: *mut URegularExpression, startindex: i32, status: *mut UErrorCode) -> i8;
     }
-    ::core::mem::transmute(uregex_matches(::core::mem::transmute(regexp), startindex, ::core::mem::transmute(status)))
+    uregex_matches(::core::mem::transmute(regexp), startindex, ::core::mem::transmute(status))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -24634,7 +24634,7 @@ pub unsafe fn uregex_matches64(regexp: *mut URegularExpression, startindex: i64,
     extern "system" {
         fn uregex_matches64(regexp: *mut URegularExpression, startindex: i64, status: *mut UErrorCode) -> i8;
     }
-    ::core::mem::transmute(uregex_matches64(::core::mem::transmute(regexp), startindex, ::core::mem::transmute(status)))
+    uregex_matches64(::core::mem::transmute(regexp), startindex, ::core::mem::transmute(status))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -24643,7 +24643,7 @@ pub unsafe fn uregex_open(pattern: *const u16, patternlength: i32, flags: u32, p
     extern "system" {
         fn uregex_open(pattern: *const u16, patternlength: i32, flags: u32, pe: *mut UParseError, status: *mut UErrorCode) -> *mut URegularExpression;
     }
-    ::core::mem::transmute(uregex_open(::core::mem::transmute(pattern), patternlength, flags, ::core::mem::transmute(pe), ::core::mem::transmute(status)))
+    uregex_open(::core::mem::transmute(pattern), patternlength, flags, ::core::mem::transmute(pe), ::core::mem::transmute(status))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -24655,7 +24655,7 @@ where
     extern "system" {
         fn uregex_openC(pattern: ::windows::core::PCSTR, flags: u32, pe: *mut UParseError, status: *mut UErrorCode) -> *mut URegularExpression;
     }
-    ::core::mem::transmute(uregex_openC(pattern.into(), flags, ::core::mem::transmute(pe), ::core::mem::transmute(status)))
+    uregex_openC(pattern.into(), flags, ::core::mem::transmute(pe), ::core::mem::transmute(status))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -24664,7 +24664,7 @@ pub unsafe fn uregex_openUText(pattern: *mut UText, flags: u32, pe: *mut UParseE
     extern "system" {
         fn uregex_openUText(pattern: *mut UText, flags: u32, pe: *mut UParseError, status: *mut UErrorCode) -> *mut URegularExpression;
     }
-    ::core::mem::transmute(uregex_openUText(::core::mem::transmute(pattern), flags, ::core::mem::transmute(pe), ::core::mem::transmute(status)))
+    uregex_openUText(::core::mem::transmute(pattern), flags, ::core::mem::transmute(pe), ::core::mem::transmute(status))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -24673,7 +24673,7 @@ pub unsafe fn uregex_pattern(regexp: *const URegularExpression, patlength: *mut 
     extern "system" {
         fn uregex_pattern(regexp: *const URegularExpression, patlength: *mut i32, status: *mut UErrorCode) -> *mut u16;
     }
-    ::core::mem::transmute(uregex_pattern(::core::mem::transmute(regexp), ::core::mem::transmute(patlength), ::core::mem::transmute(status)))
+    uregex_pattern(::core::mem::transmute(regexp), ::core::mem::transmute(patlength), ::core::mem::transmute(status))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -24682,7 +24682,7 @@ pub unsafe fn uregex_patternUText(regexp: *const URegularExpression, status: *mu
     extern "system" {
         fn uregex_patternUText(regexp: *const URegularExpression, status: *mut UErrorCode) -> *mut UText;
     }
-    ::core::mem::transmute(uregex_patternUText(::core::mem::transmute(regexp), ::core::mem::transmute(status)))
+    uregex_patternUText(::core::mem::transmute(regexp), ::core::mem::transmute(status))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -24700,7 +24700,7 @@ pub unsafe fn uregex_regionEnd(regexp: *const URegularExpression, status: *mut U
     extern "system" {
         fn uregex_regionEnd(regexp: *const URegularExpression, status: *mut UErrorCode) -> i32;
     }
-    ::core::mem::transmute(uregex_regionEnd(::core::mem::transmute(regexp), ::core::mem::transmute(status)))
+    uregex_regionEnd(::core::mem::transmute(regexp), ::core::mem::transmute(status))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -24709,7 +24709,7 @@ pub unsafe fn uregex_regionEnd64(regexp: *const URegularExpression, status: *mut
     extern "system" {
         fn uregex_regionEnd64(regexp: *const URegularExpression, status: *mut UErrorCode) -> i64;
     }
-    ::core::mem::transmute(uregex_regionEnd64(::core::mem::transmute(regexp), ::core::mem::transmute(status)))
+    uregex_regionEnd64(::core::mem::transmute(regexp), ::core::mem::transmute(status))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -24718,7 +24718,7 @@ pub unsafe fn uregex_regionStart(regexp: *const URegularExpression, status: *mut
     extern "system" {
         fn uregex_regionStart(regexp: *const URegularExpression, status: *mut UErrorCode) -> i32;
     }
-    ::core::mem::transmute(uregex_regionStart(::core::mem::transmute(regexp), ::core::mem::transmute(status)))
+    uregex_regionStart(::core::mem::transmute(regexp), ::core::mem::transmute(status))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -24727,7 +24727,7 @@ pub unsafe fn uregex_regionStart64(regexp: *const URegularExpression, status: *m
     extern "system" {
         fn uregex_regionStart64(regexp: *const URegularExpression, status: *mut UErrorCode) -> i64;
     }
-    ::core::mem::transmute(uregex_regionStart64(::core::mem::transmute(regexp), ::core::mem::transmute(status)))
+    uregex_regionStart64(::core::mem::transmute(regexp), ::core::mem::transmute(status))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -24736,7 +24736,7 @@ pub unsafe fn uregex_replaceAll(regexp: *mut URegularExpression, replacementtext
     extern "system" {
         fn uregex_replaceAll(regexp: *mut URegularExpression, replacementtext: *const u16, replacementlength: i32, destbuf: *mut u16, destcapacity: i32, status: *mut UErrorCode) -> i32;
     }
-    ::core::mem::transmute(uregex_replaceAll(::core::mem::transmute(regexp), ::core::mem::transmute(replacementtext), replacementlength, ::core::mem::transmute(destbuf), destcapacity, ::core::mem::transmute(status)))
+    uregex_replaceAll(::core::mem::transmute(regexp), ::core::mem::transmute(replacementtext), replacementlength, ::core::mem::transmute(destbuf), destcapacity, ::core::mem::transmute(status))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -24745,7 +24745,7 @@ pub unsafe fn uregex_replaceAllUText(regexp: *mut URegularExpression, replacemen
     extern "system" {
         fn uregex_replaceAllUText(regexp: *mut URegularExpression, replacement: *mut UText, dest: *mut UText, status: *mut UErrorCode) -> *mut UText;
     }
-    ::core::mem::transmute(uregex_replaceAllUText(::core::mem::transmute(regexp), ::core::mem::transmute(replacement), ::core::mem::transmute(dest), ::core::mem::transmute(status)))
+    uregex_replaceAllUText(::core::mem::transmute(regexp), ::core::mem::transmute(replacement), ::core::mem::transmute(dest), ::core::mem::transmute(status))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -24754,7 +24754,7 @@ pub unsafe fn uregex_replaceFirst(regexp: *mut URegularExpression, replacementte
     extern "system" {
         fn uregex_replaceFirst(regexp: *mut URegularExpression, replacementtext: *const u16, replacementlength: i32, destbuf: *mut u16, destcapacity: i32, status: *mut UErrorCode) -> i32;
     }
-    ::core::mem::transmute(uregex_replaceFirst(::core::mem::transmute(regexp), ::core::mem::transmute(replacementtext), replacementlength, ::core::mem::transmute(destbuf), destcapacity, ::core::mem::transmute(status)))
+    uregex_replaceFirst(::core::mem::transmute(regexp), ::core::mem::transmute(replacementtext), replacementlength, ::core::mem::transmute(destbuf), destcapacity, ::core::mem::transmute(status))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -24763,7 +24763,7 @@ pub unsafe fn uregex_replaceFirstUText(regexp: *mut URegularExpression, replacem
     extern "system" {
         fn uregex_replaceFirstUText(regexp: *mut URegularExpression, replacement: *mut UText, dest: *mut UText, status: *mut UErrorCode) -> *mut UText;
     }
-    ::core::mem::transmute(uregex_replaceFirstUText(::core::mem::transmute(regexp), ::core::mem::transmute(replacement), ::core::mem::transmute(dest), ::core::mem::transmute(status)))
+    uregex_replaceFirstUText(::core::mem::transmute(regexp), ::core::mem::transmute(replacement), ::core::mem::transmute(dest), ::core::mem::transmute(status))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -24772,7 +24772,7 @@ pub unsafe fn uregex_requireEnd(regexp: *const URegularExpression, status: *mut 
     extern "system" {
         fn uregex_requireEnd(regexp: *const URegularExpression, status: *mut UErrorCode) -> i8;
     }
-    ::core::mem::transmute(uregex_requireEnd(::core::mem::transmute(regexp), ::core::mem::transmute(status)))
+    uregex_requireEnd(::core::mem::transmute(regexp), ::core::mem::transmute(status))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -24880,7 +24880,7 @@ pub unsafe fn uregex_split(regexp: *mut URegularExpression, destbuf: *mut u16, d
     extern "system" {
         fn uregex_split(regexp: *mut URegularExpression, destbuf: *mut u16, destcapacity: i32, requiredcapacity: *mut i32, destfields: *mut *mut u16, destfieldscapacity: i32, status: *mut UErrorCode) -> i32;
     }
-    ::core::mem::transmute(uregex_split(::core::mem::transmute(regexp), ::core::mem::transmute(destbuf), destcapacity, ::core::mem::transmute(requiredcapacity), ::core::mem::transmute(destfields), destfieldscapacity, ::core::mem::transmute(status)))
+    uregex_split(::core::mem::transmute(regexp), ::core::mem::transmute(destbuf), destcapacity, ::core::mem::transmute(requiredcapacity), ::core::mem::transmute(destfields), destfieldscapacity, ::core::mem::transmute(status))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -24889,7 +24889,7 @@ pub unsafe fn uregex_splitUText(regexp: *mut URegularExpression, destfields: *mu
     extern "system" {
         fn uregex_splitUText(regexp: *mut URegularExpression, destfields: *mut *mut UText, destfieldscapacity: i32, status: *mut UErrorCode) -> i32;
     }
-    ::core::mem::transmute(uregex_splitUText(::core::mem::transmute(regexp), ::core::mem::transmute(destfields), destfieldscapacity, ::core::mem::transmute(status)))
+    uregex_splitUText(::core::mem::transmute(regexp), ::core::mem::transmute(destfields), destfieldscapacity, ::core::mem::transmute(status))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -24898,7 +24898,7 @@ pub unsafe fn uregex_start(regexp: *mut URegularExpression, groupnum: i32, statu
     extern "system" {
         fn uregex_start(regexp: *mut URegularExpression, groupnum: i32, status: *mut UErrorCode) -> i32;
     }
-    ::core::mem::transmute(uregex_start(::core::mem::transmute(regexp), groupnum, ::core::mem::transmute(status)))
+    uregex_start(::core::mem::transmute(regexp), groupnum, ::core::mem::transmute(status))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -24907,7 +24907,7 @@ pub unsafe fn uregex_start64(regexp: *mut URegularExpression, groupnum: i32, sta
     extern "system" {
         fn uregex_start64(regexp: *mut URegularExpression, groupnum: i32, status: *mut UErrorCode) -> i64;
     }
-    ::core::mem::transmute(uregex_start64(::core::mem::transmute(regexp), groupnum, ::core::mem::transmute(status)))
+    uregex_start64(::core::mem::transmute(regexp), groupnum, ::core::mem::transmute(status))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -24934,7 +24934,7 @@ pub unsafe fn uregion_areEqual(uregion: *const URegion, otherregion: *const UReg
     extern "system" {
         fn uregion_areEqual(uregion: *const URegion, otherregion: *const URegion) -> i8;
     }
-    ::core::mem::transmute(uregion_areEqual(::core::mem::transmute(uregion), ::core::mem::transmute(otherregion)))
+    uregion_areEqual(::core::mem::transmute(uregion), ::core::mem::transmute(otherregion))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -24943,7 +24943,7 @@ pub unsafe fn uregion_contains(uregion: *const URegion, otherregion: *const UReg
     extern "system" {
         fn uregion_contains(uregion: *const URegion, otherregion: *const URegion) -> i8;
     }
-    ::core::mem::transmute(uregion_contains(::core::mem::transmute(uregion), ::core::mem::transmute(otherregion)))
+    uregion_contains(::core::mem::transmute(uregion), ::core::mem::transmute(otherregion))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -24952,7 +24952,7 @@ pub unsafe fn uregion_getAvailable(r#type: URegionType, status: *mut UErrorCode)
     extern "system" {
         fn uregion_getAvailable(r#type: URegionType, status: *mut UErrorCode) -> *mut UEnumeration;
     }
-    ::core::mem::transmute(uregion_getAvailable(r#type, ::core::mem::transmute(status)))
+    uregion_getAvailable(r#type, ::core::mem::transmute(status))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -24961,7 +24961,7 @@ pub unsafe fn uregion_getContainedRegions(uregion: *const URegion, status: *mut 
     extern "system" {
         fn uregion_getContainedRegions(uregion: *const URegion, status: *mut UErrorCode) -> *mut UEnumeration;
     }
-    ::core::mem::transmute(uregion_getContainedRegions(::core::mem::transmute(uregion), ::core::mem::transmute(status)))
+    uregion_getContainedRegions(::core::mem::transmute(uregion), ::core::mem::transmute(status))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -24970,7 +24970,7 @@ pub unsafe fn uregion_getContainedRegionsOfType(uregion: *const URegion, r#type:
     extern "system" {
         fn uregion_getContainedRegionsOfType(uregion: *const URegion, r#type: URegionType, status: *mut UErrorCode) -> *mut UEnumeration;
     }
-    ::core::mem::transmute(uregion_getContainedRegionsOfType(::core::mem::transmute(uregion), r#type, ::core::mem::transmute(status)))
+    uregion_getContainedRegionsOfType(::core::mem::transmute(uregion), r#type, ::core::mem::transmute(status))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -24979,7 +24979,7 @@ pub unsafe fn uregion_getContainingRegion(uregion: *const URegion) -> *mut URegi
     extern "system" {
         fn uregion_getContainingRegion(uregion: *const URegion) -> *mut URegion;
     }
-    ::core::mem::transmute(uregion_getContainingRegion(::core::mem::transmute(uregion)))
+    uregion_getContainingRegion(::core::mem::transmute(uregion))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -24988,7 +24988,7 @@ pub unsafe fn uregion_getContainingRegionOfType(uregion: *const URegion, r#type:
     extern "system" {
         fn uregion_getContainingRegionOfType(uregion: *const URegion, r#type: URegionType) -> *mut URegion;
     }
-    ::core::mem::transmute(uregion_getContainingRegionOfType(::core::mem::transmute(uregion), r#type))
+    uregion_getContainingRegionOfType(::core::mem::transmute(uregion), r#type)
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -24997,7 +24997,7 @@ pub unsafe fn uregion_getNumericCode(uregion: *const URegion) -> i32 {
     extern "system" {
         fn uregion_getNumericCode(uregion: *const URegion) -> i32;
     }
-    ::core::mem::transmute(uregion_getNumericCode(::core::mem::transmute(uregion)))
+    uregion_getNumericCode(::core::mem::transmute(uregion))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -25006,7 +25006,7 @@ pub unsafe fn uregion_getPreferredValues(uregion: *const URegion, status: *mut U
     extern "system" {
         fn uregion_getPreferredValues(uregion: *const URegion, status: *mut UErrorCode) -> *mut UEnumeration;
     }
-    ::core::mem::transmute(uregion_getPreferredValues(::core::mem::transmute(uregion), ::core::mem::transmute(status)))
+    uregion_getPreferredValues(::core::mem::transmute(uregion), ::core::mem::transmute(status))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -25015,7 +25015,7 @@ pub unsafe fn uregion_getRegionCode(uregion: *const URegion) -> ::windows::core:
     extern "system" {
         fn uregion_getRegionCode(uregion: *const URegion) -> ::windows::core::PSTR;
     }
-    ::core::mem::transmute(uregion_getRegionCode(::core::mem::transmute(uregion)))
+    uregion_getRegionCode(::core::mem::transmute(uregion))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -25027,7 +25027,7 @@ where
     extern "system" {
         fn uregion_getRegionFromCode(regioncode: ::windows::core::PCSTR, status: *mut UErrorCode) -> *mut URegion;
     }
-    ::core::mem::transmute(uregion_getRegionFromCode(regioncode.into(), ::core::mem::transmute(status)))
+    uregion_getRegionFromCode(regioncode.into(), ::core::mem::transmute(status))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -25036,7 +25036,7 @@ pub unsafe fn uregion_getRegionFromNumericCode(code: i32, status: *mut UErrorCod
     extern "system" {
         fn uregion_getRegionFromNumericCode(code: i32, status: *mut UErrorCode) -> *mut URegion;
     }
-    ::core::mem::transmute(uregion_getRegionFromNumericCode(code, ::core::mem::transmute(status)))
+    uregion_getRegionFromNumericCode(code, ::core::mem::transmute(status))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -25045,7 +25045,7 @@ pub unsafe fn uregion_getType(uregion: *const URegion) -> URegionType {
     extern "system" {
         fn uregion_getType(uregion: *const URegion) -> URegionType;
     }
-    ::core::mem::transmute(uregion_getType(::core::mem::transmute(uregion)))
+    uregion_getType(::core::mem::transmute(uregion))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -25072,7 +25072,7 @@ pub unsafe fn ureldatefmt_combineDateAndTime(reldatefmt: *const URelativeDateTim
     extern "system" {
         fn ureldatefmt_combineDateAndTime(reldatefmt: *const URelativeDateTimeFormatter, relativedatestring: *const u16, relativedatestringlen: i32, timestring: *const u16, timestringlen: i32, result: *mut u16, resultcapacity: i32, status: *mut UErrorCode) -> i32;
     }
-    ::core::mem::transmute(ureldatefmt_combineDateAndTime(::core::mem::transmute(reldatefmt), ::core::mem::transmute(relativedatestring), relativedatestringlen, ::core::mem::transmute(timestring), timestringlen, ::core::mem::transmute(result), resultcapacity, ::core::mem::transmute(status)))
+    ureldatefmt_combineDateAndTime(::core::mem::transmute(reldatefmt), ::core::mem::transmute(relativedatestring), relativedatestringlen, ::core::mem::transmute(timestring), timestringlen, ::core::mem::transmute(result), resultcapacity, ::core::mem::transmute(status))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -25081,7 +25081,7 @@ pub unsafe fn ureldatefmt_format(reldatefmt: *const URelativeDateTimeFormatter, 
     extern "system" {
         fn ureldatefmt_format(reldatefmt: *const URelativeDateTimeFormatter, offset: f64, unit: URelativeDateTimeUnit, result: *mut u16, resultcapacity: i32, status: *mut UErrorCode) -> i32;
     }
-    ::core::mem::transmute(ureldatefmt_format(::core::mem::transmute(reldatefmt), offset, unit, ::core::mem::transmute(result), resultcapacity, ::core::mem::transmute(status)))
+    ureldatefmt_format(::core::mem::transmute(reldatefmt), offset, unit, ::core::mem::transmute(result), resultcapacity, ::core::mem::transmute(status))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -25090,7 +25090,7 @@ pub unsafe fn ureldatefmt_formatNumeric(reldatefmt: *const URelativeDateTimeForm
     extern "system" {
         fn ureldatefmt_formatNumeric(reldatefmt: *const URelativeDateTimeFormatter, offset: f64, unit: URelativeDateTimeUnit, result: *mut u16, resultcapacity: i32, status: *mut UErrorCode) -> i32;
     }
-    ::core::mem::transmute(ureldatefmt_formatNumeric(::core::mem::transmute(reldatefmt), offset, unit, ::core::mem::transmute(result), resultcapacity, ::core::mem::transmute(status)))
+    ureldatefmt_formatNumeric(::core::mem::transmute(reldatefmt), offset, unit, ::core::mem::transmute(result), resultcapacity, ::core::mem::transmute(status))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -25120,7 +25120,7 @@ where
     extern "system" {
         fn ureldatefmt_open(locale: ::windows::core::PCSTR, nftoadopt: *mut *mut ::core::ffi::c_void, width: UDateRelativeDateTimeFormatterStyle, capitalizationcontext: UDisplayContext, status: *mut UErrorCode) -> *mut URelativeDateTimeFormatter;
     }
-    ::core::mem::transmute(ureldatefmt_open(locale.into(), ::core::mem::transmute(nftoadopt), width, capitalizationcontext, ::core::mem::transmute(status)))
+    ureldatefmt_open(locale.into(), ::core::mem::transmute(nftoadopt), width, capitalizationcontext, ::core::mem::transmute(status))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -25129,7 +25129,7 @@ pub unsafe fn ureldatefmt_openResult(ec: *mut UErrorCode) -> *mut UFormattedRela
     extern "system" {
         fn ureldatefmt_openResult(ec: *mut UErrorCode) -> *mut UFormattedRelativeDateTime;
     }
-    ::core::mem::transmute(ureldatefmt_openResult(::core::mem::transmute(ec)))
+    ureldatefmt_openResult(::core::mem::transmute(ec))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -25138,7 +25138,7 @@ pub unsafe fn ureldatefmt_resultAsValue(ufrdt: *const UFormattedRelativeDateTime
     extern "system" {
         fn ureldatefmt_resultAsValue(ufrdt: *const UFormattedRelativeDateTime, ec: *mut UErrorCode) -> *mut UFormattedValue;
     }
-    ::core::mem::transmute(ureldatefmt_resultAsValue(::core::mem::transmute(ufrdt), ::core::mem::transmute(ec)))
+    ureldatefmt_resultAsValue(::core::mem::transmute(ufrdt), ::core::mem::transmute(ec))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -25156,7 +25156,7 @@ pub unsafe fn ures_getBinary(resourcebundle: *const UResourceBundle, len: *mut i
     extern "system" {
         fn ures_getBinary(resourcebundle: *const UResourceBundle, len: *mut i32, status: *mut UErrorCode) -> *mut u8;
     }
-    ::core::mem::transmute(ures_getBinary(::core::mem::transmute(resourcebundle), ::core::mem::transmute(len), ::core::mem::transmute(status)))
+    ures_getBinary(::core::mem::transmute(resourcebundle), ::core::mem::transmute(len), ::core::mem::transmute(status))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -25165,7 +25165,7 @@ pub unsafe fn ures_getByIndex(resourcebundle: *const UResourceBundle, indexr: i3
     extern "system" {
         fn ures_getByIndex(resourcebundle: *const UResourceBundle, indexr: i32, fillin: *mut UResourceBundle, status: *mut UErrorCode) -> *mut UResourceBundle;
     }
-    ::core::mem::transmute(ures_getByIndex(::core::mem::transmute(resourcebundle), indexr, ::core::mem::transmute(fillin), ::core::mem::transmute(status)))
+    ures_getByIndex(::core::mem::transmute(resourcebundle), indexr, ::core::mem::transmute(fillin), ::core::mem::transmute(status))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -25177,7 +25177,7 @@ where
     extern "system" {
         fn ures_getByKey(resourcebundle: *const UResourceBundle, key: ::windows::core::PCSTR, fillin: *mut UResourceBundle, status: *mut UErrorCode) -> *mut UResourceBundle;
     }
-    ::core::mem::transmute(ures_getByKey(::core::mem::transmute(resourcebundle), key.into(), ::core::mem::transmute(fillin), ::core::mem::transmute(status)))
+    ures_getByKey(::core::mem::transmute(resourcebundle), key.into(), ::core::mem::transmute(fillin), ::core::mem::transmute(status))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -25186,7 +25186,7 @@ pub unsafe fn ures_getInt(resourcebundle: *const UResourceBundle, status: *mut U
     extern "system" {
         fn ures_getInt(resourcebundle: *const UResourceBundle, status: *mut UErrorCode) -> i32;
     }
-    ::core::mem::transmute(ures_getInt(::core::mem::transmute(resourcebundle), ::core::mem::transmute(status)))
+    ures_getInt(::core::mem::transmute(resourcebundle), ::core::mem::transmute(status))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -25195,7 +25195,7 @@ pub unsafe fn ures_getIntVector(resourcebundle: *const UResourceBundle, len: *mu
     extern "system" {
         fn ures_getIntVector(resourcebundle: *const UResourceBundle, len: *mut i32, status: *mut UErrorCode) -> *mut i32;
     }
-    ::core::mem::transmute(ures_getIntVector(::core::mem::transmute(resourcebundle), ::core::mem::transmute(len), ::core::mem::transmute(status)))
+    ures_getIntVector(::core::mem::transmute(resourcebundle), ::core::mem::transmute(len), ::core::mem::transmute(status))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -25204,7 +25204,7 @@ pub unsafe fn ures_getKey(resourcebundle: *const UResourceBundle) -> ::windows::
     extern "system" {
         fn ures_getKey(resourcebundle: *const UResourceBundle) -> ::windows::core::PSTR;
     }
-    ::core::mem::transmute(ures_getKey(::core::mem::transmute(resourcebundle)))
+    ures_getKey(::core::mem::transmute(resourcebundle))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -25213,7 +25213,7 @@ pub unsafe fn ures_getLocaleByType(resourcebundle: *const UResourceBundle, r#typ
     extern "system" {
         fn ures_getLocaleByType(resourcebundle: *const UResourceBundle, r#type: ULocDataLocaleType, status: *mut UErrorCode) -> ::windows::core::PSTR;
     }
-    ::core::mem::transmute(ures_getLocaleByType(::core::mem::transmute(resourcebundle), r#type, ::core::mem::transmute(status)))
+    ures_getLocaleByType(::core::mem::transmute(resourcebundle), r#type, ::core::mem::transmute(status))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -25222,7 +25222,7 @@ pub unsafe fn ures_getNextResource(resourcebundle: *mut UResourceBundle, fillin:
     extern "system" {
         fn ures_getNextResource(resourcebundle: *mut UResourceBundle, fillin: *mut UResourceBundle, status: *mut UErrorCode) -> *mut UResourceBundle;
     }
-    ::core::mem::transmute(ures_getNextResource(::core::mem::transmute(resourcebundle), ::core::mem::transmute(fillin), ::core::mem::transmute(status)))
+    ures_getNextResource(::core::mem::transmute(resourcebundle), ::core::mem::transmute(fillin), ::core::mem::transmute(status))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -25231,7 +25231,7 @@ pub unsafe fn ures_getNextString(resourcebundle: *mut UResourceBundle, len: *mut
     extern "system" {
         fn ures_getNextString(resourcebundle: *mut UResourceBundle, len: *mut i32, key: *const *const i8, status: *mut UErrorCode) -> *mut u16;
     }
-    ::core::mem::transmute(ures_getNextString(::core::mem::transmute(resourcebundle), ::core::mem::transmute(len), ::core::mem::transmute(key), ::core::mem::transmute(status)))
+    ures_getNextString(::core::mem::transmute(resourcebundle), ::core::mem::transmute(len), ::core::mem::transmute(key), ::core::mem::transmute(status))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -25240,7 +25240,7 @@ pub unsafe fn ures_getSize(resourcebundle: *const UResourceBundle) -> i32 {
     extern "system" {
         fn ures_getSize(resourcebundle: *const UResourceBundle) -> i32;
     }
-    ::core::mem::transmute(ures_getSize(::core::mem::transmute(resourcebundle)))
+    ures_getSize(::core::mem::transmute(resourcebundle))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -25249,7 +25249,7 @@ pub unsafe fn ures_getString(resourcebundle: *const UResourceBundle, len: *mut i
     extern "system" {
         fn ures_getString(resourcebundle: *const UResourceBundle, len: *mut i32, status: *mut UErrorCode) -> *mut u16;
     }
-    ::core::mem::transmute(ures_getString(::core::mem::transmute(resourcebundle), ::core::mem::transmute(len), ::core::mem::transmute(status)))
+    ures_getString(::core::mem::transmute(resourcebundle), ::core::mem::transmute(len), ::core::mem::transmute(status))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -25258,7 +25258,7 @@ pub unsafe fn ures_getStringByIndex(resourcebundle: *const UResourceBundle, inde
     extern "system" {
         fn ures_getStringByIndex(resourcebundle: *const UResourceBundle, indexs: i32, len: *mut i32, status: *mut UErrorCode) -> *mut u16;
     }
-    ::core::mem::transmute(ures_getStringByIndex(::core::mem::transmute(resourcebundle), indexs, ::core::mem::transmute(len), ::core::mem::transmute(status)))
+    ures_getStringByIndex(::core::mem::transmute(resourcebundle), indexs, ::core::mem::transmute(len), ::core::mem::transmute(status))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -25270,7 +25270,7 @@ where
     extern "system" {
         fn ures_getStringByKey(resb: *const UResourceBundle, key: ::windows::core::PCSTR, len: *mut i32, status: *mut UErrorCode) -> *mut u16;
     }
-    ::core::mem::transmute(ures_getStringByKey(::core::mem::transmute(resb), key.into(), ::core::mem::transmute(len), ::core::mem::transmute(status)))
+    ures_getStringByKey(::core::mem::transmute(resb), key.into(), ::core::mem::transmute(len), ::core::mem::transmute(status))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -25279,7 +25279,7 @@ pub unsafe fn ures_getType(resourcebundle: *const UResourceBundle) -> UResType {
     extern "system" {
         fn ures_getType(resourcebundle: *const UResourceBundle) -> UResType;
     }
-    ::core::mem::transmute(ures_getType(::core::mem::transmute(resourcebundle)))
+    ures_getType(::core::mem::transmute(resourcebundle))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -25288,7 +25288,7 @@ pub unsafe fn ures_getUInt(resourcebundle: *const UResourceBundle, status: *mut 
     extern "system" {
         fn ures_getUInt(resourcebundle: *const UResourceBundle, status: *mut UErrorCode) -> u32;
     }
-    ::core::mem::transmute(ures_getUInt(::core::mem::transmute(resourcebundle), ::core::mem::transmute(status)))
+    ures_getUInt(::core::mem::transmute(resourcebundle), ::core::mem::transmute(status))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -25300,7 +25300,7 @@ where
     extern "system" {
         fn ures_getUTF8String(resb: *const UResourceBundle, dest: ::windows::core::PCSTR, length: *mut i32, forcecopy: i8, status: *mut UErrorCode) -> ::windows::core::PSTR;
     }
-    ::core::mem::transmute(ures_getUTF8String(::core::mem::transmute(resb), dest.into(), ::core::mem::transmute(length), forcecopy, ::core::mem::transmute(status)))
+    ures_getUTF8String(::core::mem::transmute(resb), dest.into(), ::core::mem::transmute(length), forcecopy, ::core::mem::transmute(status))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -25312,7 +25312,7 @@ where
     extern "system" {
         fn ures_getUTF8StringByIndex(resb: *const UResourceBundle, stringindex: i32, dest: ::windows::core::PCSTR, plength: *mut i32, forcecopy: i8, status: *mut UErrorCode) -> ::windows::core::PSTR;
     }
-    ::core::mem::transmute(ures_getUTF8StringByIndex(::core::mem::transmute(resb), stringindex, dest.into(), ::core::mem::transmute(plength), forcecopy, ::core::mem::transmute(status)))
+    ures_getUTF8StringByIndex(::core::mem::transmute(resb), stringindex, dest.into(), ::core::mem::transmute(plength), forcecopy, ::core::mem::transmute(status))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -25325,7 +25325,7 @@ where
     extern "system" {
         fn ures_getUTF8StringByKey(resb: *const UResourceBundle, key: ::windows::core::PCSTR, dest: ::windows::core::PCSTR, plength: *mut i32, forcecopy: i8, status: *mut UErrorCode) -> ::windows::core::PSTR;
     }
-    ::core::mem::transmute(ures_getUTF8StringByKey(::core::mem::transmute(resb), key.into(), dest.into(), ::core::mem::transmute(plength), forcecopy, ::core::mem::transmute(status)))
+    ures_getUTF8StringByKey(::core::mem::transmute(resb), key.into(), dest.into(), ::core::mem::transmute(plength), forcecopy, ::core::mem::transmute(status))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -25343,7 +25343,7 @@ pub unsafe fn ures_hasNext(resourcebundle: *const UResourceBundle) -> i8 {
     extern "system" {
         fn ures_hasNext(resourcebundle: *const UResourceBundle) -> i8;
     }
-    ::core::mem::transmute(ures_hasNext(::core::mem::transmute(resourcebundle)))
+    ures_hasNext(::core::mem::transmute(resourcebundle))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -25356,7 +25356,7 @@ where
     extern "system" {
         fn ures_open(packagename: ::windows::core::PCSTR, locale: ::windows::core::PCSTR, status: *mut UErrorCode) -> *mut UResourceBundle;
     }
-    ::core::mem::transmute(ures_open(packagename.into(), locale.into(), ::core::mem::transmute(status)))
+    ures_open(packagename.into(), locale.into(), ::core::mem::transmute(status))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -25368,7 +25368,7 @@ where
     extern "system" {
         fn ures_openAvailableLocales(packagename: ::windows::core::PCSTR, status: *mut UErrorCode) -> *mut UEnumeration;
     }
-    ::core::mem::transmute(ures_openAvailableLocales(packagename.into(), ::core::mem::transmute(status)))
+    ures_openAvailableLocales(packagename.into(), ::core::mem::transmute(status))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -25381,7 +25381,7 @@ where
     extern "system" {
         fn ures_openDirect(packagename: ::windows::core::PCSTR, locale: ::windows::core::PCSTR, status: *mut UErrorCode) -> *mut UResourceBundle;
     }
-    ::core::mem::transmute(ures_openDirect(packagename.into(), locale.into(), ::core::mem::transmute(status)))
+    ures_openDirect(packagename.into(), locale.into(), ::core::mem::transmute(status))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -25393,7 +25393,7 @@ where
     extern "system" {
         fn ures_openU(packagename: *const u16, locale: ::windows::core::PCSTR, status: *mut UErrorCode) -> *mut UResourceBundle;
     }
-    ::core::mem::transmute(ures_openU(::core::mem::transmute(packagename), locale.into(), ::core::mem::transmute(status)))
+    ures_openU(::core::mem::transmute(packagename), locale.into(), ::core::mem::transmute(status))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -25411,7 +25411,7 @@ pub unsafe fn uscript_breaksBetweenLetters(script: UScriptCode) -> i8 {
     extern "system" {
         fn uscript_breaksBetweenLetters(script: UScriptCode) -> i8;
     }
-    ::core::mem::transmute(uscript_breaksBetweenLetters(script))
+    uscript_breaksBetweenLetters(script)
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -25423,7 +25423,7 @@ where
     extern "system" {
         fn uscript_getCode(nameorabbrorlocale: ::windows::core::PCSTR, fillin: *mut UScriptCode, capacity: i32, err: *mut UErrorCode) -> i32;
     }
-    ::core::mem::transmute(uscript_getCode(nameorabbrorlocale.into(), ::core::mem::transmute(fillin), capacity, ::core::mem::transmute(err)))
+    uscript_getCode(nameorabbrorlocale.into(), ::core::mem::transmute(fillin), capacity, ::core::mem::transmute(err))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -25432,7 +25432,7 @@ pub unsafe fn uscript_getName(scriptcode: UScriptCode) -> ::windows::core::PSTR 
     extern "system" {
         fn uscript_getName(scriptcode: UScriptCode) -> ::windows::core::PSTR;
     }
-    ::core::mem::transmute(uscript_getName(scriptcode))
+    uscript_getName(scriptcode)
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -25441,7 +25441,7 @@ pub unsafe fn uscript_getSampleString(script: UScriptCode, dest: *mut u16, capac
     extern "system" {
         fn uscript_getSampleString(script: UScriptCode, dest: *mut u16, capacity: i32, perrorcode: *mut UErrorCode) -> i32;
     }
-    ::core::mem::transmute(uscript_getSampleString(script, ::core::mem::transmute(dest), capacity, ::core::mem::transmute(perrorcode)))
+    uscript_getSampleString(script, ::core::mem::transmute(dest), capacity, ::core::mem::transmute(perrorcode))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -25450,7 +25450,7 @@ pub unsafe fn uscript_getScript(codepoint: i32, err: *mut UErrorCode) -> UScript
     extern "system" {
         fn uscript_getScript(codepoint: i32, err: *mut UErrorCode) -> UScriptCode;
     }
-    ::core::mem::transmute(uscript_getScript(codepoint, ::core::mem::transmute(err)))
+    uscript_getScript(codepoint, ::core::mem::transmute(err))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -25459,7 +25459,7 @@ pub unsafe fn uscript_getScriptExtensions(c: i32, scripts: *mut UScriptCode, cap
     extern "system" {
         fn uscript_getScriptExtensions(c: i32, scripts: *mut UScriptCode, capacity: i32, errorcode: *mut UErrorCode) -> i32;
     }
-    ::core::mem::transmute(uscript_getScriptExtensions(c, ::core::mem::transmute(scripts), capacity, ::core::mem::transmute(errorcode)))
+    uscript_getScriptExtensions(c, ::core::mem::transmute(scripts), capacity, ::core::mem::transmute(errorcode))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -25468,7 +25468,7 @@ pub unsafe fn uscript_getShortName(scriptcode: UScriptCode) -> ::windows::core::
     extern "system" {
         fn uscript_getShortName(scriptcode: UScriptCode) -> ::windows::core::PSTR;
     }
-    ::core::mem::transmute(uscript_getShortName(scriptcode))
+    uscript_getShortName(scriptcode)
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -25477,7 +25477,7 @@ pub unsafe fn uscript_getUsage(script: UScriptCode) -> UScriptUsage {
     extern "system" {
         fn uscript_getUsage(script: UScriptCode) -> UScriptUsage;
     }
-    ::core::mem::transmute(uscript_getUsage(script))
+    uscript_getUsage(script)
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -25486,7 +25486,7 @@ pub unsafe fn uscript_hasScript(c: i32, sc: UScriptCode) -> i8 {
     extern "system" {
         fn uscript_hasScript(c: i32, sc: UScriptCode) -> i8;
     }
-    ::core::mem::transmute(uscript_hasScript(c, sc))
+    uscript_hasScript(c, sc)
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -25495,7 +25495,7 @@ pub unsafe fn uscript_isCased(script: UScriptCode) -> i8 {
     extern "system" {
         fn uscript_isCased(script: UScriptCode) -> i8;
     }
-    ::core::mem::transmute(uscript_isCased(script))
+    uscript_isCased(script)
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -25504,7 +25504,7 @@ pub unsafe fn uscript_isRightToLeft(script: UScriptCode) -> i8 {
     extern "system" {
         fn uscript_isRightToLeft(script: UScriptCode) -> i8;
     }
-    ::core::mem::transmute(uscript_isRightToLeft(script))
+    uscript_isRightToLeft(script)
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -25522,7 +25522,7 @@ pub unsafe fn usearch_first(strsrch: *mut UStringSearch, status: *mut UErrorCode
     extern "system" {
         fn usearch_first(strsrch: *mut UStringSearch, status: *mut UErrorCode) -> i32;
     }
-    ::core::mem::transmute(usearch_first(::core::mem::transmute(strsrch), ::core::mem::transmute(status)))
+    usearch_first(::core::mem::transmute(strsrch), ::core::mem::transmute(status))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -25531,7 +25531,7 @@ pub unsafe fn usearch_following(strsrch: *mut UStringSearch, position: i32, stat
     extern "system" {
         fn usearch_following(strsrch: *mut UStringSearch, position: i32, status: *mut UErrorCode) -> i32;
     }
-    ::core::mem::transmute(usearch_following(::core::mem::transmute(strsrch), position, ::core::mem::transmute(status)))
+    usearch_following(::core::mem::transmute(strsrch), position, ::core::mem::transmute(status))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -25540,7 +25540,7 @@ pub unsafe fn usearch_getAttribute(strsrch: *const UStringSearch, attribute: USe
     extern "system" {
         fn usearch_getAttribute(strsrch: *const UStringSearch, attribute: USearchAttribute) -> USearchAttributeValue;
     }
-    ::core::mem::transmute(usearch_getAttribute(::core::mem::transmute(strsrch), attribute))
+    usearch_getAttribute(::core::mem::transmute(strsrch), attribute)
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -25549,7 +25549,7 @@ pub unsafe fn usearch_getBreakIterator(strsrch: *const UStringSearch) -> *mut UB
     extern "system" {
         fn usearch_getBreakIterator(strsrch: *const UStringSearch) -> *mut UBreakIterator;
     }
-    ::core::mem::transmute(usearch_getBreakIterator(::core::mem::transmute(strsrch)))
+    usearch_getBreakIterator(::core::mem::transmute(strsrch))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -25558,7 +25558,7 @@ pub unsafe fn usearch_getCollator(strsrch: *const UStringSearch) -> *mut UCollat
     extern "system" {
         fn usearch_getCollator(strsrch: *const UStringSearch) -> *mut UCollator;
     }
-    ::core::mem::transmute(usearch_getCollator(::core::mem::transmute(strsrch)))
+    usearch_getCollator(::core::mem::transmute(strsrch))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -25567,7 +25567,7 @@ pub unsafe fn usearch_getMatchedLength(strsrch: *const UStringSearch) -> i32 {
     extern "system" {
         fn usearch_getMatchedLength(strsrch: *const UStringSearch) -> i32;
     }
-    ::core::mem::transmute(usearch_getMatchedLength(::core::mem::transmute(strsrch)))
+    usearch_getMatchedLength(::core::mem::transmute(strsrch))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -25576,7 +25576,7 @@ pub unsafe fn usearch_getMatchedStart(strsrch: *const UStringSearch) -> i32 {
     extern "system" {
         fn usearch_getMatchedStart(strsrch: *const UStringSearch) -> i32;
     }
-    ::core::mem::transmute(usearch_getMatchedStart(::core::mem::transmute(strsrch)))
+    usearch_getMatchedStart(::core::mem::transmute(strsrch))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -25585,7 +25585,7 @@ pub unsafe fn usearch_getMatchedText(strsrch: *const UStringSearch, result: *mut
     extern "system" {
         fn usearch_getMatchedText(strsrch: *const UStringSearch, result: *mut u16, resultcapacity: i32, status: *mut UErrorCode) -> i32;
     }
-    ::core::mem::transmute(usearch_getMatchedText(::core::mem::transmute(strsrch), ::core::mem::transmute(result), resultcapacity, ::core::mem::transmute(status)))
+    usearch_getMatchedText(::core::mem::transmute(strsrch), ::core::mem::transmute(result), resultcapacity, ::core::mem::transmute(status))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -25594,7 +25594,7 @@ pub unsafe fn usearch_getOffset(strsrch: *const UStringSearch) -> i32 {
     extern "system" {
         fn usearch_getOffset(strsrch: *const UStringSearch) -> i32;
     }
-    ::core::mem::transmute(usearch_getOffset(::core::mem::transmute(strsrch)))
+    usearch_getOffset(::core::mem::transmute(strsrch))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -25603,7 +25603,7 @@ pub unsafe fn usearch_getPattern(strsrch: *const UStringSearch, length: *mut i32
     extern "system" {
         fn usearch_getPattern(strsrch: *const UStringSearch, length: *mut i32) -> *mut u16;
     }
-    ::core::mem::transmute(usearch_getPattern(::core::mem::transmute(strsrch), ::core::mem::transmute(length)))
+    usearch_getPattern(::core::mem::transmute(strsrch), ::core::mem::transmute(length))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -25612,7 +25612,7 @@ pub unsafe fn usearch_getText(strsrch: *const UStringSearch, length: *mut i32) -
     extern "system" {
         fn usearch_getText(strsrch: *const UStringSearch, length: *mut i32) -> *mut u16;
     }
-    ::core::mem::transmute(usearch_getText(::core::mem::transmute(strsrch), ::core::mem::transmute(length)))
+    usearch_getText(::core::mem::transmute(strsrch), ::core::mem::transmute(length))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -25621,7 +25621,7 @@ pub unsafe fn usearch_last(strsrch: *mut UStringSearch, status: *mut UErrorCode)
     extern "system" {
         fn usearch_last(strsrch: *mut UStringSearch, status: *mut UErrorCode) -> i32;
     }
-    ::core::mem::transmute(usearch_last(::core::mem::transmute(strsrch), ::core::mem::transmute(status)))
+    usearch_last(::core::mem::transmute(strsrch), ::core::mem::transmute(status))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -25630,7 +25630,7 @@ pub unsafe fn usearch_next(strsrch: *mut UStringSearch, status: *mut UErrorCode)
     extern "system" {
         fn usearch_next(strsrch: *mut UStringSearch, status: *mut UErrorCode) -> i32;
     }
-    ::core::mem::transmute(usearch_next(::core::mem::transmute(strsrch), ::core::mem::transmute(status)))
+    usearch_next(::core::mem::transmute(strsrch), ::core::mem::transmute(status))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -25642,7 +25642,7 @@ where
     extern "system" {
         fn usearch_open(pattern: *const u16, patternlength: i32, text: *const u16, textlength: i32, locale: ::windows::core::PCSTR, breakiter: *mut UBreakIterator, status: *mut UErrorCode) -> *mut UStringSearch;
     }
-    ::core::mem::transmute(usearch_open(::core::mem::transmute(pattern), patternlength, ::core::mem::transmute(text), textlength, locale.into(), ::core::mem::transmute(breakiter), ::core::mem::transmute(status)))
+    usearch_open(::core::mem::transmute(pattern), patternlength, ::core::mem::transmute(text), textlength, locale.into(), ::core::mem::transmute(breakiter), ::core::mem::transmute(status))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -25651,7 +25651,7 @@ pub unsafe fn usearch_openFromCollator(pattern: *const u16, patternlength: i32, 
     extern "system" {
         fn usearch_openFromCollator(pattern: *const u16, patternlength: i32, text: *const u16, textlength: i32, collator: *const UCollator, breakiter: *mut UBreakIterator, status: *mut UErrorCode) -> *mut UStringSearch;
     }
-    ::core::mem::transmute(usearch_openFromCollator(::core::mem::transmute(pattern), patternlength, ::core::mem::transmute(text), textlength, ::core::mem::transmute(collator), ::core::mem::transmute(breakiter), ::core::mem::transmute(status)))
+    usearch_openFromCollator(::core::mem::transmute(pattern), patternlength, ::core::mem::transmute(text), textlength, ::core::mem::transmute(collator), ::core::mem::transmute(breakiter), ::core::mem::transmute(status))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -25660,7 +25660,7 @@ pub unsafe fn usearch_preceding(strsrch: *mut UStringSearch, position: i32, stat
     extern "system" {
         fn usearch_preceding(strsrch: *mut UStringSearch, position: i32, status: *mut UErrorCode) -> i32;
     }
-    ::core::mem::transmute(usearch_preceding(::core::mem::transmute(strsrch), position, ::core::mem::transmute(status)))
+    usearch_preceding(::core::mem::transmute(strsrch), position, ::core::mem::transmute(status))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -25669,7 +25669,7 @@ pub unsafe fn usearch_previous(strsrch: *mut UStringSearch, status: *mut UErrorC
     extern "system" {
         fn usearch_previous(strsrch: *mut UStringSearch, status: *mut UErrorCode) -> i32;
     }
-    ::core::mem::transmute(usearch_previous(::core::mem::transmute(strsrch), ::core::mem::transmute(status)))
+    usearch_previous(::core::mem::transmute(strsrch), ::core::mem::transmute(status))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -25795,7 +25795,7 @@ pub unsafe fn uset_applyPattern(set: *mut USet, pattern: *const u16, patternleng
     extern "system" {
         fn uset_applyPattern(set: *mut USet, pattern: *const u16, patternlength: i32, options: u32, status: *mut UErrorCode) -> i32;
     }
-    ::core::mem::transmute(uset_applyPattern(::core::mem::transmute(set), ::core::mem::transmute(pattern), patternlength, options, ::core::mem::transmute(status)))
+    uset_applyPattern(::core::mem::transmute(set), ::core::mem::transmute(pattern), patternlength, options, ::core::mem::transmute(status))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -25813,7 +25813,7 @@ pub unsafe fn uset_charAt(set: *const USet, charindex: i32) -> i32 {
     extern "system" {
         fn uset_charAt(set: *const USet, charindex: i32) -> i32;
     }
-    ::core::mem::transmute(uset_charAt(::core::mem::transmute(set), charindex))
+    uset_charAt(::core::mem::transmute(set), charindex)
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -25831,7 +25831,7 @@ pub unsafe fn uset_clone(set: *const USet) -> *mut USet {
     extern "system" {
         fn uset_clone(set: *const USet) -> *mut USet;
     }
-    ::core::mem::transmute(uset_clone(::core::mem::transmute(set)))
+    uset_clone(::core::mem::transmute(set))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -25840,7 +25840,7 @@ pub unsafe fn uset_cloneAsThawed(set: *const USet) -> *mut USet {
     extern "system" {
         fn uset_cloneAsThawed(set: *const USet) -> *mut USet;
     }
-    ::core::mem::transmute(uset_cloneAsThawed(::core::mem::transmute(set)))
+    uset_cloneAsThawed(::core::mem::transmute(set))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -25894,7 +25894,7 @@ pub unsafe fn uset_contains(set: *const USet, c: i32) -> i8 {
     extern "system" {
         fn uset_contains(set: *const USet, c: i32) -> i8;
     }
-    ::core::mem::transmute(uset_contains(::core::mem::transmute(set), c))
+    uset_contains(::core::mem::transmute(set), c)
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -25903,7 +25903,7 @@ pub unsafe fn uset_containsAll(set1: *const USet, set2: *const USet) -> i8 {
     extern "system" {
         fn uset_containsAll(set1: *const USet, set2: *const USet) -> i8;
     }
-    ::core::mem::transmute(uset_containsAll(::core::mem::transmute(set1), ::core::mem::transmute(set2)))
+    uset_containsAll(::core::mem::transmute(set1), ::core::mem::transmute(set2))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -25912,7 +25912,7 @@ pub unsafe fn uset_containsAllCodePoints(set: *const USet, str: *const u16, strl
     extern "system" {
         fn uset_containsAllCodePoints(set: *const USet, str: *const u16, strlen: i32) -> i8;
     }
-    ::core::mem::transmute(uset_containsAllCodePoints(::core::mem::transmute(set), ::core::mem::transmute(str), strlen))
+    uset_containsAllCodePoints(::core::mem::transmute(set), ::core::mem::transmute(str), strlen)
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -25921,7 +25921,7 @@ pub unsafe fn uset_containsNone(set1: *const USet, set2: *const USet) -> i8 {
     extern "system" {
         fn uset_containsNone(set1: *const USet, set2: *const USet) -> i8;
     }
-    ::core::mem::transmute(uset_containsNone(::core::mem::transmute(set1), ::core::mem::transmute(set2)))
+    uset_containsNone(::core::mem::transmute(set1), ::core::mem::transmute(set2))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -25930,7 +25930,7 @@ pub unsafe fn uset_containsRange(set: *const USet, start: i32, end: i32) -> i8 {
     extern "system" {
         fn uset_containsRange(set: *const USet, start: i32, end: i32) -> i8;
     }
-    ::core::mem::transmute(uset_containsRange(::core::mem::transmute(set), start, end))
+    uset_containsRange(::core::mem::transmute(set), start, end)
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -25939,7 +25939,7 @@ pub unsafe fn uset_containsSome(set1: *const USet, set2: *const USet) -> i8 {
     extern "system" {
         fn uset_containsSome(set1: *const USet, set2: *const USet) -> i8;
     }
-    ::core::mem::transmute(uset_containsSome(::core::mem::transmute(set1), ::core::mem::transmute(set2)))
+    uset_containsSome(::core::mem::transmute(set1), ::core::mem::transmute(set2))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -25948,7 +25948,7 @@ pub unsafe fn uset_containsString(set: *const USet, str: *const u16, strlen: i32
     extern "system" {
         fn uset_containsString(set: *const USet, str: *const u16, strlen: i32) -> i8;
     }
-    ::core::mem::transmute(uset_containsString(::core::mem::transmute(set), ::core::mem::transmute(str), strlen))
+    uset_containsString(::core::mem::transmute(set), ::core::mem::transmute(str), strlen)
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -25957,7 +25957,7 @@ pub unsafe fn uset_equals(set1: *const USet, set2: *const USet) -> i8 {
     extern "system" {
         fn uset_equals(set1: *const USet, set2: *const USet) -> i8;
     }
-    ::core::mem::transmute(uset_equals(::core::mem::transmute(set1), ::core::mem::transmute(set2)))
+    uset_equals(::core::mem::transmute(set1), ::core::mem::transmute(set2))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -25975,7 +25975,7 @@ pub unsafe fn uset_getItem(set: *const USet, itemindex: i32, start: *mut i32, en
     extern "system" {
         fn uset_getItem(set: *const USet, itemindex: i32, start: *mut i32, end: *mut i32, str: *mut u16, strcapacity: i32, ec: *mut UErrorCode) -> i32;
     }
-    ::core::mem::transmute(uset_getItem(::core::mem::transmute(set), itemindex, ::core::mem::transmute(start), ::core::mem::transmute(end), ::core::mem::transmute(str), strcapacity, ::core::mem::transmute(ec)))
+    uset_getItem(::core::mem::transmute(set), itemindex, ::core::mem::transmute(start), ::core::mem::transmute(end), ::core::mem::transmute(str), strcapacity, ::core::mem::transmute(ec))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -25984,7 +25984,7 @@ pub unsafe fn uset_getItemCount(set: *const USet) -> i32 {
     extern "system" {
         fn uset_getItemCount(set: *const USet) -> i32;
     }
-    ::core::mem::transmute(uset_getItemCount(::core::mem::transmute(set)))
+    uset_getItemCount(::core::mem::transmute(set))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -25993,7 +25993,7 @@ pub unsafe fn uset_getSerializedRange(set: *const USerializedSet, rangeindex: i3
     extern "system" {
         fn uset_getSerializedRange(set: *const USerializedSet, rangeindex: i32, pstart: *mut i32, pend: *mut i32) -> i8;
     }
-    ::core::mem::transmute(uset_getSerializedRange(::core::mem::transmute(set), rangeindex, ::core::mem::transmute(pstart), ::core::mem::transmute(pend)))
+    uset_getSerializedRange(::core::mem::transmute(set), rangeindex, ::core::mem::transmute(pstart), ::core::mem::transmute(pend))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -26002,7 +26002,7 @@ pub unsafe fn uset_getSerializedRangeCount(set: *const USerializedSet) -> i32 {
     extern "system" {
         fn uset_getSerializedRangeCount(set: *const USerializedSet) -> i32;
     }
-    ::core::mem::transmute(uset_getSerializedRangeCount(::core::mem::transmute(set)))
+    uset_getSerializedRangeCount(::core::mem::transmute(set))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -26011,7 +26011,7 @@ pub unsafe fn uset_getSerializedSet(fillset: *mut USerializedSet, src: *const u1
     extern "system" {
         fn uset_getSerializedSet(fillset: *mut USerializedSet, src: *const u16, srclength: i32) -> i8;
     }
-    ::core::mem::transmute(uset_getSerializedSet(::core::mem::transmute(fillset), ::core::mem::transmute(src), srclength))
+    uset_getSerializedSet(::core::mem::transmute(fillset), ::core::mem::transmute(src), srclength)
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -26020,7 +26020,7 @@ pub unsafe fn uset_indexOf(set: *const USet, c: i32) -> i32 {
     extern "system" {
         fn uset_indexOf(set: *const USet, c: i32) -> i32;
     }
-    ::core::mem::transmute(uset_indexOf(::core::mem::transmute(set), c))
+    uset_indexOf(::core::mem::transmute(set), c)
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -26029,7 +26029,7 @@ pub unsafe fn uset_isEmpty(set: *const USet) -> i8 {
     extern "system" {
         fn uset_isEmpty(set: *const USet) -> i8;
     }
-    ::core::mem::transmute(uset_isEmpty(::core::mem::transmute(set)))
+    uset_isEmpty(::core::mem::transmute(set))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -26038,7 +26038,7 @@ pub unsafe fn uset_isFrozen(set: *const USet) -> i8 {
     extern "system" {
         fn uset_isFrozen(set: *const USet) -> i8;
     }
-    ::core::mem::transmute(uset_isFrozen(::core::mem::transmute(set)))
+    uset_isFrozen(::core::mem::transmute(set))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -26047,7 +26047,7 @@ pub unsafe fn uset_open(start: i32, end: i32) -> *mut USet {
     extern "system" {
         fn uset_open(start: i32, end: i32) -> *mut USet;
     }
-    ::core::mem::transmute(uset_open(start, end))
+    uset_open(start, end)
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -26056,7 +26056,7 @@ pub unsafe fn uset_openEmpty() -> *mut USet {
     extern "system" {
         fn uset_openEmpty() -> *mut USet;
     }
-    ::core::mem::transmute(uset_openEmpty())
+    uset_openEmpty()
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -26065,7 +26065,7 @@ pub unsafe fn uset_openPattern(pattern: *const u16, patternlength: i32, ec: *mut
     extern "system" {
         fn uset_openPattern(pattern: *const u16, patternlength: i32, ec: *mut UErrorCode) -> *mut USet;
     }
-    ::core::mem::transmute(uset_openPattern(::core::mem::transmute(pattern), patternlength, ::core::mem::transmute(ec)))
+    uset_openPattern(::core::mem::transmute(pattern), patternlength, ::core::mem::transmute(ec))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -26074,7 +26074,7 @@ pub unsafe fn uset_openPatternOptions(pattern: *const u16, patternlength: i32, o
     extern "system" {
         fn uset_openPatternOptions(pattern: *const u16, patternlength: i32, options: u32, ec: *mut UErrorCode) -> *mut USet;
     }
-    ::core::mem::transmute(uset_openPatternOptions(::core::mem::transmute(pattern), patternlength, options, ::core::mem::transmute(ec)))
+    uset_openPatternOptions(::core::mem::transmute(pattern), patternlength, options, ::core::mem::transmute(ec))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -26128,7 +26128,7 @@ pub unsafe fn uset_resemblesPattern(pattern: *const u16, patternlength: i32, pos
     extern "system" {
         fn uset_resemblesPattern(pattern: *const u16, patternlength: i32, pos: i32) -> i8;
     }
-    ::core::mem::transmute(uset_resemblesPattern(::core::mem::transmute(pattern), patternlength, pos))
+    uset_resemblesPattern(::core::mem::transmute(pattern), patternlength, pos)
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -26155,7 +26155,7 @@ pub unsafe fn uset_serialize(set: *const USet, dest: *mut u16, destcapacity: i32
     extern "system" {
         fn uset_serialize(set: *const USet, dest: *mut u16, destcapacity: i32, perrorcode: *mut UErrorCode) -> i32;
     }
-    ::core::mem::transmute(uset_serialize(::core::mem::transmute(set), ::core::mem::transmute(dest), destcapacity, ::core::mem::transmute(perrorcode)))
+    uset_serialize(::core::mem::transmute(set), ::core::mem::transmute(dest), destcapacity, ::core::mem::transmute(perrorcode))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -26164,7 +26164,7 @@ pub unsafe fn uset_serializedContains(set: *const USerializedSet, c: i32) -> i8 
     extern "system" {
         fn uset_serializedContains(set: *const USerializedSet, c: i32) -> i8;
     }
-    ::core::mem::transmute(uset_serializedContains(::core::mem::transmute(set), c))
+    uset_serializedContains(::core::mem::transmute(set), c)
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -26191,7 +26191,7 @@ pub unsafe fn uset_size(set: *const USet) -> i32 {
     extern "system" {
         fn uset_size(set: *const USet) -> i32;
     }
-    ::core::mem::transmute(uset_size(::core::mem::transmute(set)))
+    uset_size(::core::mem::transmute(set))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -26200,7 +26200,7 @@ pub unsafe fn uset_span(set: *const USet, s: *const u16, length: i32, spancondit
     extern "system" {
         fn uset_span(set: *const USet, s: *const u16, length: i32, spancondition: USetSpanCondition) -> i32;
     }
-    ::core::mem::transmute(uset_span(::core::mem::transmute(set), ::core::mem::transmute(s), length, spancondition))
+    uset_span(::core::mem::transmute(set), ::core::mem::transmute(s), length, spancondition)
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -26209,7 +26209,7 @@ pub unsafe fn uset_spanBack(set: *const USet, s: *const u16, length: i32, spanco
     extern "system" {
         fn uset_spanBack(set: *const USet, s: *const u16, length: i32, spancondition: USetSpanCondition) -> i32;
     }
-    ::core::mem::transmute(uset_spanBack(::core::mem::transmute(set), ::core::mem::transmute(s), length, spancondition))
+    uset_spanBack(::core::mem::transmute(set), ::core::mem::transmute(s), length, spancondition)
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -26221,7 +26221,7 @@ where
     extern "system" {
         fn uset_spanBackUTF8(set: *const USet, s: ::windows::core::PCSTR, length: i32, spancondition: USetSpanCondition) -> i32;
     }
-    ::core::mem::transmute(uset_spanBackUTF8(::core::mem::transmute(set), s.into(), length, spancondition))
+    uset_spanBackUTF8(::core::mem::transmute(set), s.into(), length, spancondition)
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -26233,7 +26233,7 @@ where
     extern "system" {
         fn uset_spanUTF8(set: *const USet, s: ::windows::core::PCSTR, length: i32, spancondition: USetSpanCondition) -> i32;
     }
-    ::core::mem::transmute(uset_spanUTF8(::core::mem::transmute(set), s.into(), length, spancondition))
+    uset_spanUTF8(::core::mem::transmute(set), s.into(), length, spancondition)
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -26242,7 +26242,7 @@ pub unsafe fn uset_toPattern(set: *const USet, result: *mut u16, resultcapacity:
     extern "system" {
         fn uset_toPattern(set: *const USet, result: *mut u16, resultcapacity: i32, escapeunprintable: i8, ec: *mut UErrorCode) -> i32;
     }
-    ::core::mem::transmute(uset_toPattern(::core::mem::transmute(set), ::core::mem::transmute(result), resultcapacity, escapeunprintable, ::core::mem::transmute(ec)))
+    uset_toPattern(::core::mem::transmute(set), ::core::mem::transmute(result), resultcapacity, escapeunprintable, ::core::mem::transmute(ec))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -26251,7 +26251,7 @@ pub unsafe fn uspoof_areConfusable(sc: *const USpoofChecker, id1: *const u16, le
     extern "system" {
         fn uspoof_areConfusable(sc: *const USpoofChecker, id1: *const u16, length1: i32, id2: *const u16, length2: i32, status: *mut UErrorCode) -> i32;
     }
-    ::core::mem::transmute(uspoof_areConfusable(::core::mem::transmute(sc), ::core::mem::transmute(id1), length1, ::core::mem::transmute(id2), length2, ::core::mem::transmute(status)))
+    uspoof_areConfusable(::core::mem::transmute(sc), ::core::mem::transmute(id1), length1, ::core::mem::transmute(id2), length2, ::core::mem::transmute(status))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -26264,7 +26264,7 @@ where
     extern "system" {
         fn uspoof_areConfusableUTF8(sc: *const USpoofChecker, id1: ::windows::core::PCSTR, length1: i32, id2: ::windows::core::PCSTR, length2: i32, status: *mut UErrorCode) -> i32;
     }
-    ::core::mem::transmute(uspoof_areConfusableUTF8(::core::mem::transmute(sc), id1.into(), length1, id2.into(), length2, ::core::mem::transmute(status)))
+    uspoof_areConfusableUTF8(::core::mem::transmute(sc), id1.into(), length1, id2.into(), length2, ::core::mem::transmute(status))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -26273,7 +26273,7 @@ pub unsafe fn uspoof_check(sc: *const USpoofChecker, id: *const u16, length: i32
     extern "system" {
         fn uspoof_check(sc: *const USpoofChecker, id: *const u16, length: i32, position: *mut i32, status: *mut UErrorCode) -> i32;
     }
-    ::core::mem::transmute(uspoof_check(::core::mem::transmute(sc), ::core::mem::transmute(id), length, ::core::mem::transmute(position), ::core::mem::transmute(status)))
+    uspoof_check(::core::mem::transmute(sc), ::core::mem::transmute(id), length, ::core::mem::transmute(position), ::core::mem::transmute(status))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -26282,7 +26282,7 @@ pub unsafe fn uspoof_check2(sc: *const USpoofChecker, id: *const u16, length: i3
     extern "system" {
         fn uspoof_check2(sc: *const USpoofChecker, id: *const u16, length: i32, checkresult: *mut USpoofCheckResult, status: *mut UErrorCode) -> i32;
     }
-    ::core::mem::transmute(uspoof_check2(::core::mem::transmute(sc), ::core::mem::transmute(id), length, ::core::mem::transmute(checkresult), ::core::mem::transmute(status)))
+    uspoof_check2(::core::mem::transmute(sc), ::core::mem::transmute(id), length, ::core::mem::transmute(checkresult), ::core::mem::transmute(status))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -26294,7 +26294,7 @@ where
     extern "system" {
         fn uspoof_check2UTF8(sc: *const USpoofChecker, id: ::windows::core::PCSTR, length: i32, checkresult: *mut USpoofCheckResult, status: *mut UErrorCode) -> i32;
     }
-    ::core::mem::transmute(uspoof_check2UTF8(::core::mem::transmute(sc), id.into(), length, ::core::mem::transmute(checkresult), ::core::mem::transmute(status)))
+    uspoof_check2UTF8(::core::mem::transmute(sc), id.into(), length, ::core::mem::transmute(checkresult), ::core::mem::transmute(status))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -26306,7 +26306,7 @@ where
     extern "system" {
         fn uspoof_checkUTF8(sc: *const USpoofChecker, id: ::windows::core::PCSTR, length: i32, position: *mut i32, status: *mut UErrorCode) -> i32;
     }
-    ::core::mem::transmute(uspoof_checkUTF8(::core::mem::transmute(sc), id.into(), length, ::core::mem::transmute(position), ::core::mem::transmute(status)))
+    uspoof_checkUTF8(::core::mem::transmute(sc), id.into(), length, ::core::mem::transmute(position), ::core::mem::transmute(status))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -26315,7 +26315,7 @@ pub unsafe fn uspoof_clone(sc: *const USpoofChecker, status: *mut UErrorCode) ->
     extern "system" {
         fn uspoof_clone(sc: *const USpoofChecker, status: *mut UErrorCode) -> *mut USpoofChecker;
     }
-    ::core::mem::transmute(uspoof_clone(::core::mem::transmute(sc), ::core::mem::transmute(status)))
+    uspoof_clone(::core::mem::transmute(sc), ::core::mem::transmute(status))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -26342,7 +26342,7 @@ pub unsafe fn uspoof_getAllowedChars(sc: *const USpoofChecker, status: *mut UErr
     extern "system" {
         fn uspoof_getAllowedChars(sc: *const USpoofChecker, status: *mut UErrorCode) -> *mut USet;
     }
-    ::core::mem::transmute(uspoof_getAllowedChars(::core::mem::transmute(sc), ::core::mem::transmute(status)))
+    uspoof_getAllowedChars(::core::mem::transmute(sc), ::core::mem::transmute(status))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -26351,7 +26351,7 @@ pub unsafe fn uspoof_getAllowedLocales(sc: *mut USpoofChecker, status: *mut UErr
     extern "system" {
         fn uspoof_getAllowedLocales(sc: *mut USpoofChecker, status: *mut UErrorCode) -> ::windows::core::PSTR;
     }
-    ::core::mem::transmute(uspoof_getAllowedLocales(::core::mem::transmute(sc), ::core::mem::transmute(status)))
+    uspoof_getAllowedLocales(::core::mem::transmute(sc), ::core::mem::transmute(status))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -26360,7 +26360,7 @@ pub unsafe fn uspoof_getCheckResultChecks(checkresult: *const USpoofCheckResult,
     extern "system" {
         fn uspoof_getCheckResultChecks(checkresult: *const USpoofCheckResult, status: *mut UErrorCode) -> i32;
     }
-    ::core::mem::transmute(uspoof_getCheckResultChecks(::core::mem::transmute(checkresult), ::core::mem::transmute(status)))
+    uspoof_getCheckResultChecks(::core::mem::transmute(checkresult), ::core::mem::transmute(status))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -26369,7 +26369,7 @@ pub unsafe fn uspoof_getCheckResultNumerics(checkresult: *const USpoofCheckResul
     extern "system" {
         fn uspoof_getCheckResultNumerics(checkresult: *const USpoofCheckResult, status: *mut UErrorCode) -> *mut USet;
     }
-    ::core::mem::transmute(uspoof_getCheckResultNumerics(::core::mem::transmute(checkresult), ::core::mem::transmute(status)))
+    uspoof_getCheckResultNumerics(::core::mem::transmute(checkresult), ::core::mem::transmute(status))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -26378,7 +26378,7 @@ pub unsafe fn uspoof_getCheckResultRestrictionLevel(checkresult: *const USpoofCh
     extern "system" {
         fn uspoof_getCheckResultRestrictionLevel(checkresult: *const USpoofCheckResult, status: *mut UErrorCode) -> URestrictionLevel;
     }
-    ::core::mem::transmute(uspoof_getCheckResultRestrictionLevel(::core::mem::transmute(checkresult), ::core::mem::transmute(status)))
+    uspoof_getCheckResultRestrictionLevel(::core::mem::transmute(checkresult), ::core::mem::transmute(status))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -26387,7 +26387,7 @@ pub unsafe fn uspoof_getChecks(sc: *const USpoofChecker, status: *mut UErrorCode
     extern "system" {
         fn uspoof_getChecks(sc: *const USpoofChecker, status: *mut UErrorCode) -> i32;
     }
-    ::core::mem::transmute(uspoof_getChecks(::core::mem::transmute(sc), ::core::mem::transmute(status)))
+    uspoof_getChecks(::core::mem::transmute(sc), ::core::mem::transmute(status))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -26396,7 +26396,7 @@ pub unsafe fn uspoof_getInclusionSet(status: *mut UErrorCode) -> *mut USet {
     extern "system" {
         fn uspoof_getInclusionSet(status: *mut UErrorCode) -> *mut USet;
     }
-    ::core::mem::transmute(uspoof_getInclusionSet(::core::mem::transmute(status)))
+    uspoof_getInclusionSet(::core::mem::transmute(status))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -26405,7 +26405,7 @@ pub unsafe fn uspoof_getRecommendedSet(status: *mut UErrorCode) -> *mut USet {
     extern "system" {
         fn uspoof_getRecommendedSet(status: *mut UErrorCode) -> *mut USet;
     }
-    ::core::mem::transmute(uspoof_getRecommendedSet(::core::mem::transmute(status)))
+    uspoof_getRecommendedSet(::core::mem::transmute(status))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -26414,7 +26414,7 @@ pub unsafe fn uspoof_getRestrictionLevel(sc: *const USpoofChecker) -> URestricti
     extern "system" {
         fn uspoof_getRestrictionLevel(sc: *const USpoofChecker) -> URestrictionLevel;
     }
-    ::core::mem::transmute(uspoof_getRestrictionLevel(::core::mem::transmute(sc)))
+    uspoof_getRestrictionLevel(::core::mem::transmute(sc))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -26423,7 +26423,7 @@ pub unsafe fn uspoof_getSkeleton(sc: *const USpoofChecker, r#type: u32, id: *con
     extern "system" {
         fn uspoof_getSkeleton(sc: *const USpoofChecker, r#type: u32, id: *const u16, length: i32, dest: *mut u16, destcapacity: i32, status: *mut UErrorCode) -> i32;
     }
-    ::core::mem::transmute(uspoof_getSkeleton(::core::mem::transmute(sc), r#type, ::core::mem::transmute(id), length, ::core::mem::transmute(dest), destcapacity, ::core::mem::transmute(status)))
+    uspoof_getSkeleton(::core::mem::transmute(sc), r#type, ::core::mem::transmute(id), length, ::core::mem::transmute(dest), destcapacity, ::core::mem::transmute(status))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -26436,7 +26436,7 @@ where
     extern "system" {
         fn uspoof_getSkeletonUTF8(sc: *const USpoofChecker, r#type: u32, id: ::windows::core::PCSTR, length: i32, dest: ::windows::core::PCSTR, destcapacity: i32, status: *mut UErrorCode) -> i32;
     }
-    ::core::mem::transmute(uspoof_getSkeletonUTF8(::core::mem::transmute(sc), r#type, id.into(), length, dest.into(), destcapacity, ::core::mem::transmute(status)))
+    uspoof_getSkeletonUTF8(::core::mem::transmute(sc), r#type, id.into(), length, dest.into(), destcapacity, ::core::mem::transmute(status))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -26445,7 +26445,7 @@ pub unsafe fn uspoof_open(status: *mut UErrorCode) -> *mut USpoofChecker {
     extern "system" {
         fn uspoof_open(status: *mut UErrorCode) -> *mut USpoofChecker;
     }
-    ::core::mem::transmute(uspoof_open(::core::mem::transmute(status)))
+    uspoof_open(::core::mem::transmute(status))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -26454,7 +26454,7 @@ pub unsafe fn uspoof_openCheckResult(status: *mut UErrorCode) -> *mut USpoofChec
     extern "system" {
         fn uspoof_openCheckResult(status: *mut UErrorCode) -> *mut USpoofCheckResult;
     }
-    ::core::mem::transmute(uspoof_openCheckResult(::core::mem::transmute(status)))
+    uspoof_openCheckResult(::core::mem::transmute(status))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -26463,7 +26463,7 @@ pub unsafe fn uspoof_openFromSerialized(data: *const ::core::ffi::c_void, length
     extern "system" {
         fn uspoof_openFromSerialized(data: *const ::core::ffi::c_void, length: i32, pactuallength: *mut i32, perrorcode: *mut UErrorCode) -> *mut USpoofChecker;
     }
-    ::core::mem::transmute(uspoof_openFromSerialized(::core::mem::transmute(data), length, ::core::mem::transmute(pactuallength), ::core::mem::transmute(perrorcode)))
+    uspoof_openFromSerialized(::core::mem::transmute(data), length, ::core::mem::transmute(pactuallength), ::core::mem::transmute(perrorcode))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -26476,7 +26476,7 @@ where
     extern "system" {
         fn uspoof_openFromSource(confusables: ::windows::core::PCSTR, confusableslen: i32, confusableswholescript: ::windows::core::PCSTR, confusableswholescriptlen: i32, errtype: *mut i32, pe: *mut UParseError, status: *mut UErrorCode) -> *mut USpoofChecker;
     }
-    ::core::mem::transmute(uspoof_openFromSource(confusables.into(), confusableslen, confusableswholescript.into(), confusableswholescriptlen, ::core::mem::transmute(errtype), ::core::mem::transmute(pe), ::core::mem::transmute(status)))
+    uspoof_openFromSource(confusables.into(), confusableslen, confusableswholescript.into(), confusableswholescriptlen, ::core::mem::transmute(errtype), ::core::mem::transmute(pe), ::core::mem::transmute(status))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -26485,7 +26485,7 @@ pub unsafe fn uspoof_serialize(sc: *mut USpoofChecker, data: *mut ::core::ffi::c
     extern "system" {
         fn uspoof_serialize(sc: *mut USpoofChecker, data: *mut ::core::ffi::c_void, capacity: i32, status: *mut UErrorCode) -> i32;
     }
-    ::core::mem::transmute(uspoof_serialize(::core::mem::transmute(sc), ::core::mem::transmute(data), capacity, ::core::mem::transmute(status)))
+    uspoof_serialize(::core::mem::transmute(sc), ::core::mem::transmute(data), capacity, ::core::mem::transmute(status))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -26546,7 +26546,7 @@ where
     extern "system" {
         fn usprep_open(path: ::windows::core::PCSTR, filename: ::windows::core::PCSTR, status: *mut UErrorCode) -> *mut UStringPrepProfile;
     }
-    ::core::mem::transmute(usprep_open(path.into(), filename.into(), ::core::mem::transmute(status)))
+    usprep_open(path.into(), filename.into(), ::core::mem::transmute(status))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -26555,7 +26555,7 @@ pub unsafe fn usprep_openByType(r#type: UStringPrepProfileType, status: *mut UEr
     extern "system" {
         fn usprep_openByType(r#type: UStringPrepProfileType, status: *mut UErrorCode) -> *mut UStringPrepProfile;
     }
-    ::core::mem::transmute(usprep_openByType(r#type, ::core::mem::transmute(status)))
+    usprep_openByType(r#type, ::core::mem::transmute(status))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -26564,7 +26564,7 @@ pub unsafe fn usprep_prepare(prep: *const UStringPrepProfile, src: *const u16, s
     extern "system" {
         fn usprep_prepare(prep: *const UStringPrepProfile, src: *const u16, srclength: i32, dest: *mut u16, destcapacity: i32, options: i32, parseerror: *mut UParseError, status: *mut UErrorCode) -> i32;
     }
-    ::core::mem::transmute(usprep_prepare(::core::mem::transmute(prep), ::core::mem::transmute(src), srclength, ::core::mem::transmute(dest), destcapacity, options, ::core::mem::transmute(parseerror), ::core::mem::transmute(status)))
+    usprep_prepare(::core::mem::transmute(prep), ::core::mem::transmute(src), srclength, ::core::mem::transmute(dest), destcapacity, options, ::core::mem::transmute(parseerror), ::core::mem::transmute(status))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -26573,7 +26573,7 @@ pub unsafe fn utext_char32At(ut: *mut UText, nativeindex: i64) -> i32 {
     extern "system" {
         fn utext_char32At(ut: *mut UText, nativeindex: i64) -> i32;
     }
-    ::core::mem::transmute(utext_char32At(::core::mem::transmute(ut), nativeindex))
+    utext_char32At(::core::mem::transmute(ut), nativeindex)
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -26582,7 +26582,7 @@ pub unsafe fn utext_clone(dest: *mut UText, src: *const UText, deep: i8, readonl
     extern "system" {
         fn utext_clone(dest: *mut UText, src: *const UText, deep: i8, readonly: i8, status: *mut UErrorCode) -> *mut UText;
     }
-    ::core::mem::transmute(utext_clone(::core::mem::transmute(dest), ::core::mem::transmute(src), deep, readonly, ::core::mem::transmute(status)))
+    utext_clone(::core::mem::transmute(dest), ::core::mem::transmute(src), deep, readonly, ::core::mem::transmute(status))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -26591,7 +26591,7 @@ pub unsafe fn utext_close(ut: *mut UText) -> *mut UText {
     extern "system" {
         fn utext_close(ut: *mut UText) -> *mut UText;
     }
-    ::core::mem::transmute(utext_close(::core::mem::transmute(ut)))
+    utext_close(::core::mem::transmute(ut))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -26609,7 +26609,7 @@ pub unsafe fn utext_current32(ut: *mut UText) -> i32 {
     extern "system" {
         fn utext_current32(ut: *mut UText) -> i32;
     }
-    ::core::mem::transmute(utext_current32(::core::mem::transmute(ut)))
+    utext_current32(::core::mem::transmute(ut))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -26618,7 +26618,7 @@ pub unsafe fn utext_equals(a: *const UText, b: *const UText) -> i8 {
     extern "system" {
         fn utext_equals(a: *const UText, b: *const UText) -> i8;
     }
-    ::core::mem::transmute(utext_equals(::core::mem::transmute(a), ::core::mem::transmute(b)))
+    utext_equals(::core::mem::transmute(a), ::core::mem::transmute(b))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -26627,7 +26627,7 @@ pub unsafe fn utext_extract(ut: *mut UText, nativestart: i64, nativelimit: i64, 
     extern "system" {
         fn utext_extract(ut: *mut UText, nativestart: i64, nativelimit: i64, dest: *mut u16, destcapacity: i32, status: *mut UErrorCode) -> i32;
     }
-    ::core::mem::transmute(utext_extract(::core::mem::transmute(ut), nativestart, nativelimit, ::core::mem::transmute(dest), destcapacity, ::core::mem::transmute(status)))
+    utext_extract(::core::mem::transmute(ut), nativestart, nativelimit, ::core::mem::transmute(dest), destcapacity, ::core::mem::transmute(status))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -26645,7 +26645,7 @@ pub unsafe fn utext_getNativeIndex(ut: *const UText) -> i64 {
     extern "system" {
         fn utext_getNativeIndex(ut: *const UText) -> i64;
     }
-    ::core::mem::transmute(utext_getNativeIndex(::core::mem::transmute(ut)))
+    utext_getNativeIndex(::core::mem::transmute(ut))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -26654,7 +26654,7 @@ pub unsafe fn utext_getPreviousNativeIndex(ut: *mut UText) -> i64 {
     extern "system" {
         fn utext_getPreviousNativeIndex(ut: *mut UText) -> i64;
     }
-    ::core::mem::transmute(utext_getPreviousNativeIndex(::core::mem::transmute(ut)))
+    utext_getPreviousNativeIndex(::core::mem::transmute(ut))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -26663,7 +26663,7 @@ pub unsafe fn utext_hasMetaData(ut: *const UText) -> i8 {
     extern "system" {
         fn utext_hasMetaData(ut: *const UText) -> i8;
     }
-    ::core::mem::transmute(utext_hasMetaData(::core::mem::transmute(ut)))
+    utext_hasMetaData(::core::mem::transmute(ut))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -26672,7 +26672,7 @@ pub unsafe fn utext_isLengthExpensive(ut: *const UText) -> i8 {
     extern "system" {
         fn utext_isLengthExpensive(ut: *const UText) -> i8;
     }
-    ::core::mem::transmute(utext_isLengthExpensive(::core::mem::transmute(ut)))
+    utext_isLengthExpensive(::core::mem::transmute(ut))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -26681,7 +26681,7 @@ pub unsafe fn utext_isWritable(ut: *const UText) -> i8 {
     extern "system" {
         fn utext_isWritable(ut: *const UText) -> i8;
     }
-    ::core::mem::transmute(utext_isWritable(::core::mem::transmute(ut)))
+    utext_isWritable(::core::mem::transmute(ut))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -26690,7 +26690,7 @@ pub unsafe fn utext_moveIndex32(ut: *mut UText, delta: i32) -> i8 {
     extern "system" {
         fn utext_moveIndex32(ut: *mut UText, delta: i32) -> i8;
     }
-    ::core::mem::transmute(utext_moveIndex32(::core::mem::transmute(ut), delta))
+    utext_moveIndex32(::core::mem::transmute(ut), delta)
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -26699,7 +26699,7 @@ pub unsafe fn utext_nativeLength(ut: *mut UText) -> i64 {
     extern "system" {
         fn utext_nativeLength(ut: *mut UText) -> i64;
     }
-    ::core::mem::transmute(utext_nativeLength(::core::mem::transmute(ut)))
+    utext_nativeLength(::core::mem::transmute(ut))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -26708,7 +26708,7 @@ pub unsafe fn utext_next32(ut: *mut UText) -> i32 {
     extern "system" {
         fn utext_next32(ut: *mut UText) -> i32;
     }
-    ::core::mem::transmute(utext_next32(::core::mem::transmute(ut)))
+    utext_next32(::core::mem::transmute(ut))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -26717,7 +26717,7 @@ pub unsafe fn utext_next32From(ut: *mut UText, nativeindex: i64) -> i32 {
     extern "system" {
         fn utext_next32From(ut: *mut UText, nativeindex: i64) -> i32;
     }
-    ::core::mem::transmute(utext_next32From(::core::mem::transmute(ut), nativeindex))
+    utext_next32From(::core::mem::transmute(ut), nativeindex)
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -26726,7 +26726,7 @@ pub unsafe fn utext_openUChars(ut: *mut UText, s: *const u16, length: i64, statu
     extern "system" {
         fn utext_openUChars(ut: *mut UText, s: *const u16, length: i64, status: *mut UErrorCode) -> *mut UText;
     }
-    ::core::mem::transmute(utext_openUChars(::core::mem::transmute(ut), ::core::mem::transmute(s), length, ::core::mem::transmute(status)))
+    utext_openUChars(::core::mem::transmute(ut), ::core::mem::transmute(s), length, ::core::mem::transmute(status))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -26738,7 +26738,7 @@ where
     extern "system" {
         fn utext_openUTF8(ut: *mut UText, s: ::windows::core::PCSTR, length: i64, status: *mut UErrorCode) -> *mut UText;
     }
-    ::core::mem::transmute(utext_openUTF8(::core::mem::transmute(ut), s.into(), length, ::core::mem::transmute(status)))
+    utext_openUTF8(::core::mem::transmute(ut), s.into(), length, ::core::mem::transmute(status))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -26747,7 +26747,7 @@ pub unsafe fn utext_previous32(ut: *mut UText) -> i32 {
     extern "system" {
         fn utext_previous32(ut: *mut UText) -> i32;
     }
-    ::core::mem::transmute(utext_previous32(::core::mem::transmute(ut)))
+    utext_previous32(::core::mem::transmute(ut))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -26756,7 +26756,7 @@ pub unsafe fn utext_previous32From(ut: *mut UText, nativeindex: i64) -> i32 {
     extern "system" {
         fn utext_previous32From(ut: *mut UText, nativeindex: i64) -> i32;
     }
-    ::core::mem::transmute(utext_previous32From(::core::mem::transmute(ut), nativeindex))
+    utext_previous32From(::core::mem::transmute(ut), nativeindex)
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -26765,7 +26765,7 @@ pub unsafe fn utext_replace(ut: *mut UText, nativestart: i64, nativelimit: i64, 
     extern "system" {
         fn utext_replace(ut: *mut UText, nativestart: i64, nativelimit: i64, replacementtext: *const u16, replacementlength: i32, status: *mut UErrorCode) -> i32;
     }
-    ::core::mem::transmute(utext_replace(::core::mem::transmute(ut), nativestart, nativelimit, ::core::mem::transmute(replacementtext), replacementlength, ::core::mem::transmute(status)))
+    utext_replace(::core::mem::transmute(ut), nativestart, nativelimit, ::core::mem::transmute(replacementtext), replacementlength, ::core::mem::transmute(status))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -26783,7 +26783,7 @@ pub unsafe fn utext_setup(ut: *mut UText, extraspace: i32, status: *mut UErrorCo
     extern "system" {
         fn utext_setup(ut: *mut UText, extraspace: i32, status: *mut UErrorCode) -> *mut UText;
     }
-    ::core::mem::transmute(utext_setup(::core::mem::transmute(ut), extraspace, ::core::mem::transmute(status)))
+    utext_setup(::core::mem::transmute(ut), extraspace, ::core::mem::transmute(status))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -26792,7 +26792,7 @@ pub unsafe fn utf8_appendCharSafeBody(s: *mut u8, i: i32, length: i32, c: i32, p
     extern "system" {
         fn utf8_appendCharSafeBody(s: *mut u8, i: i32, length: i32, c: i32, piserror: *mut i8) -> i32;
     }
-    ::core::mem::transmute(utf8_appendCharSafeBody(::core::mem::transmute(s), i, length, c, ::core::mem::transmute(piserror)))
+    utf8_appendCharSafeBody(::core::mem::transmute(s), i, length, c, ::core::mem::transmute(piserror))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -26801,7 +26801,7 @@ pub unsafe fn utf8_back1SafeBody(s: *const u8, start: i32, i: i32) -> i32 {
     extern "system" {
         fn utf8_back1SafeBody(s: *const u8, start: i32, i: i32) -> i32;
     }
-    ::core::mem::transmute(utf8_back1SafeBody(::core::mem::transmute(s), start, i))
+    utf8_back1SafeBody(::core::mem::transmute(s), start, i)
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -26810,7 +26810,7 @@ pub unsafe fn utf8_nextCharSafeBody(s: *const u8, pi: *mut i32, length: i32, c: 
     extern "system" {
         fn utf8_nextCharSafeBody(s: *const u8, pi: *mut i32, length: i32, c: i32, strict: i8) -> i32;
     }
-    ::core::mem::transmute(utf8_nextCharSafeBody(::core::mem::transmute(s), ::core::mem::transmute(pi), length, c, strict))
+    utf8_nextCharSafeBody(::core::mem::transmute(s), ::core::mem::transmute(pi), length, c, strict)
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -26819,7 +26819,7 @@ pub unsafe fn utf8_prevCharSafeBody(s: *const u8, start: i32, pi: *mut i32, c: i
     extern "system" {
         fn utf8_prevCharSafeBody(s: *const u8, start: i32, pi: *mut i32, c: i32, strict: i8) -> i32;
     }
-    ::core::mem::transmute(utf8_prevCharSafeBody(::core::mem::transmute(s), start, ::core::mem::transmute(pi), c, strict))
+    utf8_prevCharSafeBody(::core::mem::transmute(s), start, ::core::mem::transmute(pi), c, strict)
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -26828,7 +26828,7 @@ pub unsafe fn utmscale_fromInt64(othertime: i64, timescale: UDateTimeScale, stat
     extern "system" {
         fn utmscale_fromInt64(othertime: i64, timescale: UDateTimeScale, status: *mut UErrorCode) -> i64;
     }
-    ::core::mem::transmute(utmscale_fromInt64(othertime, timescale, ::core::mem::transmute(status)))
+    utmscale_fromInt64(othertime, timescale, ::core::mem::transmute(status))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -26837,7 +26837,7 @@ pub unsafe fn utmscale_getTimeScaleValue(timescale: UDateTimeScale, value: UTime
     extern "system" {
         fn utmscale_getTimeScaleValue(timescale: UDateTimeScale, value: UTimeScaleValue, status: *mut UErrorCode) -> i64;
     }
-    ::core::mem::transmute(utmscale_getTimeScaleValue(timescale, value, ::core::mem::transmute(status)))
+    utmscale_getTimeScaleValue(timescale, value, ::core::mem::transmute(status))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -26846,7 +26846,7 @@ pub unsafe fn utmscale_toInt64(universaltime: i64, timescale: UDateTimeScale, st
     extern "system" {
         fn utmscale_toInt64(universaltime: i64, timescale: UDateTimeScale, status: *mut UErrorCode) -> i64;
     }
-    ::core::mem::transmute(utmscale_toInt64(universaltime, timescale, ::core::mem::transmute(status)))
+    utmscale_toInt64(universaltime, timescale, ::core::mem::transmute(status))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -26859,7 +26859,7 @@ where
     extern "system" {
         fn utrace_format(outbuf: ::windows::core::PCSTR, capacity: i32, indent: i32, fmt: ::windows::core::PCSTR) -> i32;
     }
-    ::core::mem::transmute(utrace_format(outbuf.into(), capacity, indent, fmt.into()))
+    utrace_format(outbuf.into(), capacity, indent, fmt.into())
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -26868,7 +26868,7 @@ pub unsafe fn utrace_functionName(fnnumber: i32) -> ::windows::core::PSTR {
     extern "system" {
         fn utrace_functionName(fnnumber: i32) -> ::windows::core::PSTR;
     }
-    ::core::mem::transmute(utrace_functionName(fnnumber))
+    utrace_functionName(fnnumber)
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -26886,7 +26886,7 @@ pub unsafe fn utrace_getLevel() -> i32 {
     extern "system" {
         fn utrace_getLevel() -> i32;
     }
-    ::core::mem::transmute(utrace_getLevel())
+    utrace_getLevel()
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -26917,7 +26917,7 @@ where
     extern "system" {
         fn utrace_vformat(outbuf: ::windows::core::PCSTR, capacity: i32, indent: i32, fmt: ::windows::core::PCSTR, args: *mut i8) -> i32;
     }
-    ::core::mem::transmute(utrace_vformat(outbuf.into(), capacity, indent, fmt.into(), ::core::mem::transmute(args)))
+    utrace_vformat(outbuf.into(), capacity, indent, fmt.into(), ::core::mem::transmute(args))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -26926,7 +26926,7 @@ pub unsafe fn utrans_clone(trans: *const *const ::core::ffi::c_void, status: *mu
     extern "system" {
         fn utrans_clone(trans: *const *const ::core::ffi::c_void, status: *mut UErrorCode) -> *mut *mut ::core::ffi::c_void;
     }
-    ::core::mem::transmute(utrans_clone(::core::mem::transmute(trans), ::core::mem::transmute(status)))
+    utrans_clone(::core::mem::transmute(trans), ::core::mem::transmute(status))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -26944,7 +26944,7 @@ pub unsafe fn utrans_countAvailableIDs() -> i32 {
     extern "system" {
         fn utrans_countAvailableIDs() -> i32;
     }
-    ::core::mem::transmute(utrans_countAvailableIDs())
+    utrans_countAvailableIDs()
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -26953,7 +26953,7 @@ pub unsafe fn utrans_getSourceSet(trans: *const *const ::core::ffi::c_void, igno
     extern "system" {
         fn utrans_getSourceSet(trans: *const *const ::core::ffi::c_void, ignorefilter: i8, fillin: *mut USet, status: *mut UErrorCode) -> *mut USet;
     }
-    ::core::mem::transmute(utrans_getSourceSet(::core::mem::transmute(trans), ignorefilter, ::core::mem::transmute(fillin), ::core::mem::transmute(status)))
+    utrans_getSourceSet(::core::mem::transmute(trans), ignorefilter, ::core::mem::transmute(fillin), ::core::mem::transmute(status))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -26962,7 +26962,7 @@ pub unsafe fn utrans_getUnicodeID(trans: *const *const ::core::ffi::c_void, resu
     extern "system" {
         fn utrans_getUnicodeID(trans: *const *const ::core::ffi::c_void, resultlength: *mut i32) -> *mut u16;
     }
-    ::core::mem::transmute(utrans_getUnicodeID(::core::mem::transmute(trans), ::core::mem::transmute(resultlength)))
+    utrans_getUnicodeID(::core::mem::transmute(trans), ::core::mem::transmute(resultlength))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -26971,7 +26971,7 @@ pub unsafe fn utrans_openIDs(perrorcode: *mut UErrorCode) -> *mut UEnumeration {
     extern "system" {
         fn utrans_openIDs(perrorcode: *mut UErrorCode) -> *mut UEnumeration;
     }
-    ::core::mem::transmute(utrans_openIDs(::core::mem::transmute(perrorcode)))
+    utrans_openIDs(::core::mem::transmute(perrorcode))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -26980,7 +26980,7 @@ pub unsafe fn utrans_openInverse(trans: *const *const ::core::ffi::c_void, statu
     extern "system" {
         fn utrans_openInverse(trans: *const *const ::core::ffi::c_void, status: *mut UErrorCode) -> *mut *mut ::core::ffi::c_void;
     }
-    ::core::mem::transmute(utrans_openInverse(::core::mem::transmute(trans), ::core::mem::transmute(status)))
+    utrans_openInverse(::core::mem::transmute(trans), ::core::mem::transmute(status))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -26989,7 +26989,7 @@ pub unsafe fn utrans_openU(id: *const u16, idlength: i32, dir: UTransDirection, 
     extern "system" {
         fn utrans_openU(id: *const u16, idlength: i32, dir: UTransDirection, rules: *const u16, ruleslength: i32, parseerror: *mut UParseError, perrorcode: *mut UErrorCode) -> *mut *mut ::core::ffi::c_void;
     }
-    ::core::mem::transmute(utrans_openU(::core::mem::transmute(id), idlength, dir, ::core::mem::transmute(rules), ruleslength, ::core::mem::transmute(parseerror), ::core::mem::transmute(perrorcode)))
+    utrans_openU(::core::mem::transmute(id), idlength, dir, ::core::mem::transmute(rules), ruleslength, ::core::mem::transmute(parseerror), ::core::mem::transmute(perrorcode))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -27016,7 +27016,7 @@ pub unsafe fn utrans_toRules(trans: *const *const ::core::ffi::c_void, escapeunp
     extern "system" {
         fn utrans_toRules(trans: *const *const ::core::ffi::c_void, escapeunprintable: i8, result: *mut u16, resultlength: i32, status: *mut UErrorCode) -> i32;
     }
-    ::core::mem::transmute(utrans_toRules(::core::mem::transmute(trans), escapeunprintable, ::core::mem::transmute(result), resultlength, ::core::mem::transmute(status)))
+    utrans_toRules(::core::mem::transmute(trans), escapeunprintable, ::core::mem::transmute(result), resultlength, ::core::mem::transmute(status))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]

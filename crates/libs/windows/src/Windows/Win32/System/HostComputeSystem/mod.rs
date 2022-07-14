@@ -627,7 +627,7 @@ pub unsafe fn HcsCreateOperation(context: *const ::core::ffi::c_void, callback: 
     extern "system" {
         fn HcsCreateOperation(context: *const ::core::ffi::c_void, callback: *mut ::core::ffi::c_void) -> HCS_OPERATION;
     }
-    ::core::mem::transmute(HcsCreateOperation(::core::mem::transmute(context), ::core::mem::transmute(callback)))
+    HcsCreateOperation(::core::mem::transmute(context), ::core::mem::transmute(callback))
 }
 #[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
@@ -749,7 +749,7 @@ where
     extern "system" {
         fn HcsGetComputeSystemFromOperation(operation: HCS_OPERATION) -> HCS_SYSTEM;
     }
-    ::core::mem::transmute(HcsGetComputeSystemFromOperation(operation.into()))
+    HcsGetComputeSystemFromOperation(operation.into())
 }
 #[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`*"]
 #[inline]
@@ -789,7 +789,7 @@ where
     extern "system" {
         fn HcsGetOperationContext(operation: HCS_OPERATION) -> *mut ::core::ffi::c_void;
     }
-    ::core::mem::transmute(HcsGetOperationContext(operation.into()))
+    HcsGetOperationContext(operation.into())
 }
 #[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`*"]
 #[inline]
@@ -801,7 +801,7 @@ where
     extern "system" {
         fn HcsGetOperationId(operation: HCS_OPERATION) -> u64;
     }
-    ::core::mem::transmute(HcsGetOperationId(operation.into()))
+    HcsGetOperationId(operation.into())
 }
 #[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`*"]
 #[inline]
@@ -839,7 +839,7 @@ where
     extern "system" {
         fn HcsGetOperationType(operation: HCS_OPERATION) -> HCS_OPERATION_TYPE;
     }
-    ::core::mem::transmute(HcsGetOperationType(operation.into()))
+    HcsGetOperationType(operation.into())
 }
 #[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`*"]
 #[inline]
@@ -851,7 +851,7 @@ where
     extern "system" {
         fn HcsGetProcessFromOperation(operation: HCS_OPERATION) -> HCS_PROCESS;
     }
-    ::core::mem::transmute(HcsGetProcessFromOperation(operation.into()))
+    HcsGetProcessFromOperation(operation.into())
 }
 #[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`*"]
 #[inline]

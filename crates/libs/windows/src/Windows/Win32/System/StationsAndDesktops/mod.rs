@@ -181,7 +181,7 @@ where
     extern "system" {
         fn BroadcastSystemMessageA(flags: u32, lpinfo: *mut u32, msg: u32, wparam: super::super::Foundation::WPARAM, lparam: super::super::Foundation::LPARAM) -> i32;
     }
-    ::core::mem::transmute(BroadcastSystemMessageA(flags, ::core::mem::transmute(lpinfo), msg, wparam.into(), lparam.into()))
+    BroadcastSystemMessageA(flags, ::core::mem::transmute(lpinfo), msg, wparam.into(), lparam.into())
 }
 #[doc = "*Required features: `\"Win32_System_StationsAndDesktops\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -195,7 +195,7 @@ where
     extern "system" {
         fn BroadcastSystemMessageExA(flags: BROADCAST_SYSTEM_MESSAGE_FLAGS, lpinfo: *mut BROADCAST_SYSTEM_MESSAGE_INFO, msg: u32, wparam: super::super::Foundation::WPARAM, lparam: super::super::Foundation::LPARAM, pbsminfo: *mut BSMINFO) -> i32;
     }
-    ::core::mem::transmute(BroadcastSystemMessageExA(flags, ::core::mem::transmute(lpinfo), msg, wparam.into(), lparam.into(), ::core::mem::transmute(pbsminfo)))
+    BroadcastSystemMessageExA(flags, ::core::mem::transmute(lpinfo), msg, wparam.into(), lparam.into(), ::core::mem::transmute(pbsminfo))
 }
 #[doc = "*Required features: `\"Win32_System_StationsAndDesktops\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -209,7 +209,7 @@ where
     extern "system" {
         fn BroadcastSystemMessageExW(flags: BROADCAST_SYSTEM_MESSAGE_FLAGS, lpinfo: *mut BROADCAST_SYSTEM_MESSAGE_INFO, msg: u32, wparam: super::super::Foundation::WPARAM, lparam: super::super::Foundation::LPARAM, pbsminfo: *mut BSMINFO) -> i32;
     }
-    ::core::mem::transmute(BroadcastSystemMessageExW(flags, ::core::mem::transmute(lpinfo), msg, wparam.into(), lparam.into(), ::core::mem::transmute(pbsminfo)))
+    BroadcastSystemMessageExW(flags, ::core::mem::transmute(lpinfo), msg, wparam.into(), lparam.into(), ::core::mem::transmute(pbsminfo))
 }
 #[doc = "*Required features: `\"Win32_System_StationsAndDesktops\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -223,7 +223,7 @@ where
     extern "system" {
         fn BroadcastSystemMessageW(flags: BROADCAST_SYSTEM_MESSAGE_FLAGS, lpinfo: *mut BROADCAST_SYSTEM_MESSAGE_INFO, msg: u32, wparam: super::super::Foundation::WPARAM, lparam: super::super::Foundation::LPARAM) -> i32;
     }
-    ::core::mem::transmute(BroadcastSystemMessageW(flags, ::core::mem::transmute(lpinfo), msg, wparam.into(), lparam.into()))
+    BroadcastSystemMessageW(flags, ::core::mem::transmute(lpinfo), msg, wparam.into(), lparam.into())
 }
 #[doc = "*Required features: `\"Win32_System_StationsAndDesktops\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -236,7 +236,7 @@ where
     extern "system" {
         fn CloseDesktop(hdesktop: HDESK) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(CloseDesktop(hdesktop.into()))
+    CloseDesktop(hdesktop.into())
 }
 #[doc = "*Required features: `\"Win32_System_StationsAndDesktops\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -249,7 +249,7 @@ where
     extern "system" {
         fn CloseWindowStation(hwinsta: HWINSTA) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(CloseWindowStation(hwinsta.into()))
+    CloseWindowStation(hwinsta.into())
 }
 #[doc = "*Required features: `\"Win32_System_StationsAndDesktops\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`, `\"Win32_Security\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_Security"))]
@@ -357,7 +357,7 @@ where
     extern "system" {
         fn EnumDesktopWindows(hdesktop: HDESK, lpfn: *mut ::core::ffi::c_void, lparam: super::super::Foundation::LPARAM) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(EnumDesktopWindows(hdesktop.into(), ::core::mem::transmute(lpfn), lparam.into()))
+    EnumDesktopWindows(hdesktop.into(), ::core::mem::transmute(lpfn), lparam.into())
 }
 #[doc = "*Required features: `\"Win32_System_StationsAndDesktops\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -371,7 +371,7 @@ where
     extern "system" {
         fn EnumDesktopsA(hwinsta: HWINSTA, lpenumfunc: *mut ::core::ffi::c_void, lparam: super::super::Foundation::LPARAM) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(EnumDesktopsA(hwinsta.into(), ::core::mem::transmute(lpenumfunc), lparam.into()))
+    EnumDesktopsA(hwinsta.into(), ::core::mem::transmute(lpenumfunc), lparam.into())
 }
 #[doc = "*Required features: `\"Win32_System_StationsAndDesktops\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -385,7 +385,7 @@ where
     extern "system" {
         fn EnumDesktopsW(hwinsta: HWINSTA, lpenumfunc: *mut ::core::ffi::c_void, lparam: super::super::Foundation::LPARAM) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(EnumDesktopsW(hwinsta.into(), ::core::mem::transmute(lpenumfunc), lparam.into()))
+    EnumDesktopsW(hwinsta.into(), ::core::mem::transmute(lpenumfunc), lparam.into())
 }
 #[doc = "*Required features: `\"Win32_System_StationsAndDesktops\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -398,7 +398,7 @@ where
     extern "system" {
         fn EnumWindowStationsA(lpenumfunc: *mut ::core::ffi::c_void, lparam: super::super::Foundation::LPARAM) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(EnumWindowStationsA(::core::mem::transmute(lpenumfunc), lparam.into()))
+    EnumWindowStationsA(::core::mem::transmute(lpenumfunc), lparam.into())
 }
 #[doc = "*Required features: `\"Win32_System_StationsAndDesktops\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -411,7 +411,7 @@ where
     extern "system" {
         fn EnumWindowStationsW(lpenumfunc: *mut ::core::ffi::c_void, lparam: super::super::Foundation::LPARAM) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(EnumWindowStationsW(::core::mem::transmute(lpenumfunc), lparam.into()))
+    EnumWindowStationsW(::core::mem::transmute(lpenumfunc), lparam.into())
 }
 #[doc = "*Required features: `\"Win32_System_StationsAndDesktops\"`*"]
 #[inline]
@@ -444,7 +444,7 @@ where
     extern "system" {
         fn GetUserObjectInformationA(hobj: super::super::Foundation::HANDLE, nindex: USER_OBJECT_INFORMATION_INDEX, pvinfo: *mut ::core::ffi::c_void, nlength: u32, lpnlengthneeded: *mut u32) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(GetUserObjectInformationA(hobj.into(), nindex, ::core::mem::transmute(pvinfo), nlength, ::core::mem::transmute(lpnlengthneeded)))
+    GetUserObjectInformationA(hobj.into(), nindex, ::core::mem::transmute(pvinfo), nlength, ::core::mem::transmute(lpnlengthneeded))
 }
 #[doc = "*Required features: `\"Win32_System_StationsAndDesktops\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -457,7 +457,7 @@ where
     extern "system" {
         fn GetUserObjectInformationW(hobj: super::super::Foundation::HANDLE, nindex: USER_OBJECT_INFORMATION_INDEX, pvinfo: *mut ::core::ffi::c_void, nlength: u32, lpnlengthneeded: *mut u32) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(GetUserObjectInformationW(hobj.into(), nindex, ::core::mem::transmute(pvinfo), nlength, ::core::mem::transmute(lpnlengthneeded)))
+    GetUserObjectInformationW(hobj.into(), nindex, ::core::mem::transmute(pvinfo), nlength, ::core::mem::transmute(lpnlengthneeded))
 }
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
@@ -608,7 +608,7 @@ where
     extern "system" {
         fn SetProcessWindowStation(hwinsta: HWINSTA) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(SetProcessWindowStation(hwinsta.into()))
+    SetProcessWindowStation(hwinsta.into())
 }
 #[doc = "*Required features: `\"Win32_System_StationsAndDesktops\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -621,7 +621,7 @@ where
     extern "system" {
         fn SetThreadDesktop(hdesktop: HDESK) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(SetThreadDesktop(hdesktop.into()))
+    SetThreadDesktop(hdesktop.into())
 }
 #[doc = "*Required features: `\"Win32_System_StationsAndDesktops\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -634,7 +634,7 @@ where
     extern "system" {
         fn SetUserObjectInformationA(hobj: super::super::Foundation::HANDLE, nindex: i32, pvinfo: *const ::core::ffi::c_void, nlength: u32) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(SetUserObjectInformationA(hobj.into(), nindex, ::core::mem::transmute(pvinfo), nlength))
+    SetUserObjectInformationA(hobj.into(), nindex, ::core::mem::transmute(pvinfo), nlength)
 }
 #[doc = "*Required features: `\"Win32_System_StationsAndDesktops\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -647,7 +647,7 @@ where
     extern "system" {
         fn SetUserObjectInformationW(hobj: super::super::Foundation::HANDLE, nindex: i32, pvinfo: *const ::core::ffi::c_void, nlength: u32) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(SetUserObjectInformationW(hobj.into(), nindex, ::core::mem::transmute(pvinfo), nlength))
+    SetUserObjectInformationW(hobj.into(), nindex, ::core::mem::transmute(pvinfo), nlength)
 }
 #[doc = "*Required features: `\"Win32_System_StationsAndDesktops\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -660,7 +660,7 @@ where
     extern "system" {
         fn SwitchDesktop(hdesktop: HDESK) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(SwitchDesktop(hdesktop.into()))
+    SwitchDesktop(hdesktop.into())
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_System_StationsAndDesktops\"`, `\"Win32_Foundation\"`*"]

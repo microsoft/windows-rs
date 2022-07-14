@@ -15,7 +15,7 @@ where
     extern "system" {
         fn AddConsoleAliasA(source: ::windows::core::PCSTR, target: ::windows::core::PCSTR, exename: ::windows::core::PCSTR) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(AddConsoleAliasA(source.into(), target.into(), exename.into()))
+    AddConsoleAliasA(source.into(), target.into(), exename.into())
 }
 #[doc = "*Required features: `\"Win32_System_Console\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -30,7 +30,7 @@ where
     extern "system" {
         fn AddConsoleAliasW(source: ::windows::core::PCWSTR, target: ::windows::core::PCWSTR, exename: ::windows::core::PCWSTR) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(AddConsoleAliasW(source.into(), target.into(), exename.into()))
+    AddConsoleAliasW(source.into(), target.into(), exename.into())
 }
 #[doc = "*Required features: `\"Win32_System_Console\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -40,7 +40,7 @@ pub unsafe fn AllocConsole() -> super::super::Foundation::BOOL {
     extern "system" {
         fn AllocConsole() -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(AllocConsole())
+    AllocConsole()
 }
 #[doc = "*Required features: `\"Win32_System_Console\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -50,7 +50,7 @@ pub unsafe fn AttachConsole(dwprocessid: u32) -> super::super::Foundation::BOOL 
     extern "system" {
         fn AttachConsole(dwprocessid: u32) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(AttachConsole(dwprocessid))
+    AttachConsole(dwprocessid)
 }
 #[doc = "*Required features: `\"Win32_System_Console\"`*"]
 pub const BACKGROUND_BLUE: u32 = 16u32;
@@ -702,7 +702,7 @@ where
     extern "system" {
         fn FillConsoleOutputAttribute(hconsoleoutput: super::super::Foundation::HANDLE, wattribute: u16, nlength: u32, dwwritecoord: COORD, lpnumberofattrswritten: *mut u32) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(FillConsoleOutputAttribute(hconsoleoutput.into(), wattribute, nlength, ::core::mem::transmute(dwwritecoord), ::core::mem::transmute(lpnumberofattrswritten)))
+    FillConsoleOutputAttribute(hconsoleoutput.into(), wattribute, nlength, ::core::mem::transmute(dwwritecoord), ::core::mem::transmute(lpnumberofattrswritten))
 }
 #[doc = "*Required features: `\"Win32_System_Console\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -716,7 +716,7 @@ where
     extern "system" {
         fn FillConsoleOutputCharacterA(hconsoleoutput: super::super::Foundation::HANDLE, ccharacter: super::super::Foundation::CHAR, nlength: u32, dwwritecoord: COORD, lpnumberofcharswritten: *mut u32) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(FillConsoleOutputCharacterA(hconsoleoutput.into(), ccharacter.into(), nlength, ::core::mem::transmute(dwwritecoord), ::core::mem::transmute(lpnumberofcharswritten)))
+    FillConsoleOutputCharacterA(hconsoleoutput.into(), ccharacter.into(), nlength, ::core::mem::transmute(dwwritecoord), ::core::mem::transmute(lpnumberofcharswritten))
 }
 #[doc = "*Required features: `\"Win32_System_Console\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -729,7 +729,7 @@ where
     extern "system" {
         fn FillConsoleOutputCharacterW(hconsoleoutput: super::super::Foundation::HANDLE, ccharacter: u16, nlength: u32, dwwritecoord: COORD, lpnumberofcharswritten: *mut u32) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(FillConsoleOutputCharacterW(hconsoleoutput.into(), ccharacter, nlength, ::core::mem::transmute(dwwritecoord), ::core::mem::transmute(lpnumberofcharswritten)))
+    FillConsoleOutputCharacterW(hconsoleoutput.into(), ccharacter, nlength, ::core::mem::transmute(dwwritecoord), ::core::mem::transmute(lpnumberofcharswritten))
 }
 #[doc = "*Required features: `\"Win32_System_Console\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -742,7 +742,7 @@ where
     extern "system" {
         fn FlushConsoleInputBuffer(hconsoleinput: super::super::Foundation::HANDLE) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(FlushConsoleInputBuffer(hconsoleinput.into()))
+    FlushConsoleInputBuffer(hconsoleinput.into())
 }
 #[doc = "*Required features: `\"Win32_System_Console\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -752,7 +752,7 @@ pub unsafe fn FreeConsole() -> super::super::Foundation::BOOL {
     extern "system" {
         fn FreeConsole() -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(FreeConsole())
+    FreeConsole()
 }
 #[doc = "*Required features: `\"Win32_System_Console\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -762,7 +762,7 @@ pub unsafe fn GenerateConsoleCtrlEvent(dwctrlevent: u32, dwprocessgroupid: u32) 
     extern "system" {
         fn GenerateConsoleCtrlEvent(dwctrlevent: u32, dwprocessgroupid: u32) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(GenerateConsoleCtrlEvent(dwctrlevent, dwprocessgroupid))
+    GenerateConsoleCtrlEvent(dwctrlevent, dwprocessgroupid)
 }
 #[doc = "*Required features: `\"Win32_System_Console\"`*"]
 #[inline]
@@ -775,7 +775,7 @@ where
     extern "system" {
         fn GetConsoleAliasA(source: ::windows::core::PCSTR, targetbuffer: ::windows::core::PSTR, targetbufferlength: u32, exename: ::windows::core::PCSTR) -> u32;
     }
-    ::core::mem::transmute(GetConsoleAliasA(source.into(), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(targetbuffer)), targetbuffer.len() as _, exename.into()))
+    GetConsoleAliasA(source.into(), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(targetbuffer)), targetbuffer.len() as _, exename.into())
 }
 #[doc = "*Required features: `\"Win32_System_Console\"`*"]
 #[inline]
@@ -784,7 +784,7 @@ pub unsafe fn GetConsoleAliasExesA(exenamebuffer: &mut [u8]) -> u32 {
     extern "system" {
         fn GetConsoleAliasExesA(exenamebuffer: ::windows::core::PSTR, exenamebufferlength: u32) -> u32;
     }
-    ::core::mem::transmute(GetConsoleAliasExesA(::core::mem::transmute(::windows::core::as_mut_ptr_or_null(exenamebuffer)), exenamebuffer.len() as _))
+    GetConsoleAliasExesA(::core::mem::transmute(::windows::core::as_mut_ptr_or_null(exenamebuffer)), exenamebuffer.len() as _)
 }
 #[doc = "*Required features: `\"Win32_System_Console\"`*"]
 #[inline]
@@ -793,7 +793,7 @@ pub unsafe fn GetConsoleAliasExesLengthA() -> u32 {
     extern "system" {
         fn GetConsoleAliasExesLengthA() -> u32;
     }
-    ::core::mem::transmute(GetConsoleAliasExesLengthA())
+    GetConsoleAliasExesLengthA()
 }
 #[doc = "*Required features: `\"Win32_System_Console\"`*"]
 #[inline]
@@ -802,7 +802,7 @@ pub unsafe fn GetConsoleAliasExesLengthW() -> u32 {
     extern "system" {
         fn GetConsoleAliasExesLengthW() -> u32;
     }
-    ::core::mem::transmute(GetConsoleAliasExesLengthW())
+    GetConsoleAliasExesLengthW()
 }
 #[doc = "*Required features: `\"Win32_System_Console\"`*"]
 #[inline]
@@ -811,7 +811,7 @@ pub unsafe fn GetConsoleAliasExesW(exenamebuffer: &mut [u16]) -> u32 {
     extern "system" {
         fn GetConsoleAliasExesW(exenamebuffer: ::windows::core::PWSTR, exenamebufferlength: u32) -> u32;
     }
-    ::core::mem::transmute(GetConsoleAliasExesW(::core::mem::transmute(::windows::core::as_mut_ptr_or_null(exenamebuffer)), exenamebuffer.len() as _))
+    GetConsoleAliasExesW(::core::mem::transmute(::windows::core::as_mut_ptr_or_null(exenamebuffer)), exenamebuffer.len() as _)
 }
 #[doc = "*Required features: `\"Win32_System_Console\"`*"]
 #[inline]
@@ -824,7 +824,7 @@ where
     extern "system" {
         fn GetConsoleAliasW(source: ::windows::core::PCWSTR, targetbuffer: ::windows::core::PWSTR, targetbufferlength: u32, exename: ::windows::core::PCWSTR) -> u32;
     }
-    ::core::mem::transmute(GetConsoleAliasW(source.into(), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(targetbuffer)), targetbuffer.len() as _, exename.into()))
+    GetConsoleAliasW(source.into(), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(targetbuffer)), targetbuffer.len() as _, exename.into())
 }
 #[doc = "*Required features: `\"Win32_System_Console\"`*"]
 #[inline]
@@ -836,7 +836,7 @@ where
     extern "system" {
         fn GetConsoleAliasesA(aliasbuffer: ::windows::core::PSTR, aliasbufferlength: u32, exename: ::windows::core::PCSTR) -> u32;
     }
-    ::core::mem::transmute(GetConsoleAliasesA(::core::mem::transmute(::windows::core::as_mut_ptr_or_null(aliasbuffer)), aliasbuffer.len() as _, exename.into()))
+    GetConsoleAliasesA(::core::mem::transmute(::windows::core::as_mut_ptr_or_null(aliasbuffer)), aliasbuffer.len() as _, exename.into())
 }
 #[doc = "*Required features: `\"Win32_System_Console\"`*"]
 #[inline]
@@ -848,7 +848,7 @@ where
     extern "system" {
         fn GetConsoleAliasesLengthA(exename: ::windows::core::PCSTR) -> u32;
     }
-    ::core::mem::transmute(GetConsoleAliasesLengthA(exename.into()))
+    GetConsoleAliasesLengthA(exename.into())
 }
 #[doc = "*Required features: `\"Win32_System_Console\"`*"]
 #[inline]
@@ -860,7 +860,7 @@ where
     extern "system" {
         fn GetConsoleAliasesLengthW(exename: ::windows::core::PCWSTR) -> u32;
     }
-    ::core::mem::transmute(GetConsoleAliasesLengthW(exename.into()))
+    GetConsoleAliasesLengthW(exename.into())
 }
 #[doc = "*Required features: `\"Win32_System_Console\"`*"]
 #[inline]
@@ -872,7 +872,7 @@ where
     extern "system" {
         fn GetConsoleAliasesW(aliasbuffer: ::windows::core::PWSTR, aliasbufferlength: u32, exename: ::windows::core::PCWSTR) -> u32;
     }
-    ::core::mem::transmute(GetConsoleAliasesW(::core::mem::transmute(::windows::core::as_mut_ptr_or_null(aliasbuffer)), aliasbuffer.len() as _, exename.into()))
+    GetConsoleAliasesW(::core::mem::transmute(::windows::core::as_mut_ptr_or_null(aliasbuffer)), aliasbuffer.len() as _, exename.into())
 }
 #[doc = "*Required features: `\"Win32_System_Console\"`*"]
 #[inline]
@@ -881,7 +881,7 @@ pub unsafe fn GetConsoleCP() -> u32 {
     extern "system" {
         fn GetConsoleCP() -> u32;
     }
-    ::core::mem::transmute(GetConsoleCP())
+    GetConsoleCP()
 }
 #[doc = "*Required features: `\"Win32_System_Console\"`*"]
 #[inline]
@@ -893,7 +893,7 @@ where
     extern "system" {
         fn GetConsoleCommandHistoryA(commands: ::windows::core::PSTR, commandbufferlength: u32, exename: ::windows::core::PCSTR) -> u32;
     }
-    ::core::mem::transmute(GetConsoleCommandHistoryA(::core::mem::transmute(commands), commandbufferlength, exename.into()))
+    GetConsoleCommandHistoryA(::core::mem::transmute(commands), commandbufferlength, exename.into())
 }
 #[doc = "*Required features: `\"Win32_System_Console\"`*"]
 #[inline]
@@ -905,7 +905,7 @@ where
     extern "system" {
         fn GetConsoleCommandHistoryLengthA(exename: ::windows::core::PCSTR) -> u32;
     }
-    ::core::mem::transmute(GetConsoleCommandHistoryLengthA(exename.into()))
+    GetConsoleCommandHistoryLengthA(exename.into())
 }
 #[doc = "*Required features: `\"Win32_System_Console\"`*"]
 #[inline]
@@ -917,7 +917,7 @@ where
     extern "system" {
         fn GetConsoleCommandHistoryLengthW(exename: ::windows::core::PCWSTR) -> u32;
     }
-    ::core::mem::transmute(GetConsoleCommandHistoryLengthW(exename.into()))
+    GetConsoleCommandHistoryLengthW(exename.into())
 }
 #[doc = "*Required features: `\"Win32_System_Console\"`*"]
 #[inline]
@@ -929,7 +929,7 @@ where
     extern "system" {
         fn GetConsoleCommandHistoryW(commands: ::windows::core::PWSTR, commandbufferlength: u32, exename: ::windows::core::PCWSTR) -> u32;
     }
-    ::core::mem::transmute(GetConsoleCommandHistoryW(::core::mem::transmute(commands), commandbufferlength, exename.into()))
+    GetConsoleCommandHistoryW(::core::mem::transmute(commands), commandbufferlength, exename.into())
 }
 #[doc = "*Required features: `\"Win32_System_Console\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -942,7 +942,7 @@ where
     extern "system" {
         fn GetConsoleCursorInfo(hconsoleoutput: super::super::Foundation::HANDLE, lpconsolecursorinfo: *mut CONSOLE_CURSOR_INFO) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(GetConsoleCursorInfo(hconsoleoutput.into(), ::core::mem::transmute(lpconsolecursorinfo)))
+    GetConsoleCursorInfo(hconsoleoutput.into(), ::core::mem::transmute(lpconsolecursorinfo))
 }
 #[doc = "*Required features: `\"Win32_System_Console\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -952,7 +952,7 @@ pub unsafe fn GetConsoleDisplayMode(lpmodeflags: *mut u32) -> super::super::Foun
     extern "system" {
         fn GetConsoleDisplayMode(lpmodeflags: *mut u32) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(GetConsoleDisplayMode(::core::mem::transmute(lpmodeflags)))
+    GetConsoleDisplayMode(::core::mem::transmute(lpmodeflags))
 }
 #[doc = "*Required features: `\"Win32_System_Console\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -965,7 +965,7 @@ where
     extern "system" {
         fn GetConsoleFontSize(hconsoleoutput: super::super::Foundation::HANDLE, nfont: u32) -> COORD;
     }
-    ::core::mem::transmute(GetConsoleFontSize(hconsoleoutput.into(), nfont))
+    GetConsoleFontSize(hconsoleoutput.into(), nfont)
 }
 #[doc = "*Required features: `\"Win32_System_Console\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -975,7 +975,7 @@ pub unsafe fn GetConsoleHistoryInfo(lpconsolehistoryinfo: *mut CONSOLE_HISTORY_I
     extern "system" {
         fn GetConsoleHistoryInfo(lpconsolehistoryinfo: *mut CONSOLE_HISTORY_INFO) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(GetConsoleHistoryInfo(::core::mem::transmute(lpconsolehistoryinfo)))
+    GetConsoleHistoryInfo(::core::mem::transmute(lpconsolehistoryinfo))
 }
 #[doc = "*Required features: `\"Win32_System_Console\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -988,7 +988,7 @@ where
     extern "system" {
         fn GetConsoleMode(hconsolehandle: super::super::Foundation::HANDLE, lpmode: *mut CONSOLE_MODE) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(GetConsoleMode(hconsolehandle.into(), ::core::mem::transmute(lpmode)))
+    GetConsoleMode(hconsolehandle.into(), ::core::mem::transmute(lpmode))
 }
 #[doc = "*Required features: `\"Win32_System_Console\"`*"]
 #[inline]
@@ -997,7 +997,7 @@ pub unsafe fn GetConsoleOriginalTitleA(lpconsoletitle: &mut [u8]) -> u32 {
     extern "system" {
         fn GetConsoleOriginalTitleA(lpconsoletitle: ::windows::core::PSTR, nsize: u32) -> u32;
     }
-    ::core::mem::transmute(GetConsoleOriginalTitleA(::core::mem::transmute(::windows::core::as_mut_ptr_or_null(lpconsoletitle)), lpconsoletitle.len() as _))
+    GetConsoleOriginalTitleA(::core::mem::transmute(::windows::core::as_mut_ptr_or_null(lpconsoletitle)), lpconsoletitle.len() as _)
 }
 #[doc = "*Required features: `\"Win32_System_Console\"`*"]
 #[inline]
@@ -1006,7 +1006,7 @@ pub unsafe fn GetConsoleOriginalTitleW(lpconsoletitle: &mut [u16]) -> u32 {
     extern "system" {
         fn GetConsoleOriginalTitleW(lpconsoletitle: ::windows::core::PWSTR, nsize: u32) -> u32;
     }
-    ::core::mem::transmute(GetConsoleOriginalTitleW(::core::mem::transmute(::windows::core::as_mut_ptr_or_null(lpconsoletitle)), lpconsoletitle.len() as _))
+    GetConsoleOriginalTitleW(::core::mem::transmute(::windows::core::as_mut_ptr_or_null(lpconsoletitle)), lpconsoletitle.len() as _)
 }
 #[doc = "*Required features: `\"Win32_System_Console\"`*"]
 #[inline]
@@ -1015,7 +1015,7 @@ pub unsafe fn GetConsoleOutputCP() -> u32 {
     extern "system" {
         fn GetConsoleOutputCP() -> u32;
     }
-    ::core::mem::transmute(GetConsoleOutputCP())
+    GetConsoleOutputCP()
 }
 #[doc = "*Required features: `\"Win32_System_Console\"`*"]
 #[inline]
@@ -1024,7 +1024,7 @@ pub unsafe fn GetConsoleProcessList(lpdwprocesslist: &mut [u32]) -> u32 {
     extern "system" {
         fn GetConsoleProcessList(lpdwprocesslist: *mut u32, dwprocesscount: u32) -> u32;
     }
-    ::core::mem::transmute(GetConsoleProcessList(::core::mem::transmute(::windows::core::as_mut_ptr_or_null(lpdwprocesslist)), lpdwprocesslist.len() as _))
+    GetConsoleProcessList(::core::mem::transmute(::windows::core::as_mut_ptr_or_null(lpdwprocesslist)), lpdwprocesslist.len() as _)
 }
 #[doc = "*Required features: `\"Win32_System_Console\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -1037,7 +1037,7 @@ where
     extern "system" {
         fn GetConsoleScreenBufferInfo(hconsoleoutput: super::super::Foundation::HANDLE, lpconsolescreenbufferinfo: *mut CONSOLE_SCREEN_BUFFER_INFO) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(GetConsoleScreenBufferInfo(hconsoleoutput.into(), ::core::mem::transmute(lpconsolescreenbufferinfo)))
+    GetConsoleScreenBufferInfo(hconsoleoutput.into(), ::core::mem::transmute(lpconsolescreenbufferinfo))
 }
 #[doc = "*Required features: `\"Win32_System_Console\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -1050,7 +1050,7 @@ where
     extern "system" {
         fn GetConsoleScreenBufferInfoEx(hconsoleoutput: super::super::Foundation::HANDLE, lpconsolescreenbufferinfoex: *mut CONSOLE_SCREEN_BUFFER_INFOEX) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(GetConsoleScreenBufferInfoEx(hconsoleoutput.into(), ::core::mem::transmute(lpconsolescreenbufferinfoex)))
+    GetConsoleScreenBufferInfoEx(hconsoleoutput.into(), ::core::mem::transmute(lpconsolescreenbufferinfoex))
 }
 #[doc = "*Required features: `\"Win32_System_Console\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -1060,7 +1060,7 @@ pub unsafe fn GetConsoleSelectionInfo(lpconsoleselectioninfo: *mut CONSOLE_SELEC
     extern "system" {
         fn GetConsoleSelectionInfo(lpconsoleselectioninfo: *mut CONSOLE_SELECTION_INFO) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(GetConsoleSelectionInfo(::core::mem::transmute(lpconsoleselectioninfo)))
+    GetConsoleSelectionInfo(::core::mem::transmute(lpconsoleselectioninfo))
 }
 #[doc = "*Required features: `\"Win32_System_Console\"`*"]
 #[inline]
@@ -1069,7 +1069,7 @@ pub unsafe fn GetConsoleTitleA(lpconsoletitle: &mut [u8]) -> u32 {
     extern "system" {
         fn GetConsoleTitleA(lpconsoletitle: ::windows::core::PSTR, nsize: u32) -> u32;
     }
-    ::core::mem::transmute(GetConsoleTitleA(::core::mem::transmute(::windows::core::as_mut_ptr_or_null(lpconsoletitle)), lpconsoletitle.len() as _))
+    GetConsoleTitleA(::core::mem::transmute(::windows::core::as_mut_ptr_or_null(lpconsoletitle)), lpconsoletitle.len() as _)
 }
 #[doc = "*Required features: `\"Win32_System_Console\"`*"]
 #[inline]
@@ -1078,7 +1078,7 @@ pub unsafe fn GetConsoleTitleW(lpconsoletitle: &mut [u16]) -> u32 {
     extern "system" {
         fn GetConsoleTitleW(lpconsoletitle: ::windows::core::PWSTR, nsize: u32) -> u32;
     }
-    ::core::mem::transmute(GetConsoleTitleW(::core::mem::transmute(::windows::core::as_mut_ptr_or_null(lpconsoletitle)), lpconsoletitle.len() as _))
+    GetConsoleTitleW(::core::mem::transmute(::windows::core::as_mut_ptr_or_null(lpconsoletitle)), lpconsoletitle.len() as _)
 }
 #[doc = "*Required features: `\"Win32_System_Console\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -1088,7 +1088,7 @@ pub unsafe fn GetConsoleWindow() -> super::super::Foundation::HWND {
     extern "system" {
         fn GetConsoleWindow() -> super::super::Foundation::HWND;
     }
-    ::core::mem::transmute(GetConsoleWindow())
+    GetConsoleWindow()
 }
 #[doc = "*Required features: `\"Win32_System_Console\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -1102,7 +1102,7 @@ where
     extern "system" {
         fn GetCurrentConsoleFont(hconsoleoutput: super::super::Foundation::HANDLE, bmaximumwindow: super::super::Foundation::BOOL, lpconsolecurrentfont: *mut CONSOLE_FONT_INFO) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(GetCurrentConsoleFont(hconsoleoutput.into(), bmaximumwindow.into(), ::core::mem::transmute(lpconsolecurrentfont)))
+    GetCurrentConsoleFont(hconsoleoutput.into(), bmaximumwindow.into(), ::core::mem::transmute(lpconsolecurrentfont))
 }
 #[doc = "*Required features: `\"Win32_System_Console\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -1116,7 +1116,7 @@ where
     extern "system" {
         fn GetCurrentConsoleFontEx(hconsoleoutput: super::super::Foundation::HANDLE, bmaximumwindow: super::super::Foundation::BOOL, lpconsolecurrentfontex: *mut CONSOLE_FONT_INFOEX) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(GetCurrentConsoleFontEx(hconsoleoutput.into(), bmaximumwindow.into(), ::core::mem::transmute(lpconsolecurrentfontex)))
+    GetCurrentConsoleFontEx(hconsoleoutput.into(), bmaximumwindow.into(), ::core::mem::transmute(lpconsolecurrentfontex))
 }
 #[doc = "*Required features: `\"Win32_System_Console\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -1129,7 +1129,7 @@ where
     extern "system" {
         fn GetLargestConsoleWindowSize(hconsoleoutput: super::super::Foundation::HANDLE) -> COORD;
     }
-    ::core::mem::transmute(GetLargestConsoleWindowSize(hconsoleoutput.into()))
+    GetLargestConsoleWindowSize(hconsoleoutput.into())
 }
 #[doc = "*Required features: `\"Win32_System_Console\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -1142,7 +1142,7 @@ where
     extern "system" {
         fn GetNumberOfConsoleInputEvents(hconsoleinput: super::super::Foundation::HANDLE, lpnumberofevents: *mut u32) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(GetNumberOfConsoleInputEvents(hconsoleinput.into(), ::core::mem::transmute(lpnumberofevents)))
+    GetNumberOfConsoleInputEvents(hconsoleinput.into(), ::core::mem::transmute(lpnumberofevents))
 }
 #[doc = "*Required features: `\"Win32_System_Console\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -1152,7 +1152,7 @@ pub unsafe fn GetNumberOfConsoleMouseButtons(lpnumberofmousebuttons: *mut u32) -
     extern "system" {
         fn GetNumberOfConsoleMouseButtons(lpnumberofmousebuttons: *mut u32) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(GetNumberOfConsoleMouseButtons(::core::mem::transmute(lpnumberofmousebuttons)))
+    GetNumberOfConsoleMouseButtons(::core::mem::transmute(lpnumberofmousebuttons))
 }
 #[doc = "*Required features: `\"Win32_System_Console\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -1449,7 +1449,7 @@ where
     extern "system" {
         fn PeekConsoleInputA(hconsoleinput: super::super::Foundation::HANDLE, lpbuffer: *mut INPUT_RECORD, nlength: u32, lpnumberofeventsread: *mut u32) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(PeekConsoleInputA(hconsoleinput.into(), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(lpbuffer)), lpbuffer.len() as _, ::core::mem::transmute(lpnumberofeventsread)))
+    PeekConsoleInputA(hconsoleinput.into(), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(lpbuffer)), lpbuffer.len() as _, ::core::mem::transmute(lpnumberofeventsread))
 }
 #[doc = "*Required features: `\"Win32_System_Console\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -1462,7 +1462,7 @@ where
     extern "system" {
         fn PeekConsoleInputW(hconsoleinput: super::super::Foundation::HANDLE, lpbuffer: *mut INPUT_RECORD, nlength: u32, lpnumberofeventsread: *mut u32) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(PeekConsoleInputW(hconsoleinput.into(), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(lpbuffer)), lpbuffer.len() as _, ::core::mem::transmute(lpnumberofeventsread)))
+    PeekConsoleInputW(hconsoleinput.into(), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(lpbuffer)), lpbuffer.len() as _, ::core::mem::transmute(lpnumberofeventsread))
 }
 #[doc = "*Required features: `\"Win32_System_Console\"`*"]
 pub const RIGHTMOST_BUTTON_PRESSED: u32 = 2u32;
@@ -1481,7 +1481,7 @@ where
     extern "system" {
         fn ReadConsoleA(hconsoleinput: super::super::Foundation::HANDLE, lpbuffer: *mut ::core::ffi::c_void, nnumberofcharstoread: u32, lpnumberofcharsread: *mut u32, pinputcontrol: *const CONSOLE_READCONSOLE_CONTROL) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(ReadConsoleA(hconsoleinput.into(), ::core::mem::transmute(lpbuffer), nnumberofcharstoread, ::core::mem::transmute(lpnumberofcharsread), ::core::mem::transmute(pinputcontrol)))
+    ReadConsoleA(hconsoleinput.into(), ::core::mem::transmute(lpbuffer), nnumberofcharstoread, ::core::mem::transmute(lpnumberofcharsread), ::core::mem::transmute(pinputcontrol))
 }
 #[doc = "*Required features: `\"Win32_System_Console\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -1494,7 +1494,7 @@ where
     extern "system" {
         fn ReadConsoleInputA(hconsoleinput: super::super::Foundation::HANDLE, lpbuffer: *mut INPUT_RECORD, nlength: u32, lpnumberofeventsread: *mut u32) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(ReadConsoleInputA(hconsoleinput.into(), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(lpbuffer)), lpbuffer.len() as _, ::core::mem::transmute(lpnumberofeventsread)))
+    ReadConsoleInputA(hconsoleinput.into(), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(lpbuffer)), lpbuffer.len() as _, ::core::mem::transmute(lpnumberofeventsread))
 }
 #[doc = "*Required features: `\"Win32_System_Console\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -1507,7 +1507,7 @@ where
     extern "system" {
         fn ReadConsoleInputW(hconsoleinput: super::super::Foundation::HANDLE, lpbuffer: *mut INPUT_RECORD, nlength: u32, lpnumberofeventsread: *mut u32) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(ReadConsoleInputW(hconsoleinput.into(), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(lpbuffer)), lpbuffer.len() as _, ::core::mem::transmute(lpnumberofeventsread)))
+    ReadConsoleInputW(hconsoleinput.into(), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(lpbuffer)), lpbuffer.len() as _, ::core::mem::transmute(lpnumberofeventsread))
 }
 #[doc = "*Required features: `\"Win32_System_Console\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -1520,7 +1520,7 @@ where
     extern "system" {
         fn ReadConsoleOutputA(hconsoleoutput: super::super::Foundation::HANDLE, lpbuffer: *mut CHAR_INFO, dwbuffersize: COORD, dwbuffercoord: COORD, lpreadregion: *mut SMALL_RECT) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(ReadConsoleOutputA(hconsoleoutput.into(), ::core::mem::transmute(lpbuffer), ::core::mem::transmute(dwbuffersize), ::core::mem::transmute(dwbuffercoord), ::core::mem::transmute(lpreadregion)))
+    ReadConsoleOutputA(hconsoleoutput.into(), ::core::mem::transmute(lpbuffer), ::core::mem::transmute(dwbuffersize), ::core::mem::transmute(dwbuffercoord), ::core::mem::transmute(lpreadregion))
 }
 #[doc = "*Required features: `\"Win32_System_Console\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -1533,7 +1533,7 @@ where
     extern "system" {
         fn ReadConsoleOutputAttribute(hconsoleoutput: super::super::Foundation::HANDLE, lpattribute: *mut u16, nlength: u32, dwreadcoord: COORD, lpnumberofattrsread: *mut u32) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(ReadConsoleOutputAttribute(hconsoleoutput.into(), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(lpattribute)), lpattribute.len() as _, ::core::mem::transmute(dwreadcoord), ::core::mem::transmute(lpnumberofattrsread)))
+    ReadConsoleOutputAttribute(hconsoleoutput.into(), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(lpattribute)), lpattribute.len() as _, ::core::mem::transmute(dwreadcoord), ::core::mem::transmute(lpnumberofattrsread))
 }
 #[doc = "*Required features: `\"Win32_System_Console\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -1546,7 +1546,7 @@ where
     extern "system" {
         fn ReadConsoleOutputCharacterA(hconsoleoutput: super::super::Foundation::HANDLE, lpcharacter: ::windows::core::PSTR, nlength: u32, dwreadcoord: COORD, lpnumberofcharsread: *mut u32) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(ReadConsoleOutputCharacterA(hconsoleoutput.into(), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(lpcharacter)), lpcharacter.len() as _, ::core::mem::transmute(dwreadcoord), ::core::mem::transmute(lpnumberofcharsread)))
+    ReadConsoleOutputCharacterA(hconsoleoutput.into(), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(lpcharacter)), lpcharacter.len() as _, ::core::mem::transmute(dwreadcoord), ::core::mem::transmute(lpnumberofcharsread))
 }
 #[doc = "*Required features: `\"Win32_System_Console\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -1559,7 +1559,7 @@ where
     extern "system" {
         fn ReadConsoleOutputCharacterW(hconsoleoutput: super::super::Foundation::HANDLE, lpcharacter: ::windows::core::PWSTR, nlength: u32, dwreadcoord: COORD, lpnumberofcharsread: *mut u32) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(ReadConsoleOutputCharacterW(hconsoleoutput.into(), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(lpcharacter)), lpcharacter.len() as _, ::core::mem::transmute(dwreadcoord), ::core::mem::transmute(lpnumberofcharsread)))
+    ReadConsoleOutputCharacterW(hconsoleoutput.into(), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(lpcharacter)), lpcharacter.len() as _, ::core::mem::transmute(dwreadcoord), ::core::mem::transmute(lpnumberofcharsread))
 }
 #[doc = "*Required features: `\"Win32_System_Console\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -1572,7 +1572,7 @@ where
     extern "system" {
         fn ReadConsoleOutputW(hconsoleoutput: super::super::Foundation::HANDLE, lpbuffer: *mut CHAR_INFO, dwbuffersize: COORD, dwbuffercoord: COORD, lpreadregion: *mut SMALL_RECT) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(ReadConsoleOutputW(hconsoleoutput.into(), ::core::mem::transmute(lpbuffer), ::core::mem::transmute(dwbuffersize), ::core::mem::transmute(dwbuffercoord), ::core::mem::transmute(lpreadregion)))
+    ReadConsoleOutputW(hconsoleoutput.into(), ::core::mem::transmute(lpbuffer), ::core::mem::transmute(dwbuffersize), ::core::mem::transmute(dwbuffercoord), ::core::mem::transmute(lpreadregion))
 }
 #[doc = "*Required features: `\"Win32_System_Console\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -1585,7 +1585,7 @@ where
     extern "system" {
         fn ReadConsoleW(hconsoleinput: super::super::Foundation::HANDLE, lpbuffer: *mut ::core::ffi::c_void, nnumberofcharstoread: u32, lpnumberofcharsread: *mut u32, pinputcontrol: *const CONSOLE_READCONSOLE_CONTROL) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(ReadConsoleW(hconsoleinput.into(), ::core::mem::transmute(lpbuffer), nnumberofcharstoread, ::core::mem::transmute(lpnumberofcharsread), ::core::mem::transmute(pinputcontrol)))
+    ReadConsoleW(hconsoleinput.into(), ::core::mem::transmute(lpbuffer), nnumberofcharstoread, ::core::mem::transmute(lpnumberofcharsread), ::core::mem::transmute(pinputcontrol))
 }
 #[doc = "*Required features: `\"Win32_System_Console\"`*"]
 #[inline]
@@ -1676,7 +1676,7 @@ where
     extern "system" {
         fn ScrollConsoleScreenBufferA(hconsoleoutput: super::super::Foundation::HANDLE, lpscrollrectangle: *const SMALL_RECT, lpcliprectangle: *const SMALL_RECT, dwdestinationorigin: COORD, lpfill: *const CHAR_INFO) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(ScrollConsoleScreenBufferA(hconsoleoutput.into(), ::core::mem::transmute(lpscrollrectangle), ::core::mem::transmute(lpcliprectangle), ::core::mem::transmute(dwdestinationorigin), ::core::mem::transmute(lpfill)))
+    ScrollConsoleScreenBufferA(hconsoleoutput.into(), ::core::mem::transmute(lpscrollrectangle), ::core::mem::transmute(lpcliprectangle), ::core::mem::transmute(dwdestinationorigin), ::core::mem::transmute(lpfill))
 }
 #[doc = "*Required features: `\"Win32_System_Console\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -1689,7 +1689,7 @@ where
     extern "system" {
         fn ScrollConsoleScreenBufferW(hconsoleoutput: super::super::Foundation::HANDLE, lpscrollrectangle: *const SMALL_RECT, lpcliprectangle: *const SMALL_RECT, dwdestinationorigin: COORD, lpfill: *const CHAR_INFO) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(ScrollConsoleScreenBufferW(hconsoleoutput.into(), ::core::mem::transmute(lpscrollrectangle), ::core::mem::transmute(lpcliprectangle), ::core::mem::transmute(dwdestinationorigin), ::core::mem::transmute(lpfill)))
+    ScrollConsoleScreenBufferW(hconsoleoutput.into(), ::core::mem::transmute(lpscrollrectangle), ::core::mem::transmute(lpcliprectangle), ::core::mem::transmute(dwdestinationorigin), ::core::mem::transmute(lpfill))
 }
 #[doc = "*Required features: `\"Win32_System_Console\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -1702,7 +1702,7 @@ where
     extern "system" {
         fn SetConsoleActiveScreenBuffer(hconsoleoutput: super::super::Foundation::HANDLE) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(SetConsoleActiveScreenBuffer(hconsoleoutput.into()))
+    SetConsoleActiveScreenBuffer(hconsoleoutput.into())
 }
 #[doc = "*Required features: `\"Win32_System_Console\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -1712,7 +1712,7 @@ pub unsafe fn SetConsoleCP(wcodepageid: u32) -> super::super::Foundation::BOOL {
     extern "system" {
         fn SetConsoleCP(wcodepageid: u32) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(SetConsoleCP(wcodepageid))
+    SetConsoleCP(wcodepageid)
 }
 #[doc = "*Required features: `\"Win32_System_Console\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -1725,7 +1725,7 @@ where
     extern "system" {
         fn SetConsoleCtrlHandler(handlerroutine: *mut ::core::ffi::c_void, add: super::super::Foundation::BOOL) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(SetConsoleCtrlHandler(::core::mem::transmute(handlerroutine), add.into()))
+    SetConsoleCtrlHandler(::core::mem::transmute(handlerroutine), add.into())
 }
 #[doc = "*Required features: `\"Win32_System_Console\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -1738,7 +1738,7 @@ where
     extern "system" {
         fn SetConsoleCursorInfo(hconsoleoutput: super::super::Foundation::HANDLE, lpconsolecursorinfo: *const CONSOLE_CURSOR_INFO) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(SetConsoleCursorInfo(hconsoleoutput.into(), ::core::mem::transmute(lpconsolecursorinfo)))
+    SetConsoleCursorInfo(hconsoleoutput.into(), ::core::mem::transmute(lpconsolecursorinfo))
 }
 #[doc = "*Required features: `\"Win32_System_Console\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -1751,7 +1751,7 @@ where
     extern "system" {
         fn SetConsoleCursorPosition(hconsoleoutput: super::super::Foundation::HANDLE, dwcursorposition: COORD) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(SetConsoleCursorPosition(hconsoleoutput.into(), ::core::mem::transmute(dwcursorposition)))
+    SetConsoleCursorPosition(hconsoleoutput.into(), ::core::mem::transmute(dwcursorposition))
 }
 #[doc = "*Required features: `\"Win32_System_Console\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -1764,7 +1764,7 @@ where
     extern "system" {
         fn SetConsoleDisplayMode(hconsoleoutput: super::super::Foundation::HANDLE, dwflags: u32, lpnewscreenbufferdimensions: *mut COORD) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(SetConsoleDisplayMode(hconsoleoutput.into(), dwflags, ::core::mem::transmute(lpnewscreenbufferdimensions)))
+    SetConsoleDisplayMode(hconsoleoutput.into(), dwflags, ::core::mem::transmute(lpnewscreenbufferdimensions))
 }
 #[doc = "*Required features: `\"Win32_System_Console\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -1774,7 +1774,7 @@ pub unsafe fn SetConsoleHistoryInfo(lpconsolehistoryinfo: *const CONSOLE_HISTORY
     extern "system" {
         fn SetConsoleHistoryInfo(lpconsolehistoryinfo: *const CONSOLE_HISTORY_INFO) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(SetConsoleHistoryInfo(::core::mem::transmute(lpconsolehistoryinfo)))
+    SetConsoleHistoryInfo(::core::mem::transmute(lpconsolehistoryinfo))
 }
 #[doc = "*Required features: `\"Win32_System_Console\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -1787,7 +1787,7 @@ where
     extern "system" {
         fn SetConsoleMode(hconsolehandle: super::super::Foundation::HANDLE, dwmode: CONSOLE_MODE) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(SetConsoleMode(hconsolehandle.into(), dwmode))
+    SetConsoleMode(hconsolehandle.into(), dwmode)
 }
 #[doc = "*Required features: `\"Win32_System_Console\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -1800,7 +1800,7 @@ where
     extern "system" {
         fn SetConsoleNumberOfCommandsA(number: u32, exename: ::windows::core::PCSTR) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(SetConsoleNumberOfCommandsA(number, exename.into()))
+    SetConsoleNumberOfCommandsA(number, exename.into())
 }
 #[doc = "*Required features: `\"Win32_System_Console\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -1813,7 +1813,7 @@ where
     extern "system" {
         fn SetConsoleNumberOfCommandsW(number: u32, exename: ::windows::core::PCWSTR) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(SetConsoleNumberOfCommandsW(number, exename.into()))
+    SetConsoleNumberOfCommandsW(number, exename.into())
 }
 #[doc = "*Required features: `\"Win32_System_Console\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -1823,7 +1823,7 @@ pub unsafe fn SetConsoleOutputCP(wcodepageid: u32) -> super::super::Foundation::
     extern "system" {
         fn SetConsoleOutputCP(wcodepageid: u32) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(SetConsoleOutputCP(wcodepageid))
+    SetConsoleOutputCP(wcodepageid)
 }
 #[doc = "*Required features: `\"Win32_System_Console\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -1836,7 +1836,7 @@ where
     extern "system" {
         fn SetConsoleScreenBufferInfoEx(hconsoleoutput: super::super::Foundation::HANDLE, lpconsolescreenbufferinfoex: *const CONSOLE_SCREEN_BUFFER_INFOEX) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(SetConsoleScreenBufferInfoEx(hconsoleoutput.into(), ::core::mem::transmute(lpconsolescreenbufferinfoex)))
+    SetConsoleScreenBufferInfoEx(hconsoleoutput.into(), ::core::mem::transmute(lpconsolescreenbufferinfoex))
 }
 #[doc = "*Required features: `\"Win32_System_Console\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -1849,7 +1849,7 @@ where
     extern "system" {
         fn SetConsoleScreenBufferSize(hconsoleoutput: super::super::Foundation::HANDLE, dwsize: COORD) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(SetConsoleScreenBufferSize(hconsoleoutput.into(), ::core::mem::transmute(dwsize)))
+    SetConsoleScreenBufferSize(hconsoleoutput.into(), ::core::mem::transmute(dwsize))
 }
 #[doc = "*Required features: `\"Win32_System_Console\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -1862,7 +1862,7 @@ where
     extern "system" {
         fn SetConsoleTextAttribute(hconsoleoutput: super::super::Foundation::HANDLE, wattributes: u16) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(SetConsoleTextAttribute(hconsoleoutput.into(), wattributes))
+    SetConsoleTextAttribute(hconsoleoutput.into(), wattributes)
 }
 #[doc = "*Required features: `\"Win32_System_Console\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -1875,7 +1875,7 @@ where
     extern "system" {
         fn SetConsoleTitleA(lpconsoletitle: ::windows::core::PCSTR) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(SetConsoleTitleA(lpconsoletitle.into()))
+    SetConsoleTitleA(lpconsoletitle.into())
 }
 #[doc = "*Required features: `\"Win32_System_Console\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -1888,7 +1888,7 @@ where
     extern "system" {
         fn SetConsoleTitleW(lpconsoletitle: ::windows::core::PCWSTR) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(SetConsoleTitleW(lpconsoletitle.into()))
+    SetConsoleTitleW(lpconsoletitle.into())
 }
 #[doc = "*Required features: `\"Win32_System_Console\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -1902,7 +1902,7 @@ where
     extern "system" {
         fn SetConsoleWindowInfo(hconsoleoutput: super::super::Foundation::HANDLE, babsolute: super::super::Foundation::BOOL, lpconsolewindow: *const SMALL_RECT) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(SetConsoleWindowInfo(hconsoleoutput.into(), babsolute.into(), ::core::mem::transmute(lpconsolewindow)))
+    SetConsoleWindowInfo(hconsoleoutput.into(), babsolute.into(), ::core::mem::transmute(lpconsolewindow))
 }
 #[doc = "*Required features: `\"Win32_System_Console\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -1916,7 +1916,7 @@ where
     extern "system" {
         fn SetCurrentConsoleFontEx(hconsoleoutput: super::super::Foundation::HANDLE, bmaximumwindow: super::super::Foundation::BOOL, lpconsolecurrentfontex: *const CONSOLE_FONT_INFOEX) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(SetCurrentConsoleFontEx(hconsoleoutput.into(), bmaximumwindow.into(), ::core::mem::transmute(lpconsolecurrentfontex)))
+    SetCurrentConsoleFontEx(hconsoleoutput.into(), bmaximumwindow.into(), ::core::mem::transmute(lpconsolecurrentfontex))
 }
 #[doc = "*Required features: `\"Win32_System_Console\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -1929,7 +1929,7 @@ where
     extern "system" {
         fn SetStdHandle(nstdhandle: STD_HANDLE, hhandle: super::super::Foundation::HANDLE) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(SetStdHandle(nstdhandle, hhandle.into()))
+    SetStdHandle(nstdhandle, hhandle.into())
 }
 #[doc = "*Required features: `\"Win32_System_Console\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -1942,7 +1942,7 @@ where
     extern "system" {
         fn SetStdHandleEx(nstdhandle: STD_HANDLE, hhandle: super::super::Foundation::HANDLE, phprevvalue: *mut super::super::Foundation::HANDLE) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(SetStdHandleEx(nstdhandle, hhandle.into(), ::core::mem::transmute(phprevvalue)))
+    SetStdHandleEx(nstdhandle, hhandle.into(), ::core::mem::transmute(phprevvalue))
 }
 #[doc = "*Required features: `\"Win32_System_Console\"`*"]
 pub const WINDOW_BUFFER_SIZE_EVENT: u32 = 4u32;
@@ -1987,7 +1987,7 @@ where
     extern "system" {
         fn WriteConsoleA(hconsoleoutput: super::super::Foundation::HANDLE, lpbuffer: *const ::core::ffi::c_void, nnumberofcharstowrite: u32, lpnumberofcharswritten: *mut u32, lpreserved: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(WriteConsoleA(hconsoleoutput.into(), ::core::mem::transmute(::windows::core::as_ptr_or_null(lpbuffer)), lpbuffer.len() as _, ::core::mem::transmute(lpnumberofcharswritten), ::core::mem::transmute(lpreserved)))
+    WriteConsoleA(hconsoleoutput.into(), ::core::mem::transmute(::windows::core::as_ptr_or_null(lpbuffer)), lpbuffer.len() as _, ::core::mem::transmute(lpnumberofcharswritten), ::core::mem::transmute(lpreserved))
 }
 #[doc = "*Required features: `\"Win32_System_Console\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -2000,7 +2000,7 @@ where
     extern "system" {
         fn WriteConsoleInputA(hconsoleinput: super::super::Foundation::HANDLE, lpbuffer: *const INPUT_RECORD, nlength: u32, lpnumberofeventswritten: *mut u32) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(WriteConsoleInputA(hconsoleinput.into(), ::core::mem::transmute(::windows::core::as_ptr_or_null(lpbuffer)), lpbuffer.len() as _, ::core::mem::transmute(lpnumberofeventswritten)))
+    WriteConsoleInputA(hconsoleinput.into(), ::core::mem::transmute(::windows::core::as_ptr_or_null(lpbuffer)), lpbuffer.len() as _, ::core::mem::transmute(lpnumberofeventswritten))
 }
 #[doc = "*Required features: `\"Win32_System_Console\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -2013,7 +2013,7 @@ where
     extern "system" {
         fn WriteConsoleInputW(hconsoleinput: super::super::Foundation::HANDLE, lpbuffer: *const INPUT_RECORD, nlength: u32, lpnumberofeventswritten: *mut u32) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(WriteConsoleInputW(hconsoleinput.into(), ::core::mem::transmute(::windows::core::as_ptr_or_null(lpbuffer)), lpbuffer.len() as _, ::core::mem::transmute(lpnumberofeventswritten)))
+    WriteConsoleInputW(hconsoleinput.into(), ::core::mem::transmute(::windows::core::as_ptr_or_null(lpbuffer)), lpbuffer.len() as _, ::core::mem::transmute(lpnumberofeventswritten))
 }
 #[doc = "*Required features: `\"Win32_System_Console\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -2026,7 +2026,7 @@ where
     extern "system" {
         fn WriteConsoleOutputA(hconsoleoutput: super::super::Foundation::HANDLE, lpbuffer: *const CHAR_INFO, dwbuffersize: COORD, dwbuffercoord: COORD, lpwriteregion: *mut SMALL_RECT) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(WriteConsoleOutputA(hconsoleoutput.into(), ::core::mem::transmute(lpbuffer), ::core::mem::transmute(dwbuffersize), ::core::mem::transmute(dwbuffercoord), ::core::mem::transmute(lpwriteregion)))
+    WriteConsoleOutputA(hconsoleoutput.into(), ::core::mem::transmute(lpbuffer), ::core::mem::transmute(dwbuffersize), ::core::mem::transmute(dwbuffercoord), ::core::mem::transmute(lpwriteregion))
 }
 #[doc = "*Required features: `\"Win32_System_Console\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -2039,7 +2039,7 @@ where
     extern "system" {
         fn WriteConsoleOutputAttribute(hconsoleoutput: super::super::Foundation::HANDLE, lpattribute: *const u16, nlength: u32, dwwritecoord: COORD, lpnumberofattrswritten: *mut u32) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(WriteConsoleOutputAttribute(hconsoleoutput.into(), ::core::mem::transmute(::windows::core::as_ptr_or_null(lpattribute)), lpattribute.len() as _, ::core::mem::transmute(dwwritecoord), ::core::mem::transmute(lpnumberofattrswritten)))
+    WriteConsoleOutputAttribute(hconsoleoutput.into(), ::core::mem::transmute(::windows::core::as_ptr_or_null(lpattribute)), lpattribute.len() as _, ::core::mem::transmute(dwwritecoord), ::core::mem::transmute(lpnumberofattrswritten))
 }
 #[doc = "*Required features: `\"Win32_System_Console\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -2052,7 +2052,7 @@ where
     extern "system" {
         fn WriteConsoleOutputCharacterA(hconsoleoutput: super::super::Foundation::HANDLE, lpcharacter: ::windows::core::PCSTR, nlength: u32, dwwritecoord: COORD, lpnumberofcharswritten: *mut u32) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(WriteConsoleOutputCharacterA(hconsoleoutput.into(), ::core::mem::transmute(::windows::core::as_ptr_or_null(lpcharacter)), lpcharacter.len() as _, ::core::mem::transmute(dwwritecoord), ::core::mem::transmute(lpnumberofcharswritten)))
+    WriteConsoleOutputCharacterA(hconsoleoutput.into(), ::core::mem::transmute(::windows::core::as_ptr_or_null(lpcharacter)), lpcharacter.len() as _, ::core::mem::transmute(dwwritecoord), ::core::mem::transmute(lpnumberofcharswritten))
 }
 #[doc = "*Required features: `\"Win32_System_Console\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -2065,7 +2065,7 @@ where
     extern "system" {
         fn WriteConsoleOutputCharacterW(hconsoleoutput: super::super::Foundation::HANDLE, lpcharacter: ::windows::core::PCWSTR, nlength: u32, dwwritecoord: COORD, lpnumberofcharswritten: *mut u32) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(WriteConsoleOutputCharacterW(hconsoleoutput.into(), ::core::mem::transmute(::windows::core::as_ptr_or_null(lpcharacter)), lpcharacter.len() as _, ::core::mem::transmute(dwwritecoord), ::core::mem::transmute(lpnumberofcharswritten)))
+    WriteConsoleOutputCharacterW(hconsoleoutput.into(), ::core::mem::transmute(::windows::core::as_ptr_or_null(lpcharacter)), lpcharacter.len() as _, ::core::mem::transmute(dwwritecoord), ::core::mem::transmute(lpnumberofcharswritten))
 }
 #[doc = "*Required features: `\"Win32_System_Console\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -2078,7 +2078,7 @@ where
     extern "system" {
         fn WriteConsoleOutputW(hconsoleoutput: super::super::Foundation::HANDLE, lpbuffer: *const CHAR_INFO, dwbuffersize: COORD, dwbuffercoord: COORD, lpwriteregion: *mut SMALL_RECT) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(WriteConsoleOutputW(hconsoleoutput.into(), ::core::mem::transmute(lpbuffer), ::core::mem::transmute(dwbuffersize), ::core::mem::transmute(dwbuffercoord), ::core::mem::transmute(lpwriteregion)))
+    WriteConsoleOutputW(hconsoleoutput.into(), ::core::mem::transmute(lpbuffer), ::core::mem::transmute(dwbuffersize), ::core::mem::transmute(dwbuffercoord), ::core::mem::transmute(lpwriteregion))
 }
 #[doc = "*Required features: `\"Win32_System_Console\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -2091,7 +2091,7 @@ where
     extern "system" {
         fn WriteConsoleW(hconsoleoutput: super::super::Foundation::HANDLE, lpbuffer: *const ::core::ffi::c_void, nnumberofcharstowrite: u32, lpnumberofcharswritten: *mut u32, lpreserved: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(WriteConsoleW(hconsoleoutput.into(), ::core::mem::transmute(::windows::core::as_ptr_or_null(lpbuffer)), lpbuffer.len() as _, ::core::mem::transmute(lpnumberofcharswritten), ::core::mem::transmute(lpreserved)))
+    WriteConsoleW(hconsoleoutput.into(), ::core::mem::transmute(::windows::core::as_ptr_or_null(lpbuffer)), lpbuffer.len() as _, ::core::mem::transmute(lpnumberofcharswritten), ::core::mem::transmute(lpreserved))
 }
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

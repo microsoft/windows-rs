@@ -14158,7 +14158,7 @@ pub unsafe fn WebAuthNGetApiVersionNumber() -> u32 {
     extern "system" {
         fn WebAuthNGetApiVersionNumber() -> u32;
     }
-    ::core::mem::transmute(WebAuthNGetApiVersionNumber())
+    WebAuthNGetApiVersionNumber()
 }
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
 #[inline]
@@ -14177,7 +14177,7 @@ pub unsafe fn WebAuthNGetErrorName(hr: ::windows::core::HRESULT) -> ::windows::c
     extern "system" {
         fn WebAuthNGetErrorName(hr: ::windows::core::HRESULT) -> ::windows::core::PWSTR;
     }
-    ::core::mem::transmute(WebAuthNGetErrorName(hr))
+    WebAuthNGetErrorName(hr)
 }
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
 #[inline]

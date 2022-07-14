@@ -15095,7 +15095,7 @@ impl ID3D12VideoDecodeCommandList {
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`*"]
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
     pub unsafe fn GetType(&self) -> super::super::Graphics::Direct3D12::D3D12_COMMAND_LIST_TYPE {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).base__.GetType)(::windows::core::Interface::as_raw(self)))
+        (::windows::core::Interface::vtable(self).base__.GetType)(::windows::core::Interface::as_raw(self))
     }
     pub unsafe fn Close(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).Close)(::windows::core::Interface::as_raw(self)).ok()
@@ -15371,7 +15371,7 @@ impl ID3D12VideoDecodeCommandList1 {
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`*"]
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
     pub unsafe fn GetType(&self) -> super::super::Graphics::Direct3D12::D3D12_COMMAND_LIST_TYPE {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).base__.base__.GetType)(::windows::core::Interface::as_raw(self)))
+        (::windows::core::Interface::vtable(self).base__.base__.GetType)(::windows::core::Interface::as_raw(self))
     }
     pub unsafe fn Close(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.Close)(::windows::core::Interface::as_raw(self)).ok()
@@ -15636,7 +15636,7 @@ impl ID3D12VideoDecodeCommandList2 {
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`*"]
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
     pub unsafe fn GetType(&self) -> super::super::Graphics::Direct3D12::D3D12_COMMAND_LIST_TYPE {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).base__.base__.base__.GetType)(::windows::core::Interface::as_raw(self)))
+        (::windows::core::Interface::vtable(self).base__.base__.base__.GetType)(::windows::core::Interface::as_raw(self))
     }
     pub unsafe fn Close(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.base__.Close)(::windows::core::Interface::as_raw(self)).ok()
@@ -17227,7 +17227,7 @@ impl ID3D12VideoEncodeCommandList {
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`*"]
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
     pub unsafe fn GetType(&self) -> super::super::Graphics::Direct3D12::D3D12_COMMAND_LIST_TYPE {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).base__.GetType)(::windows::core::Interface::as_raw(self)))
+        (::windows::core::Interface::vtable(self).base__.GetType)(::windows::core::Interface::as_raw(self))
     }
     pub unsafe fn Close(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).Close)(::windows::core::Interface::as_raw(self)).ok()
@@ -17524,7 +17524,7 @@ impl ID3D12VideoEncodeCommandList1 {
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`*"]
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
     pub unsafe fn GetType(&self) -> super::super::Graphics::Direct3D12::D3D12_COMMAND_LIST_TYPE {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).base__.base__.GetType)(::windows::core::Interface::as_raw(self)))
+        (::windows::core::Interface::vtable(self).base__.base__.GetType)(::windows::core::Interface::as_raw(self))
     }
     pub unsafe fn Close(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.Close)(::windows::core::Interface::as_raw(self)).ok()
@@ -17814,7 +17814,7 @@ impl ID3D12VideoEncodeCommandList2 {
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`*"]
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
     pub unsafe fn GetType(&self) -> super::super::Graphics::Direct3D12::D3D12_COMMAND_LIST_TYPE {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).base__.base__.base__.GetType)(::windows::core::Interface::as_raw(self)))
+        (::windows::core::Interface::vtable(self).base__.base__.base__.GetType)(::windows::core::Interface::as_raw(self))
     }
     pub unsafe fn Close(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.base__.Close)(::windows::core::Interface::as_raw(self)).ok()
@@ -18134,13 +18134,13 @@ impl ID3D12VideoEncoder {
         (::windows::core::Interface::vtable(self).base__.base__.GetDevice)(::windows::core::Interface::as_raw(self), &<T as ::windows::core::Interface>::IID, result__ as *mut _ as *mut _).ok()
     }
     pub unsafe fn GetNodeMask(&self) -> u32 {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).GetNodeMask)(::windows::core::Interface::as_raw(self)))
+        (::windows::core::Interface::vtable(self).GetNodeMask)(::windows::core::Interface::as_raw(self))
     }
     pub unsafe fn GetEncoderFlags(&self) -> D3D12_VIDEO_ENCODER_FLAGS {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).GetEncoderFlags)(::windows::core::Interface::as_raw(self)))
+        (::windows::core::Interface::vtable(self).GetEncoderFlags)(::windows::core::Interface::as_raw(self))
     }
     pub unsafe fn GetCodec(&self) -> D3D12_VIDEO_ENCODER_CODEC {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).GetCodec)(::windows::core::Interface::as_raw(self)))
+        (::windows::core::Interface::vtable(self).GetCodec)(::windows::core::Interface::as_raw(self))
     }
     pub unsafe fn GetCodecProfile(&self, dstprofile: D3D12_VIDEO_ENCODER_PROFILE_DESC) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).GetCodecProfile)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(dstprofile)).ok()
@@ -18151,10 +18151,10 @@ impl ID3D12VideoEncoder {
     #[doc = "*Required features: `\"Win32_Graphics_Dxgi_Common\"`*"]
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
     pub unsafe fn GetInputFormat(&self) -> super::super::Graphics::Dxgi::Common::DXGI_FORMAT {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).GetInputFormat)(::windows::core::Interface::as_raw(self)))
+        (::windows::core::Interface::vtable(self).GetInputFormat)(::windows::core::Interface::as_raw(self))
     }
     pub unsafe fn GetMaxMotionEstimationPrecision(&self) -> D3D12_VIDEO_ENCODER_MOTION_ESTIMATION_PRECISION_MODE {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).GetMaxMotionEstimationPrecision)(::windows::core::Interface::as_raw(self)))
+        (::windows::core::Interface::vtable(self).GetMaxMotionEstimationPrecision)(::windows::core::Interface::as_raw(self))
     }
 }
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
@@ -18315,13 +18315,13 @@ impl ID3D12VideoEncoderHeap {
         (::windows::core::Interface::vtable(self).base__.base__.GetDevice)(::windows::core::Interface::as_raw(self), &<T as ::windows::core::Interface>::IID, result__ as *mut _ as *mut _).ok()
     }
     pub unsafe fn GetNodeMask(&self) -> u32 {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).GetNodeMask)(::windows::core::Interface::as_raw(self)))
+        (::windows::core::Interface::vtable(self).GetNodeMask)(::windows::core::Interface::as_raw(self))
     }
     pub unsafe fn GetEncoderHeapFlags(&self) -> D3D12_VIDEO_ENCODER_HEAP_FLAGS {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).GetEncoderHeapFlags)(::windows::core::Interface::as_raw(self)))
+        (::windows::core::Interface::vtable(self).GetEncoderHeapFlags)(::windows::core::Interface::as_raw(self))
     }
     pub unsafe fn GetCodec(&self) -> D3D12_VIDEO_ENCODER_CODEC {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).GetCodec)(::windows::core::Interface::as_raw(self)))
+        (::windows::core::Interface::vtable(self).GetCodec)(::windows::core::Interface::as_raw(self))
     }
     pub unsafe fn GetCodecProfile(&self, dstprofile: D3D12_VIDEO_ENCODER_PROFILE_DESC) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).GetCodecProfile)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(dstprofile)).ok()
@@ -18330,7 +18330,7 @@ impl ID3D12VideoEncoderHeap {
         (::windows::core::Interface::vtable(self).GetCodecLevel)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(dstlevel)).ok()
     }
     pub unsafe fn GetResolutionListCount(&self) -> u32 {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).GetResolutionListCount)(::windows::core::Interface::as_raw(self)))
+        (::windows::core::Interface::vtable(self).GetResolutionListCount)(::windows::core::Interface::as_raw(self))
     }
     pub unsafe fn GetResolutionList(&self, presolutionlist: &mut [D3D12_VIDEO_ENCODER_PICTURE_RESOLUTION_DESC]) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).GetResolutionList)(::windows::core::Interface::as_raw(self), presolutionlist.len() as _, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(presolutionlist))).ok()
@@ -18986,7 +18986,7 @@ impl ID3D12VideoProcessCommandList {
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`*"]
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
     pub unsafe fn GetType(&self) -> super::super::Graphics::Direct3D12::D3D12_COMMAND_LIST_TYPE {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).base__.GetType)(::windows::core::Interface::as_raw(self)))
+        (::windows::core::Interface::vtable(self).base__.GetType)(::windows::core::Interface::as_raw(self))
     }
     pub unsafe fn Close(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).Close)(::windows::core::Interface::as_raw(self)).ok()
@@ -19262,7 +19262,7 @@ impl ID3D12VideoProcessCommandList1 {
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`*"]
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
     pub unsafe fn GetType(&self) -> super::super::Graphics::Direct3D12::D3D12_COMMAND_LIST_TYPE {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).base__.base__.GetType)(::windows::core::Interface::as_raw(self)))
+        (::windows::core::Interface::vtable(self).base__.base__.GetType)(::windows::core::Interface::as_raw(self))
     }
     pub unsafe fn Close(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.Close)(::windows::core::Interface::as_raw(self)).ok()
@@ -19527,7 +19527,7 @@ impl ID3D12VideoProcessCommandList2 {
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`*"]
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
     pub unsafe fn GetType(&self) -> super::super::Graphics::Direct3D12::D3D12_COMMAND_LIST_TYPE {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).base__.base__.base__.GetType)(::windows::core::Interface::as_raw(self)))
+        (::windows::core::Interface::vtable(self).base__.base__.base__.GetType)(::windows::core::Interface::as_raw(self))
     }
     pub unsafe fn Close(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.base__.Close)(::windows::core::Interface::as_raw(self)).ok()
@@ -19840,10 +19840,10 @@ impl ID3D12VideoProcessor {
         (::windows::core::Interface::vtable(self).base__.base__.GetDevice)(::windows::core::Interface::as_raw(self), &<T as ::windows::core::Interface>::IID, result__ as *mut _ as *mut _).ok()
     }
     pub unsafe fn GetNodeMask(&self) -> u32 {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).GetNodeMask)(::windows::core::Interface::as_raw(self)))
+        (::windows::core::Interface::vtable(self).GetNodeMask)(::windows::core::Interface::as_raw(self))
     }
     pub unsafe fn GetNumInputStreamDescs(&self) -> u32 {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).GetNumInputStreamDescs)(::windows::core::Interface::as_raw(self)))
+        (::windows::core::Interface::vtable(self).GetNumInputStreamDescs)(::windows::core::Interface::as_raw(self))
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Dxgi_Common\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
@@ -20016,10 +20016,10 @@ impl ID3D12VideoProcessor1 {
         (::windows::core::Interface::vtable(self).base__.base__.base__.GetDevice)(::windows::core::Interface::as_raw(self), &<T as ::windows::core::Interface>::IID, result__ as *mut _ as *mut _).ok()
     }
     pub unsafe fn GetNodeMask(&self) -> u32 {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).base__.GetNodeMask)(::windows::core::Interface::as_raw(self)))
+        (::windows::core::Interface::vtable(self).base__.GetNodeMask)(::windows::core::Interface::as_raw(self))
     }
     pub unsafe fn GetNumInputStreamDescs(&self) -> u32 {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).base__.GetNumInputStreamDescs)(::windows::core::Interface::as_raw(self)))
+        (::windows::core::Interface::vtable(self).base__.GetNumInputStreamDescs)(::windows::core::Interface::as_raw(self))
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Dxgi_Common\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
@@ -22806,7 +22806,7 @@ impl IMFASFStreamConfig {
         (::windows::core::Interface::vtable(self).GetStreamType)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::GUID>(result__)
     }
     pub unsafe fn GetStreamNumber(&self) -> u16 {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).GetStreamNumber)(::windows::core::Interface::as_raw(self)))
+        (::windows::core::Interface::vtable(self).GetStreamNumber)(::windows::core::Interface::as_raw(self))
     }
     pub unsafe fn SetStreamNumber(&self, wstreamnum: u16) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetStreamNumber)(::windows::core::Interface::as_raw(self), wstreamnum).ok()
@@ -23354,10 +23354,10 @@ impl IMFAsyncCallbackLogging {
         (::windows::core::Interface::vtable(self).base__.Invoke)(::windows::core::Interface::as_raw(self), pasyncresult.into().abi()).ok()
     }
     pub unsafe fn GetObjectPointer(&self) -> *mut ::core::ffi::c_void {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).GetObjectPointer)(::windows::core::Interface::as_raw(self)))
+        (::windows::core::Interface::vtable(self).GetObjectPointer)(::windows::core::Interface::as_raw(self))
     }
     pub unsafe fn GetObjectTag(&self) -> u32 {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).GetObjectTag)(::windows::core::Interface::as_raw(self)))
+        (::windows::core::Interface::vtable(self).GetObjectTag)(::windows::core::Interface::as_raw(self))
     }
 }
 impl ::core::convert::From<IMFAsyncCallbackLogging> for ::windows::core::IUnknown {
@@ -23436,7 +23436,7 @@ impl IMFAsyncResult {
         (::windows::core::Interface::vtable(self).GetObject)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::IUnknown>(result__)
     }
     pub unsafe fn GetStateNoAddRef(&self) -> ::core::option::Option<::windows::core::IUnknown> {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).GetStateNoAddRef)(::windows::core::Interface::as_raw(self)))
+        (::windows::core::Interface::vtable(self).GetStateNoAddRef)(::windows::core::Interface::as_raw(self))
     }
 }
 impl ::core::convert::From<IMFAsyncResult> for ::windows::core::IUnknown {
@@ -23856,7 +23856,7 @@ impl IMFAudioMediaType {
     #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
     #[cfg(feature = "Win32_Media_Audio")]
     pub unsafe fn GetAudioFormat(&self) -> *mut super::Audio::WAVEFORMATEX {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).GetAudioFormat)(::windows::core::Interface::as_raw(self)))
+        (::windows::core::Interface::vtable(self).GetAudioFormat)(::windows::core::Interface::as_raw(self))
     }
 }
 impl ::core::convert::From<IMFAudioMediaType> for ::windows::core::IUnknown {
@@ -24667,7 +24667,7 @@ impl IMFCameraOcclusionStateMonitor {
         (::windows::core::Interface::vtable(self).Stop)(::windows::core::Interface::as_raw(self)).ok()
     }
     pub unsafe fn GetSupportedStates(&self) -> u32 {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).GetSupportedStates)(::windows::core::Interface::as_raw(self)))
+        (::windows::core::Interface::vtable(self).GetSupportedStates)(::windows::core::Interface::as_raw(self))
     }
 }
 impl ::core::convert::From<IMFCameraOcclusionStateMonitor> for ::windows::core::IUnknown {
@@ -26416,7 +26416,7 @@ impl IMFContentDecryptionModuleFactory {
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
         P1: ::std::convert::Into<::windows::core::PCWSTR>,
     {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).IsTypeSupported)(::windows::core::Interface::as_raw(self), keysystem.into(), contenttype.into()))
+        (::windows::core::Interface::vtable(self).IsTypeSupported)(::windows::core::Interface::as_raw(self), keysystem.into(), contenttype.into())
     }
     #[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
     #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
@@ -27639,13 +27639,13 @@ pub struct IMFDeviceTransformCallback_Vtbl {
 pub struct IMFExtendedCameraControl(::windows::core::IUnknown);
 impl IMFExtendedCameraControl {
     pub unsafe fn GetCapabilities(&self) -> u64 {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).GetCapabilities)(::windows::core::Interface::as_raw(self)))
+        (::windows::core::Interface::vtable(self).GetCapabilities)(::windows::core::Interface::as_raw(self))
     }
     pub unsafe fn SetFlags(&self, ulflags: u64) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetFlags)(::windows::core::Interface::as_raw(self), ulflags).ok()
     }
     pub unsafe fn GetFlags(&self) -> u64 {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).GetFlags)(::windows::core::Interface::as_raw(self)))
+        (::windows::core::Interface::vtable(self).GetFlags)(::windows::core::Interface::as_raw(self))
     }
     pub unsafe fn LockPayload(&self, pppayload: *mut *mut u8, pulpayload: *mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).LockPayload)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pppayload), ::core::mem::transmute(pulpayload)).ok()
@@ -28953,10 +28953,10 @@ impl IMFMediaEngine {
         (::windows::core::Interface::vtable(self).GetCurrentSource)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     pub unsafe fn GetNetworkState(&self) -> u16 {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).GetNetworkState)(::windows::core::Interface::as_raw(self)))
+        (::windows::core::Interface::vtable(self).GetNetworkState)(::windows::core::Interface::as_raw(self))
     }
     pub unsafe fn GetPreload(&self) -> MF_MEDIA_ENGINE_PRELOAD {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).GetPreload)(::windows::core::Interface::as_raw(self)))
+        (::windows::core::Interface::vtable(self).GetPreload)(::windows::core::Interface::as_raw(self))
     }
     pub unsafe fn SetPreload(&self, preload: MF_MEDIA_ENGINE_PRELOAD) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetPreload)(::windows::core::Interface::as_raw(self), preload).ok()
@@ -28978,38 +28978,38 @@ impl IMFMediaEngine {
         (::windows::core::Interface::vtable(self).CanPlayType)(::windows::core::Interface::as_raw(self), r#type.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<MF_MEDIA_ENGINE_CANPLAY>(result__)
     }
     pub unsafe fn GetReadyState(&self) -> u16 {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).GetReadyState)(::windows::core::Interface::as_raw(self)))
+        (::windows::core::Interface::vtable(self).GetReadyState)(::windows::core::Interface::as_raw(self))
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn IsSeeking(&self) -> super::super::Foundation::BOOL {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).IsSeeking)(::windows::core::Interface::as_raw(self)))
+        (::windows::core::Interface::vtable(self).IsSeeking)(::windows::core::Interface::as_raw(self))
     }
     pub unsafe fn GetCurrentTime(&self) -> f64 {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).GetCurrentTime)(::windows::core::Interface::as_raw(self)))
+        (::windows::core::Interface::vtable(self).GetCurrentTime)(::windows::core::Interface::as_raw(self))
     }
     pub unsafe fn SetCurrentTime(&self, seektime: f64) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetCurrentTime)(::windows::core::Interface::as_raw(self), seektime).ok()
     }
     pub unsafe fn GetStartTime(&self) -> f64 {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).GetStartTime)(::windows::core::Interface::as_raw(self)))
+        (::windows::core::Interface::vtable(self).GetStartTime)(::windows::core::Interface::as_raw(self))
     }
     pub unsafe fn GetDuration(&self) -> f64 {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).GetDuration)(::windows::core::Interface::as_raw(self)))
+        (::windows::core::Interface::vtable(self).GetDuration)(::windows::core::Interface::as_raw(self))
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn IsPaused(&self) -> super::super::Foundation::BOOL {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).IsPaused)(::windows::core::Interface::as_raw(self)))
+        (::windows::core::Interface::vtable(self).IsPaused)(::windows::core::Interface::as_raw(self))
     }
     pub unsafe fn GetDefaultPlaybackRate(&self) -> f64 {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).GetDefaultPlaybackRate)(::windows::core::Interface::as_raw(self)))
+        (::windows::core::Interface::vtable(self).GetDefaultPlaybackRate)(::windows::core::Interface::as_raw(self))
     }
     pub unsafe fn SetDefaultPlaybackRate(&self, rate: f64) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetDefaultPlaybackRate)(::windows::core::Interface::as_raw(self), rate).ok()
     }
     pub unsafe fn GetPlaybackRate(&self) -> f64 {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).GetPlaybackRate)(::windows::core::Interface::as_raw(self)))
+        (::windows::core::Interface::vtable(self).GetPlaybackRate)(::windows::core::Interface::as_raw(self))
     }
     pub unsafe fn SetPlaybackRate(&self, rate: f64) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetPlaybackRate)(::windows::core::Interface::as_raw(self), rate).ok()
@@ -29025,12 +29025,12 @@ impl IMFMediaEngine {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn IsEnded(&self) -> super::super::Foundation::BOOL {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).IsEnded)(::windows::core::Interface::as_raw(self)))
+        (::windows::core::Interface::vtable(self).IsEnded)(::windows::core::Interface::as_raw(self))
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetAutoPlay(&self) -> super::super::Foundation::BOOL {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).GetAutoPlay)(::windows::core::Interface::as_raw(self)))
+        (::windows::core::Interface::vtable(self).GetAutoPlay)(::windows::core::Interface::as_raw(self))
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -29043,7 +29043,7 @@ impl IMFMediaEngine {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetLoop(&self) -> super::super::Foundation::BOOL {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).GetLoop)(::windows::core::Interface::as_raw(self)))
+        (::windows::core::Interface::vtable(self).GetLoop)(::windows::core::Interface::as_raw(self))
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -29062,7 +29062,7 @@ impl IMFMediaEngine {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetMuted(&self) -> super::super::Foundation::BOOL {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).GetMuted)(::windows::core::Interface::as_raw(self)))
+        (::windows::core::Interface::vtable(self).GetMuted)(::windows::core::Interface::as_raw(self))
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -29073,7 +29073,7 @@ impl IMFMediaEngine {
         (::windows::core::Interface::vtable(self).SetMuted)(::windows::core::Interface::as_raw(self), muted.into()).ok()
     }
     pub unsafe fn GetVolume(&self) -> f64 {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).GetVolume)(::windows::core::Interface::as_raw(self)))
+        (::windows::core::Interface::vtable(self).GetVolume)(::windows::core::Interface::as_raw(self))
     }
     pub unsafe fn SetVolume(&self, volume: f64) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetVolume)(::windows::core::Interface::as_raw(self), volume).ok()
@@ -29081,12 +29081,12 @@ impl IMFMediaEngine {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn HasVideo(&self) -> super::super::Foundation::BOOL {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).HasVideo)(::windows::core::Interface::as_raw(self)))
+        (::windows::core::Interface::vtable(self).HasVideo)(::windows::core::Interface::as_raw(self))
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn HasAudio(&self) -> super::super::Foundation::BOOL {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).HasAudio)(::windows::core::Interface::as_raw(self)))
+        (::windows::core::Interface::vtable(self).HasAudio)(::windows::core::Interface::as_raw(self))
     }
     pub unsafe fn GetNativeVideoSize(&self, cx: *mut u32, cy: *mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).GetNativeVideoSize)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(cx), ::core::mem::transmute(cy)).ok()
@@ -29788,10 +29788,10 @@ impl IMFMediaEngineEx {
         (::windows::core::Interface::vtable(self).base__.GetCurrentSource)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     pub unsafe fn GetNetworkState(&self) -> u16 {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).base__.GetNetworkState)(::windows::core::Interface::as_raw(self)))
+        (::windows::core::Interface::vtable(self).base__.GetNetworkState)(::windows::core::Interface::as_raw(self))
     }
     pub unsafe fn GetPreload(&self) -> MF_MEDIA_ENGINE_PRELOAD {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).base__.GetPreload)(::windows::core::Interface::as_raw(self)))
+        (::windows::core::Interface::vtable(self).base__.GetPreload)(::windows::core::Interface::as_raw(self))
     }
     pub unsafe fn SetPreload(&self, preload: MF_MEDIA_ENGINE_PRELOAD) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.SetPreload)(::windows::core::Interface::as_raw(self), preload).ok()
@@ -29813,38 +29813,38 @@ impl IMFMediaEngineEx {
         (::windows::core::Interface::vtable(self).base__.CanPlayType)(::windows::core::Interface::as_raw(self), r#type.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<MF_MEDIA_ENGINE_CANPLAY>(result__)
     }
     pub unsafe fn GetReadyState(&self) -> u16 {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).base__.GetReadyState)(::windows::core::Interface::as_raw(self)))
+        (::windows::core::Interface::vtable(self).base__.GetReadyState)(::windows::core::Interface::as_raw(self))
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn IsSeeking(&self) -> super::super::Foundation::BOOL {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).base__.IsSeeking)(::windows::core::Interface::as_raw(self)))
+        (::windows::core::Interface::vtable(self).base__.IsSeeking)(::windows::core::Interface::as_raw(self))
     }
     pub unsafe fn GetCurrentTime(&self) -> f64 {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).base__.GetCurrentTime)(::windows::core::Interface::as_raw(self)))
+        (::windows::core::Interface::vtable(self).base__.GetCurrentTime)(::windows::core::Interface::as_raw(self))
     }
     pub unsafe fn SetCurrentTime(&self, seektime: f64) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.SetCurrentTime)(::windows::core::Interface::as_raw(self), seektime).ok()
     }
     pub unsafe fn GetStartTime(&self) -> f64 {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).base__.GetStartTime)(::windows::core::Interface::as_raw(self)))
+        (::windows::core::Interface::vtable(self).base__.GetStartTime)(::windows::core::Interface::as_raw(self))
     }
     pub unsafe fn GetDuration(&self) -> f64 {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).base__.GetDuration)(::windows::core::Interface::as_raw(self)))
+        (::windows::core::Interface::vtable(self).base__.GetDuration)(::windows::core::Interface::as_raw(self))
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn IsPaused(&self) -> super::super::Foundation::BOOL {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).base__.IsPaused)(::windows::core::Interface::as_raw(self)))
+        (::windows::core::Interface::vtable(self).base__.IsPaused)(::windows::core::Interface::as_raw(self))
     }
     pub unsafe fn GetDefaultPlaybackRate(&self) -> f64 {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).base__.GetDefaultPlaybackRate)(::windows::core::Interface::as_raw(self)))
+        (::windows::core::Interface::vtable(self).base__.GetDefaultPlaybackRate)(::windows::core::Interface::as_raw(self))
     }
     pub unsafe fn SetDefaultPlaybackRate(&self, rate: f64) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.SetDefaultPlaybackRate)(::windows::core::Interface::as_raw(self), rate).ok()
     }
     pub unsafe fn GetPlaybackRate(&self) -> f64 {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).base__.GetPlaybackRate)(::windows::core::Interface::as_raw(self)))
+        (::windows::core::Interface::vtable(self).base__.GetPlaybackRate)(::windows::core::Interface::as_raw(self))
     }
     pub unsafe fn SetPlaybackRate(&self, rate: f64) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.SetPlaybackRate)(::windows::core::Interface::as_raw(self), rate).ok()
@@ -29860,12 +29860,12 @@ impl IMFMediaEngineEx {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn IsEnded(&self) -> super::super::Foundation::BOOL {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).base__.IsEnded)(::windows::core::Interface::as_raw(self)))
+        (::windows::core::Interface::vtable(self).base__.IsEnded)(::windows::core::Interface::as_raw(self))
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetAutoPlay(&self) -> super::super::Foundation::BOOL {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).base__.GetAutoPlay)(::windows::core::Interface::as_raw(self)))
+        (::windows::core::Interface::vtable(self).base__.GetAutoPlay)(::windows::core::Interface::as_raw(self))
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -29878,7 +29878,7 @@ impl IMFMediaEngineEx {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetLoop(&self) -> super::super::Foundation::BOOL {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).base__.GetLoop)(::windows::core::Interface::as_raw(self)))
+        (::windows::core::Interface::vtable(self).base__.GetLoop)(::windows::core::Interface::as_raw(self))
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -29897,7 +29897,7 @@ impl IMFMediaEngineEx {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetMuted(&self) -> super::super::Foundation::BOOL {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).base__.GetMuted)(::windows::core::Interface::as_raw(self)))
+        (::windows::core::Interface::vtable(self).base__.GetMuted)(::windows::core::Interface::as_raw(self))
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -29908,7 +29908,7 @@ impl IMFMediaEngineEx {
         (::windows::core::Interface::vtable(self).base__.SetMuted)(::windows::core::Interface::as_raw(self), muted.into()).ok()
     }
     pub unsafe fn GetVolume(&self) -> f64 {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).base__.GetVolume)(::windows::core::Interface::as_raw(self)))
+        (::windows::core::Interface::vtable(self).base__.GetVolume)(::windows::core::Interface::as_raw(self))
     }
     pub unsafe fn SetVolume(&self, volume: f64) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.SetVolume)(::windows::core::Interface::as_raw(self), volume).ok()
@@ -29916,12 +29916,12 @@ impl IMFMediaEngineEx {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn HasVideo(&self) -> super::super::Foundation::BOOL {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).base__.HasVideo)(::windows::core::Interface::as_raw(self)))
+        (::windows::core::Interface::vtable(self).base__.HasVideo)(::windows::core::Interface::as_raw(self))
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn HasAudio(&self) -> super::super::Foundation::BOOL {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).base__.HasAudio)(::windows::core::Interface::as_raw(self)))
+        (::windows::core::Interface::vtable(self).base__.HasAudio)(::windows::core::Interface::as_raw(self))
     }
     pub unsafe fn GetNativeVideoSize(&self, cx: *mut u32, cy: *mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.GetNativeVideoSize)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(cx), ::core::mem::transmute(cy)).ok()
@@ -29965,7 +29965,7 @@ impl IMFMediaEngineEx {
         (::windows::core::Interface::vtable(self).UpdateVideoStream)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(psrc), ::core::mem::transmute(pdst), ::core::mem::transmute(pborderclr)).ok()
     }
     pub unsafe fn GetBalance(&self) -> f64 {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).GetBalance)(::windows::core::Interface::as_raw(self)))
+        (::windows::core::Interface::vtable(self).GetBalance)(::windows::core::Interface::as_raw(self))
     }
     pub unsafe fn SetBalance(&self, balance: f64) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetBalance)(::windows::core::Interface::as_raw(self), balance).ok()
@@ -29973,7 +29973,7 @@ impl IMFMediaEngineEx {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn IsPlaybackRateSupported(&self, rate: f64) -> super::super::Foundation::BOOL {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).IsPlaybackRateSupported)(::windows::core::Interface::as_raw(self), rate))
+        (::windows::core::Interface::vtable(self).IsPlaybackRateSupported)(::windows::core::Interface::as_raw(self), rate)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -30060,7 +30060,7 @@ impl IMFMediaEngineEx {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn IsStereo3D(&self) -> super::super::Foundation::BOOL {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).IsStereo3D)(::windows::core::Interface::as_raw(self)))
+        (::windows::core::Interface::vtable(self).IsStereo3D)(::windows::core::Interface::as_raw(self))
     }
     pub unsafe fn GetStereo3DFramePackingMode(&self) -> ::windows::core::Result<MF_MEDIA_ENGINE_S3D_PACKING_MODE> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -30626,7 +30626,7 @@ pub struct IMFMediaEngineProtectedContent_Vtbl {
 pub struct IMFMediaEngineSrcElements(::windows::core::IUnknown);
 impl IMFMediaEngineSrcElements {
     pub unsafe fn GetLength(&self) -> u32 {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).GetLength)(::windows::core::Interface::as_raw(self)))
+        (::windows::core::Interface::vtable(self).GetLength)(::windows::core::Interface::as_raw(self))
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -30723,7 +30723,7 @@ pub struct IMFMediaEngineSrcElements_Vtbl {
 pub struct IMFMediaEngineSrcElementsEx(::windows::core::IUnknown);
 impl IMFMediaEngineSrcElementsEx {
     pub unsafe fn GetLength(&self) -> u32 {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).base__.GetLength)(::windows::core::Interface::as_raw(self)))
+        (::windows::core::Interface::vtable(self).base__.GetLength)(::windows::core::Interface::as_raw(self))
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -30964,7 +30964,7 @@ impl IMFMediaEngineWebSupport {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn ShouldDelayTheLoadEvent(&self) -> super::super::Foundation::BOOL {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).ShouldDelayTheLoadEvent)(::windows::core::Interface::as_raw(self)))
+        (::windows::core::Interface::vtable(self).ShouldDelayTheLoadEvent)(::windows::core::Interface::as_raw(self))
     }
     pub unsafe fn ConnectWebAudio(&self, dwsamplerate: u32) -> ::windows::core::Result<IAudioSourceProvider> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -31025,7 +31025,7 @@ pub struct IMFMediaEngineWebSupport_Vtbl {
 pub struct IMFMediaError(::windows::core::IUnknown);
 impl IMFMediaError {
     pub unsafe fn GetErrorCode(&self) -> u16 {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).GetErrorCode)(::windows::core::Interface::as_raw(self)))
+        (::windows::core::Interface::vtable(self).GetErrorCode)(::windows::core::Interface::as_raw(self))
     }
     pub unsafe fn GetExtendedErrorCode(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).GetExtendedErrorCode)(::windows::core::Interface::as_raw(self)).ok()
@@ -32237,10 +32237,10 @@ impl IMFMediaSharingEngine {
         (::windows::core::Interface::vtable(self).base__.GetCurrentSource)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     pub unsafe fn GetNetworkState(&self) -> u16 {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).base__.GetNetworkState)(::windows::core::Interface::as_raw(self)))
+        (::windows::core::Interface::vtable(self).base__.GetNetworkState)(::windows::core::Interface::as_raw(self))
     }
     pub unsafe fn GetPreload(&self) -> MF_MEDIA_ENGINE_PRELOAD {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).base__.GetPreload)(::windows::core::Interface::as_raw(self)))
+        (::windows::core::Interface::vtable(self).base__.GetPreload)(::windows::core::Interface::as_raw(self))
     }
     pub unsafe fn SetPreload(&self, preload: MF_MEDIA_ENGINE_PRELOAD) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.SetPreload)(::windows::core::Interface::as_raw(self), preload).ok()
@@ -32262,38 +32262,38 @@ impl IMFMediaSharingEngine {
         (::windows::core::Interface::vtable(self).base__.CanPlayType)(::windows::core::Interface::as_raw(self), r#type.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<MF_MEDIA_ENGINE_CANPLAY>(result__)
     }
     pub unsafe fn GetReadyState(&self) -> u16 {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).base__.GetReadyState)(::windows::core::Interface::as_raw(self)))
+        (::windows::core::Interface::vtable(self).base__.GetReadyState)(::windows::core::Interface::as_raw(self))
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn IsSeeking(&self) -> super::super::Foundation::BOOL {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).base__.IsSeeking)(::windows::core::Interface::as_raw(self)))
+        (::windows::core::Interface::vtable(self).base__.IsSeeking)(::windows::core::Interface::as_raw(self))
     }
     pub unsafe fn GetCurrentTime(&self) -> f64 {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).base__.GetCurrentTime)(::windows::core::Interface::as_raw(self)))
+        (::windows::core::Interface::vtable(self).base__.GetCurrentTime)(::windows::core::Interface::as_raw(self))
     }
     pub unsafe fn SetCurrentTime(&self, seektime: f64) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.SetCurrentTime)(::windows::core::Interface::as_raw(self), seektime).ok()
     }
     pub unsafe fn GetStartTime(&self) -> f64 {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).base__.GetStartTime)(::windows::core::Interface::as_raw(self)))
+        (::windows::core::Interface::vtable(self).base__.GetStartTime)(::windows::core::Interface::as_raw(self))
     }
     pub unsafe fn GetDuration(&self) -> f64 {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).base__.GetDuration)(::windows::core::Interface::as_raw(self)))
+        (::windows::core::Interface::vtable(self).base__.GetDuration)(::windows::core::Interface::as_raw(self))
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn IsPaused(&self) -> super::super::Foundation::BOOL {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).base__.IsPaused)(::windows::core::Interface::as_raw(self)))
+        (::windows::core::Interface::vtable(self).base__.IsPaused)(::windows::core::Interface::as_raw(self))
     }
     pub unsafe fn GetDefaultPlaybackRate(&self) -> f64 {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).base__.GetDefaultPlaybackRate)(::windows::core::Interface::as_raw(self)))
+        (::windows::core::Interface::vtable(self).base__.GetDefaultPlaybackRate)(::windows::core::Interface::as_raw(self))
     }
     pub unsafe fn SetDefaultPlaybackRate(&self, rate: f64) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.SetDefaultPlaybackRate)(::windows::core::Interface::as_raw(self), rate).ok()
     }
     pub unsafe fn GetPlaybackRate(&self) -> f64 {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).base__.GetPlaybackRate)(::windows::core::Interface::as_raw(self)))
+        (::windows::core::Interface::vtable(self).base__.GetPlaybackRate)(::windows::core::Interface::as_raw(self))
     }
     pub unsafe fn SetPlaybackRate(&self, rate: f64) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.SetPlaybackRate)(::windows::core::Interface::as_raw(self), rate).ok()
@@ -32309,12 +32309,12 @@ impl IMFMediaSharingEngine {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn IsEnded(&self) -> super::super::Foundation::BOOL {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).base__.IsEnded)(::windows::core::Interface::as_raw(self)))
+        (::windows::core::Interface::vtable(self).base__.IsEnded)(::windows::core::Interface::as_raw(self))
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetAutoPlay(&self) -> super::super::Foundation::BOOL {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).base__.GetAutoPlay)(::windows::core::Interface::as_raw(self)))
+        (::windows::core::Interface::vtable(self).base__.GetAutoPlay)(::windows::core::Interface::as_raw(self))
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -32327,7 +32327,7 @@ impl IMFMediaSharingEngine {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetLoop(&self) -> super::super::Foundation::BOOL {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).base__.GetLoop)(::windows::core::Interface::as_raw(self)))
+        (::windows::core::Interface::vtable(self).base__.GetLoop)(::windows::core::Interface::as_raw(self))
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -32346,7 +32346,7 @@ impl IMFMediaSharingEngine {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetMuted(&self) -> super::super::Foundation::BOOL {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).base__.GetMuted)(::windows::core::Interface::as_raw(self)))
+        (::windows::core::Interface::vtable(self).base__.GetMuted)(::windows::core::Interface::as_raw(self))
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -32357,7 +32357,7 @@ impl IMFMediaSharingEngine {
         (::windows::core::Interface::vtable(self).base__.SetMuted)(::windows::core::Interface::as_raw(self), muted.into()).ok()
     }
     pub unsafe fn GetVolume(&self) -> f64 {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).base__.GetVolume)(::windows::core::Interface::as_raw(self)))
+        (::windows::core::Interface::vtable(self).base__.GetVolume)(::windows::core::Interface::as_raw(self))
     }
     pub unsafe fn SetVolume(&self, volume: f64) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.SetVolume)(::windows::core::Interface::as_raw(self), volume).ok()
@@ -32365,12 +32365,12 @@ impl IMFMediaSharingEngine {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn HasVideo(&self) -> super::super::Foundation::BOOL {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).base__.HasVideo)(::windows::core::Interface::as_raw(self)))
+        (::windows::core::Interface::vtable(self).base__.HasVideo)(::windows::core::Interface::as_raw(self))
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn HasAudio(&self) -> super::super::Foundation::BOOL {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).base__.HasAudio)(::windows::core::Interface::as_raw(self)))
+        (::windows::core::Interface::vtable(self).base__.HasAudio)(::windows::core::Interface::as_raw(self))
     }
     pub unsafe fn GetNativeVideoSize(&self, cx: *mut u32, cy: *mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.GetNativeVideoSize)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(cx), ::core::mem::transmute(cy)).ok()
@@ -33075,16 +33075,16 @@ pub struct IMFMediaSourceEx_Vtbl {
 pub struct IMFMediaSourceExtension(::windows::core::IUnknown);
 impl IMFMediaSourceExtension {
     pub unsafe fn GetSourceBuffers(&self) -> ::core::option::Option<IMFSourceBufferList> {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).GetSourceBuffers)(::windows::core::Interface::as_raw(self)))
+        (::windows::core::Interface::vtable(self).GetSourceBuffers)(::windows::core::Interface::as_raw(self))
     }
     pub unsafe fn GetActiveSourceBuffers(&self) -> ::core::option::Option<IMFSourceBufferList> {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).GetActiveSourceBuffers)(::windows::core::Interface::as_raw(self)))
+        (::windows::core::Interface::vtable(self).GetActiveSourceBuffers)(::windows::core::Interface::as_raw(self))
     }
     pub unsafe fn GetReadyState(&self) -> MF_MSE_READY {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).GetReadyState)(::windows::core::Interface::as_raw(self)))
+        (::windows::core::Interface::vtable(self).GetReadyState)(::windows::core::Interface::as_raw(self))
     }
     pub unsafe fn GetDuration(&self) -> f64 {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).GetDuration)(::windows::core::Interface::as_raw(self)))
+        (::windows::core::Interface::vtable(self).GetDuration)(::windows::core::Interface::as_raw(self))
     }
     pub unsafe fn SetDuration(&self, duration: f64) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetDuration)(::windows::core::Interface::as_raw(self), duration).ok()
@@ -33114,10 +33114,10 @@ impl IMFMediaSourceExtension {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
     {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).IsTypeSupported)(::windows::core::Interface::as_raw(self), r#type.into().abi()))
+        (::windows::core::Interface::vtable(self).IsTypeSupported)(::windows::core::Interface::as_raw(self), r#type.into().abi())
     }
     pub unsafe fn GetSourceBuffer(&self, dwstreamindex: u32) -> ::core::option::Option<IMFSourceBuffer> {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).GetSourceBuffer)(::windows::core::Interface::as_raw(self), dwstreamindex))
+        (::windows::core::Interface::vtable(self).GetSourceBuffer)(::windows::core::Interface::as_raw(self), dwstreamindex)
     }
 }
 impl ::core::convert::From<IMFMediaSourceExtension> for ::windows::core::IUnknown {
@@ -33669,7 +33669,7 @@ pub struct IMFMediaStreamSourceSampleRequest_Vtbl {
 pub struct IMFMediaTimeRange(::windows::core::IUnknown);
 impl IMFMediaTimeRange {
     pub unsafe fn GetLength(&self) -> u32 {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).GetLength)(::windows::core::Interface::as_raw(self)))
+        (::windows::core::Interface::vtable(self).GetLength)(::windows::core::Interface::as_raw(self))
     }
     pub unsafe fn GetStart(&self, index: u32) -> ::windows::core::Result<f64> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -33682,7 +33682,7 @@ impl IMFMediaTimeRange {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn ContainsTime(&self, time: f64) -> super::super::Foundation::BOOL {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).ContainsTime)(::windows::core::Interface::as_raw(self), time))
+        (::windows::core::Interface::vtable(self).ContainsTime)(::windows::core::Interface::as_raw(self), time)
     }
     pub unsafe fn AddRange(&self, starttime: f64, endtime: f64) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).AddRange)(::windows::core::Interface::as_raw(self), starttime, endtime).ok()
@@ -34340,7 +34340,7 @@ impl IMFMuxStreamSampleManager {
         (::windows::core::Interface::vtable(self).GetSample)(::windows::core::Interface::as_raw(self), dwmuxstreamindex, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IMFSample>(result__)
     }
     pub unsafe fn GetStreamConfiguration(&self) -> u64 {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).GetStreamConfiguration)(::windows::core::Interface::as_raw(self)))
+        (::windows::core::Interface::vtable(self).GetStreamConfiguration)(::windows::core::Interface::as_raw(self))
     }
 }
 impl ::core::convert::From<IMFMuxStreamSampleManager> for ::windows::core::IUnknown {
@@ -39547,7 +39547,7 @@ pub struct IMFSensorProfile_Vtbl {
 pub struct IMFSensorProfileCollection(::windows::core::IUnknown);
 impl IMFSensorProfileCollection {
     pub unsafe fn GetProfileCount(&self) -> u32 {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).GetProfileCount)(::windows::core::Interface::as_raw(self)))
+        (::windows::core::Interface::vtable(self).GetProfileCount)(::windows::core::Interface::as_raw(self))
     }
     pub unsafe fn GetProfile(&self, index: u32) -> ::windows::core::Result<IMFSensorProfile> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -40606,26 +40606,26 @@ impl IMFSourceBuffer {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetUpdating(&self) -> super::super::Foundation::BOOL {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).GetUpdating)(::windows::core::Interface::as_raw(self)))
+        (::windows::core::Interface::vtable(self).GetUpdating)(::windows::core::Interface::as_raw(self))
     }
     pub unsafe fn GetBuffered(&self) -> ::windows::core::Result<IMFMediaTimeRange> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).GetBuffered)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IMFMediaTimeRange>(result__)
     }
     pub unsafe fn GetTimeStampOffset(&self) -> f64 {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).GetTimeStampOffset)(::windows::core::Interface::as_raw(self)))
+        (::windows::core::Interface::vtable(self).GetTimeStampOffset)(::windows::core::Interface::as_raw(self))
     }
     pub unsafe fn SetTimeStampOffset(&self, offset: f64) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetTimeStampOffset)(::windows::core::Interface::as_raw(self), offset).ok()
     }
     pub unsafe fn GetAppendWindowStart(&self) -> f64 {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).GetAppendWindowStart)(::windows::core::Interface::as_raw(self)))
+        (::windows::core::Interface::vtable(self).GetAppendWindowStart)(::windows::core::Interface::as_raw(self))
     }
     pub unsafe fn SetAppendWindowStart(&self, time: f64) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetAppendWindowStart)(::windows::core::Interface::as_raw(self), time).ok()
     }
     pub unsafe fn GetAppendWindowEnd(&self) -> f64 {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).GetAppendWindowEnd)(::windows::core::Interface::as_raw(self)))
+        (::windows::core::Interface::vtable(self).GetAppendWindowEnd)(::windows::core::Interface::as_raw(self))
     }
     pub unsafe fn SetAppendWindowEnd(&self, time: f64) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetAppendWindowEnd)(::windows::core::Interface::as_raw(self), time).ok()
@@ -40706,7 +40706,7 @@ pub struct IMFSourceBuffer_Vtbl {
 pub struct IMFSourceBufferAppendMode(::windows::core::IUnknown);
 impl IMFSourceBufferAppendMode {
     pub unsafe fn GetAppendMode(&self) -> MF_MSE_APPEND_MODE {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).GetAppendMode)(::windows::core::Interface::as_raw(self)))
+        (::windows::core::Interface::vtable(self).GetAppendMode)(::windows::core::Interface::as_raw(self))
     }
     pub unsafe fn SetAppendMode(&self, mode: MF_MSE_APPEND_MODE) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetAppendMode)(::windows::core::Interface::as_raw(self), mode).ok()
@@ -40759,10 +40759,10 @@ pub struct IMFSourceBufferAppendMode_Vtbl {
 pub struct IMFSourceBufferList(::windows::core::IUnknown);
 impl IMFSourceBufferList {
     pub unsafe fn GetLength(&self) -> u32 {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).GetLength)(::windows::core::Interface::as_raw(self)))
+        (::windows::core::Interface::vtable(self).GetLength)(::windows::core::Interface::as_raw(self))
     }
     pub unsafe fn GetSourceBuffer(&self, index: u32) -> ::core::option::Option<IMFSourceBuffer> {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).GetSourceBuffer)(::windows::core::Interface::as_raw(self), index))
+        (::windows::core::Interface::vtable(self).GetSourceBuffer)(::windows::core::Interface::as_raw(self), index)
     }
 }
 impl ::core::convert::From<IMFSourceBufferList> for ::windows::core::IUnknown {
@@ -42429,7 +42429,7 @@ impl IMFTimedText {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn IsInBandEnabled(&self) -> super::super::Foundation::BOOL {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).IsInBandEnabled)(::windows::core::Interface::as_raw(self)))
+        (::windows::core::Interface::vtable(self).IsInBandEnabled)(::windows::core::Interface::as_raw(self))
     }
 }
 impl ::core::convert::From<IMFTimedText> for ::windows::core::IUnknown {
@@ -42615,23 +42615,23 @@ pub struct IMFTimedTextBouten_Vtbl {
 pub struct IMFTimedTextCue(::windows::core::IUnknown);
 impl IMFTimedTextCue {
     pub unsafe fn GetId(&self) -> u32 {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).GetId)(::windows::core::Interface::as_raw(self)))
+        (::windows::core::Interface::vtable(self).GetId)(::windows::core::Interface::as_raw(self))
     }
     pub unsafe fn GetOriginalId(&self) -> ::windows::core::Result<::windows::core::PWSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).GetOriginalId)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::PWSTR>(result__)
     }
     pub unsafe fn GetCueKind(&self) -> MF_TIMED_TEXT_TRACK_KIND {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).GetCueKind)(::windows::core::Interface::as_raw(self)))
+        (::windows::core::Interface::vtable(self).GetCueKind)(::windows::core::Interface::as_raw(self))
     }
     pub unsafe fn GetStartTime(&self) -> f64 {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).GetStartTime)(::windows::core::Interface::as_raw(self)))
+        (::windows::core::Interface::vtable(self).GetStartTime)(::windows::core::Interface::as_raw(self))
     }
     pub unsafe fn GetDuration(&self) -> f64 {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).GetDuration)(::windows::core::Interface::as_raw(self)))
+        (::windows::core::Interface::vtable(self).GetDuration)(::windows::core::Interface::as_raw(self))
     }
     pub unsafe fn GetTrackId(&self) -> u32 {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).GetTrackId)(::windows::core::Interface::as_raw(self)))
+        (::windows::core::Interface::vtable(self).GetTrackId)(::windows::core::Interface::as_raw(self))
     }
     pub unsafe fn GetData(&self) -> ::windows::core::Result<IMFTimedTextBinary> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -42646,7 +42646,7 @@ impl IMFTimedTextCue {
         (::windows::core::Interface::vtable(self).GetStyle)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IMFTimedTextStyle>(result__)
     }
     pub unsafe fn GetLineCount(&self) -> u32 {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).GetLineCount)(::windows::core::Interface::as_raw(self)))
+        (::windows::core::Interface::vtable(self).GetLineCount)(::windows::core::Interface::as_raw(self))
     }
     pub unsafe fn GetLine(&self, index: u32) -> ::windows::core::Result<IMFTimedTextFormattedText> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -42709,7 +42709,7 @@ pub struct IMFTimedTextCue_Vtbl {
 pub struct IMFTimedTextCueList(::windows::core::IUnknown);
 impl IMFTimedTextCueList {
     pub unsafe fn GetLength(&self) -> u32 {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).GetLength)(::windows::core::Interface::as_raw(self)))
+        (::windows::core::Interface::vtable(self).GetLength)(::windows::core::Interface::as_raw(self))
     }
     pub unsafe fn GetCueByIndex(&self, index: u32) -> ::windows::core::Result<IMFTimedTextCue> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -42800,7 +42800,7 @@ impl IMFTimedTextFormattedText {
         (::windows::core::Interface::vtable(self).GetText)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::PWSTR>(result__)
     }
     pub unsafe fn GetSubformattingCount(&self) -> u32 {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).GetSubformattingCount)(::windows::core::Interface::as_raw(self)))
+        (::windows::core::Interface::vtable(self).GetSubformattingCount)(::windows::core::Interface::as_raw(self))
     }
     pub unsafe fn GetSubformatting(&self, index: u32, firstchar: *mut u32, charlength: *mut u32, style: *mut ::core::option::Option<IMFTimedTextStyle>) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).GetSubformatting)(::windows::core::Interface::as_raw(self), index, ::core::mem::transmute(firstchar), ::core::mem::transmute(charlength), ::core::mem::transmute(style)).ok()
@@ -43120,7 +43120,7 @@ impl IMFTimedTextStyle {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn IsExternal(&self) -> super::super::Foundation::BOOL {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).IsExternal)(::windows::core::Interface::as_raw(self)))
+        (::windows::core::Interface::vtable(self).IsExternal)(::windows::core::Interface::as_raw(self))
     }
     pub unsafe fn GetFontFamily(&self) -> ::windows::core::Result<::windows::core::PWSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -43311,7 +43311,7 @@ pub struct IMFTimedTextStyle2_Vtbl {
 pub struct IMFTimedTextTrack(::windows::core::IUnknown);
 impl IMFTimedTextTrack {
     pub unsafe fn GetId(&self) -> u32 {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).GetId)(::windows::core::Interface::as_raw(self)))
+        (::windows::core::Interface::vtable(self).GetId)(::windows::core::Interface::as_raw(self))
     }
     pub unsafe fn GetLabel(&self) -> ::windows::core::Result<::windows::core::PWSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -43328,12 +43328,12 @@ impl IMFTimedTextTrack {
         (::windows::core::Interface::vtable(self).GetLanguage)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::PWSTR>(result__)
     }
     pub unsafe fn GetTrackKind(&self) -> MF_TIMED_TEXT_TRACK_KIND {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).GetTrackKind)(::windows::core::Interface::as_raw(self)))
+        (::windows::core::Interface::vtable(self).GetTrackKind)(::windows::core::Interface::as_raw(self))
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn IsInBand(&self) -> super::super::Foundation::BOOL {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).IsInBand)(::windows::core::Interface::as_raw(self)))
+        (::windows::core::Interface::vtable(self).IsInBand)(::windows::core::Interface::as_raw(self))
     }
     pub unsafe fn GetInBandMetadataTrackDispatchType(&self) -> ::windows::core::Result<::windows::core::PWSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -43342,10 +43342,10 @@ impl IMFTimedTextTrack {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn IsActive(&self) -> super::super::Foundation::BOOL {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).IsActive)(::windows::core::Interface::as_raw(self)))
+        (::windows::core::Interface::vtable(self).IsActive)(::windows::core::Interface::as_raw(self))
     }
     pub unsafe fn GetErrorCode(&self) -> MF_TIMED_TEXT_ERROR_CODE {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).GetErrorCode)(::windows::core::Interface::as_raw(self)))
+        (::windows::core::Interface::vtable(self).GetErrorCode)(::windows::core::Interface::as_raw(self))
     }
     pub unsafe fn GetExtendedErrorCode(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).GetExtendedErrorCode)(::windows::core::Interface::as_raw(self)).ok()
@@ -43355,7 +43355,7 @@ impl IMFTimedTextTrack {
         (::windows::core::Interface::vtable(self).GetDataFormat)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::GUID>(result__)
     }
     pub unsafe fn GetReadyState(&self) -> MF_TIMED_TEXT_TRACK_READY_STATE {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).GetReadyState)(::windows::core::Interface::as_raw(self)))
+        (::windows::core::Interface::vtable(self).GetReadyState)(::windows::core::Interface::as_raw(self))
     }
     pub unsafe fn GetCueList(&self) -> ::windows::core::Result<IMFTimedTextCueList> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -43426,7 +43426,7 @@ pub struct IMFTimedTextTrack_Vtbl {
 pub struct IMFTimedTextTrackList(::windows::core::IUnknown);
 impl IMFTimedTextTrackList {
     pub unsafe fn GetLength(&self) -> u32 {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).GetLength)(::windows::core::Interface::as_raw(self)))
+        (::windows::core::Interface::vtable(self).GetLength)(::windows::core::Interface::as_raw(self))
     }
     pub unsafe fn GetTrack(&self, index: u32) -> ::windows::core::Result<IMFTimedTextTrack> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -45199,7 +45199,7 @@ impl IMFVideoMediaType {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetVideoFormat(&self) -> *mut MFVIDEOFORMAT {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).GetVideoFormat)(::windows::core::Interface::as_raw(self)))
+        (::windows::core::Interface::vtable(self).GetVideoFormat)(::windows::core::Interface::as_raw(self))
     }
     pub unsafe fn GetVideoRepresentation(&self, guidrepresentation: ::windows::core::GUID, ppvrepresentation: *mut *mut ::core::ffi::c_void, lstride: i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).GetVideoRepresentation)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(guidrepresentation), ::core::mem::transmute(ppvrepresentation), lstride).ok()
@@ -49109,7 +49109,7 @@ impl MFASYNCRESULT {
         (::windows::core::Interface::vtable(self).base__.GetObject)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::IUnknown>(result__)
     }
     pub unsafe fn GetStateNoAddRef(&self) -> ::core::option::Option<::windows::core::IUnknown> {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).base__.GetStateNoAddRef)(::windows::core::Interface::as_raw(self)))
+        (::windows::core::Interface::vtable(self).base__.GetStateNoAddRef)(::windows::core::Interface::as_raw(self))
     }
 }
 impl ::core::convert::From<MFASYNCRESULT> for ::windows::core::IUnknown {
@@ -50183,7 +50183,7 @@ where
     extern "system" {
         fn MFCompareFullToPartialMediaType(pmftypefull: *mut ::core::ffi::c_void, pmftypepartial: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(MFCompareFullToPartialMediaType(pmftypefull.into().abi(), pmftypepartial.into().abi()))
+    MFCompareFullToPartialMediaType(pmftypefull.into().abi(), pmftypepartial.into().abi())
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -52087,7 +52087,7 @@ pub unsafe fn MFGetSystemTime() -> i64 {
     extern "system" {
         fn MFGetSystemTime() -> i64;
     }
-    ::core::mem::transmute(MFGetSystemTime())
+    MFGetSystemTime()
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[inline]
@@ -52122,7 +52122,7 @@ pub unsafe fn MFGetUncompressedVideoFormat(pvideoformat: *const MFVIDEOFORMAT) -
     extern "system" {
         fn MFGetUncompressedVideoFormat(pvideoformat: *const MFVIDEOFORMAT) -> u32;
     }
-    ::core::mem::transmute(MFGetUncompressedVideoFormat(::core::mem::transmute(pvideoformat)))
+    MFGetUncompressedVideoFormat(::core::mem::transmute(pvideoformat))
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[inline]
@@ -52163,7 +52163,7 @@ where
     extern "system" {
         fn MFHeapAlloc(nsize: usize, dwflags: u32, pszfile: ::windows::core::PCSTR, line: i32, eat: EAllocationType) -> *mut ::core::ffi::c_void;
     }
-    ::core::mem::transmute(MFHeapAlloc(nsize, dwflags, pszfile.into(), line, eat))
+    MFHeapAlloc(nsize, dwflags, pszfile.into(), line, eat)
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[inline]
@@ -52412,7 +52412,7 @@ pub unsafe fn MFIsFormatYUV(format: u32) -> super::super::Foundation::BOOL {
     extern "system" {
         fn MFIsFormatYUV(format: u32) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(MFIsFormatYUV(format))
+    MFIsFormatYUV(format)
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -52591,7 +52591,7 @@ pub unsafe fn MFMapDX9FormatToDXGIFormat(dx9: u32) -> super::super::Graphics::Dx
     extern "system" {
         fn MFMapDX9FormatToDXGIFormat(dx9: u32) -> super::super::Graphics::Dxgi::Common::DXGI_FORMAT;
     }
-    ::core::mem::transmute(MFMapDX9FormatToDXGIFormat(dx9))
+    MFMapDX9FormatToDXGIFormat(dx9)
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"Win32_Graphics_Dxgi_Common\"`*"]
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
@@ -52601,7 +52601,7 @@ pub unsafe fn MFMapDXGIFormatToDX9Format(dx11: super::super::Graphics::Dxgi::Com
     extern "system" {
         fn MFMapDXGIFormatToDX9Format(dx11: super::super::Graphics::Dxgi::Common::DXGI_FORMAT) -> u32;
     }
-    ::core::mem::transmute(MFMapDXGIFormatToDX9Format(dx11))
+    MFMapDXGIFormatToDX9Format(dx11)
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
@@ -61744,7 +61744,7 @@ pub unsafe fn MFllMulDiv(a: i64, b: i64, c: i64, d: i64) -> i64 {
     extern "system" {
         fn MFllMulDiv(a: i64, b: i64, c: i64, d: i64) -> i64;
     }
-    ::core::mem::transmute(MFllMulDiv(a, b, c, d))
+    MFllMulDiv(a, b, c, d)
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[repr(transparent)]

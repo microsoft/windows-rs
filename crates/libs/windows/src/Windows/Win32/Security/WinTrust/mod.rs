@@ -1016,7 +1016,7 @@ where
     extern "system" {
         fn OpenPersonalTrustDBDialog(hwndparent: super::super::Foundation::HWND) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(OpenPersonalTrustDBDialog(hwndparent.into()))
+    OpenPersonalTrustDBDialog(hwndparent.into())
 }
 #[doc = "*Required features: `\"Win32_Security_WinTrust\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -1029,7 +1029,7 @@ where
     extern "system" {
         fn OpenPersonalTrustDBDialogEx(hwndparent: super::super::Foundation::HWND, dwflags: u32, pvreserved: *mut *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(OpenPersonalTrustDBDialogEx(hwndparent.into(), dwflags, ::core::mem::transmute(pvreserved)))
+    OpenPersonalTrustDBDialogEx(hwndparent.into(), dwflags, ::core::mem::transmute(pvreserved))
 }
 #[doc = "*Required features: `\"Win32_Security_WinTrust\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -2980,7 +2980,7 @@ pub unsafe fn WTHelperCertIsSelfSigned(dwencoding: u32, pcert: *mut super::Crypt
     extern "system" {
         fn WTHelperCertIsSelfSigned(dwencoding: u32, pcert: *mut super::Cryptography::CERT_INFO) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(WTHelperCertIsSelfSigned(dwencoding, ::core::mem::transmute(pcert)))
+    WTHelperCertIsSelfSigned(dwencoding, ::core::mem::transmute(pcert))
 }
 #[doc = "*Required features: `\"Win32_Security_WinTrust\"`, `\"Win32_Foundation\"`, `\"Win32_Security_Cryptography\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
@@ -2990,7 +2990,7 @@ pub unsafe fn WTHelperGetProvCertFromChain(psgnr: *mut CRYPT_PROVIDER_SGNR, idxc
     extern "system" {
         fn WTHelperGetProvCertFromChain(psgnr: *mut CRYPT_PROVIDER_SGNR, idxcert: u32) -> *mut CRYPT_PROVIDER_CERT;
     }
-    ::core::mem::transmute(WTHelperGetProvCertFromChain(::core::mem::transmute(psgnr), idxcert))
+    WTHelperGetProvCertFromChain(::core::mem::transmute(psgnr), idxcert)
 }
 #[doc = "*Required features: `\"Win32_Security_WinTrust\"`, `\"Win32_Foundation\"`, `\"Win32_Security_Cryptography_Catalog\"`, `\"Win32_Security_Cryptography_Sip\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography_Catalog", feature = "Win32_Security_Cryptography_Sip"))]
@@ -3000,7 +3000,7 @@ pub unsafe fn WTHelperGetProvPrivateDataFromChain(pprovdata: *mut CRYPT_PROVIDER
     extern "system" {
         fn WTHelperGetProvPrivateDataFromChain(pprovdata: *mut CRYPT_PROVIDER_DATA, pgproviderid: *mut ::windows::core::GUID) -> *mut CRYPT_PROVIDER_PRIVDATA;
     }
-    ::core::mem::transmute(WTHelperGetProvPrivateDataFromChain(::core::mem::transmute(pprovdata), ::core::mem::transmute(pgproviderid)))
+    WTHelperGetProvPrivateDataFromChain(::core::mem::transmute(pprovdata), ::core::mem::transmute(pgproviderid))
 }
 #[doc = "*Required features: `\"Win32_Security_WinTrust\"`, `\"Win32_Foundation\"`, `\"Win32_Security_Cryptography_Catalog\"`, `\"Win32_Security_Cryptography_Sip\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography_Catalog", feature = "Win32_Security_Cryptography_Sip"))]
@@ -3013,7 +3013,7 @@ where
     extern "system" {
         fn WTHelperGetProvSignerFromChain(pprovdata: *mut CRYPT_PROVIDER_DATA, idxsigner: u32, fcountersigner: super::super::Foundation::BOOL, idxcountersigner: u32) -> *mut CRYPT_PROVIDER_SGNR;
     }
-    ::core::mem::transmute(WTHelperGetProvSignerFromChain(::core::mem::transmute(pprovdata), idxsigner, fcountersigner.into(), idxcountersigner))
+    WTHelperGetProvSignerFromChain(::core::mem::transmute(pprovdata), idxsigner, fcountersigner.into(), idxcountersigner)
 }
 #[doc = "*Required features: `\"Win32_Security_WinTrust\"`, `\"Win32_Foundation\"`, `\"Win32_Security_Cryptography_Catalog\"`, `\"Win32_Security_Cryptography_Sip\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography_Catalog", feature = "Win32_Security_Cryptography_Sip"))]
@@ -3026,7 +3026,7 @@ where
     extern "system" {
         fn WTHelperProvDataFromStateData(hstatedata: super::super::Foundation::HANDLE) -> *mut CRYPT_PROVIDER_DATA;
     }
-    ::core::mem::transmute(WTHelperProvDataFromStateData(hstatedata.into()))
+    WTHelperProvDataFromStateData(hstatedata.into())
 }
 #[doc = "*Required features: `\"Win32_Security_WinTrust\"`*"]
 pub const WT_ADD_ACTION_ID_RET_RESULT_FLAG: u32 = 1u32;
@@ -3055,7 +3055,7 @@ where
     extern "system" {
         fn WinVerifyTrust(hwnd: super::super::Foundation::HWND, pgactionid: *mut ::windows::core::GUID, pwvtdata: *mut ::core::ffi::c_void) -> i32;
     }
-    ::core::mem::transmute(WinVerifyTrust(hwnd.into(), ::core::mem::transmute(pgactionid), ::core::mem::transmute(pwvtdata)))
+    WinVerifyTrust(hwnd.into(), ::core::mem::transmute(pgactionid), ::core::mem::transmute(pwvtdata))
 }
 #[doc = "*Required features: `\"Win32_Security_WinTrust\"`, `\"Win32_Foundation\"`, `\"Win32_Security_Cryptography\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
@@ -3068,7 +3068,7 @@ where
     extern "system" {
         fn WinVerifyTrustEx(hwnd: super::super::Foundation::HWND, pgactionid: *mut ::windows::core::GUID, pwintrustdata: *mut WINTRUST_DATA) -> i32;
     }
-    ::core::mem::transmute(WinVerifyTrustEx(hwnd.into(), ::core::mem::transmute(pgactionid), ::core::mem::transmute(pwintrustdata)))
+    WinVerifyTrustEx(hwnd.into(), ::core::mem::transmute(pgactionid), ::core::mem::transmute(pwintrustdata))
 }
 #[doc = "*Required features: `\"Win32_Security_WinTrust\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -3078,7 +3078,7 @@ pub unsafe fn WintrustAddActionID(pgactionid: *const ::windows::core::GUID, fdwf
     extern "system" {
         fn WintrustAddActionID(pgactionid: *const ::windows::core::GUID, fdwflags: u32, psprovinfo: *const CRYPT_REGISTER_ACTIONID) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(WintrustAddActionID(::core::mem::transmute(pgactionid), fdwflags, ::core::mem::transmute(psprovinfo)))
+    WintrustAddActionID(::core::mem::transmute(pgactionid), fdwflags, ::core::mem::transmute(psprovinfo))
 }
 #[doc = "*Required features: `\"Win32_Security_WinTrust\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -3091,7 +3091,7 @@ where
     extern "system" {
         fn WintrustAddDefaultForUsage(pszusageoid: ::windows::core::PCSTR, psdefusage: *const CRYPT_PROVIDER_REGDEFUSAGE) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(WintrustAddDefaultForUsage(pszusageoid.into(), ::core::mem::transmute(psdefusage)))
+    WintrustAddDefaultForUsage(pszusageoid.into(), ::core::mem::transmute(psdefusage))
 }
 #[doc = "*Required features: `\"Win32_Security_WinTrust\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -3104,7 +3104,7 @@ where
     extern "system" {
         fn WintrustGetDefaultForUsage(dwaction: WINTRUST_GET_DEFAULT_FOR_USAGE_ACTION, pszusageoid: ::windows::core::PCSTR, psusage: *mut CRYPT_PROVIDER_DEFUSAGE) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(WintrustGetDefaultForUsage(dwaction, pszusageoid.into(), ::core::mem::transmute(psusage)))
+    WintrustGetDefaultForUsage(dwaction, pszusageoid.into(), ::core::mem::transmute(psusage))
 }
 #[doc = "*Required features: `\"Win32_Security_WinTrust\"`*"]
 #[inline]
@@ -3123,7 +3123,7 @@ pub unsafe fn WintrustLoadFunctionPointers(pgactionid: *mut ::windows::core::GUI
     extern "system" {
         fn WintrustLoadFunctionPointers(pgactionid: *mut ::windows::core::GUID, ppfns: *mut CRYPT_PROVIDER_FUNCTIONS) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(WintrustLoadFunctionPointers(::core::mem::transmute(pgactionid), ::core::mem::transmute(ppfns)))
+    WintrustLoadFunctionPointers(::core::mem::transmute(pgactionid), ::core::mem::transmute(ppfns))
 }
 #[doc = "*Required features: `\"Win32_Security_WinTrust\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -3133,7 +3133,7 @@ pub unsafe fn WintrustRemoveActionID(pgactionid: *const ::windows::core::GUID) -
     extern "system" {
         fn WintrustRemoveActionID(pgactionid: *const ::windows::core::GUID) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(WintrustRemoveActionID(::core::mem::transmute(pgactionid)))
+    WintrustRemoveActionID(::core::mem::transmute(pgactionid))
 }
 #[doc = "*Required features: `\"Win32_Security_WinTrust\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -3156,7 +3156,7 @@ pub unsafe fn WintrustSetRegPolicyFlags(dwpolicyflags: WINTRUST_POLICY_FLAGS) ->
     extern "system" {
         fn WintrustSetRegPolicyFlags(dwpolicyflags: WINTRUST_POLICY_FLAGS) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(WintrustSetRegPolicyFlags(dwpolicyflags))
+    WintrustSetRegPolicyFlags(dwpolicyflags)
 }
 #[doc = "*Required features: `\"Win32_Security_WinTrust\"`*"]
 pub const szOID_ENHANCED_HASH: &str = "1.3.6.1.4.1.311.2.5.1";
