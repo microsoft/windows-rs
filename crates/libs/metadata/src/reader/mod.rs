@@ -1530,7 +1530,6 @@ impl<'a> Reader<'a> {
         match ty {
             Type::TypeDef((row, _)) => self.type_def_is_borrowed(*row),
             Type::String | Type::IInspectable | Type::IUnknown | Type::GenericParam(_) => true,
-            Type::WinrtConstRef(ty) => self.type_is_borrowed(ty),
             _ => false,
         }
     }
