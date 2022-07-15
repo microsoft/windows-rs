@@ -1526,10 +1526,11 @@ impl<'a> Reader<'a> {
     }
     // TODO: this really means types that may be used with Borrowed<T> meaning types that are treated as both optional for input and also polymorphic.
     // This should exclude WinRT strings. Delegates are also not polymorphic but it may be simpler to include them as they're optional.
+    // And this is confusing when it comes to Win32 struct fields which should also use Borrowed but categorize differently to parameters.
     fn type_is_borrowed(&self, ty: &Type) -> bool {
         match ty {
             Type::TypeDef((row, _)) => self.type_def_is_borrowed(*row),
-            Type::String | Type::IInspectable | Type::IUnknown | Type::GenericParam(_) => true,
+            Type::IInspectable | Type::IUnknown | Type::GenericParam(_) => true,
             _ => false,
         }
     }

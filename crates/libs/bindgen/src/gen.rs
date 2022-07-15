@@ -944,16 +944,23 @@ impl<'a> Gen<'a> {
                             let name = self.param_name(params[relative].def);
                             quote! { #name.len() as _, }
                         }
-                        _ if self.reader.signature_param_is_borrowed(param) => {
-                            quote! { #name.into().abi(), }
+                        _ => {
+                            if self.reader.signature_param_input_value(param) {
+                                if self.reader.signature_param_is_borrowed(param) {
+                                    quote! { #name.into().abi(), }
+                                } else if self.reader.signature_param_is_trivially_convertible(param) {
+                                    quote! { #name.into(), }
+                                } else if self.reader.type_is_primitive(&param.ty) {
+                                    quote! { #name, }
+                                } else if self.reader.type_is_blittable(&param.ty) {
+                                    quote! { ::core::mem::transmute(#name), }
+                                } else {
+                                    quote! { ::core::mem::transmute_copy(#name), }
+                                }
+                            } else {
+                                quote! { ::core::mem::transmute(#name), }
+                            }
                         }
-                        _ if self.reader.signature_param_is_trivially_convertible(param) => {
-                            quote! { #name.into(), }
-                        }
-                        _ if self.reader.signature_param_is_primitive(param) => {
-                            quote! { #name, }
-                        }
-                        _ => quote! { ::core::mem::transmute(#name), },
                     }
                 }
             };
@@ -1020,7 +1027,12 @@ impl<'a> Gen<'a> {
             }
 
             let kind = self.type_default_name(&param.ty);
-            tokens.combine(&quote! { #name: #kind, });
+
+            if self.reader.type_is_blittable(&param.ty) {
+                tokens.combine(&quote! { #name: #kind, });
+            } else {
+                tokens.combine(&quote! { #name: &#kind, });
+            }
         }
 
         tokens

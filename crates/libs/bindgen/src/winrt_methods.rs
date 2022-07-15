@@ -156,8 +156,10 @@ fn gen_winrt_params(gen: &Gen, params: &[SignatureParam]) -> TokenStream {
                 let (position, _) = generic_params.next().unwrap();
                 let kind: TokenStream = format!("P{}", position).into();
                 result.combine(&quote! { #name: #kind, });
-            } else {
+            } else if gen.reader.type_is_blittable(&param.ty) {
                 result.combine(&quote! { #name: #kind, });
+            } else {
+                result.combine(&quote! { #name: &#kind, });
             }
         } else if param.ty.is_winrt_array() {
             result.combine(&quote! { #name: &mut [#default_type], });
