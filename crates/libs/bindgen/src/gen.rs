@@ -320,11 +320,7 @@ impl<'a> Gen<'a> {
             if !self.reader.signature_param_input_value(param) {
                 continue;
             }
-            if self.reader.signature_param_is_param(param) {
-                let name: TokenStream = gen_name(position);
-                let into = self.type_name(&param.ty);
-                tokens.combine(&quote! { #name: ::std::convert::Into<::windows::core::InParam<'a, #into>>, });
-            } else if self.reader.signature_param_is_failible_param(param) {
+            if self.reader.signature_param_is_failible_param(param) {
                 let name: TokenStream = gen_name(position);
                 let error_name: TokenStream = format!("E{}", position).into();
                 let into = self.type_name(&param.ty);

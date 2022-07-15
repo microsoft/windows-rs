@@ -792,6 +792,7 @@ impl<'a> Reader<'a> {
     }
     pub fn type_def_is_borrowed(&self, row: TypeDef) -> bool {
         match self.type_def_kind(row) {
+            TypeKind::Class => true,
             TypeKind::Delegate => self.type_def_flags(row).winrt(),
             _ => !self.type_def_is_blittable(row),
         }
@@ -1146,9 +1147,6 @@ impl<'a> Reader<'a> {
     pub fn signature_param_is_borrowed(&self, param: &SignatureParam) -> bool {
         self.type_is_borrowed(&param.ty)
     }
-    pub fn signature_param_is_param(&self, param: &SignatureParam) -> bool {
-        self.type_is_class(&param.ty)
-    }
     pub fn signature_param_is_failible_param(&self, param: &SignatureParam) -> bool {
         self.type_is_non_exclusive_winrt_interface(&param.ty)
     }
@@ -1156,7 +1154,7 @@ impl<'a> Reader<'a> {
         self.type_is_trivially_convertible(&param.ty)
     }
     pub fn signature_param_is_convertible(&self, param: &SignatureParam) -> bool {
-        self.signature_param_input_value(param) && (self.type_is_borrowed(&param.ty) || self.type_is_class(&param.ty) || self.type_is_non_exclusive_winrt_interface(&param.ty) || self.type_is_trivially_convertible(&param.ty))
+        self.signature_param_input_value(param) && (self.type_is_borrowed(&param.ty) || self.type_is_non_exclusive_winrt_interface(&param.ty) || self.type_is_trivially_convertible(&param.ty))
     }
     pub fn signature_param_input_value(&self, param: &SignatureParam) -> bool {
         self.param_flags(param.def).input() && !param.ty.is_winrt_array() && !param.ty.is_pointer() && param.array_info == ArrayInfo::None
@@ -1531,12 +1529,6 @@ impl<'a> Reader<'a> {
                 let flags = self.type_def_flags(*row);
                 flags.winrt() && flags.interface() && !self.type_def_is_exclusive(*row)
             }
-            _ => false,
-        }
-    }
-    pub fn type_is_class(&self, ty: &Type) -> bool {
-        match ty {
-            Type::TypeDef((row, _)) => self.type_def_kind(*row) == TypeKind::Class,
             _ => false,
         }
     }
