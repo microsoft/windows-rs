@@ -1150,10 +1150,10 @@ impl<'a> Reader<'a> {
         self.type_is_class(&param.ty)
     }
     pub fn signature_param_is_failible_param(&self, param: &SignatureParam) -> bool {
-         self.type_is_non_exclusive_winrt_interface(&param.ty)
+        self.type_is_non_exclusive_winrt_interface(&param.ty)
     }
     pub fn signature_param_is_trivially_convertible(&self, param: &SignatureParam) -> bool {
-         self.type_is_trivially_convertible(&param.ty)
+        self.type_is_trivially_convertible(&param.ty)
     }
     pub fn signature_param_is_convertible(&self, param: &SignatureParam) -> bool {
         self.signature_param_input_value(param) && (self.type_is_borrowed(&param.ty) || self.type_is_class(&param.ty) || self.type_is_non_exclusive_winrt_interface(&param.ty) || self.type_is_trivially_convertible(&param.ty))
