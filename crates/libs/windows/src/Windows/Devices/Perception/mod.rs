@@ -3191,7 +3191,7 @@ impl PerceptionDepthCorrelatedCameraIntrinsics {
         P0: ::std::convert::Into<::windows::core::InParam<'a, PerceptionDepthFrame>>,
     {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).UnprojectPixelsAtCorrelatedDepth)(::windows::core::Interface::as_raw(this), sourcecoordinates.len() as u32, ::core::mem::transmute(sourcecoordinates.as_ptr()), depthframe.into().abi(), results.len() as u32, ::core::mem::transmute_copy(&results)).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).UnprojectPixelsAtCorrelatedDepth)(::windows::core::Interface::as_raw(this), sourcecoordinates.len() as u32, sourcecoordinates.as_ptr(), depthframe.into().abi(), results.len() as u32, results.as_mut_ptr()).ok() }
     }
     #[doc = "*Required features: `\"Foundation_Numerics\"`, `\"deprecated\"`*"]
     #[cfg(all(feature = "Foundation_Numerics", feature = "deprecated"))]
@@ -3202,7 +3202,7 @@ impl PerceptionDepthCorrelatedCameraIntrinsics {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).UnprojectRegionPixelsAtCorrelatedDepthAsync)(::windows::core::Interface::as_raw(this), region, depthframe.into().abi(), results.len() as u32, ::core::mem::transmute_copy(&results), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncAction>(result__)
+            (::windows::core::Interface::vtable(this).UnprojectRegionPixelsAtCorrelatedDepthAsync)(::windows::core::Interface::as_raw(this), region, depthframe.into().abi(), results.len() as u32, results.as_mut_ptr(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncAction>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation_Numerics\"`, `\"deprecated\"`*"]
@@ -3214,7 +3214,7 @@ impl PerceptionDepthCorrelatedCameraIntrinsics {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).UnprojectAllPixelsAtCorrelatedDepthAsync)(::windows::core::Interface::as_raw(this), depthframe.into().abi(), results.len() as u32, ::core::mem::transmute_copy(&results), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncAction>(result__)
+            (::windows::core::Interface::vtable(this).UnprojectAllPixelsAtCorrelatedDepthAsync)(::windows::core::Interface::as_raw(this), depthframe.into().abi(), results.len() as u32, results.as_mut_ptr(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncAction>(result__)
         }
     }
 }
@@ -3320,7 +3320,7 @@ impl PerceptionDepthCorrelatedCoordinateMapper {
         P0: ::std::convert::Into<::windows::core::InParam<'a, PerceptionDepthFrame>>,
     {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).MapPixelsToTarget)(::windows::core::Interface::as_raw(this), sourcecoordinates.len() as u32, ::core::mem::transmute(sourcecoordinates.as_ptr()), depthframe.into().abi(), results.len() as u32, ::core::mem::transmute_copy(&results)).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).MapPixelsToTarget)(::windows::core::Interface::as_raw(this), sourcecoordinates.len() as u32, sourcecoordinates.as_ptr(), depthframe.into().abi(), results.len() as u32, results.as_mut_ptr()).ok() }
     }
     #[doc = "*Required features: `\"Foundation\"`, `\"deprecated\"`*"]
     #[cfg(all(feature = "Foundation", feature = "deprecated"))]
@@ -3331,7 +3331,7 @@ impl PerceptionDepthCorrelatedCoordinateMapper {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).MapRegionOfPixelsToTargetAsync)(::windows::core::Interface::as_raw(this), region, depthframe.into().abi(), targetcoordinates.len() as u32, ::core::mem::transmute_copy(&targetcoordinates), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncAction>(result__)
+            (::windows::core::Interface::vtable(this).MapRegionOfPixelsToTargetAsync)(::windows::core::Interface::as_raw(this), region, depthframe.into().abi(), targetcoordinates.len() as u32, targetcoordinates.as_mut_ptr(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncAction>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`, `\"deprecated\"`*"]
@@ -3343,7 +3343,7 @@ impl PerceptionDepthCorrelatedCoordinateMapper {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).MapAllPixelsToTargetAsync)(::windows::core::Interface::as_raw(this), depthframe.into().abi(), targetcoordinates.len() as u32, ::core::mem::transmute_copy(&targetcoordinates), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncAction>(result__)
+            (::windows::core::Interface::vtable(this).MapAllPixelsToTargetAsync)(::windows::core::Interface::as_raw(this), depthframe.into().abi(), targetcoordinates.len() as u32, targetcoordinates.as_mut_ptr(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncAction>(result__)
         }
     }
 }

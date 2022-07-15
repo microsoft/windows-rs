@@ -1722,7 +1722,7 @@ impl FileIO {
     {
         Self::IFileIOStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).WriteBytesAsync)(::windows::core::Interface::as_raw(this), file.try_into().map_err(|e| e.into())?.abi(), buffer.len() as u32, ::core::mem::transmute(buffer.as_ptr()), result__.as_mut_ptr()).from_abi::<super::Foundation::IAsyncAction>(result__)
+            (::windows::core::Interface::vtable(this).WriteBytesAsync)(::windows::core::Interface::as_raw(this), file.try_into().map_err(|e| e.into())?.abi(), buffer.len() as u32, buffer.as_ptr(), result__.as_mut_ptr()).from_abi::<super::Foundation::IAsyncAction>(result__)
         })
     }
     #[doc(hidden)]
@@ -5171,7 +5171,7 @@ impl PathIO {
     pub fn WriteBytesAsync(absolutepath: &::windows::core::HSTRING, buffer: &[u8]) -> ::windows::core::Result<super::Foundation::IAsyncAction> {
         Self::IPathIOStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).WriteBytesAsync)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(absolutepath), buffer.len() as u32, ::core::mem::transmute(buffer.as_ptr()), result__.as_mut_ptr()).from_abi::<super::Foundation::IAsyncAction>(result__)
+            (::windows::core::Interface::vtable(this).WriteBytesAsync)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(absolutepath), buffer.len() as u32, buffer.as_ptr(), result__.as_mut_ptr()).from_abi::<super::Foundation::IAsyncAction>(result__)
         })
     }
     #[doc(hidden)]

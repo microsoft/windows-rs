@@ -222,7 +222,7 @@ impl AsymmetricKeyAlgorithmProvider {
         let this = &::windows::core::Interface::cast::<IAsymmetricKeyAlgorithmProvider2>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).CreateKeyPairWithCurveParameters)(::windows::core::Interface::as_raw(this), parameters.len() as u32, ::core::mem::transmute(parameters.as_ptr()), result__.as_mut_ptr()).from_abi::<CryptographicKey>(result__)
+            (::windows::core::Interface::vtable(this).CreateKeyPairWithCurveParameters)(::windows::core::Interface::as_raw(this), parameters.len() as u32, parameters.as_ptr(), result__.as_mut_ptr()).from_abi::<CryptographicKey>(result__)
         }
     }
     pub fn OpenAlgorithm(algorithm: &::windows::core::HSTRING) -> ::windows::core::Result<AsymmetricKeyAlgorithmProvider> {

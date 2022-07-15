@@ -548,7 +548,7 @@ impl LampArrayBitmapEffect {
     {
         Self::ILampArrayBitmapEffectFactory(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).CreateInstance)(::windows::core::Interface::as_raw(this), lamparray.into().abi(), lampindexes.len() as u32, ::core::mem::transmute(lampindexes.as_ptr()), result__.as_mut_ptr()).from_abi::<LampArrayBitmapEffect>(result__)
+            (::windows::core::Interface::vtable(this).CreateInstance)(::windows::core::Interface::as_raw(this), lamparray.into().abi(), lampindexes.len() as u32, lampindexes.as_ptr(), result__.as_mut_ptr()).from_abi::<LampArrayBitmapEffect>(result__)
         })
     }
     pub fn ZIndex(&self) -> ::windows::core::Result<i32> {
@@ -856,7 +856,7 @@ impl LampArrayBlinkEffect {
     {
         Self::ILampArrayBlinkEffectFactory(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).CreateInstance)(::windows::core::Interface::as_raw(this), lamparray.into().abi(), lampindexes.len() as u32, ::core::mem::transmute(lampindexes.as_ptr()), result__.as_mut_ptr()).from_abi::<LampArrayBlinkEffect>(result__)
+            (::windows::core::Interface::vtable(this).CreateInstance)(::windows::core::Interface::as_raw(this), lamparray.into().abi(), lampindexes.len() as u32, lampindexes.as_ptr(), result__.as_mut_ptr()).from_abi::<LampArrayBlinkEffect>(result__)
         })
     }
     pub fn ZIndex(&self) -> ::windows::core::Result<i32> {
@@ -1023,7 +1023,7 @@ impl LampArrayColorRampEffect {
     {
         Self::ILampArrayColorRampEffectFactory(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).CreateInstance)(::windows::core::Interface::as_raw(this), lamparray.into().abi(), lampindexes.len() as u32, ::core::mem::transmute(lampindexes.as_ptr()), result__.as_mut_ptr()).from_abi::<LampArrayColorRampEffect>(result__)
+            (::windows::core::Interface::vtable(this).CreateInstance)(::windows::core::Interface::as_raw(this), lamparray.into().abi(), lampindexes.len() as u32, lampindexes.as_ptr(), result__.as_mut_ptr()).from_abi::<LampArrayColorRampEffect>(result__)
         })
     }
     pub fn ZIndex(&self) -> ::windows::core::Result<i32> {
@@ -1182,7 +1182,7 @@ impl LampArrayCustomEffect {
     {
         Self::ILampArrayCustomEffectFactory(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).CreateInstance)(::windows::core::Interface::as_raw(this), lamparray.into().abi(), lampindexes.len() as u32, ::core::mem::transmute(lampindexes.as_ptr()), result__.as_mut_ptr()).from_abi::<LampArrayCustomEffect>(result__)
+            (::windows::core::Interface::vtable(this).CreateInstance)(::windows::core::Interface::as_raw(this), lamparray.into().abi(), lampindexes.len() as u32, lampindexes.as_ptr(), result__.as_mut_ptr()).from_abi::<LampArrayCustomEffect>(result__)
         })
     }
     pub fn ZIndex(&self) -> ::windows::core::Result<i32> {
@@ -1734,7 +1734,7 @@ impl LampArraySolidEffect {
     {
         Self::ILampArraySolidEffectFactory(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).CreateInstance)(::windows::core::Interface::as_raw(this), lamparray.into().abi(), lampindexes.len() as u32, ::core::mem::transmute(lampindexes.as_ptr()), result__.as_mut_ptr()).from_abi::<LampArraySolidEffect>(result__)
+            (::windows::core::Interface::vtable(this).CreateInstance)(::windows::core::Interface::as_raw(this), lamparray.into().abi(), lampindexes.len() as u32, lampindexes.as_ptr(), result__.as_mut_ptr()).from_abi::<LampArraySolidEffect>(result__)
         })
     }
     #[doc(hidden)]
@@ -1853,13 +1853,13 @@ impl LampArrayUpdateRequestedEventArgs {
     #[cfg(feature = "UI")]
     pub fn SetSingleColorForIndices(&self, desiredcolor: super::super::super::UI::Color, lampindexes: &[i32]) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetSingleColorForIndices)(::windows::core::Interface::as_raw(this), desiredcolor, lampindexes.len() as u32, ::core::mem::transmute(lampindexes.as_ptr())).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetSingleColorForIndices)(::windows::core::Interface::as_raw(this), desiredcolor, lampindexes.len() as u32, lampindexes.as_ptr()).ok() }
     }
     #[doc = "*Required features: `\"UI\"`*"]
     #[cfg(feature = "UI")]
     pub fn SetColorsForIndices(&self, desiredcolors: &[super::super::super::UI::Color], lampindexes: &[i32]) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetColorsForIndices)(::windows::core::Interface::as_raw(this), desiredcolors.len() as u32, ::core::mem::transmute(desiredcolors.as_ptr()), lampindexes.len() as u32, ::core::mem::transmute(lampindexes.as_ptr())).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetColorsForIndices)(::windows::core::Interface::as_raw(this), desiredcolors.len() as u32, desiredcolors.as_ptr(), lampindexes.len() as u32, lampindexes.as_ptr()).ok() }
     }
 }
 impl ::core::clone::Clone for LampArrayUpdateRequestedEventArgs {

@@ -18019,14 +18019,14 @@ impl CompositionStrokeDashArray {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).GetMany)(::windows::core::Interface::as_raw(this), startindex, items.len() as u32, ::core::mem::transmute_copy(&items), result__.as_mut_ptr()).from_abi::<u32>(result__)
+            (::windows::core::Interface::vtable(this).GetMany)(::windows::core::Interface::as_raw(this), startindex, items.len() as u32, items.as_mut_ptr(), result__.as_mut_ptr()).from_abi::<u32>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn ReplaceAll(&self, items: &[f32]) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).ReplaceAll)(::windows::core::Interface::as_raw(this), items.len() as u32, ::core::mem::transmute(items.as_ptr())).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).ReplaceAll)(::windows::core::Interface::as_raw(this), items.len() as u32, items.as_ptr()).ok() }
     }
 }
 #[cfg(feature = "Foundation_Collections")]
@@ -19609,7 +19609,7 @@ impl CompositionVirtualDrawingSurface {
     #[cfg(feature = "Graphics")]
     pub fn Trim(&self, rects: &[super::super::Graphics::RectInt32]) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).Trim)(::windows::core::Interface::as_raw(this), rects.len() as u32, ::core::mem::transmute(rects.as_ptr())).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).Trim)(::windows::core::Interface::as_raw(this), rects.len() as u32, rects.as_ptr()).ok() }
     }
 }
 impl ::core::clone::Clone for CompositionVirtualDrawingSurface {
@@ -21672,7 +21672,7 @@ impl DelegatedInkTrailVisual {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).AddTrailPoints)(::windows::core::Interface::as_raw(this), inkpoints.len() as u32, ::core::mem::transmute(inkpoints.as_ptr()), result__.as_mut_ptr()).from_abi::<u32>(result__)
+            (::windows::core::Interface::vtable(this).AddTrailPoints)(::windows::core::Interface::as_raw(this), inkpoints.len() as u32, inkpoints.as_ptr(), result__.as_mut_ptr()).from_abi::<u32>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -21681,7 +21681,7 @@ impl DelegatedInkTrailVisual {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).AddTrailPointsWithPrediction)(::windows::core::Interface::as_raw(this), inkpoints.len() as u32, ::core::mem::transmute(inkpoints.as_ptr()), predictedinkpoints.len() as u32, ::core::mem::transmute(predictedinkpoints.as_ptr()), result__.as_mut_ptr()).from_abi::<u32>(result__)
+            (::windows::core::Interface::vtable(this).AddTrailPointsWithPrediction)(::windows::core::Interface::as_raw(this), inkpoints.len() as u32, inkpoints.as_ptr(), predictedinkpoints.len() as u32, predictedinkpoints.as_ptr(), result__.as_mut_ptr()).from_abi::<u32>(result__)
         }
     }
     pub fn RemoveTrailPoints(&self, generationid: u32) -> ::windows::core::Result<()> {

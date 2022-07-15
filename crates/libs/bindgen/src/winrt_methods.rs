@@ -180,7 +180,11 @@ fn gen_winrt_abi_args(gen: &Gen, params: &[SignatureParam]) -> TokenStream {
 
         let param = if gen.reader.param_flags(param.def).input() {
             if param.ty.is_winrt_array() {
-                quote! { #name.len() as u32, ::core::mem::transmute(#name.as_ptr()), }
+                if gen.reader.type_is_blittable(&param.ty) {
+                    quote! { #name.len() as u32, #name.as_ptr(), }
+                } else {
+                    quote! { #name.len() as u32, ::core::mem::transmute(#name.as_ptr()), }
+                }
             } else if gen.reader.signature_param_is_failible_param(param) {
                 quote! { #name.try_into().map_err(|e| e.into())?.abi(), }
             } else if gen.reader.signature_param_is_borrowed(param) {
@@ -195,7 +199,11 @@ fn gen_winrt_abi_args(gen: &Gen, params: &[SignatureParam]) -> TokenStream {
                 quote! { ::core::mem::transmute_copy(#name), }
             }
         } else if param.ty.is_winrt_array() {
-            quote! { #name.len() as u32, ::core::mem::transmute_copy(&#name), }
+            if gen.reader.type_is_blittable(&param.ty) {
+                quote! { #name.len() as u32, #name.as_mut_ptr(), }
+            } else {
+                quote! { #name.len() as u32, ::core::mem::transmute_copy(&#name), }
+            }
         } else if param.ty.is_winrt_array_ref() {
             quote! { #name.set_abi_len(), #name as *mut _ as _, }
         } else if gen.reader.type_is_blittable(&param.ty) {

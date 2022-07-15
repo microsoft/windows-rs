@@ -273,35 +273,35 @@ impl I2cDevice {
     }
     pub fn Write(&self, buffer: &[u8]) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).Write)(::windows::core::Interface::as_raw(this), buffer.len() as u32, ::core::mem::transmute(buffer.as_ptr())).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).Write)(::windows::core::Interface::as_raw(this), buffer.len() as u32, buffer.as_ptr()).ok() }
     }
     pub fn WritePartial(&self, buffer: &[u8]) -> ::windows::core::Result<I2cTransferResult> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).WritePartial)(::windows::core::Interface::as_raw(this), buffer.len() as u32, ::core::mem::transmute(buffer.as_ptr()), result__.as_mut_ptr()).from_abi::<I2cTransferResult>(result__)
+            (::windows::core::Interface::vtable(this).WritePartial)(::windows::core::Interface::as_raw(this), buffer.len() as u32, buffer.as_ptr(), result__.as_mut_ptr()).from_abi::<I2cTransferResult>(result__)
         }
     }
     pub fn Read(&self, buffer: &mut [u8]) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).Read)(::windows::core::Interface::as_raw(this), buffer.len() as u32, ::core::mem::transmute_copy(&buffer)).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).Read)(::windows::core::Interface::as_raw(this), buffer.len() as u32, buffer.as_mut_ptr()).ok() }
     }
     pub fn ReadPartial(&self, buffer: &mut [u8]) -> ::windows::core::Result<I2cTransferResult> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).ReadPartial)(::windows::core::Interface::as_raw(this), buffer.len() as u32, ::core::mem::transmute_copy(&buffer), result__.as_mut_ptr()).from_abi::<I2cTransferResult>(result__)
+            (::windows::core::Interface::vtable(this).ReadPartial)(::windows::core::Interface::as_raw(this), buffer.len() as u32, buffer.as_mut_ptr(), result__.as_mut_ptr()).from_abi::<I2cTransferResult>(result__)
         }
     }
     pub fn WriteRead(&self, writebuffer: &[u8], readbuffer: &mut [u8]) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).WriteRead)(::windows::core::Interface::as_raw(this), writebuffer.len() as u32, ::core::mem::transmute(writebuffer.as_ptr()), readbuffer.len() as u32, ::core::mem::transmute_copy(&readbuffer)).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).WriteRead)(::windows::core::Interface::as_raw(this), writebuffer.len() as u32, writebuffer.as_ptr(), readbuffer.len() as u32, readbuffer.as_mut_ptr()).ok() }
     }
     pub fn WriteReadPartial(&self, writebuffer: &[u8], readbuffer: &mut [u8]) -> ::windows::core::Result<I2cTransferResult> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).WriteReadPartial)(::windows::core::Interface::as_raw(this), writebuffer.len() as u32, ::core::mem::transmute(writebuffer.as_ptr()), readbuffer.len() as u32, ::core::mem::transmute_copy(&readbuffer), result__.as_mut_ptr()).from_abi::<I2cTransferResult>(result__)
+            (::windows::core::Interface::vtable(this).WriteReadPartial)(::windows::core::Interface::as_raw(this), writebuffer.len() as u32, writebuffer.as_ptr(), readbuffer.len() as u32, readbuffer.as_mut_ptr(), result__.as_mut_ptr()).from_abi::<I2cTransferResult>(result__)
         }
     }
     pub fn GetDeviceSelector() -> ::windows::core::Result<::windows::core::HSTRING> {

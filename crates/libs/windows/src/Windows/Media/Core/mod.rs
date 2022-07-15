@@ -7243,7 +7243,7 @@ pub struct MediaStreamSampleProtectionProperties(::windows::core::IUnknown);
 impl MediaStreamSampleProtectionProperties {
     pub fn SetKeyIdentifier(&self, value: &[u8]) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetKeyIdentifier)(::windows::core::Interface::as_raw(this), value.len() as u32, ::core::mem::transmute(value.as_ptr())).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetKeyIdentifier)(::windows::core::Interface::as_raw(this), value.len() as u32, value.as_ptr()).ok() }
     }
     pub fn GetKeyIdentifier(&self, value: &mut ::windows::core::Array<u8>) -> ::windows::core::Result<()> {
         let this = self;
@@ -7251,7 +7251,7 @@ impl MediaStreamSampleProtectionProperties {
     }
     pub fn SetInitializationVector(&self, value: &[u8]) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetInitializationVector)(::windows::core::Interface::as_raw(this), value.len() as u32, ::core::mem::transmute(value.as_ptr())).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetInitializationVector)(::windows::core::Interface::as_raw(this), value.len() as u32, value.as_ptr()).ok() }
     }
     pub fn GetInitializationVector(&self, value: &mut ::windows::core::Array<u8>) -> ::windows::core::Result<()> {
         let this = self;
@@ -7259,7 +7259,7 @@ impl MediaStreamSampleProtectionProperties {
     }
     pub fn SetSubSampleMapping(&self, value: &[u8]) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetSubSampleMapping)(::windows::core::Interface::as_raw(this), value.len() as u32, ::core::mem::transmute(value.as_ptr())).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetSubSampleMapping)(::windows::core::Interface::as_raw(this), value.len() as u32, value.as_ptr()).ok() }
     }
     pub fn GetSubSampleMapping(&self, value: &mut ::windows::core::Array<u8>) -> ::windows::core::Result<()> {
         let this = self;
@@ -7542,7 +7542,7 @@ impl MediaStreamSource {
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).AddProtectionKey)(::windows::core::Interface::as_raw(this), streamdescriptor.try_into().map_err(|e| e.into())?.abi(), keyidentifier.len() as u32, ::core::mem::transmute(keyidentifier.as_ptr()), licensedata.len() as u32, ::core::mem::transmute(licensedata.as_ptr())).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).AddProtectionKey)(::windows::core::Interface::as_raw(this), streamdescriptor.try_into().map_err(|e| e.into())?.abi(), keyidentifier.len() as u32, keyidentifier.as_ptr(), licensedata.len() as u32, licensedata.as_ptr()).ok() }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]

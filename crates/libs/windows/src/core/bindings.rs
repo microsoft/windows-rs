@@ -816,67 +816,67 @@ impl PropertyValue {
     pub fn CreateUInt8Array(value: &[u8]) -> ::windows::core::Result<::windows::core::IInspectable> {
         Self::IPropertyValueStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).CreateUInt8Array)(::windows::core::Interface::as_raw(this), value.len() as u32, ::core::mem::transmute(value.as_ptr()), result__.as_mut_ptr()).from_abi::<::windows::core::IInspectable>(result__)
+            (::windows::core::Interface::vtable(this).CreateUInt8Array)(::windows::core::Interface::as_raw(this), value.len() as u32, value.as_ptr(), result__.as_mut_ptr()).from_abi::<::windows::core::IInspectable>(result__)
         })
     }
     pub fn CreateInt16Array(value: &[i16]) -> ::windows::core::Result<::windows::core::IInspectable> {
         Self::IPropertyValueStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).CreateInt16Array)(::windows::core::Interface::as_raw(this), value.len() as u32, ::core::mem::transmute(value.as_ptr()), result__.as_mut_ptr()).from_abi::<::windows::core::IInspectable>(result__)
+            (::windows::core::Interface::vtable(this).CreateInt16Array)(::windows::core::Interface::as_raw(this), value.len() as u32, value.as_ptr(), result__.as_mut_ptr()).from_abi::<::windows::core::IInspectable>(result__)
         })
     }
     pub fn CreateUInt16Array(value: &[u16]) -> ::windows::core::Result<::windows::core::IInspectable> {
         Self::IPropertyValueStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).CreateUInt16Array)(::windows::core::Interface::as_raw(this), value.len() as u32, ::core::mem::transmute(value.as_ptr()), result__.as_mut_ptr()).from_abi::<::windows::core::IInspectable>(result__)
+            (::windows::core::Interface::vtable(this).CreateUInt16Array)(::windows::core::Interface::as_raw(this), value.len() as u32, value.as_ptr(), result__.as_mut_ptr()).from_abi::<::windows::core::IInspectable>(result__)
         })
     }
     pub fn CreateInt32Array(value: &[i32]) -> ::windows::core::Result<::windows::core::IInspectable> {
         Self::IPropertyValueStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).CreateInt32Array)(::windows::core::Interface::as_raw(this), value.len() as u32, ::core::mem::transmute(value.as_ptr()), result__.as_mut_ptr()).from_abi::<::windows::core::IInspectable>(result__)
+            (::windows::core::Interface::vtable(this).CreateInt32Array)(::windows::core::Interface::as_raw(this), value.len() as u32, value.as_ptr(), result__.as_mut_ptr()).from_abi::<::windows::core::IInspectable>(result__)
         })
     }
     pub fn CreateUInt32Array(value: &[u32]) -> ::windows::core::Result<::windows::core::IInspectable> {
         Self::IPropertyValueStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).CreateUInt32Array)(::windows::core::Interface::as_raw(this), value.len() as u32, ::core::mem::transmute(value.as_ptr()), result__.as_mut_ptr()).from_abi::<::windows::core::IInspectable>(result__)
+            (::windows::core::Interface::vtable(this).CreateUInt32Array)(::windows::core::Interface::as_raw(this), value.len() as u32, value.as_ptr(), result__.as_mut_ptr()).from_abi::<::windows::core::IInspectable>(result__)
         })
     }
     pub fn CreateInt64Array(value: &[i64]) -> ::windows::core::Result<::windows::core::IInspectable> {
         Self::IPropertyValueStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).CreateInt64Array)(::windows::core::Interface::as_raw(this), value.len() as u32, ::core::mem::transmute(value.as_ptr()), result__.as_mut_ptr()).from_abi::<::windows::core::IInspectable>(result__)
+            (::windows::core::Interface::vtable(this).CreateInt64Array)(::windows::core::Interface::as_raw(this), value.len() as u32, value.as_ptr(), result__.as_mut_ptr()).from_abi::<::windows::core::IInspectable>(result__)
         })
     }
     pub fn CreateUInt64Array(value: &[u64]) -> ::windows::core::Result<::windows::core::IInspectable> {
         Self::IPropertyValueStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).CreateUInt64Array)(::windows::core::Interface::as_raw(this), value.len() as u32, ::core::mem::transmute(value.as_ptr()), result__.as_mut_ptr()).from_abi::<::windows::core::IInspectable>(result__)
+            (::windows::core::Interface::vtable(this).CreateUInt64Array)(::windows::core::Interface::as_raw(this), value.len() as u32, value.as_ptr(), result__.as_mut_ptr()).from_abi::<::windows::core::IInspectable>(result__)
         })
     }
     pub fn CreateSingleArray(value: &[f32]) -> ::windows::core::Result<::windows::core::IInspectable> {
         Self::IPropertyValueStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).CreateSingleArray)(::windows::core::Interface::as_raw(this), value.len() as u32, ::core::mem::transmute(value.as_ptr()), result__.as_mut_ptr()).from_abi::<::windows::core::IInspectable>(result__)
+            (::windows::core::Interface::vtable(this).CreateSingleArray)(::windows::core::Interface::as_raw(this), value.len() as u32, value.as_ptr(), result__.as_mut_ptr()).from_abi::<::windows::core::IInspectable>(result__)
         })
     }
     pub fn CreateDoubleArray(value: &[f64]) -> ::windows::core::Result<::windows::core::IInspectable> {
         Self::IPropertyValueStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).CreateDoubleArray)(::windows::core::Interface::as_raw(this), value.len() as u32, ::core::mem::transmute(value.as_ptr()), result__.as_mut_ptr()).from_abi::<::windows::core::IInspectable>(result__)
+            (::windows::core::Interface::vtable(this).CreateDoubleArray)(::windows::core::Interface::as_raw(this), value.len() as u32, value.as_ptr(), result__.as_mut_ptr()).from_abi::<::windows::core::IInspectable>(result__)
         })
     }
     pub fn CreateChar16Array(value: &[u16]) -> ::windows::core::Result<::windows::core::IInspectable> {
         Self::IPropertyValueStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).CreateChar16Array)(::windows::core::Interface::as_raw(this), value.len() as u32, ::core::mem::transmute(value.as_ptr()), result__.as_mut_ptr()).from_abi::<::windows::core::IInspectable>(result__)
+            (::windows::core::Interface::vtable(this).CreateChar16Array)(::windows::core::Interface::as_raw(this), value.len() as u32, value.as_ptr(), result__.as_mut_ptr()).from_abi::<::windows::core::IInspectable>(result__)
         })
     }
     pub fn CreateBooleanArray(value: &[bool]) -> ::windows::core::Result<::windows::core::IInspectable> {
         Self::IPropertyValueStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).CreateBooleanArray)(::windows::core::Interface::as_raw(this), value.len() as u32, ::core::mem::transmute(value.as_ptr()), result__.as_mut_ptr()).from_abi::<::windows::core::IInspectable>(result__)
+            (::windows::core::Interface::vtable(this).CreateBooleanArray)(::windows::core::Interface::as_raw(this), value.len() as u32, value.as_ptr(), result__.as_mut_ptr()).from_abi::<::windows::core::IInspectable>(result__)
         })
     }
     pub fn CreateStringArray(value: &[::windows::core::HSTRING]) -> ::windows::core::Result<::windows::core::IInspectable> {
@@ -894,37 +894,37 @@ impl PropertyValue {
     pub fn CreateGuidArray(value: &[::windows::core::GUID]) -> ::windows::core::Result<::windows::core::IInspectable> {
         Self::IPropertyValueStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).CreateGuidArray)(::windows::core::Interface::as_raw(this), value.len() as u32, ::core::mem::transmute(value.as_ptr()), result__.as_mut_ptr()).from_abi::<::windows::core::IInspectable>(result__)
+            (::windows::core::Interface::vtable(this).CreateGuidArray)(::windows::core::Interface::as_raw(this), value.len() as u32, value.as_ptr(), result__.as_mut_ptr()).from_abi::<::windows::core::IInspectable>(result__)
         })
     }
     pub fn CreateDateTimeArray(value: &[DateTime]) -> ::windows::core::Result<::windows::core::IInspectable> {
         Self::IPropertyValueStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).CreateDateTimeArray)(::windows::core::Interface::as_raw(this), value.len() as u32, ::core::mem::transmute(value.as_ptr()), result__.as_mut_ptr()).from_abi::<::windows::core::IInspectable>(result__)
+            (::windows::core::Interface::vtable(this).CreateDateTimeArray)(::windows::core::Interface::as_raw(this), value.len() as u32, value.as_ptr(), result__.as_mut_ptr()).from_abi::<::windows::core::IInspectable>(result__)
         })
     }
     pub fn CreateTimeSpanArray(value: &[TimeSpan]) -> ::windows::core::Result<::windows::core::IInspectable> {
         Self::IPropertyValueStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).CreateTimeSpanArray)(::windows::core::Interface::as_raw(this), value.len() as u32, ::core::mem::transmute(value.as_ptr()), result__.as_mut_ptr()).from_abi::<::windows::core::IInspectable>(result__)
+            (::windows::core::Interface::vtable(this).CreateTimeSpanArray)(::windows::core::Interface::as_raw(this), value.len() as u32, value.as_ptr(), result__.as_mut_ptr()).from_abi::<::windows::core::IInspectable>(result__)
         })
     }
     pub fn CreatePointArray(value: &[Point]) -> ::windows::core::Result<::windows::core::IInspectable> {
         Self::IPropertyValueStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).CreatePointArray)(::windows::core::Interface::as_raw(this), value.len() as u32, ::core::mem::transmute(value.as_ptr()), result__.as_mut_ptr()).from_abi::<::windows::core::IInspectable>(result__)
+            (::windows::core::Interface::vtable(this).CreatePointArray)(::windows::core::Interface::as_raw(this), value.len() as u32, value.as_ptr(), result__.as_mut_ptr()).from_abi::<::windows::core::IInspectable>(result__)
         })
     }
     pub fn CreateSizeArray(value: &[Size]) -> ::windows::core::Result<::windows::core::IInspectable> {
         Self::IPropertyValueStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).CreateSizeArray)(::windows::core::Interface::as_raw(this), value.len() as u32, ::core::mem::transmute(value.as_ptr()), result__.as_mut_ptr()).from_abi::<::windows::core::IInspectable>(result__)
+            (::windows::core::Interface::vtable(this).CreateSizeArray)(::windows::core::Interface::as_raw(this), value.len() as u32, value.as_ptr(), result__.as_mut_ptr()).from_abi::<::windows::core::IInspectable>(result__)
         })
     }
     pub fn CreateRectArray(value: &[Rect]) -> ::windows::core::Result<::windows::core::IInspectable> {
         Self::IPropertyValueStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).CreateRectArray)(::windows::core::Interface::as_raw(this), value.len() as u32, ::core::mem::transmute(value.as_ptr()), result__.as_mut_ptr()).from_abi::<::windows::core::IInspectable>(result__)
+            (::windows::core::Interface::vtable(this).CreateRectArray)(::windows::core::Interface::as_raw(this), value.len() as u32, value.as_ptr(), result__.as_mut_ptr()).from_abi::<::windows::core::IInspectable>(result__)
         })
     }
     pub fn IPropertyValueStatics<R, F: FnOnce(&IPropertyValueStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
