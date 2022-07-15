@@ -287,48 +287,44 @@ impl SignalNotifier {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).Terminate)(::windows::core::Interface::as_raw(this)).ok() }
     }
-    pub fn AttachToEvent<'a, P0, P1>(name: P0, handler: P1) -> ::windows::core::Result<SignalNotifier>
+    pub fn AttachToEvent<'a, P0>(name: &::windows::core::HSTRING, handler: P0) -> ::windows::core::Result<SignalNotifier>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-        P1: ::std::convert::Into<::windows::core::InParam<'a, SignalHandler>>,
+        P0: ::std::convert::Into<::windows::core::InParam<'a, SignalHandler>>,
     {
         Self::ISignalNotifierStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).AttachToEvent)(::windows::core::Interface::as_raw(this), name.into().abi(), handler.into().abi(), result__.as_mut_ptr()).from_abi::<SignalNotifier>(result__)
+            (::windows::core::Interface::vtable(this).AttachToEvent)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(name), handler.into().abi(), result__.as_mut_ptr()).from_abi::<SignalNotifier>(result__)
         })
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn AttachToEventWithTimeout<'a, P0, P1>(name: P0, handler: P1, timeout: super::super::super::Foundation::TimeSpan) -> ::windows::core::Result<SignalNotifier>
+    pub fn AttachToEventWithTimeout<'a, P0>(name: &::windows::core::HSTRING, handler: P0, timeout: super::super::super::Foundation::TimeSpan) -> ::windows::core::Result<SignalNotifier>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-        P1: ::std::convert::Into<::windows::core::InParam<'a, SignalHandler>>,
+        P0: ::std::convert::Into<::windows::core::InParam<'a, SignalHandler>>,
     {
         Self::ISignalNotifierStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).AttachToEventWithTimeout)(::windows::core::Interface::as_raw(this), name.into().abi(), handler.into().abi(), timeout, result__.as_mut_ptr()).from_abi::<SignalNotifier>(result__)
+            (::windows::core::Interface::vtable(this).AttachToEventWithTimeout)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(name), handler.into().abi(), timeout, result__.as_mut_ptr()).from_abi::<SignalNotifier>(result__)
         })
     }
-    pub fn AttachToSemaphore<'a, P0, P1>(name: P0, handler: P1) -> ::windows::core::Result<SignalNotifier>
+    pub fn AttachToSemaphore<'a, P0>(name: &::windows::core::HSTRING, handler: P0) -> ::windows::core::Result<SignalNotifier>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-        P1: ::std::convert::Into<::windows::core::InParam<'a, SignalHandler>>,
+        P0: ::std::convert::Into<::windows::core::InParam<'a, SignalHandler>>,
     {
         Self::ISignalNotifierStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).AttachToSemaphore)(::windows::core::Interface::as_raw(this), name.into().abi(), handler.into().abi(), result__.as_mut_ptr()).from_abi::<SignalNotifier>(result__)
+            (::windows::core::Interface::vtable(this).AttachToSemaphore)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(name), handler.into().abi(), result__.as_mut_ptr()).from_abi::<SignalNotifier>(result__)
         })
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn AttachToSemaphoreWithTimeout<'a, P0, P1>(name: P0, handler: P1, timeout: super::super::super::Foundation::TimeSpan) -> ::windows::core::Result<SignalNotifier>
+    pub fn AttachToSemaphoreWithTimeout<'a, P0>(name: &::windows::core::HSTRING, handler: P0, timeout: super::super::super::Foundation::TimeSpan) -> ::windows::core::Result<SignalNotifier>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-        P1: ::std::convert::Into<::windows::core::InParam<'a, SignalHandler>>,
+        P0: ::std::convert::Into<::windows::core::InParam<'a, SignalHandler>>,
     {
         Self::ISignalNotifierStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).AttachToSemaphoreWithTimeout)(::windows::core::Interface::as_raw(this), name.into().abi(), handler.into().abi(), timeout, result__.as_mut_ptr()).from_abi::<SignalNotifier>(result__)
+            (::windows::core::Interface::vtable(this).AttachToSemaphoreWithTimeout)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(name), handler.into().abi(), timeout, result__.as_mut_ptr()).from_abi::<SignalNotifier>(result__)
         })
     }
     #[doc(hidden)]

@@ -67,12 +67,9 @@ impl AdaptiveNotificationText {
             (::windows::core::Interface::vtable(this).Text)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    pub fn SetText<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-    {
+    pub fn SetText(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetText)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetText)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
     }
     pub fn Language(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
@@ -81,12 +78,9 @@ impl AdaptiveNotificationText {
             (::windows::core::Interface::vtable(this).Language)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    pub fn SetLanguage<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-    {
+    pub fn SetLanguage(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetLanguage)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetLanguage)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
     }
 }
 impl ::core::clone::Clone for AdaptiveNotificationText {
@@ -324,22 +318,16 @@ impl BadgeUpdateManager {
             (::windows::core::Interface::vtable(this).CreateBadgeUpdaterForApplication)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<BadgeUpdater>(result__)
         })
     }
-    pub fn CreateBadgeUpdaterForApplicationWithId<'a, P0>(applicationid: P0) -> ::windows::core::Result<BadgeUpdater>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-    {
+    pub fn CreateBadgeUpdaterForApplicationWithId(applicationid: &::windows::core::HSTRING) -> ::windows::core::Result<BadgeUpdater> {
         Self::IBadgeUpdateManagerStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).CreateBadgeUpdaterForApplicationWithId)(::windows::core::Interface::as_raw(this), applicationid.into().abi(), result__.as_mut_ptr()).from_abi::<BadgeUpdater>(result__)
+            (::windows::core::Interface::vtable(this).CreateBadgeUpdaterForApplicationWithId)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(applicationid), result__.as_mut_ptr()).from_abi::<BadgeUpdater>(result__)
         })
     }
-    pub fn CreateBadgeUpdaterForSecondaryTile<'a, P0>(tileid: P0) -> ::windows::core::Result<BadgeUpdater>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-    {
+    pub fn CreateBadgeUpdaterForSecondaryTile(tileid: &::windows::core::HSTRING) -> ::windows::core::Result<BadgeUpdater> {
         Self::IBadgeUpdateManagerStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).CreateBadgeUpdaterForSecondaryTile)(::windows::core::Interface::as_raw(this), tileid.into().abi(), result__.as_mut_ptr()).from_abi::<BadgeUpdater>(result__)
+            (::windows::core::Interface::vtable(this).CreateBadgeUpdaterForSecondaryTile)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(tileid), result__.as_mut_ptr()).from_abi::<BadgeUpdater>(result__)
         })
     }
     #[doc = "*Required features: `\"Data_Xml_Dom\"`*"]
@@ -386,24 +374,18 @@ impl BadgeUpdateManagerForUser {
             (::windows::core::Interface::vtable(this).CreateBadgeUpdaterForApplication)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<BadgeUpdater>(result__)
         }
     }
-    pub fn CreateBadgeUpdaterForApplicationWithId<'a, P0>(&self, applicationid: P0) -> ::windows::core::Result<BadgeUpdater>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-    {
+    pub fn CreateBadgeUpdaterForApplicationWithId(&self, applicationid: &::windows::core::HSTRING) -> ::windows::core::Result<BadgeUpdater> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).CreateBadgeUpdaterForApplicationWithId)(::windows::core::Interface::as_raw(this), applicationid.into().abi(), result__.as_mut_ptr()).from_abi::<BadgeUpdater>(result__)
+            (::windows::core::Interface::vtable(this).CreateBadgeUpdaterForApplicationWithId)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(applicationid), result__.as_mut_ptr()).from_abi::<BadgeUpdater>(result__)
         }
     }
-    pub fn CreateBadgeUpdaterForSecondaryTile<'a, P0>(&self, tileid: P0) -> ::windows::core::Result<BadgeUpdater>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-    {
+    pub fn CreateBadgeUpdaterForSecondaryTile(&self, tileid: &::windows::core::HSTRING) -> ::windows::core::Result<BadgeUpdater> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).CreateBadgeUpdaterForSecondaryTile)(::windows::core::Interface::as_raw(this), tileid.into().abi(), result__.as_mut_ptr()).from_abi::<BadgeUpdater>(result__)
+            (::windows::core::Interface::vtable(this).CreateBadgeUpdaterForSecondaryTile)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(tileid), result__.as_mut_ptr()).from_abi::<BadgeUpdater>(result__)
         }
     }
     #[doc = "*Required features: `\"System\"`*"]
@@ -2224,12 +2206,9 @@ impl NotificationBinding {
             (::windows::core::Interface::vtable(this).Template)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    pub fn SetTemplate<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-    {
+    pub fn SetTemplate(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetTemplate)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetTemplate)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
     }
     pub fn Language(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
@@ -2238,12 +2217,9 @@ impl NotificationBinding {
             (::windows::core::Interface::vtable(this).Language)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    pub fn SetLanguage<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-    {
+    pub fn SetLanguage(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetLanguage)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetLanguage)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
@@ -2628,12 +2604,9 @@ impl NotificationVisual {
             (::windows::core::Interface::vtable(this).Language)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    pub fn SetLanguage<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-    {
+    pub fn SetLanguage(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetLanguage)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetLanguage)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
@@ -2644,14 +2617,11 @@ impl NotificationVisual {
             (::windows::core::Interface::vtable(this).Bindings)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Collections::IVector<NotificationBinding>>(result__)
         }
     }
-    pub fn GetBinding<'a, P0>(&self, templatename: P0) -> ::windows::core::Result<NotificationBinding>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-    {
+    pub fn GetBinding(&self, templatename: &::windows::core::HSTRING) -> ::windows::core::Result<NotificationBinding> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).GetBinding)(::windows::core::Interface::as_raw(this), templatename.into().abi(), result__.as_mut_ptr()).from_abi::<NotificationBinding>(result__)
+            (::windows::core::Interface::vtable(this).GetBinding)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(templatename), result__.as_mut_ptr()).from_abi::<NotificationBinding>(result__)
         }
     }
 }
@@ -2795,12 +2765,9 @@ impl ScheduledTileNotification {
             (::windows::core::Interface::vtable(this).ExpirationTime)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IReference<super::super::Foundation::DateTime>>(result__)
         }
     }
-    pub fn SetTag<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-    {
+    pub fn SetTag(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetTag)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetTag)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
     }
     pub fn Tag(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
@@ -2809,12 +2776,9 @@ impl ScheduledTileNotification {
             (::windows::core::Interface::vtable(this).Tag)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    pub fn SetId<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-    {
+    pub fn SetId(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetId)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetId)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
     }
     pub fn Id(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
@@ -2940,12 +2904,9 @@ impl ScheduledToastNotification {
             (::windows::core::Interface::vtable(this).MaximumSnoozeCount)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<u32>(result__)
         }
     }
-    pub fn SetId<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-    {
+    pub fn SetId(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetId)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetId)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
     }
     pub fn Id(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
@@ -2954,12 +2915,9 @@ impl ScheduledToastNotification {
             (::windows::core::Interface::vtable(this).Id)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    pub fn SetTag<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-    {
+    pub fn SetTag(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IScheduledToastNotification2>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetTag)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetTag)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
     }
     pub fn Tag(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = &::windows::core::Interface::cast::<IScheduledToastNotification2>(self)?;
@@ -2968,12 +2926,9 @@ impl ScheduledToastNotification {
             (::windows::core::Interface::vtable(this).Tag)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    pub fn SetGroup<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-    {
+    pub fn SetGroup(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IScheduledToastNotification2>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetGroup)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetGroup)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
     }
     pub fn Group(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = &::windows::core::Interface::cast::<IScheduledToastNotification2>(self)?;
@@ -3011,12 +2966,9 @@ impl ScheduledToastNotification {
             (::windows::core::Interface::vtable(this).RemoteId)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    pub fn SetRemoteId<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-    {
+    pub fn SetRemoteId(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IScheduledToastNotification3>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetRemoteId)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetRemoteId)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -3448,22 +3400,16 @@ impl TileFlyoutUpdateManager {
             (::windows::core::Interface::vtable(this).CreateTileFlyoutUpdaterForApplication)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<TileFlyoutUpdater>(result__)
         })
     }
-    pub fn CreateTileFlyoutUpdaterForApplicationWithId<'a, P0>(applicationid: P0) -> ::windows::core::Result<TileFlyoutUpdater>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-    {
+    pub fn CreateTileFlyoutUpdaterForApplicationWithId(applicationid: &::windows::core::HSTRING) -> ::windows::core::Result<TileFlyoutUpdater> {
         Self::ITileFlyoutUpdateManagerStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).CreateTileFlyoutUpdaterForApplicationWithId)(::windows::core::Interface::as_raw(this), applicationid.into().abi(), result__.as_mut_ptr()).from_abi::<TileFlyoutUpdater>(result__)
+            (::windows::core::Interface::vtable(this).CreateTileFlyoutUpdaterForApplicationWithId)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(applicationid), result__.as_mut_ptr()).from_abi::<TileFlyoutUpdater>(result__)
         })
     }
-    pub fn CreateTileFlyoutUpdaterForSecondaryTile<'a, P0>(tileid: P0) -> ::windows::core::Result<TileFlyoutUpdater>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-    {
+    pub fn CreateTileFlyoutUpdaterForSecondaryTile(tileid: &::windows::core::HSTRING) -> ::windows::core::Result<TileFlyoutUpdater> {
         Self::ITileFlyoutUpdateManagerStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).CreateTileFlyoutUpdaterForSecondaryTile)(::windows::core::Interface::as_raw(this), tileid.into().abi(), result__.as_mut_ptr()).from_abi::<TileFlyoutUpdater>(result__)
+            (::windows::core::Interface::vtable(this).CreateTileFlyoutUpdaterForSecondaryTile)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(tileid), result__.as_mut_ptr()).from_abi::<TileFlyoutUpdater>(result__)
         })
     }
     #[doc = "*Required features: `\"Data_Xml_Dom\"`*"]
@@ -3620,12 +3566,9 @@ impl TileNotification {
             (::windows::core::Interface::vtable(this).ExpirationTime)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IReference<super::super::Foundation::DateTime>>(result__)
         }
     }
-    pub fn SetTag<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-    {
+    pub fn SetTag(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetTag)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetTag)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
     }
     pub fn Tag(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
@@ -3880,22 +3823,16 @@ impl TileUpdateManager {
             (::windows::core::Interface::vtable(this).CreateTileUpdaterForApplication)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<TileUpdater>(result__)
         })
     }
-    pub fn CreateTileUpdaterForApplicationWithId<'a, P0>(applicationid: P0) -> ::windows::core::Result<TileUpdater>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-    {
+    pub fn CreateTileUpdaterForApplicationWithId(applicationid: &::windows::core::HSTRING) -> ::windows::core::Result<TileUpdater> {
         Self::ITileUpdateManagerStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).CreateTileUpdaterForApplicationWithId)(::windows::core::Interface::as_raw(this), applicationid.into().abi(), result__.as_mut_ptr()).from_abi::<TileUpdater>(result__)
+            (::windows::core::Interface::vtable(this).CreateTileUpdaterForApplicationWithId)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(applicationid), result__.as_mut_ptr()).from_abi::<TileUpdater>(result__)
         })
     }
-    pub fn CreateTileUpdaterForSecondaryTile<'a, P0>(tileid: P0) -> ::windows::core::Result<TileUpdater>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-    {
+    pub fn CreateTileUpdaterForSecondaryTile(tileid: &::windows::core::HSTRING) -> ::windows::core::Result<TileUpdater> {
         Self::ITileUpdateManagerStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).CreateTileUpdaterForSecondaryTile)(::windows::core::Interface::as_raw(this), tileid.into().abi(), result__.as_mut_ptr()).from_abi::<TileUpdater>(result__)
+            (::windows::core::Interface::vtable(this).CreateTileUpdaterForSecondaryTile)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(tileid), result__.as_mut_ptr()).from_abi::<TileUpdater>(result__)
         })
     }
     #[doc = "*Required features: `\"Data_Xml_Dom\"`*"]
@@ -3942,24 +3879,18 @@ impl TileUpdateManagerForUser {
             (::windows::core::Interface::vtable(this).CreateTileUpdaterForApplication)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<TileUpdater>(result__)
         }
     }
-    pub fn CreateTileUpdaterForApplicationWithId<'a, P0>(&self, applicationid: P0) -> ::windows::core::Result<TileUpdater>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-    {
+    pub fn CreateTileUpdaterForApplicationWithId(&self, applicationid: &::windows::core::HSTRING) -> ::windows::core::Result<TileUpdater> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).CreateTileUpdaterForApplicationWithId)(::windows::core::Interface::as_raw(this), applicationid.into().abi(), result__.as_mut_ptr()).from_abi::<TileUpdater>(result__)
+            (::windows::core::Interface::vtable(this).CreateTileUpdaterForApplicationWithId)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(applicationid), result__.as_mut_ptr()).from_abi::<TileUpdater>(result__)
         }
     }
-    pub fn CreateTileUpdaterForSecondaryTile<'a, P0>(&self, tileid: P0) -> ::windows::core::Result<TileUpdater>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-    {
+    pub fn CreateTileUpdaterForSecondaryTile(&self, tileid: &::windows::core::HSTRING) -> ::windows::core::Result<TileUpdater> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).CreateTileUpdaterForSecondaryTile)(::windows::core::Interface::as_raw(this), tileid.into().abi(), result__.as_mut_ptr()).from_abi::<TileUpdater>(result__)
+            (::windows::core::Interface::vtable(this).CreateTileUpdaterForSecondaryTile)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(tileid), result__.as_mut_ptr()).from_abi::<TileUpdater>(result__)
         }
     }
     #[doc = "*Required features: `\"System\"`*"]
@@ -4299,12 +4230,9 @@ impl ToastCollection {
             (::windows::core::Interface::vtable(this).DisplayName)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    pub fn SetDisplayName<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-    {
+    pub fn SetDisplayName(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetDisplayName)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetDisplayName)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
     }
     pub fn LaunchArgs(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
@@ -4313,12 +4241,9 @@ impl ToastCollection {
             (::windows::core::Interface::vtable(this).LaunchArgs)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    pub fn SetLaunchArgs<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-    {
+    pub fn SetLaunchArgs(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetLaunchArgs)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetLaunchArgs)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -4340,16 +4265,13 @@ impl ToastCollection {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn CreateInstance<'a, P0, P1, P2, P3>(collectionid: P0, displayname: P1, launchargs: P2, iconuri: P3) -> ::windows::core::Result<ToastCollection>
+    pub fn CreateInstance<'a, P0>(collectionid: &::windows::core::HSTRING, displayname: &::windows::core::HSTRING, launchargs: &::windows::core::HSTRING, iconuri: P0) -> ::windows::core::Result<ToastCollection>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-        P1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-        P2: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-        P3: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::Uri>>,
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::Uri>>,
     {
         Self::IToastCollectionFactory(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).CreateInstance)(::windows::core::Interface::as_raw(this), collectionid.into().abi(), displayname.into().abi(), launchargs.into().abi(), iconuri.into().abi(), result__.as_mut_ptr()).from_abi::<ToastCollection>(result__)
+            (::windows::core::Interface::vtable(this).CreateInstance)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(collectionid), ::core::mem::transmute_copy(displayname), ::core::mem::transmute_copy(launchargs), iconuri.into().abi(), result__.as_mut_ptr()).from_abi::<ToastCollection>(result__)
         })
     }
     #[doc(hidden)]
@@ -4447,26 +4369,20 @@ impl ToastCollectionManager {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn GetToastCollectionAsync<'a, P0>(&self, collectionid: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<ToastCollection>>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-    {
+    pub fn GetToastCollectionAsync(&self, collectionid: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<ToastCollection>> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).GetToastCollectionAsync)(::windows::core::Interface::as_raw(this), collectionid.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<ToastCollection>>(result__)
+            (::windows::core::Interface::vtable(this).GetToastCollectionAsync)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(collectionid), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<ToastCollection>>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn RemoveToastCollectionAsync<'a, P0>(&self, collectionid: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-    {
+    pub fn RemoveToastCollectionAsync(&self, collectionid: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncAction> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).RemoveToastCollectionAsync)(::windows::core::Interface::as_raw(this), collectionid.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncAction>(result__)
+            (::windows::core::Interface::vtable(this).RemoveToastCollectionAsync)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(collectionid), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncAction>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -4862,12 +4778,9 @@ impl ToastNotification {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).RemoveFailed)(::windows::core::Interface::as_raw(this), token).ok() }
     }
-    pub fn SetTag<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-    {
+    pub fn SetTag(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IToastNotification2>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetTag)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetTag)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
     }
     pub fn Tag(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = &::windows::core::Interface::cast::<IToastNotification2>(self)?;
@@ -4876,12 +4789,9 @@ impl ToastNotification {
             (::windows::core::Interface::vtable(this).Tag)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    pub fn SetGroup<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-    {
+    pub fn SetGroup(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IToastNotification2>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetGroup)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetGroup)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
     }
     pub fn Group(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = &::windows::core::Interface::cast::<IToastNotification2>(self)?;
@@ -4919,12 +4829,9 @@ impl ToastNotification {
             (::windows::core::Interface::vtable(this).RemoteId)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    pub fn SetRemoteId<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-    {
+    pub fn SetRemoteId(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IToastNotification3>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetRemoteId)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetRemoteId)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
     }
     pub fn Data(&self) -> ::windows::core::Result<NotificationData> {
         let this = &::windows::core::Interface::cast::<IToastNotification4>(self)?;
@@ -5126,55 +5033,33 @@ impl ::core::convert::From<&ToastNotificationActionTriggerDetail> for &::windows
 #[repr(transparent)]
 pub struct ToastNotificationHistory(::windows::core::IUnknown);
 impl ToastNotificationHistory {
-    pub fn RemoveGroup<'a, P0>(&self, group: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-    {
+    pub fn RemoveGroup(&self, group: &::windows::core::HSTRING) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).RemoveGroup)(::windows::core::Interface::as_raw(this), group.into().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemoveGroup)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(group)).ok() }
     }
-    pub fn RemoveGroupWithId<'a, P0, P1>(&self, group: P0, applicationid: P1) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-        P1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-    {
+    pub fn RemoveGroupWithId(&self, group: &::windows::core::HSTRING, applicationid: &::windows::core::HSTRING) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).RemoveGroupWithId)(::windows::core::Interface::as_raw(this), group.into().abi(), applicationid.into().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemoveGroupWithId)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(group), ::core::mem::transmute_copy(applicationid)).ok() }
     }
-    pub fn RemoveGroupedTagWithId<'a, P0, P1, P2>(&self, tag: P0, group: P1, applicationid: P2) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-        P1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-        P2: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-    {
+    pub fn RemoveGroupedTagWithId(&self, tag: &::windows::core::HSTRING, group: &::windows::core::HSTRING, applicationid: &::windows::core::HSTRING) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).RemoveGroupedTagWithId)(::windows::core::Interface::as_raw(this), tag.into().abi(), group.into().abi(), applicationid.into().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemoveGroupedTagWithId)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(tag), ::core::mem::transmute_copy(group), ::core::mem::transmute_copy(applicationid)).ok() }
     }
-    pub fn RemoveGroupedTag<'a, P0, P1>(&self, tag: P0, group: P1) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-        P1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-    {
+    pub fn RemoveGroupedTag(&self, tag: &::windows::core::HSTRING, group: &::windows::core::HSTRING) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).RemoveGroupedTag)(::windows::core::Interface::as_raw(this), tag.into().abi(), group.into().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemoveGroupedTag)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(tag), ::core::mem::transmute_copy(group)).ok() }
     }
-    pub fn Remove<'a, P0>(&self, tag: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-    {
+    pub fn Remove(&self, tag: &::windows::core::HSTRING) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).Remove)(::windows::core::Interface::as_raw(this), tag.into().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).Remove)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(tag)).ok() }
     }
     pub fn Clear(&self) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).Clear)(::windows::core::Interface::as_raw(this)).ok() }
     }
-    pub fn ClearWithId<'a, P0>(&self, applicationid: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-    {
+    pub fn ClearWithId(&self, applicationid: &::windows::core::HSTRING) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).ClearWithId)(::windows::core::Interface::as_raw(this), applicationid.into().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).ClearWithId)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(applicationid)).ok() }
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
@@ -5187,14 +5072,11 @@ impl ToastNotificationHistory {
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn GetHistoryWithId<'a, P0>(&self, applicationid: P0) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<ToastNotification>>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-    {
+    pub fn GetHistoryWithId(&self, applicationid: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<ToastNotification>> {
         let this = &::windows::core::Interface::cast::<IToastNotificationHistory2>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).GetHistoryWithId)(::windows::core::Interface::as_raw(this), applicationid.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Collections::IVectorView<ToastNotification>>(result__)
+            (::windows::core::Interface::vtable(this).GetHistoryWithId)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(applicationid), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Collections::IVectorView<ToastNotification>>(result__)
         }
     }
 }
@@ -5346,13 +5228,10 @@ impl ToastNotificationManager {
             (::windows::core::Interface::vtable(this).CreateToastNotifier)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<ToastNotifier>(result__)
         })
     }
-    pub fn CreateToastNotifierWithId<'a, P0>(applicationid: P0) -> ::windows::core::Result<ToastNotifier>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-    {
+    pub fn CreateToastNotifierWithId(applicationid: &::windows::core::HSTRING) -> ::windows::core::Result<ToastNotifier> {
         Self::IToastNotificationManagerStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).CreateToastNotifierWithId)(::windows::core::Interface::as_raw(this), applicationid.into().abi(), result__.as_mut_ptr()).from_abi::<ToastNotifier>(result__)
+            (::windows::core::Interface::vtable(this).CreateToastNotifierWithId)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(applicationid), result__.as_mut_ptr()).from_abi::<ToastNotifier>(result__)
         })
     }
     #[doc = "*Required features: `\"Data_Xml_Dom\"`*"]
@@ -5424,14 +5303,11 @@ impl ToastNotificationManagerForUser {
             (::windows::core::Interface::vtable(this).CreateToastNotifier)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<ToastNotifier>(result__)
         }
     }
-    pub fn CreateToastNotifierWithId<'a, P0>(&self, applicationid: P0) -> ::windows::core::Result<ToastNotifier>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-    {
+    pub fn CreateToastNotifierWithId(&self, applicationid: &::windows::core::HSTRING) -> ::windows::core::Result<ToastNotifier> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).CreateToastNotifierWithId)(::windows::core::Interface::as_raw(this), applicationid.into().abi(), result__.as_mut_ptr()).from_abi::<ToastNotifier>(result__)
+            (::windows::core::Interface::vtable(this).CreateToastNotifierWithId)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(applicationid), result__.as_mut_ptr()).from_abi::<ToastNotifier>(result__)
         }
     }
     pub fn History(&self) -> ::windows::core::Result<ToastNotificationHistory> {
@@ -5452,26 +5328,20 @@ impl ToastNotificationManagerForUser {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn GetToastNotifierForToastCollectionIdAsync<'a, P0>(&self, collectionid: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<ToastNotifier>>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-    {
+    pub fn GetToastNotifierForToastCollectionIdAsync(&self, collectionid: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<ToastNotifier>> {
         let this = &::windows::core::Interface::cast::<IToastNotificationManagerForUser2>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).GetToastNotifierForToastCollectionIdAsync)(::windows::core::Interface::as_raw(this), collectionid.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<ToastNotifier>>(result__)
+            (::windows::core::Interface::vtable(this).GetToastNotifierForToastCollectionIdAsync)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(collectionid), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<ToastNotifier>>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn GetHistoryForToastCollectionIdAsync<'a, P0>(&self, collectionid: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<ToastNotificationHistory>>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-    {
+    pub fn GetHistoryForToastCollectionIdAsync(&self, collectionid: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<ToastNotificationHistory>> {
         let this = &::windows::core::Interface::cast::<IToastNotificationManagerForUser2>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).GetHistoryForToastCollectionIdAsync)(::windows::core::Interface::as_raw(this), collectionid.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<ToastNotificationHistory>>(result__)
+            (::windows::core::Interface::vtable(this).GetHistoryForToastCollectionIdAsync)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(collectionid), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<ToastNotificationHistory>>(result__)
         }
     }
     pub fn GetToastCollectionManager(&self) -> ::windows::core::Result<ToastCollectionManager> {
@@ -5481,14 +5351,11 @@ impl ToastNotificationManagerForUser {
             (::windows::core::Interface::vtable(this).GetToastCollectionManager)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<ToastCollectionManager>(result__)
         }
     }
-    pub fn GetToastCollectionManagerWithAppId<'a, P0>(&self, appid: P0) -> ::windows::core::Result<ToastCollectionManager>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-    {
+    pub fn GetToastCollectionManagerWithAppId(&self, appid: &::windows::core::HSTRING) -> ::windows::core::Result<ToastCollectionManager> {
         let this = &::windows::core::Interface::cast::<IToastNotificationManagerForUser2>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).GetToastCollectionManagerWithAppId)(::windows::core::Interface::as_raw(this), appid.into().abi(), result__.as_mut_ptr()).from_abi::<ToastCollectionManager>(result__)
+            (::windows::core::Interface::vtable(this).GetToastCollectionManagerWithAppId)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(appid), result__.as_mut_ptr()).from_abi::<ToastCollectionManager>(result__)
         }
     }
 }
@@ -5636,27 +5503,24 @@ impl ToastNotifier {
             (::windows::core::Interface::vtable(this).GetScheduledToastNotifications)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Collections::IVectorView<ScheduledToastNotification>>(result__)
         }
     }
-    pub fn UpdateWithTagAndGroup<'a, P0, P1, P2>(&self, data: P0, tag: P1, group: P2) -> ::windows::core::Result<NotificationUpdateResult>
+    pub fn UpdateWithTagAndGroup<'a, P0>(&self, data: P0, tag: &::windows::core::HSTRING, group: &::windows::core::HSTRING) -> ::windows::core::Result<NotificationUpdateResult>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, NotificationData>>,
-        P1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-        P2: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
     {
         let this = &::windows::core::Interface::cast::<IToastNotifier2>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).UpdateWithTagAndGroup)(::windows::core::Interface::as_raw(this), data.into().abi(), tag.into().abi(), group.into().abi(), result__.as_mut_ptr()).from_abi::<NotificationUpdateResult>(result__)
+            (::windows::core::Interface::vtable(this).UpdateWithTagAndGroup)(::windows::core::Interface::as_raw(this), data.into().abi(), ::core::mem::transmute_copy(tag), ::core::mem::transmute_copy(group), result__.as_mut_ptr()).from_abi::<NotificationUpdateResult>(result__)
         }
     }
-    pub fn UpdateWithTag<'a, P0, P1>(&self, data: P0, tag: P1) -> ::windows::core::Result<NotificationUpdateResult>
+    pub fn UpdateWithTag<'a, P0>(&self, data: P0, tag: &::windows::core::HSTRING) -> ::windows::core::Result<NotificationUpdateResult>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, NotificationData>>,
-        P1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
     {
         let this = &::windows::core::Interface::cast::<IToastNotifier2>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).UpdateWithTag)(::windows::core::Interface::as_raw(this), data.into().abi(), tag.into().abi(), result__.as_mut_ptr()).from_abi::<NotificationUpdateResult>(result__)
+            (::windows::core::Interface::vtable(this).UpdateWithTag)(::windows::core::Interface::as_raw(this), data.into().abi(), ::core::mem::transmute_copy(tag), result__.as_mut_ptr()).from_abi::<NotificationUpdateResult>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]

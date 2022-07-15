@@ -5628,48 +5628,36 @@ impl RadialControllerMenuItem {
     }
     #[doc = "*Required features: `\"Storage_Streams\"`*"]
     #[cfg(feature = "Storage_Streams")]
-    pub fn CreateFromIcon<'a, P0, P1>(displaytext: P0, icon: P1) -> ::windows::core::Result<RadialControllerMenuItem>
+    pub fn CreateFromIcon<'a, P0>(displaytext: &::windows::core::HSTRING, icon: P0) -> ::windows::core::Result<RadialControllerMenuItem>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-        P1: ::std::convert::Into<::windows::core::InParam<'a, super::super::Storage::Streams::RandomAccessStreamReference>>,
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Storage::Streams::RandomAccessStreamReference>>,
     {
         Self::IRadialControllerMenuItemStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).CreateFromIcon)(::windows::core::Interface::as_raw(this), displaytext.into().abi(), icon.into().abi(), result__.as_mut_ptr()).from_abi::<RadialControllerMenuItem>(result__)
+            (::windows::core::Interface::vtable(this).CreateFromIcon)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(displaytext), icon.into().abi(), result__.as_mut_ptr()).from_abi::<RadialControllerMenuItem>(result__)
         })
     }
-    pub fn CreateFromKnownIcon<'a, P0>(displaytext: P0, value: RadialControllerMenuKnownIcon) -> ::windows::core::Result<RadialControllerMenuItem>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-    {
+    pub fn CreateFromKnownIcon(displaytext: &::windows::core::HSTRING, value: RadialControllerMenuKnownIcon) -> ::windows::core::Result<RadialControllerMenuItem> {
         Self::IRadialControllerMenuItemStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).CreateFromKnownIcon)(::windows::core::Interface::as_raw(this), displaytext.into().abi(), value, result__.as_mut_ptr()).from_abi::<RadialControllerMenuItem>(result__)
+            (::windows::core::Interface::vtable(this).CreateFromKnownIcon)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(displaytext), value, result__.as_mut_ptr()).from_abi::<RadialControllerMenuItem>(result__)
         })
     }
-    pub fn CreateFromFontGlyph<'a, P0, P1, P2>(displaytext: P0, glyph: P1, fontfamily: P2) -> ::windows::core::Result<RadialControllerMenuItem>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-        P1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-        P2: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-    {
+    pub fn CreateFromFontGlyph(displaytext: &::windows::core::HSTRING, glyph: &::windows::core::HSTRING, fontfamily: &::windows::core::HSTRING) -> ::windows::core::Result<RadialControllerMenuItem> {
         Self::IRadialControllerMenuItemStatics2(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).CreateFromFontGlyph)(::windows::core::Interface::as_raw(this), displaytext.into().abi(), glyph.into().abi(), fontfamily.into().abi(), result__.as_mut_ptr()).from_abi::<RadialControllerMenuItem>(result__)
+            (::windows::core::Interface::vtable(this).CreateFromFontGlyph)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(displaytext), ::core::mem::transmute_copy(glyph), ::core::mem::transmute_copy(fontfamily), result__.as_mut_ptr()).from_abi::<RadialControllerMenuItem>(result__)
         })
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn CreateFromFontGlyphWithUri<'a, P0, P1, P2, P3>(displaytext: P0, glyph: P1, fontfamily: P2, fonturi: P3) -> ::windows::core::Result<RadialControllerMenuItem>
+    pub fn CreateFromFontGlyphWithUri<'a, P0>(displaytext: &::windows::core::HSTRING, glyph: &::windows::core::HSTRING, fontfamily: &::windows::core::HSTRING, fonturi: P0) -> ::windows::core::Result<RadialControllerMenuItem>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-        P1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-        P2: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-        P3: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::Uri>>,
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::Uri>>,
     {
         Self::IRadialControllerMenuItemStatics2(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).CreateFromFontGlyphWithUri)(::windows::core::Interface::as_raw(this), displaytext.into().abi(), glyph.into().abi(), fontfamily.into().abi(), fonturi.into().abi(), result__.as_mut_ptr()).from_abi::<RadialControllerMenuItem>(result__)
+            (::windows::core::Interface::vtable(this).CreateFromFontGlyphWithUri)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(displaytext), ::core::mem::transmute_copy(glyph), ::core::mem::transmute_copy(fontfamily), fonturi.into().abi(), result__.as_mut_ptr()).from_abi::<RadialControllerMenuItem>(result__)
         })
     }
     #[doc(hidden)]

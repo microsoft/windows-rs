@@ -762,13 +762,10 @@ impl PropertyValue {
             (::windows::core::Interface::vtable(this).CreateBoolean)(::windows::core::Interface::as_raw(this), value, result__.as_mut_ptr()).from_abi::<::windows::core::IInspectable>(result__)
         })
     }
-    pub fn CreateString<'a, P0>(value: P0) -> ::windows::core::Result<::windows::core::IInspectable>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-    {
+    pub fn CreateString(value: &::windows::core::HSTRING) -> ::windows::core::Result<::windows::core::IInspectable> {
         Self::IPropertyValueStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).CreateString)(::windows::core::Interface::as_raw(this), value.into().abi(), result__.as_mut_ptr()).from_abi::<::windows::core::IInspectable>(result__)
+            (::windows::core::Interface::vtable(this).CreateString)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(value), result__.as_mut_ptr()).from_abi::<::windows::core::IInspectable>(result__)
         })
     }
     pub fn CreateInspectable<'a, P0>(value: P0) -> ::windows::core::Result<::windows::core::IInspectable>

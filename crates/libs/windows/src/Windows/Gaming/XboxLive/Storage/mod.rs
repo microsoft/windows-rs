@@ -359,18 +359,17 @@ impl GameSaveContainer {
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`, `\"Storage_Streams\"`*"]
     #[cfg(all(feature = "Foundation_Collections", feature = "Storage_Streams"))]
-    pub fn SubmitUpdatesAsync<'a, P0, E0, P1, E1, P2>(&self, blobstowrite: P0, blobstodelete: P1, displayname: P2) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<GameSaveOperationResult>>
+    pub fn SubmitUpdatesAsync<'a, P0, E0, P1, E1>(&self, blobstowrite: P0, blobstodelete: P1, displayname: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<GameSaveOperationResult>>
     where
         P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::super::Foundation::Collections::IMapView<::windows::core::HSTRING, super::super::super::Storage::Streams::IBuffer>>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
         P1: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>, Error = E1>,
         E1: ::std::convert::Into<::windows::core::Error>,
-        P2: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
     {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).SubmitUpdatesAsync)(::windows::core::Interface::as_raw(this), blobstowrite.try_into().map_err(|e| e.into())?.abi(), blobstodelete.try_into().map_err(|e| e.into())?.abi(), displayname.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::IAsyncOperation<GameSaveOperationResult>>(result__)
+            (::windows::core::Interface::vtable(this).SubmitUpdatesAsync)(::windows::core::Interface::as_raw(this), blobstowrite.try_into().map_err(|e| e.into())?.abi(), blobstodelete.try_into().map_err(|e| e.into())?.abi(), ::core::mem::transmute_copy(displayname), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::IAsyncOperation<GameSaveOperationResult>>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`, `\"Storage_Streams\"`*"]
@@ -401,28 +400,24 @@ impl GameSaveContainer {
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn SubmitPropertySetUpdatesAsync<'a, P0, E0, P1, E1, P2>(&self, blobstowrite: P0, blobstodelete: P1, displayname: P2) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<GameSaveOperationResult>>
+    pub fn SubmitPropertySetUpdatesAsync<'a, P0, E0, P1, E1>(&self, blobstowrite: P0, blobstodelete: P1, displayname: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<GameSaveOperationResult>>
     where
         P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::super::Foundation::Collections::IPropertySet>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
         P1: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>, Error = E1>,
         E1: ::std::convert::Into<::windows::core::Error>,
-        P2: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
     {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).SubmitPropertySetUpdatesAsync)(::windows::core::Interface::as_raw(this), blobstowrite.try_into().map_err(|e| e.into())?.abi(), blobstodelete.try_into().map_err(|e| e.into())?.abi(), displayname.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::IAsyncOperation<GameSaveOperationResult>>(result__)
+            (::windows::core::Interface::vtable(this).SubmitPropertySetUpdatesAsync)(::windows::core::Interface::as_raw(this), blobstowrite.try_into().map_err(|e| e.into())?.abi(), blobstodelete.try_into().map_err(|e| e.into())?.abi(), ::core::mem::transmute_copy(displayname), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::IAsyncOperation<GameSaveOperationResult>>(result__)
         }
     }
-    pub fn CreateBlobInfoQuery<'a, P0>(&self, blobnameprefix: P0) -> ::windows::core::Result<GameSaveBlobInfoQuery>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-    {
+    pub fn CreateBlobInfoQuery(&self, blobnameprefix: &::windows::core::HSTRING) -> ::windows::core::Result<GameSaveBlobInfoQuery> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).CreateBlobInfoQuery)(::windows::core::Interface::as_raw(this), blobnameprefix.into().abi(), result__.as_mut_ptr()).from_abi::<GameSaveBlobInfoQuery>(result__)
+            (::windows::core::Interface::vtable(this).CreateBlobInfoQuery)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(blobnameprefix), result__.as_mut_ptr()).from_abi::<GameSaveBlobInfoQuery>(result__)
         }
     }
 }
@@ -903,26 +898,20 @@ impl GameSaveProvider {
             (::windows::core::Interface::vtable(this).User)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::super::System::User>(result__)
         }
     }
-    pub fn CreateContainer<'a, P0>(&self, name: P0) -> ::windows::core::Result<GameSaveContainer>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-    {
+    pub fn CreateContainer(&self, name: &::windows::core::HSTRING) -> ::windows::core::Result<GameSaveContainer> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).CreateContainer)(::windows::core::Interface::as_raw(this), name.into().abi(), result__.as_mut_ptr()).from_abi::<GameSaveContainer>(result__)
+            (::windows::core::Interface::vtable(this).CreateContainer)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(name), result__.as_mut_ptr()).from_abi::<GameSaveContainer>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn DeleteContainerAsync<'a, P0>(&self, name: P0) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<GameSaveOperationResult>>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-    {
+    pub fn DeleteContainerAsync(&self, name: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<GameSaveOperationResult>> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).DeleteContainerAsync)(::windows::core::Interface::as_raw(this), name.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::IAsyncOperation<GameSaveOperationResult>>(result__)
+            (::windows::core::Interface::vtable(this).DeleteContainerAsync)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(name), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::IAsyncOperation<GameSaveOperationResult>>(result__)
         }
     }
     pub fn CreateContainerInfoQuery(&self) -> ::windows::core::Result<GameSaveContainerInfoQuery> {
@@ -932,14 +921,11 @@ impl GameSaveProvider {
             (::windows::core::Interface::vtable(this).CreateContainerInfoQuery)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<GameSaveContainerInfoQuery>(result__)
         }
     }
-    pub fn CreateContainerInfoQueryWithName<'a, P0>(&self, containernameprefix: P0) -> ::windows::core::Result<GameSaveContainerInfoQuery>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-    {
+    pub fn CreateContainerInfoQueryWithName(&self, containernameprefix: &::windows::core::HSTRING) -> ::windows::core::Result<GameSaveContainerInfoQuery> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).CreateContainerInfoQueryWithName)(::windows::core::Interface::as_raw(this), containernameprefix.into().abi(), result__.as_mut_ptr()).from_abi::<GameSaveContainerInfoQuery>(result__)
+            (::windows::core::Interface::vtable(this).CreateContainerInfoQueryWithName)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(containernameprefix), result__.as_mut_ptr()).from_abi::<GameSaveContainerInfoQuery>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -962,26 +948,24 @@ impl GameSaveProvider {
     }
     #[doc = "*Required features: `\"Foundation\"`, `\"System\"`*"]
     #[cfg(all(feature = "Foundation", feature = "System"))]
-    pub fn GetForUserAsync<'a, P0, P1>(user: P0, serviceconfigid: P1) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<GameSaveProviderGetResult>>
+    pub fn GetForUserAsync<'a, P0>(user: P0, serviceconfigid: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<GameSaveProviderGetResult>>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::System::User>>,
-        P1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
     {
         Self::IGameSaveProviderStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).GetForUserAsync)(::windows::core::Interface::as_raw(this), user.into().abi(), serviceconfigid.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::IAsyncOperation<GameSaveProviderGetResult>>(result__)
+            (::windows::core::Interface::vtable(this).GetForUserAsync)(::windows::core::Interface::as_raw(this), user.into().abi(), ::core::mem::transmute_copy(serviceconfigid), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::IAsyncOperation<GameSaveProviderGetResult>>(result__)
         })
     }
     #[doc = "*Required features: `\"Foundation\"`, `\"System\"`*"]
     #[cfg(all(feature = "Foundation", feature = "System"))]
-    pub fn GetSyncOnDemandForUserAsync<'a, P0, P1>(user: P0, serviceconfigid: P1) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<GameSaveProviderGetResult>>
+    pub fn GetSyncOnDemandForUserAsync<'a, P0>(user: P0, serviceconfigid: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<GameSaveProviderGetResult>>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::System::User>>,
-        P1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
     {
         Self::IGameSaveProviderStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).GetSyncOnDemandForUserAsync)(::windows::core::Interface::as_raw(this), user.into().abi(), serviceconfigid.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::IAsyncOperation<GameSaveProviderGetResult>>(result__)
+            (::windows::core::Interface::vtable(this).GetSyncOnDemandForUserAsync)(::windows::core::Interface::as_raw(this), user.into().abi(), ::core::mem::transmute_copy(serviceconfigid), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::IAsyncOperation<GameSaveProviderGetResult>>(result__)
         })
     }
     #[doc(hidden)]

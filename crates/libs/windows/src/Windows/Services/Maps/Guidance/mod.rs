@@ -939,12 +939,9 @@ impl GuidanceNavigator {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).RemoveUserLocationRestored)(::windows::core::Interface::as_raw(this), token).ok() }
     }
-    pub fn SetGuidanceVoice<'a, P0>(&self, voiceid: i32, voicefolder: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-    {
+    pub fn SetGuidanceVoice(&self, voiceid: i32, voicefolder: &::windows::core::HSTRING) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetGuidanceVoice)(::windows::core::Interface::as_raw(this), voiceid, voicefolder.into().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetGuidanceVoice)(::windows::core::Interface::as_raw(this), voiceid, ::core::mem::transmute_copy(voicefolder)).ok() }
     }
     #[doc = "*Required features: `\"Devices_Geolocation\"`*"]
     #[cfg(feature = "Devices_Geolocation")]

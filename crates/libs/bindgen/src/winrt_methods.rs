@@ -152,12 +152,14 @@ fn gen_winrt_params(gen: &Gen, params: &[SignatureParam]) -> TokenStream {
         if gen.reader.param_flags(param.def).input() {
             if param.ty.is_winrt_array() {
                 result.combine(&quote! { #name: &[#default_type], });
-            } else if gen.reader.signature_param_is_generic(param) {
+            } else if gen.reader.signature_param_is_convertible(param) {
                 let (position, _) = generic_params.next().unwrap();
                 let kind: TokenStream = format!("P{}", position).into();
                 result.combine(&quote! { #name: #kind, });
-            } else {
+            } else if gen.reader.type_is_blittable(&param.ty) {
                 result.combine(&quote! { #name: #kind, });
+            } else {
+                result.combine(&quote! { #name: &#kind, });
             }
         } else if param.ty.is_winrt_array() {
             result.combine(&quote! { #name: &mut [#default_type], });
@@ -180,19 +182,9 @@ fn gen_winrt_abi_args(gen: &Gen, params: &[SignatureParam]) -> TokenStream {
             if param.ty.is_winrt_array() {
                 quote! { #name.len() as u32, ::core::mem::transmute(#name.as_ptr()), }
             } else if gen.reader.signature_param_is_failible_param(param) {
-                if param.ty.is_winrt_const_ref() {
-                    quote! { &#name.try_into().map_err(|e| e.into())?.abi(), }
-                } else {
-                    quote! { #name.try_into().map_err(|e| e.into())?.abi(), }
-                }
+                quote! { #name.try_into().map_err(|e| e.into())?.abi(), }
             } else if gen.reader.signature_param_is_borrowed(param) {
-                if param.ty.is_winrt_const_ref() {
-                    quote! { &#name.into().abi(), }
-                } else {
-                    quote! { #name.into().abi(), }
-                }
-            } else if gen.reader.signature_param_is_convertible(param) {
-                quote! { #name.into(), }
+                quote! { #name.into().abi(), }
             } else if gen.reader.type_is_blittable(&param.ty) {
                 if param.ty.is_winrt_const_ref() {
                     quote! { &#name, }

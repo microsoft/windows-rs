@@ -62,12 +62,9 @@ impl SceneLightingEffect {
     }
     #[doc = "*Required features: `\"Graphics_Effects\"`*"]
     #[cfg(feature = "Graphics_Effects")]
-    pub fn SetName<'a, P0>(&self, name: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-    {
+    pub fn SetName(&self, name: &::windows::core::HSTRING) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::super::Graphics::Effects::IGraphicsEffect>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetName)(::windows::core::Interface::as_raw(this), name.into().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetName)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(name)).ok() }
     }
     pub fn AmbientAmount(&self) -> ::windows::core::Result<f32> {
         let this = self;

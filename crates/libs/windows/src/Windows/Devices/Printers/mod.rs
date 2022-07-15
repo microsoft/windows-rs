@@ -930,13 +930,10 @@ impl IppAttributeValue {
             (::windows::core::Interface::vtable(this).CreateNameWithLanguageArray)(::windows::core::Interface::as_raw(this), values.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<IppAttributeValue>(result__)
         })
     }
-    pub fn CreateTextWithoutLanguage<'a, P0>(value: P0) -> ::windows::core::Result<IppAttributeValue>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-    {
+    pub fn CreateTextWithoutLanguage(value: &::windows::core::HSTRING) -> ::windows::core::Result<IppAttributeValue> {
         Self::IIppAttributeValueStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).CreateTextWithoutLanguage)(::windows::core::Interface::as_raw(this), value.into().abi(), result__.as_mut_ptr()).from_abi::<IppAttributeValue>(result__)
+            (::windows::core::Interface::vtable(this).CreateTextWithoutLanguage)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(value), result__.as_mut_ptr()).from_abi::<IppAttributeValue>(result__)
         })
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
@@ -951,13 +948,10 @@ impl IppAttributeValue {
             (::windows::core::Interface::vtable(this).CreateTextWithoutLanguageArray)(::windows::core::Interface::as_raw(this), values.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<IppAttributeValue>(result__)
         })
     }
-    pub fn CreateNameWithoutLanguage<'a, P0>(value: P0) -> ::windows::core::Result<IppAttributeValue>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-    {
+    pub fn CreateNameWithoutLanguage(value: &::windows::core::HSTRING) -> ::windows::core::Result<IppAttributeValue> {
         Self::IIppAttributeValueStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).CreateNameWithoutLanguage)(::windows::core::Interface::as_raw(this), value.into().abi(), result__.as_mut_ptr()).from_abi::<IppAttributeValue>(result__)
+            (::windows::core::Interface::vtable(this).CreateNameWithoutLanguage)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(value), result__.as_mut_ptr()).from_abi::<IppAttributeValue>(result__)
         })
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
@@ -972,13 +966,10 @@ impl IppAttributeValue {
             (::windows::core::Interface::vtable(this).CreateNameWithoutLanguageArray)(::windows::core::Interface::as_raw(this), values.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<IppAttributeValue>(result__)
         })
     }
-    pub fn CreateKeyword<'a, P0>(value: P0) -> ::windows::core::Result<IppAttributeValue>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-    {
+    pub fn CreateKeyword(value: &::windows::core::HSTRING) -> ::windows::core::Result<IppAttributeValue> {
         Self::IIppAttributeValueStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).CreateKeyword)(::windows::core::Interface::as_raw(this), value.into().abi(), result__.as_mut_ptr()).from_abi::<IppAttributeValue>(result__)
+            (::windows::core::Interface::vtable(this).CreateKeyword)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(value), result__.as_mut_ptr()).from_abi::<IppAttributeValue>(result__)
         })
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
@@ -1016,13 +1007,10 @@ impl IppAttributeValue {
             (::windows::core::Interface::vtable(this).CreateUriArray)(::windows::core::Interface::as_raw(this), values.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<IppAttributeValue>(result__)
         })
     }
-    pub fn CreateUriSchema<'a, P0>(value: P0) -> ::windows::core::Result<IppAttributeValue>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-    {
+    pub fn CreateUriSchema(value: &::windows::core::HSTRING) -> ::windows::core::Result<IppAttributeValue> {
         Self::IIppAttributeValueStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).CreateUriSchema)(::windows::core::Interface::as_raw(this), value.into().abi(), result__.as_mut_ptr()).from_abi::<IppAttributeValue>(result__)
+            (::windows::core::Interface::vtable(this).CreateUriSchema)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(value), result__.as_mut_ptr()).from_abi::<IppAttributeValue>(result__)
         })
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
@@ -1037,13 +1025,10 @@ impl IppAttributeValue {
             (::windows::core::Interface::vtable(this).CreateUriSchemaArray)(::windows::core::Interface::as_raw(this), values.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<IppAttributeValue>(result__)
         })
     }
-    pub fn CreateCharset<'a, P0>(value: P0) -> ::windows::core::Result<IppAttributeValue>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-    {
+    pub fn CreateCharset(value: &::windows::core::HSTRING) -> ::windows::core::Result<IppAttributeValue> {
         Self::IIppAttributeValueStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).CreateCharset)(::windows::core::Interface::as_raw(this), value.into().abi(), result__.as_mut_ptr()).from_abi::<IppAttributeValue>(result__)
+            (::windows::core::Interface::vtable(this).CreateCharset)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(value), result__.as_mut_ptr()).from_abi::<IppAttributeValue>(result__)
         })
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
@@ -1058,13 +1043,10 @@ impl IppAttributeValue {
             (::windows::core::Interface::vtable(this).CreateCharsetArray)(::windows::core::Interface::as_raw(this), values.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<IppAttributeValue>(result__)
         })
     }
-    pub fn CreateNaturalLanguage<'a, P0>(value: P0) -> ::windows::core::Result<IppAttributeValue>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-    {
+    pub fn CreateNaturalLanguage(value: &::windows::core::HSTRING) -> ::windows::core::Result<IppAttributeValue> {
         Self::IIppAttributeValueStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).CreateNaturalLanguage)(::windows::core::Interface::as_raw(this), value.into().abi(), result__.as_mut_ptr()).from_abi::<IppAttributeValue>(result__)
+            (::windows::core::Interface::vtable(this).CreateNaturalLanguage)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(value), result__.as_mut_ptr()).from_abi::<IppAttributeValue>(result__)
         })
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
@@ -1079,13 +1061,10 @@ impl IppAttributeValue {
             (::windows::core::Interface::vtable(this).CreateNaturalLanguageArray)(::windows::core::Interface::as_raw(this), values.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<IppAttributeValue>(result__)
         })
     }
-    pub fn CreateMimeMedia<'a, P0>(value: P0) -> ::windows::core::Result<IppAttributeValue>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-    {
+    pub fn CreateMimeMedia(value: &::windows::core::HSTRING) -> ::windows::core::Result<IppAttributeValue> {
         Self::IIppAttributeValueStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).CreateMimeMedia)(::windows::core::Interface::as_raw(this), value.into().abi(), result__.as_mut_ptr()).from_abi::<IppAttributeValue>(result__)
+            (::windows::core::Interface::vtable(this).CreateMimeMedia)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(value), result__.as_mut_ptr()).from_abi::<IppAttributeValue>(result__)
         })
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
@@ -1682,14 +1661,10 @@ impl IppTextWithLanguage {
             (::windows::core::Interface::vtable(this).Value)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    pub fn CreateInstance<'a, P0, P1>(language: P0, text: P1) -> ::windows::core::Result<IppTextWithLanguage>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-        P1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-    {
+    pub fn CreateInstance(language: &::windows::core::HSTRING, text: &::windows::core::HSTRING) -> ::windows::core::Result<IppTextWithLanguage> {
         Self::IIppTextWithLanguageFactory(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).CreateInstance)(::windows::core::Interface::as_raw(this), language.into().abi(), text.into().abi(), result__.as_mut_ptr()).from_abi::<IppTextWithLanguage>(result__)
+            (::windows::core::Interface::vtable(this).CreateInstance)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(language), ::core::mem::transmute_copy(text), result__.as_mut_ptr()).from_abi::<IppTextWithLanguage>(result__)
         })
     }
     #[doc(hidden)]
@@ -1773,13 +1748,10 @@ impl Print3DDevice {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn FromIdAsync<'a, P0>(deviceid: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<Print3DDevice>>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-    {
+    pub fn FromIdAsync(deviceid: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<Print3DDevice>> {
         Self::IPrint3DDeviceStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).FromIdAsync)(::windows::core::Interface::as_raw(this), deviceid.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<Print3DDevice>>(result__)
+            (::windows::core::Interface::vtable(this).FromIdAsync)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(deviceid), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<Print3DDevice>>(result__)
         })
     }
     pub fn GetDeviceSelector() -> ::windows::core::Result<::windows::core::HSTRING> {

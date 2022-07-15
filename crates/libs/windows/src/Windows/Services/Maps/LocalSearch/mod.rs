@@ -355,15 +355,13 @@ pub struct LocalLocationFinder;
 impl LocalLocationFinder {
     #[doc = "*Required features: `\"Devices_Geolocation\"`, `\"Foundation\"`*"]
     #[cfg(all(feature = "Devices_Geolocation", feature = "Foundation"))]
-    pub fn FindLocalLocationsAsync<'a, P0, P1, P2>(searchterm: P0, searcharea: P1, localcategory: P2, maxresults: u32) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<LocalLocationFinderResult>>
+    pub fn FindLocalLocationsAsync<'a, P0>(searchterm: &::windows::core::HSTRING, searcharea: P0, localcategory: &::windows::core::HSTRING, maxresults: u32) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<LocalLocationFinderResult>>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-        P1: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Devices::Geolocation::Geocircle>>,
-        P2: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Devices::Geolocation::Geocircle>>,
     {
         Self::ILocalLocationFinderStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).FindLocalLocationsAsync)(::windows::core::Interface::as_raw(this), searchterm.into().abi(), searcharea.into().abi(), localcategory.into().abi(), maxresults, result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::IAsyncOperation<LocalLocationFinderResult>>(result__)
+            (::windows::core::Interface::vtable(this).FindLocalLocationsAsync)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(searchterm), searcharea.into().abi(), ::core::mem::transmute_copy(localcategory), maxresults, result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::IAsyncOperation<LocalLocationFinderResult>>(result__)
         })
     }
     #[doc(hidden)]

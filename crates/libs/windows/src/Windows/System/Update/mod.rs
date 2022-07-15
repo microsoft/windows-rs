@@ -496,24 +496,18 @@ impl SystemUpdateManager {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn BlockAutomaticRebootAsync<'a, P0>(lockid: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-    {
+    pub fn BlockAutomaticRebootAsync(lockid: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>> {
         Self::ISystemUpdateManagerStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).BlockAutomaticRebootAsync)(::windows::core::Interface::as_raw(this), lockid.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<bool>>(result__)
+            (::windows::core::Interface::vtable(this).BlockAutomaticRebootAsync)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(lockid), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<bool>>(result__)
         })
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn UnblockAutomaticRebootAsync<'a, P0>(lockid: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-    {
+    pub fn UnblockAutomaticRebootAsync(lockid: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>> {
         Self::ISystemUpdateManagerStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).UnblockAutomaticRebootAsync)(::windows::core::Interface::as_raw(this), lockid.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<bool>>(result__)
+            (::windows::core::Interface::vtable(this).UnblockAutomaticRebootAsync)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(lockid), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<bool>>(result__)
         })
     }
     pub fn ExtendedError() -> ::windows::core::Result<::windows::core::HRESULT> {
@@ -536,13 +530,10 @@ impl SystemUpdateManager {
             (::windows::core::Interface::vtable(this).AttentionRequiredReason)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<SystemUpdateAttentionRequiredReason>(result__)
         })
     }
-    pub fn SetFlightRing<'a, P0>(flightring: P0) -> ::windows::core::Result<bool>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-    {
+    pub fn SetFlightRing(flightring: &::windows::core::HSTRING) -> ::windows::core::Result<bool> {
         Self::ISystemUpdateManagerStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).SetFlightRing)(::windows::core::Interface::as_raw(this), flightring.into().abi(), result__.as_mut_ptr()).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).SetFlightRing)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(flightring), result__.as_mut_ptr()).from_abi::<bool>(result__)
         })
     }
     pub fn GetFlightRing() -> ::windows::core::Result<::windows::core::HSTRING> {

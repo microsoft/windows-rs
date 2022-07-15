@@ -408,41 +408,29 @@ pub struct SocialInfoProviderManager;
 impl SocialInfoProviderManager {
     #[doc = "*Required features: `\"Foundation\"`, `\"deprecated\"`*"]
     #[cfg(all(feature = "Foundation", feature = "deprecated"))]
-    pub fn CreateSocialFeedUpdaterAsync<'a, P0>(kind: super::SocialFeedKind, mode: super::SocialFeedUpdateMode, ownerremoteid: P0) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<SocialFeedUpdater>>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-    {
+    pub fn CreateSocialFeedUpdaterAsync(kind: super::SocialFeedKind, mode: super::SocialFeedUpdateMode, ownerremoteid: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<SocialFeedUpdater>> {
         Self::ISocialInfoProviderManagerStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).CreateSocialFeedUpdaterAsync)(::windows::core::Interface::as_raw(this), kind, mode, ownerremoteid.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::IAsyncOperation<SocialFeedUpdater>>(result__)
+            (::windows::core::Interface::vtable(this).CreateSocialFeedUpdaterAsync)(::windows::core::Interface::as_raw(this), kind, mode, ::core::mem::transmute_copy(ownerremoteid), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::IAsyncOperation<SocialFeedUpdater>>(result__)
         })
     }
     #[doc = "*Required features: `\"Foundation\"`, `\"deprecated\"`*"]
     #[cfg(all(feature = "Foundation", feature = "deprecated"))]
-    pub fn CreateDashboardItemUpdaterAsync<'a, P0>(ownerremoteid: P0) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<SocialDashboardItemUpdater>>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-    {
+    pub fn CreateDashboardItemUpdaterAsync(ownerremoteid: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<SocialDashboardItemUpdater>> {
         Self::ISocialInfoProviderManagerStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).CreateDashboardItemUpdaterAsync)(::windows::core::Interface::as_raw(this), ownerremoteid.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::IAsyncOperation<SocialDashboardItemUpdater>>(result__)
+            (::windows::core::Interface::vtable(this).CreateDashboardItemUpdaterAsync)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(ownerremoteid), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::IAsyncOperation<SocialDashboardItemUpdater>>(result__)
         })
     }
     #[doc = "*Required features: `\"deprecated\"`*"]
     #[cfg(feature = "deprecated")]
-    pub fn UpdateBadgeCountValue<'a, P0>(itemremoteid: P0, newcount: i32) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-    {
-        Self::ISocialInfoProviderManagerStatics(|this| unsafe { (::windows::core::Interface::vtable(this).UpdateBadgeCountValue)(::windows::core::Interface::as_raw(this), itemremoteid.into().abi(), newcount).ok() })
+    pub fn UpdateBadgeCountValue(itemremoteid: &::windows::core::HSTRING, newcount: i32) -> ::windows::core::Result<()> {
+        Self::ISocialInfoProviderManagerStatics(|this| unsafe { (::windows::core::Interface::vtable(this).UpdateBadgeCountValue)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(itemremoteid), newcount).ok() })
     }
     #[doc = "*Required features: `\"deprecated\"`*"]
     #[cfg(feature = "deprecated")]
-    pub fn ReportNewContentAvailable<'a, P0>(contactremoteid: P0, kind: super::SocialFeedKind) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-    {
-        Self::ISocialInfoProviderManagerStatics(|this| unsafe { (::windows::core::Interface::vtable(this).ReportNewContentAvailable)(::windows::core::Interface::as_raw(this), contactremoteid.into().abi(), kind).ok() })
+    pub fn ReportNewContentAvailable(contactremoteid: &::windows::core::HSTRING, kind: super::SocialFeedKind) -> ::windows::core::Result<()> {
+        Self::ISocialInfoProviderManagerStatics(|this| unsafe { (::windows::core::Interface::vtable(this).ReportNewContentAvailable)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(contactremoteid), kind).ok() })
     }
     #[doc = "*Required features: `\"Foundation\"`, `\"deprecated\"`*"]
     #[cfg(all(feature = "Foundation", feature = "deprecated"))]

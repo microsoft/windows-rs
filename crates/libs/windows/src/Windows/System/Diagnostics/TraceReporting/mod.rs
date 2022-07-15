@@ -105,25 +105,20 @@ impl PlatformDiagnosticActions {
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn TryEscalateScenario<'a, P0, P1, E1>(scenarioid: ::windows::core::GUID, escalationtype: PlatformDiagnosticEscalationType, outputdirectory: P0, timestampoutputdirectory: bool, forceescalationupload: bool, triggers: P1) -> ::windows::core::Result<bool>
+    pub fn TryEscalateScenario<'a, P0, E0>(scenarioid: ::windows::core::GUID, escalationtype: PlatformDiagnosticEscalationType, outputdirectory: &::windows::core::HSTRING, timestampoutputdirectory: bool, forceescalationupload: bool, triggers: P0) -> ::windows::core::Result<bool>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-        P1: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::super::Foundation::Collections::IMapView<::windows::core::HSTRING, ::windows::core::HSTRING>>, Error = E1>,
-        E1: ::std::convert::Into<::windows::core::Error>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::super::Foundation::Collections::IMapView<::windows::core::HSTRING, ::windows::core::HSTRING>>, Error = E0>,
+        E0: ::std::convert::Into<::windows::core::Error>,
     {
         Self::IPlatformDiagnosticActionsStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).TryEscalateScenario)(::windows::core::Interface::as_raw(this), scenarioid, escalationtype, outputdirectory.into().abi(), timestampoutputdirectory, forceescalationupload, triggers.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).TryEscalateScenario)(::windows::core::Interface::as_raw(this), scenarioid, escalationtype, ::core::mem::transmute_copy(outputdirectory), timestampoutputdirectory, forceescalationupload, triggers.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<bool>(result__)
         })
     }
-    pub fn DownloadLatestSettingsForNamespace<'a, P0, P1>(partner: P0, feature: P1, isscenarionamespace: bool, downloadovercostednetwork: bool, downloadoverbattery: bool) -> ::windows::core::Result<PlatformDiagnosticActionState>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-        P1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-    {
+    pub fn DownloadLatestSettingsForNamespace(partner: &::windows::core::HSTRING, feature: &::windows::core::HSTRING, isscenarionamespace: bool, downloadovercostednetwork: bool, downloadoverbattery: bool) -> ::windows::core::Result<PlatformDiagnosticActionState> {
         Self::IPlatformDiagnosticActionsStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).DownloadLatestSettingsForNamespace)(::windows::core::Interface::as_raw(this), partner.into().abi(), feature.into().abi(), isscenarionamespace, downloadovercostednetwork, downloadoverbattery, result__.as_mut_ptr()).from_abi::<PlatformDiagnosticActionState>(result__)
+            (::windows::core::Interface::vtable(this).DownloadLatestSettingsForNamespace)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(partner), ::core::mem::transmute_copy(feature), isscenarionamespace, downloadovercostednetwork, downloadoverbattery, result__.as_mut_ptr()).from_abi::<PlatformDiagnosticActionState>(result__)
         })
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]

@@ -331,12 +331,9 @@ impl AppBroadcastBackgroundService {
             (::windows::core::Interface::vtable(this).TitleId)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    pub fn SetBroadcastTitle<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-    {
+    pub fn SetBroadcastTitle(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IAppBroadcastBackgroundService2>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetBroadcastTitle)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetBroadcastTitle)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
     }
     pub fn BroadcastLanguage(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = &::windows::core::Interface::cast::<IAppBroadcastBackgroundService2>(self)?;
@@ -345,12 +342,9 @@ impl AppBroadcastBackgroundService {
             (::windows::core::Interface::vtable(this).BroadcastLanguage)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    pub fn SetBroadcastLanguage<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-    {
+    pub fn SetBroadcastLanguage(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IAppBroadcastBackgroundService2>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetBroadcastLanguage)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetBroadcastLanguage)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
     }
     pub fn BroadcastChannel(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = &::windows::core::Interface::cast::<IAppBroadcastBackgroundService2>(self)?;
@@ -359,12 +353,9 @@ impl AppBroadcastBackgroundService {
             (::windows::core::Interface::vtable(this).BroadcastChannel)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    pub fn SetBroadcastChannel<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-    {
+    pub fn SetBroadcastChannel(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IAppBroadcastBackgroundService2>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetBroadcastChannel)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetBroadcastChannel)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -537,12 +528,9 @@ impl AppBroadcastBackgroundServiceSignInInfo {
             (::windows::core::Interface::vtable(this).AuthenticationResult)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Security::Authentication::Web::WebAuthenticationResult>(result__)
         }
     }
-    pub fn SetUserName<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-    {
+    pub fn SetUserName(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetUserName)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetUserName)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
     }
     pub fn UserName(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
@@ -681,12 +669,9 @@ impl AppBroadcastBackgroundServiceStreamInfo {
             (::windows::core::Interface::vtable(this).BandwidthTestBitrate)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<u64>(result__)
         }
     }
-    pub fn SetAudioCodec<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-    {
+    pub fn SetAudioCodec(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetAudioCodec)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetAudioCodec)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
     }
     pub fn AudioCodec(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
@@ -1181,12 +1166,9 @@ impl AppBroadcastGlobalSettings {
             (::windows::core::Interface::vtable(this).IsCameraCaptureEnabledByDefault)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
-    pub fn SetSelectedCameraId<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-    {
+    pub fn SetSelectedCameraId(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetSelectedCameraId)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetSelectedCameraId)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
     }
     pub fn SelectedCameraId(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
@@ -2393,12 +2375,9 @@ unsafe impl ::core::marker::Sync for AppBroadcastPreviewStreamVideoHeader {}
 #[repr(transparent)]
 pub struct AppBroadcastProviderSettings(::windows::core::IUnknown);
 impl AppBroadcastProviderSettings {
-    pub fn SetDefaultBroadcastTitle<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-    {
+    pub fn SetDefaultBroadcastTitle(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetDefaultBroadcastTitle)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetDefaultBroadcastTitle)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
     }
     pub fn DefaultBroadcastTitle(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
@@ -2556,12 +2535,9 @@ impl AppBroadcastServices {
             (::windows::core::Interface::vtable(this).BroadcastTitle)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    pub fn SetBroadcastTitle<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-    {
+    pub fn SetBroadcastTitle(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetBroadcastTitle)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetBroadcastTitle)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
     }
     pub fn BroadcastLanguage(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
@@ -2570,12 +2546,9 @@ impl AppBroadcastServices {
             (::windows::core::Interface::vtable(this).BroadcastLanguage)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    pub fn SetBroadcastLanguage<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-    {
+    pub fn SetBroadcastLanguage(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetBroadcastLanguage)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetBroadcastLanguage)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
     }
     pub fn UserName(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
@@ -4775,56 +4748,33 @@ impl AppCaptureMetadataWriter {
         static SHARED: ::windows::core::FactoryCache<AppCaptureMetadataWriter, ::windows::core::IGenericFactory> = ::windows::core::FactoryCache::new();
         SHARED.call(callback)
     }
-    pub fn AddStringEvent<'a, P0, P1>(&self, name: P0, value: P1, priority: AppCaptureMetadataPriority) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-        P1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-    {
+    pub fn AddStringEvent(&self, name: &::windows::core::HSTRING, value: &::windows::core::HSTRING, priority: AppCaptureMetadataPriority) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).AddStringEvent)(::windows::core::Interface::as_raw(this), name.into().abi(), value.into().abi(), priority).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).AddStringEvent)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(name), ::core::mem::transmute_copy(value), priority).ok() }
     }
-    pub fn AddInt32Event<'a, P0>(&self, name: P0, value: i32, priority: AppCaptureMetadataPriority) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-    {
+    pub fn AddInt32Event(&self, name: &::windows::core::HSTRING, value: i32, priority: AppCaptureMetadataPriority) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).AddInt32Event)(::windows::core::Interface::as_raw(this), name.into().abi(), value, priority).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).AddInt32Event)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(name), value, priority).ok() }
     }
-    pub fn AddDoubleEvent<'a, P0>(&self, name: P0, value: f64, priority: AppCaptureMetadataPriority) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-    {
+    pub fn AddDoubleEvent(&self, name: &::windows::core::HSTRING, value: f64, priority: AppCaptureMetadataPriority) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).AddDoubleEvent)(::windows::core::Interface::as_raw(this), name.into().abi(), value, priority).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).AddDoubleEvent)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(name), value, priority).ok() }
     }
-    pub fn StartStringState<'a, P0, P1>(&self, name: P0, value: P1, priority: AppCaptureMetadataPriority) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-        P1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-    {
+    pub fn StartStringState(&self, name: &::windows::core::HSTRING, value: &::windows::core::HSTRING, priority: AppCaptureMetadataPriority) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).StartStringState)(::windows::core::Interface::as_raw(this), name.into().abi(), value.into().abi(), priority).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).StartStringState)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(name), ::core::mem::transmute_copy(value), priority).ok() }
     }
-    pub fn StartInt32State<'a, P0>(&self, name: P0, value: i32, priority: AppCaptureMetadataPriority) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-    {
+    pub fn StartInt32State(&self, name: &::windows::core::HSTRING, value: i32, priority: AppCaptureMetadataPriority) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).StartInt32State)(::windows::core::Interface::as_raw(this), name.into().abi(), value, priority).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).StartInt32State)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(name), value, priority).ok() }
     }
-    pub fn StartDoubleState<'a, P0>(&self, name: P0, value: f64, priority: AppCaptureMetadataPriority) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-    {
+    pub fn StartDoubleState(&self, name: &::windows::core::HSTRING, value: f64, priority: AppCaptureMetadataPriority) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).StartDoubleState)(::windows::core::Interface::as_raw(this), name.into().abi(), value, priority).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).StartDoubleState)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(name), value, priority).ok() }
     }
-    pub fn StopState<'a, P0>(&self, name: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-    {
+    pub fn StopState(&self, name: &::windows::core::HSTRING) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).StopState)(::windows::core::Interface::as_raw(this), name.into().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).StopState)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(name)).ok() }
     }
     pub fn StopAllStates(&self) -> ::windows::core::Result<()> {
         let this = self;
@@ -11115,17 +11065,16 @@ impl MediaCapture {
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`, `\"Media_MediaProperties\"`*"]
     #[cfg(all(feature = "Foundation_Collections", feature = "Media_MediaProperties"))]
-    pub fn StartRecordToCustomSinkIdAsync<'a, P0, P1, P2, E2>(&self, encodingprofile: P0, customsinkactivationid: P1, customsinksettings: P2) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>
+    pub fn StartRecordToCustomSinkIdAsync<'a, P0, P1, E1>(&self, encodingprofile: P0, customsinkactivationid: &::windows::core::HSTRING, customsinksettings: P1) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::MediaProperties::MediaEncodingProfile>>,
-        P1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-        P2: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IPropertySet>, Error = E2>,
-        E2: ::std::convert::Into<::windows::core::Error>,
+        P1: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IPropertySet>, Error = E1>,
+        E1: ::std::convert::Into<::windows::core::Error>,
     {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).StartRecordToCustomSinkIdAsync)(::windows::core::Interface::as_raw(this), encodingprofile.into().abi(), customsinkactivationid.into().abi(), customsinksettings.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncAction>(result__)
+            (::windows::core::Interface::vtable(this).StartRecordToCustomSinkIdAsync)(::windows::core::Interface::as_raw(this), encodingprofile.into().abi(), ::core::mem::transmute_copy(customsinkactivationid), customsinksettings.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncAction>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -11167,16 +11116,15 @@ impl MediaCapture {
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`, `\"deprecated\"`*"]
     #[cfg(all(feature = "Foundation_Collections", feature = "deprecated"))]
-    pub fn AddEffectAsync<'a, P0, P1, E1>(&self, mediastreamtype: MediaStreamType, effectactivationid: P0, effectsettings: P1) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>
+    pub fn AddEffectAsync<'a, P0, E0>(&self, mediastreamtype: MediaStreamType, effectactivationid: &::windows::core::HSTRING, effectsettings: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-        P1: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IPropertySet>, Error = E1>,
-        E1: ::std::convert::Into<::windows::core::Error>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IPropertySet>, Error = E0>,
+        E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).AddEffectAsync)(::windows::core::Interface::as_raw(this), mediastreamtype, effectactivationid.into().abi(), effectsettings.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncAction>(result__)
+            (::windows::core::Interface::vtable(this).AddEffectAsync)(::windows::core::Interface::as_raw(this), mediastreamtype, ::core::mem::transmute_copy(effectactivationid), effectsettings.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncAction>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -11340,17 +11288,16 @@ impl MediaCapture {
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`, `\"Media_MediaProperties\"`*"]
     #[cfg(all(feature = "Foundation_Collections", feature = "Media_MediaProperties"))]
-    pub fn PrepareLowLagRecordToCustomSinkIdAsync<'a, P0, P1, P2, E2>(&self, encodingprofile: P0, customsinkactivationid: P1, customsinksettings: P2) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<LowLagMediaRecording>>
+    pub fn PrepareLowLagRecordToCustomSinkIdAsync<'a, P0, P1, E1>(&self, encodingprofile: P0, customsinkactivationid: &::windows::core::HSTRING, customsinksettings: P1) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<LowLagMediaRecording>>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::MediaProperties::MediaEncodingProfile>>,
-        P1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-        P2: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IPropertySet>, Error = E2>,
-        E2: ::std::convert::Into<::windows::core::Error>,
+        P1: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IPropertySet>, Error = E1>,
+        E1: ::std::convert::Into<::windows::core::Error>,
     {
         let this = &::windows::core::Interface::cast::<IMediaCapture2>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).PrepareLowLagRecordToCustomSinkIdAsync)(::windows::core::Interface::as_raw(this), encodingprofile.into().abi(), customsinkactivationid.into().abi(), customsinksettings.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<LowLagMediaRecording>>(result__)
+            (::windows::core::Interface::vtable(this).PrepareLowLagRecordToCustomSinkIdAsync)(::windows::core::Interface::as_raw(this), encodingprofile.into().abi(), ::core::mem::transmute_copy(customsinkactivationid), customsinksettings.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<LowLagMediaRecording>>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`, `\"Media_MediaProperties\"`*"]
@@ -11622,28 +11569,26 @@ impl MediaCapture {
     }
     #[doc = "*Required features: `\"Foundation\"`, `\"Media_Capture_Frames\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Media_Capture_Frames"))]
-    pub fn CreateFrameReaderWithSubtypeAsync<'a, P0, P1>(&self, inputsource: P0, outputsubtype: P1) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<Frames::MediaFrameReader>>
+    pub fn CreateFrameReaderWithSubtypeAsync<'a, P0>(&self, inputsource: P0, outputsubtype: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<Frames::MediaFrameReader>>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, Frames::MediaFrameSource>>,
-        P1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
     {
         let this = &::windows::core::Interface::cast::<IMediaCapture5>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).CreateFrameReaderWithSubtypeAsync)(::windows::core::Interface::as_raw(this), inputsource.into().abi(), outputsubtype.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<Frames::MediaFrameReader>>(result__)
+            (::windows::core::Interface::vtable(this).CreateFrameReaderWithSubtypeAsync)(::windows::core::Interface::as_raw(this), inputsource.into().abi(), ::core::mem::transmute_copy(outputsubtype), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<Frames::MediaFrameReader>>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`, `\"Graphics_Imaging\"`, `\"Media_Capture_Frames\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Graphics_Imaging", feature = "Media_Capture_Frames"))]
-    pub fn CreateFrameReaderWithSubtypeAndSizeAsync<'a, P0, P1>(&self, inputsource: P0, outputsubtype: P1, outputsize: super::super::Graphics::Imaging::BitmapSize) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<Frames::MediaFrameReader>>
+    pub fn CreateFrameReaderWithSubtypeAndSizeAsync<'a, P0>(&self, inputsource: P0, outputsubtype: &::windows::core::HSTRING, outputsize: super::super::Graphics::Imaging::BitmapSize) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<Frames::MediaFrameReader>>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, Frames::MediaFrameSource>>,
-        P1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
     {
         let this = &::windows::core::Interface::cast::<IMediaCapture5>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).CreateFrameReaderWithSubtypeAndSizeAsync)(::windows::core::Interface::as_raw(this), inputsource.into().abi(), outputsubtype.into().abi(), outputsize, result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<Frames::MediaFrameReader>>(result__)
+            (::windows::core::Interface::vtable(this).CreateFrameReaderWithSubtypeAndSizeAsync)(::windows::core::Interface::as_raw(this), inputsource.into().abi(), ::core::mem::transmute_copy(outputsubtype), outputsize, result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<Frames::MediaFrameReader>>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -11689,46 +11634,34 @@ impl MediaCapture {
             (::windows::core::Interface::vtable(this).CreateRelativePanelWatcher)(::windows::core::Interface::as_raw(this), capturemode, displayregion.into().abi(), result__.as_mut_ptr()).from_abi::<MediaCaptureRelativePanelWatcher>(result__)
         }
     }
-    pub fn IsVideoProfileSupported<'a, P0>(videodeviceid: P0) -> ::windows::core::Result<bool>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-    {
+    pub fn IsVideoProfileSupported(videodeviceid: &::windows::core::HSTRING) -> ::windows::core::Result<bool> {
         Self::IMediaCaptureStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).IsVideoProfileSupported)(::windows::core::Interface::as_raw(this), videodeviceid.into().abi(), result__.as_mut_ptr()).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).IsVideoProfileSupported)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(videodeviceid), result__.as_mut_ptr()).from_abi::<bool>(result__)
         })
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn FindAllVideoProfiles<'a, P0>(videodeviceid: P0) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<MediaCaptureVideoProfile>>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-    {
+    pub fn FindAllVideoProfiles(videodeviceid: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<MediaCaptureVideoProfile>> {
         Self::IMediaCaptureStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).FindAllVideoProfiles)(::windows::core::Interface::as_raw(this), videodeviceid.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Collections::IVectorView<MediaCaptureVideoProfile>>(result__)
+            (::windows::core::Interface::vtable(this).FindAllVideoProfiles)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(videodeviceid), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Collections::IVectorView<MediaCaptureVideoProfile>>(result__)
         })
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn FindConcurrentProfiles<'a, P0>(videodeviceid: P0) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<MediaCaptureVideoProfile>>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-    {
+    pub fn FindConcurrentProfiles(videodeviceid: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<MediaCaptureVideoProfile>> {
         Self::IMediaCaptureStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).FindConcurrentProfiles)(::windows::core::Interface::as_raw(this), videodeviceid.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Collections::IVectorView<MediaCaptureVideoProfile>>(result__)
+            (::windows::core::Interface::vtable(this).FindConcurrentProfiles)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(videodeviceid), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Collections::IVectorView<MediaCaptureVideoProfile>>(result__)
         })
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn FindKnownVideoProfiles<'a, P0>(videodeviceid: P0, name: KnownVideoProfile) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<MediaCaptureVideoProfile>>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-    {
+    pub fn FindKnownVideoProfiles(videodeviceid: &::windows::core::HSTRING, name: KnownVideoProfile) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<MediaCaptureVideoProfile>> {
         Self::IMediaCaptureStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).FindKnownVideoProfiles)(::windows::core::Interface::as_raw(this), videodeviceid.into().abi(), name, result__.as_mut_ptr()).from_abi::<super::super::Foundation::Collections::IVectorView<MediaCaptureVideoProfile>>(result__)
+            (::windows::core::Interface::vtable(this).FindKnownVideoProfiles)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(videodeviceid), name, result__.as_mut_ptr()).from_abi::<super::super::Foundation::Collections::IVectorView<MediaCaptureVideoProfile>>(result__)
         })
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -11756,17 +11689,16 @@ impl MediaCapture {
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`, `\"Media_MediaProperties\"`*"]
     #[cfg(all(feature = "Foundation_Collections", feature = "Media_MediaProperties"))]
-    pub fn StartPreviewToCustomSinkIdAsync<'a, P0, P1, P2, E2>(&self, encodingprofile: P0, customsinkactivationid: P1, customsinksettings: P2) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>
+    pub fn StartPreviewToCustomSinkIdAsync<'a, P0, P1, E1>(&self, encodingprofile: P0, customsinkactivationid: &::windows::core::HSTRING, customsinksettings: P1) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::MediaProperties::MediaEncodingProfile>>,
-        P1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-        P2: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IPropertySet>, Error = E2>,
-        E2: ::std::convert::Into<::windows::core::Error>,
+        P1: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IPropertySet>, Error = E1>,
+        E1: ::std::convert::Into<::windows::core::Error>,
     {
         let this = &::windows::core::Interface::cast::<IMediaCaptureVideoPreview>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).StartPreviewToCustomSinkIdAsync)(::windows::core::Interface::as_raw(this), encodingprofile.into().abi(), customsinkactivationid.into().abi(), customsinksettings.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncAction>(result__)
+            (::windows::core::Interface::vtable(this).StartPreviewToCustomSinkIdAsync)(::windows::core::Interface::as_raw(this), encodingprofile.into().abi(), ::core::mem::transmute_copy(customsinkactivationid), customsinksettings.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncAction>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -12235,12 +12167,9 @@ impl MediaCaptureInitializationSettings {
         static SHARED: ::windows::core::FactoryCache<MediaCaptureInitializationSettings, ::windows::core::IGenericFactory> = ::windows::core::FactoryCache::new();
         SHARED.call(callback)
     }
-    pub fn SetAudioDeviceId<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-    {
+    pub fn SetAudioDeviceId(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetAudioDeviceId)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetAudioDeviceId)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
     }
     pub fn AudioDeviceId(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
@@ -12249,12 +12178,9 @@ impl MediaCaptureInitializationSettings {
             (::windows::core::Interface::vtable(this).AudioDeviceId)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    pub fn SetVideoDeviceId<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-    {
+    pub fn SetVideoDeviceId(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetVideoDeviceId)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetVideoDeviceId)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
     }
     pub fn VideoDeviceId(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;

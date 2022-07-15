@@ -7599,14 +7599,13 @@ impl MediaPlayer {
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn AddAudioEffect<'a, P0, P1, E1>(&self, activatableclassid: P0, effectoptional: bool, configuration: P1) -> ::windows::core::Result<()>
+    pub fn AddAudioEffect<'a, P0, E0>(&self, activatableclassid: &::windows::core::HSTRING, effectoptional: bool, configuration: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-        P1: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IPropertySet>, Error = E1>,
-        E1: ::std::convert::Into<::windows::core::Error>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IPropertySet>, Error = E0>,
+        E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = &::windows::core::Interface::cast::<IMediaPlayerEffects>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).AddAudioEffect)(::windows::core::Interface::as_raw(this), activatableclassid.into().abi(), effectoptional, configuration.try_into().map_err(|e| e.into())?.abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).AddAudioEffect)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(activatableclassid), effectoptional, configuration.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
     pub fn RemoveAllEffects(&self) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IMediaPlayerEffects>(self)?;
@@ -7614,14 +7613,13 @@ impl MediaPlayer {
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn AddVideoEffect<'a, P0, P1, E1>(&self, activatableclassid: P0, effectoptional: bool, effectconfiguration: P1) -> ::windows::core::Result<()>
+    pub fn AddVideoEffect<'a, P0, E0>(&self, activatableclassid: &::windows::core::HSTRING, effectoptional: bool, effectconfiguration: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-        P1: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IPropertySet>, Error = E1>,
-        E1: ::std::convert::Into<::windows::core::Error>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IPropertySet>, Error = E0>,
+        E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = &::windows::core::Interface::cast::<IMediaPlayerEffects2>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).AddVideoEffect)(::windows::core::Interface::as_raw(this), activatableclassid.into().abi(), effectoptional, effectconfiguration.try_into().map_err(|e| e.into())?.abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).AddVideoEffect)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(activatableclassid), effectoptional, effectconfiguration.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
     #[doc = "*Required features: `\"Media_Protection\"`*"]
     #[cfg(feature = "Media_Protection")]
@@ -8326,14 +8324,10 @@ impl PlaybackMediaMarker {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn Create<'a, P0, P1>(value: super::super::Foundation::TimeSpan, mediamarkettype: P0, text: P1) -> ::windows::core::Result<PlaybackMediaMarker>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-        P1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-    {
+    pub fn Create(value: super::super::Foundation::TimeSpan, mediamarkettype: &::windows::core::HSTRING, text: &::windows::core::HSTRING) -> ::windows::core::Result<PlaybackMediaMarker> {
         Self::IPlaybackMediaMarkerFactory(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).Create)(::windows::core::Interface::as_raw(this), value, mediamarkettype.into().abi(), text.into().abi(), result__.as_mut_ptr()).from_abi::<PlaybackMediaMarker>(result__)
+            (::windows::core::Interface::vtable(this).Create)(::windows::core::Interface::as_raw(this), value, ::core::mem::transmute_copy(mediamarkettype), ::core::mem::transmute_copy(text), result__.as_mut_ptr()).from_abi::<PlaybackMediaMarker>(result__)
         })
     }
     #[doc(hidden)]

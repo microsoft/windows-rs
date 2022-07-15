@@ -790,16 +790,14 @@ impl<'a> Reader<'a> {
         // TODO: should this just check whether the struct has > 1 fields rather than type_def_is_handle?
         self.type_def_kind(row) == TypeKind::Struct && !self.type_def_is_handle(row)
     }
-    pub fn type_def_is_in_class_hierarchy(&self, row: TypeDef) -> bool {
-        matches!(self.type_def_kind(row), TypeKind::Class)
-    }
     pub fn type_def_is_borrowed(&self, row: TypeDef) -> bool {
         match self.type_def_kind(row) {
+            TypeKind::Class => true,
             TypeKind::Delegate => self.type_def_flags(row).winrt(),
             _ => !self.type_def_is_blittable(row),
         }
     }
-    pub fn type_def_is_convertible(&self, row: TypeDef) -> bool {
+    pub fn type_def_is_trivially_convertible(&self, row: TypeDef) -> bool {
         match self.type_def_kind(row) {
             TypeKind::Struct => self.type_def_is_handle(row) && self.type_def_type_name(row) != TypeName::BSTR,
             _ => false,
@@ -1147,24 +1145,18 @@ impl<'a> Reader<'a> {
         signature.params.iter().for_each(|param| self.type_cfg_combine(&param.ty, cfg));
     }
     pub fn signature_param_is_borrowed(&self, param: &SignatureParam) -> bool {
-        self.signature_param_maybe_generic(param) && self.type_is_borrowed(&param.ty)
-    }
-    pub fn signature_param_is_param(&self, param: &SignatureParam) -> bool {
-        self.signature_param_maybe_generic(param) && self.type_is_in_class_hierarchy(&param.ty)
+        self.type_is_borrowed(&param.ty)
     }
     pub fn signature_param_is_failible_param(&self, param: &SignatureParam) -> bool {
-        self.signature_param_maybe_generic(param) && self.type_is_non_exclusive_winrt_interface(&param.ty)
+        self.type_is_non_exclusive_winrt_interface(&param.ty)
+    }
+    pub fn signature_param_is_trivially_convertible(&self, param: &SignatureParam) -> bool {
+        self.type_is_trivially_convertible(&param.ty)
     }
     pub fn signature_param_is_convertible(&self, param: &SignatureParam) -> bool {
-        self.signature_param_maybe_generic(param) && self.type_is_convertible(&param.ty)
+        self.signature_param_input_value(param) && (self.type_is_borrowed(&param.ty) || self.type_is_non_exclusive_winrt_interface(&param.ty) || self.type_is_trivially_convertible(&param.ty))
     }
-    pub fn signature_param_is_primitive(&self, param: &SignatureParam) -> bool {
-        self.signature_param_maybe_generic(param) && self.type_is_primitive(&param.ty)
-    }
-    pub fn signature_param_is_generic(&self, param: &SignatureParam) -> bool {
-        self.signature_param_maybe_generic(param) && (self.signature_param_is_borrowed(param) || self.signature_param_is_param(param) || self.signature_param_is_failible_param(param) || self.signature_param_is_convertible(param))
-    }
-    pub fn signature_param_maybe_generic(&self, param: &SignatureParam) -> bool {
+    pub fn signature_param_input_value(&self, param: &SignatureParam) -> bool {
         self.param_flags(param.def).input() && !param.ty.is_winrt_array() && !param.ty.is_pointer() && param.array_info == ArrayInfo::None
     }
     pub fn signature_param_is_retval(&self, param: &SignatureParam) -> bool {
@@ -1524,29 +1516,25 @@ impl<'a> Reader<'a> {
             _ => false,
         }
     }
-    pub fn type_is_borrowed(&self, ty: &Type) -> bool {
+    fn type_is_borrowed(&self, ty: &Type) -> bool {
         match ty {
             Type::TypeDef((row, _)) => self.type_def_is_borrowed(*row),
-            Type::String | Type::IInspectable | Type::IUnknown | Type::GenericParam(_) => true,
-            Type::WinrtConstRef(ty) => self.type_is_borrowed(ty),
+            Type::IInspectable | Type::IUnknown | Type::GenericParam(_) => true,
             _ => false,
         }
     }
     pub fn type_is_non_exclusive_winrt_interface(&self, ty: &Type) -> bool {
         match ty {
-            Type::TypeDef((row, _)) => !self.type_def_is_exclusive(*row) && self.type_def_flags(*row).winrt() && self.type_def_flags(*row).interface(),
+            Type::TypeDef((row, _)) => {
+                let flags = self.type_def_flags(*row);
+                flags.winrt() && flags.interface() && !self.type_def_is_exclusive(*row)
+            }
             _ => false,
         }
     }
-    pub fn type_is_in_class_hierarchy(&self, ty: &Type) -> bool {
+    pub fn type_is_trivially_convertible(&self, ty: &Type) -> bool {
         match ty {
-            Type::TypeDef((row, _)) => self.type_def_is_in_class_hierarchy(*row),
-            _ => false,
-        }
-    }
-    pub fn type_is_convertible(&self, ty: &Type) -> bool {
-        match ty {
-            Type::TypeDef((row, _)) => self.type_def_is_convertible(*row),
+            Type::TypeDef((row, _)) => self.type_def_is_trivially_convertible(*row),
             Type::PCSTR | Type::PCWSTR => true,
             _ => false,
         }

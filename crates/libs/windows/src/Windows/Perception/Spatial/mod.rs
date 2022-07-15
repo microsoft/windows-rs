@@ -1119,23 +1119,19 @@ impl SpatialAnchorStore {
             (::windows::core::Interface::vtable(this).GetAllSavedAnchors)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Collections::IMapView<::windows::core::HSTRING, SpatialAnchor>>(result__)
         }
     }
-    pub fn TrySave<'a, P0, P1>(&self, id: P0, anchor: P1) -> ::windows::core::Result<bool>
+    pub fn TrySave<'a, P0>(&self, id: &::windows::core::HSTRING, anchor: P0) -> ::windows::core::Result<bool>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-        P1: ::std::convert::Into<::windows::core::InParam<'a, SpatialAnchor>>,
+        P0: ::std::convert::Into<::windows::core::InParam<'a, SpatialAnchor>>,
     {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).TrySave)(::windows::core::Interface::as_raw(this), id.into().abi(), anchor.into().abi(), result__.as_mut_ptr()).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).TrySave)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(id), anchor.into().abi(), result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
-    pub fn Remove<'a, P0>(&self, id: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-    {
+    pub fn Remove(&self, id: &::windows::core::HSTRING) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).Remove)(::windows::core::Interface::as_raw(this), id.into().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).Remove)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(id)).ok() }
     }
     pub fn Clear(&self) -> ::windows::core::Result<()> {
         let this = self;

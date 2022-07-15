@@ -116,37 +116,30 @@ impl ISpiDeviceStatics {
             (::windows::core::Interface::vtable(this).GetDeviceSelector)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    pub fn GetDeviceSelectorFromFriendlyName<'a, P0>(&self, friendlyname: P0) -> ::windows::core::Result<::windows::core::HSTRING>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-    {
+    pub fn GetDeviceSelectorFromFriendlyName(&self, friendlyname: &::windows::core::HSTRING) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).GetDeviceSelectorFromFriendlyName)(::windows::core::Interface::as_raw(this), friendlyname.into().abi(), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).GetDeviceSelectorFromFriendlyName)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(friendlyname), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    pub fn GetBusInfo<'a, P0>(&self, busid: P0) -> ::windows::core::Result<SpiBusInfo>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-    {
+    pub fn GetBusInfo(&self, busid: &::windows::core::HSTRING) -> ::windows::core::Result<SpiBusInfo> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).GetBusInfo)(::windows::core::Interface::as_raw(this), busid.into().abi(), result__.as_mut_ptr()).from_abi::<SpiBusInfo>(result__)
+            (::windows::core::Interface::vtable(this).GetBusInfo)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(busid), result__.as_mut_ptr()).from_abi::<SpiBusInfo>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn FromIdAsync<'a, P0, P1>(&self, busid: P0, settings: P1) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<SpiDevice>>
+    pub fn FromIdAsync<'a, P0>(&self, busid: &::windows::core::HSTRING, settings: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<SpiDevice>>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-        P1: ::std::convert::Into<::windows::core::InParam<'a, SpiConnectionSettings>>,
+        P0: ::std::convert::Into<::windows::core::InParam<'a, SpiConnectionSettings>>,
     {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).FromIdAsync)(::windows::core::Interface::as_raw(this), busid.into().abi(), settings.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<SpiDevice>>(result__)
+            (::windows::core::Interface::vtable(this).FromIdAsync)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(busid), settings.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<SpiDevice>>(result__)
         }
     }
 }
@@ -597,34 +590,27 @@ impl SpiDevice {
             (::windows::core::Interface::vtable(this).GetDeviceSelector)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         })
     }
-    pub fn GetDeviceSelectorFromFriendlyName<'a, P0>(friendlyname: P0) -> ::windows::core::Result<::windows::core::HSTRING>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-    {
+    pub fn GetDeviceSelectorFromFriendlyName(friendlyname: &::windows::core::HSTRING) -> ::windows::core::Result<::windows::core::HSTRING> {
         Self::ISpiDeviceStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).GetDeviceSelectorFromFriendlyName)(::windows::core::Interface::as_raw(this), friendlyname.into().abi(), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).GetDeviceSelectorFromFriendlyName)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(friendlyname), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         })
     }
-    pub fn GetBusInfo<'a, P0>(busid: P0) -> ::windows::core::Result<SpiBusInfo>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-    {
+    pub fn GetBusInfo(busid: &::windows::core::HSTRING) -> ::windows::core::Result<SpiBusInfo> {
         Self::ISpiDeviceStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).GetBusInfo)(::windows::core::Interface::as_raw(this), busid.into().abi(), result__.as_mut_ptr()).from_abi::<SpiBusInfo>(result__)
+            (::windows::core::Interface::vtable(this).GetBusInfo)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(busid), result__.as_mut_ptr()).from_abi::<SpiBusInfo>(result__)
         })
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn FromIdAsync<'a, P0, P1>(busid: P0, settings: P1) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<SpiDevice>>
+    pub fn FromIdAsync<'a, P0>(busid: &::windows::core::HSTRING, settings: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<SpiDevice>>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-        P1: ::std::convert::Into<::windows::core::InParam<'a, SpiConnectionSettings>>,
+        P0: ::std::convert::Into<::windows::core::InParam<'a, SpiConnectionSettings>>,
     {
         Self::ISpiDeviceStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).FromIdAsync)(::windows::core::Interface::as_raw(this), busid.into().abi(), settings.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<SpiDevice>>(result__)
+            (::windows::core::Interface::vtable(this).FromIdAsync)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(busid), settings.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<SpiDevice>>(result__)
         })
     }
     #[doc(hidden)]

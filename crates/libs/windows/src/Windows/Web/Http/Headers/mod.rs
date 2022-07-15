@@ -78,21 +78,15 @@ impl HttpCacheDirectiveHeaderValueCollection {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetSharedMaxAge)(::windows::core::Interface::as_raw(this), value.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
-    pub fn ParseAdd<'a, P0>(&self, input: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-    {
+    pub fn ParseAdd(&self, input: &::windows::core::HSTRING) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).ParseAdd)(::windows::core::Interface::as_raw(this), input.into().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).ParseAdd)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(input)).ok() }
     }
-    pub fn TryParseAdd<'a, P0>(&self, input: P0) -> ::windows::core::Result<bool>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-    {
+    pub fn TryParseAdd(&self, input: &::windows::core::HSTRING) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).TryParseAdd)(::windows::core::Interface::as_raw(this), input.into().abi(), result__.as_mut_ptr()).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).TryParseAdd)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(input), result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
@@ -384,41 +378,28 @@ impl HttpChallengeHeaderValue {
             (::windows::core::Interface::vtable(this).Token)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    pub fn CreateFromScheme<'a, P0>(scheme: P0) -> ::windows::core::Result<HttpChallengeHeaderValue>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-    {
+    pub fn CreateFromScheme(scheme: &::windows::core::HSTRING) -> ::windows::core::Result<HttpChallengeHeaderValue> {
         Self::IHttpChallengeHeaderValueFactory(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).CreateFromScheme)(::windows::core::Interface::as_raw(this), scheme.into().abi(), result__.as_mut_ptr()).from_abi::<HttpChallengeHeaderValue>(result__)
+            (::windows::core::Interface::vtable(this).CreateFromScheme)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(scheme), result__.as_mut_ptr()).from_abi::<HttpChallengeHeaderValue>(result__)
         })
     }
-    pub fn CreateFromSchemeWithToken<'a, P0, P1>(scheme: P0, token: P1) -> ::windows::core::Result<HttpChallengeHeaderValue>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-        P1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-    {
+    pub fn CreateFromSchemeWithToken(scheme: &::windows::core::HSTRING, token: &::windows::core::HSTRING) -> ::windows::core::Result<HttpChallengeHeaderValue> {
         Self::IHttpChallengeHeaderValueFactory(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).CreateFromSchemeWithToken)(::windows::core::Interface::as_raw(this), scheme.into().abi(), token.into().abi(), result__.as_mut_ptr()).from_abi::<HttpChallengeHeaderValue>(result__)
+            (::windows::core::Interface::vtable(this).CreateFromSchemeWithToken)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(scheme), ::core::mem::transmute_copy(token), result__.as_mut_ptr()).from_abi::<HttpChallengeHeaderValue>(result__)
         })
     }
-    pub fn Parse<'a, P0>(input: P0) -> ::windows::core::Result<HttpChallengeHeaderValue>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-    {
+    pub fn Parse(input: &::windows::core::HSTRING) -> ::windows::core::Result<HttpChallengeHeaderValue> {
         Self::IHttpChallengeHeaderValueStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).Parse)(::windows::core::Interface::as_raw(this), input.into().abi(), result__.as_mut_ptr()).from_abi::<HttpChallengeHeaderValue>(result__)
+            (::windows::core::Interface::vtable(this).Parse)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(input), result__.as_mut_ptr()).from_abi::<HttpChallengeHeaderValue>(result__)
         })
     }
-    pub fn TryParse<'a, P0>(input: P0, challengeheadervalue: &mut ::core::option::Option<HttpChallengeHeaderValue>) -> ::windows::core::Result<bool>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-    {
+    pub fn TryParse(input: &::windows::core::HSTRING, challengeheadervalue: &mut ::core::option::Option<HttpChallengeHeaderValue>) -> ::windows::core::Result<bool> {
         Self::IHttpChallengeHeaderValueStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).TryParse)(::windows::core::Interface::as_raw(this), input.into().abi(), challengeheadervalue as *mut _ as _, result__.as_mut_ptr()).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).TryParse)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(input), challengeheadervalue as *mut _ as _, result__.as_mut_ptr()).from_abi::<bool>(result__)
         })
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -529,21 +510,15 @@ unsafe impl ::core::marker::Sync for HttpChallengeHeaderValue {}
 #[repr(transparent)]
 pub struct HttpChallengeHeaderValueCollection(::windows::core::IUnknown);
 impl HttpChallengeHeaderValueCollection {
-    pub fn ParseAdd<'a, P0>(&self, input: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-    {
+    pub fn ParseAdd(&self, input: &::windows::core::HSTRING) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).ParseAdd)(::windows::core::Interface::as_raw(this), input.into().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).ParseAdd)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(input)).ok() }
     }
-    pub fn TryParseAdd<'a, P0>(&self, input: P0) -> ::windows::core::Result<bool>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-    {
+    pub fn TryParseAdd(&self, input: &::windows::core::HSTRING) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).TryParseAdd)(::windows::core::Interface::as_raw(this), input.into().abi(), result__.as_mut_ptr()).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).TryParseAdd)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(input), result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
@@ -819,31 +794,22 @@ impl HttpConnectionOptionHeaderValue {
             (::windows::core::Interface::vtable(this).Token)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    pub fn Create<'a, P0>(token: P0) -> ::windows::core::Result<HttpConnectionOptionHeaderValue>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-    {
+    pub fn Create(token: &::windows::core::HSTRING) -> ::windows::core::Result<HttpConnectionOptionHeaderValue> {
         Self::IHttpConnectionOptionHeaderValueFactory(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).Create)(::windows::core::Interface::as_raw(this), token.into().abi(), result__.as_mut_ptr()).from_abi::<HttpConnectionOptionHeaderValue>(result__)
+            (::windows::core::Interface::vtable(this).Create)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(token), result__.as_mut_ptr()).from_abi::<HttpConnectionOptionHeaderValue>(result__)
         })
     }
-    pub fn Parse<'a, P0>(input: P0) -> ::windows::core::Result<HttpConnectionOptionHeaderValue>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-    {
+    pub fn Parse(input: &::windows::core::HSTRING) -> ::windows::core::Result<HttpConnectionOptionHeaderValue> {
         Self::IHttpConnectionOptionHeaderValueStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).Parse)(::windows::core::Interface::as_raw(this), input.into().abi(), result__.as_mut_ptr()).from_abi::<HttpConnectionOptionHeaderValue>(result__)
+            (::windows::core::Interface::vtable(this).Parse)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(input), result__.as_mut_ptr()).from_abi::<HttpConnectionOptionHeaderValue>(result__)
         })
     }
-    pub fn TryParse<'a, P0>(input: P0, connectionoptionheadervalue: &mut ::core::option::Option<HttpConnectionOptionHeaderValue>) -> ::windows::core::Result<bool>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-    {
+    pub fn TryParse(input: &::windows::core::HSTRING, connectionoptionheadervalue: &mut ::core::option::Option<HttpConnectionOptionHeaderValue>) -> ::windows::core::Result<bool> {
         Self::IHttpConnectionOptionHeaderValueStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).TryParse)(::windows::core::Interface::as_raw(this), input.into().abi(), connectionoptionheadervalue as *mut _ as _, result__.as_mut_ptr()).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).TryParse)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(input), connectionoptionheadervalue as *mut _ as _, result__.as_mut_ptr()).from_abi::<bool>(result__)
         })
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -954,21 +920,15 @@ unsafe impl ::core::marker::Sync for HttpConnectionOptionHeaderValue {}
 #[repr(transparent)]
 pub struct HttpConnectionOptionHeaderValueCollection(::windows::core::IUnknown);
 impl HttpConnectionOptionHeaderValueCollection {
-    pub fn ParseAdd<'a, P0>(&self, input: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-    {
+    pub fn ParseAdd(&self, input: &::windows::core::HSTRING) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).ParseAdd)(::windows::core::Interface::as_raw(this), input.into().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).ParseAdd)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(input)).ok() }
     }
-    pub fn TryParseAdd<'a, P0>(&self, input: P0) -> ::windows::core::Result<bool>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-    {
+    pub fn TryParseAdd(&self, input: &::windows::core::HSTRING) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).TryParseAdd)(::windows::core::Interface::as_raw(this), input.into().abi(), result__.as_mut_ptr()).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).TryParseAdd)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(input), result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
@@ -1244,31 +1204,22 @@ impl HttpContentCodingHeaderValue {
             (::windows::core::Interface::vtable(this).ContentCoding)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    pub fn Create<'a, P0>(contentcoding: P0) -> ::windows::core::Result<HttpContentCodingHeaderValue>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-    {
+    pub fn Create(contentcoding: &::windows::core::HSTRING) -> ::windows::core::Result<HttpContentCodingHeaderValue> {
         Self::IHttpContentCodingHeaderValueFactory(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).Create)(::windows::core::Interface::as_raw(this), contentcoding.into().abi(), result__.as_mut_ptr()).from_abi::<HttpContentCodingHeaderValue>(result__)
+            (::windows::core::Interface::vtable(this).Create)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(contentcoding), result__.as_mut_ptr()).from_abi::<HttpContentCodingHeaderValue>(result__)
         })
     }
-    pub fn Parse<'a, P0>(input: P0) -> ::windows::core::Result<HttpContentCodingHeaderValue>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-    {
+    pub fn Parse(input: &::windows::core::HSTRING) -> ::windows::core::Result<HttpContentCodingHeaderValue> {
         Self::IHttpContentCodingHeaderValueStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).Parse)(::windows::core::Interface::as_raw(this), input.into().abi(), result__.as_mut_ptr()).from_abi::<HttpContentCodingHeaderValue>(result__)
+            (::windows::core::Interface::vtable(this).Parse)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(input), result__.as_mut_ptr()).from_abi::<HttpContentCodingHeaderValue>(result__)
         })
     }
-    pub fn TryParse<'a, P0>(input: P0, contentcodingheadervalue: &mut ::core::option::Option<HttpContentCodingHeaderValue>) -> ::windows::core::Result<bool>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-    {
+    pub fn TryParse(input: &::windows::core::HSTRING, contentcodingheadervalue: &mut ::core::option::Option<HttpContentCodingHeaderValue>) -> ::windows::core::Result<bool> {
         Self::IHttpContentCodingHeaderValueStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).TryParse)(::windows::core::Interface::as_raw(this), input.into().abi(), contentcodingheadervalue as *mut _ as _, result__.as_mut_ptr()).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).TryParse)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(input), contentcodingheadervalue as *mut _ as _, result__.as_mut_ptr()).from_abi::<bool>(result__)
         })
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -1379,21 +1330,15 @@ unsafe impl ::core::marker::Sync for HttpContentCodingHeaderValue {}
 #[repr(transparent)]
 pub struct HttpContentCodingHeaderValueCollection(::windows::core::IUnknown);
 impl HttpContentCodingHeaderValueCollection {
-    pub fn ParseAdd<'a, P0>(&self, input: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-    {
+    pub fn ParseAdd(&self, input: &::windows::core::HSTRING) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).ParseAdd)(::windows::core::Interface::as_raw(this), input.into().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).ParseAdd)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(input)).ok() }
     }
-    pub fn TryParseAdd<'a, P0>(&self, input: P0) -> ::windows::core::Result<bool>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-    {
+    pub fn TryParseAdd(&self, input: &::windows::core::HSTRING) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).TryParseAdd)(::windows::core::Interface::as_raw(this), input.into().abi(), result__.as_mut_ptr()).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).TryParseAdd)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(input), result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
@@ -1678,40 +1623,28 @@ impl HttpContentCodingWithQualityHeaderValue {
             (::windows::core::Interface::vtable(this).Quality)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::IReference<f64>>(result__)
         }
     }
-    pub fn CreateFromValue<'a, P0>(contentcoding: P0) -> ::windows::core::Result<HttpContentCodingWithQualityHeaderValue>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-    {
+    pub fn CreateFromValue(contentcoding: &::windows::core::HSTRING) -> ::windows::core::Result<HttpContentCodingWithQualityHeaderValue> {
         Self::IHttpContentCodingWithQualityHeaderValueFactory(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).CreateFromValue)(::windows::core::Interface::as_raw(this), contentcoding.into().abi(), result__.as_mut_ptr()).from_abi::<HttpContentCodingWithQualityHeaderValue>(result__)
+            (::windows::core::Interface::vtable(this).CreateFromValue)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(contentcoding), result__.as_mut_ptr()).from_abi::<HttpContentCodingWithQualityHeaderValue>(result__)
         })
     }
-    pub fn CreateFromValueWithQuality<'a, P0>(contentcoding: P0, quality: f64) -> ::windows::core::Result<HttpContentCodingWithQualityHeaderValue>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-    {
+    pub fn CreateFromValueWithQuality(contentcoding: &::windows::core::HSTRING, quality: f64) -> ::windows::core::Result<HttpContentCodingWithQualityHeaderValue> {
         Self::IHttpContentCodingWithQualityHeaderValueFactory(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).CreateFromValueWithQuality)(::windows::core::Interface::as_raw(this), contentcoding.into().abi(), quality, result__.as_mut_ptr()).from_abi::<HttpContentCodingWithQualityHeaderValue>(result__)
+            (::windows::core::Interface::vtable(this).CreateFromValueWithQuality)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(contentcoding), quality, result__.as_mut_ptr()).from_abi::<HttpContentCodingWithQualityHeaderValue>(result__)
         })
     }
-    pub fn Parse<'a, P0>(input: P0) -> ::windows::core::Result<HttpContentCodingWithQualityHeaderValue>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-    {
+    pub fn Parse(input: &::windows::core::HSTRING) -> ::windows::core::Result<HttpContentCodingWithQualityHeaderValue> {
         Self::IHttpContentCodingWithQualityHeaderValueStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).Parse)(::windows::core::Interface::as_raw(this), input.into().abi(), result__.as_mut_ptr()).from_abi::<HttpContentCodingWithQualityHeaderValue>(result__)
+            (::windows::core::Interface::vtable(this).Parse)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(input), result__.as_mut_ptr()).from_abi::<HttpContentCodingWithQualityHeaderValue>(result__)
         })
     }
-    pub fn TryParse<'a, P0>(input: P0, contentcodingwithqualityheadervalue: &mut ::core::option::Option<HttpContentCodingWithQualityHeaderValue>) -> ::windows::core::Result<bool>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-    {
+    pub fn TryParse(input: &::windows::core::HSTRING, contentcodingwithqualityheadervalue: &mut ::core::option::Option<HttpContentCodingWithQualityHeaderValue>) -> ::windows::core::Result<bool> {
         Self::IHttpContentCodingWithQualityHeaderValueStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).TryParse)(::windows::core::Interface::as_raw(this), input.into().abi(), contentcodingwithqualityheadervalue as *mut _ as _, result__.as_mut_ptr()).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).TryParse)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(input), contentcodingwithqualityheadervalue as *mut _ as _, result__.as_mut_ptr()).from_abi::<bool>(result__)
         })
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -1822,21 +1755,15 @@ unsafe impl ::core::marker::Sync for HttpContentCodingWithQualityHeaderValue {}
 #[repr(transparent)]
 pub struct HttpContentCodingWithQualityHeaderValueCollection(::windows::core::IUnknown);
 impl HttpContentCodingWithQualityHeaderValueCollection {
-    pub fn ParseAdd<'a, P0>(&self, input: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-    {
+    pub fn ParseAdd(&self, input: &::windows::core::HSTRING) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).ParseAdd)(::windows::core::Interface::as_raw(this), input.into().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).ParseAdd)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(input)).ok() }
     }
-    pub fn TryParseAdd<'a, P0>(&self, input: P0) -> ::windows::core::Result<bool>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-    {
+    pub fn TryParseAdd(&self, input: &::windows::core::HSTRING) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).TryParseAdd)(::windows::core::Interface::as_raw(this), input.into().abi(), result__.as_mut_ptr()).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).TryParseAdd)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(input), result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
@@ -2112,12 +2039,9 @@ impl HttpContentDispositionHeaderValue {
             (::windows::core::Interface::vtable(this).DispositionType)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    pub fn SetDispositionType<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-    {
+    pub fn SetDispositionType(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetDispositionType)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetDispositionType)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
     }
     pub fn FileName(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
@@ -2126,12 +2050,9 @@ impl HttpContentDispositionHeaderValue {
             (::windows::core::Interface::vtable(this).FileName)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    pub fn SetFileName<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-    {
+    pub fn SetFileName(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetFileName)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetFileName)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
     }
     pub fn FileNameStar(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
@@ -2140,12 +2061,9 @@ impl HttpContentDispositionHeaderValue {
             (::windows::core::Interface::vtable(this).FileNameStar)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    pub fn SetFileNameStar<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-    {
+    pub fn SetFileNameStar(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetFileNameStar)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetFileNameStar)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
     }
     pub fn Name(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
@@ -2154,12 +2072,9 @@ impl HttpContentDispositionHeaderValue {
             (::windows::core::Interface::vtable(this).Name)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    pub fn SetName<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-    {
+    pub fn SetName(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetName)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetName)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
@@ -2189,31 +2104,22 @@ impl HttpContentDispositionHeaderValue {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetSize)(::windows::core::Interface::as_raw(this), value.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
-    pub fn Create<'a, P0>(dispositiontype: P0) -> ::windows::core::Result<HttpContentDispositionHeaderValue>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-    {
+    pub fn Create(dispositiontype: &::windows::core::HSTRING) -> ::windows::core::Result<HttpContentDispositionHeaderValue> {
         Self::IHttpContentDispositionHeaderValueFactory(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).Create)(::windows::core::Interface::as_raw(this), dispositiontype.into().abi(), result__.as_mut_ptr()).from_abi::<HttpContentDispositionHeaderValue>(result__)
+            (::windows::core::Interface::vtable(this).Create)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(dispositiontype), result__.as_mut_ptr()).from_abi::<HttpContentDispositionHeaderValue>(result__)
         })
     }
-    pub fn Parse<'a, P0>(input: P0) -> ::windows::core::Result<HttpContentDispositionHeaderValue>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-    {
+    pub fn Parse(input: &::windows::core::HSTRING) -> ::windows::core::Result<HttpContentDispositionHeaderValue> {
         Self::IHttpContentDispositionHeaderValueStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).Parse)(::windows::core::Interface::as_raw(this), input.into().abi(), result__.as_mut_ptr()).from_abi::<HttpContentDispositionHeaderValue>(result__)
+            (::windows::core::Interface::vtable(this).Parse)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(input), result__.as_mut_ptr()).from_abi::<HttpContentDispositionHeaderValue>(result__)
         })
     }
-    pub fn TryParse<'a, P0>(input: P0, contentdispositionheadervalue: &mut ::core::option::Option<HttpContentDispositionHeaderValue>) -> ::windows::core::Result<bool>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-    {
+    pub fn TryParse(input: &::windows::core::HSTRING, contentdispositionheadervalue: &mut ::core::option::Option<HttpContentDispositionHeaderValue>) -> ::windows::core::Result<bool> {
         Self::IHttpContentDispositionHeaderValueStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).TryParse)(::windows::core::Interface::as_raw(this), input.into().abi(), contentdispositionheadervalue as *mut _ as _, result__.as_mut_ptr()).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).TryParse)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(input), contentdispositionheadervalue as *mut _ as _, result__.as_mut_ptr()).from_abi::<bool>(result__)
         })
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -2481,23 +2387,15 @@ impl HttpContentHeaderCollection {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetLastModified)(::windows::core::Interface::as_raw(this), value.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
-    pub fn Append<'a, P0, P1>(&self, name: P0, value: P1) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-        P1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-    {
+    pub fn Append(&self, name: &::windows::core::HSTRING, value: &::windows::core::HSTRING) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).Append)(::windows::core::Interface::as_raw(this), name.into().abi(), value.into().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).Append)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(name), ::core::mem::transmute_copy(value)).ok() }
     }
-    pub fn TryAppendWithoutValidation<'a, P0, P1>(&self, name: P0, value: P1) -> ::windows::core::Result<bool>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-        P1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-    {
+    pub fn TryAppendWithoutValidation(&self, name: &::windows::core::HSTRING, value: &::windows::core::HSTRING) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).TryAppendWithoutValidation)(::windows::core::Interface::as_raw(this), name.into().abi(), value.into().abi(), result__.as_mut_ptr()).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).TryAppendWithoutValidation)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(name), ::core::mem::transmute_copy(value), result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
@@ -2511,14 +2409,11 @@ impl HttpContentHeaderCollection {
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn Lookup<'a, P0>(&self, key: P0) -> ::windows::core::Result<::windows::core::HSTRING>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-    {
+    pub fn Lookup(&self, key: &::windows::core::HSTRING) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = &::windows::core::Interface::cast::<super::super::super::Foundation::Collections::IMap<::windows::core::HSTRING, ::windows::core::HSTRING>>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).Lookup)(::windows::core::Interface::as_raw(this), key.into().abi(), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).Lookup)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(key), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
@@ -2532,14 +2427,11 @@ impl HttpContentHeaderCollection {
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn HasKey<'a, P0>(&self, key: P0) -> ::windows::core::Result<bool>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-    {
+    pub fn HasKey(&self, key: &::windows::core::HSTRING) -> ::windows::core::Result<bool> {
         let this = &::windows::core::Interface::cast::<super::super::super::Foundation::Collections::IMap<::windows::core::HSTRING, ::windows::core::HSTRING>>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).HasKey)(::windows::core::Interface::as_raw(this), key.into().abi(), result__.as_mut_ptr()).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).HasKey)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(key), result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
@@ -2553,25 +2445,18 @@ impl HttpContentHeaderCollection {
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn Insert<'a, P0, P1>(&self, key: P0, value: P1) -> ::windows::core::Result<bool>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-        P1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-    {
+    pub fn Insert(&self, key: &::windows::core::HSTRING, value: &::windows::core::HSTRING) -> ::windows::core::Result<bool> {
         let this = &::windows::core::Interface::cast::<super::super::super::Foundation::Collections::IMap<::windows::core::HSTRING, ::windows::core::HSTRING>>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).Insert)(::windows::core::Interface::as_raw(this), key.into().abi(), value.into().abi(), result__.as_mut_ptr()).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).Insert)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(key), ::core::mem::transmute_copy(value), result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn Remove<'a, P0>(&self, key: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-    {
+    pub fn Remove(&self, key: &::windows::core::HSTRING) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::super::Foundation::Collections::IMap<::windows::core::HSTRING, ::windows::core::HSTRING>>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).Remove)(::windows::core::Interface::as_raw(this), key.into().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).Remove)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(key)).ok() }
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
@@ -2771,12 +2656,9 @@ impl HttpContentRangeHeaderValue {
             (::windows::core::Interface::vtable(this).Unit)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    pub fn SetUnit<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-    {
+    pub fn SetUnit(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetUnit)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetUnit)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
     }
     pub fn CreateFromLength(length: u64) -> ::windows::core::Result<HttpContentRangeHeaderValue> {
         Self::IHttpContentRangeHeaderValueFactory(|this| unsafe {
@@ -2796,22 +2678,16 @@ impl HttpContentRangeHeaderValue {
             (::windows::core::Interface::vtable(this).CreateFromRangeWithLength)(::windows::core::Interface::as_raw(this), from, to, length, result__.as_mut_ptr()).from_abi::<HttpContentRangeHeaderValue>(result__)
         })
     }
-    pub fn Parse<'a, P0>(input: P0) -> ::windows::core::Result<HttpContentRangeHeaderValue>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-    {
+    pub fn Parse(input: &::windows::core::HSTRING) -> ::windows::core::Result<HttpContentRangeHeaderValue> {
         Self::IHttpContentRangeHeaderValueStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).Parse)(::windows::core::Interface::as_raw(this), input.into().abi(), result__.as_mut_ptr()).from_abi::<HttpContentRangeHeaderValue>(result__)
+            (::windows::core::Interface::vtable(this).Parse)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(input), result__.as_mut_ptr()).from_abi::<HttpContentRangeHeaderValue>(result__)
         })
     }
-    pub fn TryParse<'a, P0>(input: P0, contentrangeheadervalue: &mut ::core::option::Option<HttpContentRangeHeaderValue>) -> ::windows::core::Result<bool>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-    {
+    pub fn TryParse(input: &::windows::core::HSTRING, contentrangeheadervalue: &mut ::core::option::Option<HttpContentRangeHeaderValue>) -> ::windows::core::Result<bool> {
         Self::IHttpContentRangeHeaderValueStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).TryParse)(::windows::core::Interface::as_raw(this), input.into().abi(), contentrangeheadervalue as *mut _ as _, result__.as_mut_ptr()).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).TryParse)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(input), contentrangeheadervalue as *mut _ as _, result__.as_mut_ptr()).from_abi::<bool>(result__)
         })
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -2936,48 +2812,32 @@ impl HttpCookiePairHeaderValue {
             (::windows::core::Interface::vtable(this).Value)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    pub fn SetValue<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-    {
+    pub fn SetValue(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetValue)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetValue)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
     }
-    pub fn CreateFromName<'a, P0>(name: P0) -> ::windows::core::Result<HttpCookiePairHeaderValue>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-    {
+    pub fn CreateFromName(name: &::windows::core::HSTRING) -> ::windows::core::Result<HttpCookiePairHeaderValue> {
         Self::IHttpCookiePairHeaderValueFactory(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).CreateFromName)(::windows::core::Interface::as_raw(this), name.into().abi(), result__.as_mut_ptr()).from_abi::<HttpCookiePairHeaderValue>(result__)
+            (::windows::core::Interface::vtable(this).CreateFromName)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(name), result__.as_mut_ptr()).from_abi::<HttpCookiePairHeaderValue>(result__)
         })
     }
-    pub fn CreateFromNameWithValue<'a, P0, P1>(name: P0, value: P1) -> ::windows::core::Result<HttpCookiePairHeaderValue>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-        P1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-    {
+    pub fn CreateFromNameWithValue(name: &::windows::core::HSTRING, value: &::windows::core::HSTRING) -> ::windows::core::Result<HttpCookiePairHeaderValue> {
         Self::IHttpCookiePairHeaderValueFactory(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).CreateFromNameWithValue)(::windows::core::Interface::as_raw(this), name.into().abi(), value.into().abi(), result__.as_mut_ptr()).from_abi::<HttpCookiePairHeaderValue>(result__)
+            (::windows::core::Interface::vtable(this).CreateFromNameWithValue)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(name), ::core::mem::transmute_copy(value), result__.as_mut_ptr()).from_abi::<HttpCookiePairHeaderValue>(result__)
         })
     }
-    pub fn Parse<'a, P0>(input: P0) -> ::windows::core::Result<HttpCookiePairHeaderValue>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-    {
+    pub fn Parse(input: &::windows::core::HSTRING) -> ::windows::core::Result<HttpCookiePairHeaderValue> {
         Self::IHttpCookiePairHeaderValueStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).Parse)(::windows::core::Interface::as_raw(this), input.into().abi(), result__.as_mut_ptr()).from_abi::<HttpCookiePairHeaderValue>(result__)
+            (::windows::core::Interface::vtable(this).Parse)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(input), result__.as_mut_ptr()).from_abi::<HttpCookiePairHeaderValue>(result__)
         })
     }
-    pub fn TryParse<'a, P0>(input: P0, cookiepairheadervalue: &mut ::core::option::Option<HttpCookiePairHeaderValue>) -> ::windows::core::Result<bool>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-    {
+    pub fn TryParse(input: &::windows::core::HSTRING, cookiepairheadervalue: &mut ::core::option::Option<HttpCookiePairHeaderValue>) -> ::windows::core::Result<bool> {
         Self::IHttpCookiePairHeaderValueStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).TryParse)(::windows::core::Interface::as_raw(this), input.into().abi(), cookiepairheadervalue as *mut _ as _, result__.as_mut_ptr()).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).TryParse)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(input), cookiepairheadervalue as *mut _ as _, result__.as_mut_ptr()).from_abi::<bool>(result__)
         })
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -3088,21 +2948,15 @@ unsafe impl ::core::marker::Sync for HttpCookiePairHeaderValue {}
 #[repr(transparent)]
 pub struct HttpCookiePairHeaderValueCollection(::windows::core::IUnknown);
 impl HttpCookiePairHeaderValueCollection {
-    pub fn ParseAdd<'a, P0>(&self, input: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-    {
+    pub fn ParseAdd(&self, input: &::windows::core::HSTRING) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).ParseAdd)(::windows::core::Interface::as_raw(this), input.into().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).ParseAdd)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(input)).ok() }
     }
-    pub fn TryParseAdd<'a, P0>(&self, input: P0) -> ::windows::core::Result<bool>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-    {
+    pub fn TryParseAdd(&self, input: &::windows::core::HSTRING) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).TryParseAdd)(::windows::core::Interface::as_raw(this), input.into().abi(), result__.as_mut_ptr()).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).TryParseAdd)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(input), result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
@@ -3394,41 +3248,28 @@ impl HttpCredentialsHeaderValue {
             (::windows::core::Interface::vtable(this).Token)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    pub fn CreateFromScheme<'a, P0>(scheme: P0) -> ::windows::core::Result<HttpCredentialsHeaderValue>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-    {
+    pub fn CreateFromScheme(scheme: &::windows::core::HSTRING) -> ::windows::core::Result<HttpCredentialsHeaderValue> {
         Self::IHttpCredentialsHeaderValueFactory(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).CreateFromScheme)(::windows::core::Interface::as_raw(this), scheme.into().abi(), result__.as_mut_ptr()).from_abi::<HttpCredentialsHeaderValue>(result__)
+            (::windows::core::Interface::vtable(this).CreateFromScheme)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(scheme), result__.as_mut_ptr()).from_abi::<HttpCredentialsHeaderValue>(result__)
         })
     }
-    pub fn CreateFromSchemeWithToken<'a, P0, P1>(scheme: P0, token: P1) -> ::windows::core::Result<HttpCredentialsHeaderValue>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-        P1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-    {
+    pub fn CreateFromSchemeWithToken(scheme: &::windows::core::HSTRING, token: &::windows::core::HSTRING) -> ::windows::core::Result<HttpCredentialsHeaderValue> {
         Self::IHttpCredentialsHeaderValueFactory(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).CreateFromSchemeWithToken)(::windows::core::Interface::as_raw(this), scheme.into().abi(), token.into().abi(), result__.as_mut_ptr()).from_abi::<HttpCredentialsHeaderValue>(result__)
+            (::windows::core::Interface::vtable(this).CreateFromSchemeWithToken)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(scheme), ::core::mem::transmute_copy(token), result__.as_mut_ptr()).from_abi::<HttpCredentialsHeaderValue>(result__)
         })
     }
-    pub fn Parse<'a, P0>(input: P0) -> ::windows::core::Result<HttpCredentialsHeaderValue>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-    {
+    pub fn Parse(input: &::windows::core::HSTRING) -> ::windows::core::Result<HttpCredentialsHeaderValue> {
         Self::IHttpCredentialsHeaderValueStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).Parse)(::windows::core::Interface::as_raw(this), input.into().abi(), result__.as_mut_ptr()).from_abi::<HttpCredentialsHeaderValue>(result__)
+            (::windows::core::Interface::vtable(this).Parse)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(input), result__.as_mut_ptr()).from_abi::<HttpCredentialsHeaderValue>(result__)
         })
     }
-    pub fn TryParse<'a, P0>(input: P0, credentialsheadervalue: &mut ::core::option::Option<HttpCredentialsHeaderValue>) -> ::windows::core::Result<bool>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-    {
+    pub fn TryParse(input: &::windows::core::HSTRING, credentialsheadervalue: &mut ::core::option::Option<HttpCredentialsHeaderValue>) -> ::windows::core::Result<bool> {
         Self::IHttpCredentialsHeaderValueStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).TryParse)(::windows::core::Interface::as_raw(this), input.into().abi(), credentialsheadervalue as *mut _ as _, result__.as_mut_ptr()).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).TryParse)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(input), credentialsheadervalue as *mut _ as _, result__.as_mut_ptr()).from_abi::<bool>(result__)
         })
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -3557,22 +3398,16 @@ impl HttpDateOrDeltaHeaderValue {
             (::windows::core::Interface::vtable(this).Delta)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::IReference<super::super::super::Foundation::TimeSpan>>(result__)
         }
     }
-    pub fn Parse<'a, P0>(input: P0) -> ::windows::core::Result<HttpDateOrDeltaHeaderValue>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-    {
+    pub fn Parse(input: &::windows::core::HSTRING) -> ::windows::core::Result<HttpDateOrDeltaHeaderValue> {
         Self::IHttpDateOrDeltaHeaderValueStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).Parse)(::windows::core::Interface::as_raw(this), input.into().abi(), result__.as_mut_ptr()).from_abi::<HttpDateOrDeltaHeaderValue>(result__)
+            (::windows::core::Interface::vtable(this).Parse)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(input), result__.as_mut_ptr()).from_abi::<HttpDateOrDeltaHeaderValue>(result__)
         })
     }
-    pub fn TryParse<'a, P0>(input: P0, dateordeltaheadervalue: &mut ::core::option::Option<HttpDateOrDeltaHeaderValue>) -> ::windows::core::Result<bool>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-    {
+    pub fn TryParse(input: &::windows::core::HSTRING, dateordeltaheadervalue: &mut ::core::option::Option<HttpDateOrDeltaHeaderValue>) -> ::windows::core::Result<bool> {
         Self::IHttpDateOrDeltaHeaderValueStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).TryParse)(::windows::core::Interface::as_raw(this), input.into().abi(), dateordeltaheadervalue as *mut _ as _, result__.as_mut_ptr()).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).TryParse)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(input), dateordeltaheadervalue as *mut _ as _, result__.as_mut_ptr()).from_abi::<bool>(result__)
         })
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -3692,12 +3527,9 @@ impl HttpExpectationHeaderValue {
             (::windows::core::Interface::vtable(this).Value)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    pub fn SetValue<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-    {
+    pub fn SetValue(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetValue)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetValue)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
@@ -3708,41 +3540,28 @@ impl HttpExpectationHeaderValue {
             (::windows::core::Interface::vtable(this).Parameters)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::Collections::IVector<HttpNameValueHeaderValue>>(result__)
         }
     }
-    pub fn CreateFromName<'a, P0>(name: P0) -> ::windows::core::Result<HttpExpectationHeaderValue>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-    {
+    pub fn CreateFromName(name: &::windows::core::HSTRING) -> ::windows::core::Result<HttpExpectationHeaderValue> {
         Self::IHttpExpectationHeaderValueFactory(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).CreateFromName)(::windows::core::Interface::as_raw(this), name.into().abi(), result__.as_mut_ptr()).from_abi::<HttpExpectationHeaderValue>(result__)
+            (::windows::core::Interface::vtable(this).CreateFromName)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(name), result__.as_mut_ptr()).from_abi::<HttpExpectationHeaderValue>(result__)
         })
     }
-    pub fn CreateFromNameWithValue<'a, P0, P1>(name: P0, value: P1) -> ::windows::core::Result<HttpExpectationHeaderValue>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-        P1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-    {
+    pub fn CreateFromNameWithValue(name: &::windows::core::HSTRING, value: &::windows::core::HSTRING) -> ::windows::core::Result<HttpExpectationHeaderValue> {
         Self::IHttpExpectationHeaderValueFactory(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).CreateFromNameWithValue)(::windows::core::Interface::as_raw(this), name.into().abi(), value.into().abi(), result__.as_mut_ptr()).from_abi::<HttpExpectationHeaderValue>(result__)
+            (::windows::core::Interface::vtable(this).CreateFromNameWithValue)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(name), ::core::mem::transmute_copy(value), result__.as_mut_ptr()).from_abi::<HttpExpectationHeaderValue>(result__)
         })
     }
-    pub fn Parse<'a, P0>(input: P0) -> ::windows::core::Result<HttpExpectationHeaderValue>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-    {
+    pub fn Parse(input: &::windows::core::HSTRING) -> ::windows::core::Result<HttpExpectationHeaderValue> {
         Self::IHttpExpectationHeaderValueStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).Parse)(::windows::core::Interface::as_raw(this), input.into().abi(), result__.as_mut_ptr()).from_abi::<HttpExpectationHeaderValue>(result__)
+            (::windows::core::Interface::vtable(this).Parse)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(input), result__.as_mut_ptr()).from_abi::<HttpExpectationHeaderValue>(result__)
         })
     }
-    pub fn TryParse<'a, P0>(input: P0, expectationheadervalue: &mut ::core::option::Option<HttpExpectationHeaderValue>) -> ::windows::core::Result<bool>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-    {
+    pub fn TryParse(input: &::windows::core::HSTRING, expectationheadervalue: &mut ::core::option::Option<HttpExpectationHeaderValue>) -> ::windows::core::Result<bool> {
         Self::IHttpExpectationHeaderValueStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).TryParse)(::windows::core::Interface::as_raw(this), input.into().abi(), expectationheadervalue as *mut _ as _, result__.as_mut_ptr()).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).TryParse)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(input), expectationheadervalue as *mut _ as _, result__.as_mut_ptr()).from_abi::<bool>(result__)
         })
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -3853,21 +3672,15 @@ unsafe impl ::core::marker::Sync for HttpExpectationHeaderValue {}
 #[repr(transparent)]
 pub struct HttpExpectationHeaderValueCollection(::windows::core::IUnknown);
 impl HttpExpectationHeaderValueCollection {
-    pub fn ParseAdd<'a, P0>(&self, input: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-    {
+    pub fn ParseAdd(&self, input: &::windows::core::HSTRING) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).ParseAdd)(::windows::core::Interface::as_raw(this), input.into().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).ParseAdd)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(input)).ok() }
     }
-    pub fn TryParseAdd<'a, P0>(&self, input: P0) -> ::windows::core::Result<bool>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-    {
+    pub fn TryParseAdd(&self, input: &::windows::core::HSTRING) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).TryParseAdd)(::windows::core::Interface::as_raw(this), input.into().abi(), result__.as_mut_ptr()).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).TryParseAdd)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(input), result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
@@ -4136,21 +3949,15 @@ unsafe impl ::core::marker::Sync for HttpExpectationHeaderValueCollection {}
 #[repr(transparent)]
 pub struct HttpLanguageHeaderValueCollection(::windows::core::IUnknown);
 impl HttpLanguageHeaderValueCollection {
-    pub fn ParseAdd<'a, P0>(&self, input: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-    {
+    pub fn ParseAdd(&self, input: &::windows::core::HSTRING) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).ParseAdd)(::windows::core::Interface::as_raw(this), input.into().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).ParseAdd)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(input)).ok() }
     }
-    pub fn TryParseAdd<'a, P0>(&self, input: P0) -> ::windows::core::Result<bool>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-    {
+    pub fn TryParseAdd(&self, input: &::windows::core::HSTRING) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).TryParseAdd)(::windows::core::Interface::as_raw(this), input.into().abi(), result__.as_mut_ptr()).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).TryParseAdd)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(input), result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`, `\"Globalization\"`*"]
@@ -4435,40 +4242,28 @@ impl HttpLanguageRangeWithQualityHeaderValue {
             (::windows::core::Interface::vtable(this).Quality)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::IReference<f64>>(result__)
         }
     }
-    pub fn CreateFromLanguageRange<'a, P0>(languagerange: P0) -> ::windows::core::Result<HttpLanguageRangeWithQualityHeaderValue>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-    {
+    pub fn CreateFromLanguageRange(languagerange: &::windows::core::HSTRING) -> ::windows::core::Result<HttpLanguageRangeWithQualityHeaderValue> {
         Self::IHttpLanguageRangeWithQualityHeaderValueFactory(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).CreateFromLanguageRange)(::windows::core::Interface::as_raw(this), languagerange.into().abi(), result__.as_mut_ptr()).from_abi::<HttpLanguageRangeWithQualityHeaderValue>(result__)
+            (::windows::core::Interface::vtable(this).CreateFromLanguageRange)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(languagerange), result__.as_mut_ptr()).from_abi::<HttpLanguageRangeWithQualityHeaderValue>(result__)
         })
     }
-    pub fn CreateFromLanguageRangeWithQuality<'a, P0>(languagerange: P0, quality: f64) -> ::windows::core::Result<HttpLanguageRangeWithQualityHeaderValue>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-    {
+    pub fn CreateFromLanguageRangeWithQuality(languagerange: &::windows::core::HSTRING, quality: f64) -> ::windows::core::Result<HttpLanguageRangeWithQualityHeaderValue> {
         Self::IHttpLanguageRangeWithQualityHeaderValueFactory(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).CreateFromLanguageRangeWithQuality)(::windows::core::Interface::as_raw(this), languagerange.into().abi(), quality, result__.as_mut_ptr()).from_abi::<HttpLanguageRangeWithQualityHeaderValue>(result__)
+            (::windows::core::Interface::vtable(this).CreateFromLanguageRangeWithQuality)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(languagerange), quality, result__.as_mut_ptr()).from_abi::<HttpLanguageRangeWithQualityHeaderValue>(result__)
         })
     }
-    pub fn Parse<'a, P0>(input: P0) -> ::windows::core::Result<HttpLanguageRangeWithQualityHeaderValue>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-    {
+    pub fn Parse(input: &::windows::core::HSTRING) -> ::windows::core::Result<HttpLanguageRangeWithQualityHeaderValue> {
         Self::IHttpLanguageRangeWithQualityHeaderValueStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).Parse)(::windows::core::Interface::as_raw(this), input.into().abi(), result__.as_mut_ptr()).from_abi::<HttpLanguageRangeWithQualityHeaderValue>(result__)
+            (::windows::core::Interface::vtable(this).Parse)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(input), result__.as_mut_ptr()).from_abi::<HttpLanguageRangeWithQualityHeaderValue>(result__)
         })
     }
-    pub fn TryParse<'a, P0>(input: P0, languagerangewithqualityheadervalue: &mut ::core::option::Option<HttpLanguageRangeWithQualityHeaderValue>) -> ::windows::core::Result<bool>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-    {
+    pub fn TryParse(input: &::windows::core::HSTRING, languagerangewithqualityheadervalue: &mut ::core::option::Option<HttpLanguageRangeWithQualityHeaderValue>) -> ::windows::core::Result<bool> {
         Self::IHttpLanguageRangeWithQualityHeaderValueStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).TryParse)(::windows::core::Interface::as_raw(this), input.into().abi(), languagerangewithqualityheadervalue as *mut _ as _, result__.as_mut_ptr()).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).TryParse)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(input), languagerangewithqualityheadervalue as *mut _ as _, result__.as_mut_ptr()).from_abi::<bool>(result__)
         })
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -4579,21 +4374,15 @@ unsafe impl ::core::marker::Sync for HttpLanguageRangeWithQualityHeaderValue {}
 #[repr(transparent)]
 pub struct HttpLanguageRangeWithQualityHeaderValueCollection(::windows::core::IUnknown);
 impl HttpLanguageRangeWithQualityHeaderValueCollection {
-    pub fn ParseAdd<'a, P0>(&self, input: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-    {
+    pub fn ParseAdd(&self, input: &::windows::core::HSTRING) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).ParseAdd)(::windows::core::Interface::as_raw(this), input.into().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).ParseAdd)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(input)).ok() }
     }
-    pub fn TryParseAdd<'a, P0>(&self, input: P0) -> ::windows::core::Result<bool>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-    {
+    pub fn TryParseAdd(&self, input: &::windows::core::HSTRING) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).TryParseAdd)(::windows::core::Interface::as_raw(this), input.into().abi(), result__.as_mut_ptr()).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).TryParseAdd)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(input), result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
@@ -4869,12 +4658,9 @@ impl HttpMediaTypeHeaderValue {
             (::windows::core::Interface::vtable(this).CharSet)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    pub fn SetCharSet<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-    {
+    pub fn SetCharSet(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetCharSet)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetCharSet)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
     }
     pub fn MediaType(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
@@ -4883,12 +4669,9 @@ impl HttpMediaTypeHeaderValue {
             (::windows::core::Interface::vtable(this).MediaType)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    pub fn SetMediaType<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-    {
+    pub fn SetMediaType(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetMediaType)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetMediaType)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
@@ -4899,31 +4682,22 @@ impl HttpMediaTypeHeaderValue {
             (::windows::core::Interface::vtable(this).Parameters)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::Collections::IVector<HttpNameValueHeaderValue>>(result__)
         }
     }
-    pub fn Create<'a, P0>(mediatype: P0) -> ::windows::core::Result<HttpMediaTypeHeaderValue>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-    {
+    pub fn Create(mediatype: &::windows::core::HSTRING) -> ::windows::core::Result<HttpMediaTypeHeaderValue> {
         Self::IHttpMediaTypeHeaderValueFactory(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).Create)(::windows::core::Interface::as_raw(this), mediatype.into().abi(), result__.as_mut_ptr()).from_abi::<HttpMediaTypeHeaderValue>(result__)
+            (::windows::core::Interface::vtable(this).Create)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(mediatype), result__.as_mut_ptr()).from_abi::<HttpMediaTypeHeaderValue>(result__)
         })
     }
-    pub fn Parse<'a, P0>(input: P0) -> ::windows::core::Result<HttpMediaTypeHeaderValue>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-    {
+    pub fn Parse(input: &::windows::core::HSTRING) -> ::windows::core::Result<HttpMediaTypeHeaderValue> {
         Self::IHttpMediaTypeHeaderValueStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).Parse)(::windows::core::Interface::as_raw(this), input.into().abi(), result__.as_mut_ptr()).from_abi::<HttpMediaTypeHeaderValue>(result__)
+            (::windows::core::Interface::vtable(this).Parse)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(input), result__.as_mut_ptr()).from_abi::<HttpMediaTypeHeaderValue>(result__)
         })
     }
-    pub fn TryParse<'a, P0>(input: P0, mediatypeheadervalue: &mut ::core::option::Option<HttpMediaTypeHeaderValue>) -> ::windows::core::Result<bool>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-    {
+    pub fn TryParse(input: &::windows::core::HSTRING, mediatypeheadervalue: &mut ::core::option::Option<HttpMediaTypeHeaderValue>) -> ::windows::core::Result<bool> {
         Self::IHttpMediaTypeHeaderValueStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).TryParse)(::windows::core::Interface::as_raw(this), input.into().abi(), mediatypeheadervalue as *mut _ as _, result__.as_mut_ptr()).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).TryParse)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(input), mediatypeheadervalue as *mut _ as _, result__.as_mut_ptr()).from_abi::<bool>(result__)
         })
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -5041,12 +4815,9 @@ impl HttpMediaTypeWithQualityHeaderValue {
             (::windows::core::Interface::vtable(this).CharSet)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    pub fn SetCharSet<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-    {
+    pub fn SetCharSet(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetCharSet)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetCharSet)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
     }
     pub fn MediaType(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
@@ -5055,12 +4826,9 @@ impl HttpMediaTypeWithQualityHeaderValue {
             (::windows::core::Interface::vtable(this).MediaType)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    pub fn SetMediaType<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-    {
+    pub fn SetMediaType(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetMediaType)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetMediaType)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
@@ -5090,40 +4858,28 @@ impl HttpMediaTypeWithQualityHeaderValue {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetQuality)(::windows::core::Interface::as_raw(this), value.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
-    pub fn CreateFromMediaType<'a, P0>(mediatype: P0) -> ::windows::core::Result<HttpMediaTypeWithQualityHeaderValue>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-    {
+    pub fn CreateFromMediaType(mediatype: &::windows::core::HSTRING) -> ::windows::core::Result<HttpMediaTypeWithQualityHeaderValue> {
         Self::IHttpMediaTypeWithQualityHeaderValueFactory(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).CreateFromMediaType)(::windows::core::Interface::as_raw(this), mediatype.into().abi(), result__.as_mut_ptr()).from_abi::<HttpMediaTypeWithQualityHeaderValue>(result__)
+            (::windows::core::Interface::vtable(this).CreateFromMediaType)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(mediatype), result__.as_mut_ptr()).from_abi::<HttpMediaTypeWithQualityHeaderValue>(result__)
         })
     }
-    pub fn CreateFromMediaTypeWithQuality<'a, P0>(mediatype: P0, quality: f64) -> ::windows::core::Result<HttpMediaTypeWithQualityHeaderValue>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-    {
+    pub fn CreateFromMediaTypeWithQuality(mediatype: &::windows::core::HSTRING, quality: f64) -> ::windows::core::Result<HttpMediaTypeWithQualityHeaderValue> {
         Self::IHttpMediaTypeWithQualityHeaderValueFactory(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).CreateFromMediaTypeWithQuality)(::windows::core::Interface::as_raw(this), mediatype.into().abi(), quality, result__.as_mut_ptr()).from_abi::<HttpMediaTypeWithQualityHeaderValue>(result__)
+            (::windows::core::Interface::vtable(this).CreateFromMediaTypeWithQuality)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(mediatype), quality, result__.as_mut_ptr()).from_abi::<HttpMediaTypeWithQualityHeaderValue>(result__)
         })
     }
-    pub fn Parse<'a, P0>(input: P0) -> ::windows::core::Result<HttpMediaTypeWithQualityHeaderValue>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-    {
+    pub fn Parse(input: &::windows::core::HSTRING) -> ::windows::core::Result<HttpMediaTypeWithQualityHeaderValue> {
         Self::IHttpMediaTypeWithQualityHeaderValueStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).Parse)(::windows::core::Interface::as_raw(this), input.into().abi(), result__.as_mut_ptr()).from_abi::<HttpMediaTypeWithQualityHeaderValue>(result__)
+            (::windows::core::Interface::vtable(this).Parse)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(input), result__.as_mut_ptr()).from_abi::<HttpMediaTypeWithQualityHeaderValue>(result__)
         })
     }
-    pub fn TryParse<'a, P0>(input: P0, mediatypewithqualityheadervalue: &mut ::core::option::Option<HttpMediaTypeWithQualityHeaderValue>) -> ::windows::core::Result<bool>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-    {
+    pub fn TryParse(input: &::windows::core::HSTRING, mediatypewithqualityheadervalue: &mut ::core::option::Option<HttpMediaTypeWithQualityHeaderValue>) -> ::windows::core::Result<bool> {
         Self::IHttpMediaTypeWithQualityHeaderValueStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).TryParse)(::windows::core::Interface::as_raw(this), input.into().abi(), mediatypewithqualityheadervalue as *mut _ as _, result__.as_mut_ptr()).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).TryParse)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(input), mediatypewithqualityheadervalue as *mut _ as _, result__.as_mut_ptr()).from_abi::<bool>(result__)
         })
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -5234,21 +4990,15 @@ unsafe impl ::core::marker::Sync for HttpMediaTypeWithQualityHeaderValue {}
 #[repr(transparent)]
 pub struct HttpMediaTypeWithQualityHeaderValueCollection(::windows::core::IUnknown);
 impl HttpMediaTypeWithQualityHeaderValueCollection {
-    pub fn ParseAdd<'a, P0>(&self, input: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-    {
+    pub fn ParseAdd(&self, input: &::windows::core::HSTRING) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).ParseAdd)(::windows::core::Interface::as_raw(this), input.into().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).ParseAdd)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(input)).ok() }
     }
-    pub fn TryParseAdd<'a, P0>(&self, input: P0) -> ::windows::core::Result<bool>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-    {
+    pub fn TryParseAdd(&self, input: &::windows::core::HSTRING) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).TryParseAdd)(::windows::core::Interface::as_raw(this), input.into().abi(), result__.as_mut_ptr()).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).TryParseAdd)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(input), result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
@@ -5517,21 +5267,15 @@ unsafe impl ::core::marker::Sync for HttpMediaTypeWithQualityHeaderValueCollecti
 #[repr(transparent)]
 pub struct HttpMethodHeaderValueCollection(::windows::core::IUnknown);
 impl HttpMethodHeaderValueCollection {
-    pub fn ParseAdd<'a, P0>(&self, input: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-    {
+    pub fn ParseAdd(&self, input: &::windows::core::HSTRING) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).ParseAdd)(::windows::core::Interface::as_raw(this), input.into().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).ParseAdd)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(input)).ok() }
     }
-    pub fn TryParseAdd<'a, P0>(&self, input: P0) -> ::windows::core::Result<bool>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-    {
+    pub fn TryParseAdd(&self, input: &::windows::core::HSTRING) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).TryParseAdd)(::windows::core::Interface::as_raw(this), input.into().abi(), result__.as_mut_ptr()).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).TryParseAdd)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(input), result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
@@ -5814,48 +5558,32 @@ impl HttpNameValueHeaderValue {
             (::windows::core::Interface::vtable(this).Value)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    pub fn SetValue<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-    {
+    pub fn SetValue(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetValue)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetValue)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
     }
-    pub fn CreateFromName<'a, P0>(name: P0) -> ::windows::core::Result<HttpNameValueHeaderValue>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-    {
+    pub fn CreateFromName(name: &::windows::core::HSTRING) -> ::windows::core::Result<HttpNameValueHeaderValue> {
         Self::IHttpNameValueHeaderValueFactory(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).CreateFromName)(::windows::core::Interface::as_raw(this), name.into().abi(), result__.as_mut_ptr()).from_abi::<HttpNameValueHeaderValue>(result__)
+            (::windows::core::Interface::vtable(this).CreateFromName)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(name), result__.as_mut_ptr()).from_abi::<HttpNameValueHeaderValue>(result__)
         })
     }
-    pub fn CreateFromNameWithValue<'a, P0, P1>(name: P0, value: P1) -> ::windows::core::Result<HttpNameValueHeaderValue>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-        P1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-    {
+    pub fn CreateFromNameWithValue(name: &::windows::core::HSTRING, value: &::windows::core::HSTRING) -> ::windows::core::Result<HttpNameValueHeaderValue> {
         Self::IHttpNameValueHeaderValueFactory(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).CreateFromNameWithValue)(::windows::core::Interface::as_raw(this), name.into().abi(), value.into().abi(), result__.as_mut_ptr()).from_abi::<HttpNameValueHeaderValue>(result__)
+            (::windows::core::Interface::vtable(this).CreateFromNameWithValue)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(name), ::core::mem::transmute_copy(value), result__.as_mut_ptr()).from_abi::<HttpNameValueHeaderValue>(result__)
         })
     }
-    pub fn Parse<'a, P0>(input: P0) -> ::windows::core::Result<HttpNameValueHeaderValue>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-    {
+    pub fn Parse(input: &::windows::core::HSTRING) -> ::windows::core::Result<HttpNameValueHeaderValue> {
         Self::IHttpNameValueHeaderValueStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).Parse)(::windows::core::Interface::as_raw(this), input.into().abi(), result__.as_mut_ptr()).from_abi::<HttpNameValueHeaderValue>(result__)
+            (::windows::core::Interface::vtable(this).Parse)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(input), result__.as_mut_ptr()).from_abi::<HttpNameValueHeaderValue>(result__)
         })
     }
-    pub fn TryParse<'a, P0>(input: P0, namevalueheadervalue: &mut ::core::option::Option<HttpNameValueHeaderValue>) -> ::windows::core::Result<bool>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-    {
+    pub fn TryParse(input: &::windows::core::HSTRING, namevalueheadervalue: &mut ::core::option::Option<HttpNameValueHeaderValue>) -> ::windows::core::Result<bool> {
         Self::IHttpNameValueHeaderValueStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).TryParse)(::windows::core::Interface::as_raw(this), input.into().abi(), namevalueheadervalue as *mut _ as _, result__.as_mut_ptr()).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).TryParse)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(input), namevalueheadervalue as *mut _ as _, result__.as_mut_ptr()).from_abi::<bool>(result__)
         })
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -5980,41 +5708,28 @@ impl HttpProductHeaderValue {
             (::windows::core::Interface::vtable(this).Version)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    pub fn CreateFromName<'a, P0>(productname: P0) -> ::windows::core::Result<HttpProductHeaderValue>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-    {
+    pub fn CreateFromName(productname: &::windows::core::HSTRING) -> ::windows::core::Result<HttpProductHeaderValue> {
         Self::IHttpProductHeaderValueFactory(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).CreateFromName)(::windows::core::Interface::as_raw(this), productname.into().abi(), result__.as_mut_ptr()).from_abi::<HttpProductHeaderValue>(result__)
+            (::windows::core::Interface::vtable(this).CreateFromName)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(productname), result__.as_mut_ptr()).from_abi::<HttpProductHeaderValue>(result__)
         })
     }
-    pub fn CreateFromNameWithVersion<'a, P0, P1>(productname: P0, productversion: P1) -> ::windows::core::Result<HttpProductHeaderValue>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-        P1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-    {
+    pub fn CreateFromNameWithVersion(productname: &::windows::core::HSTRING, productversion: &::windows::core::HSTRING) -> ::windows::core::Result<HttpProductHeaderValue> {
         Self::IHttpProductHeaderValueFactory(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).CreateFromNameWithVersion)(::windows::core::Interface::as_raw(this), productname.into().abi(), productversion.into().abi(), result__.as_mut_ptr()).from_abi::<HttpProductHeaderValue>(result__)
+            (::windows::core::Interface::vtable(this).CreateFromNameWithVersion)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(productname), ::core::mem::transmute_copy(productversion), result__.as_mut_ptr()).from_abi::<HttpProductHeaderValue>(result__)
         })
     }
-    pub fn Parse<'a, P0>(input: P0) -> ::windows::core::Result<HttpProductHeaderValue>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-    {
+    pub fn Parse(input: &::windows::core::HSTRING) -> ::windows::core::Result<HttpProductHeaderValue> {
         Self::IHttpProductHeaderValueStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).Parse)(::windows::core::Interface::as_raw(this), input.into().abi(), result__.as_mut_ptr()).from_abi::<HttpProductHeaderValue>(result__)
+            (::windows::core::Interface::vtable(this).Parse)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(input), result__.as_mut_ptr()).from_abi::<HttpProductHeaderValue>(result__)
         })
     }
-    pub fn TryParse<'a, P0>(input: P0, productheadervalue: &mut ::core::option::Option<HttpProductHeaderValue>) -> ::windows::core::Result<bool>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-    {
+    pub fn TryParse(input: &::windows::core::HSTRING, productheadervalue: &mut ::core::option::Option<HttpProductHeaderValue>) -> ::windows::core::Result<bool> {
         Self::IHttpProductHeaderValueStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).TryParse)(::windows::core::Interface::as_raw(this), input.into().abi(), productheadervalue as *mut _ as _, result__.as_mut_ptr()).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).TryParse)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(input), productheadervalue as *mut _ as _, result__.as_mut_ptr()).from_abi::<bool>(result__)
         })
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -6139,41 +5854,28 @@ impl HttpProductInfoHeaderValue {
             (::windows::core::Interface::vtable(this).Comment)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    pub fn CreateFromComment<'a, P0>(productcomment: P0) -> ::windows::core::Result<HttpProductInfoHeaderValue>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-    {
+    pub fn CreateFromComment(productcomment: &::windows::core::HSTRING) -> ::windows::core::Result<HttpProductInfoHeaderValue> {
         Self::IHttpProductInfoHeaderValueFactory(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).CreateFromComment)(::windows::core::Interface::as_raw(this), productcomment.into().abi(), result__.as_mut_ptr()).from_abi::<HttpProductInfoHeaderValue>(result__)
+            (::windows::core::Interface::vtable(this).CreateFromComment)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(productcomment), result__.as_mut_ptr()).from_abi::<HttpProductInfoHeaderValue>(result__)
         })
     }
-    pub fn CreateFromNameWithVersion<'a, P0, P1>(productname: P0, productversion: P1) -> ::windows::core::Result<HttpProductInfoHeaderValue>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-        P1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-    {
+    pub fn CreateFromNameWithVersion(productname: &::windows::core::HSTRING, productversion: &::windows::core::HSTRING) -> ::windows::core::Result<HttpProductInfoHeaderValue> {
         Self::IHttpProductInfoHeaderValueFactory(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).CreateFromNameWithVersion)(::windows::core::Interface::as_raw(this), productname.into().abi(), productversion.into().abi(), result__.as_mut_ptr()).from_abi::<HttpProductInfoHeaderValue>(result__)
+            (::windows::core::Interface::vtable(this).CreateFromNameWithVersion)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(productname), ::core::mem::transmute_copy(productversion), result__.as_mut_ptr()).from_abi::<HttpProductInfoHeaderValue>(result__)
         })
     }
-    pub fn Parse<'a, P0>(input: P0) -> ::windows::core::Result<HttpProductInfoHeaderValue>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-    {
+    pub fn Parse(input: &::windows::core::HSTRING) -> ::windows::core::Result<HttpProductInfoHeaderValue> {
         Self::IHttpProductInfoHeaderValueStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).Parse)(::windows::core::Interface::as_raw(this), input.into().abi(), result__.as_mut_ptr()).from_abi::<HttpProductInfoHeaderValue>(result__)
+            (::windows::core::Interface::vtable(this).Parse)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(input), result__.as_mut_ptr()).from_abi::<HttpProductInfoHeaderValue>(result__)
         })
     }
-    pub fn TryParse<'a, P0>(input: P0, productinfoheadervalue: &mut ::core::option::Option<HttpProductInfoHeaderValue>) -> ::windows::core::Result<bool>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-    {
+    pub fn TryParse(input: &::windows::core::HSTRING, productinfoheadervalue: &mut ::core::option::Option<HttpProductInfoHeaderValue>) -> ::windows::core::Result<bool> {
         Self::IHttpProductInfoHeaderValueStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).TryParse)(::windows::core::Interface::as_raw(this), input.into().abi(), productinfoheadervalue as *mut _ as _, result__.as_mut_ptr()).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).TryParse)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(input), productinfoheadervalue as *mut _ as _, result__.as_mut_ptr()).from_abi::<bool>(result__)
         })
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -6284,21 +5986,15 @@ unsafe impl ::core::marker::Sync for HttpProductInfoHeaderValue {}
 #[repr(transparent)]
 pub struct HttpProductInfoHeaderValueCollection(::windows::core::IUnknown);
 impl HttpProductInfoHeaderValueCollection {
-    pub fn ParseAdd<'a, P0>(&self, input: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-    {
+    pub fn ParseAdd(&self, input: &::windows::core::HSTRING) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).ParseAdd)(::windows::core::Interface::as_raw(this), input.into().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).ParseAdd)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(input)).ok() }
     }
-    pub fn TryParseAdd<'a, P0>(&self, input: P0) -> ::windows::core::Result<bool>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-    {
+    pub fn TryParseAdd(&self, input: &::windows::core::HSTRING) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).TryParseAdd)(::windows::core::Interface::as_raw(this), input.into().abi(), result__.as_mut_ptr()).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).TryParseAdd)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(input), result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
@@ -6656,12 +6352,9 @@ impl HttpRequestHeaderCollection {
             (::windows::core::Interface::vtable(this).From)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    pub fn SetFrom<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-    {
+    pub fn SetFrom(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetFrom)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetFrom)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
     }
     #[doc = "*Required features: `\"Networking\"`*"]
     #[cfg(feature = "Networking")]
@@ -6784,23 +6477,15 @@ impl HttpRequestHeaderCollection {
             (::windows::core::Interface::vtable(this).UserAgent)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<HttpProductInfoHeaderValueCollection>(result__)
         }
     }
-    pub fn Append<'a, P0, P1>(&self, name: P0, value: P1) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-        P1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-    {
+    pub fn Append(&self, name: &::windows::core::HSTRING, value: &::windows::core::HSTRING) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).Append)(::windows::core::Interface::as_raw(this), name.into().abi(), value.into().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).Append)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(name), ::core::mem::transmute_copy(value)).ok() }
     }
-    pub fn TryAppendWithoutValidation<'a, P0, P1>(&self, name: P0, value: P1) -> ::windows::core::Result<bool>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-        P1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-    {
+    pub fn TryAppendWithoutValidation(&self, name: &::windows::core::HSTRING, value: &::windows::core::HSTRING) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).TryAppendWithoutValidation)(::windows::core::Interface::as_raw(this), name.into().abi(), value.into().abi(), result__.as_mut_ptr()).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).TryAppendWithoutValidation)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(name), ::core::mem::transmute_copy(value), result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
@@ -6814,14 +6499,11 @@ impl HttpRequestHeaderCollection {
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn Lookup<'a, P0>(&self, key: P0) -> ::windows::core::Result<::windows::core::HSTRING>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-    {
+    pub fn Lookup(&self, key: &::windows::core::HSTRING) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = &::windows::core::Interface::cast::<super::super::super::Foundation::Collections::IMap<::windows::core::HSTRING, ::windows::core::HSTRING>>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).Lookup)(::windows::core::Interface::as_raw(this), key.into().abi(), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).Lookup)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(key), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
@@ -6835,14 +6517,11 @@ impl HttpRequestHeaderCollection {
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn HasKey<'a, P0>(&self, key: P0) -> ::windows::core::Result<bool>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-    {
+    pub fn HasKey(&self, key: &::windows::core::HSTRING) -> ::windows::core::Result<bool> {
         let this = &::windows::core::Interface::cast::<super::super::super::Foundation::Collections::IMap<::windows::core::HSTRING, ::windows::core::HSTRING>>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).HasKey)(::windows::core::Interface::as_raw(this), key.into().abi(), result__.as_mut_ptr()).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).HasKey)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(key), result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
@@ -6856,25 +6535,18 @@ impl HttpRequestHeaderCollection {
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn Insert<'a, P0, P1>(&self, key: P0, value: P1) -> ::windows::core::Result<bool>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-        P1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-    {
+    pub fn Insert(&self, key: &::windows::core::HSTRING, value: &::windows::core::HSTRING) -> ::windows::core::Result<bool> {
         let this = &::windows::core::Interface::cast::<super::super::super::Foundation::Collections::IMap<::windows::core::HSTRING, ::windows::core::HSTRING>>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).Insert)(::windows::core::Interface::as_raw(this), key.into().abi(), value.into().abi(), result__.as_mut_ptr()).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).Insert)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(key), ::core::mem::transmute_copy(value), result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn Remove<'a, P0>(&self, key: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-    {
+    pub fn Remove(&self, key: &::windows::core::HSTRING) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::super::Foundation::Collections::IMap<::windows::core::HSTRING, ::windows::core::HSTRING>>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).Remove)(::windows::core::Interface::as_raw(this), key.into().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).Remove)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(key)).ok() }
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
@@ -7152,23 +6824,15 @@ impl HttpResponseHeaderCollection {
             (::windows::core::Interface::vtable(this).WwwAuthenticate)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<HttpChallengeHeaderValueCollection>(result__)
         }
     }
-    pub fn Append<'a, P0, P1>(&self, name: P0, value: P1) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-        P1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-    {
+    pub fn Append(&self, name: &::windows::core::HSTRING, value: &::windows::core::HSTRING) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).Append)(::windows::core::Interface::as_raw(this), name.into().abi(), value.into().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).Append)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(name), ::core::mem::transmute_copy(value)).ok() }
     }
-    pub fn TryAppendWithoutValidation<'a, P0, P1>(&self, name: P0, value: P1) -> ::windows::core::Result<bool>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-        P1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-    {
+    pub fn TryAppendWithoutValidation(&self, name: &::windows::core::HSTRING, value: &::windows::core::HSTRING) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).TryAppendWithoutValidation)(::windows::core::Interface::as_raw(this), name.into().abi(), value.into().abi(), result__.as_mut_ptr()).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).TryAppendWithoutValidation)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(name), ::core::mem::transmute_copy(value), result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
@@ -7182,14 +6846,11 @@ impl HttpResponseHeaderCollection {
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn Lookup<'a, P0>(&self, key: P0) -> ::windows::core::Result<::windows::core::HSTRING>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-    {
+    pub fn Lookup(&self, key: &::windows::core::HSTRING) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = &::windows::core::Interface::cast::<super::super::super::Foundation::Collections::IMap<::windows::core::HSTRING, ::windows::core::HSTRING>>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).Lookup)(::windows::core::Interface::as_raw(this), key.into().abi(), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).Lookup)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(key), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
@@ -7203,14 +6864,11 @@ impl HttpResponseHeaderCollection {
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn HasKey<'a, P0>(&self, key: P0) -> ::windows::core::Result<bool>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-    {
+    pub fn HasKey(&self, key: &::windows::core::HSTRING) -> ::windows::core::Result<bool> {
         let this = &::windows::core::Interface::cast::<super::super::super::Foundation::Collections::IMap<::windows::core::HSTRING, ::windows::core::HSTRING>>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).HasKey)(::windows::core::Interface::as_raw(this), key.into().abi(), result__.as_mut_ptr()).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).HasKey)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(key), result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
@@ -7224,25 +6882,18 @@ impl HttpResponseHeaderCollection {
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn Insert<'a, P0, P1>(&self, key: P0, value: P1) -> ::windows::core::Result<bool>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-        P1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-    {
+    pub fn Insert(&self, key: &::windows::core::HSTRING, value: &::windows::core::HSTRING) -> ::windows::core::Result<bool> {
         let this = &::windows::core::Interface::cast::<super::super::super::Foundation::Collections::IMap<::windows::core::HSTRING, ::windows::core::HSTRING>>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).Insert)(::windows::core::Interface::as_raw(this), key.into().abi(), value.into().abi(), result__.as_mut_ptr()).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).Insert)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(key), ::core::mem::transmute_copy(value), result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn Remove<'a, P0>(&self, key: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-    {
+    pub fn Remove(&self, key: &::windows::core::HSTRING) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::super::Foundation::Collections::IMap<::windows::core::HSTRING, ::windows::core::HSTRING>>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).Remove)(::windows::core::Interface::as_raw(this), key.into().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).Remove)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(key)).ok() }
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
@@ -7424,31 +7075,22 @@ impl HttpTransferCodingHeaderValue {
             (::windows::core::Interface::vtable(this).Value)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    pub fn Create<'a, P0>(input: P0) -> ::windows::core::Result<HttpTransferCodingHeaderValue>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-    {
+    pub fn Create(input: &::windows::core::HSTRING) -> ::windows::core::Result<HttpTransferCodingHeaderValue> {
         Self::IHttpTransferCodingHeaderValueFactory(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).Create)(::windows::core::Interface::as_raw(this), input.into().abi(), result__.as_mut_ptr()).from_abi::<HttpTransferCodingHeaderValue>(result__)
+            (::windows::core::Interface::vtable(this).Create)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(input), result__.as_mut_ptr()).from_abi::<HttpTransferCodingHeaderValue>(result__)
         })
     }
-    pub fn Parse<'a, P0>(input: P0) -> ::windows::core::Result<HttpTransferCodingHeaderValue>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-    {
+    pub fn Parse(input: &::windows::core::HSTRING) -> ::windows::core::Result<HttpTransferCodingHeaderValue> {
         Self::IHttpTransferCodingHeaderValueStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).Parse)(::windows::core::Interface::as_raw(this), input.into().abi(), result__.as_mut_ptr()).from_abi::<HttpTransferCodingHeaderValue>(result__)
+            (::windows::core::Interface::vtable(this).Parse)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(input), result__.as_mut_ptr()).from_abi::<HttpTransferCodingHeaderValue>(result__)
         })
     }
-    pub fn TryParse<'a, P0>(input: P0, transfercodingheadervalue: &mut ::core::option::Option<HttpTransferCodingHeaderValue>) -> ::windows::core::Result<bool>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-    {
+    pub fn TryParse(input: &::windows::core::HSTRING, transfercodingheadervalue: &mut ::core::option::Option<HttpTransferCodingHeaderValue>) -> ::windows::core::Result<bool> {
         Self::IHttpTransferCodingHeaderValueStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).TryParse)(::windows::core::Interface::as_raw(this), input.into().abi(), transfercodingheadervalue as *mut _ as _, result__.as_mut_ptr()).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).TryParse)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(input), transfercodingheadervalue as *mut _ as _, result__.as_mut_ptr()).from_abi::<bool>(result__)
         })
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -7559,21 +7201,15 @@ unsafe impl ::core::marker::Sync for HttpTransferCodingHeaderValue {}
 #[repr(transparent)]
 pub struct HttpTransferCodingHeaderValueCollection(::windows::core::IUnknown);
 impl HttpTransferCodingHeaderValueCollection {
-    pub fn ParseAdd<'a, P0>(&self, input: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-    {
+    pub fn ParseAdd(&self, input: &::windows::core::HSTRING) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).ParseAdd)(::windows::core::Interface::as_raw(this), input.into().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).ParseAdd)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(input)).ok() }
     }
-    pub fn TryParseAdd<'a, P0>(&self, input: P0) -> ::windows::core::Result<bool>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-    {
+    pub fn TryParseAdd(&self, input: &::windows::core::HSTRING) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).TryParseAdd)(::windows::core::Interface::as_raw(this), input.into().abi(), result__.as_mut_ptr()).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).TryParseAdd)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(input), result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]

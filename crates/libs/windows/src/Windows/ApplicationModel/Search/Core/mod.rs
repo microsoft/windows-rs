@@ -329,12 +329,9 @@ impl SearchSuggestionManager {
             (::windows::core::Interface::vtable(this).SearchHistoryContext)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    pub fn SetSearchHistoryContext<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-    {
+    pub fn SetSearchHistoryContext(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetSearchHistoryContext)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetSearchHistoryContext)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
     }
     pub fn SetLocalContentSuggestionSettings<'a, P0>(&self, settings: P0) -> ::windows::core::Result<()>
     where
@@ -343,29 +340,20 @@ impl SearchSuggestionManager {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetLocalContentSuggestionSettings)(::windows::core::Interface::as_raw(this), settings.into().abi()).ok() }
     }
-    pub fn SetQuery<'a, P0>(&self, querytext: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-    {
+    pub fn SetQuery(&self, querytext: &::windows::core::HSTRING) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetQuery)(::windows::core::Interface::as_raw(this), querytext.into().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetQuery)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(querytext)).ok() }
     }
-    pub fn SetQueryWithLanguage<'a, P0, P1>(&self, querytext: P0, language: P1) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-        P1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-    {
+    pub fn SetQueryWithLanguage(&self, querytext: &::windows::core::HSTRING, language: &::windows::core::HSTRING) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetQueryWithLanguage)(::windows::core::Interface::as_raw(this), querytext.into().abi(), language.into().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetQueryWithLanguage)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(querytext), ::core::mem::transmute_copy(language)).ok() }
     }
-    pub fn SetQueryWithSearchQueryLinguisticDetails<'a, P0, P1, P2>(&self, querytext: P0, language: P1, linguisticdetails: P2) -> ::windows::core::Result<()>
+    pub fn SetQueryWithSearchQueryLinguisticDetails<'a, P0>(&self, querytext: &::windows::core::HSTRING, language: &::windows::core::HSTRING, linguisticdetails: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-        P1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-        P2: ::std::convert::Into<::windows::core::InParam<'a, super::SearchQueryLinguisticDetails>>,
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::SearchQueryLinguisticDetails>>,
     {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetQueryWithSearchQueryLinguisticDetails)(::windows::core::Interface::as_raw(this), querytext.into().abi(), language.into().abi(), linguisticdetails.into().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetQueryWithSearchQueryLinguisticDetails)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(querytext), ::core::mem::transmute_copy(language), linguisticdetails.into().abi()).ok() }
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
@@ -376,20 +364,13 @@ impl SearchSuggestionManager {
             (::windows::core::Interface::vtable(this).Suggestions)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::Collections::IObservableVector<SearchSuggestion>>(result__)
         }
     }
-    pub fn AddToHistory<'a, P0>(&self, querytext: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-    {
+    pub fn AddToHistory(&self, querytext: &::windows::core::HSTRING) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).AddToHistory)(::windows::core::Interface::as_raw(this), querytext.into().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).AddToHistory)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(querytext)).ok() }
     }
-    pub fn AddToHistoryWithLanguage<'a, P0, P1>(&self, querytext: P0, language: P1) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-        P1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-    {
+    pub fn AddToHistoryWithLanguage(&self, querytext: &::windows::core::HSTRING, language: &::windows::core::HSTRING) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).AddToHistoryWithLanguage)(::windows::core::Interface::as_raw(this), querytext.into().abi(), language.into().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).AddToHistoryWithLanguage)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(querytext), ::core::mem::transmute_copy(language)).ok() }
     }
     pub fn ClearHistory(&self) -> ::windows::core::Result<()> {
         let this = self;

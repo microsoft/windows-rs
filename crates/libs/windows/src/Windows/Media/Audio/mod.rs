@@ -3643,13 +3643,10 @@ impl AudioPlaybackConnection {
             (::windows::core::Interface::vtable(this).GetDeviceSelector)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         })
     }
-    pub fn TryCreateFromId<'a, P0>(id: P0) -> ::windows::core::Result<AudioPlaybackConnection>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-    {
+    pub fn TryCreateFromId(id: &::windows::core::HSTRING) -> ::windows::core::Result<AudioPlaybackConnection> {
         Self::IAudioPlaybackConnectionStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).TryCreateFromId)(::windows::core::Interface::as_raw(this), id.into().abi(), result__.as_mut_ptr()).from_abi::<AudioPlaybackConnection>(result__)
+            (::windows::core::Interface::vtable(this).TryCreateFromId)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(id), result__.as_mut_ptr()).from_abi::<AudioPlaybackConnection>(result__)
         })
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -3952,13 +3949,10 @@ impl AudioStateMonitor {
     }
     #[doc = "*Required features: `\"Media_Render\"`*"]
     #[cfg(feature = "Media_Render")]
-    pub fn CreateForRenderMonitoringWithCategoryAndDeviceId<'a, P0>(category: super::Render::AudioRenderCategory, deviceid: P0) -> ::windows::core::Result<AudioStateMonitor>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-    {
+    pub fn CreateForRenderMonitoringWithCategoryAndDeviceId(category: super::Render::AudioRenderCategory, deviceid: &::windows::core::HSTRING) -> ::windows::core::Result<AudioStateMonitor> {
         Self::IAudioStateMonitorStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).CreateForRenderMonitoringWithCategoryAndDeviceId)(::windows::core::Interface::as_raw(this), category, deviceid.into().abi(), result__.as_mut_ptr()).from_abi::<AudioStateMonitor>(result__)
+            (::windows::core::Interface::vtable(this).CreateForRenderMonitoringWithCategoryAndDeviceId)(::windows::core::Interface::as_raw(this), category, ::core::mem::transmute_copy(deviceid), result__.as_mut_ptr()).from_abi::<AudioStateMonitor>(result__)
         })
     }
     pub fn CreateForCaptureMonitoring() -> ::windows::core::Result<AudioStateMonitor> {
@@ -3985,13 +3979,10 @@ impl AudioStateMonitor {
     }
     #[doc = "*Required features: `\"Media_Capture\"`*"]
     #[cfg(feature = "Media_Capture")]
-    pub fn CreateForCaptureMonitoringWithCategoryAndDeviceId<'a, P0>(category: super::Capture::MediaCategory, deviceid: P0) -> ::windows::core::Result<AudioStateMonitor>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-    {
+    pub fn CreateForCaptureMonitoringWithCategoryAndDeviceId(category: super::Capture::MediaCategory, deviceid: &::windows::core::HSTRING) -> ::windows::core::Result<AudioStateMonitor> {
         Self::IAudioStateMonitorStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).CreateForCaptureMonitoringWithCategoryAndDeviceId)(::windows::core::Interface::as_raw(this), category, deviceid.into().abi(), result__.as_mut_ptr()).from_abi::<AudioStateMonitor>(result__)
+            (::windows::core::Interface::vtable(this).CreateForCaptureMonitoringWithCategoryAndDeviceId)(::windows::core::Interface::as_raw(this), category, ::core::mem::transmute_copy(deviceid), result__.as_mut_ptr()).from_abi::<AudioStateMonitor>(result__)
         })
     }
     #[doc(hidden)]
@@ -8602,14 +8593,11 @@ impl SpatialAudioDeviceConfiguration {
             (::windows::core::Interface::vtable(this).IsSpatialAudioSupported)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
-    pub fn IsSpatialAudioFormatSupported<'a, P0>(&self, subtype: P0) -> ::windows::core::Result<bool>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-    {
+    pub fn IsSpatialAudioFormatSupported(&self, subtype: &::windows::core::HSTRING) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).IsSpatialAudioFormatSupported)(::windows::core::Interface::as_raw(this), subtype.into().abi(), result__.as_mut_ptr()).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).IsSpatialAudioFormatSupported)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(subtype), result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
     pub fn ActiveSpatialAudioFormat(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
@@ -8628,14 +8616,11 @@ impl SpatialAudioDeviceConfiguration {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn SetDefaultSpatialAudioFormatAsync<'a, P0>(&self, subtype: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<SetDefaultSpatialAudioFormatResult>>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-    {
+    pub fn SetDefaultSpatialAudioFormatAsync(&self, subtype: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<SetDefaultSpatialAudioFormatResult>> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).SetDefaultSpatialAudioFormatAsync)(::windows::core::Interface::as_raw(this), subtype.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<SetDefaultSpatialAudioFormatResult>>(result__)
+            (::windows::core::Interface::vtable(this).SetDefaultSpatialAudioFormatAsync)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(subtype), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<SetDefaultSpatialAudioFormatResult>>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -8656,13 +8641,10 @@ impl SpatialAudioDeviceConfiguration {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).RemoveConfigurationChanged)(::windows::core::Interface::as_raw(this), token).ok() }
     }
-    pub fn GetForDeviceId<'a, P0>(deviceid: P0) -> ::windows::core::Result<SpatialAudioDeviceConfiguration>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-    {
+    pub fn GetForDeviceId(deviceid: &::windows::core::HSTRING) -> ::windows::core::Result<SpatialAudioDeviceConfiguration> {
         Self::ISpatialAudioDeviceConfigurationStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).GetForDeviceId)(::windows::core::Interface::as_raw(this), deviceid.into().abi(), result__.as_mut_ptr()).from_abi::<SpatialAudioDeviceConfiguration>(result__)
+            (::windows::core::Interface::vtable(this).GetForDeviceId)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(deviceid), result__.as_mut_ptr()).from_abi::<SpatialAudioDeviceConfiguration>(result__)
         })
     }
     #[doc(hidden)]
@@ -8739,26 +8721,20 @@ pub struct SpatialAudioFormatConfiguration(::windows::core::IUnknown);
 impl SpatialAudioFormatConfiguration {
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn ReportLicenseChangedAsync<'a, P0>(&self, subtype: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-    {
+    pub fn ReportLicenseChangedAsync(&self, subtype: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncAction> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).ReportLicenseChangedAsync)(::windows::core::Interface::as_raw(this), subtype.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncAction>(result__)
+            (::windows::core::Interface::vtable(this).ReportLicenseChangedAsync)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(subtype), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncAction>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn ReportConfigurationChangedAsync<'a, P0>(&self, subtype: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-    {
+    pub fn ReportConfigurationChangedAsync(&self, subtype: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncAction> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).ReportConfigurationChangedAsync)(::windows::core::Interface::as_raw(this), subtype.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncAction>(result__)
+            (::windows::core::Interface::vtable(this).ReportConfigurationChangedAsync)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(subtype), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncAction>(result__)
         }
     }
     pub fn MixedRealityExclusiveModePolicy(&self) -> ::windows::core::Result<MixedRealitySpatialAudioFormatPolicy> {

@@ -277,7 +277,7 @@ impl<'a> Gen<'a> {
     }
     /// The signature params which are generic (along with their relative index)
     pub fn generic_params<'b>(&'b self, params: &'b [SignatureParam]) -> impl Iterator<Item = (usize, &SignatureParam)> + 'b {
-        params.iter().filter(move |param| self.reader.signature_param_is_generic(param)).enumerate()
+        params.iter().filter(move |param| self.reader.signature_param_is_convertible(param)).enumerate()
     }
     /// The generic param names (i.e., `T` in `fn foo<T>()`)
     pub fn constraint_generics(&self, params: &[SignatureParam]) -> TokenStream {
@@ -317,11 +317,10 @@ impl<'a> Gen<'a> {
             name
         };
         for (position, param) in self.generic_params(params) {
-            if self.reader.signature_param_is_param(param) {
-                let name: TokenStream = gen_name(position);
-                let into = self.type_name(&param.ty);
-                tokens.combine(&quote! { #name: ::std::convert::Into<::windows::core::InParam<'a, #into>>, });
-            } else if self.reader.signature_param_is_failible_param(param) {
+            if !self.reader.signature_param_input_value(param) {
+                continue;
+            }
+            if self.reader.signature_param_is_failible_param(param) {
                 let name: TokenStream = gen_name(position);
                 let error_name: TokenStream = format!("E{}", position).into();
                 let into = self.type_name(&param.ty);
@@ -330,7 +329,7 @@ impl<'a> Gen<'a> {
                 let name: TokenStream = gen_name(position);
                 let into = self.type_name(&param.ty);
                 tokens.combine(&quote! { #name: ::std::convert::Into<::windows::core::InParam<'a, #into>>, });
-            } else if self.reader.signature_param_is_convertible(param) {
+            } else if self.reader.signature_param_is_trivially_convertible(param) {
                 let name: TokenStream = gen_name(position);
                 let into = self.type_name(&param.ty);
                 tokens.combine(&quote! { #name: ::std::convert::Into<#into>, });
@@ -941,16 +940,23 @@ impl<'a> Gen<'a> {
                             let name = self.param_name(params[relative].def);
                             quote! { #name.len() as _, }
                         }
-                        _ if self.reader.signature_param_is_borrowed(param) => {
-                            quote! { #name.into().abi(), }
+                        _ => {
+                            if self.reader.signature_param_input_value(param) {
+                                if self.reader.signature_param_is_borrowed(param) {
+                                    quote! { #name.into().abi(), }
+                                } else if self.reader.signature_param_is_trivially_convertible(param) {
+                                    quote! { #name.into(), }
+                                } else if self.reader.type_is_primitive(&param.ty) {
+                                    quote! { #name, }
+                                } else if self.reader.type_is_blittable(&param.ty) {
+                                    quote! { ::core::mem::transmute(#name), }
+                                } else {
+                                    quote! { ::core::mem::transmute_copy(#name), }
+                                }
+                            } else {
+                                quote! { ::core::mem::transmute(#name), }
+                            }
                         }
-                        _ if self.reader.signature_param_is_convertible(param) => {
-                            quote! { #name.into(), }
-                        }
-                        _ if self.reader.signature_param_is_primitive(param) => {
-                            quote! { #name, }
-                        }
-                        _ => quote! { ::core::mem::transmute(#name), },
                     }
                 }
             };
@@ -1009,7 +1015,7 @@ impl<'a> Gen<'a> {
                 continue;
             }
 
-            if self.reader.signature_param_is_generic(param) {
+            if self.reader.signature_param_is_convertible(param) {
                 let (position, _) = generic_params.next().unwrap();
                 let kind: TokenStream = format!("P{}", position).into();
                 tokens.combine(&quote! { #name: #kind, });
@@ -1017,7 +1023,12 @@ impl<'a> Gen<'a> {
             }
 
             let kind = self.type_default_name(&param.ty);
-            tokens.combine(&quote! { #name: #kind, });
+
+            if self.reader.type_is_blittable(&param.ty) {
+                tokens.combine(&quote! { #name: #kind, });
+            } else {
+                tokens.combine(&quote! { #name: &#kind, });
+            }
         }
 
         tokens

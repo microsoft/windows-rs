@@ -1435,11 +1435,8 @@ impl ICorrelationVectorInformation {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).NextCorrelationVectorForThread)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::HSTRING>(result__)
     }
-    pub unsafe fn SetNextCorrelationVectorForThread<'a, P0>(&self, cv: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-    {
-        (::windows::core::Interface::vtable(self).SetNextCorrelationVectorForThread)(::windows::core::Interface::as_raw(self), cv.into().abi()).ok()
+    pub unsafe fn SetNextCorrelationVectorForThread(&self, cv: &::windows::core::HSTRING) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetNextCorrelationVectorForThread)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(cv)).ok()
     }
 }
 impl ::core::convert::From<ICorrelationVectorInformation> for ::windows::core::IUnknown {
@@ -2882,11 +2879,8 @@ pub struct IUserActivityRequestManagerInterop_Vtbl {
 #[repr(transparent)]
 pub struct IUserActivitySourceHostInterop(::windows::core::IUnknown);
 impl IUserActivitySourceHostInterop {
-    pub unsafe fn SetActivitySourceHost<'a, P0>(&self, activitysourcehost: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-    {
-        (::windows::core::Interface::vtable(self).SetActivitySourceHost)(::windows::core::Interface::as_raw(self), activitysourcehost.into().abi()).ok()
+    pub unsafe fn SetActivitySourceHost(&self, activitysourcehost: &::windows::core::HSTRING) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetActivitySourceHost)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(activitysourcehost)).ok()
     }
 }
 impl ::core::convert::From<IUserActivitySourceHostInterop> for ::windows::core::IUnknown {
@@ -2951,14 +2945,13 @@ pub struct IUserConsentVerifierInterop(::windows::core::IUnknown);
 impl IUserConsentVerifierInterop {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn RequestVerificationForWindowAsync<'a, P0, P1, T>(&self, appwindow: P0, message: P1) -> ::windows::core::Result<T>
+    pub unsafe fn RequestVerificationForWindowAsync<'a, P0, T>(&self, appwindow: P0, message: &::windows::core::HSTRING) -> ::windows::core::Result<T>
     where
         P0: ::std::convert::Into<super::super::Foundation::HWND>,
-        P1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
         T: ::windows::core::Interface,
     {
         let mut result__ = ::core::option::Option::None;
-        (::windows::core::Interface::vtable(self).RequestVerificationForWindowAsync)(::windows::core::Interface::as_raw(self), appwindow.into(), message.into().abi(), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
+        (::windows::core::Interface::vtable(self).RequestVerificationForWindowAsync)(::windows::core::Interface::as_raw(self), appwindow.into(), ::core::mem::transmute_copy(message), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
     }
 }
 impl ::core::convert::From<IUserConsentVerifierInterop> for ::windows::core::IUnknown {
@@ -3363,16 +3356,13 @@ impl ::core::fmt::Debug for RO_INIT_TYPE {
 }
 #[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
 #[inline]
-pub unsafe fn RoActivateInstance<'a, P0>(activatableclassid: P0) -> ::windows::core::Result<::windows::core::IInspectable>
-where
-    P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-{
+pub unsafe fn RoActivateInstance(activatableclassid: &::windows::core::HSTRING) -> ::windows::core::Result<::windows::core::IInspectable> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn RoActivateInstance(activatableclassid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, instance: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
     }
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    RoActivateInstance(activatableclassid.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::IInspectable>(result__)
+    RoActivateInstance(::core::mem::transmute_copy(activatableclassid), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::IInspectable>(result__)
 }
 #[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
 #[inline]
@@ -3415,9 +3405,8 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
 #[inline]
-pub unsafe fn RoGetActivationFactory<'a, P0, T>(activatableclassid: P0) -> ::windows::core::Result<T>
+pub unsafe fn RoGetActivationFactory<T>(activatableclassid: &::windows::core::HSTRING) -> ::windows::core::Result<T>
 where
-    P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
     T: ::windows::core::Interface,
 {
     #[cfg_attr(windows, link(name = "windows"))]
@@ -3425,7 +3414,7 @@ where
         fn RoGetActivationFactory(activatableclassid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, iid: *const ::windows::core::GUID, factory: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
     }
     let mut result__ = ::core::option::Option::None;
-    RoGetActivationFactory(activatableclassid.into().abi(), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
+    RoGetActivationFactory(::core::mem::transmute_copy(activatableclassid), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
 }
 #[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
 #[inline]
@@ -3495,15 +3484,12 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
 #[inline]
-pub unsafe fn RoGetServerActivatableClasses<'a, P0>(servername: P0, activatableclassids: *mut *mut ::windows::core::HSTRING, count: *mut u32) -> ::windows::core::Result<()>
-where
-    P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-{
+pub unsafe fn RoGetServerActivatableClasses(servername: &::windows::core::HSTRING, activatableclassids: *mut *mut ::windows::core::HSTRING, count: *mut u32) -> ::windows::core::Result<()> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn RoGetServerActivatableClasses(servername: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, activatableclassids: *mut *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>, count: *mut u32) -> ::windows::core::HRESULT;
     }
-    RoGetServerActivatableClasses(servername.into().abi(), ::core::mem::transmute(activatableclassids), ::core::mem::transmute(count)).ok()
+    RoGetServerActivatableClasses(::core::mem::transmute_copy(servername), ::core::mem::transmute(activatableclassids), ::core::mem::transmute(count)).ok()
 }
 #[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
 #[inline]
@@ -3536,15 +3522,12 @@ pub unsafe fn RoInspectThreadErrorInfo(targettebaddress: usize, machine: u16, re
 #[doc = "*Required features: `\"Win32_System_WinRT\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn RoOriginateError<'a, P0>(error: ::windows::core::HRESULT, message: P0) -> super::super::Foundation::BOOL
-where
-    P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-{
+pub unsafe fn RoOriginateError(error: ::windows::core::HRESULT, message: &::windows::core::HSTRING) -> super::super::Foundation::BOOL {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn RoOriginateError(error: ::windows::core::HRESULT, message: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> super::super::Foundation::BOOL;
     }
-    RoOriginateError(error, message.into().abi())
+    RoOriginateError(error, ::core::mem::transmute_copy(message))
 }
 #[doc = "*Required features: `\"Win32_System_WinRT\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -3559,16 +3542,15 @@ pub unsafe fn RoOriginateErrorW(error: ::windows::core::HRESULT, cchmax: u32, me
 #[doc = "*Required features: `\"Win32_System_WinRT\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn RoOriginateLanguageException<'a, P0, P1>(error: ::windows::core::HRESULT, message: P0, languageexception: P1) -> super::super::Foundation::BOOL
+pub unsafe fn RoOriginateLanguageException<'a, P0>(error: ::windows::core::HRESULT, message: &::windows::core::HSTRING, languageexception: P0) -> super::super::Foundation::BOOL
 where
-    P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-    P1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>,
+    P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn RoOriginateLanguageException(error: ::windows::core::HRESULT, message: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, languageexception: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL;
     }
-    RoOriginateLanguageException(error, message.into().abi(), languageexception.into().abi())
+    RoOriginateLanguageException(error, ::core::mem::transmute_copy(message), languageexception.into().abi())
 }
 #[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
 #[inline]
@@ -3663,15 +3645,12 @@ pub unsafe fn RoSetErrorReportingFlags(flags: u32) -> ::windows::core::Result<()
 #[doc = "*Required features: `\"Win32_System_WinRT\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn RoTransformError<'a, P0>(olderror: ::windows::core::HRESULT, newerror: ::windows::core::HRESULT, message: P0) -> super::super::Foundation::BOOL
-where
-    P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-{
+pub unsafe fn RoTransformError(olderror: ::windows::core::HRESULT, newerror: ::windows::core::HRESULT, message: &::windows::core::HSTRING) -> super::super::Foundation::BOOL {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn RoTransformError(olderror: ::windows::core::HRESULT, newerror: ::windows::core::HRESULT, message: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> super::super::Foundation::BOOL;
     }
-    RoTransformError(olderror, newerror, message.into().abi())
+    RoTransformError(olderror, newerror, ::core::mem::transmute_copy(message))
 }
 #[doc = "*Required features: `\"Win32_System_WinRT\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -3779,31 +3758,23 @@ impl ::core::fmt::Debug for TrustLevel {
 }
 #[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
 #[inline]
-pub unsafe fn WindowsCompareStringOrdinal<'a, P0, P1>(string1: P0, string2: P1) -> ::windows::core::Result<i32>
-where
-    P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-    P1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-{
+pub unsafe fn WindowsCompareStringOrdinal(string1: &::windows::core::HSTRING, string2: &::windows::core::HSTRING) -> ::windows::core::Result<i32> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn WindowsCompareStringOrdinal(string1: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, string2: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result: *mut i32) -> ::windows::core::HRESULT;
     }
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    WindowsCompareStringOrdinal(string1.into().abi(), string2.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
+    WindowsCompareStringOrdinal(::core::mem::transmute_copy(string1), ::core::mem::transmute_copy(string2), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
 }
 #[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
 #[inline]
-pub unsafe fn WindowsConcatString<'a, P0, P1>(string1: P0, string2: P1) -> ::windows::core::Result<::windows::core::HSTRING>
-where
-    P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-    P1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-{
+pub unsafe fn WindowsConcatString(string1: &::windows::core::HSTRING, string2: &::windows::core::HSTRING) -> ::windows::core::Result<::windows::core::HSTRING> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn WindowsConcatString(string1: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, string2: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, newstring: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT;
     }
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    WindowsConcatString(string1.into().abi(), string2.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::HSTRING>(result__)
+    WindowsConcatString(::core::mem::transmute_copy(string1), ::core::mem::transmute_copy(string2), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::HSTRING>(result__)
 }
 #[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
 #[inline]
@@ -3829,15 +3800,12 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
 #[inline]
-pub unsafe fn WindowsDeleteString<'a, P0>(string: P0) -> ::windows::core::Result<()>
-where
-    P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-{
+pub unsafe fn WindowsDeleteString(string: &::windows::core::HSTRING) -> ::windows::core::Result<()> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn WindowsDeleteString(string: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT;
     }
-    WindowsDeleteString(string.into().abi()).ok()
+    WindowsDeleteString(::core::mem::transmute_copy(string)).ok()
 }
 #[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
 #[inline]
@@ -3853,40 +3821,31 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
 #[inline]
-pub unsafe fn WindowsDuplicateString<'a, P0>(string: P0) -> ::windows::core::Result<::windows::core::HSTRING>
-where
-    P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-{
+pub unsafe fn WindowsDuplicateString(string: &::windows::core::HSTRING) -> ::windows::core::Result<::windows::core::HSTRING> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn WindowsDuplicateString(string: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, newstring: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT;
     }
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    WindowsDuplicateString(string.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::HSTRING>(result__)
+    WindowsDuplicateString(::core::mem::transmute_copy(string), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::HSTRING>(result__)
 }
 #[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
 #[inline]
-pub unsafe fn WindowsGetStringLen<'a, P0>(string: P0) -> u32
-where
-    P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-{
+pub unsafe fn WindowsGetStringLen(string: &::windows::core::HSTRING) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn WindowsGetStringLen(string: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> u32;
     }
-    WindowsGetStringLen(string.into().abi())
+    WindowsGetStringLen(::core::mem::transmute_copy(string))
 }
 #[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
 #[inline]
-pub unsafe fn WindowsGetStringRawBuffer<'a, P0>(string: P0, length: *mut u32) -> ::windows::core::PWSTR
-where
-    P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-{
+pub unsafe fn WindowsGetStringRawBuffer(string: &::windows::core::HSTRING, length: *mut u32) -> ::windows::core::PWSTR {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn WindowsGetStringRawBuffer(string: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, length: *mut u32) -> ::windows::core::PWSTR;
     }
-    WindowsGetStringRawBuffer(string.into().abi(), ::core::mem::transmute(length))
+    WindowsGetStringRawBuffer(::core::mem::transmute_copy(string), ::core::mem::transmute(length))
 }
 #[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
 #[inline]
@@ -3909,15 +3868,12 @@ pub unsafe fn WindowsInspectString2(targethstring: u64, machine: u16, callback: 
 #[doc = "*Required features: `\"Win32_System_WinRT\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn WindowsIsStringEmpty<'a, P0>(string: P0) -> super::super::Foundation::BOOL
-where
-    P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-{
+pub unsafe fn WindowsIsStringEmpty(string: &::windows::core::HSTRING) -> super::super::Foundation::BOOL {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn WindowsIsStringEmpty(string: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> super::super::Foundation::BOOL;
     }
-    WindowsIsStringEmpty(string.into().abi())
+    WindowsIsStringEmpty(::core::mem::transmute_copy(string))
 }
 #[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
 #[inline]
@@ -3943,86 +3899,64 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
 #[inline]
-pub unsafe fn WindowsReplaceString<'a, P0, P1, P2>(string: P0, stringreplaced: P1, stringreplacewith: P2) -> ::windows::core::Result<::windows::core::HSTRING>
-where
-    P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-    P1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-    P2: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-{
+pub unsafe fn WindowsReplaceString(string: &::windows::core::HSTRING, stringreplaced: &::windows::core::HSTRING, stringreplacewith: &::windows::core::HSTRING) -> ::windows::core::Result<::windows::core::HSTRING> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn WindowsReplaceString(string: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, stringreplaced: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, stringreplacewith: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, newstring: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT;
     }
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    WindowsReplaceString(string.into().abi(), stringreplaced.into().abi(), stringreplacewith.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::HSTRING>(result__)
+    WindowsReplaceString(::core::mem::transmute_copy(string), ::core::mem::transmute_copy(stringreplaced), ::core::mem::transmute_copy(stringreplacewith), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::HSTRING>(result__)
 }
 #[doc = "*Required features: `\"Win32_System_WinRT\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn WindowsStringHasEmbeddedNull<'a, P0>(string: P0) -> ::windows::core::Result<super::super::Foundation::BOOL>
-where
-    P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-{
+pub unsafe fn WindowsStringHasEmbeddedNull(string: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::BOOL> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn WindowsStringHasEmbeddedNull(string: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, hasembednull: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT;
     }
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    WindowsStringHasEmbeddedNull(string.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BOOL>(result__)
+    WindowsStringHasEmbeddedNull(::core::mem::transmute_copy(string), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BOOL>(result__)
 }
 #[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
 #[inline]
-pub unsafe fn WindowsSubstring<'a, P0>(string: P0, startindex: u32) -> ::windows::core::Result<::windows::core::HSTRING>
-where
-    P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-{
+pub unsafe fn WindowsSubstring(string: &::windows::core::HSTRING, startindex: u32) -> ::windows::core::Result<::windows::core::HSTRING> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn WindowsSubstring(string: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, startindex: u32, newstring: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT;
     }
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    WindowsSubstring(string.into().abi(), startindex, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::HSTRING>(result__)
+    WindowsSubstring(::core::mem::transmute_copy(string), startindex, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::HSTRING>(result__)
 }
 #[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
 #[inline]
-pub unsafe fn WindowsSubstringWithSpecifiedLength<'a, P0>(string: P0, startindex: u32, length: u32) -> ::windows::core::Result<::windows::core::HSTRING>
-where
-    P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-{
+pub unsafe fn WindowsSubstringWithSpecifiedLength(string: &::windows::core::HSTRING, startindex: u32, length: u32) -> ::windows::core::Result<::windows::core::HSTRING> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn WindowsSubstringWithSpecifiedLength(string: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, startindex: u32, length: u32, newstring: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT;
     }
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    WindowsSubstringWithSpecifiedLength(string.into().abi(), startindex, length, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::HSTRING>(result__)
+    WindowsSubstringWithSpecifiedLength(::core::mem::transmute_copy(string), startindex, length, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::HSTRING>(result__)
 }
 #[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
 #[inline]
-pub unsafe fn WindowsTrimStringEnd<'a, P0, P1>(string: P0, trimstring: P1) -> ::windows::core::Result<::windows::core::HSTRING>
-where
-    P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-    P1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-{
+pub unsafe fn WindowsTrimStringEnd(string: &::windows::core::HSTRING, trimstring: &::windows::core::HSTRING) -> ::windows::core::Result<::windows::core::HSTRING> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn WindowsTrimStringEnd(string: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, trimstring: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, newstring: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT;
     }
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    WindowsTrimStringEnd(string.into().abi(), trimstring.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::HSTRING>(result__)
+    WindowsTrimStringEnd(::core::mem::transmute_copy(string), ::core::mem::transmute_copy(trimstring), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::HSTRING>(result__)
 }
 #[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
 #[inline]
-pub unsafe fn WindowsTrimStringStart<'a, P0, P1>(string: P0, trimstring: P1) -> ::windows::core::Result<::windows::core::HSTRING>
-where
-    P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-    P1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-{
+pub unsafe fn WindowsTrimStringStart(string: &::windows::core::HSTRING, trimstring: &::windows::core::HSTRING) -> ::windows::core::Result<::windows::core::HSTRING> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn WindowsTrimStringStart(string: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, trimstring: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, newstring: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT;
     }
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    WindowsTrimStringStart(string.into().abi(), trimstring.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::HSTRING>(result__)
+    WindowsTrimStringStart(::core::mem::transmute_copy(string), ::core::mem::transmute_copy(trimstring), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::HSTRING>(result__)
 }
 #[repr(C)]
 pub struct _RO_REGISTRATION_COOKIE(pub u8);

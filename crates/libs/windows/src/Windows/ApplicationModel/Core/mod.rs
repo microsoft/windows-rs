@@ -267,25 +267,21 @@ impl CoreApplication {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn RequestRestartAsync<'a, P0>(launcharguments: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<AppRestartFailureReason>>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-    {
+    pub fn RequestRestartAsync(launcharguments: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<AppRestartFailureReason>> {
         Self::ICoreApplication3(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).RequestRestartAsync)(::windows::core::Interface::as_raw(this), launcharguments.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<AppRestartFailureReason>>(result__)
+            (::windows::core::Interface::vtable(this).RequestRestartAsync)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(launcharguments), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<AppRestartFailureReason>>(result__)
         })
     }
     #[doc = "*Required features: `\"Foundation\"`, `\"System\"`*"]
     #[cfg(all(feature = "Foundation", feature = "System"))]
-    pub fn RequestRestartForUserAsync<'a, P0, P1>(user: P0, launcharguments: P1) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<AppRestartFailureReason>>
+    pub fn RequestRestartForUserAsync<'a, P0>(user: P0, launcharguments: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<AppRestartFailureReason>>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::System::User>>,
-        P1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
     {
         Self::ICoreApplication3(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).RequestRestartForUserAsync)(::windows::core::Interface::as_raw(this), user.into().abi(), launcharguments.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<AppRestartFailureReason>>(result__)
+            (::windows::core::Interface::vtable(this).RequestRestartForUserAsync)(::windows::core::Interface::as_raw(this), user.into().abi(), ::core::mem::transmute_copy(launcharguments), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<AppRestartFailureReason>>(result__)
         })
     }
     pub fn Exit() -> ::windows::core::Result<()> {
@@ -337,14 +333,10 @@ impl CoreApplication {
             (::windows::core::Interface::vtable(this).Views)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Collections::IVectorView<CoreApplicationView>>(result__)
         })
     }
-    pub fn CreateNewView<'a, P0, P1>(runtimetype: P0, entrypoint: P1) -> ::windows::core::Result<CoreApplicationView>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-        P1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-    {
+    pub fn CreateNewView(runtimetype: &::windows::core::HSTRING, entrypoint: &::windows::core::HSTRING) -> ::windows::core::Result<CoreApplicationView> {
         Self::ICoreImmersiveApplication(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).CreateNewView)(::windows::core::Interface::as_raw(this), runtimetype.into().abi(), entrypoint.into().abi(), result__.as_mut_ptr()).from_abi::<CoreApplicationView>(result__)
+            (::windows::core::Interface::vtable(this).CreateNewView)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(runtimetype), ::core::mem::transmute_copy(entrypoint), result__.as_mut_ptr()).from_abi::<CoreApplicationView>(result__)
         })
     }
     pub fn MainView() -> ::windows::core::Result<CoreApplicationView> {
@@ -1276,12 +1268,9 @@ impl IFrameworkView {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetWindow)(::windows::core::Interface::as_raw(this), window.into().abi()).ok() }
     }
-    pub fn Load<'a, P0>(&self, entrypoint: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-    {
+    pub fn Load(&self, entrypoint: &::windows::core::HSTRING) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).Load)(::windows::core::Interface::as_raw(this), entrypoint.into().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).Load)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(entrypoint)).ok() }
     }
     pub fn Run(&self) -> ::windows::core::Result<()> {
         let this = self;

@@ -4,13 +4,10 @@ pub struct ApplicationDataManager(::windows::core::IUnknown);
 impl ApplicationDataManager {
     #[doc = "*Required features: `\"Storage\"`*"]
     #[cfg(feature = "Storage")]
-    pub fn CreateForPackageFamily<'a, P0>(packagefamilyname: P0) -> ::windows::core::Result<super::super::Storage::ApplicationData>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-    {
+    pub fn CreateForPackageFamily(packagefamilyname: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Storage::ApplicationData> {
         Self::IApplicationDataManagerStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).CreateForPackageFamily)(::windows::core::Interface::as_raw(this), packagefamilyname.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Storage::ApplicationData>(result__)
+            (::windows::core::Interface::vtable(this).CreateForPackageFamily)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(packagefamilyname), result__.as_mut_ptr()).from_abi::<super::super::Storage::ApplicationData>(result__)
         })
     }
     #[doc(hidden)]

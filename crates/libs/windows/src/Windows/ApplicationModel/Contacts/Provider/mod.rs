@@ -39,32 +39,25 @@ pub struct ContactPickerUI(::windows::core::IUnknown);
 impl ContactPickerUI {
     #[doc = "*Required features: `\"deprecated\"`*"]
     #[cfg(feature = "deprecated")]
-    pub fn AddContact<'a, P0, P1>(&self, id: P0, contact: P1) -> ::windows::core::Result<AddContactResult>
+    pub fn AddContact<'a, P0>(&self, id: &::windows::core::HSTRING, contact: P0) -> ::windows::core::Result<AddContactResult>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-        P1: ::std::convert::Into<::windows::core::InParam<'a, super::Contact>>,
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::Contact>>,
     {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).AddContact)(::windows::core::Interface::as_raw(this), id.into().abi(), contact.into().abi(), result__.as_mut_ptr()).from_abi::<AddContactResult>(result__)
+            (::windows::core::Interface::vtable(this).AddContact)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(id), contact.into().abi(), result__.as_mut_ptr()).from_abi::<AddContactResult>(result__)
         }
     }
-    pub fn RemoveContact<'a, P0>(&self, id: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-    {
+    pub fn RemoveContact(&self, id: &::windows::core::HSTRING) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).RemoveContact)(::windows::core::Interface::as_raw(this), id.into().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemoveContact)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(id)).ok() }
     }
-    pub fn ContainsContact<'a, P0>(&self, id: P0) -> ::windows::core::Result<bool>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-    {
+    pub fn ContainsContact(&self, id: &::windows::core::HSTRING) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).ContainsContact)(::windows::core::Interface::as_raw(this), id.into().abi(), result__.as_mut_ptr()).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).ContainsContact)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(id), result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`, `\"deprecated\"`*"]

@@ -190,12 +190,9 @@ impl AccountsSettingsPaneCommandsRequestedEventArgs {
             (::windows::core::Interface::vtable(this).HeaderText)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    pub fn SetHeaderText<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-    {
+    pub fn SetHeaderText(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetHeaderText)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetHeaderText)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
     }
     pub fn GetDeferral(&self) -> ::windows::core::Result<AccountsSettingsPaneEventDeferral> {
         let this = self;
@@ -918,15 +915,14 @@ pub struct SettingsCommand(::windows::core::IUnknown);
 impl SettingsCommand {
     #[doc = "*Required features: `\"UI_Popups\"`*"]
     #[cfg(feature = "UI_Popups")]
-    pub fn CreateSettingsCommand<'a, P0, P1, P2>(settingscommandid: P0, label: P1, handler: P2) -> ::windows::core::Result<SettingsCommand>
+    pub fn CreateSettingsCommand<'a, P0, P1>(settingscommandid: P0, label: &::windows::core::HSTRING, handler: P1) -> ::windows::core::Result<SettingsCommand>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IInspectable>>,
-        P1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-        P2: ::std::convert::Into<::windows::core::InParam<'a, super::Popups::UICommandInvokedHandler>>,
+        P1: ::std::convert::Into<::windows::core::InParam<'a, super::Popups::UICommandInvokedHandler>>,
     {
         Self::ISettingsCommandFactory(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).CreateSettingsCommand)(::windows::core::Interface::as_raw(this), settingscommandid.into().abi(), label.into().abi(), handler.into().abi(), result__.as_mut_ptr()).from_abi::<SettingsCommand>(result__)
+            (::windows::core::Interface::vtable(this).CreateSettingsCommand)(::windows::core::Interface::as_raw(this), settingscommandid.into().abi(), ::core::mem::transmute_copy(label), handler.into().abi(), result__.as_mut_ptr()).from_abi::<SettingsCommand>(result__)
         })
     }
     #[doc = "*Required features: `\"UI_Popups\"`*"]
@@ -948,12 +944,9 @@ impl SettingsCommand {
     }
     #[doc = "*Required features: `\"UI_Popups\"`*"]
     #[cfg(feature = "UI_Popups")]
-    pub fn SetLabel<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-    {
+    pub fn SetLabel(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetLabel)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetLabel)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
     }
     #[doc = "*Required features: `\"UI_Popups\"`*"]
     #[cfg(feature = "UI_Popups")]

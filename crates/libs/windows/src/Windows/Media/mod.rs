@@ -1901,12 +1901,9 @@ impl ImageDisplayProperties {
             (::windows::core::Interface::vtable(this).Title)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    pub fn SetTitle<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-    {
+    pub fn SetTitle(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetTitle)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetTitle)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
     }
     pub fn Subtitle(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
@@ -1915,12 +1912,9 @@ impl ImageDisplayProperties {
             (::windows::core::Interface::vtable(this).Subtitle)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    pub fn SetSubtitle<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-    {
+    pub fn SetSubtitle(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetSubtitle)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetSubtitle)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
     }
 }
 impl ::core::clone::Clone for ImageDisplayProperties {
@@ -2192,11 +2186,8 @@ impl MediaControl {
     }
     #[doc = "*Required features: `\"deprecated\"`*"]
     #[cfg(feature = "deprecated")]
-    pub fn SetTrackName<'a, P0>(value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-    {
-        Self::IMediaControl(|this| unsafe { (::windows::core::Interface::vtable(this).SetTrackName)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() })
+    pub fn SetTrackName(value: &::windows::core::HSTRING) -> ::windows::core::Result<()> {
+        Self::IMediaControl(|this| unsafe { (::windows::core::Interface::vtable(this).SetTrackName)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(value)).ok() })
     }
     #[doc = "*Required features: `\"deprecated\"`*"]
     #[cfg(feature = "deprecated")]
@@ -2208,11 +2199,8 @@ impl MediaControl {
     }
     #[doc = "*Required features: `\"deprecated\"`*"]
     #[cfg(feature = "deprecated")]
-    pub fn SetArtistName<'a, P0>(value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-    {
-        Self::IMediaControl(|this| unsafe { (::windows::core::Interface::vtable(this).SetArtistName)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() })
+    pub fn SetArtistName(value: &::windows::core::HSTRING) -> ::windows::core::Result<()> {
+        Self::IMediaControl(|this| unsafe { (::windows::core::Interface::vtable(this).SetArtistName)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(value)).ok() })
     }
     #[doc = "*Required features: `\"deprecated\"`*"]
     #[cfg(feature = "deprecated")]
@@ -2273,119 +2261,89 @@ impl MediaExtensionManager {
         static SHARED: ::windows::core::FactoryCache<MediaExtensionManager, ::windows::core::IGenericFactory> = ::windows::core::FactoryCache::new();
         SHARED.call(callback)
     }
-    pub fn RegisterSchemeHandler<'a, P0, P1>(&self, activatableclassid: P0, scheme: P1) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-        P1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-    {
+    pub fn RegisterSchemeHandler(&self, activatableclassid: &::windows::core::HSTRING, scheme: &::windows::core::HSTRING) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).RegisterSchemeHandler)(::windows::core::Interface::as_raw(this), activatableclassid.into().abi(), scheme.into().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RegisterSchemeHandler)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(activatableclassid), ::core::mem::transmute_copy(scheme)).ok() }
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn RegisterSchemeHandlerWithSettings<'a, P0, P1, P2, E2>(&self, activatableclassid: P0, scheme: P1, configuration: P2) -> ::windows::core::Result<()>
+    pub fn RegisterSchemeHandlerWithSettings<'a, P0, E0>(&self, activatableclassid: &::windows::core::HSTRING, scheme: &::windows::core::HSTRING, configuration: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-        P1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-        P2: ::std::convert::TryInto<::windows::core::InParam<'a, super::Foundation::Collections::IPropertySet>, Error = E2>,
-        E2: ::std::convert::Into<::windows::core::Error>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::Foundation::Collections::IPropertySet>, Error = E0>,
+        E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).RegisterSchemeHandlerWithSettings)(::windows::core::Interface::as_raw(this), activatableclassid.into().abi(), scheme.into().abi(), configuration.try_into().map_err(|e| e.into())?.abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RegisterSchemeHandlerWithSettings)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(activatableclassid), ::core::mem::transmute_copy(scheme), configuration.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
-    pub fn RegisterByteStreamHandler<'a, P0, P1, P2>(&self, activatableclassid: P0, fileextension: P1, mimetype: P2) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-        P1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-        P2: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-    {
+    pub fn RegisterByteStreamHandler(&self, activatableclassid: &::windows::core::HSTRING, fileextension: &::windows::core::HSTRING, mimetype: &::windows::core::HSTRING) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).RegisterByteStreamHandler)(::windows::core::Interface::as_raw(this), activatableclassid.into().abi(), fileextension.into().abi(), mimetype.into().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RegisterByteStreamHandler)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(activatableclassid), ::core::mem::transmute_copy(fileextension), ::core::mem::transmute_copy(mimetype)).ok() }
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn RegisterByteStreamHandlerWithSettings<'a, P0, P1, P2, P3, E3>(&self, activatableclassid: P0, fileextension: P1, mimetype: P2, configuration: P3) -> ::windows::core::Result<()>
+    pub fn RegisterByteStreamHandlerWithSettings<'a, P0, E0>(&self, activatableclassid: &::windows::core::HSTRING, fileextension: &::windows::core::HSTRING, mimetype: &::windows::core::HSTRING, configuration: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-        P1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-        P2: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-        P3: ::std::convert::TryInto<::windows::core::InParam<'a, super::Foundation::Collections::IPropertySet>, Error = E3>,
-        E3: ::std::convert::Into<::windows::core::Error>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::Foundation::Collections::IPropertySet>, Error = E0>,
+        E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).RegisterByteStreamHandlerWithSettings)(::windows::core::Interface::as_raw(this), activatableclassid.into().abi(), fileextension.into().abi(), mimetype.into().abi(), configuration.try_into().map_err(|e| e.into())?.abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RegisterByteStreamHandlerWithSettings)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(activatableclassid), ::core::mem::transmute_copy(fileextension), ::core::mem::transmute_copy(mimetype), configuration.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
-    pub fn RegisterAudioDecoder<'a, P0>(&self, activatableclassid: P0, inputsubtype: ::windows::core::GUID, outputsubtype: ::windows::core::GUID) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-    {
+    pub fn RegisterAudioDecoder(&self, activatableclassid: &::windows::core::HSTRING, inputsubtype: ::windows::core::GUID, outputsubtype: ::windows::core::GUID) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).RegisterAudioDecoder)(::windows::core::Interface::as_raw(this), activatableclassid.into().abi(), inputsubtype, outputsubtype).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RegisterAudioDecoder)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(activatableclassid), inputsubtype, outputsubtype).ok() }
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn RegisterAudioDecoderWithSettings<'a, P0, P1, E1>(&self, activatableclassid: P0, inputsubtype: ::windows::core::GUID, outputsubtype: ::windows::core::GUID, configuration: P1) -> ::windows::core::Result<()>
+    pub fn RegisterAudioDecoderWithSettings<'a, P0, E0>(&self, activatableclassid: &::windows::core::HSTRING, inputsubtype: ::windows::core::GUID, outputsubtype: ::windows::core::GUID, configuration: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-        P1: ::std::convert::TryInto<::windows::core::InParam<'a, super::Foundation::Collections::IPropertySet>, Error = E1>,
-        E1: ::std::convert::Into<::windows::core::Error>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::Foundation::Collections::IPropertySet>, Error = E0>,
+        E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).RegisterAudioDecoderWithSettings)(::windows::core::Interface::as_raw(this), activatableclassid.into().abi(), inputsubtype, outputsubtype, configuration.try_into().map_err(|e| e.into())?.abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RegisterAudioDecoderWithSettings)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(activatableclassid), inputsubtype, outputsubtype, configuration.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
-    pub fn RegisterAudioEncoder<'a, P0>(&self, activatableclassid: P0, inputsubtype: ::windows::core::GUID, outputsubtype: ::windows::core::GUID) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-    {
+    pub fn RegisterAudioEncoder(&self, activatableclassid: &::windows::core::HSTRING, inputsubtype: ::windows::core::GUID, outputsubtype: ::windows::core::GUID) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).RegisterAudioEncoder)(::windows::core::Interface::as_raw(this), activatableclassid.into().abi(), inputsubtype, outputsubtype).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RegisterAudioEncoder)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(activatableclassid), inputsubtype, outputsubtype).ok() }
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn RegisterAudioEncoderWithSettings<'a, P0, P1, E1>(&self, activatableclassid: P0, inputsubtype: ::windows::core::GUID, outputsubtype: ::windows::core::GUID, configuration: P1) -> ::windows::core::Result<()>
+    pub fn RegisterAudioEncoderWithSettings<'a, P0, E0>(&self, activatableclassid: &::windows::core::HSTRING, inputsubtype: ::windows::core::GUID, outputsubtype: ::windows::core::GUID, configuration: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-        P1: ::std::convert::TryInto<::windows::core::InParam<'a, super::Foundation::Collections::IPropertySet>, Error = E1>,
-        E1: ::std::convert::Into<::windows::core::Error>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::Foundation::Collections::IPropertySet>, Error = E0>,
+        E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).RegisterAudioEncoderWithSettings)(::windows::core::Interface::as_raw(this), activatableclassid.into().abi(), inputsubtype, outputsubtype, configuration.try_into().map_err(|e| e.into())?.abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RegisterAudioEncoderWithSettings)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(activatableclassid), inputsubtype, outputsubtype, configuration.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
-    pub fn RegisterVideoDecoder<'a, P0>(&self, activatableclassid: P0, inputsubtype: ::windows::core::GUID, outputsubtype: ::windows::core::GUID) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-    {
+    pub fn RegisterVideoDecoder(&self, activatableclassid: &::windows::core::HSTRING, inputsubtype: ::windows::core::GUID, outputsubtype: ::windows::core::GUID) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).RegisterVideoDecoder)(::windows::core::Interface::as_raw(this), activatableclassid.into().abi(), inputsubtype, outputsubtype).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RegisterVideoDecoder)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(activatableclassid), inputsubtype, outputsubtype).ok() }
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn RegisterVideoDecoderWithSettings<'a, P0, P1, E1>(&self, activatableclassid: P0, inputsubtype: ::windows::core::GUID, outputsubtype: ::windows::core::GUID, configuration: P1) -> ::windows::core::Result<()>
+    pub fn RegisterVideoDecoderWithSettings<'a, P0, E0>(&self, activatableclassid: &::windows::core::HSTRING, inputsubtype: ::windows::core::GUID, outputsubtype: ::windows::core::GUID, configuration: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-        P1: ::std::convert::TryInto<::windows::core::InParam<'a, super::Foundation::Collections::IPropertySet>, Error = E1>,
-        E1: ::std::convert::Into<::windows::core::Error>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::Foundation::Collections::IPropertySet>, Error = E0>,
+        E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).RegisterVideoDecoderWithSettings)(::windows::core::Interface::as_raw(this), activatableclassid.into().abi(), inputsubtype, outputsubtype, configuration.try_into().map_err(|e| e.into())?.abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RegisterVideoDecoderWithSettings)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(activatableclassid), inputsubtype, outputsubtype, configuration.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
-    pub fn RegisterVideoEncoder<'a, P0>(&self, activatableclassid: P0, inputsubtype: ::windows::core::GUID, outputsubtype: ::windows::core::GUID) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-    {
+    pub fn RegisterVideoEncoder(&self, activatableclassid: &::windows::core::HSTRING, inputsubtype: ::windows::core::GUID, outputsubtype: ::windows::core::GUID) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).RegisterVideoEncoder)(::windows::core::Interface::as_raw(this), activatableclassid.into().abi(), inputsubtype, outputsubtype).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RegisterVideoEncoder)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(activatableclassid), inputsubtype, outputsubtype).ok() }
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn RegisterVideoEncoderWithSettings<'a, P0, P1, E1>(&self, activatableclassid: P0, inputsubtype: ::windows::core::GUID, outputsubtype: ::windows::core::GUID, configuration: P1) -> ::windows::core::Result<()>
+    pub fn RegisterVideoEncoderWithSettings<'a, P0, E0>(&self, activatableclassid: &::windows::core::HSTRING, inputsubtype: ::windows::core::GUID, outputsubtype: ::windows::core::GUID, configuration: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-        P1: ::std::convert::TryInto<::windows::core::InParam<'a, super::Foundation::Collections::IPropertySet>, Error = E1>,
-        E1: ::std::convert::Into<::windows::core::Error>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::Foundation::Collections::IPropertySet>, Error = E0>,
+        E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).RegisterVideoEncoderWithSettings)(::windows::core::Interface::as_raw(this), activatableclassid.into().abi(), inputsubtype, outputsubtype, configuration.try_into().map_err(|e| e.into())?.abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RegisterVideoEncoderWithSettings)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(activatableclassid), inputsubtype, outputsubtype, configuration.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
     #[doc = "*Required features: `\"ApplicationModel_AppService\"`*"]
     #[cfg(feature = "ApplicationModel_AppService")]
@@ -3052,12 +3010,9 @@ impl MusicDisplayProperties {
             (::windows::core::Interface::vtable(this).Title)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    pub fn SetTitle<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-    {
+    pub fn SetTitle(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetTitle)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetTitle)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
     }
     pub fn AlbumArtist(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
@@ -3066,12 +3021,9 @@ impl MusicDisplayProperties {
             (::windows::core::Interface::vtable(this).AlbumArtist)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    pub fn SetAlbumArtist<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-    {
+    pub fn SetAlbumArtist(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetAlbumArtist)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetAlbumArtist)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
     }
     pub fn Artist(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
@@ -3080,12 +3032,9 @@ impl MusicDisplayProperties {
             (::windows::core::Interface::vtable(this).Artist)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    pub fn SetArtist<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-    {
+    pub fn SetArtist(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetArtist)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetArtist)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
     }
     pub fn AlbumTitle(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = &::windows::core::Interface::cast::<IMusicDisplayProperties2>(self)?;
@@ -3094,12 +3043,9 @@ impl MusicDisplayProperties {
             (::windows::core::Interface::vtable(this).AlbumTitle)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    pub fn SetAlbumTitle<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-    {
+    pub fn SetAlbumTitle(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IMusicDisplayProperties2>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetAlbumTitle)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetAlbumTitle)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
     }
     pub fn TrackNumber(&self) -> ::windows::core::Result<u32> {
         let this = &::windows::core::Interface::cast::<IMusicDisplayProperties2>(self)?;
@@ -3964,12 +3910,9 @@ impl SystemMediaTransportControlsDisplayUpdater {
             (::windows::core::Interface::vtable(this).AppMediaId)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    pub fn SetAppMediaId<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-    {
+    pub fn SetAppMediaId(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetAppMediaId)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetAppMediaId)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
     }
     #[doc = "*Required features: `\"Storage_Streams\"`*"]
     #[cfg(feature = "Storage_Streams")]
@@ -4360,12 +4303,9 @@ impl VideoDisplayProperties {
             (::windows::core::Interface::vtable(this).Title)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    pub fn SetTitle<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-    {
+    pub fn SetTitle(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetTitle)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetTitle)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
     }
     pub fn Subtitle(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
@@ -4374,12 +4314,9 @@ impl VideoDisplayProperties {
             (::windows::core::Interface::vtable(this).Subtitle)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    pub fn SetSubtitle<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-    {
+    pub fn SetSubtitle(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetSubtitle)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetSubtitle)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]

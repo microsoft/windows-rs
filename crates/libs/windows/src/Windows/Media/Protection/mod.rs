@@ -1061,15 +1061,11 @@ impl ProtectionCapabilities {
         static SHARED: ::windows::core::FactoryCache<ProtectionCapabilities, ::windows::core::IGenericFactory> = ::windows::core::FactoryCache::new();
         SHARED.call(callback)
     }
-    pub fn IsTypeSupported<'a, P0, P1>(&self, r#type: P0, keysystem: P1) -> ::windows::core::Result<ProtectionCapabilityResult>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-        P1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-    {
+    pub fn IsTypeSupported(&self, r#type: &::windows::core::HSTRING, keysystem: &::windows::core::HSTRING) -> ::windows::core::Result<ProtectionCapabilityResult> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).IsTypeSupported)(::windows::core::Interface::as_raw(this), r#type.into().abi(), keysystem.into().abi(), result__.as_mut_ptr()).from_abi::<ProtectionCapabilityResult>(result__)
+            (::windows::core::Interface::vtable(this).IsTypeSupported)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(r#type), ::core::mem::transmute_copy(keysystem), result__.as_mut_ptr()).from_abi::<ProtectionCapabilityResult>(result__)
         }
     }
 }

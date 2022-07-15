@@ -81,12 +81,9 @@ impl IUICommand {
             (::windows::core::Interface::vtable(this).Label)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    pub fn SetLabel<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-    {
+    pub fn SetLabel(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetLabel)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetLabel)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
     }
     pub fn Invoked(&self) -> ::windows::core::Result<UICommandInvokedHandler> {
         let this = self;
@@ -211,12 +208,9 @@ impl MessageDialog {
             (::windows::core::Interface::vtable(this).Title)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    pub fn SetTitle<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-    {
+    pub fn SetTitle(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetTitle)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetTitle)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
@@ -256,12 +250,9 @@ impl MessageDialog {
             (::windows::core::Interface::vtable(this).Content)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    pub fn SetContent<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-    {
+    pub fn SetContent(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetContent)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetContent)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -283,23 +274,16 @@ impl MessageDialog {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetOptions)(::windows::core::Interface::as_raw(this), value).ok() }
     }
-    pub fn Create<'a, P0>(content: P0) -> ::windows::core::Result<MessageDialog>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-    {
+    pub fn Create(content: &::windows::core::HSTRING) -> ::windows::core::Result<MessageDialog> {
         Self::IMessageDialogFactory(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).Create)(::windows::core::Interface::as_raw(this), content.into().abi(), result__.as_mut_ptr()).from_abi::<MessageDialog>(result__)
+            (::windows::core::Interface::vtable(this).Create)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(content), result__.as_mut_ptr()).from_abi::<MessageDialog>(result__)
         })
     }
-    pub fn CreateWithTitle<'a, P0, P1>(content: P0, title: P1) -> ::windows::core::Result<MessageDialog>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-        P1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-    {
+    pub fn CreateWithTitle(content: &::windows::core::HSTRING, title: &::windows::core::HSTRING) -> ::windows::core::Result<MessageDialog> {
         Self::IMessageDialogFactory(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).CreateWithTitle)(::windows::core::Interface::as_raw(this), content.into().abi(), title.into().abi(), result__.as_mut_ptr()).from_abi::<MessageDialog>(result__)
+            (::windows::core::Interface::vtable(this).CreateWithTitle)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(content), ::core::mem::transmute_copy(title), result__.as_mut_ptr()).from_abi::<MessageDialog>(result__)
         })
     }
     #[doc(hidden)]
@@ -593,12 +577,9 @@ impl UICommand {
             (::windows::core::Interface::vtable(this).Label)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    pub fn SetLabel<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-    {
+    pub fn SetLabel(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetLabel)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetLabel)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
     }
     pub fn Invoked(&self) -> ::windows::core::Result<UICommandInvokedHandler> {
         let this = self;
@@ -628,34 +609,29 @@ impl UICommand {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetId)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
-    pub fn Create<'a, P0>(label: P0) -> ::windows::core::Result<UICommand>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-    {
+    pub fn Create(label: &::windows::core::HSTRING) -> ::windows::core::Result<UICommand> {
         Self::IUICommandFactory(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).Create)(::windows::core::Interface::as_raw(this), label.into().abi(), result__.as_mut_ptr()).from_abi::<UICommand>(result__)
+            (::windows::core::Interface::vtable(this).Create)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(label), result__.as_mut_ptr()).from_abi::<UICommand>(result__)
         })
     }
-    pub fn CreateWithHandler<'a, P0, P1>(label: P0, action: P1) -> ::windows::core::Result<UICommand>
+    pub fn CreateWithHandler<'a, P0>(label: &::windows::core::HSTRING, action: P0) -> ::windows::core::Result<UICommand>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-        P1: ::std::convert::Into<::windows::core::InParam<'a, UICommandInvokedHandler>>,
+        P0: ::std::convert::Into<::windows::core::InParam<'a, UICommandInvokedHandler>>,
     {
         Self::IUICommandFactory(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).CreateWithHandler)(::windows::core::Interface::as_raw(this), label.into().abi(), action.into().abi(), result__.as_mut_ptr()).from_abi::<UICommand>(result__)
+            (::windows::core::Interface::vtable(this).CreateWithHandler)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(label), action.into().abi(), result__.as_mut_ptr()).from_abi::<UICommand>(result__)
         })
     }
-    pub fn CreateWithHandlerAndId<'a, P0, P1, P2>(label: P0, action: P1, commandid: P2) -> ::windows::core::Result<UICommand>
+    pub fn CreateWithHandlerAndId<'a, P0, P1>(label: &::windows::core::HSTRING, action: P0, commandid: P1) -> ::windows::core::Result<UICommand>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-        P1: ::std::convert::Into<::windows::core::InParam<'a, UICommandInvokedHandler>>,
-        P2: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IInspectable>>,
+        P0: ::std::convert::Into<::windows::core::InParam<'a, UICommandInvokedHandler>>,
+        P1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IInspectable>>,
     {
         Self::IUICommandFactory(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).CreateWithHandlerAndId)(::windows::core::Interface::as_raw(this), label.into().abi(), action.into().abi(), commandid.into().abi(), result__.as_mut_ptr()).from_abi::<UICommand>(result__)
+            (::windows::core::Interface::vtable(this).CreateWithHandlerAndId)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(label), action.into().abi(), commandid.into().abi(), result__.as_mut_ptr()).from_abi::<UICommand>(result__)
         })
     }
     #[doc(hidden)]
@@ -851,12 +827,9 @@ impl UICommandSeparator {
             (::windows::core::Interface::vtable(this).Label)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    pub fn SetLabel<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-    {
+    pub fn SetLabel(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetLabel)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetLabel)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
     }
     pub fn Invoked(&self) -> ::windows::core::Result<UICommandInvokedHandler> {
         let this = self;

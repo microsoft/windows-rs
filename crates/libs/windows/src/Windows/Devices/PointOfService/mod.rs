@@ -76,14 +76,11 @@ impl BarcodeScanner {
             (::windows::core::Interface::vtable(this).GetSupportedProfiles)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Collections::IVectorView<::windows::core::HSTRING>>(result__)
         }
     }
-    pub fn IsProfileSupported<'a, P0>(&self, profile: P0) -> ::windows::core::Result<bool>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-    {
+    pub fn IsProfileSupported(&self, profile: &::windows::core::HSTRING) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).IsProfileSupported)(::windows::core::Interface::as_raw(this), profile.into().abi(), result__.as_mut_ptr()).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).IsProfileSupported)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(profile), result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -121,13 +118,10 @@ impl BarcodeScanner {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn FromIdAsync<'a, P0>(deviceid: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<BarcodeScanner>>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-    {
+    pub fn FromIdAsync(deviceid: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<BarcodeScanner>> {
         Self::IBarcodeScannerStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).FromIdAsync)(::windows::core::Interface::as_raw(this), deviceid.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<BarcodeScanner>>(result__)
+            (::windows::core::Interface::vtable(this).FromIdAsync)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(deviceid), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<BarcodeScanner>>(result__)
         })
     }
     pub fn GetDeviceSelector() -> ::windows::core::Result<::windows::core::HSTRING> {
@@ -1682,13 +1676,10 @@ impl CashDrawer {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn FromIdAsync<'a, P0>(deviceid: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<CashDrawer>>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-    {
+    pub fn FromIdAsync(deviceid: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<CashDrawer>> {
         Self::ICashDrawerStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).FromIdAsync)(::windows::core::Interface::as_raw(this), deviceid.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<CashDrawer>>(result__)
+            (::windows::core::Interface::vtable(this).FromIdAsync)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(deviceid), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<CashDrawer>>(result__)
         })
     }
     pub fn GetDeviceSelector() -> ::windows::core::Result<::windows::core::HSTRING> {
@@ -2647,14 +2638,11 @@ impl ClaimedBarcodeScanner {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn SetActiveProfileAsync<'a, P0>(&self, profile: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-    {
+    pub fn SetActiveProfileAsync(&self, profile: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncAction> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).SetActiveProfileAsync)(::windows::core::Interface::as_raw(this), profile.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncAction>(result__)
+            (::windows::core::Interface::vtable(this).SetActiveProfileAsync)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(profile), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncAction>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -3412,14 +3400,11 @@ impl ClaimedJournalPrinter {
             (::windows::core::Interface::vtable(this).IsReadyToPrint)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
-    pub fn ValidateData<'a, P0>(&self, data: P0) -> ::windows::core::Result<bool>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-    {
+    pub fn ValidateData(&self, data: &::windows::core::HSTRING) -> ::windows::core::Result<bool> {
         let this = &::windows::core::Interface::cast::<ICommonClaimedPosPrinterStation>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).ValidateData)(::windows::core::Interface::as_raw(this), data.into().abi(), result__.as_mut_ptr()).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).ValidateData)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(data), result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
 }
@@ -3771,13 +3756,10 @@ impl ClaimedLineDisplay {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn FromIdAsync<'a, P0>(deviceid: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<ClaimedLineDisplay>>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-    {
+    pub fn FromIdAsync(deviceid: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<ClaimedLineDisplay>> {
         Self::IClaimedLineDisplayStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).FromIdAsync)(::windows::core::Interface::as_raw(this), deviceid.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<ClaimedLineDisplay>>(result__)
+            (::windows::core::Interface::vtable(this).FromIdAsync)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(deviceid), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<ClaimedLineDisplay>>(result__)
         })
     }
     pub fn GetDeviceSelector() -> ::windows::core::Result<::windows::core::HSTRING> {
@@ -4089,15 +4071,11 @@ impl ClaimedMagneticStripeReader {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn UpdateKeyAsync<'a, P0, P1>(&self, key: P0, keyname: P1) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-        P1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-    {
+    pub fn UpdateKeyAsync(&self, key: &::windows::core::HSTRING, keyname: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncAction> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).UpdateKeyAsync)(::windows::core::Interface::as_raw(this), key.into().abi(), keyname.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncAction>(result__)
+            (::windows::core::Interface::vtable(this).UpdateKeyAsync)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(key), ::core::mem::transmute_copy(keyname), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncAction>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
@@ -4877,14 +4855,11 @@ impl ClaimedReceiptPrinter {
             (::windows::core::Interface::vtable(this).IsReadyToPrint)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
-    pub fn ValidateData<'a, P0>(&self, data: P0) -> ::windows::core::Result<bool>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-    {
+    pub fn ValidateData(&self, data: &::windows::core::HSTRING) -> ::windows::core::Result<bool> {
         let this = &::windows::core::Interface::cast::<ICommonClaimedPosPrinterStation>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).ValidateData)(::windows::core::Interface::as_raw(this), data.into().abi(), result__.as_mut_ptr()).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).ValidateData)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(data), result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
 }
@@ -5174,14 +5149,11 @@ impl ClaimedSlipPrinter {
             (::windows::core::Interface::vtable(this).IsReadyToPrint)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
-    pub fn ValidateData<'a, P0>(&self, data: P0) -> ::windows::core::Result<bool>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-    {
+    pub fn ValidateData(&self, data: &::windows::core::HSTRING) -> ::windows::core::Result<bool> {
         let this = &::windows::core::Interface::cast::<ICommonClaimedPosPrinterStation>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).ValidateData)(::windows::core::Interface::as_raw(this), data.into().abi(), result__.as_mut_ptr()).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).ValidateData)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(data), result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
 }
@@ -6729,14 +6701,11 @@ impl ICommonClaimedPosPrinterStation {
             (::windows::core::Interface::vtable(this).IsReadyToPrint)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
-    pub fn ValidateData<'a, P0>(&self, data: P0) -> ::windows::core::Result<bool>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-    {
+    pub fn ValidateData(&self, data: &::windows::core::HSTRING) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).ValidateData)(::windows::core::Interface::as_raw(this), data.into().abi(), result__.as_mut_ptr()).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).ValidateData)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(data), result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
 }
@@ -8087,19 +8056,13 @@ pub struct IPosPrinterFontProperty_Vtbl {
 #[repr(transparent)]
 pub struct IPosPrinterJob(::windows::core::IUnknown);
 impl IPosPrinterJob {
-    pub fn Print<'a, P0>(&self, data: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-    {
+    pub fn Print(&self, data: &::windows::core::HSTRING) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).Print)(::windows::core::Interface::as_raw(this), data.into().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).Print)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(data)).ok() }
     }
-    pub fn PrintLine<'a, P0>(&self, data: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-    {
+    pub fn PrintLine(&self, data: &::windows::core::HSTRING) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).PrintLine)(::windows::core::Interface::as_raw(this), data.into().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).PrintLine)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(data)).ok() }
     }
     pub fn PrintNewline(&self) -> ::windows::core::Result<()> {
         let this = self;
@@ -8353,26 +8316,17 @@ impl IReceiptOrSlipJob {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).PrintSavedBitmap)(::windows::core::Interface::as_raw(this), bitmapnumber).ok() }
     }
-    pub fn DrawRuledLine<'a, P0>(&self, positionlist: P0, linedirection: PosPrinterLineDirection, linewidth: u32, linestyle: PosPrinterLineStyle, linecolor: u32) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-    {
+    pub fn DrawRuledLine(&self, positionlist: &::windows::core::HSTRING, linedirection: PosPrinterLineDirection, linewidth: u32, linestyle: PosPrinterLineStyle, linecolor: u32) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).DrawRuledLine)(::windows::core::Interface::as_raw(this), positionlist.into().abi(), linedirection, linewidth, linestyle, linecolor).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).DrawRuledLine)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(positionlist), linedirection, linewidth, linestyle, linecolor).ok() }
     }
-    pub fn PrintBarcode<'a, P0>(&self, data: P0, symbology: u32, height: u32, width: u32, textposition: PosPrinterBarcodeTextPosition, alignment: PosPrinterAlignment) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-    {
+    pub fn PrintBarcode(&self, data: &::windows::core::HSTRING, symbology: u32, height: u32, width: u32, textposition: PosPrinterBarcodeTextPosition, alignment: PosPrinterAlignment) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).PrintBarcode)(::windows::core::Interface::as_raw(this), data.into().abi(), symbology, height, width, textposition, alignment).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).PrintBarcode)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(data), symbology, height, width, textposition, alignment).ok() }
     }
-    pub fn PrintBarcodeCustomAlign<'a, P0>(&self, data: P0, symbology: u32, height: u32, width: u32, textposition: PosPrinterBarcodeTextPosition, alignmentdistance: u32) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-    {
+    pub fn PrintBarcodeCustomAlign(&self, data: &::windows::core::HSTRING, symbology: u32, height: u32, width: u32, textposition: PosPrinterBarcodeTextPosition, alignmentdistance: u32) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).PrintBarcodeCustomAlign)(::windows::core::Interface::as_raw(this), data.into().abi(), symbology, height, width, textposition, alignmentdistance).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).PrintBarcodeCustomAlign)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(data), symbology, height, width, textposition, alignmentdistance).ok() }
     }
     #[doc = "*Required features: `\"Graphics_Imaging\"`*"]
     #[cfg(feature = "Graphics_Imaging")]
@@ -8410,19 +8364,13 @@ impl IReceiptOrSlipJob {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).PrintBitmapCustomWidthCustomAlign)(::windows::core::Interface::as_raw(this), bitmap.into().abi(), alignmentdistance, width).ok() }
     }
-    pub fn Print<'a, P0>(&self, data: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-    {
+    pub fn Print(&self, data: &::windows::core::HSTRING) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IPosPrinterJob>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).Print)(::windows::core::Interface::as_raw(this), data.into().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).Print)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(data)).ok() }
     }
-    pub fn PrintLine<'a, P0>(&self, data: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-    {
+    pub fn PrintLine(&self, data: &::windows::core::HSTRING) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IPosPrinterJob>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).PrintLine)(::windows::core::Interface::as_raw(this), data.into().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).PrintLine)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(data)).ok() }
     }
     pub fn PrintNewline(&self) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IPosPrinterJob>(self)?;
@@ -8705,13 +8653,12 @@ pub struct IUnifiedPosErrorDataFactory_Vtbl {
 #[repr(transparent)]
 pub struct JournalPrintJob(::windows::core::IUnknown);
 impl JournalPrintJob {
-    pub fn Print<'a, P0, P1>(&self, data: P0, printoptions: P1) -> ::windows::core::Result<()>
+    pub fn Print<'a, P0>(&self, data: &::windows::core::HSTRING, printoptions: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-        P1: ::std::convert::Into<::windows::core::InParam<'a, PosPrinterPrintOptions>>,
+        P0: ::std::convert::Into<::windows::core::InParam<'a, PosPrinterPrintOptions>>,
     {
         let this = &::windows::core::Interface::cast::<IJournalPrintJob>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).Print)(::windows::core::Interface::as_raw(this), data.into().abi(), printoptions.into().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).Print)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(data), printoptions.into().abi()).ok() }
     }
     pub fn FeedPaperByLine(&self, linecount: i32) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IJournalPrintJob>(self)?;
@@ -8721,19 +8668,13 @@ impl JournalPrintJob {
         let this = &::windows::core::Interface::cast::<IJournalPrintJob>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).FeedPaperByMapModeUnit)(::windows::core::Interface::as_raw(this), distance).ok() }
     }
-    pub fn Print2<'a, P0>(&self, data: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-    {
+    pub fn Print2(&self, data: &::windows::core::HSTRING) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).Print)(::windows::core::Interface::as_raw(this), data.into().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).Print)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(data)).ok() }
     }
-    pub fn PrintLine<'a, P0>(&self, data: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-    {
+    pub fn PrintLine(&self, data: &::windows::core::HSTRING) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).PrintLine)(::windows::core::Interface::as_raw(this), data.into().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).PrintLine)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(data)).ok() }
     }
     pub fn PrintNewline(&self) -> ::windows::core::Result<()> {
         let this = self;
@@ -9130,13 +9071,10 @@ impl LineDisplay {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn FromIdAsync<'a, P0>(deviceid: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<LineDisplay>>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-    {
+    pub fn FromIdAsync(deviceid: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<LineDisplay>> {
         Self::ILineDisplayStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).FromIdAsync)(::windows::core::Interface::as_raw(this), deviceid.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<LineDisplay>>(result__)
+            (::windows::core::Interface::vtable(this).FromIdAsync)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(deviceid), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<LineDisplay>>(result__)
         })
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -10694,38 +10632,29 @@ impl LineDisplayWindow {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn TryDisplayTextAsync<'a, P0>(&self, text: P0, displayattribute: LineDisplayTextAttribute) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-    {
+    pub fn TryDisplayTextAsync(&self, text: &::windows::core::HSTRING, displayattribute: LineDisplayTextAttribute) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).TryDisplayTextAsync)(::windows::core::Interface::as_raw(this), text.into().abi(), displayattribute, result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<bool>>(result__)
+            (::windows::core::Interface::vtable(this).TryDisplayTextAsync)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(text), displayattribute, result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<bool>>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn TryDisplayTextAtPositionAsync<'a, P0>(&self, text: P0, displayattribute: LineDisplayTextAttribute, startposition: super::super::Foundation::Point) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-    {
+    pub fn TryDisplayTextAtPositionAsync(&self, text: &::windows::core::HSTRING, displayattribute: LineDisplayTextAttribute, startposition: super::super::Foundation::Point) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).TryDisplayTextAtPositionAsync)(::windows::core::Interface::as_raw(this), text.into().abi(), displayattribute, startposition, result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<bool>>(result__)
+            (::windows::core::Interface::vtable(this).TryDisplayTextAtPositionAsync)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(text), displayattribute, startposition, result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<bool>>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn TryDisplayTextNormalAsync<'a, P0>(&self, text: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-    {
+    pub fn TryDisplayTextNormalAsync(&self, text: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).TryDisplayTextNormalAsync)(::windows::core::Interface::as_raw(this), text.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<bool>>(result__)
+            (::windows::core::Interface::vtable(this).TryDisplayTextNormalAsync)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(text), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<bool>>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -11030,13 +10959,10 @@ impl MagneticStripeReader {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn FromIdAsync<'a, P0>(deviceid: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<MagneticStripeReader>>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-    {
+    pub fn FromIdAsync(deviceid: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<MagneticStripeReader>> {
         Self::IMagneticStripeReaderStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).FromIdAsync)(::windows::core::Interface::as_raw(this), deviceid.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<MagneticStripeReader>>(result__)
+            (::windows::core::Interface::vtable(this).FromIdAsync)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(deviceid), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<MagneticStripeReader>>(result__)
         })
     }
     pub fn GetDeviceSelector() -> ::windows::core::Result<::windows::core::HSTRING> {
@@ -12564,14 +12490,11 @@ impl PosPrinter {
             (::windows::core::Interface::vtable(this).SupportedBarcodeSymbologies)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Collections::IVectorView<u32>>(result__)
         }
     }
-    pub fn GetFontProperty<'a, P0>(&self, typeface: P0) -> ::windows::core::Result<PosPrinterFontProperty>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-    {
+    pub fn GetFontProperty(&self, typeface: &::windows::core::HSTRING) -> ::windows::core::Result<PosPrinterFontProperty> {
         let this = &::windows::core::Interface::cast::<IPosPrinter2>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).GetFontProperty)(::windows::core::Interface::as_raw(this), typeface.into().abi(), result__.as_mut_ptr()).from_abi::<PosPrinterFontProperty>(result__)
+            (::windows::core::Interface::vtable(this).GetFontProperty)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(typeface), result__.as_mut_ptr()).from_abi::<PosPrinterFontProperty>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -12584,13 +12507,10 @@ impl PosPrinter {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn FromIdAsync<'a, P0>(deviceid: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<PosPrinter>>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-    {
+    pub fn FromIdAsync(deviceid: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<PosPrinter>> {
         Self::IPosPrinterStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).FromIdAsync)(::windows::core::Interface::as_raw(this), deviceid.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<PosPrinter>>(result__)
+            (::windows::core::Interface::vtable(this).FromIdAsync)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(deviceid), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<PosPrinter>>(result__)
         })
     }
     pub fn GetDeviceSelector() -> ::windows::core::Result<::windows::core::HSTRING> {
@@ -13432,12 +13352,9 @@ impl PosPrinterPrintOptions {
             (::windows::core::Interface::vtable(this).TypeFace)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    pub fn SetTypeFace<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-    {
+    pub fn SetTypeFace(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetTypeFace)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetTypeFace)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
     }
     pub fn CharacterHeight(&self) -> ::windows::core::Result<u32> {
         let this = self;
@@ -14030,19 +13947,13 @@ unsafe impl ::core::marker::Sync for PosPrinterStatusUpdatedEventArgs {}
 #[repr(transparent)]
 pub struct ReceiptPrintJob(::windows::core::IUnknown);
 impl ReceiptPrintJob {
-    pub fn Print<'a, P0>(&self, data: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-    {
+    pub fn Print(&self, data: &::windows::core::HSTRING) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IPosPrinterJob>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).Print)(::windows::core::Interface::as_raw(this), data.into().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).Print)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(data)).ok() }
     }
-    pub fn PrintLine<'a, P0>(&self, data: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-    {
+    pub fn PrintLine(&self, data: &::windows::core::HSTRING) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IPosPrinterJob>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).PrintLine)(::windows::core::Interface::as_raw(this), data.into().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).PrintLine)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(data)).ok() }
     }
     pub fn PrintNewline(&self) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IPosPrinterJob>(self)?;
@@ -14111,26 +14022,17 @@ impl ReceiptPrintJob {
         let this = &::windows::core::Interface::cast::<IReceiptOrSlipJob>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).PrintSavedBitmap)(::windows::core::Interface::as_raw(this), bitmapnumber).ok() }
     }
-    pub fn DrawRuledLine<'a, P0>(&self, positionlist: P0, linedirection: PosPrinterLineDirection, linewidth: u32, linestyle: PosPrinterLineStyle, linecolor: u32) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-    {
+    pub fn DrawRuledLine(&self, positionlist: &::windows::core::HSTRING, linedirection: PosPrinterLineDirection, linewidth: u32, linestyle: PosPrinterLineStyle, linecolor: u32) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IReceiptOrSlipJob>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).DrawRuledLine)(::windows::core::Interface::as_raw(this), positionlist.into().abi(), linedirection, linewidth, linestyle, linecolor).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).DrawRuledLine)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(positionlist), linedirection, linewidth, linestyle, linecolor).ok() }
     }
-    pub fn PrintBarcode<'a, P0>(&self, data: P0, symbology: u32, height: u32, width: u32, textposition: PosPrinterBarcodeTextPosition, alignment: PosPrinterAlignment) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-    {
+    pub fn PrintBarcode(&self, data: &::windows::core::HSTRING, symbology: u32, height: u32, width: u32, textposition: PosPrinterBarcodeTextPosition, alignment: PosPrinterAlignment) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IReceiptOrSlipJob>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).PrintBarcode)(::windows::core::Interface::as_raw(this), data.into().abi(), symbology, height, width, textposition, alignment).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).PrintBarcode)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(data), symbology, height, width, textposition, alignment).ok() }
     }
-    pub fn PrintBarcodeCustomAlign<'a, P0>(&self, data: P0, symbology: u32, height: u32, width: u32, textposition: PosPrinterBarcodeTextPosition, alignmentdistance: u32) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-    {
+    pub fn PrintBarcodeCustomAlign(&self, data: &::windows::core::HSTRING, symbology: u32, height: u32, width: u32, textposition: PosPrinterBarcodeTextPosition, alignmentdistance: u32) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IReceiptOrSlipJob>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).PrintBarcodeCustomAlign)(::windows::core::Interface::as_raw(this), data.into().abi(), symbology, height, width, textposition, alignmentdistance).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).PrintBarcodeCustomAlign)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(data), symbology, height, width, textposition, alignmentdistance).ok() }
     }
     #[doc = "*Required features: `\"Graphics_Imaging\"`*"]
     #[cfg(feature = "Graphics_Imaging")]
@@ -14184,13 +14086,12 @@ impl ReceiptPrintJob {
         let this = &::windows::core::Interface::cast::<IReceiptPrintJob2>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).StampPaper)(::windows::core::Interface::as_raw(this)).ok() }
     }
-    pub fn Print2<'a, P0, P1>(&self, data: P0, printoptions: P1) -> ::windows::core::Result<()>
+    pub fn Print2<'a, P0>(&self, data: &::windows::core::HSTRING, printoptions: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-        P1: ::std::convert::Into<::windows::core::InParam<'a, PosPrinterPrintOptions>>,
+        P0: ::std::convert::Into<::windows::core::InParam<'a, PosPrinterPrintOptions>>,
     {
         let this = &::windows::core::Interface::cast::<IReceiptPrintJob2>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).Print)(::windows::core::Interface::as_raw(this), data.into().abi(), printoptions.into().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).Print)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(data), printoptions.into().abi()).ok() }
     }
     pub fn FeedPaperByLine(&self, linecount: i32) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IReceiptPrintJob2>(self)?;
@@ -14671,19 +14572,13 @@ impl ::core::default::Default for SizeUInt32 {
 #[repr(transparent)]
 pub struct SlipPrintJob(::windows::core::IUnknown);
 impl SlipPrintJob {
-    pub fn Print<'a, P0>(&self, data: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-    {
+    pub fn Print(&self, data: &::windows::core::HSTRING) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IPosPrinterJob>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).Print)(::windows::core::Interface::as_raw(this), data.into().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).Print)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(data)).ok() }
     }
-    pub fn PrintLine<'a, P0>(&self, data: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-    {
+    pub fn PrintLine(&self, data: &::windows::core::HSTRING) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IPosPrinterJob>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).PrintLine)(::windows::core::Interface::as_raw(this), data.into().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).PrintLine)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(data)).ok() }
     }
     pub fn PrintNewline(&self) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IPosPrinterJob>(self)?;
@@ -14752,26 +14647,17 @@ impl SlipPrintJob {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).PrintSavedBitmap)(::windows::core::Interface::as_raw(this), bitmapnumber).ok() }
     }
-    pub fn DrawRuledLine<'a, P0>(&self, positionlist: P0, linedirection: PosPrinterLineDirection, linewidth: u32, linestyle: PosPrinterLineStyle, linecolor: u32) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-    {
+    pub fn DrawRuledLine(&self, positionlist: &::windows::core::HSTRING, linedirection: PosPrinterLineDirection, linewidth: u32, linestyle: PosPrinterLineStyle, linecolor: u32) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).DrawRuledLine)(::windows::core::Interface::as_raw(this), positionlist.into().abi(), linedirection, linewidth, linestyle, linecolor).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).DrawRuledLine)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(positionlist), linedirection, linewidth, linestyle, linecolor).ok() }
     }
-    pub fn PrintBarcode<'a, P0>(&self, data: P0, symbology: u32, height: u32, width: u32, textposition: PosPrinterBarcodeTextPosition, alignment: PosPrinterAlignment) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-    {
+    pub fn PrintBarcode(&self, data: &::windows::core::HSTRING, symbology: u32, height: u32, width: u32, textposition: PosPrinterBarcodeTextPosition, alignment: PosPrinterAlignment) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).PrintBarcode)(::windows::core::Interface::as_raw(this), data.into().abi(), symbology, height, width, textposition, alignment).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).PrintBarcode)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(data), symbology, height, width, textposition, alignment).ok() }
     }
-    pub fn PrintBarcodeCustomAlign<'a, P0>(&self, data: P0, symbology: u32, height: u32, width: u32, textposition: PosPrinterBarcodeTextPosition, alignmentdistance: u32) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-    {
+    pub fn PrintBarcodeCustomAlign(&self, data: &::windows::core::HSTRING, symbology: u32, height: u32, width: u32, textposition: PosPrinterBarcodeTextPosition, alignmentdistance: u32) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).PrintBarcodeCustomAlign)(::windows::core::Interface::as_raw(this), data.into().abi(), symbology, height, width, textposition, alignmentdistance).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).PrintBarcodeCustomAlign)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(data), symbology, height, width, textposition, alignmentdistance).ok() }
     }
     #[doc = "*Required features: `\"Graphics_Imaging\"`*"]
     #[cfg(feature = "Graphics_Imaging")]
@@ -14809,13 +14695,12 @@ impl SlipPrintJob {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).PrintBitmapCustomWidthCustomAlign)(::windows::core::Interface::as_raw(this), bitmap.into().abi(), alignmentdistance, width).ok() }
     }
-    pub fn Print2<'a, P0, P1>(&self, data: P0, printoptions: P1) -> ::windows::core::Result<()>
+    pub fn Print2<'a, P0>(&self, data: &::windows::core::HSTRING, printoptions: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-        P1: ::std::convert::Into<::windows::core::InParam<'a, PosPrinterPrintOptions>>,
+        P0: ::std::convert::Into<::windows::core::InParam<'a, PosPrinterPrintOptions>>,
     {
         let this = &::windows::core::Interface::cast::<ISlipPrintJob>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).Print)(::windows::core::Interface::as_raw(this), data.into().abi(), printoptions.into().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).Print)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(data), printoptions.into().abi()).ok() }
     }
     pub fn FeedPaperByLine(&self, linecount: i32) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<ISlipPrintJob>(self)?;
@@ -15279,13 +15164,10 @@ impl UnifiedPosErrorData {
             (::windows::core::Interface::vtable(this).ExtendedReason)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<u32>(result__)
         }
     }
-    pub fn CreateInstance<'a, P0>(message: P0, severity: UnifiedPosErrorSeverity, reason: UnifiedPosErrorReason, extendedreason: u32) -> ::windows::core::Result<UnifiedPosErrorData>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-    {
+    pub fn CreateInstance(message: &::windows::core::HSTRING, severity: UnifiedPosErrorSeverity, reason: UnifiedPosErrorReason, extendedreason: u32) -> ::windows::core::Result<UnifiedPosErrorData> {
         Self::IUnifiedPosErrorDataFactory(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).CreateInstance)(::windows::core::Interface::as_raw(this), message.into().abi(), severity, reason, extendedreason, result__.as_mut_ptr()).from_abi::<UnifiedPosErrorData>(result__)
+            (::windows::core::Interface::vtable(this).CreateInstance)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(message), severity, reason, extendedreason, result__.as_mut_ptr()).from_abi::<UnifiedPosErrorData>(result__)
         })
     }
     #[doc(hidden)]

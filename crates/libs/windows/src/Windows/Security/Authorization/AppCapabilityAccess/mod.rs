@@ -77,25 +77,21 @@ impl AppCapability {
             (::windows::core::Interface::vtable(this).RequestAccessForCapabilitiesForUserAsync)(::windows::core::Interface::as_raw(this), user.into().abi(), capabilitynames.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::IAsyncOperation<super::super::super::Foundation::Collections::IMapView<::windows::core::HSTRING, AppCapabilityAccessStatus>>>(result__)
         })
     }
-    pub fn Create<'a, P0>(capabilityname: P0) -> ::windows::core::Result<AppCapability>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-    {
+    pub fn Create(capabilityname: &::windows::core::HSTRING) -> ::windows::core::Result<AppCapability> {
         Self::IAppCapabilityStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).Create)(::windows::core::Interface::as_raw(this), capabilityname.into().abi(), result__.as_mut_ptr()).from_abi::<AppCapability>(result__)
+            (::windows::core::Interface::vtable(this).Create)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(capabilityname), result__.as_mut_ptr()).from_abi::<AppCapability>(result__)
         })
     }
     #[doc = "*Required features: `\"System\"`*"]
     #[cfg(feature = "System")]
-    pub fn CreateWithProcessIdForUser<'a, P0, P1>(user: P0, capabilityname: P1, pid: u32) -> ::windows::core::Result<AppCapability>
+    pub fn CreateWithProcessIdForUser<'a, P0>(user: P0, capabilityname: &::windows::core::HSTRING, pid: u32) -> ::windows::core::Result<AppCapability>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::System::User>>,
-        P1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
     {
         Self::IAppCapabilityStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).CreateWithProcessIdForUser)(::windows::core::Interface::as_raw(this), user.into().abi(), capabilityname.into().abi(), pid, result__.as_mut_ptr()).from_abi::<AppCapability>(result__)
+            (::windows::core::Interface::vtable(this).CreateWithProcessIdForUser)(::windows::core::Interface::as_raw(this), user.into().abi(), ::core::mem::transmute_copy(capabilityname), pid, result__.as_mut_ptr()).from_abi::<AppCapability>(result__)
         })
     }
     #[doc(hidden)]

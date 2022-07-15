@@ -1847,13 +1847,10 @@ impl LearningModel {
             (::windows::core::Interface::vtable(this).LoadFromStreamAsync)(::windows::core::Interface::as_raw(this), modelstream.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<LearningModel>>(result__)
         })
     }
-    pub fn LoadFromFilePath<'a, P0>(filepath: P0) -> ::windows::core::Result<LearningModel>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-    {
+    pub fn LoadFromFilePath(filepath: &::windows::core::HSTRING) -> ::windows::core::Result<LearningModel> {
         Self::ILearningModelStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).LoadFromFilePath)(::windows::core::Interface::as_raw(this), filepath.into().abi(), result__.as_mut_ptr()).from_abi::<LearningModel>(result__)
+            (::windows::core::Interface::vtable(this).LoadFromFilePath)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(filepath), result__.as_mut_ptr()).from_abi::<LearningModel>(result__)
         })
     }
     #[doc = "*Required features: `\"Storage_Streams\"`*"]
@@ -1896,15 +1893,14 @@ impl LearningModel {
             (::windows::core::Interface::vtable(this).LoadFromStreamWithOperatorProviderAsync)(::windows::core::Interface::as_raw(this), modelstream.try_into().map_err(|e| e.into())?.abi(), operatorprovider.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<LearningModel>>(result__)
         })
     }
-    pub fn LoadFromFilePathWithOperatorProvider<'a, P0, P1, E1>(filepath: P0, operatorprovider: P1) -> ::windows::core::Result<LearningModel>
+    pub fn LoadFromFilePathWithOperatorProvider<'a, P0, E0>(filepath: &::windows::core::HSTRING, operatorprovider: P0) -> ::windows::core::Result<LearningModel>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-        P1: ::std::convert::TryInto<::windows::core::InParam<'a, ILearningModelOperatorProvider>, Error = E1>,
-        E1: ::std::convert::Into<::windows::core::Error>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<'a, ILearningModelOperatorProvider>, Error = E0>,
+        E0: ::std::convert::Into<::windows::core::Error>,
     {
         Self::ILearningModelStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).LoadFromFilePathWithOperatorProvider)(::windows::core::Interface::as_raw(this), filepath.into().abi(), operatorprovider.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<LearningModel>(result__)
+            (::windows::core::Interface::vtable(this).LoadFromFilePathWithOperatorProvider)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(filepath), operatorprovider.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<LearningModel>(result__)
         })
     }
     #[doc = "*Required features: `\"Storage_Streams\"`*"]
@@ -2024,25 +2020,23 @@ impl LearningModelBinding {
             (::windows::core::Interface::vtable(this).First)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Collections::IIterator<super::super::Foundation::Collections::IKeyValuePair<::windows::core::HSTRING, ::windows::core::IInspectable>>>(result__)
         }
     }
-    pub fn Bind<'a, P0, P1>(&self, name: P0, value: P1) -> ::windows::core::Result<()>
+    pub fn Bind<'a, P0>(&self, name: &::windows::core::HSTRING, value: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-        P1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IInspectable>>,
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IInspectable>>,
     {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).Bind)(::windows::core::Interface::as_raw(this), name.into().abi(), value.into().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).Bind)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(name), value.into().abi()).ok() }
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn BindWithProperties<'a, P0, P1, P2, E2>(&self, name: P0, value: P1, props: P2) -> ::windows::core::Result<()>
+    pub fn BindWithProperties<'a, P0, P1, E1>(&self, name: &::windows::core::HSTRING, value: P0, props: P1) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-        P1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IInspectable>>,
-        P2: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IPropertySet>, Error = E2>,
-        E2: ::std::convert::Into<::windows::core::Error>,
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IInspectable>>,
+        P1: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IPropertySet>, Error = E1>,
+        E1: ::std::convert::Into<::windows::core::Error>,
     {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).BindWithProperties)(::windows::core::Interface::as_raw(this), name.into().abi(), value.into().abi(), props.try_into().map_err(|e| e.into())?.abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).BindWithProperties)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(name), value.into().abi(), props.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
     pub fn Clear(&self) -> ::windows::core::Result<()> {
         let this = self;
@@ -2059,14 +2053,11 @@ impl LearningModelBinding {
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn Lookup<'a, P0>(&self, key: P0) -> ::windows::core::Result<::windows::core::IInspectable>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-    {
+    pub fn Lookup(&self, key: &::windows::core::HSTRING) -> ::windows::core::Result<::windows::core::IInspectable> {
         let this = &::windows::core::Interface::cast::<super::super::Foundation::Collections::IMapView<::windows::core::HSTRING, ::windows::core::IInspectable>>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).Lookup)(::windows::core::Interface::as_raw(this), key.into().abi(), result__.as_mut_ptr()).from_abi::<::windows::core::IInspectable>(result__)
+            (::windows::core::Interface::vtable(this).Lookup)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(key), result__.as_mut_ptr()).from_abi::<::windows::core::IInspectable>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
@@ -2080,14 +2071,11 @@ impl LearningModelBinding {
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn HasKey<'a, P0>(&self, key: P0) -> ::windows::core::Result<bool>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-    {
+    pub fn HasKey(&self, key: &::windows::core::HSTRING) -> ::windows::core::Result<bool> {
         let this = &::windows::core::Interface::cast::<super::super::Foundation::Collections::IMapView<::windows::core::HSTRING, ::windows::core::IInspectable>>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).HasKey)(::windows::core::Interface::as_raw(this), key.into().abi(), result__.as_mut_ptr()).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).HasKey)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(key), result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
@@ -2577,54 +2565,50 @@ impl LearningModelSession {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn EvaluateAsync<'a, P0, P1>(&self, bindings: P0, correlationid: P1) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<LearningModelEvaluationResult>>
+    pub fn EvaluateAsync<'a, P0>(&self, bindings: P0, correlationid: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<LearningModelEvaluationResult>>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, LearningModelBinding>>,
-        P1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
     {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).EvaluateAsync)(::windows::core::Interface::as_raw(this), bindings.into().abi(), correlationid.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<LearningModelEvaluationResult>>(result__)
+            (::windows::core::Interface::vtable(this).EvaluateAsync)(::windows::core::Interface::as_raw(this), bindings.into().abi(), ::core::mem::transmute_copy(correlationid), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<LearningModelEvaluationResult>>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn EvaluateFeaturesAsync<'a, P0, E0, P1>(&self, features: P0, correlationid: P1) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<LearningModelEvaluationResult>>
+    pub fn EvaluateFeaturesAsync<'a, P0, E0>(&self, features: P0, correlationid: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<LearningModelEvaluationResult>>
     where
         P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IMap<::windows::core::HSTRING, ::windows::core::IInspectable>>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
-        P1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
     {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).EvaluateFeaturesAsync)(::windows::core::Interface::as_raw(this), features.try_into().map_err(|e| e.into())?.abi(), correlationid.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<LearningModelEvaluationResult>>(result__)
+            (::windows::core::Interface::vtable(this).EvaluateFeaturesAsync)(::windows::core::Interface::as_raw(this), features.try_into().map_err(|e| e.into())?.abi(), ::core::mem::transmute_copy(correlationid), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<LearningModelEvaluationResult>>(result__)
         }
     }
-    pub fn Evaluate<'a, P0, P1>(&self, bindings: P0, correlationid: P1) -> ::windows::core::Result<LearningModelEvaluationResult>
+    pub fn Evaluate<'a, P0>(&self, bindings: P0, correlationid: &::windows::core::HSTRING) -> ::windows::core::Result<LearningModelEvaluationResult>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, LearningModelBinding>>,
-        P1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
     {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).Evaluate)(::windows::core::Interface::as_raw(this), bindings.into().abi(), correlationid.into().abi(), result__.as_mut_ptr()).from_abi::<LearningModelEvaluationResult>(result__)
+            (::windows::core::Interface::vtable(this).Evaluate)(::windows::core::Interface::as_raw(this), bindings.into().abi(), ::core::mem::transmute_copy(correlationid), result__.as_mut_ptr()).from_abi::<LearningModelEvaluationResult>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn EvaluateFeatures<'a, P0, E0, P1>(&self, features: P0, correlationid: P1) -> ::windows::core::Result<LearningModelEvaluationResult>
+    pub fn EvaluateFeatures<'a, P0, E0>(&self, features: P0, correlationid: &::windows::core::HSTRING) -> ::windows::core::Result<LearningModelEvaluationResult>
     where
         P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IMap<::windows::core::HSTRING, ::windows::core::IInspectable>>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
-        P1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
     {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).EvaluateFeatures)(::windows::core::Interface::as_raw(this), features.try_into().map_err(|e| e.into())?.abi(), correlationid.into().abi(), result__.as_mut_ptr()).from_abi::<LearningModelEvaluationResult>(result__)
+            (::windows::core::Interface::vtable(this).EvaluateFeatures)(::windows::core::Interface::as_raw(this), features.try_into().map_err(|e| e.into())?.abi(), ::core::mem::transmute_copy(correlationid), result__.as_mut_ptr()).from_abi::<LearningModelEvaluationResult>(result__)
         }
     }
     pub fn CreateFromModel<'a, P0>(model: P0) -> ::windows::core::Result<LearningModelSession>
@@ -2785,12 +2769,9 @@ impl LearningModelSessionOptions {
         let this = &::windows::core::Interface::cast::<ILearningModelSessionOptions2>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetCloseModelOnSessionCreation)(::windows::core::Interface::as_raw(this), value).ok() }
     }
-    pub fn OverrideNamedDimension<'a, P0>(&self, name: P0, dimension: u32) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-    {
+    pub fn OverrideNamedDimension(&self, name: &::windows::core::HSTRING, dimension: u32) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<ILearningModelSessionOptions3>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).OverrideNamedDimension)(::windows::core::Interface::as_raw(this), name.into().abi(), dimension).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).OverrideNamedDimension)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(name), dimension).ok() }
     }
 }
 impl ::core::clone::Clone for LearningModelSessionOptions {

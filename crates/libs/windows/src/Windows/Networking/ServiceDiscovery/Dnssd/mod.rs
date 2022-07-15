@@ -171,12 +171,9 @@ impl DnssdServiceInstance {
             (::windows::core::Interface::vtable(this).DnssdServiceInstanceName)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    pub fn SetDnssdServiceInstanceName<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-    {
+    pub fn SetDnssdServiceInstanceName(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetDnssdServiceInstanceName)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetDnssdServiceInstanceName)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
     }
     pub fn HostName(&self) -> ::windows::core::Result<super::super::HostName> {
         let this = self;
@@ -284,14 +281,13 @@ impl DnssdServiceInstance {
             (::windows::core::Interface::vtable(this).RegisterDatagramSocketAsync2)(::windows::core::Interface::as_raw(this), socket.into().abi(), adapter.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::IAsyncOperation<DnssdRegistrationResult>>(result__)
         }
     }
-    pub fn Create<'a, P0, P1>(dnssdserviceinstancename: P0, hostname: P1, port: u16) -> ::windows::core::Result<DnssdServiceInstance>
+    pub fn Create<'a, P0>(dnssdserviceinstancename: &::windows::core::HSTRING, hostname: P0, port: u16) -> ::windows::core::Result<DnssdServiceInstance>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-        P1: ::std::convert::Into<::windows::core::InParam<'a, super::super::HostName>>,
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::HostName>>,
     {
         Self::IDnssdServiceInstanceFactory(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).Create)(::windows::core::Interface::as_raw(this), dnssdserviceinstancename.into().abi(), hostname.into().abi(), port, result__.as_mut_ptr()).from_abi::<DnssdServiceInstance>(result__)
+            (::windows::core::Interface::vtable(this).Create)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(dnssdserviceinstancename), hostname.into().abi(), port, result__.as_mut_ptr()).from_abi::<DnssdServiceInstance>(result__)
         })
     }
     #[doc = "*Required features: `\"Foundation\"`*"]

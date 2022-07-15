@@ -2688,12 +2688,9 @@ impl IPlayReadyLicenseAcquisitionServiceRequest {
             (::windows::core::Interface::vtable(this).ChallengeCustomData)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    pub fn SetChallengeCustomData<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-    {
+    pub fn SetChallengeCustomData(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IPlayReadyServiceRequest>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetChallengeCustomData)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetChallengeCustomData)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -3237,12 +3234,9 @@ impl IPlayReadySecureStopServiceRequest {
             (::windows::core::Interface::vtable(this).ChallengeCustomData)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    pub fn SetChallengeCustomData<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-    {
+    pub fn SetChallengeCustomData(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IPlayReadyServiceRequest>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetChallengeCustomData)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetChallengeCustomData)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -3436,12 +3430,9 @@ impl IPlayReadyServiceRequest {
             (::windows::core::Interface::vtable(this).ChallengeCustomData)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    pub fn SetChallengeCustomData<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-    {
+    pub fn SetChallengeCustomData(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetChallengeCustomData)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetChallengeCustomData)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -5051,13 +5042,10 @@ impl NDTCPMessenger {
     }
     #[doc = "*Required features: `\"deprecated\"`*"]
     #[cfg(feature = "deprecated")]
-    pub fn CreateInstance<'a, P0>(remotehostname: P0, remotehostport: u32) -> ::windows::core::Result<NDTCPMessenger>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-    {
+    pub fn CreateInstance(remotehostname: &::windows::core::HSTRING, remotehostport: u32) -> ::windows::core::Result<NDTCPMessenger> {
         Self::INDTCPMessengerFactory(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).CreateInstance)(::windows::core::Interface::as_raw(this), remotehostname.into().abi(), remotehostport, result__.as_mut_ptr()).from_abi::<NDTCPMessenger>(result__)
+            (::windows::core::Interface::vtable(this).CreateInstance)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(remotehostname), remotehostport, result__.as_mut_ptr()).from_abi::<NDTCPMessenger>(result__)
         })
     }
     #[doc(hidden)]
@@ -5256,29 +5244,26 @@ impl PlayReadyContentHeader {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn CreateInstanceFromWindowsMediaDrmHeader<'a, P0, P1, P2>(headerbytes: &[u8], licenseacquisitionurl: P0, licenseacquisitionuserinterfaceurl: P1, customattributes: P2, domainserviceid: ::windows::core::GUID) -> ::windows::core::Result<PlayReadyContentHeader>
+    pub fn CreateInstanceFromWindowsMediaDrmHeader<'a, P0, P1>(headerbytes: &[u8], licenseacquisitionurl: P0, licenseacquisitionuserinterfaceurl: P1, customattributes: &::windows::core::HSTRING, domainserviceid: ::windows::core::GUID) -> ::windows::core::Result<PlayReadyContentHeader>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::Uri>>,
         P1: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::Uri>>,
-        P2: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
     {
         Self::IPlayReadyContentHeaderFactory(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).CreateInstanceFromWindowsMediaDrmHeader)(::windows::core::Interface::as_raw(this), headerbytes.len() as u32, ::core::mem::transmute(headerbytes.as_ptr()), licenseacquisitionurl.into().abi(), licenseacquisitionuserinterfaceurl.into().abi(), customattributes.into().abi(), domainserviceid, result__.as_mut_ptr()).from_abi::<PlayReadyContentHeader>(result__)
+            (::windows::core::Interface::vtable(this).CreateInstanceFromWindowsMediaDrmHeader)(::windows::core::Interface::as_raw(this), headerbytes.len() as u32, ::core::mem::transmute(headerbytes.as_ptr()), licenseacquisitionurl.into().abi(), licenseacquisitionuserinterfaceurl.into().abi(), ::core::mem::transmute_copy(customattributes), domainserviceid, result__.as_mut_ptr()).from_abi::<PlayReadyContentHeader>(result__)
         })
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn CreateInstanceFromComponents<'a, P0, P1, P2, P3>(contentkeyid: ::windows::core::GUID, contentkeyidstring: P0, contentencryptionalgorithm: PlayReadyEncryptionAlgorithm, licenseacquisitionurl: P1, licenseacquisitionuserinterfaceurl: P2, customattributes: P3, domainserviceid: ::windows::core::GUID) -> ::windows::core::Result<PlayReadyContentHeader>
+    pub fn CreateInstanceFromComponents<'a, P0, P1>(contentkeyid: ::windows::core::GUID, contentkeyidstring: &::windows::core::HSTRING, contentencryptionalgorithm: PlayReadyEncryptionAlgorithm, licenseacquisitionurl: P0, licenseacquisitionuserinterfaceurl: P1, customattributes: &::windows::core::HSTRING, domainserviceid: ::windows::core::GUID) -> ::windows::core::Result<PlayReadyContentHeader>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::Uri>>,
         P1: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::Uri>>,
-        P2: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::Uri>>,
-        P3: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
     {
         Self::IPlayReadyContentHeaderFactory(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).CreateInstanceFromComponents)(::windows::core::Interface::as_raw(this), contentkeyid, contentkeyidstring.into().abi(), contentencryptionalgorithm, licenseacquisitionurl.into().abi(), licenseacquisitionuserinterfaceurl.into().abi(), customattributes.into().abi(), domainserviceid, result__.as_mut_ptr()).from_abi::<PlayReadyContentHeader>(result__)
+            (::windows::core::Interface::vtable(this).CreateInstanceFromComponents)(::windows::core::Interface::as_raw(this), contentkeyid, ::core::mem::transmute_copy(contentkeyidstring), contentencryptionalgorithm, licenseacquisitionurl.into().abi(), licenseacquisitionuserinterfaceurl.into().abi(), ::core::mem::transmute_copy(customattributes), domainserviceid, result__.as_mut_ptr()).from_abi::<PlayReadyContentHeader>(result__)
         })
     }
     pub fn CreateInstanceFromPlayReadyHeader(headerbytes: &[u8]) -> ::windows::core::Result<PlayReadyContentHeader> {
@@ -5289,15 +5274,14 @@ impl PlayReadyContentHeader {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn CreateInstanceFromComponents2<'a, P0, P1, P2>(dwflags: u32, contentkeyids: &[::windows::core::GUID], contentkeyidstrings: &[::windows::core::HSTRING], contentencryptionalgorithm: PlayReadyEncryptionAlgorithm, licenseacquisitionurl: P0, licenseacquisitionuserinterfaceurl: P1, customattributes: P2, domainserviceid: ::windows::core::GUID) -> ::windows::core::Result<PlayReadyContentHeader>
+    pub fn CreateInstanceFromComponents2<'a, P0, P1>(dwflags: u32, contentkeyids: &[::windows::core::GUID], contentkeyidstrings: &[::windows::core::HSTRING], contentencryptionalgorithm: PlayReadyEncryptionAlgorithm, licenseacquisitionurl: P0, licenseacquisitionuserinterfaceurl: P1, customattributes: &::windows::core::HSTRING, domainserviceid: ::windows::core::GUID) -> ::windows::core::Result<PlayReadyContentHeader>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::Uri>>,
         P1: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::Uri>>,
-        P2: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
     {
         Self::IPlayReadyContentHeaderFactory2(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).CreateInstanceFromComponents2)(::windows::core::Interface::as_raw(this), dwflags, contentkeyids.len() as u32, ::core::mem::transmute(contentkeyids.as_ptr()), contentkeyidstrings.len() as u32, ::core::mem::transmute(contentkeyidstrings.as_ptr()), contentencryptionalgorithm, licenseacquisitionurl.into().abi(), licenseacquisitionuserinterfaceurl.into().abi(), customattributes.into().abi(), domainserviceid, result__.as_mut_ptr()).from_abi::<PlayReadyContentHeader>(result__)
+            (::windows::core::Interface::vtable(this).CreateInstanceFromComponents2)(::windows::core::Interface::as_raw(this), dwflags, contentkeyids.len() as u32, ::core::mem::transmute(contentkeyids.as_ptr()), contentkeyidstrings.len() as u32, ::core::mem::transmute(contentkeyidstrings.as_ptr()), contentencryptionalgorithm, licenseacquisitionurl.into().abi(), licenseacquisitionuserinterfaceurl.into().abi(), ::core::mem::transmute_copy(customattributes), domainserviceid, result__.as_mut_ptr()).from_abi::<PlayReadyContentHeader>(result__)
         })
     }
     #[doc(hidden)]
@@ -5868,12 +5852,9 @@ impl PlayReadyDomainJoinServiceRequest {
             (::windows::core::Interface::vtable(this).DomainFriendlyName)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    pub fn SetDomainFriendlyName<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-    {
+    pub fn SetDomainFriendlyName(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetDomainFriendlyName)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetDomainFriendlyName)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
     }
     pub fn DomainServiceId(&self) -> ::windows::core::Result<::windows::core::GUID> {
         let this = self;
@@ -5918,12 +5899,9 @@ impl PlayReadyDomainJoinServiceRequest {
             (::windows::core::Interface::vtable(this).ChallengeCustomData)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    pub fn SetChallengeCustomData<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-    {
+    pub fn SetChallengeCustomData(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IPlayReadyServiceRequest>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetChallengeCustomData)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetChallengeCustomData)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -6133,12 +6111,9 @@ impl PlayReadyDomainLeaveServiceRequest {
             (::windows::core::Interface::vtable(this).ChallengeCustomData)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    pub fn SetChallengeCustomData<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-    {
+    pub fn SetChallengeCustomData(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IPlayReadyServiceRequest>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetChallengeCustomData)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetChallengeCustomData)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -6518,12 +6493,9 @@ impl PlayReadyIndividualizationServiceRequest {
             (::windows::core::Interface::vtable(this).ChallengeCustomData)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    pub fn SetChallengeCustomData<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-    {
+    pub fn SetChallengeCustomData(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IPlayReadyServiceRequest>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetChallengeCustomData)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetChallengeCustomData)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -6918,12 +6890,9 @@ impl PlayReadyLicenseAcquisitionServiceRequest {
             (::windows::core::Interface::vtable(this).ChallengeCustomData)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    pub fn SetChallengeCustomData<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-    {
+    pub fn SetChallengeCustomData(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IPlayReadyServiceRequest>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetChallengeCustomData)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetChallengeCustomData)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -7598,12 +7567,9 @@ impl PlayReadyMeteringReportServiceRequest {
             (::windows::core::Interface::vtable(this).ChallengeCustomData)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    pub fn SetChallengeCustomData<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-    {
+    pub fn SetChallengeCustomData(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IPlayReadyServiceRequest>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetChallengeCustomData)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetChallengeCustomData)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -7791,12 +7757,9 @@ impl PlayReadyRevocationServiceRequest {
             (::windows::core::Interface::vtable(this).ChallengeCustomData)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    pub fn SetChallengeCustomData<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-    {
+    pub fn SetChallengeCustomData(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IPlayReadyServiceRequest>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetChallengeCustomData)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetChallengeCustomData)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -8306,12 +8269,9 @@ impl PlayReadySecureStopServiceRequest {
             (::windows::core::Interface::vtable(this).ChallengeCustomData)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    pub fn SetChallengeCustomData<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-    {
+    pub fn SetChallengeCustomData(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IPlayReadyServiceRequest>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetChallengeCustomData)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetChallengeCustomData)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]

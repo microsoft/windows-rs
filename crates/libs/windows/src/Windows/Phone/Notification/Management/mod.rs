@@ -52,29 +52,17 @@ impl AccessoryManager {
     pub fn RejectPhoneCallWithText(phonecallid: u32, textresponseid: u32) -> ::windows::core::Result<()> {
         Self::IAccessoryManager(|this| unsafe { (::windows::core::Interface::vtable(this).RejectPhoneCallWithText)(::windows::core::Interface::as_raw(this), phonecallid, textresponseid).ok() })
     }
-    pub fn MakePhoneCall<'a, P0>(phoneline: ::windows::core::GUID, phonenumber: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-    {
-        Self::IAccessoryManager(|this| unsafe { (::windows::core::Interface::vtable(this).MakePhoneCall)(::windows::core::Interface::as_raw(this), phoneline, phonenumber.into().abi()).ok() })
+    pub fn MakePhoneCall(phoneline: ::windows::core::GUID, phonenumber: &::windows::core::HSTRING) -> ::windows::core::Result<()> {
+        Self::IAccessoryManager(|this| unsafe { (::windows::core::Interface::vtable(this).MakePhoneCall)(::windows::core::Interface::as_raw(this), phoneline, ::core::mem::transmute_copy(phonenumber)).ok() })
     }
-    pub fn MakePhoneCallOnAudioEndpoint<'a, P0>(phoneline: ::windows::core::GUID, phonenumber: P0, endpoint: PhoneCallAudioEndpoint) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-    {
-        Self::IAccessoryManager(|this| unsafe { (::windows::core::Interface::vtable(this).MakePhoneCallOnAudioEndpoint)(::windows::core::Interface::as_raw(this), phoneline, phonenumber.into().abi(), endpoint).ok() })
+    pub fn MakePhoneCallOnAudioEndpoint(phoneline: ::windows::core::GUID, phonenumber: &::windows::core::HSTRING, endpoint: PhoneCallAudioEndpoint) -> ::windows::core::Result<()> {
+        Self::IAccessoryManager(|this| unsafe { (::windows::core::Interface::vtable(this).MakePhoneCallOnAudioEndpoint)(::windows::core::Interface::as_raw(this), phoneline, ::core::mem::transmute_copy(phonenumber), endpoint).ok() })
     }
-    pub fn MakePhoneCallWithVideo<'a, P0>(phoneline: ::windows::core::GUID, phonenumber: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-    {
-        Self::IAccessoryManager(|this| unsafe { (::windows::core::Interface::vtable(this).MakePhoneCallWithVideo)(::windows::core::Interface::as_raw(this), phoneline, phonenumber.into().abi()).ok() })
+    pub fn MakePhoneCallWithVideo(phoneline: ::windows::core::GUID, phonenumber: &::windows::core::HSTRING) -> ::windows::core::Result<()> {
+        Self::IAccessoryManager(|this| unsafe { (::windows::core::Interface::vtable(this).MakePhoneCallWithVideo)(::windows::core::Interface::as_raw(this), phoneline, ::core::mem::transmute_copy(phonenumber)).ok() })
     }
-    pub fn MakePhoneCallWithVideoOnAudioEndpoint<'a, P0>(phoneline: ::windows::core::GUID, phonenumber: P0, endpoint: PhoneCallAudioEndpoint) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-    {
-        Self::IAccessoryManager(|this| unsafe { (::windows::core::Interface::vtable(this).MakePhoneCallWithVideoOnAudioEndpoint)(::windows::core::Interface::as_raw(this), phoneline, phonenumber.into().abi(), endpoint).ok() })
+    pub fn MakePhoneCallWithVideoOnAudioEndpoint(phoneline: ::windows::core::GUID, phonenumber: &::windows::core::HSTRING, endpoint: PhoneCallAudioEndpoint) -> ::windows::core::Result<()> {
+        Self::IAccessoryManager(|this| unsafe { (::windows::core::Interface::vtable(this).MakePhoneCallWithVideoOnAudioEndpoint)(::windows::core::Interface::as_raw(this), phoneline, ::core::mem::transmute_copy(phonenumber), endpoint).ok() })
     }
     pub fn SwapPhoneCalls(phonecallidtohold: u32, phonecallidonhold: u32) -> ::windows::core::Result<()> {
         Self::IAccessoryManager(|this| unsafe { (::windows::core::Interface::vtable(this).SwapPhoneCalls)(::windows::core::Interface::as_raw(this), phonecallidtohold, phonecallidonhold).ok() })
@@ -172,25 +160,16 @@ impl AccessoryManager {
             (::windows::core::Interface::vtable(this).GetApps)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::Collections::IMapView<::windows::core::HSTRING, AppNotificationInfo>>(result__)
         })
     }
-    pub fn EnableNotificationsForApplication<'a, P0>(appid: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-    {
-        Self::IAccessoryManager(|this| unsafe { (::windows::core::Interface::vtable(this).EnableNotificationsForApplication)(::windows::core::Interface::as_raw(this), appid.into().abi()).ok() })
+    pub fn EnableNotificationsForApplication(appid: &::windows::core::HSTRING) -> ::windows::core::Result<()> {
+        Self::IAccessoryManager(|this| unsafe { (::windows::core::Interface::vtable(this).EnableNotificationsForApplication)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(appid)).ok() })
     }
-    pub fn DisableNotificationsForApplication<'a, P0>(appid: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-    {
-        Self::IAccessoryManager(|this| unsafe { (::windows::core::Interface::vtable(this).DisableNotificationsForApplication)(::windows::core::Interface::as_raw(this), appid.into().abi()).ok() })
+    pub fn DisableNotificationsForApplication(appid: &::windows::core::HSTRING) -> ::windows::core::Result<()> {
+        Self::IAccessoryManager(|this| unsafe { (::windows::core::Interface::vtable(this).DisableNotificationsForApplication)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(appid)).ok() })
     }
-    pub fn IsNotificationEnabledForApplication<'a, P0>(appid: P0) -> ::windows::core::Result<bool>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-    {
+    pub fn IsNotificationEnabledForApplication(appid: &::windows::core::HSTRING) -> ::windows::core::Result<bool> {
         Self::IAccessoryManager(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).IsNotificationEnabledForApplication)(::windows::core::Interface::as_raw(this), appid.into().abi(), result__.as_mut_ptr()).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).IsNotificationEnabledForApplication)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(appid), result__.as_mut_ptr()).from_abi::<bool>(result__)
         })
     }
     pub fn GetEnabledAccessoryNotificationTypes() -> ::windows::core::Result<i32> {
@@ -213,13 +192,10 @@ impl AccessoryManager {
     }
     #[doc = "*Required features: `\"Storage_Streams\"`*"]
     #[cfg(feature = "Storage_Streams")]
-    pub fn GetAppIcon<'a, P0>(appid: P0) -> ::windows::core::Result<super::super::super::Storage::Streams::IRandomAccessStreamReference>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-    {
+    pub fn GetAppIcon(appid: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::super::Storage::Streams::IRandomAccessStreamReference> {
         Self::IAccessoryManager(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).GetAppIcon)(::windows::core::Interface::as_raw(this), appid.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::Storage::Streams::IRandomAccessStreamReference>(result__)
+            (::windows::core::Interface::vtable(this).GetAppIcon)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(appid), result__.as_mut_ptr()).from_abi::<super::super::super::Storage::Streams::IRandomAccessStreamReference>(result__)
         })
     }
     pub fn RingDevice() -> ::windows::core::Result<()> {
@@ -233,11 +209,8 @@ impl AccessoryManager {
             (::windows::core::Interface::vtable(this).SpeedDialList)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::Collections::IVectorView<SpeedDialEntry>>(result__)
         })
     }
-    pub fn ClearToast<'a, P0>(instanceid: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-    {
-        Self::IAccessoryManager2(|this| unsafe { (::windows::core::Interface::vtable(this).ClearToast)(::windows::core::Interface::as_raw(this), instanceid.into().abi()).ok() })
+    pub fn ClearToast(instanceid: &::windows::core::HSTRING) -> ::windows::core::Result<()> {
+        Self::IAccessoryManager2(|this| unsafe { (::windows::core::Interface::vtable(this).ClearToast)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(instanceid)).ok() })
     }
     pub fn IsPhonePinLocked() -> ::windows::core::Result<bool> {
         Self::IAccessoryManager2(|this| unsafe {
@@ -273,36 +246,26 @@ impl AccessoryManager {
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn GetFolders<'a, P0>(emailaccount: P0) -> ::windows::core::Result<super::super::super::Foundation::Collections::IVectorView<EmailFolderInfo>>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-    {
+    pub fn GetFolders(emailaccount: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::super::Foundation::Collections::IVectorView<EmailFolderInfo>> {
         Self::IAccessoryManager2(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).GetFolders)(::windows::core::Interface::as_raw(this), emailaccount.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::Collections::IVectorView<EmailFolderInfo>>(result__)
+            (::windows::core::Interface::vtable(this).GetFolders)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(emailaccount), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::Collections::IVectorView<EmailFolderInfo>>(result__)
         })
     }
-    pub fn EnableEmailNotificationEmailAccount<'a, P0>(emailaccount: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-    {
-        Self::IAccessoryManager2(|this| unsafe { (::windows::core::Interface::vtable(this).EnableEmailNotificationEmailAccount)(::windows::core::Interface::as_raw(this), emailaccount.into().abi()).ok() })
+    pub fn EnableEmailNotificationEmailAccount(emailaccount: &::windows::core::HSTRING) -> ::windows::core::Result<()> {
+        Self::IAccessoryManager2(|this| unsafe { (::windows::core::Interface::vtable(this).EnableEmailNotificationEmailAccount)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(emailaccount)).ok() })
     }
-    pub fn DisableEmailNotificationEmailAccount<'a, P0>(emailaccount: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-    {
-        Self::IAccessoryManager2(|this| unsafe { (::windows::core::Interface::vtable(this).DisableEmailNotificationEmailAccount)(::windows::core::Interface::as_raw(this), emailaccount.into().abi()).ok() })
+    pub fn DisableEmailNotificationEmailAccount(emailaccount: &::windows::core::HSTRING) -> ::windows::core::Result<()> {
+        Self::IAccessoryManager2(|this| unsafe { (::windows::core::Interface::vtable(this).DisableEmailNotificationEmailAccount)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(emailaccount)).ok() })
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn EnableEmailNotificationFolderFilter<'a, P0, P1, E1>(emailaccount: P0, folders: P1) -> ::windows::core::Result<()>
+    pub fn EnableEmailNotificationFolderFilter<'a, P0, E0>(emailaccount: &::windows::core::HSTRING, folders: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-        P1: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::super::Foundation::Collections::IVectorView<::windows::core::HSTRING>>, Error = E1>,
-        E1: ::std::convert::Into<::windows::core::Error>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::super::Foundation::Collections::IVectorView<::windows::core::HSTRING>>, Error = E0>,
+        E0: ::std::convert::Into<::windows::core::Error>,
     {
-        Self::IAccessoryManager2(|this| unsafe { (::windows::core::Interface::vtable(this).EnableEmailNotificationFolderFilter)(::windows::core::Interface::as_raw(this), emailaccount.into().abi(), folders.try_into().map_err(|e| e.into())?.abi()).ok() })
+        Self::IAccessoryManager2(|this| unsafe { (::windows::core::Interface::vtable(this).EnableEmailNotificationFolderFilter)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(emailaccount), folders.try_into().map_err(|e| e.into())?.abi()).ok() })
     }
     pub fn UpdateEmailReadStatus<'a, P0>(messageentryid: P0, isread: bool) -> ::windows::core::Result<()>
     where
@@ -310,29 +273,17 @@ impl AccessoryManager {
     {
         Self::IAccessoryManager2(|this| unsafe { (::windows::core::Interface::vtable(this).UpdateEmailReadStatus)(::windows::core::Interface::as_raw(this), messageentryid.into().abi(), isread).ok() })
     }
-    pub fn SnoozeAlarmByInstanceId<'a, P0>(instanceid: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-    {
-        Self::IAccessoryManager3(|this| unsafe { (::windows::core::Interface::vtable(this).SnoozeAlarmByInstanceId)(::windows::core::Interface::as_raw(this), instanceid.into().abi()).ok() })
+    pub fn SnoozeAlarmByInstanceId(instanceid: &::windows::core::HSTRING) -> ::windows::core::Result<()> {
+        Self::IAccessoryManager3(|this| unsafe { (::windows::core::Interface::vtable(this).SnoozeAlarmByInstanceId)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(instanceid)).ok() })
     }
-    pub fn DismissAlarmByInstanceId<'a, P0>(instanceid: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-    {
-        Self::IAccessoryManager3(|this| unsafe { (::windows::core::Interface::vtable(this).DismissAlarmByInstanceId)(::windows::core::Interface::as_raw(this), instanceid.into().abi()).ok() })
+    pub fn DismissAlarmByInstanceId(instanceid: &::windows::core::HSTRING) -> ::windows::core::Result<()> {
+        Self::IAccessoryManager3(|this| unsafe { (::windows::core::Interface::vtable(this).DismissAlarmByInstanceId)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(instanceid)).ok() })
     }
-    pub fn SnoozeReminderByInstanceId<'a, P0>(instanceid: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-    {
-        Self::IAccessoryManager3(|this| unsafe { (::windows::core::Interface::vtable(this).SnoozeReminderByInstanceId)(::windows::core::Interface::as_raw(this), instanceid.into().abi()).ok() })
+    pub fn SnoozeReminderByInstanceId(instanceid: &::windows::core::HSTRING) -> ::windows::core::Result<()> {
+        Self::IAccessoryManager3(|this| unsafe { (::windows::core::Interface::vtable(this).SnoozeReminderByInstanceId)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(instanceid)).ok() })
     }
-    pub fn DismissReminderByInstanceId<'a, P0>(instanceid: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-    {
-        Self::IAccessoryManager3(|this| unsafe { (::windows::core::Interface::vtable(this).DismissReminderByInstanceId)(::windows::core::Interface::as_raw(this), instanceid.into().abi()).ok() })
+    pub fn DismissReminderByInstanceId(instanceid: &::windows::core::HSTRING) -> ::windows::core::Result<()> {
+        Self::IAccessoryManager3(|this| unsafe { (::windows::core::Interface::vtable(this).DismissReminderByInstanceId)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(instanceid)).ok() })
     }
     #[doc(hidden)]
     pub fn IAccessoryManager<R, F: FnOnce(&IAccessoryManager) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {

@@ -10747,7 +10747,7 @@ pub struct IGetClusterDataInfo(::windows::core::IUnknown);
 impl IGetClusterDataInfo {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetClusterName(&self, lpszname: super::super::Foundation::BSTR, pcchname: *mut i32) -> ::windows::core::Result<()> {
+    pub unsafe fn GetClusterName(&self, lpszname: &super::super::Foundation::BSTR, pcchname: *mut i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).GetClusterName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lpszname), ::core::mem::transmute(pcchname)).ok()
     }
     pub unsafe fn GetClusterHandle(&self) -> *mut _HCLUSTER {
@@ -11005,7 +11005,7 @@ pub struct IGetClusterObjectInfo(::windows::core::IUnknown);
 impl IGetClusterObjectInfo {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetObjectName(&self, lobjindex: i32, lpszname: super::super::Foundation::BSTR, pcchname: *mut i32) -> ::windows::core::Result<()> {
+    pub unsafe fn GetObjectName(&self, lobjindex: i32, lpszname: &super::super::Foundation::BSTR, pcchname: *mut i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).GetObjectName)(::windows::core::Interface::as_raw(self), lobjindex, ::core::mem::transmute(lpszname), ::core::mem::transmute(pcchname)).ok()
     }
     pub unsafe fn GetObjectType(&self, lobjindex: i32) -> CLUADMEX_OBJECT_TYPE {
@@ -11066,12 +11066,12 @@ impl IGetClusterResourceInfo {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetResourceTypeName(&self, lobjindex: i32, lpszrestypename: super::super::Foundation::BSTR, pcchrestypename: *mut i32) -> ::windows::core::Result<()> {
+    pub unsafe fn GetResourceTypeName(&self, lobjindex: i32, lpszrestypename: &super::super::Foundation::BSTR, pcchrestypename: *mut i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).GetResourceTypeName)(::windows::core::Interface::as_raw(self), lobjindex, ::core::mem::transmute(lpszrestypename), ::core::mem::transmute(pcchrestypename)).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetResourceNetworkName(&self, lobjindex: i32, lpsznetname: super::super::Foundation::BSTR, pcchnetname: *mut u32) -> super::super::Foundation::BOOL {
+    pub unsafe fn GetResourceNetworkName(&self, lobjindex: i32, lpsznetname: &super::super::Foundation::BSTR, pcchnetname: *mut u32) -> super::super::Foundation::BOOL {
         (::windows::core::Interface::vtable(self).GetResourceNetworkName)(::windows::core::Interface::as_raw(self), lobjindex, ::core::mem::transmute(lpsznetname), ::core::mem::transmute(pcchnetname))
     }
 }
@@ -11130,7 +11130,7 @@ pub struct IGetClusterUIInfo(::windows::core::IUnknown);
 impl IGetClusterUIInfo {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetClusterName(&self, lpszname: super::super::Foundation::BSTR, pcchname: *mut i32) -> ::windows::core::Result<()> {
+    pub unsafe fn GetClusterName(&self, lpszname: &super::super::Foundation::BSTR, pcchname: *mut i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).GetClusterName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lpszname), ::core::mem::transmute(pcchname)).ok()
     }
     pub unsafe fn GetLocale(&self) -> u32 {

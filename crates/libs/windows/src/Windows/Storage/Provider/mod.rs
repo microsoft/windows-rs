@@ -99,13 +99,12 @@ unsafe impl ::windows::core::RuntimeType for CachedFileTarget {
 #[doc = "*Required features: `\"Storage_Provider\"`*"]
 pub struct CachedFileUpdater;
 impl CachedFileUpdater {
-    pub fn SetUpdateInformation<'a, P0, E0, P1>(file: P0, contentid: P1, readmode: ReadActivationMode, writemode: WriteActivationMode, options: CachedFileOptions) -> ::windows::core::Result<()>
+    pub fn SetUpdateInformation<'a, P0, E0>(file: P0, contentid: &::windows::core::HSTRING, readmode: ReadActivationMode, writemode: WriteActivationMode, options: CachedFileOptions) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::IStorageFile>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
-        P1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
     {
-        Self::ICachedFileUpdaterStatics(|this| unsafe { (::windows::core::Interface::vtable(this).SetUpdateInformation)(::windows::core::Interface::as_raw(this), file.try_into().map_err(|e| e.into())?.abi(), contentid.into().abi(), readmode, writemode, options).ok() })
+        Self::ICachedFileUpdaterStatics(|this| unsafe { (::windows::core::Interface::vtable(this).SetUpdateInformation)(::windows::core::Interface::as_raw(this), file.try_into().map_err(|e| e.into())?.abi(), ::core::mem::transmute_copy(contentid), readmode, writemode, options).ok() })
     }
     #[doc(hidden)]
     pub fn ICachedFileUpdaterStatics<R, F: FnOnce(&ICachedFileUpdaterStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
@@ -127,12 +126,9 @@ impl CachedFileUpdaterUI {
             (::windows::core::Interface::vtable(this).Title)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    pub fn SetTitle<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-    {
+    pub fn SetTitle(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetTitle)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetTitle)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
     }
     pub fn UpdateTarget(&self) -> ::windows::core::Result<CachedFileTarget> {
         let this = self;
@@ -310,12 +306,9 @@ impl FileUpdateRequest {
             (::windows::core::Interface::vtable(this).UserInputNeededMessage)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    pub fn SetUserInputNeededMessage<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-    {
+    pub fn SetUserInputNeededMessage(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IFileUpdateRequest2>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetUserInputNeededMessage)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetUserInputNeededMessage)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
     }
 }
 impl ::core::clone::Clone for FileUpdateRequest {
@@ -808,14 +801,11 @@ pub struct IStorageProviderGetPathForContentUriResult_Vtbl {
 #[repr(transparent)]
 pub struct IStorageProviderHandlerFactory(::windows::core::IUnknown);
 impl IStorageProviderHandlerFactory {
-    pub fn GetStatusSource<'a, P0>(&self, syncrootid: P0) -> ::windows::core::Result<IStorageProviderStatusSource>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-    {
+    pub fn GetStatusSource(&self, syncrootid: &::windows::core::HSTRING) -> ::windows::core::Result<IStorageProviderStatusSource> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).GetStatusSource)(::windows::core::Interface::as_raw(this), syncrootid.into().abi(), result__.as_mut_ptr()).from_abi::<IStorageProviderStatusSource>(result__)
+            (::windows::core::Interface::vtable(this).GetStatusSource)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(syncrootid), result__.as_mut_ptr()).from_abi::<IStorageProviderStatusSource>(result__)
         }
     }
 }
@@ -938,14 +928,11 @@ pub struct IStorageProviderItemPropertySource(::windows::core::IUnknown);
 impl IStorageProviderItemPropertySource {
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn GetItemProperties<'a, P0>(&self, itempath: P0) -> ::windows::core::Result<super::super::Foundation::Collections::IIterable<StorageProviderItemProperty>>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-    {
+    pub fn GetItemProperties(&self, itempath: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::Collections::IIterable<StorageProviderItemProperty>> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).GetItemProperties)(::windows::core::Interface::as_raw(this), itempath.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Collections::IIterable<StorageProviderItemProperty>>(result__)
+            (::windows::core::Interface::vtable(this).GetItemProperties)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(itempath), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Collections::IIterable<StorageProviderItemProperty>>(result__)
         }
     }
 }
@@ -1019,14 +1006,11 @@ pub struct IStorageProviderItemPropertySource_Vtbl {
 #[repr(transparent)]
 pub struct IStorageProviderPropertyCapabilities(::windows::core::IUnknown);
 impl IStorageProviderPropertyCapabilities {
-    pub fn IsPropertySupported<'a, P0>(&self, propertycanonicalname: P0) -> ::windows::core::Result<bool>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-    {
+    pub fn IsPropertySupported(&self, propertycanonicalname: &::windows::core::HSTRING) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).IsPropertySupported)(::windows::core::Interface::as_raw(this), propertycanonicalname.into().abi(), result__.as_mut_ptr()).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).IsPropertySupported)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(propertycanonicalname), result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
 }
@@ -1354,21 +1338,19 @@ pub struct IStorageProviderSyncRootManagerStatics2_Vtbl {
 #[repr(transparent)]
 pub struct IStorageProviderUriSource(::windows::core::IUnknown);
 impl IStorageProviderUriSource {
-    pub fn GetPathForContentUri<'a, P0, P1>(&self, contenturi: P0, result: P1) -> ::windows::core::Result<()>
+    pub fn GetPathForContentUri<'a, P0>(&self, contenturi: &::windows::core::HSTRING, result: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-        P1: ::std::convert::Into<::windows::core::InParam<'a, StorageProviderGetPathForContentUriResult>>,
+        P0: ::std::convert::Into<::windows::core::InParam<'a, StorageProviderGetPathForContentUriResult>>,
     {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).GetPathForContentUri)(::windows::core::Interface::as_raw(this), contenturi.into().abi(), result.into().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).GetPathForContentUri)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(contenturi), result.into().abi()).ok() }
     }
-    pub fn GetContentInfoForPath<'a, P0, P1>(&self, path: P0, result: P1) -> ::windows::core::Result<()>
+    pub fn GetContentInfoForPath<'a, P0>(&self, path: &::windows::core::HSTRING, result: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-        P1: ::std::convert::Into<::windows::core::InParam<'a, StorageProviderGetContentInfoForPathResult>>,
+        P0: ::std::convert::Into<::windows::core::InParam<'a, StorageProviderGetContentInfoForPathResult>>,
     {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).GetContentInfoForPath)(::windows::core::Interface::as_raw(this), path.into().abi(), result.into().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).GetContentInfoForPath)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(path), result.into().abi()).ok() }
     }
 }
 impl ::core::convert::From<IStorageProviderUriSource> for ::windows::core::IUnknown {
@@ -1501,12 +1483,9 @@ impl StorageProviderError {
             (::windows::core::Interface::vtable(this).FilePath)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    pub fn SetFilePath<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-    {
+    pub fn SetFilePath(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetFilePath)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetFilePath)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
     }
     pub fn PrimaryAction(&self) -> ::windows::core::Result<StorageProviderErrorCommand> {
         let this = self;
@@ -1550,15 +1529,10 @@ impl StorageProviderError {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetInformationalLink)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
-    pub fn CreateInstance<'a, P0, P1, P2>(id: P0, title: P1, message: P2) -> ::windows::core::Result<StorageProviderError>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-        P1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-        P2: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-    {
+    pub fn CreateInstance(id: &::windows::core::HSTRING, title: &::windows::core::HSTRING, message: &::windows::core::HSTRING) -> ::windows::core::Result<StorageProviderError> {
         Self::IStorageProviderErrorFactory(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).CreateInstance)(::windows::core::Interface::as_raw(this), id.into().abi(), title.into().abi(), message.into().abi(), result__.as_mut_ptr()).from_abi::<StorageProviderError>(result__)
+            (::windows::core::Interface::vtable(this).CreateInstance)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(id), ::core::mem::transmute_copy(title), ::core::mem::transmute_copy(message), result__.as_mut_ptr()).from_abi::<StorageProviderError>(result__)
         })
     }
     #[doc(hidden)]
@@ -1651,14 +1625,13 @@ impl StorageProviderErrorCommand {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn CreateInstance<'a, P0, P1>(label: P0, actionuri: P1) -> ::windows::core::Result<StorageProviderErrorCommand>
+    pub fn CreateInstance<'a, P0>(label: &::windows::core::HSTRING, actionuri: P0) -> ::windows::core::Result<StorageProviderErrorCommand>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-        P1: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::Uri>>,
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::Uri>>,
     {
         Self::IStorageProviderErrorCommandFactory(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).CreateInstance)(::windows::core::Interface::as_raw(this), label.into().abi(), actionuri.into().abi(), result__.as_mut_ptr()).from_abi::<StorageProviderErrorCommand>(result__)
+            (::windows::core::Interface::vtable(this).CreateInstance)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(label), actionuri.into().abi(), result__.as_mut_ptr()).from_abi::<StorageProviderErrorCommand>(result__)
         })
     }
     #[doc(hidden)]
@@ -1747,14 +1720,10 @@ impl StorageProviderFileTypeInfo {
             (::windows::core::Interface::vtable(this).IconResource)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    pub fn CreateInstance<'a, P0, P1>(fileextension: P0, iconresource: P1) -> ::windows::core::Result<StorageProviderFileTypeInfo>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-        P1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-    {
+    pub fn CreateInstance(fileextension: &::windows::core::HSTRING, iconresource: &::windows::core::HSTRING) -> ::windows::core::Result<StorageProviderFileTypeInfo> {
         Self::IStorageProviderFileTypeInfoFactory(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).CreateInstance)(::windows::core::Interface::as_raw(this), fileextension.into().abi(), iconresource.into().abi(), result__.as_mut_ptr()).from_abi::<StorageProviderFileTypeInfo>(result__)
+            (::windows::core::Interface::vtable(this).CreateInstance)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(fileextension), ::core::mem::transmute_copy(iconresource), result__.as_mut_ptr()).from_abi::<StorageProviderFileTypeInfo>(result__)
         })
     }
     #[doc(hidden)]
@@ -1854,12 +1823,9 @@ impl StorageProviderGetContentInfoForPathResult {
             (::windows::core::Interface::vtable(this).ContentUri)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    pub fn SetContentUri<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-    {
+    pub fn SetContentUri(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetContentUri)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetContentUri)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
     }
     pub fn ContentId(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
@@ -1868,12 +1834,9 @@ impl StorageProviderGetContentInfoForPathResult {
             (::windows::core::Interface::vtable(this).ContentId)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    pub fn SetContentId<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-    {
+    pub fn SetContentId(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetContentId)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetContentId)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
     }
 }
 impl ::core::clone::Clone for StorageProviderGetContentInfoForPathResult {
@@ -1967,12 +1930,9 @@ impl StorageProviderGetPathForContentUriResult {
             (::windows::core::Interface::vtable(this).Path)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    pub fn SetPath<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-    {
+    pub fn SetPath(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetPath)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetPath)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
     }
 }
 impl ::core::clone::Clone for StorageProviderGetPathForContentUriResult {
@@ -2320,12 +2280,9 @@ impl StorageProviderItemProperty {
             (::windows::core::Interface::vtable(this).Id)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<i32>(result__)
         }
     }
-    pub fn SetValue<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-    {
+    pub fn SetValue(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetValue)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetValue)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
     }
     pub fn Value(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
@@ -2334,12 +2291,9 @@ impl StorageProviderItemProperty {
             (::windows::core::Interface::vtable(this).Value)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    pub fn SetIconResource<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-    {
+    pub fn SetIconResource(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetIconResource)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetIconResource)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
     }
     pub fn IconResource(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
@@ -2440,12 +2394,9 @@ impl StorageProviderItemPropertyDefinition {
             (::windows::core::Interface::vtable(this).DisplayNameResource)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    pub fn SetDisplayNameResource<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-    {
+    pub fn SetDisplayNameResource(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetDisplayNameResource)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetDisplayNameResource)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
     }
 }
 impl ::core::clone::Clone for StorageProviderItemPropertyDefinition {
@@ -2643,26 +2594,22 @@ impl StorageProviderStatus {
             (::windows::core::Interface::vtable(this).ErrorMessages)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Collections::IVectorView<StorageProviderError>>(result__)
         }
     }
-    pub fn CreateInstance<'a, P0>(state: StorageProviderState, message: P0) -> ::windows::core::Result<StorageProviderStatus>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-    {
+    pub fn CreateInstance(state: StorageProviderState, message: &::windows::core::HSTRING) -> ::windows::core::Result<StorageProviderStatus> {
         Self::IStorageProviderStatusFactory(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).CreateInstance)(::windows::core::Interface::as_raw(this), state, message.into().abi(), result__.as_mut_ptr()).from_abi::<StorageProviderStatus>(result__)
+            (::windows::core::Interface::vtable(this).CreateInstance)(::windows::core::Interface::as_raw(this), state, ::core::mem::transmute_copy(message), result__.as_mut_ptr()).from_abi::<StorageProviderStatus>(result__)
         })
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn CreateInstance2<'a, P0, P1, E1>(state: StorageProviderState, message: P0, errormessages: P1) -> ::windows::core::Result<StorageProviderStatus>
+    pub fn CreateInstance2<'a, P0, E0>(state: StorageProviderState, message: &::windows::core::HSTRING, errormessages: P0) -> ::windows::core::Result<StorageProviderStatus>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-        P1: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<StorageProviderError>>, Error = E1>,
-        E1: ::std::convert::Into<::windows::core::Error>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<StorageProviderError>>, Error = E0>,
+        E0: ::std::convert::Into<::windows::core::Error>,
     {
         Self::IStorageProviderStatusFactory(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).CreateInstance2)(::windows::core::Interface::as_raw(this), state, message.into().abi(), errormessages.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<StorageProviderStatus>(result__)
+            (::windows::core::Interface::vtable(this).CreateInstance2)(::windows::core::Interface::as_raw(this), state, ::core::mem::transmute_copy(message), errormessages.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<StorageProviderStatus>(result__)
         })
     }
     #[doc(hidden)]
@@ -2751,12 +2698,9 @@ impl StorageProviderSyncRootInfo {
             (::windows::core::Interface::vtable(this).Id)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    pub fn SetId<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-    {
+    pub fn SetId(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetId)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetId)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
     }
     #[doc = "*Required features: `\"Storage_Streams\"`*"]
     #[cfg(feature = "Storage_Streams")]
@@ -2799,12 +2743,9 @@ impl StorageProviderSyncRootInfo {
             (::windows::core::Interface::vtable(this).DisplayNameResource)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    pub fn SetDisplayNameResource<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-    {
+    pub fn SetDisplayNameResource(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetDisplayNameResource)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetDisplayNameResource)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
     }
     pub fn IconResource(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
@@ -2813,12 +2754,9 @@ impl StorageProviderSyncRootInfo {
             (::windows::core::Interface::vtable(this).IconResource)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    pub fn SetIconResource<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-    {
+    pub fn SetIconResource(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetIconResource)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetIconResource)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
     }
     pub fn HydrationPolicy(&self) -> ::windows::core::Result<StorageProviderHydrationPolicy> {
         let this = self;
@@ -2893,12 +2831,9 @@ impl StorageProviderSyncRootInfo {
             (::windows::core::Interface::vtable(this).Version)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    pub fn SetVersion<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-    {
+    pub fn SetVersion(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetVersion)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetVersion)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
     }
     pub fn ProtectionMode(&self) -> ::windows::core::Result<StorageProviderProtectionMode> {
         let this = self;
@@ -3041,11 +2976,8 @@ impl StorageProviderSyncRootManager {
     {
         Self::IStorageProviderSyncRootManagerStatics(|this| unsafe { (::windows::core::Interface::vtable(this).Register)(::windows::core::Interface::as_raw(this), syncrootinformation.into().abi()).ok() })
     }
-    pub fn Unregister<'a, P0>(id: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-    {
-        Self::IStorageProviderSyncRootManagerStatics(|this| unsafe { (::windows::core::Interface::vtable(this).Unregister)(::windows::core::Interface::as_raw(this), id.into().abi()).ok() })
+    pub fn Unregister(id: &::windows::core::HSTRING) -> ::windows::core::Result<()> {
+        Self::IStorageProviderSyncRootManagerStatics(|this| unsafe { (::windows::core::Interface::vtable(this).Unregister)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(id)).ok() })
     }
     pub fn GetSyncRootInformationForFolder<'a, P0, E0>(folder: P0) -> ::windows::core::Result<StorageProviderSyncRootInfo>
     where
@@ -3057,13 +2989,10 @@ impl StorageProviderSyncRootManager {
             (::windows::core::Interface::vtable(this).GetSyncRootInformationForFolder)(::windows::core::Interface::as_raw(this), folder.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<StorageProviderSyncRootInfo>(result__)
         })
     }
-    pub fn GetSyncRootInformationForId<'a, P0>(id: P0) -> ::windows::core::Result<StorageProviderSyncRootInfo>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-    {
+    pub fn GetSyncRootInformationForId(id: &::windows::core::HSTRING) -> ::windows::core::Result<StorageProviderSyncRootInfo> {
         Self::IStorageProviderSyncRootManagerStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).GetSyncRootInformationForId)(::windows::core::Interface::as_raw(this), id.into().abi(), result__.as_mut_ptr()).from_abi::<StorageProviderSyncRootInfo>(result__)
+            (::windows::core::Interface::vtable(this).GetSyncRootInformationForId)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(id), result__.as_mut_ptr()).from_abi::<StorageProviderSyncRootInfo>(result__)
         })
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
