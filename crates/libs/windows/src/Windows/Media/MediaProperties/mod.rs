@@ -111,7 +111,7 @@ impl AudioEncodingProperties {
     }
     pub fn SetFormatUserData(&self, value: &[u8]) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IAudioEncodingPropertiesWithFormatUserData>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetFormatUserData)(::windows::core::Interface::as_raw(this), value.len() as u32, ::core::mem::transmute(value.as_ptr())).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetFormatUserData)(::windows::core::Interface::as_raw(this), value.len() as u32, value.as_ptr()).ok() }
     }
     pub fn GetFormatUserData(&self, value: &mut ::windows::core::Array<u8>) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IAudioEncodingPropertiesWithFormatUserData>(self)?;
@@ -2642,7 +2642,7 @@ impl TimedMetadataEncodingProperties {
     }
     pub fn SetFormatUserData(&self, value: &[u8]) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<ITimedMetadataEncodingProperties>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetFormatUserData)(::windows::core::Interface::as_raw(this), value.len() as u32, ::core::mem::transmute(value.as_ptr())).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetFormatUserData)(::windows::core::Interface::as_raw(this), value.len() as u32, value.as_ptr()).ok() }
     }
     pub fn GetFormatUserData(&self, value: &mut ::windows::core::Array<u8>) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<ITimedMetadataEncodingProperties>(self)?;
@@ -2670,13 +2670,13 @@ impl TimedMetadataEncodingProperties {
     pub fn CreateSsa(formatuserdata: &[u8]) -> ::windows::core::Result<TimedMetadataEncodingProperties> {
         Self::ITimedMetadataEncodingPropertiesStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).CreateSsa)(::windows::core::Interface::as_raw(this), formatuserdata.len() as u32, ::core::mem::transmute(formatuserdata.as_ptr()), result__.as_mut_ptr()).from_abi::<TimedMetadataEncodingProperties>(result__)
+            (::windows::core::Interface::vtable(this).CreateSsa)(::windows::core::Interface::as_raw(this), formatuserdata.len() as u32, formatuserdata.as_ptr(), result__.as_mut_ptr()).from_abi::<TimedMetadataEncodingProperties>(result__)
         })
     }
     pub fn CreateVobSub(formatuserdata: &[u8]) -> ::windows::core::Result<TimedMetadataEncodingProperties> {
         Self::ITimedMetadataEncodingPropertiesStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).CreateVobSub)(::windows::core::Interface::as_raw(this), formatuserdata.len() as u32, ::core::mem::transmute(formatuserdata.as_ptr()), result__.as_mut_ptr()).from_abi::<TimedMetadataEncodingProperties>(result__)
+            (::windows::core::Interface::vtable(this).CreateVobSub)(::windows::core::Interface::as_raw(this), formatuserdata.len() as u32, formatuserdata.as_ptr(), result__.as_mut_ptr()).from_abi::<TimedMetadataEncodingProperties>(result__)
         })
     }
     #[doc(hidden)]
@@ -2853,7 +2853,7 @@ impl VideoEncodingProperties {
     }
     pub fn SetFormatUserData(&self, value: &[u8]) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IVideoEncodingProperties2>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetFormatUserData)(::windows::core::Interface::as_raw(this), value.len() as u32, ::core::mem::transmute(value.as_ptr())).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetFormatUserData)(::windows::core::Interface::as_raw(this), value.len() as u32, value.as_ptr()).ok() }
     }
     pub fn GetFormatUserData(&self, value: &mut ::windows::core::Array<u8>) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IVideoEncodingProperties2>(self)?;

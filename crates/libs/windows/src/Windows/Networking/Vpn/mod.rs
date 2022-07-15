@@ -986,7 +986,7 @@ impl IVpnInterfaceIdFactory {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).CreateVpnInterfaceId)(::windows::core::Interface::as_raw(this), address.len() as u32, ::core::mem::transmute(address.as_ptr()), result__.as_mut_ptr()).from_abi::<VpnInterfaceId>(result__)
+            (::windows::core::Interface::vtable(this).CreateVpnInterfaceId)(::windows::core::Interface::as_raw(this), address.len() as u32, address.as_ptr(), result__.as_mut_ptr()).from_abi::<VpnInterfaceId>(result__)
         }
     }
 }
@@ -4995,7 +4995,7 @@ impl VpnInterfaceId {
     pub fn CreateVpnInterfaceId(address: &[u8]) -> ::windows::core::Result<VpnInterfaceId> {
         Self::IVpnInterfaceIdFactory(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).CreateVpnInterfaceId)(::windows::core::Interface::as_raw(this), address.len() as u32, ::core::mem::transmute(address.as_ptr()), result__.as_mut_ptr()).from_abi::<VpnInterfaceId>(result__)
+            (::windows::core::Interface::vtable(this).CreateVpnInterfaceId)(::windows::core::Interface::as_raw(this), address.len() as u32, address.as_ptr(), result__.as_mut_ptr()).from_abi::<VpnInterfaceId>(result__)
         })
     }
     #[doc(hidden)]

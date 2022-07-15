@@ -7240,7 +7240,7 @@ impl TouchHitTestingEventArgs {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).EvaluateProximityToPolygon)(::windows::core::Interface::as_raw(this), controlvertices.len() as u32, ::core::mem::transmute(controlvertices.as_ptr()), result__.as_mut_ptr()).from_abi::<CoreProximityEvaluation>(result__)
+            (::windows::core::Interface::vtable(this).EvaluateProximityToPolygon)(::windows::core::Interface::as_raw(this), controlvertices.len() as u32, controlvertices.as_ptr(), result__.as_mut_ptr()).from_abi::<CoreProximityEvaluation>(result__)
         }
     }
 }

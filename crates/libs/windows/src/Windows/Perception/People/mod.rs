@@ -194,7 +194,7 @@ impl HandMeshObserver {
     }
     pub fn GetTriangleIndices(&self, indices: &mut [u16]) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).GetTriangleIndices)(::windows::core::Interface::as_raw(this), indices.len() as u32, ::core::mem::transmute_copy(&indices)).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).GetTriangleIndices)(::windows::core::Interface::as_raw(this), indices.len() as u32, indices.as_mut_ptr()).ok() }
     }
     pub fn GetVertexStateForPose<'a, P0>(&self, handpose: P0) -> ::windows::core::Result<HandMeshVertexState>
     where
@@ -354,7 +354,7 @@ impl HandMeshVertexState {
     #[cfg(feature = "Foundation_Numerics")]
     pub fn GetVertices(&self, vertices: &mut [HandMeshVertex]) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).GetVertices)(::windows::core::Interface::as_raw(this), vertices.len() as u32, ::core::mem::transmute_copy(&vertices)).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).GetVertices)(::windows::core::Interface::as_raw(this), vertices.len() as u32, vertices.as_mut_ptr()).ok() }
     }
     pub fn UpdateTimestamp(&self) -> ::windows::core::Result<super::PerceptionTimestamp> {
         let this = self;
@@ -451,7 +451,7 @@ impl HandPose {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).TryGetJoints)(::windows::core::Interface::as_raw(this), coordinatesystem.into().abi(), joints.len() as u32, ::core::mem::transmute(joints.as_ptr()), jointposes.len() as u32, ::core::mem::transmute_copy(&jointposes), result__.as_mut_ptr()).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).TryGetJoints)(::windows::core::Interface::as_raw(this), coordinatesystem.into().abi(), joints.len() as u32, joints.as_ptr(), jointposes.len() as u32, jointposes.as_mut_ptr(), result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
@@ -467,7 +467,7 @@ impl HandPose {
     #[cfg(feature = "Foundation_Numerics")]
     pub fn GetRelativeJoints(&self, joints: &[HandJointKind], referencejoints: &[HandJointKind], jointposes: &mut [JointPose]) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).GetRelativeJoints)(::windows::core::Interface::as_raw(this), joints.len() as u32, ::core::mem::transmute(joints.as_ptr()), referencejoints.len() as u32, ::core::mem::transmute(referencejoints.as_ptr()), jointposes.len() as u32, ::core::mem::transmute_copy(&jointposes)).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).GetRelativeJoints)(::windows::core::Interface::as_raw(this), joints.len() as u32, joints.as_ptr(), referencejoints.len() as u32, referencejoints.as_ptr(), jointposes.len() as u32, jointposes.as_mut_ptr()).ok() }
     }
 }
 impl ::core::clone::Clone for HandPose {
