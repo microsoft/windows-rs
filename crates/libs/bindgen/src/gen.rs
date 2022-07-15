@@ -317,6 +317,9 @@ impl<'a> Gen<'a> {
             name
         };
         for (position, param) in self.generic_params(params) {
+            if !self.reader.signature_param_input_value(param) {
+                continue;
+            }
             if self.reader.signature_param_is_param(param) {
                 let name: TokenStream = gen_name(position);
                 let into = self.type_name(&param.ty);
@@ -330,7 +333,7 @@ impl<'a> Gen<'a> {
                 let name: TokenStream = gen_name(position);
                 let into = self.type_name(&param.ty);
                 tokens.combine(&quote! { #name: ::std::convert::Into<::windows::core::InParam<'a, #into>>, });
-            } else if self.reader.signature_param_is_convertible(param) {
+            } else if self.reader.signature_param_is_trivially_convertible(param) {
                 let name: TokenStream = gen_name(position);
                 let into = self.type_name(&param.ty);
                 tokens.combine(&quote! { #name: ::std::convert::Into<#into>, });
@@ -944,7 +947,7 @@ impl<'a> Gen<'a> {
                         _ if self.reader.signature_param_is_borrowed(param) => {
                             quote! { #name.into().abi(), }
                         }
-                        _ if self.reader.signature_param_is_convertible(param) => {
+                        _ if self.reader.signature_param_is_trivially_convertible(param) => {
                             quote! { #name.into(), }
                         }
                         _ if self.reader.signature_param_is_primitive(param) => {

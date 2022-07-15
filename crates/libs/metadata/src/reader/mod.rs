@@ -790,16 +790,13 @@ impl<'a> Reader<'a> {
         // TODO: should this just check whether the struct has > 1 fields rather than type_def_is_handle?
         self.type_def_kind(row) == TypeKind::Struct && !self.type_def_is_handle(row)
     }
-    pub fn type_def_is_in_class_hierarchy(&self, row: TypeDef) -> bool {
-        matches!(self.type_def_kind(row), TypeKind::Class)
-    }
     pub fn type_def_is_borrowed(&self, row: TypeDef) -> bool {
         match self.type_def_kind(row) {
             TypeKind::Delegate => self.type_def_flags(row).winrt(),
             _ => !self.type_def_is_blittable(row),
         }
     }
-    pub fn type_def_is_convertible(&self, row: TypeDef) -> bool {
+    pub fn type_def_is_trivially_convertible(&self, row: TypeDef) -> bool {
         match self.type_def_kind(row) {
             TypeKind::Struct => self.type_def_is_handle(row) && self.type_def_type_name(row) != TypeName::BSTR,
             _ => false,
@@ -1146,25 +1143,27 @@ impl<'a> Reader<'a> {
         signature.return_type.iter().for_each(|ty| self.type_cfg_combine(ty, cfg));
         signature.params.iter().for_each(|param| self.type_cfg_combine(&param.ty, cfg));
     }
+    // TODO: hoist all the nested calls to signature_param_input_value into the bindgen crate
     pub fn signature_param_is_borrowed(&self, param: &SignatureParam) -> bool {
         self.signature_param_input_value(param) && self.type_is_borrowed(&param.ty)
     }
     pub fn signature_param_is_param(&self, param: &SignatureParam) -> bool {
-        self.signature_param_input_value(param) && self.type_is_in_class_hierarchy(&param.ty)
+        self.signature_param_input_value(param) && self.type_is_class(&param.ty)
     }
     pub fn signature_param_is_failible_param(&self, param: &SignatureParam) -> bool {
         self.signature_param_input_value(param) && self.type_is_non_exclusive_winrt_interface(&param.ty)
     }
-    pub fn signature_param_is_convertible(&self, param: &SignatureParam) -> bool {
-        self.signature_param_input_value(param) && self.type_is_convertible(&param.ty)
+    pub fn signature_param_is_trivially_convertible(&self, param: &SignatureParam) -> bool {
+        self.signature_param_input_value(param) && self.type_is_trivially_convertible(&param.ty)
     }
     pub fn signature_param_is_primitive(&self, param: &SignatureParam) -> bool {
         self.signature_param_input_value(param) && self.type_is_primitive(&param.ty)
     }
     /// Represents parameters that are modeled as generic parameters in the Rust sense rather than generic WinRT parameters.
     pub fn signature_param_is_generic(&self, param: &SignatureParam) -> bool {
-        self.signature_param_input_value(param) && (self.type_is_borrowed(&param.ty) || self.type_is_in_class_hierarchy(&param.ty) || self.type_is_non_exclusive_winrt_interface(&param.ty) || self.type_is_convertible(&param.ty))
+        self.signature_param_input_value(param) && (self.type_is_borrowed(&param.ty) || self.type_is_class(&param.ty) || self.type_is_non_exclusive_winrt_interface(&param.ty) || self.type_is_trivially_convertible(&param.ty))
     }
+    // TODO: push the input flag test out of here to the bindgen crate
     pub fn signature_param_input_value(&self, param: &SignatureParam) -> bool {
         self.param_flags(param.def).input() && !param.ty.is_winrt_array() && !param.ty.is_pointer() && param.array_info == ArrayInfo::None
     }
@@ -1541,15 +1540,15 @@ impl<'a> Reader<'a> {
             _ => false,
         }
     }
-    pub fn type_is_in_class_hierarchy(&self, ty: &Type) -> bool {
+    pub fn type_is_class(&self, ty: &Type) -> bool {
         match ty {
-            Type::TypeDef((row, _)) => self.type_def_is_in_class_hierarchy(*row),
+            Type::TypeDef((row, _)) => self.type_def_kind(*row) == TypeKind::Class,
             _ => false,
         }
     }
-    pub fn type_is_convertible(&self, ty: &Type) -> bool {
+    pub fn type_is_trivially_convertible(&self, ty: &Type) -> bool {
         match ty {
-            Type::TypeDef((row, _)) => self.type_def_is_convertible(*row),
+            Type::TypeDef((row, _)) => self.type_def_is_trivially_convertible(*row),
             Type::PCSTR | Type::PCWSTR => true,
             _ => false,
         }

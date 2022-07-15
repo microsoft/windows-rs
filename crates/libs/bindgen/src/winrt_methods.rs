@@ -191,8 +191,6 @@ fn gen_winrt_abi_args(gen: &Gen, params: &[SignatureParam]) -> TokenStream {
                 } else {
                     quote! { #name.into().abi(), }
                 }
-            } else if gen.reader.signature_param_is_convertible(param) {
-                quote! { #name.into(), }
             } else if gen.reader.type_is_blittable(&param.ty) {
                 if param.ty.is_winrt_const_ref() {
                     quote! { &#name, }
