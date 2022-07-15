@@ -1370,6 +1370,7 @@ impl<'a> Reader<'a> {
             Type::TypeDef((row, _)) => self.type_def_is_blittable(*row),
             Type::String | Type::IInspectable | Type::IUnknown | Type::GenericParam(_) => false,
             Type::Win32Array((kind, _)) => self.type_is_blittable(kind),
+            Type::WinrtArray(kind) => self.type_is_blittable(kind),
             _ => true,
         }
     }
