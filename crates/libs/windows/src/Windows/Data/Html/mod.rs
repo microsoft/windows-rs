@@ -1,13 +1,10 @@
 #[doc = "*Required features: `\"Data_Html\"`*"]
 pub struct HtmlUtilities;
 impl HtmlUtilities {
-    pub fn ConvertToText<'a, P0>(html: P0) -> ::windows::core::Result<::windows::core::HSTRING>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-    {
+    pub fn ConvertToText(html: &::windows::core::HSTRING) -> ::windows::core::Result<::windows::core::HSTRING> {
         Self::IHtmlUtilities(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).ConvertToText)(::windows::core::Interface::as_raw(this), html.into().abi(), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).ConvertToText)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(html), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         })
     }
     #[doc(hidden)]

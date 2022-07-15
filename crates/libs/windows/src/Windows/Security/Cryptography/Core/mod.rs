@@ -211,14 +211,11 @@ impl AsymmetricKeyAlgorithmProvider {
             (::windows::core::Interface::vtable(this).ImportPublicKeyWithBlobType)(::windows::core::Interface::as_raw(this), keyblob.try_into().map_err(|e| e.into())?.abi(), blobtype, result__.as_mut_ptr()).from_abi::<CryptographicKey>(result__)
         }
     }
-    pub fn CreateKeyPairWithCurveName<'a, P0>(&self, curvename: P0) -> ::windows::core::Result<CryptographicKey>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-    {
+    pub fn CreateKeyPairWithCurveName(&self, curvename: &::windows::core::HSTRING) -> ::windows::core::Result<CryptographicKey> {
         let this = &::windows::core::Interface::cast::<IAsymmetricKeyAlgorithmProvider2>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).CreateKeyPairWithCurveName)(::windows::core::Interface::as_raw(this), curvename.into().abi(), result__.as_mut_ptr()).from_abi::<CryptographicKey>(result__)
+            (::windows::core::Interface::vtable(this).CreateKeyPairWithCurveName)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(curvename), result__.as_mut_ptr()).from_abi::<CryptographicKey>(result__)
         }
     }
     pub fn CreateKeyPairWithCurveParameters(&self, parameters: &[u8]) -> ::windows::core::Result<CryptographicKey> {
@@ -228,13 +225,10 @@ impl AsymmetricKeyAlgorithmProvider {
             (::windows::core::Interface::vtable(this).CreateKeyPairWithCurveParameters)(::windows::core::Interface::as_raw(this), parameters.len() as u32, ::core::mem::transmute(parameters.as_ptr()), result__.as_mut_ptr()).from_abi::<CryptographicKey>(result__)
         }
     }
-    pub fn OpenAlgorithm<'a, P0>(algorithm: P0) -> ::windows::core::Result<AsymmetricKeyAlgorithmProvider>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-    {
+    pub fn OpenAlgorithm(algorithm: &::windows::core::HSTRING) -> ::windows::core::Result<AsymmetricKeyAlgorithmProvider> {
         Self::IAsymmetricKeyAlgorithmProviderStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).OpenAlgorithm)(::windows::core::Interface::as_raw(this), algorithm.into().abi(), result__.as_mut_ptr()).from_abi::<AsymmetricKeyAlgorithmProvider>(result__)
+            (::windows::core::Interface::vtable(this).OpenAlgorithm)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(algorithm), result__.as_mut_ptr()).from_abi::<AsymmetricKeyAlgorithmProvider>(result__)
         })
     }
     #[doc(hidden)]
@@ -1292,13 +1286,10 @@ impl HashAlgorithmProvider {
             (::windows::core::Interface::vtable(this).CreateHash)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<CryptographicHash>(result__)
         }
     }
-    pub fn OpenAlgorithm<'a, P0>(algorithm: P0) -> ::windows::core::Result<HashAlgorithmProvider>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-    {
+    pub fn OpenAlgorithm(algorithm: &::windows::core::HSTRING) -> ::windows::core::Result<HashAlgorithmProvider> {
         Self::IHashAlgorithmProviderStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).OpenAlgorithm)(::windows::core::Interface::as_raw(this), algorithm.into().abi(), result__.as_mut_ptr()).from_abi::<HashAlgorithmProvider>(result__)
+            (::windows::core::Interface::vtable(this).OpenAlgorithm)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(algorithm), result__.as_mut_ptr()).from_abi::<HashAlgorithmProvider>(result__)
         })
     }
     #[doc(hidden)]
@@ -2176,13 +2167,10 @@ impl KeyDerivationAlgorithmProvider {
             (::windows::core::Interface::vtable(this).CreateKey)(::windows::core::Interface::as_raw(this), keymaterial.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<CryptographicKey>(result__)
         }
     }
-    pub fn OpenAlgorithm<'a, P0>(algorithm: P0) -> ::windows::core::Result<KeyDerivationAlgorithmProvider>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-    {
+    pub fn OpenAlgorithm(algorithm: &::windows::core::HSTRING) -> ::windows::core::Result<KeyDerivationAlgorithmProvider> {
         Self::IKeyDerivationAlgorithmProviderStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).OpenAlgorithm)(::windows::core::Interface::as_raw(this), algorithm.into().abi(), result__.as_mut_ptr()).from_abi::<KeyDerivationAlgorithmProvider>(result__)
+            (::windows::core::Interface::vtable(this).OpenAlgorithm)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(algorithm), result__.as_mut_ptr()).from_abi::<KeyDerivationAlgorithmProvider>(result__)
         })
     }
     #[doc(hidden)]
@@ -2511,13 +2499,10 @@ impl MacAlgorithmProvider {
             (::windows::core::Interface::vtable(this).CreateHash)(::windows::core::Interface::as_raw(this), keymaterial.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<CryptographicHash>(result__)
         }
     }
-    pub fn OpenAlgorithm<'a, P0>(algorithm: P0) -> ::windows::core::Result<MacAlgorithmProvider>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-    {
+    pub fn OpenAlgorithm(algorithm: &::windows::core::HSTRING) -> ::windows::core::Result<MacAlgorithmProvider> {
         Self::IMacAlgorithmProviderStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).OpenAlgorithm)(::windows::core::Interface::as_raw(this), algorithm.into().abi(), result__.as_mut_ptr()).from_abi::<MacAlgorithmProvider>(result__)
+            (::windows::core::Interface::vtable(this).OpenAlgorithm)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(algorithm), result__.as_mut_ptr()).from_abi::<MacAlgorithmProvider>(result__)
         })
     }
     #[doc(hidden)]
@@ -2593,26 +2578,24 @@ pub struct PersistedKeyProvider;
 impl PersistedKeyProvider {
     #[doc = "*Required features: `\"Foundation\"`, `\"Security_Cryptography_Certificates\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Security_Cryptography_Certificates"))]
-    pub fn OpenKeyPairFromCertificateAsync<'a, P0, P1>(certificate: P0, hashalgorithmname: P1, padding: CryptographicPadding) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<CryptographicKey>>
+    pub fn OpenKeyPairFromCertificateAsync<'a, P0>(certificate: P0, hashalgorithmname: &::windows::core::HSTRING, padding: CryptographicPadding) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<CryptographicKey>>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::Certificates::Certificate>>,
-        P1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
     {
         Self::IPersistedKeyProviderStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).OpenKeyPairFromCertificateAsync)(::windows::core::Interface::as_raw(this), certificate.into().abi(), hashalgorithmname.into().abi(), padding, result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::IAsyncOperation<CryptographicKey>>(result__)
+            (::windows::core::Interface::vtable(this).OpenKeyPairFromCertificateAsync)(::windows::core::Interface::as_raw(this), certificate.into().abi(), ::core::mem::transmute_copy(hashalgorithmname), padding, result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::IAsyncOperation<CryptographicKey>>(result__)
         })
     }
     #[doc = "*Required features: `\"Security_Cryptography_Certificates\"`*"]
     #[cfg(feature = "Security_Cryptography_Certificates")]
-    pub fn OpenPublicKeyFromCertificate<'a, P0, P1>(certificate: P0, hashalgorithmname: P1, padding: CryptographicPadding) -> ::windows::core::Result<CryptographicKey>
+    pub fn OpenPublicKeyFromCertificate<'a, P0>(certificate: P0, hashalgorithmname: &::windows::core::HSTRING, padding: CryptographicPadding) -> ::windows::core::Result<CryptographicKey>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::Certificates::Certificate>>,
-        P1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
     {
         Self::IPersistedKeyProviderStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).OpenPublicKeyFromCertificate)(::windows::core::Interface::as_raw(this), certificate.into().abi(), hashalgorithmname.into().abi(), padding, result__.as_mut_ptr()).from_abi::<CryptographicKey>(result__)
+            (::windows::core::Interface::vtable(this).OpenPublicKeyFromCertificate)(::windows::core::Interface::as_raw(this), certificate.into().abi(), ::core::mem::transmute_copy(hashalgorithmname), padding, result__.as_mut_ptr()).from_abi::<CryptographicKey>(result__)
         })
     }
     #[doc(hidden)]
@@ -2781,13 +2764,10 @@ impl SymmetricKeyAlgorithmProvider {
             (::windows::core::Interface::vtable(this).CreateSymmetricKey)(::windows::core::Interface::as_raw(this), keymaterial.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<CryptographicKey>(result__)
         }
     }
-    pub fn OpenAlgorithm<'a, P0>(algorithm: P0) -> ::windows::core::Result<SymmetricKeyAlgorithmProvider>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-    {
+    pub fn OpenAlgorithm(algorithm: &::windows::core::HSTRING) -> ::windows::core::Result<SymmetricKeyAlgorithmProvider> {
         Self::ISymmetricKeyAlgorithmProviderStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).OpenAlgorithm)(::windows::core::Interface::as_raw(this), algorithm.into().abi(), result__.as_mut_ptr()).from_abi::<SymmetricKeyAlgorithmProvider>(result__)
+            (::windows::core::Interface::vtable(this).OpenAlgorithm)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(algorithm), result__.as_mut_ptr()).from_abi::<SymmetricKeyAlgorithmProvider>(result__)
         })
     }
     #[doc(hidden)]

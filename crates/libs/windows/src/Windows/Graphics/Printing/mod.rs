@@ -2686,15 +2686,14 @@ impl PrintTaskRequest {
             (::windows::core::Interface::vtable(this).Deadline)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::DateTime>(result__)
         }
     }
-    pub fn CreatePrintTask<'a, P0, P1>(&self, title: P0, handler: P1) -> ::windows::core::Result<PrintTask>
+    pub fn CreatePrintTask<'a, P0>(&self, title: &::windows::core::HSTRING, handler: P0) -> ::windows::core::Result<PrintTask>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-        P1: ::std::convert::Into<::windows::core::InParam<'a, PrintTaskSourceRequestedHandler>>,
+        P0: ::std::convert::Into<::windows::core::InParam<'a, PrintTaskSourceRequestedHandler>>,
     {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).CreatePrintTask)(::windows::core::Interface::as_raw(this), title.into().abi(), handler.into().abi(), result__.as_mut_ptr()).from_abi::<PrintTask>(result__)
+            (::windows::core::Interface::vtable(this).CreatePrintTask)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(title), handler.into().abi(), result__.as_mut_ptr()).from_abi::<PrintTask>(result__)
         }
     }
     pub fn GetDeferral(&self) -> ::windows::core::Result<PrintTaskRequestedDeferral> {
