@@ -18,6 +18,20 @@ impl bindings::IClass_Impl for Class {
         *writer = value;
         Ok(())
     }
+    fn Int32Array(&self, a: &[i32], b: &mut [i32], c: &mut Array<i32>) -> Result<Array<i32>> {
+        assert_eq!(a.len(), b.len());
+        assert!(c.is_empty());
+        b.copy_from_slice(a);
+        *c = Array::from_slice(a);
+        Ok(Array::from_slice(a))
+    }
+    fn StringArray(&self, a: &[HSTRING], b: &mut [HSTRING], c: &mut Array<HSTRING>) -> Result<Array<HSTRING>> {
+        assert_eq!(a.len(), b.len());
+        assert!(c.is_empty());
+        b.clone_from_slice(a);
+        *c = Array::from_slice(a);
+        Ok(Array::from_slice(a))
+    }
 }
 
 #[implement(IActivationFactory)]
