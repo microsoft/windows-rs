@@ -1160,7 +1160,7 @@ impl<'a> Reader<'a> {
         self.signature_param_input_value(param) && self.type_is_primitive(&param.ty)
     }
     /// Represents parameters that are modeled as generic parameters in the Rust sense rather than generic WinRT parameters.
-    pub fn signature_param_is_generic(&self, param: &SignatureParam) -> bool {
+    pub fn signature_param_is_convertible(&self, param: &SignatureParam) -> bool {
         self.signature_param_input_value(param) && (self.type_is_borrowed(&param.ty) || self.type_is_class(&param.ty) || self.type_is_non_exclusive_winrt_interface(&param.ty) || self.type_is_trivially_convertible(&param.ty))
     }
     // TODO: push the input flag test out of here to the bindgen crate
@@ -1536,7 +1536,10 @@ impl<'a> Reader<'a> {
     }
     pub fn type_is_non_exclusive_winrt_interface(&self, ty: &Type) -> bool {
         match ty {
-            Type::TypeDef((row, _)) => !self.type_def_is_exclusive(*row) && self.type_def_flags(*row).winrt() && self.type_def_flags(*row).interface(),
+            Type::TypeDef((row, _)) => {
+                let flags = self.type_def_flags(*row);
+                flags.winrt() && flags.interface() && !self.type_def_is_exclusive(*row)
+            }
             _ => false,
         }
     }

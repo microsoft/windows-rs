@@ -277,7 +277,7 @@ impl<'a> Gen<'a> {
     }
     /// The signature params which are generic (along with their relative index)
     pub fn generic_params<'b>(&'b self, params: &'b [SignatureParam]) -> impl Iterator<Item = (usize, &SignatureParam)> + 'b {
-        params.iter().filter(move |param| self.reader.signature_param_is_generic(param)).enumerate()
+        params.iter().filter(move |param| self.reader.signature_param_is_convertible(param)).enumerate()
     }
     /// The generic param names (i.e., `T` in `fn foo<T>()`)
     pub fn constraint_generics(&self, params: &[SignatureParam]) -> TokenStream {
@@ -1012,7 +1012,7 @@ impl<'a> Gen<'a> {
                 continue;
             }
 
-            if self.reader.signature_param_is_generic(param) {
+            if self.reader.signature_param_is_convertible(param) {
                 let (position, _) = generic_params.next().unwrap();
                 let kind: TokenStream = format!("P{}", position).into();
                 tokens.combine(&quote! { #name: #kind, });
