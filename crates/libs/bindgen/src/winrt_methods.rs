@@ -180,17 +180,9 @@ fn gen_winrt_abi_args(gen: &Gen, params: &[SignatureParam]) -> TokenStream {
             if param.ty.is_winrt_array() {
                 quote! { #name.len() as u32, ::core::mem::transmute(#name.as_ptr()), }
             } else if gen.reader.signature_param_is_failible_param(param) {
-                if param.ty.is_winrt_const_ref() {
-                    quote! { &#name.try_into().map_err(|e| e.into())?.abi(), }
-                } else {
-                    quote! { #name.try_into().map_err(|e| e.into())?.abi(), }
-                }
+                quote! { #name.try_into().map_err(|e| e.into())?.abi(), }
             } else if gen.reader.signature_param_is_borrowed(param) {
-                if param.ty.is_winrt_const_ref() {
-                    quote! { &#name.into().abi(), }
-                } else {
-                    quote! { #name.into().abi(), }
-                }
+                quote! { #name.into().abi(), }
             } else if gen.reader.type_is_blittable(&param.ty) {
                 if param.ty.is_winrt_const_ref() {
                     quote! { &#name, }
