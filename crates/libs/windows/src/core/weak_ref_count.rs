@@ -189,7 +189,7 @@ impl TearOff {
         // If there are no remaining references, it means that the object has already been
         // destroyed. Go ahead and destroy the tear-off.
         if remaining == 0 {
-            windows::core::alloc::boxed::Box::from_raw(this);
+            let _ = windows::core::alloc::boxed::Box::from_raw(this);
         }
 
         remaining
