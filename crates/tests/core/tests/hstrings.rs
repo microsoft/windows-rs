@@ -43,7 +43,6 @@ fn display_invalid_format() {
     assert_eq!(d, "𝄞mus�ic�");
 }
 
-
 #[test]
 fn debug_format() {
     let value = HSTRING::from("Hello world");
