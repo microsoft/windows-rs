@@ -16,12 +16,15 @@ pub use pwstr::*;
 use super::*;
 
 extern "C" {
+    #[doc(hidden)]
     pub fn strlen(s: PCSTR) -> usize;
+    #[doc(hidden)]
     pub fn wcslen(s: PCWSTR) -> usize;
 }
 
 /// An internal helper for decoding an iterator of chars and displaying them
-struct Decode<F>(F);
+#[doc(hidden)]
+pub struct Decode<F>(pub F);
 
 impl<F, R, E> core::fmt::Display for Decode<F>
 where
