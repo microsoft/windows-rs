@@ -154,7 +154,6 @@ jobs:
           cargo clippy -p test_event &&
           cargo clippy -p test_handles &&
           cargo clippy -p test_helpers &&
-          cargo clippy -p test_hstring &&
           cargo clippy -p test_identity &&
           cargo clippy -p test_implement &&
           cargo clippy -p test_interface &&
