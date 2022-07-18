@@ -138,7 +138,7 @@ pub fn implement(attributes: proc_macro::TokenStream, original_type: proc_macro:
                 let remaining = self.count.release();
                 if remaining == 0 {
                     unsafe {
-                        ::std::boxed::Box::from_raw(self as *const Self as *mut Self);
+                        let _ = ::std::boxed::Box::from_raw(self as *const Self as *mut Self);
                     }
                 }
                 remaining
