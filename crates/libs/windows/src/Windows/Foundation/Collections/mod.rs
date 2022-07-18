@@ -1914,7 +1914,7 @@ impl<K: ::windows::core::RuntimeType + 'static, V: ::windows::core::RuntimeType 
         let this = this as *mut *mut ::core::ffi::c_void as *mut Self;
         let remaining = (*this).count.release();
         if remaining == 0 {
-            ::windows::core::alloc::boxed::Box::from_raw(this);
+            let _ = ::windows::core::alloc::boxed::Box::from_raw(this);
         }
         remaining
     }
@@ -2687,7 +2687,7 @@ impl<T: ::windows::core::RuntimeType + 'static, F: FnMut(&::core::option::Option
         let this = this as *mut *mut ::core::ffi::c_void as *mut Self;
         let remaining = (*this).count.release();
         if remaining == 0 {
-            ::windows::core::alloc::boxed::Box::from_raw(this);
+            let _ = ::windows::core::alloc::boxed::Box::from_raw(this);
         }
         remaining
     }

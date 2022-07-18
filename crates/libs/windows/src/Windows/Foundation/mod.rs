@@ -52,7 +52,7 @@ impl<F: FnMut(&::core::option::Option<IAsyncAction>, AsyncStatus) -> ::windows::
         let this = this as *mut *mut ::core::ffi::c_void as *mut Self;
         let remaining = (*this).count.release();
         if remaining == 0 {
-            ::windows::core::alloc::boxed::Box::from_raw(this);
+            let _ = ::windows::core::alloc::boxed::Box::from_raw(this);
         }
         remaining
     }
@@ -147,7 +147,7 @@ impl<TProgress: ::windows::core::RuntimeType + 'static, F: FnMut(&::core::option
         let this = this as *mut *mut ::core::ffi::c_void as *mut Self;
         let remaining = (*this).count.release();
         if remaining == 0 {
-            ::windows::core::alloc::boxed::Box::from_raw(this);
+            let _ = ::windows::core::alloc::boxed::Box::from_raw(this);
         }
         remaining
     }
@@ -245,7 +245,7 @@ impl<TProgress: ::windows::core::RuntimeType + 'static, F: FnMut(&::core::option
         let this = this as *mut *mut ::core::ffi::c_void as *mut Self;
         let remaining = (*this).count.release();
         if remaining == 0 {
-            ::windows::core::alloc::boxed::Box::from_raw(this);
+            let _ = ::windows::core::alloc::boxed::Box::from_raw(this);
         }
         remaining
     }
@@ -343,7 +343,7 @@ impl<TResult: ::windows::core::RuntimeType + 'static, F: FnMut(&::core::option::
         let this = this as *mut *mut ::core::ffi::c_void as *mut Self;
         let remaining = (*this).count.release();
         if remaining == 0 {
-            ::windows::core::alloc::boxed::Box::from_raw(this);
+            let _ = ::windows::core::alloc::boxed::Box::from_raw(this);
         }
         remaining
     }
@@ -445,7 +445,7 @@ impl<TResult: ::windows::core::RuntimeType + 'static, TProgress: ::windows::core
         let this = this as *mut *mut ::core::ffi::c_void as *mut Self;
         let remaining = (*this).count.release();
         if remaining == 0 {
-            ::windows::core::alloc::boxed::Box::from_raw(this);
+            let _ = ::windows::core::alloc::boxed::Box::from_raw(this);
         }
         remaining
     }
@@ -548,7 +548,7 @@ impl<TResult: ::windows::core::RuntimeType + 'static, TProgress: ::windows::core
         let this = this as *mut *mut ::core::ffi::c_void as *mut Self;
         let remaining = (*this).count.release();
         if remaining == 0 {
-            ::windows::core::alloc::boxed::Box::from_raw(this);
+            let _ = ::windows::core::alloc::boxed::Box::from_raw(this);
         }
         remaining
     }
@@ -819,7 +819,7 @@ impl<F: FnMut() -> ::windows::core::Result<()> + ::core::marker::Send + 'static>
         let this = this as *mut *mut ::core::ffi::c_void as *mut Self;
         let remaining = (*this).count.release();
         if remaining == 0 {
-            ::windows::core::alloc::boxed::Box::from_raw(this);
+            let _ = ::windows::core::alloc::boxed::Box::from_raw(this);
         }
         remaining
     }
@@ -913,7 +913,7 @@ impl<T: ::windows::core::RuntimeType + 'static, F: FnMut(&::core::option::Option
         let this = this as *mut *mut ::core::ffi::c_void as *mut Self;
         let remaining = (*this).count.release();
         if remaining == 0 {
-            ::windows::core::alloc::boxed::Box::from_raw(this);
+            let _ = ::windows::core::alloc::boxed::Box::from_raw(this);
         }
         remaining
     }
@@ -4194,7 +4194,7 @@ impl<TSender: ::windows::core::RuntimeType + 'static, TResult: ::windows::core::
         let this = this as *mut *mut ::core::ffi::c_void as *mut Self;
         let remaining = (*this).count.release();
         if remaining == 0 {
-            ::windows::core::alloc::boxed::Box::from_raw(this);
+            let _ = ::windows::core::alloc::boxed::Box::from_raw(this);
         }
         remaining
     }
