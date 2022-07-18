@@ -129,7 +129,7 @@ fn gen_win_delegate(gen: &Gen, def: TypeDef) -> TokenStream {
                 let remaining = (*this).count.release();
 
                 if remaining == 0 {
-                    ::windows::core::alloc::boxed::Box::from_raw(this);
+                    let _ = ::windows::core::alloc::boxed::Box::from_raw(this);
                 }
 
                 remaining
