@@ -22,7 +22,10 @@ fn writer() {
         def.flags.set_public();
         def.flags.set_winrt();
         def.extends = Some(TypeRef::system_value_type());
-        def.field_list.push(Field::new("Height"));
+        let mut field = Field::new("X");
+        field.ty = Type::F32;
+        field.flags.set_public();
+        def.field_list.push(field);
         tables.type_def.push(def);
 
         let mut def = TypeDef::new(TypeName::new("TestWindows.Foundation", "AsyncStatus"));
@@ -37,7 +40,7 @@ fn writer() {
     {
         use metadata::reader::*;
 
-        let files = vec![File::new(temp_file.to_str().unwrap()).unwrap()];
+        let files = vec![File::new(temp_file.to_str().unwrap()).unwrap(), File::new("../../libs/metadata/default/Windows.winmd").unwrap()];
         let reader = &Reader::new(&files);
         let def = reader.get(TypeName::new("TestWindows.Foundation", "IStringable")).next().unwrap();
         assert_eq!(reader.type_def_kind(def), TypeKind::Interface);
@@ -55,7 +58,8 @@ fn writer() {
         assert!(reader.type_def_flags(def).winrt());
 
         let field = reader.type_def_fields(def).next().unwrap();
-        assert_eq!(reader.field_name(field), "Height");
+        assert_eq!(reader.field_name(field), "X");
+        assert!(reader.field_type(field, None) == Type::F32);
 
         let def = reader.get(TypeName::new("TestWindows.Foundation", "AsyncStatus")).next().unwrap();
         assert_eq!(reader.type_def_kind(def), TypeKind::Enum);

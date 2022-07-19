@@ -2,6 +2,7 @@ use super::*;
 
 #[derive(Default)]
 pub struct Field {
+    pub flags: FieldAttributes,
     pub name: String,
     pub ty: Type,
     pub constant: Option<Value>,

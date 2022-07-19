@@ -17,8 +17,18 @@ pub struct PInvokeAttributes(pub usize);
 pub struct TypeAttributes(pub usize);
 
 impl FieldAttributes {
+    pub fn public(&self) -> bool {
+        self.0 & 0x6 != 0
+    }
+    pub fn set_public(&mut self) {
+        self.0 |= 0x6;
+    }
+
     pub fn literal(&self) -> bool {
         self.0 & 0x40 != 0
+    }
+    pub fn set_literal(&mut self) {
+        self.0 |= 0x40;
     }
 }
 
