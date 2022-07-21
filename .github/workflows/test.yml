@@ -126,8 +126,8 @@ jobs:
           cargo test --target ${{ matrix.target }} -p test_component_client &&
           cargo test --target ${{ matrix.target }} -p test_const_fields &&
           cargo test --target ${{ matrix.target }} -p test_core &&
-          cargo clean &&
           cargo test --target ${{ matrix.target }} -p test_data_object &&
+          cargo clean &&
           cargo test --target ${{ matrix.target }} -p test_debug &&
           cargo test --target ${{ matrix.target }} -p test_deprecated &&
           cargo test --target ${{ matrix.target }} -p test_dispatch &&
@@ -163,6 +163,7 @@ jobs:
           cargo test --target ${{ matrix.target }} -p test_weak_ref &&
           cargo test --target ${{ matrix.target }} -p test_win32 &&
           cargo test --target ${{ matrix.target }} -p test_win32_arrays &&
+          cargo test --target ${{ matrix.target }} -p test_window_long &&
           cargo test --target ${{ matrix.target }} -p test_winrt &&
           cargo test --target ${{ matrix.target }} -p tool_bindings &&
           cargo test --target ${{ matrix.target }} -p tool_gnu &&

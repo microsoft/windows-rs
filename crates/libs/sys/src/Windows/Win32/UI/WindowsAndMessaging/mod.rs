@@ -7187,3 +7187,9 @@ pub const __WARNING_RETURNING_BAD_RESULT: u32 = 28196u32;
 pub const __WARNING_RETURN_UNINIT_VAR: u32 = 6101u32;
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
 pub const __WARNING_USING_UNINIT_VAR: u32 = 6001u32;
+#[cfg(target_pointer_width = "32")]
+#[cfg(feature = "Win32_Foundation")]
+pub use GetWindowLongA as GetWindowLongPtrA;
+#[cfg(target_pointer_width = "32")]
+#[cfg(feature = "Win32_Foundation")]
+pub use SetWindowLongA as SetWindowLongPtrA;

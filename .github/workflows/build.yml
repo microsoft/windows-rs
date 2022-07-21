@@ -179,6 +179,7 @@ jobs:
           cargo clippy -p test_weak_ref &&
           cargo clippy -p test_win32 &&
           cargo clippy -p test_win32_arrays &&
+          cargo clippy -p test_window_long &&
           cargo clippy -p test_winrt &&
           cargo clippy -p tool_bindings &&
           cargo clippy -p tool_gnu &&
