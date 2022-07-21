@@ -1,7 +1,7 @@
 use rayon::prelude::*;
 use std::io::prelude::*;
 
-const EXCLUDE_NAMESPACES: [&str; 2] = ["Windows.Win32.Interop", "Windows.UI.Xaml"];
+const EXCLUDE_NAMESPACES: [&str; 4] = ["Windows.Win32.Interop", "Windows.UI.Xaml", "Windows.Win32.Web", "Windows.Win32.System.Diagnostics.Debug.WebApp"];
 
 fn main() {
     let rustfmt = std::env::args().nth(1).unwrap_or_default() != "-p";
