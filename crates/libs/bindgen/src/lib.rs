@@ -123,7 +123,7 @@ pub fn namespace(gen: &Gen, tree: &Tree) -> String {
             #[cfg(target_pointer_width = "32")]
             #[cfg(feature = "Win32_Foundation")]
             pub use GetWindowLongA as GetWindowLongPtrA;
-        });    
+        });
     }
 
     tokens.into_string()
