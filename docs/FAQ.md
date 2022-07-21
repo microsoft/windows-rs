@@ -43,7 +43,7 @@ To do so, you'll need to use the `interface` feature which (like any Cargo featu
 windows = { version = "..", features = ["interface"] }
 ```
 
-Then inside your project you define the interface in much the same way you define a Rust trate just with the `#[windows::interface]` annotation above the trait definition.
+Then inside your project you define the interface in much the same way you define a Rust trait just with the `#[windows::interface]` annotation above the trait definition.
 
 ```rust
 /// My interface
