@@ -13,10 +13,6 @@ pub struct METADATA_HEADER {
 
 pub const METADATA_SIGNATURE: u32 = 0x424A_5342;
 
-extern "C" {
-    pub fn strlen(cs: *const u8) -> usize;
-}
-
 /// A coded index (see codes.rs) is a table index that may refer to different tables. The size of the column in memory
 /// must therefore be large enough to hold an index for a row in the largest possible table. This function determines
 /// this size for the given winmd file.
