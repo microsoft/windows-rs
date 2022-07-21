@@ -1,10 +1,4 @@
-use windows_sys::{Storage::Streams::*, Win32::Foundation::*, Win32::UI::WindowsAndMessaging::*};
-
-#[test]
-fn nested() {
-    let options: InputStreamOptions = InputStreamOptions(InputStreamOptions::Partial.0 | InputStreamOptions::ReadAhead.0);
-    assert!(options.0 == 3);
-}
+use windows_sys::{Win32::Foundation::*, Win32::UI::WindowsAndMessaging::*};
 
 #[test]
 fn win32_error() {
