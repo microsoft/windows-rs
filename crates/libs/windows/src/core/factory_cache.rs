@@ -47,7 +47,8 @@ impl<C: RuntimeName, I: Interface> FactoryCache<C, I> {
 // This is safe because `FactoryCache` only holds agile factory pointers, which are safe to cache and share between threads.
 unsafe impl<C, I> ::core::marker::Sync for FactoryCache<C, I> {}
 
-/// Attempts to load the factory interface for the given WinRT class
+/// Attempts to load the factory object for the given WinRT class. 
+/// This can be used to access COM interfaces implemented on a Windows Runtime class factory. 
 pub fn factory<C: RuntimeName, I: Interface>() -> Result<I> {
     let mut factory: Option<I> = None;
     let name = HSTRING::from(C::NAME);
