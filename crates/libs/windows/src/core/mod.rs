@@ -38,7 +38,6 @@ pub use compose::*;
 pub(crate) use delay_load::*;
 pub use error::*;
 pub use event::*;
-#[doc(hidden)]
 pub use factory_cache::*;
 #[doc(hidden)]
 pub use generic_factory::*;
