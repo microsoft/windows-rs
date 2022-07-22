@@ -87,7 +87,7 @@ impl IDesktopWindowXamlSourceNative2 {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_UI_WindowsAndMessaging\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
-    pub unsafe fn PreTranslateMessage(&self, message: *const super::super::super::UI::WindowsAndMessaging::MSG, result: *mut super::super::super::Foundation::BOOL) -> ::windows::core::Result<()> {
+    pub unsafe fn PreTranslateMessage(&self, message: &super::super::super::UI::WindowsAndMessaging::MSG, result: &mut super::super::super::Foundation::BOOL) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).PreTranslateMessage)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(message), ::core::mem::transmute(result)).ok()
     }
 }
@@ -587,7 +587,7 @@ impl ISurfaceImageSourceNative {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Dxgi\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi"))]
-    pub unsafe fn BeginDraw(&self, updaterect: super::super::super::Foundation::RECT, surface: *mut ::core::option::Option<super::super::super::Graphics::Dxgi::IDXGISurface>, offset: *mut super::super::super::Foundation::POINT) -> ::windows::core::Result<()> {
+    pub unsafe fn BeginDraw(&self, updaterect: super::super::super::Foundation::RECT, surface: &mut ::core::option::Option<super::super::super::Graphics::Dxgi::IDXGISurface>, offset: &mut super::super::super::Foundation::POINT) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).BeginDraw)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(updaterect), ::core::mem::transmute(surface), ::core::mem::transmute(offset)).ok()
     }
     pub unsafe fn EndDraw(&self) -> ::windows::core::Result<()> {
@@ -655,7 +655,7 @@ impl ISurfaceImageSourceNativeWithD2D {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn BeginDraw<T>(&self, updaterect: *const super::super::super::Foundation::RECT, offset: *mut super::super::super::Foundation::POINT) -> ::windows::core::Result<T>
+    pub unsafe fn BeginDraw<T>(&self, updaterect: &super::super::super::Foundation::RECT, offset: &mut super::super::super::Foundation::POINT) -> ::windows::core::Result<T>
     where
         T: ::windows::core::Interface,
     {
@@ -922,16 +922,16 @@ impl ITrackerOwner {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).CreateTrackerHandle)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<*mut TrackerHandle__>(result__)
     }
-    pub unsafe fn DeleteTrackerHandle(&self, handle: *const TrackerHandle__) -> ::windows::core::Result<()> {
+    pub unsafe fn DeleteTrackerHandle(&self, handle: &TrackerHandle__) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).DeleteTrackerHandle)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(handle)).ok()
     }
-    pub unsafe fn SetTrackerValue<'a, P0>(&self, handle: *const TrackerHandle__, value: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetTrackerValue<'a, P0>(&self, handle: &TrackerHandle__, value: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>,
     {
         (::windows::core::Interface::vtable(self).SetTrackerValue)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(handle), value.into().abi()).ok()
     }
-    pub unsafe fn TryGetSafeTrackerValue(&self, handle: *const TrackerHandle__, returnvalue: *mut ::core::option::Option<::windows::core::IUnknown>) -> u8 {
+    pub unsafe fn TryGetSafeTrackerValue(&self, handle: &TrackerHandle__, returnvalue: &mut ::core::option::Option<::windows::core::IUnknown>) -> u8 {
         (::windows::core::Interface::vtable(self).TryGetSafeTrackerValue)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(handle), ::core::mem::transmute(returnvalue))
     }
 }
@@ -993,7 +993,7 @@ impl IVirtualSurfaceImageSourceNative {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Dxgi\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi"))]
-    pub unsafe fn BeginDraw(&self, updaterect: super::super::super::Foundation::RECT, surface: *mut ::core::option::Option<super::super::super::Graphics::Dxgi::IDXGISurface>, offset: *mut super::super::super::Foundation::POINT) -> ::windows::core::Result<()> {
+    pub unsafe fn BeginDraw(&self, updaterect: super::super::super::Foundation::RECT, surface: &mut ::core::option::Option<super::super::super::Graphics::Dxgi::IDXGISurface>, offset: &mut super::super::super::Foundation::POINT) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.BeginDraw)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(updaterect), ::core::mem::transmute(surface), ::core::mem::transmute(offset)).ok()
     }
     pub unsafe fn EndDraw(&self) -> ::windows::core::Result<()> {

@@ -252,7 +252,7 @@ where
 #[doc = "*Required features: `\"Win32_UI_InteractionContext\"`, `\"Win32_Foundation\"`, `\"Win32_UI_Input_Pointer\"`, `\"Win32_UI_WindowsAndMessaging\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Input_Pointer", feature = "Win32_UI_WindowsAndMessaging"))]
 #[inline]
-pub unsafe fn GetStateInteractionContext<'a, P0>(interactioncontext: P0, pointerinfo: *const super::Input::Pointer::POINTER_INFO) -> ::windows::core::Result<INTERACTION_STATE>
+pub unsafe fn GetStateInteractionContext<'a, P0>(interactioncontext: P0, pointerinfo: ::core::option::Option<&super::Input::Pointer::POINTER_INFO>) -> ::windows::core::Result<INTERACTION_STATE>
 where
     P0: ::std::convert::Into<HINTERACTIONCONTEXT>,
 {
@@ -1098,7 +1098,7 @@ where
 #[doc = "*Required features: `\"Win32_UI_InteractionContext\"`, `\"Win32_Foundation\"`, `\"Win32_UI_Input_Pointer\"`, `\"Win32_UI_WindowsAndMessaging\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Input_Pointer", feature = "Win32_UI_WindowsAndMessaging"))]
 #[inline]
-pub unsafe fn ProcessPointerFramesInteractionContext<'a, P0>(interactioncontext: P0, entriescount: u32, pointercount: u32, pointerinfo: *const super::Input::Pointer::POINTER_INFO) -> ::windows::core::Result<()>
+pub unsafe fn ProcessPointerFramesInteractionContext<'a, P0>(interactioncontext: P0, entriescount: u32, pointercount: u32, pointerinfo: &super::Input::Pointer::POINTER_INFO) -> ::windows::core::Result<()>
 where
     P0: ::std::convert::Into<HINTERACTIONCONTEXT>,
 {

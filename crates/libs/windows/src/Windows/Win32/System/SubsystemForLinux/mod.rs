@@ -71,7 +71,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_SubsystemForLinux\"`*"]
 #[inline]
-pub unsafe fn WslGetDistributionConfiguration<'a, P0>(distributionname: P0, distributionversion: *mut u32, defaultuid: *mut u32, wsldistributionflags: *mut WSL_DISTRIBUTION_FLAGS, defaultenvironmentvariables: *mut *mut ::windows::core::PSTR, defaultenvironmentvariablecount: *mut u32) -> ::windows::core::Result<()>
+pub unsafe fn WslGetDistributionConfiguration<'a, P0>(distributionname: P0, distributionversion: &mut u32, defaultuid: &mut u32, wsldistributionflags: &mut WSL_DISTRIBUTION_FLAGS, defaultenvironmentvariables: &mut *mut ::windows::core::PSTR, defaultenvironmentvariablecount: &mut u32) -> ::windows::core::Result<()>
 where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
 {

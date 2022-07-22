@@ -319,7 +319,7 @@ impl IDXCoreAdapter {
     pub unsafe fn IsValid(&self) -> bool {
         (::windows::core::Interface::vtable(self).IsValid)(::windows::core::Interface::as_raw(self))
     }
-    pub unsafe fn IsAttributeSupported(&self, attributeguid: *const ::windows::core::GUID) -> bool {
+    pub unsafe fn IsAttributeSupported(&self, attributeguid: &::windows::core::GUID) -> bool {
         (::windows::core::Interface::vtable(self).IsAttributeSupported)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(attributeguid))
     }
     pub unsafe fn IsPropertySupported(&self, property: DXCoreAdapterProperty) -> bool {
@@ -415,7 +415,7 @@ impl IDXCoreAdapterFactory {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetAdapterByLuid<T>(&self, adapterluid: *const super::super::Foundation::LUID) -> ::windows::core::Result<T>
+    pub unsafe fn GetAdapterByLuid<T>(&self, adapterluid: &super::super::Foundation::LUID) -> ::windows::core::Result<T>
     where
         T: ::windows::core::Interface,
     {

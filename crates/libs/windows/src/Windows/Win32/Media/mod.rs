@@ -793,7 +793,7 @@ pub unsafe fn timeEndPeriod(uperiod: u32) -> u32 {
 }
 #[doc = "*Required features: `\"Win32_Media\"`*"]
 #[inline]
-pub unsafe fn timeGetDevCaps(ptc: *mut TIMECAPS, cbtc: u32) -> u32 {
+pub unsafe fn timeGetDevCaps(ptc: &mut TIMECAPS, cbtc: u32) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn timeGetDevCaps(ptc: *mut TIMECAPS, cbtc: u32) -> u32;
@@ -802,7 +802,7 @@ pub unsafe fn timeGetDevCaps(ptc: *mut TIMECAPS, cbtc: u32) -> u32 {
 }
 #[doc = "*Required features: `\"Win32_Media\"`*"]
 #[inline]
-pub unsafe fn timeGetSystemTime(pmmt: *mut MMTIME, cbmmt: u32) -> u32 {
+pub unsafe fn timeGetSystemTime(pmmt: &mut MMTIME, cbmmt: u32) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn timeGetSystemTime(pmmt: *mut MMTIME, cbmmt: u32) -> u32;

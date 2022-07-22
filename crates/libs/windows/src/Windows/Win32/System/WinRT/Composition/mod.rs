@@ -77,7 +77,7 @@ pub struct ICompositionDrawingSurfaceInterop(::windows::core::IUnknown);
 impl ICompositionDrawingSurfaceInterop {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn BeginDraw<T>(&self, updaterect: *const super::super::super::Foundation::RECT, updateoffset: *mut super::super::super::Foundation::POINT) -> ::windows::core::Result<T>
+    pub unsafe fn BeginDraw<T>(&self, updaterect: ::core::option::Option<&super::super::super::Foundation::RECT>, updateoffset: &mut super::super::super::Foundation::POINT) -> ::windows::core::Result<T>
     where
         T: ::windows::core::Interface,
     {
@@ -94,7 +94,7 @@ impl ICompositionDrawingSurfaceInterop {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn Scroll(&self, scrollrect: *const super::super::super::Foundation::RECT, cliprect: *const super::super::super::Foundation::RECT, offsetx: i32, offsety: i32) -> ::windows::core::Result<()> {
+    pub unsafe fn Scroll(&self, scrollrect: ::core::option::Option<&super::super::super::Foundation::RECT>, cliprect: ::core::option::Option<&super::super::super::Foundation::RECT>, offsetx: i32, offsety: i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).Scroll)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(scrollrect), ::core::mem::transmute(cliprect), offsetx, offsety).ok()
     }
     pub unsafe fn ResumeDraw(&self) -> ::windows::core::Result<()> {
@@ -165,7 +165,7 @@ pub struct ICompositionDrawingSurfaceInterop2(::windows::core::IUnknown);
 impl ICompositionDrawingSurfaceInterop2 {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn BeginDraw<T>(&self, updaterect: *const super::super::super::Foundation::RECT, updateoffset: *mut super::super::super::Foundation::POINT) -> ::windows::core::Result<T>
+    pub unsafe fn BeginDraw<T>(&self, updaterect: ::core::option::Option<&super::super::super::Foundation::RECT>, updateoffset: &mut super::super::super::Foundation::POINT) -> ::windows::core::Result<T>
     where
         T: ::windows::core::Interface,
     {
@@ -182,7 +182,7 @@ impl ICompositionDrawingSurfaceInterop2 {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn Scroll(&self, scrollrect: *const super::super::super::Foundation::RECT, cliprect: *const super::super::super::Foundation::RECT, offsetx: i32, offsety: i32) -> ::windows::core::Result<()> {
+    pub unsafe fn Scroll(&self, scrollrect: ::core::option::Option<&super::super::super::Foundation::RECT>, cliprect: ::core::option::Option<&super::super::super::Foundation::RECT>, offsetx: i32, offsety: i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.Scroll)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(scrollrect), ::core::mem::transmute(cliprect), offsetx, offsety).ok()
     }
     pub unsafe fn ResumeDraw(&self) -> ::windows::core::Result<()> {
@@ -193,7 +193,7 @@ impl ICompositionDrawingSurfaceInterop2 {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn CopySurface<'a, P0>(&self, destinationresource: P0, destinationoffsetx: i32, destinationoffsety: i32, sourcerectangle: *const super::super::super::Foundation::RECT) -> ::windows::core::Result<()>
+    pub unsafe fn CopySurface<'a, P0>(&self, destinationresource: P0, destinationoffsetx: i32, destinationoffsety: i32, sourcerectangle: ::core::option::Option<&super::super::super::Foundation::RECT>) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>,
     {
@@ -576,7 +576,7 @@ pub struct IVisualInteractionSourceInterop(::windows::core::IUnknown);
 impl IVisualInteractionSourceInterop {
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_UI_Input_Pointer\"`, `\"Win32_UI_WindowsAndMessaging\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Input_Pointer", feature = "Win32_UI_WindowsAndMessaging"))]
-    pub unsafe fn TryRedirectForManipulation(&self, pointerinfo: *const super::super::super::UI::Input::Pointer::POINTER_INFO) -> ::windows::core::Result<()> {
+    pub unsafe fn TryRedirectForManipulation(&self, pointerinfo: &super::super::super::UI::Input::Pointer::POINTER_INFO) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).TryRedirectForManipulation)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pointerinfo)).ok()
     }
 }

@@ -227,7 +227,7 @@ where
 #[doc = "*Required features: `\"Win32_UI_Input_Touch\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn GetGestureExtraArgs<'a, P0>(hgestureinfo: P0, cbextraargs: u32, pextraargs: *mut u8) -> super::super::super::Foundation::BOOL
+pub unsafe fn GetGestureExtraArgs<'a, P0>(hgestureinfo: P0, cbextraargs: u32, pextraargs: &mut u8) -> super::super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<HGESTUREINFO>,
 {
@@ -240,7 +240,7 @@ where
 #[doc = "*Required features: `\"Win32_UI_Input_Touch\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn GetGestureInfo<'a, P0>(hgestureinfo: P0, pgestureinfo: *mut GESTUREINFO) -> super::super::super::Foundation::BOOL
+pub unsafe fn GetGestureInfo<'a, P0>(hgestureinfo: P0, pgestureinfo: &mut GESTUREINFO) -> super::super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<HGESTUREINFO>,
 {
@@ -744,7 +744,7 @@ pub const InertiaProcessor: ::windows::core::GUID = ::windows::core::GUID::from_
 #[doc = "*Required features: `\"Win32_UI_Input_Touch\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn IsTouchWindow<'a, P0>(hwnd: P0, pulflags: *mut u32) -> super::super::super::Foundation::BOOL
+pub unsafe fn IsTouchWindow<'a, P0>(hwnd: P0, pulflags: ::core::option::Option<&mut u32>) -> super::super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::super::super::Foundation::HWND>,
 {

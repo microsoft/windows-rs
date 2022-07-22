@@ -294,7 +294,7 @@ impl IInkPresenterDesktop {
     {
         (::windows::core::Interface::vtable(self).SetCommitRequestHandler)(::windows::core::Interface::as_raw(self), handler.into().abi()).ok()
     }
-    pub unsafe fn GetSize(&self, width: *mut f32, height: *mut f32) -> ::windows::core::Result<()> {
+    pub unsafe fn GetSize(&self, width: &mut f32, height: &mut f32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).GetSize)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(width), ::core::mem::transmute(height)).ok()
     }
     pub unsafe fn SetSize(&self, width: f32, height: f32) -> ::windows::core::Result<()> {

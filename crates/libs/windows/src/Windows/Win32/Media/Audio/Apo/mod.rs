@@ -1094,7 +1094,7 @@ pub struct IApoAcousticEchoCancellation_Vtbl {
 #[repr(transparent)]
 pub struct IApoAuxiliaryInputConfiguration(::windows::core::IUnknown);
 impl IApoAuxiliaryInputConfiguration {
-    pub unsafe fn AddAuxiliaryInput(&self, dwinputid: u32, pbydata: &[u8], pinputconnection: *const APO_CONNECTION_DESCRIPTOR) -> ::windows::core::Result<()> {
+    pub unsafe fn AddAuxiliaryInput(&self, dwinputid: u32, pbydata: &[u8], pinputconnection: &APO_CONNECTION_DESCRIPTOR) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).AddAuxiliaryInput)(::windows::core::Interface::as_raw(self), dwinputid, pbydata.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(pbydata)), ::core::mem::transmute(pinputconnection)).ok()
     }
     pub unsafe fn RemoveAuxiliaryInput(&self, dwinputid: u32) -> ::windows::core::Result<()> {
@@ -1155,7 +1155,7 @@ pub struct IApoAuxiliaryInputConfiguration_Vtbl {
 #[repr(transparent)]
 pub struct IApoAuxiliaryInputRT(::windows::core::IUnknown);
 impl IApoAuxiliaryInputRT {
-    pub unsafe fn AcceptInput(&self, dwinputid: u32, pinputconnection: *const APO_CONNECTION_PROPERTY) {
+    pub unsafe fn AcceptInput(&self, dwinputid: u32, pinputconnection: &APO_CONNECTION_PROPERTY) {
         (::windows::core::Interface::vtable(self).AcceptInput)(::windows::core::Interface::as_raw(self), dwinputid, ::core::mem::transmute(pinputconnection))
     }
 }
@@ -1414,7 +1414,7 @@ pub struct IAudioProcessingObject_Vtbl {
 #[repr(transparent)]
 pub struct IAudioProcessingObjectConfiguration(::windows::core::IUnknown);
 impl IAudioProcessingObjectConfiguration {
-    pub unsafe fn LockForProcess(&self, u32numinputconnections: u32, ppinputconnections: *const *const APO_CONNECTION_DESCRIPTOR, u32numoutputconnections: u32, ppoutputconnections: *const *const APO_CONNECTION_DESCRIPTOR) -> ::windows::core::Result<()> {
+    pub unsafe fn LockForProcess(&self, u32numinputconnections: u32, ppinputconnections: &*const APO_CONNECTION_DESCRIPTOR, u32numoutputconnections: u32, ppoutputconnections: &*const APO_CONNECTION_DESCRIPTOR) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).LockForProcess)(::windows::core::Interface::as_raw(self), u32numinputconnections, ::core::mem::transmute(ppinputconnections), u32numoutputconnections, ::core::mem::transmute(ppoutputconnections)).ok()
     }
     pub unsafe fn UnlockForProcess(&self) -> ::windows::core::Result<()> {
@@ -1519,12 +1519,12 @@ pub struct IAudioProcessingObjectLoggingService_Vtbl {
 #[repr(transparent)]
 pub struct IAudioProcessingObjectNotifications(::windows::core::IUnknown);
 impl IAudioProcessingObjectNotifications {
-    pub unsafe fn GetApoNotificationRegistrationInfo(&self, aponotifications: *mut *mut APO_NOTIFICATION_DESCRIPTOR, count: *mut u32) -> ::windows::core::Result<()> {
+    pub unsafe fn GetApoNotificationRegistrationInfo(&self, aponotifications: &mut *mut APO_NOTIFICATION_DESCRIPTOR, count: &mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).GetApoNotificationRegistrationInfo)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(aponotifications), ::core::mem::transmute(count)).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_UI_Shell_PropertiesSystem\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Shell_PropertiesSystem"))]
-    pub unsafe fn HandleNotification(&self, aponotification: *const APO_NOTIFICATION) {
+    pub unsafe fn HandleNotification(&self, aponotification: &APO_NOTIFICATION) {
         (::windows::core::Interface::vtable(self).HandleNotification)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(aponotification))
     }
 }
@@ -1577,7 +1577,7 @@ pub struct IAudioProcessingObjectNotifications_Vtbl {
 #[repr(transparent)]
 pub struct IAudioProcessingObjectRT(::windows::core::IUnknown);
 impl IAudioProcessingObjectRT {
-    pub unsafe fn APOProcess(&self, u32numinputconnections: u32, ppinputconnections: *const *const APO_CONNECTION_PROPERTY, u32numoutputconnections: u32, ppoutputconnections: *mut *mut APO_CONNECTION_PROPERTY) {
+    pub unsafe fn APOProcess(&self, u32numinputconnections: u32, ppinputconnections: &*const APO_CONNECTION_PROPERTY, u32numoutputconnections: u32, ppoutputconnections: &mut *mut APO_CONNECTION_PROPERTY) {
         (::windows::core::Interface::vtable(self).APOProcess)(::windows::core::Interface::as_raw(self), u32numinputconnections, ::core::mem::transmute(ppinputconnections), u32numoutputconnections, ::core::mem::transmute(ppoutputconnections))
     }
     pub unsafe fn CalcInputFrames(&self, u32outputframecount: u32) -> u32 {
@@ -1785,7 +1785,7 @@ pub struct IAudioSystemEffects2(::windows::core::IUnknown);
 impl IAudioSystemEffects2 {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetEffectsList<'a, P0>(&self, ppeffectsids: *mut *mut ::windows::core::GUID, pceffects: *mut u32, event: P0) -> ::windows::core::Result<()>
+    pub unsafe fn GetEffectsList<'a, P0>(&self, ppeffectsids: ::core::option::Option<&mut *mut ::windows::core::GUID>, pceffects: &mut u32, event: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<super::super::super::Foundation::HANDLE>,
     {
@@ -1857,7 +1857,7 @@ pub struct IAudioSystemEffects3(::windows::core::IUnknown);
 impl IAudioSystemEffects3 {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetEffectsList<'a, P0>(&self, ppeffectsids: *mut *mut ::windows::core::GUID, pceffects: *mut u32, event: P0) -> ::windows::core::Result<()>
+    pub unsafe fn GetEffectsList<'a, P0>(&self, ppeffectsids: ::core::option::Option<&mut *mut ::windows::core::GUID>, pceffects: &mut u32, event: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<super::super::super::Foundation::HANDLE>,
     {
@@ -1865,7 +1865,7 @@ impl IAudioSystemEffects3 {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetControllableSystemEffectsList<'a, P0>(&self, effects: *mut *mut AUDIO_SYSTEMEFFECT, numeffects: *mut u32, event: P0) -> ::windows::core::Result<()>
+    pub unsafe fn GetControllableSystemEffectsList<'a, P0>(&self, effects: ::core::option::Option<&mut *mut AUDIO_SYSTEMEFFECT>, numeffects: &mut u32, event: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<super::super::super::Foundation::HANDLE>,
     {

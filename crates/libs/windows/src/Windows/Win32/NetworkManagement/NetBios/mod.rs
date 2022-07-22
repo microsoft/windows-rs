@@ -557,7 +557,7 @@ pub const NRC_TOOMANY: u32 = 34u32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetBios\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn Netbios(pncb: *mut NCB) -> u8 {
+pub unsafe fn Netbios(pncb: &mut NCB) -> u8 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn Netbios(pncb: *mut NCB) -> u8;
