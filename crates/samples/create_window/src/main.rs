@@ -37,7 +37,7 @@ extern "system" fn wndproc(window: HWND, message: u32, wparam: WPARAM, lparam: L
         match message as u32 {
             WM_PAINT => {
                 println!("WM_PAINT");
-                ValidateRect(window, std::ptr::null());
+                ValidateRect(window, None);
                 LRESULT(0)
             }
             WM_DESTROY => {

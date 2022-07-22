@@ -88,11 +88,11 @@ impl IDataObject_Impl for Test {
 fn test() -> Result<()> {
     unsafe {
         let d: IDataObject = Test::default().into();
-        d.GetData(core::ptr::null_mut())?;
-        d.GetDataHere(core::ptr::null_mut(), core::ptr::null_mut())?;
-        d.QueryGetData(core::ptr::null_mut())?;
-        d.GetCanonicalFormatEtc(core::ptr::null(), core::ptr::null_mut()).ok()?;
-        d.SetData(core::ptr::null_mut(), core::ptr::null_mut(), false)?;
+        d.GetData(&Default::default())?;
+        d.GetDataHere(&Default::default(), &mut Default::default())?;
+        d.QueryGetData(&Default::default())?;
+        d.GetCanonicalFormatEtc(&Default::default(), &mut Default::default()).ok()?;
+        d.SetData(&Default::default(), &Default::default(), false)?;
 
         // EnumFormatEtc returns a null result value with a successful (S_OK) return code.
         let r = d.EnumFormatEtc(0);
@@ -101,7 +101,7 @@ fn test() -> Result<()> {
         assert!(e.code() == S_OK);
         assert!(e.info().is_none());
 
-        d.DAdvise(core::ptr::null_mut(), 0, None)?;
+        d.DAdvise(&Default::default(), 0, None)?;
 
         let i = d.as_impl().0.get();
         assert!((*i).GetData);

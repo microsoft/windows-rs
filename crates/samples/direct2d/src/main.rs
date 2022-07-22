@@ -111,7 +111,7 @@ impl Window {
         self.draw(target)?;
 
         unsafe {
-            target.EndDraw(std::ptr::null_mut(), std::ptr::null_mut())?;
+            target.EndDraw(None, None)?;
         }
 
         if let Err(error) = self.present(1, 0) {
@@ -149,12 +149,13 @@ impl Window {
         unsafe {
             self.manager.Update(get_time(self.frequency)?)?;
 
-            target.Clear(&D2D1_COLOR_F { r: 1.0, g: 1.0, b: 1.0, a: 1.0 });
+            target.Clear(Some(&D2D1_COLOR_F { r: 1.0, g: 1.0, b: 1.0, a: 1.0 }));
 
             let mut previous = None;
-            target.GetTarget(&mut previous);
+            // TODO: workaround for https://github.com/microsoft/win32metadata/issues/1005
+            target.GetTarget(Some(&mut previous));
             target.SetTarget(clock);
-            target.Clear(std::ptr::null());
+            target.Clear(None);
             self.draw_clock()?;
             target.SetTarget(previous.as_ref());
             target.SetTransform(&Matrix3x2::translation(5.0, 5.0));
@@ -162,11 +163,11 @@ impl Window {
             let mut output = None;
             shadow.GetOutput(&mut output);
 
-            target.DrawImage(output.as_ref(), std::ptr::null(), std::ptr::null(), D2D1_INTERPOLATION_MODE_LINEAR, D2D1_COMPOSITE_MODE_SOURCE_OVER);
+            target.DrawImage(output.as_ref(), None, None, D2D1_INTERPOLATION_MODE_LINEAR, D2D1_COMPOSITE_MODE_SOURCE_OVER);
 
             target.SetTransform(&Matrix3x2::identity());
 
-            target.DrawImage(clock, std::ptr::null(), std::ptr::null(), D2D1_INTERPOLATION_MODE_LINEAR, D2D1_COMPOSITE_MODE_SOURCE_OVER);
+            target.DrawImage(clock, None, None, D2D1_INTERPOLATION_MODE_LINEAR, D2D1_COMPOSITE_MODE_SOURCE_OVER);
         }
 
         Ok(())
@@ -389,7 +390,7 @@ fn create_brush(target: &ID2D1DeviceContext) -> Result<ID2D1SolidColorBrush> {
 
     let properties = D2D1_BRUSH_PROPERTIES { opacity: 0.8, transform: Matrix3x2::identity() };
 
-    unsafe { target.CreateSolidColorBrush(&color, &properties) }
+    unsafe { target.CreateSolidColorBrush(&color, Some(&properties)) }
 }
 
 fn create_shadow(target: &ID2D1DeviceContext, clock: &ID2D1Bitmap1) -> Result<ID2D1Effect> {
@@ -408,7 +409,7 @@ fn create_factory() -> Result<ID2D1Factory1> {
         options.debugLevel = D2D1_DEBUG_LEVEL_INFORMATION;
     }
 
-    unsafe { D2D1CreateFactory(D2D1_FACTORY_TYPE_SINGLE_THREADED, &options) }
+    unsafe { D2D1CreateFactory(D2D1_FACTORY_TYPE_SINGLE_THREADED, Some(&options)) }
 }
 
 fn create_style(factory: &ID2D1Factory1) -> Result<ID2D1StrokeStyle> {
@@ -433,7 +434,7 @@ fn create_device_with_type(drive_type: D3D_DRIVER_TYPE) -> Result<ID3D11Device> 
 
     let mut device = None;
 
-    unsafe { D3D11CreateDevice(None, drive_type, None, flags, &[], D3D11_SDK_VERSION, &mut device, std::ptr::null_mut(), &mut None).map(|()| device.unwrap()) }
+    unsafe { D3D11CreateDevice(None, drive_type, None, flags, &[], D3D11_SDK_VERSION, Some(&mut device), None, None).map(|()| device.unwrap()) }
 }
 
 fn create_device() -> Result<ID3D11Device> {
@@ -477,7 +478,7 @@ fn create_swapchain_bitmap(swapchain: &IDXGISwapChain1, target: &ID2D1DeviceCont
     };
 
     unsafe {
-        let bitmap = target.CreateBitmapFromDxgiSurface(&surface, &props)?;
+        let bitmap = target.CreateBitmapFromDxgiSurface(&surface, Some(&props))?;
         target.SetTarget(&bitmap);
     };
 
@@ -496,7 +497,7 @@ fn create_swapchain(device: &ID3D11Device, window: HWND) -> Result<IDXGISwapChai
         ..Default::default()
     };
 
-    unsafe { factory.CreateSwapChainForHwnd(device, window, &props, std::ptr::null(), None) }
+    unsafe { factory.CreateSwapChainForHwnd(device, window, &props, None, None) }
 }
 
 #[allow(non_snake_case)]

@@ -4,7 +4,7 @@ use windows::Win32::Foundation::*;
 
 #[test]
 fn test_message() {
-    assert!(helpers::set_thread_ui_language("en-US"));
+    assert!(helpers::set_thread_ui_language());
 
     let code: HRESULT = ERROR_SUCCESS.into();
     let message: String = code.message().try_into().unwrap();
