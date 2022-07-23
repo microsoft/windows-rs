@@ -1,7 +1,6 @@
 use rayon::prelude::*;
+use std::collections::*;
 use std::io::prelude::*;
-
-const EXCLUDE_NAMESPACES: [&str; 4] = ["Windows.Win32.Interop", "Windows.UI.Xaml", "Windows.Win32.Web", "Windows.Win32.System.Diagnostics.Debug.WebApp"];
 
 fn main() {
     let rustfmt = std::env::args().nth(1).unwrap_or_default() != "-p";
@@ -11,7 +10,8 @@ fn main() {
 
     let files = vec![metadata::reader::File::new("crates/libs/metadata/default/Windows.winmd").unwrap(), metadata::reader::File::new("crates/libs/metadata/default/Windows.Win32.winmd").unwrap(), metadata::reader::File::new("crates/libs/metadata/default/Windows.Win32.Interop.winmd").unwrap()];
     let reader = &metadata::reader::Reader::new(&files);
-    let root = reader.tree("Windows", &EXCLUDE_NAMESPACES).expect("`Windows` namespace not found");
+    let win32 = reader.tree("Windows.Win32", &lib::EXCLUDE_NAMESPACES).expect("`Windows.Win32` namespace not found");
+    let root = metadata::reader::Tree { namespace: "Windows", nested: BTreeMap::from([("Win32", win32)]) };
 
     let trees = root.flatten();
     trees.par_iter().for_each(|tree| gen_tree(reader, &output, tree, rustfmt));
