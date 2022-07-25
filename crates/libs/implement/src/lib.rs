@@ -1,14 +1,10 @@
-use std::collections::*;
-use syn::parse::*;
-use syn::Ident;
-use syn::*;
-use tokens::*;
+use quote::quote;
 
 #[proc_macro_attribute]
 pub fn implement(attributes: proc_macro::TokenStream, original_type: proc_macro::TokenStream) -> proc_macro::TokenStream {
     let attributes = syn::parse_macro_input!(attributes as ImplementAttributes);
-    let generics = attributes.generics();
-    let interfaces_len = Literal::usize_unsuffixed(attributes.implement.len());
+    let generics: Vec<proc_macro2::TokenStream> = attributes.generics().iter().map(|g| syn::parse_str::<proc_macro2::TokenStream>(g).expect("Invalid token stream")).collect();
+    let interfaces_len = proc_macro2::Literal::usize_unsuffixed(attributes.implement.len());
 
     let constraints = quote! {
         #(#generics: ::windows::core::RuntimeType + 'static,)*
@@ -21,25 +17,22 @@ pub fn implement(attributes: proc_macro::TokenStream, original_type: proc_macro:
     };
 
     let original_type2 = original_type.clone();
-    let original_ident = TokenStream(syn::parse_macro_input!(original_type2 as syn::ItemStruct).ident.to_string());
-    let impl_ident = original_ident.join("_Impl");
+    let original_ident = syn::parse_macro_input!(original_type2 as syn::ItemStruct).ident;
+    let impl_ident = quote::format_ident!("{}_Impl", original_ident);
     let vtbl_idents = attributes.implement.iter().map(|implement| implement.to_vtbl_ident());
     let vtbl_idents2 = vtbl_idents.clone();
 
     let vtable_news = attributes.implement.iter().enumerate().map(|(enumerate, implement)| {
         let vtbl_ident = implement.to_vtbl_ident();
-        let offset: TokenStream = format!("{}", -2 - enumerate as isize).into();
+        let offset = proc_macro2::Literal::isize_unsuffixed(-2 - enumerate as isize);
         quote! { #vtbl_ident::new::<Self, #original_ident::<#(#generics,)*>, #offset>() }
     });
 
-    let offset = attributes.implement.iter().enumerate().map(|(offset, _)| {
-        let offset: TokenStream = format!("{}", offset).into();
-        offset
-    });
+    let offset = attributes.implement.iter().enumerate().map(|(offset, _)| proc_macro2::Literal::usize_unsuffixed(offset));
 
     let queries = attributes.implement.iter().enumerate().map(|(count, implement)| {
         let vtbl_ident = implement.to_vtbl_ident();
-        let offset: TokenStream = format!("{}", count).into();
+        let offset = proc_macro2::Literal::usize_unsuffixed(count);
         quote! {
             else if #vtbl_ident::matches(iid) {
                 &self.vtables.#offset as *const _ as *const _
@@ -49,7 +42,7 @@ pub fn implement(attributes: proc_macro::TokenStream, original_type: proc_macro:
 
     let conversions = attributes.implement.iter().enumerate().map(|(enumerate, implement)| {
         let interface_ident = implement.to_ident();
-        let offset: TokenStream = enumerate.to_string().into();
+        let offset = proc_macro2::Literal::usize_unsuffixed(enumerate);
         quote! {
             impl <#constraints> ::core::convert::From<#original_ident::<#(#generics,)*>> for #interface_ident {
                 fn from(this: #original_ident::<#(#generics,)*>) -> Self {
@@ -186,7 +179,7 @@ pub fn implement(attributes: proc_macro::TokenStream, original_type: proc_macro:
         #(#conversions)*
     };
 
-    let mut tokens = tokens.parse::<proc_macro::TokenStream>().unwrap();
+    let mut tokens: proc_macro::TokenStream = tokens.into();
     tokens.extend(core::iter::once(original_type));
     tokens
 }
@@ -198,29 +191,22 @@ struct ImplementType {
 }
 
 impl ImplementType {
-    fn to_ident(&self) -> TokenStream {
-        let mut tokens: TokenStream = self.type_name.clone().into();
-        tokens.push_str("<");
-
-        for g in &self.generics {
-            tokens.combine(&g.to_ident());
-            tokens.push_str(",");
-        }
-
-        tokens.push_str(">");
-        tokens
+    fn to_ident(&self) -> proc_macro2::TokenStream {
+        let type_name = syn::parse_str::<proc_macro2::TokenStream>(&self.type_name).expect("Invalid token stream");
+        let generics = self.generics.iter().map(|g| g.to_ident());
+        quote! { #type_name<#(#generics,)*> }
     }
-    fn to_vtbl_ident(&self) -> TokenStream {
+    fn to_vtbl_ident(&self) -> proc_macro2::TokenStream {
         let ident = self.to_ident();
         quote! {
             <#ident as ::windows::core::Interface>::Vtable
         }
     }
-    fn generics(&self) -> BTreeSet<TokenStream> {
-        let mut set = BTreeSet::new();
+    fn generics(&self) -> std::collections::BTreeSet<String> {
+        let mut set = std::collections::BTreeSet::new();
 
         if self.type_name.len() == 1 && self.type_name == self.type_name.to_uppercase() {
-            set.insert(self.type_name.clone().into());
+            set.insert(self.type_name.clone());
         }
 
         for def in &self.generics {
@@ -236,8 +222,8 @@ struct ImplementAttributes {
     pub implement: Vec<ImplementType>,
 }
 
-impl Parse for ImplementAttributes {
-    fn parse(cursor: ParseStream) -> Result<Self> {
+impl syn::parse::Parse for ImplementAttributes {
+    fn parse(cursor: syn::parse::ParseStream) -> syn::parse::Result<Self> {
         let mut input = Self::default();
 
         while !cursor.is_empty() {
@@ -249,8 +235,8 @@ impl Parse for ImplementAttributes {
 }
 
 impl ImplementAttributes {
-    fn generics(&self) -> BTreeSet<TokenStream> {
-        let mut set = BTreeSet::new();
+    fn generics(&self) -> std::collections::BTreeSet<String> {
+        let mut set = std::collections::BTreeSet::new();
 
         for def in &self.implement {
             set.append(&mut def.generics());
@@ -259,18 +245,18 @@ impl ImplementAttributes {
         set
     }
 
-    fn parse_implement(&mut self, cursor: ParseStream) -> Result<()> {
+    fn parse_implement(&mut self, cursor: syn::parse::ParseStream) -> syn::parse::Result<()> {
         let tree = cursor.parse::<UseTree2>()?;
         self.walk_implement(&tree, &mut String::new())?;
 
         if !cursor.is_empty() {
-            cursor.parse::<Token![,]>()?;
+            cursor.parse::<syn::Token![,]>()?;
         }
 
         Ok(())
     }
 
-    fn walk_implement(&mut self, tree: &UseTree2, namespace: &mut String) -> Result<()> {
+    fn walk_implement(&mut self, tree: &UseTree2, namespace: &mut String) -> syn::parse::Result<()> {
         match tree {
             UseTree2::Path(input) => {
                 if !namespace.is_empty() {
@@ -301,7 +287,7 @@ enum UseTree2 {
 }
 
 impl UseTree2 {
-    fn to_element_type(&self, namespace: &mut String) -> Result<ImplementType> {
+    fn to_element_type(&self, namespace: &mut String) -> syn::parse::Result<ImplementType> {
         match self {
             UseTree2::Path(input) => {
                 if !namespace.is_empty() {
@@ -326,47 +312,47 @@ impl UseTree2 {
 
                 Ok(ImplementType { type_name, generics })
             }
-            UseTree2::Group(input) => Err(Error::new(input.brace_token.span, "Syntax not supported")),
+            UseTree2::Group(input) => Err(syn::parse::Error::new(input.brace_token.span, "Syntax not supported")),
         }
     }
 }
 
 struct UsePath2 {
-    pub ident: Ident,
+    pub ident: syn::Ident,
     pub tree: Box<UseTree2>,
 }
 
 struct UseName2 {
-    pub ident: Ident,
+    pub ident: syn::Ident,
     pub generics: Vec<UseTree2>,
 }
 
 struct UseGroup2 {
-    pub brace_token: token::Brace,
-    pub items: syn::punctuated::Punctuated<UseTree2, Token![,]>,
+    pub brace_token: syn::token::Brace,
+    pub items: syn::punctuated::Punctuated<UseTree2, syn::Token![,]>,
 }
 
-impl Parse for UseTree2 {
-    fn parse(input: ParseStream) -> Result<UseTree2> {
+impl syn::parse::Parse for UseTree2 {
+    fn parse(input: syn::parse::ParseStream) -> syn::parse::Result<UseTree2> {
         let lookahead = input.lookahead1();
-        if lookahead.peek(Ident) {
+        if lookahead.peek(syn::Ident) {
             use syn::ext::IdentExt;
-            let ident = input.call(Ident::parse_any)?;
-            if input.peek(Token![::]) {
-                input.parse::<Token![::]>()?;
+            let ident = input.call(syn::Ident::parse_any)?;
+            if input.peek(syn::Token![::]) {
+                input.parse::<syn::Token![::]>()?;
                 Ok(UseTree2::Path(UsePath2 { ident, tree: Box::new(input.parse()?) }))
             } else {
-                let generics = if input.peek(Token![<]) {
-                    input.parse::<Token![<]>()?;
+                let generics = if input.peek(syn::Token![<]) {
+                    input.parse::<syn::Token![<]>()?;
                     let mut generics = Vec::new();
                     loop {
                         generics.push(input.parse::<UseTree2>()?);
 
-                        if input.parse::<Token![,]>().is_err() {
+                        if input.parse::<syn::Token![,]>().is_err() {
                             break;
                         }
                     }
-                    input.parse::<Token![>]>()?;
+                    input.parse::<syn::Token![>]>()?;
                     generics
                 } else {
                     Vec::new()
@@ -374,9 +360,9 @@ impl Parse for UseTree2 {
 
                 Ok(UseTree2::Name(UseName2 { ident, generics }))
             }
-        } else if lookahead.peek(token::Brace) {
+        } else if lookahead.peek(syn::token::Brace) {
             let content;
-            let brace_token = braced!(content in input);
+            let brace_token = syn::braced!(content in input);
             let items = content.parse_terminated(UseTree2::parse)?;
 
             Ok(UseTree2::Group(UseGroup2 { brace_token, items }))
