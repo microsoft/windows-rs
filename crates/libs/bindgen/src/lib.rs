@@ -109,11 +109,28 @@ pub fn namespace(gen: &Gen, tree: &Tree) -> String {
 
     let types = types.values();
 
-    let tokens = quote! {
+    let mut tokens = quote! {
         #(#namespaces)*
         #(#functions)*
         #(#types)*
     };
+
+    if tree.namespace == "Windows.Win32.UI.WindowsAndMessaging" {
+        tokens.combine(&quote! {
+            #[cfg(target_pointer_width = "32")]
+            #[cfg(feature = "Win32_Foundation")]
+            pub use SetWindowLongA as SetWindowLongPtrA;
+            #[cfg(target_pointer_width = "32")]
+            #[cfg(feature = "Win32_Foundation")]
+            pub use GetWindowLongA as GetWindowLongPtrA;
+            #[cfg(target_pointer_width = "32")]
+            #[cfg(feature = "Win32_Foundation")]
+            pub use SetWindowLongW as SetWindowLongPtrW;
+            #[cfg(target_pointer_width = "32")]
+            #[cfg(feature = "Win32_Foundation")]
+            pub use GetWindowLongW as GetWindowLongPtrW;
+        });
+    }
 
     tokens.into_string()
 }

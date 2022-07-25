@@ -15356,5 +15356,17 @@ where
     }
     wvsprintfW(::core::mem::transmute(param0), param1.into(), ::core::mem::transmute(arglist))
 }
+#[cfg(target_pointer_width = "32")]
+#[cfg(feature = "Win32_Foundation")]
+pub use GetWindowLongA as GetWindowLongPtrA;
+#[cfg(target_pointer_width = "32")]
+#[cfg(feature = "Win32_Foundation")]
+pub use GetWindowLongW as GetWindowLongPtrW;
+#[cfg(target_pointer_width = "32")]
+#[cfg(feature = "Win32_Foundation")]
+pub use SetWindowLongA as SetWindowLongPtrA;
+#[cfg(target_pointer_width = "32")]
+#[cfg(feature = "Win32_Foundation")]
+pub use SetWindowLongW as SetWindowLongPtrW;
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");
