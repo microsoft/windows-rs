@@ -115,7 +115,7 @@ fn gen_tree(reader: &metadata::reader::Reader, output: &std::path::Path, tree: &
     let mut path = std::path::PathBuf::from(output);
     path.push(tree.namespace.replace('.', "/"));
     std::fs::create_dir_all(&path).unwrap();
-    
+
     let mut gen = bindgen::Gen::new(reader);
     gen.namespace = tree.namespace;
     gen.sys = true;
