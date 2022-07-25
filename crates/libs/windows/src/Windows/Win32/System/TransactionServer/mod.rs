@@ -26,10 +26,10 @@ impl ICatalog {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).Connect)(::windows::core::Interface::as_raw(self), bstrconnectstring.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::Com::IDispatch>(result__)
     }
-    pub unsafe fn MajorVersion(&self, retval: *mut i32) -> ::windows::core::Result<()> {
+    pub unsafe fn MajorVersion(&self, retval: &mut i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).MajorVersion)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(retval)).ok()
     }
-    pub unsafe fn MinorVersion(&self, retval: *mut i32) -> ::windows::core::Result<()> {
+    pub unsafe fn MinorVersion(&self, retval: &mut i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).MinorVersion)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(retval)).ok()
     }
 }
@@ -144,7 +144,7 @@ impl IComponentUtil {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub unsafe fn GetCLSIDs<'a, P0, P1>(&self, bstrdllfile: P0, bstrtypelibfile: P1, aclsids: *mut *mut super::Com::SAFEARRAY) -> ::windows::core::Result<()>
+    pub unsafe fn GetCLSIDs<'a, P0, P1>(&self, bstrdllfile: P0, bstrtypelibfile: P1, aclsids: &mut *mut super::Com::SAFEARRAY) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
         P1: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,

@@ -1084,7 +1084,7 @@ pub unsafe fn ber_alloc_t(options: i32) -> *mut berelement {
 }
 #[doc = "*Required features: `\"Win32_Networking_Ldap\"`*"]
 #[inline]
-pub unsafe fn ber_bvdup(pberval: *mut LDAP_BERVAL) -> *mut LDAP_BERVAL {
+pub unsafe fn ber_bvdup(pberval: &mut LDAP_BERVAL) -> *mut LDAP_BERVAL {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn ber_bvdup(pberval: *mut LDAP_BERVAL) -> *mut LDAP_BERVAL;
@@ -1093,7 +1093,7 @@ pub unsafe fn ber_bvdup(pberval: *mut LDAP_BERVAL) -> *mut LDAP_BERVAL {
 }
 #[doc = "*Required features: `\"Win32_Networking_Ldap\"`*"]
 #[inline]
-pub unsafe fn ber_bvecfree(pberval: *mut *mut LDAP_BERVAL) {
+pub unsafe fn ber_bvecfree(pberval: &mut *mut LDAP_BERVAL) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn ber_bvecfree(pberval: *mut *mut LDAP_BERVAL);
@@ -1102,7 +1102,7 @@ pub unsafe fn ber_bvecfree(pberval: *mut *mut LDAP_BERVAL) {
 }
 #[doc = "*Required features: `\"Win32_Networking_Ldap\"`*"]
 #[inline]
-pub unsafe fn ber_bvfree(bv: *mut LDAP_BERVAL) {
+pub unsafe fn ber_bvfree(bv: &mut LDAP_BERVAL) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn ber_bvfree(bv: *mut LDAP_BERVAL);
@@ -1112,7 +1112,7 @@ pub unsafe fn ber_bvfree(bv: *mut LDAP_BERVAL) {
 #[doc = "*Required features: `\"Win32_Networking_Ldap\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn ber_first_element(pberelement: *mut berelement, plen: *mut u32, ppopaque: *mut *mut super::super::Foundation::CHAR) -> u32 {
+pub unsafe fn ber_first_element(pberelement: &mut berelement, plen: &mut u32, ppopaque: &mut *mut super::super::Foundation::CHAR) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn ber_first_element(pberelement: *mut berelement, plen: *mut u32, ppopaque: *mut *mut super::super::Foundation::CHAR) -> u32;
@@ -1121,7 +1121,7 @@ pub unsafe fn ber_first_element(pberelement: *mut berelement, plen: *mut u32, pp
 }
 #[doc = "*Required features: `\"Win32_Networking_Ldap\"`*"]
 #[inline]
-pub unsafe fn ber_flatten(pberelement: *mut berelement, pberval: *mut *mut LDAP_BERVAL) -> i32 {
+pub unsafe fn ber_flatten(pberelement: &mut berelement, pberval: &mut *mut LDAP_BERVAL) -> i32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn ber_flatten(pberelement: *mut berelement, pberval: *mut *mut LDAP_BERVAL) -> i32;
@@ -1130,7 +1130,7 @@ pub unsafe fn ber_flatten(pberelement: *mut berelement, pberval: *mut *mut LDAP_
 }
 #[doc = "*Required features: `\"Win32_Networking_Ldap\"`*"]
 #[inline]
-pub unsafe fn ber_free(pberelement: *mut berelement, fbuf: i32) {
+pub unsafe fn ber_free(pberelement: &mut berelement, fbuf: i32) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn ber_free(pberelement: *mut berelement, fbuf: i32);
@@ -1139,7 +1139,7 @@ pub unsafe fn ber_free(pberelement: *mut berelement, fbuf: i32) {
 }
 #[doc = "*Required features: `\"Win32_Networking_Ldap\"`*"]
 #[inline]
-pub unsafe fn ber_init(pberval: *mut LDAP_BERVAL) -> *mut berelement {
+pub unsafe fn ber_init(pberval: &mut LDAP_BERVAL) -> *mut berelement {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn ber_init(pberval: *mut LDAP_BERVAL) -> *mut berelement;
@@ -1148,7 +1148,7 @@ pub unsafe fn ber_init(pberval: *mut LDAP_BERVAL) -> *mut berelement {
 }
 #[doc = "*Required features: `\"Win32_Networking_Ldap\"`*"]
 #[inline]
-pub unsafe fn ber_next_element<'a, P0>(pberelement: *mut berelement, plen: *mut u32, opaque: P0) -> u32
+pub unsafe fn ber_next_element<'a, P0>(pberelement: &mut berelement, plen: &mut u32, opaque: P0) -> u32
 where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
 {
@@ -1160,7 +1160,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Networking_Ldap\"`*"]
 #[inline]
-pub unsafe fn ber_peek_tag(pberelement: *mut berelement, plen: *mut u32) -> u32 {
+pub unsafe fn ber_peek_tag(pberelement: &mut berelement, plen: &mut u32) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn ber_peek_tag(pberelement: *mut berelement, plen: *mut u32) -> u32;
@@ -1169,7 +1169,7 @@ pub unsafe fn ber_peek_tag(pberelement: *mut berelement, plen: *mut u32) -> u32 
 }
 #[doc = "*Required features: `\"Win32_Networking_Ldap\"`*"]
 #[inline]
-pub unsafe fn ber_printf<'a, P0>(pberelement: *mut berelement, fmt: P0) -> i32
+pub unsafe fn ber_printf<'a, P0>(pberelement: &mut berelement, fmt: P0) -> i32
 where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
 {
@@ -1181,7 +1181,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Networking_Ldap\"`*"]
 #[inline]
-pub unsafe fn ber_scanf<'a, P0>(pberelement: *mut berelement, fmt: P0) -> u32
+pub unsafe fn ber_scanf<'a, P0>(pberelement: &mut berelement, fmt: P0) -> u32
 where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
 {
@@ -1193,7 +1193,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Networking_Ldap\"`*"]
 #[inline]
-pub unsafe fn ber_skip_tag(pberelement: *mut berelement, plen: *mut u32) -> u32 {
+pub unsafe fn ber_skip_tag(pberelement: &mut berelement, plen: &mut u32) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn ber_skip_tag(pberelement: *mut berelement, plen: *mut u32) -> u32;
@@ -1363,7 +1363,7 @@ impl ::core::default::Default for ldap_0 {
 }
 #[doc = "*Required features: `\"Win32_Networking_Ldap\"`*"]
 #[inline]
-pub unsafe fn ldap_abandon(ld: *mut ldap, msgid: u32) -> u32 {
+pub unsafe fn ldap_abandon(ld: &mut ldap, msgid: u32) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn ldap_abandon(ld: *mut ldap, msgid: u32) -> u32;
@@ -1372,7 +1372,7 @@ pub unsafe fn ldap_abandon(ld: *mut ldap, msgid: u32) -> u32 {
 }
 #[doc = "*Required features: `\"Win32_Networking_Ldap\"`*"]
 #[inline]
-pub unsafe fn ldap_add<'a, P0>(ld: *mut ldap, dn: P0, attrs: *mut *mut ldapmodA) -> u32
+pub unsafe fn ldap_add<'a, P0>(ld: &mut ldap, dn: P0, attrs: &mut *mut ldapmodA) -> u32
 where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
 {
@@ -1384,7 +1384,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Networking_Ldap\"`*"]
 #[inline]
-pub unsafe fn ldap_addA<'a, P0>(ld: *mut ldap, dn: P0, attrs: *mut *mut ldapmodA) -> u32
+pub unsafe fn ldap_addA<'a, P0>(ld: &mut ldap, dn: P0, attrs: &mut *mut ldapmodA) -> u32
 where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
 {
@@ -1396,7 +1396,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Networking_Ldap\"`*"]
 #[inline]
-pub unsafe fn ldap_addW<'a, P0>(ld: *mut ldap, dn: P0, attrs: *mut *mut ldapmodW) -> u32
+pub unsafe fn ldap_addW<'a, P0>(ld: &mut ldap, dn: P0, attrs: &mut *mut ldapmodW) -> u32
 where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
 {
@@ -1409,7 +1409,7 @@ where
 #[doc = "*Required features: `\"Win32_Networking_Ldap\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn ldap_add_ext<'a, P0>(ld: *mut ldap, dn: P0, attrs: *mut *mut ldapmodA, servercontrols: *mut *mut ldapcontrolA, clientcontrols: *mut *mut ldapcontrolA, messagenumber: *mut u32) -> u32
+pub unsafe fn ldap_add_ext<'a, P0>(ld: &mut ldap, dn: P0, attrs: &mut *mut ldapmodA, servercontrols: &mut *mut ldapcontrolA, clientcontrols: &mut *mut ldapcontrolA, messagenumber: &mut u32) -> u32
 where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
 {
@@ -1422,7 +1422,7 @@ where
 #[doc = "*Required features: `\"Win32_Networking_Ldap\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn ldap_add_extA<'a, P0>(ld: *mut ldap, dn: P0, attrs: *mut *mut ldapmodA, servercontrols: *mut *mut ldapcontrolA, clientcontrols: *mut *mut ldapcontrolA, messagenumber: *mut u32) -> u32
+pub unsafe fn ldap_add_extA<'a, P0>(ld: &mut ldap, dn: P0, attrs: &mut *mut ldapmodA, servercontrols: &mut *mut ldapcontrolA, clientcontrols: &mut *mut ldapcontrolA, messagenumber: &mut u32) -> u32
 where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
 {
@@ -1435,7 +1435,7 @@ where
 #[doc = "*Required features: `\"Win32_Networking_Ldap\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn ldap_add_extW<'a, P0>(ld: *mut ldap, dn: P0, attrs: *mut *mut ldapmodW, servercontrols: *mut *mut ldapcontrolW, clientcontrols: *mut *mut ldapcontrolW, messagenumber: *mut u32) -> u32
+pub unsafe fn ldap_add_extW<'a, P0>(ld: &mut ldap, dn: P0, attrs: &mut *mut ldapmodW, servercontrols: &mut *mut ldapcontrolW, clientcontrols: &mut *mut ldapcontrolW, messagenumber: &mut u32) -> u32
 where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
 {
@@ -1448,7 +1448,7 @@ where
 #[doc = "*Required features: `\"Win32_Networking_Ldap\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn ldap_add_ext_s<'a, P0>(ld: *mut ldap, dn: P0, attrs: *mut *mut ldapmodA, servercontrols: *mut *mut ldapcontrolA, clientcontrols: *mut *mut ldapcontrolA) -> u32
+pub unsafe fn ldap_add_ext_s<'a, P0>(ld: &mut ldap, dn: P0, attrs: &mut *mut ldapmodA, servercontrols: &mut *mut ldapcontrolA, clientcontrols: &mut *mut ldapcontrolA) -> u32
 where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
 {
@@ -1461,7 +1461,7 @@ where
 #[doc = "*Required features: `\"Win32_Networking_Ldap\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn ldap_add_ext_sA<'a, P0>(ld: *mut ldap, dn: P0, attrs: *mut *mut ldapmodA, servercontrols: *mut *mut ldapcontrolA, clientcontrols: *mut *mut ldapcontrolA) -> u32
+pub unsafe fn ldap_add_ext_sA<'a, P0>(ld: &mut ldap, dn: P0, attrs: &mut *mut ldapmodA, servercontrols: &mut *mut ldapcontrolA, clientcontrols: &mut *mut ldapcontrolA) -> u32
 where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
 {
@@ -1474,7 +1474,7 @@ where
 #[doc = "*Required features: `\"Win32_Networking_Ldap\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn ldap_add_ext_sW<'a, P0>(ld: *mut ldap, dn: P0, attrs: *mut *mut ldapmodW, servercontrols: *mut *mut ldapcontrolW, clientcontrols: *mut *mut ldapcontrolW) -> u32
+pub unsafe fn ldap_add_ext_sW<'a, P0>(ld: &mut ldap, dn: P0, attrs: &mut *mut ldapmodW, servercontrols: &mut *mut ldapcontrolW, clientcontrols: &mut *mut ldapcontrolW) -> u32
 where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
 {
@@ -1486,7 +1486,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Networking_Ldap\"`*"]
 #[inline]
-pub unsafe fn ldap_add_s<'a, P0>(ld: *mut ldap, dn: P0, attrs: *mut *mut ldapmodA) -> u32
+pub unsafe fn ldap_add_s<'a, P0>(ld: &mut ldap, dn: P0, attrs: &mut *mut ldapmodA) -> u32
 where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
 {
@@ -1498,7 +1498,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Networking_Ldap\"`*"]
 #[inline]
-pub unsafe fn ldap_add_sA<'a, P0>(ld: *mut ldap, dn: P0, attrs: *mut *mut ldapmodA) -> u32
+pub unsafe fn ldap_add_sA<'a, P0>(ld: &mut ldap, dn: P0, attrs: &mut *mut ldapmodA) -> u32
 where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
 {
@@ -1510,7 +1510,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Networking_Ldap\"`*"]
 #[inline]
-pub unsafe fn ldap_add_sW<'a, P0>(ld: *mut ldap, dn: P0, attrs: *mut *mut ldapmodW) -> u32
+pub unsafe fn ldap_add_sW<'a, P0>(ld: &mut ldap, dn: P0, attrs: &mut *mut ldapmodW) -> u32
 where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
 {
@@ -1522,7 +1522,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Networking_Ldap\"`*"]
 #[inline]
-pub unsafe fn ldap_bind<'a, P0, P1>(ld: *mut ldap, dn: P0, cred: P1, method: u32) -> u32
+pub unsafe fn ldap_bind<'a, P0, P1>(ld: &mut ldap, dn: P0, cred: P1, method: u32) -> u32
 where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
     P1: ::std::convert::Into<::windows::core::PCSTR>,
@@ -1535,7 +1535,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Networking_Ldap\"`*"]
 #[inline]
-pub unsafe fn ldap_bindA<'a, P0, P1>(ld: *mut ldap, dn: P0, cred: P1, method: u32) -> u32
+pub unsafe fn ldap_bindA<'a, P0, P1>(ld: &mut ldap, dn: P0, cred: P1, method: u32) -> u32
 where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
     P1: ::std::convert::Into<::windows::core::PCSTR>,
@@ -1548,7 +1548,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Networking_Ldap\"`*"]
 #[inline]
-pub unsafe fn ldap_bindW<'a, P0, P1>(ld: *mut ldap, dn: P0, cred: P1, method: u32) -> u32
+pub unsafe fn ldap_bindW<'a, P0, P1>(ld: &mut ldap, dn: P0, cred: P1, method: u32) -> u32
 where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
     P1: ::std::convert::Into<::windows::core::PCWSTR>,
@@ -1561,7 +1561,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Networking_Ldap\"`*"]
 #[inline]
-pub unsafe fn ldap_bind_s<'a, P0, P1>(ld: *mut ldap, dn: P0, cred: P1, method: u32) -> u32
+pub unsafe fn ldap_bind_s<'a, P0, P1>(ld: &mut ldap, dn: P0, cred: P1, method: u32) -> u32
 where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
     P1: ::std::convert::Into<::windows::core::PCSTR>,
@@ -1574,7 +1574,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Networking_Ldap\"`*"]
 #[inline]
-pub unsafe fn ldap_bind_sA<'a, P0, P1>(ld: *mut ldap, dn: P0, cred: P1, method: u32) -> u32
+pub unsafe fn ldap_bind_sA<'a, P0, P1>(ld: &mut ldap, dn: P0, cred: P1, method: u32) -> u32
 where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
     P1: ::std::convert::Into<::windows::core::PCSTR>,
@@ -1587,7 +1587,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Networking_Ldap\"`*"]
 #[inline]
-pub unsafe fn ldap_bind_sW<'a, P0, P1>(ld: *mut ldap, dn: P0, cred: P1, method: u32) -> u32
+pub unsafe fn ldap_bind_sW<'a, P0, P1>(ld: &mut ldap, dn: P0, cred: P1, method: u32) -> u32
 where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
     P1: ::std::convert::Into<::windows::core::PCWSTR>,
@@ -1600,7 +1600,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Networking_Ldap\"`*"]
 #[inline]
-pub unsafe fn ldap_check_filterA<'a, P0>(ld: *mut ldap, searchfilter: P0) -> u32
+pub unsafe fn ldap_check_filterA<'a, P0>(ld: &mut ldap, searchfilter: P0) -> u32
 where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
 {
@@ -1612,7 +1612,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Networking_Ldap\"`*"]
 #[inline]
-pub unsafe fn ldap_check_filterW<'a, P0>(ld: *mut ldap, searchfilter: P0) -> u32
+pub unsafe fn ldap_check_filterW<'a, P0>(ld: &mut ldap, searchfilter: P0) -> u32
 where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
 {
@@ -1637,7 +1637,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Networking_Ldap\"`*"]
 #[inline]
-pub unsafe fn ldap_close_extended_op(ld: *mut ldap, messagenumber: u32) -> u32 {
+pub unsafe fn ldap_close_extended_op(ld: &mut ldap, messagenumber: u32) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn ldap_close_extended_op(ld: *mut ldap, messagenumber: u32) -> u32;
@@ -1646,7 +1646,7 @@ pub unsafe fn ldap_close_extended_op(ld: *mut ldap, messagenumber: u32) -> u32 {
 }
 #[doc = "*Required features: `\"Win32_Networking_Ldap\"`*"]
 #[inline]
-pub unsafe fn ldap_compare<'a, P0, P1, P2>(ld: *mut ldap, dn: P0, attr: P1, value: P2) -> u32
+pub unsafe fn ldap_compare<'a, P0, P1, P2>(ld: &mut ldap, dn: P0, attr: P1, value: P2) -> u32
 where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
     P1: ::std::convert::Into<::windows::core::PCSTR>,
@@ -1660,7 +1660,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Networking_Ldap\"`*"]
 #[inline]
-pub unsafe fn ldap_compareA<'a, P0, P1, P2>(ld: *mut ldap, dn: P0, attr: P1, value: P2) -> u32
+pub unsafe fn ldap_compareA<'a, P0, P1, P2>(ld: &mut ldap, dn: P0, attr: P1, value: P2) -> u32
 where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
     P1: ::std::convert::Into<::windows::core::PCSTR>,
@@ -1674,7 +1674,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Networking_Ldap\"`*"]
 #[inline]
-pub unsafe fn ldap_compareW<'a, P0, P1, P2>(ld: *mut ldap, dn: P0, attr: P1, value: P2) -> u32
+pub unsafe fn ldap_compareW<'a, P0, P1, P2>(ld: &mut ldap, dn: P0, attr: P1, value: P2) -> u32
 where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
     P1: ::std::convert::Into<::windows::core::PCWSTR>,
@@ -1689,7 +1689,7 @@ where
 #[doc = "*Required features: `\"Win32_Networking_Ldap\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn ldap_compare_ext<'a, P0, P1, P2>(ld: *mut ldap, dn: P0, attr: P1, value: P2, data: *mut LDAP_BERVAL, servercontrols: *mut *mut ldapcontrolA, clientcontrols: *mut *mut ldapcontrolA, messagenumber: *mut u32) -> u32
+pub unsafe fn ldap_compare_ext<'a, P0, P1, P2>(ld: &mut ldap, dn: P0, attr: P1, value: P2, data: &mut LDAP_BERVAL, servercontrols: &mut *mut ldapcontrolA, clientcontrols: &mut *mut ldapcontrolA, messagenumber: &mut u32) -> u32
 where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
     P1: ::std::convert::Into<::windows::core::PCSTR>,
@@ -1704,7 +1704,7 @@ where
 #[doc = "*Required features: `\"Win32_Networking_Ldap\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn ldap_compare_extA<'a, P0, P1, P2>(ld: *mut ldap, dn: P0, attr: P1, value: P2, data: *const LDAP_BERVAL, servercontrols: *mut *mut ldapcontrolA, clientcontrols: *mut *mut ldapcontrolA, messagenumber: *mut u32) -> u32
+pub unsafe fn ldap_compare_extA<'a, P0, P1, P2>(ld: &mut ldap, dn: P0, attr: P1, value: P2, data: ::core::option::Option<&LDAP_BERVAL>, servercontrols: &mut *mut ldapcontrolA, clientcontrols: &mut *mut ldapcontrolA, messagenumber: &mut u32) -> u32
 where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
     P1: ::std::convert::Into<::windows::core::PCSTR>,
@@ -1719,7 +1719,7 @@ where
 #[doc = "*Required features: `\"Win32_Networking_Ldap\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn ldap_compare_extW<'a, P0, P1, P2>(ld: *mut ldap, dn: P0, attr: P1, value: P2, data: *const LDAP_BERVAL, servercontrols: *mut *mut ldapcontrolW, clientcontrols: *mut *mut ldapcontrolW, messagenumber: *mut u32) -> u32
+pub unsafe fn ldap_compare_extW<'a, P0, P1, P2>(ld: &mut ldap, dn: P0, attr: P1, value: P2, data: ::core::option::Option<&LDAP_BERVAL>, servercontrols: &mut *mut ldapcontrolW, clientcontrols: &mut *mut ldapcontrolW, messagenumber: &mut u32) -> u32
 where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
     P1: ::std::convert::Into<::windows::core::PCWSTR>,
@@ -1734,7 +1734,7 @@ where
 #[doc = "*Required features: `\"Win32_Networking_Ldap\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn ldap_compare_ext_s<'a, P0, P1, P2>(ld: *mut ldap, dn: P0, attr: P1, value: P2, data: *mut LDAP_BERVAL, servercontrols: *mut *mut ldapcontrolA, clientcontrols: *mut *mut ldapcontrolA) -> u32
+pub unsafe fn ldap_compare_ext_s<'a, P0, P1, P2>(ld: &mut ldap, dn: P0, attr: P1, value: P2, data: &mut LDAP_BERVAL, servercontrols: &mut *mut ldapcontrolA, clientcontrols: &mut *mut ldapcontrolA) -> u32
 where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
     P1: ::std::convert::Into<::windows::core::PCSTR>,
@@ -1749,7 +1749,7 @@ where
 #[doc = "*Required features: `\"Win32_Networking_Ldap\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn ldap_compare_ext_sA<'a, P0, P1, P2>(ld: *mut ldap, dn: P0, attr: P1, value: P2, data: *const LDAP_BERVAL, servercontrols: *mut *mut ldapcontrolA, clientcontrols: *mut *mut ldapcontrolA) -> u32
+pub unsafe fn ldap_compare_ext_sA<'a, P0, P1, P2>(ld: &mut ldap, dn: P0, attr: P1, value: P2, data: ::core::option::Option<&LDAP_BERVAL>, servercontrols: &mut *mut ldapcontrolA, clientcontrols: &mut *mut ldapcontrolA) -> u32
 where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
     P1: ::std::convert::Into<::windows::core::PCSTR>,
@@ -1764,7 +1764,7 @@ where
 #[doc = "*Required features: `\"Win32_Networking_Ldap\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn ldap_compare_ext_sW<'a, P0, P1, P2>(ld: *mut ldap, dn: P0, attr: P1, value: P2, data: *const LDAP_BERVAL, servercontrols: *mut *mut ldapcontrolW, clientcontrols: *mut *mut ldapcontrolW) -> u32
+pub unsafe fn ldap_compare_ext_sW<'a, P0, P1, P2>(ld: &mut ldap, dn: P0, attr: P1, value: P2, data: ::core::option::Option<&LDAP_BERVAL>, servercontrols: &mut *mut ldapcontrolW, clientcontrols: &mut *mut ldapcontrolW) -> u32
 where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
     P1: ::std::convert::Into<::windows::core::PCWSTR>,
@@ -1778,7 +1778,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Networking_Ldap\"`*"]
 #[inline]
-pub unsafe fn ldap_compare_s<'a, P0, P1, P2>(ld: *mut ldap, dn: P0, attr: P1, value: P2) -> u32
+pub unsafe fn ldap_compare_s<'a, P0, P1, P2>(ld: &mut ldap, dn: P0, attr: P1, value: P2) -> u32
 where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
     P1: ::std::convert::Into<::windows::core::PCSTR>,
@@ -1792,7 +1792,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Networking_Ldap\"`*"]
 #[inline]
-pub unsafe fn ldap_compare_sA<'a, P0, P1, P2>(ld: *mut ldap, dn: P0, attr: P1, value: P2) -> u32
+pub unsafe fn ldap_compare_sA<'a, P0, P1, P2>(ld: &mut ldap, dn: P0, attr: P1, value: P2) -> u32
 where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
     P1: ::std::convert::Into<::windows::core::PCSTR>,
@@ -1806,7 +1806,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Networking_Ldap\"`*"]
 #[inline]
-pub unsafe fn ldap_compare_sW<'a, P0, P1, P2>(ld: *mut ldap, dn: P0, attr: P1, value: P2) -> u32
+pub unsafe fn ldap_compare_sW<'a, P0, P1, P2>(ld: &mut ldap, dn: P0, attr: P1, value: P2) -> u32
 where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
     P1: ::std::convert::Into<::windows::core::PCWSTR>,
@@ -1821,7 +1821,7 @@ where
 #[doc = "*Required features: `\"Win32_Networking_Ldap\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn ldap_conn_from_msg(primaryconn: *mut ldap, res: *mut LDAPMessage) -> *mut ldap {
+pub unsafe fn ldap_conn_from_msg(primaryconn: &mut ldap, res: &mut LDAPMessage) -> *mut ldap {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn ldap_conn_from_msg(primaryconn: *mut ldap, res: *mut LDAPMessage) -> *mut ldap;
@@ -1830,7 +1830,7 @@ pub unsafe fn ldap_conn_from_msg(primaryconn: *mut ldap, res: *mut LDAPMessage) 
 }
 #[doc = "*Required features: `\"Win32_Networking_Ldap\"`*"]
 #[inline]
-pub unsafe fn ldap_connect(ld: *mut ldap, timeout: *mut LDAP_TIMEVAL) -> u32 {
+pub unsafe fn ldap_connect(ld: &mut ldap, timeout: &mut LDAP_TIMEVAL) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn ldap_connect(ld: *mut ldap, timeout: *mut LDAP_TIMEVAL) -> u32;
@@ -1840,7 +1840,7 @@ pub unsafe fn ldap_connect(ld: *mut ldap, timeout: *mut LDAP_TIMEVAL) -> u32 {
 #[doc = "*Required features: `\"Win32_Networking_Ldap\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn ldap_control_free(control: *mut ldapcontrolA) -> u32 {
+pub unsafe fn ldap_control_free(control: &mut ldapcontrolA) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn ldap_control_free(control: *mut ldapcontrolA) -> u32;
@@ -1850,7 +1850,7 @@ pub unsafe fn ldap_control_free(control: *mut ldapcontrolA) -> u32 {
 #[doc = "*Required features: `\"Win32_Networking_Ldap\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn ldap_control_freeA(controls: *mut ldapcontrolA) -> u32 {
+pub unsafe fn ldap_control_freeA(controls: &mut ldapcontrolA) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn ldap_control_freeA(controls: *mut ldapcontrolA) -> u32;
@@ -1860,7 +1860,7 @@ pub unsafe fn ldap_control_freeA(controls: *mut ldapcontrolA) -> u32 {
 #[doc = "*Required features: `\"Win32_Networking_Ldap\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn ldap_control_freeW(control: *mut ldapcontrolW) -> u32 {
+pub unsafe fn ldap_control_freeW(control: &mut ldapcontrolW) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn ldap_control_freeW(control: *mut ldapcontrolW) -> u32;
@@ -1870,7 +1870,7 @@ pub unsafe fn ldap_control_freeW(control: *mut ldapcontrolW) -> u32 {
 #[doc = "*Required features: `\"Win32_Networking_Ldap\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn ldap_controls_free(controls: *mut *mut ldapcontrolA) -> u32 {
+pub unsafe fn ldap_controls_free(controls: &mut *mut ldapcontrolA) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn ldap_controls_free(controls: *mut *mut ldapcontrolA) -> u32;
@@ -1880,7 +1880,7 @@ pub unsafe fn ldap_controls_free(controls: *mut *mut ldapcontrolA) -> u32 {
 #[doc = "*Required features: `\"Win32_Networking_Ldap\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn ldap_controls_freeA(controls: *mut *mut ldapcontrolA) -> u32 {
+pub unsafe fn ldap_controls_freeA(controls: &mut *mut ldapcontrolA) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn ldap_controls_freeA(controls: *mut *mut ldapcontrolA) -> u32;
@@ -1890,7 +1890,7 @@ pub unsafe fn ldap_controls_freeA(controls: *mut *mut ldapcontrolA) -> u32 {
 #[doc = "*Required features: `\"Win32_Networking_Ldap\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn ldap_controls_freeW(control: *mut *mut ldapcontrolW) -> u32 {
+pub unsafe fn ldap_controls_freeW(control: &mut *mut ldapcontrolW) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn ldap_controls_freeW(control: *mut *mut ldapcontrolW) -> u32;
@@ -1900,7 +1900,7 @@ pub unsafe fn ldap_controls_freeW(control: *mut *mut ldapcontrolW) -> u32 {
 #[doc = "*Required features: `\"Win32_Networking_Ldap\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn ldap_count_entries(ld: *mut ldap, res: *mut LDAPMessage) -> u32 {
+pub unsafe fn ldap_count_entries(ld: &mut ldap, res: &mut LDAPMessage) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn ldap_count_entries(ld: *mut ldap, res: *mut LDAPMessage) -> u32;
@@ -1910,7 +1910,7 @@ pub unsafe fn ldap_count_entries(ld: *mut ldap, res: *mut LDAPMessage) -> u32 {
 #[doc = "*Required features: `\"Win32_Networking_Ldap\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn ldap_count_references(ld: *mut ldap, res: *mut LDAPMessage) -> u32 {
+pub unsafe fn ldap_count_references(ld: &mut ldap, res: &mut LDAPMessage) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn ldap_count_references(ld: *mut ldap, res: *mut LDAPMessage) -> u32;
@@ -1919,7 +1919,7 @@ pub unsafe fn ldap_count_references(ld: *mut ldap, res: *mut LDAPMessage) -> u32
 }
 #[doc = "*Required features: `\"Win32_Networking_Ldap\"`*"]
 #[inline]
-pub unsafe fn ldap_count_values(vals: *const ::windows::core::PSTR) -> u32 {
+pub unsafe fn ldap_count_values(vals: ::core::option::Option<&::windows::core::PSTR>) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn ldap_count_values(vals: *const ::windows::core::PSTR) -> u32;
@@ -1928,7 +1928,7 @@ pub unsafe fn ldap_count_values(vals: *const ::windows::core::PSTR) -> u32 {
 }
 #[doc = "*Required features: `\"Win32_Networking_Ldap\"`*"]
 #[inline]
-pub unsafe fn ldap_count_valuesA(vals: *const ::windows::core::PSTR) -> u32 {
+pub unsafe fn ldap_count_valuesA(vals: ::core::option::Option<&::windows::core::PSTR>) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn ldap_count_valuesA(vals: *const ::windows::core::PSTR) -> u32;
@@ -1937,7 +1937,7 @@ pub unsafe fn ldap_count_valuesA(vals: *const ::windows::core::PSTR) -> u32 {
 }
 #[doc = "*Required features: `\"Win32_Networking_Ldap\"`*"]
 #[inline]
-pub unsafe fn ldap_count_valuesW(vals: *const ::windows::core::PWSTR) -> u32 {
+pub unsafe fn ldap_count_valuesW(vals: ::core::option::Option<&::windows::core::PWSTR>) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn ldap_count_valuesW(vals: *const ::windows::core::PWSTR) -> u32;
@@ -1946,7 +1946,7 @@ pub unsafe fn ldap_count_valuesW(vals: *const ::windows::core::PWSTR) -> u32 {
 }
 #[doc = "*Required features: `\"Win32_Networking_Ldap\"`*"]
 #[inline]
-pub unsafe fn ldap_count_values_len(vals: *mut *mut LDAP_BERVAL) -> u32 {
+pub unsafe fn ldap_count_values_len(vals: &mut *mut LDAP_BERVAL) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn ldap_count_values_len(vals: *mut *mut LDAP_BERVAL) -> u32;
@@ -1956,7 +1956,7 @@ pub unsafe fn ldap_count_values_len(vals: *mut *mut LDAP_BERVAL) -> u32 {
 #[doc = "*Required features: `\"Win32_Networking_Ldap\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn ldap_create_page_control(externalhandle: *mut ldap, pagesize: u32, cookie: *mut LDAP_BERVAL, iscritical: u8, control: *mut *mut ldapcontrolA) -> u32 {
+pub unsafe fn ldap_create_page_control(externalhandle: &mut ldap, pagesize: u32, cookie: &mut LDAP_BERVAL, iscritical: u8, control: &mut *mut ldapcontrolA) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn ldap_create_page_control(externalhandle: *mut ldap, pagesize: u32, cookie: *mut LDAP_BERVAL, iscritical: u8, control: *mut *mut ldapcontrolA) -> u32;
@@ -1966,7 +1966,7 @@ pub unsafe fn ldap_create_page_control(externalhandle: *mut ldap, pagesize: u32,
 #[doc = "*Required features: `\"Win32_Networking_Ldap\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn ldap_create_page_controlA(externalhandle: *mut ldap, pagesize: u32, cookie: *mut LDAP_BERVAL, iscritical: u8, control: *mut *mut ldapcontrolA) -> u32 {
+pub unsafe fn ldap_create_page_controlA(externalhandle: &mut ldap, pagesize: u32, cookie: &mut LDAP_BERVAL, iscritical: u8, control: &mut *mut ldapcontrolA) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn ldap_create_page_controlA(externalhandle: *mut ldap, pagesize: u32, cookie: *mut LDAP_BERVAL, iscritical: u8, control: *mut *mut ldapcontrolA) -> u32;
@@ -1976,7 +1976,7 @@ pub unsafe fn ldap_create_page_controlA(externalhandle: *mut ldap, pagesize: u32
 #[doc = "*Required features: `\"Win32_Networking_Ldap\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn ldap_create_page_controlW(externalhandle: *mut ldap, pagesize: u32, cookie: *mut LDAP_BERVAL, iscritical: u8, control: *mut *mut ldapcontrolW) -> u32 {
+pub unsafe fn ldap_create_page_controlW(externalhandle: &mut ldap, pagesize: u32, cookie: &mut LDAP_BERVAL, iscritical: u8, control: &mut *mut ldapcontrolW) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn ldap_create_page_controlW(externalhandle: *mut ldap, pagesize: u32, cookie: *mut LDAP_BERVAL, iscritical: u8, control: *mut *mut ldapcontrolW) -> u32;
@@ -1986,7 +1986,7 @@ pub unsafe fn ldap_create_page_controlW(externalhandle: *mut ldap, pagesize: u32
 #[doc = "*Required features: `\"Win32_Networking_Ldap\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn ldap_create_sort_control(externalhandle: *mut ldap, sortkeys: *mut *mut ldapsortkeyA, iscritical: u8, control: *mut *mut ldapcontrolA) -> u32 {
+pub unsafe fn ldap_create_sort_control(externalhandle: &mut ldap, sortkeys: &mut *mut ldapsortkeyA, iscritical: u8, control: &mut *mut ldapcontrolA) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn ldap_create_sort_control(externalhandle: *mut ldap, sortkeys: *mut *mut ldapsortkeyA, iscritical: u8, control: *mut *mut ldapcontrolA) -> u32;
@@ -1996,7 +1996,7 @@ pub unsafe fn ldap_create_sort_control(externalhandle: *mut ldap, sortkeys: *mut
 #[doc = "*Required features: `\"Win32_Networking_Ldap\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn ldap_create_sort_controlA(externalhandle: *mut ldap, sortkeys: *mut *mut ldapsortkeyA, iscritical: u8, control: *mut *mut ldapcontrolA) -> u32 {
+pub unsafe fn ldap_create_sort_controlA(externalhandle: &mut ldap, sortkeys: &mut *mut ldapsortkeyA, iscritical: u8, control: &mut *mut ldapcontrolA) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn ldap_create_sort_controlA(externalhandle: *mut ldap, sortkeys: *mut *mut ldapsortkeyA, iscritical: u8, control: *mut *mut ldapcontrolA) -> u32;
@@ -2006,7 +2006,7 @@ pub unsafe fn ldap_create_sort_controlA(externalhandle: *mut ldap, sortkeys: *mu
 #[doc = "*Required features: `\"Win32_Networking_Ldap\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn ldap_create_sort_controlW(externalhandle: *mut ldap, sortkeys: *mut *mut ldapsortkeyW, iscritical: u8, control: *mut *mut ldapcontrolW) -> u32 {
+pub unsafe fn ldap_create_sort_controlW(externalhandle: &mut ldap, sortkeys: &mut *mut ldapsortkeyW, iscritical: u8, control: &mut *mut ldapcontrolW) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn ldap_create_sort_controlW(externalhandle: *mut ldap, sortkeys: *mut *mut ldapsortkeyW, iscritical: u8, control: *mut *mut ldapcontrolW) -> u32;
@@ -2016,7 +2016,7 @@ pub unsafe fn ldap_create_sort_controlW(externalhandle: *mut ldap, sortkeys: *mu
 #[doc = "*Required features: `\"Win32_Networking_Ldap\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn ldap_create_vlv_controlA(externalhandle: *mut ldap, vlvinfo: *mut ldapvlvinfo, iscritical: u8, control: *mut *mut ldapcontrolA) -> i32 {
+pub unsafe fn ldap_create_vlv_controlA(externalhandle: &mut ldap, vlvinfo: &mut ldapvlvinfo, iscritical: u8, control: &mut *mut ldapcontrolA) -> i32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn ldap_create_vlv_controlA(externalhandle: *mut ldap, vlvinfo: *mut ldapvlvinfo, iscritical: u8, control: *mut *mut ldapcontrolA) -> i32;
@@ -2026,7 +2026,7 @@ pub unsafe fn ldap_create_vlv_controlA(externalhandle: *mut ldap, vlvinfo: *mut 
 #[doc = "*Required features: `\"Win32_Networking_Ldap\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn ldap_create_vlv_controlW(externalhandle: *mut ldap, vlvinfo: *mut ldapvlvinfo, iscritical: u8, control: *mut *mut ldapcontrolW) -> i32 {
+pub unsafe fn ldap_create_vlv_controlW(externalhandle: &mut ldap, vlvinfo: &mut ldapvlvinfo, iscritical: u8, control: &mut *mut ldapcontrolW) -> i32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn ldap_create_vlv_controlW(externalhandle: *mut ldap, vlvinfo: *mut ldapvlvinfo, iscritical: u8, control: *mut *mut ldapcontrolW) -> i32;
@@ -2035,7 +2035,7 @@ pub unsafe fn ldap_create_vlv_controlW(externalhandle: *mut ldap, vlvinfo: *mut 
 }
 #[doc = "*Required features: `\"Win32_Networking_Ldap\"`*"]
 #[inline]
-pub unsafe fn ldap_delete<'a, P0>(ld: *mut ldap, dn: P0) -> u32
+pub unsafe fn ldap_delete<'a, P0>(ld: &mut ldap, dn: P0) -> u32
 where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
 {
@@ -2047,7 +2047,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Networking_Ldap\"`*"]
 #[inline]
-pub unsafe fn ldap_deleteA<'a, P0>(ld: *mut ldap, dn: P0) -> u32
+pub unsafe fn ldap_deleteA<'a, P0>(ld: &mut ldap, dn: P0) -> u32
 where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
 {
@@ -2059,7 +2059,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Networking_Ldap\"`*"]
 #[inline]
-pub unsafe fn ldap_deleteW<'a, P0>(ld: *mut ldap, dn: P0) -> u32
+pub unsafe fn ldap_deleteW<'a, P0>(ld: &mut ldap, dn: P0) -> u32
 where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
 {
@@ -2072,7 +2072,7 @@ where
 #[doc = "*Required features: `\"Win32_Networking_Ldap\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn ldap_delete_ext<'a, P0>(ld: *mut ldap, dn: P0, servercontrols: *mut *mut ldapcontrolA, clientcontrols: *mut *mut ldapcontrolA, messagenumber: *mut u32) -> u32
+pub unsafe fn ldap_delete_ext<'a, P0>(ld: &mut ldap, dn: P0, servercontrols: &mut *mut ldapcontrolA, clientcontrols: &mut *mut ldapcontrolA, messagenumber: &mut u32) -> u32
 where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
 {
@@ -2085,7 +2085,7 @@ where
 #[doc = "*Required features: `\"Win32_Networking_Ldap\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn ldap_delete_extA<'a, P0>(ld: *mut ldap, dn: P0, servercontrols: *mut *mut ldapcontrolA, clientcontrols: *mut *mut ldapcontrolA, messagenumber: *mut u32) -> u32
+pub unsafe fn ldap_delete_extA<'a, P0>(ld: &mut ldap, dn: P0, servercontrols: &mut *mut ldapcontrolA, clientcontrols: &mut *mut ldapcontrolA, messagenumber: &mut u32) -> u32
 where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
 {
@@ -2098,7 +2098,7 @@ where
 #[doc = "*Required features: `\"Win32_Networking_Ldap\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn ldap_delete_extW<'a, P0>(ld: *mut ldap, dn: P0, servercontrols: *mut *mut ldapcontrolW, clientcontrols: *mut *mut ldapcontrolW, messagenumber: *mut u32) -> u32
+pub unsafe fn ldap_delete_extW<'a, P0>(ld: &mut ldap, dn: P0, servercontrols: &mut *mut ldapcontrolW, clientcontrols: &mut *mut ldapcontrolW, messagenumber: &mut u32) -> u32
 where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
 {
@@ -2111,7 +2111,7 @@ where
 #[doc = "*Required features: `\"Win32_Networking_Ldap\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn ldap_delete_ext_s<'a, P0>(ld: *mut ldap, dn: P0, servercontrols: *mut *mut ldapcontrolA, clientcontrols: *mut *mut ldapcontrolA) -> u32
+pub unsafe fn ldap_delete_ext_s<'a, P0>(ld: &mut ldap, dn: P0, servercontrols: &mut *mut ldapcontrolA, clientcontrols: &mut *mut ldapcontrolA) -> u32
 where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
 {
@@ -2124,7 +2124,7 @@ where
 #[doc = "*Required features: `\"Win32_Networking_Ldap\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn ldap_delete_ext_sA<'a, P0>(ld: *mut ldap, dn: P0, servercontrols: *mut *mut ldapcontrolA, clientcontrols: *mut *mut ldapcontrolA) -> u32
+pub unsafe fn ldap_delete_ext_sA<'a, P0>(ld: &mut ldap, dn: P0, servercontrols: &mut *mut ldapcontrolA, clientcontrols: &mut *mut ldapcontrolA) -> u32
 where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
 {
@@ -2137,7 +2137,7 @@ where
 #[doc = "*Required features: `\"Win32_Networking_Ldap\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn ldap_delete_ext_sW<'a, P0>(ld: *mut ldap, dn: P0, servercontrols: *mut *mut ldapcontrolW, clientcontrols: *mut *mut ldapcontrolW) -> u32
+pub unsafe fn ldap_delete_ext_sW<'a, P0>(ld: &mut ldap, dn: P0, servercontrols: &mut *mut ldapcontrolW, clientcontrols: &mut *mut ldapcontrolW) -> u32
 where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
 {
@@ -2149,7 +2149,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Networking_Ldap\"`*"]
 #[inline]
-pub unsafe fn ldap_delete_s<'a, P0>(ld: *mut ldap, dn: P0) -> u32
+pub unsafe fn ldap_delete_s<'a, P0>(ld: &mut ldap, dn: P0) -> u32
 where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
 {
@@ -2161,7 +2161,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Networking_Ldap\"`*"]
 #[inline]
-pub unsafe fn ldap_delete_sA<'a, P0>(ld: *mut ldap, dn: P0) -> u32
+pub unsafe fn ldap_delete_sA<'a, P0>(ld: &mut ldap, dn: P0) -> u32
 where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
 {
@@ -2173,7 +2173,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Networking_Ldap\"`*"]
 #[inline]
-pub unsafe fn ldap_delete_sW<'a, P0>(ld: *mut ldap, dn: P0) -> u32
+pub unsafe fn ldap_delete_sW<'a, P0>(ld: &mut ldap, dn: P0) -> u32
 where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
 {
@@ -2222,7 +2222,7 @@ where
 #[doc = "*Required features: `\"Win32_Networking_Ldap\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn ldap_encode_sort_controlA<'a, P0>(externalhandle: *mut ldap, sortkeys: *mut *mut ldapsortkeyA, control: *mut ldapcontrolA, criticality: P0) -> u32
+pub unsafe fn ldap_encode_sort_controlA<'a, P0>(externalhandle: &mut ldap, sortkeys: &mut *mut ldapsortkeyA, control: &mut ldapcontrolA, criticality: P0) -> u32
 where
     P0: ::std::convert::Into<super::super::Foundation::BOOLEAN>,
 {
@@ -2235,7 +2235,7 @@ where
 #[doc = "*Required features: `\"Win32_Networking_Ldap\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn ldap_encode_sort_controlW<'a, P0>(externalhandle: *mut ldap, sortkeys: *mut *mut ldapsortkeyW, control: *mut ldapcontrolW, criticality: P0) -> u32
+pub unsafe fn ldap_encode_sort_controlW<'a, P0>(externalhandle: &mut ldap, sortkeys: &mut *mut ldapsortkeyW, control: &mut ldapcontrolW, criticality: P0) -> u32
 where
     P0: ::std::convert::Into<super::super::Foundation::BOOLEAN>,
 {
@@ -2347,7 +2347,7 @@ where
 #[doc = "*Required features: `\"Win32_Networking_Ldap\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn ldap_extended_operation<'a, P0>(ld: *mut ldap, oid: P0, data: *mut LDAP_BERVAL, servercontrols: *mut *mut ldapcontrolA, clientcontrols: *mut *mut ldapcontrolA, messagenumber: *mut u32) -> u32
+pub unsafe fn ldap_extended_operation<'a, P0>(ld: &mut ldap, oid: P0, data: &mut LDAP_BERVAL, servercontrols: &mut *mut ldapcontrolA, clientcontrols: &mut *mut ldapcontrolA, messagenumber: &mut u32) -> u32
 where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
 {
@@ -2360,7 +2360,7 @@ where
 #[doc = "*Required features: `\"Win32_Networking_Ldap\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn ldap_extended_operationA<'a, P0>(ld: *mut ldap, oid: P0, data: *mut LDAP_BERVAL, servercontrols: *mut *mut ldapcontrolA, clientcontrols: *mut *mut ldapcontrolA, messagenumber: *mut u32) -> u32
+pub unsafe fn ldap_extended_operationA<'a, P0>(ld: &mut ldap, oid: P0, data: &mut LDAP_BERVAL, servercontrols: &mut *mut ldapcontrolA, clientcontrols: &mut *mut ldapcontrolA, messagenumber: &mut u32) -> u32
 where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
 {
@@ -2373,7 +2373,7 @@ where
 #[doc = "*Required features: `\"Win32_Networking_Ldap\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn ldap_extended_operationW<'a, P0>(ld: *mut ldap, oid: P0, data: *mut LDAP_BERVAL, servercontrols: *mut *mut ldapcontrolW, clientcontrols: *mut *mut ldapcontrolW, messagenumber: *mut u32) -> u32
+pub unsafe fn ldap_extended_operationW<'a, P0>(ld: &mut ldap, oid: P0, data: &mut LDAP_BERVAL, servercontrols: &mut *mut ldapcontrolW, clientcontrols: &mut *mut ldapcontrolW, messagenumber: &mut u32) -> u32
 where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
 {
@@ -2386,7 +2386,7 @@ where
 #[doc = "*Required features: `\"Win32_Networking_Ldap\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn ldap_extended_operation_sA<'a, P0>(externalhandle: *mut ldap, oid: P0, data: *mut LDAP_BERVAL, servercontrols: *mut *mut ldapcontrolA, clientcontrols: *mut *mut ldapcontrolA, returnedoid: *mut ::windows::core::PSTR, returneddata: *mut *mut LDAP_BERVAL) -> u32
+pub unsafe fn ldap_extended_operation_sA<'a, P0>(externalhandle: &mut ldap, oid: P0, data: &mut LDAP_BERVAL, servercontrols: &mut *mut ldapcontrolA, clientcontrols: &mut *mut ldapcontrolA, returnedoid: &mut ::windows::core::PSTR, returneddata: &mut *mut LDAP_BERVAL) -> u32
 where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
 {
@@ -2399,7 +2399,7 @@ where
 #[doc = "*Required features: `\"Win32_Networking_Ldap\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn ldap_extended_operation_sW<'a, P0>(externalhandle: *mut ldap, oid: P0, data: *mut LDAP_BERVAL, servercontrols: *mut *mut ldapcontrolW, clientcontrols: *mut *mut ldapcontrolW, returnedoid: *mut ::windows::core::PWSTR, returneddata: *mut *mut LDAP_BERVAL) -> u32
+pub unsafe fn ldap_extended_operation_sW<'a, P0>(externalhandle: &mut ldap, oid: P0, data: &mut LDAP_BERVAL, servercontrols: &mut *mut ldapcontrolW, clientcontrols: &mut *mut ldapcontrolW, returnedoid: &mut ::windows::core::PWSTR, returneddata: &mut *mut LDAP_BERVAL) -> u32
 where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
 {
@@ -2412,7 +2412,7 @@ where
 #[doc = "*Required features: `\"Win32_Networking_Ldap\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn ldap_first_attribute(ld: *mut ldap, entry: *mut LDAPMessage, ptr: *mut *mut berelement) -> ::windows::core::PSTR {
+pub unsafe fn ldap_first_attribute(ld: &mut ldap, entry: &mut LDAPMessage, ptr: &mut *mut berelement) -> ::windows::core::PSTR {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn ldap_first_attribute(ld: *mut ldap, entry: *mut LDAPMessage, ptr: *mut *mut berelement) -> ::windows::core::PSTR;
@@ -2422,7 +2422,7 @@ pub unsafe fn ldap_first_attribute(ld: *mut ldap, entry: *mut LDAPMessage, ptr: 
 #[doc = "*Required features: `\"Win32_Networking_Ldap\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn ldap_first_attributeA(ld: *mut ldap, entry: *mut LDAPMessage, ptr: *mut *mut berelement) -> ::windows::core::PSTR {
+pub unsafe fn ldap_first_attributeA(ld: &mut ldap, entry: &mut LDAPMessage, ptr: &mut *mut berelement) -> ::windows::core::PSTR {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn ldap_first_attributeA(ld: *mut ldap, entry: *mut LDAPMessage, ptr: *mut *mut berelement) -> ::windows::core::PSTR;
@@ -2432,7 +2432,7 @@ pub unsafe fn ldap_first_attributeA(ld: *mut ldap, entry: *mut LDAPMessage, ptr:
 #[doc = "*Required features: `\"Win32_Networking_Ldap\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn ldap_first_attributeW(ld: *mut ldap, entry: *mut LDAPMessage, ptr: *mut *mut berelement) -> ::windows::core::PWSTR {
+pub unsafe fn ldap_first_attributeW(ld: &mut ldap, entry: &mut LDAPMessage, ptr: &mut *mut berelement) -> ::windows::core::PWSTR {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn ldap_first_attributeW(ld: *mut ldap, entry: *mut LDAPMessage, ptr: *mut *mut berelement) -> ::windows::core::PWSTR;
@@ -2442,7 +2442,7 @@ pub unsafe fn ldap_first_attributeW(ld: *mut ldap, entry: *mut LDAPMessage, ptr:
 #[doc = "*Required features: `\"Win32_Networking_Ldap\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn ldap_first_entry(ld: *mut ldap, res: *mut LDAPMessage) -> *mut LDAPMessage {
+pub unsafe fn ldap_first_entry(ld: &mut ldap, res: &mut LDAPMessage) -> *mut LDAPMessage {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn ldap_first_entry(ld: *mut ldap, res: *mut LDAPMessage) -> *mut LDAPMessage;
@@ -2452,7 +2452,7 @@ pub unsafe fn ldap_first_entry(ld: *mut ldap, res: *mut LDAPMessage) -> *mut LDA
 #[doc = "*Required features: `\"Win32_Networking_Ldap\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn ldap_first_reference(ld: *mut ldap, res: *mut LDAPMessage) -> *mut LDAPMessage {
+pub unsafe fn ldap_first_reference(ld: &mut ldap, res: &mut LDAPMessage) -> *mut LDAPMessage {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn ldap_first_reference(ld: *mut ldap, res: *mut LDAPMessage) -> *mut LDAPMessage;
@@ -2462,7 +2462,7 @@ pub unsafe fn ldap_first_reference(ld: *mut ldap, res: *mut LDAPMessage) -> *mut
 #[doc = "*Required features: `\"Win32_Networking_Ldap\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn ldap_free_controls(controls: *mut *mut ldapcontrolA) -> u32 {
+pub unsafe fn ldap_free_controls(controls: &mut *mut ldapcontrolA) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn ldap_free_controls(controls: *mut *mut ldapcontrolA) -> u32;
@@ -2472,7 +2472,7 @@ pub unsafe fn ldap_free_controls(controls: *mut *mut ldapcontrolA) -> u32 {
 #[doc = "*Required features: `\"Win32_Networking_Ldap\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn ldap_free_controlsA(controls: *mut *mut ldapcontrolA) -> u32 {
+pub unsafe fn ldap_free_controlsA(controls: &mut *mut ldapcontrolA) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn ldap_free_controlsA(controls: *mut *mut ldapcontrolA) -> u32;
@@ -2482,7 +2482,7 @@ pub unsafe fn ldap_free_controlsA(controls: *mut *mut ldapcontrolA) -> u32 {
 #[doc = "*Required features: `\"Win32_Networking_Ldap\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn ldap_free_controlsW(controls: *mut *mut ldapcontrolW) -> u32 {
+pub unsafe fn ldap_free_controlsW(controls: &mut *mut ldapcontrolW) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn ldap_free_controlsW(controls: *mut *mut ldapcontrolW) -> u32;
@@ -2492,7 +2492,7 @@ pub unsafe fn ldap_free_controlsW(controls: *mut *mut ldapcontrolW) -> u32 {
 #[doc = "*Required features: `\"Win32_Networking_Ldap\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn ldap_get_dn(ld: *mut ldap, entry: *mut LDAPMessage) -> ::windows::core::PSTR {
+pub unsafe fn ldap_get_dn(ld: &mut ldap, entry: &mut LDAPMessage) -> ::windows::core::PSTR {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn ldap_get_dn(ld: *mut ldap, entry: *mut LDAPMessage) -> ::windows::core::PSTR;
@@ -2502,7 +2502,7 @@ pub unsafe fn ldap_get_dn(ld: *mut ldap, entry: *mut LDAPMessage) -> ::windows::
 #[doc = "*Required features: `\"Win32_Networking_Ldap\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn ldap_get_dnA(ld: *mut ldap, entry: *mut LDAPMessage) -> ::windows::core::PSTR {
+pub unsafe fn ldap_get_dnA(ld: &mut ldap, entry: &mut LDAPMessage) -> ::windows::core::PSTR {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn ldap_get_dnA(ld: *mut ldap, entry: *mut LDAPMessage) -> ::windows::core::PSTR;
@@ -2512,7 +2512,7 @@ pub unsafe fn ldap_get_dnA(ld: *mut ldap, entry: *mut LDAPMessage) -> ::windows:
 #[doc = "*Required features: `\"Win32_Networking_Ldap\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn ldap_get_dnW(ld: *mut ldap, entry: *mut LDAPMessage) -> ::windows::core::PWSTR {
+pub unsafe fn ldap_get_dnW(ld: &mut ldap, entry: &mut LDAPMessage) -> ::windows::core::PWSTR {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn ldap_get_dnW(ld: *mut ldap, entry: *mut LDAPMessage) -> ::windows::core::PWSTR;
@@ -2521,7 +2521,7 @@ pub unsafe fn ldap_get_dnW(ld: *mut ldap, entry: *mut LDAPMessage) -> ::windows:
 }
 #[doc = "*Required features: `\"Win32_Networking_Ldap\"`*"]
 #[inline]
-pub unsafe fn ldap_get_next_page(externalhandle: *mut ldap, searchhandle: *mut ldapsearch, pagesize: u32, messagenumber: *mut u32) -> u32 {
+pub unsafe fn ldap_get_next_page(externalhandle: &mut ldap, searchhandle: &mut ldapsearch, pagesize: u32, messagenumber: &mut u32) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn ldap_get_next_page(externalhandle: *mut ldap, searchhandle: *mut ldapsearch, pagesize: u32, messagenumber: *mut u32) -> u32;
@@ -2531,7 +2531,7 @@ pub unsafe fn ldap_get_next_page(externalhandle: *mut ldap, searchhandle: *mut l
 #[doc = "*Required features: `\"Win32_Networking_Ldap\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn ldap_get_next_page_s(externalhandle: *mut ldap, searchhandle: *mut ldapsearch, timeout: *mut LDAP_TIMEVAL, pagesize: u32, totalcount: *mut u32, results: *mut *mut LDAPMessage) -> u32 {
+pub unsafe fn ldap_get_next_page_s(externalhandle: &mut ldap, searchhandle: &mut ldapsearch, timeout: &mut LDAP_TIMEVAL, pagesize: u32, totalcount: &mut u32, results: &mut *mut LDAPMessage) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn ldap_get_next_page_s(externalhandle: *mut ldap, searchhandle: *mut ldapsearch, timeout: *mut LDAP_TIMEVAL, pagesize: u32, totalcount: *mut u32, results: *mut *mut LDAPMessage) -> u32;
@@ -2540,7 +2540,7 @@ pub unsafe fn ldap_get_next_page_s(externalhandle: *mut ldap, searchhandle: *mut
 }
 #[doc = "*Required features: `\"Win32_Networking_Ldap\"`*"]
 #[inline]
-pub unsafe fn ldap_get_option(ld: *mut ldap, option: i32, outvalue: *mut ::core::ffi::c_void) -> u32 {
+pub unsafe fn ldap_get_option(ld: &mut ldap, option: i32, outvalue: *mut ::core::ffi::c_void) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn ldap_get_option(ld: *mut ldap, option: i32, outvalue: *mut ::core::ffi::c_void) -> u32;
@@ -2549,7 +2549,7 @@ pub unsafe fn ldap_get_option(ld: *mut ldap, option: i32, outvalue: *mut ::core:
 }
 #[doc = "*Required features: `\"Win32_Networking_Ldap\"`*"]
 #[inline]
-pub unsafe fn ldap_get_optionW(ld: *mut ldap, option: i32, outvalue: *mut ::core::ffi::c_void) -> u32 {
+pub unsafe fn ldap_get_optionW(ld: &mut ldap, option: i32, outvalue: *mut ::core::ffi::c_void) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn ldap_get_optionW(ld: *mut ldap, option: i32, outvalue: *mut ::core::ffi::c_void) -> u32;
@@ -2559,7 +2559,7 @@ pub unsafe fn ldap_get_optionW(ld: *mut ldap, option: i32, outvalue: *mut ::core
 #[doc = "*Required features: `\"Win32_Networking_Ldap\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn ldap_get_paged_count(externalhandle: *mut ldap, searchblock: *mut ldapsearch, totalcount: *mut u32, results: *mut LDAPMessage) -> u32 {
+pub unsafe fn ldap_get_paged_count(externalhandle: &mut ldap, searchblock: &mut ldapsearch, totalcount: &mut u32, results: &mut LDAPMessage) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn ldap_get_paged_count(externalhandle: *mut ldap, searchblock: *mut ldapsearch, totalcount: *mut u32, results: *mut LDAPMessage) -> u32;
@@ -2569,7 +2569,7 @@ pub unsafe fn ldap_get_paged_count(externalhandle: *mut ldap, searchblock: *mut 
 #[doc = "*Required features: `\"Win32_Networking_Ldap\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn ldap_get_values<'a, P0>(ld: *mut ldap, entry: *mut LDAPMessage, attr: P0) -> *mut ::windows::core::PSTR
+pub unsafe fn ldap_get_values<'a, P0>(ld: &mut ldap, entry: &mut LDAPMessage, attr: P0) -> *mut ::windows::core::PSTR
 where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
 {
@@ -2582,7 +2582,7 @@ where
 #[doc = "*Required features: `\"Win32_Networking_Ldap\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn ldap_get_valuesA<'a, P0>(ld: *mut ldap, entry: *mut LDAPMessage, attr: P0) -> *mut ::windows::core::PSTR
+pub unsafe fn ldap_get_valuesA<'a, P0>(ld: &mut ldap, entry: &mut LDAPMessage, attr: P0) -> *mut ::windows::core::PSTR
 where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
 {
@@ -2595,7 +2595,7 @@ where
 #[doc = "*Required features: `\"Win32_Networking_Ldap\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn ldap_get_valuesW<'a, P0>(ld: *mut ldap, entry: *mut LDAPMessage, attr: P0) -> *mut ::windows::core::PWSTR
+pub unsafe fn ldap_get_valuesW<'a, P0>(ld: &mut ldap, entry: &mut LDAPMessage, attr: P0) -> *mut ::windows::core::PWSTR
 where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
 {
@@ -2608,7 +2608,7 @@ where
 #[doc = "*Required features: `\"Win32_Networking_Ldap\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn ldap_get_values_len<'a, P0>(externalhandle: *mut ldap, message: *mut LDAPMessage, attr: P0) -> *mut *mut LDAP_BERVAL
+pub unsafe fn ldap_get_values_len<'a, P0>(externalhandle: &mut ldap, message: &mut LDAPMessage, attr: P0) -> *mut *mut LDAP_BERVAL
 where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
 {
@@ -2621,7 +2621,7 @@ where
 #[doc = "*Required features: `\"Win32_Networking_Ldap\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn ldap_get_values_lenA<'a, P0>(externalhandle: *mut ldap, message: *mut LDAPMessage, attr: P0) -> *mut *mut LDAP_BERVAL
+pub unsafe fn ldap_get_values_lenA<'a, P0>(externalhandle: &mut ldap, message: &mut LDAPMessage, attr: P0) -> *mut *mut LDAP_BERVAL
 where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
 {
@@ -2634,7 +2634,7 @@ where
 #[doc = "*Required features: `\"Win32_Networking_Ldap\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn ldap_get_values_lenW<'a, P0>(externalhandle: *mut ldap, message: *mut LDAPMessage, attr: P0) -> *mut *mut LDAP_BERVAL
+pub unsafe fn ldap_get_values_lenW<'a, P0>(externalhandle: &mut ldap, message: &mut LDAPMessage, attr: P0) -> *mut *mut LDAP_BERVAL
 where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
 {
@@ -2718,7 +2718,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Networking_Ldap\"`*"]
 #[inline]
-pub unsafe fn ldap_modify<'a, P0>(ld: *mut ldap, dn: P0, mods: *mut *mut ldapmodA) -> u32
+pub unsafe fn ldap_modify<'a, P0>(ld: &mut ldap, dn: P0, mods: &mut *mut ldapmodA) -> u32
 where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
 {
@@ -2730,7 +2730,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Networking_Ldap\"`*"]
 #[inline]
-pub unsafe fn ldap_modifyA<'a, P0>(ld: *mut ldap, dn: P0, mods: *mut *mut ldapmodA) -> u32
+pub unsafe fn ldap_modifyA<'a, P0>(ld: &mut ldap, dn: P0, mods: &mut *mut ldapmodA) -> u32
 where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
 {
@@ -2742,7 +2742,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Networking_Ldap\"`*"]
 #[inline]
-pub unsafe fn ldap_modifyW<'a, P0>(ld: *mut ldap, dn: P0, mods: *mut *mut ldapmodW) -> u32
+pub unsafe fn ldap_modifyW<'a, P0>(ld: &mut ldap, dn: P0, mods: &mut *mut ldapmodW) -> u32
 where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
 {
@@ -2755,7 +2755,7 @@ where
 #[doc = "*Required features: `\"Win32_Networking_Ldap\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn ldap_modify_ext<'a, P0>(ld: *mut ldap, dn: P0, mods: *mut *mut ldapmodA, servercontrols: *mut *mut ldapcontrolA, clientcontrols: *mut *mut ldapcontrolA, messagenumber: *mut u32) -> u32
+pub unsafe fn ldap_modify_ext<'a, P0>(ld: &mut ldap, dn: P0, mods: &mut *mut ldapmodA, servercontrols: &mut *mut ldapcontrolA, clientcontrols: &mut *mut ldapcontrolA, messagenumber: &mut u32) -> u32
 where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
 {
@@ -2768,7 +2768,7 @@ where
 #[doc = "*Required features: `\"Win32_Networking_Ldap\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn ldap_modify_extA<'a, P0>(ld: *mut ldap, dn: P0, mods: *mut *mut ldapmodA, servercontrols: *mut *mut ldapcontrolA, clientcontrols: *mut *mut ldapcontrolA, messagenumber: *mut u32) -> u32
+pub unsafe fn ldap_modify_extA<'a, P0>(ld: &mut ldap, dn: P0, mods: &mut *mut ldapmodA, servercontrols: &mut *mut ldapcontrolA, clientcontrols: &mut *mut ldapcontrolA, messagenumber: &mut u32) -> u32
 where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
 {
@@ -2781,7 +2781,7 @@ where
 #[doc = "*Required features: `\"Win32_Networking_Ldap\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn ldap_modify_extW<'a, P0>(ld: *mut ldap, dn: P0, mods: *mut *mut ldapmodW, servercontrols: *mut *mut ldapcontrolW, clientcontrols: *mut *mut ldapcontrolW, messagenumber: *mut u32) -> u32
+pub unsafe fn ldap_modify_extW<'a, P0>(ld: &mut ldap, dn: P0, mods: &mut *mut ldapmodW, servercontrols: &mut *mut ldapcontrolW, clientcontrols: &mut *mut ldapcontrolW, messagenumber: &mut u32) -> u32
 where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
 {
@@ -2794,7 +2794,7 @@ where
 #[doc = "*Required features: `\"Win32_Networking_Ldap\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn ldap_modify_ext_s<'a, P0>(ld: *mut ldap, dn: P0, mods: *mut *mut ldapmodA, servercontrols: *mut *mut ldapcontrolA, clientcontrols: *mut *mut ldapcontrolA) -> u32
+pub unsafe fn ldap_modify_ext_s<'a, P0>(ld: &mut ldap, dn: P0, mods: &mut *mut ldapmodA, servercontrols: &mut *mut ldapcontrolA, clientcontrols: &mut *mut ldapcontrolA) -> u32
 where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
 {
@@ -2807,7 +2807,7 @@ where
 #[doc = "*Required features: `\"Win32_Networking_Ldap\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn ldap_modify_ext_sA<'a, P0>(ld: *mut ldap, dn: P0, mods: *mut *mut ldapmodA, servercontrols: *mut *mut ldapcontrolA, clientcontrols: *mut *mut ldapcontrolA) -> u32
+pub unsafe fn ldap_modify_ext_sA<'a, P0>(ld: &mut ldap, dn: P0, mods: &mut *mut ldapmodA, servercontrols: &mut *mut ldapcontrolA, clientcontrols: &mut *mut ldapcontrolA) -> u32
 where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
 {
@@ -2820,7 +2820,7 @@ where
 #[doc = "*Required features: `\"Win32_Networking_Ldap\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn ldap_modify_ext_sW<'a, P0>(ld: *mut ldap, dn: P0, mods: *mut *mut ldapmodW, servercontrols: *mut *mut ldapcontrolW, clientcontrols: *mut *mut ldapcontrolW) -> u32
+pub unsafe fn ldap_modify_ext_sW<'a, P0>(ld: &mut ldap, dn: P0, mods: &mut *mut ldapmodW, servercontrols: &mut *mut ldapcontrolW, clientcontrols: &mut *mut ldapcontrolW) -> u32
 where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
 {
@@ -2832,7 +2832,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Networking_Ldap\"`*"]
 #[inline]
-pub unsafe fn ldap_modify_s<'a, P0>(ld: *mut ldap, dn: P0, mods: *mut *mut ldapmodA) -> u32
+pub unsafe fn ldap_modify_s<'a, P0>(ld: &mut ldap, dn: P0, mods: &mut *mut ldapmodA) -> u32
 where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
 {
@@ -2844,7 +2844,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Networking_Ldap\"`*"]
 #[inline]
-pub unsafe fn ldap_modify_sA<'a, P0>(ld: *mut ldap, dn: P0, mods: *mut *mut ldapmodA) -> u32
+pub unsafe fn ldap_modify_sA<'a, P0>(ld: &mut ldap, dn: P0, mods: &mut *mut ldapmodA) -> u32
 where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
 {
@@ -2856,7 +2856,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Networking_Ldap\"`*"]
 #[inline]
-pub unsafe fn ldap_modify_sW<'a, P0>(ld: *mut ldap, dn: P0, mods: *mut *mut ldapmodW) -> u32
+pub unsafe fn ldap_modify_sW<'a, P0>(ld: &mut ldap, dn: P0, mods: &mut *mut ldapmodW) -> u32
 where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
 {
@@ -2868,7 +2868,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Networking_Ldap\"`*"]
 #[inline]
-pub unsafe fn ldap_modrdn<'a, P0, P1>(externalhandle: *mut ldap, distinguishedname: P0, newdistinguishedname: P1) -> u32
+pub unsafe fn ldap_modrdn<'a, P0, P1>(externalhandle: &mut ldap, distinguishedname: P0, newdistinguishedname: P1) -> u32
 where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
     P1: ::std::convert::Into<::windows::core::PCSTR>,
@@ -2881,7 +2881,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Networking_Ldap\"`*"]
 #[inline]
-pub unsafe fn ldap_modrdn2<'a, P0, P1>(externalhandle: *mut ldap, distinguishedname: P0, newdistinguishedname: P1, deleteoldrdn: i32) -> u32
+pub unsafe fn ldap_modrdn2<'a, P0, P1>(externalhandle: &mut ldap, distinguishedname: P0, newdistinguishedname: P1, deleteoldrdn: i32) -> u32
 where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
     P1: ::std::convert::Into<::windows::core::PCSTR>,
@@ -2894,7 +2894,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Networking_Ldap\"`*"]
 #[inline]
-pub unsafe fn ldap_modrdn2A<'a, P0, P1>(externalhandle: *mut ldap, distinguishedname: P0, newdistinguishedname: P1, deleteoldrdn: i32) -> u32
+pub unsafe fn ldap_modrdn2A<'a, P0, P1>(externalhandle: &mut ldap, distinguishedname: P0, newdistinguishedname: P1, deleteoldrdn: i32) -> u32
 where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
     P1: ::std::convert::Into<::windows::core::PCSTR>,
@@ -2907,7 +2907,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Networking_Ldap\"`*"]
 #[inline]
-pub unsafe fn ldap_modrdn2W<'a, P0, P1>(externalhandle: *mut ldap, distinguishedname: P0, newdistinguishedname: P1, deleteoldrdn: i32) -> u32
+pub unsafe fn ldap_modrdn2W<'a, P0, P1>(externalhandle: &mut ldap, distinguishedname: P0, newdistinguishedname: P1, deleteoldrdn: i32) -> u32
 where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
     P1: ::std::convert::Into<::windows::core::PCWSTR>,
@@ -2920,7 +2920,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Networking_Ldap\"`*"]
 #[inline]
-pub unsafe fn ldap_modrdn2_s<'a, P0, P1>(externalhandle: *mut ldap, distinguishedname: P0, newdistinguishedname: P1, deleteoldrdn: i32) -> u32
+pub unsafe fn ldap_modrdn2_s<'a, P0, P1>(externalhandle: &mut ldap, distinguishedname: P0, newdistinguishedname: P1, deleteoldrdn: i32) -> u32
 where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
     P1: ::std::convert::Into<::windows::core::PCSTR>,
@@ -2933,7 +2933,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Networking_Ldap\"`*"]
 #[inline]
-pub unsafe fn ldap_modrdn2_sA<'a, P0, P1>(externalhandle: *mut ldap, distinguishedname: P0, newdistinguishedname: P1, deleteoldrdn: i32) -> u32
+pub unsafe fn ldap_modrdn2_sA<'a, P0, P1>(externalhandle: &mut ldap, distinguishedname: P0, newdistinguishedname: P1, deleteoldrdn: i32) -> u32
 where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
     P1: ::std::convert::Into<::windows::core::PCSTR>,
@@ -2946,7 +2946,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Networking_Ldap\"`*"]
 #[inline]
-pub unsafe fn ldap_modrdn2_sW<'a, P0, P1>(externalhandle: *mut ldap, distinguishedname: P0, newdistinguishedname: P1, deleteoldrdn: i32) -> u32
+pub unsafe fn ldap_modrdn2_sW<'a, P0, P1>(externalhandle: &mut ldap, distinguishedname: P0, newdistinguishedname: P1, deleteoldrdn: i32) -> u32
 where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
     P1: ::std::convert::Into<::windows::core::PCWSTR>,
@@ -2959,7 +2959,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Networking_Ldap\"`*"]
 #[inline]
-pub unsafe fn ldap_modrdnA<'a, P0, P1>(externalhandle: *mut ldap, distinguishedname: P0, newdistinguishedname: P1) -> u32
+pub unsafe fn ldap_modrdnA<'a, P0, P1>(externalhandle: &mut ldap, distinguishedname: P0, newdistinguishedname: P1) -> u32
 where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
     P1: ::std::convert::Into<::windows::core::PCSTR>,
@@ -2972,7 +2972,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Networking_Ldap\"`*"]
 #[inline]
-pub unsafe fn ldap_modrdnW<'a, P0, P1>(externalhandle: *mut ldap, distinguishedname: P0, newdistinguishedname: P1) -> u32
+pub unsafe fn ldap_modrdnW<'a, P0, P1>(externalhandle: &mut ldap, distinguishedname: P0, newdistinguishedname: P1) -> u32
 where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
     P1: ::std::convert::Into<::windows::core::PCWSTR>,
@@ -2985,7 +2985,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Networking_Ldap\"`*"]
 #[inline]
-pub unsafe fn ldap_modrdn_s<'a, P0, P1>(externalhandle: *mut ldap, distinguishedname: P0, newdistinguishedname: P1) -> u32
+pub unsafe fn ldap_modrdn_s<'a, P0, P1>(externalhandle: &mut ldap, distinguishedname: P0, newdistinguishedname: P1) -> u32
 where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
     P1: ::std::convert::Into<::windows::core::PCSTR>,
@@ -2998,7 +2998,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Networking_Ldap\"`*"]
 #[inline]
-pub unsafe fn ldap_modrdn_sA<'a, P0, P1>(externalhandle: *mut ldap, distinguishedname: P0, newdistinguishedname: P1) -> u32
+pub unsafe fn ldap_modrdn_sA<'a, P0, P1>(externalhandle: &mut ldap, distinguishedname: P0, newdistinguishedname: P1) -> u32
 where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
     P1: ::std::convert::Into<::windows::core::PCSTR>,
@@ -3011,7 +3011,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Networking_Ldap\"`*"]
 #[inline]
-pub unsafe fn ldap_modrdn_sW<'a, P0, P1>(externalhandle: *mut ldap, distinguishedname: P0, newdistinguishedname: P1) -> u32
+pub unsafe fn ldap_modrdn_sW<'a, P0, P1>(externalhandle: &mut ldap, distinguishedname: P0, newdistinguishedname: P1) -> u32
 where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
     P1: ::std::convert::Into<::windows::core::PCWSTR>,
@@ -3025,7 +3025,7 @@ where
 #[doc = "*Required features: `\"Win32_Networking_Ldap\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn ldap_msgfree(res: *mut LDAPMessage) -> u32 {
+pub unsafe fn ldap_msgfree(res: &mut LDAPMessage) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn ldap_msgfree(res: *mut LDAPMessage) -> u32;
@@ -3035,7 +3035,7 @@ pub unsafe fn ldap_msgfree(res: *mut LDAPMessage) -> u32 {
 #[doc = "*Required features: `\"Win32_Networking_Ldap\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn ldap_next_attribute(ld: *mut ldap, entry: *mut LDAPMessage, ptr: *mut berelement) -> ::windows::core::PSTR {
+pub unsafe fn ldap_next_attribute(ld: &mut ldap, entry: &mut LDAPMessage, ptr: &mut berelement) -> ::windows::core::PSTR {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn ldap_next_attribute(ld: *mut ldap, entry: *mut LDAPMessage, ptr: *mut berelement) -> ::windows::core::PSTR;
@@ -3045,7 +3045,7 @@ pub unsafe fn ldap_next_attribute(ld: *mut ldap, entry: *mut LDAPMessage, ptr: *
 #[doc = "*Required features: `\"Win32_Networking_Ldap\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn ldap_next_attributeA(ld: *mut ldap, entry: *mut LDAPMessage, ptr: *mut berelement) -> ::windows::core::PSTR {
+pub unsafe fn ldap_next_attributeA(ld: &mut ldap, entry: &mut LDAPMessage, ptr: &mut berelement) -> ::windows::core::PSTR {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn ldap_next_attributeA(ld: *mut ldap, entry: *mut LDAPMessage, ptr: *mut berelement) -> ::windows::core::PSTR;
@@ -3055,7 +3055,7 @@ pub unsafe fn ldap_next_attributeA(ld: *mut ldap, entry: *mut LDAPMessage, ptr: 
 #[doc = "*Required features: `\"Win32_Networking_Ldap\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn ldap_next_attributeW(ld: *mut ldap, entry: *mut LDAPMessage, ptr: *mut berelement) -> ::windows::core::PWSTR {
+pub unsafe fn ldap_next_attributeW(ld: &mut ldap, entry: &mut LDAPMessage, ptr: &mut berelement) -> ::windows::core::PWSTR {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn ldap_next_attributeW(ld: *mut ldap, entry: *mut LDAPMessage, ptr: *mut berelement) -> ::windows::core::PWSTR;
@@ -3065,7 +3065,7 @@ pub unsafe fn ldap_next_attributeW(ld: *mut ldap, entry: *mut LDAPMessage, ptr: 
 #[doc = "*Required features: `\"Win32_Networking_Ldap\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn ldap_next_entry(ld: *mut ldap, entry: *mut LDAPMessage) -> *mut LDAPMessage {
+pub unsafe fn ldap_next_entry(ld: &mut ldap, entry: &mut LDAPMessage) -> *mut LDAPMessage {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn ldap_next_entry(ld: *mut ldap, entry: *mut LDAPMessage) -> *mut LDAPMessage;
@@ -3075,7 +3075,7 @@ pub unsafe fn ldap_next_entry(ld: *mut ldap, entry: *mut LDAPMessage) -> *mut LD
 #[doc = "*Required features: `\"Win32_Networking_Ldap\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn ldap_next_reference(ld: *mut ldap, entry: *mut LDAPMessage) -> *mut LDAPMessage {
+pub unsafe fn ldap_next_reference(ld: &mut ldap, entry: &mut LDAPMessage) -> *mut LDAPMessage {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn ldap_next_reference(ld: *mut ldap, entry: *mut LDAPMessage) -> *mut LDAPMessage;
@@ -3121,7 +3121,7 @@ where
 #[doc = "*Required features: `\"Win32_Networking_Ldap\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn ldap_parse_extended_resultA<'a, P0>(connection: *mut ldap, resultmessage: *mut LDAPMessage, resultoid: *mut ::windows::core::PSTR, resultdata: *mut *mut LDAP_BERVAL, freeit: P0) -> u32
+pub unsafe fn ldap_parse_extended_resultA<'a, P0>(connection: &mut ldap, resultmessage: &mut LDAPMessage, resultoid: ::core::option::Option<&mut ::windows::core::PSTR>, resultdata: &mut *mut LDAP_BERVAL, freeit: P0) -> u32
 where
     P0: ::std::convert::Into<super::super::Foundation::BOOLEAN>,
 {
@@ -3134,7 +3134,7 @@ where
 #[doc = "*Required features: `\"Win32_Networking_Ldap\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn ldap_parse_extended_resultW<'a, P0>(connection: *mut ldap, resultmessage: *mut LDAPMessage, resultoid: *mut ::windows::core::PWSTR, resultdata: *mut *mut LDAP_BERVAL, freeit: P0) -> u32
+pub unsafe fn ldap_parse_extended_resultW<'a, P0>(connection: &mut ldap, resultmessage: &mut LDAPMessage, resultoid: ::core::option::Option<&mut ::windows::core::PWSTR>, resultdata: &mut *mut LDAP_BERVAL, freeit: P0) -> u32
 where
     P0: ::std::convert::Into<super::super::Foundation::BOOLEAN>,
 {
@@ -3147,7 +3147,7 @@ where
 #[doc = "*Required features: `\"Win32_Networking_Ldap\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn ldap_parse_page_control(externalhandle: *mut ldap, servercontrols: *mut *mut ldapcontrolA, totalcount: *mut u32, cookie: *mut *mut LDAP_BERVAL) -> u32 {
+pub unsafe fn ldap_parse_page_control(externalhandle: &mut ldap, servercontrols: &mut *mut ldapcontrolA, totalcount: &mut u32, cookie: &mut *mut LDAP_BERVAL) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn ldap_parse_page_control(externalhandle: *mut ldap, servercontrols: *mut *mut ldapcontrolA, totalcount: *mut u32, cookie: *mut *mut LDAP_BERVAL) -> u32;
@@ -3157,7 +3157,7 @@ pub unsafe fn ldap_parse_page_control(externalhandle: *mut ldap, servercontrols:
 #[doc = "*Required features: `\"Win32_Networking_Ldap\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn ldap_parse_page_controlA(externalhandle: *mut ldap, servercontrols: *mut *mut ldapcontrolA, totalcount: *mut u32, cookie: *mut *mut LDAP_BERVAL) -> u32 {
+pub unsafe fn ldap_parse_page_controlA(externalhandle: &mut ldap, servercontrols: &mut *mut ldapcontrolA, totalcount: &mut u32, cookie: &mut *mut LDAP_BERVAL) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn ldap_parse_page_controlA(externalhandle: *mut ldap, servercontrols: *mut *mut ldapcontrolA, totalcount: *mut u32, cookie: *mut *mut LDAP_BERVAL) -> u32;
@@ -3167,7 +3167,7 @@ pub unsafe fn ldap_parse_page_controlA(externalhandle: *mut ldap, servercontrols
 #[doc = "*Required features: `\"Win32_Networking_Ldap\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn ldap_parse_page_controlW(externalhandle: *mut ldap, servercontrols: *mut *mut ldapcontrolW, totalcount: *mut u32, cookie: *mut *mut LDAP_BERVAL) -> u32 {
+pub unsafe fn ldap_parse_page_controlW(externalhandle: &mut ldap, servercontrols: &mut *mut ldapcontrolW, totalcount: &mut u32, cookie: &mut *mut LDAP_BERVAL) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn ldap_parse_page_controlW(externalhandle: *mut ldap, servercontrols: *mut *mut ldapcontrolW, totalcount: *mut u32, cookie: *mut *mut LDAP_BERVAL) -> u32;
@@ -3177,7 +3177,7 @@ pub unsafe fn ldap_parse_page_controlW(externalhandle: *mut ldap, servercontrols
 #[doc = "*Required features: `\"Win32_Networking_Ldap\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn ldap_parse_reference(connection: *mut ldap, resultmessage: *mut LDAPMessage, referrals: *mut *mut ::windows::core::PSTR) -> u32 {
+pub unsafe fn ldap_parse_reference(connection: &mut ldap, resultmessage: &mut LDAPMessage, referrals: &mut *mut ::windows::core::PSTR) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn ldap_parse_reference(connection: *mut ldap, resultmessage: *mut LDAPMessage, referrals: *mut *mut ::windows::core::PSTR) -> u32;
@@ -3187,7 +3187,7 @@ pub unsafe fn ldap_parse_reference(connection: *mut ldap, resultmessage: *mut LD
 #[doc = "*Required features: `\"Win32_Networking_Ldap\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn ldap_parse_referenceA(connection: *mut ldap, resultmessage: *mut LDAPMessage, referrals: *mut *mut ::windows::core::PSTR) -> u32 {
+pub unsafe fn ldap_parse_referenceA(connection: &mut ldap, resultmessage: &mut LDAPMessage, referrals: &mut *mut ::windows::core::PSTR) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn ldap_parse_referenceA(connection: *mut ldap, resultmessage: *mut LDAPMessage, referrals: *mut *mut ::windows::core::PSTR) -> u32;
@@ -3197,7 +3197,7 @@ pub unsafe fn ldap_parse_referenceA(connection: *mut ldap, resultmessage: *mut L
 #[doc = "*Required features: `\"Win32_Networking_Ldap\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn ldap_parse_referenceW(connection: *mut ldap, resultmessage: *mut LDAPMessage, referrals: *mut *mut ::windows::core::PWSTR) -> u32 {
+pub unsafe fn ldap_parse_referenceW(connection: &mut ldap, resultmessage: &mut LDAPMessage, referrals: &mut *mut ::windows::core::PWSTR) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn ldap_parse_referenceW(connection: *mut ldap, resultmessage: *mut LDAPMessage, referrals: *mut *mut ::windows::core::PWSTR) -> u32;
@@ -3207,7 +3207,7 @@ pub unsafe fn ldap_parse_referenceW(connection: *mut ldap, resultmessage: *mut L
 #[doc = "*Required features: `\"Win32_Networking_Ldap\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn ldap_parse_result<'a, P0>(connection: *mut ldap, resultmessage: *mut LDAPMessage, returncode: *mut u32, matcheddns: *mut ::windows::core::PSTR, errormessage: *mut ::windows::core::PSTR, referrals: *mut *mut ::windows::core::PSTR, servercontrols: *mut *mut *mut ldapcontrolA, freeit: P0) -> u32
+pub unsafe fn ldap_parse_result<'a, P0>(connection: &mut ldap, resultmessage: &mut LDAPMessage, returncode: &mut u32, matcheddns: ::core::option::Option<&mut ::windows::core::PSTR>, errormessage: ::core::option::Option<&mut ::windows::core::PSTR>, referrals: ::core::option::Option<&mut *mut ::windows::core::PSTR>, servercontrols: &mut *mut *mut ldapcontrolA, freeit: P0) -> u32
 where
     P0: ::std::convert::Into<super::super::Foundation::BOOLEAN>,
 {
@@ -3220,7 +3220,7 @@ where
 #[doc = "*Required features: `\"Win32_Networking_Ldap\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn ldap_parse_resultA<'a, P0>(connection: *mut ldap, resultmessage: *mut LDAPMessage, returncode: *mut u32, matcheddns: *mut ::windows::core::PSTR, errormessage: *mut ::windows::core::PSTR, referrals: *mut *mut *mut i8, servercontrols: *mut *mut *mut ldapcontrolA, freeit: P0) -> u32
+pub unsafe fn ldap_parse_resultA<'a, P0>(connection: &mut ldap, resultmessage: &mut LDAPMessage, returncode: &mut u32, matcheddns: ::core::option::Option<&mut ::windows::core::PSTR>, errormessage: ::core::option::Option<&mut ::windows::core::PSTR>, referrals: ::core::option::Option<&mut *mut *mut i8>, servercontrols: &mut *mut *mut ldapcontrolA, freeit: P0) -> u32
 where
     P0: ::std::convert::Into<super::super::Foundation::BOOLEAN>,
 {
@@ -3233,7 +3233,7 @@ where
 #[doc = "*Required features: `\"Win32_Networking_Ldap\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn ldap_parse_resultW<'a, P0>(connection: *mut ldap, resultmessage: *mut LDAPMessage, returncode: *mut u32, matcheddns: *mut ::windows::core::PWSTR, errormessage: *mut ::windows::core::PWSTR, referrals: *mut *mut *mut u16, servercontrols: *mut *mut *mut ldapcontrolW, freeit: P0) -> u32
+pub unsafe fn ldap_parse_resultW<'a, P0>(connection: &mut ldap, resultmessage: &mut LDAPMessage, returncode: &mut u32, matcheddns: ::core::option::Option<&mut ::windows::core::PWSTR>, errormessage: ::core::option::Option<&mut ::windows::core::PWSTR>, referrals: ::core::option::Option<&mut *mut *mut u16>, servercontrols: &mut *mut *mut ldapcontrolW, freeit: P0) -> u32
 where
     P0: ::std::convert::Into<super::super::Foundation::BOOLEAN>,
 {
@@ -3246,7 +3246,7 @@ where
 #[doc = "*Required features: `\"Win32_Networking_Ldap\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn ldap_parse_sort_control(externalhandle: *mut ldap, control: *mut *mut ldapcontrolA, result: *mut u32, attribute: *mut ::windows::core::PSTR) -> u32 {
+pub unsafe fn ldap_parse_sort_control(externalhandle: &mut ldap, control: &mut *mut ldapcontrolA, result: &mut u32, attribute: &mut ::windows::core::PSTR) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn ldap_parse_sort_control(externalhandle: *mut ldap, control: *mut *mut ldapcontrolA, result: *mut u32, attribute: *mut ::windows::core::PSTR) -> u32;
@@ -3256,7 +3256,7 @@ pub unsafe fn ldap_parse_sort_control(externalhandle: *mut ldap, control: *mut *
 #[doc = "*Required features: `\"Win32_Networking_Ldap\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn ldap_parse_sort_controlA(externalhandle: *mut ldap, control: *mut *mut ldapcontrolA, result: *mut u32, attribute: *mut ::windows::core::PSTR) -> u32 {
+pub unsafe fn ldap_parse_sort_controlA(externalhandle: &mut ldap, control: &mut *mut ldapcontrolA, result: &mut u32, attribute: ::core::option::Option<&mut ::windows::core::PSTR>) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn ldap_parse_sort_controlA(externalhandle: *mut ldap, control: *mut *mut ldapcontrolA, result: *mut u32, attribute: *mut ::windows::core::PSTR) -> u32;
@@ -3266,7 +3266,7 @@ pub unsafe fn ldap_parse_sort_controlA(externalhandle: *mut ldap, control: *mut 
 #[doc = "*Required features: `\"Win32_Networking_Ldap\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn ldap_parse_sort_controlW(externalhandle: *mut ldap, control: *mut *mut ldapcontrolW, result: *mut u32, attribute: *mut ::windows::core::PWSTR) -> u32 {
+pub unsafe fn ldap_parse_sort_controlW(externalhandle: &mut ldap, control: &mut *mut ldapcontrolW, result: &mut u32, attribute: ::core::option::Option<&mut ::windows::core::PWSTR>) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn ldap_parse_sort_controlW(externalhandle: *mut ldap, control: *mut *mut ldapcontrolW, result: *mut u32, attribute: *mut ::windows::core::PWSTR) -> u32;
@@ -3276,7 +3276,7 @@ pub unsafe fn ldap_parse_sort_controlW(externalhandle: *mut ldap, control: *mut 
 #[doc = "*Required features: `\"Win32_Networking_Ldap\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn ldap_parse_vlv_controlA(externalhandle: *mut ldap, control: *mut *mut ldapcontrolA, targetpos: *mut u32, listcount: *mut u32, context: *mut *mut LDAP_BERVAL, errcode: *mut i32) -> i32 {
+pub unsafe fn ldap_parse_vlv_controlA(externalhandle: &mut ldap, control: &mut *mut ldapcontrolA, targetpos: &mut u32, listcount: &mut u32, context: &mut *mut LDAP_BERVAL, errcode: &mut i32) -> i32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn ldap_parse_vlv_controlA(externalhandle: *mut ldap, control: *mut *mut ldapcontrolA, targetpos: *mut u32, listcount: *mut u32, context: *mut *mut LDAP_BERVAL, errcode: *mut i32) -> i32;
@@ -3286,7 +3286,7 @@ pub unsafe fn ldap_parse_vlv_controlA(externalhandle: *mut ldap, control: *mut *
 #[doc = "*Required features: `\"Win32_Networking_Ldap\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn ldap_parse_vlv_controlW(externalhandle: *mut ldap, control: *mut *mut ldapcontrolW, targetpos: *mut u32, listcount: *mut u32, context: *mut *mut LDAP_BERVAL, errcode: *mut i32) -> i32 {
+pub unsafe fn ldap_parse_vlv_controlW(externalhandle: &mut ldap, control: &mut *mut ldapcontrolW, targetpos: &mut u32, listcount: &mut u32, context: &mut *mut LDAP_BERVAL, errcode: &mut i32) -> i32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn ldap_parse_vlv_controlW(externalhandle: *mut ldap, control: *mut *mut ldapcontrolW, targetpos: *mut u32, listcount: *mut u32, context: *mut *mut LDAP_BERVAL, errcode: *mut i32) -> i32;
@@ -3295,7 +3295,7 @@ pub unsafe fn ldap_parse_vlv_controlW(externalhandle: *mut ldap, control: *mut *
 }
 #[doc = "*Required features: `\"Win32_Networking_Ldap\"`*"]
 #[inline]
-pub unsafe fn ldap_perror<'a, P0>(ld: *mut ldap, msg: P0)
+pub unsafe fn ldap_perror<'a, P0>(ld: &mut ldap, msg: P0)
 where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
 {
@@ -3308,7 +3308,7 @@ where
 #[doc = "*Required features: `\"Win32_Networking_Ldap\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn ldap_rename_ext<'a, P0, P1, P2>(ld: *mut ldap, dn: P0, newrdn: P1, newparent: P2, deleteoldrdn: i32, servercontrols: *mut *mut ldapcontrolA, clientcontrols: *mut *mut ldapcontrolA, messagenumber: *mut u32) -> u32
+pub unsafe fn ldap_rename_ext<'a, P0, P1, P2>(ld: &mut ldap, dn: P0, newrdn: P1, newparent: P2, deleteoldrdn: i32, servercontrols: &mut *mut ldapcontrolA, clientcontrols: &mut *mut ldapcontrolA, messagenumber: &mut u32) -> u32
 where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
     P1: ::std::convert::Into<::windows::core::PCSTR>,
@@ -3323,7 +3323,7 @@ where
 #[doc = "*Required features: `\"Win32_Networking_Ldap\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn ldap_rename_extA<'a, P0, P1, P2>(ld: *mut ldap, dn: P0, newrdn: P1, newparent: P2, deleteoldrdn: i32, servercontrols: *mut *mut ldapcontrolA, clientcontrols: *mut *mut ldapcontrolA, messagenumber: *mut u32) -> u32
+pub unsafe fn ldap_rename_extA<'a, P0, P1, P2>(ld: &mut ldap, dn: P0, newrdn: P1, newparent: P2, deleteoldrdn: i32, servercontrols: &mut *mut ldapcontrolA, clientcontrols: &mut *mut ldapcontrolA, messagenumber: &mut u32) -> u32
 where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
     P1: ::std::convert::Into<::windows::core::PCSTR>,
@@ -3338,7 +3338,7 @@ where
 #[doc = "*Required features: `\"Win32_Networking_Ldap\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn ldap_rename_extW<'a, P0, P1, P2>(ld: *mut ldap, dn: P0, newrdn: P1, newparent: P2, deleteoldrdn: i32, servercontrols: *mut *mut ldapcontrolW, clientcontrols: *mut *mut ldapcontrolW, messagenumber: *mut u32) -> u32
+pub unsafe fn ldap_rename_extW<'a, P0, P1, P2>(ld: &mut ldap, dn: P0, newrdn: P1, newparent: P2, deleteoldrdn: i32, servercontrols: &mut *mut ldapcontrolW, clientcontrols: &mut *mut ldapcontrolW, messagenumber: &mut u32) -> u32
 where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
     P1: ::std::convert::Into<::windows::core::PCWSTR>,
@@ -3353,7 +3353,7 @@ where
 #[doc = "*Required features: `\"Win32_Networking_Ldap\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn ldap_rename_ext_s<'a, P0, P1, P2>(ld: *mut ldap, dn: P0, newrdn: P1, newparent: P2, deleteoldrdn: i32, servercontrols: *mut *mut ldapcontrolA, clientcontrols: *mut *mut ldapcontrolA) -> u32
+pub unsafe fn ldap_rename_ext_s<'a, P0, P1, P2>(ld: &mut ldap, dn: P0, newrdn: P1, newparent: P2, deleteoldrdn: i32, servercontrols: &mut *mut ldapcontrolA, clientcontrols: &mut *mut ldapcontrolA) -> u32
 where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
     P1: ::std::convert::Into<::windows::core::PCSTR>,
@@ -3368,7 +3368,7 @@ where
 #[doc = "*Required features: `\"Win32_Networking_Ldap\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn ldap_rename_ext_sA<'a, P0, P1, P2>(ld: *mut ldap, dn: P0, newrdn: P1, newparent: P2, deleteoldrdn: i32, servercontrols: *mut *mut ldapcontrolA, clientcontrols: *mut *mut ldapcontrolA) -> u32
+pub unsafe fn ldap_rename_ext_sA<'a, P0, P1, P2>(ld: &mut ldap, dn: P0, newrdn: P1, newparent: P2, deleteoldrdn: i32, servercontrols: &mut *mut ldapcontrolA, clientcontrols: &mut *mut ldapcontrolA) -> u32
 where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
     P1: ::std::convert::Into<::windows::core::PCSTR>,
@@ -3383,7 +3383,7 @@ where
 #[doc = "*Required features: `\"Win32_Networking_Ldap\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn ldap_rename_ext_sW<'a, P0, P1, P2>(ld: *mut ldap, dn: P0, newrdn: P1, newparent: P2, deleteoldrdn: i32, servercontrols: *mut *mut ldapcontrolW, clientcontrols: *mut *mut ldapcontrolW) -> u32
+pub unsafe fn ldap_rename_ext_sW<'a, P0, P1, P2>(ld: &mut ldap, dn: P0, newrdn: P1, newparent: P2, deleteoldrdn: i32, servercontrols: &mut *mut ldapcontrolW, clientcontrols: &mut *mut ldapcontrolW) -> u32
 where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
     P1: ::std::convert::Into<::windows::core::PCWSTR>,
@@ -3398,7 +3398,7 @@ where
 #[doc = "*Required features: `\"Win32_Networking_Ldap\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn ldap_result(ld: *mut ldap, msgid: u32, all: u32, timeout: *const LDAP_TIMEVAL, res: *mut *mut LDAPMessage) -> u32 {
+pub unsafe fn ldap_result(ld: &mut ldap, msgid: u32, all: u32, timeout: ::core::option::Option<&LDAP_TIMEVAL>, res: ::core::option::Option<&mut *mut LDAPMessage>) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn ldap_result(ld: *mut ldap, msgid: u32, all: u32, timeout: *const LDAP_TIMEVAL, res: *mut *mut LDAPMessage) -> u32;
@@ -3408,7 +3408,7 @@ pub unsafe fn ldap_result(ld: *mut ldap, msgid: u32, all: u32, timeout: *const L
 #[doc = "*Required features: `\"Win32_Networking_Ldap\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn ldap_result2error(ld: *mut ldap, res: *mut LDAPMessage, freeit: u32) -> u32 {
+pub unsafe fn ldap_result2error(ld: &mut ldap, res: &mut LDAPMessage, freeit: u32) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn ldap_result2error(ld: *mut ldap, res: *mut LDAPMessage, freeit: u32) -> u32;
@@ -3418,7 +3418,7 @@ pub unsafe fn ldap_result2error(ld: *mut ldap, res: *mut LDAPMessage, freeit: u3
 #[doc = "*Required features: `\"Win32_Networking_Ldap\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn ldap_sasl_bindA<'a, P0, P1>(externalhandle: *mut ldap, distname: P0, authmechanism: P1, cred: *const LDAP_BERVAL, serverctrls: *mut *mut ldapcontrolA, clientctrls: *mut *mut ldapcontrolA, messagenumber: *mut i32) -> i32
+pub unsafe fn ldap_sasl_bindA<'a, P0, P1>(externalhandle: &mut ldap, distname: P0, authmechanism: P1, cred: &LDAP_BERVAL, serverctrls: &mut *mut ldapcontrolA, clientctrls: &mut *mut ldapcontrolA, messagenumber: &mut i32) -> i32
 where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
     P1: ::std::convert::Into<::windows::core::PCSTR>,
@@ -3432,7 +3432,7 @@ where
 #[doc = "*Required features: `\"Win32_Networking_Ldap\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn ldap_sasl_bindW<'a, P0, P1>(externalhandle: *mut ldap, distname: P0, authmechanism: P1, cred: *const LDAP_BERVAL, serverctrls: *mut *mut ldapcontrolW, clientctrls: *mut *mut ldapcontrolW, messagenumber: *mut i32) -> i32
+pub unsafe fn ldap_sasl_bindW<'a, P0, P1>(externalhandle: &mut ldap, distname: P0, authmechanism: P1, cred: &LDAP_BERVAL, serverctrls: &mut *mut ldapcontrolW, clientctrls: &mut *mut ldapcontrolW, messagenumber: &mut i32) -> i32
 where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
     P1: ::std::convert::Into<::windows::core::PCWSTR>,
@@ -3446,7 +3446,7 @@ where
 #[doc = "*Required features: `\"Win32_Networking_Ldap\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn ldap_sasl_bind_sA<'a, P0, P1>(externalhandle: *mut ldap, distname: P0, authmechanism: P1, cred: *const LDAP_BERVAL, serverctrls: *mut *mut ldapcontrolA, clientctrls: *mut *mut ldapcontrolA, serverdata: *mut *mut LDAP_BERVAL) -> i32
+pub unsafe fn ldap_sasl_bind_sA<'a, P0, P1>(externalhandle: &mut ldap, distname: P0, authmechanism: P1, cred: &LDAP_BERVAL, serverctrls: &mut *mut ldapcontrolA, clientctrls: &mut *mut ldapcontrolA, serverdata: &mut *mut LDAP_BERVAL) -> i32
 where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
     P1: ::std::convert::Into<::windows::core::PCSTR>,
@@ -3460,7 +3460,7 @@ where
 #[doc = "*Required features: `\"Win32_Networking_Ldap\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn ldap_sasl_bind_sW<'a, P0, P1>(externalhandle: *mut ldap, distname: P0, authmechanism: P1, cred: *const LDAP_BERVAL, serverctrls: *mut *mut ldapcontrolW, clientctrls: *mut *mut ldapcontrolW, serverdata: *mut *mut LDAP_BERVAL) -> i32
+pub unsafe fn ldap_sasl_bind_sW<'a, P0, P1>(externalhandle: &mut ldap, distname: P0, authmechanism: P1, cred: &LDAP_BERVAL, serverctrls: &mut *mut ldapcontrolW, clientctrls: &mut *mut ldapcontrolW, serverdata: &mut *mut LDAP_BERVAL) -> i32
 where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
     P1: ::std::convert::Into<::windows::core::PCWSTR>,
@@ -3473,7 +3473,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Networking_Ldap\"`*"]
 #[inline]
-pub unsafe fn ldap_search<'a, P0, P1>(ld: *mut ldap, base: P0, scope: u32, filter: P1, attrs: *const *const i8, attrsonly: u32) -> u32
+pub unsafe fn ldap_search<'a, P0, P1>(ld: &mut ldap, base: P0, scope: u32, filter: P1, attrs: &*const i8, attrsonly: u32) -> u32
 where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
     P1: ::std::convert::Into<::windows::core::PCSTR>,
@@ -3486,7 +3486,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Networking_Ldap\"`*"]
 #[inline]
-pub unsafe fn ldap_searchA<'a, P0, P1>(ld: *mut ldap, base: P0, scope: u32, filter: P1, attrs: *const *const i8, attrsonly: u32) -> u32
+pub unsafe fn ldap_searchA<'a, P0, P1>(ld: &mut ldap, base: P0, scope: u32, filter: P1, attrs: &*const i8, attrsonly: u32) -> u32
 where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
     P1: ::std::convert::Into<::windows::core::PCSTR>,
@@ -3499,7 +3499,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Networking_Ldap\"`*"]
 #[inline]
-pub unsafe fn ldap_searchW<'a, P0, P1>(ld: *mut ldap, base: P0, scope: u32, filter: P1, attrs: *const *const u16, attrsonly: u32) -> u32
+pub unsafe fn ldap_searchW<'a, P0, P1>(ld: &mut ldap, base: P0, scope: u32, filter: P1, attrs: &*const u16, attrsonly: u32) -> u32
 where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
     P1: ::std::convert::Into<::windows::core::PCWSTR>,
@@ -3512,7 +3512,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Networking_Ldap\"`*"]
 #[inline]
-pub unsafe fn ldap_search_abandon_page(externalhandle: *mut ldap, searchblock: *mut ldapsearch) -> u32 {
+pub unsafe fn ldap_search_abandon_page(externalhandle: &mut ldap, searchblock: &mut ldapsearch) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn ldap_search_abandon_page(externalhandle: *mut ldap, searchblock: *mut ldapsearch) -> u32;
@@ -3522,7 +3522,7 @@ pub unsafe fn ldap_search_abandon_page(externalhandle: *mut ldap, searchblock: *
 #[doc = "*Required features: `\"Win32_Networking_Ldap\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn ldap_search_ext<'a, P0, P1>(ld: *mut ldap, base: P0, scope: u32, filter: P1, attrs: *const *const i8, attrsonly: u32, servercontrols: *const *const ldapcontrolA, clientcontrols: *const *const ldapcontrolA, timelimit: u32, sizelimit: u32, messagenumber: *mut u32) -> u32
+pub unsafe fn ldap_search_ext<'a, P0, P1>(ld: &mut ldap, base: P0, scope: u32, filter: P1, attrs: &*const i8, attrsonly: u32, servercontrols: ::core::option::Option<&*const ldapcontrolA>, clientcontrols: ::core::option::Option<&*const ldapcontrolA>, timelimit: u32, sizelimit: u32, messagenumber: &mut u32) -> u32
 where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
     P1: ::std::convert::Into<::windows::core::PCSTR>,
@@ -3536,7 +3536,7 @@ where
 #[doc = "*Required features: `\"Win32_Networking_Ldap\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn ldap_search_extA<'a, P0, P1>(ld: *mut ldap, base: P0, scope: u32, filter: P1, attrs: *const *const i8, attrsonly: u32, servercontrols: *const *const ldapcontrolA, clientcontrols: *const *const ldapcontrolA, timelimit: u32, sizelimit: u32, messagenumber: *mut u32) -> u32
+pub unsafe fn ldap_search_extA<'a, P0, P1>(ld: &mut ldap, base: P0, scope: u32, filter: P1, attrs: &*const i8, attrsonly: u32, servercontrols: ::core::option::Option<&*const ldapcontrolA>, clientcontrols: ::core::option::Option<&*const ldapcontrolA>, timelimit: u32, sizelimit: u32, messagenumber: &mut u32) -> u32
 where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
     P1: ::std::convert::Into<::windows::core::PCSTR>,
@@ -3550,7 +3550,7 @@ where
 #[doc = "*Required features: `\"Win32_Networking_Ldap\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn ldap_search_extW<'a, P0, P1>(ld: *mut ldap, base: P0, scope: u32, filter: P1, attrs: *const *const u16, attrsonly: u32, servercontrols: *const *const ldapcontrolW, clientcontrols: *const *const ldapcontrolW, timelimit: u32, sizelimit: u32, messagenumber: *mut u32) -> u32
+pub unsafe fn ldap_search_extW<'a, P0, P1>(ld: &mut ldap, base: P0, scope: u32, filter: P1, attrs: &*const u16, attrsonly: u32, servercontrols: ::core::option::Option<&*const ldapcontrolW>, clientcontrols: ::core::option::Option<&*const ldapcontrolW>, timelimit: u32, sizelimit: u32, messagenumber: &mut u32) -> u32
 where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
     P1: ::std::convert::Into<::windows::core::PCWSTR>,
@@ -3564,7 +3564,7 @@ where
 #[doc = "*Required features: `\"Win32_Networking_Ldap\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn ldap_search_ext_s<'a, P0, P1>(ld: *mut ldap, base: P0, scope: u32, filter: P1, attrs: *const *const i8, attrsonly: u32, servercontrols: *const *const ldapcontrolA, clientcontrols: *const *const ldapcontrolA, timeout: *mut LDAP_TIMEVAL, sizelimit: u32, res: *mut *mut LDAPMessage) -> u32
+pub unsafe fn ldap_search_ext_s<'a, P0, P1>(ld: &mut ldap, base: P0, scope: u32, filter: P1, attrs: &*const i8, attrsonly: u32, servercontrols: ::core::option::Option<&*const ldapcontrolA>, clientcontrols: ::core::option::Option<&*const ldapcontrolA>, timeout: &mut LDAP_TIMEVAL, sizelimit: u32, res: ::core::option::Option<&mut *mut LDAPMessage>) -> u32
 where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
     P1: ::std::convert::Into<::windows::core::PCSTR>,
@@ -3578,7 +3578,7 @@ where
 #[doc = "*Required features: `\"Win32_Networking_Ldap\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn ldap_search_ext_sA<'a, P0, P1>(ld: *mut ldap, base: P0, scope: u32, filter: P1, attrs: *const *const i8, attrsonly: u32, servercontrols: *const *const ldapcontrolA, clientcontrols: *const *const ldapcontrolA, timeout: *mut LDAP_TIMEVAL, sizelimit: u32, res: *mut *mut LDAPMessage) -> u32
+pub unsafe fn ldap_search_ext_sA<'a, P0, P1>(ld: &mut ldap, base: P0, scope: u32, filter: P1, attrs: &*const i8, attrsonly: u32, servercontrols: ::core::option::Option<&*const ldapcontrolA>, clientcontrols: ::core::option::Option<&*const ldapcontrolA>, timeout: &mut LDAP_TIMEVAL, sizelimit: u32, res: ::core::option::Option<&mut *mut LDAPMessage>) -> u32
 where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
     P1: ::std::convert::Into<::windows::core::PCSTR>,
@@ -3592,7 +3592,7 @@ where
 #[doc = "*Required features: `\"Win32_Networking_Ldap\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn ldap_search_ext_sW<'a, P0, P1>(ld: *mut ldap, base: P0, scope: u32, filter: P1, attrs: *const *const u16, attrsonly: u32, servercontrols: *const *const ldapcontrolW, clientcontrols: *const *const ldapcontrolW, timeout: *mut LDAP_TIMEVAL, sizelimit: u32, res: *mut *mut LDAPMessage) -> u32
+pub unsafe fn ldap_search_ext_sW<'a, P0, P1>(ld: &mut ldap, base: P0, scope: u32, filter: P1, attrs: &*const u16, attrsonly: u32, servercontrols: ::core::option::Option<&*const ldapcontrolW>, clientcontrols: ::core::option::Option<&*const ldapcontrolW>, timeout: &mut LDAP_TIMEVAL, sizelimit: u32, res: ::core::option::Option<&mut *mut LDAPMessage>) -> u32
 where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
     P1: ::std::convert::Into<::windows::core::PCWSTR>,
@@ -3606,7 +3606,7 @@ where
 #[doc = "*Required features: `\"Win32_Networking_Ldap\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn ldap_search_init_page<'a, P0, P1>(externalhandle: *mut ldap, distinguishedname: P0, scopeofsearch: u32, searchfilter: P1, attributelist: *mut *mut i8, attributesonly: u32, servercontrols: *mut *mut ldapcontrolA, clientcontrols: *mut *mut ldapcontrolA, pagetimelimit: u32, totalsizelimit: u32, sortkeys: *mut *mut ldapsortkeyA) -> *mut ldapsearch
+pub unsafe fn ldap_search_init_page<'a, P0, P1>(externalhandle: &mut ldap, distinguishedname: P0, scopeofsearch: u32, searchfilter: P1, attributelist: &mut *mut i8, attributesonly: u32, servercontrols: &mut *mut ldapcontrolA, clientcontrols: &mut *mut ldapcontrolA, pagetimelimit: u32, totalsizelimit: u32, sortkeys: &mut *mut ldapsortkeyA) -> *mut ldapsearch
 where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
     P1: ::std::convert::Into<::windows::core::PCSTR>,
@@ -3620,7 +3620,7 @@ where
 #[doc = "*Required features: `\"Win32_Networking_Ldap\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn ldap_search_init_pageA<'a, P0, P1>(externalhandle: *mut ldap, distinguishedname: P0, scopeofsearch: u32, searchfilter: P1, attributelist: *const *const i8, attributesonly: u32, servercontrols: *mut *mut ldapcontrolA, clientcontrols: *mut *mut ldapcontrolA, pagetimelimit: u32, totalsizelimit: u32, sortkeys: *mut *mut ldapsortkeyA) -> *mut ldapsearch
+pub unsafe fn ldap_search_init_pageA<'a, P0, P1>(externalhandle: &mut ldap, distinguishedname: P0, scopeofsearch: u32, searchfilter: P1, attributelist: &*const i8, attributesonly: u32, servercontrols: &mut *mut ldapcontrolA, clientcontrols: &mut *mut ldapcontrolA, pagetimelimit: u32, totalsizelimit: u32, sortkeys: &mut *mut ldapsortkeyA) -> *mut ldapsearch
 where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
     P1: ::std::convert::Into<::windows::core::PCSTR>,
@@ -3634,7 +3634,7 @@ where
 #[doc = "*Required features: `\"Win32_Networking_Ldap\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn ldap_search_init_pageW<'a, P0, P1>(externalhandle: *mut ldap, distinguishedname: P0, scopeofsearch: u32, searchfilter: P1, attributelist: *const *const u16, attributesonly: u32, servercontrols: *mut *mut ldapcontrolW, clientcontrols: *mut *mut ldapcontrolW, pagetimelimit: u32, totalsizelimit: u32, sortkeys: *mut *mut ldapsortkeyW) -> *mut ldapsearch
+pub unsafe fn ldap_search_init_pageW<'a, P0, P1>(externalhandle: &mut ldap, distinguishedname: P0, scopeofsearch: u32, searchfilter: P1, attributelist: &*const u16, attributesonly: u32, servercontrols: &mut *mut ldapcontrolW, clientcontrols: &mut *mut ldapcontrolW, pagetimelimit: u32, totalsizelimit: u32, sortkeys: &mut *mut ldapsortkeyW) -> *mut ldapsearch
 where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
     P1: ::std::convert::Into<::windows::core::PCWSTR>,
@@ -3648,7 +3648,7 @@ where
 #[doc = "*Required features: `\"Win32_Networking_Ldap\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn ldap_search_s<'a, P0, P1>(ld: *mut ldap, base: P0, scope: u32, filter: P1, attrs: *const *const i8, attrsonly: u32, res: *mut *mut LDAPMessage) -> u32
+pub unsafe fn ldap_search_s<'a, P0, P1>(ld: &mut ldap, base: P0, scope: u32, filter: P1, attrs: &*const i8, attrsonly: u32, res: ::core::option::Option<&mut *mut LDAPMessage>) -> u32
 where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
     P1: ::std::convert::Into<::windows::core::PCSTR>,
@@ -3662,7 +3662,7 @@ where
 #[doc = "*Required features: `\"Win32_Networking_Ldap\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn ldap_search_sA<'a, P0, P1>(ld: *mut ldap, base: P0, scope: u32, filter: P1, attrs: *const *const i8, attrsonly: u32, res: *mut *mut LDAPMessage) -> u32
+pub unsafe fn ldap_search_sA<'a, P0, P1>(ld: &mut ldap, base: P0, scope: u32, filter: P1, attrs: &*const i8, attrsonly: u32, res: ::core::option::Option<&mut *mut LDAPMessage>) -> u32
 where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
     P1: ::std::convert::Into<::windows::core::PCSTR>,
@@ -3676,7 +3676,7 @@ where
 #[doc = "*Required features: `\"Win32_Networking_Ldap\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn ldap_search_sW<'a, P0, P1>(ld: *mut ldap, base: P0, scope: u32, filter: P1, attrs: *const *const u16, attrsonly: u32, res: *mut *mut LDAPMessage) -> u32
+pub unsafe fn ldap_search_sW<'a, P0, P1>(ld: &mut ldap, base: P0, scope: u32, filter: P1, attrs: &*const u16, attrsonly: u32, res: ::core::option::Option<&mut *mut LDAPMessage>) -> u32
 where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
     P1: ::std::convert::Into<::windows::core::PCWSTR>,
@@ -3690,7 +3690,7 @@ where
 #[doc = "*Required features: `\"Win32_Networking_Ldap\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn ldap_search_st<'a, P0, P1>(ld: *mut ldap, base: P0, scope: u32, filter: P1, attrs: *const *const i8, attrsonly: u32, timeout: *mut LDAP_TIMEVAL, res: *mut *mut LDAPMessage) -> u32
+pub unsafe fn ldap_search_st<'a, P0, P1>(ld: &mut ldap, base: P0, scope: u32, filter: P1, attrs: &*const i8, attrsonly: u32, timeout: &mut LDAP_TIMEVAL, res: ::core::option::Option<&mut *mut LDAPMessage>) -> u32
 where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
     P1: ::std::convert::Into<::windows::core::PCSTR>,
@@ -3704,7 +3704,7 @@ where
 #[doc = "*Required features: `\"Win32_Networking_Ldap\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn ldap_search_stA<'a, P0, P1>(ld: *mut ldap, base: P0, scope: u32, filter: P1, attrs: *const *const i8, attrsonly: u32, timeout: *mut LDAP_TIMEVAL, res: *mut *mut LDAPMessage) -> u32
+pub unsafe fn ldap_search_stA<'a, P0, P1>(ld: &mut ldap, base: P0, scope: u32, filter: P1, attrs: &*const i8, attrsonly: u32, timeout: &mut LDAP_TIMEVAL, res: ::core::option::Option<&mut *mut LDAPMessage>) -> u32
 where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
     P1: ::std::convert::Into<::windows::core::PCSTR>,
@@ -3718,7 +3718,7 @@ where
 #[doc = "*Required features: `\"Win32_Networking_Ldap\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn ldap_search_stW<'a, P0, P1>(ld: *mut ldap, base: P0, scope: u32, filter: P1, attrs: *const *const u16, attrsonly: u32, timeout: *mut LDAP_TIMEVAL, res: *mut *mut LDAPMessage) -> u32
+pub unsafe fn ldap_search_stW<'a, P0, P1>(ld: &mut ldap, base: P0, scope: u32, filter: P1, attrs: &*const u16, attrsonly: u32, timeout: &mut LDAP_TIMEVAL, res: ::core::option::Option<&mut *mut LDAPMessage>) -> u32
 where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
     P1: ::std::convert::Into<::windows::core::PCWSTR>,
@@ -3749,7 +3749,7 @@ pub unsafe fn ldap_set_dbg_routine(debugprintroutine: DBGPRINT) {
 }
 #[doc = "*Required features: `\"Win32_Networking_Ldap\"`*"]
 #[inline]
-pub unsafe fn ldap_set_option(ld: *mut ldap, option: i32, invalue: *const ::core::ffi::c_void) -> u32 {
+pub unsafe fn ldap_set_option(ld: &mut ldap, option: i32, invalue: *const ::core::ffi::c_void) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn ldap_set_option(ld: *mut ldap, option: i32, invalue: *const ::core::ffi::c_void) -> u32;
@@ -3758,7 +3758,7 @@ pub unsafe fn ldap_set_option(ld: *mut ldap, option: i32, invalue: *const ::core
 }
 #[doc = "*Required features: `\"Win32_Networking_Ldap\"`*"]
 #[inline]
-pub unsafe fn ldap_set_optionW(ld: *mut ldap, option: i32, invalue: *const ::core::ffi::c_void) -> u32 {
+pub unsafe fn ldap_set_optionW(ld: &mut ldap, option: i32, invalue: *const ::core::ffi::c_void) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn ldap_set_optionW(ld: *mut ldap, option: i32, invalue: *const ::core::ffi::c_void) -> u32;
@@ -3767,7 +3767,7 @@ pub unsafe fn ldap_set_optionW(ld: *mut ldap, option: i32, invalue: *const ::cor
 }
 #[doc = "*Required features: `\"Win32_Networking_Ldap\"`*"]
 #[inline]
-pub unsafe fn ldap_simple_bind<'a, P0, P1>(ld: *mut ldap, dn: P0, passwd: P1) -> u32
+pub unsafe fn ldap_simple_bind<'a, P0, P1>(ld: &mut ldap, dn: P0, passwd: P1) -> u32
 where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
     P1: ::std::convert::Into<::windows::core::PCSTR>,
@@ -3780,7 +3780,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Networking_Ldap\"`*"]
 #[inline]
-pub unsafe fn ldap_simple_bindA<'a, P0, P1>(ld: *mut ldap, dn: P0, passwd: P1) -> u32
+pub unsafe fn ldap_simple_bindA<'a, P0, P1>(ld: &mut ldap, dn: P0, passwd: P1) -> u32
 where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
     P1: ::std::convert::Into<::windows::core::PCSTR>,
@@ -3793,7 +3793,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Networking_Ldap\"`*"]
 #[inline]
-pub unsafe fn ldap_simple_bindW<'a, P0, P1>(ld: *mut ldap, dn: P0, passwd: P1) -> u32
+pub unsafe fn ldap_simple_bindW<'a, P0, P1>(ld: &mut ldap, dn: P0, passwd: P1) -> u32
 where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
     P1: ::std::convert::Into<::windows::core::PCWSTR>,
@@ -3806,7 +3806,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Networking_Ldap\"`*"]
 #[inline]
-pub unsafe fn ldap_simple_bind_s<'a, P0, P1>(ld: *mut ldap, dn: P0, passwd: P1) -> u32
+pub unsafe fn ldap_simple_bind_s<'a, P0, P1>(ld: &mut ldap, dn: P0, passwd: P1) -> u32
 where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
     P1: ::std::convert::Into<::windows::core::PCSTR>,
@@ -3819,7 +3819,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Networking_Ldap\"`*"]
 #[inline]
-pub unsafe fn ldap_simple_bind_sA<'a, P0, P1>(ld: *mut ldap, dn: P0, passwd: P1) -> u32
+pub unsafe fn ldap_simple_bind_sA<'a, P0, P1>(ld: &mut ldap, dn: P0, passwd: P1) -> u32
 where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
     P1: ::std::convert::Into<::windows::core::PCSTR>,
@@ -3832,7 +3832,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Networking_Ldap\"`*"]
 #[inline]
-pub unsafe fn ldap_simple_bind_sW<'a, P0, P1>(ld: *mut ldap, dn: P0, passwd: P1) -> u32
+pub unsafe fn ldap_simple_bind_sW<'a, P0, P1>(ld: &mut ldap, dn: P0, passwd: P1) -> u32
 where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
     P1: ::std::convert::Into<::windows::core::PCWSTR>,
@@ -3882,7 +3882,7 @@ where
 #[doc = "*Required features: `\"Win32_Networking_Ldap\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn ldap_start_tls_sA(externalhandle: *mut ldap, serverreturnvalue: *mut u32, result: *mut *mut LDAPMessage, servercontrols: *mut *mut ldapcontrolA, clientcontrols: *mut *mut ldapcontrolA) -> u32 {
+pub unsafe fn ldap_start_tls_sA(externalhandle: &mut ldap, serverreturnvalue: &mut u32, result: &mut *mut LDAPMessage, servercontrols: &mut *mut ldapcontrolA, clientcontrols: &mut *mut ldapcontrolA) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn ldap_start_tls_sA(externalhandle: *mut ldap, serverreturnvalue: *mut u32, result: *mut *mut LDAPMessage, servercontrols: *mut *mut ldapcontrolA, clientcontrols: *mut *mut ldapcontrolA) -> u32;
@@ -3892,7 +3892,7 @@ pub unsafe fn ldap_start_tls_sA(externalhandle: *mut ldap, serverreturnvalue: *m
 #[doc = "*Required features: `\"Win32_Networking_Ldap\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn ldap_start_tls_sW(externalhandle: *mut ldap, serverreturnvalue: *mut u32, result: *mut *mut LDAPMessage, servercontrols: *mut *mut ldapcontrolW, clientcontrols: *mut *mut ldapcontrolW) -> u32 {
+pub unsafe fn ldap_start_tls_sW(externalhandle: &mut ldap, serverreturnvalue: &mut u32, result: &mut *mut LDAPMessage, servercontrols: &mut *mut ldapcontrolW, clientcontrols: &mut *mut ldapcontrolW) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn ldap_start_tls_sW(externalhandle: *mut ldap, serverreturnvalue: *mut u32, result: *mut *mut LDAPMessage, servercontrols: *mut *mut ldapcontrolW, clientcontrols: *mut *mut ldapcontrolW) -> u32;
@@ -3902,7 +3902,7 @@ pub unsafe fn ldap_start_tls_sW(externalhandle: *mut ldap, serverreturnvalue: *m
 #[doc = "*Required features: `\"Win32_Networking_Ldap\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn ldap_startup(version: *mut ldap_version_info, instance: *mut super::super::Foundation::HANDLE) -> u32 {
+pub unsafe fn ldap_startup(version: &mut ldap_version_info, instance: &mut super::super::Foundation::HANDLE) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn ldap_startup(version: *mut ldap_version_info, instance: *mut super::super::Foundation::HANDLE) -> u32;
@@ -3912,7 +3912,7 @@ pub unsafe fn ldap_startup(version: *mut ldap_version_info, instance: *mut super
 #[doc = "*Required features: `\"Win32_Networking_Ldap\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn ldap_stop_tls_s(externalhandle: *mut ldap) -> super::super::Foundation::BOOLEAN {
+pub unsafe fn ldap_stop_tls_s(externalhandle: &mut ldap) -> super::super::Foundation::BOOLEAN {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn ldap_stop_tls_s(externalhandle: *mut ldap) -> super::super::Foundation::BOOLEAN;
@@ -3921,7 +3921,7 @@ pub unsafe fn ldap_stop_tls_s(externalhandle: *mut ldap) -> super::super::Founda
 }
 #[doc = "*Required features: `\"Win32_Networking_Ldap\"`*"]
 #[inline]
-pub unsafe fn ldap_ufn2dn<'a, P0>(ufn: P0, pdn: *mut ::windows::core::PSTR) -> u32
+pub unsafe fn ldap_ufn2dn<'a, P0>(ufn: P0, pdn: &mut ::windows::core::PSTR) -> u32
 where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
 {
@@ -3933,7 +3933,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Networking_Ldap\"`*"]
 #[inline]
-pub unsafe fn ldap_ufn2dnA<'a, P0>(ufn: P0, pdn: *mut ::windows::core::PSTR) -> u32
+pub unsafe fn ldap_ufn2dnA<'a, P0>(ufn: P0, pdn: &mut ::windows::core::PSTR) -> u32
 where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
 {
@@ -3945,7 +3945,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Networking_Ldap\"`*"]
 #[inline]
-pub unsafe fn ldap_ufn2dnW<'a, P0>(ufn: P0, pdn: *mut ::windows::core::PWSTR) -> u32
+pub unsafe fn ldap_ufn2dnW<'a, P0>(ufn: P0, pdn: &mut ::windows::core::PWSTR) -> u32
 where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
 {
@@ -3957,7 +3957,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Networking_Ldap\"`*"]
 #[inline]
-pub unsafe fn ldap_unbind(ld: *mut ldap) -> u32 {
+pub unsafe fn ldap_unbind(ld: &mut ldap) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn ldap_unbind(ld: *mut ldap) -> u32;
@@ -3966,7 +3966,7 @@ pub unsafe fn ldap_unbind(ld: *mut ldap) -> u32 {
 }
 #[doc = "*Required features: `\"Win32_Networking_Ldap\"`*"]
 #[inline]
-pub unsafe fn ldap_unbind_s(ld: *mut ldap) -> u32 {
+pub unsafe fn ldap_unbind_s(ld: &mut ldap) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn ldap_unbind_s(ld: *mut ldap) -> u32;
@@ -3975,7 +3975,7 @@ pub unsafe fn ldap_unbind_s(ld: *mut ldap) -> u32 {
 }
 #[doc = "*Required features: `\"Win32_Networking_Ldap\"`*"]
 #[inline]
-pub unsafe fn ldap_value_free(vals: *const ::windows::core::PSTR) -> u32 {
+pub unsafe fn ldap_value_free(vals: ::core::option::Option<&::windows::core::PSTR>) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn ldap_value_free(vals: *const ::windows::core::PSTR) -> u32;
@@ -3984,7 +3984,7 @@ pub unsafe fn ldap_value_free(vals: *const ::windows::core::PSTR) -> u32 {
 }
 #[doc = "*Required features: `\"Win32_Networking_Ldap\"`*"]
 #[inline]
-pub unsafe fn ldap_value_freeA(vals: *const ::windows::core::PSTR) -> u32 {
+pub unsafe fn ldap_value_freeA(vals: ::core::option::Option<&::windows::core::PSTR>) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn ldap_value_freeA(vals: *const ::windows::core::PSTR) -> u32;
@@ -3993,7 +3993,7 @@ pub unsafe fn ldap_value_freeA(vals: *const ::windows::core::PSTR) -> u32 {
 }
 #[doc = "*Required features: `\"Win32_Networking_Ldap\"`*"]
 #[inline]
-pub unsafe fn ldap_value_freeW(vals: *const ::windows::core::PWSTR) -> u32 {
+pub unsafe fn ldap_value_freeW(vals: ::core::option::Option<&::windows::core::PWSTR>) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn ldap_value_freeW(vals: *const ::windows::core::PWSTR) -> u32;
@@ -4002,7 +4002,7 @@ pub unsafe fn ldap_value_freeW(vals: *const ::windows::core::PWSTR) -> u32 {
 }
 #[doc = "*Required features: `\"Win32_Networking_Ldap\"`*"]
 #[inline]
-pub unsafe fn ldap_value_free_len(vals: *mut *mut LDAP_BERVAL) -> u32 {
+pub unsafe fn ldap_value_free_len(vals: &mut *mut LDAP_BERVAL) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn ldap_value_free_len(vals: *mut *mut LDAP_BERVAL) -> u32;

@@ -178,7 +178,7 @@ fn hstring_compat() -> Result<()> {
         assert_eq!(WindowsIsStringEmpty(&world), false);
 
         let mut len = 0;
-        let buffer = WindowsGetStringRawBuffer(&world, &mut len);
+        let buffer = WindowsGetStringRawBuffer(&world, Some(&mut len));
         assert_eq!(len, 5);
         // Adding +1 to the length of the slice to validate that it is null terminated.
         assert_eq!(std::slice::from_raw_parts(buffer.0, 6), [87, 111, 114, 108, 100, 0]);
@@ -203,7 +203,7 @@ fn hstring_compat() -> Result<()> {
         assert_eq!(duplicate, "World");
 
         let mut len = 0;
-        let buffer = WindowsGetStringRawBuffer(&duplicate, &mut len);
+        let buffer = WindowsGetStringRawBuffer(&duplicate, Some(&mut len));
         assert_eq!(len, 5);
         // Adding +1 to the length of the slice to validate that it is null terminated.
         assert_eq!(std::slice::from_raw_parts(buffer.0, 6), [87, 111, 114, 108, 100, 0]);

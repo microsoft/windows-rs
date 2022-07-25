@@ -8,7 +8,7 @@ pub const COMDB_MAX_PORTS_ARBITRATED: u32 = 4096u32;
 pub const COMDB_MIN_PORTS_ARBITRATED: u32 = 256u32;
 #[doc = "*Required features: `\"Win32_Devices_SerialCommunication\"`*"]
 #[inline]
-pub unsafe fn ComDBClaimNextFreePort<'a, P0>(hcomdb: P0, comnumber: *mut u32) -> i32
+pub unsafe fn ComDBClaimNextFreePort<'a, P0>(hcomdb: P0, comnumber: &mut u32) -> i32
 where
     P0: ::std::convert::Into<HCOMDB>,
 {
@@ -21,7 +21,7 @@ where
 #[doc = "*Required features: `\"Win32_Devices_SerialCommunication\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn ComDBClaimPort<'a, P0, P1>(hcomdb: P0, comnumber: u32, forceclaim: P1, forced: *mut super::super::Foundation::BOOL) -> i32
+pub unsafe fn ComDBClaimPort<'a, P0, P1>(hcomdb: P0, comnumber: u32, forceclaim: P1, forced: ::core::option::Option<&mut super::super::Foundation::BOOL>) -> i32
 where
     P0: ::std::convert::Into<HCOMDB>,
     P1: ::std::convert::Into<super::super::Foundation::BOOL>,
@@ -46,7 +46,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Devices_SerialCommunication\"`*"]
 #[inline]
-pub unsafe fn ComDBGetCurrentPortUsage<'a, P0>(hcomdb: P0, buffer: *mut u8, buffersize: u32, reporttype: u32, maxportsreported: *mut u32) -> i32
+pub unsafe fn ComDBGetCurrentPortUsage<'a, P0>(hcomdb: P0, buffer: ::core::option::Option<&mut u8>, buffersize: u32, reporttype: u32, maxportsreported: ::core::option::Option<&mut u32>) -> i32
 where
     P0: ::std::convert::Into<HCOMDB>,
 {
@@ -58,7 +58,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Devices_SerialCommunication\"`*"]
 #[inline]
-pub unsafe fn ComDBOpen(phcomdb: *mut isize) -> i32 {
+pub unsafe fn ComDBOpen(phcomdb: &mut isize) -> i32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn ComDBOpen(phcomdb: *mut isize) -> i32;

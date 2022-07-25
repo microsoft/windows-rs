@@ -45,7 +45,7 @@ fn test() -> Result<()> {
         assert!(b.GetCount()? == 123);
 
         let c: IPropertyStoreCapabilities = b.cast()?;
-        c.IsPropertyWritable(std::ptr::null())?;
+        c.IsPropertyWritable(&PROPERTYKEY::default())?;
 
         Ok(())
     }

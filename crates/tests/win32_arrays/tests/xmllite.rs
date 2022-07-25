@@ -28,26 +28,28 @@ fn test() -> Result<()> {
         reader.SetInput(&stream)?;
 
         let mut node_type = XmlNodeType_None;
-        reader.Read(&mut node_type).ok()?;
+        reader.Read(Some(&mut node_type)).ok()?;
         assert_eq!(node_type, XmlNodeType_XmlDeclaration);
 
         let mut name = PWSTR::null();
         let mut name_len = 0;
 
         let mut node_type = XmlNodeType_None;
-        reader.Read(&mut node_type).ok()?;
+        reader.Read(Some(&mut node_type)).ok()?;
         assert_eq!(node_type, XmlNodeType_Element);
-        reader.GetLocalName(&mut name, &mut name_len)?;
+        // TODO: workaround for https://github.com/microsoft/win32metadata/issues/1005
+        reader.GetLocalName(Some(&mut name), Some(&mut name_len))?;
         assert_eq!(String::from_utf16_lossy(std::slice::from_raw_parts(name.0, name_len as _)), "html");
 
         let mut node_type = XmlNodeType_None;
-        reader.Read(&mut node_type).ok()?;
+        reader.Read(Some(&mut node_type)).ok()?;
         assert_eq!(node_type, XmlNodeType_Element);
-        reader.GetLocalName(&mut name, &mut name_len)?;
+        // TODO: workaround for https://github.com/microsoft/win32metadata/issues/1005
+        reader.GetLocalName(Some(&mut name), Some(&mut name_len))?;
         assert_eq!(String::from_utf16_lossy(std::slice::from_raw_parts(name.0, name_len as _)), "head");
 
         let mut node_type = XmlNodeType_None;
-        reader.Read(&mut node_type).ok()?;
+        reader.Read(Some(&mut node_type)).ok()?;
         assert_eq!(node_type, XmlNodeType_Text);
 
         let mut message = Vec::new();
@@ -65,15 +67,15 @@ fn test() -> Result<()> {
         assert_eq!(String::from_utf16_lossy(std::slice::from_raw_parts(message.as_ptr(), message.len())), "The quick brown fox jumps over the lazy dog");
 
         let mut node_type = XmlNodeType_None;
-        reader.Read(&mut node_type).ok()?;
+        reader.Read(Some(&mut node_type)).ok()?;
         assert_eq!(node_type, XmlNodeType_EndElement);
 
         let mut node_type = XmlNodeType_None;
-        reader.Read(&mut node_type).ok()?;
+        reader.Read(Some(&mut node_type)).ok()?;
         assert_eq!(node_type, XmlNodeType_Element);
 
         let mut node_type = XmlNodeType_None;
-        reader.Read(&mut node_type).ok()?;
+        reader.Read(Some(&mut node_type)).ok()?;
         assert_eq!(node_type, XmlNodeType_Text);
 
         reader.ReadValueChunk(&mut chunk, &mut chars_read).ok()?;
@@ -112,26 +114,27 @@ fn lite() -> Result<()> {
         let mut name_len = 0;
 
         let mut node_type = XmlNodeType_None;
-        reader.Read(&mut node_type).ok()?;
+        reader.Read(Some(&mut node_type)).ok()?;
         assert_eq!(node_type, XmlNodeType_Element);
-        reader.GetLocalName(&mut name, &mut name_len)?;
+        // TODO: workaround for https://github.com/microsoft/win32metadata/issues/1005
+        reader.GetLocalName(Some(&mut name), Some(&mut name_len))?;
         assert_eq!(String::from_utf16_lossy(std::slice::from_raw_parts(name.0, name_len as _)), "html");
 
         assert_eq!(reader.GetAttributeCount()?, 2);
         reader.MoveToFirstAttribute().ok()?;
 
-        reader.GetLocalName(&mut name, &mut name_len)?;
+        reader.GetLocalName(Some(&mut name), Some(&mut name_len))?;
         assert_eq!(String::from_utf16_lossy(std::slice::from_raw_parts(name.0, name_len as _)), "no-value");
 
-        reader.GetValue(&mut name, &mut name_len)?;
+        reader.GetValue(Some(&mut name), Some(&mut name_len))?;
         assert_eq!(String::from_utf16_lossy(std::slice::from_raw_parts(name.0, name_len as _)), "");
 
         reader.MoveToNextAttribute().ok()?;
 
-        reader.GetLocalName(&mut name, &mut name_len)?;
+        reader.GetLocalName(Some(&mut name), Some(&mut name_len))?;
         assert_eq!(String::from_utf16_lossy(std::slice::from_raw_parts(name.0, name_len as _)), "with-value");
 
-        reader.GetValue(&mut name, &mut name_len)?;
+        reader.GetValue(Some(&mut name), Some(&mut name_len))?;
         assert_eq!(String::from_utf16_lossy(std::slice::from_raw_parts(name.0, name_len as _)), "value");
 
         Ok(())

@@ -844,7 +844,7 @@ pub unsafe fn CompareStringA(locale: u32, dwcmpflags: u32, lpstring1: &[i8], lps
 #[doc = "*Required features: `\"Win32_Globalization\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn CompareStringEx<'a, P0, P1>(lplocalename: P0, dwcmpflags: COMPARE_STRING_FLAGS, lpstring1: &[u16], lpstring2: &[u16], lpversioninformation: *mut NLSVERSIONINFO, lpreserved: *mut ::core::ffi::c_void, lparam: P1) -> i32
+pub unsafe fn CompareStringEx<'a, P0, P1>(lplocalename: P0, dwcmpflags: COMPARE_STRING_FLAGS, lpstring1: &[u16], lpstring2: &[u16], lpversioninformation: &mut NLSVERSIONINFO, lpreserved: *mut ::core::ffi::c_void, lparam: P1) -> i32
 where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
     P1: ::std::convert::Into<super::Foundation::LPARAM>,
@@ -1553,7 +1553,7 @@ impl ::core::default::Default for FONTSIGNATURE {
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn FindNLSString(locale: u32, dwfindnlsstringflags: u32, lpstringsource: &[u16], lpstringvalue: &[u16], pcchfound: *mut i32) -> i32 {
+pub unsafe fn FindNLSString(locale: u32, dwfindnlsstringflags: u32, lpstringsource: &[u16], lpstringvalue: &[u16], pcchfound: ::core::option::Option<&mut i32>) -> i32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn FindNLSString(locale: u32, dwfindnlsstringflags: u32, lpstringsource: ::windows::core::PCWSTR, cchsource: i32, lpstringvalue: ::windows::core::PCWSTR, cchvalue: i32, pcchfound: *mut i32) -> i32;
@@ -1563,7 +1563,7 @@ pub unsafe fn FindNLSString(locale: u32, dwfindnlsstringflags: u32, lpstringsour
 #[doc = "*Required features: `\"Win32_Globalization\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn FindNLSStringEx<'a, P0, P1>(lplocalename: P0, dwfindnlsstringflags: u32, lpstringsource: &[u16], lpstringvalue: &[u16], pcchfound: *mut i32, lpversioninformation: *const NLSVERSIONINFO, lpreserved: *const ::core::ffi::c_void, sorthandle: P1) -> i32
+pub unsafe fn FindNLSStringEx<'a, P0, P1>(lplocalename: P0, dwfindnlsstringflags: u32, lpstringsource: &[u16], lpstringvalue: &[u16], pcchfound: ::core::option::Option<&mut i32>, lpversioninformation: ::core::option::Option<&NLSVERSIONINFO>, lpreserved: *const ::core::ffi::c_void, sorthandle: P1) -> i32
 where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
     P1: ::std::convert::Into<super::Foundation::LPARAM>,
@@ -1658,7 +1658,7 @@ pub unsafe fn GetACP() -> u32 {
 #[doc = "*Required features: `\"Win32_Globalization\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn GetCPInfo(codepage: u32, lpcpinfo: *mut CPINFO) -> super::Foundation::BOOL {
+pub unsafe fn GetCPInfo(codepage: u32, lpcpinfo: &mut CPINFO) -> super::Foundation::BOOL {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn GetCPInfo(codepage: u32, lpcpinfo: *mut CPINFO) -> super::Foundation::BOOL;
@@ -1668,7 +1668,7 @@ pub unsafe fn GetCPInfo(codepage: u32, lpcpinfo: *mut CPINFO) -> super::Foundati
 #[doc = "*Required features: `\"Win32_Globalization\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn GetCPInfoExA(codepage: u32, dwflags: u32, lpcpinfoex: *mut CPINFOEXA) -> super::Foundation::BOOL {
+pub unsafe fn GetCPInfoExA(codepage: u32, dwflags: u32, lpcpinfoex: &mut CPINFOEXA) -> super::Foundation::BOOL {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn GetCPInfoExA(codepage: u32, dwflags: u32, lpcpinfoex: *mut CPINFOEXA) -> super::Foundation::BOOL;
@@ -1678,7 +1678,7 @@ pub unsafe fn GetCPInfoExA(codepage: u32, dwflags: u32, lpcpinfoex: *mut CPINFOE
 #[doc = "*Required features: `\"Win32_Globalization\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn GetCPInfoExW(codepage: u32, dwflags: u32, lpcpinfoex: *mut CPINFOEXW) -> super::Foundation::BOOL {
+pub unsafe fn GetCPInfoExW(codepage: u32, dwflags: u32, lpcpinfoex: &mut CPINFOEXW) -> super::Foundation::BOOL {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn GetCPInfoExW(codepage: u32, dwflags: u32, lpcpinfoex: *mut CPINFOEXW) -> super::Foundation::BOOL;
@@ -1687,7 +1687,7 @@ pub unsafe fn GetCPInfoExW(codepage: u32, dwflags: u32, lpcpinfoex: *mut CPINFOE
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn GetCalendarInfoA(locale: u32, calendar: u32, caltype: u32, lpcaldata: &mut [u8], lpvalue: *mut u32) -> i32 {
+pub unsafe fn GetCalendarInfoA(locale: u32, calendar: u32, caltype: u32, lpcaldata: &mut [u8], lpvalue: ::core::option::Option<&mut u32>) -> i32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn GetCalendarInfoA(locale: u32, calendar: u32, caltype: u32, lpcaldata: ::windows::core::PSTR, cchdata: i32, lpvalue: *mut u32) -> i32;
@@ -1696,7 +1696,7 @@ pub unsafe fn GetCalendarInfoA(locale: u32, calendar: u32, caltype: u32, lpcalda
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn GetCalendarInfoEx<'a, P0, P1>(lplocalename: P0, calendar: u32, lpreserved: P1, caltype: u32, lpcaldata: &mut [u16], lpvalue: *mut u32) -> i32
+pub unsafe fn GetCalendarInfoEx<'a, P0, P1>(lplocalename: P0, calendar: u32, lpreserved: P1, caltype: u32, lpcaldata: &mut [u16], lpvalue: ::core::option::Option<&mut u32>) -> i32
 where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
     P1: ::std::convert::Into<::windows::core::PCWSTR>,
@@ -1709,7 +1709,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn GetCalendarInfoW(locale: u32, calendar: u32, caltype: u32, lpcaldata: &mut [u16], lpvalue: *mut u32) -> i32 {
+pub unsafe fn GetCalendarInfoW(locale: u32, calendar: u32, caltype: u32, lpcaldata: &mut [u16], lpvalue: ::core::option::Option<&mut u32>) -> i32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn GetCalendarInfoW(locale: u32, calendar: u32, caltype: u32, lpcaldata: ::windows::core::PWSTR, cchdata: i32, lpvalue: *mut u32) -> i32;
@@ -1718,7 +1718,7 @@ pub unsafe fn GetCalendarInfoW(locale: u32, calendar: u32, caltype: u32, lpcalda
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn GetCurrencyFormatA<'a, P0>(locale: u32, dwflags: u32, lpvalue: P0, lpformat: *const CURRENCYFMTA, lpcurrencystr: &mut [u8]) -> i32
+pub unsafe fn GetCurrencyFormatA<'a, P0>(locale: u32, dwflags: u32, lpvalue: P0, lpformat: ::core::option::Option<&CURRENCYFMTA>, lpcurrencystr: &mut [u8]) -> i32
 where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
 {
@@ -1730,7 +1730,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn GetCurrencyFormatEx<'a, P0, P1>(lplocalename: P0, dwflags: u32, lpvalue: P1, lpformat: *const CURRENCYFMTW, lpcurrencystr: &mut [u16]) -> i32
+pub unsafe fn GetCurrencyFormatEx<'a, P0, P1>(lplocalename: P0, dwflags: u32, lpvalue: P1, lpformat: ::core::option::Option<&CURRENCYFMTW>, lpcurrencystr: &mut [u16]) -> i32
 where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
     P1: ::std::convert::Into<::windows::core::PCWSTR>,
@@ -1743,7 +1743,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn GetCurrencyFormatW<'a, P0>(locale: u32, dwflags: u32, lpvalue: P0, lpformat: *const CURRENCYFMTW, lpcurrencystr: &mut [u16]) -> i32
+pub unsafe fn GetCurrencyFormatW<'a, P0>(locale: u32, dwflags: u32, lpvalue: P0, lpformat: ::core::option::Option<&CURRENCYFMTW>, lpcurrencystr: &mut [u16]) -> i32
 where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
 {
@@ -1756,7 +1756,7 @@ where
 #[doc = "*Required features: `\"Win32_Globalization\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn GetDateFormatA<'a, P0>(locale: u32, dwflags: u32, lpdate: *const super::Foundation::SYSTEMTIME, lpformat: P0, lpdatestr: &mut [u8]) -> i32
+pub unsafe fn GetDateFormatA<'a, P0>(locale: u32, dwflags: u32, lpdate: ::core::option::Option<&super::Foundation::SYSTEMTIME>, lpformat: P0, lpdatestr: &mut [u8]) -> i32
 where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
 {
@@ -1769,7 +1769,7 @@ where
 #[doc = "*Required features: `\"Win32_Globalization\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn GetDateFormatEx<'a, P0, P1, P2>(lplocalename: P0, dwflags: ENUM_DATE_FORMATS_FLAGS, lpdate: *const super::Foundation::SYSTEMTIME, lpformat: P1, lpdatestr: &mut [u16], lpcalendar: P2) -> i32
+pub unsafe fn GetDateFormatEx<'a, P0, P1, P2>(lplocalename: P0, dwflags: ENUM_DATE_FORMATS_FLAGS, lpdate: ::core::option::Option<&super::Foundation::SYSTEMTIME>, lpformat: P1, lpdatestr: &mut [u16], lpcalendar: P2) -> i32
 where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
     P1: ::std::convert::Into<::windows::core::PCWSTR>,
@@ -1784,7 +1784,7 @@ where
 #[doc = "*Required features: `\"Win32_Globalization\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn GetDateFormatW<'a, P0>(locale: u32, dwflags: u32, lpdate: *const super::Foundation::SYSTEMTIME, lpformat: P0, lpdatestr: &mut [u16]) -> i32
+pub unsafe fn GetDateFormatW<'a, P0>(locale: u32, dwflags: u32, lpdate: ::core::option::Option<&super::Foundation::SYSTEMTIME>, lpformat: P0, lpdatestr: &mut [u16]) -> i32
 where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
 {
@@ -1811,7 +1811,7 @@ where
 #[doc = "*Required features: `\"Win32_Globalization\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn GetDurationFormat<'a, P0>(locale: u32, dwflags: u32, lpduration: *const super::Foundation::SYSTEMTIME, ullduration: u64, lpformat: P0, lpdurationstr: &mut [u16]) -> i32
+pub unsafe fn GetDurationFormat<'a, P0>(locale: u32, dwflags: u32, lpduration: ::core::option::Option<&super::Foundation::SYSTEMTIME>, ullduration: u64, lpformat: P0, lpdurationstr: &mut [u16]) -> i32
 where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
 {
@@ -1824,7 +1824,7 @@ where
 #[doc = "*Required features: `\"Win32_Globalization\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn GetDurationFormatEx<'a, P0, P1>(lplocalename: P0, dwflags: u32, lpduration: *const super::Foundation::SYSTEMTIME, ullduration: u64, lpformat: P1, lpdurationstr: &mut [u16]) -> i32
+pub unsafe fn GetDurationFormatEx<'a, P0, P1>(lplocalename: P0, dwflags: u32, lpduration: ::core::option::Option<&super::Foundation::SYSTEMTIME>, ullduration: u64, lpformat: P1, lpdurationstr: &mut [u16]) -> i32
 where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
     P1: ::std::convert::Into<::windows::core::PCWSTR>,
@@ -1838,7 +1838,7 @@ where
 #[doc = "*Required features: `\"Win32_Globalization\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn GetFileMUIInfo<'a, P0>(dwflags: u32, pcwszfilepath: P0, pfilemuiinfo: *mut FILEMUIINFO, pcbfilemuiinfo: *mut u32) -> super::Foundation::BOOL
+pub unsafe fn GetFileMUIInfo<'a, P0>(dwflags: u32, pcwszfilepath: P0, pfilemuiinfo: ::core::option::Option<&mut FILEMUIINFO>, pcbfilemuiinfo: &mut u32) -> super::Foundation::BOOL
 where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
 {
@@ -1851,7 +1851,7 @@ where
 #[doc = "*Required features: `\"Win32_Globalization\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn GetFileMUIPath<'a, P0>(dwflags: u32, pcwszfilepath: P0, pwszlanguage: ::windows::core::PWSTR, pcchlanguage: *mut u32, pwszfilemuipath: ::windows::core::PWSTR, pcchfilemuipath: *mut u32, pululenumerator: *mut u64) -> super::Foundation::BOOL
+pub unsafe fn GetFileMUIPath<'a, P0>(dwflags: u32, pcwszfilepath: P0, pwszlanguage: ::windows::core::PWSTR, pcchlanguage: &mut u32, pwszfilemuipath: ::windows::core::PWSTR, pcchfilemuipath: &mut u32, pululenumerator: &mut u64) -> super::Foundation::BOOL
 where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
 {
@@ -1924,7 +1924,7 @@ pub unsafe fn GetLocaleInfoW(locale: u32, lctype: u32, lplcdata: &mut [u16]) -> 
 #[doc = "*Required features: `\"Win32_Globalization\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn GetNLSVersion(function: u32, locale: u32, lpversioninformation: *mut NLSVERSIONINFO) -> super::Foundation::BOOL {
+pub unsafe fn GetNLSVersion(function: u32, locale: u32, lpversioninformation: &mut NLSVERSIONINFO) -> super::Foundation::BOOL {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn GetNLSVersion(function: u32, locale: u32, lpversioninformation: *mut NLSVERSIONINFO) -> super::Foundation::BOOL;
@@ -1934,7 +1934,7 @@ pub unsafe fn GetNLSVersion(function: u32, locale: u32, lpversioninformation: *m
 #[doc = "*Required features: `\"Win32_Globalization\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn GetNLSVersionEx<'a, P0>(function: u32, lplocalename: P0, lpversioninformation: *mut NLSVERSIONINFOEX) -> super::Foundation::BOOL
+pub unsafe fn GetNLSVersionEx<'a, P0>(function: u32, lplocalename: P0, lpversioninformation: &mut NLSVERSIONINFOEX) -> super::Foundation::BOOL
 where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
 {
@@ -1946,7 +1946,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn GetNumberFormatA<'a, P0>(locale: u32, dwflags: u32, lpvalue: P0, lpformat: *const NUMBERFMTA, lpnumberstr: &mut [u8]) -> i32
+pub unsafe fn GetNumberFormatA<'a, P0>(locale: u32, dwflags: u32, lpvalue: P0, lpformat: ::core::option::Option<&NUMBERFMTA>, lpnumberstr: &mut [u8]) -> i32
 where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
 {
@@ -1958,7 +1958,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn GetNumberFormatEx<'a, P0, P1>(lplocalename: P0, dwflags: u32, lpvalue: P1, lpformat: *const NUMBERFMTW, lpnumberstr: &mut [u16]) -> i32
+pub unsafe fn GetNumberFormatEx<'a, P0, P1>(lplocalename: P0, dwflags: u32, lpvalue: P1, lpformat: ::core::option::Option<&NUMBERFMTW>, lpnumberstr: &mut [u16]) -> i32
 where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
     P1: ::std::convert::Into<::windows::core::PCWSTR>,
@@ -1971,7 +1971,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn GetNumberFormatW<'a, P0>(locale: u32, dwflags: u32, lpvalue: P0, lpformat: *const NUMBERFMTW, lpnumberstr: &mut [u16]) -> i32
+pub unsafe fn GetNumberFormatW<'a, P0>(locale: u32, dwflags: u32, lpvalue: P0, lpformat: ::core::option::Option<&NUMBERFMTW>, lpnumberstr: &mut [u16]) -> i32
 where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
 {
@@ -1993,7 +1993,7 @@ pub unsafe fn GetOEMCP() -> u32 {
 #[doc = "*Required features: `\"Win32_Globalization\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn GetProcessPreferredUILanguages(dwflags: u32, pulnumlanguages: *mut u32, pwszlanguagesbuffer: ::windows::core::PWSTR, pcchlanguagesbuffer: *mut u32) -> super::Foundation::BOOL {
+pub unsafe fn GetProcessPreferredUILanguages(dwflags: u32, pulnumlanguages: &mut u32, pwszlanguagesbuffer: ::windows::core::PWSTR, pcchlanguagesbuffer: &mut u32) -> super::Foundation::BOOL {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn GetProcessPreferredUILanguages(dwflags: u32, pulnumlanguages: *mut u32, pwszlanguagesbuffer: ::windows::core::PWSTR, pcchlanguagesbuffer: *mut u32) -> super::Foundation::BOOL;
@@ -2015,7 +2015,7 @@ where
 #[doc = "*Required features: `\"Win32_Globalization\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn GetStringTypeA(locale: u32, dwinfotype: u32, lpsrcstr: &[u8], lpchartype: *mut u16) -> super::Foundation::BOOL {
+pub unsafe fn GetStringTypeA(locale: u32, dwinfotype: u32, lpsrcstr: &[u8], lpchartype: &mut u16) -> super::Foundation::BOOL {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn GetStringTypeA(locale: u32, dwinfotype: u32, lpsrcstr: ::windows::core::PCSTR, cchsrc: i32, lpchartype: *mut u16) -> super::Foundation::BOOL;
@@ -2025,7 +2025,7 @@ pub unsafe fn GetStringTypeA(locale: u32, dwinfotype: u32, lpsrcstr: &[u8], lpch
 #[doc = "*Required features: `\"Win32_Globalization\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn GetStringTypeExA(locale: u32, dwinfotype: u32, lpsrcstr: ::windows::core::PCSTR, cchsrc: i32, lpchartype: *mut u16) -> super::Foundation::BOOL {
+pub unsafe fn GetStringTypeExA(locale: u32, dwinfotype: u32, lpsrcstr: ::windows::core::PCSTR, cchsrc: i32, lpchartype: &mut u16) -> super::Foundation::BOOL {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn GetStringTypeExA(locale: u32, dwinfotype: u32, lpsrcstr: ::windows::core::PCSTR, cchsrc: i32, lpchartype: *mut u16) -> super::Foundation::BOOL;
@@ -2035,7 +2035,7 @@ pub unsafe fn GetStringTypeExA(locale: u32, dwinfotype: u32, lpsrcstr: ::windows
 #[doc = "*Required features: `\"Win32_Globalization\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn GetStringTypeExW(locale: u32, dwinfotype: u32, lpsrcstr: ::windows::core::PCWSTR, cchsrc: i32, lpchartype: *mut u16) -> super::Foundation::BOOL {
+pub unsafe fn GetStringTypeExW(locale: u32, dwinfotype: u32, lpsrcstr: ::windows::core::PCWSTR, cchsrc: i32, lpchartype: &mut u16) -> super::Foundation::BOOL {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn GetStringTypeExW(locale: u32, dwinfotype: u32, lpsrcstr: ::windows::core::PCWSTR, cchsrc: i32, lpchartype: *mut u16) -> super::Foundation::BOOL;
@@ -2045,7 +2045,7 @@ pub unsafe fn GetStringTypeExW(locale: u32, dwinfotype: u32, lpsrcstr: ::windows
 #[doc = "*Required features: `\"Win32_Globalization\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn GetStringTypeW(dwinfotype: u32, lpsrcstr: &[u16], lpchartype: *mut u16) -> super::Foundation::BOOL {
+pub unsafe fn GetStringTypeW(dwinfotype: u32, lpsrcstr: &[u16], lpchartype: &mut u16) -> super::Foundation::BOOL {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn GetStringTypeW(dwinfotype: u32, lpsrcstr: ::windows::core::PCWSTR, cchsrc: i32, lpchartype: *mut u16) -> super::Foundation::BOOL;
@@ -2091,7 +2091,7 @@ pub unsafe fn GetSystemDefaultUILanguage() -> u16 {
 #[doc = "*Required features: `\"Win32_Globalization\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn GetSystemPreferredUILanguages(dwflags: u32, pulnumlanguages: *mut u32, pwszlanguagesbuffer: ::windows::core::PWSTR, pcchlanguagesbuffer: *mut u32) -> super::Foundation::BOOL {
+pub unsafe fn GetSystemPreferredUILanguages(dwflags: u32, pulnumlanguages: &mut u32, pwszlanguagesbuffer: ::windows::core::PWSTR, pcchlanguagesbuffer: &mut u32) -> super::Foundation::BOOL {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn GetSystemPreferredUILanguages(dwflags: u32, pulnumlanguages: *mut u32, pwszlanguagesbuffer: ::windows::core::PWSTR, pcchlanguagesbuffer: *mut u32) -> super::Foundation::BOOL;
@@ -2114,7 +2114,7 @@ where
 #[doc = "*Required features: `\"Win32_Globalization\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
-pub unsafe fn GetTextCharsetInfo<'a, P0>(hdc: P0, lpsig: *mut FONTSIGNATURE, dwflags: u32) -> i32
+pub unsafe fn GetTextCharsetInfo<'a, P0>(hdc: P0, lpsig: ::core::option::Option<&mut FONTSIGNATURE>, dwflags: u32) -> i32
 where
     P0: ::std::convert::Into<super::Graphics::Gdi::HDC>,
 {
@@ -2136,7 +2136,7 @@ pub unsafe fn GetThreadLocale() -> u32 {
 #[doc = "*Required features: `\"Win32_Globalization\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn GetThreadPreferredUILanguages(dwflags: u32, pulnumlanguages: *mut u32, pwszlanguagesbuffer: ::windows::core::PWSTR, pcchlanguagesbuffer: *mut u32) -> super::Foundation::BOOL {
+pub unsafe fn GetThreadPreferredUILanguages(dwflags: u32, pulnumlanguages: &mut u32, pwszlanguagesbuffer: ::windows::core::PWSTR, pcchlanguagesbuffer: &mut u32) -> super::Foundation::BOOL {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn GetThreadPreferredUILanguages(dwflags: u32, pulnumlanguages: *mut u32, pwszlanguagesbuffer: ::windows::core::PWSTR, pcchlanguagesbuffer: *mut u32) -> super::Foundation::BOOL;
@@ -2155,7 +2155,7 @@ pub unsafe fn GetThreadUILanguage() -> u16 {
 #[doc = "*Required features: `\"Win32_Globalization\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn GetTimeFormatA<'a, P0>(locale: u32, dwflags: u32, lptime: *const super::Foundation::SYSTEMTIME, lpformat: P0, lptimestr: &mut [u8]) -> i32
+pub unsafe fn GetTimeFormatA<'a, P0>(locale: u32, dwflags: u32, lptime: ::core::option::Option<&super::Foundation::SYSTEMTIME>, lpformat: P0, lptimestr: &mut [u8]) -> i32
 where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
 {
@@ -2168,7 +2168,7 @@ where
 #[doc = "*Required features: `\"Win32_Globalization\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn GetTimeFormatEx<'a, P0, P1>(lplocalename: P0, dwflags: TIME_FORMAT_FLAGS, lptime: *const super::Foundation::SYSTEMTIME, lpformat: P1, lptimestr: &mut [u16]) -> i32
+pub unsafe fn GetTimeFormatEx<'a, P0, P1>(lplocalename: P0, dwflags: TIME_FORMAT_FLAGS, lptime: ::core::option::Option<&super::Foundation::SYSTEMTIME>, lpformat: P1, lptimestr: &mut [u16]) -> i32
 where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
     P1: ::std::convert::Into<::windows::core::PCWSTR>,
@@ -2182,7 +2182,7 @@ where
 #[doc = "*Required features: `\"Win32_Globalization\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn GetTimeFormatW<'a, P0>(locale: u32, dwflags: u32, lptime: *const super::Foundation::SYSTEMTIME, lpformat: P0, lptimestr: &mut [u16]) -> i32
+pub unsafe fn GetTimeFormatW<'a, P0>(locale: u32, dwflags: u32, lptime: ::core::option::Option<&super::Foundation::SYSTEMTIME>, lpformat: P0, lptimestr: &mut [u16]) -> i32
 where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
 {
@@ -2195,7 +2195,7 @@ where
 #[doc = "*Required features: `\"Win32_Globalization\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn GetUILanguageInfo<'a, P0>(dwflags: u32, pwmszlanguage: P0, pwszfallbacklanguages: ::windows::core::PWSTR, pcchfallbacklanguages: *mut u32, pattributes: *mut u32) -> super::Foundation::BOOL
+pub unsafe fn GetUILanguageInfo<'a, P0>(dwflags: u32, pwmszlanguage: P0, pwszfallbacklanguages: ::windows::core::PWSTR, pcchfallbacklanguages: ::core::option::Option<&mut u32>, pattributes: &mut u32) -> super::Foundation::BOOL
 where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
 {
@@ -2262,7 +2262,7 @@ pub unsafe fn GetUserGeoID(geoclass: u32) -> i32 {
 #[doc = "*Required features: `\"Win32_Globalization\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn GetUserPreferredUILanguages(dwflags: u32, pulnumlanguages: *mut u32, pwszlanguagesbuffer: ::windows::core::PWSTR, pcchlanguagesbuffer: *mut u32) -> super::Foundation::BOOL {
+pub unsafe fn GetUserPreferredUILanguages(dwflags: u32, pulnumlanguages: &mut u32, pwszlanguagesbuffer: ::windows::core::PWSTR, pcchlanguagesbuffer: &mut u32) -> super::Foundation::BOOL {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn GetUserPreferredUILanguages(dwflags: u32, pulnumlanguages: *mut u32, pwszlanguagesbuffer: ::windows::core::PWSTR, pcchlanguagesbuffer: *mut u32) -> super::Foundation::BOOL;
@@ -2440,7 +2440,7 @@ impl IEnumCodePage {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).Clone)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IEnumCodePage>(result__)
     }
-    pub unsafe fn Next(&self, celt: u32, rgelt: *mut MIMECPINFO, pceltfetched: *mut u32) -> ::windows::core::Result<()> {
+    pub unsafe fn Next(&self, celt: u32, rgelt: &mut MIMECPINFO, pceltfetched: ::core::option::Option<&mut u32>) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).Next)(::windows::core::Interface::as_raw(self), celt, ::core::mem::transmute(rgelt), ::core::mem::transmute(pceltfetched)).ok()
     }
     pub unsafe fn Reset(&self) -> ::windows::core::Result<()> {
@@ -2502,7 +2502,7 @@ impl IEnumRfc1766 {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).Clone)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IEnumRfc1766>(result__)
     }
-    pub unsafe fn Next(&self, celt: u32, rgelt: *mut RFC1766INFO, pceltfetched: *mut u32) -> ::windows::core::Result<()> {
+    pub unsafe fn Next(&self, celt: u32, rgelt: &mut RFC1766INFO, pceltfetched: ::core::option::Option<&mut u32>) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).Next)(::windows::core::Interface::as_raw(self), celt, ::core::mem::transmute(rgelt), ::core::mem::transmute(pceltfetched)).ok()
     }
     pub unsafe fn Reset(&self) -> ::windows::core::Result<()> {
@@ -2564,7 +2564,7 @@ impl IEnumScript {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).Clone)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IEnumScript>(result__)
     }
-    pub unsafe fn Next(&self, celt: u32, rgelt: *mut SCRIPTINFO, pceltfetched: *mut u32) -> ::windows::core::Result<()> {
+    pub unsafe fn Next(&self, celt: u32, rgelt: &mut SCRIPTINFO, pceltfetched: ::core::option::Option<&mut u32>) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).Next)(::windows::core::Interface::as_raw(self), celt, ::core::mem::transmute(rgelt), ::core::mem::transmute(pceltfetched)).ok()
     }
     pub unsafe fn Reset(&self) -> ::windows::core::Result<()> {
@@ -2700,7 +2700,7 @@ impl IMLangCodePages {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).GetCharCodePages)(::windows::core::Interface::as_raw(self), chsrc, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
     }
-    pub unsafe fn GetStrCodePages(&self, pszsrc: &[u16], dwprioritycodepages: u32, pdwcodepages: *mut u32, pcchcodepages: *mut i32) -> ::windows::core::Result<()> {
+    pub unsafe fn GetStrCodePages(&self, pszsrc: &[u16], dwprioritycodepages: u32, pdwcodepages: ::core::option::Option<&mut u32>, pcchcodepages: ::core::option::Option<&mut i32>) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).GetStrCodePages)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(::windows::core::as_ptr_or_null(pszsrc)), pszsrc.len() as _, dwprioritycodepages, ::core::mem::transmute(pdwcodepages), ::core::mem::transmute(pcchcodepages)).ok()
     }
     pub unsafe fn CodePageToCodePages(&self, ucodepage: u32) -> ::windows::core::Result<u32> {
@@ -2775,16 +2775,16 @@ impl IMLangConvertCharset {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).GetProperty)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
     }
-    pub unsafe fn DoConversion(&self, psrcstr: *const u8, pcsrcsize: *mut u32, pdststr: *mut u8, pcdstsize: *mut u32) -> ::windows::core::Result<()> {
+    pub unsafe fn DoConversion(&self, psrcstr: &u8, pcsrcsize: ::core::option::Option<&mut u32>, pdststr: &mut u8, pcdstsize: ::core::option::Option<&mut u32>) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).DoConversion)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(psrcstr), ::core::mem::transmute(pcsrcsize), ::core::mem::transmute(pdststr), ::core::mem::transmute(pcdstsize)).ok()
     }
-    pub unsafe fn DoConversionToUnicode<'a, P0>(&self, psrcstr: P0, pcsrcsize: *mut u32, pdststr: ::windows::core::PWSTR, pcdstsize: *mut u32) -> ::windows::core::Result<()>
+    pub unsafe fn DoConversionToUnicode<'a, P0>(&self, psrcstr: P0, pcsrcsize: ::core::option::Option<&mut u32>, pdststr: ::windows::core::PWSTR, pcdstsize: ::core::option::Option<&mut u32>) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCSTR>,
     {
         (::windows::core::Interface::vtable(self).DoConversionToUnicode)(::windows::core::Interface::as_raw(self), psrcstr.into(), ::core::mem::transmute(pcsrcsize), ::core::mem::transmute(pdststr), ::core::mem::transmute(pcdstsize)).ok()
     }
-    pub unsafe fn DoConversionFromUnicode(&self, psrcstr: ::windows::core::PCWSTR, pcsrcsize: *mut u32, pdststr: ::windows::core::PSTR, pcdstsize: *mut u32) -> ::windows::core::Result<()> {
+    pub unsafe fn DoConversionFromUnicode(&self, psrcstr: ::windows::core::PCWSTR, pcsrcsize: ::core::option::Option<&mut u32>, pdststr: ::windows::core::PSTR, pcdstsize: ::core::option::Option<&mut u32>) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).DoConversionFromUnicode)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(psrcstr), ::core::mem::transmute(pcsrcsize), ::core::mem::transmute(pdststr), ::core::mem::transmute(pcdstsize)).ok()
     }
 }
@@ -2843,7 +2843,7 @@ impl IMLangFontLink {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.GetCharCodePages)(::windows::core::Interface::as_raw(self), chsrc, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
     }
-    pub unsafe fn GetStrCodePages(&self, pszsrc: &[u16], dwprioritycodepages: u32, pdwcodepages: *mut u32, pcchcodepages: *mut i32) -> ::windows::core::Result<()> {
+    pub unsafe fn GetStrCodePages(&self, pszsrc: &[u16], dwprioritycodepages: u32, pdwcodepages: ::core::option::Option<&mut u32>, pcchcodepages: ::core::option::Option<&mut i32>) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.GetStrCodePages)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(::windows::core::as_ptr_or_null(pszsrc)), pszsrc.len() as _, dwprioritycodepages, ::core::mem::transmute(pdwcodepages), ::core::mem::transmute(pcchcodepages)).ok()
     }
     pub unsafe fn CodePageToCodePages(&self, ucodepage: u32) -> ::windows::core::Result<u32> {
@@ -2962,7 +2962,7 @@ impl IMLangFontLink2 {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.GetCharCodePages)(::windows::core::Interface::as_raw(self), chsrc, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
     }
-    pub unsafe fn GetStrCodePages(&self, pszsrc: &[u16], dwprioritycodepages: u32, pdwcodepages: *mut u32, pcchcodepages: *mut i32) -> ::windows::core::Result<()> {
+    pub unsafe fn GetStrCodePages(&self, pszsrc: &[u16], dwprioritycodepages: u32, pdwcodepages: ::core::option::Option<&mut u32>, pcchcodepages: ::core::option::Option<&mut i32>) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.GetStrCodePages)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(::windows::core::as_ptr_or_null(pszsrc)), pszsrc.len() as _, dwprioritycodepages, ::core::mem::transmute(pdwcodepages), ::core::mem::transmute(pcchcodepages)).ok()
     }
     pub unsafe fn CodePageToCodePages(&self, ucodepage: u32) -> ::windows::core::Result<u32> {
@@ -3005,14 +3005,14 @@ impl IMLangFontLink2 {
     }
     #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
     #[cfg(feature = "Win32_Graphics_Gdi")]
-    pub unsafe fn GetFontUnicodeRanges<'a, P0>(&self, hdc: P0, puiranges: *const u32) -> ::windows::core::Result<UNICODERANGE>
+    pub unsafe fn GetFontUnicodeRanges<'a, P0>(&self, hdc: P0, puiranges: &u32) -> ::windows::core::Result<UNICODERANGE>
     where
         P0: ::std::convert::Into<super::Graphics::Gdi::HDC>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).GetFontUnicodeRanges)(::windows::core::Interface::as_raw(self), hdc.into(), ::core::mem::transmute(puiranges), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<UNICODERANGE>(result__)
     }
-    pub unsafe fn GetScriptFontInfo(&self, sid: u8, dwflags: u32, puifonts: *mut u32, pscriptfont: *mut tagSCRIPFONTINFO) -> ::windows::core::Result<()> {
+    pub unsafe fn GetScriptFontInfo(&self, sid: u8, dwflags: u32, puifonts: &mut u32, pscriptfont: ::core::option::Option<&mut tagSCRIPFONTINFO>) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).GetScriptFontInfo)(::windows::core::Interface::as_raw(self), sid, dwflags, ::core::mem::transmute(puifonts), ::core::mem::transmute(pscriptfont)).ok()
     }
     pub unsafe fn CodePageToScriptID(&self, uicodepage: u32) -> ::windows::core::Result<u8> {
@@ -3098,16 +3098,16 @@ pub struct IMLangFontLink2_Vtbl {
 #[repr(transparent)]
 pub struct IMLangLineBreakConsole(::windows::core::IUnknown);
 impl IMLangLineBreakConsole {
-    pub unsafe fn BreakLineML<'a, P0>(&self, psrcmlstr: P0, lsrcpos: i32, lsrclen: i32, cmincolumns: i32, cmaxcolumns: i32, pllinelen: *mut i32, plskiplen: *mut i32) -> ::windows::core::Result<()>
+    pub unsafe fn BreakLineML<'a, P0>(&self, psrcmlstr: P0, lsrcpos: i32, lsrclen: i32, cmincolumns: i32, cmaxcolumns: i32, pllinelen: ::core::option::Option<&mut i32>, plskiplen: ::core::option::Option<&mut i32>) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, IMLangString>>,
     {
         (::windows::core::Interface::vtable(self).BreakLineML)(::windows::core::Interface::as_raw(self), psrcmlstr.into().abi(), lsrcpos, lsrclen, cmincolumns, cmaxcolumns, ::core::mem::transmute(pllinelen), ::core::mem::transmute(plskiplen)).ok()
     }
-    pub unsafe fn BreakLineW(&self, locale: u32, pszsrc: &[u16], cmaxcolumns: i32, pcchline: *mut i32, pcchskip: *mut i32) -> ::windows::core::Result<()> {
+    pub unsafe fn BreakLineW(&self, locale: u32, pszsrc: &[u16], cmaxcolumns: i32, pcchline: ::core::option::Option<&mut i32>, pcchskip: ::core::option::Option<&mut i32>) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).BreakLineW)(::windows::core::Interface::as_raw(self), locale, ::core::mem::transmute(::windows::core::as_ptr_or_null(pszsrc)), pszsrc.len() as _, cmaxcolumns, ::core::mem::transmute(pcchline), ::core::mem::transmute(pcchskip)).ok()
     }
-    pub unsafe fn BreakLineA(&self, locale: u32, ucodepage: u32, pszsrc: &[u8], cmaxcolumns: i32, pcchline: *mut i32, pcchskip: *mut i32) -> ::windows::core::Result<()> {
+    pub unsafe fn BreakLineA(&self, locale: u32, ucodepage: u32, pszsrc: &[u8], cmaxcolumns: i32, pcchline: ::core::option::Option<&mut i32>, pcchskip: ::core::option::Option<&mut i32>) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).BreakLineA)(::windows::core::Interface::as_raw(self), locale, ucodepage, ::core::mem::transmute(::windows::core::as_ptr_or_null(pszsrc)), pszsrc.len() as _, cmaxcolumns, ::core::mem::transmute(pcchline), ::core::mem::transmute(pcchskip)).ok()
     }
 }
@@ -3176,7 +3176,7 @@ impl IMLangString {
     {
         (::windows::core::Interface::vtable(self).SetMLStr)(::windows::core::Interface::as_raw(self), ldestpos, ldestlen, psrcmlstr.into().abi(), lsrcpos, lsrclen).ok()
     }
-    pub unsafe fn GetMLStr<'a, P0>(&self, lsrcpos: i32, lsrclen: i32, punkouter: P0, dwclscontext: u32, piid: *const ::windows::core::GUID, ppdestmlstr: *mut ::core::option::Option<::windows::core::IUnknown>, pldestpos: *mut i32, pldestlen: *mut i32) -> ::windows::core::Result<()>
+    pub unsafe fn GetMLStr<'a, P0>(&self, lsrcpos: i32, lsrclen: i32, punkouter: P0, dwclscontext: u32, piid: &::windows::core::GUID, ppdestmlstr: &mut ::core::option::Option<::windows::core::IUnknown>, pldestpos: ::core::option::Option<&mut i32>, pldestlen: ::core::option::Option<&mut i32>) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>,
     {
@@ -3252,37 +3252,37 @@ impl IMLangStringAStr {
     {
         (::windows::core::Interface::vtable(self).base__.SetMLStr)(::windows::core::Interface::as_raw(self), ldestpos, ldestlen, psrcmlstr.into().abi(), lsrcpos, lsrclen).ok()
     }
-    pub unsafe fn GetMLStr<'a, P0>(&self, lsrcpos: i32, lsrclen: i32, punkouter: P0, dwclscontext: u32, piid: *const ::windows::core::GUID, ppdestmlstr: *mut ::core::option::Option<::windows::core::IUnknown>, pldestpos: *mut i32, pldestlen: *mut i32) -> ::windows::core::Result<()>
+    pub unsafe fn GetMLStr<'a, P0>(&self, lsrcpos: i32, lsrclen: i32, punkouter: P0, dwclscontext: u32, piid: &::windows::core::GUID, ppdestmlstr: &mut ::core::option::Option<::windows::core::IUnknown>, pldestpos: ::core::option::Option<&mut i32>, pldestlen: ::core::option::Option<&mut i32>) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>,
     {
         (::windows::core::Interface::vtable(self).base__.GetMLStr)(::windows::core::Interface::as_raw(self), lsrcpos, lsrclen, punkouter.into().abi(), dwclscontext, ::core::mem::transmute(piid), ::core::mem::transmute(ppdestmlstr), ::core::mem::transmute(pldestpos), ::core::mem::transmute(pldestlen)).ok()
     }
-    pub unsafe fn SetAStr(&self, ldestpos: i32, ldestlen: i32, ucodepage: u32, pszsrc: &[u8], pcchactual: *mut i32, plactuallen: *mut i32) -> ::windows::core::Result<()> {
+    pub unsafe fn SetAStr(&self, ldestpos: i32, ldestlen: i32, ucodepage: u32, pszsrc: &[u8], pcchactual: ::core::option::Option<&mut i32>, plactuallen: ::core::option::Option<&mut i32>) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetAStr)(::windows::core::Interface::as_raw(self), ldestpos, ldestlen, ucodepage, ::core::mem::transmute(::windows::core::as_ptr_or_null(pszsrc)), pszsrc.len() as _, ::core::mem::transmute(pcchactual), ::core::mem::transmute(plactuallen)).ok()
     }
-    pub unsafe fn SetStrBufA<'a, P0>(&self, ldestpos: i32, ldestlen: i32, ucodepage: u32, psrcbuf: P0, pcchactual: *mut i32, plactuallen: *mut i32) -> ::windows::core::Result<()>
+    pub unsafe fn SetStrBufA<'a, P0>(&self, ldestpos: i32, ldestlen: i32, ucodepage: u32, psrcbuf: P0, pcchactual: ::core::option::Option<&mut i32>, plactuallen: ::core::option::Option<&mut i32>) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, IMLangStringBufA>>,
     {
         (::windows::core::Interface::vtable(self).SetStrBufA)(::windows::core::Interface::as_raw(self), ldestpos, ldestlen, ucodepage, psrcbuf.into().abi(), ::core::mem::transmute(pcchactual), ::core::mem::transmute(plactuallen)).ok()
     }
-    pub unsafe fn GetAStr(&self, lsrcpos: i32, lsrclen: i32, ucodepagein: u32, pucodepageout: *mut u32, pszdest: &mut [u8], pcchactual: *mut i32, plactuallen: *mut i32) -> ::windows::core::Result<()> {
+    pub unsafe fn GetAStr(&self, lsrcpos: i32, lsrclen: i32, ucodepagein: u32, pucodepageout: &mut u32, pszdest: &mut [u8], pcchactual: ::core::option::Option<&mut i32>, plactuallen: ::core::option::Option<&mut i32>) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).GetAStr)(::windows::core::Interface::as_raw(self), lsrcpos, lsrclen, ucodepagein, ::core::mem::transmute(pucodepageout), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(pszdest)), pszdest.len() as _, ::core::mem::transmute(pcchactual), ::core::mem::transmute(plactuallen)).ok()
     }
-    pub unsafe fn GetStrBufA(&self, lsrcpos: i32, lsrcmaxlen: i32, pudestcodepage: *mut u32, ppdestbuf: *mut ::core::option::Option<IMLangStringBufA>, pldestlen: *mut i32) -> ::windows::core::Result<()> {
+    pub unsafe fn GetStrBufA(&self, lsrcpos: i32, lsrcmaxlen: i32, pudestcodepage: ::core::option::Option<&mut u32>, ppdestbuf: &mut ::core::option::Option<IMLangStringBufA>, pldestlen: ::core::option::Option<&mut i32>) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).GetStrBufA)(::windows::core::Interface::as_raw(self), lsrcpos, lsrcmaxlen, ::core::mem::transmute(pudestcodepage), ::core::mem::transmute(ppdestbuf), ::core::mem::transmute(pldestlen)).ok()
     }
-    pub unsafe fn LockAStr(&self, lsrcpos: i32, lsrclen: i32, lflags: i32, ucodepagein: u32, cchrequest: i32, pucodepageout: *mut u32, ppszdest: *mut ::windows::core::PSTR, pcchdest: *mut i32, pldestlen: *mut i32) -> ::windows::core::Result<()> {
+    pub unsafe fn LockAStr(&self, lsrcpos: i32, lsrclen: i32, lflags: i32, ucodepagein: u32, cchrequest: i32, pucodepageout: ::core::option::Option<&mut u32>, ppszdest: ::core::option::Option<&mut ::windows::core::PSTR>, pcchdest: ::core::option::Option<&mut i32>, pldestlen: ::core::option::Option<&mut i32>) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).LockAStr)(::windows::core::Interface::as_raw(self), lsrcpos, lsrclen, lflags, ucodepagein, cchrequest, ::core::mem::transmute(pucodepageout), ::core::mem::transmute(ppszdest), ::core::mem::transmute(pcchdest), ::core::mem::transmute(pldestlen)).ok()
     }
-    pub unsafe fn UnlockAStr(&self, pszsrc: &[u8], pcchactual: *mut i32, plactuallen: *mut i32) -> ::windows::core::Result<()> {
+    pub unsafe fn UnlockAStr(&self, pszsrc: &[u8], pcchactual: ::core::option::Option<&mut i32>, plactuallen: ::core::option::Option<&mut i32>) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).UnlockAStr)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(::windows::core::as_ptr_or_null(pszsrc)), pszsrc.len() as _, ::core::mem::transmute(pcchactual), ::core::mem::transmute(plactuallen)).ok()
     }
     pub unsafe fn SetLocale(&self, ldestpos: i32, ldestlen: i32, locale: u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetLocale)(::windows::core::Interface::as_raw(self), ldestpos, ldestlen, locale).ok()
     }
-    pub unsafe fn GetLocale(&self, lsrcpos: i32, lsrcmaxlen: i32, plocale: *mut u32, pllocalepos: *mut i32, pllocalelen: *mut i32) -> ::windows::core::Result<()> {
+    pub unsafe fn GetLocale(&self, lsrcpos: i32, lsrcmaxlen: i32, plocale: ::core::option::Option<&mut u32>, pllocalepos: ::core::option::Option<&mut i32>, pllocalelen: ::core::option::Option<&mut i32>) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).GetLocale)(::windows::core::Interface::as_raw(self), lsrcpos, lsrcmaxlen, ::core::mem::transmute(plocale), ::core::mem::transmute(pllocalepos), ::core::mem::transmute(pllocalelen)).ok()
     }
 }
@@ -3353,12 +3353,12 @@ pub struct IMLangStringAStr_Vtbl {
 #[repr(transparent)]
 pub struct IMLangStringBufA(::windows::core::IUnknown);
 impl IMLangStringBufA {
-    pub unsafe fn GetStatus(&self, plflags: *mut i32, pcchbuf: *mut i32) -> ::windows::core::Result<()> {
+    pub unsafe fn GetStatus(&self, plflags: ::core::option::Option<&mut i32>, pcchbuf: ::core::option::Option<&mut i32>) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).GetStatus)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(plflags), ::core::mem::transmute(pcchbuf)).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn LockBuf(&self, cchoffset: i32, cchmaxlock: i32, ppszbuf: *mut *mut super::Foundation::CHAR, pcchbuf: *mut i32) -> ::windows::core::Result<()> {
+    pub unsafe fn LockBuf(&self, cchoffset: i32, cchmaxlock: i32, ppszbuf: &mut *mut super::Foundation::CHAR, pcchbuf: ::core::option::Option<&mut i32>) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).LockBuf)(::windows::core::Interface::as_raw(self), cchoffset, cchmaxlock, ::core::mem::transmute(ppszbuf), ::core::mem::transmute(pcchbuf)).ok()
     }
     pub unsafe fn UnlockBuf<'a, P0>(&self, pszbuf: P0, cchoffset: i32, cchwrite: i32) -> ::windows::core::Result<()>
@@ -3427,10 +3427,10 @@ pub struct IMLangStringBufA_Vtbl {
 #[repr(transparent)]
 pub struct IMLangStringBufW(::windows::core::IUnknown);
 impl IMLangStringBufW {
-    pub unsafe fn GetStatus(&self, plflags: *mut i32, pcchbuf: *mut i32) -> ::windows::core::Result<()> {
+    pub unsafe fn GetStatus(&self, plflags: ::core::option::Option<&mut i32>, pcchbuf: ::core::option::Option<&mut i32>) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).GetStatus)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(plflags), ::core::mem::transmute(pcchbuf)).ok()
     }
-    pub unsafe fn LockBuf(&self, cchoffset: i32, cchmaxlock: i32, ppszbuf: *mut *mut u16, pcchbuf: *mut i32) -> ::windows::core::Result<()> {
+    pub unsafe fn LockBuf(&self, cchoffset: i32, cchmaxlock: i32, ppszbuf: &mut *mut u16, pcchbuf: ::core::option::Option<&mut i32>) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).LockBuf)(::windows::core::Interface::as_raw(self), cchoffset, cchmaxlock, ::core::mem::transmute(ppszbuf), ::core::mem::transmute(pcchbuf)).ok()
     }
     pub unsafe fn UnlockBuf<'a, P0>(&self, pszbuf: P0, cchoffset: i32, cchwrite: i32) -> ::windows::core::Result<()>
@@ -3514,37 +3514,37 @@ impl IMLangStringWStr {
     {
         (::windows::core::Interface::vtable(self).base__.SetMLStr)(::windows::core::Interface::as_raw(self), ldestpos, ldestlen, psrcmlstr.into().abi(), lsrcpos, lsrclen).ok()
     }
-    pub unsafe fn GetMLStr<'a, P0>(&self, lsrcpos: i32, lsrclen: i32, punkouter: P0, dwclscontext: u32, piid: *const ::windows::core::GUID, ppdestmlstr: *mut ::core::option::Option<::windows::core::IUnknown>, pldestpos: *mut i32, pldestlen: *mut i32) -> ::windows::core::Result<()>
+    pub unsafe fn GetMLStr<'a, P0>(&self, lsrcpos: i32, lsrclen: i32, punkouter: P0, dwclscontext: u32, piid: &::windows::core::GUID, ppdestmlstr: &mut ::core::option::Option<::windows::core::IUnknown>, pldestpos: ::core::option::Option<&mut i32>, pldestlen: ::core::option::Option<&mut i32>) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>,
     {
         (::windows::core::Interface::vtable(self).base__.GetMLStr)(::windows::core::Interface::as_raw(self), lsrcpos, lsrclen, punkouter.into().abi(), dwclscontext, ::core::mem::transmute(piid), ::core::mem::transmute(ppdestmlstr), ::core::mem::transmute(pldestpos), ::core::mem::transmute(pldestlen)).ok()
     }
-    pub unsafe fn SetWStr(&self, ldestpos: i32, ldestlen: i32, pszsrc: &[u16], pcchactual: *mut i32, plactuallen: *mut i32) -> ::windows::core::Result<()> {
+    pub unsafe fn SetWStr(&self, ldestpos: i32, ldestlen: i32, pszsrc: &[u16], pcchactual: ::core::option::Option<&mut i32>, plactuallen: ::core::option::Option<&mut i32>) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetWStr)(::windows::core::Interface::as_raw(self), ldestpos, ldestlen, ::core::mem::transmute(::windows::core::as_ptr_or_null(pszsrc)), pszsrc.len() as _, ::core::mem::transmute(pcchactual), ::core::mem::transmute(plactuallen)).ok()
     }
-    pub unsafe fn SetStrBufW<'a, P0>(&self, ldestpos: i32, ldestlen: i32, psrcbuf: P0, pcchactual: *mut i32, plactuallen: *mut i32) -> ::windows::core::Result<()>
+    pub unsafe fn SetStrBufW<'a, P0>(&self, ldestpos: i32, ldestlen: i32, psrcbuf: P0, pcchactual: ::core::option::Option<&mut i32>, plactuallen: ::core::option::Option<&mut i32>) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, IMLangStringBufW>>,
     {
         (::windows::core::Interface::vtable(self).SetStrBufW)(::windows::core::Interface::as_raw(self), ldestpos, ldestlen, psrcbuf.into().abi(), ::core::mem::transmute(pcchactual), ::core::mem::transmute(plactuallen)).ok()
     }
-    pub unsafe fn GetWStr(&self, lsrcpos: i32, lsrclen: i32, pszdest: &mut [u16], pcchactual: *mut i32, plactuallen: *mut i32) -> ::windows::core::Result<()> {
+    pub unsafe fn GetWStr(&self, lsrcpos: i32, lsrclen: i32, pszdest: &mut [u16], pcchactual: ::core::option::Option<&mut i32>, plactuallen: ::core::option::Option<&mut i32>) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).GetWStr)(::windows::core::Interface::as_raw(self), lsrcpos, lsrclen, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(pszdest)), pszdest.len() as _, ::core::mem::transmute(pcchactual), ::core::mem::transmute(plactuallen)).ok()
     }
-    pub unsafe fn GetStrBufW(&self, lsrcpos: i32, lsrcmaxlen: i32, ppdestbuf: *mut ::core::option::Option<IMLangStringBufW>, pldestlen: *mut i32) -> ::windows::core::Result<()> {
+    pub unsafe fn GetStrBufW(&self, lsrcpos: i32, lsrcmaxlen: i32, ppdestbuf: &mut ::core::option::Option<IMLangStringBufW>, pldestlen: ::core::option::Option<&mut i32>) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).GetStrBufW)(::windows::core::Interface::as_raw(self), lsrcpos, lsrcmaxlen, ::core::mem::transmute(ppdestbuf), ::core::mem::transmute(pldestlen)).ok()
     }
-    pub unsafe fn LockWStr(&self, lsrcpos: i32, lsrclen: i32, lflags: i32, cchrequest: i32, ppszdest: *mut ::windows::core::PWSTR, pcchdest: *mut i32, pldestlen: *mut i32) -> ::windows::core::Result<()> {
+    pub unsafe fn LockWStr(&self, lsrcpos: i32, lsrclen: i32, lflags: i32, cchrequest: i32, ppszdest: ::core::option::Option<&mut ::windows::core::PWSTR>, pcchdest: ::core::option::Option<&mut i32>, pldestlen: ::core::option::Option<&mut i32>) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).LockWStr)(::windows::core::Interface::as_raw(self), lsrcpos, lsrclen, lflags, cchrequest, ::core::mem::transmute(ppszdest), ::core::mem::transmute(pcchdest), ::core::mem::transmute(pldestlen)).ok()
     }
-    pub unsafe fn UnlockWStr(&self, pszsrc: &[u16], pcchactual: *mut i32, plactuallen: *mut i32) -> ::windows::core::Result<()> {
+    pub unsafe fn UnlockWStr(&self, pszsrc: &[u16], pcchactual: ::core::option::Option<&mut i32>, plactuallen: ::core::option::Option<&mut i32>) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).UnlockWStr)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(::windows::core::as_ptr_or_null(pszsrc)), pszsrc.len() as _, ::core::mem::transmute(pcchactual), ::core::mem::transmute(plactuallen)).ok()
     }
     pub unsafe fn SetLocale(&self, ldestpos: i32, ldestlen: i32, locale: u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetLocale)(::windows::core::Interface::as_raw(self), ldestpos, ldestlen, locale).ok()
     }
-    pub unsafe fn GetLocale(&self, lsrcpos: i32, lsrcmaxlen: i32, plocale: *mut u32, pllocalepos: *mut i32, pllocalelen: *mut i32) -> ::windows::core::Result<()> {
+    pub unsafe fn GetLocale(&self, lsrcpos: i32, lsrcmaxlen: i32, plocale: ::core::option::Option<&mut u32>, pllocalepos: ::core::option::Option<&mut i32>, pllocalelen: ::core::option::Option<&mut i32>) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).GetLocale)(::windows::core::Interface::as_raw(self), lsrcpos, lsrcmaxlen, ::core::mem::transmute(plocale), ::core::mem::transmute(pllocalepos), ::core::mem::transmute(pllocalelen)).ok()
     }
 }
@@ -3643,16 +3643,16 @@ impl IMultiLanguage {
     pub unsafe fn IsConvertible(&self, dwsrcencoding: u32, dwdstencoding: u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).IsConvertible)(::windows::core::Interface::as_raw(self), dwsrcencoding, dwdstencoding).ok()
     }
-    pub unsafe fn ConvertString(&self, pdwmode: *mut u32, dwsrcencoding: u32, dwdstencoding: u32, psrcstr: *const u8, pcsrcsize: *mut u32, pdststr: *mut u8, pcdstsize: *mut u32) -> ::windows::core::Result<()> {
+    pub unsafe fn ConvertString(&self, pdwmode: ::core::option::Option<&mut u32>, dwsrcencoding: u32, dwdstencoding: u32, psrcstr: ::core::option::Option<&u8>, pcsrcsize: ::core::option::Option<&mut u32>, pdststr: ::core::option::Option<&mut u8>, pcdstsize: ::core::option::Option<&mut u32>) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).ConvertString)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pdwmode), dwsrcencoding, dwdstencoding, ::core::mem::transmute(psrcstr), ::core::mem::transmute(pcsrcsize), ::core::mem::transmute(pdststr), ::core::mem::transmute(pcdstsize)).ok()
     }
-    pub unsafe fn ConvertStringToUnicode<'a, P0>(&self, pdwmode: *mut u32, dwencoding: u32, psrcstr: P0, pcsrcsize: *mut u32, pdststr: ::windows::core::PWSTR, pcdstsize: *mut u32) -> ::windows::core::Result<()>
+    pub unsafe fn ConvertStringToUnicode<'a, P0>(&self, pdwmode: ::core::option::Option<&mut u32>, dwencoding: u32, psrcstr: P0, pcsrcsize: ::core::option::Option<&mut u32>, pdststr: ::windows::core::PWSTR, pcdstsize: ::core::option::Option<&mut u32>) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCSTR>,
     {
         (::windows::core::Interface::vtable(self).ConvertStringToUnicode)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pdwmode), dwencoding, psrcstr.into(), ::core::mem::transmute(pcsrcsize), ::core::mem::transmute(pdststr), ::core::mem::transmute(pcdstsize)).ok()
     }
-    pub unsafe fn ConvertStringFromUnicode(&self, pdwmode: *mut u32, dwencoding: u32, psrcstr: ::windows::core::PCWSTR, pcsrcsize: *mut u32, pdststr: ::windows::core::PSTR, pcdstsize: *mut u32) -> ::windows::core::Result<()> {
+    pub unsafe fn ConvertStringFromUnicode(&self, pdwmode: ::core::option::Option<&mut u32>, dwencoding: u32, psrcstr: ::windows::core::PCWSTR, pcsrcsize: ::core::option::Option<&mut u32>, pdststr: ::windows::core::PSTR, pcdstsize: ::core::option::Option<&mut u32>) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).ConvertStringFromUnicode)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pdwmode), dwencoding, ::core::mem::transmute(psrcstr), ::core::mem::transmute(pcsrcsize), ::core::mem::transmute(pdststr), ::core::mem::transmute(pcdstsize)).ok()
     }
     pub unsafe fn ConvertStringReset(&self) -> ::windows::core::Result<()> {
@@ -3666,7 +3666,7 @@ impl IMultiLanguage {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetLcidFromRfc1766<'a, P0>(&self, plocale: *mut u32, bstrrfc1766: P0) -> ::windows::core::Result<()>
+    pub unsafe fn GetLcidFromRfc1766<'a, P0>(&self, plocale: &mut u32, bstrrfc1766: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::Foundation::BSTR>>,
     {
@@ -3781,16 +3781,16 @@ impl IMultiLanguage2 {
     pub unsafe fn IsConvertible(&self, dwsrcencoding: u32, dwdstencoding: u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).IsConvertible)(::windows::core::Interface::as_raw(self), dwsrcencoding, dwdstencoding).ok()
     }
-    pub unsafe fn ConvertString(&self, pdwmode: *mut u32, dwsrcencoding: u32, dwdstencoding: u32, psrcstr: *const u8, pcsrcsize: *mut u32, pdststr: *mut u8, pcdstsize: *mut u32) -> ::windows::core::Result<()> {
+    pub unsafe fn ConvertString(&self, pdwmode: ::core::option::Option<&mut u32>, dwsrcencoding: u32, dwdstencoding: u32, psrcstr: ::core::option::Option<&u8>, pcsrcsize: ::core::option::Option<&mut u32>, pdststr: ::core::option::Option<&mut u8>, pcdstsize: ::core::option::Option<&mut u32>) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).ConvertString)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pdwmode), dwsrcencoding, dwdstencoding, ::core::mem::transmute(psrcstr), ::core::mem::transmute(pcsrcsize), ::core::mem::transmute(pdststr), ::core::mem::transmute(pcdstsize)).ok()
     }
-    pub unsafe fn ConvertStringToUnicode<'a, P0>(&self, pdwmode: *mut u32, dwencoding: u32, psrcstr: P0, pcsrcsize: *mut u32, pdststr: ::windows::core::PWSTR, pcdstsize: *mut u32) -> ::windows::core::Result<()>
+    pub unsafe fn ConvertStringToUnicode<'a, P0>(&self, pdwmode: ::core::option::Option<&mut u32>, dwencoding: u32, psrcstr: P0, pcsrcsize: ::core::option::Option<&mut u32>, pdststr: ::windows::core::PWSTR, pcdstsize: ::core::option::Option<&mut u32>) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCSTR>,
     {
         (::windows::core::Interface::vtable(self).ConvertStringToUnicode)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pdwmode), dwencoding, psrcstr.into(), ::core::mem::transmute(pcsrcsize), ::core::mem::transmute(pdststr), ::core::mem::transmute(pcdstsize)).ok()
     }
-    pub unsafe fn ConvertStringFromUnicode(&self, pdwmode: *mut u32, dwencoding: u32, psrcstr: ::windows::core::PCWSTR, pcsrcsize: *mut u32, pdststr: ::windows::core::PSTR, pcdstsize: *mut u32) -> ::windows::core::Result<()> {
+    pub unsafe fn ConvertStringFromUnicode(&self, pdwmode: ::core::option::Option<&mut u32>, dwencoding: u32, psrcstr: ::windows::core::PCWSTR, pcsrcsize: ::core::option::Option<&mut u32>, pdststr: ::windows::core::PSTR, pcdstsize: ::core::option::Option<&mut u32>) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).ConvertStringFromUnicode)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pdwmode), dwencoding, ::core::mem::transmute(psrcstr), ::core::mem::transmute(pcsrcsize), ::core::mem::transmute(pdststr), ::core::mem::transmute(pcdstsize)).ok()
     }
     pub unsafe fn ConvertStringReset(&self) -> ::windows::core::Result<()> {
@@ -3804,7 +3804,7 @@ impl IMultiLanguage2 {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetLcidFromRfc1766<'a, P0>(&self, plocale: *mut u32, bstrrfc1766: P0) -> ::windows::core::Result<()>
+    pub unsafe fn GetLcidFromRfc1766<'a, P0>(&self, plocale: &mut u32, bstrrfc1766: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::Foundation::BSTR>>,
     {
@@ -3824,7 +3824,7 @@ impl IMultiLanguage2 {
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn ConvertStringInIStream<'a, P0, P1, P2>(&self, pdwmode: *mut u32, dwflag: u32, lpfallback: P0, dwsrcencoding: u32, dwdstencoding: u32, pstmin: P1, pstmout: P2) -> ::windows::core::Result<()>
+    pub unsafe fn ConvertStringInIStream<'a, P0, P1, P2>(&self, pdwmode: ::core::option::Option<&mut u32>, dwflag: u32, lpfallback: P0, dwsrcencoding: u32, dwdstencoding: u32, pstmin: P1, pstmout: P2) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
         P1: ::std::convert::Into<::windows::core::InParam<'a, super::System::Com::IStream>>,
@@ -3832,14 +3832,14 @@ impl IMultiLanguage2 {
     {
         (::windows::core::Interface::vtable(self).ConvertStringInIStream)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pdwmode), dwflag, lpfallback.into(), dwsrcencoding, dwdstencoding, pstmin.into().abi(), pstmout.into().abi()).ok()
     }
-    pub unsafe fn ConvertStringToUnicodeEx<'a, P0, P1>(&self, pdwmode: *mut u32, dwencoding: u32, psrcstr: P0, pcsrcsize: *mut u32, pdststr: ::windows::core::PWSTR, pcdstsize: *mut u32, dwflag: u32, lpfallback: P1) -> ::windows::core::Result<()>
+    pub unsafe fn ConvertStringToUnicodeEx<'a, P0, P1>(&self, pdwmode: ::core::option::Option<&mut u32>, dwencoding: u32, psrcstr: P0, pcsrcsize: ::core::option::Option<&mut u32>, pdststr: ::windows::core::PWSTR, pcdstsize: ::core::option::Option<&mut u32>, dwflag: u32, lpfallback: P1) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCSTR>,
         P1: ::std::convert::Into<::windows::core::PCWSTR>,
     {
         (::windows::core::Interface::vtable(self).ConvertStringToUnicodeEx)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pdwmode), dwencoding, psrcstr.into(), ::core::mem::transmute(pcsrcsize), ::core::mem::transmute(pdststr), ::core::mem::transmute(pcdstsize), dwflag, lpfallback.into()).ok()
     }
-    pub unsafe fn ConvertStringFromUnicodeEx<'a, P0>(&self, pdwmode: *mut u32, dwencoding: u32, psrcstr: ::windows::core::PCWSTR, pcsrcsize: *mut u32, pdststr: ::windows::core::PSTR, pcdstsize: *mut u32, dwflag: u32, lpfallback: P0) -> ::windows::core::Result<()>
+    pub unsafe fn ConvertStringFromUnicodeEx<'a, P0>(&self, pdwmode: ::core::option::Option<&mut u32>, dwencoding: u32, psrcstr: ::windows::core::PCWSTR, pcsrcsize: ::core::option::Option<&mut u32>, pdststr: ::windows::core::PSTR, pcdstsize: ::core::option::Option<&mut u32>, dwflag: u32, lpfallback: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
@@ -3847,13 +3847,13 @@ impl IMultiLanguage2 {
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn DetectCodepageInIStream<'a, P0>(&self, dwflag: u32, dwprefwincodepage: u32, pstmin: P0, lpencoding: *mut DetectEncodingInfo, pnscores: *mut i32) -> ::windows::core::Result<()>
+    pub unsafe fn DetectCodepageInIStream<'a, P0>(&self, dwflag: u32, dwprefwincodepage: u32, pstmin: P0, lpencoding: &mut DetectEncodingInfo, pnscores: &mut i32) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::System::Com::IStream>>,
     {
         (::windows::core::Interface::vtable(self).DetectCodepageInIStream)(::windows::core::Interface::as_raw(self), dwflag, dwprefwincodepage, pstmin.into().abi(), ::core::mem::transmute(lpencoding), ::core::mem::transmute(pnscores)).ok()
     }
-    pub unsafe fn DetectInputCodepage<'a, P0>(&self, dwflag: u32, dwprefwincodepage: u32, psrcstr: P0, pcsrcsize: *mut i32, lpencoding: *mut DetectEncodingInfo, pnscores: *mut i32) -> ::windows::core::Result<()>
+    pub unsafe fn DetectInputCodepage<'a, P0>(&self, dwflag: u32, dwprefwincodepage: u32, psrcstr: P0, pcsrcsize: &mut i32, lpencoding: &mut DetectEncodingInfo, pnscores: &mut i32) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCSTR>,
     {
@@ -4013,16 +4013,16 @@ impl IMultiLanguage3 {
     pub unsafe fn IsConvertible(&self, dwsrcencoding: u32, dwdstencoding: u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.IsConvertible)(::windows::core::Interface::as_raw(self), dwsrcencoding, dwdstencoding).ok()
     }
-    pub unsafe fn ConvertString(&self, pdwmode: *mut u32, dwsrcencoding: u32, dwdstencoding: u32, psrcstr: *const u8, pcsrcsize: *mut u32, pdststr: *mut u8, pcdstsize: *mut u32) -> ::windows::core::Result<()> {
+    pub unsafe fn ConvertString(&self, pdwmode: ::core::option::Option<&mut u32>, dwsrcencoding: u32, dwdstencoding: u32, psrcstr: ::core::option::Option<&u8>, pcsrcsize: ::core::option::Option<&mut u32>, pdststr: ::core::option::Option<&mut u8>, pcdstsize: ::core::option::Option<&mut u32>) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.ConvertString)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pdwmode), dwsrcencoding, dwdstencoding, ::core::mem::transmute(psrcstr), ::core::mem::transmute(pcsrcsize), ::core::mem::transmute(pdststr), ::core::mem::transmute(pcdstsize)).ok()
     }
-    pub unsafe fn ConvertStringToUnicode<'a, P0>(&self, pdwmode: *mut u32, dwencoding: u32, psrcstr: P0, pcsrcsize: *mut u32, pdststr: ::windows::core::PWSTR, pcdstsize: *mut u32) -> ::windows::core::Result<()>
+    pub unsafe fn ConvertStringToUnicode<'a, P0>(&self, pdwmode: ::core::option::Option<&mut u32>, dwencoding: u32, psrcstr: P0, pcsrcsize: ::core::option::Option<&mut u32>, pdststr: ::windows::core::PWSTR, pcdstsize: ::core::option::Option<&mut u32>) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCSTR>,
     {
         (::windows::core::Interface::vtable(self).base__.ConvertStringToUnicode)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pdwmode), dwencoding, psrcstr.into(), ::core::mem::transmute(pcsrcsize), ::core::mem::transmute(pdststr), ::core::mem::transmute(pcdstsize)).ok()
     }
-    pub unsafe fn ConvertStringFromUnicode(&self, pdwmode: *mut u32, dwencoding: u32, psrcstr: ::windows::core::PCWSTR, pcsrcsize: *mut u32, pdststr: ::windows::core::PSTR, pcdstsize: *mut u32) -> ::windows::core::Result<()> {
+    pub unsafe fn ConvertStringFromUnicode(&self, pdwmode: ::core::option::Option<&mut u32>, dwencoding: u32, psrcstr: ::windows::core::PCWSTR, pcsrcsize: ::core::option::Option<&mut u32>, pdststr: ::windows::core::PSTR, pcdstsize: ::core::option::Option<&mut u32>) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.ConvertStringFromUnicode)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pdwmode), dwencoding, ::core::mem::transmute(psrcstr), ::core::mem::transmute(pcsrcsize), ::core::mem::transmute(pdststr), ::core::mem::transmute(pcdstsize)).ok()
     }
     pub unsafe fn ConvertStringReset(&self) -> ::windows::core::Result<()> {
@@ -4036,7 +4036,7 @@ impl IMultiLanguage3 {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetLcidFromRfc1766<'a, P0>(&self, plocale: *mut u32, bstrrfc1766: P0) -> ::windows::core::Result<()>
+    pub unsafe fn GetLcidFromRfc1766<'a, P0>(&self, plocale: &mut u32, bstrrfc1766: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::Foundation::BSTR>>,
     {
@@ -4056,7 +4056,7 @@ impl IMultiLanguage3 {
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn ConvertStringInIStream<'a, P0, P1, P2>(&self, pdwmode: *mut u32, dwflag: u32, lpfallback: P0, dwsrcencoding: u32, dwdstencoding: u32, pstmin: P1, pstmout: P2) -> ::windows::core::Result<()>
+    pub unsafe fn ConvertStringInIStream<'a, P0, P1, P2>(&self, pdwmode: ::core::option::Option<&mut u32>, dwflag: u32, lpfallback: P0, dwsrcencoding: u32, dwdstencoding: u32, pstmin: P1, pstmout: P2) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
         P1: ::std::convert::Into<::windows::core::InParam<'a, super::System::Com::IStream>>,
@@ -4064,14 +4064,14 @@ impl IMultiLanguage3 {
     {
         (::windows::core::Interface::vtable(self).base__.ConvertStringInIStream)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pdwmode), dwflag, lpfallback.into(), dwsrcencoding, dwdstencoding, pstmin.into().abi(), pstmout.into().abi()).ok()
     }
-    pub unsafe fn ConvertStringToUnicodeEx<'a, P0, P1>(&self, pdwmode: *mut u32, dwencoding: u32, psrcstr: P0, pcsrcsize: *mut u32, pdststr: ::windows::core::PWSTR, pcdstsize: *mut u32, dwflag: u32, lpfallback: P1) -> ::windows::core::Result<()>
+    pub unsafe fn ConvertStringToUnicodeEx<'a, P0, P1>(&self, pdwmode: ::core::option::Option<&mut u32>, dwencoding: u32, psrcstr: P0, pcsrcsize: ::core::option::Option<&mut u32>, pdststr: ::windows::core::PWSTR, pcdstsize: ::core::option::Option<&mut u32>, dwflag: u32, lpfallback: P1) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCSTR>,
         P1: ::std::convert::Into<::windows::core::PCWSTR>,
     {
         (::windows::core::Interface::vtable(self).base__.ConvertStringToUnicodeEx)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pdwmode), dwencoding, psrcstr.into(), ::core::mem::transmute(pcsrcsize), ::core::mem::transmute(pdststr), ::core::mem::transmute(pcdstsize), dwflag, lpfallback.into()).ok()
     }
-    pub unsafe fn ConvertStringFromUnicodeEx<'a, P0>(&self, pdwmode: *mut u32, dwencoding: u32, psrcstr: ::windows::core::PCWSTR, pcsrcsize: *mut u32, pdststr: ::windows::core::PSTR, pcdstsize: *mut u32, dwflag: u32, lpfallback: P0) -> ::windows::core::Result<()>
+    pub unsafe fn ConvertStringFromUnicodeEx<'a, P0>(&self, pdwmode: ::core::option::Option<&mut u32>, dwencoding: u32, psrcstr: ::windows::core::PCWSTR, pcsrcsize: ::core::option::Option<&mut u32>, pdststr: ::windows::core::PSTR, pcdstsize: ::core::option::Option<&mut u32>, dwflag: u32, lpfallback: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
@@ -4079,13 +4079,13 @@ impl IMultiLanguage3 {
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn DetectCodepageInIStream<'a, P0>(&self, dwflag: u32, dwprefwincodepage: u32, pstmin: P0, lpencoding: *mut DetectEncodingInfo, pnscores: *mut i32) -> ::windows::core::Result<()>
+    pub unsafe fn DetectCodepageInIStream<'a, P0>(&self, dwflag: u32, dwprefwincodepage: u32, pstmin: P0, lpencoding: &mut DetectEncodingInfo, pnscores: &mut i32) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::System::Com::IStream>>,
     {
         (::windows::core::Interface::vtable(self).base__.DetectCodepageInIStream)(::windows::core::Interface::as_raw(self), dwflag, dwprefwincodepage, pstmin.into().abi(), ::core::mem::transmute(lpencoding), ::core::mem::transmute(pnscores)).ok()
     }
-    pub unsafe fn DetectInputCodepage<'a, P0>(&self, dwflag: u32, dwprefwincodepage: u32, psrcstr: P0, pcsrcsize: *mut i32, lpencoding: *mut DetectEncodingInfo, pnscores: *mut i32) -> ::windows::core::Result<()>
+    pub unsafe fn DetectInputCodepage<'a, P0>(&self, dwflag: u32, dwprefwincodepage: u32, psrcstr: P0, pcsrcsize: &mut i32, lpencoding: &mut DetectEncodingInfo, pnscores: &mut i32) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCSTR>,
     {
@@ -4124,7 +4124,7 @@ impl IMultiLanguage3 {
     {
         (::windows::core::Interface::vtable(self).base__.ValidateCodePageEx)(::windows::core::Interface::as_raw(self), uicodepage, hwnd.into(), dwfiodcontrol).ok()
     }
-    pub unsafe fn DetectOutboundCodePage<'a, P0>(&self, dwflags: u32, lpwidecharstr: &[u16], puipreferredcodepages: &[u32], puidetectedcodepages: *mut u32, pndetectedcodepages: *mut u32, lpspecialchar: P0) -> ::windows::core::Result<()>
+    pub unsafe fn DetectOutboundCodePage<'a, P0>(&self, dwflags: u32, lpwidecharstr: &[u16], puipreferredcodepages: &[u32], puidetectedcodepages: &mut u32, pndetectedcodepages: &mut u32, lpspecialchar: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
@@ -4132,7 +4132,7 @@ impl IMultiLanguage3 {
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn DetectOutboundCodePageInIStream<'a, P0, P1>(&self, dwflags: u32, pstrin: P0, puipreferredcodepages: &[u32], puidetectedcodepages: *mut u32, pndetectedcodepages: *mut u32, lpspecialchar: P1) -> ::windows::core::Result<()>
+    pub unsafe fn DetectOutboundCodePageInIStream<'a, P0, P1>(&self, dwflags: u32, pstrin: P0, puipreferredcodepages: &[u32], puidetectedcodepages: &mut u32, pndetectedcodepages: &mut u32, lpspecialchar: P1) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::System::Com::IStream>>,
         P1: ::std::convert::Into<::windows::core::PCWSTR>,
@@ -5184,7 +5184,7 @@ pub unsafe fn IsDBCSLeadByteEx(codepage: u32, testchar: u8) -> super::Foundation
 #[doc = "*Required features: `\"Win32_Globalization\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn IsNLSDefinedString(function: u32, dwflags: u32, lpversioninformation: *const NLSVERSIONINFO, lpstring: &[u16]) -> super::Foundation::BOOL {
+pub unsafe fn IsNLSDefinedString(function: u32, dwflags: u32, lpversioninformation: &NLSVERSIONINFO, lpstring: &[u16]) -> super::Foundation::BOOL {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn IsNLSDefinedString(function: u32, dwflags: u32, lpversioninformation: *const NLSVERSIONINFO, lpstring: ::windows::core::PCWSTR, cchstr: i32) -> super::Foundation::BOOL;
@@ -5204,7 +5204,7 @@ pub unsafe fn IsNormalizedString(normform: NORM_FORM, lpstring: &[u16]) -> super
 #[doc = "*Required features: `\"Win32_Globalization\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn IsTextUnicode(lpv: *const ::core::ffi::c_void, isize: i32, lpiresult: *mut IS_TEXT_UNICODE_RESULT) -> super::Foundation::BOOL {
+pub unsafe fn IsTextUnicode(lpv: *const ::core::ffi::c_void, isize: i32, lpiresult: ::core::option::Option<&mut IS_TEXT_UNICODE_RESULT>) -> super::Foundation::BOOL {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn IsTextUnicode(lpv: *const ::core::ffi::c_void, isize: i32, lpiresult: *mut IS_TEXT_UNICODE_RESULT) -> super::Foundation::BOOL;
@@ -5256,7 +5256,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn IsValidNLSVersion<'a, P0>(function: u32, lplocalename: P0, lpversioninformation: *const NLSVERSIONINFOEX) -> u32
+pub unsafe fn IsValidNLSVersion<'a, P0>(function: u32, lplocalename: P0, lpversioninformation: &NLSVERSIONINFOEX) -> u32
 where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
 {
@@ -5341,7 +5341,7 @@ pub unsafe fn LCMapStringA(locale: u32, dwmapflags: u32, lpsrcstr: &[u8], lpdest
 #[doc = "*Required features: `\"Win32_Globalization\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn LCMapStringEx<'a, P0, P1>(lplocalename: P0, dwmapflags: u32, lpsrcstr: &[u16], lpdeststr: &mut [u16], lpversioninformation: *const NLSVERSIONINFO, lpreserved: *const ::core::ffi::c_void, sorthandle: P1) -> i32
+pub unsafe fn LCMapStringEx<'a, P0, P1>(lplocalename: P0, dwmapflags: u32, lpsrcstr: &[u16], lpdeststr: &mut [u16], lpversioninformation: ::core::option::Option<&NLSVERSIONINFO>, lpreserved: *const ::core::ffi::c_void, sorthandle: P1) -> i32
 where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
     P1: ::std::convert::Into<super::Foundation::LPARAM>,
@@ -6417,7 +6417,7 @@ impl ::core::ops::Not for MULTI_BYTE_TO_WIDE_CHAR_FLAGS {
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn MappingDoAction<'a, P0>(pbag: *mut MAPPING_PROPERTY_BAG, dwrangeindex: u32, pszactionid: P0) -> ::windows::core::Result<()>
+pub unsafe fn MappingDoAction<'a, P0>(pbag: &mut MAPPING_PROPERTY_BAG, dwrangeindex: u32, pszactionid: P0) -> ::windows::core::Result<()>
 where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
 {
@@ -6429,7 +6429,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn MappingFreePropertyBag(pbag: *const MAPPING_PROPERTY_BAG) -> ::windows::core::Result<()> {
+pub unsafe fn MappingFreePropertyBag(pbag: &MAPPING_PROPERTY_BAG) -> ::windows::core::Result<()> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn MappingFreePropertyBag(pbag: *const MAPPING_PROPERTY_BAG) -> ::windows::core::HRESULT;
@@ -6438,7 +6438,7 @@ pub unsafe fn MappingFreePropertyBag(pbag: *const MAPPING_PROPERTY_BAG) -> ::win
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn MappingFreeServices(pserviceinfo: *const MAPPING_SERVICE_INFO) -> ::windows::core::Result<()> {
+pub unsafe fn MappingFreeServices(pserviceinfo: &MAPPING_SERVICE_INFO) -> ::windows::core::Result<()> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn MappingFreeServices(pserviceinfo: *const MAPPING_SERVICE_INFO) -> ::windows::core::HRESULT;
@@ -6447,7 +6447,7 @@ pub unsafe fn MappingFreeServices(pserviceinfo: *const MAPPING_SERVICE_INFO) -> 
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn MappingGetServices(poptions: *const MAPPING_ENUM_OPTIONS, prgservices: *mut *mut MAPPING_SERVICE_INFO, pdwservicescount: *mut u32) -> ::windows::core::Result<()> {
+pub unsafe fn MappingGetServices(poptions: ::core::option::Option<&MAPPING_ENUM_OPTIONS>, prgservices: &mut *mut MAPPING_SERVICE_INFO, pdwservicescount: &mut u32) -> ::windows::core::Result<()> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn MappingGetServices(poptions: *const MAPPING_ENUM_OPTIONS, prgservices: *mut *mut MAPPING_SERVICE_INFO, pdwservicescount: *mut u32) -> ::windows::core::HRESULT;
@@ -6456,7 +6456,7 @@ pub unsafe fn MappingGetServices(poptions: *const MAPPING_ENUM_OPTIONS, prgservi
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn MappingRecognizeText(pserviceinfo: *const MAPPING_SERVICE_INFO, psztext: &[u16], dwindex: u32, poptions: *const MAPPING_OPTIONS, pbag: *mut MAPPING_PROPERTY_BAG) -> ::windows::core::Result<()> {
+pub unsafe fn MappingRecognizeText(pserviceinfo: &MAPPING_SERVICE_INFO, psztext: &[u16], dwindex: u32, poptions: ::core::option::Option<&MAPPING_OPTIONS>, pbag: &mut MAPPING_PROPERTY_BAG) -> ::windows::core::Result<()> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn MappingRecognizeText(pserviceinfo: *const MAPPING_SERVICE_INFO, psztext: ::windows::core::PCWSTR, dwlength: u32, dwindex: u32, poptions: *const MAPPING_OPTIONS, pbag: *mut MAPPING_PROPERTY_BAG) -> ::windows::core::HRESULT;
@@ -6741,7 +6741,7 @@ pub unsafe fn NormalizeString(normform: NORM_FORM, lpsrcstring: &[u16], lpdststr
 #[doc = "*Required features: `\"Win32_Globalization\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn NotifyUILanguageChange<'a, P0, P1>(dwflags: u32, pcwstrnewlanguage: P0, pcwstrpreviouslanguage: P1, dwreserved: u32, pdwstatusrtrn: *mut u32) -> super::Foundation::BOOL
+pub unsafe fn NotifyUILanguageChange<'a, P0, P1>(dwflags: u32, pcwstrnewlanguage: P0, pcwstrpreviouslanguage: P1, dwreserved: u32, pdwstatusrtrn: ::core::option::Option<&mut u32>) -> super::Foundation::BOOL
 where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
     P1: ::std::convert::Into<::windows::core::PCWSTR>,
@@ -7564,7 +7564,7 @@ impl ::core::fmt::Debug for SYSNLS_FUNCTION {
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn ScriptApplyDigitSubstitution(psds: *const SCRIPT_DIGITSUBSTITUTE, psc: *mut SCRIPT_CONTROL, pss: *mut SCRIPT_STATE) -> ::windows::core::Result<()> {
+pub unsafe fn ScriptApplyDigitSubstitution(psds: &SCRIPT_DIGITSUBSTITUTE, psc: &mut SCRIPT_CONTROL, pss: &mut SCRIPT_STATE) -> ::windows::core::Result<()> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn ScriptApplyDigitSubstitution(psds: *const SCRIPT_DIGITSUBSTITUTE, psc: *mut SCRIPT_CONTROL, pss: *mut SCRIPT_STATE) -> ::windows::core::HRESULT;
@@ -7574,7 +7574,7 @@ pub unsafe fn ScriptApplyDigitSubstitution(psds: *const SCRIPT_DIGITSUBSTITUTE, 
 #[doc = "*Required features: `\"Win32_Globalization\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
-pub unsafe fn ScriptApplyLogicalWidth(pidx: *const i32, cchars: i32, cglyphs: i32, pwlogclust: *const u16, psva: *const SCRIPT_VISATTR, piadvance: *const i32, psa: *const SCRIPT_ANALYSIS, pabc: *mut super::Graphics::Gdi::ABC, pijustify: *mut i32) -> ::windows::core::Result<()> {
+pub unsafe fn ScriptApplyLogicalWidth(pidx: &i32, cchars: i32, cglyphs: i32, pwlogclust: &u16, psva: &SCRIPT_VISATTR, piadvance: &i32, psa: &SCRIPT_ANALYSIS, pabc: ::core::option::Option<&mut super::Graphics::Gdi::ABC>, pijustify: &mut i32) -> ::windows::core::Result<()> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn ScriptApplyLogicalWidth(pidx: *const i32, cchars: i32, cglyphs: i32, pwlogclust: *const u16, psva: *const SCRIPT_VISATTR, piadvance: *const i32, psa: *const SCRIPT_ANALYSIS, pabc: *mut super::Graphics::Gdi::ABC, pijustify: *mut i32) -> ::windows::core::HRESULT;
@@ -7583,7 +7583,7 @@ pub unsafe fn ScriptApplyLogicalWidth(pidx: *const i32, cchars: i32, cglyphs: i3
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn ScriptBreak(pwcchars: &[u16], psa: *const SCRIPT_ANALYSIS) -> ::windows::core::Result<SCRIPT_LOGATTR> {
+pub unsafe fn ScriptBreak(pwcchars: &[u16], psa: &SCRIPT_ANALYSIS) -> ::windows::core::Result<SCRIPT_LOGATTR> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn ScriptBreak(pwcchars: ::windows::core::PCWSTR, cchars: i32, psa: *const SCRIPT_ANALYSIS, psla: *mut SCRIPT_LOGATTR) -> ::windows::core::HRESULT;
@@ -7594,7 +7594,7 @@ pub unsafe fn ScriptBreak(pwcchars: &[u16], psa: *const SCRIPT_ANALYSIS) -> ::wi
 #[doc = "*Required features: `\"Win32_Globalization\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn ScriptCPtoX<'a, P0>(icp: i32, ftrailing: P0, cglyphs: i32, pwlogclust: &[u16], psva: *const SCRIPT_VISATTR, piadvance: *const i32, psa: *const SCRIPT_ANALYSIS, pix: *mut i32) -> ::windows::core::Result<()>
+pub unsafe fn ScriptCPtoX<'a, P0>(icp: i32, ftrailing: P0, cglyphs: i32, pwlogclust: &[u16], psva: &SCRIPT_VISATTR, piadvance: &i32, psa: &SCRIPT_ANALYSIS, pix: &mut i32) -> ::windows::core::Result<()>
 where
     P0: ::std::convert::Into<super::Foundation::BOOL>,
 {
@@ -7607,7 +7607,7 @@ where
 #[doc = "*Required features: `\"Win32_Globalization\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
-pub unsafe fn ScriptCacheGetHeight<'a, P0>(hdc: P0, psc: *mut *mut ::core::ffi::c_void, tmheight: *mut i32) -> ::windows::core::Result<()>
+pub unsafe fn ScriptCacheGetHeight<'a, P0>(hdc: P0, psc: *mut *mut ::core::ffi::c_void, tmheight: &mut i32) -> ::windows::core::Result<()>
 where
     P0: ::std::convert::Into<super::Graphics::Gdi::HDC>,
 {
@@ -7629,7 +7629,7 @@ pub unsafe fn ScriptFreeCache(psc: *mut *mut ::core::ffi::c_void) -> ::windows::
 #[doc = "*Required features: `\"Win32_Globalization\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
-pub unsafe fn ScriptGetCMap<'a, P0>(hdc: P0, psc: *mut *mut ::core::ffi::c_void, pwcinchars: ::windows::core::PCWSTR, cchars: i32, dwflags: u32, pwoutglyphs: *mut u16) -> ::windows::core::Result<()>
+pub unsafe fn ScriptGetCMap<'a, P0>(hdc: P0, psc: *mut *mut ::core::ffi::c_void, pwcinchars: ::windows::core::PCWSTR, cchars: i32, dwflags: u32, pwoutglyphs: &mut u16) -> ::windows::core::Result<()>
 where
     P0: ::std::convert::Into<super::Graphics::Gdi::HDC>,
 {
@@ -7642,7 +7642,7 @@ where
 #[doc = "*Required features: `\"Win32_Globalization\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
-pub unsafe fn ScriptGetFontAlternateGlyphs<'a, P0>(hdc: P0, psc: *mut *mut ::core::ffi::c_void, psa: *const SCRIPT_ANALYSIS, tagscript: u32, taglangsys: u32, tagfeature: u32, wglyphid: u16, palternateglyphs: &mut [u16], pcalternates: *mut i32) -> ::windows::core::Result<()>
+pub unsafe fn ScriptGetFontAlternateGlyphs<'a, P0>(hdc: P0, psc: *mut *mut ::core::ffi::c_void, psa: ::core::option::Option<&SCRIPT_ANALYSIS>, tagscript: u32, taglangsys: u32, tagfeature: u32, wglyphid: u16, palternateglyphs: &mut [u16], pcalternates: &mut i32) -> ::windows::core::Result<()>
 where
     P0: ::std::convert::Into<super::Graphics::Gdi::HDC>,
 {
@@ -7655,7 +7655,7 @@ where
 #[doc = "*Required features: `\"Win32_Globalization\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
-pub unsafe fn ScriptGetFontFeatureTags<'a, P0>(hdc: P0, psc: *mut *mut ::core::ffi::c_void, psa: *const SCRIPT_ANALYSIS, tagscript: u32, taglangsys: u32, pfeaturetags: &mut [u32], pctags: *mut i32) -> ::windows::core::Result<()>
+pub unsafe fn ScriptGetFontFeatureTags<'a, P0>(hdc: P0, psc: *mut *mut ::core::ffi::c_void, psa: ::core::option::Option<&SCRIPT_ANALYSIS>, tagscript: u32, taglangsys: u32, pfeaturetags: &mut [u32], pctags: &mut i32) -> ::windows::core::Result<()>
 where
     P0: ::std::convert::Into<super::Graphics::Gdi::HDC>,
 {
@@ -7668,7 +7668,7 @@ where
 #[doc = "*Required features: `\"Win32_Globalization\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
-pub unsafe fn ScriptGetFontLanguageTags<'a, P0>(hdc: P0, psc: *mut *mut ::core::ffi::c_void, psa: *const SCRIPT_ANALYSIS, tagscript: u32, plangsystags: &mut [u32], pctags: *mut i32) -> ::windows::core::Result<()>
+pub unsafe fn ScriptGetFontLanguageTags<'a, P0>(hdc: P0, psc: *mut *mut ::core::ffi::c_void, psa: ::core::option::Option<&SCRIPT_ANALYSIS>, tagscript: u32, plangsystags: &mut [u32], pctags: &mut i32) -> ::windows::core::Result<()>
 where
     P0: ::std::convert::Into<super::Graphics::Gdi::HDC>,
 {
@@ -7681,7 +7681,7 @@ where
 #[doc = "*Required features: `\"Win32_Globalization\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
-pub unsafe fn ScriptGetFontProperties<'a, P0>(hdc: P0, psc: *mut *mut ::core::ffi::c_void, sfp: *mut SCRIPT_FONTPROPERTIES) -> ::windows::core::Result<()>
+pub unsafe fn ScriptGetFontProperties<'a, P0>(hdc: P0, psc: *mut *mut ::core::ffi::c_void, sfp: &mut SCRIPT_FONTPROPERTIES) -> ::windows::core::Result<()>
 where
     P0: ::std::convert::Into<super::Graphics::Gdi::HDC>,
 {
@@ -7694,7 +7694,7 @@ where
 #[doc = "*Required features: `\"Win32_Globalization\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
-pub unsafe fn ScriptGetFontScriptTags<'a, P0>(hdc: P0, psc: *mut *mut ::core::ffi::c_void, psa: *const SCRIPT_ANALYSIS, pscripttags: &mut [u32], pctags: *mut i32) -> ::windows::core::Result<()>
+pub unsafe fn ScriptGetFontScriptTags<'a, P0>(hdc: P0, psc: *mut *mut ::core::ffi::c_void, psa: ::core::option::Option<&SCRIPT_ANALYSIS>, pscripttags: &mut [u32], pctags: &mut i32) -> ::windows::core::Result<()>
 where
     P0: ::std::convert::Into<super::Graphics::Gdi::HDC>,
 {
@@ -7707,7 +7707,7 @@ where
 #[doc = "*Required features: `\"Win32_Globalization\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
-pub unsafe fn ScriptGetGlyphABCWidth<'a, P0>(hdc: P0, psc: *mut *mut ::core::ffi::c_void, wglyph: u16, pabc: *mut super::Graphics::Gdi::ABC) -> ::windows::core::Result<()>
+pub unsafe fn ScriptGetGlyphABCWidth<'a, P0>(hdc: P0, psc: *mut *mut ::core::ffi::c_void, wglyph: u16, pabc: &mut super::Graphics::Gdi::ABC) -> ::windows::core::Result<()>
 where
     P0: ::std::convert::Into<super::Graphics::Gdi::HDC>,
 {
@@ -7719,7 +7719,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn ScriptGetLogicalWidths(psa: *const SCRIPT_ANALYSIS, cchars: i32, cglyphs: i32, piglyphwidth: *const i32, pwlogclust: *const u16, psva: *const SCRIPT_VISATTR, pidx: *const i32) -> ::windows::core::Result<()> {
+pub unsafe fn ScriptGetLogicalWidths(psa: &SCRIPT_ANALYSIS, cchars: i32, cglyphs: i32, piglyphwidth: &i32, pwlogclust: &u16, psva: &SCRIPT_VISATTR, pidx: &i32) -> ::windows::core::Result<()> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn ScriptGetLogicalWidths(psa: *const SCRIPT_ANALYSIS, cchars: i32, cglyphs: i32, piglyphwidth: *const i32, pwlogclust: *const u16, psva: *const SCRIPT_VISATTR, pidx: *const i32) -> ::windows::core::HRESULT;
@@ -7728,7 +7728,7 @@ pub unsafe fn ScriptGetLogicalWidths(psa: *const SCRIPT_ANALYSIS, cchars: i32, c
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn ScriptGetProperties(ppsp: *mut *mut *mut SCRIPT_PROPERTIES, pinumscripts: *mut i32) -> ::windows::core::Result<()> {
+pub unsafe fn ScriptGetProperties(ppsp: &mut *mut *mut SCRIPT_PROPERTIES, pinumscripts: &mut i32) -> ::windows::core::Result<()> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn ScriptGetProperties(ppsp: *mut *mut *mut SCRIPT_PROPERTIES, pinumscripts: *mut i32) -> ::windows::core::HRESULT;
@@ -7746,7 +7746,7 @@ pub unsafe fn ScriptIsComplex(pwcinchars: &[u16], dwflags: SCRIPT_IS_COMPLEX_FLA
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn ScriptItemize(pwcinchars: &[u16], pscontrol: *const SCRIPT_CONTROL, psstate: *const SCRIPT_STATE, pitems: &mut [SCRIPT_ITEM], pcitems: *mut i32) -> ::windows::core::Result<()> {
+pub unsafe fn ScriptItemize(pwcinchars: &[u16], pscontrol: ::core::option::Option<&SCRIPT_CONTROL>, psstate: ::core::option::Option<&SCRIPT_STATE>, pitems: &mut [SCRIPT_ITEM], pcitems: &mut i32) -> ::windows::core::Result<()> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn ScriptItemize(pwcinchars: ::windows::core::PCWSTR, cinchars: i32, cmaxitems: i32, pscontrol: *const SCRIPT_CONTROL, psstate: *const SCRIPT_STATE, pitems: *mut SCRIPT_ITEM, pcitems: *mut i32) -> ::windows::core::HRESULT;
@@ -7755,7 +7755,7 @@ pub unsafe fn ScriptItemize(pwcinchars: &[u16], pscontrol: *const SCRIPT_CONTROL
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn ScriptItemizeOpenType(pwcinchars: &[u16], cmaxitems: i32, pscontrol: *const SCRIPT_CONTROL, psstate: *const SCRIPT_STATE, pitems: *mut SCRIPT_ITEM, pscripttags: *mut u32, pcitems: *mut i32) -> ::windows::core::Result<()> {
+pub unsafe fn ScriptItemizeOpenType(pwcinchars: &[u16], cmaxitems: i32, pscontrol: ::core::option::Option<&SCRIPT_CONTROL>, psstate: ::core::option::Option<&SCRIPT_STATE>, pitems: &mut SCRIPT_ITEM, pscripttags: &mut u32, pcitems: &mut i32) -> ::windows::core::Result<()> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn ScriptItemizeOpenType(pwcinchars: ::windows::core::PCWSTR, cinchars: i32, cmaxitems: i32, pscontrol: *const SCRIPT_CONTROL, psstate: *const SCRIPT_STATE, pitems: *mut SCRIPT_ITEM, pscripttags: *mut u32, pcitems: *mut i32) -> ::windows::core::HRESULT;
@@ -7764,7 +7764,7 @@ pub unsafe fn ScriptItemizeOpenType(pwcinchars: &[u16], cmaxitems: i32, pscontro
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn ScriptJustify(psva: *const SCRIPT_VISATTR, piadvance: *const i32, cglyphs: i32, idx: i32, iminkashida: i32) -> ::windows::core::Result<i32> {
+pub unsafe fn ScriptJustify(psva: &SCRIPT_VISATTR, piadvance: &i32, cglyphs: i32, idx: i32, iminkashida: i32) -> ::windows::core::Result<i32> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn ScriptJustify(psva: *const SCRIPT_VISATTR, piadvance: *const i32, cglyphs: i32, idx: i32, iminkashida: i32, pijustify: *mut i32) -> ::windows::core::HRESULT;
@@ -7774,7 +7774,7 @@ pub unsafe fn ScriptJustify(psva: *const SCRIPT_VISATTR, piadvance: *const i32, 
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn ScriptLayout(pblevel: &[u8], pivisualtological: *mut i32, pilogicaltovisual: *mut i32) -> ::windows::core::Result<()> {
+pub unsafe fn ScriptLayout(pblevel: &[u8], pivisualtological: ::core::option::Option<&mut i32>, pilogicaltovisual: ::core::option::Option<&mut i32>) -> ::windows::core::Result<()> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn ScriptLayout(cruns: i32, pblevel: *const u8, pivisualtological: *mut i32, pilogicaltovisual: *mut i32) -> ::windows::core::HRESULT;
@@ -7784,7 +7784,7 @@ pub unsafe fn ScriptLayout(pblevel: &[u8], pivisualtological: *mut i32, pilogica
 #[doc = "*Required features: `\"Win32_Globalization\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
-pub unsafe fn ScriptPlace<'a, P0>(hdc: P0, psc: *mut *mut ::core::ffi::c_void, pwglyphs: *const u16, cglyphs: i32, psva: *const SCRIPT_VISATTR, psa: *mut SCRIPT_ANALYSIS, piadvance: *mut i32, pgoffset: *mut GOFFSET, pabc: *mut super::Graphics::Gdi::ABC) -> ::windows::core::Result<()>
+pub unsafe fn ScriptPlace<'a, P0>(hdc: P0, psc: *mut *mut ::core::ffi::c_void, pwglyphs: &u16, cglyphs: i32, psva: &SCRIPT_VISATTR, psa: &mut SCRIPT_ANALYSIS, piadvance: &mut i32, pgoffset: ::core::option::Option<&mut GOFFSET>, pabc: &mut super::Graphics::Gdi::ABC) -> ::windows::core::Result<()>
 where
     P0: ::std::convert::Into<super::Graphics::Gdi::HDC>,
 {
@@ -7797,7 +7797,7 @@ where
 #[doc = "*Required features: `\"Win32_Globalization\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
-pub unsafe fn ScriptPlaceOpenType<'a, P0>(hdc: P0, psc: *mut *mut ::core::ffi::c_void, psa: *mut SCRIPT_ANALYSIS, tagscript: u32, taglangsys: u32, rcrangechars: *const i32, rprangeproperties: *const *const textrange_properties, cranges: i32, pwcchars: ::windows::core::PCWSTR, pwlogclust: *const u16, pcharprops: *const script_charprop, cchars: i32, pwglyphs: *const u16, pglyphprops: *const script_glyphprop, cglyphs: i32, piadvance: *mut i32, pgoffset: *mut GOFFSET, pabc: *mut super::Graphics::Gdi::ABC) -> ::windows::core::Result<()>
+pub unsafe fn ScriptPlaceOpenType<'a, P0>(hdc: P0, psc: *mut *mut ::core::ffi::c_void, psa: &mut SCRIPT_ANALYSIS, tagscript: u32, taglangsys: u32, rcrangechars: ::core::option::Option<&i32>, rprangeproperties: ::core::option::Option<&*const textrange_properties>, cranges: i32, pwcchars: ::windows::core::PCWSTR, pwlogclust: &u16, pcharprops: &script_charprop, cchars: i32, pwglyphs: &u16, pglyphprops: &script_glyphprop, cglyphs: i32, piadvance: &mut i32, pgoffset: &mut GOFFSET, pabc: ::core::option::Option<&mut super::Graphics::Gdi::ABC>) -> ::windows::core::Result<()>
 where
     P0: ::std::convert::Into<super::Graphics::Gdi::HDC>,
 {
@@ -7830,7 +7830,7 @@ where
 #[doc = "*Required features: `\"Win32_Globalization\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
-pub unsafe fn ScriptPositionSingleGlyph<'a, P0>(hdc: P0, psc: *mut *mut ::core::ffi::c_void, psa: *const SCRIPT_ANALYSIS, tagscript: u32, taglangsys: u32, tagfeature: u32, lparameter: i32, wglyphid: u16, iadvance: i32, goffset: GOFFSET, pioutadvance: *mut i32, poutgoffset: *mut GOFFSET) -> ::windows::core::Result<()>
+pub unsafe fn ScriptPositionSingleGlyph<'a, P0>(hdc: P0, psc: *mut *mut ::core::ffi::c_void, psa: ::core::option::Option<&SCRIPT_ANALYSIS>, tagscript: u32, taglangsys: u32, tagfeature: u32, lparameter: i32, wglyphid: u16, iadvance: i32, goffset: GOFFSET, pioutadvance: &mut i32, poutgoffset: &mut GOFFSET) -> ::windows::core::Result<()>
 where
     P0: ::std::convert::Into<super::Graphics::Gdi::HDC>,
 {
@@ -7853,7 +7853,7 @@ pub unsafe fn ScriptRecordDigitSubstitution(locale: u32) -> ::windows::core::Res
 #[doc = "*Required features: `\"Win32_Globalization\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
-pub unsafe fn ScriptShape<'a, P0>(hdc: P0, psc: *mut *mut ::core::ffi::c_void, pwcchars: &[u16], cmaxglyphs: i32, psa: *mut SCRIPT_ANALYSIS, pwoutglyphs: *mut u16, pwlogclust: *mut u16, psva: *mut SCRIPT_VISATTR, pcglyphs: *mut i32) -> ::windows::core::Result<()>
+pub unsafe fn ScriptShape<'a, P0>(hdc: P0, psc: *mut *mut ::core::ffi::c_void, pwcchars: &[u16], cmaxglyphs: i32, psa: &mut SCRIPT_ANALYSIS, pwoutglyphs: &mut u16, pwlogclust: &mut u16, psva: &mut SCRIPT_VISATTR, pcglyphs: &mut i32) -> ::windows::core::Result<()>
 where
     P0: ::std::convert::Into<super::Graphics::Gdi::HDC>,
 {
@@ -7866,7 +7866,7 @@ where
 #[doc = "*Required features: `\"Win32_Globalization\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
-pub unsafe fn ScriptShapeOpenType<'a, P0>(hdc: P0, psc: *mut *mut ::core::ffi::c_void, psa: *mut SCRIPT_ANALYSIS, tagscript: u32, taglangsys: u32, rcrangechars: *const i32, rprangeproperties: *const *const textrange_properties, cranges: i32, pwcchars: &[u16], cmaxglyphs: i32, pwlogclust: *mut u16, pcharprops: *mut script_charprop, pwoutglyphs: *mut u16, poutglyphprops: *mut script_glyphprop, pcglyphs: *mut i32) -> ::windows::core::Result<()>
+pub unsafe fn ScriptShapeOpenType<'a, P0>(hdc: P0, psc: *mut *mut ::core::ffi::c_void, psa: &mut SCRIPT_ANALYSIS, tagscript: u32, taglangsys: u32, rcrangechars: ::core::option::Option<&i32>, rprangeproperties: ::core::option::Option<&*const textrange_properties>, cranges: i32, pwcchars: &[u16], cmaxglyphs: i32, pwlogclust: &mut u16, pcharprops: &mut script_charprop, pwoutglyphs: &mut u16, poutglyphprops: &mut script_glyphprop, pcglyphs: &mut i32) -> ::windows::core::Result<()>
 where
     P0: ::std::convert::Into<super::Graphics::Gdi::HDC>,
 {
@@ -7897,7 +7897,7 @@ where
 #[doc = "*Required features: `\"Win32_Globalization\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
-pub unsafe fn ScriptStringAnalyse<'a, P0>(hdc: P0, pstring: *const ::core::ffi::c_void, cglyphs: i32, icharset: i32, dwflags: u32, ireqwidth: i32, pscontrol: *const SCRIPT_CONTROL, psstate: *const SCRIPT_STATE, pidx: &[i32], ptabdef: *const SCRIPT_TABDEF, pbinclass: *const u8, pssa: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>
+pub unsafe fn ScriptStringAnalyse<'a, P0>(hdc: P0, pstring: *const ::core::ffi::c_void, cglyphs: i32, icharset: i32, dwflags: u32, ireqwidth: i32, pscontrol: ::core::option::Option<&SCRIPT_CONTROL>, psstate: ::core::option::Option<&SCRIPT_STATE>, pidx: &[i32], ptabdef: ::core::option::Option<&SCRIPT_TABDEF>, pbinclass: &u8, pssa: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>
 where
     P0: ::std::convert::Into<super::Graphics::Gdi::HDC>,
 {
@@ -7932,7 +7932,7 @@ pub unsafe fn ScriptStringFree(pssa: *mut *mut ::core::ffi::c_void) -> ::windows
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn ScriptStringGetLogicalWidths(ssa: *const ::core::ffi::c_void, pidx: *mut i32) -> ::windows::core::Result<()> {
+pub unsafe fn ScriptStringGetLogicalWidths(ssa: *const ::core::ffi::c_void, pidx: &mut i32) -> ::windows::core::Result<()> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn ScriptStringGetLogicalWidths(ssa: *const ::core::ffi::c_void, pidx: *mut i32) -> ::windows::core::HRESULT;
@@ -7941,7 +7941,7 @@ pub unsafe fn ScriptStringGetLogicalWidths(ssa: *const ::core::ffi::c_void, pidx
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn ScriptStringGetOrder(ssa: *const ::core::ffi::c_void, puorder: *mut u32) -> ::windows::core::Result<()> {
+pub unsafe fn ScriptStringGetOrder(ssa: *const ::core::ffi::c_void, puorder: &mut u32) -> ::windows::core::Result<()> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn ScriptStringGetOrder(ssa: *const ::core::ffi::c_void, puorder: *mut u32) -> ::windows::core::HRESULT;
@@ -7951,7 +7951,7 @@ pub unsafe fn ScriptStringGetOrder(ssa: *const ::core::ffi::c_void, puorder: *mu
 #[doc = "*Required features: `\"Win32_Globalization\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 #[inline]
-pub unsafe fn ScriptStringOut<'a, P0>(ssa: *const ::core::ffi::c_void, ix: i32, iy: i32, uoptions: super::Graphics::Gdi::ETO_OPTIONS, prc: *const super::Foundation::RECT, iminsel: i32, imaxsel: i32, fdisabled: P0) -> ::windows::core::Result<()>
+pub unsafe fn ScriptStringOut<'a, P0>(ssa: *const ::core::ffi::c_void, ix: i32, iy: i32, uoptions: super::Graphics::Gdi::ETO_OPTIONS, prc: ::core::option::Option<&super::Foundation::RECT>, iminsel: i32, imaxsel: i32, fdisabled: P0) -> ::windows::core::Result<()>
 where
     P0: ::std::convert::Into<super::Foundation::BOOL>,
 {
@@ -7972,7 +7972,7 @@ pub unsafe fn ScriptStringValidate(ssa: *const ::core::ffi::c_void) -> ::windows
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn ScriptStringXtoCP(ssa: *const ::core::ffi::c_void, ix: i32, pich: *mut i32, pitrailing: *mut i32) -> ::windows::core::Result<()> {
+pub unsafe fn ScriptStringXtoCP(ssa: *const ::core::ffi::c_void, ix: i32, pich: &mut i32, pitrailing: &mut i32) -> ::windows::core::Result<()> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn ScriptStringXtoCP(ssa: *const ::core::ffi::c_void, ix: i32, pich: *mut i32, pitrailing: *mut i32) -> ::windows::core::HRESULT;
@@ -8010,7 +8010,7 @@ pub unsafe fn ScriptString_pcOutChars(ssa: *const ::core::ffi::c_void) -> *mut i
 #[doc = "*Required features: `\"Win32_Globalization\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
-pub unsafe fn ScriptSubstituteSingleGlyph<'a, P0>(hdc: P0, psc: *mut *mut ::core::ffi::c_void, psa: *const SCRIPT_ANALYSIS, tagscript: u32, taglangsys: u32, tagfeature: u32, lparameter: i32, wglyphid: u16, pwoutglyphid: *mut u16) -> ::windows::core::Result<()>
+pub unsafe fn ScriptSubstituteSingleGlyph<'a, P0>(hdc: P0, psc: *mut *mut ::core::ffi::c_void, psa: ::core::option::Option<&SCRIPT_ANALYSIS>, tagscript: u32, taglangsys: u32, tagfeature: u32, lparameter: i32, wglyphid: u16, pwoutglyphid: &mut u16) -> ::windows::core::Result<()>
 where
     P0: ::std::convert::Into<super::Graphics::Gdi::HDC>,
 {
@@ -8023,7 +8023,7 @@ where
 #[doc = "*Required features: `\"Win32_Globalization\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 #[inline]
-pub unsafe fn ScriptTextOut<'a, P0, P1>(hdc: P0, psc: *mut *mut ::core::ffi::c_void, x: i32, y: i32, fuoptions: u32, lprc: *const super::Foundation::RECT, psa: *const SCRIPT_ANALYSIS, pwcreserved: P1, ireserved: i32, pwglyphs: *const u16, cglyphs: i32, piadvance: *const i32, pijustify: *const i32, pgoffset: *const GOFFSET) -> ::windows::core::Result<()>
+pub unsafe fn ScriptTextOut<'a, P0, P1>(hdc: P0, psc: *mut *mut ::core::ffi::c_void, x: i32, y: i32, fuoptions: u32, lprc: ::core::option::Option<&super::Foundation::RECT>, psa: &SCRIPT_ANALYSIS, pwcreserved: P1, ireserved: i32, pwglyphs: &u16, cglyphs: i32, piadvance: &i32, pijustify: ::core::option::Option<&i32>, pgoffset: &GOFFSET) -> ::windows::core::Result<()>
 where
     P0: ::std::convert::Into<super::Graphics::Gdi::HDC>,
     P1: ::std::convert::Into<::windows::core::PCWSTR>,
@@ -8036,7 +8036,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn ScriptXtoCP(ix: i32, cglyphs: i32, pwlogclust: &[u16], psva: *const SCRIPT_VISATTR, piadvance: *const i32, psa: *const SCRIPT_ANALYSIS, picp: *mut i32, pitrailing: *mut i32) -> ::windows::core::Result<()> {
+pub unsafe fn ScriptXtoCP(ix: i32, cglyphs: i32, pwlogclust: &[u16], psva: &SCRIPT_VISATTR, piadvance: &i32, psa: &SCRIPT_ANALYSIS, picp: &mut i32, pitrailing: &mut i32) -> ::windows::core::Result<()> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn ScriptXtoCP(ix: i32, cchars: i32, cglyphs: i32, pwlogclust: *const u16, psva: *const SCRIPT_VISATTR, piadvance: *const i32, psa: *const SCRIPT_ANALYSIS, picp: *mut i32, pitrailing: *mut i32) -> ::windows::core::HRESULT;
@@ -8098,7 +8098,7 @@ where
 #[doc = "*Required features: `\"Win32_Globalization\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SetProcessPreferredUILanguages<'a, P0>(dwflags: u32, pwszlanguagesbuffer: P0, pulnumlanguages: *mut u32) -> super::Foundation::BOOL
+pub unsafe fn SetProcessPreferredUILanguages<'a, P0>(dwflags: u32, pwszlanguagesbuffer: P0, pulnumlanguages: ::core::option::Option<&mut u32>) -> super::Foundation::BOOL
 where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
 {
@@ -8121,7 +8121,7 @@ pub unsafe fn SetThreadLocale(locale: u32) -> super::Foundation::BOOL {
 #[doc = "*Required features: `\"Win32_Globalization\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SetThreadPreferredUILanguages<'a, P0>(dwflags: u32, pwszlanguagesbuffer: P0, pulnumlanguages: *mut u32) -> super::Foundation::BOOL
+pub unsafe fn SetThreadPreferredUILanguages<'a, P0>(dwflags: u32, pwszlanguagesbuffer: P0, pulnumlanguages: ::core::option::Option<&mut u32>) -> super::Foundation::BOOL
 where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
 {
@@ -8134,7 +8134,7 @@ where
 #[doc = "*Required features: `\"Win32_Globalization\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SetThreadPreferredUILanguages2<'a, P0>(flags: u32, languages: P0, numlanguagesset: *mut u32, snapshot: *mut HSAVEDUILANGUAGES) -> super::Foundation::BOOL
+pub unsafe fn SetThreadPreferredUILanguages2<'a, P0>(flags: u32, languages: P0, numlanguagesset: ::core::option::Option<&mut u32>, snapshot: ::core::option::Option<&mut HSAVEDUILANGUAGES>) -> super::Foundation::BOOL
 where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
 {
@@ -8279,7 +8279,7 @@ impl ::core::fmt::Debug for TRANSLATE_CHARSET_INFO_FLAGS {
 #[doc = "*Required features: `\"Win32_Globalization\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn TranslateCharsetInfo(lpsrc: *mut u32, lpcs: *mut CHARSETINFO, dwflags: TRANSLATE_CHARSET_INFO_FLAGS) -> super::Foundation::BOOL {
+pub unsafe fn TranslateCharsetInfo(lpsrc: &mut u32, lpcs: &mut CHARSETINFO, dwflags: TRANSLATE_CHARSET_INFO_FLAGS) -> super::Foundation::BOOL {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn TranslateCharsetInfo(lpsrc: *mut u32, lpcs: *mut CHARSETINFO, dwflags: TRANSLATE_CHARSET_INFO_FLAGS) -> super::Foundation::BOOL;
@@ -9264,7 +9264,7 @@ pub const UCNV_ESCAPE_XML_DEC: &str = "D";
 pub const UCNV_ESCAPE_XML_HEX: &str = "X";
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn UCNV_FROM_U_CALLBACK_ESCAPE(context: *const ::core::ffi::c_void, fromuargs: *mut UConverterFromUnicodeArgs, codeunits: *const u16, length: i32, codepoint: i32, reason: UConverterCallbackReason, err: *mut UErrorCode) {
+pub unsafe fn UCNV_FROM_U_CALLBACK_ESCAPE(context: *const ::core::ffi::c_void, fromuargs: &mut UConverterFromUnicodeArgs, codeunits: &u16, length: i32, codepoint: i32, reason: UConverterCallbackReason, err: &mut UErrorCode) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn UCNV_FROM_U_CALLBACK_ESCAPE(context: *const ::core::ffi::c_void, fromuargs: *mut UConverterFromUnicodeArgs, codeunits: *const u16, length: i32, codepoint: i32, reason: UConverterCallbackReason, err: *mut UErrorCode);
@@ -9273,7 +9273,7 @@ pub unsafe fn UCNV_FROM_U_CALLBACK_ESCAPE(context: *const ::core::ffi::c_void, f
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn UCNV_FROM_U_CALLBACK_SKIP(context: *const ::core::ffi::c_void, fromuargs: *mut UConverterFromUnicodeArgs, codeunits: *const u16, length: i32, codepoint: i32, reason: UConverterCallbackReason, err: *mut UErrorCode) {
+pub unsafe fn UCNV_FROM_U_CALLBACK_SKIP(context: *const ::core::ffi::c_void, fromuargs: &mut UConverterFromUnicodeArgs, codeunits: &u16, length: i32, codepoint: i32, reason: UConverterCallbackReason, err: &mut UErrorCode) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn UCNV_FROM_U_CALLBACK_SKIP(context: *const ::core::ffi::c_void, fromuargs: *mut UConverterFromUnicodeArgs, codeunits: *const u16, length: i32, codepoint: i32, reason: UConverterCallbackReason, err: *mut UErrorCode);
@@ -9282,7 +9282,7 @@ pub unsafe fn UCNV_FROM_U_CALLBACK_SKIP(context: *const ::core::ffi::c_void, fro
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn UCNV_FROM_U_CALLBACK_STOP(context: *const ::core::ffi::c_void, fromuargs: *mut UConverterFromUnicodeArgs, codeunits: *const u16, length: i32, codepoint: i32, reason: UConverterCallbackReason, err: *mut UErrorCode) {
+pub unsafe fn UCNV_FROM_U_CALLBACK_STOP(context: *const ::core::ffi::c_void, fromuargs: &mut UConverterFromUnicodeArgs, codeunits: &u16, length: i32, codepoint: i32, reason: UConverterCallbackReason, err: &mut UErrorCode) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn UCNV_FROM_U_CALLBACK_STOP(context: *const ::core::ffi::c_void, fromuargs: *mut UConverterFromUnicodeArgs, codeunits: *const u16, length: i32, codepoint: i32, reason: UConverterCallbackReason, err: *mut UErrorCode);
@@ -9291,7 +9291,7 @@ pub unsafe fn UCNV_FROM_U_CALLBACK_STOP(context: *const ::core::ffi::c_void, fro
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn UCNV_FROM_U_CALLBACK_SUBSTITUTE(context: *const ::core::ffi::c_void, fromuargs: *mut UConverterFromUnicodeArgs, codeunits: *const u16, length: i32, codepoint: i32, reason: UConverterCallbackReason, err: *mut UErrorCode) {
+pub unsafe fn UCNV_FROM_U_CALLBACK_SUBSTITUTE(context: *const ::core::ffi::c_void, fromuargs: &mut UConverterFromUnicodeArgs, codeunits: &u16, length: i32, codepoint: i32, reason: UConverterCallbackReason, err: &mut UErrorCode) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn UCNV_FROM_U_CALLBACK_SUBSTITUTE(context: *const ::core::ffi::c_void, fromuargs: *mut UConverterFromUnicodeArgs, codeunits: *const u16, length: i32, codepoint: i32, reason: UConverterCallbackReason, err: *mut UErrorCode);
@@ -9316,7 +9316,7 @@ pub const UCNV_SUB_STOP_ON_ILLEGAL: &str = "i";
 pub const UCNV_SWAP_LFNL_OPTION_STRING: &str = ",swaplfnl";
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn UCNV_TO_U_CALLBACK_ESCAPE<'a, P0>(context: *const ::core::ffi::c_void, touargs: *mut UConverterToUnicodeArgs, codeunits: P0, length: i32, reason: UConverterCallbackReason, err: *mut UErrorCode)
+pub unsafe fn UCNV_TO_U_CALLBACK_ESCAPE<'a, P0>(context: *const ::core::ffi::c_void, touargs: &mut UConverterToUnicodeArgs, codeunits: P0, length: i32, reason: UConverterCallbackReason, err: &mut UErrorCode)
 where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
 {
@@ -9328,7 +9328,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn UCNV_TO_U_CALLBACK_SKIP<'a, P0>(context: *const ::core::ffi::c_void, touargs: *mut UConverterToUnicodeArgs, codeunits: P0, length: i32, reason: UConverterCallbackReason, err: *mut UErrorCode)
+pub unsafe fn UCNV_TO_U_CALLBACK_SKIP<'a, P0>(context: *const ::core::ffi::c_void, touargs: &mut UConverterToUnicodeArgs, codeunits: P0, length: i32, reason: UConverterCallbackReason, err: &mut UErrorCode)
 where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
 {
@@ -9340,7 +9340,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn UCNV_TO_U_CALLBACK_STOP<'a, P0>(context: *const ::core::ffi::c_void, touargs: *mut UConverterToUnicodeArgs, codeunits: P0, length: i32, reason: UConverterCallbackReason, err: *mut UErrorCode)
+pub unsafe fn UCNV_TO_U_CALLBACK_STOP<'a, P0>(context: *const ::core::ffi::c_void, touargs: &mut UConverterToUnicodeArgs, codeunits: P0, length: i32, reason: UConverterCallbackReason, err: &mut UErrorCode)
 where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
 {
@@ -9352,7 +9352,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn UCNV_TO_U_CALLBACK_SUBSTITUTE<'a, P0>(context: *const ::core::ffi::c_void, touargs: *mut UConverterToUnicodeArgs, codeunits: P0, length: i32, reason: UConverterCallbackReason, err: *mut UErrorCode)
+pub unsafe fn UCNV_TO_U_CALLBACK_SUBSTITUTE<'a, P0>(context: *const ::core::ffi::c_void, touargs: &mut UConverterToUnicodeArgs, codeunits: P0, length: i32, reason: UConverterCallbackReason, err: &mut UErrorCode)
 where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
 {
@@ -16892,7 +16892,7 @@ impl ::core::fmt::Debug for WORDLIST_TYPE {
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn WideCharToMultiByte<'a, P0>(codepage: u32, dwflags: u32, lpwidecharstr: &[u16], lpmultibytestr: ::windows::core::PSTR, cbmultibyte: i32, lpdefaultchar: P0, lpuseddefaultchar: *mut i32) -> i32
+pub unsafe fn WideCharToMultiByte<'a, P0>(codepage: u32, dwflags: u32, lpwidecharstr: &[u16], lpmultibytestr: ::windows::core::PSTR, cbmultibyte: i32, lpdefaultchar: P0, lpuseddefaultchar: ::core::option::Option<&mut i32>) -> i32
 where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
 {
@@ -17282,7 +17282,7 @@ impl ::core::default::Default for textrange_properties {
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn u_UCharsToChars<'a, P0>(us: *const u16, cs: P0, length: i32)
+pub unsafe fn u_UCharsToChars<'a, P0>(us: &u16, cs: P0, length: i32)
 where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
 {
@@ -17294,7 +17294,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn u_austrcpy<'a, P0>(dst: P0, src: *const u16) -> ::windows::core::PSTR
+pub unsafe fn u_austrcpy<'a, P0>(dst: P0, src: &u16) -> ::windows::core::PSTR
 where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
 {
@@ -17306,7 +17306,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn u_austrncpy<'a, P0>(dst: P0, src: *const u16, n: i32) -> ::windows::core::PSTR
+pub unsafe fn u_austrncpy<'a, P0>(dst: P0, src: &u16, n: i32) -> ::windows::core::PSTR
 where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
 {
@@ -17318,7 +17318,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn u_catclose(catd: *mut UResourceBundle) {
+pub unsafe fn u_catclose(catd: &mut UResourceBundle) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn u_catclose(catd: *mut UResourceBundle);
@@ -17327,7 +17327,7 @@ pub unsafe fn u_catclose(catd: *mut UResourceBundle) {
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn u_catgets(catd: *mut UResourceBundle, set_num: i32, msg_num: i32, s: *const u16, len: *mut i32, ec: *mut UErrorCode) -> *mut u16 {
+pub unsafe fn u_catgets(catd: &mut UResourceBundle, set_num: i32, msg_num: i32, s: &u16, len: &mut i32, ec: &mut UErrorCode) -> *mut u16 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn u_catgets(catd: *mut UResourceBundle, set_num: i32, msg_num: i32, s: *const u16, len: *mut i32, ec: *mut UErrorCode) -> *mut u16;
@@ -17336,7 +17336,7 @@ pub unsafe fn u_catgets(catd: *mut UResourceBundle, set_num: i32, msg_num: i32, 
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn u_catopen<'a, P0, P1>(name: P0, locale: P1, ec: *mut UErrorCode) -> *mut UResourceBundle
+pub unsafe fn u_catopen<'a, P0, P1>(name: P0, locale: P1, ec: &mut UErrorCode) -> *mut UResourceBundle
 where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
     P1: ::std::convert::Into<::windows::core::PCSTR>,
@@ -17349,7 +17349,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn u_charAge(c: i32, versionarray: *mut u8) {
+pub unsafe fn u_charAge(c: i32, versionarray: &mut u8) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn u_charAge(c: i32, versionarray: *mut u8);
@@ -17376,7 +17376,7 @@ pub unsafe fn u_charDirection(c: i32) -> UCharDirection {
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn u_charFromName<'a, P0>(namechoice: UCharNameChoice, name: P0, perrorcode: *mut UErrorCode) -> i32
+pub unsafe fn u_charFromName<'a, P0>(namechoice: UCharNameChoice, name: P0, perrorcode: &mut UErrorCode) -> i32
 where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
 {
@@ -17397,7 +17397,7 @@ pub unsafe fn u_charMirror(c: i32) -> i32 {
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn u_charName<'a, P0>(code: i32, namechoice: UCharNameChoice, buffer: P0, bufferlength: i32, perrorcode: *mut UErrorCode) -> i32
+pub unsafe fn u_charName<'a, P0>(code: i32, namechoice: UCharNameChoice, buffer: P0, bufferlength: i32, perrorcode: &mut UErrorCode) -> i32
 where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
 {
@@ -17418,7 +17418,7 @@ pub unsafe fn u_charType(c: i32) -> i8 {
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn u_charsToUChars<'a, P0>(cs: P0, us: *mut u16, length: i32)
+pub unsafe fn u_charsToUChars<'a, P0>(cs: P0, us: &mut u16, length: i32)
 where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
 {
@@ -17439,7 +17439,7 @@ pub unsafe fn u_cleanup() {
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn u_countChar32(s: *const u16, length: i32) -> i32 {
+pub unsafe fn u_countChar32(s: &u16, length: i32) -> i32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn u_countChar32(s: *const u16, length: i32) -> i32;
@@ -17457,7 +17457,7 @@ pub unsafe fn u_digit(ch: i32, radix: i8) -> i32 {
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn u_enumCharNames(start: i32, limit: i32, r#fn: *mut UEnumCharNamesFn, context: *mut ::core::ffi::c_void, namechoice: UCharNameChoice, perrorcode: *mut UErrorCode) {
+pub unsafe fn u_enumCharNames(start: i32, limit: i32, r#fn: &mut UEnumCharNamesFn, context: *mut ::core::ffi::c_void, namechoice: UCharNameChoice, perrorcode: &mut UErrorCode) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn u_enumCharNames(start: i32, limit: i32, r#fn: *mut *mut ::core::ffi::c_void, context: *mut ::core::ffi::c_void, namechoice: UCharNameChoice, perrorcode: *mut UErrorCode);
@@ -17466,7 +17466,7 @@ pub unsafe fn u_enumCharNames(start: i32, limit: i32, r#fn: *mut UEnumCharNamesF
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn u_enumCharTypes(enumrange: *mut UCharEnumTypeRange, context: *const ::core::ffi::c_void) {
+pub unsafe fn u_enumCharTypes(enumrange: &mut UCharEnumTypeRange, context: *const ::core::ffi::c_void) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn u_enumCharTypes(enumrange: *mut *mut ::core::ffi::c_void, context: *const ::core::ffi::c_void);
@@ -17502,7 +17502,7 @@ pub unsafe fn u_forDigit(digit: i32, radix: i8) -> i32 {
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn u_formatMessage<'a, P0>(locale: P0, pattern: *const u16, patternlength: i32, result: *mut u16, resultlength: i32, status: *mut UErrorCode) -> i32
+pub unsafe fn u_formatMessage<'a, P0>(locale: P0, pattern: &u16, patternlength: i32, result: &mut u16, resultlength: i32, status: &mut UErrorCode) -> i32
 where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
 {
@@ -17514,7 +17514,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn u_formatMessageWithError<'a, P0>(locale: P0, pattern: *const u16, patternlength: i32, result: *mut u16, resultlength: i32, parseerror: *mut UParseError, status: *mut UErrorCode) -> i32
+pub unsafe fn u_formatMessageWithError<'a, P0>(locale: P0, pattern: &u16, patternlength: i32, result: &mut u16, resultlength: i32, parseerror: &mut UParseError, status: &mut UErrorCode) -> i32
 where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
 {
@@ -17535,7 +17535,7 @@ pub unsafe fn u_getBidiPairedBracket(c: i32) -> i32 {
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn u_getBinaryPropertySet(property: UProperty, perrorcode: *mut UErrorCode) -> *mut USet {
+pub unsafe fn u_getBinaryPropertySet(property: UProperty, perrorcode: &mut UErrorCode) -> *mut USet {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn u_getBinaryPropertySet(property: UProperty, perrorcode: *mut UErrorCode) -> *mut USet;
@@ -17553,7 +17553,7 @@ pub unsafe fn u_getCombiningClass(c: i32) -> u8 {
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn u_getDataVersion(dataversionfillin: *mut u8, status: *mut UErrorCode) {
+pub unsafe fn u_getDataVersion(dataversionfillin: &mut u8, status: &mut UErrorCode) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn u_getDataVersion(dataversionfillin: *mut u8, status: *mut UErrorCode);
@@ -17562,7 +17562,7 @@ pub unsafe fn u_getDataVersion(dataversionfillin: *mut u8, status: *mut UErrorCo
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn u_getFC_NFKC_Closure(c: i32, dest: *mut u16, destcapacity: i32, perrorcode: *mut UErrorCode) -> i32 {
+pub unsafe fn u_getFC_NFKC_Closure(c: i32, dest: &mut u16, destcapacity: i32, perrorcode: &mut UErrorCode) -> i32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn u_getFC_NFKC_Closure(c: i32, dest: *mut u16, destcapacity: i32, perrorcode: *mut UErrorCode) -> i32;
@@ -17571,7 +17571,7 @@ pub unsafe fn u_getFC_NFKC_Closure(c: i32, dest: *mut u16, destcapacity: i32, pe
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn u_getIntPropertyMap(property: UProperty, perrorcode: *mut UErrorCode) -> *mut UCPMap {
+pub unsafe fn u_getIntPropertyMap(property: UProperty, perrorcode: &mut UErrorCode) -> *mut UCPMap {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn u_getIntPropertyMap(property: UProperty, perrorcode: *mut UErrorCode) -> *mut UCPMap;
@@ -17658,7 +17658,7 @@ pub unsafe fn u_getPropertyValueName(property: UProperty, value: i32, namechoice
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn u_getUnicodeVersion(versionarray: *mut u8) {
+pub unsafe fn u_getUnicodeVersion(versionarray: &mut u8) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn u_getUnicodeVersion(versionarray: *mut u8);
@@ -17667,7 +17667,7 @@ pub unsafe fn u_getUnicodeVersion(versionarray: *mut u8) {
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn u_getVersion(versionarray: *mut u8) {
+pub unsafe fn u_getVersion(versionarray: &mut u8) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn u_getVersion(versionarray: *mut u8);
@@ -17685,7 +17685,7 @@ pub unsafe fn u_hasBinaryProperty(c: i32, which: UProperty) -> i8 {
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn u_init(status: *mut UErrorCode) {
+pub unsafe fn u_init(status: &mut UErrorCode) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn u_init(status: *mut UErrorCode);
@@ -17946,7 +17946,7 @@ pub unsafe fn u_isxdigit(c: i32) -> i8 {
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn u_memcasecmp(s1: *const u16, s2: *const u16, length: i32, options: u32) -> i32 {
+pub unsafe fn u_memcasecmp(s1: &u16, s2: &u16, length: i32, options: u32) -> i32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn u_memcasecmp(s1: *const u16, s2: *const u16, length: i32, options: u32) -> i32;
@@ -17955,7 +17955,7 @@ pub unsafe fn u_memcasecmp(s1: *const u16, s2: *const u16, length: i32, options:
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn u_memchr(s: *const u16, c: u16, count: i32) -> *mut u16 {
+pub unsafe fn u_memchr(s: &u16, c: u16, count: i32) -> *mut u16 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn u_memchr(s: *const u16, c: u16, count: i32) -> *mut u16;
@@ -17964,7 +17964,7 @@ pub unsafe fn u_memchr(s: *const u16, c: u16, count: i32) -> *mut u16 {
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn u_memchr32(s: *const u16, c: i32, count: i32) -> *mut u16 {
+pub unsafe fn u_memchr32(s: &u16, c: i32, count: i32) -> *mut u16 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn u_memchr32(s: *const u16, c: i32, count: i32) -> *mut u16;
@@ -17973,7 +17973,7 @@ pub unsafe fn u_memchr32(s: *const u16, c: i32, count: i32) -> *mut u16 {
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn u_memcmp(buf1: *const u16, buf2: *const u16, count: i32) -> i32 {
+pub unsafe fn u_memcmp(buf1: &u16, buf2: &u16, count: i32) -> i32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn u_memcmp(buf1: *const u16, buf2: *const u16, count: i32) -> i32;
@@ -17982,7 +17982,7 @@ pub unsafe fn u_memcmp(buf1: *const u16, buf2: *const u16, count: i32) -> i32 {
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn u_memcmpCodePointOrder(s1: *const u16, s2: *const u16, count: i32) -> i32 {
+pub unsafe fn u_memcmpCodePointOrder(s1: &u16, s2: &u16, count: i32) -> i32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn u_memcmpCodePointOrder(s1: *const u16, s2: *const u16, count: i32) -> i32;
@@ -17991,7 +17991,7 @@ pub unsafe fn u_memcmpCodePointOrder(s1: *const u16, s2: *const u16, count: i32)
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn u_memcpy(dest: *mut u16, src: *const u16, count: i32) -> *mut u16 {
+pub unsafe fn u_memcpy(dest: &mut u16, src: &u16, count: i32) -> *mut u16 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn u_memcpy(dest: *mut u16, src: *const u16, count: i32) -> *mut u16;
@@ -18000,7 +18000,7 @@ pub unsafe fn u_memcpy(dest: *mut u16, src: *const u16, count: i32) -> *mut u16 
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn u_memmove(dest: *mut u16, src: *const u16, count: i32) -> *mut u16 {
+pub unsafe fn u_memmove(dest: &mut u16, src: &u16, count: i32) -> *mut u16 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn u_memmove(dest: *mut u16, src: *const u16, count: i32) -> *mut u16;
@@ -18009,7 +18009,7 @@ pub unsafe fn u_memmove(dest: *mut u16, src: *const u16, count: i32) -> *mut u16
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn u_memrchr(s: *const u16, c: u16, count: i32) -> *mut u16 {
+pub unsafe fn u_memrchr(s: &u16, c: u16, count: i32) -> *mut u16 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn u_memrchr(s: *const u16, c: u16, count: i32) -> *mut u16;
@@ -18018,7 +18018,7 @@ pub unsafe fn u_memrchr(s: *const u16, c: u16, count: i32) -> *mut u16 {
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn u_memrchr32(s: *const u16, c: i32, count: i32) -> *mut u16 {
+pub unsafe fn u_memrchr32(s: &u16, c: i32, count: i32) -> *mut u16 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn u_memrchr32(s: *const u16, c: i32, count: i32) -> *mut u16;
@@ -18027,7 +18027,7 @@ pub unsafe fn u_memrchr32(s: *const u16, c: i32, count: i32) -> *mut u16 {
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn u_memset(dest: *mut u16, c: u16, count: i32) -> *mut u16 {
+pub unsafe fn u_memset(dest: &mut u16, c: u16, count: i32) -> *mut u16 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn u_memset(dest: *mut u16, c: u16, count: i32) -> *mut u16;
@@ -18036,7 +18036,7 @@ pub unsafe fn u_memset(dest: *mut u16, c: u16, count: i32) -> *mut u16 {
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn u_parseMessage<'a, P0>(locale: P0, pattern: *const u16, patternlength: i32, source: *const u16, sourcelength: i32, status: *mut UErrorCode)
+pub unsafe fn u_parseMessage<'a, P0>(locale: P0, pattern: &u16, patternlength: i32, source: &u16, sourcelength: i32, status: &mut UErrorCode)
 where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
 {
@@ -18048,7 +18048,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn u_parseMessageWithError<'a, P0>(locale: P0, pattern: *const u16, patternlength: i32, source: *const u16, sourcelength: i32, parseerror: *mut UParseError, status: *mut UErrorCode)
+pub unsafe fn u_parseMessageWithError<'a, P0>(locale: P0, pattern: &u16, patternlength: i32, source: &u16, sourcelength: i32, parseerror: &mut UParseError, status: &mut UErrorCode)
 where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
 {
@@ -18060,7 +18060,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn u_setMemoryFunctions(context: *const ::core::ffi::c_void, a: *mut UMemAllocFn, r: *mut UMemReallocFn, f: *mut UMemFreeFn, status: *mut UErrorCode) {
+pub unsafe fn u_setMemoryFunctions(context: *const ::core::ffi::c_void, a: &mut UMemAllocFn, r: &mut UMemReallocFn, f: &mut UMemFreeFn, status: &mut UErrorCode) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn u_setMemoryFunctions(context: *const ::core::ffi::c_void, a: *mut *mut ::core::ffi::c_void, r: *mut *mut ::core::ffi::c_void, f: *mut *mut ::core::ffi::c_void, status: *mut UErrorCode);
@@ -18069,7 +18069,7 @@ pub unsafe fn u_setMemoryFunctions(context: *const ::core::ffi::c_void, a: *mut 
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn u_shapeArabic(source: *const u16, sourcelength: i32, dest: *mut u16, destsize: i32, options: u32, perrorcode: *mut UErrorCode) -> i32 {
+pub unsafe fn u_shapeArabic(source: &u16, sourcelength: i32, dest: &mut u16, destsize: i32, options: u32, perrorcode: &mut UErrorCode) -> i32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn u_shapeArabic(source: *const u16, sourcelength: i32, dest: *mut u16, destsize: i32, options: u32, perrorcode: *mut UErrorCode) -> i32;
@@ -18078,7 +18078,7 @@ pub unsafe fn u_shapeArabic(source: *const u16, sourcelength: i32, dest: *mut u1
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn u_strCaseCompare(s1: *const u16, length1: i32, s2: *const u16, length2: i32, options: u32, perrorcode: *mut UErrorCode) -> i32 {
+pub unsafe fn u_strCaseCompare(s1: &u16, length1: i32, s2: &u16, length2: i32, options: u32, perrorcode: &mut UErrorCode) -> i32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn u_strCaseCompare(s1: *const u16, length1: i32, s2: *const u16, length2: i32, options: u32, perrorcode: *mut UErrorCode) -> i32;
@@ -18087,7 +18087,7 @@ pub unsafe fn u_strCaseCompare(s1: *const u16, length1: i32, s2: *const u16, len
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn u_strCompare(s1: *const u16, length1: i32, s2: *const u16, length2: i32, codepointorder: i8) -> i32 {
+pub unsafe fn u_strCompare(s1: &u16, length1: i32, s2: &u16, length2: i32, codepointorder: i8) -> i32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn u_strCompare(s1: *const u16, length1: i32, s2: *const u16, length2: i32, codepointorder: i8) -> i32;
@@ -18096,7 +18096,7 @@ pub unsafe fn u_strCompare(s1: *const u16, length1: i32, s2: *const u16, length2
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn u_strCompareIter(iter1: *mut UCharIterator, iter2: *mut UCharIterator, codepointorder: i8) -> i32 {
+pub unsafe fn u_strCompareIter(iter1: &mut UCharIterator, iter2: &mut UCharIterator, codepointorder: i8) -> i32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn u_strCompareIter(iter1: *mut UCharIterator, iter2: *mut UCharIterator, codepointorder: i8) -> i32;
@@ -18105,7 +18105,7 @@ pub unsafe fn u_strCompareIter(iter1: *mut UCharIterator, iter2: *mut UCharItera
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn u_strFindFirst(s: *const u16, length: i32, substring: *const u16, sublength: i32) -> *mut u16 {
+pub unsafe fn u_strFindFirst(s: &u16, length: i32, substring: &u16, sublength: i32) -> *mut u16 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn u_strFindFirst(s: *const u16, length: i32, substring: *const u16, sublength: i32) -> *mut u16;
@@ -18114,7 +18114,7 @@ pub unsafe fn u_strFindFirst(s: *const u16, length: i32, substring: *const u16, 
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn u_strFindLast(s: *const u16, length: i32, substring: *const u16, sublength: i32) -> *mut u16 {
+pub unsafe fn u_strFindLast(s: &u16, length: i32, substring: &u16, sublength: i32) -> *mut u16 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn u_strFindLast(s: *const u16, length: i32, substring: *const u16, sublength: i32) -> *mut u16;
@@ -18123,7 +18123,7 @@ pub unsafe fn u_strFindLast(s: *const u16, length: i32, substring: *const u16, s
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn u_strFoldCase(dest: *mut u16, destcapacity: i32, src: *const u16, srclength: i32, options: u32, perrorcode: *mut UErrorCode) -> i32 {
+pub unsafe fn u_strFoldCase(dest: &mut u16, destcapacity: i32, src: &u16, srclength: i32, options: u32, perrorcode: &mut UErrorCode) -> i32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn u_strFoldCase(dest: *mut u16, destcapacity: i32, src: *const u16, srclength: i32, options: u32, perrorcode: *mut UErrorCode) -> i32;
@@ -18132,7 +18132,7 @@ pub unsafe fn u_strFoldCase(dest: *mut u16, destcapacity: i32, src: *const u16, 
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn u_strFromJavaModifiedUTF8WithSub<'a, P0>(dest: *mut u16, destcapacity: i32, pdestlength: *mut i32, src: P0, srclength: i32, subchar: i32, pnumsubstitutions: *mut i32, perrorcode: *mut UErrorCode) -> *mut u16
+pub unsafe fn u_strFromJavaModifiedUTF8WithSub<'a, P0>(dest: &mut u16, destcapacity: i32, pdestlength: &mut i32, src: P0, srclength: i32, subchar: i32, pnumsubstitutions: &mut i32, perrorcode: &mut UErrorCode) -> *mut u16
 where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
 {
@@ -18144,7 +18144,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn u_strFromUTF32(dest: *mut u16, destcapacity: i32, pdestlength: *mut i32, src: *const i32, srclength: i32, perrorcode: *mut UErrorCode) -> *mut u16 {
+pub unsafe fn u_strFromUTF32(dest: &mut u16, destcapacity: i32, pdestlength: &mut i32, src: &i32, srclength: i32, perrorcode: &mut UErrorCode) -> *mut u16 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn u_strFromUTF32(dest: *mut u16, destcapacity: i32, pdestlength: *mut i32, src: *const i32, srclength: i32, perrorcode: *mut UErrorCode) -> *mut u16;
@@ -18153,7 +18153,7 @@ pub unsafe fn u_strFromUTF32(dest: *mut u16, destcapacity: i32, pdestlength: *mu
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn u_strFromUTF32WithSub(dest: *mut u16, destcapacity: i32, pdestlength: *mut i32, src: *const i32, srclength: i32, subchar: i32, pnumsubstitutions: *mut i32, perrorcode: *mut UErrorCode) -> *mut u16 {
+pub unsafe fn u_strFromUTF32WithSub(dest: &mut u16, destcapacity: i32, pdestlength: &mut i32, src: &i32, srclength: i32, subchar: i32, pnumsubstitutions: &mut i32, perrorcode: &mut UErrorCode) -> *mut u16 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn u_strFromUTF32WithSub(dest: *mut u16, destcapacity: i32, pdestlength: *mut i32, src: *const i32, srclength: i32, subchar: i32, pnumsubstitutions: *mut i32, perrorcode: *mut UErrorCode) -> *mut u16;
@@ -18162,7 +18162,7 @@ pub unsafe fn u_strFromUTF32WithSub(dest: *mut u16, destcapacity: i32, pdestleng
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn u_strFromUTF8<'a, P0>(dest: *mut u16, destcapacity: i32, pdestlength: *mut i32, src: P0, srclength: i32, perrorcode: *mut UErrorCode) -> *mut u16
+pub unsafe fn u_strFromUTF8<'a, P0>(dest: &mut u16, destcapacity: i32, pdestlength: &mut i32, src: P0, srclength: i32, perrorcode: &mut UErrorCode) -> *mut u16
 where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
 {
@@ -18174,7 +18174,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn u_strFromUTF8Lenient<'a, P0>(dest: *mut u16, destcapacity: i32, pdestlength: *mut i32, src: P0, srclength: i32, perrorcode: *mut UErrorCode) -> *mut u16
+pub unsafe fn u_strFromUTF8Lenient<'a, P0>(dest: &mut u16, destcapacity: i32, pdestlength: &mut i32, src: P0, srclength: i32, perrorcode: &mut UErrorCode) -> *mut u16
 where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
 {
@@ -18186,7 +18186,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn u_strFromUTF8WithSub<'a, P0>(dest: *mut u16, destcapacity: i32, pdestlength: *mut i32, src: P0, srclength: i32, subchar: i32, pnumsubstitutions: *mut i32, perrorcode: *mut UErrorCode) -> *mut u16
+pub unsafe fn u_strFromUTF8WithSub<'a, P0>(dest: &mut u16, destcapacity: i32, pdestlength: &mut i32, src: P0, srclength: i32, subchar: i32, pnumsubstitutions: &mut i32, perrorcode: &mut UErrorCode) -> *mut u16
 where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
 {
@@ -18198,7 +18198,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn u_strFromWCS<'a, P0>(dest: *mut u16, destcapacity: i32, pdestlength: *mut i32, src: P0, srclength: i32, perrorcode: *mut UErrorCode) -> *mut u16
+pub unsafe fn u_strFromWCS<'a, P0>(dest: &mut u16, destcapacity: i32, pdestlength: &mut i32, src: P0, srclength: i32, perrorcode: &mut UErrorCode) -> *mut u16
 where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
 {
@@ -18210,7 +18210,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn u_strHasMoreChar32Than(s: *const u16, length: i32, number: i32) -> i8 {
+pub unsafe fn u_strHasMoreChar32Than(s: &u16, length: i32, number: i32) -> i8 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn u_strHasMoreChar32Than(s: *const u16, length: i32, number: i32) -> i8;
@@ -18219,7 +18219,7 @@ pub unsafe fn u_strHasMoreChar32Than(s: *const u16, length: i32, number: i32) ->
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn u_strToJavaModifiedUTF8<'a, P0>(dest: P0, destcapacity: i32, pdestlength: *mut i32, src: *const u16, srclength: i32, perrorcode: *mut UErrorCode) -> ::windows::core::PSTR
+pub unsafe fn u_strToJavaModifiedUTF8<'a, P0>(dest: P0, destcapacity: i32, pdestlength: &mut i32, src: &u16, srclength: i32, perrorcode: &mut UErrorCode) -> ::windows::core::PSTR
 where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
 {
@@ -18231,7 +18231,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn u_strToLower<'a, P0>(dest: *mut u16, destcapacity: i32, src: *const u16, srclength: i32, locale: P0, perrorcode: *mut UErrorCode) -> i32
+pub unsafe fn u_strToLower<'a, P0>(dest: &mut u16, destcapacity: i32, src: &u16, srclength: i32, locale: P0, perrorcode: &mut UErrorCode) -> i32
 where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
 {
@@ -18243,7 +18243,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn u_strToTitle<'a, P0>(dest: *mut u16, destcapacity: i32, src: *const u16, srclength: i32, titleiter: *mut UBreakIterator, locale: P0, perrorcode: *mut UErrorCode) -> i32
+pub unsafe fn u_strToTitle<'a, P0>(dest: &mut u16, destcapacity: i32, src: &u16, srclength: i32, titleiter: &mut UBreakIterator, locale: P0, perrorcode: &mut UErrorCode) -> i32
 where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
 {
@@ -18255,7 +18255,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn u_strToUTF32(dest: *mut i32, destcapacity: i32, pdestlength: *mut i32, src: *const u16, srclength: i32, perrorcode: *mut UErrorCode) -> *mut i32 {
+pub unsafe fn u_strToUTF32(dest: &mut i32, destcapacity: i32, pdestlength: &mut i32, src: &u16, srclength: i32, perrorcode: &mut UErrorCode) -> *mut i32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn u_strToUTF32(dest: *mut i32, destcapacity: i32, pdestlength: *mut i32, src: *const u16, srclength: i32, perrorcode: *mut UErrorCode) -> *mut i32;
@@ -18264,7 +18264,7 @@ pub unsafe fn u_strToUTF32(dest: *mut i32, destcapacity: i32, pdestlength: *mut 
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn u_strToUTF32WithSub(dest: *mut i32, destcapacity: i32, pdestlength: *mut i32, src: *const u16, srclength: i32, subchar: i32, pnumsubstitutions: *mut i32, perrorcode: *mut UErrorCode) -> *mut i32 {
+pub unsafe fn u_strToUTF32WithSub(dest: &mut i32, destcapacity: i32, pdestlength: &mut i32, src: &u16, srclength: i32, subchar: i32, pnumsubstitutions: &mut i32, perrorcode: &mut UErrorCode) -> *mut i32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn u_strToUTF32WithSub(dest: *mut i32, destcapacity: i32, pdestlength: *mut i32, src: *const u16, srclength: i32, subchar: i32, pnumsubstitutions: *mut i32, perrorcode: *mut UErrorCode) -> *mut i32;
@@ -18273,7 +18273,7 @@ pub unsafe fn u_strToUTF32WithSub(dest: *mut i32, destcapacity: i32, pdestlength
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn u_strToUTF8<'a, P0>(dest: P0, destcapacity: i32, pdestlength: *mut i32, src: *const u16, srclength: i32, perrorcode: *mut UErrorCode) -> ::windows::core::PSTR
+pub unsafe fn u_strToUTF8<'a, P0>(dest: P0, destcapacity: i32, pdestlength: &mut i32, src: &u16, srclength: i32, perrorcode: &mut UErrorCode) -> ::windows::core::PSTR
 where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
 {
@@ -18285,7 +18285,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn u_strToUTF8WithSub<'a, P0>(dest: P0, destcapacity: i32, pdestlength: *mut i32, src: *const u16, srclength: i32, subchar: i32, pnumsubstitutions: *mut i32, perrorcode: *mut UErrorCode) -> ::windows::core::PSTR
+pub unsafe fn u_strToUTF8WithSub<'a, P0>(dest: P0, destcapacity: i32, pdestlength: &mut i32, src: &u16, srclength: i32, subchar: i32, pnumsubstitutions: &mut i32, perrorcode: &mut UErrorCode) -> ::windows::core::PSTR
 where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
 {
@@ -18297,7 +18297,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn u_strToUpper<'a, P0>(dest: *mut u16, destcapacity: i32, src: *const u16, srclength: i32, locale: P0, perrorcode: *mut UErrorCode) -> i32
+pub unsafe fn u_strToUpper<'a, P0>(dest: &mut u16, destcapacity: i32, src: &u16, srclength: i32, locale: P0, perrorcode: &mut UErrorCode) -> i32
 where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
 {
@@ -18309,7 +18309,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn u_strToWCS<'a, P0>(dest: P0, destcapacity: i32, pdestlength: *mut i32, src: *const u16, srclength: i32, perrorcode: *mut UErrorCode) -> ::windows::core::PWSTR
+pub unsafe fn u_strToWCS<'a, P0>(dest: P0, destcapacity: i32, pdestlength: &mut i32, src: &u16, srclength: i32, perrorcode: &mut UErrorCode) -> ::windows::core::PWSTR
 where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
 {
@@ -18321,7 +18321,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn u_strcasecmp(s1: *const u16, s2: *const u16, options: u32) -> i32 {
+pub unsafe fn u_strcasecmp(s1: &u16, s2: &u16, options: u32) -> i32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn u_strcasecmp(s1: *const u16, s2: *const u16, options: u32) -> i32;
@@ -18330,7 +18330,7 @@ pub unsafe fn u_strcasecmp(s1: *const u16, s2: *const u16, options: u32) -> i32 
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn u_strcat(dst: *mut u16, src: *const u16) -> *mut u16 {
+pub unsafe fn u_strcat(dst: &mut u16, src: &u16) -> *mut u16 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn u_strcat(dst: *mut u16, src: *const u16) -> *mut u16;
@@ -18339,7 +18339,7 @@ pub unsafe fn u_strcat(dst: *mut u16, src: *const u16) -> *mut u16 {
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn u_strchr(s: *const u16, c: u16) -> *mut u16 {
+pub unsafe fn u_strchr(s: &u16, c: u16) -> *mut u16 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn u_strchr(s: *const u16, c: u16) -> *mut u16;
@@ -18348,7 +18348,7 @@ pub unsafe fn u_strchr(s: *const u16, c: u16) -> *mut u16 {
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn u_strchr32(s: *const u16, c: i32) -> *mut u16 {
+pub unsafe fn u_strchr32(s: &u16, c: i32) -> *mut u16 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn u_strchr32(s: *const u16, c: i32) -> *mut u16;
@@ -18357,7 +18357,7 @@ pub unsafe fn u_strchr32(s: *const u16, c: i32) -> *mut u16 {
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn u_strcmp(s1: *const u16, s2: *const u16) -> i32 {
+pub unsafe fn u_strcmp(s1: &u16, s2: &u16) -> i32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn u_strcmp(s1: *const u16, s2: *const u16) -> i32;
@@ -18366,7 +18366,7 @@ pub unsafe fn u_strcmp(s1: *const u16, s2: *const u16) -> i32 {
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn u_strcmpCodePointOrder(s1: *const u16, s2: *const u16) -> i32 {
+pub unsafe fn u_strcmpCodePointOrder(s1: &u16, s2: &u16) -> i32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn u_strcmpCodePointOrder(s1: *const u16, s2: *const u16) -> i32;
@@ -18375,7 +18375,7 @@ pub unsafe fn u_strcmpCodePointOrder(s1: *const u16, s2: *const u16) -> i32 {
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn u_strcpy(dst: *mut u16, src: *const u16) -> *mut u16 {
+pub unsafe fn u_strcpy(dst: &mut u16, src: &u16) -> *mut u16 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn u_strcpy(dst: *mut u16, src: *const u16) -> *mut u16;
@@ -18384,7 +18384,7 @@ pub unsafe fn u_strcpy(dst: *mut u16, src: *const u16) -> *mut u16 {
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn u_strcspn(string: *const u16, matchset: *const u16) -> i32 {
+pub unsafe fn u_strcspn(string: &u16, matchset: &u16) -> i32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn u_strcspn(string: *const u16, matchset: *const u16) -> i32;
@@ -18393,7 +18393,7 @@ pub unsafe fn u_strcspn(string: *const u16, matchset: *const u16) -> i32 {
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn u_strlen(s: *const u16) -> i32 {
+pub unsafe fn u_strlen(s: &u16) -> i32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn u_strlen(s: *const u16) -> i32;
@@ -18402,7 +18402,7 @@ pub unsafe fn u_strlen(s: *const u16) -> i32 {
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn u_strncasecmp(s1: *const u16, s2: *const u16, n: i32, options: u32) -> i32 {
+pub unsafe fn u_strncasecmp(s1: &u16, s2: &u16, n: i32, options: u32) -> i32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn u_strncasecmp(s1: *const u16, s2: *const u16, n: i32, options: u32) -> i32;
@@ -18411,7 +18411,7 @@ pub unsafe fn u_strncasecmp(s1: *const u16, s2: *const u16, n: i32, options: u32
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn u_strncat(dst: *mut u16, src: *const u16, n: i32) -> *mut u16 {
+pub unsafe fn u_strncat(dst: &mut u16, src: &u16, n: i32) -> *mut u16 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn u_strncat(dst: *mut u16, src: *const u16, n: i32) -> *mut u16;
@@ -18420,7 +18420,7 @@ pub unsafe fn u_strncat(dst: *mut u16, src: *const u16, n: i32) -> *mut u16 {
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn u_strncmp(ucs1: *const u16, ucs2: *const u16, n: i32) -> i32 {
+pub unsafe fn u_strncmp(ucs1: &u16, ucs2: &u16, n: i32) -> i32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn u_strncmp(ucs1: *const u16, ucs2: *const u16, n: i32) -> i32;
@@ -18429,7 +18429,7 @@ pub unsafe fn u_strncmp(ucs1: *const u16, ucs2: *const u16, n: i32) -> i32 {
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn u_strncmpCodePointOrder(s1: *const u16, s2: *const u16, n: i32) -> i32 {
+pub unsafe fn u_strncmpCodePointOrder(s1: &u16, s2: &u16, n: i32) -> i32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn u_strncmpCodePointOrder(s1: *const u16, s2: *const u16, n: i32) -> i32;
@@ -18438,7 +18438,7 @@ pub unsafe fn u_strncmpCodePointOrder(s1: *const u16, s2: *const u16, n: i32) ->
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn u_strncpy(dst: *mut u16, src: *const u16, n: i32) -> *mut u16 {
+pub unsafe fn u_strncpy(dst: &mut u16, src: &u16, n: i32) -> *mut u16 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn u_strncpy(dst: *mut u16, src: *const u16, n: i32) -> *mut u16;
@@ -18447,7 +18447,7 @@ pub unsafe fn u_strncpy(dst: *mut u16, src: *const u16, n: i32) -> *mut u16 {
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn u_strpbrk(string: *const u16, matchset: *const u16) -> *mut u16 {
+pub unsafe fn u_strpbrk(string: &u16, matchset: &u16) -> *mut u16 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn u_strpbrk(string: *const u16, matchset: *const u16) -> *mut u16;
@@ -18456,7 +18456,7 @@ pub unsafe fn u_strpbrk(string: *const u16, matchset: *const u16) -> *mut u16 {
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn u_strrchr(s: *const u16, c: u16) -> *mut u16 {
+pub unsafe fn u_strrchr(s: &u16, c: u16) -> *mut u16 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn u_strrchr(s: *const u16, c: u16) -> *mut u16;
@@ -18465,7 +18465,7 @@ pub unsafe fn u_strrchr(s: *const u16, c: u16) -> *mut u16 {
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn u_strrchr32(s: *const u16, c: i32) -> *mut u16 {
+pub unsafe fn u_strrchr32(s: &u16, c: i32) -> *mut u16 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn u_strrchr32(s: *const u16, c: i32) -> *mut u16;
@@ -18474,7 +18474,7 @@ pub unsafe fn u_strrchr32(s: *const u16, c: i32) -> *mut u16 {
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn u_strrstr(s: *const u16, substring: *const u16) -> *mut u16 {
+pub unsafe fn u_strrstr(s: &u16, substring: &u16) -> *mut u16 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn u_strrstr(s: *const u16, substring: *const u16) -> *mut u16;
@@ -18483,7 +18483,7 @@ pub unsafe fn u_strrstr(s: *const u16, substring: *const u16) -> *mut u16 {
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn u_strspn(string: *const u16, matchset: *const u16) -> i32 {
+pub unsafe fn u_strspn(string: &u16, matchset: &u16) -> i32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn u_strspn(string: *const u16, matchset: *const u16) -> i32;
@@ -18492,7 +18492,7 @@ pub unsafe fn u_strspn(string: *const u16, matchset: *const u16) -> i32 {
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn u_strstr(s: *const u16, substring: *const u16) -> *mut u16 {
+pub unsafe fn u_strstr(s: &u16, substring: &u16) -> *mut u16 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn u_strstr(s: *const u16, substring: *const u16) -> *mut u16;
@@ -18501,7 +18501,7 @@ pub unsafe fn u_strstr(s: *const u16, substring: *const u16) -> *mut u16 {
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn u_strtok_r(src: *mut u16, delim: *const u16, savestate: *mut *mut u16) -> *mut u16 {
+pub unsafe fn u_strtok_r(src: &mut u16, delim: &u16, savestate: &mut *mut u16) -> *mut u16 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn u_strtok_r(src: *mut u16, delim: *const u16, savestate: *mut *mut u16) -> *mut u16;
@@ -18537,7 +18537,7 @@ pub unsafe fn u_toupper(c: i32) -> i32 {
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn u_uastrcpy<'a, P0>(dst: *mut u16, src: P0) -> *mut u16
+pub unsafe fn u_uastrcpy<'a, P0>(dst: &mut u16, src: P0) -> *mut u16
 where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
 {
@@ -18549,7 +18549,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn u_uastrncpy<'a, P0>(dst: *mut u16, src: P0, n: i32) -> *mut u16
+pub unsafe fn u_uastrncpy<'a, P0>(dst: &mut u16, src: P0, n: i32) -> *mut u16
 where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
 {
@@ -18561,7 +18561,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn u_unescape<'a, P0>(src: P0, dest: *mut u16, destcapacity: i32) -> i32
+pub unsafe fn u_unescape<'a, P0>(src: P0, dest: &mut u16, destcapacity: i32) -> i32
 where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
 {
@@ -18573,7 +18573,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn u_unescapeAt(charat: UNESCAPE_CHAR_AT, offset: *mut i32, length: i32, context: *mut ::core::ffi::c_void) -> i32 {
+pub unsafe fn u_unescapeAt(charat: UNESCAPE_CHAR_AT, offset: &mut i32, length: i32, context: *mut ::core::ffi::c_void) -> i32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn u_unescapeAt(charat: *mut ::core::ffi::c_void, offset: *mut i32, length: i32, context: *mut ::core::ffi::c_void) -> i32;
@@ -18582,7 +18582,7 @@ pub unsafe fn u_unescapeAt(charat: UNESCAPE_CHAR_AT, offset: *mut i32, length: i
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn u_versionFromString<'a, P0>(versionarray: *mut u8, versionstring: P0)
+pub unsafe fn u_versionFromString<'a, P0>(versionarray: &mut u8, versionstring: P0)
 where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
 {
@@ -18594,7 +18594,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn u_versionFromUString(versionarray: *mut u8, versionstring: *const u16) {
+pub unsafe fn u_versionFromUString(versionarray: &mut u8, versionstring: &u16) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn u_versionFromUString(versionarray: *mut u8, versionstring: *const u16);
@@ -18603,7 +18603,7 @@ pub unsafe fn u_versionFromUString(versionarray: *mut u8, versionstring: *const 
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn u_versionToString<'a, P0>(versionarray: *const u8, versionstring: P0)
+pub unsafe fn u_versionToString<'a, P0>(versionarray: &u8, versionstring: P0)
 where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
 {
@@ -18615,7 +18615,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn u_vformatMessage<'a, P0>(locale: P0, pattern: *const u16, patternlength: i32, result: *mut u16, resultlength: i32, ap: *mut i8, status: *mut UErrorCode) -> i32
+pub unsafe fn u_vformatMessage<'a, P0>(locale: P0, pattern: &u16, patternlength: i32, result: &mut u16, resultlength: i32, ap: &mut i8, status: &mut UErrorCode) -> i32
 where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
 {
@@ -18627,7 +18627,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn u_vformatMessageWithError<'a, P0>(locale: P0, pattern: *const u16, patternlength: i32, result: *mut u16, resultlength: i32, parseerror: *mut UParseError, ap: *mut i8, status: *mut UErrorCode) -> i32
+pub unsafe fn u_vformatMessageWithError<'a, P0>(locale: P0, pattern: &u16, patternlength: i32, result: &mut u16, resultlength: i32, parseerror: &mut UParseError, ap: &mut i8, status: &mut UErrorCode) -> i32
 where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
 {
@@ -18639,7 +18639,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn u_vparseMessage<'a, P0>(locale: P0, pattern: *const u16, patternlength: i32, source: *const u16, sourcelength: i32, ap: *mut i8, status: *mut UErrorCode)
+pub unsafe fn u_vparseMessage<'a, P0>(locale: P0, pattern: &u16, patternlength: i32, source: &u16, sourcelength: i32, ap: &mut i8, status: &mut UErrorCode)
 where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
 {
@@ -18651,7 +18651,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn u_vparseMessageWithError<'a, P0>(locale: P0, pattern: *const u16, patternlength: i32, source: *const u16, sourcelength: i32, ap: *mut i8, parseerror: *mut UParseError, status: *mut UErrorCode)
+pub unsafe fn u_vparseMessageWithError<'a, P0>(locale: P0, pattern: &u16, patternlength: i32, source: &u16, sourcelength: i32, ap: &mut i8, parseerror: &mut UParseError, status: &mut UErrorCode)
 where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
 {
@@ -18663,7 +18663,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn ubidi_close(pbidi: *mut UBiDi) {
+pub unsafe fn ubidi_close(pbidi: &mut UBiDi) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn ubidi_close(pbidi: *mut UBiDi);
@@ -18672,7 +18672,7 @@ pub unsafe fn ubidi_close(pbidi: *mut UBiDi) {
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn ubidi_countParagraphs(pbidi: *mut UBiDi) -> i32 {
+pub unsafe fn ubidi_countParagraphs(pbidi: &mut UBiDi) -> i32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn ubidi_countParagraphs(pbidi: *mut UBiDi) -> i32;
@@ -18681,7 +18681,7 @@ pub unsafe fn ubidi_countParagraphs(pbidi: *mut UBiDi) -> i32 {
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn ubidi_countRuns(pbidi: *mut UBiDi, perrorcode: *mut UErrorCode) -> i32 {
+pub unsafe fn ubidi_countRuns(pbidi: &mut UBiDi, perrorcode: &mut UErrorCode) -> i32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn ubidi_countRuns(pbidi: *mut UBiDi, perrorcode: *mut UErrorCode) -> i32;
@@ -18690,7 +18690,7 @@ pub unsafe fn ubidi_countRuns(pbidi: *mut UBiDi, perrorcode: *mut UErrorCode) ->
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn ubidi_getBaseDirection(text: *const u16, length: i32) -> UBiDiDirection {
+pub unsafe fn ubidi_getBaseDirection(text: &u16, length: i32) -> UBiDiDirection {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn ubidi_getBaseDirection(text: *const u16, length: i32) -> UBiDiDirection;
@@ -18699,7 +18699,7 @@ pub unsafe fn ubidi_getBaseDirection(text: *const u16, length: i32) -> UBiDiDire
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn ubidi_getClassCallback(pbidi: *mut UBiDi, r#fn: *mut UBiDiClassCallback, context: *const *const ::core::ffi::c_void) {
+pub unsafe fn ubidi_getClassCallback(pbidi: &mut UBiDi, r#fn: &mut UBiDiClassCallback, context: *const *const ::core::ffi::c_void) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn ubidi_getClassCallback(pbidi: *mut UBiDi, r#fn: *mut *mut ::core::ffi::c_void, context: *const *const ::core::ffi::c_void);
@@ -18708,7 +18708,7 @@ pub unsafe fn ubidi_getClassCallback(pbidi: *mut UBiDi, r#fn: *mut UBiDiClassCal
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn ubidi_getCustomizedClass(pbidi: *mut UBiDi, c: i32) -> UCharDirection {
+pub unsafe fn ubidi_getCustomizedClass(pbidi: &mut UBiDi, c: i32) -> UCharDirection {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn ubidi_getCustomizedClass(pbidi: *mut UBiDi, c: i32) -> UCharDirection;
@@ -18717,7 +18717,7 @@ pub unsafe fn ubidi_getCustomizedClass(pbidi: *mut UBiDi, c: i32) -> UCharDirect
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn ubidi_getDirection(pbidi: *const UBiDi) -> UBiDiDirection {
+pub unsafe fn ubidi_getDirection(pbidi: &UBiDi) -> UBiDiDirection {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn ubidi_getDirection(pbidi: *const UBiDi) -> UBiDiDirection;
@@ -18726,7 +18726,7 @@ pub unsafe fn ubidi_getDirection(pbidi: *const UBiDi) -> UBiDiDirection {
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn ubidi_getLength(pbidi: *const UBiDi) -> i32 {
+pub unsafe fn ubidi_getLength(pbidi: &UBiDi) -> i32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn ubidi_getLength(pbidi: *const UBiDi) -> i32;
@@ -18735,7 +18735,7 @@ pub unsafe fn ubidi_getLength(pbidi: *const UBiDi) -> i32 {
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn ubidi_getLevelAt(pbidi: *const UBiDi, charindex: i32) -> u8 {
+pub unsafe fn ubidi_getLevelAt(pbidi: &UBiDi, charindex: i32) -> u8 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn ubidi_getLevelAt(pbidi: *const UBiDi, charindex: i32) -> u8;
@@ -18744,7 +18744,7 @@ pub unsafe fn ubidi_getLevelAt(pbidi: *const UBiDi, charindex: i32) -> u8 {
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn ubidi_getLevels(pbidi: *mut UBiDi, perrorcode: *mut UErrorCode) -> *mut u8 {
+pub unsafe fn ubidi_getLevels(pbidi: &mut UBiDi, perrorcode: &mut UErrorCode) -> *mut u8 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn ubidi_getLevels(pbidi: *mut UBiDi, perrorcode: *mut UErrorCode) -> *mut u8;
@@ -18753,7 +18753,7 @@ pub unsafe fn ubidi_getLevels(pbidi: *mut UBiDi, perrorcode: *mut UErrorCode) ->
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn ubidi_getLogicalIndex(pbidi: *mut UBiDi, visualindex: i32, perrorcode: *mut UErrorCode) -> i32 {
+pub unsafe fn ubidi_getLogicalIndex(pbidi: &mut UBiDi, visualindex: i32, perrorcode: &mut UErrorCode) -> i32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn ubidi_getLogicalIndex(pbidi: *mut UBiDi, visualindex: i32, perrorcode: *mut UErrorCode) -> i32;
@@ -18762,7 +18762,7 @@ pub unsafe fn ubidi_getLogicalIndex(pbidi: *mut UBiDi, visualindex: i32, perrorc
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn ubidi_getLogicalMap(pbidi: *mut UBiDi, indexmap: *mut i32, perrorcode: *mut UErrorCode) {
+pub unsafe fn ubidi_getLogicalMap(pbidi: &mut UBiDi, indexmap: &mut i32, perrorcode: &mut UErrorCode) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn ubidi_getLogicalMap(pbidi: *mut UBiDi, indexmap: *mut i32, perrorcode: *mut UErrorCode);
@@ -18771,7 +18771,7 @@ pub unsafe fn ubidi_getLogicalMap(pbidi: *mut UBiDi, indexmap: *mut i32, perrorc
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn ubidi_getLogicalRun(pbidi: *const UBiDi, logicalposition: i32, plogicallimit: *mut i32, plevel: *mut u8) {
+pub unsafe fn ubidi_getLogicalRun(pbidi: &UBiDi, logicalposition: i32, plogicallimit: &mut i32, plevel: &mut u8) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn ubidi_getLogicalRun(pbidi: *const UBiDi, logicalposition: i32, plogicallimit: *mut i32, plevel: *mut u8);
@@ -18780,7 +18780,7 @@ pub unsafe fn ubidi_getLogicalRun(pbidi: *const UBiDi, logicalposition: i32, plo
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn ubidi_getParaLevel(pbidi: *const UBiDi) -> u8 {
+pub unsafe fn ubidi_getParaLevel(pbidi: &UBiDi) -> u8 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn ubidi_getParaLevel(pbidi: *const UBiDi) -> u8;
@@ -18789,7 +18789,7 @@ pub unsafe fn ubidi_getParaLevel(pbidi: *const UBiDi) -> u8 {
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn ubidi_getParagraph(pbidi: *const UBiDi, charindex: i32, pparastart: *mut i32, pparalimit: *mut i32, pparalevel: *mut u8, perrorcode: *mut UErrorCode) -> i32 {
+pub unsafe fn ubidi_getParagraph(pbidi: &UBiDi, charindex: i32, pparastart: &mut i32, pparalimit: &mut i32, pparalevel: &mut u8, perrorcode: &mut UErrorCode) -> i32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn ubidi_getParagraph(pbidi: *const UBiDi, charindex: i32, pparastart: *mut i32, pparalimit: *mut i32, pparalevel: *mut u8, perrorcode: *mut UErrorCode) -> i32;
@@ -18798,7 +18798,7 @@ pub unsafe fn ubidi_getParagraph(pbidi: *const UBiDi, charindex: i32, pparastart
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn ubidi_getParagraphByIndex(pbidi: *const UBiDi, paraindex: i32, pparastart: *mut i32, pparalimit: *mut i32, pparalevel: *mut u8, perrorcode: *mut UErrorCode) {
+pub unsafe fn ubidi_getParagraphByIndex(pbidi: &UBiDi, paraindex: i32, pparastart: &mut i32, pparalimit: &mut i32, pparalevel: &mut u8, perrorcode: &mut UErrorCode) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn ubidi_getParagraphByIndex(pbidi: *const UBiDi, paraindex: i32, pparastart: *mut i32, pparalimit: *mut i32, pparalevel: *mut u8, perrorcode: *mut UErrorCode);
@@ -18807,7 +18807,7 @@ pub unsafe fn ubidi_getParagraphByIndex(pbidi: *const UBiDi, paraindex: i32, ppa
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn ubidi_getProcessedLength(pbidi: *const UBiDi) -> i32 {
+pub unsafe fn ubidi_getProcessedLength(pbidi: &UBiDi) -> i32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn ubidi_getProcessedLength(pbidi: *const UBiDi) -> i32;
@@ -18816,7 +18816,7 @@ pub unsafe fn ubidi_getProcessedLength(pbidi: *const UBiDi) -> i32 {
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn ubidi_getReorderingMode(pbidi: *mut UBiDi) -> UBiDiReorderingMode {
+pub unsafe fn ubidi_getReorderingMode(pbidi: &mut UBiDi) -> UBiDiReorderingMode {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn ubidi_getReorderingMode(pbidi: *mut UBiDi) -> UBiDiReorderingMode;
@@ -18825,7 +18825,7 @@ pub unsafe fn ubidi_getReorderingMode(pbidi: *mut UBiDi) -> UBiDiReorderingMode 
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn ubidi_getReorderingOptions(pbidi: *mut UBiDi) -> u32 {
+pub unsafe fn ubidi_getReorderingOptions(pbidi: &mut UBiDi) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn ubidi_getReorderingOptions(pbidi: *mut UBiDi) -> u32;
@@ -18834,7 +18834,7 @@ pub unsafe fn ubidi_getReorderingOptions(pbidi: *mut UBiDi) -> u32 {
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn ubidi_getResultLength(pbidi: *const UBiDi) -> i32 {
+pub unsafe fn ubidi_getResultLength(pbidi: &UBiDi) -> i32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn ubidi_getResultLength(pbidi: *const UBiDi) -> i32;
@@ -18843,7 +18843,7 @@ pub unsafe fn ubidi_getResultLength(pbidi: *const UBiDi) -> i32 {
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn ubidi_getText(pbidi: *const UBiDi) -> *mut u16 {
+pub unsafe fn ubidi_getText(pbidi: &UBiDi) -> *mut u16 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn ubidi_getText(pbidi: *const UBiDi) -> *mut u16;
@@ -18852,7 +18852,7 @@ pub unsafe fn ubidi_getText(pbidi: *const UBiDi) -> *mut u16 {
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn ubidi_getVisualIndex(pbidi: *mut UBiDi, logicalindex: i32, perrorcode: *mut UErrorCode) -> i32 {
+pub unsafe fn ubidi_getVisualIndex(pbidi: &mut UBiDi, logicalindex: i32, perrorcode: &mut UErrorCode) -> i32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn ubidi_getVisualIndex(pbidi: *mut UBiDi, logicalindex: i32, perrorcode: *mut UErrorCode) -> i32;
@@ -18861,7 +18861,7 @@ pub unsafe fn ubidi_getVisualIndex(pbidi: *mut UBiDi, logicalindex: i32, perrorc
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn ubidi_getVisualMap(pbidi: *mut UBiDi, indexmap: *mut i32, perrorcode: *mut UErrorCode) {
+pub unsafe fn ubidi_getVisualMap(pbidi: &mut UBiDi, indexmap: &mut i32, perrorcode: &mut UErrorCode) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn ubidi_getVisualMap(pbidi: *mut UBiDi, indexmap: *mut i32, perrorcode: *mut UErrorCode);
@@ -18870,7 +18870,7 @@ pub unsafe fn ubidi_getVisualMap(pbidi: *mut UBiDi, indexmap: *mut i32, perrorco
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn ubidi_getVisualRun(pbidi: *mut UBiDi, runindex: i32, plogicalstart: *mut i32, plength: *mut i32) -> UBiDiDirection {
+pub unsafe fn ubidi_getVisualRun(pbidi: &mut UBiDi, runindex: i32, plogicalstart: &mut i32, plength: &mut i32) -> UBiDiDirection {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn ubidi_getVisualRun(pbidi: *mut UBiDi, runindex: i32, plogicalstart: *mut i32, plength: *mut i32) -> UBiDiDirection;
@@ -18879,7 +18879,7 @@ pub unsafe fn ubidi_getVisualRun(pbidi: *mut UBiDi, runindex: i32, plogicalstart
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn ubidi_invertMap(srcmap: *const i32, destmap: *mut i32, length: i32) {
+pub unsafe fn ubidi_invertMap(srcmap: &i32, destmap: &mut i32, length: i32) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn ubidi_invertMap(srcmap: *const i32, destmap: *mut i32, length: i32);
@@ -18888,7 +18888,7 @@ pub unsafe fn ubidi_invertMap(srcmap: *const i32, destmap: *mut i32, length: i32
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn ubidi_isInverse(pbidi: *mut UBiDi) -> i8 {
+pub unsafe fn ubidi_isInverse(pbidi: &mut UBiDi) -> i8 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn ubidi_isInverse(pbidi: *mut UBiDi) -> i8;
@@ -18897,7 +18897,7 @@ pub unsafe fn ubidi_isInverse(pbidi: *mut UBiDi) -> i8 {
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn ubidi_isOrderParagraphsLTR(pbidi: *mut UBiDi) -> i8 {
+pub unsafe fn ubidi_isOrderParagraphsLTR(pbidi: &mut UBiDi) -> i8 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn ubidi_isOrderParagraphsLTR(pbidi: *mut UBiDi) -> i8;
@@ -18915,7 +18915,7 @@ pub unsafe fn ubidi_open() -> *mut UBiDi {
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn ubidi_openSized(maxlength: i32, maxruncount: i32, perrorcode: *mut UErrorCode) -> *mut UBiDi {
+pub unsafe fn ubidi_openSized(maxlength: i32, maxruncount: i32, perrorcode: &mut UErrorCode) -> *mut UBiDi {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn ubidi_openSized(maxlength: i32, maxruncount: i32, perrorcode: *mut UErrorCode) -> *mut UBiDi;
@@ -18924,7 +18924,7 @@ pub unsafe fn ubidi_openSized(maxlength: i32, maxruncount: i32, perrorcode: *mut
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn ubidi_orderParagraphsLTR(pbidi: *mut UBiDi, orderparagraphsltr: i8) {
+pub unsafe fn ubidi_orderParagraphsLTR(pbidi: &mut UBiDi, orderparagraphsltr: i8) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn ubidi_orderParagraphsLTR(pbidi: *mut UBiDi, orderparagraphsltr: i8);
@@ -18933,7 +18933,7 @@ pub unsafe fn ubidi_orderParagraphsLTR(pbidi: *mut UBiDi, orderparagraphsltr: i8
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn ubidi_reorderLogical(levels: *const u8, length: i32, indexmap: *mut i32) {
+pub unsafe fn ubidi_reorderLogical(levels: &u8, length: i32, indexmap: &mut i32) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn ubidi_reorderLogical(levels: *const u8, length: i32, indexmap: *mut i32);
@@ -18942,7 +18942,7 @@ pub unsafe fn ubidi_reorderLogical(levels: *const u8, length: i32, indexmap: *mu
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn ubidi_reorderVisual(levels: *const u8, length: i32, indexmap: *mut i32) {
+pub unsafe fn ubidi_reorderVisual(levels: &u8, length: i32, indexmap: &mut i32) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn ubidi_reorderVisual(levels: *const u8, length: i32, indexmap: *mut i32);
@@ -18951,7 +18951,7 @@ pub unsafe fn ubidi_reorderVisual(levels: *const u8, length: i32, indexmap: *mut
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn ubidi_setClassCallback(pbidi: *mut UBiDi, newfn: UBiDiClassCallback, newcontext: *const ::core::ffi::c_void, oldfn: *mut UBiDiClassCallback, oldcontext: *const *const ::core::ffi::c_void, perrorcode: *mut UErrorCode) {
+pub unsafe fn ubidi_setClassCallback(pbidi: &mut UBiDi, newfn: UBiDiClassCallback, newcontext: *const ::core::ffi::c_void, oldfn: &mut UBiDiClassCallback, oldcontext: *const *const ::core::ffi::c_void, perrorcode: &mut UErrorCode) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn ubidi_setClassCallback(pbidi: *mut UBiDi, newfn: *mut ::core::ffi::c_void, newcontext: *const ::core::ffi::c_void, oldfn: *mut *mut ::core::ffi::c_void, oldcontext: *const *const ::core::ffi::c_void, perrorcode: *mut UErrorCode);
@@ -18960,7 +18960,7 @@ pub unsafe fn ubidi_setClassCallback(pbidi: *mut UBiDi, newfn: UBiDiClassCallbac
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn ubidi_setContext(pbidi: *mut UBiDi, prologue: *const u16, prolength: i32, epilogue: *const u16, epilength: i32, perrorcode: *mut UErrorCode) {
+pub unsafe fn ubidi_setContext(pbidi: &mut UBiDi, prologue: &u16, prolength: i32, epilogue: &u16, epilength: i32, perrorcode: &mut UErrorCode) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn ubidi_setContext(pbidi: *mut UBiDi, prologue: *const u16, prolength: i32, epilogue: *const u16, epilength: i32, perrorcode: *mut UErrorCode);
@@ -18969,7 +18969,7 @@ pub unsafe fn ubidi_setContext(pbidi: *mut UBiDi, prologue: *const u16, prolengt
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn ubidi_setInverse(pbidi: *mut UBiDi, isinverse: i8) {
+pub unsafe fn ubidi_setInverse(pbidi: &mut UBiDi, isinverse: i8) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn ubidi_setInverse(pbidi: *mut UBiDi, isinverse: i8);
@@ -18978,7 +18978,7 @@ pub unsafe fn ubidi_setInverse(pbidi: *mut UBiDi, isinverse: i8) {
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn ubidi_setLine(pparabidi: *const UBiDi, start: i32, limit: i32, plinebidi: *mut UBiDi, perrorcode: *mut UErrorCode) {
+pub unsafe fn ubidi_setLine(pparabidi: &UBiDi, start: i32, limit: i32, plinebidi: &mut UBiDi, perrorcode: &mut UErrorCode) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn ubidi_setLine(pparabidi: *const UBiDi, start: i32, limit: i32, plinebidi: *mut UBiDi, perrorcode: *mut UErrorCode);
@@ -18987,7 +18987,7 @@ pub unsafe fn ubidi_setLine(pparabidi: *const UBiDi, start: i32, limit: i32, pli
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn ubidi_setPara(pbidi: *mut UBiDi, text: *const u16, length: i32, paralevel: u8, embeddinglevels: *mut u8, perrorcode: *mut UErrorCode) {
+pub unsafe fn ubidi_setPara(pbidi: &mut UBiDi, text: &u16, length: i32, paralevel: u8, embeddinglevels: &mut u8, perrorcode: &mut UErrorCode) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn ubidi_setPara(pbidi: *mut UBiDi, text: *const u16, length: i32, paralevel: u8, embeddinglevels: *mut u8, perrorcode: *mut UErrorCode);
@@ -18996,7 +18996,7 @@ pub unsafe fn ubidi_setPara(pbidi: *mut UBiDi, text: *const u16, length: i32, pa
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn ubidi_setReorderingMode(pbidi: *mut UBiDi, reorderingmode: UBiDiReorderingMode) {
+pub unsafe fn ubidi_setReorderingMode(pbidi: &mut UBiDi, reorderingmode: UBiDiReorderingMode) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn ubidi_setReorderingMode(pbidi: *mut UBiDi, reorderingmode: UBiDiReorderingMode);
@@ -19005,7 +19005,7 @@ pub unsafe fn ubidi_setReorderingMode(pbidi: *mut UBiDi, reorderingmode: UBiDiRe
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn ubidi_setReorderingOptions(pbidi: *mut UBiDi, reorderingoptions: u32) {
+pub unsafe fn ubidi_setReorderingOptions(pbidi: &mut UBiDi, reorderingoptions: u32) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn ubidi_setReorderingOptions(pbidi: *mut UBiDi, reorderingoptions: u32);
@@ -19014,7 +19014,7 @@ pub unsafe fn ubidi_setReorderingOptions(pbidi: *mut UBiDi, reorderingoptions: u
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn ubidi_writeReordered(pbidi: *mut UBiDi, dest: *mut u16, destsize: i32, options: u16, perrorcode: *mut UErrorCode) -> i32 {
+pub unsafe fn ubidi_writeReordered(pbidi: &mut UBiDi, dest: &mut u16, destsize: i32, options: u16, perrorcode: &mut UErrorCode) -> i32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn ubidi_writeReordered(pbidi: *mut UBiDi, dest: *mut u16, destsize: i32, options: u16, perrorcode: *mut UErrorCode) -> i32;
@@ -19023,7 +19023,7 @@ pub unsafe fn ubidi_writeReordered(pbidi: *mut UBiDi, dest: *mut u16, destsize: 
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn ubidi_writeReverse(src: *const u16, srclength: i32, dest: *mut u16, destsize: i32, options: u16, perrorcode: *mut UErrorCode) -> i32 {
+pub unsafe fn ubidi_writeReverse(src: &u16, srclength: i32, dest: &mut u16, destsize: i32, options: u16, perrorcode: &mut UErrorCode) -> i32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn ubidi_writeReverse(src: *const u16, srclength: i32, dest: *mut u16, destsize: i32, options: u16, perrorcode: *mut UErrorCode) -> i32;
@@ -19032,7 +19032,7 @@ pub unsafe fn ubidi_writeReverse(src: *const u16, srclength: i32, dest: *mut u16
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn ubiditransform_close(pbiditransform: *mut UBiDiTransform) {
+pub unsafe fn ubiditransform_close(pbiditransform: &mut UBiDiTransform) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn ubiditransform_close(pbiditransform: *mut UBiDiTransform);
@@ -19041,7 +19041,7 @@ pub unsafe fn ubiditransform_close(pbiditransform: *mut UBiDiTransform) {
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn ubiditransform_open(perrorcode: *mut UErrorCode) -> *mut UBiDiTransform {
+pub unsafe fn ubiditransform_open(perrorcode: &mut UErrorCode) -> *mut UBiDiTransform {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn ubiditransform_open(perrorcode: *mut UErrorCode) -> *mut UBiDiTransform;
@@ -19050,7 +19050,7 @@ pub unsafe fn ubiditransform_open(perrorcode: *mut UErrorCode) -> *mut UBiDiTran
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn ubiditransform_transform(pbiditransform: *mut UBiDiTransform, src: *const u16, srclength: i32, dest: *mut u16, destsize: i32, inparalevel: u8, inorder: UBiDiOrder, outparalevel: u8, outorder: UBiDiOrder, domirroring: UBiDiMirroring, shapingoptions: u32, perrorcode: *mut UErrorCode) -> u32 {
+pub unsafe fn ubiditransform_transform(pbiditransform: &mut UBiDiTransform, src: &u16, srclength: i32, dest: &mut u16, destsize: i32, inparalevel: u8, inorder: UBiDiOrder, outparalevel: u8, outorder: UBiDiOrder, domirroring: UBiDiMirroring, shapingoptions: u32, perrorcode: &mut UErrorCode) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn ubiditransform_transform(pbiditransform: *mut UBiDiTransform, src: *const u16, srclength: i32, dest: *mut u16, destsize: i32, inparalevel: u8, inorder: UBiDiOrder, outparalevel: u8, outorder: UBiDiOrder, domirroring: UBiDiMirroring, shapingoptions: u32, perrorcode: *mut UErrorCode) -> u32;
@@ -19068,7 +19068,7 @@ pub unsafe fn ublock_getCode(c: i32) -> UBlockCode {
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn ubrk_close(bi: *mut UBreakIterator) {
+pub unsafe fn ubrk_close(bi: &mut UBreakIterator) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn ubrk_close(bi: *mut UBreakIterator);
@@ -19086,7 +19086,7 @@ pub unsafe fn ubrk_countAvailable() -> i32 {
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn ubrk_current(bi: *const UBreakIterator) -> i32 {
+pub unsafe fn ubrk_current(bi: &UBreakIterator) -> i32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn ubrk_current(bi: *const UBreakIterator) -> i32;
@@ -19095,7 +19095,7 @@ pub unsafe fn ubrk_current(bi: *const UBreakIterator) -> i32 {
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn ubrk_first(bi: *mut UBreakIterator) -> i32 {
+pub unsafe fn ubrk_first(bi: &mut UBreakIterator) -> i32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn ubrk_first(bi: *mut UBreakIterator) -> i32;
@@ -19104,7 +19104,7 @@ pub unsafe fn ubrk_first(bi: *mut UBreakIterator) -> i32 {
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn ubrk_following(bi: *mut UBreakIterator, offset: i32) -> i32 {
+pub unsafe fn ubrk_following(bi: &mut UBreakIterator, offset: i32) -> i32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn ubrk_following(bi: *mut UBreakIterator, offset: i32) -> i32;
@@ -19122,7 +19122,7 @@ pub unsafe fn ubrk_getAvailable(index: i32) -> ::windows::core::PSTR {
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn ubrk_getBinaryRules(bi: *mut UBreakIterator, binaryrules: *mut u8, rulescapacity: i32, status: *mut UErrorCode) -> i32 {
+pub unsafe fn ubrk_getBinaryRules(bi: &mut UBreakIterator, binaryrules: &mut u8, rulescapacity: i32, status: &mut UErrorCode) -> i32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn ubrk_getBinaryRules(bi: *mut UBreakIterator, binaryrules: *mut u8, rulescapacity: i32, status: *mut UErrorCode) -> i32;
@@ -19131,7 +19131,7 @@ pub unsafe fn ubrk_getBinaryRules(bi: *mut UBreakIterator, binaryrules: *mut u8,
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn ubrk_getLocaleByType(bi: *const UBreakIterator, r#type: ULocDataLocaleType, status: *mut UErrorCode) -> ::windows::core::PSTR {
+pub unsafe fn ubrk_getLocaleByType(bi: &UBreakIterator, r#type: ULocDataLocaleType, status: &mut UErrorCode) -> ::windows::core::PSTR {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn ubrk_getLocaleByType(bi: *const UBreakIterator, r#type: ULocDataLocaleType, status: *mut UErrorCode) -> ::windows::core::PSTR;
@@ -19140,7 +19140,7 @@ pub unsafe fn ubrk_getLocaleByType(bi: *const UBreakIterator, r#type: ULocDataLo
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn ubrk_getRuleStatus(bi: *mut UBreakIterator) -> i32 {
+pub unsafe fn ubrk_getRuleStatus(bi: &mut UBreakIterator) -> i32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn ubrk_getRuleStatus(bi: *mut UBreakIterator) -> i32;
@@ -19149,7 +19149,7 @@ pub unsafe fn ubrk_getRuleStatus(bi: *mut UBreakIterator) -> i32 {
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn ubrk_getRuleStatusVec(bi: *mut UBreakIterator, fillinvec: *mut i32, capacity: i32, status: *mut UErrorCode) -> i32 {
+pub unsafe fn ubrk_getRuleStatusVec(bi: &mut UBreakIterator, fillinvec: &mut i32, capacity: i32, status: &mut UErrorCode) -> i32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn ubrk_getRuleStatusVec(bi: *mut UBreakIterator, fillinvec: *mut i32, capacity: i32, status: *mut UErrorCode) -> i32;
@@ -19158,7 +19158,7 @@ pub unsafe fn ubrk_getRuleStatusVec(bi: *mut UBreakIterator, fillinvec: *mut i32
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn ubrk_isBoundary(bi: *mut UBreakIterator, offset: i32) -> i8 {
+pub unsafe fn ubrk_isBoundary(bi: &mut UBreakIterator, offset: i32) -> i8 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn ubrk_isBoundary(bi: *mut UBreakIterator, offset: i32) -> i8;
@@ -19167,7 +19167,7 @@ pub unsafe fn ubrk_isBoundary(bi: *mut UBreakIterator, offset: i32) -> i8 {
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn ubrk_last(bi: *mut UBreakIterator) -> i32 {
+pub unsafe fn ubrk_last(bi: &mut UBreakIterator) -> i32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn ubrk_last(bi: *mut UBreakIterator) -> i32;
@@ -19176,7 +19176,7 @@ pub unsafe fn ubrk_last(bi: *mut UBreakIterator) -> i32 {
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn ubrk_next(bi: *mut UBreakIterator) -> i32 {
+pub unsafe fn ubrk_next(bi: &mut UBreakIterator) -> i32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn ubrk_next(bi: *mut UBreakIterator) -> i32;
@@ -19185,7 +19185,7 @@ pub unsafe fn ubrk_next(bi: *mut UBreakIterator) -> i32 {
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn ubrk_open<'a, P0>(r#type: UBreakIteratorType, locale: P0, text: *const u16, textlength: i32, status: *mut UErrorCode) -> *mut UBreakIterator
+pub unsafe fn ubrk_open<'a, P0>(r#type: UBreakIteratorType, locale: P0, text: &u16, textlength: i32, status: &mut UErrorCode) -> *mut UBreakIterator
 where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
 {
@@ -19197,7 +19197,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn ubrk_openBinaryRules(binaryrules: *const u8, ruleslength: i32, text: *const u16, textlength: i32, status: *mut UErrorCode) -> *mut UBreakIterator {
+pub unsafe fn ubrk_openBinaryRules(binaryrules: &u8, ruleslength: i32, text: &u16, textlength: i32, status: &mut UErrorCode) -> *mut UBreakIterator {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn ubrk_openBinaryRules(binaryrules: *const u8, ruleslength: i32, text: *const u16, textlength: i32, status: *mut UErrorCode) -> *mut UBreakIterator;
@@ -19206,7 +19206,7 @@ pub unsafe fn ubrk_openBinaryRules(binaryrules: *const u8, ruleslength: i32, tex
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn ubrk_openRules(rules: *const u16, ruleslength: i32, text: *const u16, textlength: i32, parseerr: *mut UParseError, status: *mut UErrorCode) -> *mut UBreakIterator {
+pub unsafe fn ubrk_openRules(rules: &u16, ruleslength: i32, text: &u16, textlength: i32, parseerr: &mut UParseError, status: &mut UErrorCode) -> *mut UBreakIterator {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn ubrk_openRules(rules: *const u16, ruleslength: i32, text: *const u16, textlength: i32, parseerr: *mut UParseError, status: *mut UErrorCode) -> *mut UBreakIterator;
@@ -19215,7 +19215,7 @@ pub unsafe fn ubrk_openRules(rules: *const u16, ruleslength: i32, text: *const u
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn ubrk_preceding(bi: *mut UBreakIterator, offset: i32) -> i32 {
+pub unsafe fn ubrk_preceding(bi: &mut UBreakIterator, offset: i32) -> i32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn ubrk_preceding(bi: *mut UBreakIterator, offset: i32) -> i32;
@@ -19224,7 +19224,7 @@ pub unsafe fn ubrk_preceding(bi: *mut UBreakIterator, offset: i32) -> i32 {
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn ubrk_previous(bi: *mut UBreakIterator) -> i32 {
+pub unsafe fn ubrk_previous(bi: &mut UBreakIterator) -> i32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn ubrk_previous(bi: *mut UBreakIterator) -> i32;
@@ -19233,7 +19233,7 @@ pub unsafe fn ubrk_previous(bi: *mut UBreakIterator) -> i32 {
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn ubrk_refreshUText(bi: *mut UBreakIterator, text: *mut UText, status: *mut UErrorCode) {
+pub unsafe fn ubrk_refreshUText(bi: &mut UBreakIterator, text: &mut UText, status: &mut UErrorCode) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn ubrk_refreshUText(bi: *mut UBreakIterator, text: *mut UText, status: *mut UErrorCode);
@@ -19242,7 +19242,7 @@ pub unsafe fn ubrk_refreshUText(bi: *mut UBreakIterator, text: *mut UText, statu
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn ubrk_safeClone(bi: *const UBreakIterator, stackbuffer: *mut ::core::ffi::c_void, pbuffersize: *mut i32, status: *mut UErrorCode) -> *mut UBreakIterator {
+pub unsafe fn ubrk_safeClone(bi: &UBreakIterator, stackbuffer: *mut ::core::ffi::c_void, pbuffersize: &mut i32, status: &mut UErrorCode) -> *mut UBreakIterator {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn ubrk_safeClone(bi: *const UBreakIterator, stackbuffer: *mut ::core::ffi::c_void, pbuffersize: *mut i32, status: *mut UErrorCode) -> *mut UBreakIterator;
@@ -19251,7 +19251,7 @@ pub unsafe fn ubrk_safeClone(bi: *const UBreakIterator, stackbuffer: *mut ::core
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn ubrk_setText(bi: *mut UBreakIterator, text: *const u16, textlength: i32, status: *mut UErrorCode) {
+pub unsafe fn ubrk_setText(bi: &mut UBreakIterator, text: &u16, textlength: i32, status: &mut UErrorCode) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn ubrk_setText(bi: *mut UBreakIterator, text: *const u16, textlength: i32, status: *mut UErrorCode);
@@ -19260,7 +19260,7 @@ pub unsafe fn ubrk_setText(bi: *mut UBreakIterator, text: *const u16, textlength
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn ubrk_setUText(bi: *mut UBreakIterator, text: *mut UText, status: *mut UErrorCode) {
+pub unsafe fn ubrk_setUText(bi: &mut UBreakIterator, text: &mut UText, status: &mut UErrorCode) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn ubrk_setUText(bi: *mut UBreakIterator, text: *mut UText, status: *mut UErrorCode);
@@ -19269,7 +19269,7 @@ pub unsafe fn ubrk_setUText(bi: *mut UBreakIterator, text: *mut UText, status: *
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn ucal_add(cal: *mut *mut ::core::ffi::c_void, field: UCalendarDateFields, amount: i32, status: *mut UErrorCode) {
+pub unsafe fn ucal_add(cal: *mut *mut ::core::ffi::c_void, field: UCalendarDateFields, amount: i32, status: &mut UErrorCode) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn ucal_add(cal: *mut *mut ::core::ffi::c_void, field: UCalendarDateFields, amount: i32, status: *mut UErrorCode);
@@ -19296,7 +19296,7 @@ pub unsafe fn ucal_clearField(cal: *mut *mut ::core::ffi::c_void, field: UCalend
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn ucal_clone(cal: *const *const ::core::ffi::c_void, status: *mut UErrorCode) -> *mut *mut ::core::ffi::c_void {
+pub unsafe fn ucal_clone(cal: *const *const ::core::ffi::c_void, status: &mut UErrorCode) -> *mut *mut ::core::ffi::c_void {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn ucal_clone(cal: *const *const ::core::ffi::c_void, status: *mut UErrorCode) -> *mut *mut ::core::ffi::c_void;
@@ -19332,7 +19332,7 @@ pub unsafe fn ucal_equivalentTo(cal1: *const *const ::core::ffi::c_void, cal2: *
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn ucal_get(cal: *const *const ::core::ffi::c_void, field: UCalendarDateFields, status: *mut UErrorCode) -> i32 {
+pub unsafe fn ucal_get(cal: *const *const ::core::ffi::c_void, field: UCalendarDateFields, status: &mut UErrorCode) -> i32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn ucal_get(cal: *const *const ::core::ffi::c_void, field: UCalendarDateFields, status: *mut UErrorCode) -> i32;
@@ -19359,7 +19359,7 @@ pub unsafe fn ucal_getAvailable(localeindex: i32) -> ::windows::core::PSTR {
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn ucal_getCanonicalTimeZoneID(id: *const u16, len: i32, result: *mut u16, resultcapacity: i32, issystemid: *mut i8, status: *mut UErrorCode) -> i32 {
+pub unsafe fn ucal_getCanonicalTimeZoneID(id: &u16, len: i32, result: &mut u16, resultcapacity: i32, issystemid: &mut i8, status: &mut UErrorCode) -> i32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn ucal_getCanonicalTimeZoneID(id: *const u16, len: i32, result: *mut u16, resultcapacity: i32, issystemid: *mut i8, status: *mut UErrorCode) -> i32;
@@ -19368,7 +19368,7 @@ pub unsafe fn ucal_getCanonicalTimeZoneID(id: *const u16, len: i32, result: *mut
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn ucal_getDSTSavings(zoneid: *const u16, ec: *mut UErrorCode) -> i32 {
+pub unsafe fn ucal_getDSTSavings(zoneid: &u16, ec: &mut UErrorCode) -> i32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn ucal_getDSTSavings(zoneid: *const u16, ec: *mut UErrorCode) -> i32;
@@ -19377,7 +19377,7 @@ pub unsafe fn ucal_getDSTSavings(zoneid: *const u16, ec: *mut UErrorCode) -> i32
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn ucal_getDayOfWeekType(cal: *const *const ::core::ffi::c_void, dayofweek: UCalendarDaysOfWeek, status: *mut UErrorCode) -> UCalendarWeekdayType {
+pub unsafe fn ucal_getDayOfWeekType(cal: *const *const ::core::ffi::c_void, dayofweek: UCalendarDaysOfWeek, status: &mut UErrorCode) -> UCalendarWeekdayType {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn ucal_getDayOfWeekType(cal: *const *const ::core::ffi::c_void, dayofweek: UCalendarDaysOfWeek, status: *mut UErrorCode) -> UCalendarWeekdayType;
@@ -19386,7 +19386,7 @@ pub unsafe fn ucal_getDayOfWeekType(cal: *const *const ::core::ffi::c_void, dayo
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn ucal_getDefaultTimeZone(result: *mut u16, resultcapacity: i32, ec: *mut UErrorCode) -> i32 {
+pub unsafe fn ucal_getDefaultTimeZone(result: &mut u16, resultcapacity: i32, ec: &mut UErrorCode) -> i32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn ucal_getDefaultTimeZone(result: *mut u16, resultcapacity: i32, ec: *mut UErrorCode) -> i32;
@@ -19395,7 +19395,7 @@ pub unsafe fn ucal_getDefaultTimeZone(result: *mut u16, resultcapacity: i32, ec:
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn ucal_getFieldDifference(cal: *mut *mut ::core::ffi::c_void, target: f64, field: UCalendarDateFields, status: *mut UErrorCode) -> i32 {
+pub unsafe fn ucal_getFieldDifference(cal: *mut *mut ::core::ffi::c_void, target: f64, field: UCalendarDateFields, status: &mut UErrorCode) -> i32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn ucal_getFieldDifference(cal: *mut *mut ::core::ffi::c_void, target: f64, field: UCalendarDateFields, status: *mut UErrorCode) -> i32;
@@ -19404,7 +19404,7 @@ pub unsafe fn ucal_getFieldDifference(cal: *mut *mut ::core::ffi::c_void, target
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn ucal_getGregorianChange(cal: *const *const ::core::ffi::c_void, perrorcode: *mut UErrorCode) -> f64 {
+pub unsafe fn ucal_getGregorianChange(cal: *const *const ::core::ffi::c_void, perrorcode: &mut UErrorCode) -> f64 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn ucal_getGregorianChange(cal: *const *const ::core::ffi::c_void, perrorcode: *mut UErrorCode) -> f64;
@@ -19413,7 +19413,7 @@ pub unsafe fn ucal_getGregorianChange(cal: *const *const ::core::ffi::c_void, pe
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn ucal_getHostTimeZone(result: *mut u16, resultcapacity: i32, ec: *mut UErrorCode) -> i32 {
+pub unsafe fn ucal_getHostTimeZone(result: &mut u16, resultcapacity: i32, ec: &mut UErrorCode) -> i32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn ucal_getHostTimeZone(result: *mut u16, resultcapacity: i32, ec: *mut UErrorCode) -> i32;
@@ -19422,7 +19422,7 @@ pub unsafe fn ucal_getHostTimeZone(result: *mut u16, resultcapacity: i32, ec: *m
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn ucal_getKeywordValuesForLocale<'a, P0, P1>(key: P0, locale: P1, commonlyused: i8, status: *mut UErrorCode) -> *mut UEnumeration
+pub unsafe fn ucal_getKeywordValuesForLocale<'a, P0, P1>(key: P0, locale: P1, commonlyused: i8, status: &mut UErrorCode) -> *mut UEnumeration
 where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
     P1: ::std::convert::Into<::windows::core::PCSTR>,
@@ -19435,7 +19435,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn ucal_getLimit(cal: *const *const ::core::ffi::c_void, field: UCalendarDateFields, r#type: UCalendarLimitType, status: *mut UErrorCode) -> i32 {
+pub unsafe fn ucal_getLimit(cal: *const *const ::core::ffi::c_void, field: UCalendarDateFields, r#type: UCalendarLimitType, status: &mut UErrorCode) -> i32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn ucal_getLimit(cal: *const *const ::core::ffi::c_void, field: UCalendarDateFields, r#type: UCalendarLimitType, status: *mut UErrorCode) -> i32;
@@ -19444,7 +19444,7 @@ pub unsafe fn ucal_getLimit(cal: *const *const ::core::ffi::c_void, field: UCale
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn ucal_getLocaleByType(cal: *const *const ::core::ffi::c_void, r#type: ULocDataLocaleType, status: *mut UErrorCode) -> ::windows::core::PSTR {
+pub unsafe fn ucal_getLocaleByType(cal: *const *const ::core::ffi::c_void, r#type: ULocDataLocaleType, status: &mut UErrorCode) -> ::windows::core::PSTR {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn ucal_getLocaleByType(cal: *const *const ::core::ffi::c_void, r#type: ULocDataLocaleType, status: *mut UErrorCode) -> ::windows::core::PSTR;
@@ -19453,7 +19453,7 @@ pub unsafe fn ucal_getLocaleByType(cal: *const *const ::core::ffi::c_void, r#typ
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn ucal_getMillis(cal: *const *const ::core::ffi::c_void, status: *mut UErrorCode) -> f64 {
+pub unsafe fn ucal_getMillis(cal: *const *const ::core::ffi::c_void, status: &mut UErrorCode) -> f64 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn ucal_getMillis(cal: *const *const ::core::ffi::c_void, status: *mut UErrorCode) -> f64;
@@ -19471,7 +19471,7 @@ pub unsafe fn ucal_getNow() -> f64 {
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn ucal_getTZDataVersion(status: *mut UErrorCode) -> ::windows::core::PSTR {
+pub unsafe fn ucal_getTZDataVersion(status: &mut UErrorCode) -> ::windows::core::PSTR {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn ucal_getTZDataVersion(status: *mut UErrorCode) -> ::windows::core::PSTR;
@@ -19480,7 +19480,7 @@ pub unsafe fn ucal_getTZDataVersion(status: *mut UErrorCode) -> ::windows::core:
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn ucal_getTimeZoneDisplayName<'a, P0>(cal: *const *const ::core::ffi::c_void, r#type: UCalendarDisplayNameType, locale: P0, result: *mut u16, resultlength: i32, status: *mut UErrorCode) -> i32
+pub unsafe fn ucal_getTimeZoneDisplayName<'a, P0>(cal: *const *const ::core::ffi::c_void, r#type: UCalendarDisplayNameType, locale: P0, result: &mut u16, resultlength: i32, status: &mut UErrorCode) -> i32
 where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
 {
@@ -19492,7 +19492,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn ucal_getTimeZoneID(cal: *const *const ::core::ffi::c_void, result: *mut u16, resultlength: i32, status: *mut UErrorCode) -> i32 {
+pub unsafe fn ucal_getTimeZoneID(cal: *const *const ::core::ffi::c_void, result: &mut u16, resultlength: i32, status: &mut UErrorCode) -> i32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn ucal_getTimeZoneID(cal: *const *const ::core::ffi::c_void, result: *mut u16, resultlength: i32, status: *mut UErrorCode) -> i32;
@@ -19501,7 +19501,7 @@ pub unsafe fn ucal_getTimeZoneID(cal: *const *const ::core::ffi::c_void, result:
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn ucal_getTimeZoneIDForWindowsID<'a, P0>(winid: *const u16, len: i32, region: P0, id: *mut u16, idcapacity: i32, status: *mut UErrorCode) -> i32
+pub unsafe fn ucal_getTimeZoneIDForWindowsID<'a, P0>(winid: &u16, len: i32, region: P0, id: &mut u16, idcapacity: i32, status: &mut UErrorCode) -> i32
 where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
 {
@@ -19513,7 +19513,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn ucal_getTimeZoneTransitionDate(cal: *const *const ::core::ffi::c_void, r#type: UTimeZoneTransitionType, transition: *mut f64, status: *mut UErrorCode) -> i8 {
+pub unsafe fn ucal_getTimeZoneTransitionDate(cal: *const *const ::core::ffi::c_void, r#type: UTimeZoneTransitionType, transition: &mut f64, status: &mut UErrorCode) -> i8 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn ucal_getTimeZoneTransitionDate(cal: *const *const ::core::ffi::c_void, r#type: UTimeZoneTransitionType, transition: *mut f64, status: *mut UErrorCode) -> i8;
@@ -19522,7 +19522,7 @@ pub unsafe fn ucal_getTimeZoneTransitionDate(cal: *const *const ::core::ffi::c_v
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn ucal_getType(cal: *const *const ::core::ffi::c_void, status: *mut UErrorCode) -> ::windows::core::PSTR {
+pub unsafe fn ucal_getType(cal: *const *const ::core::ffi::c_void, status: &mut UErrorCode) -> ::windows::core::PSTR {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn ucal_getType(cal: *const *const ::core::ffi::c_void, status: *mut UErrorCode) -> ::windows::core::PSTR;
@@ -19531,7 +19531,7 @@ pub unsafe fn ucal_getType(cal: *const *const ::core::ffi::c_void, status: *mut 
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn ucal_getWeekendTransition(cal: *const *const ::core::ffi::c_void, dayofweek: UCalendarDaysOfWeek, status: *mut UErrorCode) -> i32 {
+pub unsafe fn ucal_getWeekendTransition(cal: *const *const ::core::ffi::c_void, dayofweek: UCalendarDaysOfWeek, status: &mut UErrorCode) -> i32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn ucal_getWeekendTransition(cal: *const *const ::core::ffi::c_void, dayofweek: UCalendarDaysOfWeek, status: *mut UErrorCode) -> i32;
@@ -19540,7 +19540,7 @@ pub unsafe fn ucal_getWeekendTransition(cal: *const *const ::core::ffi::c_void, 
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn ucal_getWindowsTimeZoneID(id: *const u16, len: i32, winid: *mut u16, winidcapacity: i32, status: *mut UErrorCode) -> i32 {
+pub unsafe fn ucal_getWindowsTimeZoneID(id: &u16, len: i32, winid: &mut u16, winidcapacity: i32, status: &mut UErrorCode) -> i32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn ucal_getWindowsTimeZoneID(id: *const u16, len: i32, winid: *mut u16, winidcapacity: i32, status: *mut UErrorCode) -> i32;
@@ -19549,7 +19549,7 @@ pub unsafe fn ucal_getWindowsTimeZoneID(id: *const u16, len: i32, winid: *mut u1
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn ucal_inDaylightTime(cal: *const *const ::core::ffi::c_void, status: *mut UErrorCode) -> i8 {
+pub unsafe fn ucal_inDaylightTime(cal: *const *const ::core::ffi::c_void, status: &mut UErrorCode) -> i8 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn ucal_inDaylightTime(cal: *const *const ::core::ffi::c_void, status: *mut UErrorCode) -> i8;
@@ -19567,7 +19567,7 @@ pub unsafe fn ucal_isSet(cal: *const *const ::core::ffi::c_void, field: UCalenda
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn ucal_isWeekend(cal: *const *const ::core::ffi::c_void, date: f64, status: *mut UErrorCode) -> i8 {
+pub unsafe fn ucal_isWeekend(cal: *const *const ::core::ffi::c_void, date: f64, status: &mut UErrorCode) -> i8 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn ucal_isWeekend(cal: *const *const ::core::ffi::c_void, date: f64, status: *mut UErrorCode) -> i8;
@@ -19576,7 +19576,7 @@ pub unsafe fn ucal_isWeekend(cal: *const *const ::core::ffi::c_void, date: f64, 
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn ucal_open<'a, P0>(zoneid: *const u16, len: i32, locale: P0, r#type: UCalendarType, status: *mut UErrorCode) -> *mut *mut ::core::ffi::c_void
+pub unsafe fn ucal_open<'a, P0>(zoneid: &u16, len: i32, locale: P0, r#type: UCalendarType, status: &mut UErrorCode) -> *mut *mut ::core::ffi::c_void
 where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
 {
@@ -19588,7 +19588,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn ucal_openCountryTimeZones<'a, P0>(country: P0, ec: *mut UErrorCode) -> *mut UEnumeration
+pub unsafe fn ucal_openCountryTimeZones<'a, P0>(country: P0, ec: &mut UErrorCode) -> *mut UEnumeration
 where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
 {
@@ -19600,7 +19600,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn ucal_openTimeZoneIDEnumeration<'a, P0>(zonetype: USystemTimeZoneType, region: P0, rawoffset: *const i32, ec: *mut UErrorCode) -> *mut UEnumeration
+pub unsafe fn ucal_openTimeZoneIDEnumeration<'a, P0>(zonetype: USystemTimeZoneType, region: P0, rawoffset: &i32, ec: &mut UErrorCode) -> *mut UEnumeration
 where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
 {
@@ -19612,7 +19612,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn ucal_openTimeZones(ec: *mut UErrorCode) -> *mut UEnumeration {
+pub unsafe fn ucal_openTimeZones(ec: &mut UErrorCode) -> *mut UEnumeration {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn ucal_openTimeZones(ec: *mut UErrorCode) -> *mut UEnumeration;
@@ -19621,7 +19621,7 @@ pub unsafe fn ucal_openTimeZones(ec: *mut UErrorCode) -> *mut UEnumeration {
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn ucal_roll(cal: *mut *mut ::core::ffi::c_void, field: UCalendarDateFields, amount: i32, status: *mut UErrorCode) {
+pub unsafe fn ucal_roll(cal: *mut *mut ::core::ffi::c_void, field: UCalendarDateFields, amount: i32, status: &mut UErrorCode) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn ucal_roll(cal: *mut *mut ::core::ffi::c_void, field: UCalendarDateFields, amount: i32, status: *mut UErrorCode);
@@ -19648,7 +19648,7 @@ pub unsafe fn ucal_setAttribute(cal: *mut *mut ::core::ffi::c_void, attr: UCalen
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn ucal_setDate(cal: *mut *mut ::core::ffi::c_void, year: i32, month: i32, date: i32, status: *mut UErrorCode) {
+pub unsafe fn ucal_setDate(cal: *mut *mut ::core::ffi::c_void, year: i32, month: i32, date: i32, status: &mut UErrorCode) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn ucal_setDate(cal: *mut *mut ::core::ffi::c_void, year: i32, month: i32, date: i32, status: *mut UErrorCode);
@@ -19657,7 +19657,7 @@ pub unsafe fn ucal_setDate(cal: *mut *mut ::core::ffi::c_void, year: i32, month:
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn ucal_setDateTime(cal: *mut *mut ::core::ffi::c_void, year: i32, month: i32, date: i32, hour: i32, minute: i32, second: i32, status: *mut UErrorCode) {
+pub unsafe fn ucal_setDateTime(cal: *mut *mut ::core::ffi::c_void, year: i32, month: i32, date: i32, hour: i32, minute: i32, second: i32, status: &mut UErrorCode) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn ucal_setDateTime(cal: *mut *mut ::core::ffi::c_void, year: i32, month: i32, date: i32, hour: i32, minute: i32, second: i32, status: *mut UErrorCode);
@@ -19666,7 +19666,7 @@ pub unsafe fn ucal_setDateTime(cal: *mut *mut ::core::ffi::c_void, year: i32, mo
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn ucal_setDefaultTimeZone(zoneid: *const u16, ec: *mut UErrorCode) {
+pub unsafe fn ucal_setDefaultTimeZone(zoneid: &u16, ec: &mut UErrorCode) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn ucal_setDefaultTimeZone(zoneid: *const u16, ec: *mut UErrorCode);
@@ -19675,7 +19675,7 @@ pub unsafe fn ucal_setDefaultTimeZone(zoneid: *const u16, ec: *mut UErrorCode) {
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn ucal_setGregorianChange(cal: *mut *mut ::core::ffi::c_void, date: f64, perrorcode: *mut UErrorCode) {
+pub unsafe fn ucal_setGregorianChange(cal: *mut *mut ::core::ffi::c_void, date: f64, perrorcode: &mut UErrorCode) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn ucal_setGregorianChange(cal: *mut *mut ::core::ffi::c_void, date: f64, perrorcode: *mut UErrorCode);
@@ -19684,7 +19684,7 @@ pub unsafe fn ucal_setGregorianChange(cal: *mut *mut ::core::ffi::c_void, date: 
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn ucal_setMillis(cal: *mut *mut ::core::ffi::c_void, datetime: f64, status: *mut UErrorCode) {
+pub unsafe fn ucal_setMillis(cal: *mut *mut ::core::ffi::c_void, datetime: f64, status: &mut UErrorCode) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn ucal_setMillis(cal: *mut *mut ::core::ffi::c_void, datetime: f64, status: *mut UErrorCode);
@@ -19693,7 +19693,7 @@ pub unsafe fn ucal_setMillis(cal: *mut *mut ::core::ffi::c_void, datetime: f64, 
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn ucal_setTimeZone(cal: *mut *mut ::core::ffi::c_void, zoneid: *const u16, len: i32, status: *mut UErrorCode) {
+pub unsafe fn ucal_setTimeZone(cal: *mut *mut ::core::ffi::c_void, zoneid: &u16, len: i32, status: &mut UErrorCode) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn ucal_setTimeZone(cal: *mut *mut ::core::ffi::c_void, zoneid: *const u16, len: i32, status: *mut UErrorCode);
@@ -19702,7 +19702,7 @@ pub unsafe fn ucal_setTimeZone(cal: *mut *mut ::core::ffi::c_void, zoneid: *cons
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn ucasemap_close(csm: *mut UCaseMap) {
+pub unsafe fn ucasemap_close(csm: &mut UCaseMap) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn ucasemap_close(csm: *mut UCaseMap);
@@ -19711,7 +19711,7 @@ pub unsafe fn ucasemap_close(csm: *mut UCaseMap) {
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn ucasemap_getBreakIterator(csm: *const UCaseMap) -> *mut UBreakIterator {
+pub unsafe fn ucasemap_getBreakIterator(csm: &UCaseMap) -> *mut UBreakIterator {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn ucasemap_getBreakIterator(csm: *const UCaseMap) -> *mut UBreakIterator;
@@ -19720,7 +19720,7 @@ pub unsafe fn ucasemap_getBreakIterator(csm: *const UCaseMap) -> *mut UBreakIter
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn ucasemap_getLocale(csm: *const UCaseMap) -> ::windows::core::PSTR {
+pub unsafe fn ucasemap_getLocale(csm: &UCaseMap) -> ::windows::core::PSTR {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn ucasemap_getLocale(csm: *const UCaseMap) -> ::windows::core::PSTR;
@@ -19729,7 +19729,7 @@ pub unsafe fn ucasemap_getLocale(csm: *const UCaseMap) -> ::windows::core::PSTR 
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn ucasemap_getOptions(csm: *const UCaseMap) -> u32 {
+pub unsafe fn ucasemap_getOptions(csm: &UCaseMap) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn ucasemap_getOptions(csm: *const UCaseMap) -> u32;
@@ -19738,7 +19738,7 @@ pub unsafe fn ucasemap_getOptions(csm: *const UCaseMap) -> u32 {
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn ucasemap_open<'a, P0>(locale: P0, options: u32, perrorcode: *mut UErrorCode) -> *mut UCaseMap
+pub unsafe fn ucasemap_open<'a, P0>(locale: P0, options: u32, perrorcode: &mut UErrorCode) -> *mut UCaseMap
 where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
 {
@@ -19750,7 +19750,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn ucasemap_setBreakIterator(csm: *mut UCaseMap, itertoadopt: *mut UBreakIterator, perrorcode: *mut UErrorCode) {
+pub unsafe fn ucasemap_setBreakIterator(csm: &mut UCaseMap, itertoadopt: &mut UBreakIterator, perrorcode: &mut UErrorCode) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn ucasemap_setBreakIterator(csm: *mut UCaseMap, itertoadopt: *mut UBreakIterator, perrorcode: *mut UErrorCode);
@@ -19759,7 +19759,7 @@ pub unsafe fn ucasemap_setBreakIterator(csm: *mut UCaseMap, itertoadopt: *mut UB
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn ucasemap_setLocale<'a, P0>(csm: *mut UCaseMap, locale: P0, perrorcode: *mut UErrorCode)
+pub unsafe fn ucasemap_setLocale<'a, P0>(csm: &mut UCaseMap, locale: P0, perrorcode: &mut UErrorCode)
 where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
 {
@@ -19771,7 +19771,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn ucasemap_setOptions(csm: *mut UCaseMap, options: u32, perrorcode: *mut UErrorCode) {
+pub unsafe fn ucasemap_setOptions(csm: &mut UCaseMap, options: u32, perrorcode: &mut UErrorCode) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn ucasemap_setOptions(csm: *mut UCaseMap, options: u32, perrorcode: *mut UErrorCode);
@@ -19780,7 +19780,7 @@ pub unsafe fn ucasemap_setOptions(csm: *mut UCaseMap, options: u32, perrorcode: 
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn ucasemap_toTitle(csm: *mut UCaseMap, dest: *mut u16, destcapacity: i32, src: *const u16, srclength: i32, perrorcode: *mut UErrorCode) -> i32 {
+pub unsafe fn ucasemap_toTitle(csm: &mut UCaseMap, dest: &mut u16, destcapacity: i32, src: &u16, srclength: i32, perrorcode: &mut UErrorCode) -> i32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn ucasemap_toTitle(csm: *mut UCaseMap, dest: *mut u16, destcapacity: i32, src: *const u16, srclength: i32, perrorcode: *mut UErrorCode) -> i32;
@@ -19789,7 +19789,7 @@ pub unsafe fn ucasemap_toTitle(csm: *mut UCaseMap, dest: *mut u16, destcapacity:
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn ucasemap_utf8FoldCase<'a, P0, P1>(csm: *const UCaseMap, dest: P0, destcapacity: i32, src: P1, srclength: i32, perrorcode: *mut UErrorCode) -> i32
+pub unsafe fn ucasemap_utf8FoldCase<'a, P0, P1>(csm: &UCaseMap, dest: P0, destcapacity: i32, src: P1, srclength: i32, perrorcode: &mut UErrorCode) -> i32
 where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
     P1: ::std::convert::Into<::windows::core::PCSTR>,
@@ -19802,7 +19802,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn ucasemap_utf8ToLower<'a, P0, P1>(csm: *const UCaseMap, dest: P0, destcapacity: i32, src: P1, srclength: i32, perrorcode: *mut UErrorCode) -> i32
+pub unsafe fn ucasemap_utf8ToLower<'a, P0, P1>(csm: &UCaseMap, dest: P0, destcapacity: i32, src: P1, srclength: i32, perrorcode: &mut UErrorCode) -> i32
 where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
     P1: ::std::convert::Into<::windows::core::PCSTR>,
@@ -19815,7 +19815,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn ucasemap_utf8ToTitle<'a, P0, P1>(csm: *mut UCaseMap, dest: P0, destcapacity: i32, src: P1, srclength: i32, perrorcode: *mut UErrorCode) -> i32
+pub unsafe fn ucasemap_utf8ToTitle<'a, P0, P1>(csm: &mut UCaseMap, dest: P0, destcapacity: i32, src: P1, srclength: i32, perrorcode: &mut UErrorCode) -> i32
 where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
     P1: ::std::convert::Into<::windows::core::PCSTR>,
@@ -19828,7 +19828,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn ucasemap_utf8ToUpper<'a, P0, P1>(csm: *const UCaseMap, dest: P0, destcapacity: i32, src: P1, srclength: i32, perrorcode: *mut UErrorCode) -> i32
+pub unsafe fn ucasemap_utf8ToUpper<'a, P0, P1>(csm: &UCaseMap, dest: P0, destcapacity: i32, src: P1, srclength: i32, perrorcode: &mut UErrorCode) -> i32
 where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
     P1: ::std::convert::Into<::windows::core::PCSTR>,
@@ -19841,7 +19841,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn ucfpos_close(ucfpos: *mut UConstrainedFieldPosition) {
+pub unsafe fn ucfpos_close(ucfpos: &mut UConstrainedFieldPosition) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn ucfpos_close(ucfpos: *mut UConstrainedFieldPosition);
@@ -19850,7 +19850,7 @@ pub unsafe fn ucfpos_close(ucfpos: *mut UConstrainedFieldPosition) {
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn ucfpos_constrainCategory(ucfpos: *mut UConstrainedFieldPosition, category: i32, ec: *mut UErrorCode) {
+pub unsafe fn ucfpos_constrainCategory(ucfpos: &mut UConstrainedFieldPosition, category: i32, ec: &mut UErrorCode) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn ucfpos_constrainCategory(ucfpos: *mut UConstrainedFieldPosition, category: i32, ec: *mut UErrorCode);
@@ -19859,7 +19859,7 @@ pub unsafe fn ucfpos_constrainCategory(ucfpos: *mut UConstrainedFieldPosition, c
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn ucfpos_constrainField(ucfpos: *mut UConstrainedFieldPosition, category: i32, field: i32, ec: *mut UErrorCode) {
+pub unsafe fn ucfpos_constrainField(ucfpos: &mut UConstrainedFieldPosition, category: i32, field: i32, ec: &mut UErrorCode) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn ucfpos_constrainField(ucfpos: *mut UConstrainedFieldPosition, category: i32, field: i32, ec: *mut UErrorCode);
@@ -19868,7 +19868,7 @@ pub unsafe fn ucfpos_constrainField(ucfpos: *mut UConstrainedFieldPosition, cate
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn ucfpos_getCategory(ucfpos: *const UConstrainedFieldPosition, ec: *mut UErrorCode) -> i32 {
+pub unsafe fn ucfpos_getCategory(ucfpos: &UConstrainedFieldPosition, ec: &mut UErrorCode) -> i32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn ucfpos_getCategory(ucfpos: *const UConstrainedFieldPosition, ec: *mut UErrorCode) -> i32;
@@ -19877,7 +19877,7 @@ pub unsafe fn ucfpos_getCategory(ucfpos: *const UConstrainedFieldPosition, ec: *
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn ucfpos_getField(ucfpos: *const UConstrainedFieldPosition, ec: *mut UErrorCode) -> i32 {
+pub unsafe fn ucfpos_getField(ucfpos: &UConstrainedFieldPosition, ec: &mut UErrorCode) -> i32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn ucfpos_getField(ucfpos: *const UConstrainedFieldPosition, ec: *mut UErrorCode) -> i32;
@@ -19886,7 +19886,7 @@ pub unsafe fn ucfpos_getField(ucfpos: *const UConstrainedFieldPosition, ec: *mut
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn ucfpos_getIndexes(ucfpos: *const UConstrainedFieldPosition, pstart: *mut i32, plimit: *mut i32, ec: *mut UErrorCode) {
+pub unsafe fn ucfpos_getIndexes(ucfpos: &UConstrainedFieldPosition, pstart: &mut i32, plimit: &mut i32, ec: &mut UErrorCode) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn ucfpos_getIndexes(ucfpos: *const UConstrainedFieldPosition, pstart: *mut i32, plimit: *mut i32, ec: *mut UErrorCode);
@@ -19895,7 +19895,7 @@ pub unsafe fn ucfpos_getIndexes(ucfpos: *const UConstrainedFieldPosition, pstart
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn ucfpos_getInt64IterationContext(ucfpos: *const UConstrainedFieldPosition, ec: *mut UErrorCode) -> i64 {
+pub unsafe fn ucfpos_getInt64IterationContext(ucfpos: &UConstrainedFieldPosition, ec: &mut UErrorCode) -> i64 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn ucfpos_getInt64IterationContext(ucfpos: *const UConstrainedFieldPosition, ec: *mut UErrorCode) -> i64;
@@ -19904,7 +19904,7 @@ pub unsafe fn ucfpos_getInt64IterationContext(ucfpos: *const UConstrainedFieldPo
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn ucfpos_matchesField(ucfpos: *const UConstrainedFieldPosition, category: i32, field: i32, ec: *mut UErrorCode) -> i8 {
+pub unsafe fn ucfpos_matchesField(ucfpos: &UConstrainedFieldPosition, category: i32, field: i32, ec: &mut UErrorCode) -> i8 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn ucfpos_matchesField(ucfpos: *const UConstrainedFieldPosition, category: i32, field: i32, ec: *mut UErrorCode) -> i8;
@@ -19913,7 +19913,7 @@ pub unsafe fn ucfpos_matchesField(ucfpos: *const UConstrainedFieldPosition, cate
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn ucfpos_open(ec: *mut UErrorCode) -> *mut UConstrainedFieldPosition {
+pub unsafe fn ucfpos_open(ec: &mut UErrorCode) -> *mut UConstrainedFieldPosition {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn ucfpos_open(ec: *mut UErrorCode) -> *mut UConstrainedFieldPosition;
@@ -19922,7 +19922,7 @@ pub unsafe fn ucfpos_open(ec: *mut UErrorCode) -> *mut UConstrainedFieldPosition
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn ucfpos_reset(ucfpos: *mut UConstrainedFieldPosition, ec: *mut UErrorCode) {
+pub unsafe fn ucfpos_reset(ucfpos: &mut UConstrainedFieldPosition, ec: &mut UErrorCode) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn ucfpos_reset(ucfpos: *mut UConstrainedFieldPosition, ec: *mut UErrorCode);
@@ -19931,7 +19931,7 @@ pub unsafe fn ucfpos_reset(ucfpos: *mut UConstrainedFieldPosition, ec: *mut UErr
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn ucfpos_setInt64IterationContext(ucfpos: *mut UConstrainedFieldPosition, context: i64, ec: *mut UErrorCode) {
+pub unsafe fn ucfpos_setInt64IterationContext(ucfpos: &mut UConstrainedFieldPosition, context: i64, ec: &mut UErrorCode) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn ucfpos_setInt64IterationContext(ucfpos: *mut UConstrainedFieldPosition, context: i64, ec: *mut UErrorCode);
@@ -19940,7 +19940,7 @@ pub unsafe fn ucfpos_setInt64IterationContext(ucfpos: *mut UConstrainedFieldPosi
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn ucfpos_setState(ucfpos: *mut UConstrainedFieldPosition, category: i32, field: i32, start: i32, limit: i32, ec: *mut UErrorCode) {
+pub unsafe fn ucfpos_setState(ucfpos: &mut UConstrainedFieldPosition, category: i32, field: i32, start: i32, limit: i32, ec: &mut UErrorCode) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn ucfpos_setState(ucfpos: *mut UConstrainedFieldPosition, category: i32, field: i32, start: i32, limit: i32, ec: *mut UErrorCode);
@@ -19949,7 +19949,7 @@ pub unsafe fn ucfpos_setState(ucfpos: *mut UConstrainedFieldPosition, category: 
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn ucnv_cbFromUWriteBytes<'a, P0>(args: *mut UConverterFromUnicodeArgs, source: P0, length: i32, offsetindex: i32, err: *mut UErrorCode)
+pub unsafe fn ucnv_cbFromUWriteBytes<'a, P0>(args: &mut UConverterFromUnicodeArgs, source: P0, length: i32, offsetindex: i32, err: &mut UErrorCode)
 where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
 {
@@ -19961,7 +19961,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn ucnv_cbFromUWriteSub(args: *mut UConverterFromUnicodeArgs, offsetindex: i32, err: *mut UErrorCode) {
+pub unsafe fn ucnv_cbFromUWriteSub(args: &mut UConverterFromUnicodeArgs, offsetindex: i32, err: &mut UErrorCode) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn ucnv_cbFromUWriteSub(args: *mut UConverterFromUnicodeArgs, offsetindex: i32, err: *mut UErrorCode);
@@ -19970,7 +19970,7 @@ pub unsafe fn ucnv_cbFromUWriteSub(args: *mut UConverterFromUnicodeArgs, offseti
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn ucnv_cbFromUWriteUChars(args: *mut UConverterFromUnicodeArgs, source: *const *const u16, sourcelimit: *const u16, offsetindex: i32, err: *mut UErrorCode) {
+pub unsafe fn ucnv_cbFromUWriteUChars(args: &mut UConverterFromUnicodeArgs, source: &*const u16, sourcelimit: &u16, offsetindex: i32, err: &mut UErrorCode) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn ucnv_cbFromUWriteUChars(args: *mut UConverterFromUnicodeArgs, source: *const *const u16, sourcelimit: *const u16, offsetindex: i32, err: *mut UErrorCode);
@@ -19979,7 +19979,7 @@ pub unsafe fn ucnv_cbFromUWriteUChars(args: *mut UConverterFromUnicodeArgs, sour
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn ucnv_cbToUWriteSub(args: *mut UConverterToUnicodeArgs, offsetindex: i32, err: *mut UErrorCode) {
+pub unsafe fn ucnv_cbToUWriteSub(args: &mut UConverterToUnicodeArgs, offsetindex: i32, err: &mut UErrorCode) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn ucnv_cbToUWriteSub(args: *mut UConverterToUnicodeArgs, offsetindex: i32, err: *mut UErrorCode);
@@ -19988,7 +19988,7 @@ pub unsafe fn ucnv_cbToUWriteSub(args: *mut UConverterToUnicodeArgs, offsetindex
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn ucnv_cbToUWriteUChars(args: *mut UConverterToUnicodeArgs, source: *const u16, length: i32, offsetindex: i32, err: *mut UErrorCode) {
+pub unsafe fn ucnv_cbToUWriteUChars(args: &mut UConverterToUnicodeArgs, source: &u16, length: i32, offsetindex: i32, err: &mut UErrorCode) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn ucnv_cbToUWriteUChars(args: *mut UConverterToUnicodeArgs, source: *const u16, length: i32, offsetindex: i32, err: *mut UErrorCode);
@@ -19997,7 +19997,7 @@ pub unsafe fn ucnv_cbToUWriteUChars(args: *mut UConverterToUnicodeArgs, source: 
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn ucnv_close(converter: *mut UConverter) {
+pub unsafe fn ucnv_close(converter: &mut UConverter) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn ucnv_close(converter: *mut UConverter);
@@ -20019,7 +20019,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn ucnv_convert<'a, P0, P1, P2, P3>(toconvertername: P0, fromconvertername: P1, target: P2, targetcapacity: i32, source: P3, sourcelength: i32, perrorcode: *mut UErrorCode) -> i32
+pub unsafe fn ucnv_convert<'a, P0, P1, P2, P3>(toconvertername: P0, fromconvertername: P1, target: P2, targetcapacity: i32, source: P3, sourcelength: i32, perrorcode: &mut UErrorCode) -> i32
 where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
     P1: ::std::convert::Into<::windows::core::PCSTR>,
@@ -20034,7 +20034,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn ucnv_convertEx<'a, P0, P1>(targetcnv: *mut UConverter, sourcecnv: *mut UConverter, target: *mut *mut i8, targetlimit: P0, source: *const *const i8, sourcelimit: P1, pivotstart: *mut u16, pivotsource: *mut *mut u16, pivottarget: *mut *mut u16, pivotlimit: *const u16, reset: i8, flush: i8, perrorcode: *mut UErrorCode)
+pub unsafe fn ucnv_convertEx<'a, P0, P1>(targetcnv: &mut UConverter, sourcecnv: &mut UConverter, target: &mut *mut i8, targetlimit: P0, source: &*const i8, sourcelimit: P1, pivotstart: &mut u16, pivotsource: &mut *mut u16, pivottarget: &mut *mut u16, pivotlimit: &u16, reset: i8, flush: i8, perrorcode: &mut UErrorCode)
 where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
     P1: ::std::convert::Into<::windows::core::PCSTR>,
@@ -20047,7 +20047,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn ucnv_countAliases<'a, P0>(alias: P0, perrorcode: *mut UErrorCode) -> u16
+pub unsafe fn ucnv_countAliases<'a, P0>(alias: P0, perrorcode: &mut UErrorCode) -> u16
 where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
 {
@@ -20077,7 +20077,7 @@ pub unsafe fn ucnv_countStandards() -> u16 {
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn ucnv_detectUnicodeSignature<'a, P0>(source: P0, sourcelength: i32, signaturelength: *mut i32, perrorcode: *mut UErrorCode) -> ::windows::core::PSTR
+pub unsafe fn ucnv_detectUnicodeSignature<'a, P0>(source: P0, sourcelength: i32, signaturelength: &mut i32, perrorcode: &mut UErrorCode) -> ::windows::core::PSTR
 where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
 {
@@ -20089,7 +20089,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn ucnv_fixFileSeparator(cnv: *const UConverter, source: *mut u16, sourcelen: i32) {
+pub unsafe fn ucnv_fixFileSeparator(cnv: &UConverter, source: &mut u16, sourcelen: i32) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn ucnv_fixFileSeparator(cnv: *const UConverter, source: *mut u16, sourcelen: i32);
@@ -20107,7 +20107,7 @@ pub unsafe fn ucnv_flushCache() -> i32 {
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn ucnv_fromAlgorithmic<'a, P0, P1>(cnv: *mut UConverter, algorithmictype: UConverterType, target: P0, targetcapacity: i32, source: P1, sourcelength: i32, perrorcode: *mut UErrorCode) -> i32
+pub unsafe fn ucnv_fromAlgorithmic<'a, P0, P1>(cnv: &mut UConverter, algorithmictype: UConverterType, target: P0, targetcapacity: i32, source: P1, sourcelength: i32, perrorcode: &mut UErrorCode) -> i32
 where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
     P1: ::std::convert::Into<::windows::core::PCSTR>,
@@ -20120,7 +20120,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn ucnv_fromUChars<'a, P0>(cnv: *mut UConverter, dest: P0, destcapacity: i32, src: *const u16, srclength: i32, perrorcode: *mut UErrorCode) -> i32
+pub unsafe fn ucnv_fromUChars<'a, P0>(cnv: &mut UConverter, dest: P0, destcapacity: i32, src: &u16, srclength: i32, perrorcode: &mut UErrorCode) -> i32
 where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
 {
@@ -20132,7 +20132,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn ucnv_fromUCountPending(cnv: *const UConverter, status: *mut UErrorCode) -> i32 {
+pub unsafe fn ucnv_fromUCountPending(cnv: &UConverter, status: &mut UErrorCode) -> i32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn ucnv_fromUCountPending(cnv: *const UConverter, status: *mut UErrorCode) -> i32;
@@ -20141,7 +20141,7 @@ pub unsafe fn ucnv_fromUCountPending(cnv: *const UConverter, status: *mut UError
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn ucnv_fromUnicode<'a, P0>(converter: *mut UConverter, target: *mut *mut i8, targetlimit: P0, source: *const *const u16, sourcelimit: *const u16, offsets: *mut i32, flush: i8, err: *mut UErrorCode)
+pub unsafe fn ucnv_fromUnicode<'a, P0>(converter: &mut UConverter, target: &mut *mut i8, targetlimit: P0, source: &*const u16, sourcelimit: &u16, offsets: &mut i32, flush: i8, err: &mut UErrorCode)
 where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
 {
@@ -20153,7 +20153,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn ucnv_getAlias<'a, P0>(alias: P0, n: u16, perrorcode: *mut UErrorCode) -> ::windows::core::PSTR
+pub unsafe fn ucnv_getAlias<'a, P0>(alias: P0, n: u16, perrorcode: &mut UErrorCode) -> ::windows::core::PSTR
 where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
 {
@@ -20165,7 +20165,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn ucnv_getAliases<'a, P0>(alias: P0, aliases: *const *const i8, perrorcode: *mut UErrorCode)
+pub unsafe fn ucnv_getAliases<'a, P0>(alias: P0, aliases: &*const i8, perrorcode: &mut UErrorCode)
 where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
 {
@@ -20186,7 +20186,7 @@ pub unsafe fn ucnv_getAvailableName(n: i32) -> ::windows::core::PSTR {
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn ucnv_getCCSID(converter: *const UConverter, err: *mut UErrorCode) -> i32 {
+pub unsafe fn ucnv_getCCSID(converter: &UConverter, err: &mut UErrorCode) -> i32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn ucnv_getCCSID(converter: *const UConverter, err: *mut UErrorCode) -> i32;
@@ -20195,7 +20195,7 @@ pub unsafe fn ucnv_getCCSID(converter: *const UConverter, err: *mut UErrorCode) 
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn ucnv_getCanonicalName<'a, P0, P1>(alias: P0, standard: P1, perrorcode: *mut UErrorCode) -> ::windows::core::PSTR
+pub unsafe fn ucnv_getCanonicalName<'a, P0, P1>(alias: P0, standard: P1, perrorcode: &mut UErrorCode) -> ::windows::core::PSTR
 where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
     P1: ::std::convert::Into<::windows::core::PCSTR>,
@@ -20217,7 +20217,7 @@ pub unsafe fn ucnv_getDefaultName() -> ::windows::core::PSTR {
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn ucnv_getDisplayName<'a, P0>(converter: *const UConverter, displaylocale: P0, displayname: *mut u16, displaynamecapacity: i32, err: *mut UErrorCode) -> i32
+pub unsafe fn ucnv_getDisplayName<'a, P0>(converter: &UConverter, displaylocale: P0, displayname: &mut u16, displaynamecapacity: i32, err: &mut UErrorCode) -> i32
 where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
 {
@@ -20229,7 +20229,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn ucnv_getFromUCallBack(converter: *const UConverter, action: *mut UConverterFromUCallback, context: *const *const ::core::ffi::c_void) {
+pub unsafe fn ucnv_getFromUCallBack(converter: &UConverter, action: &mut UConverterFromUCallback, context: *const *const ::core::ffi::c_void) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn ucnv_getFromUCallBack(converter: *const UConverter, action: *mut *mut ::core::ffi::c_void, context: *const *const ::core::ffi::c_void);
@@ -20238,7 +20238,7 @@ pub unsafe fn ucnv_getFromUCallBack(converter: *const UConverter, action: *mut U
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn ucnv_getInvalidChars<'a, P0>(converter: *const UConverter, errbytes: P0, len: *mut i8, err: *mut UErrorCode)
+pub unsafe fn ucnv_getInvalidChars<'a, P0>(converter: &UConverter, errbytes: P0, len: &mut i8, err: &mut UErrorCode)
 where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
 {
@@ -20250,7 +20250,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn ucnv_getInvalidUChars(converter: *const UConverter, erruchars: *mut u16, len: *mut i8, err: *mut UErrorCode) {
+pub unsafe fn ucnv_getInvalidUChars(converter: &UConverter, erruchars: &mut u16, len: &mut i8, err: &mut UErrorCode) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn ucnv_getInvalidUChars(converter: *const UConverter, erruchars: *mut u16, len: *mut i8, err: *mut UErrorCode);
@@ -20259,7 +20259,7 @@ pub unsafe fn ucnv_getInvalidUChars(converter: *const UConverter, erruchars: *mu
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn ucnv_getMaxCharSize(converter: *const UConverter) -> i8 {
+pub unsafe fn ucnv_getMaxCharSize(converter: &UConverter) -> i8 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn ucnv_getMaxCharSize(converter: *const UConverter) -> i8;
@@ -20268,7 +20268,7 @@ pub unsafe fn ucnv_getMaxCharSize(converter: *const UConverter) -> i8 {
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn ucnv_getMinCharSize(converter: *const UConverter) -> i8 {
+pub unsafe fn ucnv_getMinCharSize(converter: &UConverter) -> i8 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn ucnv_getMinCharSize(converter: *const UConverter) -> i8;
@@ -20277,7 +20277,7 @@ pub unsafe fn ucnv_getMinCharSize(converter: *const UConverter) -> i8 {
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn ucnv_getName(converter: *const UConverter, err: *mut UErrorCode) -> ::windows::core::PSTR {
+pub unsafe fn ucnv_getName(converter: &UConverter, err: &mut UErrorCode) -> ::windows::core::PSTR {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn ucnv_getName(converter: *const UConverter, err: *mut UErrorCode) -> ::windows::core::PSTR;
@@ -20286,7 +20286,7 @@ pub unsafe fn ucnv_getName(converter: *const UConverter, err: *mut UErrorCode) -
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn ucnv_getNextUChar<'a, P0>(converter: *mut UConverter, source: *const *const i8, sourcelimit: P0, err: *mut UErrorCode) -> i32
+pub unsafe fn ucnv_getNextUChar<'a, P0>(converter: &mut UConverter, source: &*const i8, sourcelimit: P0, err: &mut UErrorCode) -> i32
 where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
 {
@@ -20298,7 +20298,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn ucnv_getPlatform(converter: *const UConverter, err: *mut UErrorCode) -> UConverterPlatform {
+pub unsafe fn ucnv_getPlatform(converter: &UConverter, err: &mut UErrorCode) -> UConverterPlatform {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn ucnv_getPlatform(converter: *const UConverter, err: *mut UErrorCode) -> UConverterPlatform;
@@ -20307,7 +20307,7 @@ pub unsafe fn ucnv_getPlatform(converter: *const UConverter, err: *mut UErrorCod
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn ucnv_getStandard(n: u16, perrorcode: *mut UErrorCode) -> ::windows::core::PSTR {
+pub unsafe fn ucnv_getStandard(n: u16, perrorcode: &mut UErrorCode) -> ::windows::core::PSTR {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn ucnv_getStandard(n: u16, perrorcode: *mut UErrorCode) -> ::windows::core::PSTR;
@@ -20316,7 +20316,7 @@ pub unsafe fn ucnv_getStandard(n: u16, perrorcode: *mut UErrorCode) -> ::windows
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn ucnv_getStandardName<'a, P0, P1>(name: P0, standard: P1, perrorcode: *mut UErrorCode) -> ::windows::core::PSTR
+pub unsafe fn ucnv_getStandardName<'a, P0, P1>(name: P0, standard: P1, perrorcode: &mut UErrorCode) -> ::windows::core::PSTR
 where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
     P1: ::std::convert::Into<::windows::core::PCSTR>,
@@ -20329,7 +20329,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn ucnv_getStarters(converter: *const UConverter, starters: *mut i8, err: *mut UErrorCode) {
+pub unsafe fn ucnv_getStarters(converter: &UConverter, starters: &mut i8, err: &mut UErrorCode) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn ucnv_getStarters(converter: *const UConverter, starters: *mut i8, err: *mut UErrorCode);
@@ -20338,7 +20338,7 @@ pub unsafe fn ucnv_getStarters(converter: *const UConverter, starters: *mut i8, 
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn ucnv_getSubstChars<'a, P0>(converter: *const UConverter, subchars: P0, len: *mut i8, err: *mut UErrorCode)
+pub unsafe fn ucnv_getSubstChars<'a, P0>(converter: &UConverter, subchars: P0, len: &mut i8, err: &mut UErrorCode)
 where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
 {
@@ -20350,7 +20350,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn ucnv_getToUCallBack(converter: *const UConverter, action: *mut UConverterToUCallback, context: *const *const ::core::ffi::c_void) {
+pub unsafe fn ucnv_getToUCallBack(converter: &UConverter, action: &mut UConverterToUCallback, context: *const *const ::core::ffi::c_void) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn ucnv_getToUCallBack(converter: *const UConverter, action: *mut *mut ::core::ffi::c_void, context: *const *const ::core::ffi::c_void);
@@ -20359,7 +20359,7 @@ pub unsafe fn ucnv_getToUCallBack(converter: *const UConverter, action: *mut UCo
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn ucnv_getType(converter: *const UConverter) -> UConverterType {
+pub unsafe fn ucnv_getType(converter: &UConverter) -> UConverterType {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn ucnv_getType(converter: *const UConverter) -> UConverterType;
@@ -20368,7 +20368,7 @@ pub unsafe fn ucnv_getType(converter: *const UConverter) -> UConverterType {
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn ucnv_getUnicodeSet(cnv: *const UConverter, setfillin: *mut USet, whichset: UConverterUnicodeSet, perrorcode: *mut UErrorCode) {
+pub unsafe fn ucnv_getUnicodeSet(cnv: &UConverter, setfillin: &mut USet, whichset: UConverterUnicodeSet, perrorcode: &mut UErrorCode) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn ucnv_getUnicodeSet(cnv: *const UConverter, setfillin: *mut USet, whichset: UConverterUnicodeSet, perrorcode: *mut UErrorCode);
@@ -20377,7 +20377,7 @@ pub unsafe fn ucnv_getUnicodeSet(cnv: *const UConverter, setfillin: *mut USet, w
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn ucnv_isAmbiguous(cnv: *const UConverter) -> i8 {
+pub unsafe fn ucnv_isAmbiguous(cnv: &UConverter) -> i8 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn ucnv_isAmbiguous(cnv: *const UConverter) -> i8;
@@ -20386,7 +20386,7 @@ pub unsafe fn ucnv_isAmbiguous(cnv: *const UConverter) -> i8 {
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn ucnv_isFixedWidth(cnv: *mut UConverter, status: *mut UErrorCode) -> i8 {
+pub unsafe fn ucnv_isFixedWidth(cnv: &mut UConverter, status: &mut UErrorCode) -> i8 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn ucnv_isFixedWidth(cnv: *mut UConverter, status: *mut UErrorCode) -> i8;
@@ -20395,7 +20395,7 @@ pub unsafe fn ucnv_isFixedWidth(cnv: *mut UConverter, status: *mut UErrorCode) -
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn ucnv_open<'a, P0>(convertername: P0, err: *mut UErrorCode) -> *mut UConverter
+pub unsafe fn ucnv_open<'a, P0>(convertername: P0, err: &mut UErrorCode) -> *mut UConverter
 where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
 {
@@ -20407,7 +20407,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn ucnv_openAllNames(perrorcode: *mut UErrorCode) -> *mut UEnumeration {
+pub unsafe fn ucnv_openAllNames(perrorcode: &mut UErrorCode) -> *mut UEnumeration {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn ucnv_openAllNames(perrorcode: *mut UErrorCode) -> *mut UEnumeration;
@@ -20416,7 +20416,7 @@ pub unsafe fn ucnv_openAllNames(perrorcode: *mut UErrorCode) -> *mut UEnumeratio
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn ucnv_openCCSID(codepage: i32, platform: UConverterPlatform, err: *mut UErrorCode) -> *mut UConverter {
+pub unsafe fn ucnv_openCCSID(codepage: i32, platform: UConverterPlatform, err: &mut UErrorCode) -> *mut UConverter {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn ucnv_openCCSID(codepage: i32, platform: UConverterPlatform, err: *mut UErrorCode) -> *mut UConverter;
@@ -20425,7 +20425,7 @@ pub unsafe fn ucnv_openCCSID(codepage: i32, platform: UConverterPlatform, err: *
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn ucnv_openPackage<'a, P0, P1>(packagename: P0, convertername: P1, err: *mut UErrorCode) -> *mut UConverter
+pub unsafe fn ucnv_openPackage<'a, P0, P1>(packagename: P0, convertername: P1, err: &mut UErrorCode) -> *mut UConverter
 where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
     P1: ::std::convert::Into<::windows::core::PCSTR>,
@@ -20438,7 +20438,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn ucnv_openStandardNames<'a, P0, P1>(convname: P0, standard: P1, perrorcode: *mut UErrorCode) -> *mut UEnumeration
+pub unsafe fn ucnv_openStandardNames<'a, P0, P1>(convname: P0, standard: P1, perrorcode: &mut UErrorCode) -> *mut UEnumeration
 where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
     P1: ::std::convert::Into<::windows::core::PCSTR>,
@@ -20451,7 +20451,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn ucnv_openU(name: *const u16, err: *mut UErrorCode) -> *mut UConverter {
+pub unsafe fn ucnv_openU(name: &u16, err: &mut UErrorCode) -> *mut UConverter {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn ucnv_openU(name: *const u16, err: *mut UErrorCode) -> *mut UConverter;
@@ -20460,7 +20460,7 @@ pub unsafe fn ucnv_openU(name: *const u16, err: *mut UErrorCode) -> *mut UConver
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn ucnv_reset(converter: *mut UConverter) {
+pub unsafe fn ucnv_reset(converter: &mut UConverter) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn ucnv_reset(converter: *mut UConverter);
@@ -20469,7 +20469,7 @@ pub unsafe fn ucnv_reset(converter: *mut UConverter) {
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn ucnv_resetFromUnicode(converter: *mut UConverter) {
+pub unsafe fn ucnv_resetFromUnicode(converter: &mut UConverter) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn ucnv_resetFromUnicode(converter: *mut UConverter);
@@ -20478,7 +20478,7 @@ pub unsafe fn ucnv_resetFromUnicode(converter: *mut UConverter) {
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn ucnv_resetToUnicode(converter: *mut UConverter) {
+pub unsafe fn ucnv_resetToUnicode(converter: &mut UConverter) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn ucnv_resetToUnicode(converter: *mut UConverter);
@@ -20487,7 +20487,7 @@ pub unsafe fn ucnv_resetToUnicode(converter: *mut UConverter) {
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn ucnv_safeClone(cnv: *const UConverter, stackbuffer: *mut ::core::ffi::c_void, pbuffersize: *mut i32, status: *mut UErrorCode) -> *mut UConverter {
+pub unsafe fn ucnv_safeClone(cnv: &UConverter, stackbuffer: *mut ::core::ffi::c_void, pbuffersize: &mut i32, status: &mut UErrorCode) -> *mut UConverter {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn ucnv_safeClone(cnv: *const UConverter, stackbuffer: *mut ::core::ffi::c_void, pbuffersize: *mut i32, status: *mut UErrorCode) -> *mut UConverter;
@@ -20508,7 +20508,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn ucnv_setFallback(cnv: *mut UConverter, usesfallback: i8) {
+pub unsafe fn ucnv_setFallback(cnv: &mut UConverter, usesfallback: i8) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn ucnv_setFallback(cnv: *mut UConverter, usesfallback: i8);
@@ -20517,7 +20517,7 @@ pub unsafe fn ucnv_setFallback(cnv: *mut UConverter, usesfallback: i8) {
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn ucnv_setFromUCallBack(converter: *mut UConverter, newaction: UConverterFromUCallback, newcontext: *const ::core::ffi::c_void, oldaction: *mut UConverterFromUCallback, oldcontext: *const *const ::core::ffi::c_void, err: *mut UErrorCode) {
+pub unsafe fn ucnv_setFromUCallBack(converter: &mut UConverter, newaction: UConverterFromUCallback, newcontext: *const ::core::ffi::c_void, oldaction: &mut UConverterFromUCallback, oldcontext: *const *const ::core::ffi::c_void, err: &mut UErrorCode) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn ucnv_setFromUCallBack(converter: *mut UConverter, newaction: *mut ::core::ffi::c_void, newcontext: *const ::core::ffi::c_void, oldaction: *mut *mut ::core::ffi::c_void, oldcontext: *const *const ::core::ffi::c_void, err: *mut UErrorCode);
@@ -20526,7 +20526,7 @@ pub unsafe fn ucnv_setFromUCallBack(converter: *mut UConverter, newaction: UConv
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn ucnv_setSubstChars<'a, P0>(converter: *mut UConverter, subchars: P0, len: i8, err: *mut UErrorCode)
+pub unsafe fn ucnv_setSubstChars<'a, P0>(converter: &mut UConverter, subchars: P0, len: i8, err: &mut UErrorCode)
 where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
 {
@@ -20538,7 +20538,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn ucnv_setSubstString(cnv: *mut UConverter, s: *const u16, length: i32, err: *mut UErrorCode) {
+pub unsafe fn ucnv_setSubstString(cnv: &mut UConverter, s: &u16, length: i32, err: &mut UErrorCode) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn ucnv_setSubstString(cnv: *mut UConverter, s: *const u16, length: i32, err: *mut UErrorCode);
@@ -20547,7 +20547,7 @@ pub unsafe fn ucnv_setSubstString(cnv: *mut UConverter, s: *const u16, length: i
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn ucnv_setToUCallBack(converter: *mut UConverter, newaction: UConverterToUCallback, newcontext: *const ::core::ffi::c_void, oldaction: *mut UConverterToUCallback, oldcontext: *const *const ::core::ffi::c_void, err: *mut UErrorCode) {
+pub unsafe fn ucnv_setToUCallBack(converter: &mut UConverter, newaction: UConverterToUCallback, newcontext: *const ::core::ffi::c_void, oldaction: &mut UConverterToUCallback, oldcontext: *const *const ::core::ffi::c_void, err: &mut UErrorCode) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn ucnv_setToUCallBack(converter: *mut UConverter, newaction: *mut ::core::ffi::c_void, newcontext: *const ::core::ffi::c_void, oldaction: *mut *mut ::core::ffi::c_void, oldcontext: *const *const ::core::ffi::c_void, err: *mut UErrorCode);
@@ -20556,7 +20556,7 @@ pub unsafe fn ucnv_setToUCallBack(converter: *mut UConverter, newaction: UConver
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn ucnv_toAlgorithmic<'a, P0, P1>(algorithmictype: UConverterType, cnv: *mut UConverter, target: P0, targetcapacity: i32, source: P1, sourcelength: i32, perrorcode: *mut UErrorCode) -> i32
+pub unsafe fn ucnv_toAlgorithmic<'a, P0, P1>(algorithmictype: UConverterType, cnv: &mut UConverter, target: P0, targetcapacity: i32, source: P1, sourcelength: i32, perrorcode: &mut UErrorCode) -> i32
 where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
     P1: ::std::convert::Into<::windows::core::PCSTR>,
@@ -20569,7 +20569,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn ucnv_toUChars<'a, P0>(cnv: *mut UConverter, dest: *mut u16, destcapacity: i32, src: P0, srclength: i32, perrorcode: *mut UErrorCode) -> i32
+pub unsafe fn ucnv_toUChars<'a, P0>(cnv: &mut UConverter, dest: &mut u16, destcapacity: i32, src: P0, srclength: i32, perrorcode: &mut UErrorCode) -> i32
 where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
 {
@@ -20581,7 +20581,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn ucnv_toUCountPending(cnv: *const UConverter, status: *mut UErrorCode) -> i32 {
+pub unsafe fn ucnv_toUCountPending(cnv: &UConverter, status: &mut UErrorCode) -> i32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn ucnv_toUCountPending(cnv: *const UConverter, status: *mut UErrorCode) -> i32;
@@ -20590,7 +20590,7 @@ pub unsafe fn ucnv_toUCountPending(cnv: *const UConverter, status: *mut UErrorCo
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn ucnv_toUnicode<'a, P0>(converter: *mut UConverter, target: *mut *mut u16, targetlimit: *const u16, source: *const *const i8, sourcelimit: P0, offsets: *mut i32, flush: i8, err: *mut UErrorCode)
+pub unsafe fn ucnv_toUnicode<'a, P0>(converter: &mut UConverter, target: &mut *mut u16, targetlimit: &u16, source: &*const i8, sourcelimit: P0, offsets: &mut i32, flush: i8, err: &mut UErrorCode)
 where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
 {
@@ -20602,7 +20602,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn ucnv_usesFallback(cnv: *const UConverter) -> i8 {
+pub unsafe fn ucnv_usesFallback(cnv: &UConverter) -> i8 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn ucnv_usesFallback(cnv: *const UConverter) -> i8;
@@ -20611,7 +20611,7 @@ pub unsafe fn ucnv_usesFallback(cnv: *const UConverter) -> i8 {
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn ucnvsel_close(sel: *mut UConverterSelector) {
+pub unsafe fn ucnvsel_close(sel: &mut UConverterSelector) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn ucnvsel_close(sel: *mut UConverterSelector);
@@ -20620,7 +20620,7 @@ pub unsafe fn ucnvsel_close(sel: *mut UConverterSelector) {
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn ucnvsel_open(converterlist: *const *const i8, converterlistsize: i32, excludedcodepoints: *const USet, whichset: UConverterUnicodeSet, status: *mut UErrorCode) -> *mut UConverterSelector {
+pub unsafe fn ucnvsel_open(converterlist: &*const i8, converterlistsize: i32, excludedcodepoints: &USet, whichset: UConverterUnicodeSet, status: &mut UErrorCode) -> *mut UConverterSelector {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn ucnvsel_open(converterlist: *const *const i8, converterlistsize: i32, excludedcodepoints: *const USet, whichset: UConverterUnicodeSet, status: *mut UErrorCode) -> *mut UConverterSelector;
@@ -20629,7 +20629,7 @@ pub unsafe fn ucnvsel_open(converterlist: *const *const i8, converterlistsize: i
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn ucnvsel_openFromSerialized(buffer: *const ::core::ffi::c_void, length: i32, status: *mut UErrorCode) -> *mut UConverterSelector {
+pub unsafe fn ucnvsel_openFromSerialized(buffer: *const ::core::ffi::c_void, length: i32, status: &mut UErrorCode) -> *mut UConverterSelector {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn ucnvsel_openFromSerialized(buffer: *const ::core::ffi::c_void, length: i32, status: *mut UErrorCode) -> *mut UConverterSelector;
@@ -20638,7 +20638,7 @@ pub unsafe fn ucnvsel_openFromSerialized(buffer: *const ::core::ffi::c_void, len
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn ucnvsel_selectForString(sel: *const UConverterSelector, s: *const u16, length: i32, status: *mut UErrorCode) -> *mut UEnumeration {
+pub unsafe fn ucnvsel_selectForString(sel: &UConverterSelector, s: &u16, length: i32, status: &mut UErrorCode) -> *mut UEnumeration {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn ucnvsel_selectForString(sel: *const UConverterSelector, s: *const u16, length: i32, status: *mut UErrorCode) -> *mut UEnumeration;
@@ -20647,7 +20647,7 @@ pub unsafe fn ucnvsel_selectForString(sel: *const UConverterSelector, s: *const 
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn ucnvsel_selectForUTF8<'a, P0>(sel: *const UConverterSelector, s: P0, length: i32, status: *mut UErrorCode) -> *mut UEnumeration
+pub unsafe fn ucnvsel_selectForUTF8<'a, P0>(sel: &UConverterSelector, s: P0, length: i32, status: &mut UErrorCode) -> *mut UEnumeration
 where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
 {
@@ -20659,7 +20659,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn ucnvsel_serialize(sel: *const UConverterSelector, buffer: *mut ::core::ffi::c_void, buffercapacity: i32, status: *mut UErrorCode) -> i32 {
+pub unsafe fn ucnvsel_serialize(sel: &UConverterSelector, buffer: *mut ::core::ffi::c_void, buffercapacity: i32, status: &mut UErrorCode) -> i32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn ucnvsel_serialize(sel: *const UConverterSelector, buffer: *mut ::core::ffi::c_void, buffercapacity: i32, status: *mut UErrorCode) -> i32;
@@ -20668,7 +20668,7 @@ pub unsafe fn ucnvsel_serialize(sel: *const UConverterSelector, buffer: *mut ::c
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn ucol_cloneBinary(coll: *const UCollator, buffer: *mut u8, capacity: i32, status: *mut UErrorCode) -> i32 {
+pub unsafe fn ucol_cloneBinary(coll: &UCollator, buffer: &mut u8, capacity: i32, status: &mut UErrorCode) -> i32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn ucol_cloneBinary(coll: *const UCollator, buffer: *mut u8, capacity: i32, status: *mut UErrorCode) -> i32;
@@ -20677,7 +20677,7 @@ pub unsafe fn ucol_cloneBinary(coll: *const UCollator, buffer: *mut u8, capacity
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn ucol_close(coll: *mut UCollator) {
+pub unsafe fn ucol_close(coll: &mut UCollator) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn ucol_close(coll: *mut UCollator);
@@ -20686,7 +20686,7 @@ pub unsafe fn ucol_close(coll: *mut UCollator) {
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn ucol_closeElements(elems: *mut UCollationElements) {
+pub unsafe fn ucol_closeElements(elems: &mut UCollationElements) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn ucol_closeElements(elems: *mut UCollationElements);
@@ -20704,7 +20704,7 @@ pub unsafe fn ucol_countAvailable() -> i32 {
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn ucol_equal(coll: *const UCollator, source: *const u16, sourcelength: i32, target: *const u16, targetlength: i32) -> i8 {
+pub unsafe fn ucol_equal(coll: &UCollator, source: &u16, sourcelength: i32, target: &u16, targetlength: i32) -> i8 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn ucol_equal(coll: *const UCollator, source: *const u16, sourcelength: i32, target: *const u16, targetlength: i32) -> i8;
@@ -20713,7 +20713,7 @@ pub unsafe fn ucol_equal(coll: *const UCollator, source: *const u16, sourcelengt
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn ucol_getAttribute(coll: *const UCollator, attr: UColAttribute, status: *mut UErrorCode) -> UColAttributeValue {
+pub unsafe fn ucol_getAttribute(coll: &UCollator, attr: UColAttribute, status: &mut UErrorCode) -> UColAttributeValue {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn ucol_getAttribute(coll: *const UCollator, attr: UColAttribute, status: *mut UErrorCode) -> UColAttributeValue;
@@ -20731,7 +20731,7 @@ pub unsafe fn ucol_getAvailable(localeindex: i32) -> ::windows::core::PSTR {
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn ucol_getBound(source: *const u8, sourcelength: i32, boundtype: UColBoundMode, nooflevels: u32, result: *mut u8, resultlength: i32, status: *mut UErrorCode) -> i32 {
+pub unsafe fn ucol_getBound(source: &u8, sourcelength: i32, boundtype: UColBoundMode, nooflevels: u32, result: &mut u8, resultlength: i32, status: &mut UErrorCode) -> i32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn ucol_getBound(source: *const u8, sourcelength: i32, boundtype: UColBoundMode, nooflevels: u32, result: *mut u8, resultlength: i32, status: *mut UErrorCode) -> i32;
@@ -20740,7 +20740,7 @@ pub unsafe fn ucol_getBound(source: *const u8, sourcelength: i32, boundtype: UCo
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn ucol_getContractionsAndExpansions(coll: *const UCollator, contractions: *mut USet, expansions: *mut USet, addprefixes: i8, status: *mut UErrorCode) {
+pub unsafe fn ucol_getContractionsAndExpansions(coll: &UCollator, contractions: &mut USet, expansions: &mut USet, addprefixes: i8, status: &mut UErrorCode) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn ucol_getContractionsAndExpansions(coll: *const UCollator, contractions: *mut USet, expansions: *mut USet, addprefixes: i8, status: *mut UErrorCode);
@@ -20749,7 +20749,7 @@ pub unsafe fn ucol_getContractionsAndExpansions(coll: *const UCollator, contract
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn ucol_getDisplayName<'a, P0, P1>(objloc: P0, disploc: P1, result: *mut u16, resultlength: i32, status: *mut UErrorCode) -> i32
+pub unsafe fn ucol_getDisplayName<'a, P0, P1>(objloc: P0, disploc: P1, result: &mut u16, resultlength: i32, status: &mut UErrorCode) -> i32
 where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
     P1: ::std::convert::Into<::windows::core::PCSTR>,
@@ -20762,7 +20762,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn ucol_getEquivalentReorderCodes(reordercode: i32, dest: *mut i32, destcapacity: i32, perrorcode: *mut UErrorCode) -> i32 {
+pub unsafe fn ucol_getEquivalentReorderCodes(reordercode: i32, dest: &mut i32, destcapacity: i32, perrorcode: &mut UErrorCode) -> i32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn ucol_getEquivalentReorderCodes(reordercode: i32, dest: *mut i32, destcapacity: i32, perrorcode: *mut UErrorCode) -> i32;
@@ -20771,7 +20771,7 @@ pub unsafe fn ucol_getEquivalentReorderCodes(reordercode: i32, dest: *mut i32, d
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn ucol_getFunctionalEquivalent<'a, P0, P1, P2>(result: P0, resultcapacity: i32, keyword: P1, locale: P2, isavailable: *mut i8, status: *mut UErrorCode) -> i32
+pub unsafe fn ucol_getFunctionalEquivalent<'a, P0, P1, P2>(result: P0, resultcapacity: i32, keyword: P1, locale: P2, isavailable: &mut i8, status: &mut UErrorCode) -> i32
 where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
     P1: ::std::convert::Into<::windows::core::PCSTR>,
@@ -20785,7 +20785,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn ucol_getKeywordValues<'a, P0>(keyword: P0, status: *mut UErrorCode) -> *mut UEnumeration
+pub unsafe fn ucol_getKeywordValues<'a, P0>(keyword: P0, status: &mut UErrorCode) -> *mut UEnumeration
 where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
 {
@@ -20797,7 +20797,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn ucol_getKeywordValuesForLocale<'a, P0, P1>(key: P0, locale: P1, commonlyused: i8, status: *mut UErrorCode) -> *mut UEnumeration
+pub unsafe fn ucol_getKeywordValuesForLocale<'a, P0, P1>(key: P0, locale: P1, commonlyused: i8, status: &mut UErrorCode) -> *mut UEnumeration
 where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
     P1: ::std::convert::Into<::windows::core::PCSTR>,
@@ -20810,7 +20810,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn ucol_getKeywords(status: *mut UErrorCode) -> *mut UEnumeration {
+pub unsafe fn ucol_getKeywords(status: &mut UErrorCode) -> *mut UEnumeration {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn ucol_getKeywords(status: *mut UErrorCode) -> *mut UEnumeration;
@@ -20819,7 +20819,7 @@ pub unsafe fn ucol_getKeywords(status: *mut UErrorCode) -> *mut UEnumeration {
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn ucol_getLocaleByType(coll: *const UCollator, r#type: ULocDataLocaleType, status: *mut UErrorCode) -> ::windows::core::PSTR {
+pub unsafe fn ucol_getLocaleByType(coll: &UCollator, r#type: ULocDataLocaleType, status: &mut UErrorCode) -> ::windows::core::PSTR {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn ucol_getLocaleByType(coll: *const UCollator, r#type: ULocDataLocaleType, status: *mut UErrorCode) -> ::windows::core::PSTR;
@@ -20828,7 +20828,7 @@ pub unsafe fn ucol_getLocaleByType(coll: *const UCollator, r#type: ULocDataLocal
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn ucol_getMaxExpansion(elems: *const UCollationElements, order: i32) -> i32 {
+pub unsafe fn ucol_getMaxExpansion(elems: &UCollationElements, order: i32) -> i32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn ucol_getMaxExpansion(elems: *const UCollationElements, order: i32) -> i32;
@@ -20837,7 +20837,7 @@ pub unsafe fn ucol_getMaxExpansion(elems: *const UCollationElements, order: i32)
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn ucol_getMaxVariable(coll: *const UCollator) -> UColReorderCode {
+pub unsafe fn ucol_getMaxVariable(coll: &UCollator) -> UColReorderCode {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn ucol_getMaxVariable(coll: *const UCollator) -> UColReorderCode;
@@ -20846,7 +20846,7 @@ pub unsafe fn ucol_getMaxVariable(coll: *const UCollator) -> UColReorderCode {
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn ucol_getOffset(elems: *const UCollationElements) -> i32 {
+pub unsafe fn ucol_getOffset(elems: &UCollationElements) -> i32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn ucol_getOffset(elems: *const UCollationElements) -> i32;
@@ -20855,7 +20855,7 @@ pub unsafe fn ucol_getOffset(elems: *const UCollationElements) -> i32 {
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn ucol_getReorderCodes(coll: *const UCollator, dest: *mut i32, destcapacity: i32, perrorcode: *mut UErrorCode) -> i32 {
+pub unsafe fn ucol_getReorderCodes(coll: &UCollator, dest: &mut i32, destcapacity: i32, perrorcode: &mut UErrorCode) -> i32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn ucol_getReorderCodes(coll: *const UCollator, dest: *mut i32, destcapacity: i32, perrorcode: *mut UErrorCode) -> i32;
@@ -20864,7 +20864,7 @@ pub unsafe fn ucol_getReorderCodes(coll: *const UCollator, dest: *mut i32, destc
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn ucol_getRules(coll: *const UCollator, length: *mut i32) -> *mut u16 {
+pub unsafe fn ucol_getRules(coll: &UCollator, length: &mut i32) -> *mut u16 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn ucol_getRules(coll: *const UCollator, length: *mut i32) -> *mut u16;
@@ -20873,7 +20873,7 @@ pub unsafe fn ucol_getRules(coll: *const UCollator, length: *mut i32) -> *mut u1
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn ucol_getRulesEx(coll: *const UCollator, delta: UColRuleOption, buffer: *mut u16, bufferlen: i32) -> i32 {
+pub unsafe fn ucol_getRulesEx(coll: &UCollator, delta: UColRuleOption, buffer: &mut u16, bufferlen: i32) -> i32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn ucol_getRulesEx(coll: *const UCollator, delta: UColRuleOption, buffer: *mut u16, bufferlen: i32) -> i32;
@@ -20882,7 +20882,7 @@ pub unsafe fn ucol_getRulesEx(coll: *const UCollator, delta: UColRuleOption, buf
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn ucol_getSortKey(coll: *const UCollator, source: *const u16, sourcelength: i32, result: *mut u8, resultlength: i32) -> i32 {
+pub unsafe fn ucol_getSortKey(coll: &UCollator, source: &u16, sourcelength: i32, result: &mut u8, resultlength: i32) -> i32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn ucol_getSortKey(coll: *const UCollator, source: *const u16, sourcelength: i32, result: *mut u8, resultlength: i32) -> i32;
@@ -20891,7 +20891,7 @@ pub unsafe fn ucol_getSortKey(coll: *const UCollator, source: *const u16, source
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn ucol_getStrength(coll: *const UCollator) -> UColAttributeValue {
+pub unsafe fn ucol_getStrength(coll: &UCollator) -> UColAttributeValue {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn ucol_getStrength(coll: *const UCollator) -> UColAttributeValue;
@@ -20900,7 +20900,7 @@ pub unsafe fn ucol_getStrength(coll: *const UCollator) -> UColAttributeValue {
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn ucol_getTailoredSet(coll: *const UCollator, status: *mut UErrorCode) -> *mut USet {
+pub unsafe fn ucol_getTailoredSet(coll: &UCollator, status: &mut UErrorCode) -> *mut USet {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn ucol_getTailoredSet(coll: *const UCollator, status: *mut UErrorCode) -> *mut USet;
@@ -20909,7 +20909,7 @@ pub unsafe fn ucol_getTailoredSet(coll: *const UCollator, status: *mut UErrorCod
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn ucol_getUCAVersion(coll: *const UCollator, info: *mut u8) {
+pub unsafe fn ucol_getUCAVersion(coll: &UCollator, info: &mut u8) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn ucol_getUCAVersion(coll: *const UCollator, info: *mut u8);
@@ -20918,7 +20918,7 @@ pub unsafe fn ucol_getUCAVersion(coll: *const UCollator, info: *mut u8) {
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn ucol_getVariableTop(coll: *const UCollator, status: *mut UErrorCode) -> u32 {
+pub unsafe fn ucol_getVariableTop(coll: &UCollator, status: &mut UErrorCode) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn ucol_getVariableTop(coll: *const UCollator, status: *mut UErrorCode) -> u32;
@@ -20927,7 +20927,7 @@ pub unsafe fn ucol_getVariableTop(coll: *const UCollator, status: *mut UErrorCod
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn ucol_getVersion(coll: *const UCollator, info: *mut u8) {
+pub unsafe fn ucol_getVersion(coll: &UCollator, info: &mut u8) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn ucol_getVersion(coll: *const UCollator, info: *mut u8);
@@ -20936,7 +20936,7 @@ pub unsafe fn ucol_getVersion(coll: *const UCollator, info: *mut u8) {
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn ucol_greater(coll: *const UCollator, source: *const u16, sourcelength: i32, target: *const u16, targetlength: i32) -> i8 {
+pub unsafe fn ucol_greater(coll: &UCollator, source: &u16, sourcelength: i32, target: &u16, targetlength: i32) -> i8 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn ucol_greater(coll: *const UCollator, source: *const u16, sourcelength: i32, target: *const u16, targetlength: i32) -> i8;
@@ -20945,7 +20945,7 @@ pub unsafe fn ucol_greater(coll: *const UCollator, source: *const u16, sourcelen
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn ucol_greaterOrEqual(coll: *const UCollator, source: *const u16, sourcelength: i32, target: *const u16, targetlength: i32) -> i8 {
+pub unsafe fn ucol_greaterOrEqual(coll: &UCollator, source: &u16, sourcelength: i32, target: &u16, targetlength: i32) -> i8 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn ucol_greaterOrEqual(coll: *const UCollator, source: *const u16, sourcelength: i32, target: *const u16, targetlength: i32) -> i8;
@@ -20954,7 +20954,7 @@ pub unsafe fn ucol_greaterOrEqual(coll: *const UCollator, source: *const u16, so
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn ucol_keyHashCode(key: *const u8, length: i32) -> i32 {
+pub unsafe fn ucol_keyHashCode(key: &u8, length: i32) -> i32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn ucol_keyHashCode(key: *const u8, length: i32) -> i32;
@@ -20963,7 +20963,7 @@ pub unsafe fn ucol_keyHashCode(key: *const u8, length: i32) -> i32 {
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn ucol_mergeSortkeys(src1: *const u8, src1length: i32, src2: *const u8, src2length: i32, dest: *mut u8, destcapacity: i32) -> i32 {
+pub unsafe fn ucol_mergeSortkeys(src1: &u8, src1length: i32, src2: &u8, src2length: i32, dest: &mut u8, destcapacity: i32) -> i32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn ucol_mergeSortkeys(src1: *const u8, src1length: i32, src2: *const u8, src2length: i32, dest: *mut u8, destcapacity: i32) -> i32;
@@ -20972,7 +20972,7 @@ pub unsafe fn ucol_mergeSortkeys(src1: *const u8, src1length: i32, src2: *const 
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn ucol_next(elems: *mut UCollationElements, status: *mut UErrorCode) -> i32 {
+pub unsafe fn ucol_next(elems: &mut UCollationElements, status: &mut UErrorCode) -> i32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn ucol_next(elems: *mut UCollationElements, status: *mut UErrorCode) -> i32;
@@ -20981,7 +20981,7 @@ pub unsafe fn ucol_next(elems: *mut UCollationElements, status: *mut UErrorCode)
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn ucol_nextSortKeyPart(coll: *const UCollator, iter: *mut UCharIterator, state: *mut u32, dest: *mut u8, count: i32, status: *mut UErrorCode) -> i32 {
+pub unsafe fn ucol_nextSortKeyPart(coll: &UCollator, iter: &mut UCharIterator, state: &mut u32, dest: &mut u8, count: i32, status: &mut UErrorCode) -> i32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn ucol_nextSortKeyPart(coll: *const UCollator, iter: *mut UCharIterator, state: *mut u32, dest: *mut u8, count: i32, status: *mut UErrorCode) -> i32;
@@ -20990,7 +20990,7 @@ pub unsafe fn ucol_nextSortKeyPart(coll: *const UCollator, iter: *mut UCharItera
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn ucol_open<'a, P0>(loc: P0, status: *mut UErrorCode) -> *mut UCollator
+pub unsafe fn ucol_open<'a, P0>(loc: P0, status: &mut UErrorCode) -> *mut UCollator
 where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
 {
@@ -21002,7 +21002,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn ucol_openAvailableLocales(status: *mut UErrorCode) -> *mut UEnumeration {
+pub unsafe fn ucol_openAvailableLocales(status: &mut UErrorCode) -> *mut UEnumeration {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn ucol_openAvailableLocales(status: *mut UErrorCode) -> *mut UEnumeration;
@@ -21011,7 +21011,7 @@ pub unsafe fn ucol_openAvailableLocales(status: *mut UErrorCode) -> *mut UEnumer
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn ucol_openBinary(bin: *const u8, length: i32, base: *const UCollator, status: *mut UErrorCode) -> *mut UCollator {
+pub unsafe fn ucol_openBinary(bin: &u8, length: i32, base: &UCollator, status: &mut UErrorCode) -> *mut UCollator {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn ucol_openBinary(bin: *const u8, length: i32, base: *const UCollator, status: *mut UErrorCode) -> *mut UCollator;
@@ -21020,7 +21020,7 @@ pub unsafe fn ucol_openBinary(bin: *const u8, length: i32, base: *const UCollato
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn ucol_openElements(coll: *const UCollator, text: *const u16, textlength: i32, status: *mut UErrorCode) -> *mut UCollationElements {
+pub unsafe fn ucol_openElements(coll: &UCollator, text: &u16, textlength: i32, status: &mut UErrorCode) -> *mut UCollationElements {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn ucol_openElements(coll: *const UCollator, text: *const u16, textlength: i32, status: *mut UErrorCode) -> *mut UCollationElements;
@@ -21029,7 +21029,7 @@ pub unsafe fn ucol_openElements(coll: *const UCollator, text: *const u16, textle
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn ucol_openRules(rules: *const u16, ruleslength: i32, normalizationmode: UColAttributeValue, strength: UColAttributeValue, parseerror: *mut UParseError, status: *mut UErrorCode) -> *mut UCollator {
+pub unsafe fn ucol_openRules(rules: &u16, ruleslength: i32, normalizationmode: UColAttributeValue, strength: UColAttributeValue, parseerror: &mut UParseError, status: &mut UErrorCode) -> *mut UCollator {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn ucol_openRules(rules: *const u16, ruleslength: i32, normalizationmode: UColAttributeValue, strength: UColAttributeValue, parseerror: *mut UParseError, status: *mut UErrorCode) -> *mut UCollator;
@@ -21038,7 +21038,7 @@ pub unsafe fn ucol_openRules(rules: *const u16, ruleslength: i32, normalizationm
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn ucol_previous(elems: *mut UCollationElements, status: *mut UErrorCode) -> i32 {
+pub unsafe fn ucol_previous(elems: &mut UCollationElements, status: &mut UErrorCode) -> i32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn ucol_previous(elems: *mut UCollationElements, status: *mut UErrorCode) -> i32;
@@ -21056,7 +21056,7 @@ pub unsafe fn ucol_primaryOrder(order: i32) -> i32 {
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn ucol_reset(elems: *mut UCollationElements) {
+pub unsafe fn ucol_reset(elems: &mut UCollationElements) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn ucol_reset(elems: *mut UCollationElements);
@@ -21065,7 +21065,7 @@ pub unsafe fn ucol_reset(elems: *mut UCollationElements) {
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn ucol_safeClone(coll: *const UCollator, stackbuffer: *mut ::core::ffi::c_void, pbuffersize: *mut i32, status: *mut UErrorCode) -> *mut UCollator {
+pub unsafe fn ucol_safeClone(coll: &UCollator, stackbuffer: *mut ::core::ffi::c_void, pbuffersize: &mut i32, status: &mut UErrorCode) -> *mut UCollator {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn ucol_safeClone(coll: *const UCollator, stackbuffer: *mut ::core::ffi::c_void, pbuffersize: *mut i32, status: *mut UErrorCode) -> *mut UCollator;
@@ -21083,7 +21083,7 @@ pub unsafe fn ucol_secondaryOrder(order: i32) -> i32 {
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn ucol_setAttribute(coll: *mut UCollator, attr: UColAttribute, value: UColAttributeValue, status: *mut UErrorCode) {
+pub unsafe fn ucol_setAttribute(coll: &mut UCollator, attr: UColAttribute, value: UColAttributeValue, status: &mut UErrorCode) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn ucol_setAttribute(coll: *mut UCollator, attr: UColAttribute, value: UColAttributeValue, status: *mut UErrorCode);
@@ -21092,7 +21092,7 @@ pub unsafe fn ucol_setAttribute(coll: *mut UCollator, attr: UColAttribute, value
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn ucol_setMaxVariable(coll: *mut UCollator, group: UColReorderCode, perrorcode: *mut UErrorCode) {
+pub unsafe fn ucol_setMaxVariable(coll: &mut UCollator, group: UColReorderCode, perrorcode: &mut UErrorCode) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn ucol_setMaxVariable(coll: *mut UCollator, group: UColReorderCode, perrorcode: *mut UErrorCode);
@@ -21101,7 +21101,7 @@ pub unsafe fn ucol_setMaxVariable(coll: *mut UCollator, group: UColReorderCode, 
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn ucol_setOffset(elems: *mut UCollationElements, offset: i32, status: *mut UErrorCode) {
+pub unsafe fn ucol_setOffset(elems: &mut UCollationElements, offset: i32, status: &mut UErrorCode) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn ucol_setOffset(elems: *mut UCollationElements, offset: i32, status: *mut UErrorCode);
@@ -21110,7 +21110,7 @@ pub unsafe fn ucol_setOffset(elems: *mut UCollationElements, offset: i32, status
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn ucol_setReorderCodes(coll: *mut UCollator, reordercodes: *const i32, reordercodeslength: i32, perrorcode: *mut UErrorCode) {
+pub unsafe fn ucol_setReorderCodes(coll: &mut UCollator, reordercodes: &i32, reordercodeslength: i32, perrorcode: &mut UErrorCode) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn ucol_setReorderCodes(coll: *mut UCollator, reordercodes: *const i32, reordercodeslength: i32, perrorcode: *mut UErrorCode);
@@ -21119,7 +21119,7 @@ pub unsafe fn ucol_setReorderCodes(coll: *mut UCollator, reordercodes: *const i3
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn ucol_setStrength(coll: *mut UCollator, strength: UColAttributeValue) {
+pub unsafe fn ucol_setStrength(coll: &mut UCollator, strength: UColAttributeValue) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn ucol_setStrength(coll: *mut UCollator, strength: UColAttributeValue);
@@ -21128,7 +21128,7 @@ pub unsafe fn ucol_setStrength(coll: *mut UCollator, strength: UColAttributeValu
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn ucol_setText(elems: *mut UCollationElements, text: *const u16, textlength: i32, status: *mut UErrorCode) {
+pub unsafe fn ucol_setText(elems: &mut UCollationElements, text: &u16, textlength: i32, status: &mut UErrorCode) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn ucol_setText(elems: *mut UCollationElements, text: *const u16, textlength: i32, status: *mut UErrorCode);
@@ -21137,7 +21137,7 @@ pub unsafe fn ucol_setText(elems: *mut UCollationElements, text: *const u16, tex
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn ucol_strcoll(coll: *const UCollator, source: *const u16, sourcelength: i32, target: *const u16, targetlength: i32) -> UCollationResult {
+pub unsafe fn ucol_strcoll(coll: &UCollator, source: &u16, sourcelength: i32, target: &u16, targetlength: i32) -> UCollationResult {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn ucol_strcoll(coll: *const UCollator, source: *const u16, sourcelength: i32, target: *const u16, targetlength: i32) -> UCollationResult;
@@ -21146,7 +21146,7 @@ pub unsafe fn ucol_strcoll(coll: *const UCollator, source: *const u16, sourcelen
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn ucol_strcollIter(coll: *const UCollator, siter: *mut UCharIterator, titer: *mut UCharIterator, status: *mut UErrorCode) -> UCollationResult {
+pub unsafe fn ucol_strcollIter(coll: &UCollator, siter: &mut UCharIterator, titer: &mut UCharIterator, status: &mut UErrorCode) -> UCollationResult {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn ucol_strcollIter(coll: *const UCollator, siter: *mut UCharIterator, titer: *mut UCharIterator, status: *mut UErrorCode) -> UCollationResult;
@@ -21155,7 +21155,7 @@ pub unsafe fn ucol_strcollIter(coll: *const UCollator, siter: *mut UCharIterator
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn ucol_strcollUTF8<'a, P0, P1>(coll: *const UCollator, source: P0, sourcelength: i32, target: P1, targetlength: i32, status: *mut UErrorCode) -> UCollationResult
+pub unsafe fn ucol_strcollUTF8<'a, P0, P1>(coll: &UCollator, source: P0, sourcelength: i32, target: P1, targetlength: i32, status: &mut UErrorCode) -> UCollationResult
 where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
     P1: ::std::convert::Into<::windows::core::PCSTR>,
@@ -21177,7 +21177,7 @@ pub unsafe fn ucol_tertiaryOrder(order: i32) -> i32 {
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn ucpmap_get(map: *const UCPMap, c: i32) -> u32 {
+pub unsafe fn ucpmap_get(map: &UCPMap, c: i32) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn ucpmap_get(map: *const UCPMap, c: i32) -> u32;
@@ -21186,7 +21186,7 @@ pub unsafe fn ucpmap_get(map: *const UCPMap, c: i32) -> u32 {
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn ucpmap_getRange(map: *const UCPMap, start: i32, option: UCPMapRangeOption, surrogatevalue: u32, filter: *mut UCPMapValueFilter, context: *const ::core::ffi::c_void, pvalue: *mut u32) -> i32 {
+pub unsafe fn ucpmap_getRange(map: &UCPMap, start: i32, option: UCPMapRangeOption, surrogatevalue: u32, filter: &mut UCPMapValueFilter, context: *const ::core::ffi::c_void, pvalue: &mut u32) -> i32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn ucpmap_getRange(map: *const UCPMap, start: i32, option: UCPMapRangeOption, surrogatevalue: u32, filter: *mut *mut ::core::ffi::c_void, context: *const ::core::ffi::c_void, pvalue: *mut u32) -> i32;
@@ -21195,7 +21195,7 @@ pub unsafe fn ucpmap_getRange(map: *const UCPMap, start: i32, option: UCPMapRang
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn ucptrie_close(trie: *mut UCPTrie) {
+pub unsafe fn ucptrie_close(trie: &mut UCPTrie) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn ucptrie_close(trie: *mut UCPTrie);
@@ -21204,7 +21204,7 @@ pub unsafe fn ucptrie_close(trie: *mut UCPTrie) {
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn ucptrie_get(trie: *const UCPTrie, c: i32) -> u32 {
+pub unsafe fn ucptrie_get(trie: &UCPTrie, c: i32) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn ucptrie_get(trie: *const UCPTrie, c: i32) -> u32;
@@ -21213,7 +21213,7 @@ pub unsafe fn ucptrie_get(trie: *const UCPTrie, c: i32) -> u32 {
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn ucptrie_getRange(trie: *const UCPTrie, start: i32, option: UCPMapRangeOption, surrogatevalue: u32, filter: *mut UCPMapValueFilter, context: *const ::core::ffi::c_void, pvalue: *mut u32) -> i32 {
+pub unsafe fn ucptrie_getRange(trie: &UCPTrie, start: i32, option: UCPMapRangeOption, surrogatevalue: u32, filter: &mut UCPMapValueFilter, context: *const ::core::ffi::c_void, pvalue: &mut u32) -> i32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn ucptrie_getRange(trie: *const UCPTrie, start: i32, option: UCPMapRangeOption, surrogatevalue: u32, filter: *mut *mut ::core::ffi::c_void, context: *const ::core::ffi::c_void, pvalue: *mut u32) -> i32;
@@ -21222,7 +21222,7 @@ pub unsafe fn ucptrie_getRange(trie: *const UCPTrie, start: i32, option: UCPMapR
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn ucptrie_getType(trie: *const UCPTrie) -> UCPTrieType {
+pub unsafe fn ucptrie_getType(trie: &UCPTrie) -> UCPTrieType {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn ucptrie_getType(trie: *const UCPTrie) -> UCPTrieType;
@@ -21231,7 +21231,7 @@ pub unsafe fn ucptrie_getType(trie: *const UCPTrie) -> UCPTrieType {
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn ucptrie_getValueWidth(trie: *const UCPTrie) -> UCPTrieValueWidth {
+pub unsafe fn ucptrie_getValueWidth(trie: &UCPTrie) -> UCPTrieValueWidth {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn ucptrie_getValueWidth(trie: *const UCPTrie) -> UCPTrieValueWidth;
@@ -21240,7 +21240,7 @@ pub unsafe fn ucptrie_getValueWidth(trie: *const UCPTrie) -> UCPTrieValueWidth {
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn ucptrie_internalSmallIndex(trie: *const UCPTrie, c: i32) -> i32 {
+pub unsafe fn ucptrie_internalSmallIndex(trie: &UCPTrie, c: i32) -> i32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn ucptrie_internalSmallIndex(trie: *const UCPTrie, c: i32) -> i32;
@@ -21249,7 +21249,7 @@ pub unsafe fn ucptrie_internalSmallIndex(trie: *const UCPTrie, c: i32) -> i32 {
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn ucptrie_internalSmallU8Index(trie: *const UCPTrie, lt1: i32, t2: u8, t3: u8) -> i32 {
+pub unsafe fn ucptrie_internalSmallU8Index(trie: &UCPTrie, lt1: i32, t2: u8, t3: u8) -> i32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn ucptrie_internalSmallU8Index(trie: *const UCPTrie, lt1: i32, t2: u8, t3: u8) -> i32;
@@ -21258,7 +21258,7 @@ pub unsafe fn ucptrie_internalSmallU8Index(trie: *const UCPTrie, lt1: i32, t2: u
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn ucptrie_internalU8PrevIndex(trie: *const UCPTrie, c: i32, start: *const u8, src: *const u8) -> i32 {
+pub unsafe fn ucptrie_internalU8PrevIndex(trie: &UCPTrie, c: i32, start: &u8, src: &u8) -> i32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn ucptrie_internalU8PrevIndex(trie: *const UCPTrie, c: i32, start: *const u8, src: *const u8) -> i32;
@@ -21267,7 +21267,7 @@ pub unsafe fn ucptrie_internalU8PrevIndex(trie: *const UCPTrie, c: i32, start: *
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn ucptrie_openFromBinary(r#type: UCPTrieType, valuewidth: UCPTrieValueWidth, data: *const ::core::ffi::c_void, length: i32, pactuallength: *mut i32, perrorcode: *mut UErrorCode) -> *mut UCPTrie {
+pub unsafe fn ucptrie_openFromBinary(r#type: UCPTrieType, valuewidth: UCPTrieValueWidth, data: *const ::core::ffi::c_void, length: i32, pactuallength: &mut i32, perrorcode: &mut UErrorCode) -> *mut UCPTrie {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn ucptrie_openFromBinary(r#type: UCPTrieType, valuewidth: UCPTrieValueWidth, data: *const ::core::ffi::c_void, length: i32, pactuallength: *mut i32, perrorcode: *mut UErrorCode) -> *mut UCPTrie;
@@ -21276,7 +21276,7 @@ pub unsafe fn ucptrie_openFromBinary(r#type: UCPTrieType, valuewidth: UCPTrieVal
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn ucptrie_toBinary(trie: *const UCPTrie, data: *mut ::core::ffi::c_void, capacity: i32, perrorcode: *mut UErrorCode) -> i32 {
+pub unsafe fn ucptrie_toBinary(trie: &UCPTrie, data: *mut ::core::ffi::c_void, capacity: i32, perrorcode: &mut UErrorCode) -> i32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn ucptrie_toBinary(trie: *const UCPTrie, data: *mut ::core::ffi::c_void, capacity: i32, perrorcode: *mut UErrorCode) -> i32;
@@ -21285,7 +21285,7 @@ pub unsafe fn ucptrie_toBinary(trie: *const UCPTrie, data: *mut ::core::ffi::c_v
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn ucsdet_close(ucsd: *mut UCharsetDetector) {
+pub unsafe fn ucsdet_close(ucsd: &mut UCharsetDetector) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn ucsdet_close(ucsd: *mut UCharsetDetector);
@@ -21294,7 +21294,7 @@ pub unsafe fn ucsdet_close(ucsd: *mut UCharsetDetector) {
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn ucsdet_detect(ucsd: *mut UCharsetDetector, status: *mut UErrorCode) -> *mut UCharsetMatch {
+pub unsafe fn ucsdet_detect(ucsd: &mut UCharsetDetector, status: &mut UErrorCode) -> *mut UCharsetMatch {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn ucsdet_detect(ucsd: *mut UCharsetDetector, status: *mut UErrorCode) -> *mut UCharsetMatch;
@@ -21303,7 +21303,7 @@ pub unsafe fn ucsdet_detect(ucsd: *mut UCharsetDetector, status: *mut UErrorCode
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn ucsdet_detectAll(ucsd: *mut UCharsetDetector, matchesfound: *mut i32, status: *mut UErrorCode) -> *mut *mut UCharsetMatch {
+pub unsafe fn ucsdet_detectAll(ucsd: &mut UCharsetDetector, matchesfound: &mut i32, status: &mut UErrorCode) -> *mut *mut UCharsetMatch {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn ucsdet_detectAll(ucsd: *mut UCharsetDetector, matchesfound: *mut i32, status: *mut UErrorCode) -> *mut *mut UCharsetMatch;
@@ -21312,7 +21312,7 @@ pub unsafe fn ucsdet_detectAll(ucsd: *mut UCharsetDetector, matchesfound: *mut i
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn ucsdet_enableInputFilter(ucsd: *mut UCharsetDetector, filter: i8) -> i8 {
+pub unsafe fn ucsdet_enableInputFilter(ucsd: &mut UCharsetDetector, filter: i8) -> i8 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn ucsdet_enableInputFilter(ucsd: *mut UCharsetDetector, filter: i8) -> i8;
@@ -21321,7 +21321,7 @@ pub unsafe fn ucsdet_enableInputFilter(ucsd: *mut UCharsetDetector, filter: i8) 
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn ucsdet_getAllDetectableCharsets(ucsd: *const UCharsetDetector, status: *mut UErrorCode) -> *mut UEnumeration {
+pub unsafe fn ucsdet_getAllDetectableCharsets(ucsd: &UCharsetDetector, status: &mut UErrorCode) -> *mut UEnumeration {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn ucsdet_getAllDetectableCharsets(ucsd: *const UCharsetDetector, status: *mut UErrorCode) -> *mut UEnumeration;
@@ -21330,7 +21330,7 @@ pub unsafe fn ucsdet_getAllDetectableCharsets(ucsd: *const UCharsetDetector, sta
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn ucsdet_getConfidence(ucsm: *const UCharsetMatch, status: *mut UErrorCode) -> i32 {
+pub unsafe fn ucsdet_getConfidence(ucsm: &UCharsetMatch, status: &mut UErrorCode) -> i32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn ucsdet_getConfidence(ucsm: *const UCharsetMatch, status: *mut UErrorCode) -> i32;
@@ -21339,7 +21339,7 @@ pub unsafe fn ucsdet_getConfidence(ucsm: *const UCharsetMatch, status: *mut UErr
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn ucsdet_getLanguage(ucsm: *const UCharsetMatch, status: *mut UErrorCode) -> ::windows::core::PSTR {
+pub unsafe fn ucsdet_getLanguage(ucsm: &UCharsetMatch, status: &mut UErrorCode) -> ::windows::core::PSTR {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn ucsdet_getLanguage(ucsm: *const UCharsetMatch, status: *mut UErrorCode) -> ::windows::core::PSTR;
@@ -21348,7 +21348,7 @@ pub unsafe fn ucsdet_getLanguage(ucsm: *const UCharsetMatch, status: *mut UError
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn ucsdet_getName(ucsm: *const UCharsetMatch, status: *mut UErrorCode) -> ::windows::core::PSTR {
+pub unsafe fn ucsdet_getName(ucsm: &UCharsetMatch, status: &mut UErrorCode) -> ::windows::core::PSTR {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn ucsdet_getName(ucsm: *const UCharsetMatch, status: *mut UErrorCode) -> ::windows::core::PSTR;
@@ -21357,7 +21357,7 @@ pub unsafe fn ucsdet_getName(ucsm: *const UCharsetMatch, status: *mut UErrorCode
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn ucsdet_getUChars(ucsm: *const UCharsetMatch, buf: *mut u16, cap: i32, status: *mut UErrorCode) -> i32 {
+pub unsafe fn ucsdet_getUChars(ucsm: &UCharsetMatch, buf: &mut u16, cap: i32, status: &mut UErrorCode) -> i32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn ucsdet_getUChars(ucsm: *const UCharsetMatch, buf: *mut u16, cap: i32, status: *mut UErrorCode) -> i32;
@@ -21366,7 +21366,7 @@ pub unsafe fn ucsdet_getUChars(ucsm: *const UCharsetMatch, buf: *mut u16, cap: i
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn ucsdet_isInputFilterEnabled(ucsd: *const UCharsetDetector) -> i8 {
+pub unsafe fn ucsdet_isInputFilterEnabled(ucsd: &UCharsetDetector) -> i8 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn ucsdet_isInputFilterEnabled(ucsd: *const UCharsetDetector) -> i8;
@@ -21375,7 +21375,7 @@ pub unsafe fn ucsdet_isInputFilterEnabled(ucsd: *const UCharsetDetector) -> i8 {
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn ucsdet_open(status: *mut UErrorCode) -> *mut UCharsetDetector {
+pub unsafe fn ucsdet_open(status: &mut UErrorCode) -> *mut UCharsetDetector {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn ucsdet_open(status: *mut UErrorCode) -> *mut UCharsetDetector;
@@ -21384,7 +21384,7 @@ pub unsafe fn ucsdet_open(status: *mut UErrorCode) -> *mut UCharsetDetector {
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn ucsdet_setDeclaredEncoding<'a, P0>(ucsd: *mut UCharsetDetector, encoding: P0, length: i32, status: *mut UErrorCode)
+pub unsafe fn ucsdet_setDeclaredEncoding<'a, P0>(ucsd: &mut UCharsetDetector, encoding: P0, length: i32, status: &mut UErrorCode)
 where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
 {
@@ -21396,7 +21396,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn ucsdet_setText<'a, P0>(ucsd: *mut UCharsetDetector, textin: P0, len: i32, status: *mut UErrorCode)
+pub unsafe fn ucsdet_setText<'a, P0>(ucsd: &mut UCharsetDetector, textin: P0, len: i32, status: &mut UErrorCode)
 where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
 {
@@ -21408,7 +21408,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn ucurr_countCurrencies<'a, P0>(locale: P0, date: f64, ec: *mut UErrorCode) -> i32
+pub unsafe fn ucurr_countCurrencies<'a, P0>(locale: P0, date: f64, ec: &mut UErrorCode) -> i32
 where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
 {
@@ -21420,7 +21420,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn ucurr_forLocale<'a, P0>(locale: P0, buff: *mut u16, buffcapacity: i32, ec: *mut UErrorCode) -> i32
+pub unsafe fn ucurr_forLocale<'a, P0>(locale: P0, buff: &mut u16, buffcapacity: i32, ec: &mut UErrorCode) -> i32
 where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
 {
@@ -21432,7 +21432,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn ucurr_forLocaleAndDate<'a, P0>(locale: P0, date: f64, index: i32, buff: *mut u16, buffcapacity: i32, ec: *mut UErrorCode) -> i32
+pub unsafe fn ucurr_forLocaleAndDate<'a, P0>(locale: P0, date: f64, index: i32, buff: &mut u16, buffcapacity: i32, ec: &mut UErrorCode) -> i32
 where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
 {
@@ -21444,7 +21444,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn ucurr_getDefaultFractionDigits(currency: *const u16, ec: *mut UErrorCode) -> i32 {
+pub unsafe fn ucurr_getDefaultFractionDigits(currency: &u16, ec: &mut UErrorCode) -> i32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn ucurr_getDefaultFractionDigits(currency: *const u16, ec: *mut UErrorCode) -> i32;
@@ -21453,7 +21453,7 @@ pub unsafe fn ucurr_getDefaultFractionDigits(currency: *const u16, ec: *mut UErr
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn ucurr_getDefaultFractionDigitsForUsage(currency: *const u16, usage: UCurrencyUsage, ec: *mut UErrorCode) -> i32 {
+pub unsafe fn ucurr_getDefaultFractionDigitsForUsage(currency: &u16, usage: UCurrencyUsage, ec: &mut UErrorCode) -> i32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn ucurr_getDefaultFractionDigitsForUsage(currency: *const u16, usage: UCurrencyUsage, ec: *mut UErrorCode) -> i32;
@@ -21462,7 +21462,7 @@ pub unsafe fn ucurr_getDefaultFractionDigitsForUsage(currency: *const u16, usage
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn ucurr_getKeywordValuesForLocale<'a, P0, P1>(key: P0, locale: P1, commonlyused: i8, status: *mut UErrorCode) -> *mut UEnumeration
+pub unsafe fn ucurr_getKeywordValuesForLocale<'a, P0, P1>(key: P0, locale: P1, commonlyused: i8, status: &mut UErrorCode) -> *mut UEnumeration
 where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
     P1: ::std::convert::Into<::windows::core::PCSTR>,
@@ -21475,7 +21475,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn ucurr_getName<'a, P0>(currency: *const u16, locale: P0, namestyle: UCurrNameStyle, ischoiceformat: *mut i8, len: *mut i32, ec: *mut UErrorCode) -> *mut u16
+pub unsafe fn ucurr_getName<'a, P0>(currency: &u16, locale: P0, namestyle: UCurrNameStyle, ischoiceformat: &mut i8, len: &mut i32, ec: &mut UErrorCode) -> *mut u16
 where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
 {
@@ -21487,7 +21487,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn ucurr_getNumericCode(currency: *const u16) -> i32 {
+pub unsafe fn ucurr_getNumericCode(currency: &u16) -> i32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn ucurr_getNumericCode(currency: *const u16) -> i32;
@@ -21496,7 +21496,7 @@ pub unsafe fn ucurr_getNumericCode(currency: *const u16) -> i32 {
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn ucurr_getPluralName<'a, P0, P1>(currency: *const u16, locale: P0, ischoiceformat: *mut i8, pluralcount: P1, len: *mut i32, ec: *mut UErrorCode) -> *mut u16
+pub unsafe fn ucurr_getPluralName<'a, P0, P1>(currency: &u16, locale: P0, ischoiceformat: &mut i8, pluralcount: P1, len: &mut i32, ec: &mut UErrorCode) -> *mut u16
 where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
     P1: ::std::convert::Into<::windows::core::PCSTR>,
@@ -21509,7 +21509,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn ucurr_getRoundingIncrement(currency: *const u16, ec: *mut UErrorCode) -> f64 {
+pub unsafe fn ucurr_getRoundingIncrement(currency: &u16, ec: &mut UErrorCode) -> f64 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn ucurr_getRoundingIncrement(currency: *const u16, ec: *mut UErrorCode) -> f64;
@@ -21518,7 +21518,7 @@ pub unsafe fn ucurr_getRoundingIncrement(currency: *const u16, ec: *mut UErrorCo
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn ucurr_getRoundingIncrementForUsage(currency: *const u16, usage: UCurrencyUsage, ec: *mut UErrorCode) -> f64 {
+pub unsafe fn ucurr_getRoundingIncrementForUsage(currency: &u16, usage: UCurrencyUsage, ec: &mut UErrorCode) -> f64 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn ucurr_getRoundingIncrementForUsage(currency: *const u16, usage: UCurrencyUsage, ec: *mut UErrorCode) -> f64;
@@ -21527,7 +21527,7 @@ pub unsafe fn ucurr_getRoundingIncrementForUsage(currency: *const u16, usage: UC
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn ucurr_isAvailable(isocode: *const u16, from: f64, to: f64, errorcode: *mut UErrorCode) -> i8 {
+pub unsafe fn ucurr_isAvailable(isocode: &u16, from: f64, to: f64, errorcode: &mut UErrorCode) -> i8 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn ucurr_isAvailable(isocode: *const u16, from: f64, to: f64, errorcode: *mut UErrorCode) -> i8;
@@ -21536,7 +21536,7 @@ pub unsafe fn ucurr_isAvailable(isocode: *const u16, from: f64, to: f64, errorco
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn ucurr_openISOCurrencies(currtype: u32, perrorcode: *mut UErrorCode) -> *mut UEnumeration {
+pub unsafe fn ucurr_openISOCurrencies(currtype: u32, perrorcode: &mut UErrorCode) -> *mut UEnumeration {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn ucurr_openISOCurrencies(currtype: u32, perrorcode: *mut UErrorCode) -> *mut UEnumeration;
@@ -21545,7 +21545,7 @@ pub unsafe fn ucurr_openISOCurrencies(currtype: u32, perrorcode: *mut UErrorCode
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn ucurr_register<'a, P0>(isocode: *const u16, locale: P0, status: *mut UErrorCode) -> *mut ::core::ffi::c_void
+pub unsafe fn ucurr_register<'a, P0>(isocode: &u16, locale: P0, status: &mut UErrorCode) -> *mut ::core::ffi::c_void
 where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
 {
@@ -21557,7 +21557,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn ucurr_unregister(key: *mut ::core::ffi::c_void, status: *mut UErrorCode) -> i8 {
+pub unsafe fn ucurr_unregister(key: *mut ::core::ffi::c_void, status: &mut UErrorCode) -> i8 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn ucurr_unregister(key: *mut ::core::ffi::c_void, status: *mut UErrorCode) -> i8;
@@ -21575,7 +21575,7 @@ pub unsafe fn udat_adoptNumberFormat(fmt: *mut *mut ::core::ffi::c_void, numberf
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn udat_adoptNumberFormatForFields(fmt: *mut *mut ::core::ffi::c_void, fields: *const u16, numberformattoset: *mut *mut ::core::ffi::c_void, status: *mut UErrorCode) {
+pub unsafe fn udat_adoptNumberFormatForFields(fmt: *mut *mut ::core::ffi::c_void, fields: &u16, numberformattoset: *mut *mut ::core::ffi::c_void, status: &mut UErrorCode) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn udat_adoptNumberFormatForFields(fmt: *mut *mut ::core::ffi::c_void, fields: *const u16, numberformattoset: *mut *mut ::core::ffi::c_void, status: *mut UErrorCode);
@@ -21584,7 +21584,7 @@ pub unsafe fn udat_adoptNumberFormatForFields(fmt: *mut *mut ::core::ffi::c_void
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn udat_applyPattern(format: *mut *mut ::core::ffi::c_void, localized: i8, pattern: *const u16, patternlength: i32) {
+pub unsafe fn udat_applyPattern(format: *mut *mut ::core::ffi::c_void, localized: i8, pattern: &u16, patternlength: i32) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn udat_applyPattern(format: *mut *mut ::core::ffi::c_void, localized: i8, pattern: *const u16, patternlength: i32);
@@ -21593,7 +21593,7 @@ pub unsafe fn udat_applyPattern(format: *mut *mut ::core::ffi::c_void, localized
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn udat_clone(fmt: *const *const ::core::ffi::c_void, status: *mut UErrorCode) -> *mut *mut ::core::ffi::c_void {
+pub unsafe fn udat_clone(fmt: *const *const ::core::ffi::c_void, status: &mut UErrorCode) -> *mut *mut ::core::ffi::c_void {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn udat_clone(fmt: *const *const ::core::ffi::c_void, status: *mut UErrorCode) -> *mut *mut ::core::ffi::c_void;
@@ -21629,7 +21629,7 @@ pub unsafe fn udat_countSymbols(fmt: *const *const ::core::ffi::c_void, r#type: 
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn udat_format(format: *const *const ::core::ffi::c_void, datetoformat: f64, result: *mut u16, resultlength: i32, position: *mut UFieldPosition, status: *mut UErrorCode) -> i32 {
+pub unsafe fn udat_format(format: *const *const ::core::ffi::c_void, datetoformat: f64, result: &mut u16, resultlength: i32, position: &mut UFieldPosition, status: &mut UErrorCode) -> i32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn udat_format(format: *const *const ::core::ffi::c_void, datetoformat: f64, result: *mut u16, resultlength: i32, position: *mut UFieldPosition, status: *mut UErrorCode) -> i32;
@@ -21638,7 +21638,7 @@ pub unsafe fn udat_format(format: *const *const ::core::ffi::c_void, datetoforma
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn udat_formatCalendar(format: *const *const ::core::ffi::c_void, calendar: *mut *mut ::core::ffi::c_void, result: *mut u16, capacity: i32, position: *mut UFieldPosition, status: *mut UErrorCode) -> i32 {
+pub unsafe fn udat_formatCalendar(format: *const *const ::core::ffi::c_void, calendar: *mut *mut ::core::ffi::c_void, result: &mut u16, capacity: i32, position: &mut UFieldPosition, status: &mut UErrorCode) -> i32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn udat_formatCalendar(format: *const *const ::core::ffi::c_void, calendar: *mut *mut ::core::ffi::c_void, result: *mut u16, capacity: i32, position: *mut UFieldPosition, status: *mut UErrorCode) -> i32;
@@ -21647,7 +21647,7 @@ pub unsafe fn udat_formatCalendar(format: *const *const ::core::ffi::c_void, cal
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn udat_formatCalendarForFields(format: *const *const ::core::ffi::c_void, calendar: *mut *mut ::core::ffi::c_void, result: *mut u16, capacity: i32, fpositer: *mut UFieldPositionIterator, status: *mut UErrorCode) -> i32 {
+pub unsafe fn udat_formatCalendarForFields(format: *const *const ::core::ffi::c_void, calendar: *mut *mut ::core::ffi::c_void, result: &mut u16, capacity: i32, fpositer: &mut UFieldPositionIterator, status: &mut UErrorCode) -> i32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn udat_formatCalendarForFields(format: *const *const ::core::ffi::c_void, calendar: *mut *mut ::core::ffi::c_void, result: *mut u16, capacity: i32, fpositer: *mut UFieldPositionIterator, status: *mut UErrorCode) -> i32;
@@ -21656,7 +21656,7 @@ pub unsafe fn udat_formatCalendarForFields(format: *const *const ::core::ffi::c_
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn udat_formatForFields(format: *const *const ::core::ffi::c_void, datetoformat: f64, result: *mut u16, resultlength: i32, fpositer: *mut UFieldPositionIterator, status: *mut UErrorCode) -> i32 {
+pub unsafe fn udat_formatForFields(format: *const *const ::core::ffi::c_void, datetoformat: f64, result: &mut u16, resultlength: i32, fpositer: &mut UFieldPositionIterator, status: &mut UErrorCode) -> i32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn udat_formatForFields(format: *const *const ::core::ffi::c_void, datetoformat: f64, result: *mut u16, resultlength: i32, fpositer: *mut UFieldPositionIterator, status: *mut UErrorCode) -> i32;
@@ -21665,7 +21665,7 @@ pub unsafe fn udat_formatForFields(format: *const *const ::core::ffi::c_void, da
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn udat_get2DigitYearStart(fmt: *const *const ::core::ffi::c_void, status: *mut UErrorCode) -> f64 {
+pub unsafe fn udat_get2DigitYearStart(fmt: *const *const ::core::ffi::c_void, status: &mut UErrorCode) -> f64 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn udat_get2DigitYearStart(fmt: *const *const ::core::ffi::c_void, status: *mut UErrorCode) -> f64;
@@ -21683,7 +21683,7 @@ pub unsafe fn udat_getAvailable(localeindex: i32) -> ::windows::core::PSTR {
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn udat_getBooleanAttribute(fmt: *const *const ::core::ffi::c_void, attr: UDateFormatBooleanAttribute, status: *mut UErrorCode) -> i8 {
+pub unsafe fn udat_getBooleanAttribute(fmt: *const *const ::core::ffi::c_void, attr: UDateFormatBooleanAttribute, status: &mut UErrorCode) -> i8 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn udat_getBooleanAttribute(fmt: *const *const ::core::ffi::c_void, attr: UDateFormatBooleanAttribute, status: *mut UErrorCode) -> i8;
@@ -21701,7 +21701,7 @@ pub unsafe fn udat_getCalendar(fmt: *const *const ::core::ffi::c_void) -> *mut *
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn udat_getContext(fmt: *const *const ::core::ffi::c_void, r#type: UDisplayContextType, status: *mut UErrorCode) -> UDisplayContext {
+pub unsafe fn udat_getContext(fmt: *const *const ::core::ffi::c_void, r#type: UDisplayContextType, status: &mut UErrorCode) -> UDisplayContext {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn udat_getContext(fmt: *const *const ::core::ffi::c_void, r#type: UDisplayContextType, status: *mut UErrorCode) -> UDisplayContext;
@@ -21710,7 +21710,7 @@ pub unsafe fn udat_getContext(fmt: *const *const ::core::ffi::c_void, r#type: UD
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn udat_getLocaleByType(fmt: *const *const ::core::ffi::c_void, r#type: ULocDataLocaleType, status: *mut UErrorCode) -> ::windows::core::PSTR {
+pub unsafe fn udat_getLocaleByType(fmt: *const *const ::core::ffi::c_void, r#type: ULocDataLocaleType, status: &mut UErrorCode) -> ::windows::core::PSTR {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn udat_getLocaleByType(fmt: *const *const ::core::ffi::c_void, r#type: ULocDataLocaleType, status: *mut UErrorCode) -> ::windows::core::PSTR;
@@ -21737,7 +21737,7 @@ pub unsafe fn udat_getNumberFormatForField(fmt: *const *const ::core::ffi::c_voi
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn udat_getSymbols(fmt: *const *const ::core::ffi::c_void, r#type: UDateFormatSymbolType, symbolindex: i32, result: *mut u16, resultlength: i32, status: *mut UErrorCode) -> i32 {
+pub unsafe fn udat_getSymbols(fmt: *const *const ::core::ffi::c_void, r#type: UDateFormatSymbolType, symbolindex: i32, result: &mut u16, resultlength: i32, status: &mut UErrorCode) -> i32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn udat_getSymbols(fmt: *const *const ::core::ffi::c_void, r#type: UDateFormatSymbolType, symbolindex: i32, result: *mut u16, resultlength: i32, status: *mut UErrorCode) -> i32;
@@ -21755,7 +21755,7 @@ pub unsafe fn udat_isLenient(fmt: *const *const ::core::ffi::c_void) -> i8 {
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn udat_open<'a, P0>(timestyle: UDateFormatStyle, datestyle: UDateFormatStyle, locale: P0, tzid: *const u16, tzidlength: i32, pattern: *const u16, patternlength: i32, status: *mut UErrorCode) -> *mut *mut ::core::ffi::c_void
+pub unsafe fn udat_open<'a, P0>(timestyle: UDateFormatStyle, datestyle: UDateFormatStyle, locale: P0, tzid: &u16, tzidlength: i32, pattern: &u16, patternlength: i32, status: &mut UErrorCode) -> *mut *mut ::core::ffi::c_void
 where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
 {
@@ -21767,7 +21767,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn udat_parse(format: *const *const ::core::ffi::c_void, text: *const u16, textlength: i32, parsepos: *mut i32, status: *mut UErrorCode) -> f64 {
+pub unsafe fn udat_parse(format: *const *const ::core::ffi::c_void, text: &u16, textlength: i32, parsepos: &mut i32, status: &mut UErrorCode) -> f64 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn udat_parse(format: *const *const ::core::ffi::c_void, text: *const u16, textlength: i32, parsepos: *mut i32, status: *mut UErrorCode) -> f64;
@@ -21776,7 +21776,7 @@ pub unsafe fn udat_parse(format: *const *const ::core::ffi::c_void, text: *const
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn udat_parseCalendar(format: *const *const ::core::ffi::c_void, calendar: *mut *mut ::core::ffi::c_void, text: *const u16, textlength: i32, parsepos: *mut i32, status: *mut UErrorCode) {
+pub unsafe fn udat_parseCalendar(format: *const *const ::core::ffi::c_void, calendar: *mut *mut ::core::ffi::c_void, text: &u16, textlength: i32, parsepos: &mut i32, status: &mut UErrorCode) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn udat_parseCalendar(format: *const *const ::core::ffi::c_void, calendar: *mut *mut ::core::ffi::c_void, text: *const u16, textlength: i32, parsepos: *mut i32, status: *mut UErrorCode);
@@ -21785,7 +21785,7 @@ pub unsafe fn udat_parseCalendar(format: *const *const ::core::ffi::c_void, cale
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn udat_set2DigitYearStart(fmt: *mut *mut ::core::ffi::c_void, d: f64, status: *mut UErrorCode) {
+pub unsafe fn udat_set2DigitYearStart(fmt: *mut *mut ::core::ffi::c_void, d: f64, status: &mut UErrorCode) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn udat_set2DigitYearStart(fmt: *mut *mut ::core::ffi::c_void, d: f64, status: *mut UErrorCode);
@@ -21794,7 +21794,7 @@ pub unsafe fn udat_set2DigitYearStart(fmt: *mut *mut ::core::ffi::c_void, d: f64
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn udat_setBooleanAttribute(fmt: *mut *mut ::core::ffi::c_void, attr: UDateFormatBooleanAttribute, newvalue: i8, status: *mut UErrorCode) {
+pub unsafe fn udat_setBooleanAttribute(fmt: *mut *mut ::core::ffi::c_void, attr: UDateFormatBooleanAttribute, newvalue: i8, status: &mut UErrorCode) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn udat_setBooleanAttribute(fmt: *mut *mut ::core::ffi::c_void, attr: UDateFormatBooleanAttribute, newvalue: i8, status: *mut UErrorCode);
@@ -21812,7 +21812,7 @@ pub unsafe fn udat_setCalendar(fmt: *mut *mut ::core::ffi::c_void, calendartoset
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn udat_setContext(fmt: *mut *mut ::core::ffi::c_void, value: UDisplayContext, status: *mut UErrorCode) {
+pub unsafe fn udat_setContext(fmt: *mut *mut ::core::ffi::c_void, value: UDisplayContext, status: &mut UErrorCode) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn udat_setContext(fmt: *mut *mut ::core::ffi::c_void, value: UDisplayContext, status: *mut UErrorCode);
@@ -21839,7 +21839,7 @@ pub unsafe fn udat_setNumberFormat(fmt: *mut *mut ::core::ffi::c_void, numberfor
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn udat_setSymbols(format: *mut *mut ::core::ffi::c_void, r#type: UDateFormatSymbolType, symbolindex: i32, value: *mut u16, valuelength: i32, status: *mut UErrorCode) {
+pub unsafe fn udat_setSymbols(format: *mut *mut ::core::ffi::c_void, r#type: UDateFormatSymbolType, symbolindex: i32, value: &mut u16, valuelength: i32, status: &mut UErrorCode) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn udat_setSymbols(format: *mut *mut ::core::ffi::c_void, r#type: UDateFormatSymbolType, symbolindex: i32, value: *mut u16, valuelength: i32, status: *mut UErrorCode);
@@ -21857,7 +21857,7 @@ pub unsafe fn udat_toCalendarDateField(field: UDateFormatField) -> UCalendarDate
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn udat_toPattern(fmt: *const *const ::core::ffi::c_void, localized: i8, result: *mut u16, resultlength: i32, status: *mut UErrorCode) -> i32 {
+pub unsafe fn udat_toPattern(fmt: *const *const ::core::ffi::c_void, localized: i8, result: &mut u16, resultlength: i32, status: &mut UErrorCode) -> i32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn udat_toPattern(fmt: *const *const ::core::ffi::c_void, localized: i8, result: *mut u16, resultlength: i32, status: *mut UErrorCode) -> i32;
@@ -21866,7 +21866,7 @@ pub unsafe fn udat_toPattern(fmt: *const *const ::core::ffi::c_void, localized: 
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn udatpg_addPattern(dtpg: *mut *mut ::core::ffi::c_void, pattern: *const u16, patternlength: i32, r#override: i8, conflictingpattern: *mut u16, capacity: i32, plength: *mut i32, perrorcode: *mut UErrorCode) -> UDateTimePatternConflict {
+pub unsafe fn udatpg_addPattern(dtpg: *mut *mut ::core::ffi::c_void, pattern: &u16, patternlength: i32, r#override: i8, conflictingpattern: &mut u16, capacity: i32, plength: &mut i32, perrorcode: &mut UErrorCode) -> UDateTimePatternConflict {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn udatpg_addPattern(dtpg: *mut *mut ::core::ffi::c_void, pattern: *const u16, patternlength: i32, r#override: i8, conflictingpattern: *mut u16, capacity: i32, plength: *mut i32, perrorcode: *mut UErrorCode) -> UDateTimePatternConflict;
@@ -21875,7 +21875,7 @@ pub unsafe fn udatpg_addPattern(dtpg: *mut *mut ::core::ffi::c_void, pattern: *c
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn udatpg_clone(dtpg: *const *const ::core::ffi::c_void, perrorcode: *mut UErrorCode) -> *mut *mut ::core::ffi::c_void {
+pub unsafe fn udatpg_clone(dtpg: *const *const ::core::ffi::c_void, perrorcode: &mut UErrorCode) -> *mut *mut ::core::ffi::c_void {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn udatpg_clone(dtpg: *const *const ::core::ffi::c_void, perrorcode: *mut UErrorCode) -> *mut *mut ::core::ffi::c_void;
@@ -21893,7 +21893,7 @@ pub unsafe fn udatpg_close(dtpg: *mut *mut ::core::ffi::c_void) {
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn udatpg_getAppendItemFormat(dtpg: *const *const ::core::ffi::c_void, field: UDateTimePatternField, plength: *mut i32) -> *mut u16 {
+pub unsafe fn udatpg_getAppendItemFormat(dtpg: *const *const ::core::ffi::c_void, field: UDateTimePatternField, plength: &mut i32) -> *mut u16 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn udatpg_getAppendItemFormat(dtpg: *const *const ::core::ffi::c_void, field: UDateTimePatternField, plength: *mut i32) -> *mut u16;
@@ -21902,7 +21902,7 @@ pub unsafe fn udatpg_getAppendItemFormat(dtpg: *const *const ::core::ffi::c_void
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn udatpg_getAppendItemName(dtpg: *const *const ::core::ffi::c_void, field: UDateTimePatternField, plength: *mut i32) -> *mut u16 {
+pub unsafe fn udatpg_getAppendItemName(dtpg: *const *const ::core::ffi::c_void, field: UDateTimePatternField, plength: &mut i32) -> *mut u16 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn udatpg_getAppendItemName(dtpg: *const *const ::core::ffi::c_void, field: UDateTimePatternField, plength: *mut i32) -> *mut u16;
@@ -21911,7 +21911,7 @@ pub unsafe fn udatpg_getAppendItemName(dtpg: *const *const ::core::ffi::c_void, 
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn udatpg_getBaseSkeleton(unuseddtpg: *mut *mut ::core::ffi::c_void, pattern: *const u16, length: i32, baseskeleton: *mut u16, capacity: i32, perrorcode: *mut UErrorCode) -> i32 {
+pub unsafe fn udatpg_getBaseSkeleton(unuseddtpg: *mut *mut ::core::ffi::c_void, pattern: &u16, length: i32, baseskeleton: &mut u16, capacity: i32, perrorcode: &mut UErrorCode) -> i32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn udatpg_getBaseSkeleton(unuseddtpg: *mut *mut ::core::ffi::c_void, pattern: *const u16, length: i32, baseskeleton: *mut u16, capacity: i32, perrorcode: *mut UErrorCode) -> i32;
@@ -21920,7 +21920,7 @@ pub unsafe fn udatpg_getBaseSkeleton(unuseddtpg: *mut *mut ::core::ffi::c_void, 
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn udatpg_getBestPattern(dtpg: *mut *mut ::core::ffi::c_void, skeleton: *const u16, length: i32, bestpattern: *mut u16, capacity: i32, perrorcode: *mut UErrorCode) -> i32 {
+pub unsafe fn udatpg_getBestPattern(dtpg: *mut *mut ::core::ffi::c_void, skeleton: &u16, length: i32, bestpattern: &mut u16, capacity: i32, perrorcode: &mut UErrorCode) -> i32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn udatpg_getBestPattern(dtpg: *mut *mut ::core::ffi::c_void, skeleton: *const u16, length: i32, bestpattern: *mut u16, capacity: i32, perrorcode: *mut UErrorCode) -> i32;
@@ -21929,7 +21929,7 @@ pub unsafe fn udatpg_getBestPattern(dtpg: *mut *mut ::core::ffi::c_void, skeleto
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn udatpg_getBestPatternWithOptions(dtpg: *mut *mut ::core::ffi::c_void, skeleton: *const u16, length: i32, options: UDateTimePatternMatchOptions, bestpattern: *mut u16, capacity: i32, perrorcode: *mut UErrorCode) -> i32 {
+pub unsafe fn udatpg_getBestPatternWithOptions(dtpg: *mut *mut ::core::ffi::c_void, skeleton: &u16, length: i32, options: UDateTimePatternMatchOptions, bestpattern: &mut u16, capacity: i32, perrorcode: &mut UErrorCode) -> i32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn udatpg_getBestPatternWithOptions(dtpg: *mut *mut ::core::ffi::c_void, skeleton: *const u16, length: i32, options: UDateTimePatternMatchOptions, bestpattern: *mut u16, capacity: i32, perrorcode: *mut UErrorCode) -> i32;
@@ -21938,7 +21938,7 @@ pub unsafe fn udatpg_getBestPatternWithOptions(dtpg: *mut *mut ::core::ffi::c_vo
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn udatpg_getDateTimeFormat(dtpg: *const *const ::core::ffi::c_void, plength: *mut i32) -> *mut u16 {
+pub unsafe fn udatpg_getDateTimeFormat(dtpg: *const *const ::core::ffi::c_void, plength: &mut i32) -> *mut u16 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn udatpg_getDateTimeFormat(dtpg: *const *const ::core::ffi::c_void, plength: *mut i32) -> *mut u16;
@@ -21947,7 +21947,7 @@ pub unsafe fn udatpg_getDateTimeFormat(dtpg: *const *const ::core::ffi::c_void, 
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn udatpg_getDecimal(dtpg: *const *const ::core::ffi::c_void, plength: *mut i32) -> *mut u16 {
+pub unsafe fn udatpg_getDecimal(dtpg: *const *const ::core::ffi::c_void, plength: &mut i32) -> *mut u16 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn udatpg_getDecimal(dtpg: *const *const ::core::ffi::c_void, plength: *mut i32) -> *mut u16;
@@ -21956,7 +21956,7 @@ pub unsafe fn udatpg_getDecimal(dtpg: *const *const ::core::ffi::c_void, plength
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn udatpg_getFieldDisplayName(dtpg: *const *const ::core::ffi::c_void, field: UDateTimePatternField, width: UDateTimePGDisplayWidth, fieldname: *mut u16, capacity: i32, perrorcode: *mut UErrorCode) -> i32 {
+pub unsafe fn udatpg_getFieldDisplayName(dtpg: *const *const ::core::ffi::c_void, field: UDateTimePatternField, width: UDateTimePGDisplayWidth, fieldname: &mut u16, capacity: i32, perrorcode: &mut UErrorCode) -> i32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn udatpg_getFieldDisplayName(dtpg: *const *const ::core::ffi::c_void, field: UDateTimePatternField, width: UDateTimePGDisplayWidth, fieldname: *mut u16, capacity: i32, perrorcode: *mut UErrorCode) -> i32;
@@ -21965,7 +21965,7 @@ pub unsafe fn udatpg_getFieldDisplayName(dtpg: *const *const ::core::ffi::c_void
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn udatpg_getPatternForSkeleton(dtpg: *const *const ::core::ffi::c_void, skeleton: *const u16, skeletonlength: i32, plength: *mut i32) -> *mut u16 {
+pub unsafe fn udatpg_getPatternForSkeleton(dtpg: *const *const ::core::ffi::c_void, skeleton: &u16, skeletonlength: i32, plength: &mut i32) -> *mut u16 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn udatpg_getPatternForSkeleton(dtpg: *const *const ::core::ffi::c_void, skeleton: *const u16, skeletonlength: i32, plength: *mut i32) -> *mut u16;
@@ -21974,7 +21974,7 @@ pub unsafe fn udatpg_getPatternForSkeleton(dtpg: *const *const ::core::ffi::c_vo
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn udatpg_getSkeleton(unuseddtpg: *mut *mut ::core::ffi::c_void, pattern: *const u16, length: i32, skeleton: *mut u16, capacity: i32, perrorcode: *mut UErrorCode) -> i32 {
+pub unsafe fn udatpg_getSkeleton(unuseddtpg: *mut *mut ::core::ffi::c_void, pattern: &u16, length: i32, skeleton: &mut u16, capacity: i32, perrorcode: &mut UErrorCode) -> i32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn udatpg_getSkeleton(unuseddtpg: *mut *mut ::core::ffi::c_void, pattern: *const u16, length: i32, skeleton: *mut u16, capacity: i32, perrorcode: *mut UErrorCode) -> i32;
@@ -21983,7 +21983,7 @@ pub unsafe fn udatpg_getSkeleton(unuseddtpg: *mut *mut ::core::ffi::c_void, patt
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn udatpg_open<'a, P0>(locale: P0, perrorcode: *mut UErrorCode) -> *mut *mut ::core::ffi::c_void
+pub unsafe fn udatpg_open<'a, P0>(locale: P0, perrorcode: &mut UErrorCode) -> *mut *mut ::core::ffi::c_void
 where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
 {
@@ -21995,7 +21995,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn udatpg_openBaseSkeletons(dtpg: *const *const ::core::ffi::c_void, perrorcode: *mut UErrorCode) -> *mut UEnumeration {
+pub unsafe fn udatpg_openBaseSkeletons(dtpg: *const *const ::core::ffi::c_void, perrorcode: &mut UErrorCode) -> *mut UEnumeration {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn udatpg_openBaseSkeletons(dtpg: *const *const ::core::ffi::c_void, perrorcode: *mut UErrorCode) -> *mut UEnumeration;
@@ -22004,7 +22004,7 @@ pub unsafe fn udatpg_openBaseSkeletons(dtpg: *const *const ::core::ffi::c_void, 
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn udatpg_openEmpty(perrorcode: *mut UErrorCode) -> *mut *mut ::core::ffi::c_void {
+pub unsafe fn udatpg_openEmpty(perrorcode: &mut UErrorCode) -> *mut *mut ::core::ffi::c_void {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn udatpg_openEmpty(perrorcode: *mut UErrorCode) -> *mut *mut ::core::ffi::c_void;
@@ -22013,7 +22013,7 @@ pub unsafe fn udatpg_openEmpty(perrorcode: *mut UErrorCode) -> *mut *mut ::core:
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn udatpg_openSkeletons(dtpg: *const *const ::core::ffi::c_void, perrorcode: *mut UErrorCode) -> *mut UEnumeration {
+pub unsafe fn udatpg_openSkeletons(dtpg: *const *const ::core::ffi::c_void, perrorcode: &mut UErrorCode) -> *mut UEnumeration {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn udatpg_openSkeletons(dtpg: *const *const ::core::ffi::c_void, perrorcode: *mut UErrorCode) -> *mut UEnumeration;
@@ -22022,7 +22022,7 @@ pub unsafe fn udatpg_openSkeletons(dtpg: *const *const ::core::ffi::c_void, perr
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn udatpg_replaceFieldTypes(dtpg: *mut *mut ::core::ffi::c_void, pattern: *const u16, patternlength: i32, skeleton: *const u16, skeletonlength: i32, dest: *mut u16, destcapacity: i32, perrorcode: *mut UErrorCode) -> i32 {
+pub unsafe fn udatpg_replaceFieldTypes(dtpg: *mut *mut ::core::ffi::c_void, pattern: &u16, patternlength: i32, skeleton: &u16, skeletonlength: i32, dest: &mut u16, destcapacity: i32, perrorcode: &mut UErrorCode) -> i32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn udatpg_replaceFieldTypes(dtpg: *mut *mut ::core::ffi::c_void, pattern: *const u16, patternlength: i32, skeleton: *const u16, skeletonlength: i32, dest: *mut u16, destcapacity: i32, perrorcode: *mut UErrorCode) -> i32;
@@ -22031,7 +22031,7 @@ pub unsafe fn udatpg_replaceFieldTypes(dtpg: *mut *mut ::core::ffi::c_void, patt
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn udatpg_replaceFieldTypesWithOptions(dtpg: *mut *mut ::core::ffi::c_void, pattern: *const u16, patternlength: i32, skeleton: *const u16, skeletonlength: i32, options: UDateTimePatternMatchOptions, dest: *mut u16, destcapacity: i32, perrorcode: *mut UErrorCode) -> i32 {
+pub unsafe fn udatpg_replaceFieldTypesWithOptions(dtpg: *mut *mut ::core::ffi::c_void, pattern: &u16, patternlength: i32, skeleton: &u16, skeletonlength: i32, options: UDateTimePatternMatchOptions, dest: &mut u16, destcapacity: i32, perrorcode: &mut UErrorCode) -> i32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn udatpg_replaceFieldTypesWithOptions(dtpg: *mut *mut ::core::ffi::c_void, pattern: *const u16, patternlength: i32, skeleton: *const u16, skeletonlength: i32, options: UDateTimePatternMatchOptions, dest: *mut u16, destcapacity: i32, perrorcode: *mut UErrorCode) -> i32;
@@ -22040,7 +22040,7 @@ pub unsafe fn udatpg_replaceFieldTypesWithOptions(dtpg: *mut *mut ::core::ffi::c
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn udatpg_setAppendItemFormat(dtpg: *mut *mut ::core::ffi::c_void, field: UDateTimePatternField, value: *const u16, length: i32) {
+pub unsafe fn udatpg_setAppendItemFormat(dtpg: *mut *mut ::core::ffi::c_void, field: UDateTimePatternField, value: &u16, length: i32) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn udatpg_setAppendItemFormat(dtpg: *mut *mut ::core::ffi::c_void, field: UDateTimePatternField, value: *const u16, length: i32);
@@ -22049,7 +22049,7 @@ pub unsafe fn udatpg_setAppendItemFormat(dtpg: *mut *mut ::core::ffi::c_void, fi
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn udatpg_setAppendItemName(dtpg: *mut *mut ::core::ffi::c_void, field: UDateTimePatternField, value: *const u16, length: i32) {
+pub unsafe fn udatpg_setAppendItemName(dtpg: *mut *mut ::core::ffi::c_void, field: UDateTimePatternField, value: &u16, length: i32) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn udatpg_setAppendItemName(dtpg: *mut *mut ::core::ffi::c_void, field: UDateTimePatternField, value: *const u16, length: i32);
@@ -22058,7 +22058,7 @@ pub unsafe fn udatpg_setAppendItemName(dtpg: *mut *mut ::core::ffi::c_void, fiel
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn udatpg_setDateTimeFormat(dtpg: *const *const ::core::ffi::c_void, dtformat: *const u16, length: i32) {
+pub unsafe fn udatpg_setDateTimeFormat(dtpg: *const *const ::core::ffi::c_void, dtformat: &u16, length: i32) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn udatpg_setDateTimeFormat(dtpg: *const *const ::core::ffi::c_void, dtformat: *const u16, length: i32);
@@ -22067,7 +22067,7 @@ pub unsafe fn udatpg_setDateTimeFormat(dtpg: *const *const ::core::ffi::c_void, 
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn udatpg_setDecimal(dtpg: *mut *mut ::core::ffi::c_void, decimal: *const u16, length: i32) {
+pub unsafe fn udatpg_setDecimal(dtpg: *mut *mut ::core::ffi::c_void, decimal: &u16, length: i32) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn udatpg_setDecimal(dtpg: *mut *mut ::core::ffi::c_void, decimal: *const u16, length: i32);
@@ -22076,7 +22076,7 @@ pub unsafe fn udatpg_setDecimal(dtpg: *mut *mut ::core::ffi::c_void, decimal: *c
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn udtitvfmt_close(formatter: *mut UDateIntervalFormat) {
+pub unsafe fn udtitvfmt_close(formatter: &mut UDateIntervalFormat) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn udtitvfmt_close(formatter: *mut UDateIntervalFormat);
@@ -22085,7 +22085,7 @@ pub unsafe fn udtitvfmt_close(formatter: *mut UDateIntervalFormat) {
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn udtitvfmt_closeResult(uresult: *mut UFormattedDateInterval) {
+pub unsafe fn udtitvfmt_closeResult(uresult: &mut UFormattedDateInterval) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn udtitvfmt_closeResult(uresult: *mut UFormattedDateInterval);
@@ -22094,7 +22094,7 @@ pub unsafe fn udtitvfmt_closeResult(uresult: *mut UFormattedDateInterval) {
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn udtitvfmt_format(formatter: *const UDateIntervalFormat, fromdate: f64, todate: f64, result: *mut u16, resultcapacity: i32, position: *mut UFieldPosition, status: *mut UErrorCode) -> i32 {
+pub unsafe fn udtitvfmt_format(formatter: &UDateIntervalFormat, fromdate: f64, todate: f64, result: &mut u16, resultcapacity: i32, position: &mut UFieldPosition, status: &mut UErrorCode) -> i32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn udtitvfmt_format(formatter: *const UDateIntervalFormat, fromdate: f64, todate: f64, result: *mut u16, resultcapacity: i32, position: *mut UFieldPosition, status: *mut UErrorCode) -> i32;
@@ -22103,7 +22103,7 @@ pub unsafe fn udtitvfmt_format(formatter: *const UDateIntervalFormat, fromdate: 
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn udtitvfmt_open<'a, P0>(locale: P0, skeleton: *const u16, skeletonlength: i32, tzid: *const u16, tzidlength: i32, status: *mut UErrorCode) -> *mut UDateIntervalFormat
+pub unsafe fn udtitvfmt_open<'a, P0>(locale: P0, skeleton: &u16, skeletonlength: i32, tzid: &u16, tzidlength: i32, status: &mut UErrorCode) -> *mut UDateIntervalFormat
 where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
 {
@@ -22115,7 +22115,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn udtitvfmt_openResult(ec: *mut UErrorCode) -> *mut UFormattedDateInterval {
+pub unsafe fn udtitvfmt_openResult(ec: &mut UErrorCode) -> *mut UFormattedDateInterval {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn udtitvfmt_openResult(ec: *mut UErrorCode) -> *mut UFormattedDateInterval;
@@ -22124,7 +22124,7 @@ pub unsafe fn udtitvfmt_openResult(ec: *mut UErrorCode) -> *mut UFormattedDateIn
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn udtitvfmt_resultAsValue(uresult: *const UFormattedDateInterval, ec: *mut UErrorCode) -> *mut UFormattedValue {
+pub unsafe fn udtitvfmt_resultAsValue(uresult: &UFormattedDateInterval, ec: &mut UErrorCode) -> *mut UFormattedValue {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn udtitvfmt_resultAsValue(uresult: *const UFormattedDateInterval, ec: *mut UErrorCode) -> *mut UFormattedValue;
@@ -22133,7 +22133,7 @@ pub unsafe fn udtitvfmt_resultAsValue(uresult: *const UFormattedDateInterval, ec
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn uenum_close(en: *mut UEnumeration) {
+pub unsafe fn uenum_close(en: &mut UEnumeration) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn uenum_close(en: *mut UEnumeration);
@@ -22142,7 +22142,7 @@ pub unsafe fn uenum_close(en: *mut UEnumeration) {
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn uenum_count(en: *mut UEnumeration, status: *mut UErrorCode) -> i32 {
+pub unsafe fn uenum_count(en: &mut UEnumeration, status: &mut UErrorCode) -> i32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn uenum_count(en: *mut UEnumeration, status: *mut UErrorCode) -> i32;
@@ -22151,7 +22151,7 @@ pub unsafe fn uenum_count(en: *mut UEnumeration, status: *mut UErrorCode) -> i32
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn uenum_next(en: *mut UEnumeration, resultlength: *mut i32, status: *mut UErrorCode) -> ::windows::core::PSTR {
+pub unsafe fn uenum_next(en: &mut UEnumeration, resultlength: &mut i32, status: &mut UErrorCode) -> ::windows::core::PSTR {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn uenum_next(en: *mut UEnumeration, resultlength: *mut i32, status: *mut UErrorCode) -> ::windows::core::PSTR;
@@ -22160,7 +22160,7 @@ pub unsafe fn uenum_next(en: *mut UEnumeration, resultlength: *mut i32, status: 
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn uenum_openCharStringsEnumeration(strings: *const *const i8, count: i32, ec: *mut UErrorCode) -> *mut UEnumeration {
+pub unsafe fn uenum_openCharStringsEnumeration(strings: &*const i8, count: i32, ec: &mut UErrorCode) -> *mut UEnumeration {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn uenum_openCharStringsEnumeration(strings: *const *const i8, count: i32, ec: *mut UErrorCode) -> *mut UEnumeration;
@@ -22169,7 +22169,7 @@ pub unsafe fn uenum_openCharStringsEnumeration(strings: *const *const i8, count:
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn uenum_openUCharStringsEnumeration(strings: *const *const u16, count: i32, ec: *mut UErrorCode) -> *mut UEnumeration {
+pub unsafe fn uenum_openUCharStringsEnumeration(strings: &*const u16, count: i32, ec: &mut UErrorCode) -> *mut UEnumeration {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn uenum_openUCharStringsEnumeration(strings: *const *const u16, count: i32, ec: *mut UErrorCode) -> *mut UEnumeration;
@@ -22178,7 +22178,7 @@ pub unsafe fn uenum_openUCharStringsEnumeration(strings: *const *const u16, coun
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn uenum_reset(en: *mut UEnumeration, status: *mut UErrorCode) {
+pub unsafe fn uenum_reset(en: &mut UEnumeration, status: &mut UErrorCode) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn uenum_reset(en: *mut UEnumeration, status: *mut UErrorCode);
@@ -22187,7 +22187,7 @@ pub unsafe fn uenum_reset(en: *mut UEnumeration, status: *mut UErrorCode) {
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn uenum_unext(en: *mut UEnumeration, resultlength: *mut i32, status: *mut UErrorCode) -> *mut u16 {
+pub unsafe fn uenum_unext(en: &mut UEnumeration, resultlength: &mut i32, status: &mut UErrorCode) -> *mut u16 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn uenum_unext(en: *mut UEnumeration, resultlength: *mut i32, status: *mut UErrorCode) -> *mut u16;
@@ -22196,7 +22196,7 @@ pub unsafe fn uenum_unext(en: *mut UEnumeration, resultlength: *mut i32, status:
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn ufieldpositer_close(fpositer: *mut UFieldPositionIterator) {
+pub unsafe fn ufieldpositer_close(fpositer: &mut UFieldPositionIterator) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn ufieldpositer_close(fpositer: *mut UFieldPositionIterator);
@@ -22205,7 +22205,7 @@ pub unsafe fn ufieldpositer_close(fpositer: *mut UFieldPositionIterator) {
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn ufieldpositer_next(fpositer: *mut UFieldPositionIterator, beginindex: *mut i32, endindex: *mut i32) -> i32 {
+pub unsafe fn ufieldpositer_next(fpositer: &mut UFieldPositionIterator, beginindex: &mut i32, endindex: &mut i32) -> i32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn ufieldpositer_next(fpositer: *mut UFieldPositionIterator, beginindex: *mut i32, endindex: *mut i32) -> i32;
@@ -22214,7 +22214,7 @@ pub unsafe fn ufieldpositer_next(fpositer: *mut UFieldPositionIterator, beginind
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn ufieldpositer_open(status: *mut UErrorCode) -> *mut UFieldPositionIterator {
+pub unsafe fn ufieldpositer_open(status: &mut UErrorCode) -> *mut UFieldPositionIterator {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn ufieldpositer_open(status: *mut UErrorCode) -> *mut UFieldPositionIterator;
@@ -22232,7 +22232,7 @@ pub unsafe fn ufmt_close(fmt: *mut *mut ::core::ffi::c_void) {
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn ufmt_getArrayItemByIndex(fmt: *mut *mut ::core::ffi::c_void, n: i32, status: *mut UErrorCode) -> *mut *mut ::core::ffi::c_void {
+pub unsafe fn ufmt_getArrayItemByIndex(fmt: *mut *mut ::core::ffi::c_void, n: i32, status: &mut UErrorCode) -> *mut *mut ::core::ffi::c_void {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn ufmt_getArrayItemByIndex(fmt: *mut *mut ::core::ffi::c_void, n: i32, status: *mut UErrorCode) -> *mut *mut ::core::ffi::c_void;
@@ -22241,7 +22241,7 @@ pub unsafe fn ufmt_getArrayItemByIndex(fmt: *mut *mut ::core::ffi::c_void, n: i3
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn ufmt_getArrayLength(fmt: *const *const ::core::ffi::c_void, status: *mut UErrorCode) -> i32 {
+pub unsafe fn ufmt_getArrayLength(fmt: *const *const ::core::ffi::c_void, status: &mut UErrorCode) -> i32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn ufmt_getArrayLength(fmt: *const *const ::core::ffi::c_void, status: *mut UErrorCode) -> i32;
@@ -22250,7 +22250,7 @@ pub unsafe fn ufmt_getArrayLength(fmt: *const *const ::core::ffi::c_void, status
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn ufmt_getDate(fmt: *const *const ::core::ffi::c_void, status: *mut UErrorCode) -> f64 {
+pub unsafe fn ufmt_getDate(fmt: *const *const ::core::ffi::c_void, status: &mut UErrorCode) -> f64 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn ufmt_getDate(fmt: *const *const ::core::ffi::c_void, status: *mut UErrorCode) -> f64;
@@ -22259,7 +22259,7 @@ pub unsafe fn ufmt_getDate(fmt: *const *const ::core::ffi::c_void, status: *mut 
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn ufmt_getDecNumChars(fmt: *mut *mut ::core::ffi::c_void, len: *mut i32, status: *mut UErrorCode) -> ::windows::core::PSTR {
+pub unsafe fn ufmt_getDecNumChars(fmt: *mut *mut ::core::ffi::c_void, len: &mut i32, status: &mut UErrorCode) -> ::windows::core::PSTR {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn ufmt_getDecNumChars(fmt: *mut *mut ::core::ffi::c_void, len: *mut i32, status: *mut UErrorCode) -> ::windows::core::PSTR;
@@ -22268,7 +22268,7 @@ pub unsafe fn ufmt_getDecNumChars(fmt: *mut *mut ::core::ffi::c_void, len: *mut 
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn ufmt_getDouble(fmt: *mut *mut ::core::ffi::c_void, status: *mut UErrorCode) -> f64 {
+pub unsafe fn ufmt_getDouble(fmt: *mut *mut ::core::ffi::c_void, status: &mut UErrorCode) -> f64 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn ufmt_getDouble(fmt: *mut *mut ::core::ffi::c_void, status: *mut UErrorCode) -> f64;
@@ -22277,7 +22277,7 @@ pub unsafe fn ufmt_getDouble(fmt: *mut *mut ::core::ffi::c_void, status: *mut UE
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn ufmt_getInt64(fmt: *mut *mut ::core::ffi::c_void, status: *mut UErrorCode) -> i64 {
+pub unsafe fn ufmt_getInt64(fmt: *mut *mut ::core::ffi::c_void, status: &mut UErrorCode) -> i64 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn ufmt_getInt64(fmt: *mut *mut ::core::ffi::c_void, status: *mut UErrorCode) -> i64;
@@ -22286,7 +22286,7 @@ pub unsafe fn ufmt_getInt64(fmt: *mut *mut ::core::ffi::c_void, status: *mut UEr
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn ufmt_getLong(fmt: *mut *mut ::core::ffi::c_void, status: *mut UErrorCode) -> i32 {
+pub unsafe fn ufmt_getLong(fmt: *mut *mut ::core::ffi::c_void, status: &mut UErrorCode) -> i32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn ufmt_getLong(fmt: *mut *mut ::core::ffi::c_void, status: *mut UErrorCode) -> i32;
@@ -22295,7 +22295,7 @@ pub unsafe fn ufmt_getLong(fmt: *mut *mut ::core::ffi::c_void, status: *mut UErr
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn ufmt_getObject(fmt: *const *const ::core::ffi::c_void, status: *mut UErrorCode) -> *mut ::core::ffi::c_void {
+pub unsafe fn ufmt_getObject(fmt: *const *const ::core::ffi::c_void, status: &mut UErrorCode) -> *mut ::core::ffi::c_void {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn ufmt_getObject(fmt: *const *const ::core::ffi::c_void, status: *mut UErrorCode) -> *mut ::core::ffi::c_void;
@@ -22304,7 +22304,7 @@ pub unsafe fn ufmt_getObject(fmt: *const *const ::core::ffi::c_void, status: *mu
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn ufmt_getType(fmt: *const *const ::core::ffi::c_void, status: *mut UErrorCode) -> UFormattableType {
+pub unsafe fn ufmt_getType(fmt: *const *const ::core::ffi::c_void, status: &mut UErrorCode) -> UFormattableType {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn ufmt_getType(fmt: *const *const ::core::ffi::c_void, status: *mut UErrorCode) -> UFormattableType;
@@ -22313,7 +22313,7 @@ pub unsafe fn ufmt_getType(fmt: *const *const ::core::ffi::c_void, status: *mut 
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn ufmt_getUChars(fmt: *mut *mut ::core::ffi::c_void, len: *mut i32, status: *mut UErrorCode) -> *mut u16 {
+pub unsafe fn ufmt_getUChars(fmt: *mut *mut ::core::ffi::c_void, len: &mut i32, status: &mut UErrorCode) -> *mut u16 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn ufmt_getUChars(fmt: *mut *mut ::core::ffi::c_void, len: *mut i32, status: *mut UErrorCode) -> *mut u16;
@@ -22331,7 +22331,7 @@ pub unsafe fn ufmt_isNumeric(fmt: *const *const ::core::ffi::c_void) -> i8 {
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn ufmt_open(status: *mut UErrorCode) -> *mut *mut ::core::ffi::c_void {
+pub unsafe fn ufmt_open(status: &mut UErrorCode) -> *mut *mut ::core::ffi::c_void {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn ufmt_open(status: *mut UErrorCode) -> *mut *mut ::core::ffi::c_void;
@@ -22340,7 +22340,7 @@ pub unsafe fn ufmt_open(status: *mut UErrorCode) -> *mut *mut ::core::ffi::c_voi
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn ufmtval_getString(ufmtval: *const UFormattedValue, plength: *mut i32, ec: *mut UErrorCode) -> *mut u16 {
+pub unsafe fn ufmtval_getString(ufmtval: &UFormattedValue, plength: &mut i32, ec: &mut UErrorCode) -> *mut u16 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn ufmtval_getString(ufmtval: *const UFormattedValue, plength: *mut i32, ec: *mut UErrorCode) -> *mut u16;
@@ -22349,7 +22349,7 @@ pub unsafe fn ufmtval_getString(ufmtval: *const UFormattedValue, plength: *mut i
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn ufmtval_nextPosition(ufmtval: *const UFormattedValue, ucfpos: *mut UConstrainedFieldPosition, ec: *mut UErrorCode) -> i8 {
+pub unsafe fn ufmtval_nextPosition(ufmtval: &UFormattedValue, ucfpos: &mut UConstrainedFieldPosition, ec: &mut UErrorCode) -> i8 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn ufmtval_nextPosition(ufmtval: *const UFormattedValue, ucfpos: *mut UConstrainedFieldPosition, ec: *mut UErrorCode) -> i8;
@@ -22358,7 +22358,7 @@ pub unsafe fn ufmtval_nextPosition(ufmtval: *const UFormattedValue, ucfpos: *mut
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn ugender_getInstance<'a, P0>(locale: P0, status: *mut UErrorCode) -> *mut UGenderInfo
+pub unsafe fn ugender_getInstance<'a, P0>(locale: P0, status: &mut UErrorCode) -> *mut UGenderInfo
 where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
 {
@@ -22370,7 +22370,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn ugender_getListGender(genderinfo: *const UGenderInfo, genders: *const UGender, size: i32, status: *mut UErrorCode) -> UGender {
+pub unsafe fn ugender_getListGender(genderinfo: &UGenderInfo, genders: &UGender, size: i32, status: &mut UErrorCode) -> UGender {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn ugender_getListGender(genderinfo: *const UGenderInfo, genders: *const UGender, size: i32, status: *mut UErrorCode) -> UGender;
@@ -22379,7 +22379,7 @@ pub unsafe fn ugender_getListGender(genderinfo: *const UGenderInfo, genders: *co
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn uidna_close(idna: *mut UIDNA) {
+pub unsafe fn uidna_close(idna: &mut UIDNA) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn uidna_close(idna: *mut UIDNA);
@@ -22388,7 +22388,7 @@ pub unsafe fn uidna_close(idna: *mut UIDNA) {
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn uidna_labelToASCII(idna: *const UIDNA, label: *const u16, length: i32, dest: *mut u16, capacity: i32, pinfo: *mut UIDNAInfo, perrorcode: *mut UErrorCode) -> i32 {
+pub unsafe fn uidna_labelToASCII(idna: &UIDNA, label: &u16, length: i32, dest: &mut u16, capacity: i32, pinfo: &mut UIDNAInfo, perrorcode: &mut UErrorCode) -> i32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn uidna_labelToASCII(idna: *const UIDNA, label: *const u16, length: i32, dest: *mut u16, capacity: i32, pinfo: *mut UIDNAInfo, perrorcode: *mut UErrorCode) -> i32;
@@ -22397,7 +22397,7 @@ pub unsafe fn uidna_labelToASCII(idna: *const UIDNA, label: *const u16, length: 
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn uidna_labelToASCII_UTF8<'a, P0, P1>(idna: *const UIDNA, label: P0, length: i32, dest: P1, capacity: i32, pinfo: *mut UIDNAInfo, perrorcode: *mut UErrorCode) -> i32
+pub unsafe fn uidna_labelToASCII_UTF8<'a, P0, P1>(idna: &UIDNA, label: P0, length: i32, dest: P1, capacity: i32, pinfo: &mut UIDNAInfo, perrorcode: &mut UErrorCode) -> i32
 where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
     P1: ::std::convert::Into<::windows::core::PCSTR>,
@@ -22410,7 +22410,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn uidna_labelToUnicode(idna: *const UIDNA, label: *const u16, length: i32, dest: *mut u16, capacity: i32, pinfo: *mut UIDNAInfo, perrorcode: *mut UErrorCode) -> i32 {
+pub unsafe fn uidna_labelToUnicode(idna: &UIDNA, label: &u16, length: i32, dest: &mut u16, capacity: i32, pinfo: &mut UIDNAInfo, perrorcode: &mut UErrorCode) -> i32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn uidna_labelToUnicode(idna: *const UIDNA, label: *const u16, length: i32, dest: *mut u16, capacity: i32, pinfo: *mut UIDNAInfo, perrorcode: *mut UErrorCode) -> i32;
@@ -22419,7 +22419,7 @@ pub unsafe fn uidna_labelToUnicode(idna: *const UIDNA, label: *const u16, length
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn uidna_labelToUnicodeUTF8<'a, P0, P1>(idna: *const UIDNA, label: P0, length: i32, dest: P1, capacity: i32, pinfo: *mut UIDNAInfo, perrorcode: *mut UErrorCode) -> i32
+pub unsafe fn uidna_labelToUnicodeUTF8<'a, P0, P1>(idna: &UIDNA, label: P0, length: i32, dest: P1, capacity: i32, pinfo: &mut UIDNAInfo, perrorcode: &mut UErrorCode) -> i32
 where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
     P1: ::std::convert::Into<::windows::core::PCSTR>,
@@ -22432,7 +22432,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn uidna_nameToASCII(idna: *const UIDNA, name: *const u16, length: i32, dest: *mut u16, capacity: i32, pinfo: *mut UIDNAInfo, perrorcode: *mut UErrorCode) -> i32 {
+pub unsafe fn uidna_nameToASCII(idna: &UIDNA, name: &u16, length: i32, dest: &mut u16, capacity: i32, pinfo: &mut UIDNAInfo, perrorcode: &mut UErrorCode) -> i32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn uidna_nameToASCII(idna: *const UIDNA, name: *const u16, length: i32, dest: *mut u16, capacity: i32, pinfo: *mut UIDNAInfo, perrorcode: *mut UErrorCode) -> i32;
@@ -22441,7 +22441,7 @@ pub unsafe fn uidna_nameToASCII(idna: *const UIDNA, name: *const u16, length: i3
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn uidna_nameToASCII_UTF8<'a, P0, P1>(idna: *const UIDNA, name: P0, length: i32, dest: P1, capacity: i32, pinfo: *mut UIDNAInfo, perrorcode: *mut UErrorCode) -> i32
+pub unsafe fn uidna_nameToASCII_UTF8<'a, P0, P1>(idna: &UIDNA, name: P0, length: i32, dest: P1, capacity: i32, pinfo: &mut UIDNAInfo, perrorcode: &mut UErrorCode) -> i32
 where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
     P1: ::std::convert::Into<::windows::core::PCSTR>,
@@ -22454,7 +22454,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn uidna_nameToUnicode(idna: *const UIDNA, name: *const u16, length: i32, dest: *mut u16, capacity: i32, pinfo: *mut UIDNAInfo, perrorcode: *mut UErrorCode) -> i32 {
+pub unsafe fn uidna_nameToUnicode(idna: &UIDNA, name: &u16, length: i32, dest: &mut u16, capacity: i32, pinfo: &mut UIDNAInfo, perrorcode: &mut UErrorCode) -> i32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn uidna_nameToUnicode(idna: *const UIDNA, name: *const u16, length: i32, dest: *mut u16, capacity: i32, pinfo: *mut UIDNAInfo, perrorcode: *mut UErrorCode) -> i32;
@@ -22463,7 +22463,7 @@ pub unsafe fn uidna_nameToUnicode(idna: *const UIDNA, name: *const u16, length: 
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn uidna_nameToUnicodeUTF8<'a, P0, P1>(idna: *const UIDNA, name: P0, length: i32, dest: P1, capacity: i32, pinfo: *mut UIDNAInfo, perrorcode: *mut UErrorCode) -> i32
+pub unsafe fn uidna_nameToUnicodeUTF8<'a, P0, P1>(idna: &UIDNA, name: P0, length: i32, dest: P1, capacity: i32, pinfo: &mut UIDNAInfo, perrorcode: &mut UErrorCode) -> i32
 where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
     P1: ::std::convert::Into<::windows::core::PCSTR>,
@@ -22476,7 +22476,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn uidna_openUTS46(options: u32, perrorcode: *mut UErrorCode) -> *mut UIDNA {
+pub unsafe fn uidna_openUTS46(options: u32, perrorcode: &mut UErrorCode) -> *mut UIDNA {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn uidna_openUTS46(options: u32, perrorcode: *mut UErrorCode) -> *mut UIDNA;
@@ -22485,7 +22485,7 @@ pub unsafe fn uidna_openUTS46(options: u32, perrorcode: *mut UErrorCode) -> *mut
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn uiter_current32(iter: *mut UCharIterator) -> i32 {
+pub unsafe fn uiter_current32(iter: &mut UCharIterator) -> i32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn uiter_current32(iter: *mut UCharIterator) -> i32;
@@ -22494,7 +22494,7 @@ pub unsafe fn uiter_current32(iter: *mut UCharIterator) -> i32 {
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn uiter_getState(iter: *const UCharIterator) -> u32 {
+pub unsafe fn uiter_getState(iter: &UCharIterator) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn uiter_getState(iter: *const UCharIterator) -> u32;
@@ -22503,7 +22503,7 @@ pub unsafe fn uiter_getState(iter: *const UCharIterator) -> u32 {
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn uiter_next32(iter: *mut UCharIterator) -> i32 {
+pub unsafe fn uiter_next32(iter: &mut UCharIterator) -> i32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn uiter_next32(iter: *mut UCharIterator) -> i32;
@@ -22512,7 +22512,7 @@ pub unsafe fn uiter_next32(iter: *mut UCharIterator) -> i32 {
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn uiter_previous32(iter: *mut UCharIterator) -> i32 {
+pub unsafe fn uiter_previous32(iter: &mut UCharIterator) -> i32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn uiter_previous32(iter: *mut UCharIterator) -> i32;
@@ -22521,7 +22521,7 @@ pub unsafe fn uiter_previous32(iter: *mut UCharIterator) -> i32 {
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn uiter_setState(iter: *mut UCharIterator, state: u32, perrorcode: *mut UErrorCode) {
+pub unsafe fn uiter_setState(iter: &mut UCharIterator, state: u32, perrorcode: &mut UErrorCode) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn uiter_setState(iter: *mut UCharIterator, state: u32, perrorcode: *mut UErrorCode);
@@ -22530,7 +22530,7 @@ pub unsafe fn uiter_setState(iter: *mut UCharIterator, state: u32, perrorcode: *
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn uiter_setString(iter: *mut UCharIterator, s: *const u16, length: i32) {
+pub unsafe fn uiter_setString(iter: &mut UCharIterator, s: &u16, length: i32) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn uiter_setString(iter: *mut UCharIterator, s: *const u16, length: i32);
@@ -22539,7 +22539,7 @@ pub unsafe fn uiter_setString(iter: *mut UCharIterator, s: *const u16, length: i
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn uiter_setUTF16BE<'a, P0>(iter: *mut UCharIterator, s: P0, length: i32)
+pub unsafe fn uiter_setUTF16BE<'a, P0>(iter: &mut UCharIterator, s: P0, length: i32)
 where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
 {
@@ -22551,7 +22551,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn uiter_setUTF8<'a, P0>(iter: *mut UCharIterator, s: P0, length: i32)
+pub unsafe fn uiter_setUTF8<'a, P0>(iter: &mut UCharIterator, s: P0, length: i32)
 where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
 {
@@ -22563,7 +22563,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn uldn_close(ldn: *mut ULocaleDisplayNames) {
+pub unsafe fn uldn_close(ldn: &mut ULocaleDisplayNames) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn uldn_close(ldn: *mut ULocaleDisplayNames);
@@ -22572,7 +22572,7 @@ pub unsafe fn uldn_close(ldn: *mut ULocaleDisplayNames) {
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn uldn_getContext(ldn: *const ULocaleDisplayNames, r#type: UDisplayContextType, perrorcode: *mut UErrorCode) -> UDisplayContext {
+pub unsafe fn uldn_getContext(ldn: &ULocaleDisplayNames, r#type: UDisplayContextType, perrorcode: &mut UErrorCode) -> UDisplayContext {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn uldn_getContext(ldn: *const ULocaleDisplayNames, r#type: UDisplayContextType, perrorcode: *mut UErrorCode) -> UDisplayContext;
@@ -22581,7 +22581,7 @@ pub unsafe fn uldn_getContext(ldn: *const ULocaleDisplayNames, r#type: UDisplayC
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn uldn_getDialectHandling(ldn: *const ULocaleDisplayNames) -> UDialectHandling {
+pub unsafe fn uldn_getDialectHandling(ldn: &ULocaleDisplayNames) -> UDialectHandling {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn uldn_getDialectHandling(ldn: *const ULocaleDisplayNames) -> UDialectHandling;
@@ -22590,7 +22590,7 @@ pub unsafe fn uldn_getDialectHandling(ldn: *const ULocaleDisplayNames) -> UDiale
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn uldn_getLocale(ldn: *const ULocaleDisplayNames) -> ::windows::core::PSTR {
+pub unsafe fn uldn_getLocale(ldn: &ULocaleDisplayNames) -> ::windows::core::PSTR {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn uldn_getLocale(ldn: *const ULocaleDisplayNames) -> ::windows::core::PSTR;
@@ -22599,7 +22599,7 @@ pub unsafe fn uldn_getLocale(ldn: *const ULocaleDisplayNames) -> ::windows::core
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn uldn_keyDisplayName<'a, P0>(ldn: *const ULocaleDisplayNames, key: P0, result: *mut u16, maxresultsize: i32, perrorcode: *mut UErrorCode) -> i32
+pub unsafe fn uldn_keyDisplayName<'a, P0>(ldn: &ULocaleDisplayNames, key: P0, result: &mut u16, maxresultsize: i32, perrorcode: &mut UErrorCode) -> i32
 where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
 {
@@ -22611,7 +22611,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn uldn_keyValueDisplayName<'a, P0, P1>(ldn: *const ULocaleDisplayNames, key: P0, value: P1, result: *mut u16, maxresultsize: i32, perrorcode: *mut UErrorCode) -> i32
+pub unsafe fn uldn_keyValueDisplayName<'a, P0, P1>(ldn: &ULocaleDisplayNames, key: P0, value: P1, result: &mut u16, maxresultsize: i32, perrorcode: &mut UErrorCode) -> i32
 where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
     P1: ::std::convert::Into<::windows::core::PCSTR>,
@@ -22624,7 +22624,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn uldn_languageDisplayName<'a, P0>(ldn: *const ULocaleDisplayNames, lang: P0, result: *mut u16, maxresultsize: i32, perrorcode: *mut UErrorCode) -> i32
+pub unsafe fn uldn_languageDisplayName<'a, P0>(ldn: &ULocaleDisplayNames, lang: P0, result: &mut u16, maxresultsize: i32, perrorcode: &mut UErrorCode) -> i32
 where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
 {
@@ -22636,7 +22636,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn uldn_localeDisplayName<'a, P0>(ldn: *const ULocaleDisplayNames, locale: P0, result: *mut u16, maxresultsize: i32, perrorcode: *mut UErrorCode) -> i32
+pub unsafe fn uldn_localeDisplayName<'a, P0>(ldn: &ULocaleDisplayNames, locale: P0, result: &mut u16, maxresultsize: i32, perrorcode: &mut UErrorCode) -> i32
 where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
 {
@@ -22648,7 +22648,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn uldn_open<'a, P0>(locale: P0, dialecthandling: UDialectHandling, perrorcode: *mut UErrorCode) -> *mut ULocaleDisplayNames
+pub unsafe fn uldn_open<'a, P0>(locale: P0, dialecthandling: UDialectHandling, perrorcode: &mut UErrorCode) -> *mut ULocaleDisplayNames
 where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
 {
@@ -22660,7 +22660,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn uldn_openForContext<'a, P0>(locale: P0, contexts: *mut UDisplayContext, length: i32, perrorcode: *mut UErrorCode) -> *mut ULocaleDisplayNames
+pub unsafe fn uldn_openForContext<'a, P0>(locale: P0, contexts: &mut UDisplayContext, length: i32, perrorcode: &mut UErrorCode) -> *mut ULocaleDisplayNames
 where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
 {
@@ -22672,7 +22672,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn uldn_regionDisplayName<'a, P0>(ldn: *const ULocaleDisplayNames, region: P0, result: *mut u16, maxresultsize: i32, perrorcode: *mut UErrorCode) -> i32
+pub unsafe fn uldn_regionDisplayName<'a, P0>(ldn: &ULocaleDisplayNames, region: P0, result: &mut u16, maxresultsize: i32, perrorcode: &mut UErrorCode) -> i32
 where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
 {
@@ -22684,7 +22684,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn uldn_scriptCodeDisplayName(ldn: *const ULocaleDisplayNames, scriptcode: UScriptCode, result: *mut u16, maxresultsize: i32, perrorcode: *mut UErrorCode) -> i32 {
+pub unsafe fn uldn_scriptCodeDisplayName(ldn: &ULocaleDisplayNames, scriptcode: UScriptCode, result: &mut u16, maxresultsize: i32, perrorcode: &mut UErrorCode) -> i32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn uldn_scriptCodeDisplayName(ldn: *const ULocaleDisplayNames, scriptcode: UScriptCode, result: *mut u16, maxresultsize: i32, perrorcode: *mut UErrorCode) -> i32;
@@ -22693,7 +22693,7 @@ pub unsafe fn uldn_scriptCodeDisplayName(ldn: *const ULocaleDisplayNames, script
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn uldn_scriptDisplayName<'a, P0>(ldn: *const ULocaleDisplayNames, script: P0, result: *mut u16, maxresultsize: i32, perrorcode: *mut UErrorCode) -> i32
+pub unsafe fn uldn_scriptDisplayName<'a, P0>(ldn: &ULocaleDisplayNames, script: P0, result: &mut u16, maxresultsize: i32, perrorcode: &mut UErrorCode) -> i32
 where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
 {
@@ -22705,7 +22705,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn uldn_variantDisplayName<'a, P0>(ldn: *const ULocaleDisplayNames, variant: P0, result: *mut u16, maxresultsize: i32, perrorcode: *mut UErrorCode) -> i32
+pub unsafe fn uldn_variantDisplayName<'a, P0>(ldn: &ULocaleDisplayNames, variant: P0, result: &mut u16, maxresultsize: i32, perrorcode: &mut UErrorCode) -> i32
 where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
 {
@@ -22717,7 +22717,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn ulistfmt_close(listfmt: *mut UListFormatter) {
+pub unsafe fn ulistfmt_close(listfmt: &mut UListFormatter) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn ulistfmt_close(listfmt: *mut UListFormatter);
@@ -22726,7 +22726,7 @@ pub unsafe fn ulistfmt_close(listfmt: *mut UListFormatter) {
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn ulistfmt_closeResult(uresult: *mut UFormattedList) {
+pub unsafe fn ulistfmt_closeResult(uresult: &mut UFormattedList) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn ulistfmt_closeResult(uresult: *mut UFormattedList);
@@ -22735,7 +22735,7 @@ pub unsafe fn ulistfmt_closeResult(uresult: *mut UFormattedList) {
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn ulistfmt_format(listfmt: *const UListFormatter, strings: *const *const u16, stringlengths: *const i32, stringcount: i32, result: *mut u16, resultcapacity: i32, status: *mut UErrorCode) -> i32 {
+pub unsafe fn ulistfmt_format(listfmt: &UListFormatter, strings: &*const u16, stringlengths: &i32, stringcount: i32, result: &mut u16, resultcapacity: i32, status: &mut UErrorCode) -> i32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn ulistfmt_format(listfmt: *const UListFormatter, strings: *const *const u16, stringlengths: *const i32, stringcount: i32, result: *mut u16, resultcapacity: i32, status: *mut UErrorCode) -> i32;
@@ -22744,7 +22744,7 @@ pub unsafe fn ulistfmt_format(listfmt: *const UListFormatter, strings: *const *c
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn ulistfmt_formatStringsToResult(listfmt: *const UListFormatter, strings: *const *const u16, stringlengths: *const i32, stringcount: i32, uresult: *mut UFormattedList, status: *mut UErrorCode) {
+pub unsafe fn ulistfmt_formatStringsToResult(listfmt: &UListFormatter, strings: &*const u16, stringlengths: &i32, stringcount: i32, uresult: &mut UFormattedList, status: &mut UErrorCode) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn ulistfmt_formatStringsToResult(listfmt: *const UListFormatter, strings: *const *const u16, stringlengths: *const i32, stringcount: i32, uresult: *mut UFormattedList, status: *mut UErrorCode);
@@ -22753,7 +22753,7 @@ pub unsafe fn ulistfmt_formatStringsToResult(listfmt: *const UListFormatter, str
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn ulistfmt_open<'a, P0>(locale: P0, status: *mut UErrorCode) -> *mut UListFormatter
+pub unsafe fn ulistfmt_open<'a, P0>(locale: P0, status: &mut UErrorCode) -> *mut UListFormatter
 where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
 {
@@ -22765,7 +22765,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn ulistfmt_openForType<'a, P0>(locale: P0, r#type: UListFormatterType, width: UListFormatterWidth, status: *mut UErrorCode) -> *mut UListFormatter
+pub unsafe fn ulistfmt_openForType<'a, P0>(locale: P0, r#type: UListFormatterType, width: UListFormatterWidth, status: &mut UErrorCode) -> *mut UListFormatter
 where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
 {
@@ -22777,7 +22777,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn ulistfmt_openResult(ec: *mut UErrorCode) -> *mut UFormattedList {
+pub unsafe fn ulistfmt_openResult(ec: &mut UErrorCode) -> *mut UFormattedList {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn ulistfmt_openResult(ec: *mut UErrorCode) -> *mut UFormattedList;
@@ -22786,7 +22786,7 @@ pub unsafe fn ulistfmt_openResult(ec: *mut UErrorCode) -> *mut UFormattedList {
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn ulistfmt_resultAsValue(uresult: *const UFormattedList, ec: *mut UErrorCode) -> *mut UFormattedValue {
+pub unsafe fn ulistfmt_resultAsValue(uresult: &UFormattedList, ec: &mut UErrorCode) -> *mut UFormattedValue {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn ulistfmt_resultAsValue(uresult: *const UFormattedList, ec: *mut UErrorCode) -> *mut UFormattedValue;
@@ -22795,7 +22795,7 @@ pub unsafe fn ulistfmt_resultAsValue(uresult: *const UFormattedList, ec: *mut UE
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn uloc_acceptLanguage<'a, P0>(result: P0, resultavailable: i32, outresult: *mut UAcceptResult, acceptlist: *const *const i8, acceptlistcount: i32, availablelocales: *mut UEnumeration, status: *mut UErrorCode) -> i32
+pub unsafe fn uloc_acceptLanguage<'a, P0>(result: P0, resultavailable: i32, outresult: &mut UAcceptResult, acceptlist: &*const i8, acceptlistcount: i32, availablelocales: &mut UEnumeration, status: &mut UErrorCode) -> i32
 where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
 {
@@ -22807,7 +22807,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn uloc_acceptLanguageFromHTTP<'a, P0, P1>(result: P0, resultavailable: i32, outresult: *mut UAcceptResult, httpacceptlanguage: P1, availablelocales: *mut UEnumeration, status: *mut UErrorCode) -> i32
+pub unsafe fn uloc_acceptLanguageFromHTTP<'a, P0, P1>(result: P0, resultavailable: i32, outresult: &mut UAcceptResult, httpacceptlanguage: P1, availablelocales: &mut UEnumeration, status: &mut UErrorCode) -> i32
 where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
     P1: ::std::convert::Into<::windows::core::PCSTR>,
@@ -22820,7 +22820,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn uloc_addLikelySubtags<'a, P0, P1>(localeid: P0, maximizedlocaleid: P1, maximizedlocaleidcapacity: i32, err: *mut UErrorCode) -> i32
+pub unsafe fn uloc_addLikelySubtags<'a, P0, P1>(localeid: P0, maximizedlocaleid: P1, maximizedlocaleidcapacity: i32, err: &mut UErrorCode) -> i32
 where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
     P1: ::std::convert::Into<::windows::core::PCSTR>,
@@ -22833,7 +22833,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn uloc_canonicalize<'a, P0, P1>(localeid: P0, name: P1, namecapacity: i32, err: *mut UErrorCode) -> i32
+pub unsafe fn uloc_canonicalize<'a, P0, P1>(localeid: P0, name: P1, namecapacity: i32, err: &mut UErrorCode) -> i32
 where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
     P1: ::std::convert::Into<::windows::core::PCSTR>,
@@ -22855,7 +22855,7 @@ pub unsafe fn uloc_countAvailable() -> i32 {
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn uloc_forLanguageTag<'a, P0, P1>(langtag: P0, localeid: P1, localeidcapacity: i32, parsedlength: *mut i32, err: *mut UErrorCode) -> i32
+pub unsafe fn uloc_forLanguageTag<'a, P0, P1>(langtag: P0, localeid: P1, localeidcapacity: i32, parsedlength: &mut i32, err: &mut UErrorCode) -> i32
 where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
     P1: ::std::convert::Into<::windows::core::PCSTR>,
@@ -22877,7 +22877,7 @@ pub unsafe fn uloc_getAvailable(n: i32) -> ::windows::core::PSTR {
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn uloc_getBaseName<'a, P0, P1>(localeid: P0, name: P1, namecapacity: i32, err: *mut UErrorCode) -> i32
+pub unsafe fn uloc_getBaseName<'a, P0, P1>(localeid: P0, name: P1, namecapacity: i32, err: &mut UErrorCode) -> i32
 where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
     P1: ::std::convert::Into<::windows::core::PCSTR>,
@@ -22890,7 +22890,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn uloc_getCharacterOrientation<'a, P0>(localeid: P0, status: *mut UErrorCode) -> ULayoutType
+pub unsafe fn uloc_getCharacterOrientation<'a, P0>(localeid: P0, status: &mut UErrorCode) -> ULayoutType
 where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
 {
@@ -22902,7 +22902,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn uloc_getCountry<'a, P0, P1>(localeid: P0, country: P1, countrycapacity: i32, err: *mut UErrorCode) -> i32
+pub unsafe fn uloc_getCountry<'a, P0, P1>(localeid: P0, country: P1, countrycapacity: i32, err: &mut UErrorCode) -> i32
 where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
     P1: ::std::convert::Into<::windows::core::PCSTR>,
@@ -22924,7 +22924,7 @@ pub unsafe fn uloc_getDefault() -> ::windows::core::PSTR {
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn uloc_getDisplayCountry<'a, P0, P1>(locale: P0, displaylocale: P1, country: *mut u16, countrycapacity: i32, status: *mut UErrorCode) -> i32
+pub unsafe fn uloc_getDisplayCountry<'a, P0, P1>(locale: P0, displaylocale: P1, country: &mut u16, countrycapacity: i32, status: &mut UErrorCode) -> i32
 where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
     P1: ::std::convert::Into<::windows::core::PCSTR>,
@@ -22937,7 +22937,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn uloc_getDisplayKeyword<'a, P0, P1>(keyword: P0, displaylocale: P1, dest: *mut u16, destcapacity: i32, status: *mut UErrorCode) -> i32
+pub unsafe fn uloc_getDisplayKeyword<'a, P0, P1>(keyword: P0, displaylocale: P1, dest: &mut u16, destcapacity: i32, status: &mut UErrorCode) -> i32
 where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
     P1: ::std::convert::Into<::windows::core::PCSTR>,
@@ -22950,7 +22950,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn uloc_getDisplayKeywordValue<'a, P0, P1, P2>(locale: P0, keyword: P1, displaylocale: P2, dest: *mut u16, destcapacity: i32, status: *mut UErrorCode) -> i32
+pub unsafe fn uloc_getDisplayKeywordValue<'a, P0, P1, P2>(locale: P0, keyword: P1, displaylocale: P2, dest: &mut u16, destcapacity: i32, status: &mut UErrorCode) -> i32
 where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
     P1: ::std::convert::Into<::windows::core::PCSTR>,
@@ -22964,7 +22964,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn uloc_getDisplayLanguage<'a, P0, P1>(locale: P0, displaylocale: P1, language: *mut u16, languagecapacity: i32, status: *mut UErrorCode) -> i32
+pub unsafe fn uloc_getDisplayLanguage<'a, P0, P1>(locale: P0, displaylocale: P1, language: &mut u16, languagecapacity: i32, status: &mut UErrorCode) -> i32
 where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
     P1: ::std::convert::Into<::windows::core::PCSTR>,
@@ -22977,7 +22977,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn uloc_getDisplayName<'a, P0, P1>(localeid: P0, inlocaleid: P1, result: *mut u16, maxresultsize: i32, err: *mut UErrorCode) -> i32
+pub unsafe fn uloc_getDisplayName<'a, P0, P1>(localeid: P0, inlocaleid: P1, result: &mut u16, maxresultsize: i32, err: &mut UErrorCode) -> i32
 where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
     P1: ::std::convert::Into<::windows::core::PCSTR>,
@@ -22990,7 +22990,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn uloc_getDisplayScript<'a, P0, P1>(locale: P0, displaylocale: P1, script: *mut u16, scriptcapacity: i32, status: *mut UErrorCode) -> i32
+pub unsafe fn uloc_getDisplayScript<'a, P0, P1>(locale: P0, displaylocale: P1, script: &mut u16, scriptcapacity: i32, status: &mut UErrorCode) -> i32
 where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
     P1: ::std::convert::Into<::windows::core::PCSTR>,
@@ -23003,7 +23003,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn uloc_getDisplayVariant<'a, P0, P1>(locale: P0, displaylocale: P1, variant: *mut u16, variantcapacity: i32, status: *mut UErrorCode) -> i32
+pub unsafe fn uloc_getDisplayVariant<'a, P0, P1>(locale: P0, displaylocale: P1, variant: &mut u16, variantcapacity: i32, status: &mut UErrorCode) -> i32
 where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
     P1: ::std::convert::Into<::windows::core::PCSTR>,
@@ -23058,7 +23058,7 @@ pub unsafe fn uloc_getISOLanguages() -> *mut *mut i8 {
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn uloc_getKeywordValue<'a, P0, P1, P2>(localeid: P0, keywordname: P1, buffer: P2, buffercapacity: i32, status: *mut UErrorCode) -> i32
+pub unsafe fn uloc_getKeywordValue<'a, P0, P1, P2>(localeid: P0, keywordname: P1, buffer: P2, buffercapacity: i32, status: &mut UErrorCode) -> i32
 where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
     P1: ::std::convert::Into<::windows::core::PCSTR>,
@@ -23084,7 +23084,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn uloc_getLanguage<'a, P0, P1>(localeid: P0, language: P1, languagecapacity: i32, err: *mut UErrorCode) -> i32
+pub unsafe fn uloc_getLanguage<'a, P0, P1>(localeid: P0, language: P1, languagecapacity: i32, err: &mut UErrorCode) -> i32
 where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
     P1: ::std::convert::Into<::windows::core::PCSTR>,
@@ -23097,7 +23097,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn uloc_getLineOrientation<'a, P0>(localeid: P0, status: *mut UErrorCode) -> ULayoutType
+pub unsafe fn uloc_getLineOrientation<'a, P0>(localeid: P0, status: &mut UErrorCode) -> ULayoutType
 where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
 {
@@ -23109,7 +23109,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn uloc_getLocaleForLCID<'a, P0>(hostid: u32, locale: P0, localecapacity: i32, status: *mut UErrorCode) -> i32
+pub unsafe fn uloc_getLocaleForLCID<'a, P0>(hostid: u32, locale: P0, localecapacity: i32, status: &mut UErrorCode) -> i32
 where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
 {
@@ -23121,7 +23121,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn uloc_getName<'a, P0, P1>(localeid: P0, name: P1, namecapacity: i32, err: *mut UErrorCode) -> i32
+pub unsafe fn uloc_getName<'a, P0, P1>(localeid: P0, name: P1, namecapacity: i32, err: &mut UErrorCode) -> i32
 where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
     P1: ::std::convert::Into<::windows::core::PCSTR>,
@@ -23134,7 +23134,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn uloc_getParent<'a, P0, P1>(localeid: P0, parent: P1, parentcapacity: i32, err: *mut UErrorCode) -> i32
+pub unsafe fn uloc_getParent<'a, P0, P1>(localeid: P0, parent: P1, parentcapacity: i32, err: &mut UErrorCode) -> i32
 where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
     P1: ::std::convert::Into<::windows::core::PCSTR>,
@@ -23147,7 +23147,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn uloc_getScript<'a, P0, P1>(localeid: P0, script: P1, scriptcapacity: i32, err: *mut UErrorCode) -> i32
+pub unsafe fn uloc_getScript<'a, P0, P1>(localeid: P0, script: P1, scriptcapacity: i32, err: &mut UErrorCode) -> i32
 where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
     P1: ::std::convert::Into<::windows::core::PCSTR>,
@@ -23160,7 +23160,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn uloc_getVariant<'a, P0, P1>(localeid: P0, variant: P1, variantcapacity: i32, err: *mut UErrorCode) -> i32
+pub unsafe fn uloc_getVariant<'a, P0, P1>(localeid: P0, variant: P1, variantcapacity: i32, err: &mut UErrorCode) -> i32
 where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
     P1: ::std::convert::Into<::windows::core::PCSTR>,
@@ -23185,7 +23185,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn uloc_minimizeSubtags<'a, P0, P1>(localeid: P0, minimizedlocaleid: P1, minimizedlocaleidcapacity: i32, err: *mut UErrorCode) -> i32
+pub unsafe fn uloc_minimizeSubtags<'a, P0, P1>(localeid: P0, minimizedlocaleid: P1, minimizedlocaleidcapacity: i32, err: &mut UErrorCode) -> i32
 where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
     P1: ::std::convert::Into<::windows::core::PCSTR>,
@@ -23198,7 +23198,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn uloc_openAvailableByType(r#type: ULocAvailableType, status: *mut UErrorCode) -> *mut UEnumeration {
+pub unsafe fn uloc_openAvailableByType(r#type: ULocAvailableType, status: &mut UErrorCode) -> *mut UEnumeration {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn uloc_openAvailableByType(r#type: ULocAvailableType, status: *mut UErrorCode) -> *mut UEnumeration;
@@ -23207,7 +23207,7 @@ pub unsafe fn uloc_openAvailableByType(r#type: ULocAvailableType, status: *mut U
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn uloc_openKeywords<'a, P0>(localeid: P0, status: *mut UErrorCode) -> *mut UEnumeration
+pub unsafe fn uloc_openKeywords<'a, P0>(localeid: P0, status: &mut UErrorCode) -> *mut UEnumeration
 where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
 {
@@ -23219,7 +23219,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn uloc_setDefault<'a, P0>(localeid: P0, status: *mut UErrorCode)
+pub unsafe fn uloc_setDefault<'a, P0>(localeid: P0, status: &mut UErrorCode)
 where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
 {
@@ -23231,7 +23231,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn uloc_setKeywordValue<'a, P0, P1, P2>(keywordname: P0, keywordvalue: P1, buffer: P2, buffercapacity: i32, status: *mut UErrorCode) -> i32
+pub unsafe fn uloc_setKeywordValue<'a, P0, P1, P2>(keywordname: P0, keywordvalue: P1, buffer: P2, buffercapacity: i32, status: &mut UErrorCode) -> i32
 where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
     P1: ::std::convert::Into<::windows::core::PCSTR>,
@@ -23245,7 +23245,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn uloc_toLanguageTag<'a, P0, P1>(localeid: P0, langtag: P1, langtagcapacity: i32, strict: i8, err: *mut UErrorCode) -> i32
+pub unsafe fn uloc_toLanguageTag<'a, P0, P1>(localeid: P0, langtag: P1, langtagcapacity: i32, strict: i8, err: &mut UErrorCode) -> i32
 where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
     P1: ::std::convert::Into<::windows::core::PCSTR>,
@@ -23308,7 +23308,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn ulocdata_close(uld: *mut ULocaleData) {
+pub unsafe fn ulocdata_close(uld: &mut ULocaleData) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn ulocdata_close(uld: *mut ULocaleData);
@@ -23317,7 +23317,7 @@ pub unsafe fn ulocdata_close(uld: *mut ULocaleData) {
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn ulocdata_getCLDRVersion(versionarray: *mut u8, status: *mut UErrorCode) {
+pub unsafe fn ulocdata_getCLDRVersion(versionarray: &mut u8, status: &mut UErrorCode) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn ulocdata_getCLDRVersion(versionarray: *mut u8, status: *mut UErrorCode);
@@ -23326,7 +23326,7 @@ pub unsafe fn ulocdata_getCLDRVersion(versionarray: *mut u8, status: *mut UError
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn ulocdata_getDelimiter(uld: *mut ULocaleData, r#type: ULocaleDataDelimiterType, result: *mut u16, resultlength: i32, status: *mut UErrorCode) -> i32 {
+pub unsafe fn ulocdata_getDelimiter(uld: &mut ULocaleData, r#type: ULocaleDataDelimiterType, result: &mut u16, resultlength: i32, status: &mut UErrorCode) -> i32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn ulocdata_getDelimiter(uld: *mut ULocaleData, r#type: ULocaleDataDelimiterType, result: *mut u16, resultlength: i32, status: *mut UErrorCode) -> i32;
@@ -23335,7 +23335,7 @@ pub unsafe fn ulocdata_getDelimiter(uld: *mut ULocaleData, r#type: ULocaleDataDe
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn ulocdata_getExemplarSet(uld: *mut ULocaleData, fillin: *mut USet, options: u32, extype: ULocaleDataExemplarSetType, status: *mut UErrorCode) -> *mut USet {
+pub unsafe fn ulocdata_getExemplarSet(uld: &mut ULocaleData, fillin: &mut USet, options: u32, extype: ULocaleDataExemplarSetType, status: &mut UErrorCode) -> *mut USet {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn ulocdata_getExemplarSet(uld: *mut ULocaleData, fillin: *mut USet, options: u32, extype: ULocaleDataExemplarSetType, status: *mut UErrorCode) -> *mut USet;
@@ -23344,7 +23344,7 @@ pub unsafe fn ulocdata_getExemplarSet(uld: *mut ULocaleData, fillin: *mut USet, 
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn ulocdata_getLocaleDisplayPattern(uld: *mut ULocaleData, pattern: *mut u16, patterncapacity: i32, status: *mut UErrorCode) -> i32 {
+pub unsafe fn ulocdata_getLocaleDisplayPattern(uld: &mut ULocaleData, pattern: &mut u16, patterncapacity: i32, status: &mut UErrorCode) -> i32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn ulocdata_getLocaleDisplayPattern(uld: *mut ULocaleData, pattern: *mut u16, patterncapacity: i32, status: *mut UErrorCode) -> i32;
@@ -23353,7 +23353,7 @@ pub unsafe fn ulocdata_getLocaleDisplayPattern(uld: *mut ULocaleData, pattern: *
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn ulocdata_getLocaleSeparator(uld: *mut ULocaleData, separator: *mut u16, separatorcapacity: i32, status: *mut UErrorCode) -> i32 {
+pub unsafe fn ulocdata_getLocaleSeparator(uld: &mut ULocaleData, separator: &mut u16, separatorcapacity: i32, status: &mut UErrorCode) -> i32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn ulocdata_getLocaleSeparator(uld: *mut ULocaleData, separator: *mut u16, separatorcapacity: i32, status: *mut UErrorCode) -> i32;
@@ -23362,7 +23362,7 @@ pub unsafe fn ulocdata_getLocaleSeparator(uld: *mut ULocaleData, separator: *mut
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn ulocdata_getMeasurementSystem<'a, P0>(localeid: P0, status: *mut UErrorCode) -> UMeasurementSystem
+pub unsafe fn ulocdata_getMeasurementSystem<'a, P0>(localeid: P0, status: &mut UErrorCode) -> UMeasurementSystem
 where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
 {
@@ -23374,7 +23374,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn ulocdata_getNoSubstitute(uld: *mut ULocaleData) -> i8 {
+pub unsafe fn ulocdata_getNoSubstitute(uld: &mut ULocaleData) -> i8 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn ulocdata_getNoSubstitute(uld: *mut ULocaleData) -> i8;
@@ -23383,7 +23383,7 @@ pub unsafe fn ulocdata_getNoSubstitute(uld: *mut ULocaleData) -> i8 {
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn ulocdata_getPaperSize<'a, P0>(localeid: P0, height: *mut i32, width: *mut i32, status: *mut UErrorCode)
+pub unsafe fn ulocdata_getPaperSize<'a, P0>(localeid: P0, height: &mut i32, width: &mut i32, status: &mut UErrorCode)
 where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
 {
@@ -23395,7 +23395,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn ulocdata_open<'a, P0>(localeid: P0, status: *mut UErrorCode) -> *mut ULocaleData
+pub unsafe fn ulocdata_open<'a, P0>(localeid: P0, status: &mut UErrorCode) -> *mut ULocaleData
 where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
 {
@@ -23407,7 +23407,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn ulocdata_setNoSubstitute(uld: *mut ULocaleData, setting: i8) {
+pub unsafe fn ulocdata_setNoSubstitute(uld: &mut ULocaleData, setting: i8) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn ulocdata_setNoSubstitute(uld: *mut ULocaleData, setting: i8);
@@ -23416,7 +23416,7 @@ pub unsafe fn ulocdata_setNoSubstitute(uld: *mut ULocaleData, setting: i8) {
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn umsg_applyPattern(fmt: *mut *mut ::core::ffi::c_void, pattern: *const u16, patternlength: i32, parseerror: *mut UParseError, status: *mut UErrorCode) {
+pub unsafe fn umsg_applyPattern(fmt: *mut *mut ::core::ffi::c_void, pattern: &u16, patternlength: i32, parseerror: &mut UParseError, status: &mut UErrorCode) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn umsg_applyPattern(fmt: *mut *mut ::core::ffi::c_void, pattern: *const u16, patternlength: i32, parseerror: *mut UParseError, status: *mut UErrorCode);
@@ -23425,7 +23425,7 @@ pub unsafe fn umsg_applyPattern(fmt: *mut *mut ::core::ffi::c_void, pattern: *co
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn umsg_autoQuoteApostrophe(pattern: *const u16, patternlength: i32, dest: *mut u16, destcapacity: i32, ec: *mut UErrorCode) -> i32 {
+pub unsafe fn umsg_autoQuoteApostrophe(pattern: &u16, patternlength: i32, dest: &mut u16, destcapacity: i32, ec: &mut UErrorCode) -> i32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn umsg_autoQuoteApostrophe(pattern: *const u16, patternlength: i32, dest: *mut u16, destcapacity: i32, ec: *mut UErrorCode) -> i32;
@@ -23434,7 +23434,7 @@ pub unsafe fn umsg_autoQuoteApostrophe(pattern: *const u16, patternlength: i32, 
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn umsg_clone(fmt: *const *const ::core::ffi::c_void, status: *mut UErrorCode) -> *mut ::core::ffi::c_void {
+pub unsafe fn umsg_clone(fmt: *const *const ::core::ffi::c_void, status: &mut UErrorCode) -> *mut ::core::ffi::c_void {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn umsg_clone(fmt: *const *const ::core::ffi::c_void, status: *mut UErrorCode) -> *mut ::core::ffi::c_void;
@@ -23452,7 +23452,7 @@ pub unsafe fn umsg_close(format: *mut *mut ::core::ffi::c_void) {
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn umsg_format(fmt: *const *const ::core::ffi::c_void, result: *mut u16, resultlength: i32, status: *mut UErrorCode) -> i32 {
+pub unsafe fn umsg_format(fmt: *const *const ::core::ffi::c_void, result: &mut u16, resultlength: i32, status: &mut UErrorCode) -> i32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn umsg_format(fmt: *const *const ::core::ffi::c_void, result: *mut u16, resultlength: i32, status: *mut UErrorCode) -> i32;
@@ -23470,7 +23470,7 @@ pub unsafe fn umsg_getLocale(fmt: *const *const ::core::ffi::c_void) -> ::window
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn umsg_open<'a, P0>(pattern: *const u16, patternlength: i32, locale: P0, parseerror: *mut UParseError, status: *mut UErrorCode) -> *mut *mut ::core::ffi::c_void
+pub unsafe fn umsg_open<'a, P0>(pattern: &u16, patternlength: i32, locale: P0, parseerror: &mut UParseError, status: &mut UErrorCode) -> *mut *mut ::core::ffi::c_void
 where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
 {
@@ -23482,7 +23482,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn umsg_parse(fmt: *const *const ::core::ffi::c_void, source: *const u16, sourcelength: i32, count: *mut i32, status: *mut UErrorCode) {
+pub unsafe fn umsg_parse(fmt: *const *const ::core::ffi::c_void, source: &u16, sourcelength: i32, count: &mut i32, status: &mut UErrorCode) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn umsg_parse(fmt: *const *const ::core::ffi::c_void, source: *const u16, sourcelength: i32, count: *mut i32, status: *mut UErrorCode);
@@ -23503,7 +23503,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn umsg_toPattern(fmt: *const *const ::core::ffi::c_void, result: *mut u16, resultlength: i32, status: *mut UErrorCode) -> i32 {
+pub unsafe fn umsg_toPattern(fmt: *const *const ::core::ffi::c_void, result: &mut u16, resultlength: i32, status: &mut UErrorCode) -> i32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn umsg_toPattern(fmt: *const *const ::core::ffi::c_void, result: *mut u16, resultlength: i32, status: *mut UErrorCode) -> i32;
@@ -23512,7 +23512,7 @@ pub unsafe fn umsg_toPattern(fmt: *const *const ::core::ffi::c_void, result: *mu
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn umsg_vformat(fmt: *const *const ::core::ffi::c_void, result: *mut u16, resultlength: i32, ap: *mut i8, status: *mut UErrorCode) -> i32 {
+pub unsafe fn umsg_vformat(fmt: *const *const ::core::ffi::c_void, result: &mut u16, resultlength: i32, ap: &mut i8, status: &mut UErrorCode) -> i32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn umsg_vformat(fmt: *const *const ::core::ffi::c_void, result: *mut u16, resultlength: i32, ap: *mut i8, status: *mut UErrorCode) -> i32;
@@ -23521,7 +23521,7 @@ pub unsafe fn umsg_vformat(fmt: *const *const ::core::ffi::c_void, result: *mut 
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn umsg_vparse(fmt: *const *const ::core::ffi::c_void, source: *const u16, sourcelength: i32, count: *mut i32, ap: *mut i8, status: *mut UErrorCode) {
+pub unsafe fn umsg_vparse(fmt: *const *const ::core::ffi::c_void, source: &u16, sourcelength: i32, count: &mut i32, ap: &mut i8, status: &mut UErrorCode) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn umsg_vparse(fmt: *const *const ::core::ffi::c_void, source: *const u16, sourcelength: i32, count: *mut i32, ap: *mut i8, status: *mut UErrorCode);
@@ -23530,7 +23530,7 @@ pub unsafe fn umsg_vparse(fmt: *const *const ::core::ffi::c_void, source: *const
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn umutablecptrie_buildImmutable(trie: *mut UMutableCPTrie, r#type: UCPTrieType, valuewidth: UCPTrieValueWidth, perrorcode: *mut UErrorCode) -> *mut UCPTrie {
+pub unsafe fn umutablecptrie_buildImmutable(trie: &mut UMutableCPTrie, r#type: UCPTrieType, valuewidth: UCPTrieValueWidth, perrorcode: &mut UErrorCode) -> *mut UCPTrie {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn umutablecptrie_buildImmutable(trie: *mut UMutableCPTrie, r#type: UCPTrieType, valuewidth: UCPTrieValueWidth, perrorcode: *mut UErrorCode) -> *mut UCPTrie;
@@ -23539,7 +23539,7 @@ pub unsafe fn umutablecptrie_buildImmutable(trie: *mut UMutableCPTrie, r#type: U
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn umutablecptrie_clone(other: *const UMutableCPTrie, perrorcode: *mut UErrorCode) -> *mut UMutableCPTrie {
+pub unsafe fn umutablecptrie_clone(other: &UMutableCPTrie, perrorcode: &mut UErrorCode) -> *mut UMutableCPTrie {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn umutablecptrie_clone(other: *const UMutableCPTrie, perrorcode: *mut UErrorCode) -> *mut UMutableCPTrie;
@@ -23548,7 +23548,7 @@ pub unsafe fn umutablecptrie_clone(other: *const UMutableCPTrie, perrorcode: *mu
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn umutablecptrie_close(trie: *mut UMutableCPTrie) {
+pub unsafe fn umutablecptrie_close(trie: &mut UMutableCPTrie) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn umutablecptrie_close(trie: *mut UMutableCPTrie);
@@ -23557,7 +23557,7 @@ pub unsafe fn umutablecptrie_close(trie: *mut UMutableCPTrie) {
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn umutablecptrie_fromUCPMap(map: *const UCPMap, perrorcode: *mut UErrorCode) -> *mut UMutableCPTrie {
+pub unsafe fn umutablecptrie_fromUCPMap(map: &UCPMap, perrorcode: &mut UErrorCode) -> *mut UMutableCPTrie {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn umutablecptrie_fromUCPMap(map: *const UCPMap, perrorcode: *mut UErrorCode) -> *mut UMutableCPTrie;
@@ -23566,7 +23566,7 @@ pub unsafe fn umutablecptrie_fromUCPMap(map: *const UCPMap, perrorcode: *mut UEr
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn umutablecptrie_fromUCPTrie(trie: *const UCPTrie, perrorcode: *mut UErrorCode) -> *mut UMutableCPTrie {
+pub unsafe fn umutablecptrie_fromUCPTrie(trie: &UCPTrie, perrorcode: &mut UErrorCode) -> *mut UMutableCPTrie {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn umutablecptrie_fromUCPTrie(trie: *const UCPTrie, perrorcode: *mut UErrorCode) -> *mut UMutableCPTrie;
@@ -23575,7 +23575,7 @@ pub unsafe fn umutablecptrie_fromUCPTrie(trie: *const UCPTrie, perrorcode: *mut 
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn umutablecptrie_get(trie: *const UMutableCPTrie, c: i32) -> u32 {
+pub unsafe fn umutablecptrie_get(trie: &UMutableCPTrie, c: i32) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn umutablecptrie_get(trie: *const UMutableCPTrie, c: i32) -> u32;
@@ -23584,7 +23584,7 @@ pub unsafe fn umutablecptrie_get(trie: *const UMutableCPTrie, c: i32) -> u32 {
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn umutablecptrie_getRange(trie: *const UMutableCPTrie, start: i32, option: UCPMapRangeOption, surrogatevalue: u32, filter: *mut UCPMapValueFilter, context: *const ::core::ffi::c_void, pvalue: *mut u32) -> i32 {
+pub unsafe fn umutablecptrie_getRange(trie: &UMutableCPTrie, start: i32, option: UCPMapRangeOption, surrogatevalue: u32, filter: &mut UCPMapValueFilter, context: *const ::core::ffi::c_void, pvalue: &mut u32) -> i32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn umutablecptrie_getRange(trie: *const UMutableCPTrie, start: i32, option: UCPMapRangeOption, surrogatevalue: u32, filter: *mut *mut ::core::ffi::c_void, context: *const ::core::ffi::c_void, pvalue: *mut u32) -> i32;
@@ -23593,7 +23593,7 @@ pub unsafe fn umutablecptrie_getRange(trie: *const UMutableCPTrie, start: i32, o
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn umutablecptrie_open(initialvalue: u32, errorvalue: u32, perrorcode: *mut UErrorCode) -> *mut UMutableCPTrie {
+pub unsafe fn umutablecptrie_open(initialvalue: u32, errorvalue: u32, perrorcode: &mut UErrorCode) -> *mut UMutableCPTrie {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn umutablecptrie_open(initialvalue: u32, errorvalue: u32, perrorcode: *mut UErrorCode) -> *mut UMutableCPTrie;
@@ -23602,7 +23602,7 @@ pub unsafe fn umutablecptrie_open(initialvalue: u32, errorvalue: u32, perrorcode
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn umutablecptrie_set(trie: *mut UMutableCPTrie, c: i32, value: u32, perrorcode: *mut UErrorCode) {
+pub unsafe fn umutablecptrie_set(trie: &mut UMutableCPTrie, c: i32, value: u32, perrorcode: &mut UErrorCode) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn umutablecptrie_set(trie: *mut UMutableCPTrie, c: i32, value: u32, perrorcode: *mut UErrorCode);
@@ -23611,7 +23611,7 @@ pub unsafe fn umutablecptrie_set(trie: *mut UMutableCPTrie, c: i32, value: u32, 
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn umutablecptrie_setRange(trie: *mut UMutableCPTrie, start: i32, end: i32, value: u32, perrorcode: *mut UErrorCode) {
+pub unsafe fn umutablecptrie_setRange(trie: &mut UMutableCPTrie, start: i32, end: i32, value: u32, perrorcode: &mut UErrorCode) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn umutablecptrie_setRange(trie: *mut UMutableCPTrie, start: i32, end: i32, value: u32, perrorcode: *mut UErrorCode);
@@ -23620,7 +23620,7 @@ pub unsafe fn umutablecptrie_setRange(trie: *mut UMutableCPTrie, start: i32, end
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn unorm2_append(norm2: *const UNormalizer2, first: *mut u16, firstlength: i32, firstcapacity: i32, second: *const u16, secondlength: i32, perrorcode: *mut UErrorCode) -> i32 {
+pub unsafe fn unorm2_append(norm2: &UNormalizer2, first: &mut u16, firstlength: i32, firstcapacity: i32, second: &u16, secondlength: i32, perrorcode: &mut UErrorCode) -> i32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn unorm2_append(norm2: *const UNormalizer2, first: *mut u16, firstlength: i32, firstcapacity: i32, second: *const u16, secondlength: i32, perrorcode: *mut UErrorCode) -> i32;
@@ -23629,7 +23629,7 @@ pub unsafe fn unorm2_append(norm2: *const UNormalizer2, first: *mut u16, firstle
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn unorm2_close(norm2: *mut UNormalizer2) {
+pub unsafe fn unorm2_close(norm2: &mut UNormalizer2) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn unorm2_close(norm2: *mut UNormalizer2);
@@ -23638,7 +23638,7 @@ pub unsafe fn unorm2_close(norm2: *mut UNormalizer2) {
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn unorm2_composePair(norm2: *const UNormalizer2, a: i32, b: i32) -> i32 {
+pub unsafe fn unorm2_composePair(norm2: &UNormalizer2, a: i32, b: i32) -> i32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn unorm2_composePair(norm2: *const UNormalizer2, a: i32, b: i32) -> i32;
@@ -23647,7 +23647,7 @@ pub unsafe fn unorm2_composePair(norm2: *const UNormalizer2, a: i32, b: i32) -> 
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn unorm2_getCombiningClass(norm2: *const UNormalizer2, c: i32) -> u8 {
+pub unsafe fn unorm2_getCombiningClass(norm2: &UNormalizer2, c: i32) -> u8 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn unorm2_getCombiningClass(norm2: *const UNormalizer2, c: i32) -> u8;
@@ -23656,7 +23656,7 @@ pub unsafe fn unorm2_getCombiningClass(norm2: *const UNormalizer2, c: i32) -> u8
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn unorm2_getDecomposition(norm2: *const UNormalizer2, c: i32, decomposition: *mut u16, capacity: i32, perrorcode: *mut UErrorCode) -> i32 {
+pub unsafe fn unorm2_getDecomposition(norm2: &UNormalizer2, c: i32, decomposition: &mut u16, capacity: i32, perrorcode: &mut UErrorCode) -> i32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn unorm2_getDecomposition(norm2: *const UNormalizer2, c: i32, decomposition: *mut u16, capacity: i32, perrorcode: *mut UErrorCode) -> i32;
@@ -23665,7 +23665,7 @@ pub unsafe fn unorm2_getDecomposition(norm2: *const UNormalizer2, c: i32, decomp
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn unorm2_getInstance<'a, P0, P1>(packagename: P0, name: P1, mode: UNormalization2Mode, perrorcode: *mut UErrorCode) -> *mut UNormalizer2
+pub unsafe fn unorm2_getInstance<'a, P0, P1>(packagename: P0, name: P1, mode: UNormalization2Mode, perrorcode: &mut UErrorCode) -> *mut UNormalizer2
 where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
     P1: ::std::convert::Into<::windows::core::PCSTR>,
@@ -23678,7 +23678,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn unorm2_getNFCInstance(perrorcode: *mut UErrorCode) -> *mut UNormalizer2 {
+pub unsafe fn unorm2_getNFCInstance(perrorcode: &mut UErrorCode) -> *mut UNormalizer2 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn unorm2_getNFCInstance(perrorcode: *mut UErrorCode) -> *mut UNormalizer2;
@@ -23687,7 +23687,7 @@ pub unsafe fn unorm2_getNFCInstance(perrorcode: *mut UErrorCode) -> *mut UNormal
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn unorm2_getNFDInstance(perrorcode: *mut UErrorCode) -> *mut UNormalizer2 {
+pub unsafe fn unorm2_getNFDInstance(perrorcode: &mut UErrorCode) -> *mut UNormalizer2 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn unorm2_getNFDInstance(perrorcode: *mut UErrorCode) -> *mut UNormalizer2;
@@ -23696,7 +23696,7 @@ pub unsafe fn unorm2_getNFDInstance(perrorcode: *mut UErrorCode) -> *mut UNormal
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn unorm2_getNFKCCasefoldInstance(perrorcode: *mut UErrorCode) -> *mut UNormalizer2 {
+pub unsafe fn unorm2_getNFKCCasefoldInstance(perrorcode: &mut UErrorCode) -> *mut UNormalizer2 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn unorm2_getNFKCCasefoldInstance(perrorcode: *mut UErrorCode) -> *mut UNormalizer2;
@@ -23705,7 +23705,7 @@ pub unsafe fn unorm2_getNFKCCasefoldInstance(perrorcode: *mut UErrorCode) -> *mu
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn unorm2_getNFKCInstance(perrorcode: *mut UErrorCode) -> *mut UNormalizer2 {
+pub unsafe fn unorm2_getNFKCInstance(perrorcode: &mut UErrorCode) -> *mut UNormalizer2 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn unorm2_getNFKCInstance(perrorcode: *mut UErrorCode) -> *mut UNormalizer2;
@@ -23714,7 +23714,7 @@ pub unsafe fn unorm2_getNFKCInstance(perrorcode: *mut UErrorCode) -> *mut UNorma
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn unorm2_getNFKDInstance(perrorcode: *mut UErrorCode) -> *mut UNormalizer2 {
+pub unsafe fn unorm2_getNFKDInstance(perrorcode: &mut UErrorCode) -> *mut UNormalizer2 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn unorm2_getNFKDInstance(perrorcode: *mut UErrorCode) -> *mut UNormalizer2;
@@ -23723,7 +23723,7 @@ pub unsafe fn unorm2_getNFKDInstance(perrorcode: *mut UErrorCode) -> *mut UNorma
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn unorm2_getRawDecomposition(norm2: *const UNormalizer2, c: i32, decomposition: *mut u16, capacity: i32, perrorcode: *mut UErrorCode) -> i32 {
+pub unsafe fn unorm2_getRawDecomposition(norm2: &UNormalizer2, c: i32, decomposition: &mut u16, capacity: i32, perrorcode: &mut UErrorCode) -> i32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn unorm2_getRawDecomposition(norm2: *const UNormalizer2, c: i32, decomposition: *mut u16, capacity: i32, perrorcode: *mut UErrorCode) -> i32;
@@ -23732,7 +23732,7 @@ pub unsafe fn unorm2_getRawDecomposition(norm2: *const UNormalizer2, c: i32, dec
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn unorm2_hasBoundaryAfter(norm2: *const UNormalizer2, c: i32) -> i8 {
+pub unsafe fn unorm2_hasBoundaryAfter(norm2: &UNormalizer2, c: i32) -> i8 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn unorm2_hasBoundaryAfter(norm2: *const UNormalizer2, c: i32) -> i8;
@@ -23741,7 +23741,7 @@ pub unsafe fn unorm2_hasBoundaryAfter(norm2: *const UNormalizer2, c: i32) -> i8 
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn unorm2_hasBoundaryBefore(norm2: *const UNormalizer2, c: i32) -> i8 {
+pub unsafe fn unorm2_hasBoundaryBefore(norm2: &UNormalizer2, c: i32) -> i8 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn unorm2_hasBoundaryBefore(norm2: *const UNormalizer2, c: i32) -> i8;
@@ -23750,7 +23750,7 @@ pub unsafe fn unorm2_hasBoundaryBefore(norm2: *const UNormalizer2, c: i32) -> i8
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn unorm2_isInert(norm2: *const UNormalizer2, c: i32) -> i8 {
+pub unsafe fn unorm2_isInert(norm2: &UNormalizer2, c: i32) -> i8 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn unorm2_isInert(norm2: *const UNormalizer2, c: i32) -> i8;
@@ -23759,7 +23759,7 @@ pub unsafe fn unorm2_isInert(norm2: *const UNormalizer2, c: i32) -> i8 {
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn unorm2_isNormalized(norm2: *const UNormalizer2, s: *const u16, length: i32, perrorcode: *mut UErrorCode) -> i8 {
+pub unsafe fn unorm2_isNormalized(norm2: &UNormalizer2, s: &u16, length: i32, perrorcode: &mut UErrorCode) -> i8 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn unorm2_isNormalized(norm2: *const UNormalizer2, s: *const u16, length: i32, perrorcode: *mut UErrorCode) -> i8;
@@ -23768,7 +23768,7 @@ pub unsafe fn unorm2_isNormalized(norm2: *const UNormalizer2, s: *const u16, len
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn unorm2_normalize(norm2: *const UNormalizer2, src: *const u16, length: i32, dest: *mut u16, capacity: i32, perrorcode: *mut UErrorCode) -> i32 {
+pub unsafe fn unorm2_normalize(norm2: &UNormalizer2, src: &u16, length: i32, dest: &mut u16, capacity: i32, perrorcode: &mut UErrorCode) -> i32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn unorm2_normalize(norm2: *const UNormalizer2, src: *const u16, length: i32, dest: *mut u16, capacity: i32, perrorcode: *mut UErrorCode) -> i32;
@@ -23777,7 +23777,7 @@ pub unsafe fn unorm2_normalize(norm2: *const UNormalizer2, src: *const u16, leng
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn unorm2_normalizeSecondAndAppend(norm2: *const UNormalizer2, first: *mut u16, firstlength: i32, firstcapacity: i32, second: *const u16, secondlength: i32, perrorcode: *mut UErrorCode) -> i32 {
+pub unsafe fn unorm2_normalizeSecondAndAppend(norm2: &UNormalizer2, first: &mut u16, firstlength: i32, firstcapacity: i32, second: &u16, secondlength: i32, perrorcode: &mut UErrorCode) -> i32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn unorm2_normalizeSecondAndAppend(norm2: *const UNormalizer2, first: *mut u16, firstlength: i32, firstcapacity: i32, second: *const u16, secondlength: i32, perrorcode: *mut UErrorCode) -> i32;
@@ -23786,7 +23786,7 @@ pub unsafe fn unorm2_normalizeSecondAndAppend(norm2: *const UNormalizer2, first:
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn unorm2_openFiltered(norm2: *const UNormalizer2, filterset: *const USet, perrorcode: *mut UErrorCode) -> *mut UNormalizer2 {
+pub unsafe fn unorm2_openFiltered(norm2: &UNormalizer2, filterset: &USet, perrorcode: &mut UErrorCode) -> *mut UNormalizer2 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn unorm2_openFiltered(norm2: *const UNormalizer2, filterset: *const USet, perrorcode: *mut UErrorCode) -> *mut UNormalizer2;
@@ -23795,7 +23795,7 @@ pub unsafe fn unorm2_openFiltered(norm2: *const UNormalizer2, filterset: *const 
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn unorm2_quickCheck(norm2: *const UNormalizer2, s: *const u16, length: i32, perrorcode: *mut UErrorCode) -> UNormalizationCheckResult {
+pub unsafe fn unorm2_quickCheck(norm2: &UNormalizer2, s: &u16, length: i32, perrorcode: &mut UErrorCode) -> UNormalizationCheckResult {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn unorm2_quickCheck(norm2: *const UNormalizer2, s: *const u16, length: i32, perrorcode: *mut UErrorCode) -> UNormalizationCheckResult;
@@ -23804,7 +23804,7 @@ pub unsafe fn unorm2_quickCheck(norm2: *const UNormalizer2, s: *const u16, lengt
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn unorm2_spanQuickCheckYes(norm2: *const UNormalizer2, s: *const u16, length: i32, perrorcode: *mut UErrorCode) -> i32 {
+pub unsafe fn unorm2_spanQuickCheckYes(norm2: &UNormalizer2, s: &u16, length: i32, perrorcode: &mut UErrorCode) -> i32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn unorm2_spanQuickCheckYes(norm2: *const UNormalizer2, s: *const u16, length: i32, perrorcode: *mut UErrorCode) -> i32;
@@ -23813,7 +23813,7 @@ pub unsafe fn unorm2_spanQuickCheckYes(norm2: *const UNormalizer2, s: *const u16
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn unorm_compare(s1: *const u16, length1: i32, s2: *const u16, length2: i32, options: u32, perrorcode: *mut UErrorCode) -> i32 {
+pub unsafe fn unorm_compare(s1: &u16, length1: i32, s2: &u16, length2: i32, options: u32, perrorcode: &mut UErrorCode) -> i32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn unorm_compare(s1: *const u16, length1: i32, s2: *const u16, length2: i32, options: u32, perrorcode: *mut UErrorCode) -> i32;
@@ -23822,7 +23822,7 @@ pub unsafe fn unorm_compare(s1: *const u16, length1: i32, s2: *const u16, length
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn unum_applyPattern(format: *mut *mut ::core::ffi::c_void, localized: i8, pattern: *const u16, patternlength: i32, parseerror: *mut UParseError, status: *mut UErrorCode) {
+pub unsafe fn unum_applyPattern(format: *mut *mut ::core::ffi::c_void, localized: i8, pattern: &u16, patternlength: i32, parseerror: &mut UParseError, status: &mut UErrorCode) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn unum_applyPattern(format: *mut *mut ::core::ffi::c_void, localized: i8, pattern: *const u16, patternlength: i32, parseerror: *mut UParseError, status: *mut UErrorCode);
@@ -23831,7 +23831,7 @@ pub unsafe fn unum_applyPattern(format: *mut *mut ::core::ffi::c_void, localized
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn unum_clone(fmt: *const *const ::core::ffi::c_void, status: *mut UErrorCode) -> *mut *mut ::core::ffi::c_void {
+pub unsafe fn unum_clone(fmt: *const *const ::core::ffi::c_void, status: &mut UErrorCode) -> *mut *mut ::core::ffi::c_void {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn unum_clone(fmt: *const *const ::core::ffi::c_void, status: *mut UErrorCode) -> *mut *mut ::core::ffi::c_void;
@@ -23858,7 +23858,7 @@ pub unsafe fn unum_countAvailable() -> i32 {
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn unum_format(fmt: *const *const ::core::ffi::c_void, number: i32, result: *mut u16, resultlength: i32, pos: *mut UFieldPosition, status: *mut UErrorCode) -> i32 {
+pub unsafe fn unum_format(fmt: *const *const ::core::ffi::c_void, number: i32, result: &mut u16, resultlength: i32, pos: &mut UFieldPosition, status: &mut UErrorCode) -> i32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn unum_format(fmt: *const *const ::core::ffi::c_void, number: i32, result: *mut u16, resultlength: i32, pos: *mut UFieldPosition, status: *mut UErrorCode) -> i32;
@@ -23867,7 +23867,7 @@ pub unsafe fn unum_format(fmt: *const *const ::core::ffi::c_void, number: i32, r
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn unum_formatDecimal<'a, P0>(fmt: *const *const ::core::ffi::c_void, number: P0, length: i32, result: *mut u16, resultlength: i32, pos: *mut UFieldPosition, status: *mut UErrorCode) -> i32
+pub unsafe fn unum_formatDecimal<'a, P0>(fmt: *const *const ::core::ffi::c_void, number: P0, length: i32, result: &mut u16, resultlength: i32, pos: &mut UFieldPosition, status: &mut UErrorCode) -> i32
 where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
 {
@@ -23879,7 +23879,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn unum_formatDouble(fmt: *const *const ::core::ffi::c_void, number: f64, result: *mut u16, resultlength: i32, pos: *mut UFieldPosition, status: *mut UErrorCode) -> i32 {
+pub unsafe fn unum_formatDouble(fmt: *const *const ::core::ffi::c_void, number: f64, result: &mut u16, resultlength: i32, pos: &mut UFieldPosition, status: &mut UErrorCode) -> i32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn unum_formatDouble(fmt: *const *const ::core::ffi::c_void, number: f64, result: *mut u16, resultlength: i32, pos: *mut UFieldPosition, status: *mut UErrorCode) -> i32;
@@ -23888,7 +23888,7 @@ pub unsafe fn unum_formatDouble(fmt: *const *const ::core::ffi::c_void, number: 
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn unum_formatDoubleCurrency(fmt: *const *const ::core::ffi::c_void, number: f64, currency: *mut u16, result: *mut u16, resultlength: i32, pos: *mut UFieldPosition, status: *mut UErrorCode) -> i32 {
+pub unsafe fn unum_formatDoubleCurrency(fmt: *const *const ::core::ffi::c_void, number: f64, currency: &mut u16, result: &mut u16, resultlength: i32, pos: &mut UFieldPosition, status: &mut UErrorCode) -> i32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn unum_formatDoubleCurrency(fmt: *const *const ::core::ffi::c_void, number: f64, currency: *mut u16, result: *mut u16, resultlength: i32, pos: *mut UFieldPosition, status: *mut UErrorCode) -> i32;
@@ -23897,7 +23897,7 @@ pub unsafe fn unum_formatDoubleCurrency(fmt: *const *const ::core::ffi::c_void, 
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn unum_formatDoubleForFields(format: *const *const ::core::ffi::c_void, number: f64, result: *mut u16, resultlength: i32, fpositer: *mut UFieldPositionIterator, status: *mut UErrorCode) -> i32 {
+pub unsafe fn unum_formatDoubleForFields(format: *const *const ::core::ffi::c_void, number: f64, result: &mut u16, resultlength: i32, fpositer: &mut UFieldPositionIterator, status: &mut UErrorCode) -> i32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn unum_formatDoubleForFields(format: *const *const ::core::ffi::c_void, number: f64, result: *mut u16, resultlength: i32, fpositer: *mut UFieldPositionIterator, status: *mut UErrorCode) -> i32;
@@ -23906,7 +23906,7 @@ pub unsafe fn unum_formatDoubleForFields(format: *const *const ::core::ffi::c_vo
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn unum_formatInt64(fmt: *const *const ::core::ffi::c_void, number: i64, result: *mut u16, resultlength: i32, pos: *mut UFieldPosition, status: *mut UErrorCode) -> i32 {
+pub unsafe fn unum_formatInt64(fmt: *const *const ::core::ffi::c_void, number: i64, result: &mut u16, resultlength: i32, pos: &mut UFieldPosition, status: &mut UErrorCode) -> i32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn unum_formatInt64(fmt: *const *const ::core::ffi::c_void, number: i64, result: *mut u16, resultlength: i32, pos: *mut UFieldPosition, status: *mut UErrorCode) -> i32;
@@ -23915,7 +23915,7 @@ pub unsafe fn unum_formatInt64(fmt: *const *const ::core::ffi::c_void, number: i
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn unum_formatUFormattable(fmt: *const *const ::core::ffi::c_void, number: *const *const ::core::ffi::c_void, result: *mut u16, resultlength: i32, pos: *mut UFieldPosition, status: *mut UErrorCode) -> i32 {
+pub unsafe fn unum_formatUFormattable(fmt: *const *const ::core::ffi::c_void, number: *const *const ::core::ffi::c_void, result: &mut u16, resultlength: i32, pos: &mut UFieldPosition, status: &mut UErrorCode) -> i32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn unum_formatUFormattable(fmt: *const *const ::core::ffi::c_void, number: *const *const ::core::ffi::c_void, result: *mut u16, resultlength: i32, pos: *mut UFieldPosition, status: *mut UErrorCode) -> i32;
@@ -23942,7 +23942,7 @@ pub unsafe fn unum_getAvailable(localeindex: i32) -> ::windows::core::PSTR {
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn unum_getContext(fmt: *const *const ::core::ffi::c_void, r#type: UDisplayContextType, status: *mut UErrorCode) -> UDisplayContext {
+pub unsafe fn unum_getContext(fmt: *const *const ::core::ffi::c_void, r#type: UDisplayContextType, status: &mut UErrorCode) -> UDisplayContext {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn unum_getContext(fmt: *const *const ::core::ffi::c_void, r#type: UDisplayContextType, status: *mut UErrorCode) -> UDisplayContext;
@@ -23960,7 +23960,7 @@ pub unsafe fn unum_getDoubleAttribute(fmt: *const *const ::core::ffi::c_void, at
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn unum_getLocaleByType(fmt: *const *const ::core::ffi::c_void, r#type: ULocDataLocaleType, status: *mut UErrorCode) -> ::windows::core::PSTR {
+pub unsafe fn unum_getLocaleByType(fmt: *const *const ::core::ffi::c_void, r#type: ULocDataLocaleType, status: &mut UErrorCode) -> ::windows::core::PSTR {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn unum_getLocaleByType(fmt: *const *const ::core::ffi::c_void, r#type: ULocDataLocaleType, status: *mut UErrorCode) -> ::windows::core::PSTR;
@@ -23969,7 +23969,7 @@ pub unsafe fn unum_getLocaleByType(fmt: *const *const ::core::ffi::c_void, r#typ
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn unum_getSymbol(fmt: *const *const ::core::ffi::c_void, symbol: UNumberFormatSymbol, buffer: *mut u16, size: i32, status: *mut UErrorCode) -> i32 {
+pub unsafe fn unum_getSymbol(fmt: *const *const ::core::ffi::c_void, symbol: UNumberFormatSymbol, buffer: &mut u16, size: i32, status: &mut UErrorCode) -> i32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn unum_getSymbol(fmt: *const *const ::core::ffi::c_void, symbol: UNumberFormatSymbol, buffer: *mut u16, size: i32, status: *mut UErrorCode) -> i32;
@@ -23978,7 +23978,7 @@ pub unsafe fn unum_getSymbol(fmt: *const *const ::core::ffi::c_void, symbol: UNu
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn unum_getTextAttribute(fmt: *const *const ::core::ffi::c_void, tag: UNumberFormatTextAttribute, result: *mut u16, resultlength: i32, status: *mut UErrorCode) -> i32 {
+pub unsafe fn unum_getTextAttribute(fmt: *const *const ::core::ffi::c_void, tag: UNumberFormatTextAttribute, result: &mut u16, resultlength: i32, status: &mut UErrorCode) -> i32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn unum_getTextAttribute(fmt: *const *const ::core::ffi::c_void, tag: UNumberFormatTextAttribute, result: *mut u16, resultlength: i32, status: *mut UErrorCode) -> i32;
@@ -23987,7 +23987,7 @@ pub unsafe fn unum_getTextAttribute(fmt: *const *const ::core::ffi::c_void, tag:
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn unum_open<'a, P0>(style: UNumberFormatStyle, pattern: *const u16, patternlength: i32, locale: P0, parseerr: *mut UParseError, status: *mut UErrorCode) -> *mut *mut ::core::ffi::c_void
+pub unsafe fn unum_open<'a, P0>(style: UNumberFormatStyle, pattern: &u16, patternlength: i32, locale: P0, parseerr: &mut UParseError, status: &mut UErrorCode) -> *mut *mut ::core::ffi::c_void
 where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
 {
@@ -23999,7 +23999,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn unum_parse(fmt: *const *const ::core::ffi::c_void, text: *const u16, textlength: i32, parsepos: *mut i32, status: *mut UErrorCode) -> i32 {
+pub unsafe fn unum_parse(fmt: *const *const ::core::ffi::c_void, text: &u16, textlength: i32, parsepos: &mut i32, status: &mut UErrorCode) -> i32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn unum_parse(fmt: *const *const ::core::ffi::c_void, text: *const u16, textlength: i32, parsepos: *mut i32, status: *mut UErrorCode) -> i32;
@@ -24008,7 +24008,7 @@ pub unsafe fn unum_parse(fmt: *const *const ::core::ffi::c_void, text: *const u1
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn unum_parseDecimal<'a, P0>(fmt: *const *const ::core::ffi::c_void, text: *const u16, textlength: i32, parsepos: *mut i32, outbuf: P0, outbuflength: i32, status: *mut UErrorCode) -> i32
+pub unsafe fn unum_parseDecimal<'a, P0>(fmt: *const *const ::core::ffi::c_void, text: &u16, textlength: i32, parsepos: &mut i32, outbuf: P0, outbuflength: i32, status: &mut UErrorCode) -> i32
 where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
 {
@@ -24020,7 +24020,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn unum_parseDouble(fmt: *const *const ::core::ffi::c_void, text: *const u16, textlength: i32, parsepos: *mut i32, status: *mut UErrorCode) -> f64 {
+pub unsafe fn unum_parseDouble(fmt: *const *const ::core::ffi::c_void, text: &u16, textlength: i32, parsepos: &mut i32, status: &mut UErrorCode) -> f64 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn unum_parseDouble(fmt: *const *const ::core::ffi::c_void, text: *const u16, textlength: i32, parsepos: *mut i32, status: *mut UErrorCode) -> f64;
@@ -24029,7 +24029,7 @@ pub unsafe fn unum_parseDouble(fmt: *const *const ::core::ffi::c_void, text: *co
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn unum_parseDoubleCurrency(fmt: *const *const ::core::ffi::c_void, text: *const u16, textlength: i32, parsepos: *mut i32, currency: *mut u16, status: *mut UErrorCode) -> f64 {
+pub unsafe fn unum_parseDoubleCurrency(fmt: *const *const ::core::ffi::c_void, text: &u16, textlength: i32, parsepos: &mut i32, currency: &mut u16, status: &mut UErrorCode) -> f64 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn unum_parseDoubleCurrency(fmt: *const *const ::core::ffi::c_void, text: *const u16, textlength: i32, parsepos: *mut i32, currency: *mut u16, status: *mut UErrorCode) -> f64;
@@ -24038,7 +24038,7 @@ pub unsafe fn unum_parseDoubleCurrency(fmt: *const *const ::core::ffi::c_void, t
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn unum_parseInt64(fmt: *const *const ::core::ffi::c_void, text: *const u16, textlength: i32, parsepos: *mut i32, status: *mut UErrorCode) -> i64 {
+pub unsafe fn unum_parseInt64(fmt: *const *const ::core::ffi::c_void, text: &u16, textlength: i32, parsepos: &mut i32, status: &mut UErrorCode) -> i64 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn unum_parseInt64(fmt: *const *const ::core::ffi::c_void, text: *const u16, textlength: i32, parsepos: *mut i32, status: *mut UErrorCode) -> i64;
@@ -24047,7 +24047,7 @@ pub unsafe fn unum_parseInt64(fmt: *const *const ::core::ffi::c_void, text: *con
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn unum_parseToUFormattable(fmt: *const *const ::core::ffi::c_void, result: *mut *mut ::core::ffi::c_void, text: *const u16, textlength: i32, parsepos: *mut i32, status: *mut UErrorCode) -> *mut *mut ::core::ffi::c_void {
+pub unsafe fn unum_parseToUFormattable(fmt: *const *const ::core::ffi::c_void, result: *mut *mut ::core::ffi::c_void, text: &u16, textlength: i32, parsepos: &mut i32, status: &mut UErrorCode) -> *mut *mut ::core::ffi::c_void {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn unum_parseToUFormattable(fmt: *const *const ::core::ffi::c_void, result: *mut *mut ::core::ffi::c_void, text: *const u16, textlength: i32, parsepos: *mut i32, status: *mut UErrorCode) -> *mut *mut ::core::ffi::c_void;
@@ -24065,7 +24065,7 @@ pub unsafe fn unum_setAttribute(fmt: *mut *mut ::core::ffi::c_void, attr: UNumbe
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn unum_setContext(fmt: *mut *mut ::core::ffi::c_void, value: UDisplayContext, status: *mut UErrorCode) {
+pub unsafe fn unum_setContext(fmt: *mut *mut ::core::ffi::c_void, value: UDisplayContext, status: &mut UErrorCode) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn unum_setContext(fmt: *mut *mut ::core::ffi::c_void, value: UDisplayContext, status: *mut UErrorCode);
@@ -24083,7 +24083,7 @@ pub unsafe fn unum_setDoubleAttribute(fmt: *mut *mut ::core::ffi::c_void, attr: 
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn unum_setSymbol(fmt: *mut *mut ::core::ffi::c_void, symbol: UNumberFormatSymbol, value: *const u16, length: i32, status: *mut UErrorCode) {
+pub unsafe fn unum_setSymbol(fmt: *mut *mut ::core::ffi::c_void, symbol: UNumberFormatSymbol, value: &u16, length: i32, status: &mut UErrorCode) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn unum_setSymbol(fmt: *mut *mut ::core::ffi::c_void, symbol: UNumberFormatSymbol, value: *const u16, length: i32, status: *mut UErrorCode);
@@ -24092,7 +24092,7 @@ pub unsafe fn unum_setSymbol(fmt: *mut *mut ::core::ffi::c_void, symbol: UNumber
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn unum_setTextAttribute(fmt: *mut *mut ::core::ffi::c_void, tag: UNumberFormatTextAttribute, newvalue: *const u16, newvaluelength: i32, status: *mut UErrorCode) {
+pub unsafe fn unum_setTextAttribute(fmt: *mut *mut ::core::ffi::c_void, tag: UNumberFormatTextAttribute, newvalue: &u16, newvaluelength: i32, status: &mut UErrorCode) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn unum_setTextAttribute(fmt: *mut *mut ::core::ffi::c_void, tag: UNumberFormatTextAttribute, newvalue: *const u16, newvaluelength: i32, status: *mut UErrorCode);
@@ -24101,7 +24101,7 @@ pub unsafe fn unum_setTextAttribute(fmt: *mut *mut ::core::ffi::c_void, tag: UNu
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn unum_toPattern(fmt: *const *const ::core::ffi::c_void, ispatternlocalized: i8, result: *mut u16, resultlength: i32, status: *mut UErrorCode) -> i32 {
+pub unsafe fn unum_toPattern(fmt: *const *const ::core::ffi::c_void, ispatternlocalized: i8, result: &mut u16, resultlength: i32, status: &mut UErrorCode) -> i32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn unum_toPattern(fmt: *const *const ::core::ffi::c_void, ispatternlocalized: i8, result: *mut u16, resultlength: i32, status: *mut UErrorCode) -> i32;
@@ -24110,7 +24110,7 @@ pub unsafe fn unum_toPattern(fmt: *const *const ::core::ffi::c_void, ispatternlo
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn unumf_close(uformatter: *mut UNumberFormatter) {
+pub unsafe fn unumf_close(uformatter: &mut UNumberFormatter) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn unumf_close(uformatter: *mut UNumberFormatter);
@@ -24119,7 +24119,7 @@ pub unsafe fn unumf_close(uformatter: *mut UNumberFormatter) {
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn unumf_closeResult(uresult: *mut UFormattedNumber) {
+pub unsafe fn unumf_closeResult(uresult: &mut UFormattedNumber) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn unumf_closeResult(uresult: *mut UFormattedNumber);
@@ -24128,7 +24128,7 @@ pub unsafe fn unumf_closeResult(uresult: *mut UFormattedNumber) {
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn unumf_formatDecimal<'a, P0>(uformatter: *const UNumberFormatter, value: P0, valuelen: i32, uresult: *mut UFormattedNumber, ec: *mut UErrorCode)
+pub unsafe fn unumf_formatDecimal<'a, P0>(uformatter: &UNumberFormatter, value: P0, valuelen: i32, uresult: &mut UFormattedNumber, ec: &mut UErrorCode)
 where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
 {
@@ -24140,7 +24140,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn unumf_formatDouble(uformatter: *const UNumberFormatter, value: f64, uresult: *mut UFormattedNumber, ec: *mut UErrorCode) {
+pub unsafe fn unumf_formatDouble(uformatter: &UNumberFormatter, value: f64, uresult: &mut UFormattedNumber, ec: &mut UErrorCode) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn unumf_formatDouble(uformatter: *const UNumberFormatter, value: f64, uresult: *mut UFormattedNumber, ec: *mut UErrorCode);
@@ -24149,7 +24149,7 @@ pub unsafe fn unumf_formatDouble(uformatter: *const UNumberFormatter, value: f64
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn unumf_formatInt(uformatter: *const UNumberFormatter, value: i64, uresult: *mut UFormattedNumber, ec: *mut UErrorCode) {
+pub unsafe fn unumf_formatInt(uformatter: &UNumberFormatter, value: i64, uresult: &mut UFormattedNumber, ec: &mut UErrorCode) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn unumf_formatInt(uformatter: *const UNumberFormatter, value: i64, uresult: *mut UFormattedNumber, ec: *mut UErrorCode);
@@ -24158,7 +24158,7 @@ pub unsafe fn unumf_formatInt(uformatter: *const UNumberFormatter, value: i64, u
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn unumf_openForSkeletonAndLocale<'a, P0>(skeleton: *const u16, skeletonlen: i32, locale: P0, ec: *mut UErrorCode) -> *mut UNumberFormatter
+pub unsafe fn unumf_openForSkeletonAndLocale<'a, P0>(skeleton: &u16, skeletonlen: i32, locale: P0, ec: &mut UErrorCode) -> *mut UNumberFormatter
 where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
 {
@@ -24170,7 +24170,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn unumf_openForSkeletonAndLocaleWithError<'a, P0>(skeleton: *const u16, skeletonlen: i32, locale: P0, perror: *mut UParseError, ec: *mut UErrorCode) -> *mut UNumberFormatter
+pub unsafe fn unumf_openForSkeletonAndLocaleWithError<'a, P0>(skeleton: &u16, skeletonlen: i32, locale: P0, perror: &mut UParseError, ec: &mut UErrorCode) -> *mut UNumberFormatter
 where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
 {
@@ -24182,7 +24182,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn unumf_openResult(ec: *mut UErrorCode) -> *mut UFormattedNumber {
+pub unsafe fn unumf_openResult(ec: &mut UErrorCode) -> *mut UFormattedNumber {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn unumf_openResult(ec: *mut UErrorCode) -> *mut UFormattedNumber;
@@ -24191,7 +24191,7 @@ pub unsafe fn unumf_openResult(ec: *mut UErrorCode) -> *mut UFormattedNumber {
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn unumf_resultAsValue(uresult: *const UFormattedNumber, ec: *mut UErrorCode) -> *mut UFormattedValue {
+pub unsafe fn unumf_resultAsValue(uresult: &UFormattedNumber, ec: &mut UErrorCode) -> *mut UFormattedValue {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn unumf_resultAsValue(uresult: *const UFormattedNumber, ec: *mut UErrorCode) -> *mut UFormattedValue;
@@ -24200,7 +24200,7 @@ pub unsafe fn unumf_resultAsValue(uresult: *const UFormattedNumber, ec: *mut UEr
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn unumf_resultGetAllFieldPositions(uresult: *const UFormattedNumber, ufpositer: *mut UFieldPositionIterator, ec: *mut UErrorCode) {
+pub unsafe fn unumf_resultGetAllFieldPositions(uresult: &UFormattedNumber, ufpositer: &mut UFieldPositionIterator, ec: &mut UErrorCode) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn unumf_resultGetAllFieldPositions(uresult: *const UFormattedNumber, ufpositer: *mut UFieldPositionIterator, ec: *mut UErrorCode);
@@ -24209,7 +24209,7 @@ pub unsafe fn unumf_resultGetAllFieldPositions(uresult: *const UFormattedNumber,
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn unumf_resultNextFieldPosition(uresult: *const UFormattedNumber, ufpos: *mut UFieldPosition, ec: *mut UErrorCode) -> i8 {
+pub unsafe fn unumf_resultNextFieldPosition(uresult: &UFormattedNumber, ufpos: &mut UFieldPosition, ec: &mut UErrorCode) -> i8 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn unumf_resultNextFieldPosition(uresult: *const UFormattedNumber, ufpos: *mut UFieldPosition, ec: *mut UErrorCode) -> i8;
@@ -24218,7 +24218,7 @@ pub unsafe fn unumf_resultNextFieldPosition(uresult: *const UFormattedNumber, uf
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn unumf_resultToString(uresult: *const UFormattedNumber, buffer: *mut u16, buffercapacity: i32, ec: *mut UErrorCode) -> i32 {
+pub unsafe fn unumf_resultToString(uresult: &UFormattedNumber, buffer: &mut u16, buffercapacity: i32, ec: &mut UErrorCode) -> i32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn unumf_resultToString(uresult: *const UFormattedNumber, buffer: *mut u16, buffercapacity: i32, ec: *mut UErrorCode) -> i32;
@@ -24227,7 +24227,7 @@ pub unsafe fn unumf_resultToString(uresult: *const UFormattedNumber, buffer: *mu
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn unumsys_close(unumsys: *mut UNumberingSystem) {
+pub unsafe fn unumsys_close(unumsys: &mut UNumberingSystem) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn unumsys_close(unumsys: *mut UNumberingSystem);
@@ -24236,7 +24236,7 @@ pub unsafe fn unumsys_close(unumsys: *mut UNumberingSystem) {
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn unumsys_getDescription(unumsys: *const UNumberingSystem, result: *mut u16, resultlength: i32, status: *mut UErrorCode) -> i32 {
+pub unsafe fn unumsys_getDescription(unumsys: &UNumberingSystem, result: &mut u16, resultlength: i32, status: &mut UErrorCode) -> i32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn unumsys_getDescription(unumsys: *const UNumberingSystem, result: *mut u16, resultlength: i32, status: *mut UErrorCode) -> i32;
@@ -24245,7 +24245,7 @@ pub unsafe fn unumsys_getDescription(unumsys: *const UNumberingSystem, result: *
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn unumsys_getName(unumsys: *const UNumberingSystem) -> ::windows::core::PSTR {
+pub unsafe fn unumsys_getName(unumsys: &UNumberingSystem) -> ::windows::core::PSTR {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn unumsys_getName(unumsys: *const UNumberingSystem) -> ::windows::core::PSTR;
@@ -24254,7 +24254,7 @@ pub unsafe fn unumsys_getName(unumsys: *const UNumberingSystem) -> ::windows::co
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn unumsys_getRadix(unumsys: *const UNumberingSystem) -> i32 {
+pub unsafe fn unumsys_getRadix(unumsys: &UNumberingSystem) -> i32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn unumsys_getRadix(unumsys: *const UNumberingSystem) -> i32;
@@ -24263,7 +24263,7 @@ pub unsafe fn unumsys_getRadix(unumsys: *const UNumberingSystem) -> i32 {
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn unumsys_isAlgorithmic(unumsys: *const UNumberingSystem) -> i8 {
+pub unsafe fn unumsys_isAlgorithmic(unumsys: &UNumberingSystem) -> i8 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn unumsys_isAlgorithmic(unumsys: *const UNumberingSystem) -> i8;
@@ -24272,7 +24272,7 @@ pub unsafe fn unumsys_isAlgorithmic(unumsys: *const UNumberingSystem) -> i8 {
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn unumsys_open<'a, P0>(locale: P0, status: *mut UErrorCode) -> *mut UNumberingSystem
+pub unsafe fn unumsys_open<'a, P0>(locale: P0, status: &mut UErrorCode) -> *mut UNumberingSystem
 where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
 {
@@ -24284,7 +24284,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn unumsys_openAvailableNames(status: *mut UErrorCode) -> *mut UEnumeration {
+pub unsafe fn unumsys_openAvailableNames(status: &mut UErrorCode) -> *mut UEnumeration {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn unumsys_openAvailableNames(status: *mut UErrorCode) -> *mut UEnumeration;
@@ -24293,7 +24293,7 @@ pub unsafe fn unumsys_openAvailableNames(status: *mut UErrorCode) -> *mut UEnume
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn unumsys_openByName<'a, P0>(name: P0, status: *mut UErrorCode) -> *mut UNumberingSystem
+pub unsafe fn unumsys_openByName<'a, P0>(name: P0, status: &mut UErrorCode) -> *mut UNumberingSystem
 where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
 {
@@ -24305,7 +24305,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn uplrules_close(uplrules: *mut UPluralRules) {
+pub unsafe fn uplrules_close(uplrules: &mut UPluralRules) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn uplrules_close(uplrules: *mut UPluralRules);
@@ -24314,7 +24314,7 @@ pub unsafe fn uplrules_close(uplrules: *mut UPluralRules) {
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn uplrules_getKeywords(uplrules: *const UPluralRules, status: *mut UErrorCode) -> *mut UEnumeration {
+pub unsafe fn uplrules_getKeywords(uplrules: &UPluralRules, status: &mut UErrorCode) -> *mut UEnumeration {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn uplrules_getKeywords(uplrules: *const UPluralRules, status: *mut UErrorCode) -> *mut UEnumeration;
@@ -24323,7 +24323,7 @@ pub unsafe fn uplrules_getKeywords(uplrules: *const UPluralRules, status: *mut U
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn uplrules_open<'a, P0>(locale: P0, status: *mut UErrorCode) -> *mut UPluralRules
+pub unsafe fn uplrules_open<'a, P0>(locale: P0, status: &mut UErrorCode) -> *mut UPluralRules
 where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
 {
@@ -24335,7 +24335,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn uplrules_openForType<'a, P0>(locale: P0, r#type: UPluralType, status: *mut UErrorCode) -> *mut UPluralRules
+pub unsafe fn uplrules_openForType<'a, P0>(locale: P0, r#type: UPluralType, status: &mut UErrorCode) -> *mut UPluralRules
 where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
 {
@@ -24347,7 +24347,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn uplrules_select(uplrules: *const UPluralRules, number: f64, keyword: *mut u16, capacity: i32, status: *mut UErrorCode) -> i32 {
+pub unsafe fn uplrules_select(uplrules: &UPluralRules, number: f64, keyword: &mut u16, capacity: i32, status: &mut UErrorCode) -> i32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn uplrules_select(uplrules: *const UPluralRules, number: f64, keyword: *mut u16, capacity: i32, status: *mut UErrorCode) -> i32;
@@ -24356,7 +24356,7 @@ pub unsafe fn uplrules_select(uplrules: *const UPluralRules, number: f64, keywor
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn uplrules_selectFormatted(uplrules: *const UPluralRules, number: *const UFormattedNumber, keyword: *mut u16, capacity: i32, status: *mut UErrorCode) -> i32 {
+pub unsafe fn uplrules_selectFormatted(uplrules: &UPluralRules, number: &UFormattedNumber, keyword: &mut u16, capacity: i32, status: &mut UErrorCode) -> i32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn uplrules_selectFormatted(uplrules: *const UPluralRules, number: *const UFormattedNumber, keyword: *mut u16, capacity: i32, status: *mut UErrorCode) -> i32;
@@ -24365,7 +24365,7 @@ pub unsafe fn uplrules_selectFormatted(uplrules: *const UPluralRules, number: *c
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn uregex_appendReplacement(regexp: *mut URegularExpression, replacementtext: *const u16, replacementlength: i32, destbuf: *mut *mut u16, destcapacity: *mut i32, status: *mut UErrorCode) -> i32 {
+pub unsafe fn uregex_appendReplacement(regexp: &mut URegularExpression, replacementtext: &u16, replacementlength: i32, destbuf: &mut *mut u16, destcapacity: &mut i32, status: &mut UErrorCode) -> i32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn uregex_appendReplacement(regexp: *mut URegularExpression, replacementtext: *const u16, replacementlength: i32, destbuf: *mut *mut u16, destcapacity: *mut i32, status: *mut UErrorCode) -> i32;
@@ -24374,7 +24374,7 @@ pub unsafe fn uregex_appendReplacement(regexp: *mut URegularExpression, replacem
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn uregex_appendReplacementUText(regexp: *mut URegularExpression, replacementtext: *mut UText, dest: *mut UText, status: *mut UErrorCode) {
+pub unsafe fn uregex_appendReplacementUText(regexp: &mut URegularExpression, replacementtext: &mut UText, dest: &mut UText, status: &mut UErrorCode) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn uregex_appendReplacementUText(regexp: *mut URegularExpression, replacementtext: *mut UText, dest: *mut UText, status: *mut UErrorCode);
@@ -24383,7 +24383,7 @@ pub unsafe fn uregex_appendReplacementUText(regexp: *mut URegularExpression, rep
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn uregex_appendTail(regexp: *mut URegularExpression, destbuf: *mut *mut u16, destcapacity: *mut i32, status: *mut UErrorCode) -> i32 {
+pub unsafe fn uregex_appendTail(regexp: &mut URegularExpression, destbuf: &mut *mut u16, destcapacity: &mut i32, status: &mut UErrorCode) -> i32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn uregex_appendTail(regexp: *mut URegularExpression, destbuf: *mut *mut u16, destcapacity: *mut i32, status: *mut UErrorCode) -> i32;
@@ -24392,7 +24392,7 @@ pub unsafe fn uregex_appendTail(regexp: *mut URegularExpression, destbuf: *mut *
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn uregex_appendTailUText(regexp: *mut URegularExpression, dest: *mut UText, status: *mut UErrorCode) -> *mut UText {
+pub unsafe fn uregex_appendTailUText(regexp: &mut URegularExpression, dest: &mut UText, status: &mut UErrorCode) -> *mut UText {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn uregex_appendTailUText(regexp: *mut URegularExpression, dest: *mut UText, status: *mut UErrorCode) -> *mut UText;
@@ -24401,7 +24401,7 @@ pub unsafe fn uregex_appendTailUText(regexp: *mut URegularExpression, dest: *mut
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn uregex_clone(regexp: *const URegularExpression, status: *mut UErrorCode) -> *mut URegularExpression {
+pub unsafe fn uregex_clone(regexp: &URegularExpression, status: &mut UErrorCode) -> *mut URegularExpression {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn uregex_clone(regexp: *const URegularExpression, status: *mut UErrorCode) -> *mut URegularExpression;
@@ -24410,7 +24410,7 @@ pub unsafe fn uregex_clone(regexp: *const URegularExpression, status: *mut UErro
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn uregex_close(regexp: *mut URegularExpression) {
+pub unsafe fn uregex_close(regexp: &mut URegularExpression) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn uregex_close(regexp: *mut URegularExpression);
@@ -24419,7 +24419,7 @@ pub unsafe fn uregex_close(regexp: *mut URegularExpression) {
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn uregex_end(regexp: *mut URegularExpression, groupnum: i32, status: *mut UErrorCode) -> i32 {
+pub unsafe fn uregex_end(regexp: &mut URegularExpression, groupnum: i32, status: &mut UErrorCode) -> i32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn uregex_end(regexp: *mut URegularExpression, groupnum: i32, status: *mut UErrorCode) -> i32;
@@ -24428,7 +24428,7 @@ pub unsafe fn uregex_end(regexp: *mut URegularExpression, groupnum: i32, status:
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn uregex_end64(regexp: *mut URegularExpression, groupnum: i32, status: *mut UErrorCode) -> i64 {
+pub unsafe fn uregex_end64(regexp: &mut URegularExpression, groupnum: i32, status: &mut UErrorCode) -> i64 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn uregex_end64(regexp: *mut URegularExpression, groupnum: i32, status: *mut UErrorCode) -> i64;
@@ -24437,7 +24437,7 @@ pub unsafe fn uregex_end64(regexp: *mut URegularExpression, groupnum: i32, statu
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn uregex_find(regexp: *mut URegularExpression, startindex: i32, status: *mut UErrorCode) -> i8 {
+pub unsafe fn uregex_find(regexp: &mut URegularExpression, startindex: i32, status: &mut UErrorCode) -> i8 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn uregex_find(regexp: *mut URegularExpression, startindex: i32, status: *mut UErrorCode) -> i8;
@@ -24446,7 +24446,7 @@ pub unsafe fn uregex_find(regexp: *mut URegularExpression, startindex: i32, stat
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn uregex_find64(regexp: *mut URegularExpression, startindex: i64, status: *mut UErrorCode) -> i8 {
+pub unsafe fn uregex_find64(regexp: &mut URegularExpression, startindex: i64, status: &mut UErrorCode) -> i8 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn uregex_find64(regexp: *mut URegularExpression, startindex: i64, status: *mut UErrorCode) -> i8;
@@ -24455,7 +24455,7 @@ pub unsafe fn uregex_find64(regexp: *mut URegularExpression, startindex: i64, st
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn uregex_findNext(regexp: *mut URegularExpression, status: *mut UErrorCode) -> i8 {
+pub unsafe fn uregex_findNext(regexp: &mut URegularExpression, status: &mut UErrorCode) -> i8 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn uregex_findNext(regexp: *mut URegularExpression, status: *mut UErrorCode) -> i8;
@@ -24464,7 +24464,7 @@ pub unsafe fn uregex_findNext(regexp: *mut URegularExpression, status: *mut UErr
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn uregex_flags(regexp: *const URegularExpression, status: *mut UErrorCode) -> i32 {
+pub unsafe fn uregex_flags(regexp: &URegularExpression, status: &mut UErrorCode) -> i32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn uregex_flags(regexp: *const URegularExpression, status: *mut UErrorCode) -> i32;
@@ -24473,7 +24473,7 @@ pub unsafe fn uregex_flags(regexp: *const URegularExpression, status: *mut UErro
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn uregex_getFindProgressCallback(regexp: *const URegularExpression, callback: *mut URegexFindProgressCallback, context: *const *const ::core::ffi::c_void, status: *mut UErrorCode) {
+pub unsafe fn uregex_getFindProgressCallback(regexp: &URegularExpression, callback: &mut URegexFindProgressCallback, context: *const *const ::core::ffi::c_void, status: &mut UErrorCode) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn uregex_getFindProgressCallback(regexp: *const URegularExpression, callback: *mut *mut ::core::ffi::c_void, context: *const *const ::core::ffi::c_void, status: *mut UErrorCode);
@@ -24482,7 +24482,7 @@ pub unsafe fn uregex_getFindProgressCallback(regexp: *const URegularExpression, 
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn uregex_getMatchCallback(regexp: *const URegularExpression, callback: *mut URegexMatchCallback, context: *const *const ::core::ffi::c_void, status: *mut UErrorCode) {
+pub unsafe fn uregex_getMatchCallback(regexp: &URegularExpression, callback: &mut URegexMatchCallback, context: *const *const ::core::ffi::c_void, status: &mut UErrorCode) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn uregex_getMatchCallback(regexp: *const URegularExpression, callback: *mut *mut ::core::ffi::c_void, context: *const *const ::core::ffi::c_void, status: *mut UErrorCode);
@@ -24491,7 +24491,7 @@ pub unsafe fn uregex_getMatchCallback(regexp: *const URegularExpression, callbac
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn uregex_getStackLimit(regexp: *const URegularExpression, status: *mut UErrorCode) -> i32 {
+pub unsafe fn uregex_getStackLimit(regexp: &URegularExpression, status: &mut UErrorCode) -> i32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn uregex_getStackLimit(regexp: *const URegularExpression, status: *mut UErrorCode) -> i32;
@@ -24500,7 +24500,7 @@ pub unsafe fn uregex_getStackLimit(regexp: *const URegularExpression, status: *m
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn uregex_getText(regexp: *mut URegularExpression, textlength: *mut i32, status: *mut UErrorCode) -> *mut u16 {
+pub unsafe fn uregex_getText(regexp: &mut URegularExpression, textlength: &mut i32, status: &mut UErrorCode) -> *mut u16 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn uregex_getText(regexp: *mut URegularExpression, textlength: *mut i32, status: *mut UErrorCode) -> *mut u16;
@@ -24509,7 +24509,7 @@ pub unsafe fn uregex_getText(regexp: *mut URegularExpression, textlength: *mut i
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn uregex_getTimeLimit(regexp: *const URegularExpression, status: *mut UErrorCode) -> i32 {
+pub unsafe fn uregex_getTimeLimit(regexp: &URegularExpression, status: &mut UErrorCode) -> i32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn uregex_getTimeLimit(regexp: *const URegularExpression, status: *mut UErrorCode) -> i32;
@@ -24518,7 +24518,7 @@ pub unsafe fn uregex_getTimeLimit(regexp: *const URegularExpression, status: *mu
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn uregex_getUText(regexp: *mut URegularExpression, dest: *mut UText, status: *mut UErrorCode) -> *mut UText {
+pub unsafe fn uregex_getUText(regexp: &mut URegularExpression, dest: &mut UText, status: &mut UErrorCode) -> *mut UText {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn uregex_getUText(regexp: *mut URegularExpression, dest: *mut UText, status: *mut UErrorCode) -> *mut UText;
@@ -24527,7 +24527,7 @@ pub unsafe fn uregex_getUText(regexp: *mut URegularExpression, dest: *mut UText,
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn uregex_group(regexp: *mut URegularExpression, groupnum: i32, dest: *mut u16, destcapacity: i32, status: *mut UErrorCode) -> i32 {
+pub unsafe fn uregex_group(regexp: &mut URegularExpression, groupnum: i32, dest: &mut u16, destcapacity: i32, status: &mut UErrorCode) -> i32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn uregex_group(regexp: *mut URegularExpression, groupnum: i32, dest: *mut u16, destcapacity: i32, status: *mut UErrorCode) -> i32;
@@ -24536,7 +24536,7 @@ pub unsafe fn uregex_group(regexp: *mut URegularExpression, groupnum: i32, dest:
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn uregex_groupCount(regexp: *mut URegularExpression, status: *mut UErrorCode) -> i32 {
+pub unsafe fn uregex_groupCount(regexp: &mut URegularExpression, status: &mut UErrorCode) -> i32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn uregex_groupCount(regexp: *mut URegularExpression, status: *mut UErrorCode) -> i32;
@@ -24545,7 +24545,7 @@ pub unsafe fn uregex_groupCount(regexp: *mut URegularExpression, status: *mut UE
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn uregex_groupNumberFromCName<'a, P0>(regexp: *mut URegularExpression, groupname: P0, namelength: i32, status: *mut UErrorCode) -> i32
+pub unsafe fn uregex_groupNumberFromCName<'a, P0>(regexp: &mut URegularExpression, groupname: P0, namelength: i32, status: &mut UErrorCode) -> i32
 where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
 {
@@ -24557,7 +24557,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn uregex_groupNumberFromName(regexp: *mut URegularExpression, groupname: *const u16, namelength: i32, status: *mut UErrorCode) -> i32 {
+pub unsafe fn uregex_groupNumberFromName(regexp: &mut URegularExpression, groupname: &u16, namelength: i32, status: &mut UErrorCode) -> i32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn uregex_groupNumberFromName(regexp: *mut URegularExpression, groupname: *const u16, namelength: i32, status: *mut UErrorCode) -> i32;
@@ -24566,7 +24566,7 @@ pub unsafe fn uregex_groupNumberFromName(regexp: *mut URegularExpression, groupn
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn uregex_groupUText(regexp: *mut URegularExpression, groupnum: i32, dest: *mut UText, grouplength: *mut i64, status: *mut UErrorCode) -> *mut UText {
+pub unsafe fn uregex_groupUText(regexp: &mut URegularExpression, groupnum: i32, dest: &mut UText, grouplength: &mut i64, status: &mut UErrorCode) -> *mut UText {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn uregex_groupUText(regexp: *mut URegularExpression, groupnum: i32, dest: *mut UText, grouplength: *mut i64, status: *mut UErrorCode) -> *mut UText;
@@ -24575,7 +24575,7 @@ pub unsafe fn uregex_groupUText(regexp: *mut URegularExpression, groupnum: i32, 
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn uregex_hasAnchoringBounds(regexp: *const URegularExpression, status: *mut UErrorCode) -> i8 {
+pub unsafe fn uregex_hasAnchoringBounds(regexp: &URegularExpression, status: &mut UErrorCode) -> i8 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn uregex_hasAnchoringBounds(regexp: *const URegularExpression, status: *mut UErrorCode) -> i8;
@@ -24584,7 +24584,7 @@ pub unsafe fn uregex_hasAnchoringBounds(regexp: *const URegularExpression, statu
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn uregex_hasTransparentBounds(regexp: *const URegularExpression, status: *mut UErrorCode) -> i8 {
+pub unsafe fn uregex_hasTransparentBounds(regexp: &URegularExpression, status: &mut UErrorCode) -> i8 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn uregex_hasTransparentBounds(regexp: *const URegularExpression, status: *mut UErrorCode) -> i8;
@@ -24593,7 +24593,7 @@ pub unsafe fn uregex_hasTransparentBounds(regexp: *const URegularExpression, sta
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn uregex_hitEnd(regexp: *const URegularExpression, status: *mut UErrorCode) -> i8 {
+pub unsafe fn uregex_hitEnd(regexp: &URegularExpression, status: &mut UErrorCode) -> i8 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn uregex_hitEnd(regexp: *const URegularExpression, status: *mut UErrorCode) -> i8;
@@ -24602,7 +24602,7 @@ pub unsafe fn uregex_hitEnd(regexp: *const URegularExpression, status: *mut UErr
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn uregex_lookingAt(regexp: *mut URegularExpression, startindex: i32, status: *mut UErrorCode) -> i8 {
+pub unsafe fn uregex_lookingAt(regexp: &mut URegularExpression, startindex: i32, status: &mut UErrorCode) -> i8 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn uregex_lookingAt(regexp: *mut URegularExpression, startindex: i32, status: *mut UErrorCode) -> i8;
@@ -24611,7 +24611,7 @@ pub unsafe fn uregex_lookingAt(regexp: *mut URegularExpression, startindex: i32,
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn uregex_lookingAt64(regexp: *mut URegularExpression, startindex: i64, status: *mut UErrorCode) -> i8 {
+pub unsafe fn uregex_lookingAt64(regexp: &mut URegularExpression, startindex: i64, status: &mut UErrorCode) -> i8 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn uregex_lookingAt64(regexp: *mut URegularExpression, startindex: i64, status: *mut UErrorCode) -> i8;
@@ -24620,7 +24620,7 @@ pub unsafe fn uregex_lookingAt64(regexp: *mut URegularExpression, startindex: i6
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn uregex_matches(regexp: *mut URegularExpression, startindex: i32, status: *mut UErrorCode) -> i8 {
+pub unsafe fn uregex_matches(regexp: &mut URegularExpression, startindex: i32, status: &mut UErrorCode) -> i8 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn uregex_matches(regexp: *mut URegularExpression, startindex: i32, status: *mut UErrorCode) -> i8;
@@ -24629,7 +24629,7 @@ pub unsafe fn uregex_matches(regexp: *mut URegularExpression, startindex: i32, s
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn uregex_matches64(regexp: *mut URegularExpression, startindex: i64, status: *mut UErrorCode) -> i8 {
+pub unsafe fn uregex_matches64(regexp: &mut URegularExpression, startindex: i64, status: &mut UErrorCode) -> i8 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn uregex_matches64(regexp: *mut URegularExpression, startindex: i64, status: *mut UErrorCode) -> i8;
@@ -24638,7 +24638,7 @@ pub unsafe fn uregex_matches64(regexp: *mut URegularExpression, startindex: i64,
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn uregex_open(pattern: *const u16, patternlength: i32, flags: u32, pe: *mut UParseError, status: *mut UErrorCode) -> *mut URegularExpression {
+pub unsafe fn uregex_open(pattern: &u16, patternlength: i32, flags: u32, pe: &mut UParseError, status: &mut UErrorCode) -> *mut URegularExpression {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn uregex_open(pattern: *const u16, patternlength: i32, flags: u32, pe: *mut UParseError, status: *mut UErrorCode) -> *mut URegularExpression;
@@ -24647,7 +24647,7 @@ pub unsafe fn uregex_open(pattern: *const u16, patternlength: i32, flags: u32, p
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn uregex_openC<'a, P0>(pattern: P0, flags: u32, pe: *mut UParseError, status: *mut UErrorCode) -> *mut URegularExpression
+pub unsafe fn uregex_openC<'a, P0>(pattern: P0, flags: u32, pe: &mut UParseError, status: &mut UErrorCode) -> *mut URegularExpression
 where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
 {
@@ -24659,7 +24659,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn uregex_openUText(pattern: *mut UText, flags: u32, pe: *mut UParseError, status: *mut UErrorCode) -> *mut URegularExpression {
+pub unsafe fn uregex_openUText(pattern: &mut UText, flags: u32, pe: &mut UParseError, status: &mut UErrorCode) -> *mut URegularExpression {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn uregex_openUText(pattern: *mut UText, flags: u32, pe: *mut UParseError, status: *mut UErrorCode) -> *mut URegularExpression;
@@ -24668,7 +24668,7 @@ pub unsafe fn uregex_openUText(pattern: *mut UText, flags: u32, pe: *mut UParseE
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn uregex_pattern(regexp: *const URegularExpression, patlength: *mut i32, status: *mut UErrorCode) -> *mut u16 {
+pub unsafe fn uregex_pattern(regexp: &URegularExpression, patlength: &mut i32, status: &mut UErrorCode) -> *mut u16 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn uregex_pattern(regexp: *const URegularExpression, patlength: *mut i32, status: *mut UErrorCode) -> *mut u16;
@@ -24677,7 +24677,7 @@ pub unsafe fn uregex_pattern(regexp: *const URegularExpression, patlength: *mut 
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn uregex_patternUText(regexp: *const URegularExpression, status: *mut UErrorCode) -> *mut UText {
+pub unsafe fn uregex_patternUText(regexp: &URegularExpression, status: &mut UErrorCode) -> *mut UText {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn uregex_patternUText(regexp: *const URegularExpression, status: *mut UErrorCode) -> *mut UText;
@@ -24686,7 +24686,7 @@ pub unsafe fn uregex_patternUText(regexp: *const URegularExpression, status: *mu
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn uregex_refreshUText(regexp: *mut URegularExpression, text: *mut UText, status: *mut UErrorCode) {
+pub unsafe fn uregex_refreshUText(regexp: &mut URegularExpression, text: &mut UText, status: &mut UErrorCode) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn uregex_refreshUText(regexp: *mut URegularExpression, text: *mut UText, status: *mut UErrorCode);
@@ -24695,7 +24695,7 @@ pub unsafe fn uregex_refreshUText(regexp: *mut URegularExpression, text: *mut UT
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn uregex_regionEnd(regexp: *const URegularExpression, status: *mut UErrorCode) -> i32 {
+pub unsafe fn uregex_regionEnd(regexp: &URegularExpression, status: &mut UErrorCode) -> i32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn uregex_regionEnd(regexp: *const URegularExpression, status: *mut UErrorCode) -> i32;
@@ -24704,7 +24704,7 @@ pub unsafe fn uregex_regionEnd(regexp: *const URegularExpression, status: *mut U
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn uregex_regionEnd64(regexp: *const URegularExpression, status: *mut UErrorCode) -> i64 {
+pub unsafe fn uregex_regionEnd64(regexp: &URegularExpression, status: &mut UErrorCode) -> i64 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn uregex_regionEnd64(regexp: *const URegularExpression, status: *mut UErrorCode) -> i64;
@@ -24713,7 +24713,7 @@ pub unsafe fn uregex_regionEnd64(regexp: *const URegularExpression, status: *mut
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn uregex_regionStart(regexp: *const URegularExpression, status: *mut UErrorCode) -> i32 {
+pub unsafe fn uregex_regionStart(regexp: &URegularExpression, status: &mut UErrorCode) -> i32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn uregex_regionStart(regexp: *const URegularExpression, status: *mut UErrorCode) -> i32;
@@ -24722,7 +24722,7 @@ pub unsafe fn uregex_regionStart(regexp: *const URegularExpression, status: *mut
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn uregex_regionStart64(regexp: *const URegularExpression, status: *mut UErrorCode) -> i64 {
+pub unsafe fn uregex_regionStart64(regexp: &URegularExpression, status: &mut UErrorCode) -> i64 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn uregex_regionStart64(regexp: *const URegularExpression, status: *mut UErrorCode) -> i64;
@@ -24731,7 +24731,7 @@ pub unsafe fn uregex_regionStart64(regexp: *const URegularExpression, status: *m
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn uregex_replaceAll(regexp: *mut URegularExpression, replacementtext: *const u16, replacementlength: i32, destbuf: *mut u16, destcapacity: i32, status: *mut UErrorCode) -> i32 {
+pub unsafe fn uregex_replaceAll(regexp: &mut URegularExpression, replacementtext: &u16, replacementlength: i32, destbuf: &mut u16, destcapacity: i32, status: &mut UErrorCode) -> i32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn uregex_replaceAll(regexp: *mut URegularExpression, replacementtext: *const u16, replacementlength: i32, destbuf: *mut u16, destcapacity: i32, status: *mut UErrorCode) -> i32;
@@ -24740,7 +24740,7 @@ pub unsafe fn uregex_replaceAll(regexp: *mut URegularExpression, replacementtext
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn uregex_replaceAllUText(regexp: *mut URegularExpression, replacement: *mut UText, dest: *mut UText, status: *mut UErrorCode) -> *mut UText {
+pub unsafe fn uregex_replaceAllUText(regexp: &mut URegularExpression, replacement: &mut UText, dest: &mut UText, status: &mut UErrorCode) -> *mut UText {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn uregex_replaceAllUText(regexp: *mut URegularExpression, replacement: *mut UText, dest: *mut UText, status: *mut UErrorCode) -> *mut UText;
@@ -24749,7 +24749,7 @@ pub unsafe fn uregex_replaceAllUText(regexp: *mut URegularExpression, replacemen
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn uregex_replaceFirst(regexp: *mut URegularExpression, replacementtext: *const u16, replacementlength: i32, destbuf: *mut u16, destcapacity: i32, status: *mut UErrorCode) -> i32 {
+pub unsafe fn uregex_replaceFirst(regexp: &mut URegularExpression, replacementtext: &u16, replacementlength: i32, destbuf: &mut u16, destcapacity: i32, status: &mut UErrorCode) -> i32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn uregex_replaceFirst(regexp: *mut URegularExpression, replacementtext: *const u16, replacementlength: i32, destbuf: *mut u16, destcapacity: i32, status: *mut UErrorCode) -> i32;
@@ -24758,7 +24758,7 @@ pub unsafe fn uregex_replaceFirst(regexp: *mut URegularExpression, replacementte
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn uregex_replaceFirstUText(regexp: *mut URegularExpression, replacement: *mut UText, dest: *mut UText, status: *mut UErrorCode) -> *mut UText {
+pub unsafe fn uregex_replaceFirstUText(regexp: &mut URegularExpression, replacement: &mut UText, dest: &mut UText, status: &mut UErrorCode) -> *mut UText {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn uregex_replaceFirstUText(regexp: *mut URegularExpression, replacement: *mut UText, dest: *mut UText, status: *mut UErrorCode) -> *mut UText;
@@ -24767,7 +24767,7 @@ pub unsafe fn uregex_replaceFirstUText(regexp: *mut URegularExpression, replacem
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn uregex_requireEnd(regexp: *const URegularExpression, status: *mut UErrorCode) -> i8 {
+pub unsafe fn uregex_requireEnd(regexp: &URegularExpression, status: &mut UErrorCode) -> i8 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn uregex_requireEnd(regexp: *const URegularExpression, status: *mut UErrorCode) -> i8;
@@ -24776,7 +24776,7 @@ pub unsafe fn uregex_requireEnd(regexp: *const URegularExpression, status: *mut 
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn uregex_reset(regexp: *mut URegularExpression, index: i32, status: *mut UErrorCode) {
+pub unsafe fn uregex_reset(regexp: &mut URegularExpression, index: i32, status: &mut UErrorCode) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn uregex_reset(regexp: *mut URegularExpression, index: i32, status: *mut UErrorCode);
@@ -24785,7 +24785,7 @@ pub unsafe fn uregex_reset(regexp: *mut URegularExpression, index: i32, status: 
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn uregex_reset64(regexp: *mut URegularExpression, index: i64, status: *mut UErrorCode) {
+pub unsafe fn uregex_reset64(regexp: &mut URegularExpression, index: i64, status: &mut UErrorCode) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn uregex_reset64(regexp: *mut URegularExpression, index: i64, status: *mut UErrorCode);
@@ -24794,7 +24794,7 @@ pub unsafe fn uregex_reset64(regexp: *mut URegularExpression, index: i64, status
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn uregex_setFindProgressCallback(regexp: *mut URegularExpression, callback: URegexFindProgressCallback, context: *const ::core::ffi::c_void, status: *mut UErrorCode) {
+pub unsafe fn uregex_setFindProgressCallback(regexp: &mut URegularExpression, callback: URegexFindProgressCallback, context: *const ::core::ffi::c_void, status: &mut UErrorCode) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn uregex_setFindProgressCallback(regexp: *mut URegularExpression, callback: *mut ::core::ffi::c_void, context: *const ::core::ffi::c_void, status: *mut UErrorCode);
@@ -24803,7 +24803,7 @@ pub unsafe fn uregex_setFindProgressCallback(regexp: *mut URegularExpression, ca
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn uregex_setMatchCallback(regexp: *mut URegularExpression, callback: URegexMatchCallback, context: *const ::core::ffi::c_void, status: *mut UErrorCode) {
+pub unsafe fn uregex_setMatchCallback(regexp: &mut URegularExpression, callback: URegexMatchCallback, context: *const ::core::ffi::c_void, status: &mut UErrorCode) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn uregex_setMatchCallback(regexp: *mut URegularExpression, callback: *mut ::core::ffi::c_void, context: *const ::core::ffi::c_void, status: *mut UErrorCode);
@@ -24812,7 +24812,7 @@ pub unsafe fn uregex_setMatchCallback(regexp: *mut URegularExpression, callback:
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn uregex_setRegion(regexp: *mut URegularExpression, regionstart: i32, regionlimit: i32, status: *mut UErrorCode) {
+pub unsafe fn uregex_setRegion(regexp: &mut URegularExpression, regionstart: i32, regionlimit: i32, status: &mut UErrorCode) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn uregex_setRegion(regexp: *mut URegularExpression, regionstart: i32, regionlimit: i32, status: *mut UErrorCode);
@@ -24821,7 +24821,7 @@ pub unsafe fn uregex_setRegion(regexp: *mut URegularExpression, regionstart: i32
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn uregex_setRegion64(regexp: *mut URegularExpression, regionstart: i64, regionlimit: i64, status: *mut UErrorCode) {
+pub unsafe fn uregex_setRegion64(regexp: &mut URegularExpression, regionstart: i64, regionlimit: i64, status: &mut UErrorCode) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn uregex_setRegion64(regexp: *mut URegularExpression, regionstart: i64, regionlimit: i64, status: *mut UErrorCode);
@@ -24830,7 +24830,7 @@ pub unsafe fn uregex_setRegion64(regexp: *mut URegularExpression, regionstart: i
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn uregex_setRegionAndStart(regexp: *mut URegularExpression, regionstart: i64, regionlimit: i64, startindex: i64, status: *mut UErrorCode) {
+pub unsafe fn uregex_setRegionAndStart(regexp: &mut URegularExpression, regionstart: i64, regionlimit: i64, startindex: i64, status: &mut UErrorCode) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn uregex_setRegionAndStart(regexp: *mut URegularExpression, regionstart: i64, regionlimit: i64, startindex: i64, status: *mut UErrorCode);
@@ -24839,7 +24839,7 @@ pub unsafe fn uregex_setRegionAndStart(regexp: *mut URegularExpression, regionst
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn uregex_setStackLimit(regexp: *mut URegularExpression, limit: i32, status: *mut UErrorCode) {
+pub unsafe fn uregex_setStackLimit(regexp: &mut URegularExpression, limit: i32, status: &mut UErrorCode) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn uregex_setStackLimit(regexp: *mut URegularExpression, limit: i32, status: *mut UErrorCode);
@@ -24848,7 +24848,7 @@ pub unsafe fn uregex_setStackLimit(regexp: *mut URegularExpression, limit: i32, 
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn uregex_setText(regexp: *mut URegularExpression, text: *const u16, textlength: i32, status: *mut UErrorCode) {
+pub unsafe fn uregex_setText(regexp: &mut URegularExpression, text: &u16, textlength: i32, status: &mut UErrorCode) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn uregex_setText(regexp: *mut URegularExpression, text: *const u16, textlength: i32, status: *mut UErrorCode);
@@ -24857,7 +24857,7 @@ pub unsafe fn uregex_setText(regexp: *mut URegularExpression, text: *const u16, 
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn uregex_setTimeLimit(regexp: *mut URegularExpression, limit: i32, status: *mut UErrorCode) {
+pub unsafe fn uregex_setTimeLimit(regexp: &mut URegularExpression, limit: i32, status: &mut UErrorCode) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn uregex_setTimeLimit(regexp: *mut URegularExpression, limit: i32, status: *mut UErrorCode);
@@ -24866,7 +24866,7 @@ pub unsafe fn uregex_setTimeLimit(regexp: *mut URegularExpression, limit: i32, s
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn uregex_setUText(regexp: *mut URegularExpression, text: *mut UText, status: *mut UErrorCode) {
+pub unsafe fn uregex_setUText(regexp: &mut URegularExpression, text: &mut UText, status: &mut UErrorCode) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn uregex_setUText(regexp: *mut URegularExpression, text: *mut UText, status: *mut UErrorCode);
@@ -24875,7 +24875,7 @@ pub unsafe fn uregex_setUText(regexp: *mut URegularExpression, text: *mut UText,
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn uregex_split(regexp: *mut URegularExpression, destbuf: *mut u16, destcapacity: i32, requiredcapacity: *mut i32, destfields: *mut *mut u16, destfieldscapacity: i32, status: *mut UErrorCode) -> i32 {
+pub unsafe fn uregex_split(regexp: &mut URegularExpression, destbuf: &mut u16, destcapacity: i32, requiredcapacity: &mut i32, destfields: &mut *mut u16, destfieldscapacity: i32, status: &mut UErrorCode) -> i32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn uregex_split(regexp: *mut URegularExpression, destbuf: *mut u16, destcapacity: i32, requiredcapacity: *mut i32, destfields: *mut *mut u16, destfieldscapacity: i32, status: *mut UErrorCode) -> i32;
@@ -24884,7 +24884,7 @@ pub unsafe fn uregex_split(regexp: *mut URegularExpression, destbuf: *mut u16, d
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn uregex_splitUText(regexp: *mut URegularExpression, destfields: *mut *mut UText, destfieldscapacity: i32, status: *mut UErrorCode) -> i32 {
+pub unsafe fn uregex_splitUText(regexp: &mut URegularExpression, destfields: &mut *mut UText, destfieldscapacity: i32, status: &mut UErrorCode) -> i32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn uregex_splitUText(regexp: *mut URegularExpression, destfields: *mut *mut UText, destfieldscapacity: i32, status: *mut UErrorCode) -> i32;
@@ -24893,7 +24893,7 @@ pub unsafe fn uregex_splitUText(regexp: *mut URegularExpression, destfields: *mu
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn uregex_start(regexp: *mut URegularExpression, groupnum: i32, status: *mut UErrorCode) -> i32 {
+pub unsafe fn uregex_start(regexp: &mut URegularExpression, groupnum: i32, status: &mut UErrorCode) -> i32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn uregex_start(regexp: *mut URegularExpression, groupnum: i32, status: *mut UErrorCode) -> i32;
@@ -24902,7 +24902,7 @@ pub unsafe fn uregex_start(regexp: *mut URegularExpression, groupnum: i32, statu
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn uregex_start64(regexp: *mut URegularExpression, groupnum: i32, status: *mut UErrorCode) -> i64 {
+pub unsafe fn uregex_start64(regexp: &mut URegularExpression, groupnum: i32, status: &mut UErrorCode) -> i64 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn uregex_start64(regexp: *mut URegularExpression, groupnum: i32, status: *mut UErrorCode) -> i64;
@@ -24911,7 +24911,7 @@ pub unsafe fn uregex_start64(regexp: *mut URegularExpression, groupnum: i32, sta
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn uregex_useAnchoringBounds(regexp: *mut URegularExpression, b: i8, status: *mut UErrorCode) {
+pub unsafe fn uregex_useAnchoringBounds(regexp: &mut URegularExpression, b: i8, status: &mut UErrorCode) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn uregex_useAnchoringBounds(regexp: *mut URegularExpression, b: i8, status: *mut UErrorCode);
@@ -24920,7 +24920,7 @@ pub unsafe fn uregex_useAnchoringBounds(regexp: *mut URegularExpression, b: i8, 
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn uregex_useTransparentBounds(regexp: *mut URegularExpression, b: i8, status: *mut UErrorCode) {
+pub unsafe fn uregex_useTransparentBounds(regexp: &mut URegularExpression, b: i8, status: &mut UErrorCode) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn uregex_useTransparentBounds(regexp: *mut URegularExpression, b: i8, status: *mut UErrorCode);
@@ -24929,7 +24929,7 @@ pub unsafe fn uregex_useTransparentBounds(regexp: *mut URegularExpression, b: i8
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn uregion_areEqual(uregion: *const URegion, otherregion: *const URegion) -> i8 {
+pub unsafe fn uregion_areEqual(uregion: &URegion, otherregion: &URegion) -> i8 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn uregion_areEqual(uregion: *const URegion, otherregion: *const URegion) -> i8;
@@ -24938,7 +24938,7 @@ pub unsafe fn uregion_areEqual(uregion: *const URegion, otherregion: *const UReg
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn uregion_contains(uregion: *const URegion, otherregion: *const URegion) -> i8 {
+pub unsafe fn uregion_contains(uregion: &URegion, otherregion: &URegion) -> i8 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn uregion_contains(uregion: *const URegion, otherregion: *const URegion) -> i8;
@@ -24947,7 +24947,7 @@ pub unsafe fn uregion_contains(uregion: *const URegion, otherregion: *const UReg
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn uregion_getAvailable(r#type: URegionType, status: *mut UErrorCode) -> *mut UEnumeration {
+pub unsafe fn uregion_getAvailable(r#type: URegionType, status: &mut UErrorCode) -> *mut UEnumeration {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn uregion_getAvailable(r#type: URegionType, status: *mut UErrorCode) -> *mut UEnumeration;
@@ -24956,7 +24956,7 @@ pub unsafe fn uregion_getAvailable(r#type: URegionType, status: *mut UErrorCode)
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn uregion_getContainedRegions(uregion: *const URegion, status: *mut UErrorCode) -> *mut UEnumeration {
+pub unsafe fn uregion_getContainedRegions(uregion: &URegion, status: &mut UErrorCode) -> *mut UEnumeration {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn uregion_getContainedRegions(uregion: *const URegion, status: *mut UErrorCode) -> *mut UEnumeration;
@@ -24965,7 +24965,7 @@ pub unsafe fn uregion_getContainedRegions(uregion: *const URegion, status: *mut 
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn uregion_getContainedRegionsOfType(uregion: *const URegion, r#type: URegionType, status: *mut UErrorCode) -> *mut UEnumeration {
+pub unsafe fn uregion_getContainedRegionsOfType(uregion: &URegion, r#type: URegionType, status: &mut UErrorCode) -> *mut UEnumeration {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn uregion_getContainedRegionsOfType(uregion: *const URegion, r#type: URegionType, status: *mut UErrorCode) -> *mut UEnumeration;
@@ -24974,7 +24974,7 @@ pub unsafe fn uregion_getContainedRegionsOfType(uregion: *const URegion, r#type:
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn uregion_getContainingRegion(uregion: *const URegion) -> *mut URegion {
+pub unsafe fn uregion_getContainingRegion(uregion: &URegion) -> *mut URegion {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn uregion_getContainingRegion(uregion: *const URegion) -> *mut URegion;
@@ -24983,7 +24983,7 @@ pub unsafe fn uregion_getContainingRegion(uregion: *const URegion) -> *mut URegi
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn uregion_getContainingRegionOfType(uregion: *const URegion, r#type: URegionType) -> *mut URegion {
+pub unsafe fn uregion_getContainingRegionOfType(uregion: &URegion, r#type: URegionType) -> *mut URegion {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn uregion_getContainingRegionOfType(uregion: *const URegion, r#type: URegionType) -> *mut URegion;
@@ -24992,7 +24992,7 @@ pub unsafe fn uregion_getContainingRegionOfType(uregion: *const URegion, r#type:
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn uregion_getNumericCode(uregion: *const URegion) -> i32 {
+pub unsafe fn uregion_getNumericCode(uregion: &URegion) -> i32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn uregion_getNumericCode(uregion: *const URegion) -> i32;
@@ -25001,7 +25001,7 @@ pub unsafe fn uregion_getNumericCode(uregion: *const URegion) -> i32 {
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn uregion_getPreferredValues(uregion: *const URegion, status: *mut UErrorCode) -> *mut UEnumeration {
+pub unsafe fn uregion_getPreferredValues(uregion: &URegion, status: &mut UErrorCode) -> *mut UEnumeration {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn uregion_getPreferredValues(uregion: *const URegion, status: *mut UErrorCode) -> *mut UEnumeration;
@@ -25010,7 +25010,7 @@ pub unsafe fn uregion_getPreferredValues(uregion: *const URegion, status: *mut U
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn uregion_getRegionCode(uregion: *const URegion) -> ::windows::core::PSTR {
+pub unsafe fn uregion_getRegionCode(uregion: &URegion) -> ::windows::core::PSTR {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn uregion_getRegionCode(uregion: *const URegion) -> ::windows::core::PSTR;
@@ -25019,7 +25019,7 @@ pub unsafe fn uregion_getRegionCode(uregion: *const URegion) -> ::windows::core:
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn uregion_getRegionFromCode<'a, P0>(regioncode: P0, status: *mut UErrorCode) -> *mut URegion
+pub unsafe fn uregion_getRegionFromCode<'a, P0>(regioncode: P0, status: &mut UErrorCode) -> *mut URegion
 where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
 {
@@ -25031,7 +25031,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn uregion_getRegionFromNumericCode(code: i32, status: *mut UErrorCode) -> *mut URegion {
+pub unsafe fn uregion_getRegionFromNumericCode(code: i32, status: &mut UErrorCode) -> *mut URegion {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn uregion_getRegionFromNumericCode(code: i32, status: *mut UErrorCode) -> *mut URegion;
@@ -25040,7 +25040,7 @@ pub unsafe fn uregion_getRegionFromNumericCode(code: i32, status: *mut UErrorCod
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn uregion_getType(uregion: *const URegion) -> URegionType {
+pub unsafe fn uregion_getType(uregion: &URegion) -> URegionType {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn uregion_getType(uregion: *const URegion) -> URegionType;
@@ -25049,7 +25049,7 @@ pub unsafe fn uregion_getType(uregion: *const URegion) -> URegionType {
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn ureldatefmt_close(reldatefmt: *mut URelativeDateTimeFormatter) {
+pub unsafe fn ureldatefmt_close(reldatefmt: &mut URelativeDateTimeFormatter) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn ureldatefmt_close(reldatefmt: *mut URelativeDateTimeFormatter);
@@ -25058,7 +25058,7 @@ pub unsafe fn ureldatefmt_close(reldatefmt: *mut URelativeDateTimeFormatter) {
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn ureldatefmt_closeResult(ufrdt: *mut UFormattedRelativeDateTime) {
+pub unsafe fn ureldatefmt_closeResult(ufrdt: &mut UFormattedRelativeDateTime) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn ureldatefmt_closeResult(ufrdt: *mut UFormattedRelativeDateTime);
@@ -25067,7 +25067,7 @@ pub unsafe fn ureldatefmt_closeResult(ufrdt: *mut UFormattedRelativeDateTime) {
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn ureldatefmt_combineDateAndTime(reldatefmt: *const URelativeDateTimeFormatter, relativedatestring: *const u16, relativedatestringlen: i32, timestring: *const u16, timestringlen: i32, result: *mut u16, resultcapacity: i32, status: *mut UErrorCode) -> i32 {
+pub unsafe fn ureldatefmt_combineDateAndTime(reldatefmt: &URelativeDateTimeFormatter, relativedatestring: &u16, relativedatestringlen: i32, timestring: &u16, timestringlen: i32, result: &mut u16, resultcapacity: i32, status: &mut UErrorCode) -> i32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn ureldatefmt_combineDateAndTime(reldatefmt: *const URelativeDateTimeFormatter, relativedatestring: *const u16, relativedatestringlen: i32, timestring: *const u16, timestringlen: i32, result: *mut u16, resultcapacity: i32, status: *mut UErrorCode) -> i32;
@@ -25076,7 +25076,7 @@ pub unsafe fn ureldatefmt_combineDateAndTime(reldatefmt: *const URelativeDateTim
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn ureldatefmt_format(reldatefmt: *const URelativeDateTimeFormatter, offset: f64, unit: URelativeDateTimeUnit, result: *mut u16, resultcapacity: i32, status: *mut UErrorCode) -> i32 {
+pub unsafe fn ureldatefmt_format(reldatefmt: &URelativeDateTimeFormatter, offset: f64, unit: URelativeDateTimeUnit, result: &mut u16, resultcapacity: i32, status: &mut UErrorCode) -> i32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn ureldatefmt_format(reldatefmt: *const URelativeDateTimeFormatter, offset: f64, unit: URelativeDateTimeUnit, result: *mut u16, resultcapacity: i32, status: *mut UErrorCode) -> i32;
@@ -25085,7 +25085,7 @@ pub unsafe fn ureldatefmt_format(reldatefmt: *const URelativeDateTimeFormatter, 
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn ureldatefmt_formatNumeric(reldatefmt: *const URelativeDateTimeFormatter, offset: f64, unit: URelativeDateTimeUnit, result: *mut u16, resultcapacity: i32, status: *mut UErrorCode) -> i32 {
+pub unsafe fn ureldatefmt_formatNumeric(reldatefmt: &URelativeDateTimeFormatter, offset: f64, unit: URelativeDateTimeUnit, result: &mut u16, resultcapacity: i32, status: &mut UErrorCode) -> i32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn ureldatefmt_formatNumeric(reldatefmt: *const URelativeDateTimeFormatter, offset: f64, unit: URelativeDateTimeUnit, result: *mut u16, resultcapacity: i32, status: *mut UErrorCode) -> i32;
@@ -25094,7 +25094,7 @@ pub unsafe fn ureldatefmt_formatNumeric(reldatefmt: *const URelativeDateTimeForm
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn ureldatefmt_formatNumericToResult(reldatefmt: *const URelativeDateTimeFormatter, offset: f64, unit: URelativeDateTimeUnit, result: *mut UFormattedRelativeDateTime, status: *mut UErrorCode) {
+pub unsafe fn ureldatefmt_formatNumericToResult(reldatefmt: &URelativeDateTimeFormatter, offset: f64, unit: URelativeDateTimeUnit, result: &mut UFormattedRelativeDateTime, status: &mut UErrorCode) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn ureldatefmt_formatNumericToResult(reldatefmt: *const URelativeDateTimeFormatter, offset: f64, unit: URelativeDateTimeUnit, result: *mut UFormattedRelativeDateTime, status: *mut UErrorCode);
@@ -25103,7 +25103,7 @@ pub unsafe fn ureldatefmt_formatNumericToResult(reldatefmt: *const URelativeDate
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn ureldatefmt_formatToResult(reldatefmt: *const URelativeDateTimeFormatter, offset: f64, unit: URelativeDateTimeUnit, result: *mut UFormattedRelativeDateTime, status: *mut UErrorCode) {
+pub unsafe fn ureldatefmt_formatToResult(reldatefmt: &URelativeDateTimeFormatter, offset: f64, unit: URelativeDateTimeUnit, result: &mut UFormattedRelativeDateTime, status: &mut UErrorCode) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn ureldatefmt_formatToResult(reldatefmt: *const URelativeDateTimeFormatter, offset: f64, unit: URelativeDateTimeUnit, result: *mut UFormattedRelativeDateTime, status: *mut UErrorCode);
@@ -25112,7 +25112,7 @@ pub unsafe fn ureldatefmt_formatToResult(reldatefmt: *const URelativeDateTimeFor
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn ureldatefmt_open<'a, P0>(locale: P0, nftoadopt: *mut *mut ::core::ffi::c_void, width: UDateRelativeDateTimeFormatterStyle, capitalizationcontext: UDisplayContext, status: *mut UErrorCode) -> *mut URelativeDateTimeFormatter
+pub unsafe fn ureldatefmt_open<'a, P0>(locale: P0, nftoadopt: *mut *mut ::core::ffi::c_void, width: UDateRelativeDateTimeFormatterStyle, capitalizationcontext: UDisplayContext, status: &mut UErrorCode) -> *mut URelativeDateTimeFormatter
 where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
 {
@@ -25124,7 +25124,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn ureldatefmt_openResult(ec: *mut UErrorCode) -> *mut UFormattedRelativeDateTime {
+pub unsafe fn ureldatefmt_openResult(ec: &mut UErrorCode) -> *mut UFormattedRelativeDateTime {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn ureldatefmt_openResult(ec: *mut UErrorCode) -> *mut UFormattedRelativeDateTime;
@@ -25133,7 +25133,7 @@ pub unsafe fn ureldatefmt_openResult(ec: *mut UErrorCode) -> *mut UFormattedRela
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn ureldatefmt_resultAsValue(ufrdt: *const UFormattedRelativeDateTime, ec: *mut UErrorCode) -> *mut UFormattedValue {
+pub unsafe fn ureldatefmt_resultAsValue(ufrdt: &UFormattedRelativeDateTime, ec: &mut UErrorCode) -> *mut UFormattedValue {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn ureldatefmt_resultAsValue(ufrdt: *const UFormattedRelativeDateTime, ec: *mut UErrorCode) -> *mut UFormattedValue;
@@ -25142,7 +25142,7 @@ pub unsafe fn ureldatefmt_resultAsValue(ufrdt: *const UFormattedRelativeDateTime
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn ures_close(resourcebundle: *mut UResourceBundle) {
+pub unsafe fn ures_close(resourcebundle: &mut UResourceBundle) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn ures_close(resourcebundle: *mut UResourceBundle);
@@ -25151,7 +25151,7 @@ pub unsafe fn ures_close(resourcebundle: *mut UResourceBundle) {
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn ures_getBinary(resourcebundle: *const UResourceBundle, len: *mut i32, status: *mut UErrorCode) -> *mut u8 {
+pub unsafe fn ures_getBinary(resourcebundle: &UResourceBundle, len: &mut i32, status: &mut UErrorCode) -> *mut u8 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn ures_getBinary(resourcebundle: *const UResourceBundle, len: *mut i32, status: *mut UErrorCode) -> *mut u8;
@@ -25160,7 +25160,7 @@ pub unsafe fn ures_getBinary(resourcebundle: *const UResourceBundle, len: *mut i
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn ures_getByIndex(resourcebundle: *const UResourceBundle, indexr: i32, fillin: *mut UResourceBundle, status: *mut UErrorCode) -> *mut UResourceBundle {
+pub unsafe fn ures_getByIndex(resourcebundle: &UResourceBundle, indexr: i32, fillin: &mut UResourceBundle, status: &mut UErrorCode) -> *mut UResourceBundle {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn ures_getByIndex(resourcebundle: *const UResourceBundle, indexr: i32, fillin: *mut UResourceBundle, status: *mut UErrorCode) -> *mut UResourceBundle;
@@ -25169,7 +25169,7 @@ pub unsafe fn ures_getByIndex(resourcebundle: *const UResourceBundle, indexr: i3
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn ures_getByKey<'a, P0>(resourcebundle: *const UResourceBundle, key: P0, fillin: *mut UResourceBundle, status: *mut UErrorCode) -> *mut UResourceBundle
+pub unsafe fn ures_getByKey<'a, P0>(resourcebundle: &UResourceBundle, key: P0, fillin: &mut UResourceBundle, status: &mut UErrorCode) -> *mut UResourceBundle
 where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
 {
@@ -25181,7 +25181,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn ures_getInt(resourcebundle: *const UResourceBundle, status: *mut UErrorCode) -> i32 {
+pub unsafe fn ures_getInt(resourcebundle: &UResourceBundle, status: &mut UErrorCode) -> i32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn ures_getInt(resourcebundle: *const UResourceBundle, status: *mut UErrorCode) -> i32;
@@ -25190,7 +25190,7 @@ pub unsafe fn ures_getInt(resourcebundle: *const UResourceBundle, status: *mut U
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn ures_getIntVector(resourcebundle: *const UResourceBundle, len: *mut i32, status: *mut UErrorCode) -> *mut i32 {
+pub unsafe fn ures_getIntVector(resourcebundle: &UResourceBundle, len: &mut i32, status: &mut UErrorCode) -> *mut i32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn ures_getIntVector(resourcebundle: *const UResourceBundle, len: *mut i32, status: *mut UErrorCode) -> *mut i32;
@@ -25199,7 +25199,7 @@ pub unsafe fn ures_getIntVector(resourcebundle: *const UResourceBundle, len: *mu
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn ures_getKey(resourcebundle: *const UResourceBundle) -> ::windows::core::PSTR {
+pub unsafe fn ures_getKey(resourcebundle: &UResourceBundle) -> ::windows::core::PSTR {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn ures_getKey(resourcebundle: *const UResourceBundle) -> ::windows::core::PSTR;
@@ -25208,7 +25208,7 @@ pub unsafe fn ures_getKey(resourcebundle: *const UResourceBundle) -> ::windows::
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn ures_getLocaleByType(resourcebundle: *const UResourceBundle, r#type: ULocDataLocaleType, status: *mut UErrorCode) -> ::windows::core::PSTR {
+pub unsafe fn ures_getLocaleByType(resourcebundle: &UResourceBundle, r#type: ULocDataLocaleType, status: &mut UErrorCode) -> ::windows::core::PSTR {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn ures_getLocaleByType(resourcebundle: *const UResourceBundle, r#type: ULocDataLocaleType, status: *mut UErrorCode) -> ::windows::core::PSTR;
@@ -25217,7 +25217,7 @@ pub unsafe fn ures_getLocaleByType(resourcebundle: *const UResourceBundle, r#typ
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn ures_getNextResource(resourcebundle: *mut UResourceBundle, fillin: *mut UResourceBundle, status: *mut UErrorCode) -> *mut UResourceBundle {
+pub unsafe fn ures_getNextResource(resourcebundle: &mut UResourceBundle, fillin: &mut UResourceBundle, status: &mut UErrorCode) -> *mut UResourceBundle {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn ures_getNextResource(resourcebundle: *mut UResourceBundle, fillin: *mut UResourceBundle, status: *mut UErrorCode) -> *mut UResourceBundle;
@@ -25226,7 +25226,7 @@ pub unsafe fn ures_getNextResource(resourcebundle: *mut UResourceBundle, fillin:
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn ures_getNextString(resourcebundle: *mut UResourceBundle, len: *mut i32, key: *const *const i8, status: *mut UErrorCode) -> *mut u16 {
+pub unsafe fn ures_getNextString(resourcebundle: &mut UResourceBundle, len: &mut i32, key: &*const i8, status: &mut UErrorCode) -> *mut u16 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn ures_getNextString(resourcebundle: *mut UResourceBundle, len: *mut i32, key: *const *const i8, status: *mut UErrorCode) -> *mut u16;
@@ -25235,7 +25235,7 @@ pub unsafe fn ures_getNextString(resourcebundle: *mut UResourceBundle, len: *mut
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn ures_getSize(resourcebundle: *const UResourceBundle) -> i32 {
+pub unsafe fn ures_getSize(resourcebundle: &UResourceBundle) -> i32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn ures_getSize(resourcebundle: *const UResourceBundle) -> i32;
@@ -25244,7 +25244,7 @@ pub unsafe fn ures_getSize(resourcebundle: *const UResourceBundle) -> i32 {
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn ures_getString(resourcebundle: *const UResourceBundle, len: *mut i32, status: *mut UErrorCode) -> *mut u16 {
+pub unsafe fn ures_getString(resourcebundle: &UResourceBundle, len: &mut i32, status: &mut UErrorCode) -> *mut u16 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn ures_getString(resourcebundle: *const UResourceBundle, len: *mut i32, status: *mut UErrorCode) -> *mut u16;
@@ -25253,7 +25253,7 @@ pub unsafe fn ures_getString(resourcebundle: *const UResourceBundle, len: *mut i
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn ures_getStringByIndex(resourcebundle: *const UResourceBundle, indexs: i32, len: *mut i32, status: *mut UErrorCode) -> *mut u16 {
+pub unsafe fn ures_getStringByIndex(resourcebundle: &UResourceBundle, indexs: i32, len: &mut i32, status: &mut UErrorCode) -> *mut u16 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn ures_getStringByIndex(resourcebundle: *const UResourceBundle, indexs: i32, len: *mut i32, status: *mut UErrorCode) -> *mut u16;
@@ -25262,7 +25262,7 @@ pub unsafe fn ures_getStringByIndex(resourcebundle: *const UResourceBundle, inde
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn ures_getStringByKey<'a, P0>(resb: *const UResourceBundle, key: P0, len: *mut i32, status: *mut UErrorCode) -> *mut u16
+pub unsafe fn ures_getStringByKey<'a, P0>(resb: &UResourceBundle, key: P0, len: &mut i32, status: &mut UErrorCode) -> *mut u16
 where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
 {
@@ -25274,7 +25274,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn ures_getType(resourcebundle: *const UResourceBundle) -> UResType {
+pub unsafe fn ures_getType(resourcebundle: &UResourceBundle) -> UResType {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn ures_getType(resourcebundle: *const UResourceBundle) -> UResType;
@@ -25283,7 +25283,7 @@ pub unsafe fn ures_getType(resourcebundle: *const UResourceBundle) -> UResType {
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn ures_getUInt(resourcebundle: *const UResourceBundle, status: *mut UErrorCode) -> u32 {
+pub unsafe fn ures_getUInt(resourcebundle: &UResourceBundle, status: &mut UErrorCode) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn ures_getUInt(resourcebundle: *const UResourceBundle, status: *mut UErrorCode) -> u32;
@@ -25292,7 +25292,7 @@ pub unsafe fn ures_getUInt(resourcebundle: *const UResourceBundle, status: *mut 
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn ures_getUTF8String<'a, P0>(resb: *const UResourceBundle, dest: P0, length: *mut i32, forcecopy: i8, status: *mut UErrorCode) -> ::windows::core::PSTR
+pub unsafe fn ures_getUTF8String<'a, P0>(resb: &UResourceBundle, dest: P0, length: &mut i32, forcecopy: i8, status: &mut UErrorCode) -> ::windows::core::PSTR
 where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
 {
@@ -25304,7 +25304,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn ures_getUTF8StringByIndex<'a, P0>(resb: *const UResourceBundle, stringindex: i32, dest: P0, plength: *mut i32, forcecopy: i8, status: *mut UErrorCode) -> ::windows::core::PSTR
+pub unsafe fn ures_getUTF8StringByIndex<'a, P0>(resb: &UResourceBundle, stringindex: i32, dest: P0, plength: &mut i32, forcecopy: i8, status: &mut UErrorCode) -> ::windows::core::PSTR
 where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
 {
@@ -25316,7 +25316,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn ures_getUTF8StringByKey<'a, P0, P1>(resb: *const UResourceBundle, key: P0, dest: P1, plength: *mut i32, forcecopy: i8, status: *mut UErrorCode) -> ::windows::core::PSTR
+pub unsafe fn ures_getUTF8StringByKey<'a, P0, P1>(resb: &UResourceBundle, key: P0, dest: P1, plength: &mut i32, forcecopy: i8, status: &mut UErrorCode) -> ::windows::core::PSTR
 where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
     P1: ::std::convert::Into<::windows::core::PCSTR>,
@@ -25329,7 +25329,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn ures_getVersion(resb: *const UResourceBundle, versioninfo: *mut u8) {
+pub unsafe fn ures_getVersion(resb: &UResourceBundle, versioninfo: &mut u8) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn ures_getVersion(resb: *const UResourceBundle, versioninfo: *mut u8);
@@ -25338,7 +25338,7 @@ pub unsafe fn ures_getVersion(resb: *const UResourceBundle, versioninfo: *mut u8
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn ures_hasNext(resourcebundle: *const UResourceBundle) -> i8 {
+pub unsafe fn ures_hasNext(resourcebundle: &UResourceBundle) -> i8 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn ures_hasNext(resourcebundle: *const UResourceBundle) -> i8;
@@ -25347,7 +25347,7 @@ pub unsafe fn ures_hasNext(resourcebundle: *const UResourceBundle) -> i8 {
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn ures_open<'a, P0, P1>(packagename: P0, locale: P1, status: *mut UErrorCode) -> *mut UResourceBundle
+pub unsafe fn ures_open<'a, P0, P1>(packagename: P0, locale: P1, status: &mut UErrorCode) -> *mut UResourceBundle
 where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
     P1: ::std::convert::Into<::windows::core::PCSTR>,
@@ -25360,7 +25360,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn ures_openAvailableLocales<'a, P0>(packagename: P0, status: *mut UErrorCode) -> *mut UEnumeration
+pub unsafe fn ures_openAvailableLocales<'a, P0>(packagename: P0, status: &mut UErrorCode) -> *mut UEnumeration
 where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
 {
@@ -25372,7 +25372,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn ures_openDirect<'a, P0, P1>(packagename: P0, locale: P1, status: *mut UErrorCode) -> *mut UResourceBundle
+pub unsafe fn ures_openDirect<'a, P0, P1>(packagename: P0, locale: P1, status: &mut UErrorCode) -> *mut UResourceBundle
 where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
     P1: ::std::convert::Into<::windows::core::PCSTR>,
@@ -25385,7 +25385,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn ures_openU<'a, P0>(packagename: *const u16, locale: P0, status: *mut UErrorCode) -> *mut UResourceBundle
+pub unsafe fn ures_openU<'a, P0>(packagename: &u16, locale: P0, status: &mut UErrorCode) -> *mut UResourceBundle
 where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
 {
@@ -25397,7 +25397,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn ures_resetIterator(resourcebundle: *mut UResourceBundle) {
+pub unsafe fn ures_resetIterator(resourcebundle: &mut UResourceBundle) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn ures_resetIterator(resourcebundle: *mut UResourceBundle);
@@ -25415,7 +25415,7 @@ pub unsafe fn uscript_breaksBetweenLetters(script: UScriptCode) -> i8 {
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn uscript_getCode<'a, P0>(nameorabbrorlocale: P0, fillin: *mut UScriptCode, capacity: i32, err: *mut UErrorCode) -> i32
+pub unsafe fn uscript_getCode<'a, P0>(nameorabbrorlocale: P0, fillin: &mut UScriptCode, capacity: i32, err: &mut UErrorCode) -> i32
 where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
 {
@@ -25436,7 +25436,7 @@ pub unsafe fn uscript_getName(scriptcode: UScriptCode) -> ::windows::core::PSTR 
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn uscript_getSampleString(script: UScriptCode, dest: *mut u16, capacity: i32, perrorcode: *mut UErrorCode) -> i32 {
+pub unsafe fn uscript_getSampleString(script: UScriptCode, dest: &mut u16, capacity: i32, perrorcode: &mut UErrorCode) -> i32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn uscript_getSampleString(script: UScriptCode, dest: *mut u16, capacity: i32, perrorcode: *mut UErrorCode) -> i32;
@@ -25445,7 +25445,7 @@ pub unsafe fn uscript_getSampleString(script: UScriptCode, dest: *mut u16, capac
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn uscript_getScript(codepoint: i32, err: *mut UErrorCode) -> UScriptCode {
+pub unsafe fn uscript_getScript(codepoint: i32, err: &mut UErrorCode) -> UScriptCode {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn uscript_getScript(codepoint: i32, err: *mut UErrorCode) -> UScriptCode;
@@ -25454,7 +25454,7 @@ pub unsafe fn uscript_getScript(codepoint: i32, err: *mut UErrorCode) -> UScript
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn uscript_getScriptExtensions(c: i32, scripts: *mut UScriptCode, capacity: i32, errorcode: *mut UErrorCode) -> i32 {
+pub unsafe fn uscript_getScriptExtensions(c: i32, scripts: &mut UScriptCode, capacity: i32, errorcode: &mut UErrorCode) -> i32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn uscript_getScriptExtensions(c: i32, scripts: *mut UScriptCode, capacity: i32, errorcode: *mut UErrorCode) -> i32;
@@ -25508,7 +25508,7 @@ pub unsafe fn uscript_isRightToLeft(script: UScriptCode) -> i8 {
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn usearch_close(searchiter: *mut UStringSearch) {
+pub unsafe fn usearch_close(searchiter: &mut UStringSearch) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn usearch_close(searchiter: *mut UStringSearch);
@@ -25517,7 +25517,7 @@ pub unsafe fn usearch_close(searchiter: *mut UStringSearch) {
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn usearch_first(strsrch: *mut UStringSearch, status: *mut UErrorCode) -> i32 {
+pub unsafe fn usearch_first(strsrch: &mut UStringSearch, status: &mut UErrorCode) -> i32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn usearch_first(strsrch: *mut UStringSearch, status: *mut UErrorCode) -> i32;
@@ -25526,7 +25526,7 @@ pub unsafe fn usearch_first(strsrch: *mut UStringSearch, status: *mut UErrorCode
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn usearch_following(strsrch: *mut UStringSearch, position: i32, status: *mut UErrorCode) -> i32 {
+pub unsafe fn usearch_following(strsrch: &mut UStringSearch, position: i32, status: &mut UErrorCode) -> i32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn usearch_following(strsrch: *mut UStringSearch, position: i32, status: *mut UErrorCode) -> i32;
@@ -25535,7 +25535,7 @@ pub unsafe fn usearch_following(strsrch: *mut UStringSearch, position: i32, stat
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn usearch_getAttribute(strsrch: *const UStringSearch, attribute: USearchAttribute) -> USearchAttributeValue {
+pub unsafe fn usearch_getAttribute(strsrch: &UStringSearch, attribute: USearchAttribute) -> USearchAttributeValue {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn usearch_getAttribute(strsrch: *const UStringSearch, attribute: USearchAttribute) -> USearchAttributeValue;
@@ -25544,7 +25544,7 @@ pub unsafe fn usearch_getAttribute(strsrch: *const UStringSearch, attribute: USe
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn usearch_getBreakIterator(strsrch: *const UStringSearch) -> *mut UBreakIterator {
+pub unsafe fn usearch_getBreakIterator(strsrch: &UStringSearch) -> *mut UBreakIterator {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn usearch_getBreakIterator(strsrch: *const UStringSearch) -> *mut UBreakIterator;
@@ -25553,7 +25553,7 @@ pub unsafe fn usearch_getBreakIterator(strsrch: *const UStringSearch) -> *mut UB
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn usearch_getCollator(strsrch: *const UStringSearch) -> *mut UCollator {
+pub unsafe fn usearch_getCollator(strsrch: &UStringSearch) -> *mut UCollator {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn usearch_getCollator(strsrch: *const UStringSearch) -> *mut UCollator;
@@ -25562,7 +25562,7 @@ pub unsafe fn usearch_getCollator(strsrch: *const UStringSearch) -> *mut UCollat
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn usearch_getMatchedLength(strsrch: *const UStringSearch) -> i32 {
+pub unsafe fn usearch_getMatchedLength(strsrch: &UStringSearch) -> i32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn usearch_getMatchedLength(strsrch: *const UStringSearch) -> i32;
@@ -25571,7 +25571,7 @@ pub unsafe fn usearch_getMatchedLength(strsrch: *const UStringSearch) -> i32 {
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn usearch_getMatchedStart(strsrch: *const UStringSearch) -> i32 {
+pub unsafe fn usearch_getMatchedStart(strsrch: &UStringSearch) -> i32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn usearch_getMatchedStart(strsrch: *const UStringSearch) -> i32;
@@ -25580,7 +25580,7 @@ pub unsafe fn usearch_getMatchedStart(strsrch: *const UStringSearch) -> i32 {
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn usearch_getMatchedText(strsrch: *const UStringSearch, result: *mut u16, resultcapacity: i32, status: *mut UErrorCode) -> i32 {
+pub unsafe fn usearch_getMatchedText(strsrch: &UStringSearch, result: &mut u16, resultcapacity: i32, status: &mut UErrorCode) -> i32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn usearch_getMatchedText(strsrch: *const UStringSearch, result: *mut u16, resultcapacity: i32, status: *mut UErrorCode) -> i32;
@@ -25589,7 +25589,7 @@ pub unsafe fn usearch_getMatchedText(strsrch: *const UStringSearch, result: *mut
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn usearch_getOffset(strsrch: *const UStringSearch) -> i32 {
+pub unsafe fn usearch_getOffset(strsrch: &UStringSearch) -> i32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn usearch_getOffset(strsrch: *const UStringSearch) -> i32;
@@ -25598,7 +25598,7 @@ pub unsafe fn usearch_getOffset(strsrch: *const UStringSearch) -> i32 {
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn usearch_getPattern(strsrch: *const UStringSearch, length: *mut i32) -> *mut u16 {
+pub unsafe fn usearch_getPattern(strsrch: &UStringSearch, length: &mut i32) -> *mut u16 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn usearch_getPattern(strsrch: *const UStringSearch, length: *mut i32) -> *mut u16;
@@ -25607,7 +25607,7 @@ pub unsafe fn usearch_getPattern(strsrch: *const UStringSearch, length: *mut i32
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn usearch_getText(strsrch: *const UStringSearch, length: *mut i32) -> *mut u16 {
+pub unsafe fn usearch_getText(strsrch: &UStringSearch, length: &mut i32) -> *mut u16 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn usearch_getText(strsrch: *const UStringSearch, length: *mut i32) -> *mut u16;
@@ -25616,7 +25616,7 @@ pub unsafe fn usearch_getText(strsrch: *const UStringSearch, length: *mut i32) -
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn usearch_last(strsrch: *mut UStringSearch, status: *mut UErrorCode) -> i32 {
+pub unsafe fn usearch_last(strsrch: &mut UStringSearch, status: &mut UErrorCode) -> i32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn usearch_last(strsrch: *mut UStringSearch, status: *mut UErrorCode) -> i32;
@@ -25625,7 +25625,7 @@ pub unsafe fn usearch_last(strsrch: *mut UStringSearch, status: *mut UErrorCode)
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn usearch_next(strsrch: *mut UStringSearch, status: *mut UErrorCode) -> i32 {
+pub unsafe fn usearch_next(strsrch: &mut UStringSearch, status: &mut UErrorCode) -> i32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn usearch_next(strsrch: *mut UStringSearch, status: *mut UErrorCode) -> i32;
@@ -25634,7 +25634,7 @@ pub unsafe fn usearch_next(strsrch: *mut UStringSearch, status: *mut UErrorCode)
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn usearch_open<'a, P0>(pattern: *const u16, patternlength: i32, text: *const u16, textlength: i32, locale: P0, breakiter: *mut UBreakIterator, status: *mut UErrorCode) -> *mut UStringSearch
+pub unsafe fn usearch_open<'a, P0>(pattern: &u16, patternlength: i32, text: &u16, textlength: i32, locale: P0, breakiter: &mut UBreakIterator, status: &mut UErrorCode) -> *mut UStringSearch
 where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
 {
@@ -25646,7 +25646,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn usearch_openFromCollator(pattern: *const u16, patternlength: i32, text: *const u16, textlength: i32, collator: *const UCollator, breakiter: *mut UBreakIterator, status: *mut UErrorCode) -> *mut UStringSearch {
+pub unsafe fn usearch_openFromCollator(pattern: &u16, patternlength: i32, text: &u16, textlength: i32, collator: &UCollator, breakiter: &mut UBreakIterator, status: &mut UErrorCode) -> *mut UStringSearch {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn usearch_openFromCollator(pattern: *const u16, patternlength: i32, text: *const u16, textlength: i32, collator: *const UCollator, breakiter: *mut UBreakIterator, status: *mut UErrorCode) -> *mut UStringSearch;
@@ -25655,7 +25655,7 @@ pub unsafe fn usearch_openFromCollator(pattern: *const u16, patternlength: i32, 
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn usearch_preceding(strsrch: *mut UStringSearch, position: i32, status: *mut UErrorCode) -> i32 {
+pub unsafe fn usearch_preceding(strsrch: &mut UStringSearch, position: i32, status: &mut UErrorCode) -> i32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn usearch_preceding(strsrch: *mut UStringSearch, position: i32, status: *mut UErrorCode) -> i32;
@@ -25664,7 +25664,7 @@ pub unsafe fn usearch_preceding(strsrch: *mut UStringSearch, position: i32, stat
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn usearch_previous(strsrch: *mut UStringSearch, status: *mut UErrorCode) -> i32 {
+pub unsafe fn usearch_previous(strsrch: &mut UStringSearch, status: &mut UErrorCode) -> i32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn usearch_previous(strsrch: *mut UStringSearch, status: *mut UErrorCode) -> i32;
@@ -25673,7 +25673,7 @@ pub unsafe fn usearch_previous(strsrch: *mut UStringSearch, status: *mut UErrorC
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn usearch_reset(strsrch: *mut UStringSearch) {
+pub unsafe fn usearch_reset(strsrch: &mut UStringSearch) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn usearch_reset(strsrch: *mut UStringSearch);
@@ -25682,7 +25682,7 @@ pub unsafe fn usearch_reset(strsrch: *mut UStringSearch) {
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn usearch_setAttribute(strsrch: *mut UStringSearch, attribute: USearchAttribute, value: USearchAttributeValue, status: *mut UErrorCode) {
+pub unsafe fn usearch_setAttribute(strsrch: &mut UStringSearch, attribute: USearchAttribute, value: USearchAttributeValue, status: &mut UErrorCode) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn usearch_setAttribute(strsrch: *mut UStringSearch, attribute: USearchAttribute, value: USearchAttributeValue, status: *mut UErrorCode);
@@ -25691,7 +25691,7 @@ pub unsafe fn usearch_setAttribute(strsrch: *mut UStringSearch, attribute: USear
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn usearch_setBreakIterator(strsrch: *mut UStringSearch, breakiter: *mut UBreakIterator, status: *mut UErrorCode) {
+pub unsafe fn usearch_setBreakIterator(strsrch: &mut UStringSearch, breakiter: &mut UBreakIterator, status: &mut UErrorCode) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn usearch_setBreakIterator(strsrch: *mut UStringSearch, breakiter: *mut UBreakIterator, status: *mut UErrorCode);
@@ -25700,7 +25700,7 @@ pub unsafe fn usearch_setBreakIterator(strsrch: *mut UStringSearch, breakiter: *
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn usearch_setCollator(strsrch: *mut UStringSearch, collator: *const UCollator, status: *mut UErrorCode) {
+pub unsafe fn usearch_setCollator(strsrch: &mut UStringSearch, collator: &UCollator, status: &mut UErrorCode) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn usearch_setCollator(strsrch: *mut UStringSearch, collator: *const UCollator, status: *mut UErrorCode);
@@ -25709,7 +25709,7 @@ pub unsafe fn usearch_setCollator(strsrch: *mut UStringSearch, collator: *const 
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn usearch_setOffset(strsrch: *mut UStringSearch, position: i32, status: *mut UErrorCode) {
+pub unsafe fn usearch_setOffset(strsrch: &mut UStringSearch, position: i32, status: &mut UErrorCode) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn usearch_setOffset(strsrch: *mut UStringSearch, position: i32, status: *mut UErrorCode);
@@ -25718,7 +25718,7 @@ pub unsafe fn usearch_setOffset(strsrch: *mut UStringSearch, position: i32, stat
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn usearch_setPattern(strsrch: *mut UStringSearch, pattern: *const u16, patternlength: i32, status: *mut UErrorCode) {
+pub unsafe fn usearch_setPattern(strsrch: &mut UStringSearch, pattern: &u16, patternlength: i32, status: &mut UErrorCode) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn usearch_setPattern(strsrch: *mut UStringSearch, pattern: *const u16, patternlength: i32, status: *mut UErrorCode);
@@ -25727,7 +25727,7 @@ pub unsafe fn usearch_setPattern(strsrch: *mut UStringSearch, pattern: *const u1
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn usearch_setText(strsrch: *mut UStringSearch, text: *const u16, textlength: i32, status: *mut UErrorCode) {
+pub unsafe fn usearch_setText(strsrch: &mut UStringSearch, text: &u16, textlength: i32, status: &mut UErrorCode) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn usearch_setText(strsrch: *mut UStringSearch, text: *const u16, textlength: i32, status: *mut UErrorCode);
@@ -25736,7 +25736,7 @@ pub unsafe fn usearch_setText(strsrch: *mut UStringSearch, text: *const u16, tex
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn uset_add(set: *mut USet, c: i32) {
+pub unsafe fn uset_add(set: &mut USet, c: i32) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn uset_add(set: *mut USet, c: i32);
@@ -25745,7 +25745,7 @@ pub unsafe fn uset_add(set: *mut USet, c: i32) {
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn uset_addAll(set: *mut USet, additionalset: *const USet) {
+pub unsafe fn uset_addAll(set: &mut USet, additionalset: &USet) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn uset_addAll(set: *mut USet, additionalset: *const USet);
@@ -25754,7 +25754,7 @@ pub unsafe fn uset_addAll(set: *mut USet, additionalset: *const USet) {
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn uset_addAllCodePoints(set: *mut USet, str: *const u16, strlen: i32) {
+pub unsafe fn uset_addAllCodePoints(set: &mut USet, str: &u16, strlen: i32) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn uset_addAllCodePoints(set: *mut USet, str: *const u16, strlen: i32);
@@ -25763,7 +25763,7 @@ pub unsafe fn uset_addAllCodePoints(set: *mut USet, str: *const u16, strlen: i32
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn uset_addRange(set: *mut USet, start: i32, end: i32) {
+pub unsafe fn uset_addRange(set: &mut USet, start: i32, end: i32) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn uset_addRange(set: *mut USet, start: i32, end: i32);
@@ -25772,7 +25772,7 @@ pub unsafe fn uset_addRange(set: *mut USet, start: i32, end: i32) {
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn uset_addString(set: *mut USet, str: *const u16, strlen: i32) {
+pub unsafe fn uset_addString(set: &mut USet, str: &u16, strlen: i32) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn uset_addString(set: *mut USet, str: *const u16, strlen: i32);
@@ -25781,7 +25781,7 @@ pub unsafe fn uset_addString(set: *mut USet, str: *const u16, strlen: i32) {
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn uset_applyIntPropertyValue(set: *mut USet, prop: UProperty, value: i32, ec: *mut UErrorCode) {
+pub unsafe fn uset_applyIntPropertyValue(set: &mut USet, prop: UProperty, value: i32, ec: &mut UErrorCode) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn uset_applyIntPropertyValue(set: *mut USet, prop: UProperty, value: i32, ec: *mut UErrorCode);
@@ -25790,7 +25790,7 @@ pub unsafe fn uset_applyIntPropertyValue(set: *mut USet, prop: UProperty, value:
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn uset_applyPattern(set: *mut USet, pattern: *const u16, patternlength: i32, options: u32, status: *mut UErrorCode) -> i32 {
+pub unsafe fn uset_applyPattern(set: &mut USet, pattern: &u16, patternlength: i32, options: u32, status: &mut UErrorCode) -> i32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn uset_applyPattern(set: *mut USet, pattern: *const u16, patternlength: i32, options: u32, status: *mut UErrorCode) -> i32;
@@ -25799,7 +25799,7 @@ pub unsafe fn uset_applyPattern(set: *mut USet, pattern: *const u16, patternleng
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn uset_applyPropertyAlias(set: *mut USet, prop: *const u16, proplength: i32, value: *const u16, valuelength: i32, ec: *mut UErrorCode) {
+pub unsafe fn uset_applyPropertyAlias(set: &mut USet, prop: &u16, proplength: i32, value: &u16, valuelength: i32, ec: &mut UErrorCode) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn uset_applyPropertyAlias(set: *mut USet, prop: *const u16, proplength: i32, value: *const u16, valuelength: i32, ec: *mut UErrorCode);
@@ -25808,7 +25808,7 @@ pub unsafe fn uset_applyPropertyAlias(set: *mut USet, prop: *const u16, propleng
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn uset_charAt(set: *const USet, charindex: i32) -> i32 {
+pub unsafe fn uset_charAt(set: &USet, charindex: i32) -> i32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn uset_charAt(set: *const USet, charindex: i32) -> i32;
@@ -25817,7 +25817,7 @@ pub unsafe fn uset_charAt(set: *const USet, charindex: i32) -> i32 {
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn uset_clear(set: *mut USet) {
+pub unsafe fn uset_clear(set: &mut USet) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn uset_clear(set: *mut USet);
@@ -25826,7 +25826,7 @@ pub unsafe fn uset_clear(set: *mut USet) {
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn uset_clone(set: *const USet) -> *mut USet {
+pub unsafe fn uset_clone(set: &USet) -> *mut USet {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn uset_clone(set: *const USet) -> *mut USet;
@@ -25835,7 +25835,7 @@ pub unsafe fn uset_clone(set: *const USet) -> *mut USet {
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn uset_cloneAsThawed(set: *const USet) -> *mut USet {
+pub unsafe fn uset_cloneAsThawed(set: &USet) -> *mut USet {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn uset_cloneAsThawed(set: *const USet) -> *mut USet;
@@ -25844,7 +25844,7 @@ pub unsafe fn uset_cloneAsThawed(set: *const USet) -> *mut USet {
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn uset_close(set: *mut USet) {
+pub unsafe fn uset_close(set: &mut USet) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn uset_close(set: *mut USet);
@@ -25853,7 +25853,7 @@ pub unsafe fn uset_close(set: *mut USet) {
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn uset_closeOver(set: *mut USet, attributes: i32) {
+pub unsafe fn uset_closeOver(set: &mut USet, attributes: i32) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn uset_closeOver(set: *mut USet, attributes: i32);
@@ -25862,7 +25862,7 @@ pub unsafe fn uset_closeOver(set: *mut USet, attributes: i32) {
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn uset_compact(set: *mut USet) {
+pub unsafe fn uset_compact(set: &mut USet) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn uset_compact(set: *mut USet);
@@ -25871,7 +25871,7 @@ pub unsafe fn uset_compact(set: *mut USet) {
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn uset_complement(set: *mut USet) {
+pub unsafe fn uset_complement(set: &mut USet) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn uset_complement(set: *mut USet);
@@ -25880,7 +25880,7 @@ pub unsafe fn uset_complement(set: *mut USet) {
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn uset_complementAll(set: *mut USet, complement: *const USet) {
+pub unsafe fn uset_complementAll(set: &mut USet, complement: &USet) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn uset_complementAll(set: *mut USet, complement: *const USet);
@@ -25889,7 +25889,7 @@ pub unsafe fn uset_complementAll(set: *mut USet, complement: *const USet) {
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn uset_contains(set: *const USet, c: i32) -> i8 {
+pub unsafe fn uset_contains(set: &USet, c: i32) -> i8 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn uset_contains(set: *const USet, c: i32) -> i8;
@@ -25898,7 +25898,7 @@ pub unsafe fn uset_contains(set: *const USet, c: i32) -> i8 {
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn uset_containsAll(set1: *const USet, set2: *const USet) -> i8 {
+pub unsafe fn uset_containsAll(set1: &USet, set2: &USet) -> i8 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn uset_containsAll(set1: *const USet, set2: *const USet) -> i8;
@@ -25907,7 +25907,7 @@ pub unsafe fn uset_containsAll(set1: *const USet, set2: *const USet) -> i8 {
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn uset_containsAllCodePoints(set: *const USet, str: *const u16, strlen: i32) -> i8 {
+pub unsafe fn uset_containsAllCodePoints(set: &USet, str: &u16, strlen: i32) -> i8 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn uset_containsAllCodePoints(set: *const USet, str: *const u16, strlen: i32) -> i8;
@@ -25916,7 +25916,7 @@ pub unsafe fn uset_containsAllCodePoints(set: *const USet, str: *const u16, strl
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn uset_containsNone(set1: *const USet, set2: *const USet) -> i8 {
+pub unsafe fn uset_containsNone(set1: &USet, set2: &USet) -> i8 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn uset_containsNone(set1: *const USet, set2: *const USet) -> i8;
@@ -25925,7 +25925,7 @@ pub unsafe fn uset_containsNone(set1: *const USet, set2: *const USet) -> i8 {
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn uset_containsRange(set: *const USet, start: i32, end: i32) -> i8 {
+pub unsafe fn uset_containsRange(set: &USet, start: i32, end: i32) -> i8 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn uset_containsRange(set: *const USet, start: i32, end: i32) -> i8;
@@ -25934,7 +25934,7 @@ pub unsafe fn uset_containsRange(set: *const USet, start: i32, end: i32) -> i8 {
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn uset_containsSome(set1: *const USet, set2: *const USet) -> i8 {
+pub unsafe fn uset_containsSome(set1: &USet, set2: &USet) -> i8 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn uset_containsSome(set1: *const USet, set2: *const USet) -> i8;
@@ -25943,7 +25943,7 @@ pub unsafe fn uset_containsSome(set1: *const USet, set2: *const USet) -> i8 {
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn uset_containsString(set: *const USet, str: *const u16, strlen: i32) -> i8 {
+pub unsafe fn uset_containsString(set: &USet, str: &u16, strlen: i32) -> i8 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn uset_containsString(set: *const USet, str: *const u16, strlen: i32) -> i8;
@@ -25952,7 +25952,7 @@ pub unsafe fn uset_containsString(set: *const USet, str: *const u16, strlen: i32
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn uset_equals(set1: *const USet, set2: *const USet) -> i8 {
+pub unsafe fn uset_equals(set1: &USet, set2: &USet) -> i8 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn uset_equals(set1: *const USet, set2: *const USet) -> i8;
@@ -25961,7 +25961,7 @@ pub unsafe fn uset_equals(set1: *const USet, set2: *const USet) -> i8 {
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn uset_freeze(set: *mut USet) {
+pub unsafe fn uset_freeze(set: &mut USet) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn uset_freeze(set: *mut USet);
@@ -25970,7 +25970,7 @@ pub unsafe fn uset_freeze(set: *mut USet) {
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn uset_getItem(set: *const USet, itemindex: i32, start: *mut i32, end: *mut i32, str: *mut u16, strcapacity: i32, ec: *mut UErrorCode) -> i32 {
+pub unsafe fn uset_getItem(set: &USet, itemindex: i32, start: &mut i32, end: &mut i32, str: &mut u16, strcapacity: i32, ec: &mut UErrorCode) -> i32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn uset_getItem(set: *const USet, itemindex: i32, start: *mut i32, end: *mut i32, str: *mut u16, strcapacity: i32, ec: *mut UErrorCode) -> i32;
@@ -25979,7 +25979,7 @@ pub unsafe fn uset_getItem(set: *const USet, itemindex: i32, start: *mut i32, en
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn uset_getItemCount(set: *const USet) -> i32 {
+pub unsafe fn uset_getItemCount(set: &USet) -> i32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn uset_getItemCount(set: *const USet) -> i32;
@@ -25988,7 +25988,7 @@ pub unsafe fn uset_getItemCount(set: *const USet) -> i32 {
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn uset_getSerializedRange(set: *const USerializedSet, rangeindex: i32, pstart: *mut i32, pend: *mut i32) -> i8 {
+pub unsafe fn uset_getSerializedRange(set: &USerializedSet, rangeindex: i32, pstart: &mut i32, pend: &mut i32) -> i8 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn uset_getSerializedRange(set: *const USerializedSet, rangeindex: i32, pstart: *mut i32, pend: *mut i32) -> i8;
@@ -25997,7 +25997,7 @@ pub unsafe fn uset_getSerializedRange(set: *const USerializedSet, rangeindex: i3
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn uset_getSerializedRangeCount(set: *const USerializedSet) -> i32 {
+pub unsafe fn uset_getSerializedRangeCount(set: &USerializedSet) -> i32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn uset_getSerializedRangeCount(set: *const USerializedSet) -> i32;
@@ -26006,7 +26006,7 @@ pub unsafe fn uset_getSerializedRangeCount(set: *const USerializedSet) -> i32 {
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn uset_getSerializedSet(fillset: *mut USerializedSet, src: *const u16, srclength: i32) -> i8 {
+pub unsafe fn uset_getSerializedSet(fillset: &mut USerializedSet, src: &u16, srclength: i32) -> i8 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn uset_getSerializedSet(fillset: *mut USerializedSet, src: *const u16, srclength: i32) -> i8;
@@ -26015,7 +26015,7 @@ pub unsafe fn uset_getSerializedSet(fillset: *mut USerializedSet, src: *const u1
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn uset_indexOf(set: *const USet, c: i32) -> i32 {
+pub unsafe fn uset_indexOf(set: &USet, c: i32) -> i32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn uset_indexOf(set: *const USet, c: i32) -> i32;
@@ -26024,7 +26024,7 @@ pub unsafe fn uset_indexOf(set: *const USet, c: i32) -> i32 {
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn uset_isEmpty(set: *const USet) -> i8 {
+pub unsafe fn uset_isEmpty(set: &USet) -> i8 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn uset_isEmpty(set: *const USet) -> i8;
@@ -26033,7 +26033,7 @@ pub unsafe fn uset_isEmpty(set: *const USet) -> i8 {
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn uset_isFrozen(set: *const USet) -> i8 {
+pub unsafe fn uset_isFrozen(set: &USet) -> i8 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn uset_isFrozen(set: *const USet) -> i8;
@@ -26060,7 +26060,7 @@ pub unsafe fn uset_openEmpty() -> *mut USet {
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn uset_openPattern(pattern: *const u16, patternlength: i32, ec: *mut UErrorCode) -> *mut USet {
+pub unsafe fn uset_openPattern(pattern: &u16, patternlength: i32, ec: &mut UErrorCode) -> *mut USet {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn uset_openPattern(pattern: *const u16, patternlength: i32, ec: *mut UErrorCode) -> *mut USet;
@@ -26069,7 +26069,7 @@ pub unsafe fn uset_openPattern(pattern: *const u16, patternlength: i32, ec: *mut
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn uset_openPatternOptions(pattern: *const u16, patternlength: i32, options: u32, ec: *mut UErrorCode) -> *mut USet {
+pub unsafe fn uset_openPatternOptions(pattern: &u16, patternlength: i32, options: u32, ec: &mut UErrorCode) -> *mut USet {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn uset_openPatternOptions(pattern: *const u16, patternlength: i32, options: u32, ec: *mut UErrorCode) -> *mut USet;
@@ -26078,7 +26078,7 @@ pub unsafe fn uset_openPatternOptions(pattern: *const u16, patternlength: i32, o
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn uset_remove(set: *mut USet, c: i32) {
+pub unsafe fn uset_remove(set: &mut USet, c: i32) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn uset_remove(set: *mut USet, c: i32);
@@ -26087,7 +26087,7 @@ pub unsafe fn uset_remove(set: *mut USet, c: i32) {
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn uset_removeAll(set: *mut USet, removeset: *const USet) {
+pub unsafe fn uset_removeAll(set: &mut USet, removeset: &USet) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn uset_removeAll(set: *mut USet, removeset: *const USet);
@@ -26096,7 +26096,7 @@ pub unsafe fn uset_removeAll(set: *mut USet, removeset: *const USet) {
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn uset_removeAllStrings(set: *mut USet) {
+pub unsafe fn uset_removeAllStrings(set: &mut USet) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn uset_removeAllStrings(set: *mut USet);
@@ -26105,7 +26105,7 @@ pub unsafe fn uset_removeAllStrings(set: *mut USet) {
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn uset_removeRange(set: *mut USet, start: i32, end: i32) {
+pub unsafe fn uset_removeRange(set: &mut USet, start: i32, end: i32) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn uset_removeRange(set: *mut USet, start: i32, end: i32);
@@ -26114,7 +26114,7 @@ pub unsafe fn uset_removeRange(set: *mut USet, start: i32, end: i32) {
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn uset_removeString(set: *mut USet, str: *const u16, strlen: i32) {
+pub unsafe fn uset_removeString(set: &mut USet, str: &u16, strlen: i32) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn uset_removeString(set: *mut USet, str: *const u16, strlen: i32);
@@ -26123,7 +26123,7 @@ pub unsafe fn uset_removeString(set: *mut USet, str: *const u16, strlen: i32) {
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn uset_resemblesPattern(pattern: *const u16, patternlength: i32, pos: i32) -> i8 {
+pub unsafe fn uset_resemblesPattern(pattern: &u16, patternlength: i32, pos: i32) -> i8 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn uset_resemblesPattern(pattern: *const u16, patternlength: i32, pos: i32) -> i8;
@@ -26132,7 +26132,7 @@ pub unsafe fn uset_resemblesPattern(pattern: *const u16, patternlength: i32, pos
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn uset_retain(set: *mut USet, start: i32, end: i32) {
+pub unsafe fn uset_retain(set: &mut USet, start: i32, end: i32) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn uset_retain(set: *mut USet, start: i32, end: i32);
@@ -26141,7 +26141,7 @@ pub unsafe fn uset_retain(set: *mut USet, start: i32, end: i32) {
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn uset_retainAll(set: *mut USet, retain: *const USet) {
+pub unsafe fn uset_retainAll(set: &mut USet, retain: &USet) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn uset_retainAll(set: *mut USet, retain: *const USet);
@@ -26150,7 +26150,7 @@ pub unsafe fn uset_retainAll(set: *mut USet, retain: *const USet) {
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn uset_serialize(set: *const USet, dest: *mut u16, destcapacity: i32, perrorcode: *mut UErrorCode) -> i32 {
+pub unsafe fn uset_serialize(set: &USet, dest: &mut u16, destcapacity: i32, perrorcode: &mut UErrorCode) -> i32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn uset_serialize(set: *const USet, dest: *mut u16, destcapacity: i32, perrorcode: *mut UErrorCode) -> i32;
@@ -26159,7 +26159,7 @@ pub unsafe fn uset_serialize(set: *const USet, dest: *mut u16, destcapacity: i32
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn uset_serializedContains(set: *const USerializedSet, c: i32) -> i8 {
+pub unsafe fn uset_serializedContains(set: &USerializedSet, c: i32) -> i8 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn uset_serializedContains(set: *const USerializedSet, c: i32) -> i8;
@@ -26168,7 +26168,7 @@ pub unsafe fn uset_serializedContains(set: *const USerializedSet, c: i32) -> i8 
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn uset_set(set: *mut USet, start: i32, end: i32) {
+pub unsafe fn uset_set(set: &mut USet, start: i32, end: i32) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn uset_set(set: *mut USet, start: i32, end: i32);
@@ -26177,7 +26177,7 @@ pub unsafe fn uset_set(set: *mut USet, start: i32, end: i32) {
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn uset_setSerializedToOne(fillset: *mut USerializedSet, c: i32) {
+pub unsafe fn uset_setSerializedToOne(fillset: &mut USerializedSet, c: i32) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn uset_setSerializedToOne(fillset: *mut USerializedSet, c: i32);
@@ -26186,7 +26186,7 @@ pub unsafe fn uset_setSerializedToOne(fillset: *mut USerializedSet, c: i32) {
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn uset_size(set: *const USet) -> i32 {
+pub unsafe fn uset_size(set: &USet) -> i32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn uset_size(set: *const USet) -> i32;
@@ -26195,7 +26195,7 @@ pub unsafe fn uset_size(set: *const USet) -> i32 {
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn uset_span(set: *const USet, s: *const u16, length: i32, spancondition: USetSpanCondition) -> i32 {
+pub unsafe fn uset_span(set: &USet, s: &u16, length: i32, spancondition: USetSpanCondition) -> i32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn uset_span(set: *const USet, s: *const u16, length: i32, spancondition: USetSpanCondition) -> i32;
@@ -26204,7 +26204,7 @@ pub unsafe fn uset_span(set: *const USet, s: *const u16, length: i32, spancondit
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn uset_spanBack(set: *const USet, s: *const u16, length: i32, spancondition: USetSpanCondition) -> i32 {
+pub unsafe fn uset_spanBack(set: &USet, s: &u16, length: i32, spancondition: USetSpanCondition) -> i32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn uset_spanBack(set: *const USet, s: *const u16, length: i32, spancondition: USetSpanCondition) -> i32;
@@ -26213,7 +26213,7 @@ pub unsafe fn uset_spanBack(set: *const USet, s: *const u16, length: i32, spanco
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn uset_spanBackUTF8<'a, P0>(set: *const USet, s: P0, length: i32, spancondition: USetSpanCondition) -> i32
+pub unsafe fn uset_spanBackUTF8<'a, P0>(set: &USet, s: P0, length: i32, spancondition: USetSpanCondition) -> i32
 where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
 {
@@ -26225,7 +26225,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn uset_spanUTF8<'a, P0>(set: *const USet, s: P0, length: i32, spancondition: USetSpanCondition) -> i32
+pub unsafe fn uset_spanUTF8<'a, P0>(set: &USet, s: P0, length: i32, spancondition: USetSpanCondition) -> i32
 where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
 {
@@ -26237,7 +26237,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn uset_toPattern(set: *const USet, result: *mut u16, resultcapacity: i32, escapeunprintable: i8, ec: *mut UErrorCode) -> i32 {
+pub unsafe fn uset_toPattern(set: &USet, result: &mut u16, resultcapacity: i32, escapeunprintable: i8, ec: &mut UErrorCode) -> i32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn uset_toPattern(set: *const USet, result: *mut u16, resultcapacity: i32, escapeunprintable: i8, ec: *mut UErrorCode) -> i32;
@@ -26246,7 +26246,7 @@ pub unsafe fn uset_toPattern(set: *const USet, result: *mut u16, resultcapacity:
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn uspoof_areConfusable(sc: *const USpoofChecker, id1: *const u16, length1: i32, id2: *const u16, length2: i32, status: *mut UErrorCode) -> i32 {
+pub unsafe fn uspoof_areConfusable(sc: &USpoofChecker, id1: &u16, length1: i32, id2: &u16, length2: i32, status: &mut UErrorCode) -> i32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn uspoof_areConfusable(sc: *const USpoofChecker, id1: *const u16, length1: i32, id2: *const u16, length2: i32, status: *mut UErrorCode) -> i32;
@@ -26255,7 +26255,7 @@ pub unsafe fn uspoof_areConfusable(sc: *const USpoofChecker, id1: *const u16, le
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn uspoof_areConfusableUTF8<'a, P0, P1>(sc: *const USpoofChecker, id1: P0, length1: i32, id2: P1, length2: i32, status: *mut UErrorCode) -> i32
+pub unsafe fn uspoof_areConfusableUTF8<'a, P0, P1>(sc: &USpoofChecker, id1: P0, length1: i32, id2: P1, length2: i32, status: &mut UErrorCode) -> i32
 where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
     P1: ::std::convert::Into<::windows::core::PCSTR>,
@@ -26268,7 +26268,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn uspoof_check(sc: *const USpoofChecker, id: *const u16, length: i32, position: *mut i32, status: *mut UErrorCode) -> i32 {
+pub unsafe fn uspoof_check(sc: &USpoofChecker, id: &u16, length: i32, position: &mut i32, status: &mut UErrorCode) -> i32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn uspoof_check(sc: *const USpoofChecker, id: *const u16, length: i32, position: *mut i32, status: *mut UErrorCode) -> i32;
@@ -26277,7 +26277,7 @@ pub unsafe fn uspoof_check(sc: *const USpoofChecker, id: *const u16, length: i32
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn uspoof_check2(sc: *const USpoofChecker, id: *const u16, length: i32, checkresult: *mut USpoofCheckResult, status: *mut UErrorCode) -> i32 {
+pub unsafe fn uspoof_check2(sc: &USpoofChecker, id: &u16, length: i32, checkresult: &mut USpoofCheckResult, status: &mut UErrorCode) -> i32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn uspoof_check2(sc: *const USpoofChecker, id: *const u16, length: i32, checkresult: *mut USpoofCheckResult, status: *mut UErrorCode) -> i32;
@@ -26286,7 +26286,7 @@ pub unsafe fn uspoof_check2(sc: *const USpoofChecker, id: *const u16, length: i3
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn uspoof_check2UTF8<'a, P0>(sc: *const USpoofChecker, id: P0, length: i32, checkresult: *mut USpoofCheckResult, status: *mut UErrorCode) -> i32
+pub unsafe fn uspoof_check2UTF8<'a, P0>(sc: &USpoofChecker, id: P0, length: i32, checkresult: &mut USpoofCheckResult, status: &mut UErrorCode) -> i32
 where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
 {
@@ -26298,7 +26298,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn uspoof_checkUTF8<'a, P0>(sc: *const USpoofChecker, id: P0, length: i32, position: *mut i32, status: *mut UErrorCode) -> i32
+pub unsafe fn uspoof_checkUTF8<'a, P0>(sc: &USpoofChecker, id: P0, length: i32, position: &mut i32, status: &mut UErrorCode) -> i32
 where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
 {
@@ -26310,7 +26310,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn uspoof_clone(sc: *const USpoofChecker, status: *mut UErrorCode) -> *mut USpoofChecker {
+pub unsafe fn uspoof_clone(sc: &USpoofChecker, status: &mut UErrorCode) -> *mut USpoofChecker {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn uspoof_clone(sc: *const USpoofChecker, status: *mut UErrorCode) -> *mut USpoofChecker;
@@ -26319,7 +26319,7 @@ pub unsafe fn uspoof_clone(sc: *const USpoofChecker, status: *mut UErrorCode) ->
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn uspoof_close(sc: *mut USpoofChecker) {
+pub unsafe fn uspoof_close(sc: &mut USpoofChecker) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn uspoof_close(sc: *mut USpoofChecker);
@@ -26328,7 +26328,7 @@ pub unsafe fn uspoof_close(sc: *mut USpoofChecker) {
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn uspoof_closeCheckResult(checkresult: *mut USpoofCheckResult) {
+pub unsafe fn uspoof_closeCheckResult(checkresult: &mut USpoofCheckResult) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn uspoof_closeCheckResult(checkresult: *mut USpoofCheckResult);
@@ -26337,7 +26337,7 @@ pub unsafe fn uspoof_closeCheckResult(checkresult: *mut USpoofCheckResult) {
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn uspoof_getAllowedChars(sc: *const USpoofChecker, status: *mut UErrorCode) -> *mut USet {
+pub unsafe fn uspoof_getAllowedChars(sc: &USpoofChecker, status: &mut UErrorCode) -> *mut USet {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn uspoof_getAllowedChars(sc: *const USpoofChecker, status: *mut UErrorCode) -> *mut USet;
@@ -26346,7 +26346,7 @@ pub unsafe fn uspoof_getAllowedChars(sc: *const USpoofChecker, status: *mut UErr
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn uspoof_getAllowedLocales(sc: *mut USpoofChecker, status: *mut UErrorCode) -> ::windows::core::PSTR {
+pub unsafe fn uspoof_getAllowedLocales(sc: &mut USpoofChecker, status: &mut UErrorCode) -> ::windows::core::PSTR {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn uspoof_getAllowedLocales(sc: *mut USpoofChecker, status: *mut UErrorCode) -> ::windows::core::PSTR;
@@ -26355,7 +26355,7 @@ pub unsafe fn uspoof_getAllowedLocales(sc: *mut USpoofChecker, status: *mut UErr
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn uspoof_getCheckResultChecks(checkresult: *const USpoofCheckResult, status: *mut UErrorCode) -> i32 {
+pub unsafe fn uspoof_getCheckResultChecks(checkresult: &USpoofCheckResult, status: &mut UErrorCode) -> i32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn uspoof_getCheckResultChecks(checkresult: *const USpoofCheckResult, status: *mut UErrorCode) -> i32;
@@ -26364,7 +26364,7 @@ pub unsafe fn uspoof_getCheckResultChecks(checkresult: *const USpoofCheckResult,
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn uspoof_getCheckResultNumerics(checkresult: *const USpoofCheckResult, status: *mut UErrorCode) -> *mut USet {
+pub unsafe fn uspoof_getCheckResultNumerics(checkresult: &USpoofCheckResult, status: &mut UErrorCode) -> *mut USet {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn uspoof_getCheckResultNumerics(checkresult: *const USpoofCheckResult, status: *mut UErrorCode) -> *mut USet;
@@ -26373,7 +26373,7 @@ pub unsafe fn uspoof_getCheckResultNumerics(checkresult: *const USpoofCheckResul
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn uspoof_getCheckResultRestrictionLevel(checkresult: *const USpoofCheckResult, status: *mut UErrorCode) -> URestrictionLevel {
+pub unsafe fn uspoof_getCheckResultRestrictionLevel(checkresult: &USpoofCheckResult, status: &mut UErrorCode) -> URestrictionLevel {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn uspoof_getCheckResultRestrictionLevel(checkresult: *const USpoofCheckResult, status: *mut UErrorCode) -> URestrictionLevel;
@@ -26382,7 +26382,7 @@ pub unsafe fn uspoof_getCheckResultRestrictionLevel(checkresult: *const USpoofCh
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn uspoof_getChecks(sc: *const USpoofChecker, status: *mut UErrorCode) -> i32 {
+pub unsafe fn uspoof_getChecks(sc: &USpoofChecker, status: &mut UErrorCode) -> i32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn uspoof_getChecks(sc: *const USpoofChecker, status: *mut UErrorCode) -> i32;
@@ -26391,7 +26391,7 @@ pub unsafe fn uspoof_getChecks(sc: *const USpoofChecker, status: *mut UErrorCode
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn uspoof_getInclusionSet(status: *mut UErrorCode) -> *mut USet {
+pub unsafe fn uspoof_getInclusionSet(status: &mut UErrorCode) -> *mut USet {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn uspoof_getInclusionSet(status: *mut UErrorCode) -> *mut USet;
@@ -26400,7 +26400,7 @@ pub unsafe fn uspoof_getInclusionSet(status: *mut UErrorCode) -> *mut USet {
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn uspoof_getRecommendedSet(status: *mut UErrorCode) -> *mut USet {
+pub unsafe fn uspoof_getRecommendedSet(status: &mut UErrorCode) -> *mut USet {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn uspoof_getRecommendedSet(status: *mut UErrorCode) -> *mut USet;
@@ -26409,7 +26409,7 @@ pub unsafe fn uspoof_getRecommendedSet(status: *mut UErrorCode) -> *mut USet {
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn uspoof_getRestrictionLevel(sc: *const USpoofChecker) -> URestrictionLevel {
+pub unsafe fn uspoof_getRestrictionLevel(sc: &USpoofChecker) -> URestrictionLevel {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn uspoof_getRestrictionLevel(sc: *const USpoofChecker) -> URestrictionLevel;
@@ -26418,7 +26418,7 @@ pub unsafe fn uspoof_getRestrictionLevel(sc: *const USpoofChecker) -> URestricti
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn uspoof_getSkeleton(sc: *const USpoofChecker, r#type: u32, id: *const u16, length: i32, dest: *mut u16, destcapacity: i32, status: *mut UErrorCode) -> i32 {
+pub unsafe fn uspoof_getSkeleton(sc: &USpoofChecker, r#type: u32, id: &u16, length: i32, dest: &mut u16, destcapacity: i32, status: &mut UErrorCode) -> i32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn uspoof_getSkeleton(sc: *const USpoofChecker, r#type: u32, id: *const u16, length: i32, dest: *mut u16, destcapacity: i32, status: *mut UErrorCode) -> i32;
@@ -26427,7 +26427,7 @@ pub unsafe fn uspoof_getSkeleton(sc: *const USpoofChecker, r#type: u32, id: *con
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn uspoof_getSkeletonUTF8<'a, P0, P1>(sc: *const USpoofChecker, r#type: u32, id: P0, length: i32, dest: P1, destcapacity: i32, status: *mut UErrorCode) -> i32
+pub unsafe fn uspoof_getSkeletonUTF8<'a, P0, P1>(sc: &USpoofChecker, r#type: u32, id: P0, length: i32, dest: P1, destcapacity: i32, status: &mut UErrorCode) -> i32
 where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
     P1: ::std::convert::Into<::windows::core::PCSTR>,
@@ -26440,7 +26440,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn uspoof_open(status: *mut UErrorCode) -> *mut USpoofChecker {
+pub unsafe fn uspoof_open(status: &mut UErrorCode) -> *mut USpoofChecker {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn uspoof_open(status: *mut UErrorCode) -> *mut USpoofChecker;
@@ -26449,7 +26449,7 @@ pub unsafe fn uspoof_open(status: *mut UErrorCode) -> *mut USpoofChecker {
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn uspoof_openCheckResult(status: *mut UErrorCode) -> *mut USpoofCheckResult {
+pub unsafe fn uspoof_openCheckResult(status: &mut UErrorCode) -> *mut USpoofCheckResult {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn uspoof_openCheckResult(status: *mut UErrorCode) -> *mut USpoofCheckResult;
@@ -26458,7 +26458,7 @@ pub unsafe fn uspoof_openCheckResult(status: *mut UErrorCode) -> *mut USpoofChec
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn uspoof_openFromSerialized(data: *const ::core::ffi::c_void, length: i32, pactuallength: *mut i32, perrorcode: *mut UErrorCode) -> *mut USpoofChecker {
+pub unsafe fn uspoof_openFromSerialized(data: *const ::core::ffi::c_void, length: i32, pactuallength: &mut i32, perrorcode: &mut UErrorCode) -> *mut USpoofChecker {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn uspoof_openFromSerialized(data: *const ::core::ffi::c_void, length: i32, pactuallength: *mut i32, perrorcode: *mut UErrorCode) -> *mut USpoofChecker;
@@ -26467,7 +26467,7 @@ pub unsafe fn uspoof_openFromSerialized(data: *const ::core::ffi::c_void, length
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn uspoof_openFromSource<'a, P0, P1>(confusables: P0, confusableslen: i32, confusableswholescript: P1, confusableswholescriptlen: i32, errtype: *mut i32, pe: *mut UParseError, status: *mut UErrorCode) -> *mut USpoofChecker
+pub unsafe fn uspoof_openFromSource<'a, P0, P1>(confusables: P0, confusableslen: i32, confusableswholescript: P1, confusableswholescriptlen: i32, errtype: &mut i32, pe: &mut UParseError, status: &mut UErrorCode) -> *mut USpoofChecker
 where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
     P1: ::std::convert::Into<::windows::core::PCSTR>,
@@ -26480,7 +26480,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn uspoof_serialize(sc: *mut USpoofChecker, data: *mut ::core::ffi::c_void, capacity: i32, status: *mut UErrorCode) -> i32 {
+pub unsafe fn uspoof_serialize(sc: &mut USpoofChecker, data: *mut ::core::ffi::c_void, capacity: i32, status: &mut UErrorCode) -> i32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn uspoof_serialize(sc: *mut USpoofChecker, data: *mut ::core::ffi::c_void, capacity: i32, status: *mut UErrorCode) -> i32;
@@ -26489,7 +26489,7 @@ pub unsafe fn uspoof_serialize(sc: *mut USpoofChecker, data: *mut ::core::ffi::c
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn uspoof_setAllowedChars(sc: *mut USpoofChecker, chars: *const USet, status: *mut UErrorCode) {
+pub unsafe fn uspoof_setAllowedChars(sc: &mut USpoofChecker, chars: &USet, status: &mut UErrorCode) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn uspoof_setAllowedChars(sc: *mut USpoofChecker, chars: *const USet, status: *mut UErrorCode);
@@ -26498,7 +26498,7 @@ pub unsafe fn uspoof_setAllowedChars(sc: *mut USpoofChecker, chars: *const USet,
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn uspoof_setAllowedLocales<'a, P0>(sc: *mut USpoofChecker, localeslist: P0, status: *mut UErrorCode)
+pub unsafe fn uspoof_setAllowedLocales<'a, P0>(sc: &mut USpoofChecker, localeslist: P0, status: &mut UErrorCode)
 where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
 {
@@ -26510,7 +26510,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn uspoof_setChecks(sc: *mut USpoofChecker, checks: i32, status: *mut UErrorCode) {
+pub unsafe fn uspoof_setChecks(sc: &mut USpoofChecker, checks: i32, status: &mut UErrorCode) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn uspoof_setChecks(sc: *mut USpoofChecker, checks: i32, status: *mut UErrorCode);
@@ -26519,7 +26519,7 @@ pub unsafe fn uspoof_setChecks(sc: *mut USpoofChecker, checks: i32, status: *mut
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn uspoof_setRestrictionLevel(sc: *mut USpoofChecker, restrictionlevel: URestrictionLevel) {
+pub unsafe fn uspoof_setRestrictionLevel(sc: &mut USpoofChecker, restrictionlevel: URestrictionLevel) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn uspoof_setRestrictionLevel(sc: *mut USpoofChecker, restrictionlevel: URestrictionLevel);
@@ -26528,7 +26528,7 @@ pub unsafe fn uspoof_setRestrictionLevel(sc: *mut USpoofChecker, restrictionleve
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn usprep_close(profile: *mut UStringPrepProfile) {
+pub unsafe fn usprep_close(profile: &mut UStringPrepProfile) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn usprep_close(profile: *mut UStringPrepProfile);
@@ -26537,7 +26537,7 @@ pub unsafe fn usprep_close(profile: *mut UStringPrepProfile) {
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn usprep_open<'a, P0, P1>(path: P0, filename: P1, status: *mut UErrorCode) -> *mut UStringPrepProfile
+pub unsafe fn usprep_open<'a, P0, P1>(path: P0, filename: P1, status: &mut UErrorCode) -> *mut UStringPrepProfile
 where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
     P1: ::std::convert::Into<::windows::core::PCSTR>,
@@ -26550,7 +26550,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn usprep_openByType(r#type: UStringPrepProfileType, status: *mut UErrorCode) -> *mut UStringPrepProfile {
+pub unsafe fn usprep_openByType(r#type: UStringPrepProfileType, status: &mut UErrorCode) -> *mut UStringPrepProfile {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn usprep_openByType(r#type: UStringPrepProfileType, status: *mut UErrorCode) -> *mut UStringPrepProfile;
@@ -26559,7 +26559,7 @@ pub unsafe fn usprep_openByType(r#type: UStringPrepProfileType, status: *mut UEr
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn usprep_prepare(prep: *const UStringPrepProfile, src: *const u16, srclength: i32, dest: *mut u16, destcapacity: i32, options: i32, parseerror: *mut UParseError, status: *mut UErrorCode) -> i32 {
+pub unsafe fn usprep_prepare(prep: &UStringPrepProfile, src: &u16, srclength: i32, dest: &mut u16, destcapacity: i32, options: i32, parseerror: &mut UParseError, status: &mut UErrorCode) -> i32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn usprep_prepare(prep: *const UStringPrepProfile, src: *const u16, srclength: i32, dest: *mut u16, destcapacity: i32, options: i32, parseerror: *mut UParseError, status: *mut UErrorCode) -> i32;
@@ -26568,7 +26568,7 @@ pub unsafe fn usprep_prepare(prep: *const UStringPrepProfile, src: *const u16, s
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn utext_char32At(ut: *mut UText, nativeindex: i64) -> i32 {
+pub unsafe fn utext_char32At(ut: &mut UText, nativeindex: i64) -> i32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn utext_char32At(ut: *mut UText, nativeindex: i64) -> i32;
@@ -26577,7 +26577,7 @@ pub unsafe fn utext_char32At(ut: *mut UText, nativeindex: i64) -> i32 {
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn utext_clone(dest: *mut UText, src: *const UText, deep: i8, readonly: i8, status: *mut UErrorCode) -> *mut UText {
+pub unsafe fn utext_clone(dest: &mut UText, src: &UText, deep: i8, readonly: i8, status: &mut UErrorCode) -> *mut UText {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn utext_clone(dest: *mut UText, src: *const UText, deep: i8, readonly: i8, status: *mut UErrorCode) -> *mut UText;
@@ -26586,7 +26586,7 @@ pub unsafe fn utext_clone(dest: *mut UText, src: *const UText, deep: i8, readonl
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn utext_close(ut: *mut UText) -> *mut UText {
+pub unsafe fn utext_close(ut: &mut UText) -> *mut UText {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn utext_close(ut: *mut UText) -> *mut UText;
@@ -26595,7 +26595,7 @@ pub unsafe fn utext_close(ut: *mut UText) -> *mut UText {
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn utext_copy(ut: *mut UText, nativestart: i64, nativelimit: i64, destindex: i64, r#move: i8, status: *mut UErrorCode) {
+pub unsafe fn utext_copy(ut: &mut UText, nativestart: i64, nativelimit: i64, destindex: i64, r#move: i8, status: &mut UErrorCode) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn utext_copy(ut: *mut UText, nativestart: i64, nativelimit: i64, destindex: i64, r#move: i8, status: *mut UErrorCode);
@@ -26604,7 +26604,7 @@ pub unsafe fn utext_copy(ut: *mut UText, nativestart: i64, nativelimit: i64, des
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn utext_current32(ut: *mut UText) -> i32 {
+pub unsafe fn utext_current32(ut: &mut UText) -> i32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn utext_current32(ut: *mut UText) -> i32;
@@ -26613,7 +26613,7 @@ pub unsafe fn utext_current32(ut: *mut UText) -> i32 {
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn utext_equals(a: *const UText, b: *const UText) -> i8 {
+pub unsafe fn utext_equals(a: &UText, b: &UText) -> i8 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn utext_equals(a: *const UText, b: *const UText) -> i8;
@@ -26622,7 +26622,7 @@ pub unsafe fn utext_equals(a: *const UText, b: *const UText) -> i8 {
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn utext_extract(ut: *mut UText, nativestart: i64, nativelimit: i64, dest: *mut u16, destcapacity: i32, status: *mut UErrorCode) -> i32 {
+pub unsafe fn utext_extract(ut: &mut UText, nativestart: i64, nativelimit: i64, dest: &mut u16, destcapacity: i32, status: &mut UErrorCode) -> i32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn utext_extract(ut: *mut UText, nativestart: i64, nativelimit: i64, dest: *mut u16, destcapacity: i32, status: *mut UErrorCode) -> i32;
@@ -26631,7 +26631,7 @@ pub unsafe fn utext_extract(ut: *mut UText, nativestart: i64, nativelimit: i64, 
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn utext_freeze(ut: *mut UText) {
+pub unsafe fn utext_freeze(ut: &mut UText) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn utext_freeze(ut: *mut UText);
@@ -26640,7 +26640,7 @@ pub unsafe fn utext_freeze(ut: *mut UText) {
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn utext_getNativeIndex(ut: *const UText) -> i64 {
+pub unsafe fn utext_getNativeIndex(ut: &UText) -> i64 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn utext_getNativeIndex(ut: *const UText) -> i64;
@@ -26649,7 +26649,7 @@ pub unsafe fn utext_getNativeIndex(ut: *const UText) -> i64 {
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn utext_getPreviousNativeIndex(ut: *mut UText) -> i64 {
+pub unsafe fn utext_getPreviousNativeIndex(ut: &mut UText) -> i64 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn utext_getPreviousNativeIndex(ut: *mut UText) -> i64;
@@ -26658,7 +26658,7 @@ pub unsafe fn utext_getPreviousNativeIndex(ut: *mut UText) -> i64 {
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn utext_hasMetaData(ut: *const UText) -> i8 {
+pub unsafe fn utext_hasMetaData(ut: &UText) -> i8 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn utext_hasMetaData(ut: *const UText) -> i8;
@@ -26667,7 +26667,7 @@ pub unsafe fn utext_hasMetaData(ut: *const UText) -> i8 {
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn utext_isLengthExpensive(ut: *const UText) -> i8 {
+pub unsafe fn utext_isLengthExpensive(ut: &UText) -> i8 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn utext_isLengthExpensive(ut: *const UText) -> i8;
@@ -26676,7 +26676,7 @@ pub unsafe fn utext_isLengthExpensive(ut: *const UText) -> i8 {
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn utext_isWritable(ut: *const UText) -> i8 {
+pub unsafe fn utext_isWritable(ut: &UText) -> i8 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn utext_isWritable(ut: *const UText) -> i8;
@@ -26685,7 +26685,7 @@ pub unsafe fn utext_isWritable(ut: *const UText) -> i8 {
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn utext_moveIndex32(ut: *mut UText, delta: i32) -> i8 {
+pub unsafe fn utext_moveIndex32(ut: &mut UText, delta: i32) -> i8 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn utext_moveIndex32(ut: *mut UText, delta: i32) -> i8;
@@ -26694,7 +26694,7 @@ pub unsafe fn utext_moveIndex32(ut: *mut UText, delta: i32) -> i8 {
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn utext_nativeLength(ut: *mut UText) -> i64 {
+pub unsafe fn utext_nativeLength(ut: &mut UText) -> i64 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn utext_nativeLength(ut: *mut UText) -> i64;
@@ -26703,7 +26703,7 @@ pub unsafe fn utext_nativeLength(ut: *mut UText) -> i64 {
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn utext_next32(ut: *mut UText) -> i32 {
+pub unsafe fn utext_next32(ut: &mut UText) -> i32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn utext_next32(ut: *mut UText) -> i32;
@@ -26712,7 +26712,7 @@ pub unsafe fn utext_next32(ut: *mut UText) -> i32 {
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn utext_next32From(ut: *mut UText, nativeindex: i64) -> i32 {
+pub unsafe fn utext_next32From(ut: &mut UText, nativeindex: i64) -> i32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn utext_next32From(ut: *mut UText, nativeindex: i64) -> i32;
@@ -26721,7 +26721,7 @@ pub unsafe fn utext_next32From(ut: *mut UText, nativeindex: i64) -> i32 {
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn utext_openUChars(ut: *mut UText, s: *const u16, length: i64, status: *mut UErrorCode) -> *mut UText {
+pub unsafe fn utext_openUChars(ut: &mut UText, s: &u16, length: i64, status: &mut UErrorCode) -> *mut UText {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn utext_openUChars(ut: *mut UText, s: *const u16, length: i64, status: *mut UErrorCode) -> *mut UText;
@@ -26730,7 +26730,7 @@ pub unsafe fn utext_openUChars(ut: *mut UText, s: *const u16, length: i64, statu
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn utext_openUTF8<'a, P0>(ut: *mut UText, s: P0, length: i64, status: *mut UErrorCode) -> *mut UText
+pub unsafe fn utext_openUTF8<'a, P0>(ut: &mut UText, s: P0, length: i64, status: &mut UErrorCode) -> *mut UText
 where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
 {
@@ -26742,7 +26742,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn utext_previous32(ut: *mut UText) -> i32 {
+pub unsafe fn utext_previous32(ut: &mut UText) -> i32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn utext_previous32(ut: *mut UText) -> i32;
@@ -26751,7 +26751,7 @@ pub unsafe fn utext_previous32(ut: *mut UText) -> i32 {
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn utext_previous32From(ut: *mut UText, nativeindex: i64) -> i32 {
+pub unsafe fn utext_previous32From(ut: &mut UText, nativeindex: i64) -> i32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn utext_previous32From(ut: *mut UText, nativeindex: i64) -> i32;
@@ -26760,7 +26760,7 @@ pub unsafe fn utext_previous32From(ut: *mut UText, nativeindex: i64) -> i32 {
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn utext_replace(ut: *mut UText, nativestart: i64, nativelimit: i64, replacementtext: *const u16, replacementlength: i32, status: *mut UErrorCode) -> i32 {
+pub unsafe fn utext_replace(ut: &mut UText, nativestart: i64, nativelimit: i64, replacementtext: &u16, replacementlength: i32, status: &mut UErrorCode) -> i32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn utext_replace(ut: *mut UText, nativestart: i64, nativelimit: i64, replacementtext: *const u16, replacementlength: i32, status: *mut UErrorCode) -> i32;
@@ -26769,7 +26769,7 @@ pub unsafe fn utext_replace(ut: *mut UText, nativestart: i64, nativelimit: i64, 
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn utext_setNativeIndex(ut: *mut UText, nativeindex: i64) {
+pub unsafe fn utext_setNativeIndex(ut: &mut UText, nativeindex: i64) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn utext_setNativeIndex(ut: *mut UText, nativeindex: i64);
@@ -26778,7 +26778,7 @@ pub unsafe fn utext_setNativeIndex(ut: *mut UText, nativeindex: i64) {
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn utext_setup(ut: *mut UText, extraspace: i32, status: *mut UErrorCode) -> *mut UText {
+pub unsafe fn utext_setup(ut: &mut UText, extraspace: i32, status: &mut UErrorCode) -> *mut UText {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn utext_setup(ut: *mut UText, extraspace: i32, status: *mut UErrorCode) -> *mut UText;
@@ -26787,7 +26787,7 @@ pub unsafe fn utext_setup(ut: *mut UText, extraspace: i32, status: *mut UErrorCo
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn utf8_appendCharSafeBody(s: *mut u8, i: i32, length: i32, c: i32, piserror: *mut i8) -> i32 {
+pub unsafe fn utf8_appendCharSafeBody(s: &mut u8, i: i32, length: i32, c: i32, piserror: &mut i8) -> i32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn utf8_appendCharSafeBody(s: *mut u8, i: i32, length: i32, c: i32, piserror: *mut i8) -> i32;
@@ -26796,7 +26796,7 @@ pub unsafe fn utf8_appendCharSafeBody(s: *mut u8, i: i32, length: i32, c: i32, p
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn utf8_back1SafeBody(s: *const u8, start: i32, i: i32) -> i32 {
+pub unsafe fn utf8_back1SafeBody(s: &u8, start: i32, i: i32) -> i32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn utf8_back1SafeBody(s: *const u8, start: i32, i: i32) -> i32;
@@ -26805,7 +26805,7 @@ pub unsafe fn utf8_back1SafeBody(s: *const u8, start: i32, i: i32) -> i32 {
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn utf8_nextCharSafeBody(s: *const u8, pi: *mut i32, length: i32, c: i32, strict: i8) -> i32 {
+pub unsafe fn utf8_nextCharSafeBody(s: &u8, pi: &mut i32, length: i32, c: i32, strict: i8) -> i32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn utf8_nextCharSafeBody(s: *const u8, pi: *mut i32, length: i32, c: i32, strict: i8) -> i32;
@@ -26814,7 +26814,7 @@ pub unsafe fn utf8_nextCharSafeBody(s: *const u8, pi: *mut i32, length: i32, c: 
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn utf8_prevCharSafeBody(s: *const u8, start: i32, pi: *mut i32, c: i32, strict: i8) -> i32 {
+pub unsafe fn utf8_prevCharSafeBody(s: &u8, start: i32, pi: &mut i32, c: i32, strict: i8) -> i32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn utf8_prevCharSafeBody(s: *const u8, start: i32, pi: *mut i32, c: i32, strict: i8) -> i32;
@@ -26823,7 +26823,7 @@ pub unsafe fn utf8_prevCharSafeBody(s: *const u8, start: i32, pi: *mut i32, c: i
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn utmscale_fromInt64(othertime: i64, timescale: UDateTimeScale, status: *mut UErrorCode) -> i64 {
+pub unsafe fn utmscale_fromInt64(othertime: i64, timescale: UDateTimeScale, status: &mut UErrorCode) -> i64 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn utmscale_fromInt64(othertime: i64, timescale: UDateTimeScale, status: *mut UErrorCode) -> i64;
@@ -26832,7 +26832,7 @@ pub unsafe fn utmscale_fromInt64(othertime: i64, timescale: UDateTimeScale, stat
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn utmscale_getTimeScaleValue(timescale: UDateTimeScale, value: UTimeScaleValue, status: *mut UErrorCode) -> i64 {
+pub unsafe fn utmscale_getTimeScaleValue(timescale: UDateTimeScale, value: UTimeScaleValue, status: &mut UErrorCode) -> i64 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn utmscale_getTimeScaleValue(timescale: UDateTimeScale, value: UTimeScaleValue, status: *mut UErrorCode) -> i64;
@@ -26841,7 +26841,7 @@ pub unsafe fn utmscale_getTimeScaleValue(timescale: UDateTimeScale, value: UTime
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn utmscale_toInt64(universaltime: i64, timescale: UDateTimeScale, status: *mut UErrorCode) -> i64 {
+pub unsafe fn utmscale_toInt64(universaltime: i64, timescale: UDateTimeScale, status: &mut UErrorCode) -> i64 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn utmscale_toInt64(universaltime: i64, timescale: UDateTimeScale, status: *mut UErrorCode) -> i64;
@@ -26872,7 +26872,7 @@ pub unsafe fn utrace_functionName(fnnumber: i32) -> ::windows::core::PSTR {
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn utrace_getFunctions(context: *const *const ::core::ffi::c_void, e: *mut UTraceEntry, x: *mut UTraceExit, d: *mut UTraceData) {
+pub unsafe fn utrace_getFunctions(context: *const *const ::core::ffi::c_void, e: &mut UTraceEntry, x: &mut UTraceExit, d: &mut UTraceData) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn utrace_getFunctions(context: *const *const ::core::ffi::c_void, e: *mut *mut ::core::ffi::c_void, x: *mut *mut ::core::ffi::c_void, d: *mut *mut ::core::ffi::c_void);
@@ -26908,7 +26908,7 @@ pub unsafe fn utrace_setLevel(tracelevel: i32) {
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn utrace_vformat<'a, P0, P1>(outbuf: P0, capacity: i32, indent: i32, fmt: P1, args: *mut i8) -> i32
+pub unsafe fn utrace_vformat<'a, P0, P1>(outbuf: P0, capacity: i32, indent: i32, fmt: P1, args: &mut i8) -> i32
 where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
     P1: ::std::convert::Into<::windows::core::PCSTR>,
@@ -26921,7 +26921,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn utrans_clone(trans: *const *const ::core::ffi::c_void, status: *mut UErrorCode) -> *mut *mut ::core::ffi::c_void {
+pub unsafe fn utrans_clone(trans: *const *const ::core::ffi::c_void, status: &mut UErrorCode) -> *mut *mut ::core::ffi::c_void {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn utrans_clone(trans: *const *const ::core::ffi::c_void, status: *mut UErrorCode) -> *mut *mut ::core::ffi::c_void;
@@ -26948,7 +26948,7 @@ pub unsafe fn utrans_countAvailableIDs() -> i32 {
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn utrans_getSourceSet(trans: *const *const ::core::ffi::c_void, ignorefilter: i8, fillin: *mut USet, status: *mut UErrorCode) -> *mut USet {
+pub unsafe fn utrans_getSourceSet(trans: *const *const ::core::ffi::c_void, ignorefilter: i8, fillin: &mut USet, status: &mut UErrorCode) -> *mut USet {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn utrans_getSourceSet(trans: *const *const ::core::ffi::c_void, ignorefilter: i8, fillin: *mut USet, status: *mut UErrorCode) -> *mut USet;
@@ -26957,7 +26957,7 @@ pub unsafe fn utrans_getSourceSet(trans: *const *const ::core::ffi::c_void, igno
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn utrans_getUnicodeID(trans: *const *const ::core::ffi::c_void, resultlength: *mut i32) -> *mut u16 {
+pub unsafe fn utrans_getUnicodeID(trans: *const *const ::core::ffi::c_void, resultlength: &mut i32) -> *mut u16 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn utrans_getUnicodeID(trans: *const *const ::core::ffi::c_void, resultlength: *mut i32) -> *mut u16;
@@ -26966,7 +26966,7 @@ pub unsafe fn utrans_getUnicodeID(trans: *const *const ::core::ffi::c_void, resu
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn utrans_openIDs(perrorcode: *mut UErrorCode) -> *mut UEnumeration {
+pub unsafe fn utrans_openIDs(perrorcode: &mut UErrorCode) -> *mut UEnumeration {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn utrans_openIDs(perrorcode: *mut UErrorCode) -> *mut UEnumeration;
@@ -26975,7 +26975,7 @@ pub unsafe fn utrans_openIDs(perrorcode: *mut UErrorCode) -> *mut UEnumeration {
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn utrans_openInverse(trans: *const *const ::core::ffi::c_void, status: *mut UErrorCode) -> *mut *mut ::core::ffi::c_void {
+pub unsafe fn utrans_openInverse(trans: *const *const ::core::ffi::c_void, status: &mut UErrorCode) -> *mut *mut ::core::ffi::c_void {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn utrans_openInverse(trans: *const *const ::core::ffi::c_void, status: *mut UErrorCode) -> *mut *mut ::core::ffi::c_void;
@@ -26984,7 +26984,7 @@ pub unsafe fn utrans_openInverse(trans: *const *const ::core::ffi::c_void, statu
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn utrans_openU(id: *const u16, idlength: i32, dir: UTransDirection, rules: *const u16, ruleslength: i32, parseerror: *mut UParseError, perrorcode: *mut UErrorCode) -> *mut *mut ::core::ffi::c_void {
+pub unsafe fn utrans_openU(id: &u16, idlength: i32, dir: UTransDirection, rules: &u16, ruleslength: i32, parseerror: &mut UParseError, perrorcode: &mut UErrorCode) -> *mut *mut ::core::ffi::c_void {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn utrans_openU(id: *const u16, idlength: i32, dir: UTransDirection, rules: *const u16, ruleslength: i32, parseerror: *mut UParseError, perrorcode: *mut UErrorCode) -> *mut *mut ::core::ffi::c_void;
@@ -26993,7 +26993,7 @@ pub unsafe fn utrans_openU(id: *const u16, idlength: i32, dir: UTransDirection, 
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn utrans_register(adoptedtrans: *mut *mut ::core::ffi::c_void, status: *mut UErrorCode) {
+pub unsafe fn utrans_register(adoptedtrans: *mut *mut ::core::ffi::c_void, status: &mut UErrorCode) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn utrans_register(adoptedtrans: *mut *mut ::core::ffi::c_void, status: *mut UErrorCode);
@@ -27002,7 +27002,7 @@ pub unsafe fn utrans_register(adoptedtrans: *mut *mut ::core::ffi::c_void, statu
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn utrans_setFilter(trans: *mut *mut ::core::ffi::c_void, filterpattern: *const u16, filterpatternlen: i32, status: *mut UErrorCode) {
+pub unsafe fn utrans_setFilter(trans: *mut *mut ::core::ffi::c_void, filterpattern: &u16, filterpatternlen: i32, status: &mut UErrorCode) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn utrans_setFilter(trans: *mut *mut ::core::ffi::c_void, filterpattern: *const u16, filterpatternlen: i32, status: *mut UErrorCode);
@@ -27011,7 +27011,7 @@ pub unsafe fn utrans_setFilter(trans: *mut *mut ::core::ffi::c_void, filterpatte
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn utrans_toRules(trans: *const *const ::core::ffi::c_void, escapeunprintable: i8, result: *mut u16, resultlength: i32, status: *mut UErrorCode) -> i32 {
+pub unsafe fn utrans_toRules(trans: *const *const ::core::ffi::c_void, escapeunprintable: i8, result: &mut u16, resultlength: i32, status: &mut UErrorCode) -> i32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn utrans_toRules(trans: *const *const ::core::ffi::c_void, escapeunprintable: i8, result: *mut u16, resultlength: i32, status: *mut UErrorCode) -> i32;
@@ -27020,7 +27020,7 @@ pub unsafe fn utrans_toRules(trans: *const *const ::core::ffi::c_void, escapeunp
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn utrans_trans(trans: *const *const ::core::ffi::c_void, rep: *mut *mut ::core::ffi::c_void, repfunc: *const UReplaceableCallbacks, start: i32, limit: *mut i32, status: *mut UErrorCode) {
+pub unsafe fn utrans_trans(trans: *const *const ::core::ffi::c_void, rep: *mut *mut ::core::ffi::c_void, repfunc: &UReplaceableCallbacks, start: i32, limit: &mut i32, status: &mut UErrorCode) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn utrans_trans(trans: *const *const ::core::ffi::c_void, rep: *mut *mut ::core::ffi::c_void, repfunc: *const UReplaceableCallbacks, start: i32, limit: *mut i32, status: *mut UErrorCode);
@@ -27029,7 +27029,7 @@ pub unsafe fn utrans_trans(trans: *const *const ::core::ffi::c_void, rep: *mut *
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn utrans_transIncremental(trans: *const *const ::core::ffi::c_void, rep: *mut *mut ::core::ffi::c_void, repfunc: *const UReplaceableCallbacks, pos: *mut UTransPosition, status: *mut UErrorCode) {
+pub unsafe fn utrans_transIncremental(trans: *const *const ::core::ffi::c_void, rep: *mut *mut ::core::ffi::c_void, repfunc: &UReplaceableCallbacks, pos: &mut UTransPosition, status: &mut UErrorCode) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn utrans_transIncremental(trans: *const *const ::core::ffi::c_void, rep: *mut *mut ::core::ffi::c_void, repfunc: *const UReplaceableCallbacks, pos: *mut UTransPosition, status: *mut UErrorCode);
@@ -27038,7 +27038,7 @@ pub unsafe fn utrans_transIncremental(trans: *const *const ::core::ffi::c_void, 
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn utrans_transIncrementalUChars(trans: *const *const ::core::ffi::c_void, text: *mut u16, textlength: *mut i32, textcapacity: i32, pos: *mut UTransPosition, status: *mut UErrorCode) {
+pub unsafe fn utrans_transIncrementalUChars(trans: *const *const ::core::ffi::c_void, text: &mut u16, textlength: &mut i32, textcapacity: i32, pos: &mut UTransPosition, status: &mut UErrorCode) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn utrans_transIncrementalUChars(trans: *const *const ::core::ffi::c_void, text: *mut u16, textlength: *mut i32, textcapacity: i32, pos: *mut UTransPosition, status: *mut UErrorCode);
@@ -27047,7 +27047,7 @@ pub unsafe fn utrans_transIncrementalUChars(trans: *const *const ::core::ffi::c_
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn utrans_transUChars(trans: *const *const ::core::ffi::c_void, text: *mut u16, textlength: *mut i32, textcapacity: i32, start: i32, limit: *mut i32, status: *mut UErrorCode) {
+pub unsafe fn utrans_transUChars(trans: *const *const ::core::ffi::c_void, text: &mut u16, textlength: &mut i32, textcapacity: i32, start: i32, limit: &mut i32, status: &mut UErrorCode) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn utrans_transUChars(trans: *const *const ::core::ffi::c_void, text: *mut u16, textlength: *mut i32, textcapacity: i32, start: i32, limit: *mut i32, status: *mut UErrorCode);
@@ -27056,7 +27056,7 @@ pub unsafe fn utrans_transUChars(trans: *const *const ::core::ffi::c_void, text:
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn utrans_unregisterID(id: *const u16, idlength: i32) {
+pub unsafe fn utrans_unregisterID(id: &u16, idlength: i32) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn utrans_unregisterID(id: *const u16, idlength: i32);

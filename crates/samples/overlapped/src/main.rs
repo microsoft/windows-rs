@@ -7,18 +7,18 @@ fn main() -> Result<()> {
 
         let mut string = filename.as_path().to_str().unwrap().to_owned();
         string.push('\0');
-        let file = CreateFileA(PCSTR(string.as_ptr()), FILE_GENERIC_READ, FILE_SHARE_READ, std::ptr::null(), OPEN_EXISTING, FILE_FLAG_OVERLAPPED, None)?;
+        let file = CreateFileA(PCSTR(string.as_ptr()), FILE_GENERIC_READ, FILE_SHARE_READ, None, OPEN_EXISTING, FILE_FLAG_OVERLAPPED, None)?;
 
         let mut overlapped = OVERLAPPED {
             Anonymous: OVERLAPPED_0 { Anonymous: OVERLAPPED_0_0 { Offset: 9, OffsetHigh: 0 } },
-            hEvent: CreateEventA(std::ptr::null(), true, false, None)?,
+            hEvent: CreateEventA(None, true, false, None)?,
             Internal: 0,
             InternalHigh: 0,
         };
 
         let mut buffer: [u8; 12] = Default::default();
 
-        let read_ok = ReadFile(file, buffer.as_mut_ptr() as _, 12, std::ptr::null_mut(), &mut overlapped);
+        let read_ok = ReadFile(file, buffer.as_mut_ptr() as _, 12, None, Some(&mut overlapped));
 
         if !read_ok.as_bool() {
             assert_eq!(GetLastError(), ERROR_IO_PENDING);

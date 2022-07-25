@@ -2,7 +2,7 @@
 pub const JS_SOURCE_CONTEXT_NONE: u64 = 18446744073709551615u64;
 #[doc = "*Required features: `\"Win32_System_Js\"`*"]
 #[inline]
-pub unsafe fn JsAddRef(r#ref: *const ::core::ffi::c_void, count: *mut u32) -> JsErrorCode {
+pub unsafe fn JsAddRef(r#ref: *const ::core::ffi::c_void, count: ::core::option::Option<&mut u32>) -> JsErrorCode {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn JsAddRef(r#ref: *const ::core::ffi::c_void, count: *mut u32) -> JsErrorCode;
@@ -24,7 +24,7 @@ pub unsafe fn JsBoolToBoolean(value: u8, booleanvalue: *mut *mut ::core::ffi::c_
 }
 #[doc = "*Required features: `\"Win32_System_Js\"`*"]
 #[inline]
-pub unsafe fn JsBooleanToBool(value: *const ::core::ffi::c_void, boolvalue: *mut bool) -> JsErrorCode {
+pub unsafe fn JsBooleanToBool(value: *const ::core::ffi::c_void, boolvalue: &mut bool) -> JsErrorCode {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn JsBooleanToBool(value: *const ::core::ffi::c_void, boolvalue: *mut bool) -> JsErrorCode;
@@ -223,7 +223,7 @@ pub unsafe fn JsCreateURIError(message: *const ::core::ffi::c_void, error: *mut 
 }
 #[doc = "*Required features: `\"Win32_System_Js\"`*"]
 #[inline]
-pub unsafe fn JsDefineProperty(object: *const ::core::ffi::c_void, propertyid: *const ::core::ffi::c_void, propertydescriptor: *const ::core::ffi::c_void, result: *mut bool) -> JsErrorCode {
+pub unsafe fn JsDefineProperty(object: *const ::core::ffi::c_void, propertyid: *const ::core::ffi::c_void, propertydescriptor: *const ::core::ffi::c_void, result: &mut bool) -> JsErrorCode {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn JsDefineProperty(object: *const ::core::ffi::c_void, propertyid: *const ::core::ffi::c_void, propertydescriptor: *const ::core::ffi::c_void, result: *mut bool) -> JsErrorCode;
@@ -287,7 +287,7 @@ pub unsafe fn JsEnableRuntimeExecution(runtime: *const ::core::ffi::c_void) -> J
 #[doc = "*Required features: `\"Win32_System_Js\"`, `\"Win32_System_Diagnostics_Debug\"`*"]
 #[cfg(feature = "Win32_System_Diagnostics_Debug")]
 #[inline]
-pub unsafe fn JsEnumerateHeap(enumerator: *mut ::core::option::Option<super::Diagnostics::Debug::IActiveScriptProfilerHeapEnum>) -> JsErrorCode {
+pub unsafe fn JsEnumerateHeap(enumerator: &mut ::core::option::Option<super::Diagnostics::Debug::IActiveScriptProfilerHeapEnum>) -> JsErrorCode {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn JsEnumerateHeap(enumerator: *mut *mut ::core::ffi::c_void) -> JsErrorCode;
@@ -296,7 +296,7 @@ pub unsafe fn JsEnumerateHeap(enumerator: *mut ::core::option::Option<super::Dia
 }
 #[doc = "*Required features: `\"Win32_System_Js\"`*"]
 #[inline]
-pub unsafe fn JsEquals(object1: *const ::core::ffi::c_void, object2: *const ::core::ffi::c_void, result: *mut bool) -> JsErrorCode {
+pub unsafe fn JsEquals(object1: *const ::core::ffi::c_void, object2: *const ::core::ffi::c_void, result: &mut bool) -> JsErrorCode {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn JsEquals(object1: *const ::core::ffi::c_void, object2: *const ::core::ffi::c_void, result: *mut bool) -> JsErrorCode;
@@ -406,7 +406,7 @@ pub unsafe fn JsGetCurrentContext(currentcontext: *mut *mut ::core::ffi::c_void)
 }
 #[doc = "*Required features: `\"Win32_System_Js\"`*"]
 #[inline]
-pub unsafe fn JsGetExtensionAllowed(object: *const ::core::ffi::c_void, value: *mut bool) -> JsErrorCode {
+pub unsafe fn JsGetExtensionAllowed(object: *const ::core::ffi::c_void, value: &mut bool) -> JsErrorCode {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn JsGetExtensionAllowed(object: *const ::core::ffi::c_void, value: *mut bool) -> JsErrorCode;
@@ -499,7 +499,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Js\"`*"]
 #[inline]
-pub unsafe fn JsGetPropertyNameFromId(propertyid: *const ::core::ffi::c_void, name: *mut *mut u16) -> JsErrorCode {
+pub unsafe fn JsGetPropertyNameFromId(propertyid: *const ::core::ffi::c_void, name: &mut *mut u16) -> JsErrorCode {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn JsGetPropertyNameFromId(propertyid: *const ::core::ffi::c_void, name: *mut *mut u16) -> JsErrorCode;
@@ -526,7 +526,7 @@ pub unsafe fn JsGetRuntime(context: *const ::core::ffi::c_void, runtime: *mut *m
 }
 #[doc = "*Required features: `\"Win32_System_Js\"`*"]
 #[inline]
-pub unsafe fn JsGetRuntimeMemoryLimit(runtime: *const ::core::ffi::c_void, memorylimit: *mut usize) -> JsErrorCode {
+pub unsafe fn JsGetRuntimeMemoryLimit(runtime: *const ::core::ffi::c_void, memorylimit: &mut usize) -> JsErrorCode {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn JsGetRuntimeMemoryLimit(runtime: *const ::core::ffi::c_void, memorylimit: *mut usize) -> JsErrorCode;
@@ -535,7 +535,7 @@ pub unsafe fn JsGetRuntimeMemoryLimit(runtime: *const ::core::ffi::c_void, memor
 }
 #[doc = "*Required features: `\"Win32_System_Js\"`*"]
 #[inline]
-pub unsafe fn JsGetRuntimeMemoryUsage(runtime: *const ::core::ffi::c_void, memoryusage: *mut usize) -> JsErrorCode {
+pub unsafe fn JsGetRuntimeMemoryUsage(runtime: *const ::core::ffi::c_void, memoryusage: &mut usize) -> JsErrorCode {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn JsGetRuntimeMemoryUsage(runtime: *const ::core::ffi::c_void, memoryusage: *mut usize) -> JsErrorCode;
@@ -544,7 +544,7 @@ pub unsafe fn JsGetRuntimeMemoryUsage(runtime: *const ::core::ffi::c_void, memor
 }
 #[doc = "*Required features: `\"Win32_System_Js\"`*"]
 #[inline]
-pub unsafe fn JsGetStringLength(stringvalue: *const ::core::ffi::c_void, length: *mut i32) -> JsErrorCode {
+pub unsafe fn JsGetStringLength(stringvalue: *const ::core::ffi::c_void, length: &mut i32) -> JsErrorCode {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn JsGetStringLength(stringvalue: *const ::core::ffi::c_void, length: *mut i32) -> JsErrorCode;
@@ -571,7 +571,7 @@ pub unsafe fn JsGetUndefinedValue(undefinedvalue: *mut *mut ::core::ffi::c_void)
 }
 #[doc = "*Required features: `\"Win32_System_Js\"`*"]
 #[inline]
-pub unsafe fn JsGetValueType(value: *const ::core::ffi::c_void, r#type: *mut JsValueType) -> JsErrorCode {
+pub unsafe fn JsGetValueType(value: *const ::core::ffi::c_void, r#type: &mut JsValueType) -> JsErrorCode {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn JsGetValueType(value: *const ::core::ffi::c_void, r#type: *mut JsValueType) -> JsErrorCode;
@@ -580,7 +580,7 @@ pub unsafe fn JsGetValueType(value: *const ::core::ffi::c_void, r#type: *mut JsV
 }
 #[doc = "*Required features: `\"Win32_System_Js\"`*"]
 #[inline]
-pub unsafe fn JsHasException(hasexception: *mut bool) -> JsErrorCode {
+pub unsafe fn JsHasException(hasexception: &mut bool) -> JsErrorCode {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn JsHasException(hasexception: *mut bool) -> JsErrorCode;
@@ -589,7 +589,7 @@ pub unsafe fn JsHasException(hasexception: *mut bool) -> JsErrorCode {
 }
 #[doc = "*Required features: `\"Win32_System_Js\"`*"]
 #[inline]
-pub unsafe fn JsHasExternalData(object: *const ::core::ffi::c_void, value: *mut bool) -> JsErrorCode {
+pub unsafe fn JsHasExternalData(object: *const ::core::ffi::c_void, value: &mut bool) -> JsErrorCode {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn JsHasExternalData(object: *const ::core::ffi::c_void, value: *mut bool) -> JsErrorCode;
@@ -598,7 +598,7 @@ pub unsafe fn JsHasExternalData(object: *const ::core::ffi::c_void, value: *mut 
 }
 #[doc = "*Required features: `\"Win32_System_Js\"`*"]
 #[inline]
-pub unsafe fn JsHasIndexedProperty(object: *const ::core::ffi::c_void, index: *const ::core::ffi::c_void, result: *mut bool) -> JsErrorCode {
+pub unsafe fn JsHasIndexedProperty(object: *const ::core::ffi::c_void, index: *const ::core::ffi::c_void, result: &mut bool) -> JsErrorCode {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn JsHasIndexedProperty(object: *const ::core::ffi::c_void, index: *const ::core::ffi::c_void, result: *mut bool) -> JsErrorCode;
@@ -607,7 +607,7 @@ pub unsafe fn JsHasIndexedProperty(object: *const ::core::ffi::c_void, index: *c
 }
 #[doc = "*Required features: `\"Win32_System_Js\"`*"]
 #[inline]
-pub unsafe fn JsHasProperty(object: *const ::core::ffi::c_void, propertyid: *const ::core::ffi::c_void, hasproperty: *mut bool) -> JsErrorCode {
+pub unsafe fn JsHasProperty(object: *const ::core::ffi::c_void, propertyid: *const ::core::ffi::c_void, hasproperty: &mut bool) -> JsErrorCode {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn JsHasProperty(object: *const ::core::ffi::c_void, propertyid: *const ::core::ffi::c_void, hasproperty: *mut bool) -> JsErrorCode;
@@ -616,7 +616,7 @@ pub unsafe fn JsHasProperty(object: *const ::core::ffi::c_void, propertyid: *con
 }
 #[doc = "*Required features: `\"Win32_System_Js\"`*"]
 #[inline]
-pub unsafe fn JsIdle(nextidletick: *mut u32) -> JsErrorCode {
+pub unsafe fn JsIdle(nextidletick: ::core::option::Option<&mut u32>) -> JsErrorCode {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn JsIdle(nextidletick: *mut u32) -> JsErrorCode;
@@ -634,7 +634,7 @@ pub unsafe fn JsIntToNumber(intvalue: i32, value: *mut *mut ::core::ffi::c_void)
 }
 #[doc = "*Required features: `\"Win32_System_Js\"`*"]
 #[inline]
-pub unsafe fn JsIsEnumeratingHeap(isenumeratingheap: *mut bool) -> JsErrorCode {
+pub unsafe fn JsIsEnumeratingHeap(isenumeratingheap: &mut bool) -> JsErrorCode {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn JsIsEnumeratingHeap(isenumeratingheap: *mut bool) -> JsErrorCode;
@@ -643,7 +643,7 @@ pub unsafe fn JsIsEnumeratingHeap(isenumeratingheap: *mut bool) -> JsErrorCode {
 }
 #[doc = "*Required features: `\"Win32_System_Js\"`*"]
 #[inline]
-pub unsafe fn JsIsRuntimeExecutionDisabled(runtime: *const ::core::ffi::c_void, isdisabled: *mut bool) -> JsErrorCode {
+pub unsafe fn JsIsRuntimeExecutionDisabled(runtime: *const ::core::ffi::c_void, isdisabled: &mut bool) -> JsErrorCode {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn JsIsRuntimeExecutionDisabled(runtime: *const ::core::ffi::c_void, isdisabled: *mut bool) -> JsErrorCode;
@@ -685,7 +685,7 @@ impl ::core::fmt::Debug for JsMemoryEventType {
 pub type JsNativeFunction = ::core::option::Option<unsafe extern "system" fn(callee: *const ::core::ffi::c_void, isconstructcall: bool, arguments: *const *const ::core::ffi::c_void, argumentcount: u16, callbackstate: *const ::core::ffi::c_void) -> *mut ::core::ffi::c_void>;
 #[doc = "*Required features: `\"Win32_System_Js\"`*"]
 #[inline]
-pub unsafe fn JsNumberToDouble(value: *const ::core::ffi::c_void, doublevalue: *mut f64) -> JsErrorCode {
+pub unsafe fn JsNumberToDouble(value: *const ::core::ffi::c_void, doublevalue: &mut f64) -> JsErrorCode {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn JsNumberToDouble(value: *const ::core::ffi::c_void, doublevalue: *mut f64) -> JsErrorCode;
@@ -707,7 +707,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Js\"`*"]
 #[inline]
-pub unsafe fn JsParseSerializedScript<'a, P0, P1>(script: P0, buffer: *const u8, sourcecontext: usize, sourceurl: P1, result: *mut *mut ::core::ffi::c_void) -> JsErrorCode
+pub unsafe fn JsParseSerializedScript<'a, P0, P1>(script: P0, buffer: &u8, sourcecontext: usize, sourceurl: P1, result: *mut *mut ::core::ffi::c_void) -> JsErrorCode
 where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
     P1: ::std::convert::Into<::windows::core::PCWSTR>,
@@ -738,7 +738,7 @@ pub unsafe fn JsPreventExtension(object: *const ::core::ffi::c_void) -> JsErrorC
 }
 #[doc = "*Required features: `\"Win32_System_Js\"`*"]
 #[inline]
-pub unsafe fn JsRelease(r#ref: *const ::core::ffi::c_void, count: *mut u32) -> JsErrorCode {
+pub unsafe fn JsRelease(r#ref: *const ::core::ffi::c_void, count: ::core::option::Option<&mut u32>) -> JsErrorCode {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn JsRelease(r#ref: *const ::core::ffi::c_void, count: *mut u32) -> JsErrorCode;
@@ -760,7 +760,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Js\"`*"]
 #[inline]
-pub unsafe fn JsRunSerializedScript<'a, P0, P1>(script: P0, buffer: *const u8, sourcecontext: usize, sourceurl: P1, result: *mut *mut ::core::ffi::c_void) -> JsErrorCode
+pub unsafe fn JsRunSerializedScript<'a, P0, P1>(script: P0, buffer: &u8, sourcecontext: usize, sourceurl: P1, result: *mut *mut ::core::ffi::c_void) -> JsErrorCode
 where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
     P1: ::std::convert::Into<::windows::core::PCWSTR>,
@@ -837,7 +837,7 @@ impl ::core::fmt::Debug for JsRuntimeVersion {
 }
 #[doc = "*Required features: `\"Win32_System_Js\"`*"]
 #[inline]
-pub unsafe fn JsSerializeScript<'a, P0>(script: P0, buffer: *mut u8, buffersize: *mut u32) -> JsErrorCode
+pub unsafe fn JsSerializeScript<'a, P0>(script: P0, buffer: ::core::option::Option<&mut u8>, buffersize: &mut u32) -> JsErrorCode
 where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
 {
@@ -980,7 +980,7 @@ pub unsafe fn JsStopProfiling(reason: ::windows::core::HRESULT) -> JsErrorCode {
 }
 #[doc = "*Required features: `\"Win32_System_Js\"`*"]
 #[inline]
-pub unsafe fn JsStrictEquals(object1: *const ::core::ffi::c_void, object2: *const ::core::ffi::c_void, result: *mut bool) -> JsErrorCode {
+pub unsafe fn JsStrictEquals(object1: *const ::core::ffi::c_void, object2: *const ::core::ffi::c_void, result: &mut bool) -> JsErrorCode {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn JsStrictEquals(object1: *const ::core::ffi::c_void, object2: *const ::core::ffi::c_void, result: *mut bool) -> JsErrorCode;
@@ -989,7 +989,7 @@ pub unsafe fn JsStrictEquals(object1: *const ::core::ffi::c_void, object2: *cons
 }
 #[doc = "*Required features: `\"Win32_System_Js\"`*"]
 #[inline]
-pub unsafe fn JsStringToPointer(value: *const ::core::ffi::c_void, stringvalue: *mut *mut u16, stringlength: *mut usize) -> JsErrorCode {
+pub unsafe fn JsStringToPointer(value: *const ::core::ffi::c_void, stringvalue: &mut *mut u16, stringlength: &mut usize) -> JsErrorCode {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn JsStringToPointer(value: *const ::core::ffi::c_void, stringvalue: *mut *mut u16, stringlength: *mut usize) -> JsErrorCode;
@@ -1001,7 +1001,7 @@ pub type JsThreadServiceCallback = ::core::option::Option<unsafe extern "system"
 #[doc = "*Required features: `\"Win32_System_Js\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 #[inline]
-pub unsafe fn JsValueToVariant(object: *const ::core::ffi::c_void, variant: *mut super::Com::VARIANT) -> JsErrorCode {
+pub unsafe fn JsValueToVariant(object: *const ::core::ffi::c_void, variant: &mut super::Com::VARIANT) -> JsErrorCode {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn JsValueToVariant(object: *const ::core::ffi::c_void, variant: *mut super::Com::VARIANT) -> JsErrorCode;
@@ -1052,7 +1052,7 @@ impl ::core::fmt::Debug for JsValueType {
 #[doc = "*Required features: `\"Win32_System_Js\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 #[inline]
-pub unsafe fn JsVariantToValue(variant: *const super::Com::VARIANT, value: *mut *mut ::core::ffi::c_void) -> JsErrorCode {
+pub unsafe fn JsVariantToValue(variant: &super::Com::VARIANT, value: *mut *mut ::core::ffi::c_void) -> JsErrorCode {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn JsVariantToValue(variant: *const super::Com::VARIANT, value: *mut *mut ::core::ffi::c_void) -> JsErrorCode;

@@ -5,7 +5,7 @@ use windows::{
 
 fn main() -> windows::core::Result<()> {
     unsafe {
-        let event = CreateEventW(std::ptr::null(), true, false, None)?;
+        let event = CreateEventW(None, true, false, None)?;
 
         SetEvent(event).ok()?;
 

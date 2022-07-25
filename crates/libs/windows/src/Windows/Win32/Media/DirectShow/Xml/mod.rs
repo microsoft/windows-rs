@@ -14,7 +14,7 @@ impl IXMLGraphBuilder {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SaveToXML<'a, P0>(&self, pgraph: P0, pbstrxml: *mut super::super::super::Foundation::BSTR) -> ::windows::core::Result<()>
+    pub unsafe fn SaveToXML<'a, P0>(&self, pgraph: P0, pbstrxml: &mut super::super::super::Foundation::BSTR) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::IGraphBuilder>>,
     {

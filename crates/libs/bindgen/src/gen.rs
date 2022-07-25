@@ -1022,6 +1022,22 @@ impl<'a> Gen<'a> {
                 continue;
             }
 
+            if param.ty.is_pointer() && !param.ty.is_void() {
+                let param_flags = self.reader.param_flags(param.def);
+                let kind = self.type_default_name(&param.ty.deref());
+                let kind = if param_flags.output() {
+                    quote! { &mut #kind }
+                } else {
+                    quote! { &#kind }
+                };
+                if self.reader.param_flags(param.def).optional() {
+                    tokens.combine(&quote! { #name: ::core::option::Option<#kind>, });
+                } else {
+                    tokens.combine(&quote! { #name: #kind, });
+                }
+                continue;
+            }
+
             let kind = self.type_default_name(&param.ty);
 
             if self.reader.type_is_blittable(&param.ty) {

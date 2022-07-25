@@ -92,7 +92,7 @@ fn constant() {
 #[test]
 fn function() -> windows::core::Result<()> {
     unsafe {
-        let event = CreateEventW(core::ptr::null(), true, false, PCWSTR::null())?;
+        let event = CreateEventW(None, true, false, None)?;
         SetEvent(event).ok()?;
 
         let result = WaitForSingleObject(event, 0);
@@ -106,7 +106,7 @@ fn function() -> windows::core::Result<()> {
 #[test]
 fn bool_as_error() {
     unsafe {
-        assert!(helpers::set_thread_ui_language("en-US"));
+        assert!(helpers::set_thread_ui_language());
         assert!(!SetEvent(HANDLE(0)).as_bool());
 
         let result: windows::core::Result<()> = SetEvent(HANDLE(0)).ok();
@@ -126,11 +126,11 @@ fn com() -> windows::core::Result<()> {
         let values = vec![1, 20, 300, 4000];
 
         let mut copied = 0;
-        stream.Write(values.as_ptr() as _, (values.len() * core::mem::size_of::<i32>()) as u32, &mut copied).ok()?;
+        stream.Write(values.as_ptr() as _, (values.len() * core::mem::size_of::<i32>()) as u32, Some(&mut copied)).ok()?;
         assert!(copied == (values.len() * core::mem::size_of::<i32>()) as u32);
 
         let mut copied = 0;
-        stream.Write(&UIAnimationTransitionLibrary as *const _ as _, core::mem::size_of::<windows::core::GUID>() as u32, &mut copied).ok()?;
+        stream.Write(&UIAnimationTransitionLibrary as *const _ as _, core::mem::size_of::<windows::core::GUID>() as u32, Some(&mut copied)).ok()?;
         assert!(copied == core::mem::size_of::<windows::core::GUID>() as u32);
 
         let position = stream.Seek(0, STREAM_SEEK_SET)?;
@@ -138,13 +138,13 @@ fn com() -> windows::core::Result<()> {
 
         let mut values = vec![0, 0, 0, 0];
         let mut copied = 0;
-        stream.Read(values.as_mut_ptr() as _, (values.len() * core::mem::size_of::<i32>()) as u32, &mut copied).ok()?;
+        stream.Read(values.as_mut_ptr() as _, (values.len() * core::mem::size_of::<i32>()) as u32, Some(&mut copied)).ok()?;
         assert!(copied == (values.len() * core::mem::size_of::<i32>()) as u32);
         assert!(values == vec![1, 20, 300, 4000]);
 
         let mut value: windows::core::GUID = windows::core::GUID::default();
         let mut copied = 0;
-        stream.Read(&mut value as *mut _ as _, core::mem::size_of::<windows::core::GUID>() as u32, &mut copied).ok()?;
+        stream.Read(&mut value as *mut _ as _, core::mem::size_of::<windows::core::GUID>() as u32, Some(&mut copied)).ok()?;
         assert!(copied == core::mem::size_of::<windows::core::GUID>() as u32);
         assert!(value == UIAnimationTransitionLibrary);
     }
@@ -185,7 +185,7 @@ fn onecore_imports() -> windows::core::Result<()> {
         let port = uri.GetPort()?;
         assert!(port == 80);
 
-        let result = MiniDumpWriteDump(None, 0, None, MiniDumpNormal, core::ptr::null_mut(), core::ptr::null_mut(), core::ptr::null_mut());
+        let result = MiniDumpWriteDump(None, 0, None, MiniDumpNormal, None, None, None);
         assert!(!result.as_bool());
 
         assert!(D3DDisassemble11Trace(core::ptr::null_mut(), 0, None, 0, 0, 0).is_err());

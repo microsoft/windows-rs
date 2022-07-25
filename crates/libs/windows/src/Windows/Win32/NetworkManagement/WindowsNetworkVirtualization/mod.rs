@@ -449,7 +449,7 @@ pub unsafe fn WnvOpen() -> super::super::Foundation::HANDLE {
 #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsNetworkVirtualization\"`, `\"Win32_Foundation\"`, `\"Win32_System_IO\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 #[inline]
-pub unsafe fn WnvRequestNotification<'a, P0>(wnvhandle: P0, notificationparam: *mut WNV_NOTIFICATION_PARAM, overlapped: *mut super::super::System::IO::OVERLAPPED, bytestransferred: *mut u32) -> u32
+pub unsafe fn WnvRequestNotification<'a, P0>(wnvhandle: P0, notificationparam: &mut WNV_NOTIFICATION_PARAM, overlapped: &mut super::super::System::IO::OVERLAPPED, bytestransferred: &mut u32) -> u32
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
 {
