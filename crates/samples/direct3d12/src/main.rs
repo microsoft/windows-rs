@@ -132,36 +132,12 @@ fn sample_wndproc<S: DXSample>(sample: &mut S, message: u32, wparam: WPARAM) -> 
     }
 }
 
-#[allow(non_snake_case)]
-#[cfg(target_pointer_width = "32")]
-unsafe fn SetWindowLong(window: HWND, index: WINDOW_LONG_PTR_INDEX, value: isize) -> isize {
-    SetWindowLongA(window, index, value as _) as _
-}
-
-#[allow(non_snake_case)]
-#[cfg(target_pointer_width = "64")]
-unsafe fn SetWindowLong(window: HWND, index: WINDOW_LONG_PTR_INDEX, value: isize) -> isize {
-    SetWindowLongPtrA(window, index, value)
-}
-
-#[allow(non_snake_case)]
-#[cfg(target_pointer_width = "32")]
-unsafe fn GetWindowLong(window: HWND, index: WINDOW_LONG_PTR_INDEX) -> isize {
-    GetWindowLongA(window, index) as _
-}
-
-#[allow(non_snake_case)]
-#[cfg(target_pointer_width = "64")]
-unsafe fn GetWindowLong(window: HWND, index: WINDOW_LONG_PTR_INDEX) -> isize {
-    GetWindowLongPtrA(window, index)
-}
-
 extern "system" fn wndproc<S: DXSample>(window: HWND, message: u32, wparam: WPARAM, lparam: LPARAM) -> LRESULT {
     match message {
         WM_CREATE => {
             unsafe {
                 let create_struct: &CREATESTRUCTA = transmute(lparam);
-                SetWindowLong(window, GWLP_USERDATA, create_struct.lpCreateParams as _);
+                SetWindowLongPtrA(window, GWLP_USERDATA, create_struct.lpCreateParams as _);
             }
             LRESULT::default()
         }
@@ -170,7 +146,7 @@ extern "system" fn wndproc<S: DXSample>(window: HWND, message: u32, wparam: WPAR
             LRESULT::default()
         }
         _ => {
-            let user_data = unsafe { GetWindowLong(window, GWLP_USERDATA) };
+            let user_data = unsafe { GetWindowLongPtrA(window, GWLP_USERDATA) };
             let sample = std::ptr::NonNull::<S>::new(user_data as _);
             let handled = sample.map_or(false, |mut s| sample_wndproc(unsafe { s.as_mut() }, message, wparam));
 

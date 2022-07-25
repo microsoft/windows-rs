@@ -1,25 +1,38 @@
 use rayon::prelude::*;
 use std::io::prelude::*;
 
-const EXCLUDE_NAMESPACES: [&str; 4] = ["Windows.Win32.Interop", "Windows.UI.Xaml", "Windows.Win32.Web", "Windows.Win32.System.Diagnostics.Debug.WebApp"];
-
 fn main() {
-    let rustfmt = std::env::args().nth(1).unwrap_or_default() != "-p";
-
+    let mut rustfmt = true;
+    let mut expect_namespace = false;
+    let mut namespace = String::new();
+    for arg in std::env::args() {
+        match arg.as_str() {
+            "-p" => rustfmt = false,
+            "-n" => expect_namespace = true,
+            _ => {
+                if expect_namespace {
+                    namespace = arg;
+                }
+            }
+        }
+    }
     let mut output = std::path::PathBuf::from("crates/libs/windows/src/Windows");
-    let _ = std::fs::remove_dir_all(&output);
+    if namespace.is_empty() {
+        let _ = std::fs::remove_dir_all(&output);
+    }
     output.pop();
-
     let files = vec![metadata::reader::File::new("crates/libs/metadata/default/Windows.winmd").unwrap(), metadata::reader::File::new("crates/libs/metadata/default/Windows.Win32.winmd").unwrap(), metadata::reader::File::new("crates/libs/metadata/default/Windows.Win32.Interop.winmd").unwrap()];
     let reader = &metadata::reader::Reader::new(&files);
-    let root = reader.tree("Windows", &EXCLUDE_NAMESPACES).expect("`Windows` namespace not found");
-
+    if !namespace.is_empty() {
+        let tree = reader.tree(&namespace, &[]).expect("Namespace not found");
+        gen_tree(reader, &output, &tree, rustfmt);
+        return;
+    }
+    let root = reader.tree("Windows", &lib::EXCLUDE_NAMESPACES).expect("`Windows` namespace not found");
     let trees = root.flatten();
     trees.par_iter().for_each(|tree| gen_tree(reader, &output, tree, rustfmt));
-
     output.pop();
     output.push("Cargo.toml");
-
     let mut file = std::fs::File::create(&output).unwrap();
 
     file.write_all(
@@ -114,10 +127,8 @@ fn gen_tree(reader: &metadata::reader::Reader, output: &std::path::Path, tree: &
     gen.min_xaml = true;
     let mut tokens = bindgen::namespace(&gen, tree);
     tokens.push_str(r#"#[cfg(feature = "implement")] ::core::include!("impl.rs");"#);
-
     lib::format(tree.namespace, &mut tokens, rustfmt);
     std::fs::write(path.join("mod.rs"), tokens).unwrap();
-
     let mut tokens = bindgen::namespace_impl(&gen, tree);
     lib::format(tree.namespace, &mut tokens, rustfmt);
     std::fs::write(path.join("impl.rs"), tokens).unwrap();

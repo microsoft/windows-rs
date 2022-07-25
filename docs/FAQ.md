@@ -18,6 +18,16 @@ You can find documentation for the `windows` crate [here](https://microsoft.gith
 
 The `windows` and `windows-sys` crates are generated from [metadata](https://github.com/microsoft/windows-rs/tree/master/crates/libs/metadata/default). If you cannot find the API you need in the documentation, it's very possible the API is missing from metadata. In that case, the best thing to do is to [create an issue here](https://github.com/microsoft/win32metadata/issues/new).
 
+## What APIs are included?
+
+All Windows APIs provided by the Windows SDK are included, with a few exceptions. The definitions of these APIs are collected from [metadata](https://github.com/microsoft/windows-rs/tree/master/crates/libs/metadata/default) and transformed into Rust bindings. The process of generating the Rust bindings purposefully omits a few APIs. APIs are only excluded if they are (1) unsuitable for Rust developers and (2) impose a large hit on the overall size of the `windows` and `windows-sys` crates. At this point, only two sets of APIs have been selected for exclusion. 
+
+The Xaml API is excluded because it is all but unusable without direct language support that only the Xaml team can provide. Xaml is also focused and tailored for C# app development so this API isn’t applicable to Rust developers. 
+
+The MsHtml API is excluded because it is only intended for Microsoft’s older scripting languages like JScript and VBScript. It is also by far the single largest module as measured in lines of code. 
+
+Beyond that, the `windows-sys` crate currently excludes all COM and WinRT APIs. The `windows-sys` crate only includes declarations and COM and WinRT calls are far too cumbersome without the abstractions provided by the `windows` crate. 
+
 ## Why are some equivalents to C/C++ macros from the Windows SDK missing?
 
 The `windows` and `windows-sys` crates are generated from metadata such as the [Win32 Metadata project](https://github.com/microsoft/win32metadata). This metadata only includes type definitions and function signatures, not macros, header-only functions, or function bodies. You may find some equivalents of common C/C++ helper macros and functions in the `windows` crate.

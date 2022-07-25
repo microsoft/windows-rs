@@ -363,9 +363,9 @@ impl Window {
                 let this = (*cs).lpCreateParams as *mut Self;
                 (*this).handle = window;
 
-                SetWindowLong(window, GWLP_USERDATA, this as _);
+                SetWindowLongPtrA(window, GWLP_USERDATA, this as _);
             } else {
-                let this = GetWindowLong(window, GWLP_USERDATA) as *mut Self;
+                let this = GetWindowLongPtrA(window, GWLP_USERDATA) as *mut Self;
 
                 if !this.is_null() {
                     return (*this).message_handler(message, wparam, lparam);
@@ -498,28 +498,4 @@ fn create_swapchain(device: &ID3D11Device, window: HWND) -> Result<IDXGISwapChai
     };
 
     unsafe { factory.CreateSwapChainForHwnd(device, window, &props, None, None) }
-}
-
-#[allow(non_snake_case)]
-#[cfg(target_pointer_width = "32")]
-unsafe fn SetWindowLong(window: HWND, index: WINDOW_LONG_PTR_INDEX, value: isize) -> isize {
-    SetWindowLongA(window, index, value as _) as _
-}
-
-#[allow(non_snake_case)]
-#[cfg(target_pointer_width = "64")]
-unsafe fn SetWindowLong(window: HWND, index: WINDOW_LONG_PTR_INDEX, value: isize) -> isize {
-    SetWindowLongPtrA(window, index, value)
-}
-
-#[allow(non_snake_case)]
-#[cfg(target_pointer_width = "32")]
-unsafe fn GetWindowLong(window: HWND, index: WINDOW_LONG_PTR_INDEX) -> isize {
-    GetWindowLongA(window, index) as _
-}
-
-#[allow(non_snake_case)]
-#[cfg(target_pointer_width = "64")]
-unsafe fn GetWindowLong(window: HWND, index: WINDOW_LONG_PTR_INDEX) -> isize {
-    GetWindowLongPtrA(window, index)
 }
