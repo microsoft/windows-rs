@@ -6,5 +6,7 @@ fn test() {
     unsafe {
         SetWindowLongPtrA(0, GWLP_USERDATA, 0);
         GetWindowLongPtrA(0, GWLP_USERDATA);
+        SetWindowLongPtrW(0, GWLP_USERDATA, 0);
+        GetWindowLongPtrW(0, GWLP_USERDATA);
     }
 }

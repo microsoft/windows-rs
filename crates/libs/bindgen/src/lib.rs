@@ -123,6 +123,12 @@ pub fn namespace(gen: &Gen, tree: &Tree) -> String {
             #[cfg(target_pointer_width = "32")]
             #[cfg(feature = "Win32_Foundation")]
             pub use GetWindowLongA as GetWindowLongPtrA;
+            #[cfg(target_pointer_width = "32")]
+            #[cfg(feature = "Win32_Foundation")]
+            pub use SetWindowLongW as SetWindowLongPtrW;
+            #[cfg(target_pointer_width = "32")]
+            #[cfg(feature = "Win32_Foundation")]
+            pub use GetWindowLongW as GetWindowLongPtrW;
         });
     }
 
