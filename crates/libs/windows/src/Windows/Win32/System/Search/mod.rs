@@ -11564,8 +11564,8 @@ impl IDataConvert {
     pub unsafe fn CanConvert(&self, wsrctype: u16, wdsttype: u16) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).CanConvert)(::windows::core::Interface::as_raw(self), wsrctype, wdsttype).ok()
     }
-    pub unsafe fn GetConversionSize(&self, wsrctype: u16, wdsttype: u16, pcbdstlength: ::core::option::Option<&mut usize>, psrc: ::core::option::Option<&[u8]>) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetConversionSize)(::windows::core::Interface::as_raw(self), wsrctype, wdsttype, psrc.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(pcbdstlength), ::core::mem::transmute(psrc.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr()))).ok()
+    pub unsafe fn GetConversionSize(&self, wsrctype: u16, wdsttype: u16, pcbsrclength: ::core::option::Option<&usize>, pcbdstlength: ::core::option::Option<&mut usize>, psrc: *const ::core::ffi::c_void) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).GetConversionSize)(::windows::core::Interface::as_raw(self), wsrctype, wdsttype, ::core::mem::transmute(pcbsrclength), ::core::mem::transmute(pcbdstlength), ::core::mem::transmute(psrc)).ok()
     }
 }
 impl ::core::convert::From<IDataConvert> for ::windows::core::IUnknown {

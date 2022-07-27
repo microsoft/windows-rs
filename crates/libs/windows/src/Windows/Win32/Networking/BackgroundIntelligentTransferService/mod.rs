@@ -4231,8 +4231,8 @@ impl IBackgroundCopyJobHttpOptions {
     pub unsafe fn RemoveClientCertificate(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).RemoveClientCertificate)(::windows::core::Interface::as_raw(self)).ok()
     }
-    pub unsafe fn GetClientCertificate(&self, pstorelocation: &mut BG_CERT_STORE_LOCATION, pstorename: &mut ::windows::core::PWSTR, ppcerthashblob: &mut *mut u8, psubjectname: &mut ::windows::core::PWSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetClientCertificate)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pstorelocation), ::core::mem::transmute(pstorename), ::core::mem::transmute(ppcerthashblob.as_ptr()), ::core::mem::transmute(psubjectname)).ok()
+    pub unsafe fn GetClientCertificate(&self, pstorelocation: &mut BG_CERT_STORE_LOCATION, pstorename: &mut ::windows::core::PWSTR, ppcerthashblob: *mut *mut u8, psubjectname: &mut ::windows::core::PWSTR) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).GetClientCertificate)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pstorelocation), ::core::mem::transmute(pstorename), ::core::mem::transmute(ppcerthashblob), ::core::mem::transmute(psubjectname)).ok()
     }
     pub unsafe fn SetCustomHeaders<'a, P0>(&self, requestheaders: P0) -> ::windows::core::Result<()>
     where
@@ -4320,8 +4320,8 @@ impl IBackgroundCopyJobHttpOptions2 {
     pub unsafe fn RemoveClientCertificate(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.RemoveClientCertificate)(::windows::core::Interface::as_raw(self)).ok()
     }
-    pub unsafe fn GetClientCertificate(&self, pstorelocation: &mut BG_CERT_STORE_LOCATION, pstorename: &mut ::windows::core::PWSTR, ppcerthashblob: &mut *mut u8, psubjectname: &mut ::windows::core::PWSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.GetClientCertificate)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pstorelocation), ::core::mem::transmute(pstorename), ::core::mem::transmute(ppcerthashblob.as_ptr()), ::core::mem::transmute(psubjectname)).ok()
+    pub unsafe fn GetClientCertificate(&self, pstorelocation: &mut BG_CERT_STORE_LOCATION, pstorename: &mut ::windows::core::PWSTR, ppcerthashblob: *mut *mut u8, psubjectname: &mut ::windows::core::PWSTR) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.GetClientCertificate)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pstorelocation), ::core::mem::transmute(pstorename), ::core::mem::transmute(ppcerthashblob), ::core::mem::transmute(psubjectname)).ok()
     }
     pub unsafe fn SetCustomHeaders<'a, P0>(&self, requestheaders: P0) -> ::windows::core::Result<()>
     where
@@ -4428,8 +4428,8 @@ impl IBackgroundCopyJobHttpOptions3 {
     pub unsafe fn RemoveClientCertificate(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.base__.RemoveClientCertificate)(::windows::core::Interface::as_raw(self)).ok()
     }
-    pub unsafe fn GetClientCertificate(&self, pstorelocation: &mut BG_CERT_STORE_LOCATION, pstorename: &mut ::windows::core::PWSTR, ppcerthashblob: &mut *mut u8, psubjectname: &mut ::windows::core::PWSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.GetClientCertificate)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pstorelocation), ::core::mem::transmute(pstorename), ::core::mem::transmute(ppcerthashblob.as_ptr()), ::core::mem::transmute(psubjectname)).ok()
+    pub unsafe fn GetClientCertificate(&self, pstorelocation: &mut BG_CERT_STORE_LOCATION, pstorename: &mut ::windows::core::PWSTR, ppcerthashblob: *mut *mut u8, psubjectname: &mut ::windows::core::PWSTR) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.base__.GetClientCertificate)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pstorelocation), ::core::mem::transmute(pstorename), ::core::mem::transmute(ppcerthashblob), ::core::mem::transmute(psubjectname)).ok()
     }
     pub unsafe fn SetCustomHeaders<'a, P0>(&self, requestheaders: P0) -> ::windows::core::Result<()>
     where

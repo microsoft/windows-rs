@@ -2835,12 +2835,12 @@ pub unsafe fn SelectCMM(dwcmmtype: u32) -> super::super::Foundation::BOOL {
 #[doc = "*Required features: `\"Win32_UI_ColorSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SetColorProfileElement(hprofile: isize, tag: u32, dwoffset: u32, pelement: &[u8]) -> super::super::Foundation::BOOL {
+pub unsafe fn SetColorProfileElement(hprofile: isize, tag: u32, dwoffset: u32, pcbelement: &u32, pelement: *const ::core::ffi::c_void) -> super::super::Foundation::BOOL {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn SetColorProfileElement(hprofile: isize, tag: u32, dwoffset: u32, pcbelement: *const u32, pelement: *const ::core::ffi::c_void) -> super::super::Foundation::BOOL;
     }
-    SetColorProfileElement(hprofile, tag, dwoffset, pelement.len() as _, ::core::mem::transmute(pelement.as_ptr()))
+    SetColorProfileElement(hprofile, tag, dwoffset, ::core::mem::transmute(pcbelement), ::core::mem::transmute(pelement))
 }
 #[doc = "*Required features: `\"Win32_UI_ColorSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]

@@ -8779,7 +8779,7 @@ where
 #[doc = "*Required features: `\"Win32_System_GroupPolicy\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
-pub unsafe fn RsopAccessCheckByType<'a, P0, P1>(psecuritydescriptor: P0, pprincipalselfsid: P1, prsoptoken: *const ::core::ffi::c_void, dwdesiredaccessmask: u32, pobjecttypelist: ::core::option::Option<&[super::super::Security::OBJECT_TYPE_LIST]>, pgenericmapping: &super::super::Security::GENERIC_MAPPING, pprivilegeset: ::core::option::Option<&[u8]>, pdwgrantedaccessmask: &mut u32, pbaccessstatus: &mut i32) -> ::windows::core::Result<()>
+pub unsafe fn RsopAccessCheckByType<'a, P0, P1>(psecuritydescriptor: P0, pprincipalselfsid: P1, prsoptoken: *const ::core::ffi::c_void, dwdesiredaccessmask: u32, pobjecttypelist: ::core::option::Option<&[super::super::Security::OBJECT_TYPE_LIST]>, pgenericmapping: &super::super::Security::GENERIC_MAPPING, pprivilegeset: *const super::super::Security::PRIVILEGE_SET, pdwprivilegesetlength: ::core::option::Option<&u32>, pdwgrantedaccessmask: &mut u32, pbaccessstatus: &mut i32) -> ::windows::core::Result<()>
 where
     P0: ::std::convert::Into<super::super::Security::PSECURITY_DESCRIPTOR>,
     P1: ::std::convert::Into<super::super::Foundation::PSID>,
@@ -8796,8 +8796,8 @@ where
         ::core::mem::transmute(pobjecttypelist.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())),
         pobjecttypelist.as_deref().map_or(0, |slice| slice.len() as _),
         ::core::mem::transmute(pgenericmapping),
-        ::core::mem::transmute(pprivilegeset.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())),
-        pprivilegeset.as_deref().map_or(0, |slice| slice.len() as _),
+        ::core::mem::transmute(pprivilegeset),
+        ::core::mem::transmute(pdwprivilegesetlength),
         ::core::mem::transmute(pdwgrantedaccessmask),
         ::core::mem::transmute(pbaccessstatus),
     )

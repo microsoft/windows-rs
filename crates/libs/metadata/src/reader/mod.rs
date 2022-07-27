@@ -547,14 +547,14 @@ impl<'a> Reader<'a> {
             match params[position].array_info {
                 ArrayInfo::RelativeLen(relative) | ArrayInfo::RelativeByteLen(relative) => {
                     // The len params must be input only.
-                    if !self.param_flags(params[relative].def).output() && position != relative {
+                    if !self.param_flags(params[relative].def).output() && position != relative && !params[relative].ty.is_pointer() {
                         params[relative].array_info = ArrayInfo::RelativePtr(position);
                     } else {
                         params[position].array_info = ArrayInfo::Removed;
                     }
                 }
                 // TODO: workaround for https://github.com/microsoft/win32metadata/issues/1014
-                ArrayInfo::Fixed(fixed) if fixed == 0 => {
+                ArrayInfo::Fixed(fixed) if fixed == 0 || self.param_free_with(params[position].def).is_some() => {
                     params[position].array_info = ArrayInfo::Removed;
                 }
                 _ => {}
@@ -652,9 +652,8 @@ impl<'a> Reader<'a> {
                 }
                 "MemorySizeAttribute" => {
                     for (_, value) in self.attribute_args(attribute) {
-                        match value {
-                            Value::I16(value) => return ArrayInfo::RelativeByteLen(value as _),
-                            _ => {}
+                        if let Value::I16(value) = value {
+                            return ArrayInfo::RelativeByteLen(value as _);
                         }
                     }
                 }
