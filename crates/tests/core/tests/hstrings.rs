@@ -166,7 +166,7 @@ fn hstring_compat() -> Result<()> {
 
         assert_eq!(WindowsConcatString(&hey, &world)?, "HeyWorld");
 
-        assert_eq!(WindowsCreateString(&hey.as_wide())?, "Hey");
+        assert_eq!(WindowsCreateString(Some(&hey.as_wide()))?, "Hey");
 
         assert_eq!(WindowsDuplicateString(&hey)?, "Hey");
 
