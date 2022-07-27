@@ -45,6 +45,7 @@ tables! {
 pub enum ArrayInfo {
     Fixed(usize),
     RelativeLen(usize),
+    RelativeByteLen(usize),
     RelativePtr(usize),
     None,
     Removed,
@@ -543,13 +544,20 @@ impl<'a> Reader<'a> {
 
         for position in 0..params.len() {
             // Point len params back to the corresponding ptr params.
-            if let ArrayInfo::RelativeLen(relative) = params[position].array_info {
-                // The len params must be input only.
-                if !self.param_flags(params[relative].def).output() && position != relative {
-                    params[relative].array_info = ArrayInfo::RelativePtr(position);
-                } else {
+            match params[position].array_info {
+                ArrayInfo::RelativeLen(relative) | ArrayInfo::RelativeByteLen(relative) => {
+                    // The len params must be input only.
+                    if !self.param_flags(params[relative].def).output() && position != relative {
+                        params[relative].array_info = ArrayInfo::RelativePtr(position);
+                    } else {
+                        params[position].array_info = ArrayInfo::Removed;
+                    }
+                }
+                // TODO: workaround for https://github.com/microsoft/win32metadata/issues/1014
+                ArrayInfo::Fixed(fixed) if fixed == 0 => {
                     params[position].array_info = ArrayInfo::Removed;
                 }
+                _ => {}
             }
         }
 
@@ -557,8 +565,11 @@ impl<'a> Reader<'a> {
 
         // Finds sets of ptr params pointing at the same len param.
         for (position, param) in params.iter().enumerate() {
-            if let ArrayInfo::RelativeLen(relative) = param.array_info {
-                sets.entry(relative).or_default().push(position);
+            match param.array_info {
+                ArrayInfo::RelativeLen(relative) | ArrayInfo::RelativeByteLen(relative) => {
+                    sets.entry(relative).or_default().push(position);
+                }
+                _ => {}
             }
         }
 
@@ -629,14 +640,25 @@ impl<'a> Reader<'a> {
     }
     pub fn param_array_info(&self, row: Param) -> ArrayInfo {
         for attribute in self.param_attributes(row) {
-            if self.attribute_name(attribute) == "NativeArrayInfoAttribute" {
-                for (_, value) in self.attribute_args(attribute) {
-                    match value {
-                        Value::I16(value) => return ArrayInfo::RelativeLen(value as _),
-                        Value::I32(value) => return ArrayInfo::Fixed(value as _),
-                        _ => {}
+            match self.attribute_name(attribute) {
+                "NativeArrayInfoAttribute" => {
+                    for (_, value) in self.attribute_args(attribute) {
+                        match value {
+                            Value::I16(value) => return ArrayInfo::RelativeLen(value as _),
+                            Value::I32(value) => return ArrayInfo::Fixed(value as _),
+                            _ => {}
+                        }
                     }
                 }
+                "MemorySizeAttribute" => {
+                    for (_, value) in self.attribute_args(attribute) {
+                        match value {
+                            Value::I16(value) => return ArrayInfo::RelativeByteLen(value as _),
+                            _ => {}
+                        }
+                    }
+                }
+                _ => {}
             }
         }
         ArrayInfo::None
