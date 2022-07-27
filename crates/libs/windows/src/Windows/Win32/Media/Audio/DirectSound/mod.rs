@@ -2140,8 +2140,8 @@ impl IDirectSoundBuffer {
     pub unsafe fn GetCurrentPosition(&self, pdwcurrentplaycursor: ::core::option::Option<&mut u32>, pdwcurrentwritecursor: ::core::option::Option<&mut u32>) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).GetCurrentPosition)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pdwcurrentplaycursor), ::core::mem::transmute(pdwcurrentwritecursor)).ok()
     }
-    pub unsafe fn GetFormat(&self, pwfxformat: ::core::option::Option<&mut super::WAVEFORMATEX>, dwsizeallocated: u32, pdwsizewritten: ::core::option::Option<&mut u32>) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetFormat)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pwfxformat), dwsizeallocated, ::core::mem::transmute(pdwsizewritten)).ok()
+    pub unsafe fn GetFormat(&self, pwfxformat: ::core::option::Option<&mut [u8]>, pdwsizewritten: ::core::option::Option<&mut u32>) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).GetFormat)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pwfxformat.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), pwfxformat.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(pdwsizewritten)).ok()
     }
     pub unsafe fn GetVolume(&self) -> ::windows::core::Result<i32> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -2189,8 +2189,8 @@ impl IDirectSoundBuffer {
     pub unsafe fn Stop(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).Stop)(::windows::core::Interface::as_raw(self)).ok()
     }
-    pub unsafe fn Unlock(&self, pvaudioptr1: *const ::core::ffi::c_void, dwaudiobytes1: u32, pvaudioptr2: *const ::core::ffi::c_void, dwaudiobytes2: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Unlock)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pvaudioptr1), dwaudiobytes1, ::core::mem::transmute(pvaudioptr2), dwaudiobytes2).ok()
+    pub unsafe fn Unlock(&self, pvaudioptr1: &[u8], pvaudioptr2: ::core::option::Option<&[u8]>) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).Unlock)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pvaudioptr1.as_ptr()), pvaudioptr1.len() as _, ::core::mem::transmute(pvaudioptr2.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), pvaudioptr2.as_deref().map_or(0, |slice| slice.len() as _)).ok()
     }
     pub unsafe fn Restore(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).Restore)(::windows::core::Interface::as_raw(self)).ok()
@@ -2265,8 +2265,8 @@ impl IDirectSoundBuffer8 {
     pub unsafe fn GetCurrentPosition(&self, pdwcurrentplaycursor: ::core::option::Option<&mut u32>, pdwcurrentwritecursor: ::core::option::Option<&mut u32>) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.GetCurrentPosition)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pdwcurrentplaycursor), ::core::mem::transmute(pdwcurrentwritecursor)).ok()
     }
-    pub unsafe fn GetFormat(&self, pwfxformat: ::core::option::Option<&mut super::WAVEFORMATEX>, dwsizeallocated: u32, pdwsizewritten: ::core::option::Option<&mut u32>) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.GetFormat)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pwfxformat), dwsizeallocated, ::core::mem::transmute(pdwsizewritten)).ok()
+    pub unsafe fn GetFormat(&self, pwfxformat: ::core::option::Option<&mut [u8]>, pdwsizewritten: ::core::option::Option<&mut u32>) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.GetFormat)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pwfxformat.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), pwfxformat.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(pdwsizewritten)).ok()
     }
     pub unsafe fn GetVolume(&self) -> ::windows::core::Result<i32> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -2314,17 +2314,17 @@ impl IDirectSoundBuffer8 {
     pub unsafe fn Stop(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.Stop)(::windows::core::Interface::as_raw(self)).ok()
     }
-    pub unsafe fn Unlock(&self, pvaudioptr1: *const ::core::ffi::c_void, dwaudiobytes1: u32, pvaudioptr2: *const ::core::ffi::c_void, dwaudiobytes2: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.Unlock)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pvaudioptr1), dwaudiobytes1, ::core::mem::transmute(pvaudioptr2), dwaudiobytes2).ok()
+    pub unsafe fn Unlock(&self, pvaudioptr1: &[u8], pvaudioptr2: ::core::option::Option<&[u8]>) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.Unlock)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pvaudioptr1.as_ptr()), pvaudioptr1.len() as _, ::core::mem::transmute(pvaudioptr2.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), pvaudioptr2.as_deref().map_or(0, |slice| slice.len() as _)).ok()
     }
     pub unsafe fn Restore(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.Restore)(::windows::core::Interface::as_raw(self)).ok()
     }
-    pub unsafe fn SetFX(&self, dweffectscount: u32, pdsfxdesc: ::core::option::Option<&DSEFFECTDESC>, pdwresultcodes: ::core::option::Option<&mut u32>) -> ::windows::core::Result<()> {
+    pub unsafe fn SetFX(&self, dweffectscount: u32, pdsfxdesc: *const DSEFFECTDESC, pdwresultcodes: *mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetFX)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(dweffectscount), ::core::mem::transmute(pdsfxdesc), ::core::mem::transmute(pdwresultcodes)).ok()
     }
     pub unsafe fn AcquireResources(&self, dwflags: u32, pdwresultcodes: &mut [u32]) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).AcquireResources)(::windows::core::Interface::as_raw(self), dwflags, pdwresultcodes.len() as _, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(pdwresultcodes))).ok()
+        (::windows::core::Interface::vtable(self).AcquireResources)(::windows::core::Interface::as_raw(self), dwflags, pdwresultcodes.len() as _, ::core::mem::transmute(pdwresultcodes.as_ptr())).ok()
     }
     pub unsafe fn GetObjectInPath(&self, rguidobject: &::windows::core::GUID, dwindex: u32, rguidinterface: &::windows::core::GUID, ppobject: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).GetObjectInPath)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(rguidobject), dwindex, ::core::mem::transmute(rguidinterface), ::core::mem::transmute(ppobject)).ok()
@@ -2460,8 +2460,8 @@ impl IDirectSoundCaptureBuffer {
     pub unsafe fn GetCurrentPosition(&self, pdwcaptureposition: ::core::option::Option<&mut u32>, pdwreadposition: ::core::option::Option<&mut u32>) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).GetCurrentPosition)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pdwcaptureposition), ::core::mem::transmute(pdwreadposition)).ok()
     }
-    pub unsafe fn GetFormat(&self, pwfxformat: ::core::option::Option<&mut super::WAVEFORMATEX>, dwsizeallocated: u32, pdwsizewritten: ::core::option::Option<&mut u32>) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetFormat)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pwfxformat), dwsizeallocated, ::core::mem::transmute(pdwsizewritten)).ok()
+    pub unsafe fn GetFormat(&self, pwfxformat: ::core::option::Option<&mut [u8]>, pdwsizewritten: ::core::option::Option<&mut u32>) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).GetFormat)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pwfxformat.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), pwfxformat.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(pdwsizewritten)).ok()
     }
     pub unsafe fn GetStatus(&self) -> ::windows::core::Result<u32> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -2482,8 +2482,8 @@ impl IDirectSoundCaptureBuffer {
     pub unsafe fn Stop(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).Stop)(::windows::core::Interface::as_raw(self)).ok()
     }
-    pub unsafe fn Unlock(&self, pvaudioptr1: *const ::core::ffi::c_void, dwaudiobytes1: u32, pvaudioptr2: *const ::core::ffi::c_void, dwaudiobytes2: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Unlock)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pvaudioptr1), dwaudiobytes1, ::core::mem::transmute(pvaudioptr2), dwaudiobytes2).ok()
+    pub unsafe fn Unlock(&self, pvaudioptr1: &[u8], pvaudioptr2: ::core::option::Option<&[u8]>) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).Unlock)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pvaudioptr1.as_ptr()), pvaudioptr1.len() as _, ::core::mem::transmute(pvaudioptr2.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), pvaudioptr2.as_deref().map_or(0, |slice| slice.len() as _)).ok()
     }
 }
 impl ::core::convert::From<IDirectSoundCaptureBuffer> for ::windows::core::IUnknown {
@@ -2546,8 +2546,8 @@ impl IDirectSoundCaptureBuffer8 {
     pub unsafe fn GetCurrentPosition(&self, pdwcaptureposition: ::core::option::Option<&mut u32>, pdwreadposition: ::core::option::Option<&mut u32>) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.GetCurrentPosition)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pdwcaptureposition), ::core::mem::transmute(pdwreadposition)).ok()
     }
-    pub unsafe fn GetFormat(&self, pwfxformat: ::core::option::Option<&mut super::WAVEFORMATEX>, dwsizeallocated: u32, pdwsizewritten: ::core::option::Option<&mut u32>) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.GetFormat)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pwfxformat), dwsizeallocated, ::core::mem::transmute(pdwsizewritten)).ok()
+    pub unsafe fn GetFormat(&self, pwfxformat: ::core::option::Option<&mut [u8]>, pdwsizewritten: ::core::option::Option<&mut u32>) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.GetFormat)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pwfxformat.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), pwfxformat.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(pdwsizewritten)).ok()
     }
     pub unsafe fn GetStatus(&self) -> ::windows::core::Result<u32> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -2568,14 +2568,14 @@ impl IDirectSoundCaptureBuffer8 {
     pub unsafe fn Stop(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.Stop)(::windows::core::Interface::as_raw(self)).ok()
     }
-    pub unsafe fn Unlock(&self, pvaudioptr1: *const ::core::ffi::c_void, dwaudiobytes1: u32, pvaudioptr2: *const ::core::ffi::c_void, dwaudiobytes2: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.Unlock)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pvaudioptr1), dwaudiobytes1, ::core::mem::transmute(pvaudioptr2), dwaudiobytes2).ok()
+    pub unsafe fn Unlock(&self, pvaudioptr1: &[u8], pvaudioptr2: ::core::option::Option<&[u8]>) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.Unlock)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pvaudioptr1.as_ptr()), pvaudioptr1.len() as _, ::core::mem::transmute(pvaudioptr2.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), pvaudioptr2.as_deref().map_or(0, |slice| slice.len() as _)).ok()
     }
     pub unsafe fn GetObjectInPath(&self, rguidobject: &::windows::core::GUID, dwindex: u32, rguidinterface: &::windows::core::GUID, ppobject: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).GetObjectInPath)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(rguidobject), dwindex, ::core::mem::transmute(rguidinterface), ::core::mem::transmute(ppobject)).ok()
     }
     pub unsafe fn GetFXStatus(&self, pdwfxstatus: &mut [u32]) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetFXStatus)(::windows::core::Interface::as_raw(self), pdwfxstatus.len() as _, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(pdwfxstatus))).ok()
+        (::windows::core::Interface::vtable(self).GetFXStatus)(::windows::core::Interface::as_raw(self), pdwfxstatus.len() as _, ::core::mem::transmute(pdwfxstatus.as_ptr())).ok()
     }
 }
 impl ::core::convert::From<IDirectSoundCaptureBuffer8> for ::windows::core::IUnknown {
@@ -3344,7 +3344,7 @@ impl IDirectSoundNotify {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetNotificationPositions(&self, pcpositionnotifies: &[DSBPOSITIONNOTIFY]) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetNotificationPositions)(::windows::core::Interface::as_raw(self), pcpositionnotifies.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(pcpositionnotifies))).ok()
+        (::windows::core::Interface::vtable(self).SetNotificationPositions)(::windows::core::Interface::as_raw(self), pcpositionnotifies.len() as _, ::core::mem::transmute(pcpositionnotifies.as_ptr())).ok()
     }
 }
 impl ::core::convert::From<IDirectSoundNotify> for ::windows::core::IUnknown {

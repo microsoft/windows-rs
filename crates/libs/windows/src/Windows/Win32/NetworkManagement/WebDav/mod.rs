@@ -150,7 +150,7 @@ impl ::core::default::Default for DAV_CALLBACK_CRED {
 #[doc = "*Required features: `\"Win32_NetworkManagement_WebDav\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DavAddConnection<'a, P0, P1, P2>(connectionhandle: &mut super::super::Foundation::HANDLE, remotename: P0, username: P1, password: P2, clientcert: &u8, certsize: u32) -> u32
+pub unsafe fn DavAddConnection<'a, P0, P1, P2>(connectionhandle: &mut super::super::Foundation::HANDLE, remotename: P0, username: P1, password: P2, clientcert: &[u8]) -> u32
 where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
     P1: ::std::convert::Into<::windows::core::PCWSTR>,
@@ -160,7 +160,7 @@ where
     extern "system" {
         fn DavAddConnection(connectionhandle: *mut super::super::Foundation::HANDLE, remotename: ::windows::core::PCWSTR, username: ::windows::core::PCWSTR, password: ::windows::core::PCWSTR, clientcert: *const u8, certsize: u32) -> u32;
     }
-    DavAddConnection(::core::mem::transmute(connectionhandle), remotename.into(), username.into(), password.into(), ::core::mem::transmute(clientcert), certsize)
+    DavAddConnection(::core::mem::transmute(connectionhandle), remotename.into(), username.into(), password.into(), ::core::mem::transmute(clientcert.as_ptr()), clientcert.len() as _)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_WebDav\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]

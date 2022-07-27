@@ -164,7 +164,7 @@ pub struct ILearningModelSessionOptionsNative_Vtbl {
 #[repr(transparent)]
 pub struct ITensorNative(::windows::core::IUnknown);
 impl ITensorNative {
-    pub unsafe fn GetBuffer(&self, value: &mut *mut u8, capacity: &mut u32) -> ::windows::core::Result<()> {
+    pub unsafe fn GetBuffer(&self, value: *mut *mut u8, capacity: &mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).GetBuffer)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(value), ::core::mem::transmute(capacity)).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`*"]

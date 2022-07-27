@@ -11950,7 +11950,7 @@ impl IMFPresentationTimeSource_Vtbl {
     }
 }
 pub trait IMFProtectedEnvironmentAccess_Impl: Sized {
-    fn Call(&self, inputlength: u32, input: *const u8, outputlength: u32) -> ::windows::core::Result<u8>;
+    fn Call(&self, inputlength: u32, input: *const u8, outputlength: u32, output: *mut u8) -> ::windows::core::Result<()>;
     fn ReadGRL(&self, outputlength: *mut u32, output: *mut *mut u8) -> ::windows::core::Result<()>;
 }
 impl ::windows::core::RuntimeName for IMFProtectedEnvironmentAccess {}
@@ -11959,13 +11959,7 @@ impl IMFProtectedEnvironmentAccess_Vtbl {
         unsafe extern "system" fn Call<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMFProtectedEnvironmentAccess_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, inputlength: u32, input: *const u8, outputlength: u32, output: *mut u8) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Call(::core::mem::transmute_copy(&inputlength), ::core::mem::transmute_copy(&input), ::core::mem::transmute_copy(&outputlength)) {
-                ::core::result::Result::Ok(ok__) => {
-                    ::core::ptr::write(output, ::core::mem::transmute(ok__));
-                    ::windows::core::HRESULT(0)
-                }
-                ::core::result::Result::Err(err) => err.into(),
-            }
+            this.Call(::core::mem::transmute_copy(&inputlength), ::core::mem::transmute_copy(&input), ::core::mem::transmute_copy(&outputlength), ::core::mem::transmute_copy(&output)).into()
         }
         unsafe extern "system" fn ReadGRL<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMFProtectedEnvironmentAccess_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, outputlength: *mut u32, output: *mut *mut u8) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;

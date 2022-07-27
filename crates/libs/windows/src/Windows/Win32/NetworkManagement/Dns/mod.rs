@@ -4195,7 +4195,7 @@ where
 #[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DnsConnectionGetProxyInfoForHostUrl<'a, P0>(pwszhosturl: P0, pselectioncontext: &[u8], dwexplicitinterfaceindex: u32, pproxyinfoex: &mut DNS_CONNECTION_PROXY_INFO_EX) -> u32
+pub unsafe fn DnsConnectionGetProxyInfoForHostUrl<'a, P0>(pwszhosturl: P0, pselectioncontext: ::core::option::Option<&[u8]>, dwexplicitinterfaceindex: u32, pproxyinfoex: &mut DNS_CONNECTION_PROXY_INFO_EX) -> u32
 where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
 {
@@ -4203,7 +4203,7 @@ where
     extern "system" {
         fn DnsConnectionGetProxyInfoForHostUrl(pwszhosturl: ::windows::core::PCWSTR, pselectioncontext: *const u8, dwselectioncontextlength: u32, dwexplicitinterfaceindex: u32, pproxyinfoex: *mut DNS_CONNECTION_PROXY_INFO_EX) -> u32;
     }
-    DnsConnectionGetProxyInfoForHostUrl(pwszhosturl.into(), ::core::mem::transmute(::windows::core::as_ptr_or_null(pselectioncontext)), pselectioncontext.len() as _, dwexplicitinterfaceindex, ::core::mem::transmute(pproxyinfoex))
+    DnsConnectionGetProxyInfoForHostUrl(pwszhosturl.into(), ::core::mem::transmute(pselectioncontext.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), pselectioncontext.as_deref().map_or(0, |slice| slice.len() as _), dwexplicitinterfaceindex, ::core::mem::transmute(pproxyinfoex))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
 #[inline]
@@ -4600,7 +4600,7 @@ pub unsafe fn DnsServiceBrowseCancel(pcancelhandle: &DNS_SERVICE_CANCEL) -> i32 
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
 #[inline]
-pub unsafe fn DnsServiceConstructInstance<'a, P0, P1>(pservicename: P0, phostname: P1, pip4: ::core::option::Option<&u32>, pip6: ::core::option::Option<&IP6_ADDRESS>, wport: u16, wpriority: u16, wweight: u16, dwpropertiescount: u32, keys: &::windows::core::PWSTR, values: &::windows::core::PWSTR) -> *mut DNS_SERVICE_INSTANCE
+pub unsafe fn DnsServiceConstructInstance<'a, P0, P1>(pservicename: P0, phostname: P1, pip4: ::core::option::Option<&u32>, pip6: ::core::option::Option<&IP6_ADDRESS>, wport: u16, wpriority: u16, wweight: u16, dwpropertiescount: u32, keys: *const ::windows::core::PWSTR, values: *const ::windows::core::PWSTR) -> *mut DNS_SERVICE_INSTANCE
 where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
     P1: ::std::convert::Into<::windows::core::PCWSTR>,
@@ -4684,7 +4684,7 @@ pub unsafe fn DnsSetApplicationSettings(pservers: &[DNS_CUSTOM_SERVER], psetting
     extern "system" {
         fn DnsSetApplicationSettings(cservers: u32, pservers: *const DNS_CUSTOM_SERVER, psettings: *const DNS_APPLICATION_SETTINGS) -> u32;
     }
-    DnsSetApplicationSettings(pservers.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(pservers)), ::core::mem::transmute(psettings))
+    DnsSetApplicationSettings(pservers.len() as _, ::core::mem::transmute(pservers.as_ptr()), ::core::mem::transmute(psettings))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]

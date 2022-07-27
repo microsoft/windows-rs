@@ -7102,7 +7102,7 @@ where
 #[doc = "*Required features: `\"Win32_NetworkManagement_Dhcp\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DhcpHlprAddV4PolicyCondition<'a, P0>(policy: &mut DHCP_POLICY, parentexpr: u32, r#type: DHCP_POL_ATTR_TYPE, optionid: u32, suboptionid: u32, vendorname: P0, operator: DHCP_POL_COMPARATOR, value: &u8, valuelength: u32, conditionindex: &mut u32) -> u32
+pub unsafe fn DhcpHlprAddV4PolicyCondition<'a, P0>(policy: &mut DHCP_POLICY, parentexpr: u32, r#type: DHCP_POL_ATTR_TYPE, optionid: u32, suboptionid: u32, vendorname: P0, operator: DHCP_POL_COMPARATOR, value: &[u8], conditionindex: &mut u32) -> u32
 where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
 {
@@ -7110,7 +7110,7 @@ where
     extern "system" {
         fn DhcpHlprAddV4PolicyCondition(policy: *mut DHCP_POLICY, parentexpr: u32, r#type: DHCP_POL_ATTR_TYPE, optionid: u32, suboptionid: u32, vendorname: ::windows::core::PCWSTR, operator: DHCP_POL_COMPARATOR, value: *const u8, valuelength: u32, conditionindex: *mut u32) -> u32;
     }
-    DhcpHlprAddV4PolicyCondition(::core::mem::transmute(policy), parentexpr, r#type, optionid, suboptionid, vendorname.into(), operator, ::core::mem::transmute(value), valuelength, ::core::mem::transmute(conditionindex))
+    DhcpHlprAddV4PolicyCondition(::core::mem::transmute(policy), parentexpr, r#type, optionid, suboptionid, vendorname.into(), operator, ::core::mem::transmute(value.as_ptr()), value.len() as _, ::core::mem::transmute(conditionindex))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Dhcp\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -7460,7 +7460,7 @@ where
 #[doc = "*Required features: `\"Win32_NetworkManagement_Dhcp\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DhcpRequestParams<'a, P0, P1>(flags: u32, reserved: *mut ::core::ffi::c_void, adaptername: P0, classid: &mut DHCPCAPI_CLASSID, sendparams: DHCPCAPI_PARAMS_ARRAY, recdparams: DHCPCAPI_PARAMS_ARRAY, buffer: &mut u8, psize: &mut u32, requestidstr: P1) -> u32
+pub unsafe fn DhcpRequestParams<'a, P0, P1>(flags: u32, reserved: *mut ::core::ffi::c_void, adaptername: P0, classid: &mut DHCPCAPI_CLASSID, sendparams: DHCPCAPI_PARAMS_ARRAY, recdparams: DHCPCAPI_PARAMS_ARRAY, buffer: *mut u8, psize: &mut u32, requestidstr: P1) -> u32
 where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
     P1: ::std::convert::Into<::windows::core::PCWSTR>,
@@ -7602,7 +7602,7 @@ where
     extern "system" {
         fn DhcpServerQueryDnsRegCredentials(serveripaddress: ::windows::core::PCWSTR, unamesize: u32, uname: ::windows::core::PWSTR, domainsize: u32, domain: ::windows::core::PWSTR) -> u32;
     }
-    DhcpServerQueryDnsRegCredentials(serveripaddress.into(), uname.len() as _, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(uname)), domain.len() as _, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(domain)))
+    DhcpServerQueryDnsRegCredentials(serveripaddress.into(), uname.len() as _, ::core::mem::transmute(uname.as_ptr()), domain.len() as _, ::core::mem::transmute(domain.as_ptr()))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Dhcp\"`*"]
 #[inline]

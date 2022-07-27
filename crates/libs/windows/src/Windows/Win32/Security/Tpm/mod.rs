@@ -10,24 +10,7 @@ impl ITpmVirtualSmartCardManager {
         P1: ::std::convert::Into<super::super::Foundation::BOOL>,
         P2: ::std::convert::Into<::windows::core::InParam<'a, ITpmVirtualSmartCardManagerStatusCallback>>,
     {
-        (::windows::core::Interface::vtable(self).CreateVirtualSmartCard)(
-            ::windows::core::Interface::as_raw(self),
-            pszfriendlyname.into(),
-            badminalgid,
-            ::core::mem::transmute(::windows::core::as_ptr_or_null(pbadminkey)),
-            pbadminkey.len() as _,
-            ::core::mem::transmute(::windows::core::as_ptr_or_null(pbadminkcv)),
-            pbadminkcv.len() as _,
-            ::core::mem::transmute(::windows::core::as_ptr_or_null(pbpuk)),
-            pbpuk.len() as _,
-            ::core::mem::transmute(::windows::core::as_ptr_or_null(pbpin)),
-            pbpin.len() as _,
-            fgenerate.into(),
-            pstatuscallback.into().abi(),
-            ::core::mem::transmute(ppszinstanceid),
-            ::core::mem::transmute(pfneedreboot),
-        )
-        .ok()
+        (::windows::core::Interface::vtable(self).CreateVirtualSmartCard)(::windows::core::Interface::as_raw(self), pszfriendlyname.into(), badminalgid, ::core::mem::transmute(pbadminkey.as_ptr()), pbadminkey.len() as _, ::core::mem::transmute(pbadminkcv.as_ptr()), pbadminkcv.len() as _, ::core::mem::transmute(pbpuk.as_ptr()), pbpuk.len() as _, ::core::mem::transmute(pbpin.as_ptr()), pbpin.len() as _, fgenerate.into(), pstatuscallback.into().abi(), ::core::mem::transmute(ppszinstanceid), ::core::mem::transmute(pfneedreboot)).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -100,24 +83,7 @@ impl ITpmVirtualSmartCardManager2 {
         P1: ::std::convert::Into<super::super::Foundation::BOOL>,
         P2: ::std::convert::Into<::windows::core::InParam<'a, ITpmVirtualSmartCardManagerStatusCallback>>,
     {
-        (::windows::core::Interface::vtable(self).base__.CreateVirtualSmartCard)(
-            ::windows::core::Interface::as_raw(self),
-            pszfriendlyname.into(),
-            badminalgid,
-            ::core::mem::transmute(::windows::core::as_ptr_or_null(pbadminkey)),
-            pbadminkey.len() as _,
-            ::core::mem::transmute(::windows::core::as_ptr_or_null(pbadminkcv)),
-            pbadminkcv.len() as _,
-            ::core::mem::transmute(::windows::core::as_ptr_or_null(pbpuk)),
-            pbpuk.len() as _,
-            ::core::mem::transmute(::windows::core::as_ptr_or_null(pbpin)),
-            pbpin.len() as _,
-            fgenerate.into(),
-            pstatuscallback.into().abi(),
-            ::core::mem::transmute(ppszinstanceid),
-            ::core::mem::transmute(pfneedreboot),
-        )
-        .ok()
+        (::windows::core::Interface::vtable(self).base__.CreateVirtualSmartCard)(::windows::core::Interface::as_raw(self), pszfriendlyname.into(), badminalgid, ::core::mem::transmute(pbadminkey.as_ptr()), pbadminkey.len() as _, ::core::mem::transmute(pbadminkcv.as_ptr()), pbadminkcv.len() as _, ::core::mem::transmute(pbpuk.as_ptr()), pbpuk.len() as _, ::core::mem::transmute(pbpin.as_ptr()), pbpin.len() as _, fgenerate.into(), pstatuscallback.into().abi(), ::core::mem::transmute(ppszinstanceid), ::core::mem::transmute(pfneedreboot)).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -141,15 +107,15 @@ impl ITpmVirtualSmartCardManager2 {
             ::windows::core::Interface::as_raw(self),
             pszfriendlyname.into(),
             badminalgid,
-            ::core::mem::transmute(::windows::core::as_ptr_or_null(pbadminkey)),
+            ::core::mem::transmute(pbadminkey.as_ptr()),
             pbadminkey.len() as _,
-            ::core::mem::transmute(::windows::core::as_ptr_or_null(pbadminkcv)),
+            ::core::mem::transmute(pbadminkcv.as_ptr()),
             pbadminkcv.len() as _,
-            ::core::mem::transmute(::windows::core::as_ptr_or_null(pbpuk)),
+            ::core::mem::transmute(pbpuk.as_ptr()),
             pbpuk.len() as _,
-            ::core::mem::transmute(::windows::core::as_ptr_or_null(pbpin)),
+            ::core::mem::transmute(pbpin.as_ptr()),
             pbpin.len() as _,
-            ::core::mem::transmute(::windows::core::as_ptr_or_null(pbpinpolicy)),
+            ::core::mem::transmute(pbpinpolicy.as_ptr()),
             pbpinpolicy.len() as _,
             fgenerate.into(),
             pstatuscallback.into().abi(),
@@ -230,24 +196,7 @@ impl ITpmVirtualSmartCardManager3 {
         P1: ::std::convert::Into<super::super::Foundation::BOOL>,
         P2: ::std::convert::Into<::windows::core::InParam<'a, ITpmVirtualSmartCardManagerStatusCallback>>,
     {
-        (::windows::core::Interface::vtable(self).base__.base__.CreateVirtualSmartCard)(
-            ::windows::core::Interface::as_raw(self),
-            pszfriendlyname.into(),
-            badminalgid,
-            ::core::mem::transmute(::windows::core::as_ptr_or_null(pbadminkey)),
-            pbadminkey.len() as _,
-            ::core::mem::transmute(::windows::core::as_ptr_or_null(pbadminkcv)),
-            pbadminkcv.len() as _,
-            ::core::mem::transmute(::windows::core::as_ptr_or_null(pbpuk)),
-            pbpuk.len() as _,
-            ::core::mem::transmute(::windows::core::as_ptr_or_null(pbpin)),
-            pbpin.len() as _,
-            fgenerate.into(),
-            pstatuscallback.into().abi(),
-            ::core::mem::transmute(ppszinstanceid),
-            ::core::mem::transmute(pfneedreboot),
-        )
-        .ok()
+        (::windows::core::Interface::vtable(self).base__.base__.CreateVirtualSmartCard)(::windows::core::Interface::as_raw(self), pszfriendlyname.into(), badminalgid, ::core::mem::transmute(pbadminkey.as_ptr()), pbadminkey.len() as _, ::core::mem::transmute(pbadminkcv.as_ptr()), pbadminkcv.len() as _, ::core::mem::transmute(pbpuk.as_ptr()), pbpuk.len() as _, ::core::mem::transmute(pbpin.as_ptr()), pbpin.len() as _, fgenerate.into(), pstatuscallback.into().abi(), ::core::mem::transmute(ppszinstanceid), ::core::mem::transmute(pfneedreboot)).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -271,15 +220,15 @@ impl ITpmVirtualSmartCardManager3 {
             ::windows::core::Interface::as_raw(self),
             pszfriendlyname.into(),
             badminalgid,
-            ::core::mem::transmute(::windows::core::as_ptr_or_null(pbadminkey)),
+            ::core::mem::transmute(pbadminkey.as_ptr()),
             pbadminkey.len() as _,
-            ::core::mem::transmute(::windows::core::as_ptr_or_null(pbadminkcv)),
+            ::core::mem::transmute(pbadminkcv.as_ptr()),
             pbadminkcv.len() as _,
-            ::core::mem::transmute(::windows::core::as_ptr_or_null(pbpuk)),
+            ::core::mem::transmute(pbpuk.as_ptr()),
             pbpuk.len() as _,
-            ::core::mem::transmute(::windows::core::as_ptr_or_null(pbpin)),
+            ::core::mem::transmute(pbpin.as_ptr()),
             pbpin.len() as _,
-            ::core::mem::transmute(::windows::core::as_ptr_or_null(pbpinpolicy)),
+            ::core::mem::transmute(pbpinpolicy.as_ptr()),
             pbpinpolicy.len() as _,
             fgenerate.into(),
             pstatuscallback.into().abi(),
@@ -301,15 +250,15 @@ impl ITpmVirtualSmartCardManager3 {
             ::windows::core::Interface::as_raw(self),
             pszfriendlyname.into(),
             badminalgid,
-            ::core::mem::transmute(::windows::core::as_ptr_or_null(pbadminkey)),
+            ::core::mem::transmute(pbadminkey.as_ptr()),
             pbadminkey.len() as _,
-            ::core::mem::transmute(::windows::core::as_ptr_or_null(pbadminkcv)),
+            ::core::mem::transmute(pbadminkcv.as_ptr()),
             pbadminkcv.len() as _,
-            ::core::mem::transmute(::windows::core::as_ptr_or_null(pbpuk)),
+            ::core::mem::transmute(pbpuk.as_ptr()),
             pbpuk.len() as _,
-            ::core::mem::transmute(::windows::core::as_ptr_or_null(pbpin)),
+            ::core::mem::transmute(pbpin.as_ptr()),
             pbpin.len() as _,
-            ::core::mem::transmute(::windows::core::as_ptr_or_null(pbpinpolicy)),
+            ::core::mem::transmute(pbpinpolicy.as_ptr()),
             pbpinpolicy.len() as _,
             attestationtype,
             fgenerate.into(),

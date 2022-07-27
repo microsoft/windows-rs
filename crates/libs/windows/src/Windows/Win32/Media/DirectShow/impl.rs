@@ -6006,7 +6006,7 @@ pub trait IAsyncReader_Impl: Sized {
     fn Request(&self, psample: &::core::option::Option<IMediaSample>, dwuser: usize) -> ::windows::core::Result<()>;
     fn WaitForNext(&self, dwtimeout: u32, ppsample: *mut ::core::option::Option<IMediaSample>, pdwuser: *mut usize) -> ::windows::core::Result<()>;
     fn SyncReadAligned(&self, psample: &::core::option::Option<IMediaSample>) -> ::windows::core::Result<()>;
-    fn SyncRead(&self, llposition: i64, llength: i32) -> ::windows::core::Result<u8>;
+    fn SyncRead(&self, llposition: i64, llength: i32, pbuffer: *mut u8) -> ::windows::core::Result<()>;
     fn Length(&self, ptotal: *mut i64, pavailable: *mut i64) -> ::windows::core::Result<()>;
     fn BeginFlush(&self) -> ::windows::core::Result<()>;
     fn EndFlush(&self) -> ::windows::core::Result<()>;
@@ -6043,13 +6043,7 @@ impl IAsyncReader_Vtbl {
         unsafe extern "system" fn SyncRead<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAsyncReader_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, llposition: i64, llength: i32, pbuffer: *mut u8) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.SyncRead(::core::mem::transmute_copy(&llposition), ::core::mem::transmute_copy(&llength)) {
-                ::core::result::Result::Ok(ok__) => {
-                    ::core::ptr::write(pbuffer, ::core::mem::transmute(ok__));
-                    ::windows::core::HRESULT(0)
-                }
-                ::core::result::Result::Err(err) => err.into(),
-            }
+            this.SyncRead(::core::mem::transmute_copy(&llposition), ::core::mem::transmute_copy(&llength), ::core::mem::transmute_copy(&pbuffer)).into()
         }
         unsafe extern "system" fn Length<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAsyncReader_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ptotal: *mut i64, pavailable: *mut i64) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
@@ -31800,7 +31794,7 @@ impl IMediaSample_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media_MediaFoundation"))]
 pub trait IMediaSample2_Impl: Sized + IMediaSample_Impl {
-    fn GetProperties(&self, cbproperties: u32) -> ::windows::core::Result<u8>;
+    fn GetProperties(&self, cbproperties: u32, pbproperties: *mut u8) -> ::windows::core::Result<()>;
     fn SetProperties(&self, cbproperties: u32, pbproperties: *const u8) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media_MediaFoundation"))]
@@ -31811,13 +31805,7 @@ impl IMediaSample2_Vtbl {
         unsafe extern "system" fn GetProperties<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMediaSample2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, cbproperties: u32, pbproperties: *mut u8) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetProperties(::core::mem::transmute_copy(&cbproperties)) {
-                ::core::result::Result::Ok(ok__) => {
-                    ::core::ptr::write(pbproperties, ::core::mem::transmute(ok__));
-                    ::windows::core::HRESULT(0)
-                }
-                ::core::result::Result::Err(err) => err.into(),
-            }
+            this.GetProperties(::core::mem::transmute_copy(&cbproperties), ::core::mem::transmute_copy(&pbproperties)).into()
         }
         unsafe extern "system" fn SetProperties<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMediaSample2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, cbproperties: u32, pbproperties: *const u8) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;

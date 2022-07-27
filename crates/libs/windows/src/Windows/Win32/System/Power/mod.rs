@@ -657,12 +657,12 @@ impl ::core::default::Default for CM_POWER_DATA {
 }
 #[doc = "*Required features: `\"Win32_System_Power\"`*"]
 #[inline]
-pub unsafe fn CallNtPowerInformation(informationlevel: POWER_INFORMATION_LEVEL, inputbuffer: *const ::core::ffi::c_void, inputbufferlength: u32, outputbuffer: *mut ::core::ffi::c_void, outputbufferlength: u32) -> i32 {
+pub unsafe fn CallNtPowerInformation(informationlevel: POWER_INFORMATION_LEVEL, inputbuffer: ::core::option::Option<&[u8]>, outputbuffer: ::core::option::Option<&mut [u8]>) -> i32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn CallNtPowerInformation(informationlevel: POWER_INFORMATION_LEVEL, inputbuffer: *const ::core::ffi::c_void, inputbufferlength: u32, outputbuffer: *mut ::core::ffi::c_void, outputbufferlength: u32) -> i32;
     }
-    CallNtPowerInformation(informationlevel, ::core::mem::transmute(inputbuffer), inputbufferlength, ::core::mem::transmute(outputbuffer), outputbufferlength)
+    CallNtPowerInformation(informationlevel, ::core::mem::transmute(inputbuffer.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), inputbuffer.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(outputbuffer.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), outputbuffer.as_deref().map_or(0, |slice| slice.len() as _))
 }
 #[doc = "*Required features: `\"Win32_System_Power\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -781,7 +781,7 @@ pub unsafe fn DevicePowerClose() -> super::super::Foundation::BOOLEAN {
 #[doc = "*Required features: `\"Win32_System_Power\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DevicePowerEnumDevices(queryindex: u32, queryinterpretationflags: u32, queryflags: u32, preturnbuffer: ::core::option::Option<&mut u8>, pbuffersize: &mut u32) -> super::super::Foundation::BOOLEAN {
+pub unsafe fn DevicePowerEnumDevices(queryindex: u32, queryinterpretationflags: u32, queryflags: u32, preturnbuffer: *mut u8, pbuffersize: &mut u32) -> super::super::Foundation::BOOLEAN {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn DevicePowerEnumDevices(queryindex: u32, queryinterpretationflags: u32, queryflags: u32, preturnbuffer: *mut u8, pbuffersize: *mut u32) -> super::super::Foundation::BOOLEAN;
@@ -2558,7 +2558,7 @@ where
 #[doc = "*Required features: `\"Win32_System_Power\"`, `\"Win32_System_Registry\"`*"]
 #[cfg(feature = "Win32_System_Registry")]
 #[inline]
-pub unsafe fn PowerEnumerate<'a, P0>(rootpowerkey: P0, schemeguid: ::core::option::Option<&::windows::core::GUID>, subgroupofpowersettingsguid: ::core::option::Option<&::windows::core::GUID>, accessflags: POWER_DATA_ACCESSOR, index: u32, buffer: ::core::option::Option<&mut u8>, buffersize: &mut u32) -> u32
+pub unsafe fn PowerEnumerate<'a, P0>(rootpowerkey: P0, schemeguid: ::core::option::Option<&::windows::core::GUID>, subgroupofpowersettingsguid: ::core::option::Option<&::windows::core::GUID>, accessflags: POWER_DATA_ACCESSOR, index: u32, buffer: *mut u8, buffersize: &mut u32) -> u32
 where
     P0: ::std::convert::Into<super::Registry::HKEY>,
 {
@@ -2647,7 +2647,7 @@ where
 #[doc = "*Required features: `\"Win32_System_Power\"`, `\"Win32_System_Registry\"`*"]
 #[cfg(feature = "Win32_System_Registry")]
 #[inline]
-pub unsafe fn PowerReadACValue<'a, P0>(rootpowerkey: P0, schemeguid: ::core::option::Option<&::windows::core::GUID>, subgroupofpowersettingsguid: ::core::option::Option<&::windows::core::GUID>, powersettingguid: ::core::option::Option<&::windows::core::GUID>, r#type: ::core::option::Option<&mut u32>, buffer: ::core::option::Option<&mut u8>, buffersize: ::core::option::Option<&mut u32>) -> u32
+pub unsafe fn PowerReadACValue<'a, P0>(rootpowerkey: P0, schemeguid: ::core::option::Option<&::windows::core::GUID>, subgroupofpowersettingsguid: ::core::option::Option<&::windows::core::GUID>, powersettingguid: ::core::option::Option<&::windows::core::GUID>, r#type: ::core::option::Option<&mut u32>, buffer: *mut u8, buffersize: ::core::option::Option<&mut u32>) -> u32
 where
     P0: ::std::convert::Into<super::Registry::HKEY>,
 {
@@ -2686,7 +2686,7 @@ where
 #[doc = "*Required features: `\"Win32_System_Power\"`, `\"Win32_System_Registry\"`*"]
 #[cfg(feature = "Win32_System_Registry")]
 #[inline]
-pub unsafe fn PowerReadDCValue<'a, P0>(rootpowerkey: P0, schemeguid: ::core::option::Option<&::windows::core::GUID>, subgroupofpowersettingsguid: ::core::option::Option<&::windows::core::GUID>, powersettingguid: ::core::option::Option<&::windows::core::GUID>, r#type: ::core::option::Option<&mut u32>, buffer: ::core::option::Option<&mut u8>, buffersize: &mut u32) -> u32
+pub unsafe fn PowerReadDCValue<'a, P0>(rootpowerkey: P0, schemeguid: ::core::option::Option<&::windows::core::GUID>, subgroupofpowersettingsguid: ::core::option::Option<&::windows::core::GUID>, powersettingguid: ::core::option::Option<&::windows::core::GUID>, r#type: ::core::option::Option<&mut u32>, buffer: *mut u8, buffersize: &mut u32) -> u32
 where
     P0: ::std::convert::Into<super::Registry::HKEY>,
 {
@@ -2712,7 +2712,7 @@ where
 #[doc = "*Required features: `\"Win32_System_Power\"`, `\"Win32_System_Registry\"`*"]
 #[cfg(feature = "Win32_System_Registry")]
 #[inline]
-pub unsafe fn PowerReadDescription<'a, P0>(rootpowerkey: P0, schemeguid: ::core::option::Option<&::windows::core::GUID>, subgroupofpowersettingsguid: ::core::option::Option<&::windows::core::GUID>, powersettingguid: ::core::option::Option<&::windows::core::GUID>, buffer: ::core::option::Option<&mut u8>, buffersize: &mut u32) -> u32
+pub unsafe fn PowerReadDescription<'a, P0>(rootpowerkey: P0, schemeguid: ::core::option::Option<&::windows::core::GUID>, subgroupofpowersettingsguid: ::core::option::Option<&::windows::core::GUID>, powersettingguid: ::core::option::Option<&::windows::core::GUID>, buffer: *mut u8, buffersize: &mut u32) -> u32
 where
     P0: ::std::convert::Into<super::Registry::HKEY>,
 {
@@ -2725,7 +2725,7 @@ where
 #[doc = "*Required features: `\"Win32_System_Power\"`, `\"Win32_System_Registry\"`*"]
 #[cfg(feature = "Win32_System_Registry")]
 #[inline]
-pub unsafe fn PowerReadFriendlyName<'a, P0>(rootpowerkey: P0, schemeguid: ::core::option::Option<&::windows::core::GUID>, subgroupofpowersettingsguid: ::core::option::Option<&::windows::core::GUID>, powersettingguid: ::core::option::Option<&::windows::core::GUID>, buffer: ::core::option::Option<&mut u8>, buffersize: &mut u32) -> u32
+pub unsafe fn PowerReadFriendlyName<'a, P0>(rootpowerkey: P0, schemeguid: ::core::option::Option<&::windows::core::GUID>, subgroupofpowersettingsguid: ::core::option::Option<&::windows::core::GUID>, powersettingguid: ::core::option::Option<&::windows::core::GUID>, buffer: *mut u8, buffersize: &mut u32) -> u32
 where
     P0: ::std::convert::Into<super::Registry::HKEY>,
 {
@@ -2738,7 +2738,7 @@ where
 #[doc = "*Required features: `\"Win32_System_Power\"`, `\"Win32_System_Registry\"`*"]
 #[cfg(feature = "Win32_System_Registry")]
 #[inline]
-pub unsafe fn PowerReadIconResourceSpecifier<'a, P0>(rootpowerkey: P0, schemeguid: ::core::option::Option<&::windows::core::GUID>, subgroupofpowersettingsguid: ::core::option::Option<&::windows::core::GUID>, powersettingguid: ::core::option::Option<&::windows::core::GUID>, buffer: ::core::option::Option<&mut u8>, buffersize: &mut u32) -> u32
+pub unsafe fn PowerReadIconResourceSpecifier<'a, P0>(rootpowerkey: P0, schemeguid: ::core::option::Option<&::windows::core::GUID>, subgroupofpowersettingsguid: ::core::option::Option<&::windows::core::GUID>, powersettingguid: ::core::option::Option<&::windows::core::GUID>, buffer: *mut u8, buffersize: &mut u32) -> u32
 where
     P0: ::std::convert::Into<super::Registry::HKEY>,
 {
@@ -2751,7 +2751,7 @@ where
 #[doc = "*Required features: `\"Win32_System_Power\"`, `\"Win32_System_Registry\"`*"]
 #[cfg(feature = "Win32_System_Registry")]
 #[inline]
-pub unsafe fn PowerReadPossibleDescription<'a, P0>(rootpowerkey: P0, subgroupofpowersettingsguid: ::core::option::Option<&::windows::core::GUID>, powersettingguid: ::core::option::Option<&::windows::core::GUID>, possiblesettingindex: u32, buffer: ::core::option::Option<&mut u8>, buffersize: &mut u32) -> u32
+pub unsafe fn PowerReadPossibleDescription<'a, P0>(rootpowerkey: P0, subgroupofpowersettingsguid: ::core::option::Option<&::windows::core::GUID>, powersettingguid: ::core::option::Option<&::windows::core::GUID>, possiblesettingindex: u32, buffer: *mut u8, buffersize: &mut u32) -> u32
 where
     P0: ::std::convert::Into<super::Registry::HKEY>,
 {
@@ -2764,7 +2764,7 @@ where
 #[doc = "*Required features: `\"Win32_System_Power\"`, `\"Win32_System_Registry\"`*"]
 #[cfg(feature = "Win32_System_Registry")]
 #[inline]
-pub unsafe fn PowerReadPossibleFriendlyName<'a, P0>(rootpowerkey: P0, subgroupofpowersettingsguid: ::core::option::Option<&::windows::core::GUID>, powersettingguid: ::core::option::Option<&::windows::core::GUID>, possiblesettingindex: u32, buffer: ::core::option::Option<&mut u8>, buffersize: &mut u32) -> u32
+pub unsafe fn PowerReadPossibleFriendlyName<'a, P0>(rootpowerkey: P0, subgroupofpowersettingsguid: ::core::option::Option<&::windows::core::GUID>, powersettingguid: ::core::option::Option<&::windows::core::GUID>, possiblesettingindex: u32, buffer: *mut u8, buffersize: &mut u32) -> u32
 where
     P0: ::std::convert::Into<super::Registry::HKEY>,
 {
@@ -2777,7 +2777,7 @@ where
 #[doc = "*Required features: `\"Win32_System_Power\"`, `\"Win32_System_Registry\"`*"]
 #[cfg(feature = "Win32_System_Registry")]
 #[inline]
-pub unsafe fn PowerReadPossibleValue<'a, P0>(rootpowerkey: P0, subgroupofpowersettingsguid: ::core::option::Option<&::windows::core::GUID>, powersettingguid: ::core::option::Option<&::windows::core::GUID>, r#type: ::core::option::Option<&mut u32>, possiblesettingindex: u32, buffer: ::core::option::Option<&mut u8>, buffersize: &mut u32) -> u32
+pub unsafe fn PowerReadPossibleValue<'a, P0>(rootpowerkey: P0, subgroupofpowersettingsguid: ::core::option::Option<&::windows::core::GUID>, powersettingguid: ::core::option::Option<&::windows::core::GUID>, r#type: ::core::option::Option<&mut u32>, possiblesettingindex: u32, buffer: *mut u8, buffersize: &mut u32) -> u32
 where
     P0: ::std::convert::Into<super::Registry::HKEY>,
 {
@@ -2838,7 +2838,7 @@ where
 #[doc = "*Required features: `\"Win32_System_Power\"`, `\"Win32_System_Registry\"`*"]
 #[cfg(feature = "Win32_System_Registry")]
 #[inline]
-pub unsafe fn PowerReadValueUnitsSpecifier<'a, P0>(rootpowerkey: P0, subgroupofpowersettingsguid: ::core::option::Option<&::windows::core::GUID>, powersettingguid: ::core::option::Option<&::windows::core::GUID>, buffer: ::core::option::Option<&mut u8>, buffersize: &mut u32) -> u32
+pub unsafe fn PowerReadValueUnitsSpecifier<'a, P0>(rootpowerkey: P0, subgroupofpowersettingsguid: ::core::option::Option<&::windows::core::GUID>, powersettingguid: ::core::option::Option<&::windows::core::GUID>, buffer: *mut u8, buffersize: &mut u32) -> u32
 where
     P0: ::std::convert::Into<super::Registry::HKEY>,
 {
@@ -3061,7 +3061,7 @@ where
 #[doc = "*Required features: `\"Win32_System_Power\"`, `\"Win32_System_Registry\"`*"]
 #[cfg(feature = "Win32_System_Registry")]
 #[inline]
-pub unsafe fn PowerWriteDescription<'a, P0>(rootpowerkey: P0, schemeguid: &::windows::core::GUID, subgroupofpowersettingsguid: ::core::option::Option<&::windows::core::GUID>, powersettingguid: ::core::option::Option<&::windows::core::GUID>, buffer: &u8, buffersize: u32) -> u32
+pub unsafe fn PowerWriteDescription<'a, P0>(rootpowerkey: P0, schemeguid: &::windows::core::GUID, subgroupofpowersettingsguid: ::core::option::Option<&::windows::core::GUID>, powersettingguid: ::core::option::Option<&::windows::core::GUID>, buffer: &[u8]) -> u32
 where
     P0: ::std::convert::Into<super::Registry::HKEY>,
 {
@@ -3069,12 +3069,12 @@ where
     extern "system" {
         fn PowerWriteDescription(rootpowerkey: super::Registry::HKEY, schemeguid: *const ::windows::core::GUID, subgroupofpowersettingsguid: *const ::windows::core::GUID, powersettingguid: *const ::windows::core::GUID, buffer: *const u8, buffersize: u32) -> u32;
     }
-    PowerWriteDescription(rootpowerkey.into(), ::core::mem::transmute(schemeguid), ::core::mem::transmute(subgroupofpowersettingsguid), ::core::mem::transmute(powersettingguid), ::core::mem::transmute(buffer), buffersize)
+    PowerWriteDescription(rootpowerkey.into(), ::core::mem::transmute(schemeguid), ::core::mem::transmute(subgroupofpowersettingsguid), ::core::mem::transmute(powersettingguid), ::core::mem::transmute(buffer.as_ptr()), buffer.len() as _)
 }
 #[doc = "*Required features: `\"Win32_System_Power\"`, `\"Win32_System_Registry\"`*"]
 #[cfg(feature = "Win32_System_Registry")]
 #[inline]
-pub unsafe fn PowerWriteFriendlyName<'a, P0>(rootpowerkey: P0, schemeguid: &::windows::core::GUID, subgroupofpowersettingsguid: ::core::option::Option<&::windows::core::GUID>, powersettingguid: ::core::option::Option<&::windows::core::GUID>, buffer: &u8, buffersize: u32) -> u32
+pub unsafe fn PowerWriteFriendlyName<'a, P0>(rootpowerkey: P0, schemeguid: &::windows::core::GUID, subgroupofpowersettingsguid: ::core::option::Option<&::windows::core::GUID>, powersettingguid: ::core::option::Option<&::windows::core::GUID>, buffer: &[u8]) -> u32
 where
     P0: ::std::convert::Into<super::Registry::HKEY>,
 {
@@ -3082,12 +3082,12 @@ where
     extern "system" {
         fn PowerWriteFriendlyName(rootpowerkey: super::Registry::HKEY, schemeguid: *const ::windows::core::GUID, subgroupofpowersettingsguid: *const ::windows::core::GUID, powersettingguid: *const ::windows::core::GUID, buffer: *const u8, buffersize: u32) -> u32;
     }
-    PowerWriteFriendlyName(rootpowerkey.into(), ::core::mem::transmute(schemeguid), ::core::mem::transmute(subgroupofpowersettingsguid), ::core::mem::transmute(powersettingguid), ::core::mem::transmute(buffer), buffersize)
+    PowerWriteFriendlyName(rootpowerkey.into(), ::core::mem::transmute(schemeguid), ::core::mem::transmute(subgroupofpowersettingsguid), ::core::mem::transmute(powersettingguid), ::core::mem::transmute(buffer.as_ptr()), buffer.len() as _)
 }
 #[doc = "*Required features: `\"Win32_System_Power\"`, `\"Win32_System_Registry\"`*"]
 #[cfg(feature = "Win32_System_Registry")]
 #[inline]
-pub unsafe fn PowerWriteIconResourceSpecifier<'a, P0>(rootpowerkey: P0, schemeguid: &::windows::core::GUID, subgroupofpowersettingsguid: ::core::option::Option<&::windows::core::GUID>, powersettingguid: ::core::option::Option<&::windows::core::GUID>, buffer: &u8, buffersize: u32) -> u32
+pub unsafe fn PowerWriteIconResourceSpecifier<'a, P0>(rootpowerkey: P0, schemeguid: &::windows::core::GUID, subgroupofpowersettingsguid: ::core::option::Option<&::windows::core::GUID>, powersettingguid: ::core::option::Option<&::windows::core::GUID>, buffer: &[u8]) -> u32
 where
     P0: ::std::convert::Into<super::Registry::HKEY>,
 {
@@ -3095,12 +3095,12 @@ where
     extern "system" {
         fn PowerWriteIconResourceSpecifier(rootpowerkey: super::Registry::HKEY, schemeguid: *const ::windows::core::GUID, subgroupofpowersettingsguid: *const ::windows::core::GUID, powersettingguid: *const ::windows::core::GUID, buffer: *const u8, buffersize: u32) -> u32;
     }
-    PowerWriteIconResourceSpecifier(rootpowerkey.into(), ::core::mem::transmute(schemeguid), ::core::mem::transmute(subgroupofpowersettingsguid), ::core::mem::transmute(powersettingguid), ::core::mem::transmute(buffer), buffersize)
+    PowerWriteIconResourceSpecifier(rootpowerkey.into(), ::core::mem::transmute(schemeguid), ::core::mem::transmute(subgroupofpowersettingsguid), ::core::mem::transmute(powersettingguid), ::core::mem::transmute(buffer.as_ptr()), buffer.len() as _)
 }
 #[doc = "*Required features: `\"Win32_System_Power\"`, `\"Win32_System_Registry\"`*"]
 #[cfg(feature = "Win32_System_Registry")]
 #[inline]
-pub unsafe fn PowerWritePossibleDescription<'a, P0>(rootpowerkey: P0, subgroupofpowersettingsguid: ::core::option::Option<&::windows::core::GUID>, powersettingguid: ::core::option::Option<&::windows::core::GUID>, possiblesettingindex: u32, buffer: &u8, buffersize: u32) -> u32
+pub unsafe fn PowerWritePossibleDescription<'a, P0>(rootpowerkey: P0, subgroupofpowersettingsguid: ::core::option::Option<&::windows::core::GUID>, powersettingguid: ::core::option::Option<&::windows::core::GUID>, possiblesettingindex: u32, buffer: &[u8]) -> u32
 where
     P0: ::std::convert::Into<super::Registry::HKEY>,
 {
@@ -3108,12 +3108,12 @@ where
     extern "system" {
         fn PowerWritePossibleDescription(rootpowerkey: super::Registry::HKEY, subgroupofpowersettingsguid: *const ::windows::core::GUID, powersettingguid: *const ::windows::core::GUID, possiblesettingindex: u32, buffer: *const u8, buffersize: u32) -> u32;
     }
-    PowerWritePossibleDescription(rootpowerkey.into(), ::core::mem::transmute(subgroupofpowersettingsguid), ::core::mem::transmute(powersettingguid), possiblesettingindex, ::core::mem::transmute(buffer), buffersize)
+    PowerWritePossibleDescription(rootpowerkey.into(), ::core::mem::transmute(subgroupofpowersettingsguid), ::core::mem::transmute(powersettingguid), possiblesettingindex, ::core::mem::transmute(buffer.as_ptr()), buffer.len() as _)
 }
 #[doc = "*Required features: `\"Win32_System_Power\"`, `\"Win32_System_Registry\"`*"]
 #[cfg(feature = "Win32_System_Registry")]
 #[inline]
-pub unsafe fn PowerWritePossibleFriendlyName<'a, P0>(rootpowerkey: P0, subgroupofpowersettingsguid: ::core::option::Option<&::windows::core::GUID>, powersettingguid: ::core::option::Option<&::windows::core::GUID>, possiblesettingindex: u32, buffer: &u8, buffersize: u32) -> u32
+pub unsafe fn PowerWritePossibleFriendlyName<'a, P0>(rootpowerkey: P0, subgroupofpowersettingsguid: ::core::option::Option<&::windows::core::GUID>, powersettingguid: ::core::option::Option<&::windows::core::GUID>, possiblesettingindex: u32, buffer: &[u8]) -> u32
 where
     P0: ::std::convert::Into<super::Registry::HKEY>,
 {
@@ -3121,12 +3121,12 @@ where
     extern "system" {
         fn PowerWritePossibleFriendlyName(rootpowerkey: super::Registry::HKEY, subgroupofpowersettingsguid: *const ::windows::core::GUID, powersettingguid: *const ::windows::core::GUID, possiblesettingindex: u32, buffer: *const u8, buffersize: u32) -> u32;
     }
-    PowerWritePossibleFriendlyName(rootpowerkey.into(), ::core::mem::transmute(subgroupofpowersettingsguid), ::core::mem::transmute(powersettingguid), possiblesettingindex, ::core::mem::transmute(buffer), buffersize)
+    PowerWritePossibleFriendlyName(rootpowerkey.into(), ::core::mem::transmute(subgroupofpowersettingsguid), ::core::mem::transmute(powersettingguid), possiblesettingindex, ::core::mem::transmute(buffer.as_ptr()), buffer.len() as _)
 }
 #[doc = "*Required features: `\"Win32_System_Power\"`, `\"Win32_System_Registry\"`*"]
 #[cfg(feature = "Win32_System_Registry")]
 #[inline]
-pub unsafe fn PowerWritePossibleValue<'a, P0>(rootpowerkey: P0, subgroupofpowersettingsguid: ::core::option::Option<&::windows::core::GUID>, powersettingguid: ::core::option::Option<&::windows::core::GUID>, r#type: u32, possiblesettingindex: u32, buffer: &u8, buffersize: u32) -> u32
+pub unsafe fn PowerWritePossibleValue<'a, P0>(rootpowerkey: P0, subgroupofpowersettingsguid: ::core::option::Option<&::windows::core::GUID>, powersettingguid: ::core::option::Option<&::windows::core::GUID>, r#type: u32, possiblesettingindex: u32, buffer: &[u8]) -> u32
 where
     P0: ::std::convert::Into<super::Registry::HKEY>,
 {
@@ -3134,7 +3134,7 @@ where
     extern "system" {
         fn PowerWritePossibleValue(rootpowerkey: super::Registry::HKEY, subgroupofpowersettingsguid: *const ::windows::core::GUID, powersettingguid: *const ::windows::core::GUID, r#type: u32, possiblesettingindex: u32, buffer: *const u8, buffersize: u32) -> u32;
     }
-    PowerWritePossibleValue(rootpowerkey.into(), ::core::mem::transmute(subgroupofpowersettingsguid), ::core::mem::transmute(powersettingguid), r#type, possiblesettingindex, ::core::mem::transmute(buffer), buffersize)
+    PowerWritePossibleValue(rootpowerkey.into(), ::core::mem::transmute(subgroupofpowersettingsguid), ::core::mem::transmute(powersettingguid), r#type, possiblesettingindex, ::core::mem::transmute(buffer.as_ptr()), buffer.len() as _)
 }
 #[doc = "*Required features: `\"Win32_System_Power\"`*"]
 #[inline]
@@ -3187,7 +3187,7 @@ where
 #[doc = "*Required features: `\"Win32_System_Power\"`, `\"Win32_System_Registry\"`*"]
 #[cfg(feature = "Win32_System_Registry")]
 #[inline]
-pub unsafe fn PowerWriteValueUnitsSpecifier<'a, P0>(rootpowerkey: P0, subgroupofpowersettingsguid: ::core::option::Option<&::windows::core::GUID>, powersettingguid: ::core::option::Option<&::windows::core::GUID>, buffer: &u8, buffersize: u32) -> u32
+pub unsafe fn PowerWriteValueUnitsSpecifier<'a, P0>(rootpowerkey: P0, subgroupofpowersettingsguid: ::core::option::Option<&::windows::core::GUID>, powersettingguid: ::core::option::Option<&::windows::core::GUID>, buffer: &[u8]) -> u32
 where
     P0: ::std::convert::Into<super::Registry::HKEY>,
 {
@@ -3195,7 +3195,7 @@ where
     extern "system" {
         fn PowerWriteValueUnitsSpecifier(rootpowerkey: super::Registry::HKEY, subgroupofpowersettingsguid: *const ::windows::core::GUID, powersettingguid: *const ::windows::core::GUID, buffer: *const u8, buffersize: u32) -> u32;
     }
-    PowerWriteValueUnitsSpecifier(rootpowerkey.into(), ::core::mem::transmute(subgroupofpowersettingsguid), ::core::mem::transmute(powersettingguid), ::core::mem::transmute(buffer), buffersize)
+    PowerWriteValueUnitsSpecifier(rootpowerkey.into(), ::core::mem::transmute(subgroupofpowersettingsguid), ::core::mem::transmute(powersettingguid), ::core::mem::transmute(buffer.as_ptr()), buffer.len() as _)
 }
 #[doc = "*Required features: `\"Win32_System_Power\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]

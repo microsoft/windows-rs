@@ -1172,7 +1172,7 @@ impl BSTR {
         if value.is_empty() {
             return Self(::core::ptr::null_mut());
         }
-        unsafe { SysAllocStringLen(value) }
+        unsafe { SysAllocStringLen(Some(value)) }
     }
     pub fn as_wide(&self) -> &[u16] {
         if self.0.is_null() {
@@ -1374,12 +1374,12 @@ where
     SysAllocStringByteLen(psz.into(), len)
 }
 #[inline]
-pub unsafe fn SysAllocStringLen(strin: &[u16]) -> BSTR {
+pub unsafe fn SysAllocStringLen(strin: ::core::option::Option<&[u16]>) -> BSTR {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn SysAllocStringLen(strin: ::windows::core::PCWSTR, ui: u32) -> BSTR;
     }
-    SysAllocStringLen(::core::mem::transmute(::windows::core::as_ptr_or_null(strin)), strin.len() as _)
+    SysAllocStringLen(::core::mem::transmute(strin.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), strin.as_deref().map_or(0, |slice| slice.len() as _))
 }
 #[inline]
 pub unsafe fn SysFreeString<'a, P0>(bstrstring: P0)

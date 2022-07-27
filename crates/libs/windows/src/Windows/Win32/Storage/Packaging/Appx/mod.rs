@@ -1215,7 +1215,7 @@ pub unsafe fn DuplicatePackageVirtualizationContext(sourcecontext: &PACKAGE_VIRT
 #[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn FindPackagesByPackageFamily<'a, P0>(packagefamilyname: P0, packagefilters: u32, count: &mut u32, packagefullnames: ::core::option::Option<&mut ::windows::core::PWSTR>, bufferlength: &mut u32, buffer: ::windows::core::PWSTR, packageproperties: ::core::option::Option<&mut u32>) -> super::super::super::Foundation::WIN32_ERROR
+pub unsafe fn FindPackagesByPackageFamily<'a, P0>(packagefamilyname: P0, packagefilters: u32, count: &mut u32, packagefullnames: *mut ::windows::core::PWSTR, bufferlength: &mut u32, buffer: ::windows::core::PWSTR, packageproperties: *mut u32) -> super::super::super::Foundation::WIN32_ERROR
 where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
 {
@@ -1298,7 +1298,7 @@ pub unsafe fn GetCurrentPackageFullName(packagefullnamelength: &mut u32, package
 #[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn GetCurrentPackageId(bufferlength: &mut u32, buffer: ::core::option::Option<&mut u8>) -> super::super::super::Foundation::WIN32_ERROR {
+pub unsafe fn GetCurrentPackageId(bufferlength: &mut u32, buffer: *mut u8) -> super::super::super::Foundation::WIN32_ERROR {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn GetCurrentPackageId(bufferlength: *mut u32, buffer: *mut u8) -> super::super::super::Foundation::WIN32_ERROR;
@@ -1308,7 +1308,7 @@ pub unsafe fn GetCurrentPackageId(bufferlength: &mut u32, buffer: ::core::option
 #[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn GetCurrentPackageInfo(flags: u32, bufferlength: &mut u32, buffer: ::core::option::Option<&mut u8>, count: ::core::option::Option<&mut u32>) -> super::super::super::Foundation::WIN32_ERROR {
+pub unsafe fn GetCurrentPackageInfo(flags: u32, bufferlength: &mut u32, buffer: *mut u8, count: ::core::option::Option<&mut u32>) -> super::super::super::Foundation::WIN32_ERROR {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn GetCurrentPackageInfo(flags: u32, bufferlength: *mut u32, buffer: *mut u8, count: *mut u32) -> super::super::super::Foundation::WIN32_ERROR;
@@ -1318,7 +1318,7 @@ pub unsafe fn GetCurrentPackageInfo(flags: u32, bufferlength: &mut u32, buffer: 
 #[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn GetCurrentPackageInfo2(flags: u32, packagepathtype: PackagePathType, bufferlength: &mut u32, buffer: ::core::option::Option<&mut u8>, count: ::core::option::Option<&mut u32>) -> super::super::super::Foundation::WIN32_ERROR {
+pub unsafe fn GetCurrentPackageInfo2(flags: u32, packagepathtype: PackagePathType, bufferlength: &mut u32, buffer: *mut u8, count: ::core::option::Option<&mut u32>) -> super::super::super::Foundation::WIN32_ERROR {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn GetCurrentPackageInfo2(flags: u32, packagepathtype: PackagePathType, bufferlength: *mut u32, buffer: *mut u8, count: *mut u32) -> super::super::super::Foundation::WIN32_ERROR;
@@ -1367,7 +1367,7 @@ pub unsafe fn GetIdForPackageDependencyContext(packagedependencycontext: &PACKAG
 #[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn GetPackageApplicationIds(packageinforeference: &_PACKAGE_INFO_REFERENCE, bufferlength: &mut u32, buffer: ::core::option::Option<&mut u8>, count: ::core::option::Option<&mut u32>) -> super::super::super::Foundation::WIN32_ERROR {
+pub unsafe fn GetPackageApplicationIds(packageinforeference: &_PACKAGE_INFO_REFERENCE, bufferlength: &mut u32, buffer: *mut u8, count: ::core::option::Option<&mut u32>) -> super::super::super::Foundation::WIN32_ERROR {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn GetPackageApplicationIds(packageinforeference: *const _PACKAGE_INFO_REFERENCE, bufferlength: *mut u32, buffer: *mut u8, count: *mut u32) -> super::super::super::Foundation::WIN32_ERROR;
@@ -1429,7 +1429,7 @@ where
 #[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn GetPackageId<'a, P0>(hprocess: P0, bufferlength: &mut u32, buffer: ::core::option::Option<&mut u8>) -> super::super::super::Foundation::WIN32_ERROR
+pub unsafe fn GetPackageId<'a, P0>(hprocess: P0, bufferlength: &mut u32, buffer: *mut u8) -> super::super::super::Foundation::WIN32_ERROR
 where
     P0: ::std::convert::Into<super::super::super::Foundation::HANDLE>,
 {
@@ -1442,7 +1442,7 @@ where
 #[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn GetPackageInfo(packageinforeference: &_PACKAGE_INFO_REFERENCE, flags: u32, bufferlength: &mut u32, buffer: ::core::option::Option<&mut u8>, count: ::core::option::Option<&mut u32>) -> super::super::super::Foundation::WIN32_ERROR {
+pub unsafe fn GetPackageInfo(packageinforeference: &_PACKAGE_INFO_REFERENCE, flags: u32, bufferlength: &mut u32, buffer: *mut u8, count: ::core::option::Option<&mut u32>) -> super::super::super::Foundation::WIN32_ERROR {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn GetPackageInfo(packageinforeference: *const _PACKAGE_INFO_REFERENCE, flags: u32, bufferlength: *mut u32, buffer: *mut u8, count: *mut u32) -> super::super::super::Foundation::WIN32_ERROR;
@@ -1452,7 +1452,7 @@ pub unsafe fn GetPackageInfo(packageinforeference: &_PACKAGE_INFO_REFERENCE, fla
 #[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn GetPackageInfo2(packageinforeference: &_PACKAGE_INFO_REFERENCE, flags: u32, packagepathtype: PackagePathType, bufferlength: &mut u32, buffer: ::core::option::Option<&mut u8>, count: ::core::option::Option<&mut u32>) -> super::super::super::Foundation::WIN32_ERROR {
+pub unsafe fn GetPackageInfo2(packageinforeference: &_PACKAGE_INFO_REFERENCE, flags: u32, packagepathtype: PackagePathType, bufferlength: &mut u32, buffer: *mut u8, count: ::core::option::Option<&mut u32>) -> super::super::super::Foundation::WIN32_ERROR {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn GetPackageInfo2(packageinforeference: *const _PACKAGE_INFO_REFERENCE, flags: u32, packagepathtype: PackagePathType, bufferlength: *mut u32, buffer: *mut u8, count: *mut u32) -> super::super::super::Foundation::WIN32_ERROR;
@@ -1498,7 +1498,7 @@ where
 #[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn GetPackagesByPackageFamily<'a, P0>(packagefamilyname: P0, count: &mut u32, packagefullnames: ::core::option::Option<&mut ::windows::core::PWSTR>, bufferlength: &mut u32, buffer: ::windows::core::PWSTR) -> super::super::super::Foundation::WIN32_ERROR
+pub unsafe fn GetPackagesByPackageFamily<'a, P0>(packagefamilyname: P0, count: &mut u32, packagefullnames: *mut ::windows::core::PWSTR, bufferlength: &mut u32, buffer: ::windows::core::PWSTR) -> super::super::super::Foundation::WIN32_ERROR
 where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
 {
@@ -3497,7 +3497,7 @@ impl IAppxEncryptedPackageWriter2 {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn AddPayloadFilesEncrypted(&self, payloadfiles: &[APPX_PACKAGE_WRITER_PAYLOAD_STREAM], memorylimit: u64) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).AddPayloadFilesEncrypted)(::windows::core::Interface::as_raw(self), payloadfiles.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(payloadfiles)), memorylimit).ok()
+        (::windows::core::Interface::vtable(self).AddPayloadFilesEncrypted)(::windows::core::Interface::as_raw(self), payloadfiles.len() as _, ::core::mem::transmute(payloadfiles.as_ptr()), memorylimit).ok()
     }
 }
 impl ::core::convert::From<IAppxEncryptedPackageWriter2> for ::windows::core::IUnknown {
@@ -7094,7 +7094,7 @@ impl IAppxPackageWriter3 {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn AddPayloadFiles(&self, payloadfiles: &[APPX_PACKAGE_WRITER_PAYLOAD_STREAM], memorylimit: u64) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).AddPayloadFiles)(::windows::core::Interface::as_raw(self), payloadfiles.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(payloadfiles)), memorylimit).ok()
+        (::windows::core::Interface::vtable(self).AddPayloadFiles)(::windows::core::Interface::as_raw(self), payloadfiles.len() as _, ::core::mem::transmute(payloadfiles.as_ptr()), memorylimit).ok()
     }
 }
 impl ::core::convert::From<IAppxPackageWriter3> for ::windows::core::IUnknown {
@@ -7687,7 +7687,7 @@ pub unsafe fn PackageFullNameFromId(packageid: &PACKAGE_ID, packagefullnamelengt
 #[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn PackageIdFromFullName<'a, P0>(packagefullname: P0, flags: u32, bufferlength: &mut u32, buffer: ::core::option::Option<&mut u8>) -> super::super::super::Foundation::WIN32_ERROR
+pub unsafe fn PackageIdFromFullName<'a, P0>(packagefullname: P0, flags: u32, bufferlength: &mut u32, buffer: *mut u8) -> super::super::super::Foundation::WIN32_ERROR
 where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
 {

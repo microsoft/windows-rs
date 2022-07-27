@@ -1027,7 +1027,7 @@ impl IRDPSRAPIAudioStream {
     pub unsafe fn Stop(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).Stop)(::windows::core::Interface::as_raw(self)).ok()
     }
-    pub unsafe fn GetBuffer(&self, ppbdata: &mut *mut u8, pcbdata: &mut u32, ptimestamp: &mut u64) -> ::windows::core::Result<()> {
+    pub unsafe fn GetBuffer(&self, ppbdata: *mut *mut u8, pcbdata: &mut u32, ptimestamp: &mut u64) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).GetBuffer)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(ppbdata), ::core::mem::transmute(pcbdata), ::core::mem::transmute(ptimestamp)).ok()
     }
     pub unsafe fn FreeBuffer(&self) -> ::windows::core::Result<()> {
