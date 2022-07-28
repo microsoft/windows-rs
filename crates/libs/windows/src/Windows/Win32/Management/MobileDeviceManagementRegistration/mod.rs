@@ -76,17 +76,17 @@ pub unsafe fn GetManagementAppHyperlink(pszhyperlink: &mut [u16]) -> ::windows::
     extern "system" {
         fn GetManagementAppHyperlink(cchhyperlink: u32, pszhyperlink: ::windows::core::PWSTR) -> ::windows::core::HRESULT;
     }
-    GetManagementAppHyperlink(pszhyperlink.len() as _, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(pszhyperlink))).ok()
+    GetManagementAppHyperlink(pszhyperlink.len() as _, ::core::mem::transmute(pszhyperlink.as_ptr())).ok()
 }
 #[doc = "*Required features: `\"Win32_Management_MobileDeviceManagementRegistration\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn IsDeviceRegisteredWithManagement(pfisdeviceregisteredwithmanagement: &mut super::super::Foundation::BOOL, pszupn: &mut [u16]) -> ::windows::core::Result<()> {
+pub unsafe fn IsDeviceRegisteredWithManagement(pfisdeviceregisteredwithmanagement: &mut super::super::Foundation::BOOL, pszupn: ::core::option::Option<&mut [u16]>) -> ::windows::core::Result<()> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn IsDeviceRegisteredWithManagement(pfisdeviceregisteredwithmanagement: *mut super::super::Foundation::BOOL, cchupn: u32, pszupn: ::windows::core::PWSTR) -> ::windows::core::HRESULT;
     }
-    IsDeviceRegisteredWithManagement(::core::mem::transmute(pfisdeviceregisteredwithmanagement), pszupn.len() as _, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(pszupn))).ok()
+    IsDeviceRegisteredWithManagement(::core::mem::transmute(pfisdeviceregisteredwithmanagement), pszupn.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(pszupn.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr()))).ok()
 }
 #[doc = "*Required features: `\"Win32_Management_MobileDeviceManagementRegistration\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]

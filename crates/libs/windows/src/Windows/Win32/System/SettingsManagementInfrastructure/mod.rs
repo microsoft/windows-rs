@@ -82,7 +82,7 @@ impl ISettingsContext {
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn Deserialize<'a, P0, P1>(&self, pstream: P0, ptarget: P1, pppresults: &mut *mut ::core::option::Option<ISettingsResult>, pcresultcount: &mut usize) -> ::windows::core::Result<()>
+    pub unsafe fn Deserialize<'a, P0, P1>(&self, pstream: P0, ptarget: P1, pppresults: *mut *mut ::core::option::Option<ISettingsResult>, pcresultcount: &mut usize) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::Com::IStream>>,
         P1: ::std::convert::Into<::windows::core::InParam<'a, ITargetInfo>>,
@@ -426,11 +426,11 @@ impl ISettingsItem {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).GetDataType)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<WcmDataType>(result__)
     }
-    pub unsafe fn GetValueRaw(&self, data: &mut *mut u8, datasize: &mut u32) -> ::windows::core::Result<()> {
+    pub unsafe fn GetValueRaw(&self, data: *mut *mut u8, datasize: &mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).GetValueRaw)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(data), ::core::mem::transmute(datasize)).ok()
     }
     pub unsafe fn SetValueRaw(&self, datatype: i32, data: &[u8]) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetValueRaw)(::windows::core::Interface::as_raw(self), datatype, ::core::mem::transmute(::windows::core::as_ptr_or_null(data)), data.len() as _).ok()
+        (::windows::core::Interface::vtable(self).SetValueRaw)(::windows::core::Interface::as_raw(self), datatype, ::core::mem::transmute(data.as_ptr()), data.len() as _).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]

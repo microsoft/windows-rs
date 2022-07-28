@@ -79,12 +79,12 @@ where
 #[doc = "*Required features: `\"Win32_System_ProcessStatus\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn K32EnumDeviceDrivers(lpimagebase: *mut *mut ::core::ffi::c_void, cb: u32, lpcbneeded: &mut u32) -> super::super::Foundation::BOOL {
+pub unsafe fn K32EnumDeviceDrivers(lpimagebase: &mut [u8], lpcbneeded: &mut u32) -> super::super::Foundation::BOOL {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn K32EnumDeviceDrivers(lpimagebase: *mut *mut ::core::ffi::c_void, cb: u32, lpcbneeded: *mut u32) -> super::super::Foundation::BOOL;
     }
-    K32EnumDeviceDrivers(::core::mem::transmute(lpimagebase), cb, ::core::mem::transmute(lpcbneeded))
+    K32EnumDeviceDrivers(::core::mem::transmute(lpimagebase.as_ptr()), lpimagebase.len() as _, ::core::mem::transmute(lpcbneeded))
 }
 #[doc = "*Required features: `\"Win32_System_ProcessStatus\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -109,7 +109,7 @@ pub unsafe fn K32EnumPageFilesW(pcallbackroutine: PENUM_PAGE_FILE_CALLBACKW, pco
 #[doc = "*Required features: `\"Win32_System_ProcessStatus\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn K32EnumProcessModules<'a, P0>(hprocess: P0, lphmodule: &mut super::super::Foundation::HINSTANCE, cb: u32, lpcbneeded: &mut u32) -> super::super::Foundation::BOOL
+pub unsafe fn K32EnumProcessModules<'a, P0>(hprocess: P0, lphmodule: &mut [u8], lpcbneeded: &mut u32) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
 {
@@ -117,12 +117,12 @@ where
     extern "system" {
         fn K32EnumProcessModules(hprocess: super::super::Foundation::HANDLE, lphmodule: *mut super::super::Foundation::HINSTANCE, cb: u32, lpcbneeded: *mut u32) -> super::super::Foundation::BOOL;
     }
-    K32EnumProcessModules(hprocess.into(), ::core::mem::transmute(lphmodule), cb, ::core::mem::transmute(lpcbneeded))
+    K32EnumProcessModules(hprocess.into(), ::core::mem::transmute(lphmodule.as_ptr()), lphmodule.len() as _, ::core::mem::transmute(lpcbneeded))
 }
 #[doc = "*Required features: `\"Win32_System_ProcessStatus\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn K32EnumProcessModulesEx<'a, P0>(hprocess: P0, lphmodule: &mut super::super::Foundation::HINSTANCE, cb: u32, lpcbneeded: &mut u32, dwfilterflag: ENUM_PROCESS_MODULES_EX_FLAGS) -> super::super::Foundation::BOOL
+pub unsafe fn K32EnumProcessModulesEx<'a, P0>(hprocess: P0, lphmodule: &mut [u8], lpcbneeded: &mut u32, dwfilterflag: ENUM_PROCESS_MODULES_EX_FLAGS) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
 {
@@ -130,17 +130,17 @@ where
     extern "system" {
         fn K32EnumProcessModulesEx(hprocess: super::super::Foundation::HANDLE, lphmodule: *mut super::super::Foundation::HINSTANCE, cb: u32, lpcbneeded: *mut u32, dwfilterflag: ENUM_PROCESS_MODULES_EX_FLAGS) -> super::super::Foundation::BOOL;
     }
-    K32EnumProcessModulesEx(hprocess.into(), ::core::mem::transmute(lphmodule), cb, ::core::mem::transmute(lpcbneeded), dwfilterflag)
+    K32EnumProcessModulesEx(hprocess.into(), ::core::mem::transmute(lphmodule.as_ptr()), lphmodule.len() as _, ::core::mem::transmute(lpcbneeded), dwfilterflag)
 }
 #[doc = "*Required features: `\"Win32_System_ProcessStatus\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn K32EnumProcesses(lpidprocess: &mut u32, cb: u32, lpcbneeded: &mut u32) -> super::super::Foundation::BOOL {
+pub unsafe fn K32EnumProcesses(lpidprocess: &mut [u8], lpcbneeded: &mut u32) -> super::super::Foundation::BOOL {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn K32EnumProcesses(lpidprocess: *mut u32, cb: u32, lpcbneeded: *mut u32) -> super::super::Foundation::BOOL;
     }
-    K32EnumProcesses(::core::mem::transmute(lpidprocess), cb, ::core::mem::transmute(lpcbneeded))
+    K32EnumProcesses(::core::mem::transmute(lpidprocess.as_ptr()), lpidprocess.len() as _, ::core::mem::transmute(lpcbneeded))
 }
 #[doc = "*Required features: `\"Win32_System_ProcessStatus\"`*"]
 #[inline]
@@ -149,7 +149,7 @@ pub unsafe fn K32GetDeviceDriverBaseNameA(imagebase: *const ::core::ffi::c_void,
     extern "system" {
         fn K32GetDeviceDriverBaseNameA(imagebase: *const ::core::ffi::c_void, lpfilename: ::windows::core::PSTR, nsize: u32) -> u32;
     }
-    K32GetDeviceDriverBaseNameA(::core::mem::transmute(imagebase), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(lpfilename)), lpfilename.len() as _)
+    K32GetDeviceDriverBaseNameA(::core::mem::transmute(imagebase), ::core::mem::transmute(lpfilename.as_ptr()), lpfilename.len() as _)
 }
 #[doc = "*Required features: `\"Win32_System_ProcessStatus\"`*"]
 #[inline]
@@ -158,7 +158,7 @@ pub unsafe fn K32GetDeviceDriverBaseNameW(imagebase: *const ::core::ffi::c_void,
     extern "system" {
         fn K32GetDeviceDriverBaseNameW(imagebase: *const ::core::ffi::c_void, lpbasename: ::windows::core::PWSTR, nsize: u32) -> u32;
     }
-    K32GetDeviceDriverBaseNameW(::core::mem::transmute(imagebase), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(lpbasename)), lpbasename.len() as _)
+    K32GetDeviceDriverBaseNameW(::core::mem::transmute(imagebase), ::core::mem::transmute(lpbasename.as_ptr()), lpbasename.len() as _)
 }
 #[doc = "*Required features: `\"Win32_System_ProcessStatus\"`*"]
 #[inline]
@@ -167,7 +167,7 @@ pub unsafe fn K32GetDeviceDriverFileNameA(imagebase: *const ::core::ffi::c_void,
     extern "system" {
         fn K32GetDeviceDriverFileNameA(imagebase: *const ::core::ffi::c_void, lpfilename: ::windows::core::PSTR, nsize: u32) -> u32;
     }
-    K32GetDeviceDriverFileNameA(::core::mem::transmute(imagebase), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(lpfilename)), lpfilename.len() as _)
+    K32GetDeviceDriverFileNameA(::core::mem::transmute(imagebase), ::core::mem::transmute(lpfilename.as_ptr()), lpfilename.len() as _)
 }
 #[doc = "*Required features: `\"Win32_System_ProcessStatus\"`*"]
 #[inline]
@@ -176,7 +176,7 @@ pub unsafe fn K32GetDeviceDriverFileNameW(imagebase: *const ::core::ffi::c_void,
     extern "system" {
         fn K32GetDeviceDriverFileNameW(imagebase: *const ::core::ffi::c_void, lpfilename: ::windows::core::PWSTR, nsize: u32) -> u32;
     }
-    K32GetDeviceDriverFileNameW(::core::mem::transmute(imagebase), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(lpfilename)), lpfilename.len() as _)
+    K32GetDeviceDriverFileNameW(::core::mem::transmute(imagebase), ::core::mem::transmute(lpfilename.as_ptr()), lpfilename.len() as _)
 }
 #[doc = "*Required features: `\"Win32_System_ProcessStatus\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -189,7 +189,7 @@ where
     extern "system" {
         fn K32GetMappedFileNameA(hprocess: super::super::Foundation::HANDLE, lpv: *const ::core::ffi::c_void, lpfilename: ::windows::core::PSTR, nsize: u32) -> u32;
     }
-    K32GetMappedFileNameA(hprocess.into(), ::core::mem::transmute(lpv), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(lpfilename)), lpfilename.len() as _)
+    K32GetMappedFileNameA(hprocess.into(), ::core::mem::transmute(lpv), ::core::mem::transmute(lpfilename.as_ptr()), lpfilename.len() as _)
 }
 #[doc = "*Required features: `\"Win32_System_ProcessStatus\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -202,7 +202,7 @@ where
     extern "system" {
         fn K32GetMappedFileNameW(hprocess: super::super::Foundation::HANDLE, lpv: *const ::core::ffi::c_void, lpfilename: ::windows::core::PWSTR, nsize: u32) -> u32;
     }
-    K32GetMappedFileNameW(hprocess.into(), ::core::mem::transmute(lpv), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(lpfilename)), lpfilename.len() as _)
+    K32GetMappedFileNameW(hprocess.into(), ::core::mem::transmute(lpv), ::core::mem::transmute(lpfilename.as_ptr()), lpfilename.len() as _)
 }
 #[doc = "*Required features: `\"Win32_System_ProcessStatus\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -216,7 +216,7 @@ where
     extern "system" {
         fn K32GetModuleBaseNameA(hprocess: super::super::Foundation::HANDLE, hmodule: super::super::Foundation::HINSTANCE, lpbasename: ::windows::core::PSTR, nsize: u32) -> u32;
     }
-    K32GetModuleBaseNameA(hprocess.into(), hmodule.into(), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(lpbasename)), lpbasename.len() as _)
+    K32GetModuleBaseNameA(hprocess.into(), hmodule.into(), ::core::mem::transmute(lpbasename.as_ptr()), lpbasename.len() as _)
 }
 #[doc = "*Required features: `\"Win32_System_ProcessStatus\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -230,7 +230,7 @@ where
     extern "system" {
         fn K32GetModuleBaseNameW(hprocess: super::super::Foundation::HANDLE, hmodule: super::super::Foundation::HINSTANCE, lpbasename: ::windows::core::PWSTR, nsize: u32) -> u32;
     }
-    K32GetModuleBaseNameW(hprocess.into(), hmodule.into(), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(lpbasename)), lpbasename.len() as _)
+    K32GetModuleBaseNameW(hprocess.into(), hmodule.into(), ::core::mem::transmute(lpbasename.as_ptr()), lpbasename.len() as _)
 }
 #[doc = "*Required features: `\"Win32_System_ProcessStatus\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -244,7 +244,7 @@ where
     extern "system" {
         fn K32GetModuleFileNameExA(hprocess: super::super::Foundation::HANDLE, hmodule: super::super::Foundation::HINSTANCE, lpfilename: ::windows::core::PSTR, nsize: u32) -> u32;
     }
-    K32GetModuleFileNameExA(hprocess.into(), hmodule.into(), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(lpfilename)), lpfilename.len() as _)
+    K32GetModuleFileNameExA(hprocess.into(), hmodule.into(), ::core::mem::transmute(lpfilename.as_ptr()), lpfilename.len() as _)
 }
 #[doc = "*Required features: `\"Win32_System_ProcessStatus\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -258,7 +258,7 @@ where
     extern "system" {
         fn K32GetModuleFileNameExW(hprocess: super::super::Foundation::HANDLE, hmodule: super::super::Foundation::HINSTANCE, lpfilename: ::windows::core::PWSTR, nsize: u32) -> u32;
     }
-    K32GetModuleFileNameExW(hprocess.into(), hmodule.into(), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(lpfilename)), lpfilename.len() as _)
+    K32GetModuleFileNameExW(hprocess.into(), hmodule.into(), ::core::mem::transmute(lpfilename.as_ptr()), lpfilename.len() as _)
 }
 #[doc = "*Required features: `\"Win32_System_ProcessStatus\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -295,7 +295,7 @@ where
     extern "system" {
         fn K32GetProcessImageFileNameA(hprocess: super::super::Foundation::HANDLE, lpimagefilename: ::windows::core::PSTR, nsize: u32) -> u32;
     }
-    K32GetProcessImageFileNameA(hprocess.into(), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(lpimagefilename)), lpimagefilename.len() as _)
+    K32GetProcessImageFileNameA(hprocess.into(), ::core::mem::transmute(lpimagefilename.as_ptr()), lpimagefilename.len() as _)
 }
 #[doc = "*Required features: `\"Win32_System_ProcessStatus\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -308,7 +308,7 @@ where
     extern "system" {
         fn K32GetProcessImageFileNameW(hprocess: super::super::Foundation::HANDLE, lpimagefilename: ::windows::core::PWSTR, nsize: u32) -> u32;
     }
-    K32GetProcessImageFileNameW(hprocess.into(), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(lpimagefilename)), lpimagefilename.len() as _)
+    K32GetProcessImageFileNameW(hprocess.into(), ::core::mem::transmute(lpimagefilename.as_ptr()), lpimagefilename.len() as _)
 }
 #[doc = "*Required features: `\"Win32_System_ProcessStatus\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -326,7 +326,7 @@ where
 #[doc = "*Required features: `\"Win32_System_ProcessStatus\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn K32GetWsChanges<'a, P0>(hprocess: P0, lpwatchinfo: &mut PSAPI_WS_WATCH_INFORMATION, cb: u32) -> super::super::Foundation::BOOL
+pub unsafe fn K32GetWsChanges<'a, P0>(hprocess: P0, lpwatchinfo: &mut [u8]) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
 {
@@ -334,12 +334,12 @@ where
     extern "system" {
         fn K32GetWsChanges(hprocess: super::super::Foundation::HANDLE, lpwatchinfo: *mut PSAPI_WS_WATCH_INFORMATION, cb: u32) -> super::super::Foundation::BOOL;
     }
-    K32GetWsChanges(hprocess.into(), ::core::mem::transmute(lpwatchinfo), cb)
+    K32GetWsChanges(hprocess.into(), ::core::mem::transmute(lpwatchinfo.as_ptr()), lpwatchinfo.len() as _)
 }
 #[doc = "*Required features: `\"Win32_System_ProcessStatus\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn K32GetWsChangesEx<'a, P0>(hprocess: P0, lpwatchinfoex: &mut PSAPI_WS_WATCH_INFORMATION_EX, cb: &mut u32) -> super::super::Foundation::BOOL
+pub unsafe fn K32GetWsChangesEx<'a, P0>(hprocess: P0, lpwatchinfoex: *mut PSAPI_WS_WATCH_INFORMATION_EX, cb: &mut u32) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
 {
@@ -365,7 +365,7 @@ where
 #[doc = "*Required features: `\"Win32_System_ProcessStatus\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn K32QueryWorkingSet<'a, P0>(hprocess: P0, pv: *mut ::core::ffi::c_void, cb: u32) -> super::super::Foundation::BOOL
+pub unsafe fn K32QueryWorkingSet<'a, P0>(hprocess: P0, pv: &mut [u8]) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
 {
@@ -373,12 +373,12 @@ where
     extern "system" {
         fn K32QueryWorkingSet(hprocess: super::super::Foundation::HANDLE, pv: *mut ::core::ffi::c_void, cb: u32) -> super::super::Foundation::BOOL;
     }
-    K32QueryWorkingSet(hprocess.into(), ::core::mem::transmute(pv), cb)
+    K32QueryWorkingSet(hprocess.into(), ::core::mem::transmute(pv.as_ptr()), pv.len() as _)
 }
 #[doc = "*Required features: `\"Win32_System_ProcessStatus\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn K32QueryWorkingSetEx<'a, P0>(hprocess: P0, pv: *mut ::core::ffi::c_void, cb: u32) -> super::super::Foundation::BOOL
+pub unsafe fn K32QueryWorkingSetEx<'a, P0>(hprocess: P0, pv: &mut [u8]) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
 {
@@ -386,7 +386,7 @@ where
     extern "system" {
         fn K32QueryWorkingSetEx(hprocess: super::super::Foundation::HANDLE, pv: *mut ::core::ffi::c_void, cb: u32) -> super::super::Foundation::BOOL;
     }
-    K32QueryWorkingSetEx(hprocess.into(), ::core::mem::transmute(pv), cb)
+    K32QueryWorkingSetEx(hprocess.into(), ::core::mem::transmute(pv.as_ptr()), pv.len() as _)
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_System_ProcessStatus\"`*"]

@@ -14244,7 +14244,7 @@ impl IDDVideoPortContainer {
     pub unsafe fn EnumVideoPorts(&self, param0: u32, param1: &mut DDVIDEOPORTCAPS, param2: *mut ::core::ffi::c_void, param3: LPDDENUMVIDEOCALLBACK) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).EnumVideoPorts)(::windows::core::Interface::as_raw(self), param0, ::core::mem::transmute(param1), ::core::mem::transmute(param2), ::core::mem::transmute(param3)).ok()
     }
-    pub unsafe fn GetVideoPortConnectInfo(&self, param0: u32, pcinfo: &mut u32, param2: ::core::option::Option<&mut DDVIDEOPORTCONNECT>) -> ::windows::core::Result<()> {
+    pub unsafe fn GetVideoPortConnectInfo(&self, param0: u32, pcinfo: &mut u32, param2: *mut DDVIDEOPORTCONNECT) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).GetVideoPortConnectInfo)(::windows::core::Interface::as_raw(self), param0, ::core::mem::transmute(pcinfo), ::core::mem::transmute(param2)).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -16837,10 +16837,10 @@ impl IDirectDrawVideoPort {
     pub unsafe fn GetColorControls(&self, param0: &mut DDCOLORCONTROL) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).GetColorControls)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(param0)).ok()
     }
-    pub unsafe fn GetInputFormats(&self, lpnumformats: &mut u32, param1: ::core::option::Option<&mut DDPIXELFORMAT>, param2: u32) -> ::windows::core::Result<()> {
+    pub unsafe fn GetInputFormats(&self, lpnumformats: &mut u32, param1: *mut DDPIXELFORMAT, param2: u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).GetInputFormats)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lpnumformats), ::core::mem::transmute(param1), param2).ok()
     }
-    pub unsafe fn GetOutputFormats(&self, param0: &mut DDPIXELFORMAT, lpnumformats: &mut u32, param2: ::core::option::Option<&mut DDPIXELFORMAT>, param3: u32) -> ::windows::core::Result<()> {
+    pub unsafe fn GetOutputFormats(&self, param0: &mut DDPIXELFORMAT, lpnumformats: &mut u32, param2: *mut DDPIXELFORMAT, param3: u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).GetOutputFormats)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(param0), ::core::mem::transmute(lpnumformats), ::core::mem::transmute(param2), param3).ok()
     }
     pub unsafe fn GetFieldPolarity(&self, param0: &mut i32) -> ::windows::core::Result<()> {

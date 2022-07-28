@@ -831,7 +831,7 @@ pub unsafe fn SnmpEntityToStr(entity: isize, string: &mut [u8]) -> u32 {
     extern "system" {
         fn SnmpEntityToStr(entity: isize, size: u32, string: ::windows::core::PSTR) -> u32;
     }
-    SnmpEntityToStr(entity, string.len() as _, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(string)))
+    SnmpEntityToStr(entity, string.len() as _, ::core::mem::transmute(string.as_ptr()))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Snmp\"`*"]
 #[inline]
@@ -1090,7 +1090,7 @@ pub unsafe fn SnmpOidToStr(srcoid: &smiOID, string: &mut [u8]) -> u32 {
     extern "system" {
         fn SnmpOidToStr(srcoid: *const smiOID, size: u32, string: ::windows::core::PSTR) -> u32;
     }
-    SnmpOidToStr(::core::mem::transmute(srcoid), string.len() as _, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(string)))
+    SnmpOidToStr(::core::mem::transmute(srcoid), string.len() as _, ::core::mem::transmute(string.as_ptr()))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Snmp\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]

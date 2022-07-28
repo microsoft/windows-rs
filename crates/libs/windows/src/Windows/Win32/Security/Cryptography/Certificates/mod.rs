@@ -33402,7 +33402,7 @@ pub unsafe fn PstGetCertificateChain(pcert: &super::CERT_CONTEXT, ptrustedissuer
 #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn PstGetCertificates<'a, P0>(ptargetname: &super::super::super::Foundation::UNICODE_STRING, rgpcriteria: &[super::CERT_SELECT_CRITERIA], bisclient: P0, pdwcertchaincontextcount: &mut u32, ppcertchaincontexts: &mut *mut *mut super::CERT_CHAIN_CONTEXT) -> ::windows::core::Result<()>
+pub unsafe fn PstGetCertificates<'a, P0>(ptargetname: &super::super::super::Foundation::UNICODE_STRING, rgpcriteria: ::core::option::Option<&[super::CERT_SELECT_CRITERIA]>, bisclient: P0, pdwcertchaincontextcount: &mut u32, ppcertchaincontexts: &mut *mut *mut super::CERT_CHAIN_CONTEXT) -> ::windows::core::Result<()>
 where
     P0: ::std::convert::Into<super::super::super::Foundation::BOOL>,
 {
@@ -33410,27 +33410,27 @@ where
     extern "system" {
         fn PstGetCertificates(ptargetname: *const super::super::super::Foundation::UNICODE_STRING, ccriteria: u32, rgpcriteria: *const super::CERT_SELECT_CRITERIA, bisclient: super::super::super::Foundation::BOOL, pdwcertchaincontextcount: *mut u32, ppcertchaincontexts: *mut *mut *mut super::CERT_CHAIN_CONTEXT) -> super::super::super::Foundation::NTSTATUS;
     }
-    PstGetCertificates(::core::mem::transmute(ptargetname), rgpcriteria.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(rgpcriteria)), bisclient.into(), ::core::mem::transmute(pdwcertchaincontextcount), ::core::mem::transmute(ppcertchaincontexts)).ok()
+    PstGetCertificates(::core::mem::transmute(ptargetname), rgpcriteria.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(rgpcriteria.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), bisclient.into(), ::core::mem::transmute(pdwcertchaincontextcount), ::core::mem::transmute(ppcertchaincontexts)).ok()
 }
 #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`, `\"Win32_Security_Authentication_Identity\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Authentication_Identity"))]
 #[inline]
-pub unsafe fn PstGetTrustAnchors(ptargetname: &super::super::super::Foundation::UNICODE_STRING, rgpcriteria: &[super::CERT_SELECT_CRITERIA], pptrustedissuers: &mut *mut super::super::Authentication::Identity::SecPkgContext_IssuerListInfoEx) -> ::windows::core::Result<()> {
+pub unsafe fn PstGetTrustAnchors(ptargetname: &super::super::super::Foundation::UNICODE_STRING, rgpcriteria: ::core::option::Option<&[super::CERT_SELECT_CRITERIA]>, pptrustedissuers: &mut *mut super::super::Authentication::Identity::SecPkgContext_IssuerListInfoEx) -> ::windows::core::Result<()> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn PstGetTrustAnchors(ptargetname: *const super::super::super::Foundation::UNICODE_STRING, ccriteria: u32, rgpcriteria: *const super::CERT_SELECT_CRITERIA, pptrustedissuers: *mut *mut super::super::Authentication::Identity::SecPkgContext_IssuerListInfoEx) -> super::super::super::Foundation::NTSTATUS;
     }
-    PstGetTrustAnchors(::core::mem::transmute(ptargetname), rgpcriteria.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(rgpcriteria)), ::core::mem::transmute(pptrustedissuers)).ok()
+    PstGetTrustAnchors(::core::mem::transmute(ptargetname), rgpcriteria.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(rgpcriteria.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), ::core::mem::transmute(pptrustedissuers)).ok()
 }
 #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`, `\"Win32_Security_Authentication_Identity\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Authentication_Identity"))]
 #[inline]
-pub unsafe fn PstGetTrustAnchorsEx(ptargetname: &super::super::super::Foundation::UNICODE_STRING, rgpcriteria: &[super::CERT_SELECT_CRITERIA], pcertcontext: ::core::option::Option<&super::CERT_CONTEXT>, pptrustedissuers: &mut *mut super::super::Authentication::Identity::SecPkgContext_IssuerListInfoEx) -> ::windows::core::Result<()> {
+pub unsafe fn PstGetTrustAnchorsEx(ptargetname: &super::super::super::Foundation::UNICODE_STRING, rgpcriteria: ::core::option::Option<&[super::CERT_SELECT_CRITERIA]>, pcertcontext: ::core::option::Option<&super::CERT_CONTEXT>, pptrustedissuers: &mut *mut super::super::Authentication::Identity::SecPkgContext_IssuerListInfoEx) -> ::windows::core::Result<()> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn PstGetTrustAnchorsEx(ptargetname: *const super::super::super::Foundation::UNICODE_STRING, ccriteria: u32, rgpcriteria: *const super::CERT_SELECT_CRITERIA, pcertcontext: *const super::CERT_CONTEXT, pptrustedissuers: *mut *mut super::super::Authentication::Identity::SecPkgContext_IssuerListInfoEx) -> super::super::super::Foundation::NTSTATUS;
     }
-    PstGetTrustAnchorsEx(::core::mem::transmute(ptargetname), rgpcriteria.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(rgpcriteria)), ::core::mem::transmute(pcertcontext), ::core::mem::transmute(pptrustedissuers)).ok()
+    PstGetTrustAnchorsEx(::core::mem::transmute(ptargetname), rgpcriteria.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(rgpcriteria.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), ::core::mem::transmute(pcertcontext), ::core::mem::transmute(pptrustedissuers)).ok()
 }
 #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]

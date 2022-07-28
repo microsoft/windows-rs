@@ -3609,10 +3609,10 @@ impl ICOMLBArguments {
         (::windows::core::Interface::vtable(self).SetCLSID)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pclsid)).ok()
     }
     pub unsafe fn GetMachineName(&self, szservername: &mut [u16]) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetMachineName)(::windows::core::Interface::as_raw(self), szservername.len() as _, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(szservername))).ok()
+        (::windows::core::Interface::vtable(self).GetMachineName)(::windows::core::Interface::as_raw(self), szservername.len() as _, ::core::mem::transmute(szservername.as_ptr())).ok()
     }
     pub unsafe fn SetMachineName(&self, szservername: &[u16]) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetMachineName)(::windows::core::Interface::as_raw(self), szservername.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(szservername))).ok()
+        (::windows::core::Interface::vtable(self).SetMachineName)(::windows::core::Interface::as_raw(self), szservername.len() as _, ::core::mem::transmute(szservername.as_ptr())).ok()
     }
 }
 impl ::core::convert::From<ICOMLBArguments> for ::windows::core::IUnknown {
@@ -4273,7 +4273,7 @@ impl IComCRMEvents {
         (::windows::core::Interface::vtable(self).OnCRMCheckpoint)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pinfo), ::core::mem::transmute(guidapp)).ok()
     }
     pub unsafe fn OnCRMBegin(&self, pinfo: &COMSVCSEVENTINFO, guidclerkclsid: ::windows::core::GUID, guidactivity: ::windows::core::GUID, guidtx: ::windows::core::GUID, szprogidcompensator: &[u16; 64], szdescription: &[u16; 64]) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).OnCRMBegin)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pinfo), ::core::mem::transmute(guidclerkclsid), ::core::mem::transmute(guidactivity), ::core::mem::transmute(guidtx), ::core::mem::transmute(::windows::core::as_ptr_or_null(szprogidcompensator)), ::core::mem::transmute(::windows::core::as_ptr_or_null(szdescription))).ok()
+        (::windows::core::Interface::vtable(self).OnCRMBegin)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pinfo), ::core::mem::transmute(guidclerkclsid), ::core::mem::transmute(guidactivity), ::core::mem::transmute(guidtx), ::core::mem::transmute(szprogidcompensator.as_ptr()), ::core::mem::transmute(szdescription.as_ptr())).ok()
     }
     pub unsafe fn OnCRMPrepare(&self, pinfo: &COMSVCSEVENTINFO, guidclerkclsid: ::windows::core::GUID) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).OnCRMPrepare)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pinfo), ::core::mem::transmute(guidclerkclsid)).ok()
@@ -5215,10 +5215,10 @@ pub struct IComObjectPoolEvents2_Vtbl {
 pub struct IComQCEvents(::windows::core::IUnknown);
 impl IComQCEvents {
     pub unsafe fn OnQCRecord(&self, pinfo: &COMSVCSEVENTINFO, objid: u64, szqueue: &[u16; 60], guidmsgid: &::windows::core::GUID, guidworkflowid: &::windows::core::GUID, msmqhr: ::windows::core::HRESULT) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).OnQCRecord)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pinfo), objid, ::core::mem::transmute(::windows::core::as_ptr_or_null(szqueue)), ::core::mem::transmute(guidmsgid), ::core::mem::transmute(guidworkflowid), msmqhr).ok()
+        (::windows::core::Interface::vtable(self).OnQCRecord)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pinfo), objid, ::core::mem::transmute(szqueue.as_ptr()), ::core::mem::transmute(guidmsgid), ::core::mem::transmute(guidworkflowid), msmqhr).ok()
     }
     pub unsafe fn OnQCQueueOpen(&self, pinfo: &COMSVCSEVENTINFO, szqueue: &[u16; 60], queueid: u64, hr: ::windows::core::HRESULT) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).OnQCQueueOpen)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pinfo), ::core::mem::transmute(::windows::core::as_ptr_or_null(szqueue)), queueid, hr).ok()
+        (::windows::core::Interface::vtable(self).OnQCQueueOpen)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pinfo), ::core::mem::transmute(szqueue.as_ptr()), queueid, hr).ok()
     }
     pub unsafe fn OnQCReceive(&self, pinfo: &COMSVCSEVENTINFO, queueid: u64, guidmsgid: &::windows::core::GUID, guidworkflowid: &::windows::core::GUID, hr: ::windows::core::HRESULT) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).OnQCReceive)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pinfo), queueid, ::core::mem::transmute(guidmsgid), ::core::mem::transmute(guidworkflowid), hr).ok()
@@ -5391,7 +5391,7 @@ impl IComSecurityEvents {
     where
         P0: ::std::convert::Into<super::super::Foundation::BOOL>,
     {
-        (::windows::core::Interface::vtable(self).OnAuthenticate)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pinfo), ::core::mem::transmute(guidactivity), objectid, ::core::mem::transmute(guidiid), imeth, psidoriginaluser.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(psidoriginaluser)), psidcurrentuser.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(psidcurrentuser)), bcurrentuserinpersonatinginproc.into()).ok()
+        (::windows::core::Interface::vtable(self).OnAuthenticate)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pinfo), ::core::mem::transmute(guidactivity), objectid, ::core::mem::transmute(guidiid), imeth, psidoriginaluser.len() as _, ::core::mem::transmute(psidoriginaluser.as_ptr()), psidcurrentuser.len() as _, ::core::mem::transmute(psidcurrentuser.as_ptr()), bcurrentuserinpersonatinginproc.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -5399,7 +5399,7 @@ impl IComSecurityEvents {
     where
         P0: ::std::convert::Into<super::super::Foundation::BOOL>,
     {
-        (::windows::core::Interface::vtable(self).OnAuthenticateFail)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pinfo), ::core::mem::transmute(guidactivity), objectid, ::core::mem::transmute(guidiid), imeth, psidoriginaluser.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(psidoriginaluser)), psidcurrentuser.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(psidcurrentuser)), bcurrentuserinpersonatinginproc.into()).ok()
+        (::windows::core::Interface::vtable(self).OnAuthenticateFail)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pinfo), ::core::mem::transmute(guidactivity), objectid, ::core::mem::transmute(guidiid), imeth, psidoriginaluser.len() as _, ::core::mem::transmute(psidoriginaluser.as_ptr()), psidcurrentuser.len() as _, ::core::mem::transmute(psidcurrentuser.as_ptr()), bcurrentuserinpersonatinginproc.into()).ok()
     }
 }
 impl ::core::convert::From<IComSecurityEvents> for ::windows::core::IUnknown {
@@ -6976,7 +6976,7 @@ impl ICrmLogControl {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn WriteLogRecord(&self, rgblob: &[super::Com::BLOB]) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).WriteLogRecord)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(::windows::core::as_ptr_or_null(rgblob)), rgblob.len() as _).ok()
+        (::windows::core::Interface::vtable(self).WriteLogRecord)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(rgblob.as_ptr()), rgblob.len() as _).ok()
     }
 }
 impl ::core::convert::From<ICrmLogControl> for ::windows::core::IUnknown {
@@ -7651,7 +7651,7 @@ pub struct IGetAppTrackerData(::windows::core::IUnknown);
 impl IGetAppTrackerData {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetApplicationProcesses(&self, partitionid: &::windows::core::GUID, applicationid: &::windows::core::GUID, flags: u32, numapplicationprocesses: &mut u32, applicationprocesses: &mut *mut ApplicationProcessSummary) -> ::windows::core::Result<()> {
+    pub unsafe fn GetApplicationProcesses(&self, partitionid: &::windows::core::GUID, applicationid: &::windows::core::GUID, flags: u32, numapplicationprocesses: &mut u32, applicationprocesses: *mut *mut ApplicationProcessSummary) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).GetApplicationProcesses)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(partitionid), ::core::mem::transmute(applicationid), flags, ::core::mem::transmute(numapplicationprocesses), ::core::mem::transmute(applicationprocesses)).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -7659,10 +7659,10 @@ impl IGetAppTrackerData {
     pub unsafe fn GetApplicationProcessDetails(&self, applicationinstanceid: &::windows::core::GUID, processid: u32, flags: u32, summary: ::core::option::Option<&mut ApplicationProcessSummary>, statistics: ::core::option::Option<&mut ApplicationProcessStatistics>, recycleinfo: ::core::option::Option<&mut ApplicationProcessRecycleInfo>, anycomponentshangmonitored: ::core::option::Option<&mut super::super::Foundation::BOOL>) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).GetApplicationProcessDetails)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(applicationinstanceid), processid, flags, ::core::mem::transmute(summary), ::core::mem::transmute(statistics), ::core::mem::transmute(recycleinfo), ::core::mem::transmute(anycomponentshangmonitored)).ok()
     }
-    pub unsafe fn GetApplicationsInProcess(&self, applicationinstanceid: &::windows::core::GUID, processid: u32, partitionid: &::windows::core::GUID, flags: u32, numapplicationsinprocess: &mut u32, applications: &mut *mut ApplicationSummary) -> ::windows::core::Result<()> {
+    pub unsafe fn GetApplicationsInProcess(&self, applicationinstanceid: &::windows::core::GUID, processid: u32, partitionid: &::windows::core::GUID, flags: u32, numapplicationsinprocess: &mut u32, applications: *mut *mut ApplicationSummary) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).GetApplicationsInProcess)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(applicationinstanceid), processid, ::core::mem::transmute(partitionid), flags, ::core::mem::transmute(numapplicationsinprocess), ::core::mem::transmute(applications)).ok()
     }
-    pub unsafe fn GetComponentsInProcess(&self, applicationinstanceid: &::windows::core::GUID, processid: u32, partitionid: &::windows::core::GUID, applicationid: &::windows::core::GUID, flags: u32, numcomponentsinprocess: &mut u32, components: &mut *mut ComponentSummary) -> ::windows::core::Result<()> {
+    pub unsafe fn GetComponentsInProcess(&self, applicationinstanceid: &::windows::core::GUID, processid: u32, partitionid: &::windows::core::GUID, applicationid: &::windows::core::GUID, flags: u32, numcomponentsinprocess: &mut u32, components: *mut *mut ComponentSummary) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).GetComponentsInProcess)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(applicationinstanceid), processid, ::core::mem::transmute(partitionid), ::core::mem::transmute(applicationid), flags, ::core::mem::transmute(numcomponentsinprocess), ::core::mem::transmute(components)).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]

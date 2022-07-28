@@ -4447,7 +4447,7 @@ impl ::core::fmt::Debug for WSManEnumFlags {
 }
 #[doc = "*Required features: `\"Win32_System_RemoteManagement\"`*"]
 #[inline]
-pub unsafe fn WSManGetErrorMessage<'a, P0>(apihandle: &WSMAN_API, flags: u32, languagecode: P0, errorcode: u32, message: &mut [u16], messagelengthused: &mut u32) -> u32
+pub unsafe fn WSManGetErrorMessage<'a, P0>(apihandle: &WSMAN_API, flags: u32, languagecode: P0, errorcode: u32, message: ::core::option::Option<&mut [u16]>, messagelengthused: &mut u32) -> u32
 where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
 {
@@ -4455,7 +4455,7 @@ where
     extern "system" {
         fn WSManGetErrorMessage(apihandle: *const WSMAN_API, flags: u32, languagecode: ::windows::core::PCWSTR, errorcode: u32, messagelength: u32, message: ::windows::core::PWSTR, messagelengthused: *mut u32) -> u32;
     }
-    WSManGetErrorMessage(::core::mem::transmute(apihandle), flags, languagecode.into(), errorcode, message.len() as _, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(message)), ::core::mem::transmute(messagelengthused))
+    WSManGetErrorMessage(::core::mem::transmute(apihandle), flags, languagecode.into(), errorcode, message.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(message.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), ::core::mem::transmute(messagelengthused))
 }
 #[doc = "*Required features: `\"Win32_System_RemoteManagement\"`*"]
 #[inline]
@@ -4468,12 +4468,12 @@ pub unsafe fn WSManGetSessionOptionAsDword(session: &WSMAN_SESSION, option: WSMa
 }
 #[doc = "*Required features: `\"Win32_System_RemoteManagement\"`*"]
 #[inline]
-pub unsafe fn WSManGetSessionOptionAsString(session: &WSMAN_SESSION, option: WSManSessionOption, string: &mut [u16], stringlengthused: &mut u32) -> u32 {
+pub unsafe fn WSManGetSessionOptionAsString(session: &WSMAN_SESSION, option: WSManSessionOption, string: ::core::option::Option<&mut [u16]>, stringlengthused: &mut u32) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn WSManGetSessionOptionAsString(session: *const WSMAN_SESSION, option: WSManSessionOption, stringlength: u32, string: ::windows::core::PWSTR, stringlengthused: *mut u32) -> u32;
     }
-    WSManGetSessionOptionAsString(::core::mem::transmute(session), option, string.len() as _, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(string)), ::core::mem::transmute(stringlengthused))
+    WSManGetSessionOptionAsString(::core::mem::transmute(session), option, string.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(string.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), ::core::mem::transmute(stringlengthused))
 }
 #[doc = "*Required features: `\"Win32_System_RemoteManagement\"`*"]
 #[inline]

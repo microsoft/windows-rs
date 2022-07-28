@@ -811,12 +811,12 @@ pub unsafe fn ApplyDeltaGetReverseB(applyflags: i64, source: DELTA_INPUT, delta:
 #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn ApplyDeltaProvidedB(applyflags: i64, source: DELTA_INPUT, delta: DELTA_INPUT, lptarget: *mut ::core::ffi::c_void, utargetsize: usize) -> super::super::Foundation::BOOL {
+pub unsafe fn ApplyDeltaProvidedB(applyflags: i64, source: DELTA_INPUT, delta: DELTA_INPUT, lptarget: &mut [u8]) -> super::super::Foundation::BOOL {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn ApplyDeltaProvidedB(applyflags: i64, source: DELTA_INPUT, delta: DELTA_INPUT, lptarget: *mut ::core::ffi::c_void, utargetsize: usize) -> super::super::Foundation::BOOL;
     }
-    ApplyDeltaProvidedB(applyflags, ::core::mem::transmute(source), ::core::mem::transmute(delta), ::core::mem::transmute(lptarget), utargetsize)
+    ApplyDeltaProvidedB(applyflags, ::core::mem::transmute(source), ::core::mem::transmute(delta), ::core::mem::transmute(lptarget.as_ptr()), lptarget.len() as _)
 }
 #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -851,12 +851,24 @@ where
 #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn ApplyPatchToFileByBuffers(patchfilemapped: &u8, patchfilesize: u32, oldfilemapped: ::core::option::Option<&u8>, oldfilesize: u32, newfilebuffer: &mut *mut u8, newfilebuffersize: u32, newfileactualsize: ::core::option::Option<&mut u32>, newfiletime: ::core::option::Option<&mut super::super::Foundation::FILETIME>, applyoptionflags: u32, progresscallback: PPATCH_PROGRESS_CALLBACK, callbackcontext: *const ::core::ffi::c_void) -> super::super::Foundation::BOOL {
+pub unsafe fn ApplyPatchToFileByBuffers(patchfilemapped: &[u8], oldfilemapped: ::core::option::Option<&[u8]>, newfilebuffer: &mut [u8], newfileactualsize: ::core::option::Option<&mut u32>, newfiletime: ::core::option::Option<&mut super::super::Foundation::FILETIME>, applyoptionflags: u32, progresscallback: PPATCH_PROGRESS_CALLBACK, callbackcontext: *const ::core::ffi::c_void) -> super::super::Foundation::BOOL {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn ApplyPatchToFileByBuffers(patchfilemapped: *const u8, patchfilesize: u32, oldfilemapped: *const u8, oldfilesize: u32, newfilebuffer: *mut *mut u8, newfilebuffersize: u32, newfileactualsize: *mut u32, newfiletime: *mut super::super::Foundation::FILETIME, applyoptionflags: u32, progresscallback: *mut ::core::ffi::c_void, callbackcontext: *const ::core::ffi::c_void) -> super::super::Foundation::BOOL;
     }
-    ApplyPatchToFileByBuffers(::core::mem::transmute(patchfilemapped), patchfilesize, ::core::mem::transmute(oldfilemapped), oldfilesize, ::core::mem::transmute(newfilebuffer), newfilebuffersize, ::core::mem::transmute(newfileactualsize), ::core::mem::transmute(newfiletime), applyoptionflags, ::core::mem::transmute(progresscallback), ::core::mem::transmute(callbackcontext))
+    ApplyPatchToFileByBuffers(
+        ::core::mem::transmute(patchfilemapped.as_ptr()),
+        patchfilemapped.len() as _,
+        ::core::mem::transmute(oldfilemapped.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())),
+        oldfilemapped.as_deref().map_or(0, |slice| slice.len() as _),
+        ::core::mem::transmute(newfilebuffer.as_ptr()),
+        newfilebuffer.len() as _,
+        ::core::mem::transmute(newfileactualsize),
+        ::core::mem::transmute(newfiletime),
+        applyoptionflags,
+        ::core::mem::transmute(progresscallback),
+        ::core::mem::transmute(callbackcontext),
+    )
 }
 #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -1102,7 +1114,7 @@ where
     extern "system" {
         fn CreatePatchFileByHandlesEx(oldfilecount: u32, oldfileinfoarray: *const PATCH_OLD_FILE_INFO_H, newfilehandle: super::super::Foundation::HANDLE, patchfilehandle: super::super::Foundation::HANDLE, optionflags: u32, optiondata: *const PATCH_OPTION_DATA, progresscallback: *mut ::core::ffi::c_void, callbackcontext: *const ::core::ffi::c_void) -> super::super::Foundation::BOOL;
     }
-    CreatePatchFileByHandlesEx(oldfileinfoarray.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(oldfileinfoarray)), newfilehandle.into(), patchfilehandle.into(), optionflags, ::core::mem::transmute(optiondata), ::core::mem::transmute(progresscallback), ::core::mem::transmute(callbackcontext))
+    CreatePatchFileByHandlesEx(oldfileinfoarray.len() as _, ::core::mem::transmute(oldfileinfoarray.as_ptr()), newfilehandle.into(), patchfilehandle.into(), optionflags, ::core::mem::transmute(optiondata), ::core::mem::transmute(progresscallback), ::core::mem::transmute(callbackcontext))
 }
 #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -1116,7 +1128,7 @@ where
     extern "system" {
         fn CreatePatchFileExA(oldfilecount: u32, oldfileinfoarray: *const PATCH_OLD_FILE_INFO_A, newfilename: ::windows::core::PCSTR, patchfilename: ::windows::core::PCSTR, optionflags: u32, optiondata: *const PATCH_OPTION_DATA, progresscallback: *mut ::core::ffi::c_void, callbackcontext: *const ::core::ffi::c_void) -> super::super::Foundation::BOOL;
     }
-    CreatePatchFileExA(oldfileinfoarray.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(oldfileinfoarray)), newfilename.into(), patchfilename.into(), optionflags, ::core::mem::transmute(optiondata), ::core::mem::transmute(progresscallback), ::core::mem::transmute(callbackcontext))
+    CreatePatchFileExA(oldfileinfoarray.len() as _, ::core::mem::transmute(oldfileinfoarray.as_ptr()), newfilename.into(), patchfilename.into(), optionflags, ::core::mem::transmute(optiondata), ::core::mem::transmute(progresscallback), ::core::mem::transmute(callbackcontext))
 }
 #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -1130,7 +1142,7 @@ where
     extern "system" {
         fn CreatePatchFileExW(oldfilecount: u32, oldfileinfoarray: *const PATCH_OLD_FILE_INFO_W, newfilename: ::windows::core::PCWSTR, patchfilename: ::windows::core::PCWSTR, optionflags: u32, optiondata: *const PATCH_OPTION_DATA, progresscallback: *mut ::core::ffi::c_void, callbackcontext: *const ::core::ffi::c_void) -> super::super::Foundation::BOOL;
     }
-    CreatePatchFileExW(oldfileinfoarray.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(oldfileinfoarray)), newfilename.into(), patchfilename.into(), optionflags, ::core::mem::transmute(optiondata), ::core::mem::transmute(progresscallback), ::core::mem::transmute(callbackcontext))
+    CreatePatchFileExW(oldfileinfoarray.len() as _, ::core::mem::transmute(oldfileinfoarray.as_ptr()), newfilename.into(), patchfilename.into(), optionflags, ::core::mem::transmute(optiondata), ::core::mem::transmute(progresscallback), ::core::mem::transmute(callbackcontext))
 }
 #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -1351,12 +1363,12 @@ pub unsafe fn DeltaFree(lpmemory: *const ::core::ffi::c_void) -> super::super::F
 #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DeltaNormalizeProvidedB(filetypeset: i64, normalizeflags: i64, normalizeoptions: DELTA_INPUT, lpsource: *mut ::core::ffi::c_void, usourcesize: usize) -> super::super::Foundation::BOOL {
+pub unsafe fn DeltaNormalizeProvidedB(filetypeset: i64, normalizeflags: i64, normalizeoptions: DELTA_INPUT, lpsource: &mut [u8]) -> super::super::Foundation::BOOL {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn DeltaNormalizeProvidedB(filetypeset: i64, normalizeflags: i64, normalizeoptions: DELTA_INPUT, lpsource: *mut ::core::ffi::c_void, usourcesize: usize) -> super::super::Foundation::BOOL;
     }
-    DeltaNormalizeProvidedB(filetypeset, normalizeflags, ::core::mem::transmute(normalizeoptions), ::core::mem::transmute(lpsource), usourcesize)
+    DeltaNormalizeProvidedB(filetypeset, normalizeflags, ::core::mem::transmute(normalizeoptions), ::core::mem::transmute(lpsource.as_ptr()), lpsource.len() as _)
 }
 #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
 pub const ERROR_PATCH_BIGGER_THAN_COMPRESSED: u32 = 3222155525u32;
@@ -1920,7 +1932,7 @@ where
 #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn GetFilePatchSignatureA<'a, P0>(filename: P0, optionflags: u32, optiondata: *const ::core::ffi::c_void, ignorerangearray: &[PATCH_IGNORE_RANGE], retainrangearray: &[PATCH_RETAIN_RANGE], signaturebuffersize: u32, signaturebuffer: ::windows::core::PSTR) -> super::super::Foundation::BOOL
+pub unsafe fn GetFilePatchSignatureA<'a, P0>(filename: P0, optionflags: u32, optiondata: *const ::core::ffi::c_void, ignorerangearray: ::core::option::Option<&[PATCH_IGNORE_RANGE]>, retainrangearray: ::core::option::Option<&[PATCH_RETAIN_RANGE]>, signaturebuffer: &mut [u8]) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
 {
@@ -1928,22 +1940,43 @@ where
     extern "system" {
         fn GetFilePatchSignatureA(filename: ::windows::core::PCSTR, optionflags: u32, optiondata: *const ::core::ffi::c_void, ignorerangecount: u32, ignorerangearray: *const PATCH_IGNORE_RANGE, retainrangecount: u32, retainrangearray: *const PATCH_RETAIN_RANGE, signaturebuffersize: u32, signaturebuffer: ::windows::core::PSTR) -> super::super::Foundation::BOOL;
     }
-    GetFilePatchSignatureA(filename.into(), optionflags, ::core::mem::transmute(optiondata), ignorerangearray.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(ignorerangearray)), retainrangearray.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(retainrangearray)), signaturebuffersize, ::core::mem::transmute(signaturebuffer))
+    GetFilePatchSignatureA(
+        filename.into(),
+        optionflags,
+        ::core::mem::transmute(optiondata),
+        ignorerangearray.as_deref().map_or(0, |slice| slice.len() as _),
+        ::core::mem::transmute(ignorerangearray.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())),
+        retainrangearray.as_deref().map_or(0, |slice| slice.len() as _),
+        ::core::mem::transmute(retainrangearray.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())),
+        signaturebuffer.len() as _,
+        ::core::mem::transmute(signaturebuffer.as_ptr()),
+    )
 }
 #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn GetFilePatchSignatureByBuffer(filebufferwritable: &mut u8, filesize: u32, optionflags: u32, optiondata: *const ::core::ffi::c_void, ignorerangearray: &[PATCH_IGNORE_RANGE], retainrangearray: &[PATCH_RETAIN_RANGE], signaturebuffersize: u32, signaturebuffer: ::windows::core::PSTR) -> super::super::Foundation::BOOL {
+pub unsafe fn GetFilePatchSignatureByBuffer(filebufferwritable: &mut [u8], optionflags: u32, optiondata: *const ::core::ffi::c_void, ignorerangearray: ::core::option::Option<&[PATCH_IGNORE_RANGE]>, retainrangearray: ::core::option::Option<&[PATCH_RETAIN_RANGE]>, signaturebuffer: &mut [u8]) -> super::super::Foundation::BOOL {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn GetFilePatchSignatureByBuffer(filebufferwritable: *mut u8, filesize: u32, optionflags: u32, optiondata: *const ::core::ffi::c_void, ignorerangecount: u32, ignorerangearray: *const PATCH_IGNORE_RANGE, retainrangecount: u32, retainrangearray: *const PATCH_RETAIN_RANGE, signaturebuffersize: u32, signaturebuffer: ::windows::core::PSTR) -> super::super::Foundation::BOOL;
     }
-    GetFilePatchSignatureByBuffer(::core::mem::transmute(filebufferwritable), filesize, optionflags, ::core::mem::transmute(optiondata), ignorerangearray.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(ignorerangearray)), retainrangearray.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(retainrangearray)), signaturebuffersize, ::core::mem::transmute(signaturebuffer))
+    GetFilePatchSignatureByBuffer(
+        ::core::mem::transmute(filebufferwritable.as_ptr()),
+        filebufferwritable.len() as _,
+        optionflags,
+        ::core::mem::transmute(optiondata),
+        ignorerangearray.as_deref().map_or(0, |slice| slice.len() as _),
+        ::core::mem::transmute(ignorerangearray.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())),
+        retainrangearray.as_deref().map_or(0, |slice| slice.len() as _),
+        ::core::mem::transmute(retainrangearray.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())),
+        signaturebuffer.len() as _,
+        ::core::mem::transmute(signaturebuffer.as_ptr()),
+    )
 }
 #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn GetFilePatchSignatureByHandle<'a, P0>(filehandle: P0, optionflags: u32, optiondata: *const ::core::ffi::c_void, ignorerangearray: &[PATCH_IGNORE_RANGE], retainrangearray: &[PATCH_RETAIN_RANGE], signaturebuffersize: u32, signaturebuffer: ::windows::core::PSTR) -> super::super::Foundation::BOOL
+pub unsafe fn GetFilePatchSignatureByHandle<'a, P0>(filehandle: P0, optionflags: u32, optiondata: *const ::core::ffi::c_void, ignorerangearray: ::core::option::Option<&[PATCH_IGNORE_RANGE]>, retainrangearray: ::core::option::Option<&[PATCH_RETAIN_RANGE]>, signaturebuffer: &mut [u8]) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
 {
@@ -1951,12 +1984,22 @@ where
     extern "system" {
         fn GetFilePatchSignatureByHandle(filehandle: super::super::Foundation::HANDLE, optionflags: u32, optiondata: *const ::core::ffi::c_void, ignorerangecount: u32, ignorerangearray: *const PATCH_IGNORE_RANGE, retainrangecount: u32, retainrangearray: *const PATCH_RETAIN_RANGE, signaturebuffersize: u32, signaturebuffer: ::windows::core::PSTR) -> super::super::Foundation::BOOL;
     }
-    GetFilePatchSignatureByHandle(filehandle.into(), optionflags, ::core::mem::transmute(optiondata), ignorerangearray.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(ignorerangearray)), retainrangearray.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(retainrangearray)), signaturebuffersize, ::core::mem::transmute(signaturebuffer))
+    GetFilePatchSignatureByHandle(
+        filehandle.into(),
+        optionflags,
+        ::core::mem::transmute(optiondata),
+        ignorerangearray.as_deref().map_or(0, |slice| slice.len() as _),
+        ::core::mem::transmute(ignorerangearray.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())),
+        retainrangearray.as_deref().map_or(0, |slice| slice.len() as _),
+        ::core::mem::transmute(retainrangearray.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())),
+        signaturebuffer.len() as _,
+        ::core::mem::transmute(signaturebuffer.as_ptr()),
+    )
 }
 #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn GetFilePatchSignatureW<'a, P0>(filename: P0, optionflags: u32, optiondata: *const ::core::ffi::c_void, ignorerangearray: &[PATCH_IGNORE_RANGE], retainrangearray: &[PATCH_RETAIN_RANGE], signaturebuffersize: u32, signaturebuffer: ::windows::core::PWSTR) -> super::super::Foundation::BOOL
+pub unsafe fn GetFilePatchSignatureW<'a, P0>(filename: P0, optionflags: u32, optiondata: *const ::core::ffi::c_void, ignorerangearray: ::core::option::Option<&[PATCH_IGNORE_RANGE]>, retainrangearray: ::core::option::Option<&[PATCH_RETAIN_RANGE]>, signaturebuffer: &mut [u8]) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
 {
@@ -1964,7 +2007,17 @@ where
     extern "system" {
         fn GetFilePatchSignatureW(filename: ::windows::core::PCWSTR, optionflags: u32, optiondata: *const ::core::ffi::c_void, ignorerangecount: u32, ignorerangearray: *const PATCH_IGNORE_RANGE, retainrangecount: u32, retainrangearray: *const PATCH_RETAIN_RANGE, signaturebuffersize: u32, signaturebuffer: ::windows::core::PWSTR) -> super::super::Foundation::BOOL;
     }
-    GetFilePatchSignatureW(filename.into(), optionflags, ::core::mem::transmute(optiondata), ignorerangearray.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(ignorerangearray)), retainrangearray.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(retainrangearray)), signaturebuffersize, ::core::mem::transmute(signaturebuffer))
+    GetFilePatchSignatureW(
+        filename.into(),
+        optionflags,
+        ::core::mem::transmute(optiondata),
+        ignorerangearray.as_deref().map_or(0, |slice| slice.len() as _),
+        ::core::mem::transmute(ignorerangearray.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())),
+        retainrangearray.as_deref().map_or(0, |slice| slice.len() as _),
+        ::core::mem::transmute(retainrangearray.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())),
+        signaturebuffer.len() as _,
+        ::core::mem::transmute(signaturebuffer.as_ptr()),
+    )
 }
 #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
 pub const IACTIONNAME_ADMIN: &str = "ADMIN";
@@ -4732,20 +4785,20 @@ impl IPMDeploymentManager {
         (::windows::core::Interface::vtable(self).BeginEnterpriseAppUpdate)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pupdateinfo)).ok()
     }
     pub unsafe fn BeginUpdateLicense(&self, productid: ::windows::core::GUID, offerid: ::windows::core::GUID, pblicense: &[u8]) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).BeginUpdateLicense)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(productid), ::core::mem::transmute(offerid), ::core::mem::transmute(::windows::core::as_ptr_or_null(pblicense)), pblicense.len() as _).ok()
+        (::windows::core::Interface::vtable(self).BeginUpdateLicense)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(productid), ::core::mem::transmute(offerid), ::core::mem::transmute(pblicense.as_ptr()), pblicense.len() as _).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetLicenseChallenge<'a, P0>(&self, packagepath: P0, ppbchallenge: &mut *mut u8, pcbchallenge: &mut u32, ppbkid: ::core::option::Option<&mut *mut u8>, pcbkid: ::core::option::Option<&mut u32>, ppbdeviceid: ::core::option::Option<&mut *mut u8>, pcbdeviceid: ::core::option::Option<&mut u32>, ppbsaltvalue: ::core::option::Option<&mut *mut u8>, pcbsaltvalue: ::core::option::Option<&mut u32>, ppbkgvvalue: ::core::option::Option<&mut *mut u8>, pcbkgvvalue: ::core::option::Option<&mut u32>) -> ::windows::core::Result<()>
+    pub unsafe fn GetLicenseChallenge<'a, P0>(&self, packagepath: P0, ppbchallenge: *mut *mut u8, pcbchallenge: &mut u32, ppbkid: *mut *mut u8, pcbkid: ::core::option::Option<&mut u32>, ppbdeviceid: *mut *mut u8, pcbdeviceid: ::core::option::Option<&mut u32>, ppbsaltvalue: *mut *mut u8, pcbsaltvalue: ::core::option::Option<&mut u32>, ppbkgvvalue: *mut *mut u8, pcbkgvvalue: ::core::option::Option<&mut u32>) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
     {
         (::windows::core::Interface::vtable(self).GetLicenseChallenge)(::windows::core::Interface::as_raw(self), packagepath.into().abi(), ::core::mem::transmute(ppbchallenge), ::core::mem::transmute(pcbchallenge), ::core::mem::transmute(ppbkid), ::core::mem::transmute(pcbkid), ::core::mem::transmute(ppbdeviceid), ::core::mem::transmute(pcbdeviceid), ::core::mem::transmute(ppbsaltvalue), ::core::mem::transmute(pcbsaltvalue), ::core::mem::transmute(ppbkgvvalue), ::core::mem::transmute(pcbkgvvalue)).ok()
     }
-    pub unsafe fn GetLicenseChallengeByProductID(&self, productid: ::windows::core::GUID, ppbchallenge: &mut *mut u8, pcblicense: &mut u32) -> ::windows::core::Result<()> {
+    pub unsafe fn GetLicenseChallengeByProductID(&self, productid: ::windows::core::GUID, ppbchallenge: *mut *mut u8, pcblicense: &mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).GetLicenseChallengeByProductID)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(productid), ::core::mem::transmute(ppbchallenge), ::core::mem::transmute(pcblicense)).ok()
     }
-    pub unsafe fn GetLicenseChallengeByProductID2(&self, productid: ::windows::core::GUID, ppbchallenge: &mut *mut u8, pcblicense: &mut u32, ppbkid: ::core::option::Option<&mut *mut u8>, pcbkid: ::core::option::Option<&mut u32>, ppbdeviceid: ::core::option::Option<&mut *mut u8>, pcbdeviceid: ::core::option::Option<&mut u32>, ppbsaltvalue: ::core::option::Option<&mut *mut u8>, pcbsaltvalue: ::core::option::Option<&mut u32>, ppbkgvvalue: ::core::option::Option<&mut *mut u8>, pcbkgvvalue: ::core::option::Option<&mut u32>) -> ::windows::core::Result<()> {
+    pub unsafe fn GetLicenseChallengeByProductID2(&self, productid: ::windows::core::GUID, ppbchallenge: *mut *mut u8, pcblicense: &mut u32, ppbkid: *mut *mut u8, pcbkid: ::core::option::Option<&mut u32>, ppbdeviceid: *mut *mut u8, pcbdeviceid: ::core::option::Option<&mut u32>, ppbsaltvalue: *mut *mut u8, pcbsaltvalue: ::core::option::Option<&mut u32>, ppbkgvvalue: *mut *mut u8, pcbkgvvalue: ::core::option::Option<&mut u32>) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).GetLicenseChallengeByProductID2)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(productid), ::core::mem::transmute(ppbchallenge), ::core::mem::transmute(pcblicense), ::core::mem::transmute(ppbkid), ::core::mem::transmute(pcbkid), ::core::mem::transmute(ppbdeviceid), ::core::mem::transmute(pcbdeviceid), ::core::mem::transmute(ppbsaltvalue), ::core::mem::transmute(pcbsaltvalue), ::core::mem::transmute(ppbkgvvalue), ::core::mem::transmute(pcbkgvvalue)).ok()
     }
     pub unsafe fn RevokeLicense(&self, productid: ::windows::core::GUID) -> ::windows::core::Result<()> {
@@ -4833,8 +4886,8 @@ impl IPMDeploymentManager {
     {
         (::windows::core::Interface::vtable(self).GenerateXamlLightupXbfForCurrentLocale)(::windows::core::Interface::as_raw(self), packagefamilyname.into().abi()).ok()
     }
-    pub unsafe fn AddLicenseForAppx(&self, productid: ::windows::core::GUID, pblicense: &[u8], pbplayreadyheader: &[u8]) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).AddLicenseForAppx)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(productid), ::core::mem::transmute(::windows::core::as_ptr_or_null(pblicense)), pblicense.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(pbplayreadyheader)), pbplayreadyheader.len() as _).ok()
+    pub unsafe fn AddLicenseForAppx(&self, productid: ::windows::core::GUID, pblicense: &[u8], pbplayreadyheader: ::core::option::Option<&[u8]>) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).AddLicenseForAppx)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(productid), ::core::mem::transmute(pblicense.as_ptr()), pblicense.len() as _, ::core::mem::transmute(pbplayreadyheader.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), pbplayreadyheader.as_deref().map_or(0, |slice| slice.len() as _)).ok()
     }
     pub unsafe fn FixJunctionsForAppsOnSDCard(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).FixJunctionsForAppsOnSDCard)(::windows::core::Interface::as_raw(self)).ok()
@@ -5079,7 +5132,7 @@ impl IPMEnumerationManager {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn get_StartTileEnumeratorBlob<'a, P0>(&self, filter: P0, pctiles: &mut u32, pptileblobs: &mut *mut PM_STARTTILEBLOB) -> ::windows::core::Result<()>
+    pub unsafe fn get_StartTileEnumeratorBlob<'a, P0>(&self, filter: P0, pctiles: &mut u32, pptileblobs: *mut *mut PM_STARTTILEBLOB) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, PM_ENUM_FILTER>>,
     {
@@ -5087,7 +5140,7 @@ impl IPMEnumerationManager {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn get_StartAppEnumeratorBlob<'a, P0>(&self, filter: P0, pcapps: &mut u32, ppappblobs: &mut *mut PM_STARTAPPBLOB) -> ::windows::core::Result<()>
+    pub unsafe fn get_StartAppEnumeratorBlob<'a, P0>(&self, filter: P0, pcapps: &mut u32, ppappblobs: *mut *mut PM_STARTAPPBLOB) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, PM_ENUM_FILTER>>,
     {
@@ -5342,7 +5395,7 @@ impl IPMExtensionFileExtensionInfo {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn get_AllFileTypes(&self, pcbtypes: &mut u32, pptypes: &mut *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
+    pub unsafe fn get_AllFileTypes(&self, pcbtypes: &mut u32, pptypes: *mut *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).get_AllFileTypes)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pcbtypes), ::core::mem::transmute(pptypes)).ok()
     }
 }
@@ -5420,7 +5473,7 @@ pub struct IPMExtensionFileOpenPickerInfo(::windows::core::IUnknown);
 impl IPMExtensionFileOpenPickerInfo {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn get_AllFileTypes(&self, pctypes: &mut u32, pptypes: &mut *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
+    pub unsafe fn get_AllFileTypes(&self, pctypes: &mut u32, pptypes: *mut *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).get_AllFileTypes)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pctypes), ::core::mem::transmute(pptypes)).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -5484,7 +5537,7 @@ pub struct IPMExtensionFileSavePickerInfo(::windows::core::IUnknown);
 impl IPMExtensionFileSavePickerInfo {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn get_AllFileTypes(&self, pctypes: &mut u32, pptypes: &mut *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
+    pub unsafe fn get_AllFileTypes(&self, pctypes: &mut u32, pptypes: *mut *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).get_AllFileTypes)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pctypes), ::core::mem::transmute(pptypes)).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -5756,12 +5809,12 @@ pub struct IPMExtensionShareTargetInfo(::windows::core::IUnknown);
 impl IPMExtensionShareTargetInfo {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn get_AllFileTypes(&self, pctypes: &mut u32, pptypes: &mut *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
+    pub unsafe fn get_AllFileTypes(&self, pctypes: &mut u32, pptypes: *mut *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).get_AllFileTypes)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pctypes), ::core::mem::transmute(pptypes)).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn get_AllDataFormats(&self, pcdataformats: &mut u32, ppdataformats: &mut *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
+    pub unsafe fn get_AllDataFormats(&self, pcdataformats: &mut u32, ppdataformats: *mut *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).get_AllDataFormats)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pcdataformats), ::core::mem::transmute(ppdataformats)).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -5900,17 +5953,17 @@ impl IPMLiveTileJobInfo {
     pub unsafe fn set_RecurrenceType(&self, ulrecurrencetype: u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).set_RecurrenceType)(::windows::core::Interface::as_raw(self), ulrecurrencetype).ok()
     }
-    pub unsafe fn get_TileXML(&self, ptilexml: &mut *mut u8, pcbtilexml: &mut u32) -> ::windows::core::Result<()> {
+    pub unsafe fn get_TileXML(&self, ptilexml: *mut *mut u8, pcbtilexml: &mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).get_TileXML)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(ptilexml), ::core::mem::transmute(pcbtilexml)).ok()
     }
     pub unsafe fn set_TileXML(&self, ptilexml: &[u8]) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).set_TileXML)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(::windows::core::as_ptr_or_null(ptilexml)), ptilexml.len() as _).ok()
+        (::windows::core::Interface::vtable(self).set_TileXML)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(ptilexml.as_ptr()), ptilexml.len() as _).ok()
     }
-    pub unsafe fn get_UrlXML(&self, purlxml: &mut *mut u8, pcburlxml: &mut u32) -> ::windows::core::Result<()> {
+    pub unsafe fn get_UrlXML(&self, purlxml: *mut *mut u8, pcburlxml: &mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).get_UrlXML)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(purlxml), ::core::mem::transmute(pcburlxml)).ok()
     }
     pub unsafe fn set_UrlXML(&self, purlxml: &[u8]) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).set_UrlXML)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(::windows::core::as_ptr_or_null(purlxml)), purlxml.len() as _).ok()
+        (::windows::core::Interface::vtable(self).set_UrlXML)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(purlxml.as_ptr()), purlxml.len() as _).ok()
     }
     pub unsafe fn AttemptCount(&self) -> ::windows::core::Result<u32> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -8713,7 +8766,7 @@ where
     extern "system" {
         fn MsiDetermineApplicablePatchesA(szproductpackagepath: ::windows::core::PCSTR, cpatchinfo: u32, ppatchinfo: *mut MSIPATCHSEQUENCEINFOA) -> u32;
     }
-    MsiDetermineApplicablePatchesA(szproductpackagepath.into(), ppatchinfo.len() as _, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(ppatchinfo)))
+    MsiDetermineApplicablePatchesA(szproductpackagepath.into(), ppatchinfo.len() as _, ::core::mem::transmute(ppatchinfo.as_ptr()))
 }
 #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
 #[inline]
@@ -8725,7 +8778,7 @@ where
     extern "system" {
         fn MsiDetermineApplicablePatchesW(szproductpackagepath: ::windows::core::PCWSTR, cpatchinfo: u32, ppatchinfo: *mut MSIPATCHSEQUENCEINFOW) -> u32;
     }
-    MsiDetermineApplicablePatchesW(szproductpackagepath.into(), ppatchinfo.len() as _, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(ppatchinfo)))
+    MsiDetermineApplicablePatchesW(szproductpackagepath.into(), ppatchinfo.len() as _, ::core::mem::transmute(ppatchinfo.as_ptr()))
 }
 #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
 #[inline]
@@ -8738,7 +8791,7 @@ where
     extern "system" {
         fn MsiDeterminePatchSequenceA(szproductcode: ::windows::core::PCSTR, szusersid: ::windows::core::PCSTR, dwcontext: MSIINSTALLCONTEXT, cpatchinfo: u32, ppatchinfo: *mut MSIPATCHSEQUENCEINFOA) -> u32;
     }
-    MsiDeterminePatchSequenceA(szproductcode.into(), szusersid.into(), dwcontext, ppatchinfo.len() as _, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(ppatchinfo)))
+    MsiDeterminePatchSequenceA(szproductcode.into(), szusersid.into(), dwcontext, ppatchinfo.len() as _, ::core::mem::transmute(ppatchinfo.as_ptr()))
 }
 #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
 #[inline]
@@ -8751,7 +8804,7 @@ where
     extern "system" {
         fn MsiDeterminePatchSequenceW(szproductcode: ::windows::core::PCWSTR, szusersid: ::windows::core::PCWSTR, dwcontext: MSIINSTALLCONTEXT, cpatchinfo: u32, ppatchinfo: *mut MSIPATCHSEQUENCEINFOW) -> u32;
     }
-    MsiDeterminePatchSequenceW(szproductcode.into(), szusersid.into(), dwcontext, ppatchinfo.len() as _, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(ppatchinfo)))
+    MsiDeterminePatchSequenceW(szproductcode.into(), szusersid.into(), dwcontext, ppatchinfo.len() as _, ::core::mem::transmute(ppatchinfo.as_ptr()))
 }
 #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
 #[inline]
@@ -9445,7 +9498,7 @@ where
 #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`, `\"Win32_Foundation\"`, `\"Win32_Security_Cryptography\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
 #[inline]
-pub unsafe fn MsiGetFileSignatureInformationA<'a, P0>(szsignedobjectpath: P0, dwflags: u32, ppccertcontext: &mut *mut super::super::Security::Cryptography::CERT_CONTEXT, pbhashdata: ::core::option::Option<&mut u8>, pcbhashdata: ::core::option::Option<&mut u32>) -> ::windows::core::Result<()>
+pub unsafe fn MsiGetFileSignatureInformationA<'a, P0>(szsignedobjectpath: P0, dwflags: u32, ppccertcontext: &mut *mut super::super::Security::Cryptography::CERT_CONTEXT, pbhashdata: *mut u8, pcbhashdata: ::core::option::Option<&mut u32>) -> ::windows::core::Result<()>
 where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
 {
@@ -9458,7 +9511,7 @@ where
 #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`, `\"Win32_Foundation\"`, `\"Win32_Security_Cryptography\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
 #[inline]
-pub unsafe fn MsiGetFileSignatureInformationW<'a, P0>(szsignedobjectpath: P0, dwflags: u32, ppccertcontext: &mut *mut super::super::Security::Cryptography::CERT_CONTEXT, pbhashdata: ::core::option::Option<&mut u8>, pcbhashdata: ::core::option::Option<&mut u32>) -> ::windows::core::Result<()>
+pub unsafe fn MsiGetFileSignatureInformationW<'a, P0>(szsignedobjectpath: P0, dwflags: u32, ppccertcontext: &mut *mut super::super::Security::Cryptography::CERT_CONTEXT, pbhashdata: *mut u8, pcbhashdata: ::core::option::Option<&mut u32>) -> ::windows::core::Result<()>
 where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
 {
@@ -11540,12 +11593,23 @@ pub const MsmMerge: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0
 #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn NormalizeFileForPatchSignature(filebuffer: *mut ::core::ffi::c_void, filesize: u32, optionflags: u32, optiondata: ::core::option::Option<&PATCH_OPTION_DATA>, newfilecoffbase: u32, newfilecofftime: u32, ignorerangearray: &[PATCH_IGNORE_RANGE], retainrangearray: &[PATCH_RETAIN_RANGE]) -> i32 {
+pub unsafe fn NormalizeFileForPatchSignature(filebuffer: &mut [u8], optionflags: u32, optiondata: ::core::option::Option<&PATCH_OPTION_DATA>, newfilecoffbase: u32, newfilecofftime: u32, ignorerangearray: ::core::option::Option<&[PATCH_IGNORE_RANGE]>, retainrangearray: ::core::option::Option<&[PATCH_RETAIN_RANGE]>) -> i32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn NormalizeFileForPatchSignature(filebuffer: *mut ::core::ffi::c_void, filesize: u32, optionflags: u32, optiondata: *const PATCH_OPTION_DATA, newfilecoffbase: u32, newfilecofftime: u32, ignorerangecount: u32, ignorerangearray: *const PATCH_IGNORE_RANGE, retainrangecount: u32, retainrangearray: *const PATCH_RETAIN_RANGE) -> i32;
     }
-    NormalizeFileForPatchSignature(::core::mem::transmute(filebuffer), filesize, optionflags, ::core::mem::transmute(optiondata), newfilecoffbase, newfilecofftime, ignorerangearray.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(ignorerangearray)), retainrangearray.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(retainrangearray)))
+    NormalizeFileForPatchSignature(
+        ::core::mem::transmute(filebuffer.as_ptr()),
+        filebuffer.len() as _,
+        optionflags,
+        ::core::mem::transmute(optiondata),
+        newfilecoffbase,
+        newfilecofftime,
+        ignorerangearray.as_deref().map_or(0, |slice| slice.len() as _),
+        ::core::mem::transmute(ignorerangearray.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())),
+        retainrangearray.as_deref().map_or(0, |slice| slice.len() as _),
+        ::core::mem::transmute(retainrangearray.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())),
+    )
 }
 #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
 #[repr(transparent)]
@@ -13315,7 +13379,7 @@ impl ::core::ops::Not for QUERYASMINFO_FLAGS {
 #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn QueryActCtxSettingsW<'a, P0, P1, P2>(dwflags: u32, hactctx: P0, settingsnamespace: P1, settingname: P2, pvbuffer: ::windows::core::PWSTR, dwbuffer: usize, pdwwrittenorrequired: ::core::option::Option<&mut usize>) -> super::super::Foundation::BOOL
+pub unsafe fn QueryActCtxSettingsW<'a, P0, P1, P2>(dwflags: u32, hactctx: P0, settingsnamespace: P1, settingname: P2, pvbuffer: ::core::option::Option<&mut [u8]>, pdwwrittenorrequired: ::core::option::Option<&mut usize>) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
     P1: ::std::convert::Into<::windows::core::PCWSTR>,
@@ -13325,12 +13389,12 @@ where
     extern "system" {
         fn QueryActCtxSettingsW(dwflags: u32, hactctx: super::super::Foundation::HANDLE, settingsnamespace: ::windows::core::PCWSTR, settingname: ::windows::core::PCWSTR, pvbuffer: ::windows::core::PWSTR, dwbuffer: usize, pdwwrittenorrequired: *mut usize) -> super::super::Foundation::BOOL;
     }
-    QueryActCtxSettingsW(dwflags, hactctx.into(), settingsnamespace.into(), settingname.into(), ::core::mem::transmute(pvbuffer), dwbuffer, ::core::mem::transmute(pdwwrittenorrequired))
+    QueryActCtxSettingsW(dwflags, hactctx.into(), settingsnamespace.into(), settingname.into(), ::core::mem::transmute(pvbuffer.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), pvbuffer.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(pdwwrittenorrequired))
 }
 #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn QueryActCtxW<'a, P0>(dwflags: u32, hactctx: P0, pvsubinstance: *const ::core::ffi::c_void, ulinfoclass: u32, pvbuffer: *mut ::core::ffi::c_void, cbbuffer: usize, pcbwrittenorrequired: ::core::option::Option<&mut usize>) -> super::super::Foundation::BOOL
+pub unsafe fn QueryActCtxW<'a, P0>(dwflags: u32, hactctx: P0, pvsubinstance: *const ::core::ffi::c_void, ulinfoclass: u32, pvbuffer: ::core::option::Option<&mut [u8]>, pcbwrittenorrequired: ::core::option::Option<&mut usize>) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
 {
@@ -13338,7 +13402,7 @@ where
     extern "system" {
         fn QueryActCtxW(dwflags: u32, hactctx: super::super::Foundation::HANDLE, pvsubinstance: *const ::core::ffi::c_void, ulinfoclass: u32, pvbuffer: *mut ::core::ffi::c_void, cbbuffer: usize, pcbwrittenorrequired: *mut usize) -> super::super::Foundation::BOOL;
     }
-    QueryActCtxW(dwflags, hactctx.into(), ::core::mem::transmute(pvsubinstance), ulinfoclass, ::core::mem::transmute(pvbuffer), cbbuffer, ::core::mem::transmute(pcbwrittenorrequired))
+    QueryActCtxW(dwflags, hactctx.into(), ::core::mem::transmute(pvsubinstance), ulinfoclass, ::core::mem::transmute(pvbuffer.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), pvbuffer.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(pcbwrittenorrequired))
 }
 #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
 #[repr(transparent)]
@@ -13597,7 +13661,7 @@ where
     extern "system" {
         fn SfpVerifyFile(pszfilename: ::windows::core::PCSTR, pszerror: ::windows::core::PCSTR, dwerrsize: u32) -> super::super::Foundation::BOOL;
     }
-    SfpVerifyFile(pszfilename.into(), ::core::mem::transmute(::windows::core::as_ptr_or_null(pszerror)), pszerror.len() as _)
+    SfpVerifyFile(pszfilename.into(), ::core::mem::transmute(pszerror.as_ptr()), pszerror.len() as _)
 }
 #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
 #[repr(transparent)]
@@ -13825,12 +13889,12 @@ where
 #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn TestApplyPatchToFileByBuffers(patchfilebuffer: &u8, patchfilesize: u32, oldfilebuffer: ::core::option::Option<&u8>, oldfilesize: u32, newfilesize: ::core::option::Option<&mut u32>, applyoptionflags: u32) -> super::super::Foundation::BOOL {
+pub unsafe fn TestApplyPatchToFileByBuffers(patchfilebuffer: &[u8], oldfilebuffer: ::core::option::Option<&[u8]>, newfilesize: ::core::option::Option<&mut u32>, applyoptionflags: u32) -> super::super::Foundation::BOOL {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn TestApplyPatchToFileByBuffers(patchfilebuffer: *const u8, patchfilesize: u32, oldfilebuffer: *const u8, oldfilesize: u32, newfilesize: *mut u32, applyoptionflags: u32) -> super::super::Foundation::BOOL;
     }
-    TestApplyPatchToFileByBuffers(::core::mem::transmute(patchfilebuffer), patchfilesize, ::core::mem::transmute(oldfilebuffer), oldfilesize, ::core::mem::transmute(newfilesize), applyoptionflags)
+    TestApplyPatchToFileByBuffers(::core::mem::transmute(patchfilebuffer.as_ptr()), patchfilebuffer.len() as _, ::core::mem::transmute(oldfilebuffer.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), oldfilebuffer.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(newfilesize), applyoptionflags)
 }
 #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]

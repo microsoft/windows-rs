@@ -134,7 +134,7 @@ impl IEnumEventObject {
         (::windows::core::Interface::vtable(self).Clone)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IEnumEventObject>(result__)
     }
     pub unsafe fn Next(&self, ppinterface: &mut [::core::option::Option<::windows::core::IUnknown>], cretelem: &mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Next)(::windows::core::Interface::as_raw(self), ppinterface.len() as _, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(ppinterface)), ::core::mem::transmute(cretelem)).ok()
+        (::windows::core::Interface::vtable(self).Next)(::windows::core::Interface::as_raw(self), ppinterface.len() as _, ::core::mem::transmute(ppinterface.as_ptr()), ::core::mem::transmute(cretelem)).ok()
     }
     pub unsafe fn Reset(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).Reset)(::windows::core::Interface::as_raw(self)).ok()

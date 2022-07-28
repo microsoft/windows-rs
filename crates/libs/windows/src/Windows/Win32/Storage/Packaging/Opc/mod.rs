@@ -147,7 +147,7 @@ pub struct IOpcCertificateSet_Vtbl {
 #[repr(transparent)]
 pub struct IOpcDigitalSignature(::windows::core::IUnknown);
 impl IOpcDigitalSignature {
-    pub unsafe fn GetNamespaces(&self, prefixes: &mut *mut ::windows::core::PWSTR, namespaces: &mut *mut ::windows::core::PWSTR, count: &mut u32) -> ::windows::core::Result<()> {
+    pub unsafe fn GetNamespaces(&self, prefixes: *mut *mut ::windows::core::PWSTR, namespaces: *mut *mut ::windows::core::PWSTR, count: &mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).GetNamespaces)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(prefixes), ::core::mem::transmute(namespaces), ::core::mem::transmute(count)).ok()
     }
     pub unsafe fn GetSignatureId(&self) -> ::windows::core::Result<::windows::core::PWSTR> {
@@ -167,7 +167,7 @@ impl IOpcDigitalSignature {
     pub unsafe fn GetCanonicalizationMethod(&self, canonicalizationmethod: &mut OPC_CANONICALIZATION_METHOD) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).GetCanonicalizationMethod)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(canonicalizationmethod)).ok()
     }
-    pub unsafe fn GetSignatureValue(&self, signaturevalue: &mut *mut u8, count: &mut u32) -> ::windows::core::Result<()> {
+    pub unsafe fn GetSignatureValue(&self, signaturevalue: *mut *mut u8, count: &mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).GetSignatureValue)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(signaturevalue), ::core::mem::transmute(count)).ok()
     }
     pub unsafe fn GetSignaturePartReferenceEnumerator(&self) -> ::windows::core::Result<IOpcSignaturePartReferenceEnumerator> {
@@ -1661,7 +1661,7 @@ pub struct IOpcRelationshipSet_Vtbl {
 #[repr(transparent)]
 pub struct IOpcSignatureCustomObject(::windows::core::IUnknown);
 impl IOpcSignatureCustomObject {
-    pub unsafe fn GetXml(&self, xmlmarkup: &mut *mut u8, count: &mut u32) -> ::windows::core::Result<()> {
+    pub unsafe fn GetXml(&self, xmlmarkup: *mut *mut u8, count: &mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).GetXml)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(xmlmarkup), ::core::mem::transmute(count)).ok()
     }
 }
@@ -1787,7 +1787,7 @@ pub struct IOpcSignatureCustomObjectSet(::windows::core::IUnknown);
 impl IOpcSignatureCustomObjectSet {
     pub unsafe fn Create(&self, xmlmarkup: &[u8]) -> ::windows::core::Result<IOpcSignatureCustomObject> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Interface::vtable(self).Create)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(::windows::core::as_ptr_or_null(xmlmarkup)), xmlmarkup.len() as _, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IOpcSignatureCustomObject>(result__)
+        (::windows::core::Interface::vtable(self).Create)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(xmlmarkup.as_ptr()), xmlmarkup.len() as _, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IOpcSignatureCustomObject>(result__)
     }
     pub unsafe fn Delete<'a, P0>(&self, customobject: P0) -> ::windows::core::Result<()>
     where
@@ -1861,7 +1861,7 @@ impl IOpcSignaturePartReference {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).GetDigestMethod)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::PWSTR>(result__)
     }
-    pub unsafe fn GetDigestValue(&self, digestvalue: &mut *mut u8, count: &mut u32) -> ::windows::core::Result<()> {
+    pub unsafe fn GetDigestValue(&self, digestvalue: *mut *mut u8, count: &mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).GetDigestValue)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(digestvalue), ::core::mem::transmute(count)).ok()
     }
     pub unsafe fn GetTransformMethod(&self) -> ::windows::core::Result<OPC_CANONICALIZATION_METHOD> {
@@ -2089,7 +2089,7 @@ impl IOpcSignatureReference {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).GetDigestMethod)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::PWSTR>(result__)
     }
-    pub unsafe fn GetDigestValue(&self, digestvalue: &mut *mut u8, count: &mut u32) -> ::windows::core::Result<()> {
+    pub unsafe fn GetDigestValue(&self, digestvalue: *mut *mut u8, count: &mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).GetDigestValue)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(digestvalue), ::core::mem::transmute(count)).ok()
     }
 }
@@ -2304,7 +2304,7 @@ impl IOpcSignatureRelationshipReference {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).GetDigestMethod)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::PWSTR>(result__)
     }
-    pub unsafe fn GetDigestValue(&self, digestvalue: &mut *mut u8, count: &mut u32) -> ::windows::core::Result<()> {
+    pub unsafe fn GetDigestValue(&self, digestvalue: *mut *mut u8, count: &mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).GetDigestValue)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(digestvalue), ::core::mem::transmute(count)).ok()
     }
     pub unsafe fn GetTransformMethod(&self) -> ::windows::core::Result<OPC_CANONICALIZATION_METHOD> {

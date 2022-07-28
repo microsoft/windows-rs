@@ -922,23 +922,23 @@ impl<'a> Gen<'a> {
                 _ => {
                     let name = self.param_name(param.def);
                     match param.array_info {
-                        ArrayInfo::Fixed(fixed) if fixed > 0 && self.reader.param_free_with(param.def).is_none() => {
-                            if self.reader.param_flags(param.def).output() {
-                                quote! { ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(#name)), }
+                        ArrayInfo::Fixed(_) | ArrayInfo::RelativeLen(_) | ArrayInfo::RelativeByteLen(_) => {
+                            let flags = self.reader.param_flags(param.def);
+                            let map = if flags.optional() {
+                                quote! { #name.as_deref().map_or(::core::ptr::null(), |slice|slice.as_ptr()) }
                             } else {
-                                quote! { ::core::mem::transmute(::windows::core::as_ptr_or_null(#name)), }
-                            }
-                        }
-                        ArrayInfo::RelativeLen(_) => {
-                            if self.reader.param_flags(param.def).output() {
-                                quote! { ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(#name)), }
-                            } else {
-                                quote! { ::core::mem::transmute(::windows::core::as_ptr_or_null(#name)), }
-                            }
+                                quote! { #name.as_ptr() }
+                            };
+                            quote! { ::core::mem::transmute(#map), }
                         }
                         ArrayInfo::RelativePtr(relative) => {
                             let name = self.param_name(params[relative].def);
-                            quote! { #name.len() as _, }
+                            let flags = self.reader.param_flags(params[relative].def);
+                            if flags.optional() {
+                                quote! { #name.as_deref().map_or(0, |slice|slice.len() as _), }
+                            } else {
+                                quote! { #name.len() as _, }
+                            }
                         }
                         _ => {
                             if self.reader.signature_param_input_value(param) {
@@ -986,14 +986,16 @@ impl<'a> Gen<'a> {
                     let ty = param.ty.deref();
                     let ty = self.type_default_name(&ty);
                     let len = Literal::u32_unsuffixed(fixed as _);
-
                     let ty = if self.reader.param_flags(param.def).output() {
                         quote! { &mut [#ty; #len] }
                     } else {
                         quote! { &[#ty; #len] }
                     };
-
-                    tokens.combine(&quote! { #name: #ty, });
+                    if self.reader.param_flags(param.def).optional() {
+                        tokens.combine(&quote! { #name: ::core::option::Option<#ty>, });
+                    } else {
+                        tokens.combine(&quote! { #name: #ty, });
+                    }
                     continue;
                 }
             }
@@ -1006,8 +1008,25 @@ impl<'a> Gen<'a> {
                 } else {
                     quote! { &[#ty] }
                 };
+                if self.reader.param_flags(param.def).optional() {
+                    tokens.combine(&quote! { #name: ::core::option::Option<#ty>, });
+                } else {
+                    tokens.combine(&quote! { #name: #ty, });
+                }
+                continue;
+            }
 
-                tokens.combine(&quote! { #name: #ty, });
+            if let ArrayInfo::RelativeByteLen(_) = param.array_info {
+                let ty = if self.reader.param_flags(param.def).output() {
+                    quote! { &mut [u8] }
+                } else {
+                    quote! { &[u8] }
+                };
+                if self.reader.param_flags(param.def).optional() {
+                    tokens.combine(&quote! { #name: ::core::option::Option<#ty>, });
+                } else {
+                    tokens.combine(&quote! { #name: #ty, });
+                }
                 continue;
             }
 
@@ -1022,7 +1041,7 @@ impl<'a> Gen<'a> {
                 continue;
             }
 
-            if param.ty.is_pointer() && !param.ty.is_void() {
+            if param.ty.is_pointer() && !param.ty.is_void() && param.array_info != ArrayInfo::Removed {
                 let param_flags = self.reader.param_flags(param.def);
                 let kind = self.type_default_name(&param.ty.deref());
                 let kind = if param_flags.output() {

@@ -1507,7 +1507,7 @@ impl ::core::fmt::Debug for EXPAND_VIRTUAL_DISK_VERSION {
 #[doc = "*Required features: `\"Win32_Storage_Vhd\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn EnumerateVirtualDiskMetadata<'a, P0>(virtualdiskhandle: P0, numberofitems: &mut u32, items: &mut ::windows::core::GUID) -> super::super::Foundation::WIN32_ERROR
+pub unsafe fn EnumerateVirtualDiskMetadata<'a, P0>(virtualdiskhandle: P0, numberofitems: &mut u32, items: *mut ::windows::core::GUID) -> super::super::Foundation::WIN32_ERROR
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
 {
@@ -2083,7 +2083,7 @@ where
 #[doc = "*Required features: `\"Win32_Storage_Vhd\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn GetVirtualDiskInformation<'a, P0>(virtualdiskhandle: P0, virtualdiskinfosize: &mut u32, virtualdiskinfo: &mut GET_VIRTUAL_DISK_INFO, sizeused: ::core::option::Option<&mut u32>) -> super::super::Foundation::WIN32_ERROR
+pub unsafe fn GetVirtualDiskInformation<'a, P0>(virtualdiskhandle: P0, virtualdiskinfosize: &mut u32, virtualdiskinfo: *mut GET_VIRTUAL_DISK_INFO, sizeused: ::core::option::Option<&mut u32>) -> super::super::Foundation::WIN32_ERROR
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
 {
@@ -3104,7 +3104,7 @@ impl ::core::default::Default for QUERY_CHANGES_VIRTUAL_DISK_RANGE {
 #[doc = "*Required features: `\"Win32_Storage_Vhd\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn QueryChangesVirtualDisk<'a, P0, P1>(virtualdiskhandle: P0, changetrackingid: P1, byteoffset: u64, bytelength: u64, flags: QUERY_CHANGES_VIRTUAL_DISK_FLAG, ranges: &mut QUERY_CHANGES_VIRTUAL_DISK_RANGE, rangecount: &mut u32, processedlength: &mut u64) -> super::super::Foundation::WIN32_ERROR
+pub unsafe fn QueryChangesVirtualDisk<'a, P0, P1>(virtualdiskhandle: P0, changetrackingid: P1, byteoffset: u64, bytelength: u64, flags: QUERY_CHANGES_VIRTUAL_DISK_FLAG, ranges: *mut QUERY_CHANGES_VIRTUAL_DISK_RANGE, rangecount: &mut u32, processedlength: &mut u64) -> super::super::Foundation::WIN32_ERROR
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
     P1: ::std::convert::Into<::windows::core::PCWSTR>,
@@ -3944,7 +3944,7 @@ where
 #[doc = "*Required features: `\"Win32_Storage_Vhd\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SetVirtualDiskMetadata<'a, P0>(virtualdiskhandle: P0, item: &::windows::core::GUID, metadatasize: u32, metadata: *const ::core::ffi::c_void) -> super::super::Foundation::WIN32_ERROR
+pub unsafe fn SetVirtualDiskMetadata<'a, P0>(virtualdiskhandle: P0, item: &::windows::core::GUID, metadata: &[u8]) -> super::super::Foundation::WIN32_ERROR
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
 {
@@ -3952,7 +3952,7 @@ where
     extern "system" {
         fn SetVirtualDiskMetadata(virtualdiskhandle: super::super::Foundation::HANDLE, item: *const ::windows::core::GUID, metadatasize: u32, metadata: *const ::core::ffi::c_void) -> super::super::Foundation::WIN32_ERROR;
     }
-    SetVirtualDiskMetadata(virtualdiskhandle.into(), ::core::mem::transmute(item), metadatasize, ::core::mem::transmute(metadata))
+    SetVirtualDiskMetadata(virtualdiskhandle.into(), ::core::mem::transmute(item), metadata.len() as _, ::core::mem::transmute(metadata.as_ptr()))
 }
 #[doc = "*Required features: `\"Win32_Storage_Vhd\"`*"]
 #[repr(transparent)]

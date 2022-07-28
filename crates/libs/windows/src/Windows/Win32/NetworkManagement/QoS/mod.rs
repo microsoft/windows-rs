@@ -2064,7 +2064,7 @@ pub const QOSSP_ERR_BASE: u32 = 56000u32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_QoS\"`, `\"Win32_Foundation\"`, `\"Win32_System_IO\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 #[inline]
-pub unsafe fn QOSSetFlow<'a, P0>(qoshandle: P0, flowid: u32, operation: QOS_SET_FLOW, size: u32, buffer: *const ::core::ffi::c_void, flags: u32, overlapped: ::core::option::Option<&mut super::super::System::IO::OVERLAPPED>) -> super::super::Foundation::BOOL
+pub unsafe fn QOSSetFlow<'a, P0>(qoshandle: P0, flowid: u32, operation: QOS_SET_FLOW, buffer: &[u8], flags: u32, overlapped: ::core::option::Option<&mut super::super::System::IO::OVERLAPPED>) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
 {
@@ -2072,7 +2072,7 @@ where
     extern "system" {
         fn QOSSetFlow(qoshandle: super::super::Foundation::HANDLE, flowid: u32, operation: QOS_SET_FLOW, size: u32, buffer: *const ::core::ffi::c_void, flags: u32, overlapped: *mut super::super::System::IO::OVERLAPPED) -> super::super::Foundation::BOOL;
     }
-    QOSSetFlow(qoshandle.into(), flowid, operation, size, ::core::mem::transmute(buffer), flags, ::core::mem::transmute(overlapped))
+    QOSSetFlow(qoshandle.into(), flowid, operation, buffer.len() as _, ::core::mem::transmute(buffer.as_ptr()), flags, ::core::mem::transmute(overlapped))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_QoS\"`, `\"Win32_Foundation\"`, `\"Win32_Networking_WinSock\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
@@ -4559,7 +4559,7 @@ where
     extern "system" {
         fn TcGetFlowNameA(flowhandle: super::super::Foundation::HANDLE, strsize: u32, pflowname: ::windows::core::PSTR) -> u32;
     }
-    TcGetFlowNameA(flowhandle.into(), pflowname.len() as _, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(pflowname)))
+    TcGetFlowNameA(flowhandle.into(), pflowname.len() as _, ::core::mem::transmute(pflowname.as_ptr()))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_QoS\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -4572,7 +4572,7 @@ where
     extern "system" {
         fn TcGetFlowNameW(flowhandle: super::super::Foundation::HANDLE, strsize: u32, pflowname: ::windows::core::PWSTR) -> u32;
     }
-    TcGetFlowNameW(flowhandle.into(), pflowname.len() as _, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(pflowname)))
+    TcGetFlowNameW(flowhandle.into(), pflowname.len() as _, ::core::mem::transmute(pflowname.as_ptr()))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_QoS\"`, `\"Win32_Foundation\"`, `\"Win32_Networking_WinSock\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
@@ -4670,7 +4670,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_QoS\"`*"]
 #[inline]
-pub unsafe fn TcSetFlowA<'a, P0>(pflowname: P0, pguidparam: &::windows::core::GUID, buffersize: u32, buffer: *const ::core::ffi::c_void) -> u32
+pub unsafe fn TcSetFlowA<'a, P0>(pflowname: P0, pguidparam: &::windows::core::GUID, buffer: &[u8]) -> u32
 where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
 {
@@ -4678,11 +4678,11 @@ where
     extern "system" {
         fn TcSetFlowA(pflowname: ::windows::core::PCSTR, pguidparam: *const ::windows::core::GUID, buffersize: u32, buffer: *const ::core::ffi::c_void) -> u32;
     }
-    TcSetFlowA(pflowname.into(), ::core::mem::transmute(pguidparam), buffersize, ::core::mem::transmute(buffer))
+    TcSetFlowA(pflowname.into(), ::core::mem::transmute(pguidparam), buffer.len() as _, ::core::mem::transmute(buffer.as_ptr()))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_QoS\"`*"]
 #[inline]
-pub unsafe fn TcSetFlowW<'a, P0>(pflowname: P0, pguidparam: &::windows::core::GUID, buffersize: u32, buffer: *const ::core::ffi::c_void) -> u32
+pub unsafe fn TcSetFlowW<'a, P0>(pflowname: P0, pguidparam: &::windows::core::GUID, buffer: &[u8]) -> u32
 where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
 {
@@ -4690,12 +4690,12 @@ where
     extern "system" {
         fn TcSetFlowW(pflowname: ::windows::core::PCWSTR, pguidparam: *const ::windows::core::GUID, buffersize: u32, buffer: *const ::core::ffi::c_void) -> u32;
     }
-    TcSetFlowW(pflowname.into(), ::core::mem::transmute(pguidparam), buffersize, ::core::mem::transmute(buffer))
+    TcSetFlowW(pflowname.into(), ::core::mem::transmute(pguidparam), buffer.len() as _, ::core::mem::transmute(buffer.as_ptr()))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_QoS\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn TcSetInterface<'a, P0>(ifchandle: P0, pguidparam: &::windows::core::GUID, buffersize: u32, buffer: *const ::core::ffi::c_void) -> u32
+pub unsafe fn TcSetInterface<'a, P0>(ifchandle: P0, pguidparam: &::windows::core::GUID, buffer: &[u8]) -> u32
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
 {
@@ -4703,7 +4703,7 @@ where
     extern "system" {
         fn TcSetInterface(ifchandle: super::super::Foundation::HANDLE, pguidparam: *const ::windows::core::GUID, buffersize: u32, buffer: *const ::core::ffi::c_void) -> u32;
     }
-    TcSetInterface(ifchandle.into(), ::core::mem::transmute(pguidparam), buffersize, ::core::mem::transmute(buffer))
+    TcSetInterface(ifchandle.into(), ::core::mem::transmute(pguidparam), buffer.len() as _, ::core::mem::transmute(buffer.as_ptr()))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_QoS\"`*"]
 pub const UNSUPPORTED_CREDENTIAL_TYPE: u32 = 2u32;

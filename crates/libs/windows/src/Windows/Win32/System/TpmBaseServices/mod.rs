@@ -1,22 +1,22 @@
 #[doc = "*Required features: `\"Win32_System_TpmBaseServices\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn GetDeviceID(pbwindowsaik: ::core::option::Option<&mut u8>, cbwindowsaik: u32, pcbresult: &mut u32, pfprotectedbytpm: ::core::option::Option<&mut super::super::Foundation::BOOL>) -> ::windows::core::Result<()> {
+pub unsafe fn GetDeviceID(pbwindowsaik: ::core::option::Option<&mut [u8]>, pcbresult: &mut u32, pfprotectedbytpm: ::core::option::Option<&mut super::super::Foundation::BOOL>) -> ::windows::core::Result<()> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn GetDeviceID(pbwindowsaik: *mut u8, cbwindowsaik: u32, pcbresult: *mut u32, pfprotectedbytpm: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT;
     }
-    GetDeviceID(::core::mem::transmute(pbwindowsaik), cbwindowsaik, ::core::mem::transmute(pcbresult), ::core::mem::transmute(pfprotectedbytpm)).ok()
+    GetDeviceID(::core::mem::transmute(pbwindowsaik.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), pbwindowsaik.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(pcbresult), ::core::mem::transmute(pfprotectedbytpm)).ok()
 }
 #[doc = "*Required features: `\"Win32_System_TpmBaseServices\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn GetDeviceIDString(pszwindowsaik: &mut [u16], pcchresult: &mut u32, pfprotectedbytpm: ::core::option::Option<&mut super::super::Foundation::BOOL>) -> ::windows::core::Result<()> {
+pub unsafe fn GetDeviceIDString(pszwindowsaik: ::core::option::Option<&mut [u16]>, pcchresult: &mut u32, pfprotectedbytpm: ::core::option::Option<&mut super::super::Foundation::BOOL>) -> ::windows::core::Result<()> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn GetDeviceIDString(pszwindowsaik: ::windows::core::PWSTR, cchwindowsaik: u32, pcchresult: *mut u32, pfprotectedbytpm: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT;
     }
-    GetDeviceIDString(::core::mem::transmute(::windows::core::as_mut_ptr_or_null(pszwindowsaik)), pszwindowsaik.len() as _, ::core::mem::transmute(pcchresult), ::core::mem::transmute(pfprotectedbytpm)).ok()
+    GetDeviceIDString(::core::mem::transmute(pszwindowsaik.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), pszwindowsaik.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(pcchresult), ::core::mem::transmute(pfprotectedbytpm)).ok()
 }
 #[doc = "*Required features: `\"Win32_System_TpmBaseServices\"`*"]
 #[repr(transparent)]
@@ -303,16 +303,16 @@ pub unsafe fn Tbsi_Create_Windows_Key(keyhandle: u32) -> u32 {
 }
 #[doc = "*Required features: `\"Win32_System_TpmBaseServices\"`*"]
 #[inline]
-pub unsafe fn Tbsi_GetDeviceInfo(size: u32, info: *mut ::core::ffi::c_void) -> u32 {
+pub unsafe fn Tbsi_GetDeviceInfo(info: &mut [u8]) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn Tbsi_GetDeviceInfo(size: u32, info: *mut ::core::ffi::c_void) -> u32;
     }
-    Tbsi_GetDeviceInfo(size, ::core::mem::transmute(info))
+    Tbsi_GetDeviceInfo(info.len() as _, ::core::mem::transmute(info.as_ptr()))
 }
 #[doc = "*Required features: `\"Win32_System_TpmBaseServices\"`*"]
 #[inline]
-pub unsafe fn Tbsi_Get_OwnerAuth(hcontext: *const ::core::ffi::c_void, ownerauthtype: u32, poutputbuf: ::core::option::Option<&mut u8>, poutputbuflen: &mut u32) -> u32 {
+pub unsafe fn Tbsi_Get_OwnerAuth(hcontext: *const ::core::ffi::c_void, ownerauthtype: u32, poutputbuf: *mut u8, poutputbuflen: &mut u32) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn Tbsi_Get_OwnerAuth(hcontext: *const ::core::ffi::c_void, ownerauthtype: u32, poutputbuf: *mut u8, poutputbuflen: *mut u32) -> u32;
@@ -321,7 +321,7 @@ pub unsafe fn Tbsi_Get_OwnerAuth(hcontext: *const ::core::ffi::c_void, ownerauth
 }
 #[doc = "*Required features: `\"Win32_System_TpmBaseServices\"`*"]
 #[inline]
-pub unsafe fn Tbsi_Get_TCG_Log(hcontext: *const ::core::ffi::c_void, poutputbuf: ::core::option::Option<&mut u8>, poutputbuflen: &mut u32) -> u32 {
+pub unsafe fn Tbsi_Get_TCG_Log(hcontext: *const ::core::ffi::c_void, poutputbuf: *mut u8, poutputbuflen: &mut u32) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn Tbsi_Get_TCG_Log(hcontext: *const ::core::ffi::c_void, poutputbuf: *mut u8, poutputbuflen: *mut u32) -> u32;
@@ -330,7 +330,7 @@ pub unsafe fn Tbsi_Get_TCG_Log(hcontext: *const ::core::ffi::c_void, poutputbuf:
 }
 #[doc = "*Required features: `\"Win32_System_TpmBaseServices\"`*"]
 #[inline]
-pub unsafe fn Tbsi_Get_TCG_Log_Ex(logtype: u32, pboutput: ::core::option::Option<&mut u8>, pcboutput: &mut u32) -> u32 {
+pub unsafe fn Tbsi_Get_TCG_Log_Ex(logtype: u32, pboutput: *mut u8, pcboutput: &mut u32) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn Tbsi_Get_TCG_Log_Ex(logtype: u32, pboutput: *mut u8, pcboutput: *mut u32) -> u32;
@@ -339,12 +339,12 @@ pub unsafe fn Tbsi_Get_TCG_Log_Ex(logtype: u32, pboutput: ::core::option::Option
 }
 #[doc = "*Required features: `\"Win32_System_TpmBaseServices\"`*"]
 #[inline]
-pub unsafe fn Tbsi_Physical_Presence_Command(hcontext: *const ::core::ffi::c_void, pabinput: &u8, cbinput: u32, paboutput: &mut u8, pcboutput: &mut u32) -> u32 {
+pub unsafe fn Tbsi_Physical_Presence_Command(hcontext: *const ::core::ffi::c_void, pabinput: &[u8], paboutput: *mut u8, pcboutput: &mut u32) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn Tbsi_Physical_Presence_Command(hcontext: *const ::core::ffi::c_void, pabinput: *const u8, cbinput: u32, paboutput: *mut u8, pcboutput: *mut u32) -> u32;
     }
-    Tbsi_Physical_Presence_Command(::core::mem::transmute(hcontext), ::core::mem::transmute(pabinput), cbinput, ::core::mem::transmute(paboutput), ::core::mem::transmute(pcboutput))
+    Tbsi_Physical_Presence_Command(::core::mem::transmute(hcontext), ::core::mem::transmute(pabinput.as_ptr()), pabinput.len() as _, ::core::mem::transmute(paboutput), ::core::mem::transmute(pcboutput))
 }
 #[doc = "*Required features: `\"Win32_System_TpmBaseServices\"`*"]
 #[inline]
@@ -375,12 +375,12 @@ pub unsafe fn Tbsip_Context_Close(hcontext: *const ::core::ffi::c_void) -> u32 {
 }
 #[doc = "*Required features: `\"Win32_System_TpmBaseServices\"`*"]
 #[inline]
-pub unsafe fn Tbsip_Submit_Command(hcontext: *const ::core::ffi::c_void, locality: TBS_COMMAND_LOCALITY, priority: TBS_COMMAND_PRIORITY, pabcommand: &u8, cbcommand: u32, pabresult: &mut u8, pcbresult: &mut u32) -> u32 {
+pub unsafe fn Tbsip_Submit_Command(hcontext: *const ::core::ffi::c_void, locality: TBS_COMMAND_LOCALITY, priority: TBS_COMMAND_PRIORITY, pabcommand: &[u8], pabresult: *mut u8, pcbresult: &mut u32) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn Tbsip_Submit_Command(hcontext: *const ::core::ffi::c_void, locality: TBS_COMMAND_LOCALITY, priority: TBS_COMMAND_PRIORITY, pabcommand: *const u8, cbcommand: u32, pabresult: *mut u8, pcbresult: *mut u32) -> u32;
     }
-    Tbsip_Submit_Command(::core::mem::transmute(hcontext), locality, priority, ::core::mem::transmute(pabcommand), cbcommand, ::core::mem::transmute(pabresult), ::core::mem::transmute(pcbresult))
+    Tbsip_Submit_Command(::core::mem::transmute(hcontext), locality, priority, ::core::mem::transmute(pabcommand.as_ptr()), pabcommand.len() as _, ::core::mem::transmute(pabresult), ::core::mem::transmute(pcbresult))
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_System_TpmBaseServices\"`*"]

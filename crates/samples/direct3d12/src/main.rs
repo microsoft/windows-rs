@@ -368,7 +368,7 @@ mod d3d12_hello_triangle {
             // TODO: workaround for https://github.com/microsoft/win32metadata/issues/1006
             command_list.ClearRenderTargetView(rtv_handle, &*[0.0_f32, 0.2_f32, 0.4_f32, 1.0_f32].as_ptr(), &[]);
             command_list.IASetPrimitiveTopology(D3D_PRIMITIVE_TOPOLOGY_TRIANGLELIST);
-            command_list.IASetVertexBuffers(0, &[resources.vbv]);
+            command_list.IASetVertexBuffers(0, Some(&[resources.vbv]));
             command_list.DrawInstanced(3, 1, 0, 0);
 
             // Indicate that the back buffer will now be used to present.

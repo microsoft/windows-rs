@@ -31,12 +31,12 @@ pub unsafe fn CryptSIPGetCaps(psubjinfo: &SIP_SUBJECTINFO, pcaps: &mut SIP_CAP_S
 #[doc = "*Required features: `\"Win32_Security_Cryptography_Sip\"`, `\"Win32_Foundation\"`, `\"Win32_Security_Cryptography_Catalog\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography_Catalog"))]
 #[inline]
-pub unsafe fn CryptSIPGetSealedDigest(psubjectinfo: &SIP_SUBJECTINFO, psig: &[u8], pbdigest: ::core::option::Option<&mut u8>, pcbdigest: &mut u32) -> super::super::super::Foundation::BOOL {
+pub unsafe fn CryptSIPGetSealedDigest(psubjectinfo: &SIP_SUBJECTINFO, psig: ::core::option::Option<&[u8]>, pbdigest: *mut u8, pcbdigest: &mut u32) -> super::super::super::Foundation::BOOL {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn CryptSIPGetSealedDigest(psubjectinfo: *const SIP_SUBJECTINFO, psig: *const u8, dwsig: u32, pbdigest: *mut u8, pcbdigest: *mut u32) -> super::super::super::Foundation::BOOL;
     }
-    CryptSIPGetSealedDigest(::core::mem::transmute(psubjectinfo), ::core::mem::transmute(::windows::core::as_ptr_or_null(psig)), psig.len() as _, ::core::mem::transmute(pbdigest), ::core::mem::transmute(pcbdigest))
+    CryptSIPGetSealedDigest(::core::mem::transmute(psubjectinfo), ::core::mem::transmute(psig.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), psig.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(pbdigest), ::core::mem::transmute(pcbdigest))
 }
 #[doc = "*Required features: `\"Win32_Security_Cryptography_Sip\"`, `\"Win32_Foundation\"`, `\"Win32_Security_Cryptography_Catalog\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography_Catalog"))]

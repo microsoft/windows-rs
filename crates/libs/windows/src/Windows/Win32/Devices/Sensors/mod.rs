@@ -120,12 +120,12 @@ pub unsafe fn CollectionsListCopyAndMarshall(target: &mut SENSOR_COLLECTION_LIST
 #[doc = "*Required features: `\"Win32_Devices_Sensors\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_UI_Shell_PropertiesSystem\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_UI_Shell_PropertiesSystem"))]
 #[inline]
-pub unsafe fn CollectionsListDeserializeFromBuffer(sourcebuffersizeinbytes: u32, sourcebuffer: &u8, targetcollection: &mut SENSOR_COLLECTION_LIST) -> ::windows::core::Result<()> {
+pub unsafe fn CollectionsListDeserializeFromBuffer(sourcebuffer: &[u8], targetcollection: &mut SENSOR_COLLECTION_LIST) -> ::windows::core::Result<()> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn CollectionsListDeserializeFromBuffer(sourcebuffersizeinbytes: u32, sourcebuffer: *const u8, targetcollection: *mut SENSOR_COLLECTION_LIST) -> super::super::Foundation::NTSTATUS;
     }
-    CollectionsListDeserializeFromBuffer(sourcebuffersizeinbytes, ::core::mem::transmute(sourcebuffer), ::core::mem::transmute(targetcollection)).ok()
+    CollectionsListDeserializeFromBuffer(sourcebuffer.len() as _, ::core::mem::transmute(sourcebuffer.as_ptr()), ::core::mem::transmute(targetcollection)).ok()
 }
 #[doc = "*Required features: `\"Win32_Devices_Sensors\"`*"]
 #[inline]
@@ -179,12 +179,12 @@ pub unsafe fn CollectionsListMarshall(target: &mut SENSOR_COLLECTION_LIST) -> ::
 #[doc = "*Required features: `\"Win32_Devices_Sensors\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_UI_Shell_PropertiesSystem\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_UI_Shell_PropertiesSystem"))]
 #[inline]
-pub unsafe fn CollectionsListSerializeToBuffer(sourcecollection: &SENSOR_COLLECTION_LIST, targetbuffersizeinbytes: u32, targetbuffer: &mut u8) -> ::windows::core::Result<()> {
+pub unsafe fn CollectionsListSerializeToBuffer(sourcecollection: &SENSOR_COLLECTION_LIST, targetbuffer: &mut [u8]) -> ::windows::core::Result<()> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn CollectionsListSerializeToBuffer(sourcecollection: *const SENSOR_COLLECTION_LIST, targetbuffersizeinbytes: u32, targetbuffer: *mut u8) -> super::super::Foundation::NTSTATUS;
     }
-    CollectionsListSerializeToBuffer(::core::mem::transmute(sourcecollection), targetbuffersizeinbytes, ::core::mem::transmute(targetbuffer)).ok()
+    CollectionsListSerializeToBuffer(::core::mem::transmute(sourcecollection), targetbuffer.len() as _, ::core::mem::transmute(targetbuffer.as_ptr())).ok()
 }
 #[doc = "*Required features: `\"Win32_Devices_Sensors\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_UI_Shell_PropertiesSystem\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_UI_Shell_PropertiesSystem"))]
@@ -481,11 +481,11 @@ impl ISensor {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).SupportsEvent)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(eventguid), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i16>(result__)
     }
-    pub unsafe fn GetEventInterest(&self, ppvalues: &mut *mut ::windows::core::GUID, pcount: &mut u32) -> ::windows::core::Result<()> {
+    pub unsafe fn GetEventInterest(&self, ppvalues: *mut *mut ::windows::core::GUID, pcount: &mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).GetEventInterest)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(ppvalues), ::core::mem::transmute(pcount)).ok()
     }
-    pub unsafe fn SetEventInterest(&self, pvalues: &[::windows::core::GUID]) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetEventInterest)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(::windows::core::as_ptr_or_null(pvalues)), pvalues.len() as _).ok()
+    pub unsafe fn SetEventInterest(&self, pvalues: ::core::option::Option<&[::windows::core::GUID]>) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetEventInterest)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pvalues.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), pvalues.as_deref().map_or(0, |slice| slice.len() as _)).ok()
     }
     pub unsafe fn SetEventSink<'a, P0>(&self, pevents: P0) -> ::windows::core::Result<()>
     where
@@ -941,7 +941,7 @@ pub unsafe fn InitPropVariantFromCLSIDArray(members: &[::windows::core::GUID]) -
         fn InitPropVariantFromCLSIDArray(members: *const ::windows::core::GUID, size: u32, ppropvar: *mut super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::HRESULT;
     }
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    InitPropVariantFromCLSIDArray(::core::mem::transmute(::windows::core::as_ptr_or_null(members)), members.len() as _, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::System::Com::StructuredStorage::PROPVARIANT>(result__)
+    InitPropVariantFromCLSIDArray(::core::mem::transmute(members.as_ptr()), members.len() as _, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::System::Com::StructuredStorage::PROPVARIANT>(result__)
 }
 #[doc = "*Required features: `\"Win32_Devices_Sensors\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
@@ -972,7 +972,7 @@ pub unsafe fn IsGUIDPresentInList(guidarray: &[::windows::core::GUID], guidelem:
     extern "system" {
         fn IsGUIDPresentInList(guidarray: *const ::windows::core::GUID, arraylength: u32, guidelem: *const ::windows::core::GUID) -> super::super::Foundation::BOOLEAN;
     }
-    IsGUIDPresentInList(::core::mem::transmute(::windows::core::as_ptr_or_null(guidarray)), guidarray.len() as _, ::core::mem::transmute(guidelem))
+    IsGUIDPresentInList(::core::mem::transmute(guidarray.as_ptr()), guidarray.len() as _, ::core::mem::transmute(guidelem))
 }
 #[doc = "*Required features: `\"Win32_Devices_Sensors\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_UI_Shell_PropertiesSystem\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_UI_Shell_PropertiesSystem"))]

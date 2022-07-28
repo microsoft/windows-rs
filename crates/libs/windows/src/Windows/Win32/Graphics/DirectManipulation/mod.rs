@@ -764,13 +764,13 @@ impl IDirectManipulationContent {
         (::windows::core::Interface::vtable(self).SetTag)(::windows::core::Interface::as_raw(self), object.into().abi(), id).ok()
     }
     pub unsafe fn GetOutputTransform(&self, matrix: &mut [f32]) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetOutputTransform)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(matrix)), matrix.len() as _).ok()
+        (::windows::core::Interface::vtable(self).GetOutputTransform)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(matrix.as_ptr()), matrix.len() as _).ok()
     }
     pub unsafe fn GetContentTransform(&self, matrix: &mut [f32]) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetContentTransform)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(matrix)), matrix.len() as _).ok()
+        (::windows::core::Interface::vtable(self).GetContentTransform)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(matrix.as_ptr()), matrix.len() as _).ok()
     }
     pub unsafe fn SyncContentTransform(&self, matrix: &[f32]) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SyncContentTransform)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(::windows::core::as_ptr_or_null(matrix)), matrix.len() as _).ok()
+        (::windows::core::Interface::vtable(self).SyncContentTransform)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(matrix.as_ptr()), matrix.len() as _).ok()
     }
 }
 impl ::core::convert::From<IDirectManipulationContent> for ::windows::core::IUnknown {
@@ -1494,8 +1494,8 @@ impl IDirectManipulationPrimaryContent {
     pub unsafe fn SetSnapInterval(&self, motion: DIRECTMANIPULATION_MOTION_TYPES, interval: f32, offset: f32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetSnapInterval)(::windows::core::Interface::as_raw(self), motion, interval, offset).ok()
     }
-    pub unsafe fn SetSnapPoints(&self, motion: DIRECTMANIPULATION_MOTION_TYPES, points: &[f32]) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetSnapPoints)(::windows::core::Interface::as_raw(self), motion, ::core::mem::transmute(::windows::core::as_ptr_or_null(points)), points.len() as _).ok()
+    pub unsafe fn SetSnapPoints(&self, motion: DIRECTMANIPULATION_MOTION_TYPES, points: ::core::option::Option<&[f32]>) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetSnapPoints)(::windows::core::Interface::as_raw(self), motion, ::core::mem::transmute(points.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), points.as_deref().map_or(0, |slice| slice.len() as _)).ok()
     }
     pub unsafe fn SetSnapType(&self, motion: DIRECTMANIPULATION_MOTION_TYPES, r#type: DIRECTMANIPULATION_SNAPPOINT_TYPE) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetSnapType)(::windows::core::Interface::as_raw(self), motion, r#type).ok()
@@ -1513,7 +1513,7 @@ impl IDirectManipulationPrimaryContent {
         (::windows::core::Interface::vtable(self).SetVerticalAlignment)(::windows::core::Interface::as_raw(self), alignment).ok()
     }
     pub unsafe fn GetInertiaEndTransform(&self, matrix: &mut [f32]) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetInertiaEndTransform)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(matrix)), matrix.len() as _).ok()
+        (::windows::core::Interface::vtable(self).GetInertiaEndTransform)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(matrix.as_ptr()), matrix.len() as _).ok()
     }
     pub unsafe fn GetCenterPoint(&self, centerx: &mut f32, centery: &mut f32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).GetCenterPoint)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(centerx), ::core::mem::transmute(centery)).ok()
@@ -1742,10 +1742,10 @@ impl IDirectManipulationViewport {
         (::windows::core::Interface::vtable(self).ZoomToRect)(::windows::core::Interface::as_raw(self), left, top, right, bottom, animate.into()).ok()
     }
     pub unsafe fn SetViewportTransform(&self, matrix: &[f32]) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetViewportTransform)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(::windows::core::as_ptr_or_null(matrix)), matrix.len() as _).ok()
+        (::windows::core::Interface::vtable(self).SetViewportTransform)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(matrix.as_ptr()), matrix.len() as _).ok()
     }
     pub unsafe fn SyncDisplayTransform(&self, matrix: &[f32]) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SyncDisplayTransform)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(::windows::core::as_ptr_or_null(matrix)), matrix.len() as _).ok()
+        (::windows::core::Interface::vtable(self).SyncDisplayTransform)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(matrix.as_ptr()), matrix.len() as _).ok()
     }
     pub unsafe fn GetPrimaryContent<T>(&self) -> ::windows::core::Result<T>
     where
@@ -1945,10 +1945,10 @@ impl IDirectManipulationViewport2 {
         (::windows::core::Interface::vtable(self).base__.ZoomToRect)(::windows::core::Interface::as_raw(self), left, top, right, bottom, animate.into()).ok()
     }
     pub unsafe fn SetViewportTransform(&self, matrix: &[f32]) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetViewportTransform)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(::windows::core::as_ptr_or_null(matrix)), matrix.len() as _).ok()
+        (::windows::core::Interface::vtable(self).base__.SetViewportTransform)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(matrix.as_ptr()), matrix.len() as _).ok()
     }
     pub unsafe fn SyncDisplayTransform(&self, matrix: &[f32]) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SyncDisplayTransform)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(::windows::core::as_ptr_or_null(matrix)), matrix.len() as _).ok()
+        (::windows::core::Interface::vtable(self).base__.SyncDisplayTransform)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(matrix.as_ptr()), matrix.len() as _).ok()
     }
     pub unsafe fn GetPrimaryContent<T>(&self) -> ::windows::core::Result<T>
     where

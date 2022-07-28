@@ -12162,7 +12162,7 @@ pub struct IDot11AdHocSecuritySettings_Vtbl {
 pub struct IEnumDot11AdHocInterfaces(::windows::core::IUnknown);
 impl IEnumDot11AdHocInterfaces {
     pub unsafe fn Next(&self, rgelt: &mut [::core::option::Option<IDot11AdHocInterface>], pceltfetched: &mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Next)(::windows::core::Interface::as_raw(self), rgelt.len() as _, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(rgelt)), ::core::mem::transmute(pceltfetched)).ok()
+        (::windows::core::Interface::vtable(self).Next)(::windows::core::Interface::as_raw(self), rgelt.len() as _, ::core::mem::transmute(rgelt.as_ptr()), ::core::mem::transmute(pceltfetched)).ok()
     }
     pub unsafe fn Skip(&self, celt: u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).Skip)(::windows::core::Interface::as_raw(self), celt).ok()
@@ -12224,7 +12224,7 @@ pub struct IEnumDot11AdHocInterfaces_Vtbl {
 pub struct IEnumDot11AdHocNetworks(::windows::core::IUnknown);
 impl IEnumDot11AdHocNetworks {
     pub unsafe fn Next(&self, rgelt: &mut [::core::option::Option<IDot11AdHocNetwork>], pceltfetched: &mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Next)(::windows::core::Interface::as_raw(self), rgelt.len() as _, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(rgelt)), ::core::mem::transmute(pceltfetched)).ok()
+        (::windows::core::Interface::vtable(self).Next)(::windows::core::Interface::as_raw(self), rgelt.len() as _, ::core::mem::transmute(rgelt.as_ptr()), ::core::mem::transmute(pceltfetched)).ok()
     }
     pub unsafe fn Skip(&self, celt: u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).Skip)(::windows::core::Interface::as_raw(self), celt).ok()
@@ -12286,7 +12286,7 @@ pub struct IEnumDot11AdHocNetworks_Vtbl {
 pub struct IEnumDot11AdHocSecuritySettings(::windows::core::IUnknown);
 impl IEnumDot11AdHocSecuritySettings {
     pub unsafe fn Next(&self, rgelt: &mut [::core::option::Option<IDot11AdHocSecuritySettings>], pceltfetched: &mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Next)(::windows::core::Interface::as_raw(self), rgelt.len() as _, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(rgelt)), ::core::mem::transmute(pceltfetched)).ok()
+        (::windows::core::Interface::vtable(self).Next)(::windows::core::Interface::as_raw(self), rgelt.len() as _, ::core::mem::transmute(rgelt.as_ptr()), ::core::mem::transmute(pceltfetched)).ok()
     }
     pub unsafe fn Skip(&self, celt: u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).Skip)(::windows::core::Interface::as_raw(self), celt).ok()
@@ -16283,7 +16283,7 @@ where
 #[doc = "*Required features: `\"Win32_NetworkManagement_WiFi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn WlanDeviceServiceCommand<'a, P0>(hclienthandle: P0, pinterfaceguid: &::windows::core::GUID, pdeviceserviceguid: &::windows::core::GUID, dwopcode: u32, dwinbuffersize: u32, pinbuffer: *const ::core::ffi::c_void, dwoutbuffersize: u32, poutbuffer: *mut ::core::ffi::c_void, pdwbytesreturned: &mut u32) -> u32
+pub unsafe fn WlanDeviceServiceCommand<'a, P0>(hclienthandle: P0, pinterfaceguid: &::windows::core::GUID, pdeviceserviceguid: &::windows::core::GUID, dwopcode: u32, pinbuffer: ::core::option::Option<&[u8]>, poutbuffer: ::core::option::Option<&mut [u8]>, pdwbytesreturned: &mut u32) -> u32
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
 {
@@ -16291,7 +16291,7 @@ where
     extern "system" {
         fn WlanDeviceServiceCommand(hclienthandle: super::super::Foundation::HANDLE, pinterfaceguid: *const ::windows::core::GUID, pdeviceserviceguid: *const ::windows::core::GUID, dwopcode: u32, dwinbuffersize: u32, pinbuffer: *const ::core::ffi::c_void, dwoutbuffersize: u32, poutbuffer: *mut ::core::ffi::c_void, pdwbytesreturned: *mut u32) -> u32;
     }
-    WlanDeviceServiceCommand(hclienthandle.into(), ::core::mem::transmute(pinterfaceguid), ::core::mem::transmute(pdeviceserviceguid), dwopcode, dwinbuffersize, ::core::mem::transmute(pinbuffer), dwoutbuffersize, ::core::mem::transmute(poutbuffer), ::core::mem::transmute(pdwbytesreturned))
+    WlanDeviceServiceCommand(hclienthandle.into(), ::core::mem::transmute(pinterfaceguid), ::core::mem::transmute(pdeviceserviceguid), dwopcode, pinbuffer.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(pinbuffer.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), poutbuffer.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(poutbuffer.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), ::core::mem::transmute(pdwbytesreturned))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_WiFi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -16322,7 +16322,7 @@ where
 #[doc = "*Required features: `\"Win32_NetworkManagement_WiFi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn WlanExtractPsdIEDataList<'a, P0, P1>(hclienthandle: P0, dwiedatasize: u32, prawiedata: &u8, strformat: P1, preserved: *mut ::core::ffi::c_void, pppsdiedatalist: &mut *mut WLAN_RAW_DATA_LIST) -> u32
+pub unsafe fn WlanExtractPsdIEDataList<'a, P0, P1>(hclienthandle: P0, prawiedata: &[u8], strformat: P1, preserved: *mut ::core::ffi::c_void, pppsdiedatalist: &mut *mut WLAN_RAW_DATA_LIST) -> u32
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
     P1: ::std::convert::Into<::windows::core::PCWSTR>,
@@ -16331,7 +16331,7 @@ where
     extern "system" {
         fn WlanExtractPsdIEDataList(hclienthandle: super::super::Foundation::HANDLE, dwiedatasize: u32, prawiedata: *const u8, strformat: ::windows::core::PCWSTR, preserved: *mut ::core::ffi::c_void, pppsdiedatalist: *mut *mut WLAN_RAW_DATA_LIST) -> u32;
     }
-    WlanExtractPsdIEDataList(hclienthandle.into(), dwiedatasize, ::core::mem::transmute(prawiedata), strformat.into(), ::core::mem::transmute(preserved), ::core::mem::transmute(pppsdiedatalist))
+    WlanExtractPsdIEDataList(hclienthandle.into(), prawiedata.len() as _, ::core::mem::transmute(prawiedata.as_ptr()), strformat.into(), ::core::mem::transmute(preserved), ::core::mem::transmute(pppsdiedatalist))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_WiFi\"`*"]
 #[inline]
@@ -16569,7 +16569,7 @@ where
 #[doc = "*Required features: `\"Win32_NetworkManagement_WiFi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn WlanHostedNetworkSetProperty<'a, P0>(hclienthandle: P0, opcode: WLAN_HOSTED_NETWORK_OPCODE, dwdatasize: u32, pvdata: *const ::core::ffi::c_void, pfailreason: ::core::option::Option<&mut WLAN_HOSTED_NETWORK_REASON>, pvreserved: *mut ::core::ffi::c_void) -> u32
+pub unsafe fn WlanHostedNetworkSetProperty<'a, P0>(hclienthandle: P0, opcode: WLAN_HOSTED_NETWORK_OPCODE, pvdata: &[u8], pfailreason: ::core::option::Option<&mut WLAN_HOSTED_NETWORK_REASON>, pvreserved: *mut ::core::ffi::c_void) -> u32
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
 {
@@ -16577,12 +16577,12 @@ where
     extern "system" {
         fn WlanHostedNetworkSetProperty(hclienthandle: super::super::Foundation::HANDLE, opcode: WLAN_HOSTED_NETWORK_OPCODE, dwdatasize: u32, pvdata: *const ::core::ffi::c_void, pfailreason: *mut WLAN_HOSTED_NETWORK_REASON, pvreserved: *mut ::core::ffi::c_void) -> u32;
     }
-    WlanHostedNetworkSetProperty(hclienthandle.into(), opcode, dwdatasize, ::core::mem::transmute(pvdata), ::core::mem::transmute(pfailreason), ::core::mem::transmute(pvreserved))
+    WlanHostedNetworkSetProperty(hclienthandle.into(), opcode, pvdata.len() as _, ::core::mem::transmute(pvdata.as_ptr()), ::core::mem::transmute(pfailreason), ::core::mem::transmute(pvreserved))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_WiFi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn WlanHostedNetworkSetSecondaryKey<'a, P0, P1, P2>(hclienthandle: P0, dwkeylength: u32, puckeydata: &u8, bispassphrase: P1, bpersistent: P2, pfailreason: ::core::option::Option<&mut WLAN_HOSTED_NETWORK_REASON>, pvreserved: *mut ::core::ffi::c_void) -> u32
+pub unsafe fn WlanHostedNetworkSetSecondaryKey<'a, P0, P1, P2>(hclienthandle: P0, puckeydata: &[u8], bispassphrase: P1, bpersistent: P2, pfailreason: ::core::option::Option<&mut WLAN_HOSTED_NETWORK_REASON>, pvreserved: *mut ::core::ffi::c_void) -> u32
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
     P1: ::std::convert::Into<super::super::Foundation::BOOL>,
@@ -16592,7 +16592,7 @@ where
     extern "system" {
         fn WlanHostedNetworkSetSecondaryKey(hclienthandle: super::super::Foundation::HANDLE, dwkeylength: u32, puckeydata: *const u8, bispassphrase: super::super::Foundation::BOOL, bpersistent: super::super::Foundation::BOOL, pfailreason: *mut WLAN_HOSTED_NETWORK_REASON, pvreserved: *mut ::core::ffi::c_void) -> u32;
     }
-    WlanHostedNetworkSetSecondaryKey(hclienthandle.into(), dwkeylength, ::core::mem::transmute(puckeydata), bispassphrase.into(), bpersistent.into(), ::core::mem::transmute(pfailreason), ::core::mem::transmute(pvreserved))
+    WlanHostedNetworkSetSecondaryKey(hclienthandle.into(), puckeydata.len() as _, ::core::mem::transmute(puckeydata.as_ptr()), bispassphrase.into(), bpersistent.into(), ::core::mem::transmute(pfailreason), ::core::mem::transmute(pvreserved))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_WiFi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -16623,7 +16623,7 @@ where
 #[doc = "*Required features: `\"Win32_NetworkManagement_WiFi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn WlanIhvControl<'a, P0>(hclienthandle: P0, pinterfaceguid: &::windows::core::GUID, r#type: WLAN_IHV_CONTROL_TYPE, dwinbuffersize: u32, pinbuffer: *const ::core::ffi::c_void, dwoutbuffersize: u32, poutbuffer: *mut ::core::ffi::c_void, pdwbytesreturned: &mut u32) -> u32
+pub unsafe fn WlanIhvControl<'a, P0>(hclienthandle: P0, pinterfaceguid: &::windows::core::GUID, r#type: WLAN_IHV_CONTROL_TYPE, pinbuffer: &[u8], poutbuffer: ::core::option::Option<&mut [u8]>, pdwbytesreturned: &mut u32) -> u32
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
 {
@@ -16631,7 +16631,7 @@ where
     extern "system" {
         fn WlanIhvControl(hclienthandle: super::super::Foundation::HANDLE, pinterfaceguid: *const ::windows::core::GUID, r#type: WLAN_IHV_CONTROL_TYPE, dwinbuffersize: u32, pinbuffer: *const ::core::ffi::c_void, dwoutbuffersize: u32, poutbuffer: *mut ::core::ffi::c_void, pdwbytesreturned: *mut u32) -> u32;
     }
-    WlanIhvControl(hclienthandle.into(), ::core::mem::transmute(pinterfaceguid), r#type, dwinbuffersize, ::core::mem::transmute(pinbuffer), dwoutbuffersize, ::core::mem::transmute(poutbuffer), ::core::mem::transmute(pdwbytesreturned))
+    WlanIhvControl(hclienthandle.into(), ::core::mem::transmute(pinterfaceguid), r#type, pinbuffer.len() as _, ::core::mem::transmute(pinbuffer.as_ptr()), poutbuffer.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(poutbuffer.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), ::core::mem::transmute(pdwbytesreturned))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_WiFi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -16676,7 +16676,7 @@ pub unsafe fn WlanReasonCodeToString(dwreasoncode: u32, pstringbuffer: &[u16], p
     extern "system" {
         fn WlanReasonCodeToString(dwreasoncode: u32, dwbuffersize: u32, pstringbuffer: ::windows::core::PCWSTR, preserved: *mut ::core::ffi::c_void) -> u32;
     }
-    WlanReasonCodeToString(dwreasoncode, pstringbuffer.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(pstringbuffer)), ::core::mem::transmute(preserved))
+    WlanReasonCodeToString(dwreasoncode, pstringbuffer.len() as _, ::core::mem::transmute(pstringbuffer.as_ptr()), ::core::mem::transmute(preserved))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_WiFi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -16766,7 +16766,7 @@ where
 #[doc = "*Required features: `\"Win32_NetworkManagement_WiFi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn WlanSetAutoConfigParameter<'a, P0>(hclienthandle: P0, opcode: WLAN_AUTOCONF_OPCODE, dwdatasize: u32, pdata: *const ::core::ffi::c_void, preserved: *mut ::core::ffi::c_void) -> u32
+pub unsafe fn WlanSetAutoConfigParameter<'a, P0>(hclienthandle: P0, opcode: WLAN_AUTOCONF_OPCODE, pdata: &[u8], preserved: *mut ::core::ffi::c_void) -> u32
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
 {
@@ -16774,7 +16774,7 @@ where
     extern "system" {
         fn WlanSetAutoConfigParameter(hclienthandle: super::super::Foundation::HANDLE, opcode: WLAN_AUTOCONF_OPCODE, dwdatasize: u32, pdata: *const ::core::ffi::c_void, preserved: *mut ::core::ffi::c_void) -> u32;
     }
-    WlanSetAutoConfigParameter(hclienthandle.into(), opcode, dwdatasize, ::core::mem::transmute(pdata), ::core::mem::transmute(preserved))
+    WlanSetAutoConfigParameter(hclienthandle.into(), opcode, pdata.len() as _, ::core::mem::transmute(pdata.as_ptr()), ::core::mem::transmute(preserved))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_WiFi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -16792,7 +16792,7 @@ where
 #[doc = "*Required features: `\"Win32_NetworkManagement_WiFi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn WlanSetInterface<'a, P0>(hclienthandle: P0, pinterfaceguid: &::windows::core::GUID, opcode: WLAN_INTF_OPCODE, dwdatasize: u32, pdata: *const ::core::ffi::c_void, preserved: *mut ::core::ffi::c_void) -> u32
+pub unsafe fn WlanSetInterface<'a, P0>(hclienthandle: P0, pinterfaceguid: &::windows::core::GUID, opcode: WLAN_INTF_OPCODE, pdata: &[u8], preserved: *mut ::core::ffi::c_void) -> u32
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
 {
@@ -16800,7 +16800,7 @@ where
     extern "system" {
         fn WlanSetInterface(hclienthandle: super::super::Foundation::HANDLE, pinterfaceguid: *const ::windows::core::GUID, opcode: WLAN_INTF_OPCODE, dwdatasize: u32, pdata: *const ::core::ffi::c_void, preserved: *mut ::core::ffi::c_void) -> u32;
     }
-    WlanSetInterface(hclienthandle.into(), ::core::mem::transmute(pinterfaceguid), opcode, dwdatasize, ::core::mem::transmute(pdata), ::core::mem::transmute(preserved))
+    WlanSetInterface(hclienthandle.into(), ::core::mem::transmute(pinterfaceguid), opcode, pdata.len() as _, ::core::mem::transmute(pdata.as_ptr()), ::core::mem::transmute(preserved))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_WiFi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -16821,7 +16821,7 @@ where
 #[doc = "*Required features: `\"Win32_NetworkManagement_WiFi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn WlanSetProfileCustomUserData<'a, P0, P1>(hclienthandle: P0, pinterfaceguid: &::windows::core::GUID, strprofilename: P1, dwdatasize: u32, pdata: &u8, preserved: *mut ::core::ffi::c_void) -> u32
+pub unsafe fn WlanSetProfileCustomUserData<'a, P0, P1>(hclienthandle: P0, pinterfaceguid: &::windows::core::GUID, strprofilename: P1, pdata: &[u8], preserved: *mut ::core::ffi::c_void) -> u32
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
     P1: ::std::convert::Into<::windows::core::PCWSTR>,
@@ -16830,12 +16830,12 @@ where
     extern "system" {
         fn WlanSetProfileCustomUserData(hclienthandle: super::super::Foundation::HANDLE, pinterfaceguid: *const ::windows::core::GUID, strprofilename: ::windows::core::PCWSTR, dwdatasize: u32, pdata: *const u8, preserved: *mut ::core::ffi::c_void) -> u32;
     }
-    WlanSetProfileCustomUserData(hclienthandle.into(), ::core::mem::transmute(pinterfaceguid), strprofilename.into(), dwdatasize, ::core::mem::transmute(pdata), ::core::mem::transmute(preserved))
+    WlanSetProfileCustomUserData(hclienthandle.into(), ::core::mem::transmute(pinterfaceguid), strprofilename.into(), pdata.len() as _, ::core::mem::transmute(pdata.as_ptr()), ::core::mem::transmute(preserved))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_WiFi\"`, `\"Win32_Foundation\"`, `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_ExtensibleAuthenticationProtocol"))]
 #[inline]
-pub unsafe fn WlanSetProfileEapUserData<'a, P0, P1>(hclienthandle: P0, pinterfaceguid: &::windows::core::GUID, strprofilename: P1, eaptype: super::super::Security::ExtensibleAuthenticationProtocol::EAP_METHOD_TYPE, dwflags: WLAN_SET_EAPHOST_FLAGS, dweapuserdatasize: u32, pbeapuserdata: ::core::option::Option<&u8>, preserved: *mut ::core::ffi::c_void) -> u32
+pub unsafe fn WlanSetProfileEapUserData<'a, P0, P1>(hclienthandle: P0, pinterfaceguid: &::windows::core::GUID, strprofilename: P1, eaptype: super::super::Security::ExtensibleAuthenticationProtocol::EAP_METHOD_TYPE, dwflags: WLAN_SET_EAPHOST_FLAGS, pbeapuserdata: ::core::option::Option<&[u8]>, preserved: *mut ::core::ffi::c_void) -> u32
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
     P1: ::std::convert::Into<::windows::core::PCWSTR>,
@@ -16844,7 +16844,7 @@ where
     extern "system" {
         fn WlanSetProfileEapUserData(hclienthandle: super::super::Foundation::HANDLE, pinterfaceguid: *const ::windows::core::GUID, strprofilename: ::windows::core::PCWSTR, eaptype: super::super::Security::ExtensibleAuthenticationProtocol::EAP_METHOD_TYPE, dwflags: WLAN_SET_EAPHOST_FLAGS, dweapuserdatasize: u32, pbeapuserdata: *const u8, preserved: *mut ::core::ffi::c_void) -> u32;
     }
-    WlanSetProfileEapUserData(hclienthandle.into(), ::core::mem::transmute(pinterfaceguid), strprofilename.into(), ::core::mem::transmute(eaptype), dwflags, dweapuserdatasize, ::core::mem::transmute(pbeapuserdata), ::core::mem::transmute(preserved))
+    WlanSetProfileEapUserData(hclienthandle.into(), ::core::mem::transmute(pinterfaceguid), strprofilename.into(), ::core::mem::transmute(eaptype), dwflags, pbeapuserdata.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(pbeapuserdata.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), ::core::mem::transmute(preserved))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_WiFi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -16872,7 +16872,7 @@ where
     extern "system" {
         fn WlanSetProfileList(hclienthandle: super::super::Foundation::HANDLE, pinterfaceguid: *const ::windows::core::GUID, dwitems: u32, strprofilenames: *const ::windows::core::PWSTR, preserved: *mut ::core::ffi::c_void) -> u32;
     }
-    WlanSetProfileList(hclienthandle.into(), ::core::mem::transmute(pinterfaceguid), strprofilenames.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(strprofilenames)), ::core::mem::transmute(preserved))
+    WlanSetProfileList(hclienthandle.into(), ::core::mem::transmute(pinterfaceguid), strprofilenames.len() as _, ::core::mem::transmute(strprofilenames.as_ptr()), ::core::mem::transmute(preserved))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_WiFi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]

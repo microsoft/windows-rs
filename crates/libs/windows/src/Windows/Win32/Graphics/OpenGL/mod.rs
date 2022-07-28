@@ -14,7 +14,7 @@ where
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
-pub unsafe fn DescribePixelFormat<'a, P0>(hdc: P0, ipixelformat: PFD_PIXEL_TYPE, nbytes: u32, ppfd: ::core::option::Option<&mut PIXELFORMATDESCRIPTOR>) -> i32
+pub unsafe fn DescribePixelFormat<'a, P0>(hdc: P0, ipixelformat: PFD_PIXEL_TYPE, ppfd: ::core::option::Option<&mut [u8]>) -> i32
 where
     P0: ::std::convert::Into<super::Gdi::HDC>,
 {
@@ -22,7 +22,7 @@ where
     extern "system" {
         fn DescribePixelFormat(hdc: super::Gdi::HDC, ipixelformat: PFD_PIXEL_TYPE, nbytes: u32, ppfd: *mut PIXELFORMATDESCRIPTOR) -> i32;
     }
-    DescribePixelFormat(hdc.into(), ipixelformat, nbytes, ::core::mem::transmute(ppfd))
+    DescribePixelFormat(hdc.into(), ipixelformat, ppfd.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(ppfd.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())))
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`, `\"Win32_Graphics_Gdi\"`*"]
@@ -1540,7 +1540,7 @@ pub const GL_ZOOM_Y: u32 = 3351u32;
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
-pub unsafe fn GetEnhMetaFilePixelFormat<'a, P0>(hemf: P0, cbbuffer: u32, ppfd: ::core::option::Option<&mut PIXELFORMATDESCRIPTOR>) -> u32
+pub unsafe fn GetEnhMetaFilePixelFormat<'a, P0>(hemf: P0, ppfd: ::core::option::Option<&mut [u8]>) -> u32
 where
     P0: ::std::convert::Into<super::Gdi::HENHMETAFILE>,
 {
@@ -1548,7 +1548,7 @@ where
     extern "system" {
         fn GetEnhMetaFilePixelFormat(hemf: super::Gdi::HENHMETAFILE, cbbuffer: u32, ppfd: *mut PIXELFORMATDESCRIPTOR) -> u32;
     }
-    GetEnhMetaFilePixelFormat(hemf.into(), cbbuffer, ::core::mem::transmute(ppfd))
+    GetEnhMetaFilePixelFormat(hemf.into(), ppfd.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(ppfd.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())))
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(feature = "Win32_Graphics_Gdi")]

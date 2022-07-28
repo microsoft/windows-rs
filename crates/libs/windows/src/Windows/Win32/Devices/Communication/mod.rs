@@ -671,7 +671,7 @@ where
 #[doc = "*Required features: `\"Win32_Devices_Communication\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn GetCommConfig<'a, P0>(hcommdev: P0, lpcc: ::core::option::Option<&mut COMMCONFIG>, lpdwsize: &mut u32) -> super::super::Foundation::BOOL
+pub unsafe fn GetCommConfig<'a, P0>(hcommdev: P0, lpcc: *mut COMMCONFIG, lpdwsize: &mut u32) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
 {
@@ -714,7 +714,7 @@ pub unsafe fn GetCommPorts(lpportnumbers: &mut [u32], puportnumbersfound: &mut u
     extern "system" {
         fn GetCommPorts(lpportnumbers: *mut u32, uportnumberscount: u32, puportnumbersfound: *mut u32) -> u32;
     }
-    GetCommPorts(::core::mem::transmute(::windows::core::as_mut_ptr_or_null(lpportnumbers)), lpportnumbers.len() as _, ::core::mem::transmute(puportnumbersfound))
+    GetCommPorts(::core::mem::transmute(lpportnumbers.as_ptr()), lpportnumbers.len() as _, ::core::mem::transmute(puportnumbersfound))
 }
 #[doc = "*Required features: `\"Win32_Devices_Communication\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -758,7 +758,7 @@ where
 #[doc = "*Required features: `\"Win32_Devices_Communication\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn GetDefaultCommConfigA<'a, P0>(lpszname: P0, lpcc: &mut COMMCONFIG, lpdwsize: &mut u32) -> super::super::Foundation::BOOL
+pub unsafe fn GetDefaultCommConfigA<'a, P0>(lpszname: P0, lpcc: *mut COMMCONFIG, lpdwsize: &mut u32) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
 {
@@ -771,7 +771,7 @@ where
 #[doc = "*Required features: `\"Win32_Devices_Communication\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn GetDefaultCommConfigW<'a, P0>(lpszname: P0, lpcc: &mut COMMCONFIG, lpdwsize: &mut u32) -> super::super::Foundation::BOOL
+pub unsafe fn GetDefaultCommConfigW<'a, P0>(lpszname: P0, lpcc: *mut COMMCONFIG, lpdwsize: &mut u32) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
 {
@@ -1478,7 +1478,7 @@ where
 #[doc = "*Required features: `\"Win32_Devices_Communication\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SetCommConfig<'a, P0>(hcommdev: P0, lpcc: &COMMCONFIG, dwsize: u32) -> super::super::Foundation::BOOL
+pub unsafe fn SetCommConfig<'a, P0>(hcommdev: P0, lpcc: &[u8]) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
 {
@@ -1486,7 +1486,7 @@ where
     extern "system" {
         fn SetCommConfig(hcommdev: super::super::Foundation::HANDLE, lpcc: *const COMMCONFIG, dwsize: u32) -> super::super::Foundation::BOOL;
     }
-    SetCommConfig(hcommdev.into(), ::core::mem::transmute(lpcc), dwsize)
+    SetCommConfig(hcommdev.into(), ::core::mem::transmute(lpcc.as_ptr()), lpcc.len() as _)
 }
 #[doc = "*Required features: `\"Win32_Devices_Communication\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -1530,7 +1530,7 @@ where
 #[doc = "*Required features: `\"Win32_Devices_Communication\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SetDefaultCommConfigA<'a, P0>(lpszname: P0, lpcc: &COMMCONFIG, dwsize: u32) -> super::super::Foundation::BOOL
+pub unsafe fn SetDefaultCommConfigA<'a, P0>(lpszname: P0, lpcc: &[u8]) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
 {
@@ -1538,12 +1538,12 @@ where
     extern "system" {
         fn SetDefaultCommConfigA(lpszname: ::windows::core::PCSTR, lpcc: *const COMMCONFIG, dwsize: u32) -> super::super::Foundation::BOOL;
     }
-    SetDefaultCommConfigA(lpszname.into(), ::core::mem::transmute(lpcc), dwsize)
+    SetDefaultCommConfigA(lpszname.into(), ::core::mem::transmute(lpcc.as_ptr()), lpcc.len() as _)
 }
 #[doc = "*Required features: `\"Win32_Devices_Communication\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SetDefaultCommConfigW<'a, P0>(lpszname: P0, lpcc: &COMMCONFIG, dwsize: u32) -> super::super::Foundation::BOOL
+pub unsafe fn SetDefaultCommConfigW<'a, P0>(lpszname: P0, lpcc: &[u8]) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
 {
@@ -1551,7 +1551,7 @@ where
     extern "system" {
         fn SetDefaultCommConfigW(lpszname: ::windows::core::PCWSTR, lpcc: *const COMMCONFIG, dwsize: u32) -> super::super::Foundation::BOOL;
     }
-    SetDefaultCommConfigW(lpszname.into(), ::core::mem::transmute(lpcc), dwsize)
+    SetDefaultCommConfigW(lpszname.into(), ::core::mem::transmute(lpcc.as_ptr()), lpcc.len() as _)
 }
 #[doc = "*Required features: `\"Win32_Devices_Communication\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]

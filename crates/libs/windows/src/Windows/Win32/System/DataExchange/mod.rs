@@ -870,7 +870,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
 #[inline]
-pub unsafe fn DdeAddData<'a, P0>(hdata: P0, psrc: &u8, cb: u32, cboff: u32) -> HDDEDATA
+pub unsafe fn DdeAddData<'a, P0>(hdata: P0, psrc: &[u8], cboff: u32) -> HDDEDATA
 where
     P0: ::std::convert::Into<HDDEDATA>,
 {
@@ -878,7 +878,7 @@ where
     extern "system" {
         fn DdeAddData(hdata: HDDEDATA, psrc: *const u8, cb: u32, cboff: u32) -> HDDEDATA;
     }
-    DdeAddData(hdata.into(), ::core::mem::transmute(psrc), cb, cboff)
+    DdeAddData(hdata.into(), ::core::mem::transmute(psrc.as_ptr()), psrc.len() as _, cboff)
 }
 #[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
 #[inline]
@@ -937,7 +937,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
 #[inline]
-pub unsafe fn DdeCreateDataHandle<'a, P0>(idinst: u32, psrc: ::core::option::Option<&u8>, cb: u32, cboff: u32, hszitem: P0, wfmt: u32, afcmd: u32) -> HDDEDATA
+pub unsafe fn DdeCreateDataHandle<'a, P0>(idinst: u32, psrc: ::core::option::Option<&[u8]>, cboff: u32, hszitem: P0, wfmt: u32, afcmd: u32) -> HDDEDATA
 where
     P0: ::std::convert::Into<HSZ>,
 {
@@ -945,7 +945,7 @@ where
     extern "system" {
         fn DdeCreateDataHandle(idinst: u32, psrc: *const u8, cb: u32, cboff: u32, hszitem: HSZ, wfmt: u32, afcmd: u32) -> HDDEDATA;
     }
-    DdeCreateDataHandle(idinst, ::core::mem::transmute(psrc), cb, cboff, hszitem.into(), wfmt, afcmd)
+    DdeCreateDataHandle(idinst, ::core::mem::transmute(psrc.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), psrc.as_deref().map_or(0, |slice| slice.len() as _), cboff, hszitem.into(), wfmt, afcmd)
 }
 #[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
 #[inline]
@@ -1038,7 +1038,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
 #[inline]
-pub unsafe fn DdeGetData<'a, P0>(hdata: P0, pdst: ::core::option::Option<&mut u8>, cbmax: u32, cboff: u32) -> u32
+pub unsafe fn DdeGetData<'a, P0>(hdata: P0, pdst: ::core::option::Option<&mut [u8]>, cboff: u32) -> u32
 where
     P0: ::std::convert::Into<HDDEDATA>,
 {
@@ -1046,7 +1046,7 @@ where
     extern "system" {
         fn DdeGetData(hdata: HDDEDATA, pdst: *mut u8, cbmax: u32, cboff: u32) -> u32;
     }
-    DdeGetData(hdata.into(), ::core::mem::transmute(pdst), cbmax, cboff)
+    DdeGetData(hdata.into(), ::core::mem::transmute(pdst.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), pdst.as_deref().map_or(0, |slice| slice.len() as _), cboff)
 }
 #[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
 #[inline]
@@ -1156,7 +1156,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
 #[inline]
-pub unsafe fn DdeQueryStringA<'a, P0>(idinst: u32, hsz: P0, psz: &mut [u8], icodepage: i32) -> u32
+pub unsafe fn DdeQueryStringA<'a, P0>(idinst: u32, hsz: P0, psz: ::core::option::Option<&mut [u8]>, icodepage: i32) -> u32
 where
     P0: ::std::convert::Into<HSZ>,
 {
@@ -1164,11 +1164,11 @@ where
     extern "system" {
         fn DdeQueryStringA(idinst: u32, hsz: HSZ, psz: ::windows::core::PSTR, cchmax: u32, icodepage: i32) -> u32;
     }
-    DdeQueryStringA(idinst, hsz.into(), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(psz)), psz.len() as _, icodepage)
+    DdeQueryStringA(idinst, hsz.into(), ::core::mem::transmute(psz.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), psz.as_deref().map_or(0, |slice| slice.len() as _), icodepage)
 }
 #[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
 #[inline]
-pub unsafe fn DdeQueryStringW<'a, P0>(idinst: u32, hsz: P0, psz: &mut [u16], icodepage: i32) -> u32
+pub unsafe fn DdeQueryStringW<'a, P0>(idinst: u32, hsz: P0, psz: ::core::option::Option<&mut [u16]>, icodepage: i32) -> u32
 where
     P0: ::std::convert::Into<HSZ>,
 {
@@ -1176,7 +1176,7 @@ where
     extern "system" {
         fn DdeQueryStringW(idinst: u32, hsz: HSZ, psz: ::windows::core::PWSTR, cchmax: u32, icodepage: i32) -> u32;
     }
-    DdeQueryStringW(idinst, hsz.into(), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(psz)), psz.len() as _, icodepage)
+    DdeQueryStringW(idinst, hsz.into(), ::core::mem::transmute(psz.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), psz.as_deref().map_or(0, |slice| slice.len() as _), icodepage)
 }
 #[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
 #[inline]
@@ -1311,7 +1311,7 @@ pub unsafe fn GetAtomNameA(natom: u16, lpbuffer: &mut [u8]) -> u32 {
     extern "system" {
         fn GetAtomNameA(natom: u16, lpbuffer: ::windows::core::PSTR, nsize: i32) -> u32;
     }
-    GetAtomNameA(natom, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(lpbuffer)), lpbuffer.len() as _)
+    GetAtomNameA(natom, ::core::mem::transmute(lpbuffer.as_ptr()), lpbuffer.len() as _)
 }
 #[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
 #[inline]
@@ -1320,7 +1320,7 @@ pub unsafe fn GetAtomNameW(natom: u16, lpbuffer: &mut [u16]) -> u32 {
     extern "system" {
         fn GetAtomNameW(natom: u16, lpbuffer: ::windows::core::PWSTR, nsize: i32) -> u32;
     }
-    GetAtomNameW(natom, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(lpbuffer)), lpbuffer.len() as _)
+    GetAtomNameW(natom, ::core::mem::transmute(lpbuffer.as_ptr()), lpbuffer.len() as _)
 }
 #[doc = "*Required features: `\"Win32_System_DataExchange\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -1340,7 +1340,7 @@ pub unsafe fn GetClipboardFormatNameA(format: u32, lpszformatname: &mut [u8]) ->
     extern "system" {
         fn GetClipboardFormatNameA(format: u32, lpszformatname: ::windows::core::PSTR, cchmaxcount: i32) -> i32;
     }
-    GetClipboardFormatNameA(format, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(lpszformatname)), lpszformatname.len() as _)
+    GetClipboardFormatNameA(format, ::core::mem::transmute(lpszformatname.as_ptr()), lpszformatname.len() as _)
 }
 #[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
 #[inline]
@@ -1349,7 +1349,7 @@ pub unsafe fn GetClipboardFormatNameW(format: u32, lpszformatname: &mut [u16]) -
     extern "system" {
         fn GetClipboardFormatNameW(format: u32, lpszformatname: ::windows::core::PWSTR, cchmaxcount: i32) -> i32;
     }
-    GetClipboardFormatNameW(format, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(lpszformatname)), lpszformatname.len() as _)
+    GetClipboardFormatNameW(format, ::core::mem::transmute(lpszformatname.as_ptr()), lpszformatname.len() as _)
 }
 #[doc = "*Required features: `\"Win32_System_DataExchange\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -1397,7 +1397,7 @@ pub unsafe fn GetPriorityClipboardFormat(paformatprioritylist: &[u32]) -> i32 {
     extern "system" {
         fn GetPriorityClipboardFormat(paformatprioritylist: *const u32, cformats: i32) -> i32;
     }
-    GetPriorityClipboardFormat(::core::mem::transmute(::windows::core::as_ptr_or_null(paformatprioritylist)), paformatprioritylist.len() as _)
+    GetPriorityClipboardFormat(::core::mem::transmute(paformatprioritylist.as_ptr()), paformatprioritylist.len() as _)
 }
 #[doc = "*Required features: `\"Win32_System_DataExchange\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -1407,7 +1407,7 @@ pub unsafe fn GetUpdatedClipboardFormats(lpuiformats: &mut [u32], pcformatsout: 
     extern "system" {
         fn GetUpdatedClipboardFormats(lpuiformats: *mut u32, cformats: u32, pcformatsout: *mut u32) -> super::super::Foundation::BOOL;
     }
-    GetUpdatedClipboardFormats(::core::mem::transmute(::windows::core::as_mut_ptr_or_null(lpuiformats)), lpuiformats.len() as _, ::core::mem::transmute(pcformatsout))
+    GetUpdatedClipboardFormats(::core::mem::transmute(lpuiformats.as_ptr()), lpuiformats.len() as _, ::core::mem::transmute(pcformatsout))
 }
 #[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
 #[inline]
@@ -1497,7 +1497,7 @@ pub unsafe fn GlobalGetAtomNameA(natom: u16, lpbuffer: &mut [u8]) -> u32 {
     extern "system" {
         fn GlobalGetAtomNameA(natom: u16, lpbuffer: ::windows::core::PSTR, nsize: i32) -> u32;
     }
-    GlobalGetAtomNameA(natom, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(lpbuffer)), lpbuffer.len() as _)
+    GlobalGetAtomNameA(natom, ::core::mem::transmute(lpbuffer.as_ptr()), lpbuffer.len() as _)
 }
 #[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
 #[inline]
@@ -1506,7 +1506,7 @@ pub unsafe fn GlobalGetAtomNameW(natom: u16, lpbuffer: &mut [u16]) -> u32 {
     extern "system" {
         fn GlobalGetAtomNameW(natom: u16, lpbuffer: ::windows::core::PWSTR, nsize: i32) -> u32;
     }
-    GlobalGetAtomNameW(natom, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(lpbuffer)), lpbuffer.len() as _)
+    GlobalGetAtomNameW(natom, ::core::mem::transmute(lpbuffer.as_ptr()), lpbuffer.len() as _)
 }
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
@@ -2199,7 +2199,7 @@ where
 #[doc = "*Required features: `\"Win32_System_DataExchange\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
-pub unsafe fn SetWinMetaFileBits<'a, P0>(nsize: u32, lpmeta16data: &u8, hdcref: P0, lpmfp: ::core::option::Option<&METAFILEPICT>) -> super::super::Graphics::Gdi::HENHMETAFILE
+pub unsafe fn SetWinMetaFileBits<'a, P0>(lpmeta16data: &[u8], hdcref: P0, lpmfp: ::core::option::Option<&METAFILEPICT>) -> super::super::Graphics::Gdi::HENHMETAFILE
 where
     P0: ::std::convert::Into<super::super::Graphics::Gdi::HDC>,
 {
@@ -2207,7 +2207,7 @@ where
     extern "system" {
         fn SetWinMetaFileBits(nsize: u32, lpmeta16data: *const u8, hdcref: super::super::Graphics::Gdi::HDC, lpmfp: *const METAFILEPICT) -> super::super::Graphics::Gdi::HENHMETAFILE;
     }
-    SetWinMetaFileBits(nsize, ::core::mem::transmute(lpmeta16data), hdcref.into(), ::core::mem::transmute(lpmfp))
+    SetWinMetaFileBits(lpmeta16data.len() as _, ::core::mem::transmute(lpmeta16data.as_ptr()), hdcref.into(), ::core::mem::transmute(lpmfp))
 }
 #[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
 pub const TIMEOUT_ASYNC: u32 = 4294967295u32;

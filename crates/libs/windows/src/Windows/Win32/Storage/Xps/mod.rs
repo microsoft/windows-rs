@@ -265,30 +265,28 @@ where
 #[doc = "*Required features: `\"Win32_Storage_Xps\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
-pub unsafe fn Escape<'a, P0, P1>(hdc: P0, iescape: i32, cjin: i32, pvin: P1, pvout: *mut ::core::ffi::c_void) -> i32
+pub unsafe fn Escape<'a, P0>(hdc: P0, iescape: i32, pvin: ::core::option::Option<&[u8]>, pvout: *mut ::core::ffi::c_void) -> i32
 where
     P0: ::std::convert::Into<super::super::Graphics::Gdi::HDC>,
-    P1: ::std::convert::Into<::windows::core::PCSTR>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn Escape(hdc: super::super::Graphics::Gdi::HDC, iescape: i32, cjin: i32, pvin: ::windows::core::PCSTR, pvout: *mut ::core::ffi::c_void) -> i32;
     }
-    Escape(hdc.into(), iescape, cjin, pvin.into(), ::core::mem::transmute(pvout))
+    Escape(hdc.into(), iescape, pvin.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(pvin.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), ::core::mem::transmute(pvout))
 }
 #[doc = "*Required features: `\"Win32_Storage_Xps\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
-pub unsafe fn ExtEscape<'a, P0, P1>(hdc: P0, iescape: i32, cjinput: i32, lpindata: P1, cjoutput: i32, lpoutdata: ::windows::core::PSTR) -> i32
+pub unsafe fn ExtEscape<'a, P0>(hdc: P0, iescape: i32, lpindata: ::core::option::Option<&[u8]>, lpoutdata: ::core::option::Option<&mut [u8]>) -> i32
 where
     P0: ::std::convert::Into<super::super::Graphics::Gdi::HDC>,
-    P1: ::std::convert::Into<::windows::core::PCSTR>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn ExtEscape(hdc: super::super::Graphics::Gdi::HDC, iescape: i32, cjinput: i32, lpindata: ::windows::core::PCSTR, cjoutput: i32, lpoutdata: ::windows::core::PSTR) -> i32;
     }
-    ExtEscape(hdc.into(), iescape, cjinput, lpindata.into(), cjoutput, ::core::mem::transmute(lpoutdata))
+    ExtEscape(hdc.into(), iescape, lpindata.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(lpindata.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), lpoutdata.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(lpoutdata.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())))
 }
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
@@ -8648,7 +8646,7 @@ impl IXpsSignature {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).GetSignatureId)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::PWSTR>(result__)
     }
-    pub unsafe fn GetSignatureValue(&self, signaturehashvalue: &mut *mut u8, count: &mut u32) -> ::windows::core::Result<()> {
+    pub unsafe fn GetSignatureValue(&self, signaturehashvalue: *mut *mut u8, count: &mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).GetSignatureValue)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(signaturehashvalue), ::core::mem::transmute(count)).ok()
     }
     #[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`*"]
@@ -8695,11 +8693,11 @@ impl IXpsSignature {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).GetCustomReferenceEnumerator)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::Packaging::Opc::IOpcSignatureReferenceEnumerator>(result__)
     }
-    pub unsafe fn GetSignatureXml(&self, signaturexml: &mut *mut u8, count: &mut u32) -> ::windows::core::Result<()> {
+    pub unsafe fn GetSignatureXml(&self, signaturexml: *mut *mut u8, count: &mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).GetSignatureXml)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(signaturexml), ::core::mem::transmute(count)).ok()
     }
     pub unsafe fn SetSignatureXml(&self, signaturexml: &[u8]) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetSignatureXml)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(::windows::core::as_ptr_or_null(signaturexml)), signaturexml.len() as _).ok()
+        (::windows::core::Interface::vtable(self).SetSignatureXml)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(signaturexml.as_ptr()), signaturexml.len() as _).ok()
     }
 }
 impl ::core::convert::From<IXpsSignature> for ::windows::core::IUnknown {

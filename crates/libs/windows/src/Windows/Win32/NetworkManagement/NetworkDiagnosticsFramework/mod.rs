@@ -356,8 +356,8 @@ pub struct INetDiagExtensibleHelper(::windows::core::IUnknown);
 impl INetDiagExtensibleHelper {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn ResolveAttributes(&self, rgkeyattributes: &[HELPER_ATTRIBUTE], pcelt: &mut u32, prgmatchvalues: &mut *mut HELPER_ATTRIBUTE) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).ResolveAttributes)(::windows::core::Interface::as_raw(self), rgkeyattributes.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(rgkeyattributes)), ::core::mem::transmute(pcelt), ::core::mem::transmute(prgmatchvalues)).ok()
+    pub unsafe fn ResolveAttributes(&self, rgkeyattributes: &[HELPER_ATTRIBUTE], pcelt: &mut u32, prgmatchvalues: *mut *mut HELPER_ATTRIBUTE) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).ResolveAttributes)(::windows::core::Interface::as_raw(self), rgkeyattributes.len() as _, ::core::mem::transmute(rgkeyattributes.as_ptr()), ::core::mem::transmute(pcelt), ::core::mem::transmute(prgmatchvalues)).ok()
     }
 }
 impl ::core::convert::From<INetDiagExtensibleHelper> for ::windows::core::IUnknown {
@@ -411,7 +411,7 @@ impl INetDiagHelper {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Initialize(&self, rgattributes: &[HELPER_ATTRIBUTE]) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Initialize)(::windows::core::Interface::as_raw(self), rgattributes.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(rgattributes))).ok()
+        (::windows::core::Interface::vtable(self).Initialize)(::windows::core::Interface::as_raw(self), rgattributes.len() as _, ::core::mem::transmute(rgattributes.as_ptr())).ok()
     }
     pub unsafe fn GetDiagnosticsInfo(&self) -> ::windows::core::Result<*mut DiagnosticsInfo> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -419,7 +419,7 @@ impl INetDiagHelper {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetKeyAttributes(&self, pcelt: &mut u32, pprgattributes: &mut *mut HELPER_ATTRIBUTE) -> ::windows::core::Result<()> {
+    pub unsafe fn GetKeyAttributes(&self, pcelt: &mut u32, pprgattributes: *mut *mut HELPER_ATTRIBUTE) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).GetKeyAttributes)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pcelt), ::core::mem::transmute(pprgattributes)).ok()
     }
     pub unsafe fn LowHealth<'a, P0>(&self, pwszinstancedescription: P0, ppwszdescription: &mut ::windows::core::PWSTR, pdeferredtime: &mut i32, pstatus: &mut DIAGNOSIS_STATUS) -> ::windows::core::Result<()>
@@ -436,22 +436,22 @@ impl INetDiagHelper {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetLowerHypotheses(&self, pcelt: &mut u32, pprghypotheses: &mut *mut HYPOTHESIS) -> ::windows::core::Result<()> {
+    pub unsafe fn GetLowerHypotheses(&self, pcelt: &mut u32, pprghypotheses: *mut *mut HYPOTHESIS) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).GetLowerHypotheses)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pcelt), ::core::mem::transmute(pprghypotheses)).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetDownStreamHypotheses(&self, pcelt: &mut u32, pprghypotheses: &mut *mut HYPOTHESIS) -> ::windows::core::Result<()> {
+    pub unsafe fn GetDownStreamHypotheses(&self, pcelt: &mut u32, pprghypotheses: *mut *mut HYPOTHESIS) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).GetDownStreamHypotheses)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pcelt), ::core::mem::transmute(pprghypotheses)).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetHigherHypotheses(&self, pcelt: &mut u32, pprghypotheses: &mut *mut HYPOTHESIS) -> ::windows::core::Result<()> {
+    pub unsafe fn GetHigherHypotheses(&self, pcelt: &mut u32, pprghypotheses: *mut *mut HYPOTHESIS) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).GetHigherHypotheses)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pcelt), ::core::mem::transmute(pprghypotheses)).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetUpStreamHypotheses(&self, pcelt: &mut u32, pprghypotheses: &mut *mut HYPOTHESIS) -> ::windows::core::Result<()> {
+    pub unsafe fn GetUpStreamHypotheses(&self, pcelt: &mut u32, pprghypotheses: *mut *mut HYPOTHESIS) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).GetUpStreamHypotheses)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pcelt), ::core::mem::transmute(pprghypotheses)).ok()
     }
     pub unsafe fn Repair(&self, pinfo: &RepairInfo, pdeferredtime: &mut i32, pstatus: &mut REPAIR_STATUS) -> ::windows::core::Result<()> {
@@ -460,7 +460,7 @@ impl INetDiagHelper {
     pub unsafe fn Validate(&self, problem: PROBLEM_TYPE, pdeferredtime: &mut i32, pstatus: &mut REPAIR_STATUS) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).Validate)(::windows::core::Interface::as_raw(self), problem, ::core::mem::transmute(pdeferredtime), ::core::mem::transmute(pstatus)).ok()
     }
-    pub unsafe fn GetRepairInfo(&self, problem: PROBLEM_TYPE, pcelt: &mut u32, ppinfo: &mut *mut RepairInfo) -> ::windows::core::Result<()> {
+    pub unsafe fn GetRepairInfo(&self, problem: PROBLEM_TYPE, pcelt: &mut u32, ppinfo: *mut *mut RepairInfo) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).GetRepairInfo)(::windows::core::Interface::as_raw(self), problem, ::core::mem::transmute(pcelt), ::core::mem::transmute(ppinfo)).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -482,7 +482,7 @@ impl INetDiagHelper {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetAttributes(&self, pcelt: &mut u32, pprgattributes: &mut *mut HELPER_ATTRIBUTE) -> ::windows::core::Result<()> {
+    pub unsafe fn GetAttributes(&self, pcelt: &mut u32, pprgattributes: *mut *mut HELPER_ATTRIBUTE) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).GetAttributes)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pcelt), ::core::mem::transmute(pprgattributes)).ok()
     }
     pub unsafe fn Cancel(&self) -> ::windows::core::Result<()> {
@@ -587,7 +587,7 @@ impl INetDiagHelperEx {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn ReconfirmLowHealth(&self, presults: &[HypothesisResult], ppwszupdateddescription: &mut ::windows::core::PWSTR, pupdatedstatus: &mut DIAGNOSIS_STATUS) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).ReconfirmLowHealth)(::windows::core::Interface::as_raw(self), presults.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(presults)), ::core::mem::transmute(ppwszupdateddescription), ::core::mem::transmute(pupdatedstatus)).ok()
+        (::windows::core::Interface::vtable(self).ReconfirmLowHealth)(::windows::core::Interface::as_raw(self), presults.len() as _, ::core::mem::transmute(presults.as_ptr()), ::core::mem::transmute(ppwszupdateddescription), ::core::mem::transmute(pupdatedstatus)).ok()
     }
     pub unsafe fn SetUtilities<'a, P0>(&self, putilities: P0) -> ::windows::core::Result<()>
     where
@@ -649,7 +649,7 @@ pub struct INetDiagHelperEx_Vtbl {
 #[repr(transparent)]
 pub struct INetDiagHelperInfo(::windows::core::IUnknown);
 impl INetDiagHelperInfo {
-    pub unsafe fn GetAttributeInfo(&self, pcelt: &mut u32, pprgattributeinfos: &mut *mut HelperAttributeInfo) -> ::windows::core::Result<()> {
+    pub unsafe fn GetAttributeInfo(&self, pcelt: &mut u32, pprgattributeinfos: *mut *mut HelperAttributeInfo) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).GetAttributeInfo)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pcelt), ::core::mem::transmute(pprgattributeinfos)).ok()
     }
 }
@@ -879,7 +879,7 @@ where
     extern "system" {
         fn NdfCreateIncident(helperclassname: ::windows::core::PCWSTR, celt: u32, attributes: *const HELPER_ATTRIBUTE, handle: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
     }
-    NdfCreateIncident(helperclassname.into(), attributes.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(attributes)), ::core::mem::transmute(handle)).ok()
+    NdfCreateIncident(helperclassname.into(), attributes.len() as _, ::core::mem::transmute(attributes.as_ptr()), ::core::mem::transmute(handle)).ok()
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetworkDiagnosticsFramework\"`*"]
 #[inline]

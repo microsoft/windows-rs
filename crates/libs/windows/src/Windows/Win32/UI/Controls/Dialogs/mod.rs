@@ -1225,7 +1225,7 @@ where
     extern "system" {
         fn GetFileTitleA(param0: ::windows::core::PCSTR, buf: ::windows::core::PSTR, cchsize: u16) -> i16;
     }
-    GetFileTitleA(param0.into(), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(buf)), buf.len() as _)
+    GetFileTitleA(param0.into(), ::core::mem::transmute(buf.as_ptr()), buf.len() as _)
 }
 #[doc = "*Required features: `\"Win32_UI_Controls_Dialogs\"`*"]
 #[inline]
@@ -1237,7 +1237,7 @@ where
     extern "system" {
         fn GetFileTitleW(param0: ::windows::core::PCWSTR, buf: ::windows::core::PWSTR, cchsize: u16) -> i16;
     }
-    GetFileTitleW(param0.into(), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(buf)), buf.len() as _)
+    GetFileTitleW(param0.into(), ::core::mem::transmute(buf.as_ptr()), buf.len() as _)
 }
 #[doc = "*Required features: `\"Win32_UI_Controls_Dialogs\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]

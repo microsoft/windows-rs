@@ -10,7 +10,7 @@ use windows::{
     Win32::System::{Com::CreateUri, Diagnostics::Debug::*, Threading::*},
     Win32::UI::{
         Accessibility::UIA_ScrollPatternNoScroll,
-        Animation::{UIAnimationManager, UIAnimationTransitionLibrary},
+        Animation::UIAnimationManager,
         Controls::Dialogs::CHOOSECOLORW,
         WindowsAndMessaging::{PROPENUMPROCA, PROPENUMPROCW, WM_KEYUP},
     },
@@ -123,30 +123,20 @@ fn bool_as_error() {
 fn com() -> windows::core::Result<()> {
     unsafe {
         let stream = CreateStreamOnHGlobal(0, true)?;
-        let values = vec![1, 20, 300, 4000];
+        let values = vec![1, 2, 3, 4];
 
         let mut copied = 0;
-        stream.Write(values.as_ptr() as _, (values.len() * core::mem::size_of::<i32>()) as u32, Some(&mut copied)).ok()?;
-        assert!(copied == (values.len() * core::mem::size_of::<i32>()) as u32);
-
-        let mut copied = 0;
-        stream.Write(&UIAnimationTransitionLibrary as *const _ as _, core::mem::size_of::<windows::core::GUID>() as u32, Some(&mut copied)).ok()?;
-        assert!(copied == core::mem::size_of::<windows::core::GUID>() as u32);
+        stream.Write(&values, Some(&mut copied)).ok()?;
+        assert!(copied == 4);
 
         let position = stream.Seek(0, STREAM_SEEK_SET)?;
         assert!(position == 0);
 
         let mut values = vec![0, 0, 0, 0];
         let mut copied = 0;
-        stream.Read(values.as_mut_ptr() as _, (values.len() * core::mem::size_of::<i32>()) as u32, Some(&mut copied)).ok()?;
-        assert!(copied == (values.len() * core::mem::size_of::<i32>()) as u32);
-        assert!(values == vec![1, 20, 300, 4000]);
-
-        let mut value: windows::core::GUID = windows::core::GUID::default();
-        let mut copied = 0;
-        stream.Read(&mut value as *mut _ as _, core::mem::size_of::<windows::core::GUID>() as u32, Some(&mut copied)).ok()?;
-        assert!(copied == core::mem::size_of::<windows::core::GUID>() as u32);
-        assert!(value == UIAnimationTransitionLibrary);
+        stream.Read(&mut values, Some(&mut copied)).ok()?;
+        assert!(copied == 4);
+        assert!(values == vec![1, 2, 3, 4]);
     }
 
     Ok(())
@@ -188,7 +178,7 @@ fn onecore_imports() -> windows::core::Result<()> {
         let result = MiniDumpWriteDump(None, 0, None, MiniDumpNormal, None, None, None);
         assert!(!result.as_bool());
 
-        assert!(D3DDisassemble11Trace(core::ptr::null_mut(), 0, None, 0, 0, 0).is_err());
+        assert!(D3DDisassemble11Trace(&[], None, 0, 0, 0).is_err());
 
         Ok(())
     }

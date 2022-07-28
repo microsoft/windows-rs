@@ -734,7 +734,7 @@ where
 #[doc = "*Required features: `\"Win32_Graphics_Dwm\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DwmGetWindowAttribute<'a, P0>(hwnd: P0, dwattribute: DWMWINDOWATTRIBUTE, pvattribute: *mut ::core::ffi::c_void, cbattribute: u32) -> ::windows::core::Result<()>
+pub unsafe fn DwmGetWindowAttribute<'a, P0>(hwnd: P0, dwattribute: DWMWINDOWATTRIBUTE, pvattribute: &mut [u8]) -> ::windows::core::Result<()>
 where
     P0: ::std::convert::Into<super::super::Foundation::HWND>,
 {
@@ -742,7 +742,7 @@ where
     extern "system" {
         fn DwmGetWindowAttribute(hwnd: super::super::Foundation::HWND, dwattribute: DWMWINDOWATTRIBUTE, pvattribute: *mut ::core::ffi::c_void, cbattribute: u32) -> ::windows::core::HRESULT;
     }
-    DwmGetWindowAttribute(hwnd.into(), dwattribute, ::core::mem::transmute(pvattribute), cbattribute).ok()
+    DwmGetWindowAttribute(hwnd.into(), dwattribute, ::core::mem::transmute(pvattribute.as_ptr()), pvattribute.len() as _).ok()
 }
 #[doc = "*Required features: `\"Win32_Graphics_Dwm\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -811,7 +811,7 @@ where
 #[doc = "*Required features: `\"Win32_Graphics_Dwm\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DwmRenderGesture(gt: GESTURE_TYPE, ccontacts: u32, pdwpointerid: &u32, ppoints: &super::super::Foundation::POINT) -> ::windows::core::Result<()> {
+pub unsafe fn DwmRenderGesture(gt: GESTURE_TYPE, ccontacts: u32, pdwpointerid: *const u32, ppoints: *const super::super::Foundation::POINT) -> ::windows::core::Result<()> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn DwmRenderGesture(gt: GESTURE_TYPE, ccontacts: u32, pdwpointerid: *const u32, ppoints: *const super::super::Foundation::POINT) -> ::windows::core::HRESULT;
@@ -875,7 +875,7 @@ where
 #[doc = "*Required features: `\"Win32_Graphics_Dwm\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DwmSetWindowAttribute<'a, P0>(hwnd: P0, dwattribute: DWMWINDOWATTRIBUTE, pvattribute: *const ::core::ffi::c_void, cbattribute: u32) -> ::windows::core::Result<()>
+pub unsafe fn DwmSetWindowAttribute<'a, P0>(hwnd: P0, dwattribute: DWMWINDOWATTRIBUTE, pvattribute: &[u8]) -> ::windows::core::Result<()>
 where
     P0: ::std::convert::Into<super::super::Foundation::HWND>,
 {
@@ -883,7 +883,7 @@ where
     extern "system" {
         fn DwmSetWindowAttribute(hwnd: super::super::Foundation::HWND, dwattribute: DWMWINDOWATTRIBUTE, pvattribute: *const ::core::ffi::c_void, cbattribute: u32) -> ::windows::core::HRESULT;
     }
-    DwmSetWindowAttribute(hwnd.into(), dwattribute, ::core::mem::transmute(pvattribute), cbattribute).ok()
+    DwmSetWindowAttribute(hwnd.into(), dwattribute, ::core::mem::transmute(pvattribute.as_ptr()), pvattribute.len() as _).ok()
 }
 #[doc = "*Required features: `\"Win32_Graphics_Dwm\"`*"]
 #[inline]

@@ -383,7 +383,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Networking_WebSocket\"`*"]
 #[inline]
-pub unsafe fn WebSocketBeginClientHandshake<'a, P0>(hwebsocket: P0, pszsubprotocols: &[::windows::core::PSTR], pszextensions: &[::windows::core::PSTR], pinitialheaders: &[WEB_SOCKET_HTTP_HEADER], padditionalheaders: &mut *mut WEB_SOCKET_HTTP_HEADER, puladditionalheadercount: &mut u32) -> ::windows::core::Result<()>
+pub unsafe fn WebSocketBeginClientHandshake<'a, P0>(hwebsocket: P0, pszsubprotocols: ::core::option::Option<&[::windows::core::PSTR]>, pszextensions: ::core::option::Option<&[::windows::core::PSTR]>, pinitialheaders: ::core::option::Option<&[WEB_SOCKET_HTTP_HEADER]>, padditionalheaders: *mut *mut WEB_SOCKET_HTTP_HEADER, puladditionalheadercount: &mut u32) -> ::windows::core::Result<()>
 where
     P0: ::std::convert::Into<WEB_SOCKET_HANDLE>,
 {
@@ -391,11 +391,22 @@ where
     extern "system" {
         fn WebSocketBeginClientHandshake(hwebsocket: WEB_SOCKET_HANDLE, pszsubprotocols: *const ::windows::core::PSTR, ulsubprotocolcount: u32, pszextensions: *const ::windows::core::PSTR, ulextensioncount: u32, pinitialheaders: *const WEB_SOCKET_HTTP_HEADER, ulinitialheadercount: u32, padditionalheaders: *mut *mut WEB_SOCKET_HTTP_HEADER, puladditionalheadercount: *mut u32) -> ::windows::core::HRESULT;
     }
-    WebSocketBeginClientHandshake(hwebsocket.into(), ::core::mem::transmute(::windows::core::as_ptr_or_null(pszsubprotocols)), pszsubprotocols.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(pszextensions)), pszextensions.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(pinitialheaders)), pinitialheaders.len() as _, ::core::mem::transmute(padditionalheaders), ::core::mem::transmute(puladditionalheadercount)).ok()
+    WebSocketBeginClientHandshake(
+        hwebsocket.into(),
+        ::core::mem::transmute(pszsubprotocols.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())),
+        pszsubprotocols.as_deref().map_or(0, |slice| slice.len() as _),
+        ::core::mem::transmute(pszextensions.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())),
+        pszextensions.as_deref().map_or(0, |slice| slice.len() as _),
+        ::core::mem::transmute(pinitialheaders.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())),
+        pinitialheaders.as_deref().map_or(0, |slice| slice.len() as _),
+        ::core::mem::transmute(padditionalheaders),
+        ::core::mem::transmute(puladditionalheadercount),
+    )
+    .ok()
 }
 #[doc = "*Required features: `\"Win32_Networking_WebSocket\"`*"]
 #[inline]
-pub unsafe fn WebSocketBeginServerHandshake<'a, P0, P1>(hwebsocket: P0, pszsubprotocolselected: P1, pszextensionselected: &[::windows::core::PSTR], prequestheaders: &[WEB_SOCKET_HTTP_HEADER], presponseheaders: &mut *mut WEB_SOCKET_HTTP_HEADER, pulresponseheadercount: &mut u32) -> ::windows::core::Result<()>
+pub unsafe fn WebSocketBeginServerHandshake<'a, P0, P1>(hwebsocket: P0, pszsubprotocolselected: P1, pszextensionselected: ::core::option::Option<&[::windows::core::PSTR]>, prequestheaders: &[WEB_SOCKET_HTTP_HEADER], presponseheaders: *mut *mut WEB_SOCKET_HTTP_HEADER, pulresponseheadercount: &mut u32) -> ::windows::core::Result<()>
 where
     P0: ::std::convert::Into<WEB_SOCKET_HANDLE>,
     P1: ::std::convert::Into<::windows::core::PCSTR>,
@@ -404,7 +415,7 @@ where
     extern "system" {
         fn WebSocketBeginServerHandshake(hwebsocket: WEB_SOCKET_HANDLE, pszsubprotocolselected: ::windows::core::PCSTR, pszextensionselected: *const ::windows::core::PSTR, ulextensionselectedcount: u32, prequestheaders: *const WEB_SOCKET_HTTP_HEADER, ulrequestheadercount: u32, presponseheaders: *mut *mut WEB_SOCKET_HTTP_HEADER, pulresponseheadercount: *mut u32) -> ::windows::core::HRESULT;
     }
-    WebSocketBeginServerHandshake(hwebsocket.into(), pszsubprotocolselected.into(), ::core::mem::transmute(::windows::core::as_ptr_or_null(pszextensionselected)), pszextensionselected.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(prequestheaders)), prequestheaders.len() as _, ::core::mem::transmute(presponseheaders), ::core::mem::transmute(pulresponseheadercount)).ok()
+    WebSocketBeginServerHandshake(hwebsocket.into(), pszsubprotocolselected.into(), ::core::mem::transmute(pszextensionselected.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), pszextensionselected.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(prequestheaders.as_ptr()), prequestheaders.len() as _, ::core::mem::transmute(presponseheaders), ::core::mem::transmute(pulresponseheadercount)).ok()
 }
 #[doc = "*Required features: `\"Win32_Networking_WebSocket\"`*"]
 #[inline]
@@ -426,7 +437,7 @@ pub unsafe fn WebSocketCreateClientHandle(pproperties: &[WEB_SOCKET_PROPERTY]) -
         fn WebSocketCreateClientHandle(pproperties: *const WEB_SOCKET_PROPERTY, ulpropertycount: u32, phwebsocket: *mut WEB_SOCKET_HANDLE) -> ::windows::core::HRESULT;
     }
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    WebSocketCreateClientHandle(::core::mem::transmute(::windows::core::as_ptr_or_null(pproperties)), pproperties.len() as _, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<WEB_SOCKET_HANDLE>(result__)
+    WebSocketCreateClientHandle(::core::mem::transmute(pproperties.as_ptr()), pproperties.len() as _, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<WEB_SOCKET_HANDLE>(result__)
 }
 #[doc = "*Required features: `\"Win32_Networking_WebSocket\"`*"]
 #[inline]
@@ -436,7 +447,7 @@ pub unsafe fn WebSocketCreateServerHandle(pproperties: &[WEB_SOCKET_PROPERTY]) -
         fn WebSocketCreateServerHandle(pproperties: *const WEB_SOCKET_PROPERTY, ulpropertycount: u32, phwebsocket: *mut WEB_SOCKET_HANDLE) -> ::windows::core::HRESULT;
     }
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    WebSocketCreateServerHandle(::core::mem::transmute(::windows::core::as_ptr_or_null(pproperties)), pproperties.len() as _, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<WEB_SOCKET_HANDLE>(result__)
+    WebSocketCreateServerHandle(::core::mem::transmute(pproperties.as_ptr()), pproperties.len() as _, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<WEB_SOCKET_HANDLE>(result__)
 }
 #[doc = "*Required features: `\"Win32_Networking_WebSocket\"`*"]
 #[inline]
@@ -452,7 +463,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Networking_WebSocket\"`*"]
 #[inline]
-pub unsafe fn WebSocketEndClientHandshake<'a, P0>(hwebsocket: P0, presponseheaders: &[WEB_SOCKET_HTTP_HEADER], pulselectedextensions: ::core::option::Option<&mut u32>, pulselectedextensioncount: ::core::option::Option<&mut u32>, pulselectedsubprotocol: ::core::option::Option<&mut u32>) -> ::windows::core::Result<()>
+pub unsafe fn WebSocketEndClientHandshake<'a, P0>(hwebsocket: P0, presponseheaders: &[WEB_SOCKET_HTTP_HEADER], pulselectedextensions: *mut u32, pulselectedextensioncount: ::core::option::Option<&mut u32>, pulselectedsubprotocol: ::core::option::Option<&mut u32>) -> ::windows::core::Result<()>
 where
     P0: ::std::convert::Into<WEB_SOCKET_HANDLE>,
 {
@@ -460,7 +471,7 @@ where
     extern "system" {
         fn WebSocketEndClientHandshake(hwebsocket: WEB_SOCKET_HANDLE, presponseheaders: *const WEB_SOCKET_HTTP_HEADER, ulreponseheadercount: u32, pulselectedextensions: *mut u32, pulselectedextensioncount: *mut u32, pulselectedsubprotocol: *mut u32) -> ::windows::core::HRESULT;
     }
-    WebSocketEndClientHandshake(hwebsocket.into(), ::core::mem::transmute(::windows::core::as_ptr_or_null(presponseheaders)), presponseheaders.len() as _, ::core::mem::transmute(pulselectedextensions), ::core::mem::transmute(pulselectedextensioncount), ::core::mem::transmute(pulselectedsubprotocol)).ok()
+    WebSocketEndClientHandshake(hwebsocket.into(), ::core::mem::transmute(presponseheaders.as_ptr()), presponseheaders.len() as _, ::core::mem::transmute(pulselectedextensions), ::core::mem::transmute(pulselectedextensioncount), ::core::mem::transmute(pulselectedsubprotocol)).ok()
 }
 #[doc = "*Required features: `\"Win32_Networking_WebSocket\"`*"]
 #[inline]
@@ -476,7 +487,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Networking_WebSocket\"`*"]
 #[inline]
-pub unsafe fn WebSocketGetAction<'a, P0>(hwebsocket: P0, eactionqueue: WEB_SOCKET_ACTION_QUEUE, pdatabuffers: &mut WEB_SOCKET_BUFFER, puldatabuffercount: &mut u32, paction: &mut WEB_SOCKET_ACTION, pbuffertype: &mut WEB_SOCKET_BUFFER_TYPE, pvapplicationcontext: *mut *mut ::core::ffi::c_void, pvactioncontext: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>
+pub unsafe fn WebSocketGetAction<'a, P0>(hwebsocket: P0, eactionqueue: WEB_SOCKET_ACTION_QUEUE, pdatabuffers: *mut WEB_SOCKET_BUFFER, puldatabuffercount: &mut u32, paction: &mut WEB_SOCKET_ACTION, pbuffertype: &mut WEB_SOCKET_BUFFER_TYPE, pvapplicationcontext: *mut *mut ::core::ffi::c_void, pvactioncontext: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>
 where
     P0: ::std::convert::Into<WEB_SOCKET_HANDLE>,
 {

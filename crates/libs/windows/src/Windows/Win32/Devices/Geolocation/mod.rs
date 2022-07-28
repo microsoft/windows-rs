@@ -3593,7 +3593,7 @@ impl ILocation {
         P0: ::std::convert::Into<super::super::Foundation::HWND>,
         P1: ::std::convert::Into<super::super::Foundation::BOOL>,
     {
-        (::windows::core::Interface::vtable(self).RequestPermissions)(::windows::core::Interface::as_raw(self), hparent.into(), ::core::mem::transmute(::windows::core::as_ptr_or_null(preporttypes)), preporttypes.len() as _, fmodal.into()).ok()
+        (::windows::core::Interface::vtable(self).RequestPermissions)(::windows::core::Interface::as_raw(self), hparent.into(), ::core::mem::transmute(preporttypes.as_ptr()), preporttypes.len() as _, fmodal.into()).ok()
     }
 }
 impl ::core::convert::From<ILocation> for ::windows::core::IUnknown {

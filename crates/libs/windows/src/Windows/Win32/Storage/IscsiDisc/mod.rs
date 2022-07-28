@@ -269,21 +269,21 @@ where
 #[doc = "*Required features: `\"Win32_Storage_IscsiDisc\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn AddIScsiConnectionA(uniquesessionid: &mut ISCSI_UNIQUE_SESSION_ID, reserved: *mut ::core::ffi::c_void, initiatorportnumber: u32, targetportal: &mut ISCSI_TARGET_PORTALA, securityflags: u64, loginoptions: &mut ISCSI_LOGIN_OPTIONS, key: &[u8], connectionid: &mut ISCSI_UNIQUE_SESSION_ID) -> u32 {
+pub unsafe fn AddIScsiConnectionA(uniquesessionid: &mut ISCSI_UNIQUE_SESSION_ID, reserved: *mut ::core::ffi::c_void, initiatorportnumber: u32, targetportal: &mut ISCSI_TARGET_PORTALA, securityflags: u64, loginoptions: &mut ISCSI_LOGIN_OPTIONS, key: ::core::option::Option<&[u8]>, connectionid: &mut ISCSI_UNIQUE_SESSION_ID) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn AddIScsiConnectionA(uniquesessionid: *mut ISCSI_UNIQUE_SESSION_ID, reserved: *mut ::core::ffi::c_void, initiatorportnumber: u32, targetportal: *mut ISCSI_TARGET_PORTALA, securityflags: u64, loginoptions: *mut ISCSI_LOGIN_OPTIONS, keysize: u32, key: ::windows::core::PCSTR, connectionid: *mut ISCSI_UNIQUE_SESSION_ID) -> u32;
     }
-    AddIScsiConnectionA(::core::mem::transmute(uniquesessionid), ::core::mem::transmute(reserved), initiatorportnumber, ::core::mem::transmute(targetportal), securityflags, ::core::mem::transmute(loginoptions), key.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(key)), ::core::mem::transmute(connectionid))
+    AddIScsiConnectionA(::core::mem::transmute(uniquesessionid), ::core::mem::transmute(reserved), initiatorportnumber, ::core::mem::transmute(targetportal), securityflags, ::core::mem::transmute(loginoptions), key.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(key.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), ::core::mem::transmute(connectionid))
 }
 #[doc = "*Required features: `\"Win32_Storage_IscsiDisc\"`*"]
 #[inline]
-pub unsafe fn AddIScsiConnectionW(uniquesessionid: &mut ISCSI_UNIQUE_SESSION_ID, reserved: *mut ::core::ffi::c_void, initiatorportnumber: u32, targetportal: &mut ISCSI_TARGET_PORTALW, securityflags: u64, loginoptions: &mut ISCSI_LOGIN_OPTIONS, key: &[u8], connectionid: &mut ISCSI_UNIQUE_SESSION_ID) -> u32 {
+pub unsafe fn AddIScsiConnectionW(uniquesessionid: &mut ISCSI_UNIQUE_SESSION_ID, reserved: *mut ::core::ffi::c_void, initiatorportnumber: u32, targetportal: &mut ISCSI_TARGET_PORTALW, securityflags: u64, loginoptions: &mut ISCSI_LOGIN_OPTIONS, key: ::core::option::Option<&[u8]>, connectionid: &mut ISCSI_UNIQUE_SESSION_ID) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn AddIScsiConnectionW(uniquesessionid: *mut ISCSI_UNIQUE_SESSION_ID, reserved: *mut ::core::ffi::c_void, initiatorportnumber: u32, targetportal: *mut ISCSI_TARGET_PORTALW, securityflags: u64, loginoptions: *mut ISCSI_LOGIN_OPTIONS, keysize: u32, key: ::windows::core::PCSTR, connectionid: *mut ISCSI_UNIQUE_SESSION_ID) -> u32;
     }
-    AddIScsiConnectionW(::core::mem::transmute(uniquesessionid), ::core::mem::transmute(reserved), initiatorportnumber, ::core::mem::transmute(targetportal), securityflags, ::core::mem::transmute(loginoptions), key.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(key)), ::core::mem::transmute(connectionid))
+    AddIScsiConnectionW(::core::mem::transmute(uniquesessionid), ::core::mem::transmute(reserved), initiatorportnumber, ::core::mem::transmute(targetportal), securityflags, ::core::mem::transmute(loginoptions), key.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(key.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), ::core::mem::transmute(connectionid))
 }
 #[doc = "*Required features: `\"Win32_Storage_IscsiDisc\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -2397,7 +2397,7 @@ impl ::core::default::Default for ISCSI_VERSION_INFO {
 #[doc = "*Required features: `\"Win32_Storage_IscsiDisc\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn LoginIScsiTargetA<'a, P0, P1, P2, P3>(targetname: P0, isinformationalsession: P1, initiatorinstance: P2, initiatorportnumber: u32, targetportal: &mut ISCSI_TARGET_PORTALA, securityflags: u64, mappings: &mut ISCSI_TARGET_MAPPINGA, loginoptions: &mut ISCSI_LOGIN_OPTIONS, key: &[u8], ispersistent: P3, uniquesessionid: &mut ISCSI_UNIQUE_SESSION_ID, uniqueconnectionid: &mut ISCSI_UNIQUE_SESSION_ID) -> u32
+pub unsafe fn LoginIScsiTargetA<'a, P0, P1, P2, P3>(targetname: P0, isinformationalsession: P1, initiatorinstance: P2, initiatorportnumber: u32, targetportal: &mut ISCSI_TARGET_PORTALA, securityflags: u64, mappings: &mut ISCSI_TARGET_MAPPINGA, loginoptions: &mut ISCSI_LOGIN_OPTIONS, key: ::core::option::Option<&[u8]>, ispersistent: P3, uniquesessionid: &mut ISCSI_UNIQUE_SESSION_ID, uniqueconnectionid: &mut ISCSI_UNIQUE_SESSION_ID) -> u32
 where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
     P1: ::std::convert::Into<super::super::Foundation::BOOLEAN>,
@@ -2408,12 +2408,12 @@ where
     extern "system" {
         fn LoginIScsiTargetA(targetname: ::windows::core::PCSTR, isinformationalsession: super::super::Foundation::BOOLEAN, initiatorinstance: ::windows::core::PCSTR, initiatorportnumber: u32, targetportal: *mut ISCSI_TARGET_PORTALA, securityflags: u64, mappings: *mut ISCSI_TARGET_MAPPINGA, loginoptions: *mut ISCSI_LOGIN_OPTIONS, keysize: u32, key: ::windows::core::PCSTR, ispersistent: super::super::Foundation::BOOLEAN, uniquesessionid: *mut ISCSI_UNIQUE_SESSION_ID, uniqueconnectionid: *mut ISCSI_UNIQUE_SESSION_ID) -> u32;
     }
-    LoginIScsiTargetA(targetname.into(), isinformationalsession.into(), initiatorinstance.into(), initiatorportnumber, ::core::mem::transmute(targetportal), securityflags, ::core::mem::transmute(mappings), ::core::mem::transmute(loginoptions), key.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(key)), ispersistent.into(), ::core::mem::transmute(uniquesessionid), ::core::mem::transmute(uniqueconnectionid))
+    LoginIScsiTargetA(targetname.into(), isinformationalsession.into(), initiatorinstance.into(), initiatorportnumber, ::core::mem::transmute(targetportal), securityflags, ::core::mem::transmute(mappings), ::core::mem::transmute(loginoptions), key.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(key.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), ispersistent.into(), ::core::mem::transmute(uniquesessionid), ::core::mem::transmute(uniqueconnectionid))
 }
 #[doc = "*Required features: `\"Win32_Storage_IscsiDisc\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn LoginIScsiTargetW<'a, P0, P1, P2, P3>(targetname: P0, isinformationalsession: P1, initiatorinstance: P2, initiatorportnumber: u32, targetportal: &mut ISCSI_TARGET_PORTALW, securityflags: u64, mappings: &mut ISCSI_TARGET_MAPPINGW, loginoptions: &mut ISCSI_LOGIN_OPTIONS, key: &[u8], ispersistent: P3, uniquesessionid: &mut ISCSI_UNIQUE_SESSION_ID, uniqueconnectionid: &mut ISCSI_UNIQUE_SESSION_ID) -> u32
+pub unsafe fn LoginIScsiTargetW<'a, P0, P1, P2, P3>(targetname: P0, isinformationalsession: P1, initiatorinstance: P2, initiatorportnumber: u32, targetportal: &mut ISCSI_TARGET_PORTALW, securityflags: u64, mappings: &mut ISCSI_TARGET_MAPPINGW, loginoptions: &mut ISCSI_LOGIN_OPTIONS, key: ::core::option::Option<&[u8]>, ispersistent: P3, uniquesessionid: &mut ISCSI_UNIQUE_SESSION_ID, uniqueconnectionid: &mut ISCSI_UNIQUE_SESSION_ID) -> u32
 where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
     P1: ::std::convert::Into<super::super::Foundation::BOOLEAN>,
@@ -2424,7 +2424,7 @@ where
     extern "system" {
         fn LoginIScsiTargetW(targetname: ::windows::core::PCWSTR, isinformationalsession: super::super::Foundation::BOOLEAN, initiatorinstance: ::windows::core::PCWSTR, initiatorportnumber: u32, targetportal: *mut ISCSI_TARGET_PORTALW, securityflags: u64, mappings: *mut ISCSI_TARGET_MAPPINGW, loginoptions: *mut ISCSI_LOGIN_OPTIONS, keysize: u32, key: ::windows::core::PCSTR, ispersistent: super::super::Foundation::BOOLEAN, uniquesessionid: *mut ISCSI_UNIQUE_SESSION_ID, uniqueconnectionid: *mut ISCSI_UNIQUE_SESSION_ID) -> u32;
     }
-    LoginIScsiTargetW(targetname.into(), isinformationalsession.into(), initiatorinstance.into(), initiatorportnumber, ::core::mem::transmute(targetportal), securityflags, ::core::mem::transmute(mappings), ::core::mem::transmute(loginoptions), key.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(key)), ispersistent.into(), ::core::mem::transmute(uniquesessionid), ::core::mem::transmute(uniqueconnectionid))
+    LoginIScsiTargetW(targetname.into(), isinformationalsession.into(), initiatorinstance.into(), initiatorportnumber, ::core::mem::transmute(targetportal), securityflags, ::core::mem::transmute(mappings), ::core::mem::transmute(loginoptions), key.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(key.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), ispersistent.into(), ::core::mem::transmute(uniquesessionid), ::core::mem::transmute(uniqueconnectionid))
 }
 #[doc = "*Required features: `\"Win32_Storage_IscsiDisc\"`*"]
 #[inline]

@@ -3427,7 +3427,7 @@ pub struct IFEClassFactory_Vtbl {
 pub struct IFECommon(::windows::core::IUnknown);
 impl IFECommon {
     pub unsafe fn IsDefaultIME(&self, szname: &[u8]) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).IsDefaultIME)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(::windows::core::as_ptr_or_null(szname)), szname.len() as _).ok()
+        (::windows::core::Interface::vtable(self).IsDefaultIME)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(szname.as_ptr()), szname.len() as _).ok()
     }
     pub unsafe fn SetDefaultIME(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetDefaultIME)(::windows::core::Interface::as_raw(self)).ok()
@@ -3611,16 +3611,16 @@ pub struct IFEDictionary(::windows::core::IUnknown);
 impl IFEDictionary {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn Open(&self, pchdictpath: &mut [u8; 260], pshf: &mut IMESHF) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Open)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(pchdictpath)), ::core::mem::transmute(pshf)).ok()
+    pub unsafe fn Open(&self, pchdictpath: ::core::option::Option<&mut [u8; 260]>, pshf: &mut IMESHF) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).Open)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pchdictpath.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), ::core::mem::transmute(pshf)).ok()
     }
     pub unsafe fn Close(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).Close)(::windows::core::Interface::as_raw(self)).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetHeader(&self, pchdictpath: &mut [u8; 260], pshf: &mut IMESHF, pjfmt: &mut IMEFMT, pultype: &mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetHeader)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(pchdictpath)), ::core::mem::transmute(pshf), ::core::mem::transmute(pjfmt), ::core::mem::transmute(pultype)).ok()
+    pub unsafe fn GetHeader(&self, pchdictpath: ::core::option::Option<&mut [u8; 260]>, pshf: &mut IMESHF, pjfmt: &mut IMEFMT, pultype: &mut u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).GetHeader)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pchdictpath.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), ::core::mem::transmute(pshf), ::core::mem::transmute(pjfmt), ::core::mem::transmute(pultype)).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -6151,7 +6151,7 @@ where
 #[doc = "*Required features: `\"Win32_UI_Input_Ime\"`, `\"Win32_Globalization\"`*"]
 #[cfg(feature = "Win32_Globalization")]
 #[inline]
-pub unsafe fn ImmGetCandidateListA<'a, P0>(param0: P0, deindex: u32, lpcandlist: ::core::option::Option<&mut CANDIDATELIST>, dwbuflen: u32) -> u32
+pub unsafe fn ImmGetCandidateListA<'a, P0>(param0: P0, deindex: u32, lpcandlist: ::core::option::Option<&mut [u8]>) -> u32
 where
     P0: ::std::convert::Into<super::super::super::Globalization::HIMC>,
 {
@@ -6159,7 +6159,7 @@ where
     extern "system" {
         fn ImmGetCandidateListA(param0: super::super::super::Globalization::HIMC, deindex: u32, lpcandlist: *mut CANDIDATELIST, dwbuflen: u32) -> u32;
     }
-    ImmGetCandidateListA(param0.into(), deindex, ::core::mem::transmute(lpcandlist), dwbuflen)
+    ImmGetCandidateListA(param0.into(), deindex, ::core::mem::transmute(lpcandlist.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), lpcandlist.as_deref().map_or(0, |slice| slice.len() as _))
 }
 #[doc = "*Required features: `\"Win32_UI_Input_Ime\"`, `\"Win32_Globalization\"`*"]
 #[cfg(feature = "Win32_Globalization")]
@@ -6190,7 +6190,7 @@ where
 #[doc = "*Required features: `\"Win32_UI_Input_Ime\"`, `\"Win32_Globalization\"`*"]
 #[cfg(feature = "Win32_Globalization")]
 #[inline]
-pub unsafe fn ImmGetCandidateListW<'a, P0>(param0: P0, deindex: u32, lpcandlist: ::core::option::Option<&mut CANDIDATELIST>, dwbuflen: u32) -> u32
+pub unsafe fn ImmGetCandidateListW<'a, P0>(param0: P0, deindex: u32, lpcandlist: ::core::option::Option<&mut [u8]>) -> u32
 where
     P0: ::std::convert::Into<super::super::super::Globalization::HIMC>,
 {
@@ -6198,7 +6198,7 @@ where
     extern "system" {
         fn ImmGetCandidateListW(param0: super::super::super::Globalization::HIMC, deindex: u32, lpcandlist: *mut CANDIDATELIST, dwbuflen: u32) -> u32;
     }
-    ImmGetCandidateListW(param0.into(), deindex, ::core::mem::transmute(lpcandlist), dwbuflen)
+    ImmGetCandidateListW(param0.into(), deindex, ::core::mem::transmute(lpcandlist.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), lpcandlist.as_deref().map_or(0, |slice| slice.len() as _))
 }
 #[doc = "*Required features: `\"Win32_UI_Input_Ime\"`, `\"Win32_Foundation\"`, `\"Win32_Globalization\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Globalization"))]
@@ -6242,7 +6242,7 @@ where
 #[doc = "*Required features: `\"Win32_UI_Input_Ime\"`, `\"Win32_Globalization\"`*"]
 #[cfg(feature = "Win32_Globalization")]
 #[inline]
-pub unsafe fn ImmGetCompositionStringA<'a, P0>(param0: P0, param1: u32, lpbuf: *mut ::core::ffi::c_void, dwbuflen: u32) -> i32
+pub unsafe fn ImmGetCompositionStringA<'a, P0>(param0: P0, param1: u32, lpbuf: ::core::option::Option<&mut [u8]>) -> i32
 where
     P0: ::std::convert::Into<super::super::super::Globalization::HIMC>,
 {
@@ -6250,12 +6250,12 @@ where
     extern "system" {
         fn ImmGetCompositionStringA(param0: super::super::super::Globalization::HIMC, param1: u32, lpbuf: *mut ::core::ffi::c_void, dwbuflen: u32) -> i32;
     }
-    ImmGetCompositionStringA(param0.into(), param1, ::core::mem::transmute(lpbuf), dwbuflen)
+    ImmGetCompositionStringA(param0.into(), param1, ::core::mem::transmute(lpbuf.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), lpbuf.as_deref().map_or(0, |slice| slice.len() as _))
 }
 #[doc = "*Required features: `\"Win32_UI_Input_Ime\"`, `\"Win32_Globalization\"`*"]
 #[cfg(feature = "Win32_Globalization")]
 #[inline]
-pub unsafe fn ImmGetCompositionStringW<'a, P0>(param0: P0, param1: u32, lpbuf: *mut ::core::ffi::c_void, dwbuflen: u32) -> i32
+pub unsafe fn ImmGetCompositionStringW<'a, P0>(param0: P0, param1: u32, lpbuf: ::core::option::Option<&mut [u8]>) -> i32
 where
     P0: ::std::convert::Into<super::super::super::Globalization::HIMC>,
 {
@@ -6263,7 +6263,7 @@ where
     extern "system" {
         fn ImmGetCompositionStringW(param0: super::super::super::Globalization::HIMC, param1: u32, lpbuf: *mut ::core::ffi::c_void, dwbuflen: u32) -> i32;
     }
-    ImmGetCompositionStringW(param0.into(), param1, ::core::mem::transmute(lpbuf), dwbuflen)
+    ImmGetCompositionStringW(param0.into(), param1, ::core::mem::transmute(lpbuf.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), lpbuf.as_deref().map_or(0, |slice| slice.len() as _))
 }
 #[doc = "*Required features: `\"Win32_UI_Input_Ime\"`, `\"Win32_Foundation\"`, `\"Win32_Globalization\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Globalization"))]
@@ -6294,7 +6294,7 @@ where
 #[doc = "*Required features: `\"Win32_UI_Input_Ime\"`, `\"Win32_Globalization\"`, `\"Win32_UI_TextServices\"`*"]
 #[cfg(all(feature = "Win32_Globalization", feature = "Win32_UI_TextServices"))]
 #[inline]
-pub unsafe fn ImmGetConversionListA<'a, P0, P1, P2>(param0: P0, param1: P1, lpsrc: P2, lpdst: &mut CANDIDATELIST, dwbuflen: u32, uflag: GET_CONVERSION_LIST_FLAG) -> u32
+pub unsafe fn ImmGetConversionListA<'a, P0, P1, P2>(param0: P0, param1: P1, lpsrc: P2, lpdst: &mut [u8], uflag: GET_CONVERSION_LIST_FLAG) -> u32
 where
     P0: ::std::convert::Into<super::super::TextServices::HKL>,
     P1: ::std::convert::Into<super::super::super::Globalization::HIMC>,
@@ -6304,12 +6304,12 @@ where
     extern "system" {
         fn ImmGetConversionListA(param0: super::super::TextServices::HKL, param1: super::super::super::Globalization::HIMC, lpsrc: ::windows::core::PCSTR, lpdst: *mut CANDIDATELIST, dwbuflen: u32, uflag: GET_CONVERSION_LIST_FLAG) -> u32;
     }
-    ImmGetConversionListA(param0.into(), param1.into(), lpsrc.into(), ::core::mem::transmute(lpdst), dwbuflen, uflag)
+    ImmGetConversionListA(param0.into(), param1.into(), lpsrc.into(), ::core::mem::transmute(lpdst.as_ptr()), lpdst.len() as _, uflag)
 }
 #[doc = "*Required features: `\"Win32_UI_Input_Ime\"`, `\"Win32_Globalization\"`, `\"Win32_UI_TextServices\"`*"]
 #[cfg(all(feature = "Win32_Globalization", feature = "Win32_UI_TextServices"))]
 #[inline]
-pub unsafe fn ImmGetConversionListW<'a, P0, P1, P2>(param0: P0, param1: P1, lpsrc: P2, lpdst: &mut CANDIDATELIST, dwbuflen: u32, uflag: GET_CONVERSION_LIST_FLAG) -> u32
+pub unsafe fn ImmGetConversionListW<'a, P0, P1, P2>(param0: P0, param1: P1, lpsrc: P2, lpdst: &mut [u8], uflag: GET_CONVERSION_LIST_FLAG) -> u32
 where
     P0: ::std::convert::Into<super::super::TextServices::HKL>,
     P1: ::std::convert::Into<super::super::super::Globalization::HIMC>,
@@ -6319,7 +6319,7 @@ where
     extern "system" {
         fn ImmGetConversionListW(param0: super::super::TextServices::HKL, param1: super::super::super::Globalization::HIMC, lpsrc: ::windows::core::PCWSTR, lpdst: *mut CANDIDATELIST, dwbuflen: u32, uflag: GET_CONVERSION_LIST_FLAG) -> u32;
     }
-    ImmGetConversionListW(param0.into(), param1.into(), lpsrc.into(), ::core::mem::transmute(lpdst), dwbuflen, uflag)
+    ImmGetConversionListW(param0.into(), param1.into(), lpsrc.into(), ::core::mem::transmute(lpdst.as_ptr()), lpdst.len() as _, uflag)
 }
 #[doc = "*Required features: `\"Win32_UI_Input_Ime\"`, `\"Win32_Foundation\"`, `\"Win32_Globalization\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Globalization"))]
@@ -6350,7 +6350,7 @@ where
 #[doc = "*Required features: `\"Win32_UI_Input_Ime\"`, `\"Win32_UI_TextServices\"`*"]
 #[cfg(feature = "Win32_UI_TextServices")]
 #[inline]
-pub unsafe fn ImmGetDescriptionA<'a, P0>(param0: P0, lpszdescription: &mut [u8]) -> u32
+pub unsafe fn ImmGetDescriptionA<'a, P0>(param0: P0, lpszdescription: ::core::option::Option<&mut [u8]>) -> u32
 where
     P0: ::std::convert::Into<super::super::TextServices::HKL>,
 {
@@ -6358,12 +6358,12 @@ where
     extern "system" {
         fn ImmGetDescriptionA(param0: super::super::TextServices::HKL, lpszdescription: ::windows::core::PSTR, ubuflen: u32) -> u32;
     }
-    ImmGetDescriptionA(param0.into(), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(lpszdescription)), lpszdescription.len() as _)
+    ImmGetDescriptionA(param0.into(), ::core::mem::transmute(lpszdescription.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), lpszdescription.as_deref().map_or(0, |slice| slice.len() as _))
 }
 #[doc = "*Required features: `\"Win32_UI_Input_Ime\"`, `\"Win32_UI_TextServices\"`*"]
 #[cfg(feature = "Win32_UI_TextServices")]
 #[inline]
-pub unsafe fn ImmGetDescriptionW<'a, P0>(param0: P0, lpszdescription: &mut [u16]) -> u32
+pub unsafe fn ImmGetDescriptionW<'a, P0>(param0: P0, lpszdescription: ::core::option::Option<&mut [u16]>) -> u32
 where
     P0: ::std::convert::Into<super::super::TextServices::HKL>,
 {
@@ -6371,12 +6371,12 @@ where
     extern "system" {
         fn ImmGetDescriptionW(param0: super::super::TextServices::HKL, lpszdescription: ::windows::core::PWSTR, ubuflen: u32) -> u32;
     }
-    ImmGetDescriptionW(param0.into(), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(lpszdescription)), lpszdescription.len() as _)
+    ImmGetDescriptionW(param0.into(), ::core::mem::transmute(lpszdescription.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), lpszdescription.as_deref().map_or(0, |slice| slice.len() as _))
 }
 #[doc = "*Required features: `\"Win32_UI_Input_Ime\"`, `\"Win32_Globalization\"`*"]
 #[cfg(feature = "Win32_Globalization")]
 #[inline]
-pub unsafe fn ImmGetGuideLineA<'a, P0>(param0: P0, dwindex: GET_GUIDE_LINE_TYPE, lpbuf: ::windows::core::PSTR, dwbuflen: u32) -> u32
+pub unsafe fn ImmGetGuideLineA<'a, P0>(param0: P0, dwindex: GET_GUIDE_LINE_TYPE, lpbuf: ::core::option::Option<&mut [u8]>) -> u32
 where
     P0: ::std::convert::Into<super::super::super::Globalization::HIMC>,
 {
@@ -6384,12 +6384,12 @@ where
     extern "system" {
         fn ImmGetGuideLineA(param0: super::super::super::Globalization::HIMC, dwindex: GET_GUIDE_LINE_TYPE, lpbuf: ::windows::core::PSTR, dwbuflen: u32) -> u32;
     }
-    ImmGetGuideLineA(param0.into(), dwindex, ::core::mem::transmute(lpbuf), dwbuflen)
+    ImmGetGuideLineA(param0.into(), dwindex, ::core::mem::transmute(lpbuf.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), lpbuf.as_deref().map_or(0, |slice| slice.len() as _))
 }
 #[doc = "*Required features: `\"Win32_UI_Input_Ime\"`, `\"Win32_Globalization\"`*"]
 #[cfg(feature = "Win32_Globalization")]
 #[inline]
-pub unsafe fn ImmGetGuideLineW<'a, P0>(param0: P0, dwindex: GET_GUIDE_LINE_TYPE, lpbuf: ::windows::core::PWSTR, dwbuflen: u32) -> u32
+pub unsafe fn ImmGetGuideLineW<'a, P0>(param0: P0, dwindex: GET_GUIDE_LINE_TYPE, lpbuf: ::core::option::Option<&mut [u8]>) -> u32
 where
     P0: ::std::convert::Into<super::super::super::Globalization::HIMC>,
 {
@@ -6397,7 +6397,7 @@ where
     extern "system" {
         fn ImmGetGuideLineW(param0: super::super::super::Globalization::HIMC, dwindex: GET_GUIDE_LINE_TYPE, lpbuf: ::windows::core::PWSTR, dwbuflen: u32) -> u32;
     }
-    ImmGetGuideLineW(param0.into(), dwindex, ::core::mem::transmute(lpbuf), dwbuflen)
+    ImmGetGuideLineW(param0.into(), dwindex, ::core::mem::transmute(lpbuf.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), lpbuf.as_deref().map_or(0, |slice| slice.len() as _))
 }
 #[doc = "*Required features: `\"Win32_UI_Input_Ime\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -6451,7 +6451,7 @@ where
 #[doc = "*Required features: `\"Win32_UI_Input_Ime\"`, `\"Win32_UI_TextServices\"`*"]
 #[cfg(feature = "Win32_UI_TextServices")]
 #[inline]
-pub unsafe fn ImmGetIMEFileNameA<'a, P0>(param0: P0, lpszfilename: &mut [u8]) -> u32
+pub unsafe fn ImmGetIMEFileNameA<'a, P0>(param0: P0, lpszfilename: ::core::option::Option<&mut [u8]>) -> u32
 where
     P0: ::std::convert::Into<super::super::TextServices::HKL>,
 {
@@ -6459,12 +6459,12 @@ where
     extern "system" {
         fn ImmGetIMEFileNameA(param0: super::super::TextServices::HKL, lpszfilename: ::windows::core::PSTR, ubuflen: u32) -> u32;
     }
-    ImmGetIMEFileNameA(param0.into(), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(lpszfilename)), lpszfilename.len() as _)
+    ImmGetIMEFileNameA(param0.into(), ::core::mem::transmute(lpszfilename.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), lpszfilename.as_deref().map_or(0, |slice| slice.len() as _))
 }
 #[doc = "*Required features: `\"Win32_UI_Input_Ime\"`, `\"Win32_UI_TextServices\"`*"]
 #[cfg(feature = "Win32_UI_TextServices")]
 #[inline]
-pub unsafe fn ImmGetIMEFileNameW<'a, P0>(param0: P0, lpszfilename: &mut [u16]) -> u32
+pub unsafe fn ImmGetIMEFileNameW<'a, P0>(param0: P0, lpszfilename: ::core::option::Option<&mut [u16]>) -> u32
 where
     P0: ::std::convert::Into<super::super::TextServices::HKL>,
 {
@@ -6472,12 +6472,12 @@ where
     extern "system" {
         fn ImmGetIMEFileNameW(param0: super::super::TextServices::HKL, lpszfilename: ::windows::core::PWSTR, ubuflen: u32) -> u32;
     }
-    ImmGetIMEFileNameW(param0.into(), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(lpszfilename)), lpszfilename.len() as _)
+    ImmGetIMEFileNameW(param0.into(), ::core::mem::transmute(lpszfilename.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), lpszfilename.as_deref().map_or(0, |slice| slice.len() as _))
 }
 #[doc = "*Required features: `\"Win32_UI_Input_Ime\"`, `\"Win32_Foundation\"`, `\"Win32_Globalization\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Globalization", feature = "Win32_Graphics_Gdi"))]
 #[inline]
-pub unsafe fn ImmGetImeMenuItemsA<'a, P0>(param0: P0, param1: u32, param2: u32, lpimeparentmenu: ::core::option::Option<&mut IMEMENUITEMINFOA>, lpimemenu: ::core::option::Option<&mut IMEMENUITEMINFOA>, dwsize: u32) -> u32
+pub unsafe fn ImmGetImeMenuItemsA<'a, P0>(param0: P0, param1: u32, param2: u32, lpimeparentmenu: ::core::option::Option<&mut IMEMENUITEMINFOA>, lpimemenu: ::core::option::Option<&mut [u8]>) -> u32
 where
     P0: ::std::convert::Into<super::super::super::Globalization::HIMC>,
 {
@@ -6485,12 +6485,12 @@ where
     extern "system" {
         fn ImmGetImeMenuItemsA(param0: super::super::super::Globalization::HIMC, param1: u32, param2: u32, lpimeparentmenu: *mut IMEMENUITEMINFOA, lpimemenu: *mut IMEMENUITEMINFOA, dwsize: u32) -> u32;
     }
-    ImmGetImeMenuItemsA(param0.into(), param1, param2, ::core::mem::transmute(lpimeparentmenu), ::core::mem::transmute(lpimemenu), dwsize)
+    ImmGetImeMenuItemsA(param0.into(), param1, param2, ::core::mem::transmute(lpimeparentmenu), ::core::mem::transmute(lpimemenu.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), lpimemenu.as_deref().map_or(0, |slice| slice.len() as _))
 }
 #[doc = "*Required features: `\"Win32_UI_Input_Ime\"`, `\"Win32_Globalization\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(all(feature = "Win32_Globalization", feature = "Win32_Graphics_Gdi"))]
 #[inline]
-pub unsafe fn ImmGetImeMenuItemsW<'a, P0>(param0: P0, param1: u32, param2: u32, lpimeparentmenu: ::core::option::Option<&mut IMEMENUITEMINFOW>, lpimemenu: ::core::option::Option<&mut IMEMENUITEMINFOW>, dwsize: u32) -> u32
+pub unsafe fn ImmGetImeMenuItemsW<'a, P0>(param0: P0, param1: u32, param2: u32, lpimeparentmenu: ::core::option::Option<&mut IMEMENUITEMINFOW>, lpimemenu: ::core::option::Option<&mut [u8]>) -> u32
 where
     P0: ::std::convert::Into<super::super::super::Globalization::HIMC>,
 {
@@ -6498,7 +6498,7 @@ where
     extern "system" {
         fn ImmGetImeMenuItemsW(param0: super::super::super::Globalization::HIMC, param1: u32, param2: u32, lpimeparentmenu: *mut IMEMENUITEMINFOW, lpimemenu: *mut IMEMENUITEMINFOW, dwsize: u32) -> u32;
     }
-    ImmGetImeMenuItemsW(param0.into(), param1, param2, ::core::mem::transmute(lpimeparentmenu), ::core::mem::transmute(lpimemenu), dwsize)
+    ImmGetImeMenuItemsW(param0.into(), param1, param2, ::core::mem::transmute(lpimeparentmenu), ::core::mem::transmute(lpimemenu.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), lpimemenu.as_deref().map_or(0, |slice| slice.len() as _))
 }
 #[doc = "*Required features: `\"Win32_UI_Input_Ime\"`, `\"Win32_Foundation\"`, `\"Win32_Globalization\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Globalization"))]
@@ -6537,7 +6537,7 @@ where
     extern "system" {
         fn ImmGetRegisterWordStyleA(param0: super::super::TextServices::HKL, nitem: u32, lpstylebuf: *mut STYLEBUFA) -> u32;
     }
-    ImmGetRegisterWordStyleA(param0.into(), lpstylebuf.len() as _, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(lpstylebuf)))
+    ImmGetRegisterWordStyleA(param0.into(), lpstylebuf.len() as _, ::core::mem::transmute(lpstylebuf.as_ptr()))
 }
 #[doc = "*Required features: `\"Win32_UI_Input_Ime\"`, `\"Win32_UI_TextServices\"`*"]
 #[cfg(feature = "Win32_UI_TextServices")]
@@ -6550,7 +6550,7 @@ where
     extern "system" {
         fn ImmGetRegisterWordStyleW(param0: super::super::TextServices::HKL, nitem: u32, lpstylebuf: *mut STYLEBUFW) -> u32;
     }
-    ImmGetRegisterWordStyleW(param0.into(), lpstylebuf.len() as _, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(lpstylebuf)))
+    ImmGetRegisterWordStyleW(param0.into(), lpstylebuf.len() as _, ::core::mem::transmute(lpstylebuf.as_ptr()))
 }
 #[doc = "*Required features: `\"Win32_UI_Input_Ime\"`, `\"Win32_Foundation\"`, `\"Win32_Globalization\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Globalization"))]
@@ -6817,7 +6817,7 @@ where
 #[doc = "*Required features: `\"Win32_UI_Input_Ime\"`, `\"Win32_Foundation\"`, `\"Win32_Globalization\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Globalization"))]
 #[inline]
-pub unsafe fn ImmSetCompositionStringA<'a, P0>(param0: P0, dwindex: SET_COMPOSITION_STRING_TYPE, lpcomp: *const ::core::ffi::c_void, dwcomplen: u32, lpread: *const ::core::ffi::c_void, dwreadlen: u32) -> super::super::super::Foundation::BOOL
+pub unsafe fn ImmSetCompositionStringA<'a, P0>(param0: P0, dwindex: SET_COMPOSITION_STRING_TYPE, lpcomp: ::core::option::Option<&[u8]>, lpread: ::core::option::Option<&[u8]>) -> super::super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::super::super::Globalization::HIMC>,
 {
@@ -6825,12 +6825,12 @@ where
     extern "system" {
         fn ImmSetCompositionStringA(param0: super::super::super::Globalization::HIMC, dwindex: SET_COMPOSITION_STRING_TYPE, lpcomp: *const ::core::ffi::c_void, dwcomplen: u32, lpread: *const ::core::ffi::c_void, dwreadlen: u32) -> super::super::super::Foundation::BOOL;
     }
-    ImmSetCompositionStringA(param0.into(), dwindex, ::core::mem::transmute(lpcomp), dwcomplen, ::core::mem::transmute(lpread), dwreadlen)
+    ImmSetCompositionStringA(param0.into(), dwindex, ::core::mem::transmute(lpcomp.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), lpcomp.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(lpread.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), lpread.as_deref().map_or(0, |slice| slice.len() as _))
 }
 #[doc = "*Required features: `\"Win32_UI_Input_Ime\"`, `\"Win32_Foundation\"`, `\"Win32_Globalization\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Globalization"))]
 #[inline]
-pub unsafe fn ImmSetCompositionStringW<'a, P0>(param0: P0, dwindex: SET_COMPOSITION_STRING_TYPE, lpcomp: *const ::core::ffi::c_void, dwcomplen: u32, lpread: *const ::core::ffi::c_void, dwreadlen: u32) -> super::super::super::Foundation::BOOL
+pub unsafe fn ImmSetCompositionStringW<'a, P0>(param0: P0, dwindex: SET_COMPOSITION_STRING_TYPE, lpcomp: ::core::option::Option<&[u8]>, lpread: ::core::option::Option<&[u8]>) -> super::super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::super::super::Globalization::HIMC>,
 {
@@ -6838,7 +6838,7 @@ where
     extern "system" {
         fn ImmSetCompositionStringW(param0: super::super::super::Globalization::HIMC, dwindex: SET_COMPOSITION_STRING_TYPE, lpcomp: *const ::core::ffi::c_void, dwcomplen: u32, lpread: *const ::core::ffi::c_void, dwreadlen: u32) -> super::super::super::Foundation::BOOL;
     }
-    ImmSetCompositionStringW(param0.into(), dwindex, ::core::mem::transmute(lpcomp), dwcomplen, ::core::mem::transmute(lpread), dwreadlen)
+    ImmSetCompositionStringW(param0.into(), dwindex, ::core::mem::transmute(lpcomp.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), lpcomp.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(lpread.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), lpread.as_deref().map_or(0, |slice| slice.len() as _))
 }
 #[doc = "*Required features: `\"Win32_UI_Input_Ime\"`, `\"Win32_Foundation\"`, `\"Win32_Globalization\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Globalization"))]

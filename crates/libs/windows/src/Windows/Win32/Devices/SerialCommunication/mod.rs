@@ -46,7 +46,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Devices_SerialCommunication\"`*"]
 #[inline]
-pub unsafe fn ComDBGetCurrentPortUsage<'a, P0>(hcomdb: P0, buffer: ::core::option::Option<&mut u8>, buffersize: u32, reporttype: u32, maxportsreported: ::core::option::Option<&mut u32>) -> i32
+pub unsafe fn ComDBGetCurrentPortUsage<'a, P0>(hcomdb: P0, buffer: ::core::option::Option<&mut [u8]>, reporttype: u32, maxportsreported: ::core::option::Option<&mut u32>) -> i32
 where
     P0: ::std::convert::Into<HCOMDB>,
 {
@@ -54,7 +54,7 @@ where
     extern "system" {
         fn ComDBGetCurrentPortUsage(hcomdb: HCOMDB, buffer: *mut u8, buffersize: u32, reporttype: u32, maxportsreported: *mut u32) -> i32;
     }
-    ComDBGetCurrentPortUsage(hcomdb.into(), ::core::mem::transmute(buffer), buffersize, reporttype, ::core::mem::transmute(maxportsreported))
+    ComDBGetCurrentPortUsage(hcomdb.into(), ::core::mem::transmute(buffer.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len() as _), reporttype, ::core::mem::transmute(maxportsreported))
 }
 #[doc = "*Required features: `\"Win32_Devices_SerialCommunication\"`*"]
 #[inline]

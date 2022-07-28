@@ -19,12 +19,12 @@ fn test() -> Result<()> {
 
     unsafe {
         let mut provider = BCRYPT_ALG_HANDLE::default();
-        BCryptOpenAlgorithmProvider(&mut provider, w!("RNG"), PCWSTR::null(), BCRYPT_OPEN_ALGORITHM_PROVIDER_FLAGS::default())?;
+        BCryptOpenAlgorithmProvider(&mut provider, w!("RNG"), None, BCRYPT_OPEN_ALGORITHM_PROVIDER_FLAGS::default())?;
 
         let mut random = GUID::zeroed();
+        let mut bytes = std::slice::from_raw_parts_mut(&mut random as *mut _ as *mut u8, std::mem::size_of::<GUID>());
 
-        // TODO: workaround for https://github.com/microsoft/windows-rs/issues/1938
-        BCryptGenRandom(provider, std::mem::transmute(&mut random), core::mem::size_of::<GUID>() as _, 0)?;
+        BCryptGenRandom(provider, &mut bytes, 0)?;
 
         assert_ne!(random, GUID::zeroed());
     }

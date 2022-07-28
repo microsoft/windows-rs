@@ -628,7 +628,7 @@ where
 #[doc = "*Required features: `\"Win32_Security_EnterpriseData\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SrpGetEnterpriseIds<'a, P0>(tokenhandle: P0, numberofbytes: ::core::option::Option<&mut u32>, enterpriseids: ::core::option::Option<&mut ::windows::core::PWSTR>, enterpriseidcount: &mut u32) -> ::windows::core::Result<()>
+pub unsafe fn SrpGetEnterpriseIds<'a, P0>(tokenhandle: P0, numberofbytes: ::core::option::Option<&mut u32>, enterpriseids: *mut ::windows::core::PWSTR, enterpriseidcount: &mut u32) -> ::windows::core::Result<()>
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
 {

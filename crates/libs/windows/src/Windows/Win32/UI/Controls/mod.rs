@@ -2770,7 +2770,7 @@ where
     extern "system" {
         fn DlgDirSelectComboBoxExA(hwnddlg: super::super::Foundation::HWND, lpstring: ::windows::core::PSTR, cchout: i32, idcombobox: i32) -> super::super::Foundation::BOOL;
     }
-    DlgDirSelectComboBoxExA(hwnddlg.into(), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(lpstring)), lpstring.len() as _, idcombobox)
+    DlgDirSelectComboBoxExA(hwnddlg.into(), ::core::mem::transmute(lpstring.as_ptr()), lpstring.len() as _, idcombobox)
 }
 #[doc = "*Required features: `\"Win32_UI_Controls\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -2783,7 +2783,7 @@ where
     extern "system" {
         fn DlgDirSelectComboBoxExW(hwnddlg: super::super::Foundation::HWND, lpstring: ::windows::core::PWSTR, cchout: i32, idcombobox: i32) -> super::super::Foundation::BOOL;
     }
-    DlgDirSelectComboBoxExW(hwnddlg.into(), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(lpstring)), lpstring.len() as _, idcombobox)
+    DlgDirSelectComboBoxExW(hwnddlg.into(), ::core::mem::transmute(lpstring.as_ptr()), lpstring.len() as _, idcombobox)
 }
 #[doc = "*Required features: `\"Win32_UI_Controls\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -2796,7 +2796,7 @@ where
     extern "system" {
         fn DlgDirSelectExA(hwnddlg: super::super::Foundation::HWND, lpstring: ::windows::core::PSTR, chcount: i32, idlistbox: i32) -> super::super::Foundation::BOOL;
     }
-    DlgDirSelectExA(hwnddlg.into(), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(lpstring)), lpstring.len() as _, idlistbox)
+    DlgDirSelectExA(hwnddlg.into(), ::core::mem::transmute(lpstring.as_ptr()), lpstring.len() as _, idlistbox)
 }
 #[doc = "*Required features: `\"Win32_UI_Controls\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -2809,7 +2809,7 @@ where
     extern "system" {
         fn DlgDirSelectExW(hwnddlg: super::super::Foundation::HWND, lpstring: ::windows::core::PWSTR, chcount: i32, idlistbox: i32) -> super::super::Foundation::BOOL;
     }
-    DlgDirSelectExW(hwnddlg.into(), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(lpstring)), lpstring.len() as _, idlistbox)
+    DlgDirSelectExW(hwnddlg.into(), ::core::mem::transmute(lpstring.as_ptr()), lpstring.len() as _, idlistbox)
 }
 #[doc = "*Required features: `\"Win32_UI_Controls\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -2836,7 +2836,7 @@ where
     extern "system" {
         fn DrawShadowText(hdc: super::super::Graphics::Gdi::HDC, psztext: ::windows::core::PCWSTR, cch: u32, prc: *const super::super::Foundation::RECT, dwflags: u32, crtext: u32, crshadow: u32, ixoffset: i32, iyoffset: i32) -> i32;
     }
-    DrawShadowText(hdc.into(), ::core::mem::transmute(::windows::core::as_ptr_or_null(psztext)), psztext.len() as _, ::core::mem::transmute(prc), dwflags, crtext, crshadow, ixoffset, iyoffset)
+    DrawShadowText(hdc.into(), ::core::mem::transmute(psztext.as_ptr()), psztext.len() as _, ::core::mem::transmute(prc), dwflags, crtext, crshadow, ixoffset, iyoffset)
 }
 #[doc = "*Required features: `\"Win32_UI_Controls\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
@@ -2959,7 +2959,7 @@ where
     extern "system" {
         fn DrawThemeText(htheme: isize, hdc: super::super::Graphics::Gdi::HDC, ipartid: i32, istateid: i32, psztext: ::windows::core::PCWSTR, cchtext: i32, dwtextflags: u32, dwtextflags2: u32, prect: *const super::super::Foundation::RECT) -> ::windows::core::HRESULT;
     }
-    DrawThemeText(htheme, hdc.into(), ipartid, istateid, ::core::mem::transmute(::windows::core::as_ptr_or_null(psztext)), psztext.len() as _, dwtextflags, dwtextflags2, ::core::mem::transmute(prect)).ok()
+    DrawThemeText(htheme, hdc.into(), ipartid, istateid, ::core::mem::transmute(psztext.as_ptr()), psztext.len() as _, dwtextflags, dwtextflags2, ::core::mem::transmute(prect)).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Controls\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
@@ -2972,7 +2972,7 @@ where
     extern "system" {
         fn DrawThemeTextEx(htheme: isize, hdc: super::super::Graphics::Gdi::HDC, ipartid: i32, istateid: i32, psztext: ::windows::core::PCWSTR, cchtext: i32, dwtextflags: u32, prect: *mut super::super::Foundation::RECT, poptions: *const DTTOPTS) -> ::windows::core::HRESULT;
     }
-    DrawThemeTextEx(htheme, hdc.into(), ipartid, istateid, ::core::mem::transmute(::windows::core::as_ptr_or_null(psztext)), psztext.len() as _, dwtextflags, ::core::mem::transmute(prect), ::core::mem::transmute(poptions)).ok()
+    DrawThemeTextEx(htheme, hdc.into(), ipartid, istateid, ::core::mem::transmute(psztext.as_ptr()), psztext.len() as _, dwtextflags, ::core::mem::transmute(prect), ::core::mem::transmute(poptions)).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const ECM_FIRST: u32 = 5376u32;
@@ -3397,7 +3397,7 @@ pub unsafe fn EvaluateProximityToPolygon(controlpolygon: &[super::super::Foundat
     extern "system" {
         fn EvaluateProximityToPolygon(numvertices: u32, controlpolygon: *const super::super::Foundation::POINT, phittestinginput: *const TOUCH_HIT_TESTING_INPUT, pproximityeval: *mut TOUCH_HIT_TESTING_PROXIMITY_EVALUATION) -> super::super::Foundation::BOOL;
     }
-    EvaluateProximityToPolygon(controlpolygon.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(controlpolygon)), ::core::mem::transmute(phittestinginput), ::core::mem::transmute(pproximityeval))
+    EvaluateProximityToPolygon(controlpolygon.len() as _, ::core::mem::transmute(controlpolygon.as_ptr()), ::core::mem::transmute(phittestinginput), ::core::mem::transmute(pproximityeval))
 }
 #[doc = "*Required features: `\"Win32_UI_Controls\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -3902,12 +3902,12 @@ where
 }
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 #[inline]
-pub unsafe fn GetCurrentThemeName(pszthemefilename: &mut [u16], pszcolorbuff: &mut [u16], pszsizebuff: &mut [u16]) -> ::windows::core::Result<()> {
+pub unsafe fn GetCurrentThemeName(pszthemefilename: &mut [u16], pszcolorbuff: ::core::option::Option<&mut [u16]>, pszsizebuff: ::core::option::Option<&mut [u16]>) -> ::windows::core::Result<()> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn GetCurrentThemeName(pszthemefilename: ::windows::core::PWSTR, cchmaxnamechars: i32, pszcolorbuff: ::windows::core::PWSTR, cchmaxcolorchars: i32, pszsizebuff: ::windows::core::PWSTR, cchmaxsizechars: i32) -> ::windows::core::HRESULT;
     }
-    GetCurrentThemeName(::core::mem::transmute(::windows::core::as_mut_ptr_or_null(pszthemefilename)), pszthemefilename.len() as _, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(pszcolorbuff)), pszcolorbuff.len() as _, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(pszsizebuff)), pszsizebuff.len() as _).ok()
+    GetCurrentThemeName(::core::mem::transmute(pszthemefilename.as_ptr()), pszthemefilename.len() as _, ::core::mem::transmute(pszcolorbuff.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), pszcolorbuff.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(pszsizebuff.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), pszsizebuff.as_deref().map_or(0, |slice| slice.len() as _)).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Controls\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -3946,21 +3946,21 @@ pub unsafe fn GetMUILanguage() -> u16 {
 }
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 #[inline]
-pub unsafe fn GetThemeAnimationProperty(htheme: isize, istoryboardid: i32, itargetid: i32, eproperty: TA_PROPERTY, pvproperty: *mut ::core::ffi::c_void, cbsize: u32, pcbsizeout: &mut u32) -> ::windows::core::Result<()> {
+pub unsafe fn GetThemeAnimationProperty(htheme: isize, istoryboardid: i32, itargetid: i32, eproperty: TA_PROPERTY, pvproperty: ::core::option::Option<&mut [u8]>, pcbsizeout: &mut u32) -> ::windows::core::Result<()> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn GetThemeAnimationProperty(htheme: isize, istoryboardid: i32, itargetid: i32, eproperty: TA_PROPERTY, pvproperty: *mut ::core::ffi::c_void, cbsize: u32, pcbsizeout: *mut u32) -> ::windows::core::HRESULT;
     }
-    GetThemeAnimationProperty(htheme, istoryboardid, itargetid, eproperty, ::core::mem::transmute(pvproperty), cbsize, ::core::mem::transmute(pcbsizeout)).ok()
+    GetThemeAnimationProperty(htheme, istoryboardid, itargetid, eproperty, ::core::mem::transmute(pvproperty.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), pvproperty.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(pcbsizeout)).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 #[inline]
-pub unsafe fn GetThemeAnimationTransform(htheme: isize, istoryboardid: i32, itargetid: i32, dwtransformindex: u32, ptransform: ::core::option::Option<&mut TA_TRANSFORM>, cbsize: u32, pcbsizeout: &mut u32) -> ::windows::core::Result<()> {
+pub unsafe fn GetThemeAnimationTransform(htheme: isize, istoryboardid: i32, itargetid: i32, dwtransformindex: u32, ptransform: ::core::option::Option<&mut [u8]>, pcbsizeout: &mut u32) -> ::windows::core::Result<()> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn GetThemeAnimationTransform(htheme: isize, istoryboardid: i32, itargetid: i32, dwtransformindex: u32, ptransform: *mut TA_TRANSFORM, cbsize: u32, pcbsizeout: *mut u32) -> ::windows::core::HRESULT;
     }
-    GetThemeAnimationTransform(htheme, istoryboardid, itargetid, dwtransformindex, ::core::mem::transmute(ptransform), cbsize, ::core::mem::transmute(pcbsizeout)).ok()
+    GetThemeAnimationTransform(htheme, istoryboardid, itargetid, dwtransformindex, ::core::mem::transmute(ptransform.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), ptransform.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(pcbsizeout)).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 #[inline]
@@ -4056,7 +4056,7 @@ where
     extern "system" {
         fn GetThemeDocumentationProperty(pszthemename: ::windows::core::PCWSTR, pszpropertyname: ::windows::core::PCWSTR, pszvaluebuff: ::windows::core::PWSTR, cchmaxvalchars: i32) -> ::windows::core::HRESULT;
     }
-    GetThemeDocumentationProperty(pszthemename.into(), pszpropertyname.into(), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(pszvaluebuff)), pszvaluebuff.len() as _).ok()
+    GetThemeDocumentationProperty(pszthemename.into(), pszpropertyname.into(), ::core::mem::transmute(pszvaluebuff.as_ptr()), pszvaluebuff.len() as _).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 #[inline]
@@ -4075,7 +4075,7 @@ pub unsafe fn GetThemeFilename(htheme: isize, ipartid: i32, istateid: i32, iprop
     extern "system" {
         fn GetThemeFilename(htheme: isize, ipartid: i32, istateid: i32, ipropid: i32, pszthemefilename: ::windows::core::PWSTR, cchmaxbuffchars: i32) -> ::windows::core::HRESULT;
     }
-    GetThemeFilename(htheme, ipartid, istateid, ipropid, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(pszthemefilename)), pszthemefilename.len() as _).ok()
+    GetThemeFilename(htheme, ipartid, istateid, ipropid, ::core::mem::transmute(pszthemefilename.as_ptr()), pszthemefilename.len() as _).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Controls\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(feature = "Win32_Graphics_Gdi")]
@@ -4205,7 +4205,7 @@ pub unsafe fn GetThemeString(htheme: isize, ipartid: i32, istateid: i32, ipropid
     extern "system" {
         fn GetThemeString(htheme: isize, ipartid: i32, istateid: i32, ipropid: i32, pszbuff: ::windows::core::PWSTR, cchmaxbuffchars: i32) -> ::windows::core::HRESULT;
     }
-    GetThemeString(htheme, ipartid, istateid, ipropid, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(pszbuff)), pszbuff.len() as _).ok()
+    GetThemeString(htheme, ipartid, istateid, ipropid, ::core::mem::transmute(pszbuff.as_ptr()), pszbuff.len() as _).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Controls\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -4273,7 +4273,7 @@ pub unsafe fn GetThemeSysString(htheme: isize, istringid: THEME_PROPERTY_SYMBOL_
     extern "system" {
         fn GetThemeSysString(htheme: isize, istringid: THEME_PROPERTY_SYMBOL_ID, pszstringbuff: ::windows::core::PWSTR, cchmaxstringchars: i32) -> ::windows::core::HRESULT;
     }
-    GetThemeSysString(htheme, istringid, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(pszstringbuff)), pszstringbuff.len() as _).ok()
+    GetThemeSysString(htheme, istringid, ::core::mem::transmute(pszstringbuff.as_ptr()), pszstringbuff.len() as _).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Controls\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
@@ -4287,7 +4287,7 @@ where
         fn GetThemeTextExtent(htheme: isize, hdc: super::super::Graphics::Gdi::HDC, ipartid: i32, istateid: i32, psztext: ::windows::core::PCWSTR, cchcharcount: i32, dwtextflags: u32, pboundingrect: *const super::super::Foundation::RECT, pextentrect: *mut super::super::Foundation::RECT) -> ::windows::core::HRESULT;
     }
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    GetThemeTextExtent(htheme, hdc.into(), ipartid, istateid, ::core::mem::transmute(::windows::core::as_ptr_or_null(psztext)), psztext.len() as _, dwtextflags, ::core::mem::transmute(pboundingrect), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::RECT>(result__)
+    GetThemeTextExtent(htheme, hdc.into(), ipartid, istateid, ::core::mem::transmute(psztext.as_ptr()), psztext.len() as _, dwtextflags, ::core::mem::transmute(pboundingrect), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::RECT>(result__)
 }
 #[doc = "*Required features: `\"Win32_UI_Controls\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(feature = "Win32_Graphics_Gdi")]
@@ -4305,12 +4305,12 @@ where
 }
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 #[inline]
-pub unsafe fn GetThemeTimingFunction(htheme: isize, itimingfunctionid: i32, ptimingfunction: ::core::option::Option<&mut TA_TIMINGFUNCTION>, cbsize: u32, pcbsizeout: &mut u32) -> ::windows::core::Result<()> {
+pub unsafe fn GetThemeTimingFunction(htheme: isize, itimingfunctionid: i32, ptimingfunction: ::core::option::Option<&mut [u8]>, pcbsizeout: &mut u32) -> ::windows::core::Result<()> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn GetThemeTimingFunction(htheme: isize, itimingfunctionid: i32, ptimingfunction: *mut TA_TIMINGFUNCTION, cbsize: u32, pcbsizeout: *mut u32) -> ::windows::core::HRESULT;
     }
-    GetThemeTimingFunction(htheme, itimingfunctionid, ::core::mem::transmute(ptimingfunction), cbsize, ::core::mem::transmute(pcbsizeout)).ok()
+    GetThemeTimingFunction(htheme, itimingfunctionid, ::core::mem::transmute(ptimingfunction.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), ptimingfunction.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(pcbsizeout)).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 #[inline]
@@ -17492,7 +17492,7 @@ pub unsafe fn SetThemeAppProperties(dwflags: u32) {
 #[doc = "*Required features: `\"Win32_UI_Controls\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SetWindowFeedbackSetting<'a, P0>(hwnd: P0, feedback: FEEDBACK_TYPE, dwflags: u32, size: u32, configuration: *const ::core::ffi::c_void) -> super::super::Foundation::BOOL
+pub unsafe fn SetWindowFeedbackSetting<'a, P0>(hwnd: P0, feedback: FEEDBACK_TYPE, dwflags: u32, configuration: ::core::option::Option<&[u8]>) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::super::Foundation::HWND>,
 {
@@ -17500,7 +17500,7 @@ where
     extern "system" {
         fn SetWindowFeedbackSetting(hwnd: super::super::Foundation::HWND, feedback: FEEDBACK_TYPE, dwflags: u32, size: u32, configuration: *const ::core::ffi::c_void) -> super::super::Foundation::BOOL;
     }
-    SetWindowFeedbackSetting(hwnd.into(), feedback, dwflags, size, ::core::mem::transmute(configuration))
+    SetWindowFeedbackSetting(hwnd.into(), feedback, dwflags, configuration.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(configuration.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())))
 }
 #[doc = "*Required features: `\"Win32_UI_Controls\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -17520,7 +17520,7 @@ where
 #[doc = "*Required features: `\"Win32_UI_Controls\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SetWindowThemeAttribute<'a, P0>(hwnd: P0, eattribute: WINDOWTHEMEATTRIBUTETYPE, pvattribute: *const ::core::ffi::c_void, cbattribute: u32) -> ::windows::core::Result<()>
+pub unsafe fn SetWindowThemeAttribute<'a, P0>(hwnd: P0, eattribute: WINDOWTHEMEATTRIBUTETYPE, pvattribute: &[u8]) -> ::windows::core::Result<()>
 where
     P0: ::std::convert::Into<super::super::Foundation::HWND>,
 {
@@ -17528,7 +17528,7 @@ where
     extern "system" {
         fn SetWindowThemeAttribute(hwnd: super::super::Foundation::HWND, eattribute: WINDOWTHEMEATTRIBUTETYPE, pvattribute: *const ::core::ffi::c_void, cbattribute: u32) -> ::windows::core::HRESULT;
     }
-    SetWindowThemeAttribute(hwnd.into(), eattribute, ::core::mem::transmute(pvattribute), cbattribute).ok()
+    SetWindowThemeAttribute(hwnd.into(), eattribute, ::core::mem::transmute(pvattribute.as_ptr()), pvattribute.len() as _).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Controls\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]

@@ -38,7 +38,7 @@ pub unsafe fn JsCallFunction(function: *const ::core::ffi::c_void, arguments: &[
     extern "system" {
         fn JsCallFunction(function: *const ::core::ffi::c_void, arguments: *const *const ::core::ffi::c_void, argumentcount: u16, result: *mut *mut ::core::ffi::c_void) -> JsErrorCode;
     }
-    JsCallFunction(::core::mem::transmute(function), ::core::mem::transmute(::windows::core::as_ptr_or_null(arguments)), arguments.len() as _, ::core::mem::transmute(result))
+    JsCallFunction(::core::mem::transmute(function), ::core::mem::transmute(arguments.as_ptr()), arguments.len() as _, ::core::mem::transmute(result))
 }
 #[doc = "*Required features: `\"Win32_System_Js\"`*"]
 #[inline]
@@ -56,7 +56,7 @@ pub unsafe fn JsConstructObject(function: *const ::core::ffi::c_void, arguments:
     extern "system" {
         fn JsConstructObject(function: *const ::core::ffi::c_void, arguments: *const *const ::core::ffi::c_void, argumentcount: u16, result: *mut *mut ::core::ffi::c_void) -> JsErrorCode;
     }
-    JsConstructObject(::core::mem::transmute(function), ::core::mem::transmute(::windows::core::as_ptr_or_null(arguments)), arguments.len() as _, ::core::mem::transmute(result))
+    JsConstructObject(::core::mem::transmute(function), ::core::mem::transmute(arguments.as_ptr()), arguments.len() as _, ::core::mem::transmute(result))
 }
 #[doc = "*Required features: `\"Win32_System_Js\"`*"]
 #[inline]
@@ -725,7 +725,7 @@ pub unsafe fn JsPointerToString(stringvalue: &[u16], value: *mut *mut ::core::ff
     extern "system" {
         fn JsPointerToString(stringvalue: ::windows::core::PCWSTR, stringlength: usize, value: *mut *mut ::core::ffi::c_void) -> JsErrorCode;
     }
-    JsPointerToString(::core::mem::transmute(::windows::core::as_ptr_or_null(stringvalue)), stringvalue.len() as _, ::core::mem::transmute(value))
+    JsPointerToString(::core::mem::transmute(stringvalue.as_ptr()), stringvalue.len() as _, ::core::mem::transmute(value))
 }
 #[doc = "*Required features: `\"Win32_System_Js\"`*"]
 #[inline]
@@ -837,7 +837,7 @@ impl ::core::fmt::Debug for JsRuntimeVersion {
 }
 #[doc = "*Required features: `\"Win32_System_Js\"`*"]
 #[inline]
-pub unsafe fn JsSerializeScript<'a, P0>(script: P0, buffer: ::core::option::Option<&mut u8>, buffersize: &mut u32) -> JsErrorCode
+pub unsafe fn JsSerializeScript<'a, P0>(script: P0, buffer: *mut u8, buffersize: &mut u32) -> JsErrorCode
 where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
 {

@@ -300,7 +300,7 @@ pub struct ISideShowCapabilitiesCollection_Vtbl {
 #[repr(transparent)]
 pub struct ISideShowContent(::windows::core::IUnknown);
 impl ISideShowContent {
-    pub unsafe fn GetContent<'a, P0>(&self, in_picapabilities: P0, out_pdwsize: &mut u32, out_ppbdata: &mut *mut u8) -> ::windows::core::Result<()>
+    pub unsafe fn GetContent<'a, P0>(&self, in_picapabilities: P0, out_pdwsize: &mut u32, out_ppbdata: *mut *mut u8) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ISideShowCapabilities>>,
     {
@@ -443,11 +443,11 @@ impl ISideShowEvents {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).ContentMissing)(::windows::core::Interface::as_raw(self), in_contentid, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ISideShowContent>(result__)
     }
-    pub unsafe fn ApplicationEvent<'a, P0>(&self, in_picapabilities: P0, in_dweventid: u32, in_pbeventdata: &[u8]) -> ::windows::core::Result<()>
+    pub unsafe fn ApplicationEvent<'a, P0>(&self, in_picapabilities: P0, in_dweventid: u32, in_pbeventdata: ::core::option::Option<&[u8]>) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ISideShowCapabilities>>,
     {
-        (::windows::core::Interface::vtable(self).ApplicationEvent)(::windows::core::Interface::as_raw(self), in_picapabilities.into().abi(), in_dweventid, in_pbeventdata.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(in_pbeventdata))).ok()
+        (::windows::core::Interface::vtable(self).ApplicationEvent)(::windows::core::Interface::as_raw(self), in_picapabilities.into().abi(), in_dweventid, in_pbeventdata.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(in_pbeventdata.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr()))).ok()
     }
     pub unsafe fn DeviceAdded<'a, P0>(&self, in_pidevice: P0) -> ::windows::core::Result<()>
     where

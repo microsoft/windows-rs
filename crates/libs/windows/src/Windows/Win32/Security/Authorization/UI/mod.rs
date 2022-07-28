@@ -163,7 +163,7 @@ impl IEffectivePermission2 {
         psid: P0,
         pdevicesid: P1,
         pszservername: P2,
-        psecurityobjects: &mut SECURITY_OBJECT,
+        psecurityobjects: *mut SECURITY_OBJECT,
         dwsecurityobjectcount: u32,
         pusergroups: ::core::option::Option<&super::super::TOKEN_GROUPS>,
         pauthzusergroupsoperations: ::core::option::Option<&super::AUTHZ_SID_OPERATION>,
@@ -173,7 +173,7 @@ impl IEffectivePermission2 {
         pauthzuserclaimsoperations: ::core::option::Option<&super::AUTHZ_SECURITY_ATTRIBUTE_OPERATION>,
         pauthzdeviceclaims: ::core::option::Option<&super::AUTHZ_SECURITY_ATTRIBUTES_INFORMATION>,
         pauthzdeviceclaimsoperations: ::core::option::Option<&super::AUTHZ_SECURITY_ATTRIBUTE_OPERATION>,
-        peffpermresultlists: &mut EFFPERM_RESULT_LIST,
+        peffpermresultlists: *mut EFFPERM_RESULT_LIST,
     ) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<super::super::super::Foundation::PSID>,

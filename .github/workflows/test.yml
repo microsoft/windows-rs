@@ -119,6 +119,7 @@ jobs:
           cargo test --target ${{ matrix.target }} -p test_alternate_success_code &&
           cargo test --target ${{ matrix.target }} -p test_arch &&
           cargo test --target ${{ matrix.target }} -p test_arch_feature &&
+          cargo test --target ${{ matrix.target }} -p test_bcrypt &&
           cargo test --target ${{ matrix.target }} -p test_bstr &&
           cargo test --target ${{ matrix.target }} -p test_cfg_generic &&
           cargo test --target ${{ matrix.target }} -p test_class_factory &&
@@ -126,8 +127,8 @@ jobs:
           cargo test --target ${{ matrix.target }} -p test_component_client &&
           cargo test --target ${{ matrix.target }} -p test_const_fields &&
           cargo test --target ${{ matrix.target }} -p test_core &&
-          cargo test --target ${{ matrix.target }} -p test_data_object &&
           cargo clean &&
+          cargo test --target ${{ matrix.target }} -p test_data_object &&
           cargo test --target ${{ matrix.target }} -p test_debug &&
           cargo test --target ${{ matrix.target }} -p test_deprecated &&
           cargo test --target ${{ matrix.target }} -p test_dispatch &&

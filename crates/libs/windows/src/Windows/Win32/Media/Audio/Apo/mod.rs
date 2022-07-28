@@ -1095,7 +1095,7 @@ pub struct IApoAcousticEchoCancellation_Vtbl {
 pub struct IApoAuxiliaryInputConfiguration(::windows::core::IUnknown);
 impl IApoAuxiliaryInputConfiguration {
     pub unsafe fn AddAuxiliaryInput(&self, dwinputid: u32, pbydata: &[u8], pinputconnection: &APO_CONNECTION_DESCRIPTOR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).AddAuxiliaryInput)(::windows::core::Interface::as_raw(self), dwinputid, pbydata.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(pbydata)), ::core::mem::transmute(pinputconnection)).ok()
+        (::windows::core::Interface::vtable(self).AddAuxiliaryInput)(::windows::core::Interface::as_raw(self), dwinputid, pbydata.len() as _, ::core::mem::transmute(pbydata.as_ptr()), ::core::mem::transmute(pinputconnection)).ok()
     }
     pub unsafe fn RemoveAuxiliaryInput(&self, dwinputid: u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).RemoveAuxiliaryInput)(::windows::core::Interface::as_raw(self), dwinputid).ok()
@@ -1340,7 +1340,7 @@ impl IAudioProcessingObject {
         (::windows::core::Interface::vtable(self).GetRegistrationProperties)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<*mut APO_REG_PROPERTIES>(result__)
     }
     pub unsafe fn Initialize(&self, pbydata: &[u8]) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Initialize)(::windows::core::Interface::as_raw(self), pbydata.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(pbydata))).ok()
+        (::windows::core::Interface::vtable(self).Initialize)(::windows::core::Interface::as_raw(self), pbydata.len() as _, ::core::mem::transmute(pbydata.as_ptr())).ok()
     }
     pub unsafe fn IsInputFormatSupported<'a, P0, P1>(&self, poppositeformat: P0, prequestedinputformat: P1) -> ::windows::core::Result<IAudioMediaType>
     where
@@ -1519,7 +1519,7 @@ pub struct IAudioProcessingObjectLoggingService_Vtbl {
 #[repr(transparent)]
 pub struct IAudioProcessingObjectNotifications(::windows::core::IUnknown);
 impl IAudioProcessingObjectNotifications {
-    pub unsafe fn GetApoNotificationRegistrationInfo(&self, aponotifications: &mut *mut APO_NOTIFICATION_DESCRIPTOR, count: &mut u32) -> ::windows::core::Result<()> {
+    pub unsafe fn GetApoNotificationRegistrationInfo(&self, aponotifications: *mut *mut APO_NOTIFICATION_DESCRIPTOR, count: &mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).GetApoNotificationRegistrationInfo)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(aponotifications), ::core::mem::transmute(count)).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_UI_Shell_PropertiesSystem\"`*"]

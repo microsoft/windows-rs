@@ -25,7 +25,7 @@ pub unsafe fn DMOGetName(clsiddmo: &::windows::core::GUID, szname: &mut [u16; 80
     extern "system" {
         fn DMOGetName(clsiddmo: *const ::windows::core::GUID, szname: ::windows::core::PWSTR) -> ::windows::core::HRESULT;
     }
-    DMOGetName(::core::mem::transmute(clsiddmo), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(szname))).ok()
+    DMOGetName(::core::mem::transmute(clsiddmo), ::core::mem::transmute(szname.as_ptr())).ok()
 }
 #[doc = "*Required features: `\"Win32_Media_DxMediaObjects\"`*"]
 #[inline]
@@ -362,7 +362,7 @@ pub struct IDMOVideoOutputOptimizations_Vtbl {
 #[repr(transparent)]
 pub struct IEnumDMO(::windows::core::IUnknown);
 impl IEnumDMO {
-    pub unsafe fn Next(&self, citemstofetch: u32, pclsid: &mut ::windows::core::GUID, names: &mut ::windows::core::PWSTR, pcitemsfetched: &mut u32) -> ::windows::core::Result<()> {
+    pub unsafe fn Next(&self, citemstofetch: u32, pclsid: *mut ::windows::core::GUID, names: *mut ::windows::core::PWSTR, pcitemsfetched: &mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).Next)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(citemstofetch), ::core::mem::transmute(pclsid), ::core::mem::transmute(names), ::core::mem::transmute(pcitemsfetched)).ok()
     }
     pub unsafe fn Skip(&self, citemstoskip: u32) -> ::windows::core::Result<()> {
@@ -563,7 +563,7 @@ impl IMediaObject {
         (::windows::core::Interface::vtable(self).ProcessInput)(::windows::core::Interface::as_raw(self), dwinputstreamindex, pbuffer.into().abi(), dwflags, rttimestamp, rttimelength).ok()
     }
     pub unsafe fn ProcessOutput(&self, dwflags: u32, poutputbuffers: &mut [DMO_OUTPUT_DATA_BUFFER], pdwstatus: &mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).ProcessOutput)(::windows::core::Interface::as_raw(self), dwflags, poutputbuffers.len() as _, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(poutputbuffers)), ::core::mem::transmute(pdwstatus)).ok()
+        (::windows::core::Interface::vtable(self).ProcessOutput)(::windows::core::Interface::as_raw(self), dwflags, poutputbuffers.len() as _, ::core::mem::transmute(poutputbuffers.as_ptr()), ::core::mem::transmute(pdwstatus)).ok()
     }
     pub unsafe fn Lock(&self, block: i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).Lock)(::windows::core::Interface::as_raw(self), block).ok()
@@ -652,8 +652,8 @@ pub struct IMediaObject_Vtbl {
 #[repr(transparent)]
 pub struct IMediaObjectInPlace(::windows::core::IUnknown);
 impl IMediaObjectInPlace {
-    pub unsafe fn Process(&self, ulsize: u32, pdata: &mut u8, reftimestart: i64, dwflags: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Process)(::windows::core::Interface::as_raw(self), ulsize, ::core::mem::transmute(pdata), reftimestart, dwflags).ok()
+    pub unsafe fn Process(&self, pdata: &mut [u8], reftimestart: i64, dwflags: u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).Process)(::windows::core::Interface::as_raw(self), pdata.len() as _, ::core::mem::transmute(pdata.as_ptr()), reftimestart, dwflags).ok()
     }
     pub unsafe fn Clone(&self) -> ::windows::core::Result<IMediaObjectInPlace> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
