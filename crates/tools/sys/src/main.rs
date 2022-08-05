@@ -73,6 +73,9 @@ windows_aarch64_msvc = { path = "../../targets/aarch64_msvc", version = "0.39.0"
 [target.aarch64-uwp-windows-msvc.dependencies]
 windows_aarch64_msvc = { path = "../../targets/aarch64_msvc", version = "0.39.0" }
 
+[target.aarch64-pc-windows-gnullvm.dependencies]
+windows_aarch64_gnullvm = { path = "../../targets/aarch64_gnullvm", version = "0.39.0" }
+
 [target.i686-pc-windows-gnu.dependencies]
 windows_i686_gnu = { path = "../../targets/i686_gnu", version = "0.39.0" }
 
@@ -84,6 +87,9 @@ windows_x86_64_gnu = { path = "../../targets/x86_64_gnu", version = "0.39.0" }
 
 [target.x86_64-uwp-windows-gnu.dependencies]
 windows_x86_64_gnu = { path = "../../targets/x86_64_gnu", version = "0.39.0" }
+
+[target.x86_64-pc-windows-gnullvm.dependencies]
+windows_x86_64_gnullvm = { path = "../../targets/x86_64_gnullvm", version = "0.39.0" }
 
 [features]
 default = []

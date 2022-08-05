@@ -8,6 +8,7 @@ on:
 
 env:
   RUSTFLAGS: -Dwarnings
+  LLVM-MINGW-TOOLCHAIN-NAME: llvm-mingw-20220323-ucrt-ubuntu-18.04-x86_64
 
 jobs:
   test:
@@ -27,7 +28,7 @@ jobs:
         #
         image: [macos-latest, ubuntu-latest]
         version: [stable, nightly]
-        target: [x86_64-pc-windows-gnu]
+        target: [x86_64-pc-windows-gnu, aarch64-pc-windows-gnullvm, x86_64-pc-windows-gnullvm]
     runs-on: ${{ matrix.image }}
 
     steps:
@@ -36,6 +37,13 @@ jobs:
 
       - name: Add toolchain target
         run: rustup target add ${{ matrix.target }}
+        if: contains(matrix.target, 'gnullvm') == false
+
+      - name: Add nightly toolchain with rust-src
+        run: |
+          rustup default ${{ matrix.version }}
+          rustup component add rust-src
+        if: startsWith(matrix.image, 'ubuntu-') && contains(matrix.target, 'gnullvm') && matrix.version == 'nightly'
 
       - name: Install gcc-mingw-w64-x86-64
         run: sudo apt-get install -y gcc-mingw-w64-x86-64
@@ -45,6 +53,26 @@ jobs:
         run: brew install mingw-w64
         if: startsWith(matrix.image, 'macos-') && matrix.target == 'x86_64-pc-windows-gnu'
 
+      - name: LLVM MinGW toolchain cache configuration
+        id: cache-llvm-mingw-toolchain
+        uses: actions/cache@v3
+        if: startsWith(matrix.image, 'ubuntu-') && contains(matrix.target, 'gnullvm') && matrix.version == 'nightly'
+        with:
+          path: ${{ env.LLVM-MINGW-TOOLCHAIN-NAME }}
+          key: ${{ env.LLVM-MINGW-TOOLCHAIN-NAME }}
+
+      - name: Install LLVM MinGW toolchain
+        if: startsWith(matrix.image, 'ubuntu-') && contains(matrix.target, 'gnullvm') && matrix.version == 'nightly' && steps.cache-llvm-mingw-toolchain.outputs.cache-hit != 'true'
+        run: |
+          curl -L -o ${{ env.LLVM-MINGW-TOOLCHAIN-NAME }}.tar.xz https://github.com/mstorsjo/llvm-mingw/releases/download/20220323/${{ env.LLVM-MINGW-TOOLCHAIN-NAME }}.tar.xz
+          tar -xf ${{ env.LLVM-MINGW-TOOLCHAIN-NAME }}.tar.xz
+          echo "${{ env.LLVM-MINGW-TOOLCHAIN-NAME }}/bin" >> $GITHUB_PATH
+          
+      - name: Add LLVM MinGW toolchain to PATH
+        if: startsWith(matrix.image, 'ubuntu-') && contains(matrix.target, 'gnullvm') && matrix.version == 'nightly'
+        run: |
+          echo "${{ env.LLVM-MINGW-TOOLCHAIN-NAME }}/bin" >> $GITHUB_PATH
+
       - name: Test
         shell: pwsh
         run: |
@@ -52,3 +80,13 @@ jobs:
           if (-Not (Resolve-Path "target/*/debug/deps/test_win32-*.exe" | Test-Path)) {
             throw "Failed to find test_win32 executable."
           }
+        if: contains(matrix.target, 'gnullvm') == false
+
+      - name: Test with build-std
+        shell: pwsh
+        run: |
+          cargo test --no-run --target ${{ matrix.target }} -Z build-std -p test_win32
+          if (-Not (Resolve-Path "target/*/debug/deps/test_win32-*.exe" | Test-Path)) {
+            throw "Failed to find test_win32 executable."
+          }
+        if: startsWith(matrix.image, 'ubuntu-') && contains(matrix.target, 'gnullvm') && matrix.version == 'nightly'
