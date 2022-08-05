@@ -33,7 +33,7 @@ pub enum HasAttribute {
 impl HasAttribute {
     pub fn encode(&self) -> usize {
         (match self {
-            Self::MethodDef(row) => ((row.0.row + 1) << 5),
+            Self::MethodDef(row) => (row.0.row + 1) << 5,
             Self::Field(row) => ((row.0.row + 1) << 5) | 1,
             Self::TypeRef(row) => ((row.0.row + 1) << 5) | 2,
             Self::TypeDef(row) => ((row.0.row + 1) << 5) | 3,
@@ -54,7 +54,7 @@ pub enum HasConstant {
 impl HasConstant {
     pub fn encode(&self) -> usize {
         (match self {
-            Self::Field(row) => ((row.0.row + 1) << 2),
+            Self::Field(row) => (row.0.row + 1) << 2,
         }) as _
     }
 }
@@ -116,7 +116,7 @@ pub enum TypeOrMethodDef {
 impl TypeOrMethodDef {
     pub fn encode(&self) -> usize {
         (match self {
-            Self::TypeDef(value) => ((value.0.row + 1) << 1),
+            Self::TypeDef(value) => (value.0.row + 1) << 1,
         }) as _
     }
 }

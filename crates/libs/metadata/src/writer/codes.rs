@@ -11,7 +11,7 @@ pub enum ResolutionScope {
 impl ResolutionScope {
     pub fn encode(&self) -> usize {
         match self {
-            Self::Module(row) => ((row + 1) << 2),
+            Self::Module(row) => (row + 1) << 2,
             Self::ModuleRef(row) => ((row + 1) << 2) + 1,
             Self::AssemblyRef(row) => ((row + 1) << 2) + 2,
             Self::TypeRef(row) => ((row + 1) << 2) + 3,
@@ -38,7 +38,7 @@ pub enum TypeDefOrRef {
 impl TypeDefOrRef {
     pub fn encode(&self) -> usize {
         match self {
-            Self::TypeDef(row) => ((row + 1) << 2),
+            Self::TypeDef(row) => (row + 1) << 2,
             Self::TypeRef(row) => ((row + 1) << 2) + 1,
             Self::TypeSpec(row) => ((row + 1) << 2) + 2,
             _ => 0,
@@ -64,7 +64,7 @@ pub enum HasConstant {
 impl HasConstant {
     pub fn encode(&self) -> usize {
         match self {
-            Self::Field(row) => ((row + 1) << 2),
+            Self::Field(row) => (row + 1) << 2,
             Self::Param(row) => ((row + 1) << 2) + 1,
             Self::Property(row) => ((row + 1) << 2) + 2,
             _ => 0,
