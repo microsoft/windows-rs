@@ -8,6 +8,7 @@ on:
 
 env:
   RUSTFLAGS: -Dwarnings
+  LLVM-MINGW-TOOLCHAIN-NAME: llvm-mingw-20220323-ucrt-ubuntu-18.04-x86_64
 
 jobs:
   test:
@@ -52,13 +53,25 @@ jobs:
         run: brew install mingw-w64
         if: startsWith(matrix.image, 'macos-') && matrix.target == 'x86_64-pc-windows-gnu'
 
-      - name: Install LLVM MinGW toolchain
-        run: |
-          name='llvm-mingw-20220323-ucrt-ubuntu-18.04-x86_64'
-          curl -L -o $name.tar.xz https://github.com/mstorsjo/llvm-mingw/releases/download/20220323/$name.tar.xz
-          tar -xf $name.tar.xz
-          echo "$name/bin" >> $GITHUB_PATH
+      - name: LLVM MinGW toolchain cache configuration
+        id: cache-llvm-mingw-toolchain
+        uses: actions/cache@v3
         if: startsWith(matrix.image, 'ubuntu-') && contains(matrix.target, 'gnullvm') && matrix.version == 'nightly'
+        with:
+          path: ${{ env.LLVM-MINGW-TOOLCHAIN-NAME }}
+          key: ${{ env.LLVM-MINGW-TOOLCHAIN-NAME }}
+
+      - name: Install LLVM MinGW toolchain
+        if: startsWith(matrix.image, 'ubuntu-') && contains(matrix.target, 'gnullvm') && matrix.version == 'nightly' && steps.cache-llvm-mingw-toolchain.outputs.cache-hit != 'true'
+        run: |
+          curl -L -o ${{ env.LLVM-MINGW-TOOLCHAIN-NAME }}.tar.xz https://github.com/mstorsjo/llvm-mingw/releases/download/20220323/${{ env.LLVM-MINGW-TOOLCHAIN-NAME }}.tar.xz
+          tar -xf ${{ env.LLVM-MINGW-TOOLCHAIN-NAME }}.tar.xz
+          echo "${{ env.LLVM-MINGW-TOOLCHAIN-NAME }}/bin" >> $GITHUB_PATH
+          
+      - name: Add LLVM MinGW toolchain to PATH
+        if: startsWith(matrix.image, 'ubuntu-') && contains(matrix.target, 'gnullvm') && matrix.version == 'nightly'
+        run: |
+          echo "${{ env.LLVM-MINGW-TOOLCHAIN-NAME }}/bin" >> $GITHUB_PATH
 
       - name: Test
         shell: pwsh
