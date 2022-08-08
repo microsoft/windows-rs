@@ -107,6 +107,37 @@ pub fn gen(gen: &Gen, def: TypeDef) -> TokenStream {
         });
     }
 
+    if is_scoped || !gen.sys {
+        let debug_details = fields.iter().map(|(field_name, value)| {
+            let field_name = field_name.as_str();
+            let value = value.as_str();
+            if is_scoped {
+                quote! {
+                    Self::#field_name => (#field_name, #value),
+                }
+            } else {
+                // This branch is `!gen.sys`
+                quote! {
+                    #field_name => (#field_name, #value),
+                }
+            }
+        });
+
+        let type_name = type_name.name;
+        tokens.combine(&quote! {
+            #features
+            impl ::core::fmt::Debug for #ident {
+                fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+                    let (field_name, value) = match self {
+                        #(#debug_details)*
+                        unknown => return ::core::write!(f, "{}({})", #type_name, unknown.0),
+                    };
+                    ::core::write!(f, "{}::{}({})", #type_name, field_name, value)
+                }
+            }
+        })
+    }
+
     if !gen.sys {
         tokens.combine(&quote! {
             #features
@@ -119,17 +150,10 @@ pub fn gen(gen: &Gen, def: TypeDef) -> TokenStream {
     }
 
     if !gen.sys {
-        let name = type_name.name;
         tokens.combine(&quote! {
             #features
             unsafe impl ::windows::core::Abi for #ident {
                 type Abi = Self;
-            }
-            #features
-            impl ::core::fmt::Debug for #ident {
-                fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-                    f.debug_tuple(#name).field(&self.0).finish()
-                }
             }
         });
 
