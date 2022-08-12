@@ -167,8 +167,8 @@ jobs:
           cargo clippy -p test_match &&
           cargo clippy -p test_matrix3x2 &&
           cargo clippy -p test_metadata &&
-          cargo clippy -p test_not_dll &&
           cargo clippy -p test_no_use &&
+          cargo clippy -p test_not_dll &&
           cargo clippy -p test_ntstatus &&
           cargo clippy -p test_properties &&
           cargo clippy -p test_query_signature &&
