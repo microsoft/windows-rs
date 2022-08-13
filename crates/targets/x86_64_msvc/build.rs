@@ -1,6 +1,6 @@
 fn main() {
     let target = std::env::var("TARGET").unwrap();
-    if target != "x86_64-pc-windows-msvc" && target != "x86_64-uwp-windows-msvc" {
+    if !["x86_64-pc-windows-msvc", "x86_64-uwp-windows-msvc", "x86_64-pc-windows-gnullvm"].contains(&&*target) {
         return;
     }
 

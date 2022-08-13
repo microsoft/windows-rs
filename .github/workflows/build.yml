@@ -126,12 +126,10 @@ jobs:
           cargo clippy -p sample_spellchecker &&
           cargo clippy -p sample_uiautomation &&
           cargo clippy -p sample_xml &&
-          cargo clippy -p windows_aarch64_gnullvm &&
           cargo clippy -p windows_aarch64_msvc &&
           cargo clippy -p windows_i686_gnu &&
           cargo clippy -p windows_i686_msvc &&
           cargo clippy -p windows_x86_64_gnu &&
-          cargo clippy -p windows_x86_64_gnullvm &&
           cargo clippy -p windows_x86_64_msvc &&
           cargo clippy -p test_agile &&
           cargo clippy -p test_agile_reference &&
@@ -186,7 +184,6 @@ jobs:
           cargo clippy -p test_winrt &&
           cargo clippy -p tool_bindings &&
           cargo clippy -p tool_gnu &&
-          cargo clippy -p tool_gnullvm &&
           cargo clippy -p tool_ilrs &&
           cargo clippy -p tool_lib &&
           cargo clippy -p tool_msvc &&
